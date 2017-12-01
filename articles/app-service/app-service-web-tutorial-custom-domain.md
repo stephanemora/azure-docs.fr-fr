@@ -78,7 +78,7 @@ Dans la navigation gauche de la page de l’application, faites défiler jusqu�
 
 ![Menu Monter en puissance](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **Gratuit**. Les DNS personnalisés ne sont pas pris en charge dans le niveau **Gratuit**. 
+Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **Gratuit**. Les DNS personnalisés ne sont pas disponibles dans le niveau **Gratuit**. 
 
 ![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
