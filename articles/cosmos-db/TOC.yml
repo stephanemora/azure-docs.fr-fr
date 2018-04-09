@@ -6,8 +6,6 @@ items:
     items:
       - name: À propos d’Azure Cosmos DB
         href: introduction.md
-      - name: Expérience de documentation
-        href: experiment.md
   - name: Démarrages rapides
     expanded: true
     items:
