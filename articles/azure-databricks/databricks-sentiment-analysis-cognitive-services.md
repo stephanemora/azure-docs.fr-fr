@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 889284d9c53f902b7a8443c4622e1c3015630ae0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks
 
@@ -58,7 +58,7 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
 Vous pouvez obtenir tous ces éléments en terminant les étapes de l’article [Créer un espace de noms et un concentrateur d’événements Azure Event Hubs](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -114,7 +114,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
 Pour recevoir un flux de tweets, vous devez créer une application dans Twitter. Suivez les étapes pour créer une application Twitter et enregistrez les valeurs dont vous avez besoin pour terminer ce didacticiel.
 
-1. À partir d’un navigateur web, accédez à [Gestion des applications Twitter](http://twitter.com/app), et sélectionnez **Créer une application**.
+1. À partir d’un navigateur web, accédez à [Gestion des applications Twitter](https://apps.twitter.com/), et sélectionnez **Créer une application**.
 
     ![Créer une application Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Créer une application Twitter")
 

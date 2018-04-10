@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>Didacticiel : Offrir des services PaaS Azure Stack
 En tant qu’un administrateur de cloud Azure Stack, vous pouvez créer des offres auxquelles vos utilisateurs (parfois appelée « locataires ») peuvent s’abonner. Avec leur abonnement, les utilisateurs peuvent utiliser les services Azure Stack.
@@ -112,14 +112,24 @@ Les offres peuvent être :
 > Les modifications apportées à l’offre ne sont pas immédiatement visibles par les utilisateurs. Pour voir les modifications et afficher la nouvelle offre, les utilisateurs pourraient devoir se déconnecter et se reconnecter au [portail de l’utilisateur](https://portal.local.azurestack.external).
 
 Pour rendre la nouvelle offre publique : 
+   - Version 1803 et versions ultérieures : 
+     1. Dans le menu du tableau de bord, cliquez sur **Offres**, puis cliquez sur l’offre que vous avez créée.
 
-1. Dans le menu du tableau de bord, cliquez sur **Offres**, puis cliquez sur l’offre que vous avez créée.
+     2. Cliquez sur **État de l’accessibilité**, puis sur **Public**.
 
-2. Cliquez sur **Changer l’état**, puis sur **Public**.
+        ![Modifier l’état](media/asdk-offer-services/change-state.png)
 
-   ![État Public](media/asdk-offer-services/set-public.png)
+     3. L’offre est désormais accessible dans le portail de l’utilisateur Azure Stack.
 
-3. L’offre est désormais accessible dans le portail de l’utilisateur Azure Stack.
+
+   - Avant la version 1803 :  
+     1. Dans le menu du tableau de bord, cliquez sur **Offres**, puis cliquez sur l’offre que vous avez créée.
+
+     2. Cliquez sur **Changer l’état**, puis sur **Public**.
+
+        ![État Public](media/asdk-offer-services/set-public.png)
+
+     3. L’offre est désormais accessible dans le portail de l’utilisateur Azure Stack.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

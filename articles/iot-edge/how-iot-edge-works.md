@@ -1,29 +1,32 @@
 ---
-title: "Qu'est-ce qu’Azure IoT Edge | Microsoft Docs"
-description: "Présentation du service Azure IoT Edge"
+title: Qu'est-ce qu’Azure IoT Edge | Microsoft Docs
+description: Présentation du service Azure IoT Edge
 services: iot-Edge
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
 editor: chipalost
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: 5f69041572729d1458a22a855128639056d61586
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Qu'est-ce qu’Azure IoT Edge - préversion
 
 Azure IoT Edge déplace l’analytique et la logique métier personnalisée du cloud vers les appareils, afin que votre organisation puisse se concentrer sur les perspectives commerciales plutôt que sur la gestion des données. Permettez à votre solution de mettre réellement à l’échelle en configurant votre logiciel IoT, en le déployant sur des appareils grâce à des conteneurs standard et en le surveillant à partir du cloud.
+
+>[!NOTE]
+>Azure IoT Edge est uniquement disponible dans le niveau Standard d’IoT Hub. Pour plus d’informations sur les niveaux De base et Standard d’IoT Hub, consultez [Mettre à l’échelle votre solution IoT Hub](../iot-hub/iot-hub-scaling.md).
 
 L’analytique apporte de la valeur métier dans les solutions IoT, mais toutes les analyses ne doivent pas se trouver sur le cloud. Si vous souhaitez qu’un périphérique réponde aux situations d’urgence aussi rapidement que possible, vous pouvez utiliser la détection d’anomalies sur le périphérique lui-même. De même, si vous souhaitez réduire les coûts de bande passante et éviter de transférer des téraoctets de données brutes, vous pouvez effectuer l’agrégation et le nettoyage des données localement. Vous envoyez ensuite les informations sur le cloud. 
 

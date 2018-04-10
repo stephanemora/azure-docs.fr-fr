@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 85a3898145f7aea5d3f668caeafb62286006230d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="web-apps-overview"></a>Vue d'ensemble de Web Apps
 
-*Azure App Service Web Apps* (ou simplement Web Apps) est un service pour l’hébergement d’applications web, d’API REST et de backends mobiles. Vous pouvez développer dans votre langage préféré, par exemple .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Vous pouvez exécuter et mettre à l’échelle des applications en toute simplicité sur des machines virtuelles Windows ou Linux (consultez [App Service sur Linux](containers/app-service-linux-intro.md)). 
+*Azure App Service Web Apps* (ou simplement Web Apps) est un service pour l’hébergement d’applications web, d’API REST et de backends mobiles. Vous pouvez développer dans votre langage préféré, par exemple .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Les applications s’exécutent et sont mises à l’échelle facilement dans les environnements Windows. Pour les environnements Linux, consultez [Présentation d’Azure App Service sur Linux](containers/app-service-linux-intro.md). 
 
 Web Apps non seulement ajoute la puissance de Microsoft Azure à votre application, par exemple la sécurité, l’équilibrage de charge, la mise à l’échelle automatique et la gestion automatisée. Vous pouvez également bénéficier de ses fonctionnalités DevOps, notamment le déploiement continu à partir de VSTS, GitHub, Docker Hub et d’autres sources, la gestion des packages, les environnements intermédiaires et les certificats SSL. 
 

@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer et connecter un groupe de machines virtuelles identiques
+> * Créer un groupe de machines virtuelles identiques et se connecter
 > * Sélectionner et utiliser des images de machine virtuelle
 > * Afficher et utiliser des tailles d’instance de VM spécifiques
-> * Mettre manuellement à l’échelle un groupe identique
+> * Mettre un groupe identique à l’échelle manuellement
 > * Effectuer des tâches courantes de gestion de groupe identique
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -45,7 +45,6 @@ Un groupe de ressources Azure est un conteneur logique dans lequel les ressource
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 Le nom du groupe de ressources est spécifié lorsque vous créez ou modifiez un groupe identique dans ce didacticiel.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 L’exemple suivant illustre deux instances de machine virtuelle dans le groupe identique :
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 Pour afficher des informations supplémentaires sur une instance spécifique de la machine virtuelle, ajoutez le paramètre `-InstanceId` à [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). L’exemple suivant présente des informations sur l’instance de machine virtuelle *1* :
@@ -96,8 +95,8 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 ```
 
 
-## <a name="list-connection-information"></a>Répertorier les informations de connexion
-Une adresse IP publique est assignée à l’équilibreur de charge qui achemine le trafic vers les instances de machine virtuelle individuelles. Par défaut, des règles de traduction d’adresses réseau (NAT) sont ajoutées à l’équilibreur de charge Azure qui transfère le trafic de connexion distant à chaque machine virtuelle sur un port donné. Pour vous connecter aux instances de machine virtuelle d’un groupe identique, vous créez une connexion distante à une adresse IP publique et à un numéro de port assignés.
+## <a name="list-connection-information"></a>Obtenir les informations de connexion
+Une adresse IP publique est assignée à l’équilibreur de charge qui achemine le trafic vers les instances de machine virtuelle individuelles. Par défaut, des règles de traduction d’adresses réseau (NAT) sont ajoutées à l’équilibreur de charge Azure qui transfère le trafic de connexion distant vers chaque machine virtuelle sur un port donné. Pour vous connecter aux instances de machine virtuelle d’un groupe identique, vous créez une connexion distante à une adresse IP publique et à un numéro de port assignés.
 
 Pour répertorier les ports NAT permettant une connexion à des instances de machine virtuelle dans un groupe identique, obtenez tout d’abord l’objet d’équilibrage de charge avec [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Affichez ensuite les règles NAT entrantes avec [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig) :
 
@@ -109,7 +108,7 @@ $lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoad
 Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 ```
 
-L’exemple de sortie suivant affiche le nom de l’instance, l’adresse IP publique de l’équilibreur de charge et le numéro de port vers lequel les règles NAT transfèrent le trafic :
+L’exemple de sortie suivant affiche le nom de l’instance, l’adresse IP publique de l’équilibreur de charge et le numéro de port où les règles NAT transfèrent le trafic :
 
 ```powershell
 Name             Protocol FrontendPort BackendPort
@@ -196,7 +195,7 @@ New-AzureRmVmss `
 
 
 ## <a name="understand-vm-instance-sizes"></a>Comprendre les tailles d’instance de machine virtuelle
-Une taille d’instance de machine virtuelle, ou *référence SKU*, détermine la quantité de ressources de calcul comme l’UC, le GPU et la mémoire qui sont mises à la disposition de l’instance de machine virtuelle. Les instances de machine virtuelle doivent être correctement dimensionnées en fonction de la charge de travail attendue.
+Une taille d’instance de machine virtuelle, ou *référence SKU*, détermine la quantité de ressources de calcul, comme l’UC, le GPU et la mémoire, qui sont mises à la disposition de l’instance de machine virtuelle. Les instances de machine virtuelle doivent être correctement dimensionnées en fonction de la charge de travail attendue.
 
 ### <a name="vm-instance-sizes"></a>Taille des instances de machine virtuelle
 Le tableau suivant classe les tailles courantes de machine virtuelle en fonction des cas d’usage.
@@ -217,7 +216,7 @@ Pour afficher la liste des tailles d’instances de machine virtuelle disponible
 Get-AzureRmVMSize -Location "EastUS"
 ```
 
-La sortie est semblable à l’exemple condensé suivant, qui présente les ressources assignées à chaque taille de machine virtuelle :
+La sortie est semblable à l’exemple condensé suivant qui présente les ressources assignées à chaque taille de machine virtuelle :
 
 ```powershell
 Name                   NumberOfCores MemoryInMB MaxDataDiskCount OSDiskSizeInMB ResourceDiskSizeInMB
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-Lorsque vous avez créé un groupe identique au début de ce didacticiel, la valeur de référence SKU par défaut SKU de la machine virtuelle *Standard_D1_v2* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une taille d’instance de machine virtuelle différente en fonction de la sortie de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). L’exemple suivant crée un groupe identique avec le paramètre `-VmSize` afin de spécifier une taille d’instance de machine virtuelle *Standard_F1*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, vous n’avez pas à déployer le groupe identique suivant :
+Lorsque vous avez créé un groupe identique au début de ce didacticiel, une référence SKU de machine virtuelle par défaut *Standard_DS1_v2* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une taille d’instance de machine virtuelle différente en fonction de la sortie de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). L’exemple suivant crée un groupe identique avec le paramètre `-VmSize` afin de spécifier une taille d’instance de machine virtuelle *Standard_F1*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, il est inutile de déployer le groupe identique suivant :
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -283,10 +282,10 @@ Sku        :
 
 
 ## <a name="common-management-tasks"></a>Tâches de gestion courantes
-Vous pouvez à présent créer un groupe identique, répertorier les informations de connexion et vous connecter aux instances de machine virtuelle. Vous avez appris à utiliser une autre image de système d’exploitation pour vos instances de machine virtuelle, sélectionner une autre taille de machine virtuelle et mettre à l’échelle manuellement le nombre d’instances. Dans le cadre de la gestion quotidienne, vous devrez peut-être arrêter, démarrer ou redémarrer les instances de machine virtuelle dans votre groupe identique.
+Vous pouvez à présent créer un groupe identique, obtenir les informations de connexion et vous connecter aux instances de machine virtuelle. Vous avez appris à utiliser une autre image de système d’exploitation pour vos instances de machine virtuelle, sélectionner une autre taille de machine virtuelle et modifier manuellement le nombre d’instances. Dans le cadre de la gestion quotidienne, vous devrez peut-être arrêter, démarrer ou redémarrer les instances de machine virtuelle dans votre groupe identique.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Arrêter et libérer des instances de machine virtuelle dans un groupe identique
-Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. L’exemple suivant arrête l’instance *1* :
+Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. L’exemple suivant présente l’arrêt de l’instance *1* :
 
 ```azurepowershell-interactive
 Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
@@ -295,14 +294,14 @@ Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSe
 Par défaut, les machines virtuelles arrêtées sont libérées et n’entraînent pas de frais de calcul. Si vous souhaitez que la machine virtuelle reste dans un état configuré lors de l’arrêt, ajoutez le paramètre `-StayProvisioned` à la commande précédente. Les machines virtuelles arrêtées qui conservent leur configuration peuvent occasionner des frais de calcul standard.
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Démarrer les instances de machine virtuelle dans un groupe identique
-Pour démarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont démarrées. L’exemple suivant démarre l’instance *1* :
+Pour démarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont démarrées. L’exemple suivant montre le démarrage de l’instance *1* :
 
 ```azurepowershell-interactive
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Redémarrer les instances de machine virtuelle dans un groupe identique
-Pour redémarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont redémarrées. L’exemple suivant redémarre l’instance *1* :
+Pour redémarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Le paramètre `-InstanceId` vous permet de spécifier une ou plusieurs machines virtuelles à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont redémarrées. L’exemple suivant présente le redémarrage de l’instance *1* :
 
 ```azurepowershell-interactive
 Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
@@ -321,10 +320,10 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 Dans ce didacticiel, vous avez appris à effectuer quelques tâches de création et de gestion de base concernant le groupe identique avec Azure PowerShell :
 
 > [!div class="checklist"]
-> * Créer et connecter un groupe de machines virtuelles identiques
+> * Créer un groupe de machines virtuelles identiques et se connecter
 > * Sélectionner et utiliser des images de machine virtuelle
 > * Afficher et utiliser des tailles de machine virtuelle spécifiques
-> * Mettre manuellement à l’échelle un groupe identique
+> * Mettre un groupe identique à l’échelle manuellement
 > * Effectuer des tâches courantes de gestion de groupe identique
 
 Passez au didacticiel suivant pour en savoir plus sur les disques de groupe identique.

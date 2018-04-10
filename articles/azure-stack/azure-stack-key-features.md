@@ -67,7 +67,7 @@ Les régions Azure Stack sont un élément de base de la mise à l’échelle et
 ### <a name="services"></a>Services
 Microsoft Azure Stack permet aux fournisseurs de proposer un large éventail de services et d’applications, tels que des machines virtuelles, des bases de données SQL Server, SharePoint, Exchange et bien plus encore.
 
-### <a name="plans"></a>Abonnements
+### <a name="plans"></a>Plans
 Les plans regroupent un ou plusieurs services. En tant que fournisseur, vous créez des plans à proposer aux clients. En retour, les clients s’abonnent à vos offres pour utiliser les plans et les services inclus.
 
 Chaque service ajouté à un plan peut être configuré avec des paramètres de quota pour vous aider à gérer votre capacité du cloud. Les quotas peuvent inclure des restrictions, telles que des limites de machine virtuelle, de mémoire et d’unité centrale, appliquées par abonnement de l’utilisateur. Les quotas peuvent être différenciés par emplacement. Par exemple, un plan comprenant des services de calcul à partir de la région A peut avoir un quota de deux machines virtuelles, 4 Go de RAM et dix cœurs de processeur.

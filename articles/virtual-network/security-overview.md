@@ -1,12 +1,12 @@
 ---
-title: "Présentation de la sécurité réseau Azure | Microsoft Docs"
-description: "En savoir plus sur les options de sécurité qui contrôlent le flux de trafic réseau entre les ressources Azure."
+title: Présentation de la sécurité réseau Azure | Microsoft Docs
+description: En savoir plus sur les options de sécurité qui contrôlent le flux de trafic réseau entre les ressources Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>Sécurité du réseau
 
@@ -117,7 +117,7 @@ Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les rempl
  Une balise de service représente un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité. Vous ne peut pas créer votre propre balise de service, ni spécifier les adresses IP incluses dans une balise. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. Vous pouvez utiliser les balises de service suivantes dans la définition de règle de sécurité. Leurs noms varient légèrement selon les [modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Gestionnaire des ressources) (**VIRTUAL_NETWORK** pour le mode Classic) : cette balise inclut l’espace d’adressage du réseau virtuel (toutes les plages CIDR définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, ainsi que les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou réseaux virtuels connectés à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour Classic) : cette balise désigne l’équilibreur de charge de l’infrastructure Azure. Elle est convertie en l’[adresse IP de centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) de l’emplacement d’où proviennent les sondes d’intégrité d’Azure. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour Classic) : cette balise désigne l’équilibreur de charge de l’infrastructure Azure. Elle est convertie en une [adresse IP de centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) de l’emplacement d’où proviennent les sondes d’intégrité d’Azure. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure.
 * **Internet** (Resource Manager) (**INTERNET** pour Classic) : cette balise indique l’espace d’adressage IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. La plage d’adresse inclut l’[espace de l’adresse IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (Resource Manager uniquement) : cette balise désigne l’espace d’adressage IP pour les adresses IP de sonde Microsoft Azure Traffic Manager. Vous trouverez plus d’informations sur les adresses IP de sonde Traffic Manager dans le [Forum Aux Questions (FAQ) relatif à Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs).
 * **Storage** (Resource Manager uniquement) : cette balise désigne l’espace d’adressage IP pour le service Azure Storage. Si vous spécifiez *Storage* pour la valeur, le trafic est autorisé ou refusé vers le stockage. Si vous souhaitez uniquement autoriser l’accès au stockage dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez préciser la région. Par exemple, si vous souhaitez autoriser l’accès à Azure Storage uniquement dans la région Est des États-Unis, vous pouvez spécifier *Storage.EastUS* comme balise de service. La balise représente le service, mais pas des instances du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique.
@@ -141,7 +141,7 @@ Si vous créez d’autres règles, en spécifiant d’autres groupes de sécurit
  
 Pour en savoir plus sur les limites lors de la création de groupes de sécurité d’application et lors de leur spécification dans les règles de sécurité, consultez les [limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Les groupes de sécurité d’application sont disponibles dans la version préliminaire. Les fonctionnalités de la version préliminaire n’offrent pas le même niveau de disponibilité et de fiabilité que les fonctionnalités de la version générale. Avant d’utiliser des groupes de sécurité d’application, vous devez vous inscrire pour les utiliser en suivant les étapes 1 à 5 de la section Azure ou PowerShell dans le didacticiel de [création d’un groupe de sécurité réseau avec des groupes de sécurité d’application](create-network-security-group-preview.md). Les groupes de sécurité d’application ont les contraintes suivantes :
+Les groupes de sécurité d’application ont les contraintes suivantes :
 
 -   Toutes les interfaces réseau au sein d’un groupe de sécurité d’application doivent exister dans le même réseau virtuel. Vous ne pouvez pas ajouter d’interfaces réseau à partir de différents réseaux virtuels au même groupe de sécurité d’application. Le réseau virtuel dans lequel la première interface réseau assignée au groupe de sécurité d’application se trouve définit le réseau virtuel dans lequel toutes les interfaces réseau assignées par la suite doivent se trouver.
 - Si vous spécifiez des groupes de sécurité d’application en tant que source et destination dans une règle de sécurité, les interfaces réseau dans les deux groupes de sécurité d’application doivent se trouver dans le même réseau virtuel. Par exemple, si ASG1 contient des interfaces réseau de VNet1 et si ASG2 contient des interfaces réseau de VNet2, vous ne pouvez pas assigner ASG1 en tant que source et ASG2 en tant que destination dans une règle. Toutes les interfaces réseaux doivent se trouver dans VNet1.
@@ -165,5 +165,4 @@ Les groupes de sécurité d’application sont disponibles dans la version prél
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Suivre le didacticiel [Créer un groupe de sécurité réseau](virtual-networks-create-nsg-arm-pportal.md)
-* Suivre le didacticiel [Créer un groupe de sécurité réseau avec des groupes de sécurité d’application](create-network-security-group-preview.md)
+* Découvrez comment [créer des groupes de sécurité réseau](tutorial-filter-network-traffic.md).

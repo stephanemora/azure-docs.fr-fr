@@ -1,27 +1,27 @@
 ---
-title: "Analyser l’utilisation des données dans Log Analytics | Microsoft Docs"
-description: "Utilisez le tableau de bord Utilisation de Log Analytics pour afficher la quantité de données envoyées au service Log Analytics pour résoudre les problèmes empêchant d’envoyer de grandes quantités de données."
+title: Analyser l’utilisation des données dans Log Analytics | Microsoft Docs
+description: Utilisez le tableau de bord répertoriant l’utilisation et les coûts estimés de Log Analytics pour déterminer la quantité de données envoyées à Log Analytics et identifier les éléments à l’origine d’augmentations inattendues.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
-Log Analytics inclut des informations sur la quantité de données collectées, les systèmes qui envoient les données et les différents types de données envoyées.  Utilisez le tableau de bord **Utilisation de Log Analytics** pour voir la quantité de données envoyées au service Log Analytics. Le tableau de bord affiche la quantité de données collectées par chaque solution et la quantité de données que vos ordinateurs envoient.
+Log Analytics inclut des informations sur la quantité de données collectées, les sources qui envoient les données et les différents types de données envoyées.  Utilisez le tableau de bord **Utilisation de Log Analytics** pour examiner et analyser l’utilisation de données. Le tableau de bord affiche la quantité de données collectées par chaque solution et la quantité de données que vos ordinateurs envoient.
 
 ## <a name="understand-the-usage-dashboard"></a>Comprendre le tableau de bord Utilisation
 Le tableau de bord **Utilisation de Log Analytics** affiche les informations suivantes :
@@ -41,20 +41,17 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
     - Temps nécessaire pour recueillir et indexer les données  
 - Liste de requêtes
 
-![tableau de bord utilisation](./media/log-analytics-usage/usage-dashboard01.png)
+![Tableau de bord répertoriant les coûts et l’utilisation](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### <a name="to-work-with-usage-data"></a>Utilisation des données d’utilisation
-1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre abonnement Azure.
-2. Cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Log Analytics**.  
-    ![Hub Azure](./media/log-analytics-usage/hub.png)
-3. Le tableau de bord **Log Analytics** affiche la liste de vos espaces de travail. Sélectionnez un espace de travail.
-4. Dans le tableau de bord *Espace de travail*, cliquez sur **Utilisation de Log Analytics**.
-5. Dans le tableau de bord **Utilisation de Log Analytics**, cliquez sur **Heure : 24 dernières heures** pour modifier l’intervalle de temps.  
-    ![Intervalle de temps](./media/log-analytics-usage/time.png)
-6. Affichez les panneaux de catégorie d’utilisation qui montrent les domaines qui vous intéressent. Choisissez un panneau, puis cliquez dessus pour afficher plus de détails dans [Recherche de journal](log-analytics-log-searches.md).  
-    ![Exemple de panneau d’utilisation des données](./media/log-analytics-usage/blade.png)
-7. Dans le tableau de bord Recherche de journal, passez en revue les résultats renvoyés par la recherche.  
-    ![exemple de recherche de journal d’utilisation](./media/log-analytics-usage/usage-log-search.png)
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br><br> ![Portail Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez un espace de travail.
+4. Sélectionnez **Utilisation et estimation des coûts** dans la liste du volet gauche.
+5. Dans le tableau de bord **Utilisation et estimation des coûts**, vous pouvez modifier l’intervalle de temps en sélectionnant **Heure : Dernières 24 heures**.<br><br> ![Intervalle de temps](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. Affichez les panneaux de catégorie d’utilisation qui montrent les domaines qui vous intéressent. Choisissez un panneau, puis cliquez dessus pour afficher plus de détails dans [Recherche de journal](log-analytics-log-searches.md).<br><br> ![Exemple de kpi d’utilisation des données](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. Dans le tableau de bord Recherche de journal, passez en revue les résultats renvoyés par la recherche.<br><br> ![exemple de recherche de journal d’utilisation](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Créer une alerte lorsque la collection de données est plus volumineuse que prévu
 Cette section décrit la création d’une alerte si :
