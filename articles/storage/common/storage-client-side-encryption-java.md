@@ -1,6 +1,6 @@
 ---
-title: "Chiffrement côté client avec Java pour Microsoft Azure Storage | Microsoft Docs"
-description: "La bibliothèque cliente de stockage Azure pour Java prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure pour assurer une sécurité maximale à vos applications Azure Storage."
+title: Chiffrement côté client avec Java pour Microsoft Azure Storage | Microsoft Docs
+description: La bibliothèque cliente de stockage Azure pour Java prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure pour assurer une sécurité maximale à vos applications Azure Storage.
 services: storage
 documentationcenter: java
 author: lakasa
@@ -61,7 +61,7 @@ Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initia
 
 Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **download*/openInputStream**. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
-Le téléchargement d’une plage arbitraire (méthodes**DownloadRange***) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.  
+Le téléchargement d’une plage arbitraire (méthodes **DownloadRange**\*) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.  
 
 Tous les types d’objets blob (objets blob de blocs, objets blob de pages et objets blob d’ajouts) peuvent être chiffrés/déchiffrés à l’aide de ce schéma.
 
