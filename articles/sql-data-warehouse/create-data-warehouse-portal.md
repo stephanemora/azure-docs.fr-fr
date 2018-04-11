@@ -1,25 +1,20 @@
 ---
-title: "Démarrage rapide : créer un entrepôt de données SQL Azure - Portail Azure | Microsoft Docs"
-description: "Pour Azure SQL Data Warehouse, créez un serveur SQL, une règle de pare-feu de niveau serveur et un entrepôt de données dans le portail Azure. Ensuite, interrogez-le."
-keywords: "didacticiel sql data warehouse, créer un entrepôt de données SQL"
-services: sql-database
-documentationcenter: 
-author: barbkess
+title: Créer et interroger un entrepôt de données SQL Azure - Portail Azure | Microsoft Docs
+description: Créez un Azure SQL Data Warehouse dans le portail Azure, puis interrogez-le.
+services: sql-data-warehouse
+author: hirokib
 manager: jhubbard
-editor: 
-ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.date: 11/20/2017
-ms.author: barbkess
-ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: implement
+ms.date: 03/28/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans le portail Azure
 
@@ -49,7 +44,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
 
-    | Paramètre | Valeur suggérée | Description | 
+    | Paramètre | Valeur suggérée | DESCRIPTION | 
     | ------- | --------------- | ----------- | 
     | **Nom de la base de données** | mySampleDataWarehouse | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). Notez qu’un entrepôt de données est un type de base de données.| 
     | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -61,7 +56,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | Description | 
+    | Paramètre | Valeur suggérée | DESCRIPTION | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -80,7 +75,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 8. Cliquez sur **Appliquer**.
 
-9. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour approvisionner la base de données. L’approvisionnement prend quelques minutes. 
+9. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes. 
 
     ![cliquer sur créer](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 

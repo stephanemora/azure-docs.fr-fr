@@ -1,8 +1,8 @@
 ---
-title: "Installation de l’agent Azure AD Connect Health | Microsoft Docs"
-description: "Il s'agit de la page Azure AD Connect Health qui décrit l'agent l'installation pour AD FS et la synchronisation."
+title: Installation de l’agent Azure AD Connect Health | Microsoft Docs
+description: Il s'agit de la page Azure AD Connect Health qui décrit l'agent l'installation pour AD FS et la synchronisation.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 Ce document vous guide à travers l’installation et la configuration des agents Azure AD Connect Health. Vous pouvez télécharger les agents [ici](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent):
@@ -136,7 +136,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 9. Sélectionnez les cases **Audits des succès et Audits des échecs**, puis cliquez sur **OK**. Ceci doit être activé par défaut.
 10. Ouvrez une fenêtre PowerShell et exécutez la commande suivante : ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Notez que le niveau d’audit « de base » est activé par défaut. En savoir plus sur l’[amélioration de l’audit AD FS dans Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Notez que le niveau d’audit « de base » est activé par défaut. En savoir plus sur l’[amélioration de l’audit AD FS dans Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Pour localiser les journaux d’audit AD FS
@@ -144,6 +144,8 @@ Notez que le niveau d’audit « de base » est activé par défaut. En savoir p
 2. Accédez à Journaux Windows et sélectionnez **Sécurité**.
 3. Sur la droite, cliquez sur **Filtrer les journaux actuels**.
 4. Dans Source de l’événement, sélectionnez **Audit AD FS**.
+
+    Et [remarque de FAQ](active-directory-aadconnect-health-faq.md#operations-questions) rapide pour les journaux d’audit.
 
 ![Journaux d’audit AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 

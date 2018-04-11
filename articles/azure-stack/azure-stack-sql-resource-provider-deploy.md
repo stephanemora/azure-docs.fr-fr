@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données SQL sur Microsoft Azure Stack
 
@@ -71,7 +71,7 @@ Vous devez créer une (ou plusieurs) instances de SQL Server et/ou fournir un a
     | 1710: 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Le certificat racine Azure Stack est récupéré à partir du point de terminaison privilégié. Pour le kit de développement logiciel (SDK) Azure Stack, un certificat auto-signé est créé dans le cadre de ce processus. Pour les systèmes intégrés, vous devez fournir un certificat approprié.
+4. Pour le kit de développement logiciel (SDK) Azure Stack, un certificat auto-signé est créé dans le cadre de ce processus. Pour les systèmes intégrés, vous devez fournir un certificat approprié.
 
    Pour fournir votre propre certificat, placez un fichier .pfx dans **DependencyFilesLocalPath** comme suit :
 

@@ -1,6 +1,6 @@
 ---
 title: Protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API | Microsoft Docs
-description: Découvrez comment protéger un backend d’API web avec Azure Active Directory et Gestion des API.
+description: Découvrez comment protéger un serveur principal d’API web avec Azure Active Directory et Gestion des API.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
 Ce guide montre comment configurer votre instance de Gestion des API (APIM) pour protéger une API à l’aide du protocole OAuth 2.0 avec Azure Active Directory (AAD). 
 
-## <a name="prerequisite"></a>Prérequis
+## <a name="prerequisite"></a>Configuration requise
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 * Une instance APIM
 * Une API publiée à l’aide de l’instance APIM
-* Un locataire Azure AD
+* un locataire Azure AD ;
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -114,7 +114,7 @@ Cliquez sur **OAuth 2.0**, puis sur **Ajouter**.
 
 Spécifiez un **Nom d’affichage** et une **Description**.
 
-Pour l’URL de la page d’inscription client,** entrez une valeur d’espace réservé telle que `http://localhost`.  L’**URL de la page d'inscription client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge la gestion des comptes utilisateur. Dans cet exemple, les utilisateurs ne peuvent pas créer et configurer leurs propres comptes. Un espace réservé est donc utilisé.
+Pour l’URL de la page d’inscription client,** entrez une valeur d’espace réservé telle que `http://localhost`.  L’ **URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge la gestion des comptes utilisateur. Dans cet exemple, les utilisateurs ne peuvent pas créer et configurer leurs propres comptes. Un espace réservé est donc utilisé.
 
 Sélectionnez **Code d’autorisation** comme **Types d’octroi d’autorisation**.
 
@@ -152,11 +152,11 @@ Accédez à **API** dans votre instance APIM.
 
 Cliquez sur l’API que vous souhaitez protéger. Dans cet exemple, nous utiliserons `Echo API`.
 
-Accédez à **Paramètres**.
+Accédez à **Settings**.
 
 Sous **Sécurité**, choisissez **OAuth 2.0** et sélectionnez le serveur OAuth 2.0 que nous avons configuré précédemment. 
 
-Cliquez sur **Enregistrer**.
+Cliquez sur **Save**(Enregistrer).
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Appel de l’API à partir du portail des développeurs
 
@@ -179,11 +179,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3
 Cliquez sur **Envoyer** ; vous devriez pouvoir appeler l’API.
 
 
-## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configurer une stratégie de validation JWT pour pré-autoriser des requêtes
+## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configuration d’une stratégie de validation JWT pour autoriser des demandes
 
-À ce stade, quand un utilisateur tente d’effectuer un appel à partir de la console de développeur, il est invité à se connecter et la console de développeur obtient un jeton d’accès pour son compte. Tout fonctionne comme prévu. Toutefois, que se passe-t-il si quelqu’un appelle notre API sans jeton ou avec un jeton non valide ? Par exemple, vous essayez de supprimer l’en-tête `Authorization` et vous vous rendez compte que vous pouvez toujours appeler l’API. Cela est dû au fait qu’APIM ne valide pas le jeton d’accès à ce stade. Il transmet l’en-tête `Auhtorization` à l’API backend.
+À ce stade, quand un utilisateur tente d’effectuer un appel à partir de la console de développeur, il est invité à se connecter et la console de développeur obtient un jeton d’accès pour son compte. Tout fonctionne comme prévu. Toutefois, que se passe-t-il si quelqu’un appelle notre API sans jeton ou avec un jeton non valide ? Par exemple, vous essayez de supprimer l’en-tête `Authorization` et vous vous rendez compte que vous pouvez toujours appeler l’API. Cela est dû au fait qu’APIM ne valide pas le jeton d’accès à ce stade. Il transfert simplement l’en-tête `Auhtorization` à l’API principale.
 
-Nous pouvons utiliser la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour pré-autoriser les requêtes dans APIM en validant les jetons d’accès de chaque requête entrante. Si une requête n’a pas de jeton valide, elle est bloquée par Gestion des API et n’est pas transmise au backend. Nous pouvons ajouter la stratégie ci-dessous à `Echo API`. 
+Nous pouvons utiliser la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour pré-autoriser les requêtes dans APIM en validant les jetons d’accès de chaque requête entrante. Si une requête n’a pas de jeton valide, elle est bloquée par Gestion des API et n’est pas transmise au backend. Par exemple, nous pouvons ajouter la stratégie ci-dessous à la section de stratégie `<inbound>` de `Echo API`. Il vérifie la revendication d’audience dans un jeton d’accès et retourne un message d’erreur si le jeton n’est pas valide. Pour plus d’informations sur la façon de configurer des stratégies, consultez [Définir ou modifier des stratégies](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,9 +196,14 @@ Nous pouvons utiliser la stratégie [Validate JWT](api-management-access-restric
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>Générer une application pour appeler l’API
+
+Dans ce guide, nous avons utilisé la Console de Développeur dans APIM comme exemple de l’application client pour appeler le `Echo API` protégé par OAuth 2.0. Pour en savoir plus sur la façon de générer une application et implémenter le flux OAuth 2.0, consultez [exemples de code Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
+* En savoir plus sur [Azure Active Directory et OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
-* Pour les autres méthodes permettant de sécuriser votre service backend, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
+* Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
 
 [Create an API Management service instance]: get-started-create-service-instance.md
 [Manage your first API]: import-and-publish.md

@@ -2,23 +2,23 @@
 title: Remplacer un disque physique dans Azure Stack | Microsoft Docs
 description: Explique comment remplacer un disque physique dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: a95617a8dd2a8f296164c672e2b4b2628574ce5a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Remplacer un disque physique dans Azure Stack
 
@@ -40,6 +40,9 @@ Si vous ouvrez l’alerte, la description contient le nœud d’unité d’éche
  ## <a name="replace-the-disk"></a>Remplacer le disque
 
 Suivez les instructions FRU de votre fabricant de matériel OEM pour remplacer le disque.
+
+> [!note]
+> Remplacez des disques pour un nœud d’unité d’échelle à la fois. Attendez que les tâches de réparation du disque virtuel soient terminées avant de passer au nœud d’unité d’échelle suivant
 
 Pour empêcher toute utilisation d’un disque non pris en charge dans un système intégré, le système bloque les disques qui ne sont pas pris en charge par votre fournisseur. Si vous essayez d’utiliser un disque non pris en charge, une alerte signale qu’un disque a été mis en quarantaine à cause d’un modèle ou d’un microprogramme non pris en charge.
 

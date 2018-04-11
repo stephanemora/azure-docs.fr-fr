@@ -3,7 +3,7 @@ title: Création d’un IoT Hub à l’aide de l’interface de ligne de command
 description: Création d’un Azure IoT Hub à l’aide de l’interface de ligne de commande Azure multiplateforme (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. Nom du groupe de ressources. Le format ne tient pas compte de la casse et accepte les caractères suivants : trait de soulignement, valeurs alphanumériques et trait d’union. La longueur doit être incluse entre 1 et 64 caractères.
 * **name**. Nom de l’instance IoT Hub à créer. Le format ne respecte pas la casse et accepte les caractères alphanumériques et les traits d’union. La longueur doit être comprise entre 3 et 50 caractères.
 * **location**. Emplacement (région/centre de données Azure) associé à la configuration de l’instance IoT Hub.
-* **sku-name**. Nom de la référence, à choisir parmi les éléments suivants : [F1, S1, S2, S3]. Pour obtenir la liste complète la plus récente, reportez-vous à la page relative à la tarification d’IoT Hub.
-* **units**. Nombre d’unités configurées. Plage : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Le nombre d’unités IoT Hub dépend du nombre total de messages et du nombre d’appareils que vous souhaitez connecter.
+* **sku-name**. Nom de la référence, à choisir parmi les éléments suivants : [F1, S1, S2, S3]. Pour plus d’informations sur chaque référence SKU, consultez [tarification d’Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). Actuellement, les niveaux de base sont uniquement disponibles via le portail. 
+* **units**. Nombre d’unités configurées. Pour plus d’informations sur les limites des unités, consultez [tarification d’Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

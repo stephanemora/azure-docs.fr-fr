@@ -1,11 +1,11 @@
 ---
-title: "Intégration du SDK Android d'Azure Mobile Engagement"
-description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
+title: Intégration du SDK Android d'Azure Mobile Engagement
+description: Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Comment intégrer ADM à Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!IMPORTANT]
 > Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 > 
@@ -41,7 +45,7 @@ Les charges utiles ADM envoyées vers le Kit de développement logiciel (SDK) co
 ## <a name="sign-up-to-adm"></a>S'inscrire à ADM
 Si vous ne l'avez pas déjà fait, vous devez activer ADM sur votre compte Amazon.
 
-La procédure détaillée est disponible ici : [<https://developer.amazon.com/sdk/adm/credentials.html>].
+La procédure est détaillée sur : [<https://developer.amazon.com/sdk/adm/credentials.html>].
 
 À la fin de la procédure, vous obtenez :
 
@@ -104,7 +108,7 @@ Assurez-vous de disposer des autorisations suivantes dans votre `AndroidManifest
 ## <a name="grant-engagement-oauth-credentials"></a>Accorder à Engagement des informations d'identification OAuth
 Envoyez vos informations d’identification OAuth (ID client et clé secrète client) sur le portail Engagement.
 
-[&lt;https://developer.amazon.com/sdk/adm/credentials.html&gt;]:https://developer.amazon.com/sdk/adm/credentials.html
+[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [bibliothèque cliente ADM]:https://developer.amazon.com/sdk/adm/setup.html
 [intégré ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [cette procédure]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

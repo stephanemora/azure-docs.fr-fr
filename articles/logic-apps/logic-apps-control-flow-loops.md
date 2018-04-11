@@ -1,12 +1,12 @@
 ---
-title: "Boucles - Tableaux de traitement ou actions répétées - Azure Logic Apps | Microsoft Docs"
-description: "Tableaux de traitement avec des boucles « Foreach » ou des actions répétées jusqu’à remplir des conditions spécifiques dans des applications logiques"
+title: Boucles - Tableaux de traitement ou actions répétées - Azure Logic Apps | Microsoft Docs
+description: Tableaux de traitement avec des boucles « Foreach » ou des actions répétées jusqu’à remplir des conditions spécifiques dans des applications logiques
 services: logic-apps
-keywords: "Boucles « Foreach »"
-documentationcenter: 
+keywords: Boucles « Foreach »
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/05/2018
 Pour itérer sur des tableaux dans votre application logique, vous pouvez utiliser une [boucle « Foreach »](#foreach-loop) ou une [boucle « Foreach » séquentielle](#sequential-foreach-loop). Les cycles d’une bouche « Foreach » standard s’exécutent en parallèle, tandis que des cycles d’une bouche « Foreach » séquentielle s’exécutent un à la fois. Pour connaître le nombre maximal d’éléments de tableau que des boucles « Foreach » peuvent traiter en une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
-> Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) [**SplitOn**. 
+> Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
   
 Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un statut ait changé, utilisez une [boucle « Until »](#until-loop). Votre application logique réalise toutes les actions dans la boucle puis vérifie la condition à la dernière étape. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître le nombre maximal de boucles « Until » dans une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 

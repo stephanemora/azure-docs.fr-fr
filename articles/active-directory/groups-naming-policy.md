@@ -1,32 +1,32 @@
 ---
-title: "Paramètres de stratégie de noms de groupes pour les groupes Office 365 dans Azure Active Directory (préversion) | Microsoft Docs"
-description: "Comment configurer l’expiration des groupes Office 365 dans Azure Active Directory (préversion)"
+title: Paramètres de stratégie de noms de groupes pour les groupes Office 365 dans Azure Active Directory (préversion) | Microsoft Docs
+description: Comment configurer l’expiration des groupes Office 365 dans Azure Active Directory (préversion)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
 
 Pour appliquer des conventions de nommage cohérentes pour les groupes Office 365 créés ou modifiés par vos utilisateurs, configurez une stratégie de nommage de groupes pour vos locataires dans Azure Active Directory (Azure AD). Par exemple, vous pouvez utiliser la stratégie de nommage pour communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe. Vous pouvez aussi utiliser la stratégie de nommage pour faciliter le classement des groupes dans le carnet d’adresses. Vous pouvez utiliser la stratégie pour empêcher l’utilisation de certains mots dans les noms et les alias de groupes.
 
 > [!IMPORTANT]
-> Chaque utilisateur unique membre d’un ou plusieurs groupes Office 365 a besoin d’une licence Azure Active Directory Premium P1 pour pouvoir utiliser la stratégie de noms de groupes Office 365 en préversion.
+> Chaque utilisateur unique membre d’un ou plusieurs groupes Office 365 a besoin d’une licence Azure Active Directory Premium P1 ou Azure AD Basic EDU pour pouvoir utiliser la stratégie d’attribution de noms de groupes Office 365 en préversion.
 
 La stratégie de nommage s’applique à la création ou à la modification des groupes créés dans toutes les charges de travail (par exemple, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Elle s’applique à la fois au nom de groupe et à l’alias de groupe. Si vous avez configuré votre stratégie de nommage dans Azure AD et qu’il existe une stratégie de nommage de groupes Exchange, la stratégie de nommage Active AD est appliquée.
 
@@ -197,7 +197,7 @@ Applets de commande Azure Active Directory PowerShell | Les applets de commande 
 Centre d’administration Exchange | Le centre d’administration Exchange est conforme à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans le noms de groupe et l’alias de groupe.
 Centre d’administration Office 365 | Le centre d’administration Office 365 est conforme à la stratégie de nommage. Quand un utilisateur crée ou modifie des noms de groupes, la stratégie de nommage s’applique automatiquement, et les utilisateurs reçoivent les erreurs appropriées quand ils entrent des mots bloqués personnalisés. Le centre d’administration Office 365 n’affiche pas encore un aperçu de la stratégie de nommage et ne retourne pas d’erreurs liées aux mots bloqués personnalisés au moment où l’utilisateur entre le nom du groupe.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes Azure AD.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

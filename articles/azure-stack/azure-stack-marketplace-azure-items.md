@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 39a82486b485a761f03244cf8d49f9c79ed9b2f7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -217,7 +217,8 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![Bac à sable Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Alimenté par la technologie de plateforme 100 % Open Source HDP 2.5 pour Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Commutateur de contenu ADC Load Balancer KEMP LoadMaster](media/azure-stack-marketplace-azure-items/kemp.png) | [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Équilibrage de charge ADC (Application Delivery Controller) de couche 4-7, commutateur de services de contenu et gestionnaire de trafic. | KEMP Technologies Inc. |
 | ![Compatible NooBaa Hybrid AWS S3 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatible NooBaa Hybrid AWS S3 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Service de stockage compatible S3 couvrant les ressources de capacité publiques et locales. | NooBaa |
-| ![Pare-feu d’applications PT](media/azure-stack-marketplace-azure-items/pt.png) | [Pare-feu d’applications PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.pta) | Le pare-feu d’applications PT détecte les vulnérabilités connues et inconnues et empêche les attaques sur les applications Web. <b>Téléchargez les deux éléments de la Place de marché PT.</b> | Technologies positives |
+| ![Pare-feu d’applications PT](media/azure-stack-marketplace-azure-items/pt.png) | [Pare-feu d’applications PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Le pare-feu d’applications PT détecte les vulnérabilités connues et inconnues et empêche les attaques sur les applications Web. <b>Téléchargez les deux éléments de la Place de marché PT.</b> | Technologies positives |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise vous permet d’automatiser tout le cycle de vie de votre infrastructure Azure Stack. <b>Téléchargez les deux éléments de la Place de marché Puppet.</b> | Puppet |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gestion d’infrastructure Open Source de haute qualité. | SUSE |
+| ![Sauvegarde et réplication Veeam](media/azure-stack-marketplace-azure-items/veeam.png) | [Sauvegarde et réplication Veeam](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Sauvegarde et réplication Veeam 9.5. | Veeam |
 | ![Outil logiciel ZeroDown](media/azure-stack-marketplace-azure-items/zerodown.png) | [Outil ZeroDown Software ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | Outil ZeroDown Software v7.1 - Migration + HA. | ZeroDown Software |

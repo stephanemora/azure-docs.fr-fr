@@ -1,6 +1,6 @@
 ## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
 
-Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour déployer votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le partage de fichiers de votre Cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../articles/cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
+Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour déployer votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le compte de stockage de votre cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../articles/cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -12,33 +12,37 @@ Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour dé
 
    ![Sélectionner le compte de stockage](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. Sélectionnez **Fichiers**.
+1. Sélectionnez **Objets Blob**.
 
-   ![Sélectionner des fichiers](./media/resource-manager-cloud-shell-deploy/select-files.png)
+   ![Sélectionner Objets Blob](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. Sélectionnez le partage de fichiers pour Cloud Shell. Le modèle de nom est `cs-<user>-<domain>-com-<uniqueGuid>`.
+1. Sélectionnez **+ Conteneur**.
 
-   ![Sélectionner le partage de fichiers](./media/resource-manager-cloud-shell-deploy/select-file-share.png)
+   ![Ajouter un conteneur](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Sélectionnez **Ajouter un répertoire**.
+1. Donnez à votre conteneur un nom et un niveau d’accès. L’exemple de modèle dans cet article ne contient aucune information sensible, par conséquent, autorisez l’accès en lecture anonyme. Sélectionnez **OK**.
 
-   ![Ajouter un répertoire](./media/resource-manager-cloud-shell-deploy/select-add-directory.png)
+   ![Renseigner les valeurs du conteneur](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Nommez-le **modèles** puis sélectionnez **Ok**.
+1. Sélectionnez le conteneur que vous avez créé.
 
-   ![Nommer le répertoire](./media/resource-manager-cloud-shell-deploy/name-templates.png)
-
-1. Sélectionnez votre nouveau répertoire.
-
-   ![Sélectionner le répertoire](./media/resource-manager-cloud-shell-deploy/select-templates.png)
+   ![Sélectionner le nouveau conteneur](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Sélectionnez **Télécharger**.
 
-   ![Sélectionner Télécharger](./media/resource-manager-cloud-shell-deploy/select-upload.png)
+   ![Charger l’objet blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Recherchez et chargez votre modèle.
 
-   ![Charger le fichier](./media/resource-manager-cloud-shell-deploy/upload-files.png)
+   ![Charger le fichier](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+
+1. Après le chargement, sélectionnez le modèle.
+
+   ![Sélectionner le nouveau modèle](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+
+1. Copiez l’URL.
+
+   ![Copier l’URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Ouvrez l’invite de commandes.
 

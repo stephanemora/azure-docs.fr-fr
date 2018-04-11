@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f9487067ae77fbb261fb683ddd15207670f9576f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: aab864696be7121be049ce4e907b10431a7b63cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure-with-powershell"></a>Déployer des packages SQL Server Integration Services sur Azure avec PowerShell
 Ce didacticiel décrit les différentes étapes d’approvisionnement du runtime d’intégration (IR) Azure-SSIS dans Azure Data Factory. Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer des packages SQL Server Integration Services (SSIS) sur ce runtime dans Azure. Dans ce didacticiel, vous effectuez les étapes suivantes :
@@ -84,7 +84,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
@@ -247,7 +247,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
@@ -301,9 +301,9 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>Joindre un runtime d’intégration (IR) Azure-SSIS à un réseau virtuel
-Si vous utilisez une instance gérée SQL Azure (version préliminaire privée) pour héberger le catalogue SQL Server Integration Services (SSIS) à l’intérieur d’un réseau virtuel (VNet), vous devez également joindre votre runtime d’intégration Azure-SSIS au même réseau virtuel. Azure Data Factory version 2 (préversion) vous permet de joindre votre runtime d’intégration SSIS Azure à un réseau virtuel. Pour plus d’informations, consultez [Joindre un runtime Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
+Si vous utilisez Azure SQL Database Managed Instance (préversion) pour héberger le catalogue SQL Server Integration Services (SSIS) à l’intérieur d’un réseau virtuel (VNet), vous devez également joindre votre runtime d’intégration Azure-SSIS au même réseau virtuel. Azure Data Factory version 2 (préversion) vous permet de joindre votre runtime d’intégration SSIS Azure à un réseau virtuel. Pour plus d’informations, consultez [Joindre un runtime Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
 
-Pour obtenir un script complet pour créer un runtime Azure-SSIS qui se joint à un réseau virtuel, consultez [créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md).
+Pour obtenir un script complet popur créer un runtime Azure-SSIS qui se joint à un réseau virtuel, consultez [créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md).
 
 ## <a name="monitor-and-manage-azure-ssis-ir"></a>Surveiller et gérer le runtime d’intégration Azure-SSIS
 Consultez les articles suivants pour plus d’informations sur la surveillance et la gestion d’un runtime d’intégration (IR) Azure-SSIS. 

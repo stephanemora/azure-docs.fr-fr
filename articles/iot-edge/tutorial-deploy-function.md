@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
+ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Déployer une fonction Azure en tant que module IoT Edge - version préliminaire
 Vous pouvez utiliser Azure Functions pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce didacticiel vous guide à travers la création et le déploiement d’une fonction Azure qui filtre les données de capteur sur l’appareil simulé IoT Edge que vous avez créé dans les didacticiels Déployer Azure IoT Edge sur un appareil simulé pour [Windows][lnk-tutorial1-win]ou [Linux][lnk-tutorial1-lin]. Ce tutoriel vous montre comment effectuer les opérations suivantes :     
@@ -59,10 +59,10 @@ Les étapes suivantes vous montrent comment créer une fonction IoT Edge à l’
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. Créez un projet pour le nouveau module. La commande suivante crée le dossier du projet, **FilterFunction**, dans le dossier de travail en cours :
+2. Créez un projet pour le nouveau module. La commande suivante crée le dossier du projet, **FilterFunction**, avec le référentiel du conteneur. Le deuxième paramètre doit être au format `<your container registry name>.azurecr.io` si vous utilisez le registre de conteneurs Azure. Dans le dossier de travail actif, entrez la commande suivante :
 
     ```cmd/sh
-    dotnet new aziotedgefunction -n FilterFunction
+    dotnet new aziotedgefunction -n FilterFunction -r <your container registry address>/filterfunction
     ```
 
 3. Sélectionnez **fichier** > **Ouvrir le dossier**, puis accédez au dossier **FilterFunction** et ouvrez le projet dans Visual Studio Code.
@@ -128,24 +128,19 @@ Les étapes suivantes vous montrent comment créer une fonction IoT Edge à l’
 
 11. Enregistrez le fichier .
 
-## <a name="publish-a-docker-image"></a>Publier une image Docker
+## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Créer une image Docker et la publier dans votre registre
 
-1. Créez l’image Docker.
-    1. Dans l’explorateur de Visual Studio Code, développez le dossier **Docker**. Développez le dossier correspondant à votre plateforme de conteneur, soit **linux-x64** soit **windows-nano**. 
-    2. Cliquez avec le bouton droit sur le fichier **Dockerfile** et cliquez sur **Créer image Docker du module IoT Edge**. 
-    3. Accédez au dossier du projet **FilterFunction**, puis cliquez sur **Sélectionner un dossier en tant que EXE_DIR**. 
-    4. Dans la zone de texte contextuelle en haut de la fenêtre de Visual Studio Code, entrez le nom de l’image. Par exemple : `<your container registry address>/filterfunction:latest`. L’adresse du registre de conteneurs est la même que celle du serveur de connexion que vous avez copiée à partir de votre registre. Elle doit respecter le format `<your container registry name>.azurecr.io`.
- 
-4. Connectez-vous à Docker. Dans le terminal intégré, entrez la commande suivante : 
-
+1. Connectez-vous à Docker en entrant la commande suivante dans le terminal intégré VS Code : 
+     
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
    Pour trouver le nom d’utilisateur, le serveur de connexion et le mot de passe à utiliser dans cette commande, accédez au [portail Azure] (https://portal.azure.com)). À partir de **Toutes les ressources**, cliquez sur la vignette de votre Azure Container Registry pour ouvrir ses propriétés, puis cliquez sur **Clés d’accès**. Copiez les valeurs dans les champs **Nom d’utilisateur**, **Mot de passe** et **Serveur de connexion**. 
 
-3. Distribuez l’image vers votre référentiel Docker. Sélectionnez **Affichage** > **Palette de commandes**, puis recherchez **Edge: Push IoT Edge module Docker image**.
-4. Dans la zone de texte contextuelle, entrez le même nom d’image que celui utilisé à l’étape 1.d.
+2. Dans l’explorateur VS Code, cliquez avec le bouton droit sur le fichier **module.json**, puis sur **Générer et envoyer (push) une image Docker de module IoT Edge**. Dans la liste déroulante contextuelle en haut de la fenêtre VS Code, sélectionnez votre plateforme de conteneur : **amd64** pour un conteneur Linux ou **windows-amd64** pour un conteneur Windows. VS Code place alors vos codes de fonction dans un conteneur et l’envoie (push) dans le registre de conteneurs spécifié.
+
+
+3. Vous pouvez récupérer l’adresse complète de l’image conteneur avec la balise dans le terminal intégré de VS Code. Pour plus d’informations sur la définition de build et de push, consultez le fichier `module.json`.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Ajouter des informations d’identification du registre à votre appareil Edge
 Ajoutez les informations d’identification pour votre registre au runtime Edge sur l’ordinateur sur lequel vous exécutez votre appareil Edge. Cela donne l’accès au runtime pour extraire le conteneur. 
@@ -175,7 +170,7 @@ Ajoutez les informations d’identification pour votre registre au runtime Edge 
 1. Ajoutez le module **filterfunction**.
     1. Sélectionnez à nouveau **Ajouter module IoT Edge**.
     2. Dans le champ **Nom**, entrez `filterFunction`.
-    3. Dans le champ **URI de l’image**, saisissez l’adresse de votre image, par exemple `<your container registry address>/filtermodule:0.0.1-amd64`. Vous pouvez trouver l’adresse de l’image complète dans la section précédente.
+    3. Dans le champ **URI de l’image**, saisissez l’adresse de votre image, par exemple `<your container registry address>/filterfunction:0.0.1-amd64`. Vous pouvez trouver l’adresse de l’image complète dans la section précédente.
     74. Cliquez sur **Enregistrer**.
 2. Cliquez sur **Suivant**.
 3. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Le premier itinéraire transporte les messages du capteur de température au module de filtre par le biais du point de terminaison « input1 ». Le deuxième itinéraire transporte les messages du module de filtre à IoT Hub. Dans cet itinéraire, `$upstream` est une destination spéciale qui indique à Edge Hub d’envoyer les messages à IoT Hub. 
@@ -199,11 +194,11 @@ Pour pouvoir surveiller les messages appareil vers cloud envoyés par votre appa
 1. Configurez l’extension Azure IoT Toolkit avec la chaîne de connexion pour votre IoT hub : 
     1. Dans le portail Azure, accédez à votre hub IoT et sélectionnez **Stratégies d’accès partagé**. 
     2. Sélectionnez **iothubowner**, puis copiez la valeur de **Clé primaire de la chaîne de connexion**.
-    1. Dans l’Explorateur de Visual Studio Code, cliquez sur **APPAREILS IOT HUB**, puis sur **...**. 
-    1. Sélectionnez **Définir la chaîne de connexion IoT Hub** et entrez la chaîne de connexion IoT Hub dans la fenêtre contextuelle. 
+    3. Dans l’Explorateur de Visual Studio Code, cliquez sur **APPAREILS IOT HUB**, puis sur **...**. 
+    4. Sélectionnez **Définir la chaîne de connexion IoT Hub** et entrez la chaîne de connexion IoT Hub dans la fenêtre contextuelle. 
 
-1. Pour surveiller les données reçues par IoT Hub, sélectionnez **Affichage** > **Palette de commandes** et recherchez **IoT: Start monitoring D2C message**. 
-2. Pour arrêter de surveiller les données, utilisez la commande **IoT: Stop monitoring D2C message** dans la palette de commandes. 
+2. Pour surveiller les données reçues par IoT Hub, sélectionnez **Affichage** > **Palette de commandes** et recherchez **IoT: Start monitoring D2C message**. 
+3. Pour arrêter de surveiller les données, utilisez la commande **IoT: Stop monitoring D2C message** dans la palette de commandes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

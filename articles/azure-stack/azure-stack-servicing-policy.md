@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: mabrigg
-ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 Cet article décrit la stratégie de maintenance pour les systèmes intégrés Azure Stack et la marche à suivre pour conserver votre système dans un état de prise en charge. 
@@ -41,10 +41,11 @@ Un package de mise à jour Microsoft a la convention de nommage suivante pour vo
 Par exemple, une mise à jour logicielle Microsoft publiée le 15 juin 2017 a la version « 1.0.170615.1 ».
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
+Pour continuer à bénéficier de la prise en charge, vous devez conserver votre déploiement Azure Stack en cours. La stratégie de report des mises à jour vise à conserver Azure Stack dans la prise en charge. Pour ce faire, elle doit exécuter la version de mise à jour la plus récente de mise à jour publiée ou exécuter les deux versions de mise à jour majeure précédentes.  Les correctifs logiciels ne sont pas considérés comme des versions de mise à jour majeure.  Si votre cloud Azure Stack est en retard de *plus de deux mises à jour*, il est considéré comme non conforme et doit être mis à jour jusqu’à au moins la version minimale prise en charge pour bénéficier de la prise en charge. 
 
-Pour bénéficier d’une prise en charge de votre système, vous devez mettre à jour votre Azure Stack dans un intervalle de temps spécifique. Notre stratégie de report des mises à jour logicielles Microsoft est de trois mois. Si votre système est obsolète depuis plus de trois mois, vous êtes considéré comme non conforme. Pour bénéficier de la prise en charge, vous devez mettre à jour le système avec au moins la version minimale prise en charge. 
+Par exemple, si la dernière version mise à jour disponible est 1805 et que les deux mises à jour précédentes étaient les versions 1804 et 1803, 1803 et 1804 restent prises en charge. Toutefois, 1802 est hors de la prise en charge. La stratégie reste vraie lorsqu’aucune version n’est pour un ou deux mois. Par exemple, si la version actuelle est 1805 et qu’il n’existait aucune version 1804, les deux mises à jour précédentes des versions 1803 et 1802 restent prises en charge.
 
-Les packages de mise à jour logicielle Microsoft sont non cumulatifs et nécessitent le package de mise à jour précédent comme prérequis. Si vous décidez de reporter une ou plusieurs mises à jour, pensez-y si vous souhaitez obtenir la dernière version.
+La mise à jour logicielle Microsoft est non cumulative et nécessite la mise à jour précédente comme composant requis. Si vous décidez de reporter une ou plusieurs mises à jour, prenez le runtime général en compte si vous souhaitez obtenir la dernière version. 
 
 Le tableau suivant présente des exemples de versions de package de mise à jour, leur prérequis et la version minimale prise en charge dont votre système doit disposer pour bénéficier de la prise en charge. Ce tableau est basé sur la version initiale des systèmes intégrés Azure Stack (build 1708), avec la première publication de package de mise à jour (1709) en septembre 2017. 
 
@@ -53,11 +54,12 @@ Le tableau suivant présente des exemples de versions de package de mise à jour
 | 1710 | 1709 | N/A |
 | 1711 | 1710 | 1709 |
 | 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
+| 1802 | 1712 | 1711 |
+| 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1802 |
 | 1805 | 1804 | 1803 |
 | | | 
+Dans la table précédente, il n’existe aucune version 1801.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

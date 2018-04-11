@@ -12,25 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5f733e9cbd90829eded80b1401093e2331a1eb16
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
-Désormais disponible : [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB. Pour en savoir plus, consultez [Estimation des besoins de débit](request-units.md#estimating-throughput-needs).
 
-![Calculatrice de débit][5]
-
-## <a name="introduction"></a>Introduction
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est un service de base de données multimodèle mondialement distribué de Microsoft. Avec Azure Cosmos DB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. Azure Cosmos DB est utilisé et surveillé en continu par les excellents ingénieurs Microsoft afin d’offrir une disponibilité, des performances et une protection des données optimales. Vous pouvez accéder à vos données en utilisant les API de votre choix, comme l’[API SQL](documentdb-introduction.md), l’[API MongoDB](mongodb-introduction.md), l’[API Table](table-introduction.md) et Gremlin via l’[API Graph](graph-introduction.md), qui sont toutes prises en charge en mode natif. L’unité de mesure d’Azure Cosmos DB est l’unité de requête (RU). Avec les unités de requête (RU), vous n’avez pas besoin de réserver de capacités en lecture et en écriture, ni de configurer les ressources de processeur, de mémoire et d’E/S par seconde.
 
 Azure Cosmos DB prend en charge un certain nombre d’API avec différentes opérations allant des lectures et des écritures simples aux requêtes de graphe complexes. Toutes les requêtes n’étant pas égales, la quantité normalisée **d’unités de requête** qui leur est affectée est fonction de la quantité de calcul requise pour traiter chaque requête. Le nombre d’unités de requête d’une opération est déterministe. Dans Azure Cosmos DB, vous pouvez suivre le nombre d’unités de requête consommées par une opération via un en-tête de réponse. 
 
-Pour fournir des performances prévisibles, vous devez réserver le débit par unité de 100 RU/seconde. 
+Pour fournir des performances prévisibles, vous devez réserver le débit par unité de 100 RU/seconde. Vous pouvez [estimer les besoins de votre débit](request-units.md#estimating-throughput-needs) à l’aide de la [calculatrice des unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB.
+
+![Calculatrice de débit][5]
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :  
 
@@ -46,9 +44,9 @@ Azure Cosmos DB offre des performances élevées et prévisibles en *réservant*
 
 Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde à votre application.  Chaque opération dans Azure Cosmos DB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde.  Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*.  Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. L’Explorateur de données dans le portail Azure est également un outil merveilleux pour tester le cœur d’une requête.
 
-Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique les unités de requête et les performances prévisibles avec Azure Cosmos DB.
+Nous vous recommandons de démarrer en regardant la vidéo suivante, où le gestionnaire de programmes Azure Cosmos DB, Andrew Liu, traite des unités de requête.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

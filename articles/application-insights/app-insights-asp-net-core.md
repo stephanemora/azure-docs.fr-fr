@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights pour ASP.NET Core
 
@@ -95,7 +95,7 @@ Pour générer du trafic test, vous pouvez démarrer votre application, puis cli
 
 1. Exécutez votre application en cliquant sur IIS Express. ![Capture d’écran de l’icône IIS Express de Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Copiez l’URL de la barre d’adresses du navigateur. Elle est au format http://localhost:{numéro de port aléatoire}
+2. Copiez l’URL de la barre d’adresses du navigateur. Il est au format http://localhost:{random numéro de port}
 
    ![Capture d’écran de la barre d’adresses URL du navigateur](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Plusieurs invites de confirmation apparaissent. Lisez-les et acceptez-les le cas
    ```
      ![Capture d’écran de la modification du code de _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. Dans **Layout.cshtml**, ajoutez la ligne ci-dessous avant la balise ``</head>``, mais avant les autres scripts.
+3. Dans **_Layout.cshtml** ajoutez la ligne ci-dessous avant la balise ``</head>``, mais avant tout autre script.
 
     ```C#
     @Html.Raw(snippet.FullScript)

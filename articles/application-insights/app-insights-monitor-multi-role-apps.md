@@ -1,8 +1,8 @@
 ---
 title: Prise en charge par Azure Application Insights de plusieurs composants, microservices et conteneurs | Microsoft Docs
-description: "Surveillance des performances et de l’utilisation des applications constituées de plusieurs composants ou de plusieurs rôles."
+description: Surveillance des performances et de l’utilisation des applications constituées de plusieurs composants ou de plusieurs rôles.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Surveiller des applications multicomposants avec Application Insights (préversion)
 
@@ -42,7 +42,7 @@ Pour obtenir le plan d’une application multicomposant, voici ce que vous devez
 
 * **Installez la préversion la plus récente** du package Application Insights dans chaque composant de l’application. 
 * **Partagez une même ressource Application Insights** pour tous les composants de votre application.
-* **Activez Plan d’application multirôle** dans le panneau Préversions.
+* **Activez la cartographie d’application composite** dans le panneau Préversions.
 
 Configurez chaque composant de votre application en utilisant la méthode qui convient à son type. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
@@ -73,9 +73,9 @@ Mettre à jour ou installer les packages Application Insights dans le projet pou
 ![Copiez la clé d’instrumentation dans le fichier .config](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Activer Plan d’une application multirôle
+### <a name="3-enable-composite-application-map"></a>3. Activer la cartographie d'application composite
 
-Dans le portail Azure, ouvrez la ressource pour votre application. Dans le panneau Préversions, activez *Plan d’application multirôle*.
+Dans le portail Azure, ouvrez la ressource pour votre application. Sous le sous-titre CONFIGURER, cliquez sur Préversions pour ouvrir le panneau Préversions. *Activez la cartographie d’application composite* dans le panneau Préversions.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Activer les métriques Docker (facultatif) 
 

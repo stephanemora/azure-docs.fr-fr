@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Fichiers de configuration du service d’expérimentation Azure Machine Learning
 
@@ -149,6 +149,8 @@ Un fichier _\<compute target name>.compute_ spécifie les informations de connex
 **nativeSharedDirectory** : cette propriété spécifie le répertoire de base (par exemple, _~/.azureml/share/_) dans lequel les fichiers peuvent être enregistrés pour être partagés entre les séries de tests sur la même cible de calcul. Si ce paramètre est utilisé lors de l’exécution sur un conteneur Docker, _sharedVolumes_ doit être défini sur true. Autrement, l’exécution échoue.
 
 **userManagedEnvironment**: cette propriété spécifie si cette cible de calcul est gérée directement par l’utilisateur ou via le service d’expérimentation.  
+
+**pythonLocation** : cette propriété spécifie l’emplacement du runtime Python à utiliser sur la cible de calcul pour exécuter le programme de l’utilisateur. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<nom de configuration de série de tests>.runconfig
 _\<nom de configuration de série de tests>.runconfig_ spécifie le comportement d’exécution de l’expérience Azure ML. Vous pouvez configurer un comportement d’exécution, comme le suivi de l’historique des exécutions ou la cible de calcul à utiliser, entre autres. Les noms des fichiers de configuration de série de tests sont utilisés pour remplir la liste déroulante des contextes d’exécution dans l’application de bureau Azure Machine Learning Workbench.

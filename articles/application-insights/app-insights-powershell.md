@@ -1,8 +1,8 @@
 ---
 title: Automatiser Azure Application Insights avec PowerShell | Microsoft Docs
-description: "Automatisez la création de tests de ressources, d’alerte et de disponibilité dans PowerShell à l’aide d’un modèle Azure Resource Manager."
+description: Automatisez la création de tests de ressources, d’alerte et de disponibilité dans PowerShell à l’aide d’un modèle Azure Resource Manager.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Créer des ressources Application Insights à l’aide de PowerShell
 Cet article explique comment automatiser la création et la mise à jour de ressources [Application Insights](app-insights-overview.md) à l’aide du service de gestion des ressources Azure. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](app-insights-monitor-web-app-availability.md), configurer [des alertes](app-insights-alerts.md) et un [mécanisme de tarification](app-insights-pricing.md), mais aussi créer d’autres ressources Azure.
@@ -204,7 +204,7 @@ Pour créer une ressource d’application avec le plan de tarification Entrepris
 * Si vous souhaitez simplement utiliser le plan tarifaire de base par défaut, vous pouvez omettre la ressource CurrentBillingFeatures du modèle.
 * Si vous voulez changer de forfait après avoir créé la ressource de composant, vous pouvez utiliser un modèle qui omet la ressource « microsoft.insights/components. ». Omettez aussi le nœud `dependsOn` dans la ressource de facturation. 
 
-Pour vérifier le forfait mis à jour, examinez le panneau « Fonctionnalités + tarification » dans le navigateur. **Actualisez l’affichage du navigateur** pour voir l’état le plus récent.
+Pour vérifier le plan tarifaire mis à jour, examinez le panneau **Utilisation de la page des coûts estimés** dans le navigateur. **Actualisez l’affichage du navigateur** pour voir l’état le plus récent.
 
 
 

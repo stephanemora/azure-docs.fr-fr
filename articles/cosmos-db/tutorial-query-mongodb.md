@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API MongoDB
 
@@ -30,6 +30,10 @@ Cet article décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Interrogation des données avec MongoDB
+
+Vous pouvez commencer par regarder cette vidéo avec Andy Hoh, responsable du programme Azure Cosmos DB, présentant les requêtes MongoDB :
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>Exemple de document
 
@@ -300,7 +304,7 @@ La requête suivante renvoie toutes les familles dont le nombre d’enfants est 
 
 **Résultats**
 
-Aucun résultat n’est renvoyé car aucune n’a plus de 2 enfants. Cette requête ne permet d’obtenir un résultat que lorsque le paramètre est 2, auquel cas l’ensemble du document est renvoyé.
+Aucun résultat n’est renvoyé car il n’y a aucune famille avec plus de deux enfants. Cette requête ne permet d’obtenir un résultat que lorsque le paramètre est 2, auquel cas l’ensemble du document est renvoyé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

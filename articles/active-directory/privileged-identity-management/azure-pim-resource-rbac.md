@@ -1,30 +1,30 @@
 ---
-title: "Vue d’ensemble de la fonctionnalité RBAC dans PIM pour les ressources Azure | Documents Microsoft"
-description: "Obtenir une vue d’ensemble de la fonctionnalité RBAC dans PIM, y compris la terminologie et les notifications"
+title: Vue d’ensemble de la fonctionnalité RBAC dans PIM pour les ressources Azure | Documents Microsoft
+description: Obtenir une vue d’ensemble de la fonctionnalité RBAC dans PIM, y compris la terminologie et les notifications
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: barclayn
-ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pim-for-azure-resources-preview"></a>PIM pour les ressources Azure (préversion)
+# <a name="pim-for-azure-resources"></a>PIM pour les ressources Azure
 
-Avec Azure Active Directory Privileged Identity Management (PIM), vous pouvez maintenant gérer, contrôler et surveiller l’accès aux ressources Azure (préversion) au sein de votre organisation. Cela inclut les abonnements, les groupes de ressources et même les machines virtuelles. N’importe quelle ressource dans le portail Azure tirant parti de la fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) de Azure peut utiliser toutes les capacités de gestion de la sécurité et des cycles de vie offertes par Azure AD PIM, ainsi que certaines nouvelles fonctionnalités que nous prévoyons d’ajouter bientôt aux rôles de Azure AD. 
+Avec Azure Active Directory Privileged Identity Management (PIM), vous pouvez maintenant gérer, contrôler et surveiller l’accès aux ressources Azure au sein de votre organisation. Cela inclut les abonnements, les groupes de ressources et même les machines virtuelles. N’importe quelle ressource dans le portail Azure tirant parti de la fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) de Azure peut utiliser toutes les capacités de gestion de la sécurité et des cycles de vie offertes par Azure AD PIM, ainsi que certaines nouvelles fonctionnalités que nous prévoyons d’ajouter bientôt aux rôles de Azure AD. 
 
-## <a name="pim-for-azure-resources-preview-helps-resource-administrators"></a>PIM pour les ressources Azure (préversion) vient en aide aux administrateurs de ressources
+## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM pour les ressources Azure vient en aide aux administrateurs de ressources
 
 - Vérifier quels utilisateurs et groupes se sont vus assigner des rôles pour les ressources Azure que vous administrez
 - Activer l’accès sur demande, « à la volée », pour gérer des ressources telles que les abonnements, les groupes de ressources, etc.
@@ -38,7 +38,7 @@ Azure AD PIM peut gérer les rôles intégrés de Azure Resource, ainsi que les 
 
 - Propriétaire
 - Administrateur de l'accès utilisateur
-- Collaborateur
+- Contributeur
 - Administrateur de la sécurité
 - Gestionnaire de sécurité, et plus
 
@@ -49,15 +49,15 @@ Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriéta
 
 PIM offre un accès aisé pour activer des rôles, afficher les demandes/activations en attente ainsi que les approbations en attente (pour [les rôles d’annuaire Azure AD](azure-ad-pim-approval-workflow.md)) et les revus attendant votre réponse à partir de la section Tâches du menu de navigation gauche.
 
-Lorsque vous accédez à l’un des éléments du menu Tâches à partir du point d’entrée Vue d’ensemble, la vue correspondante contient les résultats pour les rôles d’annuaire Azure AD et les rôles de ressources Azure (version préliminaire). 
+Lorsque vous accédez à l’un des éléments de menu Tâches à partir du point d’entrée Vue d’ensemble, la vue correspondante contient les résultats pour les rôles d’annuaire Azure AD et les rôles de ressources Azure. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-Mes rôles contiennent une liste de vos attributions de rôles actives et éligibles pour les rôles d’annuaire Azure AD et les rôles de ressources de Azure (préversion).
+Mes rôles contiennent une liste de vos attributions de rôles actives et éligibles pour les rôles d’annuaire Azure AD et les rôles de ressources de Azure.
 
 ## <a name="activate-roles"></a>Activer des rôles
 
-L’activation de rôles pour les ressources Azure (préversion) introduit une nouvelle expérience permettant aux membres du rôle éligible de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique au sein d’un délai maximal (configuré par les administrateurs). En savoir plus sur [l’activation de rôles de Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md).
+L’activation de rôles pour les ressources Azure introduit une nouvelle expérience permettant aux membres du rôle éligible de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique au sein d’un délai maximal (configuré par les administrateurs). En savoir plus sur [l’activation de rôles de Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -73,7 +73,7 @@ Si l’activation est planifiée pendant une date future, la demande en attente 
 
 ## <a name="discover-and-manage-azure-resources"></a>Découvrir et gérer des ressources Azure
 
-Pour rechercher et gérer les rôles pour une ressource Azure, sélectionnez Ressources de Azure (préversion) sous l’onglet Gérer dans le menu de navigation gauche. Utilisez les filtres ou la barre de recherche en haut de la page pour rechercher une ressource.
+Pour rechercher et gérer des rôles pour une ressource Azure, sélectionnez Ressources Azure sous l’onglet Gérer dans le menu de navigation de gauche. Utilisez les filtres ou la barre de recherche en haut de la page pour rechercher une ressource.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 

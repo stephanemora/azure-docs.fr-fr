@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -357,7 +357,7 @@ Cette fonctionnalité garantit que toutes les données sur les disques de vos ma
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>Machines virtuelles IaaS et fichiers VHD associés
 
-Pour les disques de données utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Si vous créez une machine virtuelle à partir d’une image issue d’Azure Marketplace, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image dans votre compte de stockage dans Azure Storage, mais elle ne chiffre pas les données, même si SSE est activé. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est préférable d’utiliser Azure Disk Encryption sur des machines virtuelles créées à partir d’images dans Place de marché Azure pour garantir le chiffrement de toutes les données.
+Pour les disques de données utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Si vous créez une machine virtuelle avec des disques non managés à l’aide d’une image issue de la Place de marché Microsoft, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image pour votre compte de stockage dans le Stockage Azure qui n’est pas chiffrée, même si vous êtes compatible SSE. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est conseillé d’utiliser Azure Disk Encryption sur des machines virtuelles avec des disques non managés créés à partir d’images dans la Place de marché Azure si vous souhaitez qu’elles soient complètement chiffrées. Si vous créez une machine virtuelle avec des disques managés, SSE chiffre toutes les données par défaut à l’aide de clés managées de la plate-forme. 
 
 Si vous ajoutez une machine virtuelle déjà chiffrée dans Azure à partir d’un emplacement local, vous pouvez charger les clés de chiffrement dans Azure Key Vault et continuer à utiliser le chiffrement qui était utilisé localement pour cette machine virtuelle. Dans ce scénario, le chiffrement Azure Disk Encryption est activé.
 

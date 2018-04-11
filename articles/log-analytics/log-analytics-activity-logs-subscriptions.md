@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Collecter les journaux d’activité Azure de différents abonnements dans Log Analytics
 
@@ -324,9 +324,9 @@ Pour afficher des informations détaillées sur chaque étape, cliquez sur le no
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Étape 5 : Afficher le journal d’activité Azure dans Log Analytics
 La dernière étape consiste à consulter l’espace de travail Log Analytics pour vérifier que les données sont collectées comme prévu.
 
-1. Dans le portail Azure, sélectionnez **Log Analytics**.
-2. Sélectionnez votre espace de travail, puis la vignette **Recherche dans les journaux**.
-3. Dans la barre de recherche, tapez `AzureActivity_CL` et lancez la recherche. Si vous n’avez pas nommé votre journal personnalisé *AzureActivity*, entrez le nom choisi et ajoutez `_CL`.
+1. Dans le portail Azure, cliquez sur **All services** (Tous les services) en haut à gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+2. Dans votre liste d’espaces de travail Log Analytics, sélectionnez votre espace de travail.
+3.  Cliquez sur la vignette **Recherche dans les journaux**. Ensuite, dans le volet Recherche dans les journaux, dans le champ de requête, tapez `AzureActivity_CL`, puis appuyez sur Entrée ou cliquez sur le bouton de recherche à droite du champ de requête. Si vous n’avez pas nommé votre journal personnalisé *AzureActivity*, entrez le nom choisi et ajoutez `_CL`.
 
 >[!NOTE]
 > Lors du premier envoi d’un nouveau journal personnalisé à Log Analytics, il peut être nécessaire d’attendre jusqu’à une heure pour qu’il puisse faire l’objet d’une recherche.

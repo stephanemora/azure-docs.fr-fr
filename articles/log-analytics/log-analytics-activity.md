@@ -1,24 +1,24 @@
 ---
-title: "Collecter et analyser les journaux d’activités Azure dans Log Analytics | Microsoft Docs"
-description: "Vous pouvez utiliser la solution Journaux d’activité Azure pour analyser et rechercher le journal d’activité Azure parmi tous vos abonnements Azure."
+title: Collecter et analyser les journaux d’activités Azure dans Log Analytics | Microsoft Docs
+description: Vous pouvez utiliser la solution Journaux d’activité Azure pour analyser et rechercher le journal d’activité Azure parmi tous vos abonnements Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
 
@@ -40,7 +40,7 @@ Lorsque vous connectez vos journaux d’activité Azure à Log Analytics, vous p
 - Identifier les problèmes d’intégrité de service ou de panne qui ont un impact sur vos ressources
 - Utiliser la fonction Recherche de journal pour mettre en corrélation les activités d’utilisateur, les opérations de mise à l’échelle automatique, les modifications d’autorisation et l’intégrité du service avec d’autres journaux ou métriques de votre environnement
 
-<sup>1</sup>Par défaut, Log Analytics conserve vos journaux d’activité Azure pendant 90 jours, même si vous êtes sur le niveau Gratuit. Ou si votre espace de travail est réglé sur une rétention de moins de 90 jours. Si votre espace de travail a une rétention de plus de 90 jours, les journaux d’activité sont conservés pendant la période de rétention de votre espace de travail.
+<sup>1</sup>Par défaut, Log Analytics conserve vos journaux d’activité Azure pendant 90 jours, même si vous êtes sur le niveau Gratuit. Ou si votre espace de travail est réglé sur une rétention de moins de 90 jours. Si votre espace de travail a une rétention de plus de 90 jours, les journaux d’activité sont conservés en fonction de la période de rétention de votre espace de travail.
 
 Log Analytics collecte gratuitement les journaux d’activité et les conserve gratuitement pendant 90 jours. Si vous conservez des journaux pendant plus de 90 jours, des frais de rétention vous seront facturés pour les données stockées pendant plus de 90 jours.
 
@@ -57,7 +57,8 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - Pour accéder aux informations des journaux d’activité Azure, vous devez posséder un abonnement Azure.
 
