@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -119,7 +119,7 @@ Heartbeat
 
 Sur un ordinateur Windows, vous pouvez observer les informations suivantes pour vérifier la connectivité de l’agent avec Log Analytics :
 
-1.  Ouvrez Microsoft Monitoring Agent dans le Panneau de configuration puis, dans l’onglet **Azure Log Analytics (OMS)**, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté au service Microsoft Operations Management Suite**.   
+1.  Ouvrez Microsoft Monitoring Agent dans le Panneau de configuration, puis, dans l’onglet **Azure Log Analytics**, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté à Log Analytics**.   
 2.  Ouvrez le journal des événements Windows, accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du connecteur de service source. Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail Log Analytics et qu’il reçoit la configuration.  
 
 Si l’agent ne parvient pas à communiquer avec Log Analytics et qu’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy sont correctement configurés en consultant la [configuration réseau de l’agent Windows](../log-analytics/log-analytics-agent-windows.md) ou la [configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
@@ -131,7 +131,7 @@ Si l’agent ne parvient pas à communiquer avec Log Analytics et qu’il est co
 
 Les nouveaux agents Linux ajoutés affichent l’état **Mis à jour** après l’exécution d’une évaluation. Ce processus peut prendre jusqu’à 6 heures.
 
-Pour vérifier qu’un groupe d’administration Operations Manager communique avec Log Analytics, consultez la rubrique [Valider l’intégration entre Operations Manager et OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Pour vérifier qu’un groupe d’administration Operations Manager communique avec Log Analytics, consultez la rubrique [Valider l’intégration entre Operations Manager et Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Collecte des données
 
@@ -173,7 +173,7 @@ Cliquez sur **Mises à jour manquantes** pour afficher la liste des mises à jou
 
 ## <a name="viewing-update-deployments"></a>Affichage des déploiements de mises à jour
 
-Cliquez sur **Déploiements de mises à jour** pour afficher la liste des déploiements de mises à jour existants. Cliquer sur un déploiement de mises à jour dans la liste ouvre la page **Exécution du déploiement des mises à jour** de ce déploiement de mises à jour.
+Cliquez sur l’onglet **Déploiement de mises à jour** pour afficher la liste des déploiements de mises à jour existants. Cliquer sur un déploiement de mises à jour dans le tableau ouvre la page **Exécution du déploiement des mises à jour** de ce déploiement de mises à jour.
 
 ![Vue d’ensemble des résultats d’un déploiement de mises à jour](./media/automation-update-management/update-deployment-run.png)
 
@@ -186,7 +186,7 @@ Pour créer un déploiement de mises à jour, cliquez sur le bouton **Planifier 
 | NOM |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
 | Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. |
-|Classification des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
+|Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
 |Mises à jour à exclure|Entrez tous les numéros de la Base de connaissances à exclure sans indiquer le préfixe « KB ».|
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
 | Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures. |
@@ -213,7 +213,7 @@ Le tableau suivant fournit des exemples de recherches dans les journaux d’enre
 
 Les clients qui ont investi dans System Center Configuration Manager pour gérer des PC, serveurs et autres appareils mobiles s’appuient aussi sur sa puissance et sa maturité pour gérer les mises à jour logicielles dans le cadre de leur cycle de gestion des mises à jour logicielles.
 
-Pour découvrir comment intégrer la solution OMS Update Management avec System Center Configuration Manager, consultez l’article [Intégrer System Center Configuration Manager avec OMS Update Management](oms-solution-updatemgmt-sccmintegration.md).
+Pour découvrir comment intégrer la solution de gestion à System Center Configuration Manager, consultez l’article [Intégrer System Center Configuration Manager à Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="patching-linux-machines"></a>Mise à jour corrective des ordinateurs Linux
 

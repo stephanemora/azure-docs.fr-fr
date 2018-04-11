@@ -2,6 +2,7 @@
 |----------|--------------|------------|
 | Services de synchronisation de stockage par abonnement | 15 services de synchronisation de stockage | Non  |
 | Groupes de synchronisation par service de synchronisation de stockage | 30 groupes de synchronisation | OUI |
+| Serveurs inscrits par le service de synchronisation de stockage | 99 serveurs | OUI |
 | Points de terminaison cloud par groupe de synchronisation | 1 point de terminaison cloud | OUI |
 | Points de terminaison de serveur par groupe de synchronisation | 50 points de terminaison de serveur | Non  |
 | Points de terminaison de serveur par serveur | 33 à 99 points de terminaison de serveur | Oui, mais varie en fonction de la configuration |

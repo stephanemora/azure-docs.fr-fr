@@ -1,6 +1,6 @@
 ---
-title: Alertes de métrique en temps quasi réel dans Azure Monitor | Microsoft Docs
-description: Découvrez comment utiliser les alertes de métrique en temps quasi réel pour surveiller les métriques des ressources Azure avec une fréquence aussi petite que 1 minute.
+title: Alertes métriques plus récentes dans les ressources prises en charge par Azure Monitor | Microsoft Docs
+description: Référence sur les métriques et les journaux prise en charge pour des alertes métriques Azure plus récentes quasiment en temps réel.
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -12,32 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Utiliser les alertes métriques les plus récentes pour les services Azure dans le Portail Azure
-Azure Monitor prend en charge un nouveau type d’alerte appelé alertes métriques en temps quasi réel. 
+# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Alertes métriques plus récentes pour les services Azure dans le portail Azure
+Désormais, Azure Monitor prend en charge un nouveau type d’alerte de métriques. Les alertes plus récentes diffèrent des [alertes métriques classiques](insights-alerts-portal.md) de plusieurs façons :
 
-Les alertes métriques en temps quasi réel à partir des [alertes métriques classiques](insights-alerts-portal.md) de plusieurs façons :
+- **Latence améliorée** : des alertes métriques plus récentes peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Les alertes de journal ont toujours un délai de plus d’une minute en raison du temps nécessaire à la réception des journaux. 
+- **Prise en charge de plusieurs métriques multidimensionnelles** : vous pouvez avertir sur des métriques dimensionnelles ce qui vous permet de surveiller un seul segment intéressant de la métrique. 
+- **Contrôle renforcé des conditions de métrique** : vous pouvez définir des règles d’alerte plus riches. Les alertes plus récentes prennent en charge la surveillance des valeurs maximales, minimales, moyennes et totales des métriques. 
+- **Surveillance combinée de plusieurs métriques** : vous pouvez surveiller plusieurs métriques (actuellement jusqu’à deux) avec une seule règle. Une alerte est déclenchée si les deux métriques violent leurs seuils respectifs durant la période spécifiée. 
+- **Meilleur système de notification** : toutes les alertes plus récentes utilisent des [groupes d’actions](monitoring-action-groups.md), qui sont des groupes nommés de notifications et d’actions qui peuvent être réutilisées dans plusieurs alertes. Les alertes métriques classiques et les alertes Log Analytics plus anciennes n’utilisent pas les groupes d’actions. 
+- **Métriques à partir des journaux** (version préliminaire publique limitée) : les données de journal vers Log Analytics peuvent maintenant être extraites et converties en métrique d’Azure Monitor et faire l’objet d’une alerte comme les autres métriques. 
 
-- **Latence améliorée** : des alertes métriques en temps quasi réel peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes.
-- **Prise en charge de plusieurs métriques multidimensionnelles** : vous pouvez avertir sur des métriques dimensionnelles ce qui vous permet d’analyser un segment intéressant de la métrique.
-- **Contrôle renforcé des conditions de métrique** : vous pouvez définir des règles d’alerte de métrique en temps quasi réel plus riches. Les alertes prennent en charge la surveillance des valeurs maximales, minimales, moyennes et totales des métriques.
-- **Surveillance combinée de plusieurs métriques**: les alertes de métrique en temps quasi réel peuvent surveiller plusieurs métriques (actuellement jusqu’à deux) avec une seule règle. Une alerte est déclenchée si les deux les métriques violent leurs seuils respectifs durant la période spécifiée.
-- **Système de notification modulaire** : Les alertes de métrique en temps quasi réel utilisent des [groupes d’actions](monitoring-action-groups.md). Vous pouvez utiliser des groupes d’actions pour créer des actions modulaires. Vous pouvez réutiliser des groupes d’actions pour plusieurs règles d’alerte.
-- **Métriques à partir de journaux** : à partir de données de journaux populaires dans [Log Analytics](../log-analytics/log-analytics-overview.md), des métriques peuvent être extraites dans Azure Monitor et alertées en temps quasi réel.
+Pour savoir comment créer une alerte métrique plus récente dans le Portail Azure, consultez [Créer une règle d’alerte dans le Portail Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Après la création, vous pouvez gérer l’alerte à l’aide de la procédure décrite dans [Gérer vos alertes dans le portail Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
+
+## <a name="portal-powershell-cli-rest-support"></a>Portail, PowerShell, CLI, prise en charge de REST
+Actuellement, vous pouvez créer des alertes métriques plus récentes uniquement dans le Portail Azure ou l’API REST. La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell l’interface de ligne de commande Azure (Azure CLI 2.0) est bientôt disponible.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métriques et dimensions prises en charge
-Les alertes de métrique en temps quasi réel prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. Toutes les métriques prises en charge, ainsi que les dimensions applicables, peuvent être examinées et visualisés à partir d’[Azure Monitor – Metrics Explorer (préversion)](monitoring-metric-charts.md).
+Les alertes métriques plus récentes prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. Toutes les métriques prises en charge, ainsi que les dimensions applicables, peuvent être examinées et visualisés à partir d’[Azure Monitor – Metrics Explorer (préversion)](monitoring-metric-charts.md).
 
-Voici la liste complète des sources de métriques basées sur Azure Monitor qui sont prises en charge pour émettre des alertes métriques en temps quasi réel :
+Voici la liste complète des sources de métrique d’Azure Monitor prises en charge par les alertes plus récentes :
 
 |Type de ressource  |Dimensions prises en charge  | Mesures disponibles|
 |---------|---------|----------------|
@@ -60,25 +63,20 @@ Voici la liste complète des sources de métriques basées sur Azure Monitor qui
 |Microsoft.Storage/storageAccounts/services     |     OUI    | [Services blob](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Services de fichiers](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Services de file d’attente](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) et [Services de table](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (Préversion) | OUI|[Espaces de travail Log Analytics](#support-for-oms-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (Préversion) | OUI|[Espaces de travail Log Analytics](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## <a name="create-a-newer-metric-alert"></a>Créer une alerte métrique plus récente
-Actuellement, vous pouvez créer des alertes métriques plus récentes uniquement dans le Portail Azure ou l’API REST. La prise en charge de la configuration d’alertes métriques en temps quasi réel en utilisant PowerShell, l’interface de ligne de commande Azure (Azure CLI) est pour bientôt.
+## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Journaux Log Analytics comme métriques pour les alertes 
 
-Pour savoir comment créer une alerte métrique plus récente dans le Portail Azure, consultez [Créer une règle d’alerte dans le Portail Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-newer-metric-alerts"></a>Gérer des alertes métriques plus récente
-Après avoir créé une alerte de métrique en temps quasi réel, vous pouvez gérer l’alerte à l’aide de la procédure décrite dans [Gérer vos alertes dans le portail Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
-## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Prendre en charge des journaux OMS comme métriques pour les alertes
-
-Vous pouvez également utiliser des alertes métriques en temps quasi réel sur des journaux OMS populaires extraits comme des métriques dans le cadre des Métriques de la préversion des Journaux.  
+Vous pouvez également utiliser des alertes métriques plus récentes sur des journaux Log Analytics populaires extraits comme des métriques dans le cadre des Métriques de la préversion des Journaux.  
 - [Les compteurs de performance](../log-analytics/log-analytics-data-sources-performance-counters.md) pour les machines Windows et Linux
 - [Enregistrements de pulsations pour Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
 - Enregistrements de la [gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)
+ 
+> [!NOTE]
+> La métrique et/ou la dimension spécifique ne s’affichera que si des données correspondantes existent pour la période choisie. Ces métriques sont disponibles pour les clients avec les espaces de travail de l’est des États-Unis, ouest du centre des États-Unis et Europe de l’Ouest qui ont souscrit à la préversion. Si vous souhaitez faire partie de cette préversion, inscrivez-vous à l’aide de [l’enquête](https://aka.ms/MetricLogPreview).
 
-Voici la liste complète des sources de métriques basées sur le journal OMS qui sont prises en charge pour émettre des alertes métriques en temps quasi réel :
+La liste suivante des sources de métriques basées sur le journal Log Analytics est prise en charge :
 
 Nom de la métrique/Détails  |Dimensions prises en charge  | Type de journal  |
 |---------|---------|---------|
@@ -151,13 +149,11 @@ Nom de la métrique/Détails  |Dimensions prises en charge  | Type de journal  |
 |    Heartbeat  |     Oui – Computer, OSType, Version et SourceComputerId    |   Enregistrements de pulsation |
 |    Mettre à jour |     Oui - Computer, Product, Classification, UpdateState, facultatif et approuvée    |   Update Management |
 
-> [!NOTE]
-> La métrique et/ou la dimension spécifique ne s’affichera que si des données correspondantes existent pour la période choisie. Ces métriques sont disponibles pour les clients avec les espaces de travail de l’est des États-Unis, ouest du centre des États-Unis et Europe de l’Ouest qui ont souscrit à la préversion. Si vous souhaitez faire partie de cette préversion, inscrivez-vous à l’aide de [l’enquête](https://aka.ms/MetricLogPreview).
 
 
 ## <a name="payload-schema"></a>Schéma de la charge utile
 
-L’opération POST contient le schéma et la charge utile JSON ci-après pour toutes les alertes en temps quasi réel basées sur des métriques lorsqu’un [groupe d’action](monitoring-action-groups.md) configuré de manière appropriée est utilisé :
+L’opération POST contient le schéma et la charge utile JSON ci-après pour toutes les alertes plus récentes basées sur des métriques lorsqu’un [groupe d’action](monitoring-action-groups.md) configuré de manière appropriée est utilisé :
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":

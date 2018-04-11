@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solution Start/Stop VMs during off-hours (préversion) dans Azure Automation
 
@@ -56,7 +56,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
 
 1. La page **Ajouter une solution** s’affiche. Vous êtes invité à configurer la solution pour pouvoir l’importer dans votre abonnement Automation.
    ![Page Ajouter une solution de VM Management (Gestion de machines virtuelles)](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. Sur la page **Ajouter une solution**, sélectionnez **Espace de travail**. Sélectionnez un espace de travail OMS lié au même abonnement Azure que celui dans lequel le compte Automation se trouve. Si vous ne disposez pas d’espace de travail, sélectionnez **Créer un espace de travail**. Sur la page **Espace de travail OMS**, procédez comme suit :
+1. Sur la page **Ajouter une solution**, sélectionnez **Espace de travail**. Sélectionnez un espace de travail Log Analytics lié au même abonnement Azure que celui dans lequel le compte Automation se trouve. Si vous ne disposez pas d’espace de travail, sélectionnez **Créer un espace de travail**. Sur la page **Espace de travail OMS**, procédez comme suit :
    * Spécifiez un nom pour le nouvel **espace de travail OMS**.
    * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    * Sous **Groupe de ressources**, vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà.
@@ -64,13 +64,13 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
    * Sélectionner un **niveau de tarification**. Deux niveaux sont proposés pour la solution : **Gratuit** et **Par nœud (OMS)**. La quantité de données collectées quotidiennement, la période de rétention et la durée d’exécution (en minutes) des tâches de runbook sont limitées pour le niveau Gratuit. Le niveau Par nœud permet de collecter une quantité illimitée de données quotidiennement.
 
         > [!NOTE]
-        > Bien que le niveau payant par Go (autonome) s’affiche comme une option, il n’est pas applicable. Si vous la sélectionnez et poursuivez la création de cette solution dans votre abonnement, elle échouera. Ce problème sera résolu lors de la sortie officielle de cette solution. Cette solution utilise uniquement les minutes du travail d’automatisation et l’ingestion du journal. Elle n’ajoute pas de nœuds OMS à votre environnement.
+        > Bien que le niveau payant par Go (autonome) s’affiche comme une option, il n’est pas applicable. Si vous la sélectionnez et poursuivez la création de cette solution dans votre abonnement, elle échouera. Ce problème sera résolu lors de la sortie officielle de cette solution. Cette solution utilise uniquement les minutes du travail d’automatisation et l’ingestion du journal. Elle n’ajoute pas de nœuds à votre environnement.
 
 1. Après avoir entré les informations requises sur la page **Espace de travail OMS**, cliquez sur **Créer**. Vous pouvez suivre sa progression sous **Notifications** dans le menu, qui vous renvoie à la page **Ajouter une solution** une fois terminé.
-1. Sur la page **Ajouter une solution**, sélectionnez **Compte Automation**. Si vous créez un espace de travail OMS, vous devez également créer un compte Automation à lui associer. Sélectionnez **Créer un compte Automation**, puis sur la page **Ajouter un compte Automation**, fournissez les informations suivantes :
+1. Sur la page **Ajouter une solution**, sélectionnez **Compte Automation**. Si vous créez un espace de travail Log Analytics, vous devez également créer un compte Automation à lui associer. Sélectionnez **Créer un compte Automation**, puis sur la page **Ajouter un compte Automation**, fournissez les informations suivantes :
    * Dans le champ **Nom**, saisissez le nom du compte Automation.
 
-    Toutes les autres options sont renseignées automatiquement en fonction de l’espace de travail OMS sélectionné et ne peuvent pas être modifiées. Un compte d’identification Azure est la méthode d’authentification par défaut pour les runbooks inclus dans cette solution. Après avoir cliqué sur **OK**, les options de configuration sont validées et le compte Automation est créé. Vous pouvez suivre la progression sous **Notifications** dans le menu.
+    Toutes les autres options sont renseignées automatiquement en fonction de l’espace de travail Log Analytics sélectionné. et ne peuvent pas être modifiées. Un compte d’identification Azure est la méthode d’authentification par défaut pour les runbooks inclus dans cette solution. Après avoir cliqué sur **OK**, les options de configuration sont validées et le compte Automation est créé. Vous pouvez suivre la progression sous **Notifications** dans le menu.
 
 1. Enfin, sur la page **Ajouter une solution**, sélectionnez **Configuration**. La page **Paramètres** s’affiche.
 
@@ -231,7 +231,7 @@ Vous ne devez pas activer toutes les planifications, car vous risqueriez de cré
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 
-Automation crée deux types d’enregistrements dans le référentiel OMS : les journaux de tâches et les flux de tâches.
+Automation crée deux types d’enregistrements dans l’espace de travail Log Analytics : les journaux de tâches et les flux de tâches.
 
 ### <a name="job-logs"></a>Journaux de tâches
 

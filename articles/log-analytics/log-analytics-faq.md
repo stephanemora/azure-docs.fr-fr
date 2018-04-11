@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -51,7 +51,7 @@ R : Non. Log Analytics est un service cloud évolutif qui traite et stocke d’
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Comment procéder au dépannage si Log Analytics ne collecte plus de données ?
 
-R : Si vous utilisez le niveau tarifaire gratuit et que vous avez envoyé plus de 500 Mo de données le même jour, la collecte de données s’arrête pour le reste de la journée. La limite quotidienne est la principale raison pour laquelle Log Analytics arrête la collecte de données ou des données semblent manquantes.  
+R : pour un abonnement et un espace de travail créés avant le 2 avril 2018, dont le niveau tarifaire est *Gratuit*, si plus de 500 Mo de données sont envoyées au cours d’une journée, la collecte de données s’arrête pour le reste de celle-ci. La limite quotidienne est la principale raison pour laquelle Log Analytics arrête la collecte de données ou des données semblent manquantes.  
 
 Log Analytics crée un événement de type *Pulsation* et peut être utilisé pour déterminer si la collecte de données s’arrête. 
 
@@ -68,7 +68,7 @@ Le tableau suivant décrit les raisons pour lesquelles la collecte de données s
 | Limite de données gratuites atteinte<sup>1</sup>       | Attendez le mois suivant pour que la collecte redémarre automatiquement ou<br> Passez à un niveau tarifaire payant |
 | Abonnement Azure à l’état interrompu pour la raison suivante : <br> Fin de l’essai gratuit <br> Expiration du Pass Azure <br> Limite de dépense mensuelle atteinte (par exemple, sur un abonnement MSDN ou Visual Studio)                          | Passer à un abonnement payant <br> Passer à un abonnement payant <br> Supprimer la limite ou attendre sa réinitialisation |
 
-<sup>1</sup> Si votre espace de travail utilise le niveau tarifaire gratuit, vous êtes limité à 500 Mo de données envoyées au service par jour. Lorsque vous atteignez la limite quotidienne, la collecte de données s’arrête jusqu’au jour suivant. Les données envoyées pendant l’arrêt de la collecte de données ne sont pas indexées et ne sont pas accessibles à la recherche. Lorsque la collecte de données reprend, le traitement se produit uniquement pour les nouvelles données envoyées. 
+<sup>1</sup> Si votre espace de travail utilise le niveau tarifaire *Gratuit*, vous êtes limité à 500 Mo de données envoyées au service par jour. Lorsque vous atteignez la limite quotidienne, la collecte de données s’arrête jusqu’au jour suivant. Les données envoyées pendant l’arrêt de la collecte de données ne sont pas indexées et ne sont pas accessibles à la recherche. Lorsque la collecte de données reprend, le traitement se produit uniquement pour les nouvelles données envoyées. 
 
 Log Analytics utilise l’heure UTC ; chaque jour commence à minuit UTC. Si l’espace de travail atteint la limite quotidienne, le traitement reprend à la première heure du jour UTC suivant.
 
@@ -96,7 +96,7 @@ R. Non, il n’est pas possible pour le moment de lire des tables ou des contene
 
 R. Le service Log Analytics repose sur Azure. Les adresses IP Log Analytics se trouvent dans les [plages d’adresses IP des centres de données Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS autorisés par votre pare-feu sont documentées à l’adresse [Configurer les paramètres de pare-feu et de proxy dans Log Analytics](log-analytics-proxy-firewall.md).
+Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS à autoriser via votre pare-feu sont documentés dans la [configuration requise](log-analytics-concept-hybrid.md#prerequisites).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. J’utilise ExpressRoute pour me connecter à Azure. Mon trafic Log Analytics utilise-t-il ma connexion ExpressRoute ?
 
@@ -144,7 +144,7 @@ R. Le forfait gratuit définit une limite quotidienne de 500 Mo par espace de t
 
 L’agent Log Analytics a été conçu pour garantir un faible encombrement. Le volume de données varie selon les solutions activées. Vous trouverez des informations détaillées sur le volume de données ainsi que la répartition par solution sur la page [Utilisation](log-analytics-usage.md).
 
-Pour en savoir plus, vous pouvez lire un [blog client](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) sur le faible encombrement de l’agent OMS.
+Pour plus d’informations, vous pouvez lire un [blog de client](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) affichant les résultats après l’évaluation de l’utilisation des ressources (encombrement) de l’agent OMS.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Quelle est la quantité de bande passante réseau utilisée par Microsoft Management Agent (MMA) lorsqu’il envoie des données à Log Analytics ?
 

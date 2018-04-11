@@ -6,22 +6,23 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Utiliser Draft avec Azure Container Service (AKS)
 
-Draft est un outil open source qui facilite l'empaquetage et l’exécuter du code dans un cluster Kubernetes. Draft s'applique au cycle d’itération de développement, pendant le développement du code, mais avant le contrôle de version. Avec Draft, vous pouvez rapidement redéployer une application sur Kubernetes à mesure que le code est modifié. Pour plus d’informations sur Draft, consultez la [documentation Draft sur GitHub][draft-documentation].
+Draft est un outil open source qui permet de contenir et de déployer ces conteneurs dans un cluster Kubernetes, vous permettant de vous concentrer sur le cycle de développement, la « boucle intérieure » de développement concentré. Draft fonctionne lorsque le code est en cours de développement, mais avant la validation en gestion de version. Avec Draft, vous pouvez rapidement redéployer une application sur Kubernetes à mesure que le code est modifié. Pour plus d’informations sur Draft, consultez la [documentation Draft sur GitHub][draft-documentation].
 
 Ce document détaille l'utilisation de Draft avec un cluster Kubernetes sur AKS.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, consultez le [guide de démarrage rapide d’ACS][aks-quickstart].
 
@@ -29,64 +30,51 @@ Vous avez également besoin d'un registre Docker privé dans Azure Container Reg
 
 Helm doit également être installé dans votre cluster AKS. Pour plus d’informations sur l’installation de Helm, consultez [Use Helm with Azure Container Service and Kubernetes][aks-helm] (Utiliser Helm avec Azure Container Service et Kubernetes).
 
+Enfin, vous devez installer [Docker](https://www.docker.com).
+
 ## <a name="install-draft"></a>Installer Draft
 
-L’interface CLI Draft est un client qui s’exécute sur votre système de développement et vous permet de rapidement déployer un code dans un cluster Kubernetes.
+L’interface CLI Draft est un client qui s’exécute sur votre système de développement et vous permet de rapidement déployer un code dans un cluster Kubernetes. 
+
+> [!NOTE] 
+> Si vous avez installé une version de Draft antérieure à 0.12, vous devez tout d’abord supprimer Draft de votre cluster à l’aide de `helm delete --purge draft`, puis supprimer votre configuration locale en exécutant `rm -rf ~/.draft`. Si vous êtes sur MacOS, vous pouvez exécuter `brew upgrade draft`.
 
 Pour installer l’interface CLI Draft sur un Mac, utilisez `brew`. Pour connaître les autres options d’installation, consultez le [guide d’installation de Draft][install-draft].
 
 ```console
+brew tap azure/draft
 brew install draft
 ```
 
-Output:
-
-```
-==> Installing draft from azure/draft
-==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
-Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
-==> /usr/local/Cellar/draft/0.7.0/bin/draft init --client-only
-🍺  /usr/local/Cellar/draft/0.7.0: 6 files, 61.2MB, built in 1 second
-```
-
-## <a name="configure-draft"></a>Configurer Draft
-
-Lors de la configuration de Draft, un registre de conteneurs doit être spécifié. Dans cet exemple, nous utilisons Azure Container Registry.
-
-Exécutez la commande suivante pour obtenir le nom et le nom du serveur de connexion de votre instance ACR. Mettez à jour la commande avec le nom du groupe de ressources contenant votre instance ACR.
-
-```console
-az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
-```
-
-Le mot de passe de l'instance ACR est également nécessaire.
-
-Exécutez la commande suivante pour retourner le mot de passe ACR. Mettez à jour la commande avec le nom de l'instance ACR.
-
-```console
-az acr credential show --name <acr name> --query "passwords[0].value" --output table
-```
-
-Initialisez Draft avec la commande `draft init`.
+À présent, initialisez Draft avec la commande `draft init`.
 
 ```console
 draft init
 ```
 
-Pendant ce processus, vous êtes invité à saisir les informations d’identification du registre de conteneurs. Lorsque vous utilisez un registre Azure Container Registry, l’URL du registre est le nom du serveur de connexion ACR, le nom d’utilisateur est le nom de l'instance ACR, et le mot de passe est le mot de passe ACR.
+## <a name="configure-draft"></a>Configurer Draft
+
+Draft génère les images conteneur localement, puis soit il les déploie à partir du registre local (dans le cas de Minikube), soit vous devez spécifier le registre d’image à utiliser. Cet exemple utilise Azure Container Registry (ACR), vous devez donc établir une relation d’approbation entre votre cluster AKS et le registre ACR et configurer Draft pour envoyer le conteneur à ACR.
+
+### <a name="create-trust-between-aks-cluster-and-acr"></a>Créer une relation d’approbation entre les clusters AKS et ACR
+
+Pour établir une relation d’approbation entre un cluster AKS et un registre ACR, vous devez modifier le principal de service Azure Active Directory utilisé avec AKS en y ajoutant le rôle de contributeur avec comme étendue le référentiel ACR. Pour ce faire, exécutez les commandes suivantes, en remplaçant _&lt;aks-rg-name&gt;_ et _&lt;aks-cluster-name&gt;_ par le groupe de ressources et le nom de votre cluster AKS, et _&lt;acr-rg-nam&gt;_ et _&lt;acr-repo-name&gt;_ par le groupe de ressources et le nom de référentiel de votre référentiel ACR avec lequel vous souhaitez établir une relation d’approbation.
 
 ```console
-1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
-2. Enter your username: <ACR Name>
-3. Enter your password: <ACR Password>
+export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
-Une fois le processus terminé, Draft est configuré dans le cluster Kubernetes et prêt à être utilisé.
+(Ces étapes ainsi que d’autres mécanismes d’authentification pour accéder à ACR se trouvent sur la page [S’authentifier avec ACR](../container-registry/container-registry-auth-aks.md).)
 
-```
-Draft has been installed into your Kubernetes Cluster.
-Happy Sailing!
-```
+### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Configurer Draft pour envoyer vers/déployer à partir de ACR
+
+Maintenant qu’il existe une relation d’approbation entre AKS et ACR, les étapes suivantes permettent l’utilisation d’ACR à partir de votre cluster AKS.
+1. Définissez la valeur `registry` de configuration Draft en exécutant `draft config set registry <registry name>.azurecr.io`, où _&lt;registry name&lt;_ est le nom de votre registre ACR.
+2. Connectez-vous au registre ACR en exécutant `az acr login -n <registry name>`. 
+
+Puisque vous êtes désormais connecté en local à ACR et que vous avez créé une relation d’approbation entre AKS et ACR, aucun mot de passe ou secret n’est nécessaire pour la transmission ou l’extraction depuis ACR vers AKS. L’authentification s’effectue au niveau d’Azure Resource Manager, à l’aide d’Azure Active Directory. 
 
 ## <a name="run-an-application"></a>Exécuter une application
 
@@ -99,7 +87,7 @@ git clone https://github.com/Azure/draft
 Accédez au répertoire d’exemples Java.
 
 ```console
-cd draft/examples/java/
+cd draft/examples/example-java/
 ```
 
 Utilisez la commande `draft create` pour démarrer le processus. Cette commande crée les artefacts utilisés pour exécuter l’application dans un cluster Kubernetes. Ces éléments incluent un fichier Dockerfile, un graphique Helm et un fichier `draft.toml` (le fichier de configuration Draft).
@@ -110,12 +98,14 @@ draft create
 
 Output:
 
-```
+```console
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
 
-Pour exécuter l’application sur un cluster Kubernetes, utilisez la commande `draft up`. Cette commande charge le code de l'application et les fichiers de configuration sur le cluster Kubernetes. Elle exécute ensuite le fichier Dockerfile pour créer une image de conteneur, envoie l’image vers le registre de conteneurs, puis exécute le graphique Helm pour démarrer l’application.
+Pour exécuter l’application sur un cluster Kubernetes, utilisez la commande `draft up`. Cette commande génère ensuite le fichier Dockerfile pour créer une image conteneur, envoie l’image vers ACR puis installe le graphique Helm pour démarrer l’application dans AKS.
+
+La première fois que cette commande est exécutée, la transmission ou l’extraction de l’image conteneur peut prendre du temps ; une fois que les calques de base sont mis en cache, la durée est considérablement réduite.
 
 ```console
 draft up
@@ -123,12 +113,13 @@ draft up
 
 Output:
 
-```
-Draft Up Started: 'open-jaguar'
-open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
-open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
-open-jaguar: Releasing Application: SUCCESS ⚓  (4.5056s)
-open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
+```console
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (3.0007s)
+example-java: Releasing Application: SUCCESS ⚓  (0.9322s)
+example-java: Build ID: 01C9NPDYQQH2CZENDMZW7ESJAM
+Inspect the logs with `draft logs 01C9NPDYQQH2CZENDMZW7ESJAM`
 ```
 
 ## <a name="test-the-application"></a>Test de l'application
@@ -143,7 +134,7 @@ draft connect
 
 Output:
 
-```
+```console
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -153,7 +144,10 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Lorsque vous avez fini de tester l'application, utilisez la commande `Control+C` pour interrompre la connexion proxy.
+Vous pouvez maintenant tester votre application en accédant à http://localhost:46143 (pour l’exemple précédent ; il se peut que votre port soit différent). Lorsque vous avez fini de tester l'application, utilisez la commande `Control+C` pour interrompre la connexion proxy.
+
+> [!NOTE]
+> Vous pouvez également utiliser la commande `draft up --auto-connect` pour créer et déployer votre application et vous connecter immédiatement au premier conteneur en cours d’exécution afin d’accélérer encore plus le cycle d’itération.
 
 ## <a name="expose-application"></a>Exposer l’application
 
@@ -163,7 +157,7 @@ Lorsque vous testez une application dans Kubernetes, vous pouvez rendre l’appl
 Tout d’abord, le pack Draft doit être mis à jour pour indiquer qu’un service de type `LoadBalancer` doit être créé. Pour cela, mettez à jour le type de service dans le fichier `values.yaml`.
 
 ```console
-vi chart/java/values.yaml
+vi charts/java/values.yaml
 ```
 
 Recherchez la propriété `service.type` et remplacez la valeur `ClusterIP` par `LoadBalancer`.
@@ -203,13 +197,13 @@ kubectl get service -w
 Au début, l’*adresse IP externe* pour le service apparaît comme `pending`.
 
 ```
-deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
+example-java-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
 Une fois que l’adresse IP externe est passée du statut `pending` à `IP address`, utilisez `Control+C` pour arrêter le processus de surveillance kubectl.
 
 ```
-deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+example-java-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
 Pour afficher l’application, accédez à l’adresse IP externe.
@@ -243,25 +237,35 @@ import static spark.Spark.*;
 
 public class Hello {
     public static void main(String[] args) {
-        get("/", (req, res) -> "Hello World, I'm Java - Draft Rocks!");
+        get("/", (req, res) -> "Hello World, I'm Java in AKS!");
     }
 }
 ```
 
-Exécutez la commande `draft up` pour redéployer l’application.
+Exécutez la commande `draft up --auto-connect` pour redéployer l’application dès qu’un pod est prêt à répondre.
 
 ```console
-draft up
+draft up --auto-connect
 ```
 
 Sortie
 
 ```
-Draft Up Started: 'deadly-squid'
-deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
-deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
-deadly-squid: Releasing Application: SUCCESS ⚓  (6.5005s)
-deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (4.0010s)
+example-java: Releasing Application: SUCCESS ⚓  (1.1336s)
+example-java: Build ID: 01C9NPMJP6YM985GHKDR2J64KC
+Inspect the logs with `draft logs 01C9NPMJP6YM985GHKDR2J64KC`
+Connect to java:4567 on localhost:39249
+Your connection is still active.
+Connect to java:4567 on localhost:39249
+[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: == Spark has ignited ...
+[java]: >> Listening on 0.0.0.0:4567
+
 ```
 
 Enfin, affichez l’application pour voir les mises à jour.
@@ -273,7 +277,7 @@ curl 52.175.224.118
 Output:
 
 ```
-Hello World, I'm Java - Draft Rocks!
+Hello World, I'm Java in AKS!
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

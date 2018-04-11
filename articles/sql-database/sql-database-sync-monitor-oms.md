@@ -1,6 +1,6 @@
 ---
-title: Surveiller Azure SQL Data Sync avec OMS Log Analytics | Microsoft Docs
-description: Découvrez comment surveiller Azure SQL Data Sync à l’aide d’OMS Log Analytics
+title: Surveiller Azure SQL Data Sync (préversion) avec OMS Log Analytics | Microsoft Docs
+description: Découvrez comment surveiller Azure SQL Data Sync (préversion) à l’aide d’OMS Log Analytics
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -9,11 +9,11 @@ author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Surveiller SQL Data Sync (préversion) avec OMS Log Analytics 
 

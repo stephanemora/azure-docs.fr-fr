@@ -1,26 +1,27 @@
 ---
 title: Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels - PowerShell | Microsoft Docs
-description: Apprenez à connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels.
+description: Dans cet article, vous apprendrez à connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b067dfd6d50b61614c2f3de2fa0e159cd645f9eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 445baa36f33cbe02b68bdb37406f842932089183
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant PowerShell
 
@@ -203,35 +204,8 @@ Quand vous n’avez plus besoin d’un groupe de ressources, utilisez la command
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-**<a name="register"></a>Inscription à la préversion de l’appairage de réseaux virtuels mondiaux**
-
-L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels dans des régions différentes est actuellement en version préliminaire. Consultez [Virtual network updates](https://azure.microsoft.com/updates/?product=virtual-network) (Mises à jour du réseau virtuel) pour les régions disponibles. Pour appairer des réseaux virtuels dans différentes régions, vous devez d’abord vous inscrire à la préversion, en effectuant les étapes suivantes (dans l’abonnement dans lequel se trouve chaque réseau virtuel à appairer) :
-
-1. Pour inscrire l’abonnement dans lequel se trouve chaque réseau virtuel à homologuer à la préversion, entrez les commandes suivantes :
-
-    ```powershell-interactive
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-2. Vérifiez que vous êtes inscrit à la préversion en saisissant la commande suivante :
-
-    ```powershell-interactive    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    Si vous tentez d’appairer des réseaux virtuels dans des régions différentes avant que la valeur de **RegistrationState** (état d’inscription) de sortie reçue après la saisie de la commande précédente soit **Registered** (inscrit) pour les deux abonnements, l’appairage échoue.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à connecter deux réseaux avec l’appairage de réseaux virtuels. Dans cet article, vous avez appris à connecter deux réseaux situés au même emplacement Azure à l’aide de l’homologation de réseaux virtuels. Vous pouvez également homologuer des réseaux virtuels situés dans des [régions différentes](#register) ou des [abonnements Azure différents](create-peering-different-subscriptions.md#portal). En outre, vous pouvez créer des [conceptions réseau de concentrateurs et de spoke ](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’homologation. Avant d’homologuer des réseaux virtuels en production, il est recommandé de bien vous familiariser avec la [vue d’ensemble de l’homologation](virtual-network-peering-overview.md), la [gestion de l’homologation](virtual-network-manage-peering.md) et les [limites de réseau virtuel](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Dans cet article, vous avez appris à connecter deux réseaux situés dans la même région Azure à l’aide de l’appairage de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](virtual-network-manage-peering.md#cross-region) et dans des [abonnements Azure différents](create-peering-different-subscriptions.md#powershell). Vous pouvez aussi créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’appairage. Pour en savoir plus sur l’appairage de réseaux virtuels, consultez [Aperçu de présentation de l’appairage de réseaux virtuels](virtual-network-peering-overview.md) et [Gérer les appairages de réseau virtuels](virtual-network-manage-peering.md).
 
-Vous pouvez [connecter votre propre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via un VPN et interagir avec les ressources dans un réseau virtuel, ou dans des réseaux virtuels appairés. Consultez les exemples de script pour obtenir des scripts réutilisables permettant d’accomplir un grand nombre des tâches présentées dans les articles sur les réseaux virtuels.
-
-> [!div class="nextstepaction"]
-> [Exemples de scripts de réseau virtuel](../networking/powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Vous pouvez [connecter votre propre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via un VPN et interagir avec les ressources dans un réseau virtuel, ou dans des réseaux virtuels appairés. Consultez les [exemples de script](powershell-samples.md) pour obtenir des scripts réutilisables permettant d’accomplir un grand nombre des tâches présentées dans les articles sur les réseaux virtuels.

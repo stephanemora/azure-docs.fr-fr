@@ -1,12 +1,12 @@
 ---
-title: "Conserver les adresses IP pour le basculement de machines virtuelles Azure vers une autre région Azure | Microsoft Docs"
-description: "Décrit comment conserver les adresses IP pour les scénarios de basculement Azure vers Azure avec Azure Site Recovery"
+title: Conserver les adresses IP pour le basculement de machines virtuelles Azure vers une autre région Azure | Microsoft Docs
+description: Décrit comment conserver les adresses IP pour les scénarios de basculement Azure vers Azure avec Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Conservation des adresses IP pour le basculement de machines virtuelles Azure
 
@@ -84,11 +84,7 @@ L’exemple de basculement isolé ci-dessus peut être étendu pour inclure d’
 
 ### <a name="further-considerations"></a>Autres considérations
 
-Les passerelles VPN utilisent des adresses IP publiques et des tronçons de passerelle pour établir les connexions. Si vous ne souhaitez pas utiliser d’adresses IP publiques et/ou préférez éviter tout tronçon supplémentaire, vous pouvez désormais utiliser Global VNet Peering pour l’homologation de réseaux virtuels entre les régions Azure.
-
-Cette fonctionnalité est actuellement disponible en préversion publique et est en cours d’extension pour prendre en charge un plus grand nombre de régions, pour une connectivité de machine virtuelle à machine virtuelle directe sans passer par le réseau Internet public ni utiliser de tronçons supplémentaires.
-
-Pour plus d’informations, reportez-vous à la [documentation sur l’homologation](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) et aux informations relatives aux [prix](https://azure.microsoft.com/pricing/details/virtual-network/).
+Les passerelles VPN utilisent des adresses IP publiques et des tronçons de passerelle pour établir les connexions. Si vous ne souhaitez pas utiliser d’adresses IP publiques et/ou préférez éviter tout tronçon supplémentaire, vous pouvez utiliser l’[homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) Azure pour homologuer des réseaux virtuels dans les [régions Azure prises en charge](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Connectivité locale vers Azure
 
