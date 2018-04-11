@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -375,22 +375,14 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
    ![Rechercher l’équilibrage de charge dans le groupe de ressources](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Cliquez sur l’équilibrage de charge, sur **Pools principaux**, puis sur **+Ajouter**. Configurez le pool principal comme suit :
+1. Cliquez sur l’équilibrage de charge, sur **Pools principaux**, puis sur **+Ajouter**. 
 
-   | Paramètre | Description | Exemples
-   | --- | --- |---
-   | **Name** | Tapez un nom. | SQLLBBE
-   | **Associé à** | Choisir dans la liste | Groupe à haute disponibilité
-   | **Groupe à haute disponibilité** | Utilisez le nom du groupe à haute disponibilité auquel appartiennent vos machines virtuelles SQL Server. | sqlAvailabilitySet |
-   | **Machines virtuelles** |Les deux noms des machines virtuelles SQL Server Azure | sqlserver-0, sqlserver-1
+1. Associez le pool principal au groupe à haute disponibilité contenant les machines virtuelles.
 
-1. Tapez le nom du pool principal.
+1. Sous **Configurations IP du réseau cible**, cochez **MACHINE VIRTUELLE** et choisissez les deux machines virtuelles qui hébergeront les réplicas du groupe de disponibilité. N’incluez pas le serveur témoin de partage de fichiers.
 
-1. Cliquez sur **+ Ajouter une machine virtuelle**.
-
-1. Pour le groupe à haute disponibilité, choisissez le groupe de disponibilité qui contient les serveurs SQL Server.
-
-1. Pour les machines virtuelles, incluez les deux serveurs SQL Server. N’incluez pas le serveur témoin de partage de fichiers.
+   >[!NOTE]
+   >Si les deux machines virtuelles ne sont pas spécifiées, la connexion sera établie avec le réplica principal uniquement.
 
 1. Cliquez sur **OK** pour créer le pool principal.
 

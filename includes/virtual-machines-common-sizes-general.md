@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b29429e1efe46aef8263bed5edb3daeffdf41122
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -95,14 +95,13 @@ ACU : 210-250
 
 ACU : 210-250
 
-| Taille              | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
-|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1 500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3 000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6 000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000  |
-
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1_v2 |1 |3,5 |4 |50 |3000 / 46 / 23 |4 / 4 x 500 |2 / 750 |
+| Standard_D2_v2 |2 |7 |8 |100 |6000 / 93 / 46 |8 / 8 x 500 |2 / 1 500 |
+| Standard_D3_v2 |4 |14 |16 |200 |12000 / 187 / 93 |16 / 16 x 500 |4 / 3 000 |
+| Standard_D4_v2 |8 |28 |32 |400 |24000 / 375 / 187  |32 / 32 x 500 |8 / 6 000 |
+| Standard_D5_v2 |16 |56 |64 |800 |48000 / 750 / 375 |64 / 64 x 500 |8 / 12000 |
 
 <br>
 
@@ -136,6 +135,8 @@ ACU : 160
 ## <a name="av2-series"></a>Série Av2
 
 ACU : 100
+
+
 
 | Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -185,3 +186,6 @@ Dans le modèle de déploiement classique, certains noms de tailles de machines 
 |A2\Basic_A2|2|3,5 Go|2| 60 Go|4|4 x 300|
 |A3\Basic_A3|4|7 Go|2| 120 Go |8|8 x 300|
 |A4\Basic_A4|8|14 Go|2| 240 Go |16|16 x 300|
+
+
+Remarque : le nombre de disques de données pour les machines virtuelles classiques peut être inférieur au nombre de disques de données pour les machines virtuelles d’Azure Resource Manager.

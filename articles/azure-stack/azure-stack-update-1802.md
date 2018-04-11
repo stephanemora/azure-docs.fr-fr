@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1802-update"></a>Mise à jour 1802 d’Azure Stack
 
@@ -130,6 +130,8 @@ Les éléments suivants sont des problèmes connus après l’installation pour 
 - Dans le portail d’administration et le portail utilisateur, le panneau Vue d’ensemble ne parvient pas à charger lorsque vous sélectionnez le panneau Vue d’ensemble des comptes de stockage qui ont été créés avec une ancienne version de l’API (exemple : 2015-06-15). Cela inclut les comptes de stockage de système comme **updateadminaccount** utilisé pendant la mise à jour et le correctif. 
 
   Pour résoudre ce problème, utilisez PowerShell pour exécuter le script **ResourceSynchronization.ps1** pour restaurer l’accès aux détails du compte de stockage. [Le script est disponible à partir de GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts) et doit s’exécuter avec des informations d’identification d’administrateur de service sur le point de terminaison privilégié. 
+
+- Le chargement du panneau **Service Health** a échoué. Si vous ouvrez le panneau Service Health dans le portail d’administration ou utilisateur, Azure Stack affiche une erreur et ne charge pas les informations. Ce comportement est normal. Même si vous pouvez sélectionner et ouvrir Service Health, cette fonctionnalité n’est pas encore disponible, mais elle sera implémentée dans une prochaine version d’Azure Stack.
 
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance

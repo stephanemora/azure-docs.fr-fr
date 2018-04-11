@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: fiseraci
+ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
@@ -43,18 +44,20 @@ Vous accédez au point de terminaison privilégié via une session PowerShell di
 
 Avant de commencer cette procédure pour un système intégré, vérifiez que vous pouvez accéder à un point de terminaison privilégié par adresse IP ou via DNS. Après le déploiement initial d’Azure Stack, vous pouvez accéder au point de terminaison privilégié uniquement par adresse IP, car l’intégration de DNS n’est pas encore configurée. Votre fournisseur de matériel OEM vous fournira un fichier JSON nommé **AzureStackStampDeploymentInfo** qui contient les adresses IP de point de terminaison privilégié.
 
-Nous vous recommandons de vous connecter au point de terminaison privilégié uniquement à partir de l’hôte du cycle de vie du matériel ou d’un ordinateur verrouillé dédié, par exemple une [station de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Accéder à votre station de travail d’accès privilégié
+> [!NOTE]
+> Pour des raisons de sécurité, nous exigeons que vous vous connectiez au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel ou d’un ordinateur verrouillé dédié, par exemple une [station de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée, même lors de l’installation de nouveaux logiciels. Elle ne doit pas non plus être utilisée pour se connecter au point de terminaison privilégié.
 
-    - Sur un système intégré, exécutez la commande suivante pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur votre hôte du cycle de vie du matériel ou sur la station de travail à accès privilégié.
+1. Établir une relation de confiance.
+
+    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, en cours d’exécution sur l’hôte de cycle de vie du matériel, ou sur la station de travail d’accès privilégié.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Si vous exécutez le Kit ADSK, connectez-vous à l’hôte du Kit de développement.
 
-2. Sur votre hôte du cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell avec élévation de privilèges. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
+2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
     - Sur un système intégré :
       ````PowerShell
@@ -74,9 +77,12 @@ Nous vous recommandons de vous connecter au point de terminaison privilégié un
       ```` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\nomcompte**. (pour le Kit ASDK, le nom d’utilisateur est **azurestack\nomcompte**). 
+      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
       - **Mot de passe** : entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
-    
+
+    > [!NOTE]
+    > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, essayez à nouveau les étapes 1 et 2 en utilisant l’adresse IP d’une machine virtuelle ERCS à laquelle vous n’avez pas déjà essayé de vous connecter.
+
 3.  Après vous être connecté, l’invite devient **[*adresse IP ou nom de machine virtuelle ERCS*]: PS>** ou **[azs-ercs01]: PS>**, en fonction de l’environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
 
     Un grand nombre de ces applets de commande sont uniquement destinées aux environnements de système intégré (par exemple, les applets de commande associées à l’intégration au centre de données). Dans le Kit ASDK, les applets de commande suivantes ont été validées :
@@ -114,16 +120,16 @@ Sinon, vous pouvez utiliser l’applet de commande [Import-PSSession](https://do
 
 Pour importer la session du point de terminaison privilégié sur votre ordinateur local, procédez ainsi :
 
-1. Accéder à votre station de travail d’accès privilégié
+1. Établir une relation de confiance.
 
-    - Sur un système intégré, exécutez la commande suivante pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur votre hôte du cycle de vie du matériel ou sur la station de travail à accès privilégié.
+    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Si vous exécutez le Kit ADSK, connectez-vous à l’hôte du Kit de développement.
 
-2. Sur votre hôte du cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell avec élévation de privilèges. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
+2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
     - Sur un système intégré :
       ````PowerShell
@@ -143,7 +149,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
       ```` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\nomcompte**. (pour le Kit ASDK, le nom d’utilisateur est **azurestack\nomcompte**). 
+      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
       - **Mot de passe** : entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
 
 3. Importer la session du point de terminaison privilégié dans votre ordinateur local
@@ -155,7 +161,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 
 ## <a name="close-the-privileged-endpoint-session"></a>Fermer la session du point de terminaison privilégié
 
- Comme indiqué plus haut, le point de terminaison privilégié journalise chaque action (et sa sortie correspondante) que vous effectuez pendant la session PowerShell. Vous devez fermer la session à l’aide de l’applet de commande `Close-PrivilegedEndpoint`. Cette applet de commande ferme correctement le point de terminaison et transfère les fichiers journaux vers un partage de fichiers externe à des fins de rétention.
+ Comme indiqué plus haut, le point de terminaison privilégié journalise chaque action (et sa sortie correspondante) que vous effectuez pendant la session PowerShell. Vous devez fermer la session à l’aide de la cmdlet `Close-PrivilegedEndpoint`. Cette applet de commande ferme correctement le point de terminaison et transfère les fichiers journaux vers un partage de fichiers externe à des fins de rétention.
 
 Pour fermer la session du point de terminaison :
 
@@ -165,7 +171,11 @@ Pour fermer la session du point de terminaison :
 
     ![Sortie de l’applet de commande Close-PrivilegedEndpoint qui indique où vous spécifiez le chemin de destination de la transcription](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. Si vous fermez la session du point de terminaison privilégié à l’aide des applets de commande `Exit-PSSession` ou `Exit`, ou que vous fermez simplement la console PowerShell, les journaux de transcription ne sont pas transférés vers un partage de fichiers. Ils demeurent dans le point de terminaison privilégié. La prochaine fois que vous exécutez `Close-PrivilegedEndpoint` et que vous incluez un partage de fichiers, les journaux de transcription issus de la (des) session(s) précédente(s) sont également transférés.
+Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. 
+
+> [!NOTE]
+> Si vous fermez la session du point de terminaison privilégié à l’aide des applets de commande `Exit-PSSession` ou `Exit`, ou que vous fermez simplement la console PowerShell, les journaux de transcription ne sont pas transférés vers un partage de fichiers. Ils demeurent dans le point de terminaison privilégié. La prochaine fois que vous exécutez `Close-PrivilegedEndpoint` et que vous incluez un partage de fichiers, les journaux de transcription issus de la (des) session(s) précédente(s) sont également transférés. N’utilisez pas `Exit-PSSession` ou `Exit` pour fermer la session PEP ; utilisez `Close-PrivilegedEndpoint`.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Outils de diagnostic Azure Stack](azure-stack-diagnostics.md)

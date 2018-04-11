@@ -1,5 +1,5 @@
 ---
-title: Supprimer le lien d’un compte Azure Automation à partir de Log Analytics
+title: Supprimer le lien d’un compte Azure Automation dans Log Analytics | Microsoft Docs
 description: Cet article décrit comment dissocier votre compte Azure Automation d’un espace de travail Log Analytics.
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Comment supprimer le lien de votre compte Automation dans un espace de travail Log Analytics
 
@@ -46,4 +46,4 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour reconfigurer votre compte Automation et l’intégrer dans OMS Log Analytics, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 
+Pour reconfigurer votre compte Automation et l’intégrer à Log Analytics, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics](automation-manage-send-joblogs-log-analytics.md). 

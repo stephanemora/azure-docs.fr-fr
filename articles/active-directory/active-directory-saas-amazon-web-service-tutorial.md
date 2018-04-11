@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 92189eba7df49aa45adaee7ee3c93c8972b5594b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 
@@ -147,7 +147,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Dans une autre fenêtre de navigateur, connectez-vous au site de votre entreprise Amazon Web Services (AWS) en tant qu’administrateur.
 
-9. Cliquez sur **Console Home**.
+9. Cliquez sur **AWS Home** (Accueil AWS).
    
     ![Démarrage dans la configuration de l’authentification unique][11]
 
@@ -175,65 +175,53 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     ![Vérification dans la configuration de l’authentification unique][15]
 
-14. Cliquez sur **Roles**, puis sur **Create New Role**. 
+14. Cliquez sur **Roles** (Rôles), puis sur **Create role** (Créer un rôle). 
     
     ![Rôles dans la configuration de l’authentification unique][16]
 
-15. Dans la boîte de dialogue **Set Role Name** , procédez comme suit : 
-    
-    ![Nom dans la configuration de l’authentification unique][17] 
-
-    a. Dans la zone de texte **Role Name** (Nom de rôle), tapez un nom de rôle (par exemple : *Utilisateur_test*). 
-
-    b. Cliquez sur **Next Step**.
-
-16. Dans la boîte de dialogue **Select Role Type** , procédez comme suit : 
-    
-    ![Type de rôle dans la configuration de l’authentification unique][18] 
-
-    a. Sélectionnez **Role For Identity Provider Access**. 
-
-    b. Dans la section **Grant Web Single Sign-On (WebSSO) access to SAML providers**, cliquez sur **Select**.
-
-17. Dans la boîte de dialogue **Establish Trust** , procédez comme suit :  
+15. Dans la page **Create role** (Créer un rôle), effectuez les étapes suivantes :  
     
     ![Approbation dans la configuration de l’authentification unique][19] 
 
-    a. Pour le fournisseur SAML, sélectionnez celui que vous avez déjà créé (par exemple : *WAAD*) 
+    a. Sélectionnez **SAML 2.0 federation** (Fédération SAML 2.0) dans **Select type of trusted entity** (Sélectionnez un type d’entité approuvé).
+
+    b. Dans la section **Choose a SAML 2.0 Provider** (Choisir un fournisseur SAML 2.0), sélectionnez le **fournisseur SAML** que vous avez déjà créé (par exemple : *WAAD*).
+
+    c. Sélectionnez **Allow programmatic and AWS Management Console access** (Autoriser l’accès par programme à AWS Management Console).
   
-    b. Cliquez sur **Next Step**.
+    d. Cliquez sur **Next: Permissions** (Suivant : Autorisations).
 
-18. Dans la boîte de dialogue **Verify Role Trust**, cliquez sur **Next Step**. 
-    
-    ![Approbation du rôle dans la configuration de l’authentification unique][32]
-
-19. Dans la boîte de dialogue **Attach Policy**, cliquez sur **Next Step**.  
+16. Dans la boîte de dialogue **Attach Permissions Policies** (Attacher des stratégies d’autorisation), cliquez sur **Next: Review** (Suivant : Vérifier).  
     
     ![Stratégie dans la configuration de l’authentification unique][33]
 
-20. Dans la boîte de dialogue **Review** , procédez comme suit :   
+17. Dans la boîte de dialogue **Review** , procédez comme suit :   
     
     ![Révision dans la configuration de l’authentification unique][34] 
+
+    a. Dans la zone de texte **Role name** (Nom de rôle), entrez votre nom de rôle.
+
+    b. Dans la zone de texte **Role description** (Description du rôle), entrez la description.
 
     a. Cliquez sur **Create Role**.
 
     b. Créez autant de rôles que nécessaire et mappez-les vers le fournisseur d’identité.
 
-21. Utilisez les informations d’identification du compte de service AWS pour récupérer les rôles depuis le compte AWS dans Attribution d’utilisateurs d’Azure AD. Pour ce faire, ouvrez la page d’accueil de la console AWS.
+18. Utilisez les informations d’identification du compte de service AWS pour récupérer les rôles depuis le compte AWS dans Attribution d’utilisateurs d’Azure AD. Pour ce faire, ouvrez la page d’accueil de la console AWS.
 
-22. Cliquez sur **Services** (Services) -> **Security,Identity& Compliance** (Sécurité, identité et conformité) -> **IAM**.
+19. Cliquez sur **Services** (Services) -> **Security,Identity& Compliance** (Sécurité, identité et conformité) -> **IAM**.
 
     ![Extraction des rôles à partir du compte AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-23. Sélectionnez l’onglet **Policies** (Stratégies) dans la section IAM.
+20. Sélectionnez l’onglet **Policies** (Stratégies) dans la section IAM.
 
     ![Extraction des rôles à partir du compte AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
 
-24. Créez une stratégie en cliquant sur **Create policy** (Créer une stratégie).
+21. Créez une stratégie en cliquant sur **Create policy** (Créer une stratégie) pour récupérer les rôles du compte AWS dans Attribution d’utilisateurs Azure AD.
 
     ![Création d’une stratégie](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
- 
-25. Créez votre propre stratégie pour extraire tous les rôles à partir de comptes AWS en procédant comme suit :
+
+22. Créez votre propre stratégie pour extraire tous les rôles à partir de comptes AWS en procédant comme suit :
 
     ![Création d’une stratégie](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
@@ -273,7 +261,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Définition de la nouvelle stratégie](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
-26. Définissez la **nouvelle stratégie** en suivant ces étapes :
+23. Définissez la **nouvelle stratégie** en suivant ces étapes :
 
     ![Définition de la nouvelle stratégie](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
@@ -282,8 +270,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Vous pouvez fournir une **Description** (Description) pour la stratégie, par exemple **This policy will allow to fetch the roles from AWS accounts** (Cette stratégie permettra de récupérer les rôles à partir de comptes AWS).
     
     c. Cliquez sur le bouton **Créer une stratégie**.
-        
-27. Créez un compte d’utilisateur dans AWS IAM Service en suivant ces étapes :
+
+24. Dans la boîte de dialogue **Review** , procédez comme suit :   
+    
+    ![Révision dans la configuration de l’authentification unique][34] 
+
+    a. Cliquez sur **Create Role**.
+
+    b. Créez autant de rôles que nécessaire et mappez-les vers le fournisseur d’identité.
+
+
+25. Créez un compte d’utilisateur dans AWS IAM Service en suivant ces étapes :
 
     a. Cliquez sur **Users** (Utilisateurs) dans la console AWS IAM.
 
@@ -303,7 +300,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     * Cliquez sur le bouton **Next Permissions** (Autorisations suivantes) dans le coin inférieur droit.
 
-28. À présent, créez une stratégie pour cet utilisateur en effectuant les étapes suivantes :
+26. À présent, créez une stratégie pour cet utilisateur en effectuant les étapes suivantes :
 
     ![Ajouter un utilisateur](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -313,7 +310,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     c. Sélectionnez la **stratégie**, puis cliquez sur le bouton **Next: Review** (Suivant : Vérification).
 
-29. Passez en revue la stratégie pour l’utilisateur joint en suivant ces étapes :
+27. Passez en revue la stratégie pour l’utilisateur joint en suivant ces étapes :
 
     ![Ajouter un utilisateur](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -321,7 +318,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     b. Cliquez sur le bouton **Create user** (Créer un utilisateur) dans le coin inférieur droit pour créer l’utilisateur.
 
-30. Téléchargez les informations d’identification d’un utilisateur en procédant comme suit :
+28. Téléchargez les informations d’identification d’un utilisateur en procédant comme suit :
 
     ![Ajouter un utilisateur](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -331,11 +328,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     c. Cliquez sur le bouton **Close** (Fermer) au bas de l’écran.
 
-31. Accédez à la section **User Provisioning** (Attribution d’utilisateurs) de l’application Amazon Web Services dans le portail de gestion Azure AD.
+29. Accédez à la section **User Provisioning** (Attribution d’utilisateurs) de l’application Amazon Web Services dans le portail de gestion Azure AD.
 
     ![Ajouter un utilisateur](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Entrez la **Clé d’accès** et le **Secret** dans les champs **Clé secrète client** et **Jeton secret** respectivement.
+30. Entrez la **Clé d’accès** et le **Secret** dans les champs **Clé secrète client** et **Jeton secret** respectivement.
 
     ![Ajouter un utilisateur](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -347,13 +344,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Enregistrez le paramètre en cliquant sur le bouton **Enregistrer** en haut.
  
-33. À présent, assurez-vous de régler sur **Actif** l’état de mise en service dans la section Paramètres, en agissant sur le commutateur, puis en cliquant sur le bouton **Enregistrer** en haut.
+31. À présent, assurez-vous de régler sur **Actif** l’état de mise en service dans la section Paramètres, en agissant sur le commutateur, puis en cliquant sur le bouton **Enregistrer** en haut.
 
     ![Ajouter un utilisateur](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

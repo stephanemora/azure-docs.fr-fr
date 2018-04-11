@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
 L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Functions est fournie dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Cet article explique comment installer le package et un ensemble d’exemples pour les environnements de développement suivants :
 
 * Visual Studio 2017 (recommandé) 
-
+* Visual Studio Code
 * Portail Azure
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -49,11 +49,7 @@ Actuellement, Visual Studio fournit la meilleure expérience de développement d
 Suivez les instructions permettant de commencer par l’exemple, mais procédez comme suit au lieu de télécharger le fichier *.zip* :
 
 1. Créez un projet Function App.
-2. Ajoutez la référence de packages NuGet suivante dans votre fichier *.csproj* :
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Recherchez la référence de package NuGet suivante à l’aide de *Gérer les packages NuGet* et ajoutez-la au projet : Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (cochez la case *Inclure la version préliminaire* pour rechercher ce package).
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -131,6 +127,8 @@ Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonc
 1. Créez une nouvelle application de fonction sur le site [functions.azure.com](https://functions.azure.com/signin).
 
 2. Configurez l’application de fonction pour qu’elle [utilise la version du runtime 2.0](set-runtime-version.md).
+
+   L’extension Fonctions durables fonctionne sur le runtime 1.X et le runtime 2.0, mais les modèles du portail Azure sont disponibles uniquement lorsque vous ciblez le runtime 2.0.
 
 3. Créez une nouvelle fonction en sélectionnant **« créer votre propre fonction personnalisée »**.
 

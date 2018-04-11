@@ -1,6 +1,6 @@
 ---
-title: "Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture (RA-GRS) Azure | Microsoft Docs"
-description: "Comment utiliser le stockage RA-GRS Azure pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions."
+title: Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture (RA-GRS) Azure | Microsoft Docs
+description: Comment utiliser le stockage RA-GRS Azure pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions.
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d’applications hautement disponibles à l’aide du stockage RA-GRS
 
 La fourniture d’une plateforme hautement disponible comme Stockage Azure pour l’hébergement des applications est une caractéristique courante des infrastructures basées sur le cloud. Les développeurs d’applications cloud doivent bien réfléchir à la façon de tirer parti de cette plateforme pour proposer des applications hautement disponibles à leurs utilisateurs. Cet article porte sur la façon dont les développeurs peuvent utiliser le stockage géoredondant avec accès en lecture (RA-GRS) pour garantir la haute disponibilité de leurs applications Stockage Azure.
 
-Stockage Azure propose quatre options pour la redondance des données dans votre compte de stockage :
-
-- LRS (stockage localement redondant)
-- ZRS (Stockage redondant dans une zone) 
-- GRS (Stockage géoredondant)
-- RA-GRS (Stockage géoredondant avec accès en lecture). 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Cet article se concentre sur GRS et RA-GRS. Avec le stockage GRS, trois copies de vos données sont conservées dans la région primaire que vous avez sélectionnée lors de la configuration du compte de stockage. Trois copies supplémentaires sont conservées de façon asynchrone dans une région secondaire spécifiée par Azure. Le stockage RA-GRS est identique au stockage GRS. Cependant, il offre un accès en lecture à la copie secondaire. Pour plus d’informations sur les différentes options de redondance relatives au stockage Azure, consultez [Réplication du stockage Azure](https://docs.microsoft.com/azure/storage/storage-redundancy). L’article sur la réplication indique également les paires de régions primaires et secondaires.
 
 Vous y trouverez aussi des extraits de code et, à la fin, un lien vers un exemple complet que vous pouvez télécharger et exécuter.
+
+> [!NOTE]
+> Le stockage Azure prend maintenant en charge le stockage redondant dans une zone (ZRS) pour générer des applications hautement disponibles. Le stockage ZRS offre une solution simple pour les besoins de redondance de nombreuses applications. Il protège contre les défaillances matérielles ou les catastrophes naturelles qui affecteraient un centre de données unique. Pour plus d’informations, consultez [Stockage redondant dans une zone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Fonctionnalités clés du stockage RA-GRS
 

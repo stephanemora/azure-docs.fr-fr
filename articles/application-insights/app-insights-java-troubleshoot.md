@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -48,7 +48,7 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * Examinez-vous la ressource AI appropriée ? Mettez en correspondance l’iKey de votre application à la ressource où est attendue la télémétrie. Il doit s’agir du même élément.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Je ne vois pas toutes les données que j’attends
-* Ouvrez le panneau Quotas et tarification et vérifiez si l’ [échantillonnage](app-insights-sampling.md) est activé. (Une transmission de 100 % signifie que l’échantillonnage n’est pas activé). Le service Application Insights peut être défini pour n’accepter qu’une fraction des données de télémétrie provenant de votre application. Cela vous permet de respecter votre quota mensuel de télémétrie. 
+* Ouvrez la page Utilisation et estimation des coûts et vérifiez si [l’échantillonnage](app-insights-sampling.md) est en cours. (Une transmission de 100 % signifie que l’échantillonnage n’est pas activé). Le service Application Insights peut être défini pour n’accepter qu’une fraction des données de télémétrie provenant de votre application. Cela vous permet de respecter votre quota mensuel de télémétrie. 
 * L’échantillonnage du SDK est-il activé ? Le cas échéant, les données sont échantillonnées à la fréquence spécifiée pour l’ensemble des types applicables.
 * Exécutez-vous une version antérieure du SDK Java ? À partir de la version 2.0.1, nous avons introduit un mécanisme de tolérance de panne destinée à gérer les défaillances intermittentes du réseau et du serveur principal, ainsi que la persistance des données sur les lecteurs locaux.
 * Déplorez-vous une limitation en raison d’une télémétrie excessive ? Si vous activez la journalisation INFO, vous observez un message faisant état de la limitation de l’application. Notre limite actuelle est de 32 000 éléments de télémétrie/seconde.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
@@ -116,7 +116,7 @@ Alertes de métriques : vous pouvez ensuite recevoir une notification par e-mail
 
  ![Mesures et règles d’alerte dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Alertes quasiment en temps réel (préversion) : ces alertes analysent plusieurs métriques et seuils pour une ressource et vous préviennent via un [groupe d’actions](/monitoring-action-groups.md). Découvrez-en plus sur les [alertes de métriques en temps quasi réel ici](https://aka.ms/azuremonitor/near-real-time-alerts).
+Les nouvelles alertes de métriques peuvent analyser plusieurs métriques et seuils d’une ressource, et vous préviennent via un [groupe d’actions](/monitoring-action-groups.md). En savoir plus sur les [dernières alertes ici](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Mise à l’échelle automatique de vos ressources Azure

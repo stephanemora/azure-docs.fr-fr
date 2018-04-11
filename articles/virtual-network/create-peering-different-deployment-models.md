@@ -4,7 +4,7 @@ description: Découvrez comment créer une homologation de réseaux virtuels ent
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 2ab027c1159fec369aa7377a24ddd9ef330eab5e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e1dfd7ec4a2475142423f00a457a909989a36bea
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement différents, même abonnement 
 
@@ -35,13 +35,13 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 
 Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Si vous avez besoin de connecter des réseaux virtuels tous deux créés par le biais du modèle de déploiement classique, vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. 
 
-Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. La capacité à homologuer des réseaux virtuels dans des régions différentes est une fonctionnalité en préversion pour le moment. Effectuez les étapes indiquées dans [S’inscrire à l’homologation de réseaux virtuels mondiaux](#register) avant d’essayer d’homologuer des réseaux virtuels dans des régions différentes, sans quoi l’homologation échoue. La capacité à connecter des réseaux virtuels situés dans des régions différentes avec une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure est généralement disponible et ne nécessite pas d’inscription.
+Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region). 
 
 Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de commande](#cli) (CLI) Azure, Azure [PowerShell](#powershell) ou un [modèle Azure Resource Manager](#template) pour créer une homologation de réseaux virtuels. Cliquez sur les liens des outils précédents pour accéder directement à la procédure permettant de créer une homologation de réseaux virtuels à l’aide de l’outil de votre choix.
 
 ## <a name="create-peering---azure-portal"></a>Créer une homologation - portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Consultez la section [Autorisations](#permissions) de cet article pour plus d’informations.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints).
 2. Cliquez sur **+ Nouveau**, puis sur **Mise en réseau** et **Réseau virtuel**.
 3. Dans le panneau **Créer un réseau virtuel**, entrez ou sélectionnez les valeurs des paramètres suivants, puis cliquez sur **Créer** :
     - **Nom** : *myVnet1*
@@ -143,7 +143,7 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
 
 1. Installez la dernière version des modules PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
-3. Dans PowerShell, connectez-vous à Azure en entrant la commande `Add-AzureAccount`.
+3. Dans PowerShell, connectez-vous à Azure en entrant la commande `Add-AzureAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints).
 4. Pour créer un réseau virtuel (classique) avec PowerShell, vous devez créer un fichier de configuration réseau ou en modifier un existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Le fichier doit inclure l’élément **VirtualNetworkSite** suivant pour le réseau virtuel utilisé dans ce didacticiel :
 
     ```xml
@@ -161,7 +161,7 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
 
     > [!WARNING]
     > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (Classic) figurant dans votre abonnement. Assurez-vous de n’ajouter que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
-5. Connectez-vous à Azure pour créer le réseau virtuel (Resource Manager) en entrant la commande `login-azurermaccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Consultez la section [Autorisations](#permissions) de cet article pour plus d’informations.
+5. Connectez-vous à Azure pour créer le réseau virtuel (Resource Manager) en entrant la commande `login-azurermaccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints).
 6. Créez un groupe de ressources et un réseau virtuel (Resource Manager). Copiez le script, collez-le dans PowerShell, puis appuyez sur `Enter`.
 
     ```powershell
@@ -202,19 +202,6 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
 9. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 10. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-powershell) de cet article.
  
-## <a name="permissions"></a>Autorisations
-
-Les comptes que vous utilisez pour créer une homologation de réseaux virtuels doivent avoir les autorisations ou le rôle nécessaires. Par exemple, si vous homologuez deux réseaux virtuels nommés myVnet1 et myVnet2, votre compte doit avoir le rôle ou les autorisations minimaux suivants pour chaque réseau virtuel :
-    
-|Réseau virtuel|Modèle de déploiement|Rôle|Autorisations|
-|---|---|---|---|
-|myVnet1|Gestionnaire de ressources|[Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classique|[Collaborateur de réseau classique](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|myVnet2|Gestionnaire de ressources|[Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Classique|[Collaborateur de réseau classique](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
-
-Apprenez-en davantage sur les [rôles intégrés](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) et l’assignation des autorisations spécifiques aux [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Resource Manager uniquement).
-
 ## <a name="delete"></a>Supprimer des ressources
 Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprimer les ressources que vous avez créées, afin que leur utilisation ne soit pas facturée. La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.
 
@@ -248,7 +235,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
     Remove-AzureRmResourceGroup -Name myResourceGroup -Force
     ```
 
-2. Pour supprimer le réseau virtuel (classique) avec PowerShell, vous devez modifier un fichier de configuration réseau existant. Pour découvrir comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez [cet article](virtual-networks-using-network-configuration-file.md). Supprimez l’élément VirtualNetworkSite suivant pour le réseau virtuel utilisé dans ce didacticiel :
+2. Pour supprimer le réseau virtuel (classique) avec PowerShell, vous devez modifier un fichier de configuration réseau existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Supprimez l’élément VirtualNetworkSite suivant pour le réseau virtuel utilisé dans ce didacticiel :
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -265,54 +252,6 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
     > [!WARNING]
     > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (classiques) existants dans votre abonnement. Assurez-vous de ne supprimer que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
-
-## <a name="register"></a>Préversion de l’inscription à l’homologation de réseaux virtuels mondiaux
-
-L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels dans des régions différentes est actuellement en version préliminaire. Consultez [Virtual network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) (Mises à jour du réseau virtuel) pour les régions disponibles. Pour homologuer des réseaux virtuels dans différentes régions, vous devez d’abord vous inscrire à la préversion, en effectuant les étapes suivantes (dans l’abonnement dans lequel se trouve chaque réseau virtuel à homologuer) à l’aide d’Azure PowerShell ou d’Azure CLI :
-
-### <a name="powershell"></a>PowerShell
-
-1. Installez la dernière version du module PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Démarrez une session PowerShell et connectez-vous à Azure à l’aide de la commande `Login-AzureRmAccount`.
-3. Pour inscrire l’abonnement dans lequel se trouve chaque réseau virtuel à homologuer à la préversion, entrez les commandes suivantes :
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-4. Vérifiez que vous êtes inscrit à la préversion en saisissant la commande suivante :
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    N’effectuez pas les étapes décrites dans les sections Portail, Interface de ligne de commande Azure, PowerShell ou Modèle Resource Manager de cet article tant que la sortie **RegistrationState** que vous avez reçue après avoir entré la commande précédente n’est pas **Registered** pour les deux abonnements.
-
-### <a name="azure-cli"></a>Azure CLI
-
-1. [Installer et configurer Azure CLI](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
-2. Vérifiez que vous utilisez la version 2.0.18 ou une version ultérieure de l’interface Azure CLI en saisissant la commande `az --version`. Si ce n’est pas le cas, installez la version la plus récente.
-3. Connectez-vous à Azure avec la commande `az login`.
-4. Inscrivez-vous à la préversion en entrant les commandes suivantes :
-
-    ```azurecli-interactive
-    az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-    az provider register --name Microsoft.Network
-    ```
-
-5. Vérifiez que vous êtes inscrit à la préversion en saisissant la commande suivante :
-
-    ```azurecli-interactive
-    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-    ```
-
-    N’effectuez pas les étapes décrites dans les sections Portail, Interface de ligne de commande Azure, PowerShell ou Modèle Resource Manager de cet article tant que la sortie **RegistrationState** que vous avez reçue après avoir entré la commande précédente n’est pas **Registered** pour les deux abonnements.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

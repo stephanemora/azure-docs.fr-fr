@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -30,7 +30,7 @@ L’échantillonnage réduit les coûts du trafic et des données, et vous aide 
 ## <a name="in-brief"></a>En bref :
 * L’échantillonnage conserve 1 enregistrement sur *n* et ignore le reste. Par exemple, il peut conserver 1 événement sur 5, soit un taux d’échantillonnage de 20 %. 
 * L’échantillonnage s’effectue automatiquement si votre application envoie de nombreuses données de télémétrie, dans les applications de serveur web ASP.NET.
-* Vous pouvez également définir l’échantillonnage manuellement, sur la page de tarifs du portail, dans le fichier .config du Kit de développement logiciel (SDK) ASP.NET ou dans le fichier ApplicationInsights.xml du Kit SDK Java, pour réduire également le trafic réseau.
+* Vous pouvez également définir l’échantillonnage manuellement, sur la page Utilisation et estimation des coûts du portail, dans le fichier .config du Kit de développement logiciel (SDK) ASP.NET ou dans le fichier ApplicationInsights.xml du Kit SDK Java, pour réduire également le trafic réseau.
 * Si vous consignez des événements personnalisés et que vous souhaitez vous assurer qu’un ensemble d’événements soit conservé ou ignoré conjointement, faites en sorte qu’ils aient la même valeur OperationId.
 * Le diviseur d’échantillonnage *n* est signalé dans chaque enregistrement de la propriété `itemCount`, qui dans la recherche s’affiche sous le nom convivial « nombre de demandes » ou « nombre d’événements ». Lorsque l’échantillonnage n’est pas en cours d’utilisation, `itemCount==1`.
 * Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](app-insights-analytics-tour.md#counting-sampled-data). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Cette forme d’échantillonnage fonctionne au niveau où les données de télé
 
 Utilisez ce type d’échantillonnage si votre application dépasse souvent son quota mensuel et que vous ne pouvez recourir à aucun type d’échantillonnage basé sur le Kit de développement logiciel (SDK). 
 
-Définissez le taux d’échantillonnage dans le panneau Quota + tarification :
+Définissez le taux d’échantillonnage dans la page Utilisation et estimation des coûts :
 
 ![Dans le panneau Vue d’ensemble de l’application, cliquez sur Paramètres, Quota + tarification, Échantillons conservés, sélectionnez un taux d’échantillonnage, puis cliquez sur Mettre à jour.](./media/app-insights-sampling/04.png)
 

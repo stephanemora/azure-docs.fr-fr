@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -63,7 +63,11 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 
 **Q.** Les groupes identiques fonctionnent-ils avec des ensembles haute disponibilité Azure ?
 
-**A.** Oui. Un groupe identique est un ensemble de disponibilité implicite comprenant cinq domaines d’erreur et cinq domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles couvrent plusieurs *groupes de placement* qui équivalent à plusieurs groupes à haute disponibilité. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
+**A.** Un groupe identique régional (non zonal) utilise des *groupes de placement*, dont chacun peut être configuré pour servir de groupe à haute disponibilité implicite avec cinq domaines d’erreur et cinq domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles sont répartis entre plusieurs groupes de placement. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
+
+**Q.** Les groupes identiques fonctionnent-ils avec des zones de disponibilité Azure ?
+
+**A.** Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale

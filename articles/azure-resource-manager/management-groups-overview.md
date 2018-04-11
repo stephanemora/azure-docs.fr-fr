@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure 
 
@@ -42,11 +42,15 @@ En créant une hiérarchie regroupée par services, vous pouvez affecter des rô
 - Chaque groupe d’administration peut avoir plusieurs enfants. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Limitation de visibilité des abonnements aux préversions 
-Il existe actuellement une limitation dans la préversion ne vous permettant pas d’afficher les abonnements auxquels vous avez hérité l’accès. L’accès à l’abonnement est hérité, mais Azure Resource Manager n’est pas encore en mesure d’honorer l’accès hérité.  
+Il existe actuellement une limitation dans la préversion ne vous permettant pas d’afficher les abonnements dont vous avez hérité l’accès. L’accès à l’abonnement est hérité, mais Azure Resource Manager n’est pas encore en mesure d’honorer l’accès hérité.  
 
-L’utilisation de l’API REST pour obtenir des informations sur l’abonnement renvoie les détails puisque vous y avez accès, mais les abonnements n’apparaissent pas dans le portail Azure et Azure Powershell. 
+L’utilisation de l’API REST pour obtenir des informations sur l’abonnement retourne les détails puisque vous y avez accès, mais les abonnements n’apparaissent ni dans le portail Azure ni dans Azure PowerShell. 
 
-Cet élément est en cours de traitement et sera résolu avant que les groupes d’administration soient annoncés en tant que « Disponibilité générale ».  
+Ce point est en cours de traitement et sera résolu avant que les groupes d’administration ne soient annoncés en tant que « Disponibilité générale ».  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Limitation du fournisseur de solutions Cloud pendant la préversion 
+Les partenaires du fournisseur de solutions Cloud rencontrent actuellement une limitation : ils ne peuvent ni créer ni gérer les groupes d’administration de leur client dans le répertoire dudit client.  
+Ce point est en cours de traitement et sera résolu avant que les groupes d’administration ne soient annoncés en tant que « Disponibilité générale ».
 
 
 ## <a name="root-management-group-for-each-directory"></a>Groupe d’administration racine pour chaque annuaire

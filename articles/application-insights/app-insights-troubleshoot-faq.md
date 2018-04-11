@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : questions fréquentes
 
@@ -60,7 +60,7 @@ Le plan Entreprise implique un coût journalier pour chaque nœud de serveur web
 
 ## <a name="how-much-is-it-costing"></a>Combien cela coûte ?
 
-* Ouvrez la page **Fonctionnalités + tarifs** dans une ressource Application Insights. Cette page contient un graphique reflétant l’utilisation récente. Vous pouvez définir une limite de volume de données si vous le souhaitez.
+* Ouvrez la page **Utilisation et estimation des coûts** dans une ressource Application Insights. Cette page contient un graphique reflétant l’utilisation récente. Vous pouvez définir une limite de volume de données si vous le souhaitez.
 * Ouvrez le panneau [Facturation Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) pour voir vos factures sur l’ensemble des ressources.
 
 ## <a name="q14"></a>Que modifie Application Insights dans mon projet ?

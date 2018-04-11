@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -178,6 +178,10 @@ CheckForMS17-010
 **Q : Pourquoi la cmdlet PowerShell <i>Get-MsolDirSyncProvisioningError</i> affiche moins d’erreurs de synchronisation dans le résultat ?**
 
 <i>Get-MsolDirSyncProvisioningError</i> renvoie uniquement les erreurs d’approvisionnement DirSync. En outre, le portail Connect Health affiche également d’autres types d’erreurs de synchronisation telles que des erreurs d’exportation. Cela est cohérent avec le résultat delta Azure AD Connect. En savoir plus sur les [erreurs de synchronisation Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+
+**Q : pourquoi mes audits ADFS ne sont-ils pas générés ?**
+
+Utilisez l’applet de commande PowerShell <i>Get-AdfsProperties - AuditLevel</i> pour vérifier que les journaux d’audit ne sont pas désactivés. En savoir plus sur les [journaux d’audit ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
 
 
 ## <a name="related-links"></a>Liens connexes

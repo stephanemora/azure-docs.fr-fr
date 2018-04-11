@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f067656f510c14c4a2ac02d3629ae71432c342d2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1711-update"></a>Mise à jour 1711 d’Azure Stack
 
@@ -112,6 +112,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 - Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack. Pour contourner ce problème, vous pouvez vérifier les autorisations à l’aide de PowerShell.
+- Le chargement du panneau **Service Health** a échoué. Si vous ouvrez le panneau Service Health dans le portail d’administration ou utilisateur, Azure Stack affiche une erreur et ne charge pas les informations. Ce comportement est normal. Même si vous pouvez sélectionner et ouvrir Service Health, cette fonctionnalité n’est pas encore disponible, mais elle sera implémentée dans une prochaine version d’Azure Stack.
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 

@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 258aac722aa1c94ecf2cbf0524a3e4b53b8a788c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-and-service-level-logging"></a>Surveillance aux niveaux de l’application et du service
 
 L’instrumentation du code est à la base de la plupart des autres aspects de la surveillance de vos services. L’instrumentation est le seul moyen de détecter les problèmes et de diagnostiquer ce qui doit être résolu. Bien qu’il soit techniquement possible de connecter un débogueur à un service de production, cette pratique n’est pas courante. Par conséquent, il est important de disposer de données d’instrumentation détaillées.
 
 Certains produits instrumentent automatiquement votre code. Bien que ces solutions soient très efficaces, une instrumentation manuelle est presque toujours nécessaire. Au final, vous devez disposer d’assez d’informations pour déboguer l’application de manière approfondie. Ce document décrit les différentes approches d’instrumentation de votre code et explique quand privilégier telle ou telle approche.
+
+Pour obtenir des exemples d’utilisation de ces suggestions, consultez [Ajouter une connexion à votre application Service Fabric](service-fabric-how-to-diagnostics-log.md).
 
 ## <a name="eventsource"></a>EventSource
 

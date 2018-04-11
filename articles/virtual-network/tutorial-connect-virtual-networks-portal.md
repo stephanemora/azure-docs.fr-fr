@@ -1,26 +1,27 @@
 ---
 title: Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels - Portail Azure | Microsoft Docs
-description: Apprenez comment connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels.
+description: Dans cet article, vous apprendrez à connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant le portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b864c71a62289b3abef13a98b52683f7d928b8e1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant le portail Azure
 
@@ -28,15 +29,17 @@ Vous pouvez connecter des réseaux virtuels entre eux à l’aide de l’appaira
 
 > [!div class="checklist"]
 > * Créer deux réseaux virtuels
-> * Connecter deux réseaux virtuels à l’aide de l’appairage de réseaux virtuels
+> * Connecter deux réseaux virtuels à l’aide de l’homologation de réseaux virtuels
 > * Déployer une machine virtuelle sur chaque réseau virtuel
 > * Établir une communication entre les machines virtuelles
+
+Si vous préférez, vous pouvez terminer cet article à l’aide d’[Azure CLI](tutorial-connect-virtual-networks-cli.md) ou d’[Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
-Connectez-vous au portail Azure à l’adresse suivante : https://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Créer des réseaux virtuels
 
@@ -100,7 +103,7 @@ Connectez-vous au portail Azure à l’adresse suivante : https://portal.azure.c
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-Créez une machine virtuelle sur chaque réseau virtuel afin de les faire communiquer dans une étape ultérieure.
+Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir une communication entre elles dans une étape ultérieure.
 
 ### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
 
@@ -124,7 +127,7 @@ Créez une machine virtuelle sur chaque réseau virtuel afin de les faire commun
     
     ![Paramètres de la machine virtuelle](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
-6. Sous **Créer** dans le **résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
+6. Sous **Créer** dans **Résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
 
 ### <a name="create-the-second-vm"></a>Créer la seconde machine virtuelle
 
@@ -145,15 +148,15 @@ La création des machines virtuelles peut prendre plusieurs minutes. Attendez qu
     ![Connexion à la machine virtuelle](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
 3. Pour vous connecter à la machine virtuelle, ouvrez le fichier RDP téléchargé. Si vous y êtes invité, sélectionnez **Connexion**.
-4. Entrez le nom d’utilisateur et le mot de passe choisis lors de la création de la machine virtuelle (il se peut que vous deviez choisir **Plus de choix**, puis **Utiliser un compte différent** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle), puis sélectionnez **OK**.
+4. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle (il se peut que vous deviez choisir **Plus de choix**, puis **Utiliser un compte différent** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle), puis sélectionnez **OK**.
 5. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez**Oui** pour poursuivre le processus de connexion.
-6. Dans une étape ultérieure, un test ping sera utilisé pour communiquer avec la machine virtuelle *myVm2* depuis la machine virtuelle *myVm1*. Le test ping utilise le protocole ICMP, qui est interdit par le Pare-feu Windows par défaut. Sur la machine virtuelle *myVm1*, autorisez le protocole ICMP à traverser le Pare-feu Windows afin d’effectuer un test ping pour cette machine virtuelle à partir de *myVm2* lors d’une étape ultérieure, en utilisant PowerShell :
+6. Dans une étape ultérieure, un test ping sera utilisé pour communiquer avec la machine virtuelle *myVm2* depuis la machine virtuelle *myVm1*. Le test ping utilise le protocole ICMP, qui est interdit par le Pare-feu Windows par défaut. Sur la machine virtuelle *myVm1*, autorisez ICMP à travers le pare-feu Windows afin de pouvoir effectuer un test ping pour cette machine virtuelle à partir de *myVm2* lors d’une étape ultérieure, en utilisant PowerShell :
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
     
-    Bien que ce test ping soit utilisé pour faire communiquer les machines virtuelles, il n’est pas recommandé d’autoriser le protocole IMCP dans le Pare-feu Windows lors de déploiements de production.
+    Bien que ce test ping soit utilisé pour établir une communication entre les machines virtuelles, il n’est pas recommandé d’autoriser le protocole IMCP via le pare-feu Windows lors de déploiements de production.
 
 7. Pour établir une connexion avec la machine virtuelle *myVm2*, entrez la commande suivante à partir d’une invite de commandes sur la machine virtuelle *myVm1* :
 
@@ -177,15 +180,8 @@ Quand vous n’avez plus besoin du groupe de ressources, supprimez-le ainsi que 
 2. Sélectionnez **Supprimer le groupe de ressources**.
 3. Entrez *myResourceGroup* dans **TAPER NOM DU GROUPE DE RESSOURCES :** puis sélectionnez **Supprimer**.
 
-**<a name="register"></a>Inscription à la préversion de l’appairage de réseaux virtuels mondiaux**
-
-L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels dans des régions différentes est actuellement en version préliminaire. Consultez [Virtual network updates](https://azure.microsoft.com/updates/?product=virtual-network) (Mises à jour du réseau virtuel) pour les régions disponibles. Pour appairer des réseaux virtuels dans différentes régions, vous devez d’abord vous inscrire à la préversion. Il n’est pas possible de vous inscrire à l’aide du portail, mais vous pouvez le faire avec [PowerShell](tutorial-connect-virtual-networks-powershell.md#register) ou [Azure CLI](tutorial-connect-virtual-networks-cli.md#register). Si vous tentez d’appairer des réseaux virtuels dans différentes régions avant de vous inscrire pour utiliser cette fonctionnalité, l’appairage échoue.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à connecter deux réseaux situés au même emplacement Azure à l’aide de l’appairage de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](#register) ou des [abonnements Azure différents](create-peering-different-subscriptions.md#portal). En outre, vous pouvez créer des [conceptions réseau Hub et Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’appairage. Avant d’appairer des réseaux virtuels en production, il est recommandé de bien se familiariser avec la [vue d’ensemble de l’appairage](virtual-network-peering-overview.md), la [gestion de l’appairage](virtual-network-manage-peering.md) et les [limites de réseau virtuel](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+Dans cet article, vous avez appris à connecter deux réseaux situés dans la même région Azure à l’aide de l’appairage de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](virtual-network-manage-peering.md#cross-region) et dans des [abonnements Azure différents](create-peering-different-subscriptions.md#portal). Vous pouvez aussi créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’appairage. Pour en savoir plus sur l’appairage de réseaux virtuels, consultez [Aperçu de présentation de l’appairage de réseaux virtuels](virtual-network-peering-overview.md) et [Gérer les appairages de réseau virtuels](virtual-network-manage-peering.md).
 
-Continuez à connecter votre propre ordinateur à un réseau virtuel via un VPN et interagir avec des ressources d’un réseau virtuel ou de réseaux virtuels appairés.
-
-> [!div class="nextstepaction"]
-> [Connecter votre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Pour connecter votre propre ordinateur à un réseau virtuel via un VPN et interagir avec des ressources d’un réseau virtuel ou de réseaux virtuels appairés, consultez [Connecter votre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

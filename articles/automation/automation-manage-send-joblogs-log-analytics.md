@@ -1,6 +1,6 @@
 ---
 title: Transférer des données de travaux Azure Automation à Log Analytics
-description: Cet article montre comment envoyer des données d’état de travaux et des flux de travaux de runbook à Microsoft Operations Management Suite Log Analytics afin de renforcer la visibilité et la simplicité de gestion.
+description: Cet article montre comment envoyer des données d’état de travaux et des flux de travaux de runbook à Azure Log Analytics afin de renforcer la visibilité et la simplicité de gestion.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 116096fb27af299545a0f9a6adf57d794bbb2f6e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics
 Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec Log Analytics, vous pouvez :
