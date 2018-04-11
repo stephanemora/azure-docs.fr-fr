@@ -1,18 +1,18 @@
 ---
-title: "Surveiller la progression d’un travail en comptant les tâches par état - Azure Batch | Microsoft Docs"
-description: "Surveiller la progression d’un travail en appelant l’opération Obtenir le nombre de tâches pour compter les tâches d’un travail. Vous pouvez obtenir un nombre de tâches actives, en cours d’exécution et terminées et selon que les tâches ont réussi ou échoué."
+title: Surveiller la progression d’un travail en comptant les tâches par état - Azure Batch | Microsoft Docs
+description: Surveiller la progression d’un travail en appelant l’opération Obtenir le nombre de tâches pour compter les tâches d’un travail. Vous pouvez obtenir un nombre de tâches actives, en cours d’exécution et terminées et selon que les tâches ont réussi ou échoué.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Compter les tâches par état pour surveiller la progression d’un travail (préversion)
 
@@ -31,7 +31,7 @@ L’opération Obtenir le nombre de tâches compte les tâches par état, comme 
 - Une tâche est comptée comme **en cours d’exécution** quand elle a été affectée à un nœud de calcul, mais qu’elle n’est pas encore terminée. Une tâche est comptée comme **en cours d’exécution** quand son état est `preparing` ou `running`, comme indiqué par l’opération [Obtenir des informations sur une tâche][rest_get_task].
 - Une tâche est comptée comme **terminée** quand elle n’est plus habilitée à s’exécuter. Une tâche comptée comme **terminée** est une tâche qui s’est généralement déroulée correctement ou qui a échoué et a épuisé par ailleurs son nombre maximal de tentatives. 
 
-L’opération Obtenir le nombre de tâches indique également le nombre de tâches ayant réussi ou échoué. Le service Batch détermine si une tâche a réussi ou échoué en vérifiant la propriété **result** de la propriété [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] :
+L’opération Obtenir le nombre de tâches indique également le nombre de tâches ayant réussi ou échoué. Batch détermine si une tâche a réussi ou échoué en vérifiant la propriété du **résultat** de la propriété [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] :
 
     - Une tâche est comptée comme **ayant réussi** si le résultat de l’exécution de la tâche est `success`.
     - Une tâche est comptée comme **ayant échoué** si le résultat de l’exécution de la tâche est `failure`.

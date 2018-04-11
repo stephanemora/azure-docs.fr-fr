@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -28,18 +28,26 @@ ms.lasthandoff: 03/28/2018
 >
 >  
 
-Pour déployer et exécuter des [applications Azure Service Fabric](service-fabric-application-model.md) sur votre ordinateur de développement Linux, installez le runtime et le Kit de développement logiciel (SDK) courant. Vous pouvez également installer des Kits de développement logiciel (SDK) facultatifs pour le développement de Java et .NET Core.
+Pour déployer et exécuter des [applications Azure Service Fabric](service-fabric-application-model.md) sur votre ordinateur de développement Linux, installez le runtime et le Kit de développement logiciel (SDK) courant. Vous pouvez également installer des Kits de développement logiciel (SDK) facultatifs pour le développement de Java et .NET Core. 
 
-> [!NOTE]
-> L’installation du runtime Service Fabric et du Kit de développement logiciel (SDK) sur le sous-système Windows pour Linux n’est pas prise en charge. Toutefois, l’interface de ligne de commande Azure Service Fabric, qui vous permet de gérer les entités Service Fabric hébergées ailleurs dans le cloud ou en local, est prise en charge. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Interface de ligne de commande Azure Service Fabric](./service-fabric-cli.md).
->
+La procédure décrite dans cet article suppose que vous effectuez une installation en mode natif sur Linux ou que vous utilisez l’image conteneur OneBox Service Fabric, `microsoft/service-fabric-onebox`. 
+
+L’installation du runtime Service Fabric et du Kit de développement logiciel (SDK) sur le sous-système Windows pour Linux n’est pas prise en charge. Toutefois, l’interface de ligne de commande Azure Service Fabric, qui vous permet de gérer les entités Service Fabric hébergées ailleurs dans le cloud ou en local, est prise en charge. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Interface de ligne de commande Azure Service Fabric](./service-fabric-cli.md).
+
 
 ## <a name="prerequisites"></a>Prérequis
 
 
-Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
+* Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+    * Ubuntu 16.04 (`Xenial Xerus`)
+
+* Vérifiez que le package `apt-transport-https` est installé :
+
+      ```bash
+      sudo apt-get install apt-transport-https
+      ```
+
 
 ## <a name="installation-methods"></a>Méthodes d’installation
 

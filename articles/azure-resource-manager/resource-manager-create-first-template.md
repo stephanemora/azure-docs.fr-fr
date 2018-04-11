@@ -1,8 +1,8 @@
 ---
-title: "Créer le premier modèle Azure Resource Manager | Microsoft Docs"
-description: "Guide pas à pas pour la création de votre premier modèle Azure Resource Manager. Ce guide montre comment utiliser la référence de modèle pour un compte de stockage afin de créer un modèle."
+title: Créer le premier modèle Azure Resource Manager | Microsoft Docs
+description: Guide pas à pas pour la création de votre premier modèle Azure Resource Manager. Ce guide montre comment utiliser la référence de modèle pour un compte de stockage afin de créer un modèle.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,24 +10,26 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Créer et déployer votre premier modèle Azure Resource Manager
 Cette rubrique vous guide tout au long des étapes de création de votre premier modèle Azure Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](resource-group-overview.md). Si vous disposez de ressources existantes et que vous souhaitez créer un modèle pour ces ressources, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
 Pour créer et réviser des modèles, vous avez besoin d’un éditeur JSON. [Visual Studio Code](https://code.visualstudio.com/) est un éditeur de code multiplateforme, open source et léger. Nous vous recommandons vivement d’utiliser Visual Studio Code pour créer des modèles Resource Manager. Cet article suppose que vous utilisez Visual Studio Code. Si vous disposez d’un autre éditeur JSON (tel que Visual Studio), vous pouvez l’utiliser.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * Visual Studio Code. Si nécessaire, installez-le à partir de [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli) doivent être installés en local. Une installation en local est nécessaire pour ce didacticiel, car votre modèle est enregistré en tant que fichier local. Pour utiliser Cloud Shell, vous devez [charger votre modèle dans un compte de stockage](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
 
 ## <a name="create-template"></a>Créer un modèle
 
@@ -92,24 +94,6 @@ Vous êtes prêt à déployer ce modèle. Vous utilisez soit PowerShell, soit Az
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-Une fois le déploiement terminé, votre compte de stockage existe dans le groupe de ressources.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Pour Azure CLI, exécutez les commandes suivantes :
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-PowerShell est actuellement disponible dans Cloud Shell en version préliminaire. Pour PowerShell, exécutez les commandes suivantes :
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 Une fois le déploiement terminé, votre compte de stockage existe dans le groupe de ressources.
 
@@ -232,7 +216,7 @@ Votre modèle doit maintenant ressembler à ceci :
 
 Redéployez le modèle avec des valeurs différentes.
 
-Pour PowerShell, utilisez :
+Pour PowerShell, utilisez la commande suivante :
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix newstore -storageSKU Standard_RAGRS
@@ -242,12 +226,6 @@ Pour l’interface de ligne de commande Azure, consultez :
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
-Pour Cloud Shell, chargez votre modèle modifié vers le partage de fichiers. Remplacez le fichier existant. Utilisez ensuite la commande suivante :
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
 ## <a name="use-autocomplete"></a>Utiliser la saisie semi-automatique
@@ -377,12 +355,6 @@ Pour l’interface de ligne de commande Azure, consultez :
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Pour Cloud Shell, chargez votre modèle modifié vers le partage de fichiers. Remplacez le fichier existant. Utilisez ensuite la commande suivante :
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

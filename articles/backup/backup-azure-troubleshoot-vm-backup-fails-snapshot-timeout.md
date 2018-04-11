@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
 
@@ -27,7 +27,7 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>L’agent de machine virtuelle ne parvient pas à communiquer avec la Sauvegarde Azure
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>agent de machine virtuelle incapable de communiquer avec la sauvegarde Azure
 
 Message d’erreur : « L’agent de machine virtuelle ne parvient pas à communiquer avec la Sauvegarde Azure »
 
@@ -78,21 +78,6 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Cause 4 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 5 : [Impossible de mettre à jour ou de charger l’extension de sauvegarde](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 6 : [Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage d’un groupe de ressources](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>Configuration de disque non prise en charge
-
-Message d’erreur : « La configuration de disque spécifiée n’est pas prise en charge »
-
-> [!NOTE]
-> Nous avons une préversion privée qui prend en charge les sauvegardes de machines virtuelles dotées de disques de plus de 1 To. Pour plus d’informations, consultez la section [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Actuellement, la Sauvegarde Azure ne prend pas en charge les disques de taille [supérieure à 1 023 Go](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Si vous avez des disques de plus de 1 To :  
-1. [Attachez de nouveaux disques](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) de taille inférieure à 1 To.  
-2. Copiez les données des disques de plus de 1 To sur les disques ainsi créés, de taille inférieure à 1 To.  
-3. Vérifiez que toutes les données ont été copiées. Ensuite, supprimez les disques de plus de 1 To.  
-4. Lancez la sauvegarde.
 
 ## <a name="causes-and-solutions"></a>Causes et solutions
 

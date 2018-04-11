@@ -1,12 +1,12 @@
 ---
 title: Diagnostics dans Fonctions durables - Azure
-description: "Découvrez comment gérer diagnostiquer les problèmes avec l’extension Fonctions durables pour Azure Functions."
+description: Découvrez comment gérer diagnostiquer les problèmes avec l’extension Fonctions durables pour Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostics dans Fonctions durables (Azure Functions)
 
@@ -50,6 +50,7 @@ Chaque événement du cycle de vie d’une instance d’orchestration entraîne 
 * **reason**: données supplémentaires associées à l’événement de suivi. Par exemple, si une instance attend une notification d’événement externe, ce champ indique le nom de l’événement attendu. Si une fonction a échoué, il contient les détails de l’erreur.
 * **isReplay** : valeur booléenne qui indique si l’événement de suivi est destiné à une réexécution.
 * **extensionVersion** : version de l’extension Tâche durable. Ces données sont particulièrement importantes pour signaler d’éventuels bogues dans l’extension. Des instances à long terme peuvent signaler plusieurs versions si une mise à jour se produit pendant leur exécution. 
+* **sequenceNumber** : numéro séquentiel d’extension pour un événement. Combiné avec le timestamp, il permet de classer les événements par durée d’exécution. *Notez que ce numéro sera réinitialisé à zéro si l’hôte redémarre alors que l’instance est en cours d’exécution, il est donc important de toujours d’abord trier par timestamp, puis par sequenceNumber.*
 
 Le niveau de détail des données de suivi transmises à Application Insights peut être configuré dans la section `logger` du fichier `host.json`.
 
@@ -72,11 +73,11 @@ Par défaut, tous les événements de suivi sont transmis. Le volume de données
 
 ### <a name="single-instance-query"></a>Requête d’instance unique
 
-La requête suivante affiche les données de suivi historiques d’une seule instance de la fonction d’orchestration [Séquence Hello](durable-functions-sequence.md). Elle s’écrit à l’aide du langage [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Elle exclut la réexécution afin que seul le chemin d’exécution *logique* s’affiche.
+La requête suivante affiche les données de suivi historiques d’une seule instance de la fonction d’orchestration [Séquence Hello](durable-functions-sequence.md). Elle s’écrit à l’aide du langage [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Elle exclut la réexécution afin que seul le chemin d’exécution *logique* s’affiche. Les événements peuvent être classés en les triant par `timestamp` et `sequenceNumber` comme indiqué dans la requête ci-dessous : 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-Le résultat est une liste d’événements indiquant le chemin d’exécution de l’orchestration, y compris toutes les fonctions d’activité.
 
-![Requête Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+Le résultat est une liste d’événements de suivi indiquant le chemin d’exécution de l’orchestration, y compris toutes les fonctions d’activité triées par durée d’exécution par ordre ascendant.
 
-> [!NOTE]
-> Certains de ces événements de suivi peuvent être en désordre en raison du manque de précision dans la colonne `timestamp`. Ce problème est suivi dans GitHub sous la référence [issue #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Requête Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Requête de résumé de l’instance
 
@@ -191,7 +193,7 @@ Azure Functions prend directement en charge un code de fonction de débogage, et
 > [!TIP]
 > Lors de la définition de points d’arrêt, si vous voulez uniquement arrêter en cas de non réexécution, vous pouvez définir un point d’arrêt conditionnel qui s’arrête uniquement si `IsReplaying` est `false`.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Stockage
 
 Par défaut, Durable Functions stocke l’état dans Stockage Azure. Cela signifie que vous pouvez examiner l’état de vos orchestrations à l’aide d’outils tels que l’[Explorateur Stockage Azure Microsoft](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
@@ -200,7 +202,7 @@ Par défaut, Durable Functions stocke l’état dans Stockage Azure. Cela signif
 Cet outil est utile pour le débogage car il vous permet de visualiser exactement l’état d’une orchestration. Vous pouvez également examiner les messages de files d’attente pour identifier les tâches en attente (ou bloquées dans certains cas).
 
 > [!WARNING]
-> Même s’il est pratique d’afficher l’historique d’exécution dans le stockage de table, évitez de créer une dépendance sur cette table. Cette situation peut changer à mesure que l’extension Fonctions durables évolue.
+> Même s’il est pratique d’afficher l’historique d’exécution dans le stockage de table, évitez de créer une dépendance sur cette table. Elle peut changer à mesure que l’extension Fonctions durables évolue.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

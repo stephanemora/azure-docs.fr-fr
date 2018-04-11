@@ -1,11 +1,11 @@
 ---
-title: "Gérer les journaux de flux des groupes de sécurité réseau avec Azure Network Watcher | Microsoft Docs"
-description: "Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher"
+title: Gérer les journaux de flux des groupes de sécurité réseau avec Azure Network Watcher | Microsoft Docs
+description: Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gérer les journaux de flux des groupes de sécurité réseau sur le Portail Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/21/2017
 > - [Portail Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Les journaux de flux des groupes de sécurité réseau correspondent à une fonctionnalité de Network Watcher qui permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces journaux de flux, écrits au format JSON, fournissent des informations importantes, notamment : 
@@ -38,7 +38,10 @@ Les journaux de flux des groupes de sécurité réseau correspondent à une fonc
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce scénario suppose que vous ayez déjà suivi la procédure décrite sur la page [Créer une instance de Network Watcher](network-watcher-create.md). Il part également du principe que vous disposez d’un groupe de ressources et d’une machine virtuelle valide.
+Pour effectuer les étapes décrites dans cet article, vous devez déjà disposer des ressources suivantes :
+
+- Un Network Watcher existant. Pour créer un Network Watcher, consultez [Créer une instance Network Watcher](network-watcher-create.md).
+- Un groupe de ressources existant avec une machine virtuelle valide. Si vous n’avez pas de machine virtuelle, consultez Créer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="register-insights-provider"></a>Inscription du fournisseur Insights
 
@@ -68,7 +71,7 @@ Sélectionnez un groupe de sécurité réseau dans la liste.
 
 ### <a name="step-3"></a>Étape 3 : 
 
-Dans le panneau **Paramètres des journaux de flux**, réglez l’état sur **Activé**, puis configurez un compte de stockage.  Quand vous avez terminé, sélectionnez **OK**. Ensuite, sélectionnez **Enregistrer**.
+Dans le panneau **Paramètres des journaux de flux**, réglez l’état sur **Activé**, puis configurez un compte de stockage. Sélectionnez un compte de stockage existant qui a **Tous les réseaux** (par défaut) sélectionné sous **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage. Une fois un compte de stockage sélectionné, sélectionnez **OK**, puis sélectionnez **Enregistrer**.
 
 ![Vue d’ensemble des journaux de flux][3]
 

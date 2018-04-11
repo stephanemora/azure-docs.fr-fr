@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -62,7 +62,7 @@ Les agents Windows doivent être configurés pour communiquer avec un serveur 
 
 Les agents Linux doivent avoir accès à un référentiel de mise à jour.
 
-Cette solution ne prend pas en charge Agent OMS pour Linux configuré pour fournir des rapports à plusieurs espaces de travail Operations Management Suite.
+Cette solution ne prend pas en charge d’Agent Operations Management Suite pour Linux configuré pour envoyer des rapports à plusieurs espaces de travail Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Activer la gestion des mises à jour pour les machines virtuelles Azure
 
@@ -177,5 +177,5 @@ Pour afficher les informations détaillées sur les erreurs du déploiement, sé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la gestion des mises à jour (y compris les journaux, la sortie et les erreurs), consultez [Solution de gestion des mises à jour dans OMS](../operations-management-suite/oms-solution-update-management.md).
+* Pour en savoir plus sur la gestion des mises à jour (y compris les journaux, la sortie et les erreurs), consultez [Solution Update Management dans Azure](../operations-management-suite/oms-solution-update-management.md).
 

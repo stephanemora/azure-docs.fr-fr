@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données MySQL sur Microsoft Azure Stack
 
@@ -75,12 +75,12 @@ Le compte système doit disposer des privilèges suivants :
 
     | Build Azure Stack | Programme d’installation de MySQL RP |
     | --- | --- |
-    | i1802: 1.0.180302.1 | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | 1802: 1.0.180302.1 | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
     | 1712: 1.0.180102.3 ou 1.0.180106.1 (nœuds multiples) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
     | 1711: 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  Le certificat racine Azure Stack est récupéré à partir du point de terminaison privilégié. Pour le Kit SDK Azure, un certificat auto-signé est créé dans le cadre de ce processus. Pour plusieurs nœuds, vous devez fournir un certificat approprié.
+4.  Pour le Kit SDK Azure, un certificat auto-signé est créé dans le cadre de ce processus. Pour plusieurs nœuds, vous devez fournir un certificat approprié.
 
     Si vous devez fournir votre propre certificat, placez un fichier .pfx dans le chemin **DependencyFilesLocalPath**, qui répond aux critères suivants :
 

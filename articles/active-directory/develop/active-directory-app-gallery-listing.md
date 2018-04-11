@@ -1,32 +1,32 @@
 ---
-title: "Listing de votre application dans la galerie d’applications Azure Active Directory | Microsoft Docs"
-description: "Comment lister une application qui prend en charge l’authentification unique dans la galerie d’applications Azure Active Directory"
+title: Listing de votre application dans la galerie d’applications Azure Active Directory | Microsoft Docs
+description: Comment lister une application qui prend en charge l’authentification unique dans la galerie d’applications Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/09/2018
+ms.date: 03/20/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 502fb555bd3b381c9be0ff04e210cc07f9bf6cd8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 
 
 ##  <a name="what-is-the-azure-ad-application-gallery"></a>Qu’est-ce que la galerie d’applications Azure AD ?
 
-Azure Active Directory (Azure AD) est un service d’identité basé sur le cloud. La [galerie d’applications Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) se trouve dans l’app store de la Place de marché Microsoft Azure, où tous les connecteurs d’applications sont publiés pour l’authentification unique et le provisionnement des utilisateurs. Les clients qui utilisent Azure AD comme fournisseur d’identité y trouvent les connecteurs d’applications SaaS publiés. Les administrateurs informatiques ajoutent des connecteurs à partir de la galerie d’applications, puis configurent et utilisent ces connecteurs pour l’authentification unique et le provisionnement. Azure AD prend en charge tous les principaux protocoles de fédération pour l’authentification unique, notamment SAML 2.0, OpenID Connect, OAuth et WS-Fed. 
+Azure Active Directory (Azure AD) est un service d’identité basé sur le cloud. La [galerie d’applications Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) se trouve dans l’app store de la Place de marché Microsoft Azure, où tous les connecteurs d’applications sont publiés pour l’authentification unique et le provisionnement des utilisateurs. Les clients qui utilisent Azure AD comme fournisseur d’identité y trouvent les connecteurs d’applications SaaS publiés. Les administrateurs informatiques ajoutent des connecteurs à partir de la galerie d’applications, puis configurent et utilisent ces connecteurs pour l’authentification unique et le provisionnement. Azure AD prend en charge tous les principaux protocoles de fédération pour l’authentification unique, notamment SAML 2.0, OpenID Connect, OAuth et WS-Fed.
 
 ## <a name="what-are-the-benefits-of-listing-an-application-in-the-gallery"></a>Quels sont les avantages du listing d’une application dans la galerie ?
 
@@ -51,7 +51,21 @@ Pour lister une application dans la galerie d’applications Azure AD, vous deve
 
 *   **SAML 2.0** ou **WS-Fed** : Votre application doit pouvoir effectuer l’intégration de l’authentification unique SAML/WS-Fed en mode SP ou IDP. Si votre application prend en charge SAML 2.0, vous pouvez l’intégrer directement dans un locataire Azure AD en suivant les [instructions pour ajouter une application personnalisée](../active-directory-saas-custom-apps.md).
 
-*   **Authentification unique basée sur un mot de passe** : Créez une application web qui a une page de connexion HTML pour configurer [l’authentification unique basée sur un mot de passe](../active-directory-appssoaccess-whatis.md). L'authentification unique basée sur un mot de passe, également appelée  archivage de mot de passe, vous permet de gérer l'accès utilisateur et les mots de passe pour les applications web qui ne prennent pas en charge la fédération d'identité. Elle est également utile pour les scénarios où plusieurs utilisateurs doivent partager un seul compte, par exemple les comptes d’applications de médias sociaux de votre organisation. 
+*   **Authentification unique basée sur un mot de passe** : Créez une application web qui a une page de connexion HTML pour configurer [l’authentification unique basée sur un mot de passe](../active-directory-appssoaccess-whatis.md). L'authentification unique basée sur un mot de passe, également appelée  archivage de mot de passe, vous permet de gérer l'accès utilisateur et les mots de passe pour les applications Web qui ne prennent pas en charge la fédération d'identité. Elle est également utile pour les scénarios où plusieurs utilisateurs doivent partager un seul compte, par exemple les comptes d’applications de médias sociaux de votre organisation.
+
+##  <a name="updateremove-existing-listing"></a>Mettre à jour/supprimer un listing existant
+
+Pour mettre à jour ou supprimer une application existante dans la galerie d’applications Azure AD, vous devez tout d’abord envoyer la requête dans le [Portail du réseau d’applications](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si vous avez un compte Office 365, utilisez-le pour vous connecter à ce portail. Dans le cas contraire, utilisez votre compte Microsoft (comme Outlook ou Hotmail) pour vous connecter.
+
+* Sélectionnez l’option appropriée dans l’image ci-dessous
+
+    ![Chronologie de l’énumération des applications SAML dans la galerie](./media/active-directory-app-gallery-listing/updateorremove.png)
+
+    * Si vous souhaitez mettre à jour une application existante, sélectionnez **Mettre à jour le listing des applications existantes**.
+
+    * Si vous souhaitez supprimer une application existante à partir de la galerie Azure AD, sélectionnez **Supprimer le listing des applications existantes**
+
+    * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 ## <a name="submit-the-request-in-the-portal"></a>Envoyer la demande dans le portail
 
@@ -61,19 +75,18 @@ Une fois connecté, la page suivante s’affiche. Justifiez votre besoin d’acc
 
 En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-![Demande d’accès sur le portail SharePoint](./media/active-directory-app-gallery-listing/accessrequest.png)
+![Requête d’accès sur le portail SharePoint](./media/active-directory-app-gallery-listing/accessrequest.png)
 
-## <a name="timelines"></a>Délais
+## <a name="timelines"></a>Chronologies
     
 La durée du processus de listing d’une application SAML 2.0 ou WS-Fed dans la galerie est de 7 à 10 jours ouvrables.
 
-   ![Délai du listing d’une application SAML dans la galerie](./media/active-directory-app-gallery-listing/timeline.png)
+   ![Chronologie de l’énumération des applications SAML dans la galerie](./media/active-directory-app-gallery-listing/timeline.png)
 
 La durée du processus de listing d’une application OpenID Connect dans la galerie est de 2 à 5 jours ouvrables.
 
-   ![Durée du listing d’une application SAML dans la galerie](./media/active-directory-app-gallery-listing/timeline2.png)
+   ![Chronologie de l’énumération des applications SAML dans la galerie](./media/active-directory-app-gallery-listing/timeline2.png)
 
-## <a name="escalations"></a>Remontées
+## <a name="escalations"></a>Escalades
 
-Pour faire remonter un problème, envoyez un e-mail à l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) et nous vous répondrons dès que possible.
-
+Pour faire remonter un problème, envoyez un e-mail à [l’équipe d’intégration SSO Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) qui est SaaSApplicationIntegrations@service.microsoft.com et nous vous répondrons dès que possible.

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 34fdf45094fae8e751d6b3e5c57d5b4df2e78200
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -130,9 +130,11 @@ Lorsque le trafic sortant est envoyé à partir d’un sous-réseau, Azure chois
 Si plusieurs itinéraires contiennent le même préfixe d’adresse, Azure choisit le type d’itinéraire en se basant sur l’ordre de priorité suivant :
 
 1. Itinéraire défini par l’utilisateur
-2. Itinéraire du système avec le type de tronçon *Réseau virtuel*, *VNet Peering* ou *VirtualNetworkServiceEndpoint*.
 2. Itinéraire BGP
-3. Itinéraire du système avec un type de tronçon autre que *Réseau virtuel*, *VNet Peering* ou *VirtualNetworkServiceEndpoint*.
+3. Itinéraire du système
+
+> [!NOTE]
+> Les itinéraires système pour le trafic lié au réseau virtuel, aux homologations de réseaux virtuels ou aux points de terminaison de service de réseau virtuel, sont les itinéraires sélectionnés par défaut, même si les itinéraires BGP sont plus spécifiques.
 
 Par exemple, une table de routage contient les itinéraires suivants :
 

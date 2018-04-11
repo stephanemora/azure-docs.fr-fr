@@ -6,14 +6,14 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 04/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cb0c8c5f5730ae1f7a2e9b38c3ef3e04ee8cde67
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guide de démarrage rapide : créer son premier conteneur dans Azure Container Instances
 
@@ -23,11 +23,11 @@ Azure Container Instances simplifie la création et la gestion des conteneurs da
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse http://portal.azure.com.
+Connectez-vous au portail Azure sur http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Créer une instance de conteneur
 
-Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Instances (version préliminaire)**.
+Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Instances**.
 
 ![Commencer à créer une instance de conteneur dans le portail Azure][aci-portal-01]
 
@@ -53,7 +53,7 @@ Lorsque le déploiement commence, une vignette apparaît sur le tableau de bord 
 
 ![Progression de la création d’une nouvelle instance de conteneur dans le portail Azure][aci-portal-08]
 
-Sélectionnez le groupe de conteneurs **mycontainer-myc1** pour afficher ses propriétés. Prenez note de l’**Adresse IP** du groupe de conteneurs, ainsi que de l’**ÉTAT** de votre conteneur.
+Sélectionnez le groupe de conteneurs **mycontainer-myc1** pour afficher ses propriétés. Prenez note de **l’adresse IP** du groupe de conteneurs, ainsi que de **l’ÉTAT** de votre conteneur.
 
 ![Vue d’ensemble du groupe de conteneurs dans le portail Azure][aci-portal-06]
 
@@ -72,7 +72,7 @@ Cela ouvre une boîte de dialogue de confirmation, sélectionnez **Oui** lorsque
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
+<!--[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png-->
 [aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png

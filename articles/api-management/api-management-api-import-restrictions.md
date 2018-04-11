@@ -1,11 +1,11 @@
 ---
-title: "Restrictions et problèmes connus relatifs à l’importation d’API dans la gestion des API Azure | Microsoft Docs"
-description: "Détails des problèmes connus et des restrictions relatifs à l’importation dans la gestion des API Azure à l’aide des formats Open API, WSDL ou WADL."
+title: Restrictions et problèmes connus relatifs à l’importation d’API dans la gestion des API Azure | Microsoft Docs
+description: Détails des problèmes connus et des restrictions relatifs à l’importation dans la gestion des API Azure à l’aide des formats Open API, WSDL ou WADL.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 758babce3ed387ed4864f1934650cf701bda788f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 ## <a name="about-this-list"></a>À propos de cette liste
@@ -29,7 +29,10 @@ Si vous recevez des erreurs durant l’importation de votre document Open API, v
 
 * **Nom d’hôte** : le service Gestion des API (APIM) requiert un attribut de nom d’hôte.
 * **Chemin d’accès de base** : le service APIM requiert un attribut de chemin d’accès de base.
-* **Schémas** : le service APIM requiert un tableau de schéma. 
+* **Schémas** : le service APIM requiert un tableau de schéma.
+
+> [!IMPORTANT]
+> Consultez ce [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) pour obtenir des informations importantes et des conseils liés à l’importation OpenAPI.
 
 ## <a name="wsdl"></a>WSDL
 Les fichiers WSDL servent à générer des API Pass-through SOAP ou constituent le backend d’une API SOAP à REST.

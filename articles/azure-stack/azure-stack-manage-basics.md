@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Principes de bases de l’administration d’Azure Stack
 Si vous débutez avec l’administration d’Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide fournit une vue d’ensemble de votre rôle en tant qu’opérateur Azure Stack, et explique ce que vous devez dire à vos utilisateurs pour qu’ils deviennent rapidement productifs.
@@ -31,9 +31,9 @@ Si vous utilisez un système Azure Stack intégré, les versions mises à jour d
  
 ### <a name="development-kit"></a>Kit de développement
 
-Si vous utilisez le Kit de développement Azure Stack, consultez l’article [Qu’est-ce qu’Azure Stack ?](azure-stack-poc.md) pour être sûr de bien comprendre la fonction du kit de développement et ses limitations. Vous devez utiliser le Kit de développement comme « bac à sable », dans lequel vous pouvez évaluer Azure Stack et développer et tester vos applications dans un environnement hors production. (Pour plus d’informations sur le déploiement, consultez le guide de démarrage rapide [Déploiement du Kit de développement Azure Stack](azure-stack-deploy-overview.md).)
+Si vous utilisez le Kit de développement Azure Stack, consultez l’article [Qu’est-ce qu’Azure Stack ?](.\asdk\asdk-what-is.md) pour être sûr de bien comprendre la fonction du kit de développement et ses limitations. Vous devez utiliser le Kit de développement comme « bac à sable », dans lequel vous pouvez évaluer Azure Stack et développer et tester vos applications dans un environnement hors production. (Pour plus d’informations sur le déploiement, consultez le didacticiel [Déploiement du Kit de développement Azure Stack](.\asdk\asdk-deploy.md).)
 
-Comme Azure, nous innovons rapidement. Nous publierons régulièrement de nouvelles builds. Si vous exécutez le kit de développement et souhaitez passer à la version la plus récente, vous devez [redéployer Azure Stack](azure-stack-redeploy.md). Vous ne pouvez pas appliquer les packages de mises à jour. Ce processus prend du temps, mais l’avantage est que vous pouvez essayer les fonctionnalités les plus récentes. La documentation du kit de développement sur notre site web reflète la build la plus récente.
+Comme Azure, nous innovons rapidement. Nous publierons régulièrement de nouvelles builds. Si vous exécutez le kit de développement et souhaitez passer à la version la plus récente, vous devez [redéployer Azure Stack](.\asdk\asdk-redeploy.md). Vous ne pouvez pas appliquer les packages de mises à jour. Ce processus prend du temps, mais l’avantage est que vous pouvez essayer les fonctionnalités les plus récentes. La documentation du kit de développement sur notre site web reflète la build la plus récente.
 
 ## <a name="learn-about-available-services"></a>Découvrir les services disponibles
 
@@ -63,6 +63,18 @@ Ces services nécessitent une configuration supplémentaire avant de pouvoir êt
 **Feuille de route des services**
 
 Azure Stack continuera à prendre en charge de nouveaux services Azure. Pour la feuille de route prévue, consultez le livre blanc [Azure Stack: une extension d’Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview).
+
+## <a name="what-account-should-i-use"></a>Quel compte dois-je utiliser ?
+Il existe quelques considérations relatives au compte dont vous devez prendre connaissance lors de la gestion d’Azure Stack. En particulier en ce qui concerne les déploiements à l’aide des services de fédération Active Directory (AD FS) Windows Server en tant que fournisseur d’identité plutôt qu’à l’aide d’Azure Active Directory (Azure AD). Les considérations de compte suivantes s’appliquent à la fois aux systèmes intégrés Azure Stack et aux déploiements ASDK :
+
+
+|Compte|Azure AD|AD FS|
+|-----|-----|-----|
+|Administrateur local (. \Administrator)|Administrateur hôte ASDK|Administrateur hôte ASDK|
+|AzureStack\AzureStackAdmin|Administrateur hôte ASDK<br><br>Peut être utilisé pour se connecter au portal d’administration Azure Stack<br><br>Accéder pour afficher et administrer les anneaux Service Fabric|Administrateur hôte ASDK<br><br>Aucun accès au portail d’administration Azure Stack<br><br>Accéder pour afficher et administrer les anneaux Service Fabric<br><br>N’est plus un propriétaire de l’abonnement du fournisseur par défaut (DPS)|
+|AzureStack\CloudAdmin|Peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié|Peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié<br><br>Peut pas se connecter à l’hôte ASDK<br><br>Propriétaire de l’abonnement du fournisseur par défaut (DPS)|
+|Administrateur global Azure AD|Utilisé au cours de l’installation<br><br>Propriétaire de l’abonnement du fournisseur par défaut (DPS)|Non applicable|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Quels outils dois-je utiliser pour la gestion ?
  

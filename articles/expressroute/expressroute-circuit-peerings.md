@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuits ExpressRoute et domaines de routage
  Vous devez commander un *circuit ExpressRoute* pour connecter votre réseau local à Microsoft via un fournisseur de connectivité. La figure suivante affiche une représentation logique de la connectivité entre votre WAN et Microsoft.
@@ -72,7 +72,7 @@ Pour plus d’informations sur les services pris en charge, les coûts et les d�
 ## <a name="routing-domain-comparison"></a>Comparaison des domaines de routage
 Le tableau suivant compare les trois domaines de routage :
 
-|  | **Homologation privée** | **Homologation publique** | **Homologation Microsoft*** |
+|  | **Homologation privée** | **Homologation publique** (déconseillé pour de nouvelles créations) | **Homologation Microsoft** |
 | --- | --- | --- | --- |
 | **Nb max. de préfixes pris en charge par homologation** |4 000 par défaut, 10 000 avec ExpressRoute Premium |200 |200 |
 | **Plages d’adresses IP prises en charge** |Toute adresse IP valide au sein de votre réseau étendu. |Adresses IP publiques détenues par vous ou par votre fournisseur de connectivité. |Adresses IP publiques détenues par vous ou par votre fournisseur de connectivité. |
@@ -81,7 +81,7 @@ Le tableau suivant compare les trois domaines de routage :
 | **Adresses IP de l’interface de routage** |RFC1918 et adresses IP publiques |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |
 | **Prise en charge du hachage MD5** |OUI |OUI |OUI |
 
-(*) Nécessite le niveau de référence (SKU) de module complémentaire Premium
+
 
 Vous pouvez choisir d’activer un ou plusieurs domaines de routage dans le cadre de votre circuit ExpressRoute. Vous pouvez choisir de placer tous les domaines de routage sur le même VPN si vous souhaitez les combiner dans un domaine de routage unique. Vous pouvez également les placer dans différents domaines de routage comme indiqué dans le schéma. Nous vous recommandons de connecter l’homologation privée directement à votre réseau principal, et les homologations publiques et Microsoft à votre zone DMZ.
 

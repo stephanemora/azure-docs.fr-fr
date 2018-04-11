@@ -1,25 +1,22 @@
 ---
-title: Surveiller les journaux d’accès, les journaux des performances, l’intégrité du serveur principal, ainsi que les métriques d’Application Gateway | Microsoft Docs
+title: Surveiller les journaux d’accès, les journaux de performances, l’intégrité du serveur principal et les métriques pour Application Gateway
 description: Découvrez comment activer et gérer les journaux d’accès et les journaux des performances pour Application Gateway
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -29,7 +26,7 @@ ms.lasthandoff: 03/29/2018
 
 * [Journaux](#diagnostic-logging) : les journaux permettent d’enregistrer ou d’utiliser les performances, les accès et les autres données à partir d’une ressource à des fins de surveillance.
 
-* [Mesures](#metrics) : la passerelle Application Gateway possède actuellement une métrique. Cette métrique mesure le débit de la passerelle Application Gateway en octets par seconde.
+* [Métriques](#metrics) : Application Gateway a actuellement sept métriques pour afficher les compteurs de performances.
 
 ## <a name="back-end-health"></a>Intégrité du serveur principal
 
@@ -318,13 +315,22 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 
 Les mesures représentent une fonctionnalité de certaines ressources Azure, vous permettant d’afficher les compteurs de performances dans le portail. Pour Application Gateway, les métriques suivantes sont disponibles :
 
-- Connexions courantes
-- Demandes ayant échoué
-- Nombre d’hôtes intègres
-- État de la réponse
-- Throughput
-- Total de requêtes
-- Nombre d’hôtes non intègres
+- **Connexions courantes**
+- **Requêtes ayant échoué**
+- **Nombre d’hôtes intègres**
+
+   Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
+
+
+- **État de la réponse**
+
+   La distribution du code d’état de la réponse peut être ultérieurement classée par catégorie afin d’afficher les réponses dans les catégories 2xx, 3xx, 4xx et 5xx.
+
+- **Débit**
+- **Total de requêtes**
+- **Nombre d’hôtes défectueux**
+
+   Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
 
 Accédez à une passerelle d’applications, sous **Analyse** cliquez sur **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
 

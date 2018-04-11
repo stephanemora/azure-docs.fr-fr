@@ -1,8 +1,8 @@
 ---
-title: "Alertes et recherches enregistrées dans les solutions OMS | Microsoft Docs"
-description: "Les solutions dans OMS incluent généralement des recherches enregistrées dans Log Analytics pour analyser les données collectées par la solution.  Elles peuvent également définir des alertes pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un modèle Resource Manager, de sorte qu’elles puissent être incluses dans des solutions de gestion."
+title: Alertes et recherches enregistrées dans les solutions de gestion | Microsoft Docs
+description: Les solutions de gestion incluent généralement des recherches enregistrées dans Log Analytics afin d’analyser les données collectées par la solution.  Elles peuvent également définir des alertes pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un modèle Resource Manager, de sorte qu’elles puissent être incluses dans des solutions de gestion.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,30 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion OMS (préversion)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
 > [!NOTE]
-> Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans OMS qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.   
+> Il s’agit d’une documentation préliminaire pour la création de solutions de gestion actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.   
 
 
-Les [solutions de gestion dans OMS](operations-management-suite-solutions.md) incluent généralement des [recherches enregistrées](../log-analytics/log-analytics-log-searches.md) dans Log Analytics pour analyser les données collectées par la solution.  Elles peuvent également définir des [alertes](../log-analytics/log-analytics-alerts.md) pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un [modèle Resource Manager](../resource-manager-template-walkthrough.md), de sorte qu’elles puissent être incluses dans des [solutions de gestion](operations-management-suite-solutions-creating.md).
+Les [solutions de gestion](operations-management-suite-solutions.md) incluent généralement des [recherches enregistrées](../log-analytics/log-analytics-log-searches.md) dans Log Analytics afin d’analyser les données collectées par la solution.  Elles peuvent également définir des [alertes](../log-analytics/log-analytics-alerts.md) pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un [modèle Resource Manager](../resource-manager-template-walkthrough.md), de sorte qu’elles puissent être incluses dans des [solutions de gestion](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> Les exemples dans cet article utilisent des paramètres et des variables qui sont nécessaires ou courants pour les solutions de gestion. Ils sont décrits dans la rubrique [Création de solutions de gestion dans Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
+> Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure](operations-management-suite-solutions-creating.md)  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](operations-management-suite-solutions-creating.md) et la structure d’un [modèle Resource Manager](../resource-group-authoring-templates.md) et d’un fichier solution.
 
 
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
-Toutes les ressources dans Log Analytics sont contenues dans un [espace de travail](../log-analytics/log-analytics-manage-access.md).  Comme décrit dans [Espace de travail OMS et compte Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), l’espace de travail n’est pas inclus dans la solution de gestion mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
+Toutes les ressources dans Log Analytics sont contenues dans un [espace de travail](../log-analytics/log-analytics-manage-access.md).  Comme décrit dans [Espace de travail Log Analytics et compte Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), l’espace de travail n’est pas inclus dans la solution de gestion mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
 
 Le nom de l’espace de travail figure dans le nom de chaque ressource Log Analytics.  Pour cela, utilisez le paramètre **workspace** comme dans l’exemple suivant, utilisant une ressource savedsearch.
 

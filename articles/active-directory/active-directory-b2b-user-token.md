@@ -1,13 +1,13 @@
 ---
 title: Comprendre les jetons utilisateur Azure AD B2B Collaboration | Microsoft Docs
-description: "Référence sur les jetons pour Azure Active Directory B2B Collaboration"
+description: Référence sur les jetons pour Azure Active Directory B2B Collaboration
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 6afa7d01282d6c35b042ad69fcdcb5714c92de10
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4f152aa4da9fcbe07179414aa8dc69f8633bb6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Comprendre les jetons utilisateur Azure AD B2B Collaboration
 
-Si vous souhaitez savoir à quoi ressemble le jeton pour un utilisateur de B2B Collaboration, voici les détails du jeton du porteur ainsi que le contenu des jetons pour un invité Azure Active Directory (Azure AD) et un invité de compte Microsoft dans le locataire de la ressource (pour tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Utilisez [https://jwt.io/](https://jwt.io/) ou [http://calebb.net](http://calebb.net/) pour afficher le contenu des jetons web JSON (JWT).
+Si vous souhaitez savoir à quoi ressemble le jeton pour un utilisateur de B2B Collaboration, voici les détails du jeton du porteur ainsi que le contenu des jetons pour un invité Azure Active Directory (Azure AD) et un invité de compte Microsoft dans le locataire de la ressource (pour tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Pour afficher le contenu JSON Web Token (JWT), utilisez [https://jwt.io/](https://jwt.io/) ou [https://jwt.ms/](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Jeton invité Azure AD
 ```

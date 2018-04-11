@@ -1,24 +1,24 @@
 ---
-title: "Résoudre les problèmes de connexion VPN de site à site Azure | Microsoft Docs"
-description: "Découvrez comment résoudre un problème de connexion VPN de site à site qui cesse soudainement de fonctionner sans possibilité de reconnexion."
+title: Résoudre les problèmes de connexion VPN de site à site Azure | Microsoft Docs
+description: Découvrez comment résoudre un problème de connexion VPN de site à site qui cesse soudainement de fonctionner sans possibilité de reconnexion.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Résolution de problèmes : une connexion VPN de site à site Azure cesse de fonctionner
 
@@ -52,7 +52,7 @@ Comparez la clé partagée du périphérique VPN local et celle du VPN de résea
 
 Pour afficher la clé partagée dans l’optique de la connexion VPN Azure, utilisez l’une des méthodes suivantes :
 
-**Portail Azure**
+**Portail Azure**
 
 1. Accédez à la connexion de site à site de passerelle VPN que vous avez créée.
 
@@ -92,7 +92,9 @@ Recherchez et supprimez l’itinéraire défini par l’utilisateur (UDR) ou les
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Étape 7. Vérifier la sonde d’intégrité de la passerelle Azure
 
-1. Accédez à la sonde d’intégrité.
+1. Ouvrez la sonde d’intégrité en accédant à l’URL suivante :
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Cliquez sur l’avertissement de certificat.
 3. Si vous recevez une réponse, cela signifie que la passerelle VPN est considérée comme saine. Vous ne recevez pas de réponse, cela signifie que la passerelle n’est peut-être pas saine ou qu’un groupe de sécurité réseau sur le sous-réseau de passerelle pose problème. Voici un exemple de réponse :

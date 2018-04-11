@@ -1,4 +1,4 @@
----
+﻿---
 title: Fonctionnalités et concepts clés d’Azure Stack | Microsoft Docs
 description: Découvrez les fonctionnalités et concepts clés de Azure Stack.
 services: azure-stack

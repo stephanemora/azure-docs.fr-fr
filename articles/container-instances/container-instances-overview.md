@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d6e0637974d8076fc610d7154ad507f4e7af0cfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e10d4046f543fbcc479421f4ca8f10221abc806f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -25,6 +25,10 @@ Azure Container Instances est une excellente solution pour les scénarios qui pe
 
 Le service Containers offre des avantages de démarrage conséquents sur les machines virtuelles. Azure Container Instances peut démarrer des conteneurs dans Azure en quelques secondes, sans avoir à configurer ni gérer des machines virtuelles.
 
+## <a name="public-ip-connectivity-and-dns-name"></a>Connectivité IP publique et nom DNS
+
+Azure Container Instances permet d’exposer vos conteneurs directement sur Internet avec une adresse IP publique et un nom de domaine complet. Lorsque vous créez une instance de conteneur, vous pouvez spécifier une étiquette de nom DNS personnalisée pour que votre application soit accessible à l’emplacement *customlabel*.*azureregion*.azurecontainer.io.
+
 ## <a name="hypervisor-level-security"></a>Sécurité au niveau de l’hyperviseur
 
 D’un point de vue historique, les conteneurs ont offert l’isolation de dépendance d’application et la gouvernance des ressources, mais n’ont pas été considérés suffisamment renforcés pour une utilisation de plusieurs locataires hostile. Azure Container Instances garantie que votre application se retrouve aussi isolée dans un conteneur que dans une machine virtuelle.
@@ -32,10 +36,6 @@ D’un point de vue historique, les conteneurs ont offert l’isolation de dépe
 ## <a name="custom-sizes"></a>Tailles personnalisées
 
 Les conteneurs sont généralement optimisés pour n’exécuter qu’une application, mais les besoins précis de ces applications peuvent grandement varier. Azure Container Instances permet une utilisation optimale en autorisant les spécifications exactes des cœurs d’unité centrale et de la mémoire. Vous payez pour ce dont vous avez besoin et vous êtes facturé immédiatement, pour pouvoir ajuster vos dépenses selon vos besoins.
-
-## <a name="public-ip-connectivity"></a>Connectivité IP publique
-
-Azure Container Instances permet d’exposer vos conteneurs directement sur internet avec une adresse IP publique et une étiquette du nom DNS. Prochainement, nous comptons étendre nos fonctionnalités réseau afin d’inclure l’intégration avec les réseaux virtuels, des équilibreurs de charges et d’autres parties essentielles de l’infrastructure de mise en réseau Azure.
 
 ## <a name="persistent-storage"></a>Stockage persistant
 
@@ -53,4 +53,7 @@ Azure Container Instances prend en charge la planification de [groupes de plusie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez de déployer un conteneur dans Azure avec une seule commande à l’aide de notre [guide de démarrage rapide](container-instances-quickstart.md).
+Essayez de déployer un conteneur dans Azure avec une seule commande à l’aide de notre guide de démarrage rapide :
+
+> [!div class="nextstepaction"]
+> [Guide de démarrage rapide : créer son premier conteneur dans Azure Container Instances](container-instances-quickstart.md)

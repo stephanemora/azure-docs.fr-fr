@@ -1,6 +1,6 @@
 ---
-title: "Gérer une machine virtuelle Azure avec la collection d’inventaire | Microsoft Docs"
-description: "Gérer une machine virtuelle avec la collection d’inventaire"
+title: Gérer une machine virtuelle Azure avec la collection d’inventaire | Microsoft Docs
+description: Gérer une machine virtuelle avec la collection d’inventaire
 services: automation
 keywords: inventaire, automatisation, suivi des modifications
 author: jennyhunter-msft
@@ -8,11 +8,11 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -66,4 +66,4 @@ Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procéde
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la gestion des modifications dans les paramètres de registre et les fichiers sur vos machines virtuelles, consultez l’article relatif au [suivi des modifications apportées à votre environnement logiciel avec la solution Change Tracking](../log-analytics/log-analytics-change-tracking.md).
-* Pour en savoir plus sur la gestion des mises à jour de package et Windows sur vos machines virtuelles, consultez la section relative à la [solution Update Management dans OMS](../operations-management-suite/oms-solution-update-management.md).
+* Pour en savoir plus sur la gestion des mises à jour Windows et de packages sur des machines virtuelles, consultez [La solution Update Management dans Azure](../operations-management-suite/oms-solution-update-management.md).

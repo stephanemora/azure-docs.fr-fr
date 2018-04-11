@@ -1,33 +1,33 @@
 ---
-title: "Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment le partitionnement fonctionne dans Azure Cosmos DB, comment configurer le partitionnement et les clés de partition, et comment choisir la clé de partition appropriée pour votre application."
+title: Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment le partitionnement fonctionne dans Azure Cosmos DB, comment configurer le partitionnement et les clés de partition, et comment choisir la clé de partition appropriée pour votre application.
 services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionner et mettre à l’échelle dans Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est un service de base de données multimodèle distribué à l’échelle mondiale, qui a été conçu pour vous permettre d’accéder à des performances élevées et prévisibles. Il se met à l’échelle en toute transparence à mesure que votre application évolue. Cet article offre une vue d’ensemble du fonctionnement du partitionnement pour toutes les modèles de données dans Azure Cosmos DB. Il vous explique aussi comment configurer des conteneurs Azure Cosmos DB pour mettre efficacement vos applications à l’échelle.
 
-La question du partitionnement et des clés de partition est abordée dans cette vidéo Azure Friday avec Scott Hanselman et Shireesh Thota, responsable principal de l’ingénierie Azure Cosmos DB :
+Le partitionnement et les clés de partition sont décrits dans cette vidéo avec le gestionnaire de programmes Azure Cosmos DB, Andrew Liu :
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitionnement dans Azure Cosmos DB
@@ -53,7 +53,7 @@ En bref, voici comment le partitionnement fonctionne dans Azure Cosmos DB :
 * En arrière-plan, Azure Cosmos DB provisionne les partitions nécessaires pour servir **T** requêtes par seconde. Si la valeur de **T** est supérieure au débit maximal par partition **t**, Azure Cosmos DB provisionne **N = T/t** partitions.
 * Azure Cosmos DB alloue l’espace des hachages de clé de partition uniformément entre les **N** partitions. Ainsi, chaque partition (physique) héberge **1/N** valeurs de clé de partition (partitions logiques).
 * Quand une partition physique **p** atteint sa limite de stockage, Azure Cosmos DB fractionne **p** en deux partitions nouvelles : **p1** et **p2**. Des valeurs correspondant à environ la moitié des clés sont distribuées à chacune des partitions. Cette opération de division est invisible pour votre application. Si une partition physique atteint sa limite de stockage et que toutes les données dans la partition physique appartiennent à la même clé de partition logique, l’opération de fractionnement n’a pas lieu. En effet, comme toutes les données d’une clé de partition logique unique doivent résider dans la même partition physique, celle-ci ne peut pas être fractionnée en p1 et p2. Dans ce cas, une stratégie de clé de partition différente doit être employée.
-* Quand vous provisionnez un débit supérieur à **t*N**, Azure Cosmos DB fractionne une ou plusieurs de vos partitions pour supporter le débit plus élevé.
+* Quand vous configurez un débit supérieur à **t*N**, Azure Cosmos DB fractionne une ou plusieurs de vos partitions pour prendre en charge le débit plus élevé.
 
 La sémantique pour les clés de partition est légèrement différente pour correspondre à celle de chaque API, comme indiqué dans le tableau suivant :
 

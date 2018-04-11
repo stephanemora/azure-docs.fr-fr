@@ -1,23 +1,23 @@
 ---
-title: "Activer la sauvegarde des machines virtuelles Azure lors de la création | Microsoft Docs"
-description: "Consultez les étapes pour activer la sauvegarde de machine virtuelle Azure pendant le processus de création."
+title: Activer la sauvegarde des machines virtuelles Azure lors de la création | Microsoft Docs
+description: Consultez les étapes pour activer la sauvegarde de machine virtuelle Azure pendant le processus de création.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Activer la sauvegarde lors de la création de machines virtuelles Azure 
 
@@ -57,6 +57,10 @@ Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail 
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>Lancer une sauvegarde après la création de la machine virtuelle 
 
 Même si la stratégie de sauvegarde a été créée, il est conseillé de créer une sauvegarde initiale. Pour afficher les informations de sauvegarde pour la machine virtuelle une fois le modèle de création de machine virtuelle terminé, cliquez sur **Sauvegarder** à partir du paramètre **Operations** dans le menu de gauche. Vous pouvez utiliser cela pour déclencher une sauvegarde à la demande, restaurer une machine virtuelle complète ou tous les disques, restaurer des fichiers à partir de la sauvegarde de la machine virtuelle ou modifier la stratégie de sauvegarde associée à la machine virtuelle.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Utiliser un modèle Resource Manager pour déployer une machine virtuelle protégée
+
+La procédure précédente explique comment utiliser le Portail Azure pour créer une machine virtuelle et la protéger dans un coffre Recovery Services. Si vous souhaitez déployer rapidement une ou plusieurs machines virtuelles et les protéger dans un coffre Recovery Services, consultez le modèle, [Déployer une machine virtuelle Windows et activer la sauvegarde](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
 
