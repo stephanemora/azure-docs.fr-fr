@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -228,11 +228,7 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 
 Certaines applications, comme Office 2010 ou version antérieure et Apple Mail, ne prennent pas en charge la vérification en deux étapes. Ces applications ne sont pas configurées pour accepter une deuxième vérification. Pour les utiliser, activez la fonctionnalité _Mots de passe d’application_. Vous pouvez utiliser un mot de passe d’application à la place de votre mot de passe traditionnel pour permettre à une application de contourner la vérification en deux étapes et continuer à travailler.
 
->[!NOTE]
->Authentification moderne pour les clients Microsoft Office 2013 et versions ultérieures
-> 
->Les clients Office 2013 et versions ultérieures (y compris Outlook) prennent en charge les protocoles d’authentification modernes et peuvent fonctionner avec la vérification en deux étapes. Une fois le client activé, les mots de passe d’application ne sont pas requis par le client. Pour plus d’informations, consultez [l’annonce de la version préliminaire publique de l’authentification moderne Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
+L’authentification moderne est prise en charge pour les clients Microsoft Office 2013 et versions ultérieures. Les clients Office 2013, y compris Outlook, prennent en charge des protocoles d’authentification moderne et peuvent être activés pour fonctionner dans le cadre de la vérification en deux étapes. Une fois le client activé, les mots de passe d’application ne sont pas requis par le client.
 
 ### <a name="considerations-about-app-passwords"></a>Considérations sur les mots de passe d’application
 

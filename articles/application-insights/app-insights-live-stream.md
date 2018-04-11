@@ -1,8 +1,8 @@
 ---
-title: "Flux de métriques temps réel avec des métriques et des diagnostics personnalisés dans Azure Application Insights | Microsoft Docs"
-description: "Surveillez votre application web en temps réel avec des métriques personnalisées, et diagnostiquez les problèmes avec un flux temps réel des échecs, des traces et des événements."
+title: Flux de métriques temps réel avec des métriques et des diagnostics personnalisés dans Azure Application Insights | Microsoft Docs
+description: Surveillez votre application web en temps réel avec des métriques personnalisées, et diagnostiquez les problèmes avec un flux temps réel des échecs, des traces et des événements.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 866fc729b3167863c2d423d0e6ac0d7640e3425e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde 
 
@@ -64,7 +64,7 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](app-in
 |Pas de conservation|Les données persistent tant qu’elles se trouvent sur le graphique puis elles sont abandonnées.|[Données conservées pendant 90 jours](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
 |À la demande|Les données sont diffusées dès que vous ouvrez les métriques temps réel|Les données sont envoyées quand le SDK est installé et activé|
 |Gratuit|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](app-insights-pricing.md)
-|Échantillonnage|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](app-insights-api-filtering-sampling.md)|
+|échantillonnage|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](app-insights-api-filtering-sampling.md)|
 |Canal de contrôle|Les signaux de contrôle de filtre sont envoyés au SDK. Nous vous recommandons de [sécuriser ce canal](#secure-channel).|La communication est unidirectionnelle vers le portail|
 
 
@@ -115,12 +115,15 @@ Les critères de filtres personnalisés que vous spécifiez sont renvoyés au co
 ![Création d’une clé API](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>Ajout d’une clé API à la configuration
+
+# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+
 Dans le fichier applicationinsights.config, ajoutez AuthenticationApiKey à QuickPulseTelemetryModule :
 ``` XML
 
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add> 
+</Add>
 
 ```
 Ou dans le code, définissez-la sur QuickPulseTelemetryModule :
@@ -130,6 +133,34 @@ Ou dans le code, définissez-la sur QuickPulseTelemetryModule :
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
+# <a name="net-core-tabnet-core"></a>[.NET Core] (#tab/.net-core)
+
+Modifiez votre fichier startup.cs comme suit :
+
+Tout d’abord ajouter
+
+``` C#
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
+```
+
+Puis, sous la méthode Configurer, ajoutez :
+
+``` C#
+  QuickPulseTelemetryModule dep;
+            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
+            foreach (var module in modules)
+            {
+                if (module is QuickPulseTelemetryModule)
+                {
+                    dep = module as QuickPulseTelemetryModule;
+                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+                    dep.Initialize(TelemetryConfiguration.Active);
+                }
+            }
+```
+
+---
 
 Toutefois, si vous connaissez et faites confiance à tous les serveurs connectés, vous pouvez essayer les filtres personnalisés sans le canal authentifié. Cette option est disponible pour six mois. Ce remplacement est nécessaire à chaque nouvelle session, ou lorsqu’un nouveau serveur est en ligne.
 
@@ -148,7 +179,7 @@ Si vous voulez observer l’effet d’une augmentation de la charge, utilisez le
 >
 
 
-## <a name="troubleshooting"></a>résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Pas de données ? Si votre application se trouve dans un réseau protégé : le Flux de métriques temps réel utilise des adresses IP différentes d’autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](app-insights-ip-addresses.md) sont ouvertes dans votre pare-feu.
 

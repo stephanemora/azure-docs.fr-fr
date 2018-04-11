@@ -1,11 +1,11 @@
 ---
-title: "Se connecter à Azure Stack avec l’interface CLI | Microsoft Docs"
-description: "Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack."
+title: Se connecter à Azure Stack avec l’interface CLI | Microsoft Docs
+description: Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: mabrigg
 ms.openlocfilehash: ad258cf6c73b2c1ea5f208ebef9906a0e3d35ea4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installer et configurer l’interface CLI pour une utilisation avec Azure Stack
 
@@ -89,7 +89,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>Obtenir le point de terminaison des alias de machines virtuelles
 
-Avant de pouvoir créer des machines virtuelles à l’aide de CLI, les utilisateurs doivent contacter l’opérateur Azure Stack et obtenir l’URI du point de terminaison des alias de machines virtuelles. Par exemple, Azure utilise l’URI suivant : https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. L’administrateur de cloud doit configurer un point de terminaison similaire pour Azure Stack avec les images disponibles dans la Place de marché Azure Stack. Les utilisateurs doivent passer l’URI du point de terminaison au paramètre `endpoint-vm-image-alias-doc` à la commande `az cloud register` comme indiqué dans la section suivante. 
+Avant de pouvoir créer des machines virtuelles à l’aide de CLI, les utilisateurs doivent contacter l’opérateur Azure Stack et obtenir l’URI du point de terminaison des alias de machines virtuelles. Par exemple, Azure utilise l’URI suivante : https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. L’administrateur de cloud doit configurer un point de terminaison similaire pour Azure Stack avec les images disponibles dans la Place de marché Azure Stack. Les utilisateurs doivent passer l’URI du point de terminaison au paramètre `endpoint-vm-image-alias-doc` à la commande `az cloud register` comme indiqué dans la section suivante. 
    
 
 ## <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
@@ -73,7 +73,7 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 **Port 443 (synchronisation avec Azure AD)**
 * Il est utilisé pour synchroniser votre annuaire Azure AD avec votre domaine managé.
 * Il est obligatoire pour autoriser l’accès à ce port dans votre groupe de sécurité réseau. Sans accès à ce port, votre domaine managé n’est pas synchronisé avec votre annuaire Azure AD. Les utilisateurs risquent de ne pas pouvoir se connecter, car les modifications apportées à leurs mots de passe ne sont pas synchronisées avec votre domaine managé.
-* Vous pouvez limiter l’accès entrant à ce port aux adresses IP appartenant à la plage d’adresses IP Azure.
+* Vous pouvez limiter l’accès entrant à ce port aux adresses IP appartenant à la plage d’adresses IP Azure. Notez que la plage d’adresses IP Azure est différente de la plage PowerShell affichée dans la règle ci-dessous.
 
 **Port 5986 (communication à distance PowerShell)**
 * Il est utilisé pour effectuer des tâches de gestion à l’aide de la communication à distance PowerShell sur votre domaine managé.

@@ -1,11 +1,11 @@
 ---
-title: "Mise à jour 1712 d’Azure Stack | Microsoft Docs"
-description: "Découvrez le contenu de la mise à jour 1712 pour les systèmes intégrés Azure Stack, les problèmes connus et l’emplacement à partir duquel la télécharger."
+title: Mise à jour 1712 d’Azure Stack | Microsoft Docs
+description: Découvrez le contenu de la mise à jour 1712 pour les systèmes intégrés Azure Stack, les problèmes connus et l’emplacement à partir duquel la télécharger.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: brenduns
-ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1712-update"></a>Mise à jour 1712 d’Azure Stack
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/12/2018
 Cet article décrit les améliorations et correctifs contenus dans cette mise à jour, les problèmes connus dans cette publication, et l’emplacement de téléchargement de la mise à jour. Les problèmes connus sont divisés en problèmes directement liés au processus de mise à jour, et problèmes propres à la build (après l’installation).
 
 > [!IMPORTANT]
-> Cette mise à jour est destinée uniquement aux systèmes intégrés Azure Stack. N’appliquez pas cette mise à jour au Kit de développement d’Azure Stack.
+> Cette mise à jour est destinée uniquement aux systèmes intégrés Azure Stack. N’appliquez pas cette mise à jour au Kit de développement Azure Stack.
 
 ## <a name="build-reference"></a>Référence de build
 
@@ -109,6 +109,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 - Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack. Pour contourner ce problème, vous pouvez vérifier les autorisations à l’aide de PowerShell.
+- Le chargement du panneau **Service Health** a échoué. Si vous ouvrez le panneau Service Health dans le portail d’administration ou utilisateur, Azure Stack affiche une erreur et ne charge pas les informations. Ce comportement est normal. Même s’il est possible de sélectionner et d’ouvrir Service Health, cette fonctionnalité n’est pas encore disponible ; elle sera implémentée dans une prochaine version d’Azure Stack.
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 
@@ -129,7 +130,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 - Lorsque vous créez un équilibreur de charge réseau, vous devez créer une règle de traduction d’adresses réseau (NAT). À défaut, une erreur s’affiche lorsque vous tentez d’ajouter une règle NAT après avoir créé l’équilibreur de charge.
 - Vous ne peut pas dissocier une adresse IP publique d’une machine virtuelle (VM) une fois que la VM a été créée et associée à cette adresse IP. La dissociation semble fonctionner, mais l’adresse IP publique qui a été affectée reste associée à la machine virtuelle d’origine. Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle associée à l’origine et non à la nouvelle. Actuellement, vous devez utiliser uniquement les nouvelles adresses IP publiques pour la création de nouvelles machines virtuelles.
 - Les opérateurs Azure Stack peuvent être dans l’impossibilité de déployer, supprimer ou modifier des réseaux virtuels ou des groupes de sécurité réseau. Ce problème se produit principalement lors des tentatives de mise à jour ultérieures du même package. Il est dû à un problème d’empaquetage avec une mise à jour, que nous étudions actuellement.
-- L’équilibrage de charge interne gère mal les adresses MAC des machines virtuelles principales, ce qui arrête les instances Linux.
+- L’équilibrage de charge interne gère incorrectement les adresses MAC des machines virtuelles principales, ce qui bloque les instances Linux.
 
 #### <a name="sqlmysql"></a>SQL/MySQL
 - Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL.

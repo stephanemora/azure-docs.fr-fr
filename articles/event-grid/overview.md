@@ -1,18 +1,18 @@
 ---
-title: "Vue d’ensemble d’Azure Event Grid"
-description: "Détaille Azure Event Grid et ses concepts."
+title: Vue d’ensemble d’Azure Event Grid
+description: Détaille Azure Event Grid et ses concepts.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Présentation d’Azure Event Grid
 
@@ -33,25 +33,26 @@ Actuellement, Event Grid prend en charge les régions suivantes :
 *   États-Unis de l’Ouest
 *   Ouest des États-Unis 2
 
-Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md). L’image suivante montre comment Event Grid connecte les éditeurs et les gestionnaires, mais elle ne fournit pas la liste complète des options prises en charge.
+Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md). L’image suivante montre comment Event Grid connecte les sources et les descripteurs, mais elle ne fournit pas de liste complète des options prises en charge.
 
 ![Modèle de grille d’événement fonctionnel](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Éditeurs d'événements
+## <a name="event-sources"></a>Sources d’événement
 
-Actuellement, les services Azure suivants ont une prise en charge de l’éditeur intégré pour Event Grid :
+Actuellement, les services Azure suivants prennent en charge l’envoi d’événements vers Event Grid :
 
 * Abonnements Azure (opérations de gestion)
 * Rubriques personnalisées
 * Event Hubs
 * IoT Hub
 * Groupes de ressources (opérations de gestion)
+* Service Bus
 * Storage Blob
 * Stockage à usage général v2 (GPv2)
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 
-Actuellement, les services Azure suivants ont une prise en charge du gestionnaire intégré pour Event Grid : 
+Actuellement, les services Azure suivants prennent en charge la gestion d’événements depuis Event Grid : 
 
 * Azure Automation
 * Azure Functions

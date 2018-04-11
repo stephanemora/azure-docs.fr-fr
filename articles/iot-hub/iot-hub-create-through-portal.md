@@ -1,24 +1,24 @@
 ---
-title: "Utiliser le portail Azure pour créer un IoT Hub | Microsoft Azure"
-description: "Comment créer, gérer et supprimer des IoT Hubs Azure via le portail Azure. Inclut des informations sur les niveaux de tarification, l’évolutivité, la sécurité et la configuration de la messagerie."
+title: Utiliser le portail Azure pour créer un IoT Hub | Microsoft Azure
+description: Comment créer, gérer et supprimer des IoT Hubs Azure via le portail Azure. Inclut des informations sur les niveaux de tarification, l’évolutivité, la sécurité et la configuration de la messagerie.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 
@@ -53,18 +53,9 @@ Pour créer un IoT Hub, vous devez le nommer. Le nom doit être unique parmi tou
 
 ### <a name="choose-the-pricing-tier"></a>Choisir le niveau tarifaire.
 
-Vous pouvez choisir entre quatre niveaux : **Gratuit**, **Standard S1**, **Standard S2** et**Standard S3**. Le niveau gratuit permet la connexion de seulement 500 appareils au IoT Hub, avec jusqu’à 8 000 messages par jour.
+Vous pouvez choisir à partir de plusieurs niveaux, selon le nombre de fonctionnalités souhaité et le nombre de messages envoyés via votre solution par jour. Le niveau gratuit est destiné aux tests et à l’évaluation. Il permet la connexion de 500 appareils à IoT Hub, avec jusqu’à 8 000 messages par jour. Chaque abonnement Azure peut créer un IoT Hub dans le niveau gratuit. 
 
-**Standard S1** : utilisez l’édition S1 pour les solutions IoT avec un grand nombre d’appareils qui génèrent chacun de petites quantités de données. Chaque unité de l’édition S1 permet de transmettre au maximum 400 000 messages par jour sur l’ensemble des appareils connectés.
-
-**Standard S2** : utilisez l’édition S2 pour les solutions IoT dans lesquelles les appareils génèrent de grandes quantités de données. Chaque unité de l’édition S2 permet de transmettre au maximum 6 millions de messages par jour sur l’ensemble des appareils connectés.
-
-**Standard S3** : utilisez l’édition S3 pour les solutions IoT qui génèrent de grandes quantités de données. Chaque unité de l’édition S3 permet de transmettre au maximum 300 millions de messages par jour sur l’ensemble des appareils connectés.
-
-![][4]
-
-> [!NOTE]
-> IoT Hub ne permet qu’un hub gratuit par abonnement Azure.
+Pour plus d’informations sur les autres options de niveau, consultez [Choix du bon niveau IoT Hub](iot-hub-scaling.md).
 
 ### <a name="iot-hub-units"></a>Unités de hub IoT
 
@@ -112,7 +103,7 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 ![][10]
 
-## <a name="endpoints"></a>Endpoints
+## <a name="endpoints"></a>Points de terminaison
 
 Pour afficher la liste des points de terminaison associés à l’IoT Hub que vous essayez de modifier, cliquez sur **Points de terminaison**. Il existe deux types de points de terminaison : les points de terminaison intégrées à IoT Hub, et ceux que vous avez ajoutés à IoT Hub après sa création.
 
@@ -154,17 +145,6 @@ Pour ajouter des itinéraires à votre IoT Hub, cliquez sur **Ajouter** en haut
 
 ![][15]
 
-## <a name="pricing-and-scale"></a>Tarification et mise à l'échelle
-
-La tarification d'un concentrateur IoT existant peut être modifiée via les paramètres de **tarification** avec les exceptions suivantes :
-
-* Dans l’implémentation actuelle, un hub IoT avec une référence gratuite ne peut pas changer de niveau pour une référence payante, ou vice-versa.
-* Il ne peut y avoir qu’un niveau gratuit de IoT Hub par abonnement Azure.
-
-![][12]
-
-Vous ne pouvez changer de niveau que lorsque le nombre de messages envoyés dans la journée dépasse le quota défini pour le niveau inférieur. Par exemple, si le nombre de messages par jour est supérieur à 400 000, le niveau correspondant au IoT Hub peut être modifié. En revanche, si vous modifiez le niveau S1, l’IoT Hub est limité pour ce jour.
-
 ## <a name="delete-the-iot-hub"></a>Supprimez IoT Hub
 
 Vous pouvez accéder au concentrateur IoT Hub en cliquant sur **Parcourir**, puis en choisissant le concentrateur à supprimer. Cliquez sur le bouton **Supprimer** situé sous le nom de l’IoT Hub pour supprimer celui-ci.
@@ -179,7 +159,7 @@ Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur IoT Hub][lnk-devguide]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 * [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
 * [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 

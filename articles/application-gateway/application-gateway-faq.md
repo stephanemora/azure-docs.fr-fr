@@ -1,24 +1,19 @@
 ---
-title: Forum aux questions pour Azure Application Gateway | Microsoft Docs
+title: Forum aux questions pour Azure Application Gateway
 description: Cette page fournit des réponses aux questions les plus souvent posées sur Azure Application Gateway
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -38,7 +33,19 @@ Application Gateway est un équilibreur de charge de couche 7, ce qui signifie q
 
 **Q. Quels sont les protocoles pris en charge par Application Gateway ?**
 
-Application Gateway prend en charge les protocoles HTTP, HTTPS et WebSocket.
+Application Gateway prend en charge les protocoles HTTP, HTTPS, HTTP/2 et WebSocket.
+
+**Q. Application Gateway prend-il en charge le protocole HTTP/2 ?**
+
+La prise en charge du protocole HTTP/2 est disponible pour les clients se connectant aux écouteurs Application Gateway uniquement. La communication avec les pools du serveur principal est sur HTTP/1.1. 
+
+Par défaut, la prise en charge du protocole HTTP/2 est désactivée. L’exemple d’extrait de code Azure PowerShell suivant montre comment l’activer :
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **Q. Quelles sont les ressources actuellement prises en charge dans le pool backend ?**
 
@@ -314,7 +321,7 @@ Les journaux d’audit sont disponibles pour Application Gateway. Dans le portai
 
 **Q. Puis-je définir des alertes avec Application Gateway ?**
 
-Oui, Application Gateway prend en charge les alertes ; les alertes sont configurées à partir des mesures.  Application Gateway possède actuellement une mesure de « débit », qui peut être configurée pour avertir l’utilisateur. Pour en savoir plus sur les alertes, consultez l’article [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Oui, Application Gateway prend en charge les alertes ; les alertes sont configurées à partir des mesures. Application Gateway possède actuellement une mesure de « débit », qui peut être configurée pour avertir l’utilisateur. Pour en savoir plus sur les alertes, consultez l’article [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **Q. L’intégrité du serveur principal renvoie un état inconnu, à quoi est dû cet état ?**
 

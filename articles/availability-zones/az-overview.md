@@ -1,10 +1,10 @@
 ---
-title: Vue d’ensemble des zones de disponibilité | Microsoft Docs
-description: Cet article fournit une vue d’ensemble des zones de disponibilité Azure.
+title: Vue d’ensemble des Zones de disponibilité Azure | Microsoft Docs
+description: Cet article fournit une vue d’ensemble de l’utilisation des Zones de disponibilité pour créer des applications hautement disponibles et résilientes dans Azure
 services: ''
 documentationcenter: ''
-author: markgalioto
-manager: carmonm
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,31 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2018
-ms.author: markgal
+ms.date: 03/21/2018
+ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: b4db442a54b4360b75df40156ca0d4e4ee1eb0d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a4133779538e412a19a11de678b1527fb8023a87
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="overview-of-availability-zones-in-azure-preview"></a>Vue d’ensemble des zones de disponibilité dans Azure (préversion)
+# <a name="overview-of-availability-zones-in-azure"></a>Vue d’ensemble des Zones de disponibilité dans Azure
+Les Zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des Zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services de redondance de zones répliquent vos applications et données entre des Zones de disponibilité pour les protéger contre des points uniques de panne. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
 
-Les zones de disponibilité vous permettent de vous protéger contre les défaillances au niveau du centre de données. Elles se trouvent à l’intérieur d’une région Azure, et chacune possède sa propre source d’alimentation, son propre réseau et son propre système de refroidissement indépendants. Pour garantir la résilience, un minimum de trois zones distinctes sont activées dans toutes les régions. La séparation physique et logique des zones de disponibilité dans une région protège les applications et les données des défaillances au niveau de la zone. 
+Générez la haute disponibilité dans votre architecture d’applications par la colocalisation de vos ressources de calcul, de stockage, de mise en réseau et de données dans une zone et une réplication dans d’autres zones. Les services Azure qui prennent en charge les Zones de disponibilité sont classés en deux catégories :
 
+- **Services zonaux** : vous épinglez la ressource à une zone spécifique (par exemple, des machines virtuelles, des disques managés, des adresses IP) ou
+- **Services redondants dans une zone** : la plateforme effectue automatiquement la réplication entre des zones (par exemple, stockage redondant dans une zone, SQL Database).
+
+Pour obtenir la continuité complète des activités sur Azure, générez votre architecture d’applications à l’aide de la combinaison des Zones de disponibilité et des paires de régions Azure. Vous pouvez effectuer une réplication synchrone de vos applications et données à l’aide des Zones de la disponibilité d’une région Azure pour répliquer en haute disponibilité et de façon asynchrone entre les régions Azure pour la protection de la récupération d’urgence.
+ 
 ![affichage conceptuel d’une zone devenant indisponible dans une région](./media/az-overview/az-graphic-two.png)
 
 ## <a name="regions-that-support-availability-zones"></a>Régions prenant en charge les zones de disponibilité
 
-- Est des États-Unis 2
 - Centre des États-Unis
-- Europe de l'Ouest
 - France-Centre
-- Asie du Sud-Est
+- Est des États-Unis 2 (préversion)
+- Europe de l’Ouest (préversion)
+- Asie du Sud-Est (préversion)
+
 
 ## <a name="services-that-support-availability-zones"></a>Régions qui prennent en charge les zones de disponibilité
-
 Les services Azure qui prennent en charge les zones de disponibilité sont les suivants :
 
 - Machines virtuelles Linux
@@ -49,18 +55,20 @@ Les services Azure qui prennent en charge les zones de disponibilité sont les s
 - Stockage redondant dans une zone
 - Base de données SQL
 
-## <a name="get-started-with-the-availability-zones-preview"></a>Prise en main de la préversion des zones de disponibilité
 
-La préversion des zones de disponibilité est disponible dans les régions États-Unis de l’Est 2, Centre des États-Unis, Europe de l’Ouest et France-Centre pour certains services Azure. 
+## <a name="pricing"></a>Tarifs
+Il n’existe aucun coût supplémentaire pour les machines virtuelles déployées dans une Zone de disponibilité. Un contrat de niveau de service des machines virtuelles de 99,99 % est offert lorsque deux machines virtuelles ou plus sont déployées sur deux Zones de disponibilité ou plus au sein d’une région Azure. Il y aura des frais supplémentaires de transfert des données de machine virtuelle à machine virtuelle entre les Zones de disponibilité. Pour plus d'informations, consultez la page [Tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-1. [Inscrivez-vous à la préversion des zones de disponibilité](http://aka.ms/azenroll). 
-2. Connectez-vous à votre abonnement Azure.
-3. Choisissez une région qui prend en charge les zones de disponibilité.
-4. Utilisez un des liens suivants pour commencer à utiliser les zones de disponibilité avec votre service. 
-    - [Créer une machine virtuelle](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Créer un groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-    - [Ajouter un disque géré à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-    - [Équilibreur de charge](../load-balancer/load-balancer-standard-overview.md)
+
+## <a name="get-started-with-availability-zones"></a>Prise en main des Zones de disponibilité
+- [Créer une machine virtuelle](../virtual-machines/windows/create-portal-availability-zone.md)
+- [Ajouter un disque géré à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [Créer un groupe de machines virtuelles identiques redondant dans une zone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Machines virtuelles de l’équilibreur dans des zones à l’aide de Load Balancer Standard avec un serveur frontal redondant dans une zone](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Machines virtuelles de l’équilibreur de charge dans une zone à l’aide de Load Balancer Standard avec un serveur frontal zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md)
+- [Base de données SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Modèles de démarrage rapide](http://aka.ms/azqs)

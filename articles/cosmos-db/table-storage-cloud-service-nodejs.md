@@ -1,6 +1,6 @@
 ---
-title: "Stockage Table Azure : créer une application web Node.js | Microsoft Docs"
-description: "Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express."
+title: 'Stockage Table Azure : créer une application web Node.js | Microsoft Docs'
+description: Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Stockage Table Azure : application web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Dans ce didacticiel, l’application que vous avez créée dans le didacticiel [Application web Node.js avec Express] est étendue à l’aide des bibliothèques clientes Microsoft Azure pour Node.js, afin qu’elle fonctionne avec les services de gestion de données. Vous étendez votre application en créant une application de liste de tâches web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 
-Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Le service Stockage Azure englobe plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez utiliser les services de stockage via les API du kit SDK Azure pour Node.js ou via les API REST. Pour plus d’informations, consultez la page [Stockage et accessibilité des données dans Azure].
+Les éléments de tâches sont stockés dans le Stockage Azure ou Azure Cosmos DB. Le Stockage Azure et Azure Cosmos DB offrent un stockage de données non structurées à tolérance de panne et haute disponibilité. Le Stockage Azure et Azure Cosmos DB englobent plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez utiliser les services de stockage et Azure Cosmos DB via les API inclues dans le Kit de développement logiciel (SDK) Azure pour Node.js ou via les API REST. Pour plus d’informations, consultez la page [Stockage et accessibilité des données dans Azure].
 
 Ce didacticiel part du principe que vous avez suivi les didacticiels [Application web Node.js] et [Node.js avec Express][Application web Node.js avec Express].
 
@@ -40,7 +40,7 @@ La capture d’écran suivante présente l’application terminée :
 ![Page Web terminée dans Internet Explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Définition des informations d'identification de stockage dans Web.Config
-Vous devez transmettre des informations d’identification de stockage pour accéder à Stockage Azure. Cette opération s’effectue en utilisant les paramètres d’application de web.config.
+Vous devez transmettre des informations d’identification de stockage pour accéder au Stockage Azure ou à Azure Cosmos DB. Cette opération s’effectue en utilisant les paramètres d’application de web.config.
 Les paramètres web.config sont transmis en tant que variables d’environnement à Node, qui sont alors lues par le kit SDK Azure.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ Dans cette section, l’application de base créée par la commande **express** 
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ Dans cette section, l’application de base créée par la commande **express** 
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ Dans cette section, l’application de base créée par la commande **express** 
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ Dans cette section, l’application de base créée par la commande **express** 
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ Dans cette section, l’application de base créée par la commande **express** 
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ Dans cette section, l’application de base créée par la commande **express** 
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
    La suppression du service peut prendre plusieurs minutes. Une fois le service supprimé, vous recevez un message confirmant la suppression du service.
 
 [Application web Node.js avec Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Stockage et accessibilité des données dans Azure]: https://docs.microsoft.com/azure/storage/
 [Application web Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

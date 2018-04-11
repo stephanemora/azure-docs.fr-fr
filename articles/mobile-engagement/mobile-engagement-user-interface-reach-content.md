@@ -1,11 +1,11 @@
 ---
-title: "Interface utilisateur d’Azure Mobile Engagement - Contenu Reach"
-description: "Apprenez à gérer le contenu unique des différents types de campagnes de notifications Push dans Azure Mobile Engagement"
+title: Interface utilisateur d’Azure Mobile Engagement - Contenu Reach
+description: Apprenez à gérer le contenu unique des différents types de campagnes de notifications Push dans Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Gestion du contenu unique des différents types de campagnes de notifications Push
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modifier le contenu de vos annonces, sondages, Push de données et vignettes (Windows Phone uniquement). Le paramètre du contenu des campagnes Push est spécifique au type de campagne. 
 
 ### <a name="content-types"></a>Types de contenu :
@@ -56,7 +60,7 @@ Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'ide
 * **Actions Android et iOS**
   * Ouvrir une page Web
   * http://\[domaine-site-web\] 
-  * Exemple : http://www.azure.com
+  * Exemple :http://www.azure.com
   * Envoyer un courrier électronique
   * mailto:\[destinataire-e-mail\]?subject=\[objet\]&body=\[message\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&amp;body=Good%20stuff!
@@ -75,12 +79,12 @@ Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'ide
   * Exemple :geo:0,0?q=starbucks,paris
 * **Actions iOS uniquement**
   * Télécharger une application depuis le Magasin d'applications
-  * http://itunes.apple.com/[pays]/app/[nom de l’application]/id[ID de l’application]?mt=8 
-  * Exemple: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
+  * Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Actions Windows
   * Ouvrir une page Web
   * http://\[domaine-site-web\] 
-  * Exemple : http://www.azure.com
+  * Exemple :http://www.azure.com
   * Envoyer un courrier électronique
   * mailto:\[destinataire-e-mail\]?subject=\[objet\]&body=\[message\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&amp;body=Good%20stuff!

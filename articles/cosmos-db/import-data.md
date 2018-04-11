@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB : outil de migration de données
 
@@ -59,7 +59,7 @@ L’outil de migration de données est une solution open source permettant d’i
 L'outil d'importation inclut une interface utilisateur graphique (dtui.exe) et peut aussi être piloté à partir de la ligne de commande (dt.exe). En fait, il existe une option pour générer la commande associée après avoir configuré une importation via l'interface utilisateur. Des données sources tabulaires (par exemple, des fichiers SQL Server ou CSV) peuvent être transformées de manière à ce que des relations hiérarchiques (sous-documents) puissent être créées pendant l'importation. Poursuivez votre lecture pour en savoir plus sur les options sources, les exemples de lignes de commande pour l’importation depuis chaque source, les options cibles et l'affichage des résultats d’importation.
 
 ## <a id="Install"></a>Installation
-Le code source de l’outil de migration est disponible sur GitHub dans [ce dépôt](https://github.com/azure/azure-documentdb-datamigrationtool). Vous pouvez télécharger et compiler la solution localement, puis exécuter l’un des deux fichiers suivants :
+Le code source de l’outil de migration est disponible sur GitHub dans [ce dépôt](https://github.com/azure/azure-documentdb-datamigrationtool). Vous pouvez télécharger et compiler la solution localement ou [télécharger une solution binaire pré-compilée](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), puis exécuter soit :
 
 * **Dtui.exe**: version de l’interface graphique de l’outil
 * **Dt.exe**: version en ligne de commande de l’outil

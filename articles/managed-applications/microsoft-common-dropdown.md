@@ -1,6 +1,6 @@
 ---
-title: "Élément d’interface utilisateur DropDown des applications gérées Azure | Microsoft Docs"
-description: "Décrit l’élément d’interface utilisateur Microsoft.Common.DropDown pour les applications gérées Azure"
+title: Élément de l’interface utilisateur DropDown | Microsoft Docs
+description: Décrit l’élément d’interface utilisateur Microsoft.Common.DropDown pour le Portail Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: a3cbb7363c04043eb253e91e058753bc271e4e01
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 6c92304ae623807ffba05dcdbb576e1cef63b10c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.DropDown
-Contrôle de sélection avec liste déroulante. Vous utilisez cet élément lors de la [création d’une application gérée Azure](publish-service-catalog-app.md).
+Contrôle de sélection avec liste déroulante.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
@@ -31,17 +31,17 @@ Contrôle de sélection avec liste déroulante. Vous utilisez cet élément lors
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
   "label": "Some drop down",
-  "defaultValue": "Foo",
+  "defaultValue": "my value",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Foo",
-        "value": "Bar"
+        "label": "Value one",
+        "value": "one"
       },
       {
-        "label": "Baz",
-        "value": "Qux"
+        "label": "Value two",
+        "value": "two"
       }
     ]
   },
@@ -61,6 +61,5 @@ Contrôle de sélection avec liste déroulante. Vous utilisez cet élément lors
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](overview.md).
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

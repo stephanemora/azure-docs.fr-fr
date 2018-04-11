@@ -1,11 +1,11 @@
 ---
-title: "Présentation d’Azure Network Watcher | Microsoft Docs"
-description: "Cette page fournit une vue d’ensemble du service Network Watcher pour la surveillance et la visualisation des ressources connectées au réseau dans Azure"
+title: Présentation d’Azure Network Watcher | Microsoft Docs
+description: Cette page fournit une vue d’ensemble du service Network Watcher pour la surveillance et la visualisation des ressources connectées au réseau dans Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Vue d’ensemble de la surveillance réseau Azure
 
@@ -47,6 +47,7 @@ Network Watcher propose actuellement les fonctionnalités suivantes :
 * **[Limites d’abonnement réseau](#network-subscription-limits)** - Vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
 * **[Configuration du journal de diagnostic](#diagnostic-logs)** - Fournit un seul volet pour activer ou désactiver les journaux de diagnostic pour les ressources réseau dans un groupe de ressources.
 * **[Résolution des problèmes de connexion](network-watcher-connectivity-overview.md)** - Vérifie la possibilité d’établir une connexion TCP directe à partir d’une machine virtuelle à un point de terminaison donné enrichi avec le contexte Azure.
+* **[Monitoring de la connexion](connection-monitor.md)**  - Effectue le monitoring des problèmes de latence et de configuration entre une machine virtuelle Azure et une adresse IP, à l’aide du port et des adresses IP source et de destination.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Contrôle d’accès basé sur les rôles dans Network Watcher
 

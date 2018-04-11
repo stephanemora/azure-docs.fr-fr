@@ -1,29 +1,24 @@
 ---
-title: Concevoir des processus ELT pour Azure SQL Data Warehouse | Microsoft Docs
-description: "Combinez les technologies de déplacement des données vers Azure et de chargement des données dans SQL Data Warehouse pour concevoir un processus d’extraction, de chargement et de transformation (ELT) pour Azure SQL Data Warehouse."
+title: Plutôt qu’ETL, concevoir ELT pour Azure SQL Data Warehouse | Microsoft Docs
+description: Plutôt qu’ETL, concevoir un processus d’extraction, de chargement et de transformation (ELT) pour charger les données dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Conception de processus ELT pour Azure SQL Data Warehouse
 
-Combinez les technologies de déplacement des données dans le stockage Azure et de chargement des données dans SQL Data Warehouse pour concevoir un processus d’extraction, de chargement et de transformation (ELT) pour Azure SQL Data Warehouse. Cet article présente les technologies qui prennent en charge le chargement avec PolyBase, puis met l’accent sur la conception d’un processus ELT utilisant PolyBase avec T-SQL pour charger des données dans SQL Data Warehouse à partir du stockage Azure.
+Plutôt que le processus d’extraction, de transformation et de chargement (ETL) concevez un processus d’extraction, de chargement et de transformation (ELT) pour charger les données dans Azure SQL Data Warehouse. Cet article présente les méthodes de conception d’un processus ELT qui déplace des données dans un entrepôt de données Azure.
 
 ## <a name="what-is-elt"></a>ELT, qu’est-ce que ça veut dire ?
 

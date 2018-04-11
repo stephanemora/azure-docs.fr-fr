@@ -1,6 +1,6 @@
 ---
-title: "Élément d’interface utilisateur CredentialsCombo des applications gérées Azure | Microsoft Docs"
-description: "Décrit l’élément d’interface utilisateur Microsoft.Network.PublicIpAddressCombo pour les applications gérées Azure"
+title: Élément d’interface utilisateur PublicIpAddressCombo Azure | Microsoft Docs
+description: Décrit l’élément d’interface utilisateur Microsoft.Network.PublicIpAddressCombo pour le Portail Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990b84cf0df74b7b08a5fa105c2c2213aa251f9d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: bced85abaf24beb0997ec906a68e5947f0e67cca
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Network.PublicIpAddressCombo
-Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou d’une adresse IP publique existante. Vous utilisez cet élément lors de la [création d’une application gérée Azure](publish-service-catalog-app.md).
+Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou d’une adresse IP publique existante.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
@@ -44,7 +44,7 @@ Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou 
   },
   "defaultValue": {
     "publicIpAddressName": "ip01",
-    "domainNameLabel": "foobar"
+    "domainNameLabel": "mydomain"
   },
   "constraints": {
     "required": {
@@ -79,7 +79,7 @@ Si l’utilisateur sélectionne une nouvelle adresse IP publique ou une adresse 
 {
   "name": "ip01",
   "resourceGroup": "rg01",
-  "domainNameLabel": "foobar",
+  "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
   "newOrExistingOrNone": "new"
 }
@@ -88,6 +88,5 @@ Si l’utilisateur sélectionne une nouvelle adresse IP publique ou une adresse 
 - Quand `options.hideDomainNameLabel` est défini sur **true**, `domainNameLabel` n’est pas déclaré.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](overview.md).
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

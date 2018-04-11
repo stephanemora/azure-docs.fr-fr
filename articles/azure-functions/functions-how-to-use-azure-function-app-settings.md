@@ -1,24 +1,25 @@
 ---
-title: "Configurer les paramètres Azure Function App | Microsoft Docs"
-description: "Apprenez à configurer les paramètres d’application Azure Functions."
-services: 
+title: Configurer les paramètres Azure Function App | Microsoft Docs
+description: Apprenez à configurer les paramètres d’application Azure Functions.
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Comment gérer une Function App dans le portail Azure 
 
@@ -27,6 +28,24 @@ Dans Azure Functions, une Function App fournit le contexte d’exécution de vos
 Commencez par accéder au [portail Azure](http://portal.azure.com) et connectez-vous à votre compte Azure. Dans la barre de recherche en haut du portail, tapez le nom de votre Function App et sélectionnez-la dans la liste. Après avoir sélectionné votre Function App, la page suivante s’affiche :
 
 ![Vue d’ensemble de Function App dans le portail Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Fonctions favorites du portail 
+
+Il peut parfois être difficile de trouver vos ressources dans le [portail Azure]. Pour rendre la recherche des applications de la fonction créées plus facile, ajoutez Function Apps à vos favoris dans le portail. 
+
+1. Connectez-vous au [portail Azure].
+
+2. Pour développer tous les services, cliquez sur la flèche située en bas à gauche de l’écran, tapez `Functions` dans le champ **Filtre**, puis cliquez sur l’étoile située près de **Function Apps**.  
+ 
+    ![Créer une Function App dans le Portail Azure](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    Cela ajoute l’icône Functions au menu situé à gauche du portail.
+
+3. Fermez le menu, puis faites défiler vers le bas pour afficher l’icône Functions. Cliquez sur cette icône pour afficher une liste de toutes vos Function Apps. Cliquez sur votre Function App pour travailler avec les fonctions de cette application. 
+ 
+    ![Applications de fonction dans les Favoris](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[portail Azure]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Onglet Paramètres de Function App
 
@@ -125,7 +144,7 @@ Pour plus d’informations sur l’utilisation des paramètres App Service, cons
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 + [Configurer des applications web dans Azure App Service](../app-service/web-sites-configure.md)
 + [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)

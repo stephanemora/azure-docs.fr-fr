@@ -1,11 +1,11 @@
 ---
-title: "Présentation des méthodes directes Azure IoT Hub | Microsoft Docs"
-description: "Guide de développeur - Utiliser des méthodes directes pour appeler du code sur vos appareils à partir d’une application de service."
+title: Présentation des méthodes directes Azure IoT Hub | Microsoft Docs
+description: Guide de développeur - Utiliser des méthodes directes pour appeler du code sur vos appareils à partir d’une application de service.
 services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 47bf7437eda09a536aa2d960cf5ec474e23356a6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
 IoT Hub vous donne la possibilité d’appeler des méthodes directes sur des appareils à partir du cloud. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cette approche est utile pour les scénarios où le plan d’action immédiate est différent selon que l’appareil a été en mesure ou non de répondre. Par exemple, envoyer un SMS de sortie de veille à un appareil s’il est hors connexion (un SMS est plus onéreux qu’un appel de méthode).
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Chaque méthode d’appareil cible à un seul appareil. Les [travaux][lnk-devguide-jobs] offrent un moyen d’appeler des méthodes directes sur plusieurs appareils, et de planifier un appel de méthode pour des appareils déconnectés.
 
 Toute personne disposant d’autorisations **Connexion de service** sur IoT Hub peut appeler une méthode sur un appareil.

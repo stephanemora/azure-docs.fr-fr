@@ -1,12 +1,12 @@
 ---
-title: "Surveiller l’exécution des fonctions Azure"
-description: "Découvrez comment utiliser Azure Application Insights avec Azure Functions pour surveiller l’exécution des fonctions."
+title: Surveiller l’exécution des fonctions Azure
+description: Découvrez comment utiliser Azure Application Insights avec Azure Functions pour surveiller l’exécution des fonctions.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+editor: ''
+tags: ''
+keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -493,7 +493,7 @@ Nous recommandons Application Insights pour surveiller les fonctions, car il off
 
 ### <a name="logging-to-storage"></a>Journalisation dans le stockage
 
-La journalisation intégrée utilise le compte de stockage spécifié par la chaîne de connexion dans le paramètre d’application `AzureWebJobsDashboard`. Si ce paramètre d’application est configuré, vous pouvez voir les données de journalisation dans le portail Azure. Dans la page d’une application de fonction, sélectionnez une fonction, puis l’onglet **Surveiller** pour obtenir la liste des exécutions de la fonction. Sélectionnez une exécution de fonction pour consulter la durée, les données d’entrée, les erreurs et les fichiers journaux associés.
+La journalisation intégrée utilise le compte de stockage spécifié par la chaîne de connexion dans le paramètre d’application `AzureWebJobsDashboard`. Si ce paramètre d’application est configuré, vous pouvez voir les données de journalisation dans le portail Azure. Dans la ressource Stockage, allez à Fichier, sélectionnez le service de fichiers pour la fonction et allez à `LogFiles > Application > Functions > Function > your_function` pour afficher le fichier journal. Dans la page d’une application de fonction, sélectionnez une fonction, puis l’onglet **Surveiller** pour obtenir la liste des exécutions de la fonction. Sélectionnez une exécution de fonction pour consulter la durée, les données d’entrée, les erreurs et les fichiers journaux associés.
 
 Si vous utilisez Application Insights et que vous avez désactivé la [journalisation intégrée](#disable-built-in-logging), l’onglet **Surveiller** vous renvoie à Application Insights.
 
@@ -525,7 +525,7 @@ Pour plus d’informations, consultez [Diffusion en continu des journaux](../app
 
 [!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez les ressources suivantes :
 

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Slack | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Slack."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Slack | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Slack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6a4c64fb8400eaf2e09be049b032535e09969fb8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Didacticiel : Intégration d’Azure AD avec Slack
 
@@ -31,7 +31,8 @@ L’intégration de Slack dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Slack, vous avez besoin des éléments suivants :
 
@@ -44,7 +45,7 @@ Pour configurer l’intégration d’Azure AD à Slack, vous avez besoin des él
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -115,14 +116,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans la zone de texte **Identificateur**, tapez l’URL : `https://slack.com`
 
     > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Pour obtenir la valeur, contactez [l’équipe de support technique Slack](https://slack.com/help/contact).
+    > Cette valeur n’est pas la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Contactez [l’équipe du support technique Slack](https://slack.com/help/contact) pour obtenir la valeur.
      
 4. L’application Slack attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
     ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > L’adresse de messagerie est renseignée uniquement si l’utilisateur possède une **adresse de messagerie** attribuée à l’aide de l’Office 365. Dans le cas contraire, la revendication **adresse de messagerie** n’apparaît pas dans le jeton SAML.
+    > Si vous avez des utilisateurs pour lesquels **l’adresse de messagerie** assignée n’est pas une licence Office 365, la revendication **User.Email** n’apparaît pas dans le jeton SAML. Dans ce cas, nous suggérons d’utiliser **user.userprincipalname** comme valeur d’attribut **User.Email** à mapper en tant que **Identificateur Unique** à la place.
 
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, sélectionnez **user.mail** en tant **qu’identificateur d’utilisateur**, et pour chaque ligne indiquée dans le tableau ci-dessous, procédez comme suit :
     
@@ -180,12 +181,6 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     d. Configurez les trois paramètres ci-dessus comme nécessaire pour votre équipe Slack. Pour plus d’informations sur les paramètres, vous trouverez le **guide de configuration de l’authentification unique sur Slack**. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Cliquez sur **Enregistrer la configuration**.
-     
-    <!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -229,7 +224,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Slack s’il n’existe pas déjà.
 
 > [!NOTE]
-> Si vous devez créer un utilisateur manuellement, contactez l’[équipe de support technique Slack](https://slack.com/help/contact).
+> Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique Slack](https://slack.com/help/contact).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -271,8 +266,6 @@ Lorsque vous cliquez sur la mosaïque Slack dans le volet d’accès, vous devez
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
 title: Forum aux questions sur la migration de Stockage Azure | Microsoft Docs
-description: "Réponses aux questions fréquemment posées concernant la migration de Stockage Azure"
+description: Réponses aux questions fréquemment posées concernant la migration de Stockage Azure
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -168,7 +168,7 @@ Utilisez AzCopy pour télécharger les données. Pour plus d'informations, voir 
 
 **Comment changer l'emplacement secondaire par une région en Europe pour un compte de stockage ?**
 
-Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La sélection de la région secondaire dépend de la région primaire et ne peut pas être modifiée. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](storage-redundancy.md).
+Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La sélection de la région secondaire dépend de la région primaire et ne peut pas être modifiée. Pour plus d’informations, consultez [Stockage géoredondant (GRS) : réplication inter-régions pour le Stockage Azure](storage-redundancy.md).
 
 **Où puis-je obtenir plus d'informations sur le chiffrement du service de stockage Azure (SSE) ?**  
   
@@ -284,7 +284,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
     - **Jeton SAS** : utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
-**Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire apparaître « https://mystorageaccountname.blob.core.windows.net/images/image.gif » sous la forme « https://www.contoso.com/images/image.gif » ?**
+**Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire en sorte que « https://mystorageaccountname.blob.core.windows.net/images/image.gif » apparaisse sous la forme « https://www.contoso.com/images/image.gif » ?**
 
 SSL n'est actuellement pas pris en charge sur les comptes de stockage avec des domaines personnalisés.
 Mais vous pouvez utiliser des domaines personnalisés non-HTTPS. Pour plus d’informations, consultez la page [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](../blobs/storage-custom-domain-name.md).

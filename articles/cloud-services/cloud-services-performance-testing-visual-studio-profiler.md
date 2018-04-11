@@ -1,12 +1,12 @@
 ---
-title: "Profilage d’un service cloud local dans l’émulateur de calcul | Microsoft Docs"
+title: Profilage d’un service cloud local dans l’émulateur de calcul | Microsoft Docs
 services: cloud-services
-description: "Examen des problèmes de performances dans les services cloud à l’aide du profileur Visual Studio"
-documentationcenter: 
+description: Examen des problèmes de performances dans les services cloud à l’aide du profileur Visual Studio
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
 Différents outils et diverses techniques permettent de tester les performances des services cloud.
@@ -30,7 +30,7 @@ Vous pouvez également profiler votre application en local dans l'émulateur de 
 Cet article présente la méthode de profilage par échantillonnage de l'UC, qui peut se faire en local dans l'émulateur. Cette méthode de profilage est peu intrusive. Selon une fréquence d'échantillonnage définie, le profileur enregistre un instantané de la pile d'appels. Les données sont collectées pendant un certain temps, puis sont présentées dans un rapport. Cette méthode de profilage indique plutôt, dans une application qui effectue beaucoup de calculs, où se fait la plus grande part du travail du processeur.  Ceci vous permet de vous occuper en priorité des « points chauds », là où votre application passe le plus de temps.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1. Configuration de Visual Studio pour le profilage
-Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**.  Vous pouvez également faire référence à http://referencesource.microsoft.com/symbols, qui peut comporter d'autres fichiers de symboles.
+Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**.  Vous pouvez également référencer http://referencesource.microsoft.com/symbols, qui peut avoir des fichiers de symboles supplémentaires.
 
 ![Options de symbole][4]
 
