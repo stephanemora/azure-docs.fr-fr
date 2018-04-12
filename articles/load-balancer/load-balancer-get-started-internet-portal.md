@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Créer un équilibreur de charge de base public pour équiper la charge des machines virtuelles à l’aide du portail Azure
 
@@ -38,8 +38,8 @@ Dans cette section, vous allez créer un équilibreur de charge de base public �
 1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
 2. Dans la page **Créer un équilibreur de charge**, entrez les valeurs suivantes pour l’équilibreur de charge :
     - *myLoadBalancer* : pour le nom de l’équilibreur de charge.
-    - **Public** : pour le type de serveur frontal de l’équilibreur de charge 
-     - *myPublicIP* : pour l’adresse IP publique que vous devez créer avec la référence SKU **De base**, et l’**Attribution** définie comme **Dynamique**.
+    - **Public** : pour le type de l’équilibreur de charge.
+    - *myPublicIP* : pour l’adresse IP publique que vous devez créer avec la référence SKU **De base**, et l’**Attribution** définie comme **Dynamique**.
     - *myResourceGroupLB* : pour le nom du nouveau groupe de ressources que vous créez.
 3. Cliquez sur **Créer** pour générer l’équilibreur de charge.
    
@@ -154,7 +154,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
     - *myHealthProbe* : pour le nom de la sonde d’intégrité.
     - **HTTP** : pour le type de protocole.
     - *80* : pour le numéro de port.
-    - *15* : pour le nombre **d’intervalles** en secondes entre les tentatives de sonde.
+    - *15* : pour **l’intervalle** en secondes entre les tentatives de la sonde.
     - *2* : pour le nombre de **seuils de défaillance** ou d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
 4. Cliquez sur **OK**.
 
