@@ -1,31 +1,31 @@
 ---
-title: "Utilisation de la préférence de lecture MongoDB avec l’API MongoDB d’Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment utiliser la préférence de lecture MongoDB avec l’API MongoDB d’Azure Cosmos DB"
+title: Utilisation de la préférence de lecture MongoDB avec l’API MongoDB d’Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment utiliser la préférence de lecture MongoDB avec l’API MongoDB d’Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: vidhoonv
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
-ms.custom: 
-ms.workload: 
+ms.custom: ''
+ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: viviswan
-ms.openlocfilehash: b28285695f52d6dbcc33d9fb0efe06b43cdf1cab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cc9f22bc5e7b54ed03fbf83b58dda0aff0114737
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Guide pratique pour distribuer globalement des lectures à l’aide de la préférence de lecture avec l’API MongoDB d’Azure Cosmos DB 
 
 Cet article explique comment distribuer globalement des opérations de lecture à l’aide des paramètres de [préférence de lecture MongoDB](https://docs.mongodb.com/manual/core/read-preference/) avec l’API MongoDB d’Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis
+ 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -152,7 +152,7 @@ Si vous ne prévoyez pas de continuer à utiliser cette application, supprimez t
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Importer des données MongoDB dans Azure Cosmos DB](mongodb-migrate.md)
 * [Guide pratique pour configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB](tutorial-global-distribution-mongodb.md)

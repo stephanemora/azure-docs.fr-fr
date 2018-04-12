@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration de Azure Active Directory avec XaitPorter | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et XaitPorter."
+title: 'Didacticiel : Intégration de Azure Active Directory avec XaitPorter | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et XaitPorter.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -139,7 +139,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. Fournissez l’**adresse IP** ou l’**URL des métadonnées de** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste blanche de leur côté. 
+6. Fournissez l’**adresse IP** ou l’**URL des métadonnées de** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste verte de leur côté. 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise XaitPorter en tant qu’administrateur.
 

@@ -1,11 +1,11 @@
 ---
 title: Utiliser Azure DevTest Labs pour les environnements de test de machine virtuelle et PaaS | Microsoft Docs
-description: "Découvrez comment utiliser Azure DevTest Labs pour les scénarios d’environnements de test de machine virtuelle et PaaS."
+description: Découvrez comment utiliser Azure DevTest Labs pour les scénarios d’environnements de test de machine virtuelle et PaaS.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: d4e2c334-643a-40c9-9051-625b8f39fc86
 ms.service: devtest-lab
 ms.workload: na
@@ -56,7 +56,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs u
    
    | Tâche | Contenu |
    | --- | --- |
-   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste blanche des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables pour les testeurs.|
+   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste verte des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables pour les testeurs.|
    | [Créer une image personnalisée](devtest-lab-create-template.md) |Créez une image personnalisée en préinstallant les logiciels dont vous avez besoin afin que les testeurs puissent créer rapidement une machine virtuelle à l’aide de cette image.|
    | [Découvrir la fabrique d’images](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Regardez une vidéo expliquant comment configurer et utiliser une fabrique d’images.|
 

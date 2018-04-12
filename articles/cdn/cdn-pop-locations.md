@@ -44,7 +44,7 @@ Cet article répertorie les emplacements des points de présence (POP) actuels, 
 | Europe du Sud | Milan, Italie<br />Madrid, Espagne | Italie<br />Espagne |
 | Afrique | Johannesbourg, Afrique du Sud | |
 | Moyen-Orient | Muscat, Oman<br />Fujirah, Émirats Arabes Unis | Qatar |
-| Asie | Hong Kong<br />Bangalore, Inde<br />Chennai, Inde<br />Delhi, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan | Hong Kong<br />Inde<br />Indonésie<br />Japon<br />Malaisie<br />Philippines<br />Singapour<br />Taïwan<br />Thaïlande<br />Viêt Nam |
+| Asie | Hong Kong (R.A.S.)<br />Bengaluru (Bangalore), Inde<br />Chennai, Inde<br />Delhi, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan | Hong Kong (R.A.S.)<br />Inde<br />Indonésie<br />Japon<br />Malaisie<br />Philippines<br />Singapour<br />Taïwan<br />Thaïlande<br />Vietnam |
 | Australie et Nouvelle Zélande | Melbourne, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Australie<br />Nouvelle-Zélande |
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs | Microsoft Docs"
-description: "Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs à l’aide du portail Azure ou de PowerShell"
+title: Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs | Microsoft Docs
+description: Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs à l’aide du portail Azure ou de PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
 ms.service: devtest-lab
 ms.workload: na
@@ -44,7 +44,7 @@ Le tableau suivant décrit les actions pouvant être effectuées par les utilisa
 | **Tâches de base de machine virtuelle** | | | |
 | Ajouter et supprimer des images personnalisées |Non  |OUI |OUI |
 | Ajouter, mettre à jour et supprimer des formules |OUI |OUI |OUI |
-| Images Place de marché Azure de liste blanche |Non  |OUI |OUI |
+| Images Place de marché Azure de liste verte |Non  |OUI |OUI |
 | **Tâches de machine virtuelle** | | | |
 | Créer des machines virtuelles |OUI |OUI |OUI |
 | Démarrer, arrêter et supprimer des machines virtuelles |Seules les machines virtuelles créées par l’utilisateur |OUI |OUI |

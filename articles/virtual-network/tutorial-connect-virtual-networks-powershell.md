@@ -17,21 +17,20 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 445baa36f33cbe02b68bdb37406f842932089183
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2490b96716519ef749dd1e3a1fbe6846c6b5d999
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant PowerShell
 
 Vous pouvez connecter des réseaux virtuels entre eux à l’aide de l’appairage de réseaux virtuels. Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer deux réseaux virtuels
-> * Connecter deux réseaux virtuels à l’aide de l’homologation de réseaux virtuels
-> * Déployer une machine virtuelle sur chaque réseau virtuel
-> * Établir une communication entre les machines virtuelles
+* Créer deux réseaux virtuels
+* Connecter deux réseaux virtuels à l’aide de l’homologation de réseaux virtuels
+* Déployer une machine virtuelle sur chaque réseau virtuel
+* Établir une communication entre les machines virtuelles
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

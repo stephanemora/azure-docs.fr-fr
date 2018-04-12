@@ -1,11 +1,11 @@
 ---
-title: "Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié | Microsoft Docs"
-description: "Découvrez comment utiliser le point de terminaison privilégié pour surveiller l’état des mises à jour pour les systèmes intégrés Azure Stack."
+title: Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié | Microsoft Docs
+description: Découvrez comment utiliser le point de terminaison privilégié pour surveiller l’état des mises à jour pour les systèmes intégrés Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -36,7 +36,7 @@ Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Vérifier que les applets de commande sont disponibles
-Comme les applets de commande sont nouvelles dans le package de mise à jour 1710 d’Azure Stack, le processus de mise à jour 1710 a besoin d'atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Plus précisément, la mise à jour de l’applet de commande survient durant **l'étape : exécution de l’étape 2.6 - Mettre à jour la liste blanche PrivilegedEndpoint**.
+Comme les applets de commande sont nouvelles dans le package de mise à jour 1710 d’Azure Stack, le processus de mise à jour 1710 a besoin d'atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Plus précisément, la mise à jour de l’applet de commande survient durant **l'étape : exécution de l’étape 2.6 - Mettre à jour la liste verte PrivilegedEndpoint**.
 
 Vous pouvez également déterminer si les applets de commande sont disponibles par programmation en interrogeant la liste des commandes à partir du point de terminaison privilégié. Pour cela, exécutez les commandes suivantes à partir de l’hôte de cycle de vie du matériel ou d’une station de travail avec accès privilégié. Assurez-vous également que le point de terminaison privilégié est un hôte approuvé. Pour plus d’informations, consultez l’étape 1 [Accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 
@@ -194,7 +194,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 Le point de terminaison privilégié est disponible sur toutes les machines virtuelles ERCS dans l’environnement Azure Stack. Comme la connexion n’est pas établie vers un point de terminaison hautement disponible, vous risquez de rencontrer des interruptions occasionnelles, des avertissements ou des messages d’erreur. Ces messages peuvent indiquer que la session a été déconnectée ou qu’une erreur de communication avec le service ECE s'est produite. Il s’agit du comportement attendu. Vous pouvez réessayer l’opération dans quelques minutes ou créer une session de point de terminaison privilégié sur l’une des autres machines virtuelles ERCS. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Gestion des mises à jour dans Azure Stack](azure-stack-updates.md) 
 
