@@ -1,11 +1,11 @@
 ---
-title: "Interface utilisateur d’Azure Mobile Engagement - Critère Reach"
-description: "Utilisation des critères de ciblage pour envoyer des campagnes push à un sous-ensemble donné de vos utilisateurs à l’aide d’Azure Mobile Engagement"
+title: Interface utilisateur d’Azure Mobile Engagement - Critère Reach
+description: Utilisation des critères de ciblage pour envoyer des campagnes push à un sous-ensemble donné de vos utilisateurs à l’aide d’Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Utilisation des critères de ciblage pour envoyer des campagnes push à un sous-ensemble donné de vos utilisateurs
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Le ciblage de votre audience suivant des critères spécifiques à l'aide du bouton « Nouveau critère » est l'un des concepts les plus performants d'Azure Mobile Engagement qui vous permet d'envoyer des notifications Push pertinentes auxquelles les clients répondront, au lieu d'envoyer des courriers indésirables à tout le monde. Vous pouvez limiter votre audience selon des critères standard et simuler des notifications Push pour déterminer combien de personnes recevront ces notifications.
 
 **Voir aussi :**
@@ -62,7 +66,7 @@ Si vous souhaitez effectuer une transmission de type Push pour faire une annonce
 * Type de réseau : type de réseau
 * Paramètres régionaux : paramètres régionaux
 * Taille de l’écran : taille de l’écran
-* **Emplacement**      
+* **Lieu**      
 * Dernière région connue : pays, région, localité
 * Géofencing en temps réel : liste des POI (points d’intérêts) (nom, actions), POI circulaires (nom, latitude, longitude, rayon en mètres)
 * **Commentaire Reach**     

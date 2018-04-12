@@ -1,11 +1,11 @@
 ---
-title: "Réinitialiser l’accès sur des machines virtuelles Azure Linux à l’aide de l’extension VMAccess | Microsoft Docs"
-description: "Réinitialisez l'accès sur des machines virtuelles Azure Linux à l'aide de l’extension VMAccess."
+title: Réinitialiser l’accès sur des machines virtuelles Azure Linux à l’aide de l’extension VMAccess | Microsoft Docs
+description: Réinitialisez l'accès sur des machines virtuelles Azure Linux à l'aide de l’extension VMAccess.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
-ms.openlocfilehash: 278bf1785aac71068ab94cf9916af69a204c44be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fb130fc2e448f3cbc648991ea6bebd5795bc78b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Azure Linux à l'aide de l’extension VMAccess avec Azure CLI 1.0
 Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSHD sous Linux. L’article requiert :
 
 * un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)).
 * [l’interface de ligne de commande Azure (CLI)](../../cli-install-nodejs.md) connectée à `azure login` ;
-* l’interface de ligne de commande (CLI) Azure *doit être en* mode Azure Resource Manager `azure config mode arm`.
+* l’interface de ligne de commande (CLI) Azure *doit être en* mode Azure Resource Manager`azure config mode arm`.
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](#quick-commands) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
-- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager
 
 
 ## <a name="quick-commands"></a>Commandes rapides

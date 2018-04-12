@@ -1,11 +1,11 @@
 ---
-title: "Kit de développement logiciel (SDK) et ressources de l’API Graph .NET Azure CosmosDB | Microsoft Docs"
-description: "Découvrez l’API Graph Azure CosmosDB, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version."
+title: Kit de développement logiciel (SDK) et ressources de l’API Graph .NET Azure CosmosDB | Microsoft Docs
+description: Découvrez l’API Graph Azure CosmosDB, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version.
 services: cosmos-db
 documentationcenter: .net
 author: luisbosquez
-manager: jhubbard
-ms.assetid: 
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 41608e76216f63ccf3165cc3959787c661d71fa0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API Graph .NET Azure Cosmos DB : Télécharger et notes de publication
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/21/2018
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://aka.ms/acdbgraphnuget)|
 |**Documentation de l’API**|[Documentation de référence sur l’API .NET](https://aka.ms/acdbgraphapiref)|
-|**Démarrage rapide**|[Azure Cosmos DB : Créer une application de graphe à l’aide de .NET et de l’API Graph](create-graph-dotnet.md)|
+|**Démarrage rapide**|[Azure Cosmos DB : Créer une application graphique à l’aide de .NET et de l’API Graph](create-graph-dotnet.md)|
 |**Didacticiel**|[Azure Cosmos DB : Créer un conteneur avec l’API Graph](tutorial-develop-graph-dotnet.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 

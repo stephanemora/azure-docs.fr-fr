@@ -1,11 +1,11 @@
 ---
-title: "Commandes PowerShell courantes pour les réseaux virtuels Azure | Microsoft Docs"
-description: "Il s’agit de commandes PowerShell courantes, qui vous aident à démarrer la création d’un réseau virtuel et des ressources associées pour des machines virtuelles."
+title: Commandes PowerShell courantes pour les réseaux virtuels Azure | Microsoft Docs
+description: Il s’agit de commandes PowerShell courantes, qui vous aident à démarrer la création d’un réseau virtuel et des ressources associées pour des machines virtuelles.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 56e1a73c-8299-4996-bd03-f74585caa1dc
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 26378ff9f16af9724db08cc4013654557f1c838b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 31c0e558ca87d918d8e662d7aa4c12502961288a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Commandes PowerShell courantes pour les réseaux virtuels Azure
 
@@ -34,7 +34,7 @@ Certaines variables peuvent être utiles si vous utilisez plusieurs des commande
 
 ## <a name="create-network-resources"></a>Créer des ressources réseau
 
-| Task | Commande |
+| Tâche | Commande |
 | ---- | ------- |
 | Créez des configurations de sous-réseau |$subnet1 = [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>Un réseau classique peut avoir un sous-réseau pour un [équilibrage de charge accessible sur Internet](../../load-balancer/load-balancer-internet-overview.md) et un sous-réseau distinct pour un [équilibrage de charge interne](../../load-balancer/load-balancer-internal-overview.md). |
 | Créez un réseau virtuel |$vnet = [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
@@ -50,7 +50,7 @@ Certaines variables peuvent être utiles si vous utilisez plusieurs des commande
 
 ## <a name="get-information-about-network-resources"></a>Obtenir des informations sur les ressources réseau
 
-| Task | Commande |
+| Tâche | Commande |
 | ---- | ------- |
 | Répertorier les réseaux virtuels |[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>Répertorie tous les réseaux virtuels du groupe de ressources. |
 | Obtenir des informations sur un réseau virtuel |Get-AzureRmVirtualNetwork -Name "myVNet" -ResourceGroupName $myResourceGroup |
@@ -64,7 +64,7 @@ Certaines variables peuvent être utiles si vous utilisez plusieurs des commande
 
 ## <a name="manage-network-resources"></a>Gérer des ressources réseau
 
-| Task | Commande |
+| Tâche | Commande |
 | ---- | ------- |
 | Ajouter un sous-réseau à un réseau virtuel |[Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) -AddressPrefix XX.X.X.X/XX -Name "mySubnet1" -VirtualNetwork $vnet<BR><BR>Ajoute un sous-réseau à un réseau virtuel existant. La valeur $vnet représente l’objet renvoyé par Get-AzureRmVirtualNetwork. |
 | Supprimer un réseau virtuel |[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup<BR><BR>Supprime le réseau virtuel spécifié du groupe de ressources. |

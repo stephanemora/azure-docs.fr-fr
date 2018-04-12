@@ -1,11 +1,11 @@
 ---
-title: "Mise en correspondance des questions et réponses à l’aide d’Azure Machine Learning Workbench | Microsoft Docs"
-description: "Décrit comment utiliser différentes méthodes d’apprentissage automatique performantes pour mettre en correspondance les questions ouvertes avec des paires Questions et réponses FAQ préexistantes."
+title: Mise en correspondance des questions et réponses à l’aide d’Azure Machine Learning Workbench | Microsoft Docs
+description: Décrit comment utiliser différentes méthodes d’apprentissage automatique performantes pour mettre en correspondance les questions ouvertes avec des paires Questions et réponses FAQ préexistantes.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Mise en correspondance des questions et réponses à l’aide d’Azure Machine Learning Workbench
 Répondre à des questions ouvertes est difficile et oblige souvent les experts techniques (SME) à effectuer des opérations manuelles. Pour alléger le travail des SME internes, les entreprises créent couramment des listes de questions fréquentes (FAQ) destinées à aider les utilisateurs. Cet exemple présente différentes méthodes d’apprentissage automatique performantes pour mettre en correspondance les questions ouvertes avec des paires Questions et réponses FAQ préexistantes. Il montre un processus de développement simple pour créer une solution d’apprentissage automatique à l’aide d’Azure Machine Learning Workbench. 
@@ -27,7 +27,7 @@ Répondre à des questions ouvertes est difficile et oblige souvent les experts 
 ## <a name="link-to-the-gallery-github-repository"></a>Lien vers le dépôt GitHub de la galerie
 [https://github.com/Azure/MachineLearningSamples-QnAMatching](https://github.com/Azure/MachineLearningSamples-QnAMatching)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Cet exemple expose le problème de la mise en correspondance des questions des utilisateurs avec des paires Questions et réponses préexistantes, qui sont généralement fournies sous forme de liste de questions fréquentes (FAQ) ou répertoriées sur certains sites web tels que [Stack Overflow](https://stackoverflow.com/). Il existe diverses approches pour établir une correspondance entre une question et une réponse appropriée. L’une d’elles consiste à rechercher la réponse qui est la plus similaire à la question. Toutefois, dans cet exemple, les questions ouvertes sont mises en correspondance avec des questions déjà posées en partant du principe que chaque réponse donnée dans le FAQ peut correspondre à plusieurs questions sémantiquement équivalentes.
 
@@ -39,7 +39,8 @@ Les principales étapes à prévoir pour cette solution sont les suivantes :
 4. Former des modèles de classification du texte et évaluer les performances du modèle.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Cet exemple nécessite les prérequis suivants :
 

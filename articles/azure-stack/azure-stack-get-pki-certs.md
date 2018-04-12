@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Générer des certificats pour infrastructure à clé publique pour le déploiement Azure Stack
 Maintenant que vous connaissez [les exigences de certificat pour infrastructure à clé publique](azure-stack-pki-certs.md) pour les déploiements Azure Stack, vous devez obtenir ces certificats auprès de l’autorité de certification (AC) de votre choix. 
@@ -75,4 +75,4 @@ Le workflow suivant décrit comment vous pouvez personnaliser et utiliser l’ex
 5. **Exportez et copiez le fichier . PFX dans les dossiers de déploiement**. Exportez le certificat (y compris la clé privée) au format de fichier .PFX, puis copiez le fichier .PFX dans les dossiers de déploiement décrits dans les [exigences d’infrastructure à clé publique de déploiement Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Préparer des certificats PKI Azure Stack](prepare-pki-certs.md)
+[Préparer des certificats PKI Azure Stack](azure-stack-prepare-pki-certs.md)

@@ -1,11 +1,11 @@
 ---
 title: Publier du contenu dans le portail Azure | Microsoft Docs
-description: "Ce didacticiel vous fournit les étapes à suivre pour la publication de votre contenu dans le portail Azure."
+description: Ce didacticiel vous fournit les étapes à suivre pour la publication de votre contenu dans le portail Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publier du contenu dans le portail Azure
 > [!div class="op_single_selector"]
@@ -30,26 +30,26 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>Vue d'ensemble
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre actif multimédia en créant un localisateur. Les localisateurs permettent d’accéder aux fichiers d’actifs multimédias. Azure Media Services prend en charge deux types de localisateurs : 
 
-* **Localisateurs de streaming (OnDemandOrigin)**. Les localisateurs de streaming sont utilisés pour le streaming adaptatif. Parmi les exemples de streaming adaptatif, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour créer un localisateur de streaming, votre actif multimédia doit contenir un fichier .ism. 
+* **Localisateurs de streaming (OnDemandOrigin)**. Les localisateurs de streaming sont utilisés pour le streaming adaptatif. Parmi les exemples de streaming adaptatif, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour créer un localisateur de streaming, votre actif multimédia doit contenir un fichier .ism. Par exemple : http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Localisateurs progressifs (signature d’accès partagé)**. Les localisateurs progressifs sont utilisés pour diffuser des vidéos par téléchargement progressif.
 
 Pour créer une URL de streaming HLS, ajoutez *(format=m3u8-aapl)* à l’URL :
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 Pour générer une URL de streaming afin de lire les actifs multimédias Smooth Streaming, utilisez le format d’URL suivant :
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 Pour créer une URL de streaming MPEG DASH, ajoutez *(format=mpd-time-csf)* à l’URL :
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 Une URL de signature d’accès partagé a le format suivant :
 

@@ -1,12 +1,11 @@
 ---
-title: "Utiliser mongoimport et mongorestore avec l’API Azure Cosmos DB pour MongoDB | Microsoft Docs"
-description: "Découvrez comment utiliser mongoimport et mongorestore pour importer des données dans un compte API pour MongoDB"
+title: Utiliser mongoimport et mongorestore avec l’API Azure Cosmos DB pour MongoDB | Microsoft Docs
+description: Découvrez comment utiliser mongoimport et mongorestore pour importer des données dans un compte API pour MongoDB
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +15,11 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB : importer des données MongoDB 
 
@@ -38,7 +37,8 @@ Ce didacticiel décrit les tâches suivantes :
 > * Importation des données MongoDB à l’aide de mongoimport
 > * Importation des données MongoDB à l’aide de mongorestore
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous définissez pour vos collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le [portail Azure](https://portal.azure.com), consultez les [niveaux de performances et niveaux tarifaires dans Azure Cosmos DB](performance-levels.md).
 
@@ -134,7 +134,7 @@ Exemple :
     |--------|-----|
     |batchSize| 24 |
     |RU approvisionnées | 10000 |
-    |Latence | 0,100 s |
+    |Latency | 0,100 s |
     |RU facturée pour 1 écriture de document | 10 unités de requête |
     |numInsertionWorkers | ? |
     

@@ -1,11 +1,11 @@
 ---
-title: "Commandes de l’interface de ligne de commande Azure en mode Resource Manager | Microsoft Docs"
-description: "Les commandes de l’interface de ligne de commande Azure permettent de gérer les ressources dans le modèle de déploiement Resource Manager."
+title: Commandes de l’interface de ligne de commande Azure en mode Resource Manager | Microsoft Docs
+description: Les commandes de l’interface de ligne de commande Azure permettent de gérer les ressources dans le modèle de déploiement Resource Manager.
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Resource Manager
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  

@@ -1,11 +1,11 @@
 ---
 title: Cluster HPC Pack pour Excel et SOA | Microsoft Docs
-description: "Prise en main de l’exécution de charges de travail Excel et SOA à grande échelle sur un cluster HPC Pack dans Azure"
+description: Prise en main de l’exécution de charges de travail Excel et SOA à grande échelle sur un cluster HPC Pack dans Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: cb6a9abe-caf3-44da-b911-849a50f6cfb3
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Prise en main de l’exécution de charges de travail Excel et SOA sur un cluster HPC Pack dans Azure
 Cet article vous montre comment déployer un cluster Microsoft HPC Pack 2012 R2 dans des machines virtuelles Azure à l’aide d’un modèle de démarrage rapide Azure ou éventuellement d’un script de déploiement Azure PowerShell. Le cluster utilise des images de machine virtuelle Azure Marketplace conçues pour exécuter des charges de travail d’architecture orientée services (SOA) ou Microsoft Excel avec HPC Pack. Vous pouvez utiliser le cluster pour exécuter des services Excel HPC et SOA à partir d’un ordinateur client local. Les services Excel HPC incluent le déchargement de classeurs Excel et les fonctions Excel définies par l'utilisateur (UDF).
@@ -34,7 +34,8 @@ Le diagramme général suivant montre le cluster HPC Pack que vous créez.
 
 ![Cluster HPC avec des nœuds exécutant des charges de travail Excel][scenario]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour envoyer des exemples de tâches Excel et SOA au cluster. Vous avez également besoin d’un ordinateur Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement).
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 * **Quota de cœurs** : vous devez peut-être augmenter le quota de cœurs, en particulier si vous déployez plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Si vous utilisez un modèle de démarrage rapide Azure, le quota de cœurs dans le Resource Manager est défini par région Azure. Dans ce cas, vous devrez peut-être augmenter le quota d’une région spécifique. Consultez [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md). Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.

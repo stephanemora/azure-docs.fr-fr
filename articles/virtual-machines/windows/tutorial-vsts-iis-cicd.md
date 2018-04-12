@@ -1,13 +1,13 @@
 ---
-title: "Création d’un pipeline CI/CD dans Azure avec Team Services | Microsoft Docs"
-description: "Découvrez comment créer un pipeline Visual Studio Team Services pour une intégration continue et une fourniture qui déploie une application web vers IIS sur une machine virtuelle Windows"
+title: Création d’un pipeline CI/CD dans Azure avec Team Services | Microsoft Docs
+description: Découvrez comment créer un pipeline Visual Studio Team Services pour une intégration continue et une fourniture qui déploie une application web vers IIS sur une machine virtuelle Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Création d’un pipeline d’intégration continue avec Visual Studio Team Services et IIS
 Pour automatiser les phases de création, de test et de déploiement du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD à l’aide de Visual Studio Team Services et d’une machine virtuelle Windows (VM) dans Azure qui exécute IIS. Vous allez apprendre à effectuer les actions suivantes :
@@ -91,7 +91,7 @@ Vérifiez que la build est planifiée sur un agent hébergé, puis commencez la 
 ![Génération réussie du projet Team Services](media/tutorial-vsts-iis-cicd/successful_build.png)
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 Pour fournir une plateforme sur laquelle exécuter votre application web ASP.NET, vous avez besoin d’une machine virtuelle Windows qui exécute IIS. Team Services utilise un agent pour interagir avec l’instance IIS lorsque vous validez le code et que les builds sont déclenchées.
 
 Créez une machine virtuelle Windows Server 2016 à l’aide de [cet exemple de script](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). Il faut quelques minutes pour que le script s’exécute et crée la machine virtuelle. Une fois la machine virtuelle créée, ouvrez le port 80 pour le trafic web avec [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) comme suit :
@@ -204,7 +204,7 @@ Votre application web s’exécutant sur IIS, testez à présent l’ensemble du
 
     `<h1>ASP.NET with VSTS and CI/CD!</h1>`
 
-4. Enregistrez le fichier.
+4. Enregistrez le fichier .
 5. Ouvrez la fenêtre **Team Explorer**, sélectionnez le projet *myWebApp*, puis choisissez **Modifications**.
 6. Entrez un message de validation, tel que *Test du pipeline CI/CD*, puis choisissez **Commit All and Sync** (Tout valider et synchroniser) dans le menu déroulant.
 7. Dans l’espace de travail de Team Services, une nouvelle build est déclenchée à partir de la validation du code. 

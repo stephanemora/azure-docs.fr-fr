@@ -3,15 +3,15 @@
    
     ![Capture d’écran de l’accès à IoT Hub dans le portail Azure][1]
 
-1. Dans le volet **IoT Hub**, entrez les informations suivantes pour votre hub IoT :
+1. Dans le volet **IoT Hub**, entrez les informations suivantes pour votre IoT Hub :
 
-   * **Nom** : créer un nom de votre hub IoT. Si le nom saisi est valide, une coche verte s’affiche.
+   * **Nom** : créer un nom de votre IoT Hub. Si le nom saisi est valide, une coche verte s’affiche.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
    * **Niveau de tarification et de mise à l’échelle** : pour ce didacticiel, sélectionnez le niveau **F1 gratuit**. Pour plus d’informations, consultez [Niveau de tarification et de mise à l’échelle][lnk-pricing].
 
-   * **Groupe de ressources** : créez un groupe de ressources pour héberger le hub IoT ou utilisez-en un existant. Pour plus d’informations, consulter [Utilisation des groupes de ressources pour gérer vos ressources Azure][lnk-resource-groups]
+   * **Groupe de ressources** : créez un groupe de ressources pour héberger l’IoT Hub ou utilisez-en un existant. Pour plus d’informations, consulter [Utilisation des groupes de ressources pour gérer vos ressources Azure][lnk-resource-groups]
 
    * **Emplacement**: sélectionnez l’emplacement le plus proche de vous.
 

@@ -1,11 +1,11 @@
 ---
-title: "Analyser les performances du nœud de périmètre dans Azure CDN | Microsoft Docs"
-description: "Analyser les performances du nœud de périmètre dans Microsoft Azure CDN. Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN."
+title: Analyser les performances du nœud de périmètre dans Azure CDN | Microsoft Docs
+description: Analyser les performances du nœud de périmètre dans Microsoft Azure CDN. Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analyser les performances du nœud de périmètre dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -39,7 +39,7 @@ Les données d’activité CDN doivent être collectées par le module Edge Perf
 > 
 > 
 
-## <a name="dashboard"></a>Tableau de bord
+## <a name="dashboard"></a>tableau de bord
 Le tableau de bord Edge Performance Analytics assure le suivi du trafic CDN actuel et historique par le biais d’un graphique et de statistiques. Ce tableau de bord vous permet de détecter les tendances récentes et à long terme concernant les performances du trafic CDN pour votre compte.
 
 Ce tableau de bord se décompose comme suit :
@@ -116,7 +116,7 @@ Ces mesures ont pour but de suivre les performances globales du CDN du point de 
 | Champ | Description |
 | --- | --- |
 | Transfer Rate |Indique la vitesse moyenne de transfert du contenu entre le CDN et un demandeur. |
-| Durée |Indique la durée moyenne, en millisecondes, nécessaire à la distribution d’une ressource à un demandeur (par exemple, le navigateur web). |
+| Duration |Indique la durée moyenne, en millisecondes, nécessaire à la distribution d’une ressource à un demandeur (par exemple, le navigateur web). |
 | Compressed Request Rate |Indique le pourcentage de correspondances envoyées par le CDN (serveurs Edge) au demandeur (par exemple, le navigateur web) dans un format compressé. |
 | 4xx Error Rate |Indique le pourcentage de correspondances ayant généré un code d’état 4xx. |
 | 5xx Error Rate |Indique le pourcentage de correspondances ayant généré un code d’état 5xx. |

@@ -1,11 +1,11 @@
 ---
-title: "Utiliser les propriétés des jumeaux d’appareils Azure IoT Hub (Python) | Microsoft Docs"
-description: "Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour configurer des appareils. Les SDK Azure IoT pour Python permettent d’implémenter une application d’appareil simulé et une application de service qui modifie la configuration d’un appareil à l’aide d’un jumeau d’appareil."
+title: Utiliser les propriétés des jumeaux d’appareils Azure IoT Hub (Python) | Microsoft Docs
+description: Guide d’utilisation des représentations d’appareils Azure IoT Hub pour configurer des appareils. Les SDK Azure IoT pour Python permettent d’implémenter une application d’appareil simulé et une application de service qui modifie la configuration d’un appareil à l’aide d’un jumeau d’appareil.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0bcec50-26e6-40f0-8096-733b2f3071ec
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2018
-ms.author: v-masebo
-ms.openlocfilehash: d0d5a30a76068eb3212124fd14e7ea1616b75708
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: e6f4aa61e37769dc4851f8284d07a7991ee38c91
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>Utiliser les propriétés souhaitées pour configurer des appareils (Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -39,7 +39,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Si vous utilisez le système d’exploitation Windows, utilisez le [package redistribuable Visual C++][lnk-visual-c-redist] pour autoriser l’utilisation de DLL natives de Python.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
-Si vous avez suivi le didacticiel [Prise en main des représentations d’appareil][lnk-twin-tutorial], vous avez déjà un hub IoT et une identité d’appareil nommée **myDeviceId**. Vous pouvez passer à la section [Créer l’application pour appareil simulée][lnk-how-to-configure-createapp].
+Si vous avez suivi le didacticiel [Prise en main des représentations d’appareil][lnk-twin-tutorial], vous avez déjà un IoT Hub et une identité d’appareil nommée **myDeviceId**. Vous pouvez passer à la section [Créer l’application pour appareil simulée][lnk-how-to-configure-createapp].
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -166,7 +166,7 @@ Dans cette section, vous allez créer une application console Python qui se conn
 
 
 ## <a name="create-the-service-app"></a>Créer l’application de service
-Dans cette section, vous créez une application console Python qui met à jour les *propriétés souhaitées* sur le jumeau d’appareil associé à **myDeviceId** avec un nouvel objet de configuration de télémétrie. Elle interroge ensuite les jumeaux d’appareils stockés dans le hub IoT, puis affiche la différence entre les configurations souhaitées et signalées de l’appareil.
+Dans cette section, vous créez une application console Python qui met à jour les *propriétés souhaitées* sur le jumeau d’appareil associé à **myDeviceId** avec un nouvel objet de configuration de télémétrie. Elle interroge ensuite les représentations d’appareils stockées dans l’IoT Hub, puis affiche la différence entre les configurations souhaitées et signalées de l’appareil.
 
 1. Installez le kit **Azure IoT Python Service SDK** en exécutant la commande suivante à l’invite de commandes :
    

@@ -3,7 +3,7 @@ title: Planifier des travaux avec Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Procédure de planification d’une tâche Azure IoT Hub pour appeler une méthode directe sur plusieurs appareils. Vous utilisez le Kit de développement logiciel Azure IoT device SDK pour .NET afin d’implémenter les applications d’appareil simulé et une application de service pour exécuter le travail.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: 59d78c390e479acd16d47b70e8af5e164d746905
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 8ea2a5bc0a2f017c17bce4d366cb39acfba935aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Planifier et diffuser des travaux (.NET/.NET)
 

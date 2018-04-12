@@ -1,11 +1,11 @@
 ---
-title: "Optimiser les performances de MySQL sur Linux | Microsoft Docs"
-description: "Apprenez à optimiser MySQL sur une machine virtuelle Azure exécutant Linux."
+title: Optimiser les performances de MySQL sur Linux | Microsoft Docs
+description: Apprenez à optimiser MySQL sur une machine virtuelle Azure exécutant Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Optimiser les performances de MySQL sur les machines virtuelles Linux Azure
 De nombreux facteurs, en matière de choix de matériel virtuel et de configuration logicielle, ont une incidence sur les performances de MySQL sur Azure. Cet article se concentre sur l’optimisation des performances grâce aux configurations de stockage, système et de base de données.
@@ -310,7 +310,7 @@ La taille des fichiers utilisés pour ce test est de 30 Go et 1 Go respectivem
 
 | parameters | Default | Optimisation |
 | --- | --- | --- |
-| **innodb_buffer_pool_size** |Aucune |7 Go |
+| **innodb_buffer_pool_size** |Aucun |7 Go |
 | **innodb_log_file_size** |5 Mo |512 Mo |
 | **max_connections** |100 |5 000 |
 | **innodb_file_per_table** |0 |1 |

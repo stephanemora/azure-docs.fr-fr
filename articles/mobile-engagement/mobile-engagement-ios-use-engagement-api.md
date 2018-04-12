@@ -1,11 +1,11 @@
 ---
 title: Utilisation de l'API Engagement sur iOS
-description: "Kit de développement logiciel (SDK) iOS le plus récent - Utilisation de l'API Engagement sur iOS"
+description: Kit de développement logiciel (SDK) iOS le plus récent - Utilisation de l'API Engagement sur iOS
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Utilisation de l'API Engagement sur iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Ce document est un module complémentaire du document Intégration d'Engagement sur iOS : il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
 
 Rappelez-vous que si vous souhaitez qu’Engagement établisse uniquement le rapport des sessions, des activités, des incidents et des informations techniques de votre application, dans ce cas le moyen le plus simple est de faire `UIViewController`hériter tous vos objets personnalisés de la classe `EngagementViewController` correspondante.
@@ -91,7 +95,7 @@ Les événements de session servent généralement à signaler les actions effec
 ### <a name="standalone-events"></a>Événements autonomes
 Contrairement aux événements de session, les événements d'autonomes peuvent être utilisés en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
     [[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
@@ -116,7 +120,7 @@ Les erreurs de session servent généralement à signaler les erreurs affectant 
 ### <a name="standalone-errors"></a>Erreurs autonomes
 Contrairement aux erreurs de session, les erreurs autonomes peuvent être utilisées en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
     [[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
@@ -141,7 +145,7 @@ Supposons que vous voulez créer un rapport de la durée de votre processus de c
 ### <a name="report-errors-during-a-job"></a>Signaler les erreurs lors d'un travail
 Les erreurs peuvent être associées à un travail en cours d'exécution plutôt qu'à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
 Supposons que vous souhaitez signaler une erreur pendant le processus de connexion :
 
@@ -178,7 +182,7 @@ Supposons que vous souhaitez signaler une erreur pendant le processus de connexi
 ### <a name="events-during-a-job"></a>Événements lors d'un travail
 Les événements peuvent être associés à un travail en cours d'exécution au lieu de se rapporter à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
 Supposons que nous disposons d'un réseau social et que nous utilisons une tâche pour signaler la durée totale pendant laquelle l'utilisateur est connecté au serveur. L'utilisateur peut recevoir des messages de ses amis : il s'agit d'un événement de tâche.
 
@@ -218,14 +222,14 @@ Notez que les données supplémentaires peuvent contenir des `arrays(NSArray, NS
 > 
 > 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
     NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
     [extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
     [extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
     [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
-### <a name="limits"></a>Limites
-#### <a name="keys"></a>de clés symétriques
+### <a name="limits"></a>limites
+#### <a name="keys"></a>Clés
 Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
@@ -246,15 +250,15 @@ Notez que ces informations peuvent être envoyées de façon incrémentielle : 
 
 Comme c'est le cas avec les suppléments d'événement, la classe `NSDictionary` est utilisée pour extraire des informations de l'application. Notez que les tableaux ou sous-dictionnaires seront traités en tant que chaînes plates (à l'aide de la sérialisation JSON).
 
-**Exemple :**
+**Exemple :**
 
     NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
     [appInfo setObject:@"female" forKey:@"gender"];
     [appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
     [[EngagementAgent shared] sendAppInfo:appInfo];
 
-### <a name="limits"></a>Limites
-#### <a name="keys"></a>de clés symétriques
+### <a name="limits"></a>limites
+#### <a name="keys"></a>Clés
 Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`

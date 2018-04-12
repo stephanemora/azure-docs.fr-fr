@@ -25,7 +25,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Réseaux virtuels |50 |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |1 000 |10000 |
 | Homologations VNet par réseau virtuel |10 |50 |
-| Serveurs DNS par réseau virtuel |9. |25 |
+| Serveurs DNS par réseau virtuel |9 |25 |
 | Adresses IP privées par réseau virtuel |4096 |8 192 |
 | Adresses IP privées par interface réseau |256 |1 024 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |500K |
@@ -54,9 +54,9 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Règles par configuration IP | 299 |299 |
 | Configurations d’adresses IP frontales, De base | 10 | 200 |
 | Configurations d’adresses IP frontales, Standard | 10 | 600 |
-| Pool principal, De base | 100, un seul groupe à haute disponibilité | - |
-| Pool principal, Standard | 1000, un seul réseau virtuel | - |
-| Ports à haute disponibilité, Standard | 1 par serveur frontal interne | - |
+| Pool principal, De base | 100, un seul groupe à haute disponibilité | 100, un seul groupe à haute disponibilité |
+| Pool principal, Standard | 1000, un seul réseau virtuel | 1000, un seul réseau virtuel |
+| Ports à haute disponibilité, Standard | 1 par serveur frontal interne | 1 par serveur frontal interne |
 
 Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

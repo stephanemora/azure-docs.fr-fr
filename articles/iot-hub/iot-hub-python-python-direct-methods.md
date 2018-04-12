@@ -1,11 +1,11 @@
 ---
-title: "Méthodes directes Azure IoT Hub (Python) | Microsoft Docs"
-description: "Utilisation des méthodes directes Azure IoT Hub. Vous utilisez les SDK Azure IoT pour Python afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et une application de service qui appelle la méthode directe."
+title: Méthodes directes Azure IoT Hub (Python) | Microsoft Docs
+description: Utilisation des méthodes directes Azure IoT Hub. Vous utilisez les SDK Azure IoT pour Python afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et une application de service qui appelle la méthode directe.
 services: iot-hub
-documentationcenter: 
-author: msebolt
+documentationcenter: ''
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ea9c73ca-7778-4e38-a8f1-0bee9d142f04
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
-ms.author: v-masebo
-ms.openlocfilehash: 9dac7b45894c2da0dcd32e456c8806faadf814e9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 973dba8682e50af0434c557aa088d15e7a004b45
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-python"></a>Utilisation de méthodes directes sur votre appareil IoT avec Python
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/23/2018
 * **SimulatedDevice.py**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment, puis répond à la méthode appelée par le cloud.
 
 > [!NOTE]
-> L’article [Kits Azure IoT SDK][lnk-hub-sdks] fournit des informations sur les kits Azure IoT SDK que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et votre backend de solution.
+> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les kits de développement logiciel Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 > 
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
@@ -43,7 +43,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 
-## <a name="create-a-simulated-device-app"></a>Création d’une application d’appareil simulé
+## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
 Dans cette section, vous créez une application console Python qui répond à une méthode appelée par le cloud.
 
 1. À l’aide d’un éditeur de texte, créez un fichier **SimulatedDevice.py**.
@@ -228,7 +228,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     ![][9]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez configuré un nouveau hub IoT dans le portail Azure, puis créé une identité d’appareil dans le registre des identités du hub IoT. Vous avez utilisé cette identité d’appareil pour permettre à l’application d’appareil simulé de réagir à des méthodes appelées par le cloud. Vous avez également créé une application qui appelle des méthodes sur l’appareil et affiche la réponse de celui-ci. 
+Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez utilisé cette identité d’appareil pour permettre à l’application d’appareil simulé de réagir à des méthodes appelées par le cloud. Vous avez également créé une application qui appelle des méthodes sur l’appareil et affiche la réponse de celui-ci. 
 
 Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
 

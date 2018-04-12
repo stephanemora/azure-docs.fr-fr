@@ -3,7 +3,7 @@
 -->
 Vous pouvez créer un pipeline avec une activité de copie à l’aide de l’un des outils/kits SDK suivants : cliquez sur un lien pour accéder à un didacticiel avec des instructions détaillées pour la création d’un pipeline avec une activité de copie. 
 
-- [Portail Azure](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Portail Azure](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [Kit de développement logiciel (SDK) .NET](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Kit de développement logiciel (SDK) Python](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)

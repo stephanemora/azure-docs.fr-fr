@@ -3,25 +3,24 @@ title: Résoudre les problèmes de sauvegarde des fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 services: backup
 ms.service: backup
-keywords: N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Résoudre les problèmes de sauvegarde des fichiers Azure
 Vous pouvez résoudre les problèmes et les erreurs rencontrés pendant l’utilisation d’une sauvegarde de fichiers Azure à l’aide des informations figurant dans les tables suivantes.
 
 ## <a name="preview-boundaries"></a>Limites de la préversion
 Sauvegarde de fichiers Azure est en préversion. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
-- Protection des partages de fichiers Azure dans des comptes de stockage disposant d’une réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) ou de [stockage géoredondant avec accès en lecture](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Protection des partages de fichiers Azure dans des comptes de stockage disposant d’une réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md) (ZRS) ou de [stockage géoredondant avec accès en lecture](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Protection des partages de fichiers Azure dans des comptes de stockage qui ont activé les réseaux virtuels.
 - Sauvegarde des partages de fichiers Azure à l’aide de PowerShell ou CLI.
 

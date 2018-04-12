@@ -4,7 +4,7 @@ description: Création rapide d’une passerelle VPN basée sur un itinéraire �
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 17e27ce81ea73b687f65dcd0a05573d28f109676
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 57da0d1f6878ce31f0e47680a4750a90115c93f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Création d’une passerelle VPN basée sur un itinéraire à l’aide de PowerShell
 
-Cet article vous aide à créer rapidement une passerelle VPN basée sur un itinéraire à l’aide de PowerShell. Une passerelle VPN est utilisée lors de la création d’une connexion VPN à votre réseau local. La passerelle VPN vous permet également de connecter des réseaux virtuels.
+Cet article vous aide à créer rapidement une passerelle VPN basée sur un itinéraire à l’aide de PowerShell. Une passerelle VPN est utilisée lors de la création d’une connexion VPN à votre réseau local. Vous pouvez également vous en servir pour connecter des réseaux virtuels.
 
-Les étapes décrites dans cet article permettent la création d’un réseau virtuel, d’un sous-réseau, d’un sous-réseau de passerelle et d’une passerelle VPN basée sur un itinéraire (passerelle de réseau virtuel). Une fois la création de la passerelle terminée, vous pouvez créer des connexions. Ces étapes nécessitent un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Les étapes fournies dans cet article permettent de créer un réseau virtuel, un sous-réseau, un sous-réseau de passerelle et une passerelle VPN basée sur des itinéraires (passerelle de réseau virtuel). Une fois la passerelle créée, vous pourrez créer des connexions. Ces étapes nécessitent un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -41,7 +41,7 @@ New-AzureRmResourceGroup -Name TestRG1 -Location EastUS
 
 ## <a name="vnet"></a>Créer un réseau virtuel
 
-Créez un réseau virtuel avec [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). L’exemple suivant consiste en la création d’un réseau virtuel nommé **VNet1** à l’emplacement **EastUS** :
+Créez un réseau virtuel avec [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). L’exemple suivant crée un réseau virtuel nommé **VNet1** à l’emplacement **EastUS** :
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `
@@ -94,7 +94,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 Une passerelle VPN doit présenter une adresse IP allouée dynamiquement. Lorsque vous créez une connexion à une passerelle VPN, il s’agit de l’adresse IP que vous spécifiez. Appuyez-vous sur l’exemple suivant pour demander une adresse IP publique :
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>Créer la configuration de l’adresse IP de la passerelle
@@ -108,7 +108,7 @@ $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -Subnet
 ```
 ## <a name="CreateGateway"></a>Créer la passerelle VPN
 
-La création de la passerelle VPN peut nécessiter 45 minutes ou plus. Une fois l’opération terminée, vous êtes en mesure d’établir une connexion entre votre réseau virtuel et un autre réseau virtuel. Sinon, créez une connexion entre votre réseau virtuel et un emplacement local. Créez une passerelle VPN à l’aide de l’applet de commande [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway).
+La création de la passerelle VPN peut prendre 45 minutes, voire plus. Une fois l’opération terminée, vous êtes en mesure d’établir une connexion entre votre réseau virtuel et un autre réseau virtuel. Sinon, créez une connexion entre votre réseau virtuel et un emplacement local. Créez une passerelle VPN à l’aide de l’applet de commande [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway).
 
 ```azurepowershell-interactive
 New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
@@ -145,7 +145,7 @@ IpConfigurations       : [
                              },
                              "PublicIpAddress": {
                                "Id": "/subscriptions/<subscription ID>/resourceGroups/Te
-                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP"
+                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP"
                              },
                              "Name": "default",
                              "Etag": "W/\"0952d-9da8-4d7d-a8ed-28c8ca0413\"",
@@ -174,17 +174,17 @@ BgpSettings            : {
 Pour afficher l’adresse IP publique de votre passerelle VPN, utilisez l’applet de commande [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress).
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1
+Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
 Dans l’exemple de réponse, la valeur IpAddress est l’adresse IP publique.
 
 ```
-Name                     : VNet1GWPIP
+Name                     : VNet1GWIP
 ResourceGroupName        : TestRG1
 Location                 : eastus
 Id                       : /subscriptions/<subscription ID>/resourceGroups/TestRG1/provi
-                           ders/Microsoft.Network/publicIPAddresses/VNet1GWPIP
+                           ders/Microsoft.Network/publicIPAddresses/VNet1GWIP
 Etag                     : W/"5001666a-bc2a-484b-bcf5-ad488dabd8ca"
 ResourceGuid             : 3c7c481e-9828-4dae-abdc-f95b383
 ProvisioningState        : Succeeded
@@ -216,7 +216,7 @@ Remove-AzureRmResourceGroup -Name TestRG1
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la création de la passerelle achevée, vous êtes en mesure d’établir une connexion entre votre réseau virtuel et un autre réseau virtuel. Sinon, créez une connexion entre votre réseau virtuel et un emplacement local.
+Une fois la création de la passerelle terminée, vous pouvez établir une connexion entre votre réseau virtuel et un autre réseau virtuel. Sinon, créez une connexion entre votre réseau virtuel et un emplacement local.
 
 > [!div class="nextstepaction"]
 > [Créer une connexion de site à site](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>

@@ -1,12 +1,12 @@
 ---
-title: "Gamme StorSimple 8000 en tant que cible de sauvegarde avec Backup Exec | Microsoft Docs"
-description: "Décrit la configuration de la cible de sauvegarde StorSimple avec Veritas Backup Exec."
+title: Gamme StorSimple 8000 en tant que cible de sauvegarde avec Backup Exec | Microsoft Docs
+description: Décrit la configuration de la cible de sauvegarde StorSimple avec Veritas Backup Exec.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple comme cible de sauvegarde avec Backup Exec
 
@@ -468,7 +468,7 @@ Les restaurations à partir d’un appareil StorSimple fonctionnent comme les re
 
 Un sinistre peut être dû à plusieurs facteurs. Le tableau ci-après répertorie les scénarios de récupération d’urgence courants.
 
-| Scénario | Impact | Procédure de récupération | Remarques |
+| Scénario | Impact | Procédure de récupération | Notes |
 |---|---|---|---|
 | Défaillance d’appareil StorSimple | Les opérations de sauvegarde et de restauration sont interrompues. | Remplacez l’appareil défaillant et effectuez [un basculement et une récupération d’urgence StorSimple](storsimple-device-failover-disaster-recovery.md). | Si vous devez procéder à une restauration après la récupération de l’appareil, les jeux de données de travail complets sont récupérés sur le nouvel appareil à partir du cloud. Toutes les opérations sont exécutées à la vitesse du cloud. Le processus de nouvelle analyse des index et catalogues peut entraîner l’analyse et l’extraction de tous les jeux de données de sauvegarde du niveau cloud vers un niveau d’appareil local, ce qui peut prendre un certain temps. |
 | Défaillance du serveur Backup Exec | Les opérations de sauvegarde et de restauration sont interrompues. | Régénérez le serveur de sauvegarde et effectuez la restauration de base de données en suivant les instructions de l’article [How to do a manual Backup and Restore of Backup Exec (BEDB) database (Procédure de sauvegarde et de restauration manuelle d’une base de données Backup Exec (BEDB))](http://www.veritas.com/docs/000041083). | Vous devez reconstruire ou restaurer le serveur Backup Exec sur le site de récupération d’urgence. Restaurez la base de données à partir du point de défaillance le plus récent. Si la base de données Backup Exec restaurée n’est pas synchronisée avec vos derniers travaux de sauvegarde, vous devez procéder à une indexation et à un catalogage. Cette nouvelle analyse des index et catalogues peut entraîner l’analyse et l’extraction de tous les jeux de données de sauvegarde du niveau cloud vers un niveau d’appareil local. Ce processus peut donc prendre un certain temps. |
