@@ -1,4 +1,5 @@
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
+
 * Un compte [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol)  
 
 Avant de pouvoir utiliser votre compte FTP dans une application logique, vous devez autoriser l’application logique à se connecter à votre compte FTP. Heureusement, vous pouvez faire cela facilement à partir de votre application logique sur le portail Azure.  
