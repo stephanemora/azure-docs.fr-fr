@@ -9,14 +9,14 @@ Pratiquement toutes les fonctionnalités du modèle de déploiement Classic sont
 ## <a name="supported-resources-for-migration"></a>Ressources prises en charge pour la migration
 Ces ressources IaaS classiques sont prises en charge lors de la migration
 
-* Machines virtuelles
+* Virtual Machines
 * Groupes à haute disponibilité
-* Services cloud
+* Cloud Services
 * Comptes de stockage
 * Virtual Network
 * Passerelles VPN
 * Passerelles ExpressRoute _(dans le même abonnement que Réseau virtuel uniquement)_
-* Groupes de sécurité réseau 
+* Network Security Group 
 * Tables de routage 
 * IP réservées 
 

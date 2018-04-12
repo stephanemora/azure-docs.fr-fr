@@ -1,25 +1,24 @@
 ---
-title: "Démarrage rapide : API Table avec Java - Azure Cosmos DB | Microsoft Docs"
-description: "Ce guide de démarrage rapide montre comment utiliser l’API Table Azure Cosmos DB pour créer une application avec le portail Azure et Java"
+title: 'Démarrage rapide : API Table avec Java - Azure Cosmos DB | Microsoft Docs'
+description: Ce guide de démarrage rapide montre comment utiliser l’API Table Azure Cosmos DB pour créer une application avec le portail Azure et Java
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: fb544e11ac637201fb3fb032daeb395d5f0da839
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Java et Azure Cosmos DB
 
@@ -27,7 +26,8 @@ Ce guide de démarrage rapide montre comment utiliser Java et [l’API Table](ta
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -130,7 +130,7 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
     Vous pouvez dès à présent revenir à l’Explorateur de données et voir la requête, modifier et travailler avec ces nouvelles données. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
+## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

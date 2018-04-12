@@ -1,10 +1,10 @@
 ---
 title: Ouvrir une session sur une machine virtuelle Azure Classic | Microsoft Docs
-description: "Utilisez le Portail Azure pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique."
+description: Utilisez le Portail Azure pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Ouvrir une session sur une machine virtuelle Windows à l’aide du portail Azure
 Sur le portail Azure, vous utilisez le bouton **Connecter** pour démarrer une session Bureau à distance et ouvrir une session sur une machine virtuelle Windows.

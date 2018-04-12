@@ -3,7 +3,7 @@ title: Charger les fichiers d’un appareil sur Azure IoT Hub avec Node | Micros
 description: Découvrez comment charger les fichiers d’un appareil sur le cloud avec le kit Azure IoT device SDK pour Node.js. Les fichiers téléchargés sont stockés dans un conteneur d’objets blob de stockage Azure.
 services: iot-hub
 documentationcenter: nodejs
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
-ms.author: v-masebo
-ms.openlocfilehash: dd6f25173806d6e420bfeebaae3f81e39f8fd97f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 7733aa11dd76eac564c115b10c57a84da5666d38
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -29,7 +29,7 @@ Ce didacticiel s’appuie sur le code du didacticiel [Envoyer des messages du cl
 - Fournissez en toute sécurité à un appareil un URI d’objet blob Azure pour le chargement d’un fichier.
 - Utilisez les notifications de chargement de fichier IoT Hub pour déclencher le traitement du fichier dans votre serveur principal d’application.
 
-Le didacticiel [Prise en main d’IoT Hub](iot-hub-node-node-getstarted.md) présente les fonctionnalités de messagerie de base appareil-à-cloud de IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple : 
+Le didacticiel [Prise en main d’IoT Hub](iot-hub-node-node-getstarted.md) présente les fonctionnalités de messagerie de base appareil-à-cloud d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple : 
 
 * Fichiers volumineux qui contiennent des images
 * vidéos

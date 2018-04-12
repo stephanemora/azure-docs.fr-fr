@@ -1,13 +1,13 @@
 ---
-title: "Créer une machine virtuelle Linux en utilisant un modèle Azure avec Azure CLI 1.0 | Documents Microsoft"
-description: "Créez une machine virtuelle Linux sur Azure à l’aide d’Azure CLI 1.0 et d’un modèle Resource Manager."
+title: Créer une machine virtuelle Linux en utilisant un modèle Azure avec Azure CLI 1.0 | Documents Microsoft
+description: Créez une machine virtuelle Linux sur Azure à l’aide d’Azure CLI 1.0 et d’un modèle Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 620adcba9e136aa56e7a4867196ce5b9249b6072
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Comment créer une machine virtuelle Linux à l’aide d’Azure CLI 1.0 et d’un modèle Azure Resource Manager
 Cet article explique comment déployer rapidement une machine virtuelle Linux en utilisant Azure 1.0 et un modèle Azure Resource Manager. L’article requiert :
@@ -35,7 +35,7 @@ Vous pouvez également déployer rapidement un modèle de machine virtuelle Linu
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](#quick-command-summary) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
-- [Azure CLI 2.0](create-ssh-secured-vm-from-template.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](create-ssh-secured-vm-from-template.md) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager
 
 ## <a name="quick-command-summary"></a>Résumé des commandes rapides
 ```azurecli

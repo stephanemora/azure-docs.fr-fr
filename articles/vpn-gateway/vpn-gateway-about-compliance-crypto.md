@@ -1,11 +1,11 @@
 ---
-title: "À propos des exigences de chiffrement et des passerelles VPN Azure | Microsoft Docs"
+title: À propos des exigences de chiffrement et des passerelles VPN Azure | Microsoft Docs
 description: Cet article aborde les exigences de chiffrement et les passerelles VPN Azure
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
 ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>À propos des exigences de chiffrement et des passerelles VPN Azure
 
@@ -45,7 +45,7 @@ Vous pouvez créer une stratégie IPsec/IKE et l’appliquer à une connexion no
 ### <a name="workflow"></a>Workflow
 
 1. Créer des réseaux virtuels, des passerelles VPN ou des passerelles de réseau local pour votre topologie de connectivité, comme décrit dans d’autres documents de guide pratique
-2. Créer une stratégie IPsec/IKE
+2. Créez une stratégie IPsec/IKE.
 3. Vous pouvez appliquer la stratégie quand vous créez une connexion S2S ou de réseau virtuel à réseau virtuel
 4. Si la connexion est déjà créée, vous pouvez appliquer ou mettre à jour la stratégie sur une connexion existante
 

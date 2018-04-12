@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect : Résolution des erreurs lors de la synchronisation | Microsoft Docs"
-description: "Explique comment résoudre les erreurs rencontrées lors de la synchronisation avec Azure AD Connect."
+title: 'Azure AD Connect : Résolution des erreurs lors de la synchronisation | Microsoft Docs'
+description: Explique comment résoudre les erreurs rencontrées lors de la synchronisation avec Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
 ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -186,7 +186,7 @@ Il s’agit d’un cas spécifique qui provoque une erreur de synchronisation **
 #### <a name="scenarios"></a>Scénarios
 Pour un utilisateur synchronisé, le suffixe UserPrincipalName a été modifié d’un domaine fédéré à un autre domaine fédéré en local. Par exemple, *UserPrincipalName = bob@contoso.com* a été remplacé par *UserPrincipalName = bob@fabrikam.com*.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 1. Bob Smith, un compte pour Contoso.com, est ajouté en tant qu’un nouvel utilisateur dans Active Directory avec UserPrincipalName bob@contoso.com
 2. Bob passe à une autre division Contoso.com appelée Fabrikam.com et son UserPrincipalName est modifié en bob@fabrikam.com
 3. Les domaines contoso.com et fabrikam.com sont des domaines fédérés avec Azure Active Directory.

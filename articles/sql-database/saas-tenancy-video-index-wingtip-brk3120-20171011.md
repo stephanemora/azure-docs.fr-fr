@@ -2,18 +2,18 @@
 title: Vidéo indexée, application SQL SaaS Azure | Microsoft Docs
 description: Cet article de la conférence Ignite, qui s’est tenue le 11 octobre 2017, indexe plusieurs points de temps dans notre vidéo de 81 minutes sur la conception de l’application de location de bases de données SaaS. Vous pouvez passer directement à la partie qui vous intéresse. Au moins 3 modèles sont décrits. Fonctionnalités Azure qui simplifient le développement et la gestion sont décrites.
 services: sql-database
-ms.date: 12/06/2017
+ms.date: 04/01/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 0d9182abda03aef3ffe35e10114fa045d8b0ca74
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 

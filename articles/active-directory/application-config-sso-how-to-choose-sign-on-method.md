@@ -1,11 +1,11 @@
 ---
-title: "Déterminer quelle méthode d’authentification unique utiliser | Microsoft Docs"
-description: "Découvrez les modes d’authentification unique pris en charge par Azure AD et comment choisir celui adapté à l’application qui vous intéresse."
+title: Déterminer quelle méthode d’authentification unique utiliser | Microsoft Docs
+description: Découvrez les modes d’authentification unique pris en charge par Azure AD et comment choisir celui adapté à l’application qui vous intéresse.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 4363f308f9bfa685b0f4e946cdd97d34b6ece197
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Déterminer quelle méthode d’authentification unique utiliser
 
@@ -79,6 +79,6 @@ Pour définir le mode **d’authentification unique** d’une application, proc�
 
 7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 

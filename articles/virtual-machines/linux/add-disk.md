@@ -1,11 +1,11 @@
 ---
-title: "Ajouter un disque à une machine virtuelle Linux avec Azure CLI | Microsoft Docs"
-description: "Découvrez comment ajouter un disque persistant à votre machine virtuelle Linux avec Azure CLI 1.0 et 2.0."
+title: Ajouter un disque à une machine virtuelle Linux avec Azure CLI | Microsoft Docs
+description: Découvrez comment ajouter un disque persistant à votre machine virtuelle Linux avec Azure CLI 1.0 et 2.0.
 keywords: machine virtuelle Linux, ajouter un disque de ressources
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
@@ -17,11 +17,11 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 Cet article vous explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement. 
@@ -261,7 +261,7 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes

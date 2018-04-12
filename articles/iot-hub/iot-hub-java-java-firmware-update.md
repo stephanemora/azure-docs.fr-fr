@@ -3,7 +3,7 @@ title: Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub (Java/
 description: Guide d’utilisation de la gestion des appareils sur Azure IoT Hub pour lancer une mise à jour du microprogramme d’un appareil. Vous utilisez Azure IoT device SDK pour Java afin d’implémenter une application d’appareil simulé et une application de service qui déclenche la mise à jour du microprogramme.
 services: iot-hub
 documentationcenter: java
-author: msebolt
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
-ms.author: v-masebo
-ms.openlocfilehash: 19d9cc6722d65d8bcd76d73fda0f24a598479647
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;dobett
+ms.openlocfilehash: ff8fc5cc1623c570f79a8acfa0afbcf95450c1d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Utiliser la gestion des appareils pour lancer la mise à jour d’un microprogramme d’appareil (Java/Java)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

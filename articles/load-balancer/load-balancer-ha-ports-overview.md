@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -72,20 +72,20 @@ Cette configuration n’autorise pas d’autre configuration de règle d’équi
 
 Vous pouvez toutefois configurer un équilibreur de charge standard public pour les instances de serveur principal en plus de cette règle de port haute disponibilité.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Une seule configuration de ports haute disponibilité d’adresse IP flottante (retour direct du serveur) sur l’équilibreur de charge standard interne
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Une seule configuration de ports haute disponibilité d’adresse IP flottante (retour direct du serveur) sur l’équilibreur de charge standard interne
 
 De la même façon, vous pouvez configurer votre équilibreur de charge pour utiliser une règle d’équilibrage de charge avec **Port HA** avec un seul serveur frontal et l’option **IP flottante** définie sur **Activée**. 
 
 Cette configuration vous permet d’ajouter des règles d’équilibrage de charge d’adresse IP flottante et/ou un équilibreur de charge public. Toutefois, vous ne pouvez pas utiliser de configuration d’équilibrage de charge de port haute disponibilité d’adresse IP non flottante en plus de cette configuration.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Plusieurs configurations de ports haute disponibilité sur l’équilibreur de charge standard interne
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Plusieurs configurations de ports haute disponibilité sur l’équilibreur de charge standard interne
 
 Si votre scénario requiert que vous configuriez plusieurs serveurs frontaux de ports haute disponibilité pour le même pool principal, vous pouvez y parvenir en : 
 - configurant plusieurs adresses IP privées frontales pour une ressource d’équilibreur de charge standard interne ;
 - configurant plusieurs règles d’équilibrage de charge, où chaque règle a une adresse IP frontale unique sélectionnée ;
 - sélectionnant l’option **Ports HA** et en définissant l’option **IP flottante** sur **Activée** pour toutes les règles d’équilibrage de charge.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Équilibreur de charge interne avec ports haute disponibilité et équilibreur de charge public sur les mêmes instances de serveur principal
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Équilibreur de charge interne avec ports haute disponibilité et équilibreur de charge public sur les mêmes instances de serveur principal
 
 Vous pouvez configurer **une** ressource d’équilibreur de charge standard publique pour les ressources de serveur principal, ainsi qu’un seul équilibreur de charge standard interne avec des ports haute disponibilité.
 

@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b288c764c3a6b5821f913170f8f9c88e5cc86956
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Go
 
@@ -40,6 +40,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 ```
 
 Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir l’exemple Go pour le stockage d’objets Blob, recherchez le fichier storage-quickstart.go.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 Cette solution demande que le nom et la clé de votre compte de stockage soient stockés en toute sécurité dans les variables d’environnement locales de la machine exécutant l’exemple. Suivez l’un des exemples ci-dessous, en fonction de votre système d’exploitation, pour créer la variable d’environnement.

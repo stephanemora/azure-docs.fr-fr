@@ -1,25 +1,24 @@
 ---
-title: "Démarrage rapide : API Graph avec Python - Azure Cosmos DB | Microsoft Docs"
-description: "Ce guide de démarrage rapide montre comment utiliser l’API Graph d’Azure Cosmos DB pour créer une application console avec le portail Azure et Python."
+title: 'Démarrage rapide : API Graph avec Python - Azure Cosmos DB | Microsoft Docs'
+description: Ce guide de démarrage rapide montre comment utiliser l’API Graph d’Azure Cosmos DB pour créer une application console avec le portail Azure et Python.
 services: cosmos-db
 documentationcenter: python
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: bb39cc25cc1c431c7ab98bfc3ed816934cb03e45
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: aa1d70d33e1f9cefee4d06ea182ffb3fc960e07a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de graphiques à l’aide de Python et du portail Azure
 
@@ -30,7 +29,8 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 > [!NOTE]
 > Ce démarrage rapide nécessite un compte de base de données de graphiques créé après le 20 décembre 2017. Les comptes existants prendront en charge Python une fois la migration vers la disponibilité générale effectuée.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Vous pouvez également [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, ni frais ni engagement.
 

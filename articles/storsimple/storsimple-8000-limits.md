@@ -1,11 +1,11 @@
 ---
-title: "Limites système de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit les limites du système et les tailles recommandées pour les connexions et les composants StorSimple série 8000."
+title: Limites système de la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit les limites du système et les tailles recommandées pour les connexions et les composants StorSimple série 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
@@ -16,14 +16,14 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quelles sont les limites système de l’appareil StorSimple série 8000 ?
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 StorSimple fournit un stockage évolutif et flexible pour votre centre de données. Toutefois, il existe certaines limites dont vous devez tenir compte lorsque vous planifiez, déployez et exploitez votre solution StorSimple. Le tableau suivant décrit ces limites et fournit quelques recommandations afin que vous puissiez tirer parti de votre solution StorSimple.
 
@@ -55,7 +55,7 @@ StorSimple fournit un stockage évolutif et flexible pour votre centre de donné
 
 &#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
 
-&#42; &#42; Les données de performances avant la version Update 3 peuvent être inférieures.
+& #42; & #42; Les données de performances avant la version Update 3 peuvent être inférieures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Relisez les [Conditions requises pour le système StorSimple](storsimple-8000-system-requirements.md).

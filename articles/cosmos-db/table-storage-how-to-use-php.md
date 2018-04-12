@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de l’API du service de Table de Stockage Azure ou de l’API Table d’Azure Cosmos DB à partir de code PHP | Microsoft Docs"
-description: "Découvrez comment utiliser l’API du service de Table à partir de code PHP pour créer, supprimer, insérer et interroger une table."
+title: Utilisation de l’API du service de Table de Stockage Azure ou de l’API Table d’Azure Cosmos DB à partir de code PHP | Microsoft Docs
+description: Découvrez comment utiliser l’API du service de Table à partir de code PHP pour créer, supprimer, insérer et interroger une table.
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Utilisation de l’API du service de Table de Stockage Azure ou de l’API Table d’Azure Cosmos DB à partir de code PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -435,9 +435,6 @@ La méthode **TableRestProxy->batch** permet d’exécuter plusieurs opérations
 * **addDeleteEntity** (permet d'ajouter une opération deleteEntity)
 
 L’exemple suivant montre comment exécuter des opérations **insertEntity** et **deleteEntity** en une seule requête. 
-
-> [!NOTE]
-> Azure Cosmos DB ne prend pas encore en charge les opérations de traitement par lots pour les tables. 
 
 ```php
 require_once 'vendor/autoload.php';

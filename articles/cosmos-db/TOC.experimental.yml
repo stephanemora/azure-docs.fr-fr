@@ -6,8 +6,6 @@ items:
     items:
       - name: À propos d’Azure Cosmos DB
         href: introduction.md
-      - name: Expérience de documentation
-        href: experiment.experimental.md
   - name: Démarrages rapides
     expanded: true
     items:
@@ -80,7 +78,7 @@ items:
       - name: Throughput
         href: request-units.md
       - name: Coût total de possession
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Base de données sans serveur
         href: serverless-computing-database.md
       - name: Sécurité
@@ -200,6 +198,8 @@ items:
                 items:
                   - name: Test de performance
                     href: performance-testing.md
+                  - name: Conseils en matière de performances pour Java asynchrone
+                    href: performance-tips-async-java.md
                   - name: Conseils en matière de performances pour .NET
                     href: performance-tips.md
                   - name: Conseils en matière de performances pour Java
@@ -217,17 +217,17 @@ items:
                   - name: Journalisation des applications avec Logic Apps
                     href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
                   - name: Lier à Azure Functions
-                    href: ../azure-functions/functions-bindings-documentdb.md
+                    href: ../azure-functions/functions-bindings-cosmosdb.md
                   - name: Intégrer avec Recherche Azure
-                    href: ../search/search-howto-index-documentdb.md
+                    href: ../search/search-howto-index-cosmosdb.md
                   - name: Déplacer des données avec Azure Data Factory
                     href: ../data-factory/connector-azure-cosmos-db.md
                   - name: Analyser des données en temps réel avec Azure Stream Analytics
-                    href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+                    href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
                   - name: Obtenir un dossier HL7 FHIR modifié à l’aide de Logic Apps
                     href: change-feed-hl7-fhir-logic-apps.md
                   - name: Traiter les données de capteur en temps réel
-                    href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+                    href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
                   - name: "Visualiser vos données avec Power\_BI"
                     href: powerbi-visualize.md
                   - name: "Tirer parti du pilote\_ODBC pour la visualisation des données"
@@ -236,6 +236,8 @@ items:
                     href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
           - name: Informations de référence
             items:
+              - name: Java asynchrone
+                href: sql-api-sdk-async-java.md
               - name: Java
                 href: sql-api-sdk-java.md
               - name: .NET
@@ -249,21 +251,19 @@ items:
               - name: Python
                 href: sql-api-sdk-python.md
               - name: REST
-                href: /rest/api/documentdb/
+                href: /rest/api/cosmos-db/
               - name: Fournisseur de ressources REST
-                href: /rest/api/documentdbresourceprovider/
+                href: /rest/api/cosmos-db-resource-provider/
               - name: SQL
                 href: sql-api-sql-query-reference.md
           - name: Ressources
             items:
-              - name: Aide-mémoire sur la grammaire SQL
-                href: sql-api-sql-query-cheat-sheet.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Livre blanc sur l’indexation sans schéma
                 href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: Query Playground
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
       - name: Documents API MongoDB
         items:
           - name: Vue d'ensemble
@@ -306,10 +306,6 @@ items:
                     href: local-emulator.md
                   - name: Exporter les certificats
                     href: local-emulator-export-ssl-certificates.md
-          - name: Concepts
-            items:
-              - name: Concepts Azure Cosmos DB
-                href: distribute-data-globally.md
           - name: Procédures
             items:
               - name: Se connecter à votre compte MongoDB
@@ -348,10 +344,6 @@ items:
                 href: tutorial-query-graph.md
               - name: 3 - Distribuer mondialement
                 href: tutorial-global-distribution-graph.md
-          - name: Concepts
-            items:
-              - name: Concepts Azure Cosmos DB
-                href: distribute-data-globally.md
           - name: Procédures
             items:
               - name: Integrate
@@ -458,6 +450,10 @@ items:
         href: time-to-live.md
   - name: Ressources
     items:
+      - name: Interroger un aide-mémoire
+        href: query-cheat-sheet.md
+      - name: "20\_jours de conseils"
+        href: 20-days-of-tips.md
       - name: vidéos
         href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
       - name: Feuille de route Azure
@@ -470,7 +466,5 @@ items:
         href: faq.md
       - name: Cohérence des données - Exemple du baseball
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: "20\_jours de conseils"
-        href: 20-days-of-tips.md
       - name: Résoudre les problèmes liés à Azure Cosmos DB
         href: troubleshoot-azure-cosmosdb.md

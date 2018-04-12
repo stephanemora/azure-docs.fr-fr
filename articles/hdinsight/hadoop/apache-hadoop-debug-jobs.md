@@ -1,12 +1,12 @@
 ---
-title: "Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur - Azure | Microsoft Docs"
-description: "Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération."
+title: 'Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur - Azure | Microsoft Docs'
+description: Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération.
 services: hdinsight
 tags: azure-portal
 editor: cgronlun
 manager: jhubbard
 author: ashishthaps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashish
 ms.openlocfilehash: a5db3848eda2dbb6f117562e059b909575966993
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-hadoop-logs"></a>Analyser les journaux Hadoop
 
@@ -317,7 +317,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 * **Description**: configuration du cluster incorrecte. Configuration de compte WASB requise introuvable dans les comptes externes.  
 * **Atténuation**: vérifiez que le compte existe et qu’il est correctement spécifié dans la configuration, puis retentez l’opération.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Utiliser les vues Ambari pour déboguer les travaux Tez dans HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)

@@ -1,13 +1,13 @@
 ---
-title: "Sauvegarder des machines virtuelles Azure dans Azure à grande échelle | Microsoft Docs"
-description: "Ce didacticiel décrit en détail la sauvegarde de plusieurs machines virtuelles Azure dans un coffre Recovery Services."
+title: Sauvegarder des machines virtuelles Azure dans Azure à grande échelle | Microsoft Docs
+description: Ce didacticiel décrit en détail la sauvegarde de plusieurs machines virtuelles Azure dans un coffre Recovery Services.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "sauvegarde de machine virtuelle ; sauvegarder une machine virtuelle ; sauvegarde et récupération d’urgence"
-ms.assetid: 
+editor: ''
+keywords: sauvegarde de machine virtuelle ; sauvegarder une machine virtuelle ; sauvegarde et récupération d’urgence
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Sauvegarder des machines virtuelles Azure dans Azure à grande échelle
 
@@ -46,7 +46,7 @@ Créez un coffre Recovery Services avec la commande **New-AzureRmRecoveryService
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable. Utilisez ensuite la commande **Set-AzureRmRecoveryServicesBackupProperties** pour définir l’option **-BackupStorageRedundancy** sur [Stockage géo-redondant (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable. Utilisez ensuite la commande **Set-AzureRmRecoveryServicesBackupProperties** pour définir l’option **-BackupStorageRedundancy** sur [Stockage géo-redondant (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

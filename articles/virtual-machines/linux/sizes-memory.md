@@ -1,13 +1,13 @@
 ---
-title: "Tailles des machines virtuelles Azure Linux - Mémoire | Microsoft Docs"
-description: "Répertorie les différentes tailles de mémoire optimisées disponibles pour les machines virtuelles Linux dans Azure. Répertorie des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série."
+title: Tailles des machines virtuelles Azure Linux - Mémoire | Microsoft Docs
+description: Répertorie les différentes tailles de mémoire optimisées disponibles pour les machines virtuelles Linux dans Azure. Répertorie des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: f74296fd752e8ec968f4bdcd833a6a2a8a763246
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cdcb0e6bdc8d3e91fd31ee1d448a7ff070139002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à mémoire optimisée
 

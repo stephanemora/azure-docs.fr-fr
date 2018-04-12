@@ -1,8 +1,7 @@
 ---
-title: "Gérer les comptes d’administration de l’accès d’urgence dans Azure AD | Microsoft Docs"
-description: "Cet article explique comment utiliser des comptes d’accès d’urgence pour aider les organisations à restreindre l’accès privilégié au sein d’un environnement Azure Active Directory existant."
+title: Gérer les comptes d’administration de l’accès d’urgence dans Azure AD | Microsoft Docs
+description: Cet article explique comment utiliser des comptes d’accès d’urgence pour aider les organisations à restreindre l’accès privilégié au sein d’un environnement Azure Active Directory existant.
 services: active-directory
-keywords: "N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO."
 author: markwahl-msft
 ms.author: billmath
 ms.date: 12/13/2017
@@ -11,11 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5c256befba4c73527b529c953f7b9cd4d266450c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Gérer les comptes d’administration de l’accès d’urgence dans Azure AD 
 

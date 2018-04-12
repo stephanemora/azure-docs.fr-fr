@@ -2,18 +2,17 @@
 title: Sauvegarder des fichiers Azure sur Azure
 description: Cet article explique comment sauvegarder et restaurer vos partages de fichiers Azure et explique les tâches de gestion.
 services: backup
-keywords: N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO.
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
@@ -33,7 +32,7 @@ Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est pré
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
 La sauvegarde de partages de fichiers Azure est disponible en préversion. Gardez à l’esprit les limitations suivantes quand la préversion est utilisée :
-- Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage disposant d’une réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) ou de [stockage géo-redondant avec accès en lecture](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage disposant d’une réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md) (ZRS) ou de [stockage géo-redondant avec accès en lecture](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage qui ont activé les réseaux virtuels.
 - Aucune interface PowerShell ou interface de ligne de commande n’est disponible pour la protection des fichiers Azure.
 - Vous pouvez effectuer une seule sauvegarde planifiée par jour.

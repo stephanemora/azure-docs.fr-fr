@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.openlocfilehash: 57461cf94898012619b865c455955f511e978995
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ec49d7e82da58c90e66f65a1a1d303ca9b3824f7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Didacticiel sur l’apprentissage automatique : Création de votre première expérience de science des données dans Azure Machine Learning Studio
 
@@ -159,7 +159,6 @@ Nous commençons par ajouter un module qui supprime la colonne **normalized-loss
 
     > [!TIP]
     Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
-
 
     ![Double-cliquez sur un module pour ajouter un commentaire][add-comment]
     <br/>

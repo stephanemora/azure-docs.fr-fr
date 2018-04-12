@@ -1,11 +1,11 @@
 ---
-title: "Comment utiliser le contrôle d’accès en fonction du rôle dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment utiliser les rôles intégrés et créer des rôles personnalisés dans Gestion des API Azure"
+title: Comment utiliser le contrôle d’accès en fonction du rôle dans Gestion des API Azure | Microsoft Docs
+description: Découvrez comment utiliser les rôles intégrés et créer des rôles personnalisés dans Gestion des API Azure
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Comment utiliser le contrôle d’accès en fonction du rôle dans Gestion des API Azure
 Gestion des API Azure utilise le contrôle d’accès en fonction du rôle (RBAC) Azure pour gérer de façon précise l’accès aux services et aux entités Gestion des API (par exemple les API et les stratégies). Cet article fournit une vue d’ensemble des rôles intégrés et personnalisés dans Gestion des API. Pour plus d’informations sur la gestion de l’accès dans le portail Azure, consultez [Prise en main de la gestion des accès dans le portail Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -30,7 +30,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Vou
 
 | Rôle          | Accès en lecture<sup>[1]</sup> | Accès en écriture<sup>[2]</sup> | Création, suppression et mise à l’échelle d’un service, configuration d’un VPN et d’un domaine personnalisé | Accès au portail de publication hérité | Description
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Collaborateur du service Gestion des API Azure | ✓ | ✓  | ✓  | ✓ | Super utilisateur. A un accès CRUD complet aux services et entités Gestion des API (par exemple les API et les stratégies). Dispose d’un accès au portail de publication hérité. |
+| Collaborateur du service Gestion des API Azure | ✓ | ✓ | ✓ | ✓ | Super utilisateur. A un accès CRUD complet aux services et entités Gestion des API (par exemple les API et les stratégies). Dispose d’un accès au portail de publication hérité. |
 | Lecteur du service Gestion des API Azure | ✓ | | || Dispose d’un accès en lecture seule aux services et entités Gestion des API. |
 | Opérateur du service Gestion des API Azure | ✓ | | ✓ | | Peut gérer les services Gestion des API, mais pas les entités.|
 | Éditeur du service Gestion des API Azure<sup>*</sup> | ✓ | ✓ | |  | Peut gérer les entités Gestion des API, mais pas les services.|

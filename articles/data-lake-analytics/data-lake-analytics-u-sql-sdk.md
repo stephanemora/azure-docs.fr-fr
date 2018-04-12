@@ -1,12 +1,12 @@
 ---
-title: "Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le kit SDK Azure Data Lake U-SQL | Microsoft Docs"
-description: "Découvrez comment utiliser le Kit SDK Azure Data Lake U-SQL pour mettre à l’échelle l’exécution et les tests locaux de travaux U-SQL avec les interfaces de ligne de commande et de programmation de votre station de travail locale."
+title: Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le kit SDK Azure Data Lake U-SQL | Microsoft Docs
+description: Découvrez comment utiliser le Kit SDK Azure Data Lake U-SQL pour mettre à l’échelle l’exécution et les tests locaux de travaux U-SQL avec les interfaces de ligne de commande et de programmation de votre station de travail locale.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le kit SDK Azure Data Lake U-SQL
 
@@ -30,7 +30,7 @@ Si vous vous demandez comment exécuter et déboguer un script U-SQL localement 
 
 Vous pouvez obtenir le Kit SDK Azure Data Lake U-SQL [ici](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) sur Nuget.org. Avant de l’utiliser, vous devez vérifier que vous disposez des dépendances suivantes.
 
-### <a name="dependencies"></a>Dépendances
+### <a name="dependencies"></a>Les dépendances
 
 Le kit SDK U-SQL Data Lake requiert les dépendances suivantes :
 
@@ -337,34 +337,34 @@ LocalRunHelper.exe fournit les interfaces de programmation pour la compilation, 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Paramètre|Type|Description|
+|Paramètre|type|Description|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|pour les messages de sortie, donner la valeur null pour utiliser la Console|
 
 **Propriétés**
 
-|Propriété|Type|Description|
+|Propriété|type|Description|
 |--------|----|-----------|
-|AlgebraPath|string|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
-|CodeBehindReferences|string|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
-|CppSdkDir|string|Répertoire CppSDK|
-|CurrentDir|string|Répertoire actif|
-|DataRoot|string|Chemin d’accès de la racine de données|
-|DebuggerMailPath|string|Chemin d’accès du port d’insertion/éjection du débogueur|
-|GenerateUdoRedirect|valeur booléenne|Si vous souhaitez générer une configuration de remplacement de redirection de chargement d’assembly|
-|HasCodeBehind|valeur booléenne|Si le script a du code-behind|
-|InputDir|string|Répertoire des données d’entrée|
-|MessagePath|string|Chemin d’accès du fichier de vidage des messages|
-|OutputDir|string|Répertoire des données de sortie|
+|AlgebraPath|chaîne|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
+|CodeBehindReferences|chaîne|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
+|CppSdkDir|chaîne|Répertoire CppSDK|
+|CurrentDir|chaîne|Répertoire actif|
+|DataRoot|chaîne|Chemin d’accès de la racine de données|
+|DebuggerMailPath|chaîne|Chemin d’accès du port d’insertion/éjection du débogueur|
+|GenerateUdoRedirect|bool|Si vous souhaitez générer une configuration de remplacement de redirection de chargement d’assembly|
+|HasCodeBehind|bool|Si le script a du code-behind|
+|InputDir|chaîne|Répertoire des données d’entrée|
+|MessagePath|chaîne|Chemin d’accès du fichier de vidage des messages|
+|OutputDir|chaîne|Répertoire des données de sortie|
 |Parallélisme|int|Parallélisme pour exécuter l’algèbre|
 |ParentPid|int|PID du parent que le service surveille pour quitter, donner la valeur 0 ou une valeur négative pour ignorer|
-|ResultPath|string|Chemin d’accès du fichier de vidage des résultats|
-|RuntimeDir|string|Répertoire du runtime|
-|ScriptPath|string|Emplacement du script|
-|Shallow|valeur booléenne|Compilation superficielle ou non|
-|TempDir|string|Répertoire Temp|
-|UseDataBase|string|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
-|WorkDir|string|Répertoire de travail favori|
+|ResultPath|chaîne|Chemin d’accès du fichier de vidage des résultats|
+|RuntimeDir|chaîne|Répertoire du runtime|
+|ScriptPath|chaîne|Emplacement du script|
+|Shallow|bool|Compilation superficielle ou non|
+|TempDir|chaîne|Répertoire Temp|
+|UseDataBase|chaîne|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
+|WorkDir|chaîne|Répertoire de travail favori|
 
 
 **Méthode**

@@ -1,11 +1,11 @@
 ---
-title: "Extensions et fonctionnalités de machine virtuelle pour Windows dans Azure | Microsoft Docs"
-description: "Découvrez les extensions disponibles pour les machines virtuelles, regroupées par ce qu’ils fournissent ou améliorent."
+title: Extensions et fonctionnalités de machine virtuelle pour Windows dans Azure | Microsoft Docs
+description: Découvrez les extensions disponibles pour les machines virtuelles, regroupées par ce qu’ils fournissent ou améliorent.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0065468e4172f62dc1759c1905a8df48e91e01a6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: efb7f7cf911ad5dc753afffd077c473cc0faaf74
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -32,7 +32,7 @@ Ce document offre une vue d’ensemble des extensions de machine virtuelle et de
 
 Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliquant un cas d’utilisation spécifique. Exemples de cas d’utilisation :
 
-- Appliquer des configurations d’état souhaité PowerShell à une machine virtuelle à l’aide de l’extension DSC pour Windows. Pour plus d’informations sur l’extension DSC Azure, consultez [cette page](extensions-dsc-overview.md).
+- Appliquer des configurations d’état souhaité PowerShell à une machine virtuelle à l’aide de l’extension DSC pour Windows. Pour plus d’informations sur l’extension DSC Azure, consultez [cette page](extensions-dsc-overview.md) (en anglais).
 - Configurer l’analyse des machines virtuelles avec l’extension de machine virtuelle Microsoft Monitoring Agent. Pour plus d’informations, consultez [Connecter des machines virtuelles Azure à Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurer l’analyse de votre infrastructure Azure à l’aide de l’extension Datadog. Pour plus d’informations, consultez le [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configurer une machine virtuelle Azure à l’aide de Chef. Pour plus d’informations, consultez [Automatisation du déploiement de machine virtuelle Azure avec Chef](chef-automation.md).
@@ -40,7 +40,8 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé pour Windows permet d’exécuter n’importe quel script PowerShell sur une machine virtuelle. Cela s’avère utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle permise par les outils Azure. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Windows, consultez [cet article](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Chaque extension de machine virtuelle peut présenter son propre ensemble de composants requis. Par exemple, l’extension de machine virtuelle Docker nécessite une distribution Linux compatible. Les composants requis pour une extension spécifique sont présentés en détail dans la documentation consacrée à celle-ci.
 

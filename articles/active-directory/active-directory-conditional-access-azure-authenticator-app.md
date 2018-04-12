@@ -1,11 +1,11 @@
 ---
 title: Azure Authenticator pour Android | Microsoft Docs
-description: "L’application Microsoft Azure Authentificator peut être utilisée pour se connecter afin d’accéder à des ressources de travail. L’application Azure Authenticator vous informe d’une demande de vérification à deux facteurs en attente en affichant une alerte sur votre appareil mobile."
+description: L’application Microsoft Azure Authentificator peut être utilisée pour se connecter afin d’accéder à des ressources de travail. L’application Azure Authenticator vous informe d’une demande de vérification à deux facteurs en attente en affichant une alerte sur votre appareil mobile.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: b7ceca0d-5c9d-45c4-942c-b3a9b6bad36c
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator pour Android
 Votre administrateur peut vous avoir recommandé d’utiliser Microsoft Azure Authenticator pour vous connecter de façon à accéder à vos ressources de travail. Cette application fournit ces deux options de connexion :

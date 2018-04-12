@@ -1,6 +1,6 @@
 ---
-title: "Chiffrement des données au repos de Microsoft Azure | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble du chiffrement des données au repos de Microsoft Azure, avec ses fonctionnalités globales et des considérations générales."
+title: Chiffrement des données au repos de Microsoft Azure | Microsoft Docs
+description: Cet article fournit une vue d’ensemble du chiffrement des données au repos de Microsoft Azure, avec ses fonctionnalités globales et des considérations générales.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 Il existe plusieurs outils dans Microsoft Azure pour protéger les données en fonction des besoins de sécurité et de conformité de votre entreprise. Ce document porte sur les points suivants :
@@ -255,28 +255,28 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 |                                  |                |                     |                              |                              | **Client** |
 |                                  | **Gestion des clés** | **Clé gérée par le service** | **Gérée par le client dans un coffre de clés** | **Gérée par le client localement** |        |
 | **Stockage et bases de données**            |                |                     |                              |                              |        |
-| Disque (IaaS)                      |                | -                   | Oui                          | Oui*                         | -      |
-| SQL Server (IaaS)                |                | Oui                 | Oui                          | Oui                          | Oui    |
-| Azure SQL Database (PaaS)                 |                | Oui                 | VERSION PRÉLIMINAIRE                      | -                            | Oui    |
-| Stockage Azure (Objets blob de blocs/pages) |                | Oui                 | VERSION PRÉLIMINAIRE                      | -                            | Oui    |
-| Stockage Azure (Fichiers)            |                | Oui                 | -                            | -                            | -      |
-| Stockage Azure (Tables, Files d’attente)   |                | -                   | -                            | -                            | Oui    |
-| Cosmos DB (Document DB)          |                | Oui                 | -                            | -                            | -      |
-| StorSimple                       |                | Oui                 | -                            | -                            | Oui    |
-| Sauvegarde                           |                | -                   | -                            | -                            | Oui    |
+| Disque (IaaS)                      |                | -                   | OUI                          | Oui*                         | -      |
+| SQL Server (IaaS)                |                | OUI                 | OUI                          | OUI                          | OUI    |
+| Azure SQL Database (PaaS)                 |                | OUI                 | VERSION PRÉLIMINAIRE                      | -                            | OUI    |
+| Stockage Azure (Objets blob de blocs/pages) |                | OUI                 | VERSION PRÉLIMINAIRE                      | -                            | OUI    |
+| Stockage Azure (Fichiers)            |                | OUI                 | -                            | -                            | -      |
+| Stockage Azure (Tables, Files d’attente)   |                | -                   | -                            | -                            | OUI    |
+| Cosmos DB (Document DB)          |                | OUI                 | -                            | -                            | -      |
+| StorSimple                       |                | OUI                 | -                            | -                            | OUI    |
+| Sauvegarde                           |                | -                   | -                            | -                            | OUI    |
 | **Décisionnel &amp; Analytique**       |                |                     |                              |                              |        |
-| Azure Data Factory               |                | Oui                 | -                            | -                            | -      |
+| Azure Data Factory               |                | OUI                 | -                            | -                            | -      |
 | Azure Machine Learning           |                | -                   | VERSION PRÉLIMINAIRE                      | -                            | -      |
-| Azure Stream Analytics           |                | Oui                 | -                            | -                            | -      |
-| HDInsights (Stockage Blob Azure)  |                | Oui                 | -                            | -                            | -      |
-| HDInsights (Stockage Data Lake)   |                | Oui                 | -                            | -                            | -      |
-| Azure Data Lake Store            |                | Oui                 | Oui                          | -                            | -      |
-| Azure Data Catalog               |                | Oui                 | -                            | -                            | -      |
-| Power BI                         |                | Oui                 | -                            | -                            | -      |
+| Azure Stream Analytics           |                | OUI                 | -                            | -                            | -      |
+| HDInsights (Stockage Blob Azure)  |                | OUI                 | -                            | -                            | -      |
+| HDInsights (Stockage Data Lake)   |                | OUI                 | -                            | -                            | -      |
+| Azure Data Lake Store            |                | OUI                 | OUI                          | -                            | -      |
+| Azure Data Catalog               |                | OUI                 | -                            | -                            | -      |
+| Power BI                         |                | OUI                 | -                            | -                            | -      |
 | **Services IoT**                     |                |                     |                              |                              |        |
-| IoT Hub                          |                | -                   | -                            | -                            | Oui    |
-| Service Bus                      |                | Oui (niveau Premium)              | -                            | -                            | Oui    |
-| Event Hubs                       |                | Oui             | -                            | -                            | -      |
+| IoT Hub                          |                | -                   | -                            | -                            | OUI    |
+| Service Bus                      |                | Oui (niveau Premium)              | -                            | -                            | OUI    |
+| Event Hubs                       |                | OUI             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>Conclusion

@@ -1,8 +1,8 @@
 ---
-title: "Maintenance prédictive dans l’industrie aérospatiale avec Azure - Guide technique de la solution Cortana Intelligence | Microsoft Docs"
-description: "Guide technique d’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport."
+title: Maintenance prédictive dans l’industrie aérospatiale avec Azure - Guide technique de la solution Cortana Intelligence | Microsoft Docs
+description: Guide technique d’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
 ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
 
@@ -71,7 +71,7 @@ Exécutez des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013
 Prédisez la durée de vie restante (RUL) d’un moteur d’avion donné en utilisant les entrées reçues par le [service Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orchestré par Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publication des données
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>Base de données SQL Azure
 Utilisez le service [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) pour stocker les prédictions reçues par le service Azure Machine Learning, qui sont ensuite utilisées dans le tableau de bord [Power BI](https://powerbi.microsoft.com).
 
 ## <a name="data-consumption"></a>Consommation des données
@@ -93,7 +93,7 @@ Ce document ne décrit pas le mode de réception de vos données, mais vous pouv
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Utilisez le service Azure Stream Analytics pour fournir des analyses en temps quasi-réel grâce à une lecture des flux de données et à l’envoi de données vers diverses sources.
 
-Dans le cas du modèle de solution de maintenance prédictive pour le secteur aérospatial, la requête Azure Stream Analytics se compose de quatre sous-requêtes, chaque requête utilisant les événements dérivés du service Azure Event Hub, avec des sorties à quatre emplacements distincts. Ces sorties comprennent trois jeux de données Power BI et un emplacement de stockage Azure.
+Dans le cas du modèle de solution de maintenance prédictive pour le secteur aérospatial, la requête Azure Stream Analytics se compose de quatre sous-requêtes, chaque requête utilisant les événements dérivés du service Azure Event Hub, avec des sorties à quatre emplacements distincts. Ces sorties comprennent trois jeux de données Power BI et un emplacement Azure Storage.
 
 Pour accéder à la requête Azure Stream Analytics :
 
@@ -150,14 +150,14 @@ Pour plus d’informations sur la création de l’expérience Azure Machine Lea
 ## <a name="monitor-progress"></a>Surveiller la progression
 Une fois le Générateur de données lancé, le pipeline commence à manquer de ressources et les différents composants de votre solution entrent en action selon les commandes émises par la fabrique de données. Il existe deux méthodes de surveillance du pipeline.
 
-1. Un des travaux Stream Analytics enregistre les données brutes entrantes dans le stockage blob. Si vous cliquez sur le composant Stockage Blob de votre solution dans l’écran à partir duquel vous avez déployé la solution, puis cliquez sur Ouvrir dans le volet droit, vous accédez au [portail Azure](https://portal.azure.com/). Une fois dans le portail, cliquez sur Objets blob. Dans le panneau suivant figure la liste des conteneurs. Cliquez sur **maintenancesadata**. Dans le volet suivant se trouve le dossier **rawdata**. Le dossier rawdata comprend des dossiers nommés par exemple hour=17 et hour=18. La présence de ces dossiers signifie que des données brutes sont générées sur votre ordinateur et stockées dans des objets blob. Vous devriez voir des fichiers csv avec des tailles finies en Mo dans ces dossiers.
+1. Un des travaux Stream Analytics enregistre les données brutes entrantes dans le stockage blob. Si vous cliquez sur le composant Stockage Blob de votre solution dans l’écran à partir duquel vous avez déployé la solution, puis cliquez sur Ouvrir dans le volet droit, vous accédez au [portail Azure](https://portal.azure.com/). Une fois dans le portail, cliquez sur Objets BLOB. Dans le panneau suivant figure la liste des conteneurs. Cliquez sur **maintenancesadata**. Dans le volet suivant se trouve le dossier **rawdata**. Le dossier rawdata comprend des dossiers nommés par exemple hour=17 et hour=18. La présence de ces dossiers signifie que des données brutes sont générées sur votre ordinateur et stockées dans des objets blob. Vous devriez voir des fichiers csv avec des tailles finies en Mo dans ces dossiers.
 2. La dernière étape du pipeline consiste à écrire des données (par exemple, les prédictions générées à partir de l’apprentissage automatique) dans SQL Database. Vous devrez peut-être attendre un maximum de trois heures pour les données s'affichent dans la base de données SQL. Le [portail Azure](https://portal.azure.com/) offre un moyen de surveiller la quantité de données disponible dans votre base de données SQL Database. Dans le volet gauche, identifiez les BASES DE DONNÉES SQL ![icône SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) et cliquez dessus. Recherchez ensuite votre base de données **pmaintenancedb** et cliquez dessus. En bas de la page suivante, cliquez sur Gérer
    
     ![Icône Gérer](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
    
     Ici, vous pouvez cliquer sur Nouvelle requête et rechercher le nombre de lignes (par exemple, select count(*) from PMResult). À mesure que votre base de données augmente, le nombre de lignes de la table devrait augmenter.
 
-## <a name="power-bi-dashboard"></a>Tableau de bord Power BI
+## <a name="power-bi-dashboard"></a>tableau de bord Power BI
 
 Configurez un tableau de bord Power BI afin de visualiser vos données Azure Stream Analytics (séquence à chaud ou « hot path ») et les résultats des prédictions par lots à partir d’Azure Machine Learning (séquence à froid ou « cold path »).
 
@@ -178,7 +178,7 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
    * Sélectionnez l’abonnement que vous utilisez pour le déploiement de la solution, puis sélectionnez **« NomVotreSolution\_GroupeRessources »**.
    * Dans le nouveau panneau contextuel, cliquez sur ![l’icône SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pour accéder à votre base de données. Le nom de votre base de données apparaît en regard de cette icône (par exemple, **pmaintenancedb**) et le **nom du serveur de base de données** est répertorié sous la propriété du nom de serveur et doit être du type **NomVotreSolution.database.windows.net**.
    * Les **nom d’utilisateur** et **mot de passe** de votre base de données sont identiques aux nom d’utilisateur et mot de passe précédemment enregistrés au moment du déploiement de la solution.
-2. Mettre à jour la source de données du fichier de rapport de séquence à froid avec Power BI Desktop.
+2. Mettre à jour la source de données du fichier de rapport de chemin à froid avec Power BI Desktop.
    
    * Dans le dossier où vous avez téléchargé et décompressé le fichier Generator, double-cliquez sur le fichier **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Si des messages d’avertissement s’affichent lorsque vous ouvrez le fichier, ignorez-les simplement. En haut du fichier, cliquez sur **Modifier les requêtes**.
      
@@ -192,8 +192,8 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
    
    * Cliquez sur **Publier** et attendez quelques secondes : une fenêtre s’affiche pour confirmer que la publication dans Power BI a bien été effectuée, avec une coche verte. Cliquez sur le lien sous « Ouvrir PredictiveMaintenanceAerospace.pbix dans Power BI ». Pour obtenir des instructions détaillées, consultez la page [Publier à partir de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Pour créer un tableau de bord : cliquez sur le signe **+** en regard de la section **Tableaux de bord** dans le volet gauche. Entrez le nom de ce tableau de bord, dans notre exemple « Démo de maintenance prédictive ».
-   * Une fois que vous ouvrez le rapport, cliquez sur ![l’icône PIN](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) pour épingler toutes les visualisations à votre tableau de bord. Pour obtenir des instructions détaillées, consultez [Épingler une vignette à un tableau de bord Power BI à partir d’un rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
-     Accédez à la page Tableau de bord et ajustez la taille et l’emplacement de vos visualisations, puis modifier leurs titres. Pour obtenir des instructions détaillées sur la modification de vos vignettes, consultez [Modifier une vignette -- redimensionner, déplacer, renommer, épingler, supprimer, ajouter un lien hypertexte](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Voici un exemple de tableau de bord sur lequel sont épinglées des visualisations de séquence à froid.  Selon la durée pendant laquelle vous exécutez votre générateur de données, les numéros des visualisations peuvent être différents.
+   * Une fois que vous ouvrez le rapport, cliquez sur ![l’icône PIN](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) pour épingler toutes les visualisations à votre tableau de bord. Pour obtenir des instructions détaillées, consultez la page [Épingler une vignette à un tableau de bord Power BI à partir d’un rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
+     Accédez à la page Tableau de bord et ajustez la taille et l’emplacement de vos visualisations, puis modifier leurs titres. Pour obtenir des instructions détaillées sur la modification de vos vignettes, consultez [Modifier une vignette -- redimensionner, déplacer, renommer, épingler, supprimer, ajouter un lien hypertexte](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Voici un exemple de tableau de bord sur lequel sont épinglées des visualisations de chemin à froid.  Selon la durée pendant laquelle vous exécutez votre générateur de données, les numéros des visualisations peuvent être différents.
      <br/>
      ![Affichage final](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
@@ -207,8 +207,8 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
      <br/>
    * Planifiez l’actualisation selon vos besoins. Pour plus d’informations, consultez la page [Actualisation des données dans Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
-### <a name="setup-hot-path-dashboard"></a>Configuration du tableau de bord de séquence à chaud
-Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sortie de données des tâches Stream Analytics qui ont été générées au moment du déploiement de la solution. Les étapes suivantes nécessitent un compte [Power BI en ligne](http://www.powerbi.com/) . Si vous n’avez pas de compte, vous pouvez en [créer un](https://powerbi.microsoft.com/pricing).
+### <a name="setup-hot-path-dashboard"></a>Configuration du tableau de bord de chemin à chaud
+Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sortie de données des tâches Stream Analytics qui ont été générées au moment du déploiement de la solution. Les étapes suivantes nécessitent un compte [Power BI en ligne](http://www.powerbi.com/) . Si vous ne possédez pas de compte, vous pouvez en [créer un](https://powerbi.microsoft.com/pricing).
 
 1. Ajouter une sortie Power BI dans Azure Stream Analytics (ASA).
    
@@ -216,9 +216,9 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
    * La requête ASA possède trois sorties, à savoir **aircraftmonitor**, **aircraftalert** et **flightsbyhour**. Vous pouvez afficher la requête en cliquant sur l’onglet Requête. Pour chacune de ces tables, vous devez ajouter une sortie vers ASA. Quand vous ajoutez la première sortie (**aircraftmonitor**) vérifiez que les paramètres **Alias de sortie**, **Nom du jeu de données** et **Nom de la table** sont identiques (**aircraftmonitor**). Répétez les étapes pour ajouter des sorties pour **aircraftalert** et **flightsbyhour**. Une fois que vous avez ajouté les trois tables de sortie et démarré le travail ASA, vous devriez obtenir un message de confirmation (« La tâche Stream Analytics maintenancesa02asapbi a bien démarré »).
 2. Se connecter à [Power BI en ligne](http://www.powerbi.com)
    
-   * Dans la section Jeux de données du volet gauche, dans Mon espace de travail, les noms de ***Jeu de données*** **aircraftmonitor**, **aircraftalert** et **flightsbyhour** doivent apparaître. Il s'agit des données de streaming qui sont poussées (push) à partir d'Azure Stream Analytics au cours de l'étape précédente. Le jeu de données **flightsbyhour** peut ne pas apparaître en même temps que les deux autres jeux de données en raison de la nature de la requête SQL sous-jacente à ce jeu. Toutefois, il doit s’afficher après une heure.
+   * Dans la section Jeux de données du volet gauche, dans Mon espace de travail, les noms de ***Jeu de données*** **aircraftmonitor**, **aircraftalert** et **flightsbyhour** doivent apparaître. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente. Le jeu de données **flightsbyhour** peut ne pas apparaître en même temps que les deux autres jeux de données en raison de la nature de la requête SQL sous-jacente à ce jeu. Toutefois, il doit s’afficher après une heure.
    * Assurez-vous que le volet ***Visualisations*** est ouvert et qu’il s’affiche à droite de l’écran.
-3. Une fois que les données affluent dans Power BI, vous pouvez commencer à visualiser les données de streaming. Le tableau ci-dessous est un exemple de tableau de bord sur lequel sont épinglées des visualisations de séquence à chaud. Vous pouvez créer d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. Selon la durée pendant laquelle vous exécutez votre générateur de données, les numéros des visualisations peuvent être différents.
+3. Une fois que les données affluent dans Power BI, vous pouvez commencer à visualiser les données de diffusion. Le tableau ci-dessous est un exemple de tableau de bord sur lequel sont épinglées des visualisations de chemin à chaud. Vous pouvez créer d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. Selon la durée pendant laquelle vous exécutez votre générateur de données, les numéros des visualisations peuvent être différents.
 
     ![Vue du tableau de bord](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
 

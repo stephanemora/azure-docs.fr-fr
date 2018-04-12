@@ -1,13 +1,13 @@
 ---
-title: "Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création dans Azure | Microsoft Docs"
-description: "Guide pratique d’utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création avec Azure CLI 1.0"
+title: Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création dans Azure | Microsoft Docs
+description: Guide pratique d’utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création avec Azure CLI 1.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
-ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e9182a18a2827ed7f54f5fd042e5934b3b1fd5c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Utiliser cloud-init pour personnaliser une machine virtuelle Linux lors de la création avec Azure CLI 1.0
 Cet article montre comment créer un script cloud-init pour définir le nom d'hôte, mettre à jour les packages installés et gérer les comptes d'utilisateur.  Les scripts cloud-init sont appelés lors de la création de la machine virtuelle à partir de l’interface de commande Azure.  L’article requiert :
 
 * un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)).
 * [l’interface de ligne de commande Azure (CLI)](../../cli-install-nodejs.md) connectée à `azure login` ;
-* l’interface de ligne de commande (CLI) Azure *doit être en* mode Azure Resource Manager `azure config mode arm`.
+* l’interface de ligne de commande (CLI) Azure *doit être en* mode Azure Resource Manager`azure config mode arm`.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
@@ -97,14 +97,14 @@ Pour injecter des scripts à tout moment après le démarrage :
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Disponibilité de cloud-init lors de la création d’alias d’images de machine virtuelle Azure :
-| Alias | Éditeur | Offer | SKU | Version | Cloud-init |
+| Alias | Publisher | Offre | SKU | Version | Cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7,2 |le plus récent |no |
-| CoreOS |CoreOS |CoreOS |Stable |le plus récent |yes |
+| CoreOS |CoreOS |CoreOS |Stable |le plus récent |Oui |
 | Debian |credativ |Debian |8 |le plus récent |no |
 | openSUSE |SUSE |openSUSE |13.2 |le plus récent |no |
 | RHEL |Redhat |RHEL |7,2 |le plus récent |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |le plus récent |yes |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |le plus récent |Oui |
 
 Microsoft collabore avec ses partenaires pour que cloud-init soit inclus et fonctionne dans les images qu’ils fournissent à Azure.
 

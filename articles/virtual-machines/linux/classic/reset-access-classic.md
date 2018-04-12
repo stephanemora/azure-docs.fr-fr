@@ -1,11 +1,11 @@
 ---
-title: "Réinitialisation du mot de passe de machine virtuelle Linux et de la clé SSH à partir de l’interface CLI | Microsoft Docs"
-description: "Comment utiliser l’extension VMAccess à partir de l’Interface de ligne de commande (CLI) Azure pour réinitialiser un mot de passe de machine virtuelle Linux ou une clé SSH, corriger la configuration SSH et vérifier la cohérence des disques"
+title: Réinitialisation du mot de passe de machine virtuelle Linux et de la clé SSH à partir de l’interface CLI | Microsoft Docs
+description: Comment utiliser l’extension VMAccess à partir de l’Interface de ligne de commande (CLI) Azure pour réinitialiser un mot de passe de machine virtuelle Linux ou une clé SSH, corriger la configuration SSH et vérifier la cohérence des disques
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: d975eb70-5ff1-40d1-a634-8dd2646dcd17
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 4577b6b9656b6a1cf83e6f9a227526701ba297b4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Réinitialiser un mot de passe de machine virtuelle Linux ou une clé SSH, corriger la configuration SSH et vérifier la cohérence des disques à l’aide de l’extension VMAccess
 Si vous ne pouvez pas vous connecter à une machine virtuelle Linux sur Azure en raison d'un mot de passe oublié, d'une clé SSH (Secure Shell) incorrecte ou d'un problème lié à la configuration SSH, utilisez l'extension VMAccessForLinux avec l'interface de ligne de commande Azure pour réinitialiser le mot de passe ou la clé SSH, corriger la configuration SSH et vérifier la cohérence des disques. 
@@ -42,7 +42,8 @@ L’interface de ligne de commande Microsoft Azure vous permet d’effectuer l
 * [Vérification de la cohérence des disques ajoutés](#checkdisk)
 * [Réparation des disques ajoutées sur votre VM Linux](#repairdisk)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Vous devrez effectuer les opérations suivantes :
 
 * Vous devrez [installer l’interface de ligne de commande Azure](../../../cli-install-nodejs.md), et [vous connecter à votre abonnement](/cli/azure/authenticate-azure-cli) pour utiliser des ressources Azure associées à votre compte.

@@ -4,7 +4,7 @@ description: Découvrez comment optimiser les avantages de votre contrat Softwar
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: c157fd8fded40f08c997c29ef6761f3c09dbd282
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5952c602a90568a9ce9e71dfa2c0dd383aed4e16
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Guide pratique pour déployer Windows 10 sur Azure avec des droits d’hébergement multilocataire 
 Pour les clients avec Windows 10 Entreprise E3/E5 par utilisateur ou Windows Virtual Desktop Access par utilisateur (licences d’abonnement utilisateur ou licences d’abonnement utilisateur de composant additionnel), les droits d’hébergement multilocataire pour Windows 10 permettent de placer les licences Windows 10 sur le cloud et d’exécuter des machines virtuelles Windows 10 sur Azure sans acheter de licence supplémentaire. Pour plus d’informations, consultez [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hébergement multilocataire pour Windows 10).
