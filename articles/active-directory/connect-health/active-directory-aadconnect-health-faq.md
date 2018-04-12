@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **Q : pourquoi mes audits ADFS ne sont-ils pas générés ?**
 
-Utilisez l’applet de commande PowerShell <i>Get-AdfsProperties - AuditLevel</i> pour vérifier que les journaux d’audit ne sont pas désactivés. En savoir plus sur les [journaux d’audit ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+Utilisez l’applet de commande PowerShell <i>Get-AdfsProperties - AuditLevel</i> pour vérifier que les journaux d’audit ne sont pas désactivés. En savoir plus sur les [journaux d’audit ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notez que si des paramètres d’audit avancés sont transmis au serveur ADFS, les modifications apportés à auditpol.exe seront écrasées (même si l’application générée n’est pas configurée). Dans ce cas, définissez la stratégie de sécurité locale pour enregistrer les succès et échecs de l’application générée. 
 
 
 ## <a name="related-links"></a>Liens connexes
