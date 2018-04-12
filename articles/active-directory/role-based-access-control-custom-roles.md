@@ -1,8 +1,8 @@
 ---
-title: "Créer des rôles personnalisés dans RBAC Azure | Microsoft Docs"
-description: "Découvrez comment définir des rôles personnalisés à l’aide du contrôle d’accès en fonction du rôle Azure pour une gestion plus précise des identités dans votre abonnement Azure."
+title: Créer des rôles personnalisés dans RBAC Azure | Microsoft Docs
+description: Découvrez comment définir des rôles personnalisés à l’aide du contrôle d’accès en fonction du rôle Azure pour une gestion plus précise des identités dans votre abonnement Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure
 Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](role-based-access-control-manage-access-powershell.md), de [l’interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md) et de [l’API REST](role-based-access-control-manage-access-rest.md). Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un client Azure AD et peuvent être partagés entre les abonnements.

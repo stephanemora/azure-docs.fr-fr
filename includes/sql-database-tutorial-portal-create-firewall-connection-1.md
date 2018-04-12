@@ -1,4 +1,4 @@
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -10,13 +10,13 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
-2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même** page.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans ****cette même page.
 
    ![créer une base de données vide](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
 3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :   
 
-   | Paramètre       | Valeur suggérée | Description | 
+   | Paramètre       | Valeur suggérée | DESCRIPTION | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom de la base de données** | mySampleDatabase | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -25,7 +25,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-   | Paramètre       | Valeur suggérée | Description | 
+   | Paramètre       | Valeur suggérée | DESCRIPTION | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -45,9 +45,9 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 8. Acceptez les conditions d’utilisation de la préversion pour pouvoir utiliser l’option **Stockage de composants additionnels**. 
 
    > [!IMPORTANT]
-   > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > \* Les tailles de stockage supérieures à la quantité de stockage incluse sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  

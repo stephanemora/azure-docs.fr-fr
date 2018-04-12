@@ -1,6 +1,6 @@
 ---
-title: "Validation des entrées - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "Mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
+title: Validation des entrées - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
+description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
 author: RodSan
@@ -394,7 +394,7 @@ Dans l’exemple de code précédent, la valeur d’entrée ne peut pas être su
 | **Technologies applicables** | Générique, MVC5, MVC6 |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Adding Validation (Ajout d’une validation)](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Validating Model Data in an MVC Application (Validation des données de modèle dans une application MVC)](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Principes directeurs pour vos applications ASP.NET MVC](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Étapes** | <p>Tous les paramètres d’entrée doivent être validés avant d’être utilisés dans l’application afin de vous assurer que l’application est protégée contre les entrées utilisateur malveillantes. Validez les valeurs d’entrée en recourant à la validation d’expressions régulières côté serveur au moyen d’une stratégie de validation par liste blanche. Les entrées utilisateur/paramètres non nettoyés et transmis aux méthodes peuvent engendrer des vulnérabilités par injection de code.</p><p>Pour les applications web, les points d’entrée peuvent également inclure des champs de formulaire, des chaînes de requête, des cookies, des en-têtes HTTP et des paramètres de service web.</p><p>Les contrôles de validation des entrées suivants doivent être effectués lors de la liaison de modèle :</p><ul><li>Les propriétés de modèle doivent être annotées au moyen d’une annotation RegularExpression, ce qui permet d’accepter les caractères autorisés et la longueur maximale autorisée</li><li>Les méthodes de contrôleur doivent procéder à la validation de ModelState</li></ul>|
+| **Étapes** | <p>Tous les paramètres d’entrée doivent être validés avant d’être utilisés dans l’application afin de vous assurer que l’application est protégée contre les entrées utilisateur malveillantes. Validez les valeurs d’entrée en recourant à la validation d’expressions régulières côté serveur au moyen d’une stratégie de validation par liste verte. Les entrées utilisateur/paramètres non nettoyés et transmis aux méthodes peuvent engendrer des vulnérabilités par injection de code.</p><p>Pour les applications web, les points d’entrée peuvent également inclure des champs de formulaire, des chaînes de requête, des cookies, des en-têtes HTTP et des paramètres de service web.</p><p>Les contrôles de validation des entrées suivants doivent être effectués lors de la liaison de modèle :</p><ul><li>Les propriétés de modèle doivent être annotées au moyen d’une annotation RegularExpression, ce qui permet d’accepter les caractères autorisés et la longueur maximale autorisée</li><li>Les méthodes de contrôleur doivent procéder à la validation de ModelState</li></ul>|
 
 ## <a id="richtext"></a>Les champs de formulaire acceptant tous les caractères, par exemple dans un éditeur de texte enrichi, doivent être nettoyés
 

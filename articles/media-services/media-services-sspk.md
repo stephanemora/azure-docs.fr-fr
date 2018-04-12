@@ -1,11 +1,11 @@
 ---
-title: "Licence du kit de portage du client de diffusion en continu lisse Microsoft®"
-description: "En savoir plus sur la licence du kit de portage Smooth Streaming client Microsoft®."
+title: Licence du kit de portage du client de diffusion en continu lisse Microsoft®
+description: En savoir plus sur la licence du kit de portage Smooth Streaming client Microsoft®.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: xpouyat
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
 ms.workload: media
@@ -148,7 +148,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
-* TCL Overseas Marketing (Macao Commercial Offshore) Limited
+* TCL Overseas Marketing (Macao (R.A.S.) Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
 * Top Victory Investments, Ltd.

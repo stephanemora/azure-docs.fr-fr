@@ -1,24 +1,24 @@
 ---
 title: Provisionner de nouveaux locataires dans une application multilocataire utilisant Azure SQL Database | Microsoft Docs
 description: Découvrez comment provisionner et cataloguer de nouveaux locataires dans une application SaaS multilocataire Azure SQL Database.
-keywords: tutoriel sur les bases de données SQL
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 1accc672e396c5a9405369654f9bc4f8463c9afc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment provisionner de nouveaux locataires et les inscrire dans le catalogue
+# <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
-Dans ce tutoriel, vous allez apprendre à provisionner et à cataloguer des modèles SaaS. Vous allez également voir comment ils sont implémentés dans l’application SaaS Wingtip Tickets, où chaque locataire a sa propre base de données. Vous allez créer et initialiser de nouvelles bases de données de locataire et les inscrire dans le catalogue de locataires de l’application. Le catalogue est une base de données qui gère le mappage entre les nombreux locataires des applications SaaS et les données associées. Le catalogue joue un rôle important, car il dirige les demandes d’application et de gestion vers la base de données appropriée.
+Dans ce tutoriel, vous allez apprendre à provisionner et à cataloguer des modèles SaaS. Vous allez également voir comment ils sont implémentés dans l’application SaaS Wingtip Tickets, où chaque locataire a sa propre base de données. Vous allez créer et initialiser de nouvelles bases de données de locataire et les inscrire dans le catalogue de locataires de l’application. Le catalogue est une base de données qui gère le mappage entre les nombreux clients des applications SaaS et les données associées. Le catalogue joue un rôle important, car il dirige les demandes d’application et de gestion vers la base de données appropriée.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -28,16 +28,16 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Provisionner un lot de locataires supplémentaires
 
 
-Pour suivre ce tutoriel, vérifiez que les prérequis suivants sont remplis :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
-* L’application SaaS Wingtip Tickets, dans laquelle chaque locataire dispose de sa propre base de données, est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données par locataire SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
+* L’application de base de données par locataire SaaS Wingtip Tickets est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données par locataire SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Présentation du modèle de catalogue SaaS
 
-Dans une application SaaS multilocataire appuyée par une base de données, il est important de savoir où sont stockées les informations de chaque locataire. Dans le modèle de catalogue SaaS, une base de données de catalogue permet de conserver le mappage entre les locataires et la base de données dans laquelle sont stockées leurs données. Ce modèle s’applique chaque fois que les données de locataire sont réparties sur plusieurs bases de données.
+Dans une application SaaS multilocataire appuyée par une base de données, il est important de savoir où sont stockées les informations de chaque locataire. Dans le modèle de catalogue SaaS, une base de données de catalogue permet de conserver le mappage entre les locataires et la base de données dans laquelle sont stockées leurs données. Ce modèle s’applique chaque fois que les données de client sont réparties sur plusieurs bases de données.
 
-Chaque locataire est identifié par une clé dans le catalogue, qui est mappée à l’emplacement de sa base de données. Dans le cas de l’application Wingtip Tickets, la clé est formée à partir du hachage du nom du locataire. Cette méthode permet à l’application de créer la clé à partir du nom de locataire qui est dans l’URL de l’application. Vous pouvez utiliser d’autres schémas de clé de locataire.  
+Chaque client est identifié par une clé dans le catalogue, qui est mappée à l’emplacement de sa base de données. Dans le cas de l’application Wingtip Tickets, la clé est formée à partir du hachage du nom du locataire. Cette méthode permet à l’application de créer la clé à partir du nom de locataire qui est dans l’URL de l’application. Vous pouvez utiliser d’autres schémas de clé de locataire.  
 
 Le catalogue permet de modifier le nom ou l’emplacement de la base de données avec un impact minimal sur l’application. Dans un modèle de base de données multilocataire, cette fonctionnalité facilite également le déplacement des locataires entre les différentes bases de données. Le catalogue peut également être utilisé pour indiquer si un locataire ou une base de données est hors connexion pour maintenance ou dans le cadre d’autres opérations. Cette fonctionnalité est décrite dans le [tutoriel sur la restauration d’un locataire unique](saas-dbpertenant-restore-single-tenant.md).
 
@@ -53,7 +53,7 @@ Une carte de partitions contient une liste de partitions (bases de données) et 
 > Les données de mappage sont accessibles dans la base de données du catalogue. Cependant, *vous ne devez pas les modifier*. Pour modifier les données de mappage, vous devez uniquement utiliser des API Elastic Database Client Library. La manipulation directe des données de mappage risque d’endommager le catalogue et n’est donc pas prise en charge.
 
 
-## <a name="introduction-to-the-saas-provisioning-pattern"></a>Présentation du modèle de provisionnement SaaS
+## <a name="introduction-to-the-saas-provisioning-pattern"></a>Présentation du modèle d’approvisionnement SaaS
 
 Lors de l’ajout d’un nouveau locataire dans une application SaaS qui utilise un modèle de base de données monolocataire, vous devez provisionner une nouvelle base de données locataire. La base de données doit être créée dans l’emplacement et le niveau de service adaptés. Elle doit également être initialisée avec le schéma et les données de référence appropriés. De plus, elle doit être inscrite dans le catalogue sous la clé de locataire appropriée. 
 
@@ -68,10 +68,10 @@ Les scripts de provisionnement copient la base de données _basetenantdb_ pour c
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application SaaS Wingtip Tickets comportant une base de données par locataire
 
-Les scripts et le code source de l’application Wingtip Tickets SaaS sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
+Les scripts et le code source de l’application Wingtip Tickets SaaS sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 
-## <a name="provision-and-catalog-detailed-walkthrough"></a>Procédure pas à pas détaillée sur le provisionnement et l’inscription dans le catalogue
+## <a name="provision-and-catalog-detailed-walkthrough"></a>Procédure pas à pas détaillée sur l’approvisionnement et l’inscription dans le catalogue
 
 Pour comprendre comment l’application Wingtip Tickets implémente le provisionnement pour les nouveaux locataires, ajoutez un point d’arrêt et suivez le flux de travail pendant le provisionnement.
 
@@ -109,7 +109,7 @@ Il n’est pas nécessaire de suivre explicitement ce flux de travail, qui expli
    * L’objet $shardMap est initialisé à partir de la carte de partitions _tenantcatalog_ dans la base de données de catalogue. Un objet catalogue est composé, puis retourné. Il est utilisé dans le script de niveau supérieur.
 * **Calculez la clé du nouveau locataire**. Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
 * **Vérifiez si la clé de locataire existe déjà**. Une recherche est effectuée pour vérifier la présence de la clé dans le catalogue.
-* **La base de données de locataire est provisionnée avec New-TenantDatabase.** Utilisez F11 pour effectuer un pas à pas détaillé et voir la façon dont la base de données est provisionnée à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
+* **La base de données de locataire est approvisionnée avec New-TenantDatabase.** Utilisez F11 pour effectuer un pas à pas détaillé et voir la façon dont la base de données est provisionnée à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
     Le nom de la base de données est construit à partir du nom de locataire, ce qui permet d’indiquer clairement quelle partition appartient à tel locataire. Vous pouvez également utiliser d’autres conventions de nommage pour les bases de données. Un modèle Resource Manager crée une base de données locataire en copiant une base de données modèle (_baseTenantDB_) sur le serveur de catalogue. En guise d’alternative, vous pouvez créer une base de données et l’initialiser en important un fichier bacpac. Vous pouvez également exécuter un script d’initialisation à partir d’un emplacement connu.
 
@@ -129,16 +129,16 @@ Il n’est pas nécessaire de suivre explicitement ce flux de travail, qui expli
    ![Page Events](media/saas-dbpertenant-provision-and-catalog/new-tenant.png)
 
 
-## <a name="provision-a-batch-of-tenants"></a>Provisionner un lot de locataires
+## <a name="provision-a-batch-of-tenants"></a>Approvisionner un lot de locataires
 
-Cet exercice permet de provisionner un lot de 17 locataires. Il est recommandé de provisionner ce lot de locataires avant de commencer les autres tutoriels relatifs aux applications SaaS Wingtip Tickets comportant une base de données par locataire. Les bases de données que vous pouvez utiliser sont nombreuses.
+Cet exercice permet d’approvisionner un lot de 17 clients. Il est recommandé de provisionner ce lot de locataires avant de commencer les autres tutoriels relatifs aux applications SaaS Wingtip Tickets comportant une base de données par locataire. Les bases de données que vous pouvez utiliser sont nombreuses.
 
 1. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*. Remplacez la valeur du paramètre *$DemoScenario* par 3 :
 
    * **$DemoScenario** = **3**, *Provisionner un lot de locataires*.
 2. Pour exécuter le script, appuyez sur la touche F5.
 
-Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) qui contrôle le lot et délègue ensuite le provisionnement de chaque base de données à un modèle lié. Utiliser des modèles de cette façon permet à Azure Resource Manager de répartir le processus de provisionnement pour votre script. Les modèles provisionnent des bases de données en parallèle et, au besoin, gèrent les nouvelles tentatives. Comme le script est idempotent, en cas d’échec ou d’arrêt pour une raison quelconque, exécutez-le à nouveau.
+Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) qui contrôle le lot et délègue ensuite le provisionnement de chaque base de données à un modèle lié. Utiliser des modèles de cette façon permet à Azure Resource Manager de répartir le processus d’approvisionnement pour votre script. Les modèles provisionnent des bases de données en parallèle et, au besoin, gèrent les nouvelles tentatives. Comme le script est idempotent, en cas d’échec ou d’arrêt pour une raison quelconque, exécutez-le à nouveau.
 
 ### <a name="verify-the-batch-of-tenants-that-successfully-deployed"></a>Vérifier que le lot de locataires a été correctement déployé
 
@@ -148,11 +148,11 @@ Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle
 
 
 
-## <a name="other-provisioning-patterns"></a>Autres modèles de provisionnement
+## <a name="other-provisioning-patterns"></a>Autres modèles d’approvisionnement
 
 Voici d’autres modèles de provisionnement non inclus dans ce tutoriel :
 
-**Préprovisionnement des bases de données**: Le modèle de préprovisionnement exploite le fait que les bases de données d’un pool élastique n’entraînent pas de frais supplémentaires. La facturation est liée au pool élastique, et non aux bases de données. Les bases de données inactives ne consomment pas de ressources. En préprovisionnant les bases de données d’un pool et en les allouant en cas de besoin, vous pouvez réduire le délai nécessaire à l’ajout de nouveaux locataires. Le nombre de bases de données préprovisionnées peut être ajusté en fonction des besoins pour conserver une mémoire tampon adaptée au taux de provisionnement prévu.
+**Préprovisionnement des bases de données**: Le modèle de préprovisionnement exploite le fait que les bases de données d’un pool élastique n’entraînent pas de frais supplémentaires. La facturation est liée au pool élastique, et non aux bases de données. Les bases de données inactives ne consomment pas de ressources. En préprovisionnant les bases de données d’un pool et en les allouant en cas de besoin, vous pouvez réduire le délai nécessaire à l’ajout de nouveaux locataires. Le nombre de bases de données pré-approvisionnées peut être ajusté en fonction des besoins pour conserver une mémoire tampon adaptée au taux d’approvisionnement prévu.
 
 **Provisionnement automatique** : Dans le modèle de provisionnement automatique, un service de provisionnement dédié est utilisé pour provisionner automatiquement des serveurs, pools et bases de données en fonction des besoins. Si vous le souhaitez, vous pouvez ajouter le préprovisionnement des bases de données dans les pools élastiques. Si les bases de données sont désactivées et supprimées, les écarts des pools élastiques peuvent être comblés par le service de provisionnement. Un tel service peut être simple ou complexe, comme pour la gestion du provisionnement de plusieurs zones géographiques ou la configuration de la géoréplication pour la récupération d’urgence. 
 

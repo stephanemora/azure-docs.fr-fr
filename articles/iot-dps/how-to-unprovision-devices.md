@@ -1,14 +1,14 @@
 ---
-title: "Guide pratique pour déprovisionner des appareils inscrits auprès du service Azure IoT Hub Device Provisioning | Microsoft Docs"
-description: "Guide pratique pour déprovisionner des appareils inscrits par votre service Device Provisioning dans le portail Azure"
+title: Guide pratique pour déprovisionner des appareils inscrits auprès du service Azure IoT Hub Device Provisioning | Microsoft Docs
+description: Guide pratique pour déprovisionner des appareils inscrits par votre service Device Provisioning dans le portail Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS
 ms.author: v-jamebr
 ms.date: 01/08/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
@@ -56,7 +56,7 @@ Pour voir la liste des appareils qui ont été provisionnés par le biais d’un
 Avec les groupes d’inscriptions, il existe deux scénarios à prendre en compte :
 
 - Pour déprovisionner tous les appareils qui ont été approvisionnés par le biais d’un groupe d’inscription :
-  1. Désactivez le groupe d’inscription pour mettre son certificat de signature sur liste noire. 
+  1. Désactivez le groupe d’inscription pour mettre son certificat de signature sur liste rouge. 
   2. Utilisez la liste des appareils approvisionnés pour ce groupe d’inscription afin de désactiver ou de supprimer de son hub IoT chacun des appareils du registre des identités. 
   3. Après avoir désactivé ou supprimé tous les appareils de leurs hubs IoT respectifs, vous pouvez éventuellement supprimer le groupe d’inscription. Sachez toutefois que, si vous supprimez le groupe d’inscription et qu’il existe un groupe d’inscription activé pour un certificat de signature plus haut dans la chaîne de certificats de l’un ou plusieurs des appareils, ces appareils peuvent être réinscrits. 
 - Pour déprovisionner un seul appareil d’un groupe d’inscription :

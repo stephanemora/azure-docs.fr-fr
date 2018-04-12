@@ -158,7 +158,7 @@ Le Planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentin ($)||AUD|Dollar australien ($)||BRL|Real brésilien (R$)|
 |CAD|Dollar canadien ($)||CHF|Franc suisse (chf)||DKK|Couronne danoise (kr)|
-|EUR|Euro (€)||GBP|Livre britannique (£)||HKD|Dollar de Hong Kong (HK$)|
+|EUR|Euro (€)||GBP|Livre britannique (£)||HKD|Dollar de Hong Kong (R.A.S.) (HK$)|
 |IDR|Roupie indonésienne (Rp)||INR|Roupie indienne (₹)||JPY|Yen japonais (¥)|
 |KRW|Won coréen (₩)||MXN|Peso mexicain (MXN$)||MYR|Ringgit malais (RM$)|
 |NOK|Couronne norvégienne (kr)||NZD|Dollar néo-zélandais ($)||RUB|Rouble russe (руб)|

@@ -115,7 +115,7 @@ Le formulaire Marketplace (Place de marché) permet de définir les champs qui s
 
 ### <a name="preview-subscription-ids"></a>ID d’abonnement pour version préliminaire
 
-Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre après sa publication. Vous pouvez utiliser ces abonnements autorisés pour tester l’offre préliminaire avant sa publication. Vous pouvez compiler une liste blanche de jusqu'à 100 abonnements dans le portail partenaire.
+Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre après sa publication. Vous pouvez utiliser ces abonnements autorisés pour tester l’offre préliminaire avant sa publication. Vous pouvez compiler une liste verte de jusqu'à 100 abonnements dans le portail partenaire.
 
 ### <a name="suggested-categories"></a>Catégories suggérées
 

@@ -1,11 +1,11 @@
 ---
-title: "FAQ sur la gestion des API Azure | Microsoft Docs"
-description: "Découvrez les réponses aux questions fréquemment posées, les modèles et les bonnes pratiques pour la gestion des API Azure."
+title: FAQ sur la gestion des API Azure | Microsoft Docs
+description: Découvrez les réponses aux questions fréquemment posées, les modèles et les bonnes pratiques pour la gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
@@ -62,7 +62,7 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Importer et publier votre première API](import-and-publish.md).
 * Utiliser l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
-* Utiliser une liste blanche des adresses IP sur votre service principal. Dans tous les niveaux de gestion des API, l’adresse IP de la passerelle reste constante, avec quelques [mises en garde](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
+* Utiliser une liste verte des adresses IP sur votre service principal. Dans tous les niveaux de gestion des API, l’adresse IP de la passerelle reste constante, avec quelques [mises en garde](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Vous pouvez configurer votre liste verte pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
 * Connectez votre instance de gestion des API à un réseau virtuel Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Comment copier une instance de service Gestion des API vers une nouvelle instance ?

@@ -199,7 +199,7 @@ Lors du choix de l’option à utiliser, le compromis se situe entre la facilit�
 
 | Option | Avantages | Inconvénients |
 | --- | --- | --- |
-| Plages IP de liste blanche |Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande **Set-AzureNetworkSecurityRule**. |Difficile à gérer, car les plages d’adresses IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage. |
+| Plages IP de liste verte |Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande **Set-AzureNetworkSecurityRule**. |Difficile à gérer, car les plages d’adresses IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage. |
 | Utiliser un proxy HTTP |Le contrôle granulaire dans le proxy sur les URL de stockage est autorisé.<br><br>Un seul point d’accès Internet aux machines virtuelles.<br><br>Non soumis aux modifications d’adresse IP Azure. |Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Mettez sur liste approuvée les plages IP du centre de données Azure

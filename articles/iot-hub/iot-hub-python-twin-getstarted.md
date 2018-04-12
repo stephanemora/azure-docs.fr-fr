@@ -1,11 +1,11 @@
 ---
-title: "Bien démarrer avec les jumeaux d’appareils Azure IoT Hub (Python) | Microsoft Docs"
-description: "Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Utilisez les kits Azure IoT SDK pour Python afin d’implémenter l’application d’appareil simulé et une application de service qui ajoute les balises et exécute la requête IoT Hub."
+title: Bien démarrer avec les jumeaux d’appareils Azure IoT Hub (Python) | Microsoft Docs
+description: Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Utilisez les kits Azure IoT SDK pour Python afin d’implémenter l’application d’appareil simulé et une application de service qui ajoute les balises et exécute la requête IoT Hub.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo
-ms.openlocfilehash: 20c1eeee6ca690ddcf0b9489b88689213b79488e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: d5b606532ac445b03527c5027dc3b434d88b6b1f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>Bien démarrer avec les jumeaux d’appareils (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -50,7 +50,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 ## <a name="create-the-service-app"></a>Créer l’application de service
 Dans cette section, vous créez une application console Python qui ajoute des métadonnées d’emplacement au jumeau d’appareil associé à votre **{Device Id}**. Elle interroge ensuite les jumeaux d’appareils stockés dans le hub IoT en sélectionnant les appareils situés à Redmond, puis ceux qui signalent une connexion mobile.
 
-1. Ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**. Fermez l’invite de commandes après avoir installé le kit SDK.
+1. Ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**. Fermez l’invite de commandes après avoir installé le Kit de développement logiciel (SDK).
 
     ```
     pip install azure-iothub-service-client
@@ -150,7 +150,7 @@ Dans la section suivante, vous allez créer une application d’appareil qui tra
 ## <a name="create-the-device-app"></a>Créer l’application pour appareil
 Dans cette section, vous allez créer une application console Python qui se connecte à votre hub en tant que **{Device Id}**, puis met à jour les propriétés signalées de son jumeau d’appareil afin qu’elles contiennent les informations indiquant qu’il est connecté par le biais d’un réseau cellulaire.
 
-1. Ouvrez une invite de commandes et installez le **Kit Azure IoT Hub Service SDK pour Python**. Fermez l’invite de commandes après avoir installé le kit SDK.
+1. Ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**. Fermez l’invite de commandes après avoir installé le Kit de développement logiciel (SDK).
 
     ```
     pip install azure-iothub-device-client

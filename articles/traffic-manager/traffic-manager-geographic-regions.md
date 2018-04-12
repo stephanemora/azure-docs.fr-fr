@@ -1,12 +1,12 @@
 ---
-title: "Hiérarchie de pays/région utilisée par le type de routage géographique Azure Traffic Manager | Microsoft Docs"
-description: "Cet article répertorie la hiérarchie de pays/région utilisée par le type de routage géographique Azure Traffic Manager"
+title: Hiérarchie de pays/région utilisée par le type de routage géographique Azure Traffic Manager | Microsoft Docs
+description: Cet article répertorie la hiérarchie de pays/région utilisée par le type de routage géographique Azure Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -42,7 +42,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - BG(Bulgarie)
 
-        - BY(Biélorussie)
+        - BY(Bélarus)
 
         - CH(Suisse)
 
@@ -96,7 +96,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - MC(Monaco)
 
-        - MD(Moldavie)
+        - MD(Moldova)
 
         - ME(Monténégro)
 
@@ -168,7 +168,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - YE(Yémen)
 
-    - GEO-NA(Amérique du Nord / Amérique Centrale / Caraïbes)
+    - GEO-NA(Amérique du Nord / Amérique Centrale / Les Antilles)
 
         - AG(Antigua-et-Barbuda)
 
@@ -432,7 +432,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - LK(Sri Lanka)
 
-        - MM(Birmanie)
+        - MM(Myanmar)
 
         - MN(Mongolie)
 
@@ -454,7 +454,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - TJ(Tadjikistan)
 
-        - TL(Timor oriental)
+        - TL(Timor-Leste)
 
         - TM(Turkménistan)
 
@@ -488,7 +488,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - CM(Cameroun)
 
-        - CV(Cap-Vert)
+        - CV(Cabo Verde)
 
         - DJ(Djibouti)
 
@@ -602,7 +602,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - EC(Équateur)
 
-        - FK(Îles Falkland)
+        - FK(Îles Malouines)
 
         - GF(Guyane française)
 
@@ -690,6 +690,6 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur la [méthode de routage du trafic géographique dans Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).
