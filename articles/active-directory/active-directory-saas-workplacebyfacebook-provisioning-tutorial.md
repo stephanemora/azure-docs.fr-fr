@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : configurer Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workplace by Facebook."
+title: 'Didacticiel : configurer Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Didactiel : configurer Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Workplace by Facebook et Azure AD pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Workplace by Facebook.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Workplace by Facebook, vous avez besoin des éléments suivants :
 
@@ -54,7 +55,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 ## <a name="enable-user-provisioning"></a>Activer l’approvisionnement d’utilisateurs
 
-Cette section vous explique comment connecter votre annuaire Azure AD à l’API d’approvisionnement de comptes d’utilisateur Workplace by Facebook, et comment créer, mettre à jour et désactiver les comptes utilisateur affectés dans Workplace by Facebook en fonction des affectations d’utilisateurs et de groupes dans Azure AD.
+Cette section vous explique comment connecter votre annuaire Azure AD à l’API d’approvisionnement de comptes d’utilisateur Workplace by Facebook, et comment créer, mettre à jour et désactiver les comptes d’utilisateur affectés dans Workplace by Facebook en fonction des affectations d’utilisateurs et de groupes dans Azure AD.
 
 >[!Tip]
 >Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Workplace by Facebook, grâce aux instructions disponibles sur le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
@@ -75,7 +76,7 @@ Azure AD prend en charge la possibilité de synchroniser automatiquement les inf
 
     ![approvisionnement](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez le jeton secret de votre administrateur Workplace by Facebook et définissez la valeur de l’URL de locataire sur `https://www.facebook.com/scim/v1/`.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez le jeton d’accès de votre administrateur Workplace by Facebook et définissez la valeur de l’URL de locataire sur `https://www.facebook.com/scim/v1/`. Consultez ces [instructions](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) sur la création d’un jeton d’accès pour l’espace de travail. 
 
 6. Sur le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application Workplace by Facebook. Si la connexion échoue, vérifiez que votre compte Workplace by Facebook dispose des autorisations d’administrateur d’équipe.
 
@@ -91,7 +92,7 @@ Azure AD prend en charge la possibilité de synchroniser automatiquement les inf
 
 12. Cliquez sur **Enregistrer.**
 
-Pour plus d’informations sur la façon de configurer l’approvisionnement automatique, consultez [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
+Pour plus d’informations sur la façon de configurer l’approvisionnement automatique, consultez [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 Vous pouvez à présent créer un compte de test. Patientez jusqu’à 20 minutes avant de vérifier que le compte a bien été synchronisé avec Workplace by Facebook.
 

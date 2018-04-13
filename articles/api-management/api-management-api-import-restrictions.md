@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 ## <a name="about-this-list"></a>À propos de cette liste
@@ -27,9 +27,11 @@ Quand vous importez une API, vous pouvez rencontrer certaines restrictions ou id
 ## <a name="open-api"></a>Open API/Swagger
 Si vous recevez des erreurs durant l’importation de votre document Open API, vérifiez que vous l’avez validé à l’aide du concepteur dans le nouveau portail Azure (Conception - Principal - Open API Specification Editor) ou à l’aide d’un outil tiers tel que <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Nom d’hôte** : le service Gestion des API (APIM) requiert un attribut de nom d’hôte.
-* **Chemin d’accès de base** : le service APIM requiert un attribut de chemin d’accès de base.
-* **Schémas** : le service APIM requiert un tableau de schéma.
+* Seul le format JSON est pris en charge pour OpenAPI.
+* Les schémas référencés à l’aide de propriétés **$ref** ne peuvent pas contenir d’autres propriétés **$ref**.
+* Les pointeurs **$ref** ne peuvent pas référencer des fichiers externes.
+* **x-ms-paths** et **x-servers** sont les seules extensions prises en charge.
+* Les extensions personnalisées sont ignorées lors de l’importation et ne sont pas enregistrées ni conservées pour l’exportation.
 
 > [!IMPORTANT]
 > Consultez ce [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) pour obtenir des informations importantes et des conseils liés à l’importation OpenAPI.

@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 Le service Base de données SQL Azure offre les fonctionnalités suivantes pour la récupération après une panne :
@@ -26,7 +26,7 @@ Le service Base de données SQL Azure offre les fonctionnalités suivantes pour 
 Pour en savoir plus sur les scénarios de continuité d’activité et les fonctionnalités prenant en charge ces scénarios, consultez [Continuité des activités](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Si vous utilisez des bases de données ou des pools Premium redondants dans une zone, sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité. 
+> Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants dans une zone (préversion), sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Préparation à une panne
 Pour parvenir à une récupération vers une autre région de données à l’aide des groupes de basculement ou des sauvegardes géoredondantes, vous devez préparer un serveur dans un autre centre de données. Celui-ci deviendra le nouveau serveur principal en cas de besoin. Vous devez également suivre des étapes précises, documentées et approuvées pour garantir une récupération optimale. Les étapes de préparation sont les suivantes :
