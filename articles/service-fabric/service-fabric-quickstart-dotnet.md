@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Démarrage rapide : créer une application Service Fabric dans Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -29,14 +29,14 @@ Ce démarrage rapide montre comment déployer votre première application .NET s
 ![Capture d’écran de l’application](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Cette application vous permet d’apprendre à :
-> [!div class="checklist"]
-> * Créer une application à l’aide de .NET et Service Fabric
-> * Utiliser ASP.NET Core en tant que service frontal web
-> * Stocker des données d’application dans un service avec état
-> * Déboguez votre application localement
-> * Déployer l’application sur un cluster dans Azure
-> * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
-> * Effectuer une mise à niveau propagée d’application
+
+* Créer une application à l’aide de .NET et Service Fabric
+* Utiliser ASP.NET Core en tant que service frontal web
+* Stocker des données d’application dans un service avec état
+* Déboguez votre application localement
+* Déployer l’application sur un cluster dans Azure
+* Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
+* Effectuer une mise à niveau propagée d’application
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -93,7 +93,7 @@ Lorsque vous votez dans l’application, les événements suivants se produisent
 
 ## <a name="debug-in-visual-studio"></a>Déboguer dans Visual Studio
 
-Lors du débogage d’application dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Vous avez la possibilité d’adapter votre expérience de débogage à votre scénario. Dans cette application, les données sont stockées dans notre service backend à l’aide d’un dictionnaire fiable. Visual Studio supprime l’application par défaut lorsque vous arrêtez le débogueur. La suppression de l’application a pour effet de supprimer également les données dans le service principal. Pour rendre les données persistantes entre les sessions de débogage, vous pouvez modifier le **Mode de débogage de l'application** en tant que propriété sur le projet **Voting** dans Visual Studio.
+L’application doit fonctionner correctement, mais vous pouvez utiliser le débogueur pour voir comment fonctionnent les éléments clés de l’application. Lors du débogage d’application dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Vous avez la possibilité d’adapter votre expérience de débogage à votre scénario. Dans cette application, les données sont stockées dans notre service backend à l’aide d’un dictionnaire fiable. Visual Studio supprime l’application par défaut lorsque vous arrêtez le débogueur. La suppression de l’application a pour effet de supprimer également les données dans le service principal. Pour rendre les données persistantes entre les sessions de débogage, vous pouvez modifier le **Mode de débogage de l'application** en tant que propriété sur le projet **Voting** dans Visual Studio.
 
 Pour examiner ce qui se produit dans le code, procédez comme suit :
 1. Ouvrez le fichier **/VotingWeb/Controllers/VotesController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 69). Vous pouvez rechercher le fichier dans l’Explorateur de solutions dans Visual Studio.
@@ -182,8 +182,8 @@ Vous pouvez recevoir un avertissement de navigateur mentionnant que l’emplacem
 
 Pour mettre à l’échelle le service frontal web, procédez comme suit :
 
-1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-2. Cliquez sur le bouton de sélection (points de suspension) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis choisissez **Scale Service** (Mettre à l’échelle le service).
+1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+2. Dans l’arborescence, développez **Applications**->**VotingType**->**fabric:/Voting**. Cliquez sur le bouton de sélection (points de suspension) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis choisissez **Scale Service** (Mettre à l’échelle le service).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -214,25 +214,26 @@ Pour mettre à niveau l'application, procédez comme suit :
 7. Dans la boîte de dialogue **Publier une application Service Fabric**, activez la case à cocher Mettre à niveau l'application, puis cliquez sur **Publier**.
 
     ![Paramètre Mettre à niveau dans la boîte de dialogue Publier](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    Pendant l’exécution de la mise à niveau, vous pouvez continuer à utiliser l’application. Étant donné que vous avez deux instances du service en cours d’exécution dans le cluster, certaines de vos demandes peuvent obtenir une version mise à niveau de l’application, et d’autres utilisateurs l’ancienne version.
+
 8. Ouvrez votre navigateur et accédez à l’adresse de cluster sur le port 19080, par exemple, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Cliquez sur le nœud **Applications** dans l’arborescence, puis sur **Mises à niveau en cours d’exécution** dans le volet droit. Vous voyez comment la mise à niveau se déroule au travers des domaines de mise à niveau dans votre cluster, en s’assurant que chaque domaine est intègre avant de passer au suivant. Un domaine de mise à niveau dans la barre de progression apparaît en vert quand l’intégrité du domaine a été vérifiée.
     ![Vue Mise à niveau dans mise à niveau de logiciel](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric sécurise les mises à niveau en attendant deux minutes après la mise à niveau du service sur chaque nœud du cluster. La mise à jour entière prend environ huit minutes.
 
-10. Pendant l’exécution de la mise à niveau, vous pouvez continuer à utiliser l’application. Étant donné que vous avez deux instances du service en cours d’exécution dans le cluster, certaines de vos demandes peuvent obtenir une version mise à niveau de l’application, et d’autres utilisateurs l’ancienne version.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 
-> [!div class="checklist"]
-> * Créer une application à l’aide de .NET et Service Fabric
-> * Utiliser ASP.NET Core en tant que service frontal web
-> * Stocker des données d’application dans un service avec état
-> * Déboguez votre application localement
-> * Déployer l’application sur un cluster dans Azure
-> * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
-> * Effectuer une mise à niveau propagée d’application
+* Créer une application à l’aide de .NET et Service Fabric
+* Utiliser ASP.NET Core en tant que service frontal web
+* Stocker des données d’application dans un service avec état
+* Déboguez votre application localement
+* Déployer l’application sur un cluster dans Azure
+* Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
+* Effectuer une mise à niveau propagée d’application
 
 Pour plus d’informations sur Service Fabric et .NET, suivez ce didacticiel :
 > [!div class="nextstepaction"]

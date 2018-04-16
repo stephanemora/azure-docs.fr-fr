@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e8a86488781e9c0cce88914946aa8811ec8664f8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1062cccbe2b4562d7538984c603a7360fbd871f2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. Sur la page **Paramètres** de votre réseau virtuel, accédez à la section **Serveurs DNS** et cliquez dessus pour ouvrir la page **correspondante**.
 
-    ![Ajouter un serveur DNS](./media/vpn-gateway-add-dns-rm-portal/add_dns_server.png "Ajouter un serveur DNS")
+    ![Spécifier un serveur DNS](./media/vpn-gateway-add-dns-rm-portal-include/specify-dns-server.png "Spécifier un serveur DNS")
 
   - **Serveurs DNS :** sélectionnez **Personnalisé**.
   - **Ajouter un serveur DNS :** entrez l’adresse IP du serveur DNS que vous souhaitez utiliser pour la résolution de noms.

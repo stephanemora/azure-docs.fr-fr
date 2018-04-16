@@ -1,8 +1,8 @@
 ---
-title: "Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service"
-description: "Apprenez à configurer un pare-feu d'applications Web devant votre environnement App Service."
+title: Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
+description: Apprenez à configurer un pare-feu d'applications Web devant votre environnement App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,18 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 ## <a name="overview"></a>Vue d'ensemble
-Les pare-feu d’applications web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur la [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications web en inspectant le trafic web entrant pour bloquer les injections SQL, l’exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d’application et d’autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
+
+Les pare-feu d’applications web (WAF) permettent de sécuriser vos applications web en inspectant le trafic web entrant pour bloquer les injections SQL, les attaques XSS, les téléchargements de programmes malveillants, les attaques DDoS, ainsi que les autres attaques. Ils inspectent également les réponses des serveurs web principaux pour la prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé. Azure fournit une fonctionnalité WAF avec le service [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Pour savoir comment intégrer votre environnement App Service à un service Application Gateway, consultez le document [Intégrer votre environnement App Service ILB à l’aide d’une passerelle d’application](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+
+En plus du service Azure Application Gateway, de nombreuses options de marketplace comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) sont disponibles sur la [Place de marché Microsoft Azure](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/). Le reste de ce document se concentre sur l’intégration de votre environnement App Service à un appareil WAF Barracuda.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -62,7 +65,7 @@ Ajoutez le point de terminaison de gestion, comme illustré dans l’image ci-de
 
 ![Ajouter un point de terminaison de gestion][AddManagementEndpoint]
 
-Utilisez un navigateur pour accéder au point de terminaison de gestion sur votre service cloud. Si votre service cloud se nomme test.cloudapp.net, vous atteignez ce point de terminaison en accédant à http://test.cloudapp.net:8000. Une page de connexion, comme celle illustrée dans l’image ci-dessous, doit s’afficher. Vous pouvez vous connecter à l’aide des informations d’identification spécifiées durant la phase de configuration de la machine virtuelle WAF.
+Utilisez un navigateur pour accéder au point de terminaison de gestion sur votre service cloud. Si votre service cloud se nomme test.cloudapp.net, vous atteignez ce point de terminaison en accédant à http://test.cloudapp.net:8000 Une page de connexion, comme celle illustrée dans l’image ci-dessous, doit s’afficher. Vous pouvez vous connecter à l’aide des informations d’identification spécifiées durant la phase de configuration de la machine virtuelle WAF.
 
 ![Page de connexion à la gestion][ManagementLoginPage]
 

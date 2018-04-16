@@ -1,11 +1,11 @@
 ---
-title: "Exemple de script Azure PowerShell - Créer une application web et déployer du code dans un environnement intermédiaire | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Créer une application web et déployer du code dans un environnement intermédiaire"
+title: Exemple de script Azure PowerShell - Créer une application web et déployer du code dans un environnement intermédiaire | Microsoft Docs
+description: Exemple de script Azure PowerShell - Créer une application web et déployer du code dans un environnement intermédiaire
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 55adc13350eb0f4711efa3c901f6e4e7755dfb27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed45ca536509dc73e83ec4cd78ba289d2d4064a2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Créer une application web et déployer du code dans un environnement intermédiaire
 
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Crée un plan App Service. |
@@ -51,7 +51,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Set-AzureRmAppServicePlan](/powershell/module/azurerm.websites/set-azurermappserviceplan) | Modifie le niveau tarifaire d’un plan App Service. |
 | [New-AzureRmWebAppSlot](/powershell/module/azurerm.websites/new-azurermwebappslot) | Crée un emplacement de déploiement pour une application web. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifie une ressource dans un groupe de ressources. |
-| [Swap-AzureRmWebAppSlot](/powershell/module/azurerm.websites/swap-azurermwebappslot) | Bascule un déploiement d’application web en production. |
+| [Switch-AzureRmWebAppSlot](/powershell/module/azurerm.websites/switch-azurermwebappslot) | Bascule un déploiement d’application web en production. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

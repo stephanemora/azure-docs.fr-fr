@@ -1,111 +1,91 @@
 ---
-title: "Prise en main d’Azure CDN | Microsoft Docs"
-description: "Cette rubrique montre comment activer le réseau de distribution de contenu (CDN) Azure. Ce didacticiel décrit la création d'un profil CDN et d’un point de terminaison."
+title: Créer un point de terminaison et un profil de réseau de distribution de contenu (CDN) Azure | Microsoft Docs
+description: Ce démarrage rapide décrit l’activation du réseau de distribution de contenu (Content Delivery Network, CDN) en créant un profil et un point de terminaison CDN.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/25/2018
+ms.topic: quickstart
+ms.date: 03/13/2018
 ms.author: mazha
-ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.custom: mvc
+ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="getting-started-with-azure-cdn"></a>Prise en main d’Azure CDN
-Cet article décrit l’activation de Azure [CDN](cdn-overview.md) en créant un nouveau profil CDN et un point de terminaison.
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure
+Dans ce démarrage rapide, vous allez activer le CDN Azure en créant un profil et un point de terminaison CDN. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients.
 
-## <a name="create-a-new-cdn-profile"></a>Créer un profil CDN
-Un profil CDN est une collection de points de terminaison CDN. Chaque profil peut contenir un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d’autres critères.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> Un abonnement Azure comprend des limites par défaut pour les ressources suivantes :
-> - Le nombre de profils CDN qui peuvent être créés.
-> - Le nombre de points de terminaison qui peuvent être créés dans un profil CDN. 
-> - Le nombre de domaines personnalisés qui peuvent être mappés à un point de terminaison.
->
-> Pour plus d’informations sur les limites d’abonnement CDN, consultez [Limites de CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
->
-> La tarification CDN est appliquée au niveau du profil CDN. Par conséquent, pour utiliser une combinaison de niveaux de tarification Azure CDN, vous devez créer plusieurs profils CDN.
-> 
-> 
+## <a name="prerequisites"></a>Prérequis
+
+Pour ce démarrage rapide, vous devez avoir créé un compte de stockage nommé *mystorageacct123*, que vous utilisez pour le nom d’hôte de l’origine. Pour plus d’informations, consultez [Intégrer un compte de stockage Azure à Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## <a name="create-a-new-cdn-endpoint"></a>Créer un point de terminaison CDN
-**Pour créer un point de terminaison CDN**
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN. Vous l'avez peut-être épinglé au tableau de bord à l'étape précédente. Sinon, vous pouvez le trouver en sélectionnant **Tous les services**, puis **Profils CDN**. Dans le volet **Profils CDN**, sélectionnez le profil auquel vous avez prévu d’ajouter votre point de terminaison. 
+Une fois que vous avez créé un profil CDN, vous pouvez l’utiliser pour créer un point de terminaison.
+
+1. Dans le portail Azure, sélectionnez le profil CDN que vous avez créé dans votre tableau de bord. Si vous ne le trouvez pas, sélectionnez **All services** (Tous les services), puis sélectionnez **Profils CDN**. Sur la page **Profils CDN**, sélectionnez le profil que vous souhaitez utiliser. 
    
-    Le volet du profil CDN s’affiche.
-   
-    ![Profil CDN][cdn-profile-settings]
+    La page du profil CDN s’affiche.
 
 2. Sélectionnez **Point de terminaison**.
    
-    ![Bouton Ajouter un point de terminaison][cdn-new-endpoint-button]
+    ![Profil CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    Le volet **Ajouter un point de terminaison** s’affiche.
-   
-    ![Volet Ajouter un point de terminaison][cdn-add-endpoint]
+    La page **Ajouter un point de terminaison** s’affiche.
 
-3. Comme **Nom**, entrez un nom unique pour le nouveau point de terminaison CDN. Ce nom sert à accéder à vos ressources en cache au niveau du domaine `<endpointname>.azureedge.net`.
+    Utilisez les paramètres spécifiés dans le tableau à la suite de l’image.
+   
+    ![Volet Ajouter un point de terminaison](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
-4. Pour **Type d’origine**, sélectionnez un type d’origine. Sélectionnez **Stockage** pour un compte de stockage Azure, **Service cloud** pour un service cloud Azure, **Application web** pour une application web Azure ou **Origine personnalisée** pour toute autre origine de serveur web accessible publiquement (hébergé dans Azure ou ailleurs).
-   
-    ![Type d'origine CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-
-5. Pour **Nom d’hôte d’origine**, sélectionnez ou entrez votre domaine d’origine. La liste déroulante répertorie toutes les origines disponibles du type spécifié à l’étape 4. Si vous avez sélectionné **Origine personnalisée** comme type d’origine, saisissez le domaine de votre origine personnalisée.
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | **Name** | Entrez *my-endpoint-123* comme nom d’hôte de point de terminaison. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en entrer un autre. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _&lt;endpoint name&gt;_.azureedge.net.|
+    | **Type d’origine** | Sélectionnez **Stockage**. | 
+    | **Nom d’hôte de l’origine** | Entrez *mystorageacct123.blob.core.windows.net* pour votre nom d’hôte. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en entrer un autre. |
+    | **Chemin de l’origine** | Laisser vide. |
+    | **En-tête de l’hôte d’origine** | Laissez la valeur générée par défaut. |  
+    | **Protocole** | Laissez les options **HTTP** et **HTTPS** par défaut sélectionnées. |
+    | **Port de l’origine** | Laissez les valeurs de port par défaut. | 
+    | **Optimisé pour** | Laissez la sélection **Livraison web générale** par défaut. |
     
-6. Pour **Chemin d’accès d’origine** , entrez le chemin d’accès aux ressources que vous souhaitez mettre en cache ou laissez cette zone vide pour autoriser la mise en cache de n’importe quelle ressource au niveau du domaine spécifié à l’étape 5.
-    
-7. Pour **En-tête de l’hôte d’origine**, entrez l’en-tête de l’hôte que le CDN doit envoyer avec chaque requête ou conservez la valeur par défaut.
-   
-   > [!WARNING]
-   > Certains types d’origine, tels que Azure Storage et Web Apps, nécessitent l’en-tête de l’hôte pour correspondre au domaine de l’origine. À moins d’avoir une origine nécessitant un en-tête d’hôte différent de son domaine, vous devriez laisser la valeur par défaut.
-   > 
-    
-8. Pour **Protocole** et **Port d’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources à l’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS). Utilisez le domaine fourni par le CDN (`<endpointname>.azureedge.net`) pour accéder au contenu HTTPS. 
-   
-   > [!NOTE]
-   > La valeur **port d’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine. Le point de terminaison est uniquement disponible pour les clients sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit la valeur **port d’origine**.  
-   > 
-   > Les points de terminaison **CDN Azure fournis par Akamai** n’autorisent pas la plage de ports TCP complète pour les ports d’origine. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Ports d’origine autorisés du CDN Azure fourni par Akamai).  
-   > 
-   > Lorsque vous accédez au contenu CDN avec le protocole HTTPS, vous rencontrerez les inconvénients suivants :
-   > 
-   > * Utilisez le certificat SSL fourni par le CDN. Les certificats tiers ne sont pas pris en charge.
-   > * La prise en charge HTTPS pour les domaines personnalisés Azure CDN est disponible uniquement avec les produits **Azure CDN fournis par Verizon** (Standard ou Premium). Elle n’est pas prise en charge dans les produits **Azure CDN de Akamai**. Pour plus d’informations, consultez [Activer ou désactiver HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md).
-    
-9. Sélectionnez **Ajouter** pour créer un point de terminaison.
+3. Sélectionnez **Ajouter** pour créer un point de terminaison.
    
    Une fois le point de terminaison créé, il s'affiche dans la liste des points de terminaison pour le profil.
     
-   ![Point de terminaison CDN][cdn-endpoint-success]
+   ![Point de terminaison CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   > [!IMPORTANT]
-   > Le point de terminaison n’est pas disponible immédiatement, car la propagation de l’enregistrement peut prendre du temps. Pour les profils du **CDN Azure fourni par Akamai** , la propagation s’effectue généralement dans un délai d’une minute. Pour les profils du **CDN Azure fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
-    > 
-    > Si vous tentez d’utiliser le nom de domaine CDN avant la propagation de la configuration du point de terminaison aux POP, vous recevrez probablement un état de réponse HTTP 404. Si plusieurs heures se sont écoulées depuis la création de votre point de terminaison et que vous recevez toujours un état de réponse 404, consultez [Dépannage des points de terminaison de CDN renvoyant des états 404](cdn-troubleshoot-endpoint.md).
-    > 
-    > 
+   Le point de terminaison n’est pas disponible immédiatement, car la propagation de l’enregistrement peut prendre du temps. 
 
-## <a name="see-also"></a>Voir aussi
-* [Contrôle du comportement de mise en cache des demandes avec des chaînes de requête](cdn-query-string.md)
-* [Mappage du contenu CDN à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
-* [Préchargement d’éléments multimédias sur un point de terminaison CDN Azure](cdn-preload-endpoint.md)
-* [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
-* [Dépannage des points de terminaison de CDN renvoyant des états 404](cdn-troubleshoot-endpoint.md)
 
-[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
+## <a name="clean-up-resources"></a>Supprimer des ressources
+Au cours des étapes précédentes, vous avez créé un profil et un point de terminaison CDN au sein d’un groupe de ressources. Enregistrez ces ressources si vous souhaitez passer à la section [Étapes suivantes](#next-steps) et apprendre à ajouter un domaine personnalisé à votre point de terminaison. Toutefois, si vous ne pensez pas utiliser ces ressources à l’avenir, vous pouvez les supprimer en supprimant le groupe de ressources. Vous éviterez ainsi de payer des frais supplémentaires :
+
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **my-resource-group-123**.
+
+2. Sur la page **Groupe de ressources**, sélectionnez **Supprimer le groupe de ressources**, saisissez *my-resource-group-123* dans la zone de texte, puis sélectionnez **Supprimer**.
+
+    Cette action supprimera le groupe de ressources, le profil et le point de terminaison que vous avez créés dans ce démarrage rapide.
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur l’ajout d’un domaine personnalisé à votre point de terminaison CDN, consultez le didacticiel suivant :
+
+> [!div class="nextstepaction"]
+> [Ajouter un domaine personnalisé](cdn-map-content-to-custom-domain.md)
+
+

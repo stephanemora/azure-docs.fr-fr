@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrer le trafic réseau avec les groupes de sécurité réseau
 
@@ -262,4 +262,4 @@ Les NSG ci-après sont créés et associés aux NIC des machines virtuelles suiv
 * [Déployer les NSG (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md)
 * [Déployer les NSG (Classic)](virtual-networks-create-nsg-classic-ps.md)
 * [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).
-* [Résoudre les problèmes relatifs aux NSG] (virtual-network-nsg-troubleshoot-portal.md)
+* [Résolution des problèmes de groupes de sécurité réseau](virtual-network-nsg-troubleshoot-portal.md)

@@ -1,24 +1,24 @@
 ---
-title: "Ajouter une image de machine virtuelle à Azure Stack | Microsoft Docs"
-description: "Ajouter une image de machine virtuelle Windows ou Linux personnalisée de votre organisation à utiliser par les locataires."
+title: Ajouter une image de machine virtuelle à Azure Stack | Microsoft Docs
+description: Ajouter une image de machine virtuelle Windows ou Linux personnalisée de votre organisation à utiliser par les locataires.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle personnalisée à la disposition des utilisateurs dans Azure Stack
 
@@ -126,6 +126,7 @@ Pour ajouter l’image sur la Place de marché Azure Stack, effectuez les étape
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 La commande exécute les actions suivantes :
 
 * Elle effectue l’authentification auprès de l’environnement Azure Stack.
@@ -133,9 +134,9 @@ La commande exécute les actions suivantes :
 * Elle ajoute l’image de machine virtuelle dans le référentiel d’images de machine virtuelle.
 * Elle crée un élément de Place de marché.
 
-Pour vérifier que la commande s’est exécutée correctement, accédez à la Place de Marché dans le portail. Vérifiez que l’image de machine virtuelle est disponible dans le catégorie **Machines virtuelles**.
+Pour vérifier que la commande s’est exécutée correctement, accédez à la Place de Marché dans le portail. Vérifiez que l’image de machine virtuelle est disponible dans la catégorie **Calcul**.
 
-![Image de machine virtuelle correctement ajoutée](./media/azure-stack-add-vm-image/image5.PNG)
+![Image de machine virtuelle correctement ajoutée](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Supprimer une image de machine virtuelle à l’aide de PowerShell
 

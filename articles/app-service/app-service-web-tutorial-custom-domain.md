@@ -1,12 +1,12 @@
 ---
-title: "Mapper un nom DNS personnalisé existant à des applications web Azure | Microsoft Docs"
-description: "Découvrez comment ajouter un nom de domaine DNS (domaine personnel) à une application web, au serveur principal d’une application mobile ou à une application API dans Azure App Service."
-keywords: "app service, azure app service, mappage de domaine, nom de domaine, domaine existant, nom d'hôte"
+title: Mapper un nom DNS personnalisé existant à des applications web Azure | Microsoft Docs
+description: Découvrez comment ajouter un nom de domaine DNS (domaine personnel) à une application web, au serveur principal d’une application mobile ou à une application API dans Azure App Service.
+keywords: app service, azure app service, mappage de domaine, nom de domaine, domaine existant, nom d'hôte
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapper un nom DNS personnalisé existant à des applications web Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutoriel : Mapper un nom DNS personnalisé existant à des applications web Azure
 
 [Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment mapper un nom DNS personnalisé existant à des applications web Azure.
 
@@ -44,6 +44,7 @@ Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pou
 Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 

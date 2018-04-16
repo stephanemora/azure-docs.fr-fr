@@ -1,6 +1,6 @@
 ---
-title: "Archiver les données de surveillance d’Azure | Microsoft Docs"
-description: "Archivez les données de journal et de métrique produites dans Azure sur un compte de stockage."
+title: Archiver les données de surveillance d’Azure | Microsoft Docs
+description: Archivez les données de journal et de métrique produites dans Azure sur un compte de stockage.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiver les données de surveillance d’Azure
 
@@ -22,11 +22,11 @@ Plusieurs couches de votre environnement Azure génèrent des données de journa
 
 > [!div class="checklist"]
 > * Créer un compte de stockage pour contenir les données de surveillance
-> * Y acheminer les journaux d’abonnement 
-> * Y acheminer les données de ressource 
-> * Y acheminer les données de machine virtuelle (système d’exploitation invité) 
-> * Y afficher les données de surveillance 
-> * Nettoyage des ressources 
+> * Y acheminer les journaux d’abonnement
+> * Y acheminer les données de ressource
+> * Y acheminer les données de machine virtuelle (système d’exploitation invité)
+> * Y afficher les données de surveillance
+> * Nettoyage des ressources
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -69,7 +69,7 @@ Nous configurons à présent les données au niveau des ressources (journaux de 
 1. Cliquez sur le bouton **Moniteur** dans la liste de navigation de gauche, puis sur **Paramètres de diagnostic**. Vous trouverez la liste de toutes les ressources dans votre abonnement, qui produisent des données de surveillance dans Azure Monitor. Si vous n’avez pas de ressources dans cette liste, vous pouvez [créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) avant de poursuivre afin que de disposer d’une ressource sur laquelle configurer un paramètre de diagnostic.
 
 2. Cliquez sur une ressource dans la liste, puis sur **Activer les diagnostics**.
-   
+
    ![Activer les diagnostics](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Si un paramètre est déjà configuré, vous voyez à la place les paramètres existants et un bouton pour **Ajouter une configuration de diagnostic**. Cliquez sur ce bouton.
@@ -87,12 +87,19 @@ Nous configurons à présent les données au niveau des ressources (journaux de 
 5. Activez toutes les cases à cocher sous **Journal** et **Métrique**. Selon le type de ressource, il se peut qu’une seule de ces options soit disponible. Ces cases à cocher déterminent les catégories de données de journal et de métrique disponibles pour ce type de ressource, qui sont envoyées à la destination que vous avez sélectionnée, en l’occurrence, un compte de stockage.
 
    ![Catégories de paramètres de diagnostic](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
+
 6. Positionnez le curseur **Rétention (jours)** sur 30. Ce curseur définit le nombre de jours de rétention des données de surveillance dans le compte de stockage. Azure Monitor supprime automatiquement les données antérieures au nombre de jours spécifié. Si la durée de la période de rétention est zéro, les données sont conservées pendant une durée indéfinie.
 
 7. Cliquez sur **Enregistrer**.
 
 Les données de surveillance de votre ressource sont maintenant transférées dans le compte de stockage.
+
+> [!NOTE]
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, et agrégées entre les valeurs de la dimension.
+>
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic la métrique est représentée sous forme de tous les messages entrants dans toutes les files d’attente de l’Event Hub.
+>
+>
 
 ## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Router les données de machine virtuelle (système d’exploitation invité) vers le compte de stockage
 
@@ -113,7 +120,7 @@ Les données de surveillance de votre ressource sont maintenant transférées da
 6. Une fois le paramètre de diagnostic correctement enregistré, l’onglet **Vue d’ensemble** affiche la liste des données collectées et l’emplacement où elles sont stockées. Cliquez sur la section **Compteurs de performances** pour passer en revue l’ensemble des compteurs de performances de Windows collectés.
 
    ![Paramètres des compteurs de performances](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
+
 7. Cliquez sur l’onglet **Journaux**, puis activez les cases à cocher des journaux de niveau **Informations** sur les journaux Application et Système.
 
    ![Paramètres des journaux](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
@@ -166,16 +173,16 @@ Vous avez à présent correctement configuré les données de surveillance à ar
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à configurer les données de surveillance de votre environnement Azure (abonnement, ressources et système d’exploitation invité) de façon à ce qu’elles soient archivées sur un compte de stockage. 
+Dans ce didacticiel, vous avez appris à configurer les données de surveillance de votre environnement Azure (abonnement, ressources et système d’exploitation invité) de façon à ce qu’elles soient archivées sur un compte de stockage.
 
 
 > [!div class="checklist"]
 > * Créer un compte de stockage pour contenir les données de surveillance
-> * Y acheminer les journaux d’abonnement 
-> * Y acheminer les données de ressource 
-> * Y acheminer les données de machine virtuelle (système d’exploitation invité) 
-> * Y afficher les données de surveillance 
-> * Nettoyage des ressources 
+> * Y acheminer les journaux d’abonnement
+> * Y acheminer les données de ressource
+> * Y acheminer les données de machine virtuelle (système d’exploitation invité)
+> * Y afficher les données de surveillance
+> * Nettoyage des ressources
 
 Pour tirer le meilleur parti de vos données et en dégager des informations supplémentaires, envoyez également vos données dans Log Analytics.
 

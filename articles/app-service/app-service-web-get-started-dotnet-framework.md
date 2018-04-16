@@ -1,11 +1,11 @@
 ---
-title: "Créer une application web ASP.NET Framework dans Azure | Microsoft Docs"
-description: "Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET par défaut."
+title: Créer une application web ASP.NET Framework dans Azure | Microsoft Docs
+description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET par défaut.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6ce5d49fe4e58b3c89c09ef80d563d001a4abb41
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Créer une application web ASP.NET Framework dans Azure
 
@@ -33,6 +33,7 @@ Regardez la vidéo pour voir ce démarrage rapide en action et suivez les étape
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel :
 
 * Installez <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> avec les charges de travail suivantes :
@@ -40,6 +41,8 @@ Pour suivre ce didacticiel :
     - **Développement Azure**
 
     ![Développement web et ASP.NET et Développement Azure (sous Web et cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Si vous avez déjà installé Visual Studio, ajoutez les charges de travail dans Visual Studio en cliquant sur **Outils** > **Obtenir des outils et des fonctionnalités**.
 
 ## <a name="create-an-aspnet-web-app"></a>Créez une application web ASP.NET
 

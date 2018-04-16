@@ -1,11 +1,11 @@
 ---
-title: "Guide des opérations et de planification du Centre de sécurité Azure | Microsoft Docs"
-description: "Ce document vous aide à planifier au préalable l’utilisation du Centre de sécurité Azure et les considérations concernant les opérations quotidiennes."
+title: Guide des opérations et de planification du Centre de sécurité Azure | Microsoft Docs
+description: Ce document vous aide à planifier au préalable l’utilisation du Centre de sécurité Azure et les considérations concernant les opérations quotidiennes.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e07e6792c74e1bdb5c5839e8c6bd9efbedf10170
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
@@ -138,7 +138,7 @@ Security Center crée automatiquement une stratégie de sécurité par défaut, 
 Avant de configurer des stratégies de sécurité, examinez chacune des [recommandations de sécurité](https://docs.microsoft.com/azure/security-center/security-center-recommendations)et déterminer si ces stratégies conviennent à vos différents abonnements et groupes de ressources. Il est également important de comprendre l’action à mener concernant les recommandations de sécurité et de connaître la personne de votre organisation chargée de surveiller les nouvelles recommandations et de prendre les mesures nécessaires.
 
 ## <a name="data-collection-and-storage"></a>Collecte et stockage des données
-Azure Security Center utilise Microsoft Monitoring Agent (le même agent que celui utilisé par Operations Management Suite et le service Log Analytics) pour collecter les données relatives à la sécurité sur vos machines virtuelles. [Les données collectées](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) à partir de cet agent seront stockées dans vos espaces de travail Log Analytics.
+Azure Security Center utilise Microsoft Monitoring Agent (le même agent que celui utilisé par le service Log Analytics) pour collecter les données relatives à la sécurité sur vos machines virtuelles. [Les données collectées](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) à partir de cet agent seront stockées dans vos espaces de travail Log Analytics.
 
 ### <a name="agent"></a>Agent
 

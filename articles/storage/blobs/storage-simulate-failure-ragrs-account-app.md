@@ -10,11 +10,11 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simuler un échec d’accès au stockage redondant avec accès en lecture
 
@@ -180,9 +180,9 @@ Dans ce deuxième volet, vous avez appris à simuler une défaillance pour teste
 > * Simuler une défaillance avec [Fiddler](#simulate-a-failure-with-fiddler) ou [un itinéraire statique non valide](#simulate-a-failure-with-an-invalid-static-route) 
 > * Simuler la restauration du point de terminaison principal
 
-Suivez ce lien pour consulter des exemples de stockage préconçus.
+Lisez l’article suivant pour découvrir comment fonctionne le stockage géographiquement redondant avec accès en lecture (RA-GRS) ainsi que les risques relatifs.
 
 > [!div class="nextstepaction"]
-> [Exemples de script de stockage Azure](storage-samples-blobs-cli.md)
+> [Conception d’applications à haute disponibilité à l’aide de RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

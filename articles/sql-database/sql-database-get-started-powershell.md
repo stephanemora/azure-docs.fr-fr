@@ -1,7 +1,7 @@
 ---
 title: 'Azure PowerShell : Créer une base de données SQL | Microsoft Docs'
 description: Découvrez comment créer un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et des bases de données dans le Portail Azure.
-keywords: didacticiel sur la base de données sql, créer une base de données sql
+keywords: tutoriel sur la base de données sql, créer une base de données sql
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.devlang: PowerShell
 ms.topic: quickstart
-ms.date: 04/17/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 97a2bdeb275c00d298b6b25e31516984c5d9b62e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9649b79a8100597c73d9082e1314fc47e811b95c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Créer une base de données SQL Azure unique à l’aide de PowerShell
 
@@ -88,7 +88,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Créer une base de données dans le serveur avec des exemples de données
 
-Créez une base de données SQL avec un [niveau de performance S0](sql-database-service-tiers.md) sur le serveur avec la commande [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). L’exemple suivant crée une base de données appelée `mySampleDatabase` et charge les exemples de données AdventureWorksLT dans cette base de données. Remplacez ces valeurs prédéfinies selon les besoins (les autres démarrages rapides de cette collection reposent sur les valeurs de ce démarrage rapide).
+Créez une base de données SQL avec un [niveau de performance S0](sql-database-service-tiers.md) sur le serveur avec la commande [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). L’exemple suivant crée une base de données appelée `mySampleDatabase` et charge les exemples de données AdventureWorksLT dans cette base de données. Remplacez ces valeurs prédéfinies selon les besoins (d’autres tutoriels de démarrage rapide de cette collection reposent sur les valeurs de ce démarrage rapide).
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
@@ -100,10 +100,10 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. 
+D’autres tutoriels de démarrage rapide de cette collection reposent sur ce démarrage rapide. 
 
 > [!TIP]
-> Si vous souhaitez continuer à utiliser d’autres démarrages rapides, ne nettoyez pas les ressources créées dans ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
+> Si vous souhaitez continuer à utiliser d’autres tutoriels de démarrage rapide, ne nettoyez pas les ressources créées au cours de ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées au cours de ce démarrage rapide dans le portail Azure.
 >
 
 ```powershell

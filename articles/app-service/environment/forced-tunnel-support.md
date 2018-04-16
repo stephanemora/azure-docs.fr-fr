@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -49,6 +49,8 @@ Pour activer votre ASE afin qu’il accède directement à Internet, même si vo
 
 Si vous apportez ces deux modifications, le trafic à destination d’Internet provenant du sous-réseau de l’environnement App Service n’est plus acheminé de force via la connexion ExpressRoute.
 
+Si le réseau achemine déjà du trafic en local, vous devez alors créer le sous-réseau pour héberger votre ASE et configurer son UDR avant de procéder au déploiement de l’ASE.  
+
 > [!IMPORTANT]
 > Les itinéraires définis dans un UDR doivent être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L’exemple précédent utilise la plage d’adresses 0.0.0.0/0 large. Il peut potentiellement être remplacé accidentellement par des annonces de routage utilisant des plages d’adresses plus spécifiques.
 >
@@ -56,13 +58,16 @@ Si vous apportez ces deux modifications, le trafic à destination d’Internet p
 
 ![Accès direct à Internet][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>Configurer votre ASE avec des points de terminaison de service
+
+## <a name="configure-your-ase-with-service-endpoints"></a>Configurer votre ASE avec des points de terminaison de service ##
 
 Pour acheminer tout le trafic sortant à partir de votre ASE, à l’exception de celui qui est acheminé vers Azure SQL et Stockage Azure, procédez comme suit :
 
 1. Créez une table de routage et affectez-la à votre sous-réseau ASE. Pour retrouver les adresses qui correspondent à votre région, consultez [Adresses de gestion de l’environnement Azure App Service][management]. Créez des itinéraires pour ces adresses avec un tronçon Internet suivant. Cela est nécessaire car le trafic de gestion entrant de l’environnement App Service doit répondre à partir de la même adresse que celle à laquelle il a été envoyé.   
 
-2. Activer des points de terminaison de service avec Azure SQL et Stockage Azure pour votre sous-réseau ASE
+2. Activez des points de terminaison de service avec Azure SQL et Stockage Azure pour votre sous-réseau ASE.  Une fois cette étape terminée, vous pouvez ensuite configurer votre réseau virtuel avec le tunneling forcé.
+
+Pour créer votre ASE dans un réseau virtuel déjà configuré pour acheminer tout le trafic sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources.  Il n’est pas possible de créer un ASE avec le portail dans un sous-réseau existant.  Lorsque vous déployez votre ASE dans un réseau virtuel qui est déjà configuré pour acheminer le trafic sortant sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources vous permettant de spécifier un sous-réseau existant. Pour plus d’informations sur le déploiement d’un ASE à l’aide d’un modèle, consultez [Création d’un environnement App Service à l’aide d’un modèle][template].
 
 Les points de terminaison de service vous permettent de restreindre l’accès aux services multilocataires à un ensemble de sous-réseaux et de réseaux virtuels Azure. Pour en savoir plus sur les points de terminaison de service, consultez la documentation [Points de terminaison de service de réseau virtuel][serviceendpoints]. 
 
@@ -70,7 +75,7 @@ Lorsque vous activez les points de terminaison de service sur une ressource, cer
 
 Lorsque les points de terminaison de service sont activés sur un sous-réseau avec une instance Azure SQL, toutes les instances Azure SQL connectées à partir de ce sous-réseau doivent avoir des points de terminaison de service activés. Si vous souhaitez accéder à plusieurs instances Azure SQL à partir du même sous-réseau, vous ne pouvez pas activer les points de terminaison de service sur une instance Azure SQL et pas sur une autre.  Stockage Azure ne se comporte pas de la même manière qu’Azure SQL.  Lorsque vous activez les points de terminaison de service avec Stockage Azure, vous verrouillez l’accès à cette ressource à partir de votre sous-réseau, mais pourrez toujours accéder aux autres comptes Stockage Azure même si les points de terminaison de service ne sont pas activés.  
 
-Si vous configurez le tunneling forcé avec une appliance de filtre de réseau, n’oubliez pas que l’ASE possède un certain nombre de dépendances en plus d’Azure SQL et de Stockage Azure. Vous devez autoriser ce trafic, ou l’ASE ne fonctionnera pas correctement.
+Si vous configurez le tunneling forcé avec une appliance de filtre de réseau, n’oubliez pas que l’ASE possède des dépendances en plus d’Azure SQL et de Stockage Azure. Vous devez autoriser le trafic vers ces dépendances ou l’ASE ne fonctionnera pas correctement.
 
 ![Tunneling forcé avec points de terminaison de service][2]
 
@@ -122,7 +127,7 @@ Ces modifications envoient le trafic directement vers Stockage Azure à partir d
 
 Si la communication entre l’ASE et ses dépendances est interrompue, l’ASE sera défectueux.  S’il reste défectueux trop longtemps, l’ASE sera suspendu. Pour annuler la suspension de l’ASE, suivez les instructions de votre portail ASE.
 
-Outre la simple interruption de la communication, vous pouvez nuire à votre ASE si vous introduisez trop de latence. Une trop grande latence peut se produire si votre ASE est trop loin de votre réseau local.  « Trop loin » peut signifier traverser un océan ou un continent pour atteindre votre réseau local, par exemple. De la latence peut également être introduite en raison d’une surcharge de l’Intranet ou de contraintes de bande passante sortante.
+Outre la simple interruption de la communication, vous pouvez nuire à votre ASE si vous introduisez trop de latence. Une trop grande latence peut se produire si votre ASE est trop loin de votre réseau local.  « Trop loin » peut signifier traverser un océan ou un continent pour atteindre le réseau local, par exemple. De la latence peut également être introduite en raison d’une surcharge de l’Intranet ou de contraintes de bande passante sortante.
 
 
 <!--IMAGES-->

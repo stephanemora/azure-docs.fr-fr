@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8a5d05342a1db5f27d115364798885a278d09fc0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cd17826afece44eff9f4a4c403b077dc78fd1c9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. Dans le portail, sur le côté gauche, cliquez sur **+Créer une ressource**, puis entrez « passerelle de réseau virtuel » dans la recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Sur la page de la **Passerelle de réseau virtuel**, cliquez sur **Créer** en bas de la page pour ouvrir la page **Créer une passerelle de réseau virtuel**.
 2. Sur la page **Créer une passerelle de réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - Tout d’abord, cliquez sur **Créer une configuration IP de passerelle** pour ouvrir la page Choisir une adresse IP publique, puis cliquez sur **+ Créer** pour ouvrir la page Créer une adresse IP publique.
     - Ensuite, renseignez le champ **Nom** pour votre adresse IP publique. Laissez la référence SKU définie sur **De base**, sauf si vous devez modifier cette valeur pour une raison spécifique, puis cliquez sur **OK** en bas de la page pour enregistrer vos modifications.
 
-      ![Créer l’adresse IP publique](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Créer PIP")
+      ![Demander l’adresse IP publique](./media/vpn-gateway-add-gateway-portal-include/public-ip-address-name.png "Demander l’adresse IP publique")
 
 4. Vérifiez les paramètres. Si vous souhaitez que votre passerelle apparaisse sur le tableau de bord, vous pouvez sélectionner **Épingler au tableau de bord** en bas de la page. 
 5. Cliquez sur **Créer** pour créer la passerelle VPN. Les paramètres sont validés et la vignette Déploiement d’une passerelle de réseau virtuel s’affiche sur le tableau de bord. La création d’une passerelle peut prendre jusqu’à 45 minutes Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.

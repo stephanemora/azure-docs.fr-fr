@@ -1,6 +1,6 @@
 ---
-title: "Ajouter un réseau de distribution de contenu (CDN) à un service Azure App Service | Microsoft Docs"
-description: "Ajoutez un réseau de distribution de contenu (CDN) à un Azure App Service pour mettre en cache et distribuer vos fichiers statiques à partir de serveurs proches de vos clients dans le monde entier."
+title: Ajouter un réseau de distribution de contenu (CDN) à un service Azure App Service | Microsoft Docs
+description: Ajoutez un réseau de distribution de contenu (CDN) à un Azure App Service pour mettre en cache et distribuer vos fichiers statiques à partir de serveurs proches de vos clients dans le monde entier.
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,13 +10,13 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service
+# <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Tutoriel : Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service
 
 Le [réseau de distribution de contenu (CDN) Azure](../cdn/cdn-overview.md) met en cache le contenu web statique à des emplacements stratégiques afin de fournir un débit maximal pour la distribution de contenu aux utilisateurs. Le CDN réduit également la charge du serveur sur votre application web. Ce didacticiel montre comment ajouter Azure CDN à une [application web dans Azure App Service](app-service-web-overview.md). 
 
@@ -32,7 +32,8 @@ Ce que vous allez apprendre :
 > * Utiliser des chaînes de requête pour contrôler les versions mises en cache.
 > * Utiliser un domaine personnalisé pour le point de terminaison CDN.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 
@@ -51,7 +52,7 @@ Pour suivre l’étape relative au domaine personnalisé de ce didacticiel, vous
 
 Si vous n’avez pas encore de nom de domaine, suivez le [didacticiel sur le domaine App Service](custom-dns-web-site-buydomains-web-app.md) pour acheter un domaine à l’aide du portail Azure. 
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Ouvrez un navigateur et accédez au [portail Azure](https://portal.azure.com).
 
@@ -72,7 +73,7 @@ Dans la page **Azure Content Delivery Network**, fournissez les paramètres du *
 | Paramètre | Valeur suggérée | Description |
 | ------- | --------------- | ----------- |
 | **Profil CDN** | myCDNProfile | Sélectionnez **Créer** pour créer un profil CDN. Un profil CDN est une collection de points de terminaison CDN possédant le même niveau tarifaire. |
-| **Niveau de tarification** | Standard Akamai | Le [niveau tarifaire](../cdn/cdn-overview.md#azure-cdn-features) spécifie le fournisseur et les fonctionnalités disponibles. Dans ce didacticiel, nous utilisons Standard Akamai. |
+| **Niveau tarifaire** | Standard Akamai | Le [niveau tarifaire](../cdn/cdn-overview.md#azure-cdn-features) spécifie le fournisseur et les fonctionnalités disponibles. Dans ce didacticiel, nous utilisons Standard Akamai. |
 | **Nom du point de terminaison CDN** | N’importe quel nom qui est unique dans le domaine azureedge.net | Vous accédez à vos ressources mises en cache au niveau du *\<Nom_Point_Terminaison>.azureedge.net* du domaine.
 
 Sélectionnez **Créer**.

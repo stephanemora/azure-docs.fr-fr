@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0513dc73912b095c8045f37c7e1d9d06db3ab7e1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Java
 
@@ -47,11 +47,12 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir le projet, lancez Eclipse et fermez l’écran d’accueil. Sélectionnez **Fichier**, puis **Open Projects from File System** (Ouvrir des projets à partir du système de fichiers). Vérifiez que l’option **Detect and configure project natures** (Détecter et configurer les natures de projet) est activée. Sélectionnez **Répertoire**, puis accédez à l’emplacement où vous avez stocké le référentiel cloné. Dans celui-ci, sélectionnez le dossier**javaBlobsQuickstart**. Vérifiez que le projet **javaBlobsQuickstarts** s’affiche en tant que projet Eclipse, puis sélectionnez **Terminer**.
 
 Une fois l’importation du projet terminée, ouvrez **AzureApp.java** (situé dans **blobQuickstart.blobAzureApp** à l’intérieur de **src/main/java**) et remplacez `accountname` et `accountkey` dans la chaîne `storageConnectionString`. Puis exécutez l’application.
-     
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
 
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
     
-Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier **AzureApp.Java**. Recherchez la variable `storageConnectionString`. Remplacez les valeurs `AccountName` et `AccountKey` dans la chaîne de connexion par celles que vous avez enregistrées à partir du portail Azure. Votre `storageConnectionString` doit être semblable à ce qui suit :
+Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier **AzureApp.Java**. Trouvez la variable `storageConnectionString` et collez la valeur de la chaîne de connexion copiée dans la section précédente. Votre variable `storageConnectionString` doit être semblable à ce qui suit :
 
 ```java
 public static final String storageConnectionString =
