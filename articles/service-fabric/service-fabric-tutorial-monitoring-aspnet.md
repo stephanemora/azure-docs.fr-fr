@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Didacticiel : surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
 Ce didacticiel est la quatrième partie de la série. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -90,8 +90,12 @@ Voici les étapes de configuration du package NuGet :
 1. Cliquez avec le bouton droit sur la **solution de vote** au sommet de l’Explorateur de solutions et cliquez sur **Gérer les packages NuGet pour la solution...**.
 2. Cliquez sur **Parcourir** dans le menu de navigation supérieur dans la fenêtre « NuGet – Solution » et cochez la case **Inclure la préversion** en regard de la barre de recherche.
 3. Recherchez `Microsoft.ApplicationInsights.ServiceFabric.Native` et cliquez sur le package NuGet approprié.
+
+>[!NOTE]
+>Vous devrez peut-être installer le package Microsoft.ServiceFabric.Diagnistics.Internal de la même manière s’il n’est pas préinstallé avant d’installer le package Application Insights.
+
 4. Sur la droite, cliquez sur les deux cases à cocher en regard des deux services dans l’application, **VotingWeb** et **VotingData** et cliquez sur **Installer**.
-    ![Inscription AI terminée](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![NuGet du Kit de développement AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Cliquez sur **OK** dans la boîte de dialogue *Réviser les modifications* qui s’affiche et *acceptez la licence*. Ceci termine l’ajout du package NuGet aux services.
 6. Vous devez maintenant configurer l’initialiseur de télémétrie dans les deux services. Pour cela, ouvrez *VotingWeb.cs* et *VotingData.cs*. Pour les deux, exécutez la procédure suivante :
     1. Ajoutez-les *à l’aide* d’instructions en haut de chaque *\<ServiceName>.cs* :
@@ -115,6 +119,7 @@ Voici les étapes de configuration du package NuGet :
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -138,6 +143,19 @@ Voici les étapes de configuration du package NuGet :
         .Build();
     ```
 
+Vérifiez bien que la méthode `UseApplicationInsights()` est appelée dans les deux fichiers, comme indiqué ci-dessus. 
+
+>[!NOTE]
+>Cet exemple d’application utilise le protocole HTTP pour la communication des services. Si vous développez une application avec une communication à distance du service V2, vous devez également ajouter les lignes de code suivantes au même endroit que précédemment.
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 À ce stade, vous êtes prêt à déployer l’application. Cliquez sur **Démarrer** en haut (ou sur **F5**), et Visual Studio génère et package l’application, configure votre cluster local et y déploie l’application. 
 
 Une fois le déploiement de l’application terminé, accédez à [localhost:8080](localhost:8080), où vous devriez être en mesure de voir l’exemple d’application de vote à page unique. Votez pour quelques éléments de votre choix afin de créer des exemples de données et de télémétrie. Personnellement, j’ai choisi les desserts !
@@ -148,9 +166,7 @@ N’hésitez pas également à *supprimer* certaines options de vote lorsque vou
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>Afficher les données de télémétrie et la mise en correspondance d’applications dans Application Insights 
 
-Accédez à votre ressource Application Insights dans le portail Azure et, dans la barre de navigation gauche de la ressource, cliquez sur **Préversions** sous *Configurer*. **Activez** la *Mise en correspondance d’applications contenant plusieurs rôles* dans la liste des préversions disponibles.
-
-![Activer la mise en correspondance d’applications AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+Accédez à votre ressource Application Insights dans le portail Azure.
 
 Cliquez sur **Vue d’ensemble** pour revenir à la page d’accueil de votre ressource. Puis cliquez sur **Recherche** en haut pour voir les traces entrantes. L’affichage des traces dans Application Insights prend quelques minutes. Si aucune trace ne s’affiche, patientez une minute et cliquez sur le bouton **Actualiser** en haut.
 ![Afficher les traces AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -161,9 +177,9 @@ Vous pouvez cliquer sur l’une des traces pour afficher plus d’informations l
 
 ![Détails de la trace AI](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-En outre, étant donné que nous avons activé le plan d’application, sur la page *Vue d’ensemble*, cliquez sur l’icône **Mise en correspondance d’applications** pour afficher vos deux services connectés.
+En outre, vous pouvez cliquer sur *Mise en correspondance d’applications* dans le menu de gauche de la page Vue d’ensemble, ou cliquez sur l’icône **Mise en correspondance d’applications** pour accéder à la cartographie d’application affichant les deux services connectés.
 
-![Détails de la trace AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![Détails de la trace AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 La mise en correspondance d’applications peut vous aider à mieux comprendre la topologie de votre application, en particulier si vous commencez à ajouter plusieurs services différents qui fonctionnent ensemble. Elle vous fournit également des données de base sur les taux de réussite des demandes et peut vous aider à diagnostiquer les demandes ayant échoué pour comprendre où se situe le problème. Pour en savoir plus sur la mise en correspondance d’applications, consultez [Mise en correspondance d’applications dans Application Insights](../application-insights/app-insights-app-map.md).
 

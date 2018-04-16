@@ -1,6 +1,6 @@
 ---
-title: Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service
-description: Informations détaillées sur la création et l’utilisation d’un environnement Azure App Service isolé d’Internet
+title: Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service
+description: Informations détaillées sur la création et l’utilisation d’un environnement Azure App Service isolé d’Internet
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
- Un environnement Azure App Service est un déploiement d’Azure App Service dans un sous-réseau de réseau virtuel Azure. Il existe deux façons de déployer un environnement App Service (ASE, App Service Environment) : 
+ Un environnement Azure App Service est un déploiement d’Azure App Service dans un sous-réseau de réseau virtuel Azure. Il existe deux façons de déployer un environnement App Service (ASE, App Service Environment) : 
 
 - avec une adresse IP virtuelle sur une adresse IP externe, solution souvent appelée ASE externe ;
 - avec une adresse IP virtuelle sur une adresse IP interne, solution souvent appelée ASE ILB, car le point de terminaison interne est un équilibreur de charge interne (ILB, Internal Load Balancer). 
 
-Cet article explique comment créer un ASE ILB. Pour une présentation de l’ASE, voir [Présentation des environnements App Service][Intro]. Pour savoir comment créer un ASE externe, voir [Créer un environnement App Service externe][MakeExternalASE].
+Cet article explique comment créer un ASE ILB. Pour une présentation de l’ASE, consultez [Présentation des environnements App Service][Intro]. Pour savoir comment créer un ASE externe, voir [Créer un environnement App Service externe][MakeExternalASE].
 
 ## <a name="overview"></a>Vue d'ensemble ##
 
@@ -63,7 +63,7 @@ Pour créer un ILB ASE :
 
 4. Sélectionnez ou créez un réseau virtuel.
 
-5. Si vous sélectionnez un réseau virtuel existant, vous devez créer un sous-réseau pour accueillir l’ASE. Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute croissance éventuelle à venir de votre environnement ASE. Nous recommandons la taille `/25`, qui comprend 128 adresses et peut gérer un ASE de taille maximale. La taille minimale que vous pouvez sélectionner est `/28`. Selon les besoins de l’infrastructure, cette taille peut être mise à l’échelle jusqu’à un maximum de 11 instances.
+5. Si vous sélectionnez un réseau virtuel existant, vous devez créer un sous-réseau pour accueillir l’ASE. Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute croissance éventuelle à venir de votre environnement ASE. Nous recommandons la taille `/25`, qui comprend 128 adresses et peut gérer un ASE de taille maximale. La taille minimale que vous pouvez sélectionner est `/28`. Selon les besoins de l’infrastructure, cette taille peut être mise à l’échelle jusqu’à un maximum de 3 instances.
 
     * Allez au-delà du nombre maximal par défaut de 100 instances dans vos plans App Service.
 
@@ -81,7 +81,7 @@ Pour créer un ILB ASE :
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   Le nom de domaine personnalisé utilisé pour les applications et le nom de domaine utilisé par votre ASE ne peut pas se chevaucher. Pour un ASE ILB dont le nom de domaine est _contoso.com_, vous ne pouvez pas utiliser pour vos applications des noms de domaine personnalisés tels que :
+   Une fonctionnalité appelée noms de domaine personnalisé vous permet de mapper un nom DNS existant à votre application web. Pour en apprendre davantage sur cette fonctionnalité, consultez le document [Mapper un nom DNS personnalisé existant à des applications web Azure][customdomain]. Le nom de domaine personnalisé utilisé pour les applications et le nom de domaine utilisé par votre ASE ne peut pas se chevaucher. Pour un ASE ILB dont le nom de domaine est _contoso.com_, vous ne pouvez pas utiliser pour vos applications des noms de domaine personnalisés tels que :
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ Pour en savoir plus sur la configuration de votre ASE ILB avec un dispositif WA
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

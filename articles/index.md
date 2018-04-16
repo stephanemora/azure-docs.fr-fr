@@ -175,7 +175,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Fonctions sans serveur</a></li>
-                                                    <li><a class="barLink" href="/azure/containers/">Conteneurs</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices avec Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -408,7 +408,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Conteneurs</h3>
+                                    <h3>Containers</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/aks/">
@@ -2044,7 +2044,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#containers">Conteneurs</a>
+                        <a href="#containers">Containers</a>
                         <ul id="containers" class="cardsA">
                             <li>
                                 <a href="/azure/aks/">

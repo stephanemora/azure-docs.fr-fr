@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
@@ -109,7 +109,7 @@ Ce rapport fournit les informations suivantes :
 | ID d'utilisateur |Affiche l’ID d’utilisateur qui a été utilisé. Cette valeur correspond à ce que l’utilisateur a tapé, ce qui n’est pas toujours l’ID d’utilisateur correct. |
 | Tentatives ayant échoué |Affiche le nombre total de tentatives ayant échoué pour cet ID d’utilisateur. Le tableau est trié par nombre décroissant de tentatives ayant échoué. |
 | Dernier échec |Affiche l’horodatage du dernier échec. |
-| IP du dernier échec |Affiche l’adresse IP du client à partir de la dernière requête incorrecte. |
+| IP du dernier échec |Affiche l’adresse IP du client à partir de la dernière requête incorrecte. Si vous voyez plusieurs adresses IP dans cette valeur, elle peut inclure l’adresse IP cliente de transfert avec l’adresse IP de requête de dernière tentative de l’utilisateur.  |
 
 > [!NOTE]
 > Ce rapport est automatiquement mis à jour toutes les 12 heures avec les nouvelles informations collectées durant ce laps de temps. En conséquence, les tentatives de connexion effectuées dans les 12 dernières heures peuvent ne pas être incluses dans le rapport.
@@ -191,11 +191,14 @@ Le seuil d’alerte peut être mis à jour dans les paramètres de seuil. Le seu
 1. Pourquoi vois-je des plages d’adresses IP privées dans le rapport ?  <br />
 Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste blanche d’adresses IP. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
 
-2. Que faire pour bloquer l’adresse IP ?  <br />
+2. Pourquoi des adresses IP d’équilibreur de charge s’affichent-elles dans le rapport ?  <br />
+Si vous voyez des adresses d’équilibreur de charge, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP cliente lorsqu’il transfère la requête au serveur proxy d’application web. Veuillez configurer correctement votre équilibreur de charge pour qu’il transfère l’adresse IP cliente. 
+
+3. Que faire pour bloquer l’adresse IP ?  <br />
 Vous devez ajouter l’adresse IP malveillante identifiée dans le pare-feu ou la bloquer dans Exchange.   <br />
 Pour les services AD FS 2016 + 1803.C+ QFE, vous pouvez bloquer l’adresse IP directement dans AD FS. 
 
-3. Pourquoi ne vois-je aucun élément dans ce rapport ? <br />
+4. Pourquoi ne vois-je aucun élément dans ce rapport ? <br />
    - Les activités de connexion ayant échoué ne dépassent pas les paramètres de seuil. 
    - Assurez-vous qu’aucune alerte vous avertissant que le service Health n’est pas à jour n’est active dans la liste des serveurs AD FS.  En savoir plus sur [la résolution de cette alerte](active-directory-aadconnect-health-data-freshness.md).
    - Les audits ne sont pas activés dans les batteries de serveurs AD FS.

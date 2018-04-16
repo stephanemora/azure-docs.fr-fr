@@ -1,11 +1,11 @@
 ---
-title: "Révisions d’accès Azure AD | Microsoft Docs"
-description: "Vous pouvez contrôler que l’appartenance à des groupes et l’accès aux applications répondent aux initiatives de gouvernance, de gestion des risques et de conformité de votre organisation en utilisant des révisions d’accès Azure Active Directory."
+title: Révisions d’accès Azure AD | Microsoft Docs
+description: Vous pouvez contrôler que l’appartenance à des groupes et l’accès aux applications répondent aux initiatives de gouvernance, de gestion des risques et de conformité de votre organisation en utilisant des révisions d’accès Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 40c3cfaf723a22013c93e0efae3d074e98643742
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c5d09b6f17fe8ae9be73d23d7aef6beae2ae43c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Révisions d’accès Azure AD (préversion)
+# <a name="azure-ad-access-reviews"></a>Révisions d’accès Azure AD
 
-Les révisions d’accès Azure Active Directory (Azure AD) permettent aux organisations de gérer efficacement les appartenances à des groupes et les accès aux applications d’entreprise. 
+Les révisions d’accès Azure Active Directory (Azure AD) permettent aux organisations de gérer efficacement les appartenances à des groupes, les accès aux applications d’entreprise, et les attributions de rôles dotés de privilèges. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>À quoi servent les révisions d’accès ?
    
@@ -30,6 +30,8 @@ Les révisions d’accès Azure Active Directory (Azure AD) permettent aux organ
 - Vous pouvez recertifier l’accès d’employé à des applications et l’appartenance à des groupes à l’aide de révisions d’accès.
    
 - Vous pouvez collecter les contrôles de révision d’accès dans des programmes importants pour votre organisation afin de suivre les révisions de conformité ou les applications sensibles aux risques.
+
+- Vous pouvez recertifier l’attribution de rôle des utilisateurs administratifs affectés à des rôles Azure AD tels que Administrateur général, ou à des rôles d’abonnement Azure.  Cette fonctionnalité est incluse dans Azure AD Privileged Identity Management.
     
 
 ## <a name="next-steps"></a>Étapes suivantes

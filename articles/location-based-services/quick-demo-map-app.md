@@ -1,31 +1,31 @@
 ---
 title: Effectuer une recherche interactive sur une carte avec Azure Location Based Services | Microsoft Docs
-description: "Démarrage rapide Azure - Lancer une démonstration de recherche interactive sur une carte avec Azure Location Based Services (préversion)"
+description: Démarrage rapide Azure - Lancer une démonstration de recherche interactive sur une carte avec Azure Location Based Services (préversion)
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a61d56f8e649d60dacff8f9849ab7e26363e119
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Lancer une démonstration de recherche interactive sur une carte avec Azure Location Based Services (préversion)
 
-Cet article illustre les fonctionnalités d’Azure Location Based Services (LBS), en prenant comme exemple une recherche interactive à l’aide d’Azure Maps. Il décrit également les étapes de base qui vous permettent de créer votre propre compte LBS et d’obtenir la clé de votre compte utilisable dans l’application web de démonstration. 
+Cet article illustre les fonctionnalités d’Azure Location Based Services (LBS), en prenant comme exemple une recherche interactive. Il décrit également les étapes de base qui vous permettent de créer votre propre compte LBS et d’obtenir la clé de votre compte utilisable dans l’application web de démonstration. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -40,14 +40,14 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 5. Une fois votre compte créé, ouvrez-le et accédez à ses **Paramètres**. Cliquez sur **Clés** pour obtenir les clés principale et secondaire de votre compte Azure Location Based Services. Copiez la valeur de la **Clé primaire** dans le Presse-papiers local afin de pouvoir l’utiliser dans la section suivante. 
 
-## <a name="download-the-demo-application-for-azure-maps"></a>Télécharger l’application de démonstration pour Azure Maps
+## <a name="download-the-demo-application"></a>Télécharger l’application de démonstration
 
 1. Téléchargez ou copiez le contenu du fichier [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Enregistrez le contenu de ce fichier localement en tant que **AzureMapDemo.html** et ouvrez-le dans un éditeur de texte.
 3. Recherchez la chaîne `<insert-key>` et remplacez-la par la valeur de la **Clé primaire** obtenue dans la section précédente. 
 
 
-## <a name="launch-the-demo-application-for-azure-maps"></a>Lancer l’application de démonstration pour Azure Maps
+## <a name="launch-the-demo-application-for"></a>Lancer l’application de démonstration pour
 
 1. Ouvrez le fichier **AzureMapDemo.html** dans le navigateur de votre choix.
 2. Observez la carte de la ville de Los Angeles. La ville est déterminée par la valeur de la paire `[longitude, latitude]` affectée à la variable JavaScript nommée **center** dans le fichier *AzureMapDemo.html*. Vous pouvez changer ces coordonnées afin d’afficher la ville de votre choix. Par exemple, les coordonnées de la ville de New York sont *[-74.0060, 40.7128]*.
