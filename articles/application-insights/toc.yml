@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Entonnoirs
               href: usage-funnels.md
+            - name: Cohortes
+              href: app-insights-usage-cohorts.md
             - name: Impact
               href: app-insights-usage-impact.md
             - name: Rétention
