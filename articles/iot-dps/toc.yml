@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Procédures
   items:
-    - name: Gérer les inscriptions d’appareils
-      items:
-        - name: Gérer les inscriptions d’appareils avec le portail Azure
-          href: how-to-manage-enrollments.md
-        - name: Gérer les inscriptions d’appareils avec les Kits de développement logiciel (SDK) Service
-          href: how-to-manage-enrollments-sdks.md
-    - name: Révoquer l’accès à l’appareil
-      href: how-to-revoke-device-access-portal.md
-    - name: Annuler la mise en service des appareils
-      href: how-to-unprovision-devices.md
-    - name: Effectuer une preuve de possession sur les certificats d’autorité de certification X.509
-      href: how-to-verify-certificates.md
-    - name: Utiliser un HSM avec le Kit de développement logiciel (SDK)
-      href: use-hsm-with-sdk.md
-    - name: Contrôler l’accès à un service d’approvisionnement
-      href: how-to-control-access.md
-    - name: Utiliser Azure CLI pour gérer le service de configuration Device Provisioning
-      href: how-to-manage-dps-with-cli.md
-    - name: Utiliser les outils du Kit de développement logiciel (SDK) pour le développement
-      href: how-to-use-sdk-tools.md
-    - name: Connexion à MXChip IoT DevKit
+    - name: Connecter MXChip IoT DevKit à IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Gérer la configuration du provisionnement des appareils
+      items:
+        - name: Configurer des certificats d’autorité de certification vérifiés
+          href: how-to-verify-certificates.md
+        - name: Gérer la suppression de privilèges d'accès
+          href: how-to-unprovision-devices.md
+        - name: Gérer la désinscription
+          href: how-to-revoke-device-access-portal.md
+        - name: Gérer les inscriptions - Portail
+          href: how-to-manage-enrollments.md
+        - name: Gérer les inscriptions - Kits de développement logiciel (SDK) du service
+          href: how-to-manage-enrollments-sdks.md
+    - name: Gérer le service de provisionnement des appareils
+      items:
+        - name: Configurer le service de provisionnement des appareils à l’aide d’Azure CLI
+          href: how-to-manage-dps-with-cli.md
+        - name: Contrôler l’accès aux API du service de provisionnement
+          href: how-to-control-access.md
+    - name: Utiliser des mécanismes d’attestation avec un Kit de développement logiciel (SDK)
+      href: use-hsm-with-sdk.md
+    - name: Utilisez les outils du Kit de développement logiciel pour le développement
+      href: how-to-use-sdk-tools.md
 - name: Informations de référence
   items:
     - name: REST
