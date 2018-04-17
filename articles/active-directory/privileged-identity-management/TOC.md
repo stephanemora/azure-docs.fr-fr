@@ -55,7 +55,7 @@
 
 # Rubriques connexes
 ## [Azure Active Directory](/azure/active-directory/)
-## [Contrôle d’accès en fonction du rôle](../role-based-access-control-what-is.md)
+## [Contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md)
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
