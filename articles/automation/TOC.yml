@@ -21,7 +21,7 @@
       href: automation-tutorial-update-management.md
     - name: Mise à jour intégrée et suivi des modifications par les runbooks
       href: automation-onboard-solutions.md
-    - name: Identifier les logiciels sur une machine virtuelle
+    - name: Identifier les logiciels dans votre environnement
       href: automation-tutorial-installed-software.md
     - name: Résoudre les modifications sur une machine virtuelle
       href: automation-tutorial-troubleshoot-changes.md
