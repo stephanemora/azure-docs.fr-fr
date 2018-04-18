@@ -1,8 +1,8 @@
 ---
-title: "Afficher les journaux d’activité Azure pour surveiller les ressources | Microsoft Docs"
-description: "Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le portail Azure, PowerShell, l’interface CLI Azure et REST."
+title: Afficher les journaux d’activité Azure pour surveiller les ressources | Microsoft Docs
+description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le portail Azure, PowerShell, l’interface CLI Azure et REST.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Afficher les journaux d’activité pour auditer les actions sur les ressources
+
 Les journaux d’activité vous permettent de déterminer :
 
 * Les opérations qui ont été effectuées sur les ressources de votre abonnement
@@ -38,6 +39,7 @@ Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interr
 Vous pouvez récupérer des informations dans les journaux d’activité par le biais du portail, de PowerShell, de l’interface de ligne de commande Azure, de l’API REST Insights ou de [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portail
+
 1. Pour afficher les journaux d’activité via le portail, sélectionnez **Surveiller**.
    
     ![sélectionner les journaux d’activité](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
     ![afficher l’opération](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** . Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées. Si vous ne spécifiez pas une heure de début et de fin, les entrées de la dernière heure sont retournées. Par exemple, pour récupérer les opérations d’un groupe de ressources pendant la dernière heure d’exécution :
 
   ```powershell
@@ -136,17 +139,20 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
 
 ## <a name="azure-cli"></a>Azure CLI
-* Pour récupérer les entrées de journal, exécutez la commande **azure group log show** .
+
+Pour récupérer des entrées de journal, exécutez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>de l’API REST
+
 Les opérations REST à utiliser avec le journal d’activité font partie de l’ [API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’activité, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Les journaux d’activité Azure sont utilisables avec Power BI pour obtenir des informations plus détaillées sur les actions de votre abonnement. Consultez le billet de blog sur [l’affichage et l’analyse des journaux d’activité Azure dans Power BI](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 * Pour en savoir plus sur les commandes permettant d’afficher les opérations de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).

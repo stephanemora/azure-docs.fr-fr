@@ -1,11 +1,11 @@
 ---
-title: "Utilisation d’Azure CDN avec CORS | Microsoft Docs"
-description: "Découvrez comment utiliser Azure CDN (Content Delivery Network) avec CORS (Cross-Origin Resource Sharing)."
+title: Utilisation d’Azure CDN avec CORS | Microsoft Docs
+description: Découvrez comment utiliser Azure CDN (Content Delivery Network) avec CORS (Cross-Origin Resource Sharing).
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilisation d’Azure CDN avec CORS
 ## <a name="what-is-cors"></a>Présentation de CORS
@@ -29,13 +29,13 @@ Il existe deux types de demandes CORS : les *demandes simples* et *les demandes 
 
 ### <a name="for-simple-requests"></a>Pour les demandes simples :
 
-1. Le navigateur envoie la demande CORS avec un en-tête de demande HTTP d’**origine** supplémentaire. La valeur de cet en-tête est l’origine qui a servi la page mère, définie comme la combinaison du *protocole,* du *domaine* et du *port*.  Quand une page de https://www.contoso.com tente d’accéder aux données d’un utilisateur dans l’origine fabrikam.com, l’en-tête de demande suivant est envoyé à fabrikam.com :
+1. Le navigateur envoie la demande CORS avec un en-tête de demande HTTP d’**origine** supplémentaire. La valeur de cet en-tête est l’origine qui a servi la page mère, définie comme la combinaison du *protocole,* du *domaine* et du *port*.  Quand une page de https://www.contoso.com tente d’accéder aux données d’un utilisateur dans l’origine fabrikam.com, l’en-tête de la requête suivant est envoyé à fabrikam.com :
 
    `Origin: https://www.contoso.com`
 
 2. Le serveur peut renvoyer les éléments suivants :
 
-   * Un en-tête **Access-Control-Allow-Origin** indiquant le site d’origine autorisé. Par exemple :
+   * Un en-tête **Access-Control-Allow-Origin** indiquant le site d’origine autorisé. Par exemple : 
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 

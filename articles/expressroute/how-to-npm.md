@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
-Network Performance Monitor (NPM) est une solution de surveillance réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie de Microsoft Operations Management Suite (OMS). NPM offre désormais une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser l’homologation privée. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer.
+Network Performance Monitor (NPM) est une solution de surveillance réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie de Log Analytics. NPM offre désormais une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser l’homologation privée. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer.
 
 Vous pouvez :
 
@@ -72,11 +72,11 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’abonnement avec les réseaux virtuels associés à votre circuit ExpressRoute. Ensuite, recherchez « Network Performance Monitor » dans la liste des services de la **Place de marché**. Dans les résultats, cliquez pour ouvrir la page **Network Performance Monitor**.
 
->[!NOTE]
->Vous pouvez créer un espace de travail ou utiliser un espace de travail existant.  Si vous souhaitez utiliser un espace de travail existant, vous devez vérifier qu’il a été migré vers le nouveau langage de requête. [Plus d’informations...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >Vous pouvez créer un espace de travail ou utiliser un espace de travail existant.  Si vous souhaitez utiliser un espace de travail existant, vous devez vérifier qu’il a été migré vers le nouveau langage de requête. [Plus d’informations...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portail](.\media\how-to-npm\3.png)<br><br>
+   ![portail](.\media\how-to-npm\3.png)<br><br>
 2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail OMS - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
 3. Sur la page **Espace de travail OMS**, sélectionnez **Créer** et configurez les paramètres suivants :
 
@@ -86,15 +86,15 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
   * Emplacement : vous devez sélectionner une [région prise en charge](#regions).
   * Niveau tarifaire : sélectionnez « Gratuit ».
   
-  >[!NOTE]
-  >Le circuit ExpressRoute peut se trouver n’importe où dans le monde et pas nécessairement dans la même région que l’espace de travail.
-  >
+    >[!NOTE]
+    >Le circuit ExpressRoute peut se trouver n’importe où dans le monde et pas nécessairement dans la même région que l’espace de travail.
+    >
   
-  ![espace de travail](.\media\how-to-npm\4.png)<br><br>
+    ![espace de travail](.\media\how-to-npm\4.png)<br><br>
 4. Cliquez sur **OK** pour enregistrer et déployer le modèle de paramètres. Une fois le modèle validé, cliquez sur **Créer** pour déployer l’espace de travail.
 5. Une fois l’espace de travail déployé, accédez à la ressource **NetworkMonitoring(name)** que vous avez créée. Validez les paramètres, puis cliquez sur **La solution nécessite une configuration supplémentaire**.
 
-  ![configuration supplémentaire](.\media\how-to-npm\5.png)
+   ![configuration supplémentaire](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Étape 2 : Installer et configurer des agents
 
@@ -126,9 +126,9 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
 2. Sur la page d’**accueil**, cliquez sur **Suivant**.
 3. Sur la page **Termes du contrat de licence**, lisez les conditions de licence, puis cliquez sur **J’accepte**.
 4. Sur la page **Dossier de destination**, modifiez ou conservez le dossier d’installation par défaut, puis cliquez sur **Suivant**.
-5. Sur la page **Options d’installation de l’agent**, vous pouvez choisir de connecter l’agent à Azure Log Analytics (OMS) ou Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
+5. Sur la page **Options d’installation de l’agent**, vous pouvez choisir de connecter l’agent à Azure Log Analytics ou Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
-  * Si vous choisissez de vous connecter à **Azure Log Analytics (OMS)**, collez **l’ID de l’espace de travail** et la **clé de l’espace de travail** (clé primaire) que vous avez copiés dans le bloc-notes dans la section précédente. Cliquez ensuite sur **Suivant**.
+  * Si vous choisissez de vous connecter à **Azure Log Analytics**, collez **l’ID de l’espace de travail** et la **Clé de l’espace de travail** (clé primaire) que vous avez copiés dans le bloc-notes de la section précédente. Cliquez ensuite sur **Suivant**.
 
     ![ID et clé](.\media\how-to-npm\8.png)
   * Si vous choisissez de vous connecter à **Operations Manager**, sur la page **Configuration du groupe d’administration**, saisissez le **nom du groupe d’administration**, le **serveur d’administration** et le **port du serveur d’administration**. Cliquez ensuite sur **Suivant**.
@@ -139,7 +139,7 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
     ![Compte](.\media\how-to-npm\10.png)
 6. Dans la page **Prêt pour l’installation**, passez en revue vos choix, puis cliquez sur **Installer**.
 7. Dans la page **Configuration effectuée**, cliquez sur **Terminer**.
-8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Operational Insights (OMS). Une fois connecté à OMS, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté au service Microsoft Operations Management Suite**.
+8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Azure Log Analytics (OMS). Une fois connecté, l’agent affiche un message indiquant : **La connexion de Microsoft Monitoring Agent au service Microsoft Operations Management Suite est réussie**.
 
 9. Veuillez répéter cette étape pour chaque réseau virtuel dont vous voulez effectuer le monitoring.
 
@@ -162,8 +162,8 @@ Vous pouvez facilement vérifier si vos agents communiquent.
 
 1. Sur un serveur avec l’agent de surveillance, ouvrez le **Panneau de configuration**.
 2. Ouvrez **Microsoft Monitoring Agent**.
-3. Cliquez sur l’onglet **Azure Log Analytics (OMS)**.
-4. Dans la colonne **État**, vous devez voir que l’agent est correctement connecté au service Operations Management Suite.
+3. Cliquez sur l’onglet **Azure Log Analytics**.
+4. Dans la colonne **État**, vous devez voir que l’agent est correctement connecté à Log Analytics.
 
   ![status](.\media\how-to-npm\12.png)
 

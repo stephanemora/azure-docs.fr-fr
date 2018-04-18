@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
 > [!div class="op_single_selector"]
@@ -183,7 +183,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 2. Dans l’écran d’accueil, cliquez sur le bouton **Suivant** . Vous êtes redirigé vers la section *Vérification des conditions préalables* . Dans cet écran, cliquez sur **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour serveur de sauvegarde Azure sont respectées. Si toutes les conditions préalables sont réunies, un message indiquant que la machine présente la configuration requise s’affiche. Cliquez sur le bouton **Suivant** .
 
     ![Azure Backup Server - Accueil et contrôle des conditions préalables requises](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Microsoft Azure Backup Server requiert SQL Server Standard, et le package d’installation d’Azure Backup Server est fourni avec les fichiers binaires SQL Server appropriés. Lorsque vous démarrez avec une nouvelle installation du serveur de sauvegarde Azure, vous devez sélectionner l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation** et cliquer sur le bouton **Vérifier et installer**. Une fois les composants requis installés, cliquez sur **Suivant**.
+3. Le serveur de sauvegarde Microsoft Azure requiert SQL Server Standard. Le package d’installation du serveur de sauvegarde Microsoft Azure est fourni en bundle avec les fichiers binaires SQL Server appropriés nécessaires si vous ne souhaitez pas utiliser votre propre SQL. Lorsque vous démarrez avec une nouvelle installation du serveur de sauvegarde Azure, vous devez sélectionner l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation** et cliquer sur le bouton **Vérifier et installer**. Une fois les composants requis installés, cliquez sur **Suivant**.
 
     ![Serveur de sauvegarde Azure - Vérification SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 

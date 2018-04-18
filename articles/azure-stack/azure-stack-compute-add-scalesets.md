@@ -8,15 +8,15 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: ''
-ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack
 
@@ -48,6 +48,7 @@ Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compa
 
    Pour la prise en charge de Linux, téléchargez Ubuntu Server 16.04 et ajoutez-le à l’aide de ```Add-AzsVMImage``` avec les paramètres suivants : ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
+
 ## <a name="add-the-virtual-machine-scale-set"></a>Ajouter le groupe de machines virtuelles identiques
 
 Modifiez le script PowerShell suivant en fonction de votre environnement, puis exécutez-le pour ajouter un groupe de machines virtuelles identiques à votre Marketplace Azure Stack. 
@@ -73,6 +74,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Mettre à jour des images dans un groupe de machines virtuelles identiques 
+Après avoir créé un groupe de machines virtuelles identiques, les utilisateurs peuvent mettre à jour des images dans un groupe identique sans devoir recréer aucun groupe identique. Le processus de mise à jour d’une image varie selon les scénarios suivants :
+
+1. Le modèle de déploiement du groupe de machines virtuelles identiques **spécifie dernière** pour *version* :  
+
+   Lorsque la *version* est définie sur **dernière** dans la section *imageReference* du modèle pour un groupe identique, les opérations de montage en puissance sur le groupe identique utilisent la dernière version disponible de l’image pour les instances de groupe identique. Une fois une montée en puissance terminée, vous pouvez supprimer les instances de groupes de machines virtuelles identiques les plus anciennes.  (Les valeurs de *serveur de publication*, *offre* et *référence sku* restent inchangées). 
+
+   Vous trouverez ci-dessous un exemple de spécification de la *dernière* :  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   Avant que la montée en puissance puisse utiliser une nouvelle image, vous devez télécharger cette nouvelle image :  
+
+   - Lorsque l’image sur la Place de marché est une version plus récente que l’image dans le groupe identique : téléchargez la nouvelle image qui remplace l’ancienne image. Une fois l’image remplacée, un utilisateur peut continuer à monter en puissance. 
+
+   - Lorsque la version de l’image sur la Place de marché est identique à l’image du groupe identique : supprimez l’image qui est utilisée dans le groupe identique et téléchargez la nouvelle image. Pendant l’intervalle de temps entre la suppression de l’image d’origine et le téléchargement de la nouvelle image, vous ne pouvez pas monter en puissance. 
+      
+     Ce processus est requis pour resyndiquer les images qui utilisent le format de fichier partiellement alloué, introduit avec la version 1803. 
+ 
+
+2. Le modèle de déploiement du groupe de machines virtuelles identiques **ne spécifie pas de dernière** pour *version* et spécifie un numéro de version à la place :  
+
+     Si vous téléchargez une image avec une version plus récente (ce qui modifie la version disponible), le groupe identique ne peut pas monter en puissance. Ceci est normal, car la version de l’image spécifiée dans le modèle du groupe identique doit être disponible.  
+
+Pour plus d’informations, consultez [disques et images du système d’exploitation](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Supprimer un groupe de machines virtuelles identiques
 
