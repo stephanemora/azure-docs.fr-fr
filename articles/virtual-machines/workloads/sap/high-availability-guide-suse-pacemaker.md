@@ -435,7 +435,7 @@ Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (
 
 Répétez les étapes ci-dessus pour le deuxième nœud de cluster.
 
-### <a name="1-create-the-stonith-devices"></a>**[1]**  Créer les appareils STONITH
+### <a name="1-create-the-stonith-devices"></a>**[1]** Créer les appareils STONITH
 
 Une fois que vous avez modifié les autorisations pour les machines virtuelles, vous pouvez configurer les appareils STONITH dans le cluster.
 
@@ -448,7 +448,7 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 
 </code></pre>
 
-### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]**  Créer la topologie d’isolation pour l’isolation SBD
+### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]** Créer la topologie d’isolation pour l’isolation SBD
 
 Si vous souhaitez utiliser un appareil SBD, nous vous recommandons d’utiliser un agent d’isolation Azure en tant que mécanisme de secours en cas d’indisponibilité du serveur cible iSCSI.
 
@@ -457,7 +457,7 @@ sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>
-### **[1] ** Activer l’utilisation d’un appareil STONITH
+### **[1]** Activer l’utilisation d’un appareil STONITH
 
 <pre><code>
 sudo crm configure property stonith-enabled=true 
