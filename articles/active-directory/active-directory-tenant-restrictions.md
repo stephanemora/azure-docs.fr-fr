@@ -1,24 +1,24 @@
 ---
-title: "Gérer l’accès aux applications cloud par la restriction des clients - Azure | Microsoft Docs"
-description: "Utilisation des Restrictions du client pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD."
+title: Gérer l’accès aux applications cloud par la restriction des clients - Azure | Microsoft Docs
+description: Utilisation des Restrictions du client pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
 editor: yossib
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les Restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -58,7 +58,8 @@ Pour utiliser les Restrictions du client, vos clients doivent être en mesure de
 
 La configuration suivante est nécessaire pour activer les Restrictions du client dans l’infrastructure de votre proxy. Ce guide est générique, donc consultez la documentation du fabricant de votre proxy pour obtenir les étapes d’implémentation spécifiques.
 
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
+
 
 - Le proxy doit être en mesure d’effectuer l’interception SSL, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL. 
 
@@ -112,7 +113,9 @@ Consultez [Updated Office 365 modern authentication](https://blogs.office.com/20
 
 Les Restrictions du client sont actuellement prises en charge par les applications Office 365 basées sur un navigateur (Portail Office, Yammer, sites SharePoint, Outlook sur le web, etc.). Pour les clients lourds (Outlook, Skype Entreprise, Word, Excel, PowerPoint, etc.) Les Restrictions du client peuvent uniquement être appliquées si l’authentification moderne est utilisée.  
 
-Les clients Outlook et Skype Entreprise qui prennent en charge l’authentification moderne peuvent continuer à utiliser les protocoles hérités sur les clients où l’authentification moderne n’est pas activée, contournant ainsi les Restrictions du client. Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](http://gpsearch.azurewebsites.net/default.aspx?ref=1). Pour Outlook sur les plateformes non Windows et pour Skype Entreprise sur toutes les plateformes, la prise en charge complète des Restrictions du client n’est actuellement pas disponible.
+Les clients Outlook et Skype Entreprise qui prennent en charge l’authentification moderne peuvent continuer à utiliser les protocoles hérités sur les clients pour lesquels l’authentification moderne n’est pas activée, contournant ainsi les Restrictions du client. Les applications qui utilisent des protocoles hérités risquent d’être bloquées par les Restrictions du client si elles contactent login.microsoftonline.com, login.microsoft.com ou login.windows.net lors de l’authentification.
+
+Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](http://gpsearch.azurewebsites.net/default.aspx?ref=1). Pour Outlook sur les plateformes non Windows et pour Skype Entreprise sur toutes les plateformes, la prise en charge complète des Restrictions du client n’est actuellement pas disponible.
 
 ## <a name="testing"></a>Test
 
@@ -132,7 +135,7 @@ Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour captu
   if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
   ```
 
-  Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple :
+  Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple : 
 
   ```
   oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";

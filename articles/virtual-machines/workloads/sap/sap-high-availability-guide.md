@@ -1,13 +1,13 @@
 ---
-title: "Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver | Microsoft Docs"
-description: "Guide de haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure"
+title: Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver | Microsoft Docs
+description: Guide de haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuration de haute disponibilité multi-SID SAP)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -397,7 +397,7 @@ Les modèles à trois niveaux dans Azure Resource Manager prennent également en
 
 Voici où vous pouvez obtenir des modèles Azure Resource Manager pour l’exemple de scénario décrit dans cet article :
 
-* [Image Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Image de Place de marché Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
 * [Image de Place de marché Azure au moyen de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
 * [Image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
 * [Image personnalisée à l’aide de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
@@ -490,7 +490,7 @@ Vous pouvez utiliser ce modèle Azure Resource Manager pour SAP afin de simplifi
 
 Voici où vous pouvez obtenir des modèles Azure Resource Manager pour ce scénario de déploiement :
 
-* [Image Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Image de Place de marché Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
 * [Image de Place de marché Azure au moyen de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
 * [Image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
 * [Image personnalisée à l’aide de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
@@ -739,10 +739,10 @@ Définissez l’adresse IP de l’équilibrage de charge **pr1-lb-dbms** sur l�
 
 Si vous souhaitez utiliser d’autres numéros pour les instances SAP ASCS ou SCS, vous devez modifier les noms et valeurs par défaut de ces ports.
 
-1.  Dans le portail Azure, sélectionnez **<*SID*>-lb-ascs load balancer** > **Règles d’équilibrage de charge**.
+1.  Dans le portail Azure, sélectionnez **<*SID*-lb-ascs load balancer** > **Règles d’équilibrage de charge**.
 2.  Pour toutes les règles d’équilibrage de charge qui appartiennent à l’instance SAP ASCS ou SCS, modifiez les valeurs suivantes :
 
-  * Nom
+  * NOM
   * Port
   * Port principal
 
@@ -768,7 +768,7 @@ Azure Load Balancer offre un équilibrage de charge interne qui ferme les connex
 
 Pour ajouter des entrées de registre aux deux nœuds du cluster de l’instance SAP ASCS/SCS, ajoutez tout d’abord ces entrées de registre Windows aux deux nœuds de cluster Windows pour SAP ASCS/SCS :
 
-| Chemin | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nom de la variable |`KeepAliveTime` |
 | Type de variable |REG_DWORD (décimal) |
@@ -779,7 +779,7 @@ _**Tableau 3 :** Modification du premier paramètre TCP/IP_
 
 Puis, ajoutez ces entrées de registre Windows aux deux nœuds de cluster Windows pour l’instance SAP ASCS/SCS :
 
-| Chemin | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nom de la variable |`KeepAliveInterval` |
 | Type de variable |REG_DWORD (décimal) |
@@ -954,7 +954,7 @@ La configuration d’un témoin de partage de fichiers de cluster implique les t
 
   _**Figure 38 :** Confirmation de la reconfiguration du cluster_
 
-Après avoir installé le cluster de basculement Windows avec succès, des modifications doivent être apportées à certains seuils pour adapter la détection de basculement aux conditions dans Azure. Les paramètres à modifier sont documentés sur ce billet de blog : https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. En supposant que les deux machines virtuelles qui génèrent la configuration du cluster Windows pour ASCS/SCS se trouvent sur le même sous-réseau, les paramètres suivants doivent être modifiés avec ces valeurs :
+Après avoir installé le cluster de basculement Windows avec succès, des modifications doivent être apportées à certains seuils pour adapter la détection de basculement aux conditions dans Azure. Les paramètres à modifier sont décrits dans ce blog : https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . En supposant que les deux machines virtuelles qui génèrent la configuration du cluster Windows pour ASCS/SCS se trouvent sur le même sous-réseau, les paramètres suivants doivent être modifiés avec ces valeurs :
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1134,7 +1134,7 @@ L’installation de SAP avec une instance ASCS/SCS à haute disponibilité impli
 1.  Dans le Gestionnaire DNS Windows, créez une entrée DNS pour le nom d’hôte virtuel de l’instance ASC/SCS.
 
   > [!IMPORTANT]
-  > L'adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à l’équilibrage de charge Azure Load Balancer (**<*SID*>-lb-ascs**).  
+  > L’adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à l’équilibrage de charge Azure Load Balancer (**<*SID*>-lb-ascs**).  
   >
   >
 
@@ -1270,7 +1270,7 @@ Pour ajouter un port de sondage :
   }
   ```
 
-  Après avoir mis en ligne le rôle de cluster **SAP <*SID*>** vérifiez que **ProbePort** est défini sur la nouvelle valeur.
+  Après avoir mis en ligne le rôle de cluster **SAP <*SID*>**, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>

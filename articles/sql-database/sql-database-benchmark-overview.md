@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble du test d’évaluation de la base de données SQL Azure
+title: Vue d’ensemble du test d’évaluation DTU d’Azure SQL Database
 description: Cette rubrique décrit le test d’évaluation de la base de données SQL Azure utilisé pour mesurer les performances de la base de données SQL Azure.
 services: sql-database
 author: jan-eng
@@ -7,17 +7,20 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 06/21/2016
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Vue d’ensemble du test d’évaluation de la base de données SQL Azure
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Vue d’ensemble du test d’évaluation DTU d’Azure SQL Database
 ## <a name="overview"></a>Vue d'ensemble
-La base de données SQL Microsoft Azure propose trois [niveaux de service](sql-database-service-tiers.md) associés à plusieurs niveaux de performance. Chaque niveau de performance permet de gagner en ressources, c’est-à-dire en puissance, pour générer à chaque fois un meilleur débit.
+Dans le modèle d’achat DTU, Microsoft Azure SQL Database propose trois [niveaux de service](sql-database-service-tiers.md) associés à plusieurs niveaux de performance. Chaque niveau de performance permet de gagner en ressources, c’est-à-dire en puissance, pour générer à chaque fois un meilleur débit.
+
+> [!IMPORTANT]
+> Azure SQL Database prend désormais également en charge un modèle d’achat vCore (préversion). Pour plus d’informations, consultez [Modèle d’achat vCore (en préversion)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 Il est important de pouvoir évaluer dans quelle mesure le gain de puissance de chaque niveau de performance se répercute sur les performances de la base de données. C’est pourquoi Microsoft a développé le test d’évaluation de la base de données Azure (ASDB, Azure SQL Database Benchmark). Le test d’évaluation combine plusieurs opérations de base disponibles dans toutes les charges de travail OLTP. Nous évaluons le débit atteint avec les bases de données exécutées à chaque niveau de performance.
 

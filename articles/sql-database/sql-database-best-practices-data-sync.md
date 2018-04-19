@@ -1,18 +1,18 @@
 ---
-title: "Bonnes recommandées pour Azure SQL Data Sync (préversion) | Microsoft Docs"
-description: "Découvrez les bonnes pratiques pour configurer et exécuter Azure SQL Data Sync (préversion)."
+title: Bonnes recommandées pour Azure SQL Data Sync (préversion) | Microsoft Docs
+description: Découvrez les bonnes pratiques pour configurer et exécuter Azure SQL Data Sync (préversion).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>Bonnes pratiques pour SQL Data Sync (préversion) 
 
@@ -212,7 +212,7 @@ Pour plus d’informations sur SQL Data Sync (préversion), consultez :
 
 -   [Synchroniser des données entre plusieurs bases de données sur site et cloud avec Azure SQL Data Sync (préversion)](sql-database-sync-data.md)
 -   [Configurer Azure SQL Data Sync (préversion)](sql-database-get-started-sql-data-sync.md)
--   [Surveiller Azure SQL Data Sync (préversion) avec OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Surveiller Azure SQL Data Sync (préversion) avec Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync (préversion)](sql-database-troubleshoot-data-sync.md)  
 -   Exemples PowerShell complets sur la configuration de SQL Data Sync (préversion) :  
     -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)  

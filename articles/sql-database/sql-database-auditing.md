@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 L’audit de bases de données SQL Azure suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
@@ -118,7 +118,7 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 
     4. Le fichier fusionné s’ouvre dans SSMS, où vous pouvez l’afficher et l’analyser, ainsi que l’exporter vers un fichier XEL ou CSV, ou une table.
 
-* Utilisez l’[application de synchronisation](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que nous avons créée. Elle s’exécute dans Azure et utilise les API publiques OMS (Operations Management Suite) Log Analytics pour effectuer un push des journaux d’audit SQL vers OMS. L’application de synchronisation effectue un push des journaux d’audit SQL vers OMS Log Analytics pour les utiliser dans le tableau de bord OMS Log Analytics.
+* Utilisez l’[application de synchronisation](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que nous avons créée. Elle s’exécute dans Azure et s’appuie sur les API publiques Log Analytics pour effectuer un push des journaux d’audit SQL vers Log Analytics. L’application de synchronisation effectue un push des journaux d’audit SQL vers Log Analytics pour les utiliser dans le tableau de bord Log Analytics.
 
 * Utilisez Power BI. Vous pouvez afficher et analyser les données du journal d’audit dans Power BI. Explorez [Power BI et accédez à un modèle téléchargeable](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

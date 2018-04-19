@@ -1,25 +1,25 @@
 ---
-title: "Sources de données prises en charge par Azure Analysis Services | Microsoft Docs"
-description: "Décrit les sources de données prises en charge pour les modèles de données dans Azure Analysis Services."
+title: Sources de données prises en charge par Azure Analysis Services | Microsoft Docs
+description: Décrit les sources de données prises en charge pour les modèles de données dans Azure Analysis Services.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 04/05/2018
 ms.author: owend
-ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 16bf333fe18c912db7cb81e74fce29960b0728d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -33,12 +33,10 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 |Azure SQL Data Warehouse     |   OUI      |   OUI       |
 |Stockage Blob Azure*     |   OUI       |    Non       |
 |Stockage de tables Azure*    |   OUI       |    Non       |
-|Azure Cosmos DB (Bêta)*     |  OUI        |  Non         |
+|Azure Cosmos DB*     |  OUI        |  Non         |
 |Azure Data Lake Store*     |   OUI       |    Non       |
 |Azure HDInsight HDFS*     |     OUI     |   Non        |
-|Azure HDInsight Spark (Bêta)*     |   OUI       |   Non        |
-|Azure Database pour MySQL (Version préliminaire)*     |   OUI       |   Non       |
-|Azure Database pour PostgreSQL (Version préliminaire)*     | OUI         |  Non        |
+|Azure HDInsight Spark*     |   OUI       |   Non        |
 ||||
 
 \* Modèles Tabular 1400 uniquement.
@@ -112,7 +110,7 @@ Pour les sources de données cloud :
 
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Passerelle locale](analysis-services-gateway.md)   
 [Gérer votre serveur](analysis-services-manage.md)   
 

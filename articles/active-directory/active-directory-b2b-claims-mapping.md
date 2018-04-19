@@ -1,53 +1,47 @@
 ---
-title: "Mappage des revendications d’utilisateur B2B Collaboration dans Azure Active Directory | Microsoft Docs"
-description: "référence de mappage des revendications pour Azure Active Directory B2B Collaboration"
+title: Mappage des revendications d’utilisateur B2B Collaboration dans Azure Active Directory | Microsoft Docs
+description: Personnaliser les revendications d’utilisateur émises dans le jeton SAML pour les utilisateurs d’Azure Active Directory (Azure AD) B2B.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8f5e471d4e7102300cd5581976b45c9fa8cc57bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mappage des revendications d’utilisateur B2B Collaboration dans Azure Active Directory
 
-Azure Active Directory (Azure AD) prend en charge la personnalisation des revendications émises dans le jeton SAML pour les utilisateurs B2B Collaboration. Lorsqu’un utilisateur s’authentifie auprès de l’application, Azure AD émet un jeton SAML à l’application qui contient des informations (ou des revendications) sur l’utilisateur qui l’identifient de façon unique. Par défaut, ceci inclut le nom d’utilisateur, l’adresse e-mail, le prénom et nom de l’utilisateur. Vous pouvez afficher ou modifier les revendications envoyées à l’application dans le jeton SAML sous l’onglet Attributs.
+Azure Active Directory (Azure AD) prend en charge la personnalisation des revendications émises dans le jeton SAML pour les utilisateurs B2B Collaboration. Lorsqu’un utilisateur s’authentifie auprès de l’application, Azure AD émet un jeton SAML à l’application qui contient des informations (ou des revendications) sur l’utilisateur qui l’identifient de façon unique. Par défaut, ceci inclut le nom d’utilisateur, l’adresse e-mail, le prénom et nom de l’utilisateur.
 
-Il existe deux raisons pour lesquelles vous devrez peut-être modifier les revendications émises dans le jeton SAML.
+Le [Portail Azure](https://portal.azure.com) permet d’afficher et de modifier les revendications envoyées à l’application dans le jeton SAML. Pour accéder aux paramètres, sélectionnez **Azure Active Directory** > **Applications d’entreprise** > l’application configurée pour l’authentification unique > **Authentification unique**. Consultez les paramètres des jetons SAML dans la section **Attributs utilisateurs**.
 
-1. L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication
+![Attributs des jetons SAML dans l’interface utilisateur](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
 
-2. Votre application nécessite que la revendication NameIdentifier soit différente du nom d’utilisateur principal stocké dans Azure Active Directory.
+Il existe deux cas de figure dans lesquels il peut se révéler nécessaire de modifier les revendications émises dans le jeton SAML :
 
-  ![Afficher les revendications dans le jeton SAML](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
+1. L’application a besoin d’un ensemble différent d’URI ou de valeurs de revendication.
 
-Pour plus d’informations sur la façon d’ajouter et de modifier les revendications, consultez cet article sur la personnalisation des revendications, [Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory](develop/active-directory-saml-claims-customization.md). Pour les utilisateurs B2B Collaboration, le mappage entre locataires de NameID et UPN est empêché pour des raisons de sécurité.
+2. La revendication NameIdentifier doit être différente du nom d’utilisateur principal stocké dans Azure AD pour l’application.
 
+Pour plus d’informations sur l’ajout et la modification de revendications, consultez la page [Personnaliser les revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](develop/active-directory-saml-claims-customization.md).
+
+Pour les utilisateurs B2B Collaboration, le mappage entre locataires de NameID et UPN est empêché pour des raisons de sécurité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les autres articles sur la collaboration B2B d'Azure AD :
+- Pour plus d’informations sur les propriétés des utilisateurs B2B Collaboration, consultez la page [Propriétés d’un utilisateur d’Azure Active Directory B2B Collaboration](active-directory-b2b-user-properties.md).
+- Pour plus d’informations sur les jetons d’utilisateur pour les utilisateurs de B2B Collaboration, consultez la page [Comprendre les jetons d’utilisateurs dans Azure AD B2B Collaboration](active-directory-b2b-user-token.md).
 
-* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
-* [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
-* [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)
-* [Groupes dynamiques et B2B Collaboration](active-directory-b2b-dynamic-groups.md)
-* [Code B2B Collaboration et exemples PowerShell](active-directory-b2b-code-samples.md)
-* [Configurer des applications SaaS pour B2B Collaboration](active-directory-b2b-configure-saas-apps.md)
-* [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
-* [Jetons utilisateur B2B Collaboration](active-directory-b2b-user-token.md)
-* [Limitations actuelles de B2B Collaboration](active-directory-b2b-current-limitations.md)

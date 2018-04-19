@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65e5e45300e66cd8c3acc44a91335de45a919eb5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux vous permet d’analyser et résoudre les problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster.
 
-Pour télécharger et collecter des journaux, vous pouvez utiliser l’extension Windows Azure Diagnostics (WAD), qui télécharge les journaux dans Azure Storage, ou envoyer les journaux à Azure Application Insights ou à des concentrateurs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse, par exemple [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse de journaux.
+Pour télécharger et collecter des journaux, vous pouvez utiliser l’extension Windows Azure Diagnostics (WAD), qui télécharge les journaux dans Azure Storage, ou envoyer les journaux à Azure Application Insights ou à des concentrateurs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse, par exemple [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse de journaux.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -286,11 +286,11 @@ Les données de surveillance et de diagnostic peuvent être envoyées à Applica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez correctement configuré les diagnostics Azure, vous verrez les données de vos tables de stockage dans les journaux ETW et EventSource. Si vous choisissez d’utiliser OMS, Kibana ou une autre plateforme d’analyse et de visualisation des données qui n’est pas directement configurée dans le modèle Resource Manager, veillez à configurer la plateforme de votre choix pour lire les données à partir de ces tables de stockage. Cette opération relativement simple pour OMS est expliquée dans [Analyse d’événements et de journaux via OMS](service-fabric-diagnostics-event-analysis-oms.md). L’utilisation d’Application Insights est un peu plus compliquée ici, car il peut être configuré en tant que partie de la configuration de l’extension Diagnostics. Reportez-vous par conséquent à l[’article approprié](service-fabric-diagnostics-event-analysis-appinsights.md) si vous choisissez d’utiliser AI.
+Une fois que vous avez correctement configuré les diagnostics Azure, vous verrez les données de vos tables de stockage dans les journaux ETW et EventSource. Si vous choisissez d’utiliser Log Analytics, Kibana ou une autre plateforme d’analyse et de visualisation des données qui n’est pas directement configurée dans le modèle Resource Manager, veillez à configurer la plateforme de votre choix pour lire les données à partir de ces tables de stockage. Cette opération relativement simple pour Log Analytics est expliquée dans [Analyse d’événements et de journaux](service-fabric-diagnostics-event-analysis-oms.md). L’utilisation d’Application Insights est un peu plus compliquée ici, car il peut être configuré en tant que partie de la configuration de l’extension Diagnostics. Reportez-vous par conséquent à l[’article approprié](service-fabric-diagnostics-event-analysis-appinsights.md) si vous choisissez d’utiliser AI.
 
 >[!NOTE]
 >Il n’existe actuellement aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés à la table. Si vous n’implémentez aucun processus de suppression des événements de la table, la table continuera à croître. Un exemple de service de nettoyage de données en cours d’exécution est inclus avec l[’échantillon Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), et il est recommandé d’en écrire un vous-même, sauf s’il existe une bonne raison de stocker les journaux au-delà de 30 ou 90 jours.
 
 * [Découvrez comment collecter des compteurs de performances ou des journaux à l’aide de l’extension Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Analyse et visualisation d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Analyse et visualisation d’événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md)
+* [Analyse et visualisation d’événements avec Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)

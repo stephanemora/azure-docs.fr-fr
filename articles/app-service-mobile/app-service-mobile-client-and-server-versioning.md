@@ -1,11 +1,11 @@
 ---
-title: "Contrôle de version des Kits de développement logiciel (SDK) clients et serveurs dans Mobile Apps et Mobile Services | Microsoft Docs"
-description: "Liste des Kits de développement logiciel (SDK) clients et des compatibilités avec les versions des Kits de développement logiciel (SDK) serveurs pour Mobile Services et Azure Mobile Apps"
+title: Contrôle de version des Kits de développement logiciel (SDK) clients et serveurs dans Mobile Apps et Mobile Services | Microsoft Docs
+description: Liste des Kits de développement logiciel (SDK) clients et des compatibilités avec les versions des Kits de développement logiciel (SDK) serveurs pour Mobile Services et Azure Mobile Apps
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Contrôle de version client et serveur dans Mobile Apps et Mobile Services
 La dernière version d'Azure Mobile Services est la fonctionnalité **Mobile Apps** d'Azure App Service.

@@ -1,12 +1,12 @@
 ---
-title: "Métriques d’Azure Service Bus dans Azure Monitor (préversion) | Microsoft Docs"
-description: "Utiliser la surveillance Azure pour surveiller des entités Service Bus"
+title: Métriques d’Azure Service Bus dans Azure Monitor (préversion) | Microsoft Docs
+description: Utiliser la surveillance Azure pour surveiller des entités Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
 author: christianwolf42
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 20115897bb5ae2638588e79d80700fa8ece06104
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3660f0a6794a2fd784ec8846177da7effe7fe681
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métriques Azure Service Bus dans Azure Monitor (préversion)
 
@@ -28,7 +28,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder à ces métriques à partir du [portail Azure](https://portal.azure.com), ou utiliser les API Azure Monitor (REST et .Net) et des solutions d’analyse telles qu’Operation Management Suite (OMS) et Event Hubs. Pour plus d’informations, voir [Mesures Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme Log Analytics et Event Hubs. Pour plus d’informations, voir [Mesures Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) dans Azure Monitor.
 
@@ -46,7 +46,7 @@ Pour les mesures prenant en charge des dimensions, vous devez filtrer avec la va
 
 ## <a name="billing"></a>Facturation
 
-L’utilisation de mesures dans Azure Monitor est gratuite pendant la période de préversion. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Operation Management Suite (OMS) si vous diffusez en continu des données de métriques vers OMS pour une analyse avancée.
+L’utilisation de mesures dans Azure Monitor est gratuite pendant la période de préversion. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Log Analytics si vous diffusez des données de métriques pour Log Analytics pour une analyse avancée.
 
 Les métriques suivantes vous donnent une vue d’ensemble de l’intégrité de votre service. 
 

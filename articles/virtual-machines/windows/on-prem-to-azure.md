@@ -1,13 +1,13 @@
 ---
-title: "Migrer à partir d’AWS et d’autres plateformes vers Managed Disks dans Azure | Microsoft Docs"
-description: "Créez des machines virtuelles dans Azure à l’aide de disques durs virtuels chargés à partir d’autres clouds comme AWS ou d’autres plateformes de virtualisation, et tirez parti d’Azure Managed Disks."
+title: Migrer à partir d’AWS et d’autres plateformes vers Managed Disks dans Azure | Microsoft Docs
+description: Créez des machines virtuelles dans Azure à l’aide de disques durs virtuels chargés à partir d’autres clouds comme AWS ou d’autres plateformes de virtualisation, et tirez parti d’Azure Managed Disks.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrer à partir d’Amazon Web Services (AWS) et d’autres plateformes vers Managed Disks dans Azure
 
@@ -55,8 +55,9 @@ Azure Managed Disks simplifie la gestion des machines virtuelles en éliminant l
 
 Cette section vous aide à prendre la meilleure décision concernant les types de machines virtuelles et de disques.
 
+Si vous envisagez de migrer à partir de disques non managés vers des disques managés, prenez en compte le fait que les utilisateurs avec le rôle [Contributeur de machine virtuelle](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) ne sera pas en mesure de modifier la taille de la machine virtuelle (comme avant la conversion). Cela s’explique par le fait que les machines virtuelles avec disques managés obligent l’utilisateur à détenir une autorisation Microsoft.Compute/disks/write sur les disques du système d’exploitation.
 
-### <a name="location"></a>Emplacement
+### <a name="location"></a>Lieu
 
 Choisissez un emplacement où Azure Managed Disks est disponible. Si vous effectuez une migration vers des disques gérés Premium, assurez-vous également que le stockage Premium est disponible dans la région où vous prévoyez la migration. Pour obtenir des informations à jour sur les emplacements disponibles, consultez [Services Azure par région](https://azure.microsoft.com/regions/#services) .
 
@@ -93,7 +94,7 @@ Il existe cinq types de disques gérés Standard qui peuvent être utilisés ave
 
 Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les disques de données Premium et *Lecture-écriture* pour le disque du système d’exploitation Premium attaché à la machine virtuelle. Ce paramètre de configuration est recommandé pour optimiser les performances des E/S de votre application. Pour les disques de données en écriture seule ou avec d'importantes opérations d'écriture (par ex., les fichiers journaux de SQL Server), désactivez la mise en cache du disque pour de meilleures performances de l'application.
 
-### <a name="pricing"></a>Tarification
+### <a name="pricing"></a>Tarifs
 
 Consultez la [tarification des disques gérés](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). La tarification des disques gérés Premium est identique à celle des disques non gérés Premium. En revanche, la tarification des disques gérés Standard est différente de celle des disques non gérés Standard.
 

@@ -1,6 +1,6 @@
 ---
 title: Prise en charge du service Partage des ressources cross-origine (CORS) | Microsoft Docs
-description: "Découvrez comment activer la prise en charge du service CORS pour les services de stockage Microsoft Azure."
+description: Découvrez comment activer la prise en charge du service CORS pour les services de stockage Microsoft Azure.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
 Depuis la version 2013-08-15, les services Azure Storage prennent en charge le partage de ressources cross-origine (CORS) pour les services Blob Storage, Table Storage, Queue Storage et File Storage. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](http://www.w3.org/TR/cors/) .
@@ -71,7 +71,7 @@ Voici un exemple de règle CORS spécifiée via une opération Set Service Prope
 
 Chaque élément inclus dans la règle CORS est décrit ci-dessous :
 
-* **AllowedOrigins**: domaines d’origine qui sont autorisés à effectuer une demande auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, les domaines [http://www.contoso.com](http://www.contoso.com) et [http://www.fabrikam.com](http://www.fabrikam.com) peuvent envoyer des demandes au service à l’aide de CORS.
+* **AllowedOrigins**: domaines d’origine qui sont autorisés à effectuer une demande auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, les domaines [http://www.contoso.com](http://www.contoso.com) et [http://www.fabrikam.com](http://www.fabrikam.com) peuvent envoyer des requêtes au service à l’aide de CORS.
 * **AllowedMethods**: méthodes (verbes de requête HTTP) que le domaine d’origine peut utiliser pour une demande CORS. Dans l'exemple ci-dessus, seules les demandes PUT et GET sont autorisées.
 * **AllowedHeaders**: en-têtes de demande que le domaine d’origine peut spécifier dans la demande CORS. Dans l'exemple ci-dessus, tous les en-têtes de métadonnées commençant par x-ms-meta-data, x-ms-meta-target et x-ms-meta-abc sont autorisés. Notez que le caractère générique « * » indique que les en-têtes commençant par le préfixe spécifié sont autorisés.
 * **ExposedHeaders**: en-têtes de réponse qui peuvent être envoyés dans la réponse à la demande CORS et exposés par le navigateur à l’émetteur de la demande. Dans l'exemple ci-dessus, il est demandé au navigateur d'exposer les en-têtes commençant par x-ms-meta.
@@ -86,7 +86,7 @@ Les limitations suivantes s'appliquent aux règles CORS :
 * La longueur d'un en-tête autorisé, d'un en-tête exposé ou d'une origine autorisée ne doit pas dépasser 256 caractères.
 * Les en-têtes autorisés et les en-têtes exposés peuvent être :
   * des en-têtes littéraux, où le nom exact de l’en-tête est spécifié, tel que **x-ms-meta-processed**. Il ne peut pas y avoir plus de 64 en-têtes littéraux spécifiés sur la demande ;
-  * des en-têtes préfixés, où un préfixe de l’en-tête est spécifié, tel que **x-ms-meta-data**. Le fait de spécifier un préfixe de cette façon autorise ou expose tout en-tête qui commence par le préfixe donné. Il ne peut pas y avoir plus de deux en-têtes préfixés spécifiés sur la demande.
+  * des en-têtes préfixés, où un préfixe de l’en-tête est spécifié, tel que **x-ms-meta-data***. Le fait de spécifier un préfixe de cette façon autorise ou expose tout en-tête qui commence par le préfixe donné. Il ne peut pas y avoir plus de deux en-têtes préfixés spécifiés sur la demande.
 * Les méthodes (ou verbes HTTP) spécifiées dans l’élément **AllowedMethods** doivent respecter les méthodes prises en charge par les API de service de stockage Azure. Les méthodes prises en charge sont DELETE, GET, HEAD, MERGE, POST, OPTIONS et PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Présentation de la logique d'évaluation des règles CORS
@@ -131,7 +131,7 @@ L'exemple suivant illustre un corps de demande partiel pour une opération visan
 
 Ensuite, tenez compte des demandes CORS suivantes :
 
-| Demande |  |  | Réponse |  |
+| Requête |  |  | response |  |
 | --- | --- | --- | --- | --- |
 | **Méthode** |**Origine** |**En-têtes de requête** |**Correspondance de règle** |**Résultat** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Première règle |Succès |
@@ -165,16 +165,16 @@ Notez qu'en ce qui concerne les demandes à l'aide de méthodes autres que GET/H
 
 Le tableau suivant indique comment le stockage Azure répond aux demandes GET/HEAD en fonction des cas mentionnés précédemment :
 
-| Demande | Paramètre de compte et résultat de l'évaluation de la règle |  |  | Réponse |  |  |
+| Requête | Paramètre de compte et résultat de l'évaluation de la règle |  |  | response |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : «*  »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
-| Non |Non |Non |Non |Non |Non |Non |
-| Non |Oui |Non |Non |Oui |Non |Non |
-| Non |Oui |Oui |Non |Non |Oui |Oui |
-| Oui |Non |Non |Non |Non |Non |Non |
-| Oui |Oui |Non |Oui |Oui |Non |Oui |
-| Oui |Oui |Non |Non |Oui |Non |Non |
-| Oui |Oui |Oui |Non |Non |Oui |Oui |
+| **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : « * »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
+| Non  |Non  |Non  |Non  |Non  |Non  |Non  |
+| Non  |OUI |Non  |Non  |OUI |Non  |Non  |
+| Non  |OUI |OUI |Non  |Non  |OUI |OUI |
+| OUI |Non  |Non  |Non  |Non  |Non  |Non  |
+| OUI |OUI |Non  |OUI |OUI |Non  |OUI |
+| OUI |OUI |Non  |Non  |OUI |Non  |Non  |
+| OUI |OUI |OUI |Non  |Non  |OUI |OUI |
 
 ## <a name="billing-for-cors-requests"></a>Facturation des demandes CORS
 Les demandes préliminaires ayant abouti sont facturées si vous avez activé CORS pour l’un des services de stockage de votre compte (en appelant [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) ou [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)). Pour réduire les coûts, attribuez une valeur plus élevée à l’élément **MaxAgeInSeconds** dans vos règles CORS, de façon que l’agent utilisateur mette en cache la demande.

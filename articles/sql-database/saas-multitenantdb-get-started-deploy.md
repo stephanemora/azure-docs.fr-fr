@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
 
@@ -58,7 +58,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
 - *Utilisateur :* **af1**  *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
-- *Groupe de ressources :* **wingtip-dpt-af1** *(wingtip-dpt indique qu’il s’agit de l’application de base de données par client. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
+- *Groupe de ressources :* **wingtip-mt-af1** *(wingtip-mt-af1 indique qu’il s’agit de l’application multi-locataires partitionnée. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
 
 Choisissez vos noms maintenant et notez-les. 
 
@@ -124,7 +124,7 @@ Chaque lieu bénéficie d’un site web personnalisé pour répertorier ses év�
 Une page web centrale de **concentrateur d’événements** fournit une liste de liens vers les locataires de votre déploiement. Réalisez les étapes suivantes pour vous familiariser avec la page web de **concentrateur d’événements** et une application web individuelle :
 
 1. Ouvrez le **concentrateur d’événements** dans votre navigateur web :
-    - http://events.wingtip-mt.&lt;utilisateur&gt;.trafficmanager.net &nbsp; *(Remplacez &lt;utilisateur&gt; par la valeur de l’utilisateur de votre déploiement.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt;user&gt; par la valeur de l’utilisateur de votre déploiement.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -184,7 +184,7 @@ Actualisez le **concentrateur d’événements** : le nouveau locataire appara�
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Approvisionner un nouveau locataire dans sa propre base de données
 
 Le modèle multilocataire partitionné vous permet de choisir s’il faut approvisionner un nouveau locataire dans une base de données qui contient d’autres locataires dans sa propre base de données. Un locataire isolé dans sa propre base de données bénéficie des avantages suivants :
-- Les performances de la base de données du locataire peuvent être gérés indépendamment des besoins des autres locataires.
+- Les performances de la base de données du locataire peuvent être gérées indépendamment des besoins des autres locataires.
 - Si nécessaire, la base de données peut être restaurée à un point antérieur dans le temps, car aucun autre locataire n’est impacté.
 
 Vous pouvez placer les clients d’une version d'évaluation ou les clients en mode économique dans des bases de données multilocataires. Vous pouvez placer chaque client Premium dans sa propre base de données dédiée. Si vous créez un grand nombre de bases de données qui ne contiennent qu’un seul locataire, vous pouvez les gérer collectivement dans un pool élastique afin d’optimiser les coûts de ressource.

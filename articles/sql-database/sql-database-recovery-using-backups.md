@@ -2,18 +2,19 @@
 title: Restaurer une base de données SQL Azure à partir d’une sauvegarde | Microsoft Docs
 description: Apprenez-en plus sur la limite de restauration dans le temps, qui vous permet de restaurer une base de données SQL Azure à un point antérieur dans le temps (jusqu’à 35 jours).
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 02/13/2018
-ms.author: carlrab
-ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
 SQL Database fournit trois options pour la récupération de base de données à l’aide des [sauvegardes de base de données automatisées](sql-database-automated-backups.md) et des [sauvegardes depuis la rétention à long terme](sql-database-long-term-retention.md). Vous pouvez effectuer une restauration à partir d’une sauvegarde de base de données vers :
@@ -30,7 +31,7 @@ Une base de données restaurée implique un coût de stockage supplémentaire da
 - La restauration de P11-P15 vers S4-S12 ou P1-P6 si la taille maximale de la base de données est supérieure à 500 Go.
 - La restauration de P1-P6 vers S4-S12 si la taille maximale de la base de données est supérieure à 250 Go.
 
-Un coût supplémentaire s’applique, car la taille maximale de la base de données restaurée est supérieure à la quantité de stockage incluse pour le niveau de performance, et le stockage configuré au-delà de la quantité incluse est facturé en plus.  Pour les détails de la tarification du stockage supplémentaire, consultez la page [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en réduisant la taille maximale de la base de données à la quantité incluse. Pour plus d’informations sur les tailles de stockage de base de données et la modification de la taille maximale d’une base de données, consultez [Limites de ressources d’une base de données unique](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+Un coût supplémentaire s’applique, car la taille maximale de la base de données restaurée est supérieure à la quantité de stockage incluse pour le niveau de performance, et le stockage configuré au-delà de la quantité incluse est facturé en plus.  Pour les détails de la tarification du stockage supplémentaire, consultez la page [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en réduisant la taille maximale de la base de données à la quantité incluse. Pour plus d’informations sur les tailles de stockage de base de données et la modification de la taille maximale d’une base de données, consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) et [Limites de ressources basées sur des vCore](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
 > [!NOTE]
 > Les [sauvegardes de base de données automatiques](sql-database-automated-backups.md) sont utilisées lorsque vous créez une [copie de base de données](sql-database-copy.md). 
@@ -117,7 +118,7 @@ La géorestauration constitue l’option de récupération par défaut lorsque v
 La restauration dans le temps sur un géo-réplica secondaire n’est pas prise en charge actuellement. La restauration dans le temps peut être effectuée uniquement sur une base de données primaire. Pour plus d’informations sur l’utilisation de la géorestauration pour la récupération suite à une panne, voir [Récupération après une panne](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> La récupération à partir des sauvegardes est la solution de récupération d’urgence la plus élémentaire proposée dans SQL Database, avec le RPO (objectif de point de récupération) et l’ERT (temps de récupération estimé) les plus longs. Pour des solutions utilisant des bases de données De base, la géorestauration est souvent une solution de récupération d’urgence raisonnable avec un ERT de 12 heures. Pour des solutions utilisant des bases de données Standard ou Premium de plus grande taille qui nécessitent des temps de récupération plus courts, vous devez envisager d’utiliser une [géoréplication active](sql-database-geo-replication-overview.md). La géoréplication active offre un objectif de point de récupération et un temps de récupération estimé sensiblement inférieurs, car elle nécessite simplement un basculement vers une base de données secondaire répliquée en continu. Pour plus d’informations sur les choix de continuité d’activité, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+> La récupération à partir des sauvegardes est la solution de récupération d’urgence la plus élémentaire proposée dans SQL Database, avec le RPO (objectif de point de récupération) et l’ERT (temps de récupération estimé) les plus longs. Pour les solutions utilisant des bases de données de petite taille (par exemple des bases de données de niveau de service De base ou des bases de données de locataire de petite taille dans des pools élastiques), la géorestauration, qui présente un ERT de 12 heures, constitue dans la plupart des cas une solution de récupération d’urgence convenable. Pour les solutions s’appuyant sur des bases de données de plus grande taille et nécessitant des temps de récupération plus courts, il est recommandé d’utiliser [des groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md). La géoréplication active offre un objectif de point de récupération et un temps de récupération estimé sensiblement inférieurs, car elle nécessite simplement un basculement vers une base de données secondaire répliquée en continu. Pour plus d’informations sur les choix de continuité d’activité, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -149,6 +150,5 @@ Les sauvegardes automatiques protègent vos bases de données des erreurs utilis
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 * Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
-* Pour plus d’informations sur la rétention des sauvegardes à long terme, consultez [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
-* Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec le portail Azure, consultez [Configurer et utiliser la rétention des sauvegardes à long terme](sql-database-long-term-backup-retention-configure.md). 
+* Pour plus d’informations sur la rétention à long terme, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 * Pour plus d’informations sur les options de récupération plus rapides, consultez [Groupes de basculement et géoréplication active](sql-database-geo-replication-overview.md).  

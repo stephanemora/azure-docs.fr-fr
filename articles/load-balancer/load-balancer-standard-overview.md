@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Présentation de Azure Load Balancer Standard
 
@@ -43,7 +43,7 @@ Les ressources Load Balancer sont des objets dans lesquels vous pouvez exprimer 
 
 ## <a name="why-use-standard-load-balancer"></a>Pourquoi utiliser Load Balancer Standard ?
 
-Utilisez Load Balancer Standard pour l’intégralité de la plage de centres de données virtuels, allant des déploiements à petite échelle à des architectures multizones étendues et complexes.
+Standard Load Balancer vous permet de faire évoluer vos applications et d’engendrer une haute disponibilité, des déploiements à petite échelle aux architectures multizones étendues et complexes.
 
 Consultez la table ci-dessous pour obtenir une vue d’ensemble des différences entre Load Balancer Standard et Load Balancer de base :
 
@@ -180,7 +180,7 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 
 1. Créez une ressource Standard (Load Balancer et adresses IP publiques si nécessaire). Recréez vos règles et définitions de sonde.
 
-2. Créez ou mettez à jour un groupe de sécurité réseau (NSG) sur la carte réseau ou le sous-réseau pour mettre en liste blanche le trafic à charge équilibrée, la sonde, ainsi que tout autre trafic que vous souhaitez autoriser.
+2. Créez ou mettez à jour un groupe de sécurité réseau (NSG) sur la carte réseau ou le sous-réseau pour mettre en liste verte le trafic à charge équilibrée, la sonde, ainsi que tout autre trafic que vous souhaitez autoriser.
 
 3. Supprimez les ressources de la référence SKU De base (Load Balancer et adresses IP publiques, le cas échéant) de toutes les instances de machine virtuelle. Veillez également à supprimer toutes les instances de machine virtuelle d’un groupe à haute disponibilité.
 

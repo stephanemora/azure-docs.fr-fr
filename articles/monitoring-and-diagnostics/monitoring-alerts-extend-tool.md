@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: c2e11d89f35915ef0a0c1e1f544b0be8df0473de
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Comment étendre (copier) des alertes d’OMS à Azure
-À compter du **23 avril 2018**, les alertes configurées dans [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) seront étendues à Azure pour tous les clients les utilisant. Les alertes étendues à Azure se comportent de la même façon que dans OMS. Les fonctionnalités de surveillance restent intactes. Étendre les alertes créées dans OMS à Azure offre de nombreux avantages. Pour plus d’informations sur les avantages et la procédure d’extension des alertes d’OMS à Azure, consultez la page [Étendre les alertes d’OMS à Azure](monitoring-alerts-extend.md).
+À compter du **14 mai 2018**, les alertes configurées dans [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) seront étendues à Azure pour tous les clients les utilisant. Les alertes étendues à Azure se comportent de la même façon que dans OMS. Les fonctionnalités de surveillance restent intactes. Étendre les alertes créées dans OMS à Azure offre de nombreux avantages. Pour plus d’informations sur les avantages et la procédure d’extension des alertes d’OMS à Azure, consultez la page [Étendre les alertes d’OMS à Azure](monitoring-alerts-extend.md).
 
 Les clients qui souhaitent déplacer immédiatement leurs alertes d’OMS vers Azure peuvent le faire à l’aide de l’une des options indiquées.
 
@@ -157,8 +157,87 @@ Si l’appel POST réussit, il doit retourner la réponse 200 OK, avec :
 ```
 Ce qui indique que les alertes ont été étendues à Azure, comme indiqué par la version 2. Cette version sert uniquement à vérifier que les alertes ont bien été étendues à Azure et que cela n’a aucune incidence sur l’utilisation avec l’[API de recherche Log Analytics](../log-analytics/log-analytics-api-alerts.md). Une fois que les alertes ont été étendues à Azure, un rapport détaillé des modifications effectuées est envoyé à toutes les adresses e-mail fournies pendant l’appel GET.
 
+Enfin, si l’extension à Azure de toutes les alertes de l’espace de travail spécifié est déjà planifiée, la réponse à l’appel POST sera 403 Forbidden. Pour afficher un message d’erreur ou comprendre si le processus d’extension est bloqué, l’utilisateur peut effectuer un appel GET et le cas échéant un message d’erreur sera retourné ainsi qu’un résumé.
 
-Enfin, si l’extension à Azure de toutes les alertes de l’espace de travail spécifié a déjà été planifiée, la réponse à l’appel POST sera 403 Forbidden.
+```json
+{
+    "version": 1,
+    "message": "OMS was unable to extend your alerts into Azure, Error: The subscription is not registered to use the namespace 'microsoft.insights'. OMS will schedule extending your alerts, once remediation steps illustrated in the troubleshooting guide are done.",
+    "recipients": [
+       "john.doe@email.com",
+       "jane.doe@email.com"
+     ],
+    "migrationSummary": {
+        "alertsCount": 2,
+        "actionGroupsCount": 2,
+        "alerts": [
+            {
+                "alertName": "DemoAlert_1",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_1"
+            },
+            {
+                "alertName": "DemoAlert_2",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_2"
+            }
+        ],
+        "actionGroups": [
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                "actions": {
+                    "emailIds": [
+                        "JohnDoe@mail.com"
+                    ],
+                    "webhookActions": [
+                        {
+                            "name": "Webhook_1",
+                            "serviceUri": "http://test.com"
+                        }
+                    ],
+                    "itsmAction": {}
+                }
+            },
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                 "actions": {
+                    "emailIds": [
+                        "test1@mail.com",
+                          "test2@mail.com"
+                    ],
+                    "webhookActions": [],
+                    "itsmAction": {
+                        "connectionId": "<Guid>",
+                        "templateInfo":"{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{\\\"contact_type\\\":\\\"email\\\",\\\"impact\\\":\\\"3\\\",\\\"urgency\\\":\\\"2\\\",\\\"category\\\":\\\"request\\\",\\\"subcategory\\\":\\\"password\\\"}\",\"CreateOneWIPerCI\":false}"
+                    }
+                }
+            }
+        ]
+    }
+}              
+
+```
+
+## <a name="troubleshooting"></a>Résolution de problèmes 
+Pendant le processus d’extension des alertes d’OMS à Azure, des problèmes occasionnels peuvent se produire empêchant le système de créer les [Groupes d’actions](monitoring-action-groups.md)nécessaires. Dans ce cas, un message d’erreur s’affiche dans le portail OMS via la bannière dans la section Alerte et dans l’appel GET effectué à l’API.
+
+Vous trouverez ci-dessous les étapes de correction pour chaque erreur :
+1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'** (Erreur : l’abonnement n’est pas inscrit pour utiliser l’espace de noms ’microsoft.insights’) : ![page Paramètres d’alerte du portail OMS affichant le message d’erreur d’inscription](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+
+    a. L’abonnement associé à votre espace de travail OMS n’est pas inscrit pour utiliser la fonctionnalité Azure Monitor (microsoft.insights) ; pour cette raison OMS ne peut pas étendre vos alertes à Azure Monitor & Alertes.
+    
+    b. Pour résoudre cette erreur, inscrivez l’utilisation de microsoft.insights (Azure Monitor & Alertes) dans votre abonnement à l’aide de Powershell, d’Azure CLI ou du portail Azure. Pour plus d’informations, consultez l’article sur la [résolution des erreurs d’inscription de fournisseurs de ressources](../azure-resource-manager/resource-manager-register-provider-errors.md)
+    
+    c. Une fois l’erreur résolue en suivant les étapes indiquées dans cet article, OMS étendra vos alertes à Azure lors de l’exécution planifiée du jour suivant ; aucune action ou initiation n’est nécessaire.
+2. **Error: Scope Lock is present at subscription/resource group level for write operations** (Erreur : un verrou d’étendue est présent au niveau de l’abonnement/groupe de ressources pour les opérations d’écriture) : ![page Paramètres d’alerte du portail OMS affichant le message d’erreur de verrou d’étendue](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. Le verrou d’étendue est activé, et empêche toute nouvelle modification à l’abonnement ou au groupe de ressources contenant l’espace de travail Log Analytics (OMS) ; le système ne peut pas étendre les alertes (copie) à Azure et créer les groupes d’actions nécessaires.
+    
+    b. Pour résoudre cette erreur, supprimez le verrou *Lecture seule* sur votre abonnement ou groupe de ressources contenant l’espace de travail à l’aide du portail Azure, de Powershell, d’Azure CLI ou d’API. Pour en savoir plus, consultez l’article sur [l’utilisation du verrouillage des ressources](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Une fois l’erreur résolue en suivant les étapes indiquées dans cet article, OMS étendra vos alertes à Azure lors de l’exécution planifiée du jour suivant ; aucune action ou initiation n’est nécessaire.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: c62817b6bb60d99a4762e433510cc54d15add35a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -188,7 +188,7 @@ Si vous souhaitez contrôler et surveiller les tâches en arrière-plan, utilise
 
 Avant de passer à la section suivante, laissez le générateur de charge en cours d’exécution dans l’état d’appel de tâche.
 
-## <a name="provision-a-new-tenant"></a>Approvisionner un nouveau locataire
+## <a name="provision-a-new-tenant"></a>Provisionner un nouveau locataire
 
 Le déploiement initial crée trois exemples de locataire. Maintenant, vous créez un autre locataire pour voir son impact sur l’application déployée. Dans l’application Wingtip, le flux de travail permettant de provisionner les nouveaux locataires est expliqué dans le [didacticiel sur le provisionnement et l’inscription dans le catalogue](saas-dbpertenant-provision-and-catalog.md). Au cours de cette phase, vous créez un locataire, ce qui prend moins d’une minute.
 

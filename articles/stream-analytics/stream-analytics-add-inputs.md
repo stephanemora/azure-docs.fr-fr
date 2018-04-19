@@ -1,25 +1,19 @@
 ---
-title: Ajout d’une entrée de données à vos travaux Stream Analytics | Microsoft Docs
+title: Ajouter une entrée de données à vos tâches Azure Stream Analytics
 description: Découvrez comment connecter une source de données à votre tâche Stream Analytics en tant qu'entrée de données de diffusion en continu partir de Event Hubs ou référencer des données à partir du stockage d'objets blob.
-keywords: entrée de données, données de diffusion en continu
-documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: ryanw
-editor: ''
-ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 441cc2d1c6d2cdc6ce4bbd14306ec8ae71c38c55
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Ajout d'une entrée de données de diffusion en continu ou de données de référence à une tâche Stream Analytics
 Découvrez comment connecter une source de données à votre tâche Stream Analytics en tant qu’entrée de données de diffusion en continu à partir de Event Hubs ou référencer des données à partir du stockage d’objets blob.
@@ -73,7 +67,7 @@ Pour ajouter une entrée à votre tâche Stream Analytics :
     ![Tester la connexion de l’entrée de données de diffusion en continu](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>Obtenir de l'aide sur les entrées de données de diffusion en continu
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

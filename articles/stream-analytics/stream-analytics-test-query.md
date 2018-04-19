@@ -1,24 +1,19 @@
 ---
-title: Test des requêtes Azure Stream Analytics | Microsoft Docs
-description: Test des requêtes dans les travaux Stream Analytics
-keywords: test des requêtes, dépannage des requêtes
-documentation center: ''
+title: Tester des requêtes dans Azure Stream Analytics
+description: Cet article décrit comment tester des requêtes à l’aide d’exemples de fichiers de données dans des tâches Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 50bfce426bf48ba986887f8a2e2873fe04ea2507
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: fb7d936dfdc543c208ce98c588f5ad83704ff5dc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Tester les requêtes Azure Stream Analytics dans le portail Azure
 
@@ -44,7 +39,7 @@ Une fois que vous êtes satisfait des résultats affichés dans le navigateur, v
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

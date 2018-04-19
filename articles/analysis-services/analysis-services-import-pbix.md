@@ -1,34 +1,33 @@
 ---
 title: Importer un fichier Power BI Desktop dans Azure Analysis Services | Microsoft Docs
-description: "Décrit comment importer un fichier Power BI Desktop (pbix) à l’aide du portail Azure."
+description: Décrit comment importer un fichier Power BI Desktop (pbix) à l’aide du portail Azure.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/26/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2ba9bc0e4b9a55312875fe120ee179800aeefb23
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importer un fichier Power BI Desktop
 
 Vous pouvez créer un modèle dans Azure AS en important un fichier Power BI Desktop (pbix). Les connexions de sources de données, les données en cache et les métadonnées de modèle sont importées. Les rapports et les visualisations ne sont pas importés.
 
 **Restrictions**   
-- Le modèle pbix doit se connecter uniquement aux [sources de données prises en charge par Analysis Services](analysis-services-datasource.md). 
+- Le modèle pbix peut se connecter aux sources de données Azure SQL Database et Azure SQL Data Warehouse uniquement. 
 - Le modèle pbix ne peut pas avoir de connexions DirectQuery ou en temps réel. 
-- Si le modèle pbix se connecte aux sources de données locales, une [passerelle de données locales](analysis-services-gateway.md) doit être configurée pour votre serveur Analysis Services.
 - L’importation risque d’échouer si votre modèle de données pbix contient des métadonnées non prises en charge dans Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Importation à partir de pbix

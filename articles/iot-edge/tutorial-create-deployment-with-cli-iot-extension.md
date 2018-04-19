@@ -1,21 +1,21 @@
 ---
-title: "Déployer des modules sur des appareils IoT Edge à l’aide de l’extension IoT pour Azure CLI 2.0 | Microsoft Docs"
-description: "Déployer des modules sur un appareil IoT Edge à l’aide de l’extension IoT pour Azure CLI 2.0"
+title: Déployer des modules sur des appareils IoT Edge à l’aide de l’extension IoT pour Azure CLI 2.0 | Microsoft Docs
+description: Déployer des modules sur un appareil IoT Edge à l’aide de l’extension IoT pour Azure CLI 2.0
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Déployer des modules sur un appareil IoT Edge à l’aide de l’extension IoT pour Azure CLI 2.0
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/09/2018
 
 Azure CLI 2.0 vous permet de gérer les ressources Azure IoT Hub, les instances de service Device Provisioning et les hubs liés dès l’installation. La nouvelle extension IoT enrichit Azure CLI 2.0 avec des fonctionnalités telles que la gestion des périphériques et la fonctionnalité complète de IoT Edge.
 
-Dans ce didacticiel, vous commencez par les étapes de configuration de Azure CLI 2.0 et de l’extension IoT. Ensuite, vous découvrez comment déployer des modules sur un périphérique IoT Edge à l’aide des commandes CLI disponibles.
+Dans cet article, vous configurez Azure CLI 2.0 et l’extension IoT. Ensuite, vous découvrez comment déployer des modules sur un périphérique IoT Edge à l’aide des commandes CLI disponibles.
 
 ## <a name="prerequisites"></a>Prérequis
 

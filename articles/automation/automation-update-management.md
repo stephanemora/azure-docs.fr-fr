@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -30,7 +30,7 @@ Les ordinateurs gérés par Update Management utilisent les configurations suiva
 * Runbook Worker hybride Automation
 * Services Microsoft Update ou Windows Server Update pour ordinateurs Windows
 
-Le schéma suivant présente une vue conceptuelle du comportement et du flux de données liés à l’évaluation des mises à jour de sécurité par la solution et à leur application à tous les ordinateurs Windows Server et Linux connectés dans un espace de travail.    
+Le schéma suivant présente une vue conceptuelle du comportement et du flux de données liés à l’évaluation des mises à jour de sécurité par la solution et à leur application à tous les ordinateurs Windows Server et Linux connectés dans un espace de travail.
 
 ![Flux du processus Update Management](media/automation-update-management/update-mgmt-updateworkflow.png)
 
@@ -70,21 +70,24 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 
 #### <a name="windows"></a>Windows
 
-Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update. De plus, l’agent Windows ne peut pas être géré simultanément par System Center Configuration Manager. L’[agent Windows](../log-analytics/log-analytics-agent-windows.md) est obligatoire. Cet agent est automatiquement installé si vous intégrez une machine virtuelle Azure.
+Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update. Update Management peut être utilisé avec System Center Configuration Manager ; pour en savoir plus sur les scénarios d’intégration, consultez [Intégrer System Center Configuration Manager à Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). L’[agent Windows](../log-analytics/log-analytics-agent-windows.md) est obligatoire. Cet agent est automatiquement installé si vous intégrez une machine virtuelle Azure.
 
 #### <a name="linux"></a>Linux
 
 Pour Linux, l’ordinateur doit avoir accès à un dépôt de mise à jour, qui peut être privé ou public. Les agents OMS pour Linux configurés pour rapporter à plusieurs espaces de travail Log Analytics ne sont pas pris en charge avec cette solution.
 
-Pour plus d’informations sur la manière d’installer Agent OMS pour Linux et de télécharger la dernière version, consultez [Agent Operations Management Suite pour Linux](https://github.com/microsoft/oms-agent-for-linux). Pour plus d’informations sur l’installation de l’agent OMS pour Windows, consultez [Operations Management Suite Agent pour Windows](../log-analytics/log-analytics-windows-agent.md).  
+Pour plus d’informations sur la manière d’installer Agent OMS pour Linux et de télécharger la dernière version, consultez [Agent Operations Management Suite pour Linux](https://github.com/microsoft/oms-agent-for-linux). Pour plus d’informations sur l’installation de l’agent OMS pour Windows, consultez [Operations Management Suite Agent pour Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Autorisations
-Pour créer et gérer des déploiements de mises à jour, vous devez disposer d’autorisations spécifiques. Pour en savoir plus sur ces autorisations, visitez [Accès en fonction du rôle - Update Management](automation-role-based-access-control.md#update-management). 
+
+Pour créer et gérer des déploiements de mises à jour, vous devez disposer d’autorisations spécifiques. Pour en savoir plus sur ces autorisations, visitez [Accès en fonction du rôle - Update Management](automation-role-based-access-control.md#update-management).
 
 ## <a name="solution-components"></a>Composants de la solution
+
 Cette solution se compose des ressources suivantes qui sont ajoutées à votre compte Automation et d’agents directement connectés ou d’un groupe d’administration Operations Manager connecté.
 
 ### <a name="hybrid-worker-groups"></a>Groupes de Workers hybrides
+
 Après avoir activé cette solution, tout ordinateur Windows directement connecté à votre espace de travail Log Analytics est automatiquement configuré comme un Runbook Worker hybride pour prendre en charge les Runbooks inclus dans cette solution. Chaque ordinateur Windows géré par la solution est répertorié dans la page des groupes de rôles de travail hybrides en tant que groupe de rôles de travail hybride du compte Automation conformément à la convention d’affectation de noms *Hostname FQDN_GUID*. Vous ne pouvez pas cibler ces groupes avec des Runbooks dans votre compte, sans quoi ils échouent. Ces groupes sont uniquement destinés à prendre en charge de la solution de gestion.
 
 Vous pouvez toutefois ajouter les ordinateurs Windows à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des runbooks Automation à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides. Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du groupe de Runbooks Workers hybrides.
@@ -119,14 +122,13 @@ Heartbeat
 
 Sur un ordinateur Windows, vous pouvez observer les informations suivantes pour vérifier la connectivité de l’agent avec Log Analytics :
 
-1.  Ouvrez Microsoft Monitoring Agent dans le Panneau de configuration, puis, dans l’onglet **Azure Log Analytics**, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté à Log Analytics**.   
-2.  Ouvrez le journal des événements Windows, accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du connecteur de service source. Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail Log Analytics et qu’il reçoit la configuration.  
+1. Ouvrez Microsoft Monitoring Agent dans le Panneau de configuration, puis, dans l’onglet **Azure Log Analytics**, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté à Log Analytics**.   
+2. Ouvrez le journal des événements Windows, accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du connecteur de service source. Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail Log Analytics et qu’il reçoit la configuration.
 
 Si l’agent ne parvient pas à communiquer avec Log Analytics et qu’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy sont correctement configurés en consultant la [configuration réseau de l’agent Windows](../log-analytics/log-analytics-agent-windows.md) ou la [configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou une passerelle OMS et que vous intégrez cette solution, mettez à jour les autorisations *proxy.conf* pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier en exécutant les commandes suivantes :  
-> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou une passerelle OMS et si vous intégrez cette solution, mettez à jour les autorisations *proxy.conf* pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier en exécutant les commandes suivantes : `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
 Les nouveaux agents Linux ajoutés affichent l’état **Mis à jour** après l’exécution d’une évaluation. Ce processus peut prendre jusqu’à 6 heures.
@@ -136,6 +138,7 @@ Pour vérifier qu’un groupe d’administration Operations Manager communique a
 ## <a name="data-collection"></a>Collecte des données
 
 ### <a name="supported-agents"></a>Agents pris en charge
+
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
 | Source connectée | Prise en charge | Description |
@@ -145,11 +148,13 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | Groupe d’administration d’Operations Manager |OUI |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
+
 Pour chaque ordinateur Windows géré, une analyse est effectuée deux fois par jour. Les API Windows sont appelées toutes les 15 minutes pour rechercher l’heure de la dernière mise à jour afin de déterminer si l’état a changé et si une analyse de conformité est lancée. Pour chaque ordinateur Linux géré, une analyse est effectuée toutes les 3 heures.
 
-L’affichage des données mises à jour des ordinateurs gérés dans le tableau de bord peut prendre de 30 minutes à 6 heures.   
+L’affichage des données mises à jour des ordinateurs gérés dans le tableau de bord peut prendre de 30 minutes à 6 heures.
 
 ## <a name="viewing-update-assessments"></a>Affichage des évaluations de mises à jour
+
 Cliquez sur **Update Management** dans votre compte Automation pour afficher l’état de vos ordinateurs.
 
 Cet affichage fournit des informations sur vos ordinateurs, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés.
@@ -165,7 +170,7 @@ Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows
 
 Pour éviter que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations sur cette configuration, consultez la [rubrique Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure. Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distributions en ligne en tenant compte de leurs méthodes prises en charge.  
+Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure. Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distributions en ligne en tenant compte de leurs méthodes prises en charge.
 
 ## <a name="viewing-missing-updates"></a>Affichage des mises à jour manquantes
 
@@ -204,8 +209,8 @@ Le tableau suivant fournit des exemples de recherches dans les journaux d’enre
 |Mettre à jour<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Ensemble des ordinateurs avec des mises à jour manquantes<br>Ajoutez une des valeurs suivantes pour limiter le système d’exploitation :<br>OSType = "Windows"<br>OSType == "Linux" |
 | Mettre à jour<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Mises à jour manquantes pour un ordinateur spécifique (remplacer la valeur par le nom de votre ordinateur)|
 | Événement<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |Événements d’erreur pour les machines où des mises à jour critiques ou de sécurité obligatoires sont manquantes |
-| Mettre à jour<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Mises à jour manquantes distinctes sur tous les ordinateurs | 
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Ordinateurs avec les mises à jour ayant échoué dans une exécution de mise à jour<br>Ajoutez une des valeurs suivantes pour limiter le système d’exploitation :<br>OSType = "Windows"<br>OSType == "Linux" | 
+| Mettre à jour<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Mises à jour manquantes distinctes sur tous les ordinateurs |
+| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Ordinateurs avec les mises à jour ayant échoué dans une exécution de mise à jour<br>Ajoutez une des valeurs suivantes pour limiter le système d’exploitation :<br>OSType = "Windows"<br>OSType == "Linux" |
 | Mettre à jour<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |Liste de tous les ordinateurs Linux pour lesquels une mise à jour de package corrigeant une vulnérabilité critique ou de sécurité est disponible | 
 | UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Ordinateurs mis à jour dans cette mise à jour (remplacer la valeur par le nom de votre déploiement de mises à jour) | 
 
@@ -239,15 +244,15 @@ Le déploiement de mises à jour par classification peut ne pas fonctionner sur 
 
 Cette section fournit des informations pour vous aider à résoudre les problèmes liés à la solution de gestion de mises à jour.
 
-Si vous rencontrez des problèmes lorsque vous essayez d’intégrer la solution ou une machine virtuelle, recherchez dans le journal d’évènements **Journaux des applications et des services\Operations Manager** les événements avec l’ID d’événement 4502 et le message d’événement contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. Le tableau suivant met en évidence des messages d’erreur spécifiques et une résolution possible pour chacun d’entre eux.  
+Si vous rencontrez des problèmes lorsque vous essayez d’intégrer la solution ou une machine virtuelle, recherchez dans le journal d’évènements **Journaux des applications et des services\Operations Manager** les événements avec l’ID d’événement 4502 et le message d’événement contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. Le tableau suivant met en évidence des messages d’erreur spécifiques et une résolution possible pour chacun d’entre eux.
 
-| Message | Motif | Solution |   
-|----------|----------|----------|  
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception System.InvalidOperationException : {"Message" :"La machine est déjà inscrite sur un autre compte."} | La machine est déjà intégrée à un autre espace de travail pour Update Management | Éliminez les anciens artefacts en [supprimant le groupe de Runbooks hybrides](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
-| Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception System.Net.Http.HttpRequestException : une erreur s’est produite lors de l’envoi de la requête. --->System.Net.WebException : la connexion sous-jacente était fermée : une erreur inattendue s’est produite à la réception. ---> System.ComponentModel.Win32Exception : le client et le serveur ne peuvent pas communiquer car ils n’ont pas d’algorithme en commun) | Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)|  
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception Newtonsoft.Json.JsonReaderException : erreur d’analyse de valeur infinie positive.) | Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)| 
-| The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. (Le certificat présenté par le service .oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL.) |Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)|  
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException : échec de la création d’un certificat auto-signé. --->System.UnauthorizedAccessException : accès refusé.) | Échec de génération du certificat auto-signé | Vérifiez que le compte système a<br>un accès en lecture au dossier :<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
+| Message | Motif | Solution |
+|----------|----------|----------|
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception System.InvalidOperationException : {"Message" :"La machine est déjà inscrite sur un autre compte."} | La machine est déjà intégrée à un autre espace de travail pour Update Management | Éliminez les anciens artefacts en [supprimant le groupe de Runbooks hybrides](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception System.Net.Http.HttpRequestException : une erreur s’est produite lors de l’envoi de la requête. --->System.Net.WebException : la connexion sous-jacente était fermée : une erreur inattendue s’est produite à la réception. ---> System.ComponentModel.Win32Exception : le client et le serveur ne peuvent pas communiquer car ils n’ont pas d’algorithme en commun) | Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)|
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception Newtonsoft.Json.JsonReaderException : erreur d’analyse de valeur infinie positive.) | Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)|
+| The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. (Le certificat présenté par le service .oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL.) |Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)|
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException : échec de la création d’un certificat auto-signé. --->System.UnauthorizedAccessException : accès refusé.) | Échec de génération du certificat auto-signé | Vérifiez que le compte système a<br>un accès en lecture au dossier :<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

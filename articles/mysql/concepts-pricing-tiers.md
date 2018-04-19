@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 9d4e42df3137108248a043bb0d9def181d766c7a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -24,7 +24,7 @@ Vous pouvez créer un serveur Azure Database pour MySQL dans un des trois diffé
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Mémoire par vCore | Ligne de base | 2x De base | 2x Usage général |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 1 To | 5 Go à 1 To |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 2 To | 5 Go à 2 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
 
@@ -46,9 +46,9 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 |:---|:----------:|:--------------------:|
 | Centre des États-Unis |  | X |
 | Est des États-Unis | X | X |
-| Est des États-Unis 2 | X |  |
+| Est des États-Unis 2 | X | X |
 | Centre-Nord des États-Unis | X |  |
-| États-Unis - partie centrale méridionale | X |  |
+| États-Unis - partie centrale méridionale | X | X |
 | États-Unis de l’Ouest | X | X |
 | Ouest des États-Unis 2 |  | X |
 | Centre du Canada | X | X |
@@ -63,8 +63,8 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Est de l’Australie |  | X |
 | Inde centrale | X |  |
 | Inde occidentale | X |  |
-| Est du Japon | X |  |
-| Ouest du Japon | X |  |
+| Est du Japon | X | X |
+| Ouest du Japon | X | X |
 | Corée du Sud |  | X |
 
 Selon le niveau tarifaire, chaque vCore est doté d’une quantité spécifique de mémoire. Lorsque vous augmentez ou diminuez le nombre de vCores pour votre serveur, la mémoire augmente ou diminue proportionnellement. Le niveau Usage général fournit le double de quantité de mémoire par vCore par rapport au niveau De base. Le niveau À mémoire optimisée fournit le double de quantité de mémoire par rapport au niveau Usage général.
@@ -76,13 +76,13 @@ Le stockage que vous approvisionnez est la quantité de stockage disponible pour
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
-| Taille de stockage | 5 Go à 1 To | 5 Go à 1 To | 5 Go à 1 To |
+| Taille de stockage | 5 Go à 1 To | 5 Go à 2 To | 5 Go à 2 To |
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
 | E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde |
 
 Vous pouvez ajouter une capacité de stockage supplémentaire pendant et après la création du serveur. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
-Vous pouvez surveiller votre consommation d’E/S dans le portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
+Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
 
 ## <a name="backup"></a>Sauvegarde
 
@@ -98,7 +98,7 @@ La mise à l’échelle du stockage et la modification de la période de rétent
 
 ## <a name="pricing"></a>Tarifs
 
-Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/mysql/). Pour voir le coût de la configuration souhaitée, le [portail Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, puis choisissez **Azure Database pour MySQL**.
+Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/mysql/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, puis choisissez **Azure Database pour MySQL**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

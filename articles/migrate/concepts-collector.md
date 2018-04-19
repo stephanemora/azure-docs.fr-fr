@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Appliance Collecteur
 
@@ -53,7 +53,7 @@ L’appliance Collecteur doit être connectée à Internet pour pouvoir envoyer 
 1. Vous pouvez configurer le Collecteur pour qu’il bénéficie d’une connectivité Internet directe.
 2. Vous pouvez configurer le Collecteur via un serveur proxy.
     * Si le serveur proxy requiert une authentification, spécifiez le nom d’utilisateur et le mot de passe dans les paramètres de connexion.
-    * L’adresse IP/Le nom FQDN du serveur proxy doit être au format http://Adresse_IP ou http://FQDN. Seul le proxy HTTP est pris en charge.
+    * L’adresse IP/le nom FQDN du serveur proxy doit être au format http://IPaddress ou http://FQDN. Seul le proxy HTTP est pris en charge.
 
 > [!NOTE]
 > Les serveurs proxy HTTPS ne sont pas pris en charge par le Collecteur.
@@ -126,7 +126,7 @@ Une fois connecté au serveur vCenter, vous pouvez sélectionner une étendue de
 
 1. L’étendue peut être un centre de données, un dossier ou un hôte ESXi. 
 2. Vous ne pouvez sélectionner qu’une étendue à la fois. Pour sélectionner plusieurs machines virtuelles, vous pouvez effectuer une détection, puis redémarrer le processus de détection avec une nouvelle étendue.
-3. Vous ne pouvez sélectionner qu’une étendue ayant *moins de 1 000 machines virtuelles*. Si vous sélectionnez une étendue qui comprend plus de 1 000 machines virtuelles, vous devez fractionner l’étendue en unités plus petites, en créant des dossiers. Ensuite, vous devez exécuter des détections indépendantes des dossiers plus petits.
+3. Vous ne pouvez sélectionner qu’une étendue ayant *moins de 1 500 machines virtuelles*.
 
 ## <a name="specify-migration-project"></a>Spécifier un projet de migration
 
@@ -197,6 +197,16 @@ Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans
 5. Cliquez avec le bouton droit sur Setup.ps1 et sélectionnez Exécuter avec PowerShell et suivez les instructions à l’écran pour installer la mise à jour.
 
 ### <a name="list-of-updates"></a>Liste des mises à jour
+
+#### <a name="upgrade-to-version-1097"></a>Mise à niveau vers la version 1.0.9.7
+
+Pour mettre à niveau vers la version 1.0.9.7, téléchargez le [package](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algorithme** | **Valeur de hachage**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>Mise à niveau vers la version 1.0.9.5
 

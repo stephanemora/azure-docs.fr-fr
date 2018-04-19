@@ -1,0 +1,88 @@
+---
+title: Privileged Identity Management pour les ressources Azure - Activer la gestion des abonnements | Microsoft Docs
+description: Découvrez comment les administrateurs généraux peuvent gérer les abonnements dans le locataire.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: mtillman
+ms.service: active-directory
+ms.devlang: na
+ms.topic: how-to
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 03/27/2018
+ms.author: billmath
+ms.custom: pim
+ms.openlocfilehash: 4c6ae3da34fe5157314b8ea422591f7ecbd2a667
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/06/2018
+---
+# <a name="enable-subscription-management"></a>Activer la gestion des abonnements
+
+En tant qu’administrateur général de votre répertoire, il est possible que vous n’ayez pas accès par défaut à toutes les ressources d’abonnement de votre locataire. Cet article présente les étapes à suivre pour obtenir l’accès à tous les abonnements dans votre locataire et recommande une approche pour assurer votre conformité avec les éventuels contrôles de sécurité que votre entreprise a mis en place dans le cadre de cet accès.
+
+## <a name="who-can-enable-management-of-subscriptions-in-my-directory"></a>Qui peut activer la gestion des abonnements dans mon répertoire ?
+
+Chaque utilisateur affecté au rôle d’administrateur général doit suivre les étapes ci-dessous pour activer la gestion des abonnements. Une fois que vous avez activé la gestion des abonnements pour vous-même, vous pouvez ajouter d’autres administrateurs généraux qui peuvent avoir besoin d’accéder aux ressources. Il n’existe aucun paramètre de répertoire qui active l’accès pour tous les membres disposant du rôle d’administrateur général.
+
+## <a name="log-on-to-the-azure-portal"></a>Se connecter au portail Azure
+
+Commencez par vous connecter au portail Azure avec un compte qui est associé ou éligible au rôle d’administrateur général. Si le compte est éligible au rôle d’administrateur général, vous devez d’abord activer le rôle avant de passer à l’étape suivante.
+
+## <a name="access-the-azure-ad-admin-center"></a>Accéder au centre d’administration Azure AD
+
+Maintenant que vous êtes connecté au portail Azure en tant qu’administrateur général, vous pouvez modifier les paramètres qui fournissent l’accès aux abonnements Azure. Accédez au centre d’administration Azure AD, puis recherchez et sélectionnez l’onglet Propriétés dans le volet de navigation de gauche.
+
+![](media/azure-pim-resource-rbac/aad_properties.png)
+
+Dans la liste des propriétés, définissez l’option « L’administrateur général peut gérer les abonnements Azure » sur « Oui ».
+
+![](media/azure-pim-resource-rbac/aad_properties_save.png)
+
+## <a name="navigate-to-azure-ad-pim"></a>Accéder à Azure AD PIM
+
+Une fois cette option activée, votre compte est automatiquement ajouté au rôle « Administrateur de l’accès utilisateur » pour chaque ressource d’abonnement dans le locataire. Accédez à Azure AD PIM et sélectionnez les ressources Azure dans la section Gérer du volet de navigation de gauche.
+
+![](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+
+## <a name="manage-and-discover-resources"></a>Gérer et découvrir des ressources
+
+Si votre entreprise utilise déjà Azure AD PIM pour protéger les administrateurs dans Azure Active Directory, une liste d’abonnements s’affiche dans le panneau qui apparaît.
+
+![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+
+> [!NOTE]
+> Si aucune ressource ne s’affiche, vérifiez que :
+>- Votre rôle d’administrateur général n’a pas expiré 
+>- Votre entreprise dispose d’un abonnement Azure
+
+![](media/azure-pim-resource-rbac/aadpim_rbac_empty_resource_list.png)
+
+## <a name="configure-assignments"></a>Configurer des affectations
+
+Sélectionnez un abonnement dans la liste et affectez-vous directement (ou un groupe dont vous êtes membre) en tant que propriétaire éligible de la ressource. 
+[En savoir plus sur l’affectation de rôles](pim-resource-roles-assign-roles.md).
+
+Répétez cette opération pour chaque ressource avant de passer à l’étape suivante.
+
+## <a name="clean-up-standing-access"></a>Supprimer l’accès permanent
+
+Maintenant que vous disposez d’affectations éligibles pour les abonnements importants de votre entreprise, vous pouvez supprimer l’accès permanent en désactivant l’option correspondante dans les propriétés du répertoire :
+
+![](media/azure-pim-resource-rbac/aad_properties_no.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Découvrir des ressources](pim-resource-roles-discover-resources.md)
+
+[Configurer des paramètres de rôle](pim-resource-roles-configure-role-settings.md)
+
+
+
+
+
+
+
+

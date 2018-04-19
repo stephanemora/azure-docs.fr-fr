@@ -1,8 +1,8 @@
 ---
-title: "Gérer des clusters Hadoop Windows dans HDInsight au moyen du portail Azure | Microsoft Docs"
-description: "Découvrez la façon d'administrer le service HDInsight. Créez un cluster HDInsight, ouvrez la console JavaScript interactive et ouvrez la console de commandes Hadoop."
+title: Gérer des clusters Hadoop Windows dans HDInsight au moyen du portail Azure | Microsoft Docs
+description: Découvrez la façon d'administrer le service HDInsight. Créez un cluster HDInsight, ouvrez la console JavaScript interactive et ouvrez la console de commandes Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Hadoop Windows dans HDInsight à l'aide du portail Azure
 
@@ -33,6 +33,7 @@ Les informations mentionnées dans cet article s’appliquent uniquement aux clu
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -365,7 +366,7 @@ Sur la capture d’écran précédente, le numéro de la version d’Hadoop est 
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du portail et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :
 
 * [Administration de HDInsight à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md)

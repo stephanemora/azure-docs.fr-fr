@@ -1,6 +1,6 @@
 ---
 title: Bonnes pratiques pour les entreprises migrant vers Azure | Microsoft Docs
-description: "Décrit la structure que les entreprises peuvent utiliser pour garantir un environnement sécurisé et facile à gérer."
+description: Décrit la structure que les entreprises peuvent utiliser pour garantir un environnement sécurisé et facile à gérer.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Structure d’entreprise Azure : gouvernance normative de l’abonnement
 Les entreprises adoptent de plus en plus le cloud public en raison de son agilité et de la flexibilité. Elles utilisent les atouts du cloud pour générer des revenus ou optimiser les ressources de l’entreprise. Microsoft Azure offre une multitude de services que les entreprises peuvent combiner sous forme de blocs de construction pour traiter une large gamme de charges de travail et d’applications. 
@@ -135,7 +135,7 @@ Environnement « Agile » pour une division de création d’applications clou
 > 
 
 ### <a name="audit---what-happened"></a>Audit - que s’est-il passé ?
-Pour voir la manière dont votre environnement fonctionne, vous devez auditer l’activité de l’utilisateur. La plupart des types de ressources dans Azure créent des journaux de diagnostic que vous pouvez analyser par le biais d’un outil de journal ou dans Azure Operations Management Suite. Vous pouvez collecter des journaux d’activité sur plusieurs abonnements pour fournir une vue au niveau d’un service ou de l’entreprise. Les enregistrements d’audit sont un outil de diagnostic important et un mécanisme essentiel pour déclencher des événements dans l’environnement Azure.
+Pour voir la manière dont votre environnement fonctionne, vous devez auditer l’activité de l’utilisateur. La plupart des types de ressources dans Azure créent des journaux de diagnostic capables d’analyser par le biais d’un outil de journal ou dans Azure Log Analytics. Vous pouvez collecter des journaux d’activité sur plusieurs abonnements pour fournir une vue au niveau d’un service ou de l’entreprise. Les enregistrements d’audit sont un outil de diagnostic important et un mécanisme essentiel pour déclencher des événements dans l’environnement Azure.
 
 Les journaux d’activité du Resource Manager permettent de déterminer les **opérations** qui ont eu lieu et qui les a exécutées. Les journaux d’activité peuvent être collectés et agrégés à l’aide d’outils tels que Log Analytics.
 
@@ -159,8 +159,8 @@ Pour plus d’exemples de balises, consultez la rubrique [Conventions d’affect
 > Envisagez une stratégie qui impose de balisage pour les éléments suivants :
 > 
 > * Groupes de ressources
-> * Storage
-> * Machines virtuelles
+> * Stockage
+> * Virtual Machines
 > * Environnements de service d’applications/serveurs web
 > 
 > Cette stratégie de balisage identifie les métadonnées nécessaires dans vos abonnements pour l’activité, la finance, la sécurité, la gestion des risques et la gestion globale de l’environnement. 
@@ -190,7 +190,7 @@ Cette prolifération d’abonnements n’est plus nécessaire. Avec un contrôle
 > * Connectez votre magasin d’identités d’entreprise (généralement Active Directory) à Azure Active Directory à l’aide de l’outil AD Connect.
 > * Contrôlez les rôles Administrateur/Coadministrateur d’un abonnement à l’aide d’une identité gérée. **N’** affectez pas Admin/Co-admin à un nouveau propriétaire d’abonnement. Utilisez plutôt des rôles RBAC (contrôle d’accès en fonction du rôle) pour octroyer des droits de**propriétaire** à un groupe ou à une personne.
 > * Ajoutez des utilisateurs Azure à un groupe (par exemple, les propriétaires de l’application X) dans Active Directory. Utilisez le groupe synchronisé pour affecter aux membres de groupes les droits nécessaires pour gérer le groupe de ressources contenant l’application.
-> * Suivez le principe de l’octroi des **privilèges minimum** nécessaires pour exécuter le travail prévu. Par exemple :
+> * Suivez le principe de l’octroi des **privilèges minimum** nécessaires pour exécuter le travail prévu. Par exemple : 
 >   * Groupe de déploiement : un groupe qui ne peut que déployer des ressources.
 >   * Gestion des machines virtuelles : un groupe qui est capable de redémarrer les machines virtuelles (pour les opérations)
 > 
@@ -240,7 +240,7 @@ La gestion individuelle des ressources prend du temps et sujette aux erreurs dan
 > 
 > 
 
-## <a name="azure-security-center"></a>Centre de sécurité Azure
+## <a name="azure-security-center"></a>Azure Security Center
 Parmi les plus grands blocages à l’adoption du cloud, on compte les préoccupations liées à la sécurité. Les gestionnaires des risques informatiques et les services de sécurité doivent s’assurer que les ressources dans Azure sont sécurisées. 
 
 [L’Azure Security Center](../security-center/security-center-intro.md) fournit une vue centralisée de l’état de la sécurité des ressources dans les abonnements et fournit des recommandations qui aident à empêcher la compromission des ressources. Il peut autoriser des stratégies plus granulaires (par exemple, l’application de stratégies à des groupes de ressources spécifiques qui permettent à l’entreprise d’adapter sa position en fonction des risques auxquels elle est confrontée). Enfin, l’Azure Security Center est une plateforme ouverte qui permet aux partenaires de Microsoft et aux éditeurs de logiciels indépendants de créer un logiciel qui se connecte à l’Azure Security Center pour améliorer leurs fonctionnalités. 

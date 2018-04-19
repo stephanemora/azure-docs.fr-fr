@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f24db331b3d59eaad54c5c2488e56913261cff2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -42,6 +42,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+###### <a name="april-6-2018"></a>**6 avril 2018**
+Le système d’exploitation invité de mars a été publié.
+
 ###### <a name="march-19-2018"></a>**19 mars 2018**
 Le SE invité de février a publié.
 
@@ -90,8 +93,9 @@ Début du déploiement du SE invité de juillet le 19 juillet et publication pr
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.17_201803-01 |6 avril 2018 |Post 5.19 |TBD |
 | WA-GUEST-OS-5.16_201802-01 |12 mars 2018 |Post 5.18 |TBD |
-| WA-GUEST-OS-5.15_201801-01 |4 janvier 2018 |Publication 5.17 |TBD |
+|~~WA-GUEST-OS-5.15_201801-01~~ |4 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 décembre 2017 |4 janvier 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
@@ -116,8 +120,9 @@ Début du déploiement du SE invité de juillet le 19 juillet et publication pr
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.52_201803-01 |6 avril 2018 |Post 4.54 |TBD |
 | WA-GUEST-OS-4.51_201802-01 |12 mars 2018 |Post 4.53 |TBD |
-| WA-GUEST-OS-4.50_201801-01 |4 janvier 2018 |Publication 4.52 |TBD |
+|~~WA-GUEST-OS-4.50_201801-01~~ |4 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 décembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
@@ -142,8 +147,9 @@ Début du déploiement du SE invité de juillet le 19 juillet et publication pr
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.59_201803-01 |6 avril 2018 |Post 3.61 |TBD |
 | WA-GUEST-OS-3.58_201802-01 |19 mars 2018 |Post 3.60 |TBD |
-| WA-GUEST-OS-3.57_201801-01 |29 janvier 2018 |Billet 3.59 |TBD |
+|~~WA-GUEST-OS-3.57_201801-01~~ |29 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 janvier 2018 |19 mars 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 décembre 2017 |29 janvier 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
@@ -168,8 +174,9 @@ Début du déploiement du SE invité de juillet le 19 juillet et publication pr
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.72_201803-01 |6 avril 2018 |Post 2.74 |TBD |
 | WA-GUEST-OS-2.71_201802-01 |12 mars 2018 |Post 2.73 |TBD |
-| WA-GUEST-OS-2.70_201801-01 |29 janvier 2018 |Billet 2.72 |TBD |
+|~~WA-GUEST-OS-2.70_201801-01~~ |29 janvier 2018 |6 avril 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 décembre 2017 |29 janvier 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |

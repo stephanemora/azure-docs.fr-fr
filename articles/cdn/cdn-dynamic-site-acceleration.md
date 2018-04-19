@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accélération de site dynamique via Azure CDN
 
@@ -152,7 +152,7 @@ Avec l’accélération de site dynamique, la mise en cache est désactivée par
 
 Si vous avez un site web combinant ressources statiques et ressources dynamiques, il est préférable d’adopter une approche hybride pour obtenir le meilleure niveau de performance. 
 
-Pour les profils **CDN Azure fournis par Verizon standard** et **CDN Azure fournis par Akamai standard**, vous pouvez activer la mise en cache pour les points de terminaison DSA spécifiques à l’aide des [règles de mise en cache](cdn-caching-rules.md).
+Pour les profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Standard fourni par Akamai**, vous pouvez activer la mise en cache des points de terminaison DSA spécifiques à l’aide des [règles de mise en cache](cdn-caching-rules.md).
 
 Pour accéder à des règles de mise en cache :
 
@@ -164,7 +164,7 @@ Pour accéder à des règles de mise en cache :
 
 2. Créez une règle de mise en cache globale ou personnalisée pour activer la mise en cache de votre point de terminaison DSA. 
 
-Pour les profils **CDN Azure fournis par Verizon Premium** uniquement, vous pouvez activer la mise en cache pour des points de terminaison DSA à l’aide du [moteur de règles](cdn-rules-engine.md). Les règles créées n’affectent que les points de terminaison de votre profil qui sont optimisés pour DSA. 
+Pour les profils **Azure CDN Premium fourni par Verizon** uniquement, vous pouvez activer la mise en cache des points de terminaison DSA spécifiques à l’aide du [moteur de règles](cdn-rules-engine.md). Les règles créées n’affectent que les points de terminaison de votre profil qui sont optimisés pour DSA. 
 
 Pour accéder au moteur de règles :
     

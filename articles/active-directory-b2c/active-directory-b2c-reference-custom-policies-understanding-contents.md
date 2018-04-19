@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Présentation des stratégies personnalisées du pack de démarrage Azure AD B2C Custom Policy
 
@@ -39,7 +39,7 @@ Ce schéma de revendications comprend trois sections :
 3.  Enfin, la troisième section répertorie toutes les revendications supplémentaires et facultatives qui peuvent être collectées à partir de l’utilisateur, stockées dans le répertoire et transmises aux jetons lors de la connexion. Vous pouvez ajouter dans cette section tout nouveau type de revendications à collecter à partir de l’utilisateur et/ou à transmettre au jeton.
 
 > [!IMPORTANT]
-> Le schéma de revendications inclut des restrictions pour certaines revendications, telles que des noms d’utilisateur et des mots de passe. La stratégie Trust Framework (TF) traite Azure AD comme n’importe quel autre fournisseur de revendications et toutes ses restrictions sont modélisées dans la stratégie premium. Vous pouvez modifier une stratégie pour y ajouter de nouvelles restrictions ou utiliser un autre fournisseur de revendications pour le stockage d’informations d’identification avec ses propres restrictions.
+> Le schéma de revendications inclut des restrictions pour certaines revendications, telles que des noms d’utilisateur et des mots de passe. La stratégie Trust Framework (TF) traite Azure AD comme n’importe quel autre fournisseur de revendications ; toutes ses restrictions sont modélisées dans la stratégie personnalisée. Vous pouvez modifier une stratégie pour y ajouter de nouvelles restrictions ou utiliser un autre fournisseur de revendications pour le stockage d’informations d’identification avec ses propres restrictions.
 
 Les types de revendication disponibles sont répertoriés ci-dessous.
 
@@ -51,12 +51,12 @@ Les revendications suivantes sont requises pour garantir le bon fonctionnement d
 |-------------|-------------|
 | *UserId* | Nom d’utilisateur |
 | *signInName* | Nom de connexion |
-| *tenantId* | ID de locataire de l’objet utilisateur dans Azure AD B2C Premium |
-| *objectId* | ID d’objet de l’objet utilisateur dans Azure AD B2C Premium |
+| *tenantId* | Identificateur (ID) de client de l’objet utilisateur dans Azure AD B2C |
+| *objectId* | Identificateur (ID) d’objet de l’objet utilisateur dans Azure AD B2C |
 | *mot de passe* | Mot de passe |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Stratégies de mot de passe utilisées par Azure AD B2C Premium pour définir la force du mot de passe, la date d’expiration, etc. |
+| *passwordPolicies* | Stratégies de mot de passe utilisées par Azure AD B2C pour définir la force du mot de passe, la date d’expiration, etc. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -66,9 +66,9 @@ Les revendications suivantes sont requises pour garantir le bon fonctionnement d
 | *email* | Adresse e-mail qui peut être utilisée pour contacter l’utilisateur |
 | *signInNamesInfo.emailAddress* | Adresse e-mail que l’utilisateur peut utiliser pour se connecter |
 | *otherMails* | Adresses e-mail qui peuvent être utilisées pour contacter l’utilisateur |
-| *userPrincipalName* | Nom d’utilisateur enregistré dans Azure AD B2C Premium |
+| *userPrincipalName* | Nom d’utilisateur enregistré dans Azure AD B2C |
 | *upnUserName* | Nom d’utilisateur utilisé pour créer le nom d’utilisateur principal |
-| *mailNickName* | Pseudonyme de l’utilisateur enregistré dans Azure AD B2C Premium |
+| *mailNickName* | Pseudonyme de messagerie de l’utilisateur enregistré dans Azure AD B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Revendication qui spécifie si les attributs ont été collectés à partir de l’utilisateur |
 | *executed-PhoneFactor-Input* | Revendication qui spécifie si un nouveau numéro de téléphone a été collecté à partir de l’utilisateur |

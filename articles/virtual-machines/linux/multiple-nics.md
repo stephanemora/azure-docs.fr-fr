@@ -1,11 +1,11 @@
 ---
-title: "Créer une machine virtuelle Linux dans Azure avec plusieurs cartes réseau | Microsoft Docs"
-description: "Découvrez comment créer une machine virtuelle Linux dotée de plusieurs cartes réseau avec Azure CLI 2.0 ou des modèles Resource Manager."
+title: Créer une machine virtuelle Linux dans Azure avec plusieurs cartes réseau | Microsoft Docs
+description: Découvrez comment créer une machine virtuelle Linux dotée de plusieurs cartes réseau avec Azure CLI 2.0 ou des modèles Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d981ffc9a0053ed8bf2d49f386f7c1c82d50c907
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article décrit comment créer une machine virtuelle avec plusieurs cartes réseau attachées et comment ajouter ou supprimer des cartes réseau à partir d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
@@ -100,6 +100,8 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
+Ajoutez des tables de routage au SE invité en suivant la procédure décrite dans [Configurer plusieurs cartes réseau dans un système d’exploitation invité](#configure-guest-os-for- multiple-nics).
+
 ## <a name="add-a-nic-to-a-vm"></a>Ajout d’une carte réseau à une machine virtuelle existante
 Les étapes précédentes ont permis de créer une machine virtuelle avec plusieurs cartes réseau. Vous pouvez également ajouter des cartes réseau à une machine virtuelle existante avec Azure CLI 2.0. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence. Si nécessaire, vous pouvez [redimensionner une machine virtuelle](change-vm-size.md).
 
@@ -135,6 +137,8 @@ Démarrez la machine virtuelle avec [az vm start](/cli/azure/vm#az_vm_start) :
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
+
+Ajoutez des tables de routage au SE invité en suivant la procédure décrite dans [Configurer plusieurs cartes réseau dans un système d’exploitation invité](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Suppression d’une carte réseau d’une machine virtuelle
 Pour supprimer une carte réseau d’une machine virtuelle existante, libérez d’abord la machine virtuelle avec [az vm deallocate](/cli/azure/vm#az_vm_deallocate). L’exemple suivant libère la machine virtuelle nommée *myVM* :
@@ -179,6 +183,7 @@ Vous pouvez également utiliser `copyIndex()` pour ajouter ensuite un numéro à
 
 Vous pouvez consulter un exemple complet de la [création de plusieurs cartes réseau à l’aide de modèles Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+Ajoutez des tables de routage au SE invité en suivant la procédure décrite dans [Configurer plusieurs cartes réseau dans un système d’exploitation invité](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurer plusieurs cartes réseau dans un système d’exploitation invité
 Lorsque vous ajoutez plusieurs cartes réseau à une VM Linux, vous devez créer des règles de routage. Ces règles permettent à la machine virtuelle d’envoyer et de recevoir le trafic qui appartient à une carte réseau spécifique. Sinon, le trafic appartenant à *eth1*, par exemple, ne peut pas être traité correctement par l’itinéraire défini par défaut.
@@ -190,7 +195,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Pour que le changement devienne persistant et soit appliqué lors de l’activation de la pile réseau, modifiez */etc/sysconfig/network-scipts/ifcfg-eth0* et */etc/sysconfig/network-scipts/ifcfg-eth1*. Remplacez la ligne *« NM_CONTROLLED=yes »* par la ligne *« NM_CONTROLLED=no »*. Sans cette étape, le routage et les règles supplémentaires ne sont pas automatiquement appliquées.
+Pour que le changement devienne permanent et soit appliqué lors de l’activation de la pile réseau, modifiez */etc/sysconfig/network-scripts/ifcfg-eth0* et */etc/sysconfig/network-scripts/ifcfg-eth1*. Remplacez la ligne *« NM_CONTROLLED=yes »* par la ligne *« NM_CONTROLLED=no »*. Sans cette étape, le routage et les règles supplémentaires ne sont pas automatiquement appliquées.
  
 Étendez ensuite les tables de routage. Supposons que nous ayons la configuration suivante en place :
 

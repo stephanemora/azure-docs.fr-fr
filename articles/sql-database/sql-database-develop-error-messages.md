@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
@@ -104,8 +104,8 @@ Les erreurs suivantes sont liées à la création et à l’utilisation de pools
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. |Limite de l’espace du pool élastique, en Mo. |Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. |Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître sa limite de stockage, pensez aussi à réduire l’espace de stockage utilisé par les bases de données individuelles qu’il inclut ou à supprimer les bases de données dans ce dernier. |
-| 10929 |EX_USER |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour obtenir de l’aide, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, réessayez plus tard. |Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données. |Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître la limite des collaborateurs associés, ou de supprimer des bases de données du pool élastique. |
+| 1132 |EX_RESOURCE |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. |Limite de l’espace du pool élastique, en Mo. |Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. |Envisagez si possible d’augmenter le nombre de DTU du pool élastique ou d’ajouter de la capacité de stockage à ce dernier afin d’accroître sa limite de stockage. Vous pouvez aussi réduire l’espace de stockage utilisé par les bases de données individuelles qu’il contient ou supprimer certaines de ses bases de données. |
+| 10929 |EX_USER |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour obtenir de l’aide, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, réessayez plus tard. |Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données |Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
 | 40844 |EX_USER |La base de données '%ls' sur le serveur '%ls' est une base de données présentant l’édition '%ls' dans un pool élastique. Elle ne peut pas présenter de relation de copie continue. |Nom de la base de données, édition de la base de données, nom du serveur |Une commande StartDatabaseCopy est émise pour une base de données non-Premium dans un pool élastique. |Bientôt disponible |
 | 40857 |EX_USER |Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. |Nom du serveur, nom du pool élastique |Le pool élastique spécifié n’existe pas sur le serveur spécifié. |Indiquez un nom de pool élastique valide. |
 | 40858 |EX_USER |Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. |Nom du pool élastique, nom du serveur |Le pool élastique spécifié existe déjà sur le serveur logique spécifié. |Saisissez un nouveau nom pour le pool élastique. |

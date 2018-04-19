@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 563d82076721a669069ba3e36df84a050188813c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -43,7 +43,7 @@ Après avoir déployé l’application, explorez les didacticiels suivants qui s
 |[Déployer et explorer l’application SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Déployez et explorez l’application SaaS Wingtip avec votre abonnement Azure. |
 |[Approvisionner des clients et les inscrire dans le catalogue](saas-dbpertenant-provision-and-catalog.md)| Découvrez comment l’application se connecte aux locataires à l’aide d’une base de données catalogue, et comment le catalogue mappe les locataires à leurs données. |
 |[Surveiller et gérer les performances](saas-dbpertenant-performance-monitoring.md)| Découvrez comment utiliser les fonctionnalités de surveillance de SQL Database, et définir des alertes qui se déclenchent en cas de dépassement des seuils de performances. |
-|[Configurer et utiliser Log Analytics (OMS) avec une application SaaS Azure SQL Database multilocataire](saas-dbpertenant-log-analytics.md) | Apprenez à utiliser [Log Analytics](../log-analytics/log-analytics-overview.md) pour surveiller de grandes quantités de ressources dans plusieurs pools. |
+|[Surveiller avec Azure Log Analytics](saas-dbpertenant-log-analytics.md) | Apprenez à utiliser [Log Analytics](../log-analytics/log-analytics-overview.md) pour surveiller de grandes quantités de ressources dans plusieurs pools. |
 |[Restaurer un client unique](saas-dbpertenant-restore-single-tenant.md)| Découvrez comment restaurer une base de données client à un point antérieur dans le temps. Apprenez également à restaurer une base de données parallèle, qui laisse la base de données de locataire existante en ligne. |
 |[Gérer le schéma de base de données client](saas-tenancy-schema-management.md)| Découvrez comment mettre à jour un schéma et des données de référence sur toutes les bases de données de locataire. |
 |[Exécuter des requêtes distribuées entre locataires](saas-tenancy-cross-tenant-reporting.md) | Créez une base de données d’analyse ad hoc, puis exécutez des requêtes distribuées en temps réel sur tous les locataires.  |

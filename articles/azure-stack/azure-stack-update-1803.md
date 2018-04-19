@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 560261b5d353c7e9510124985c644d895612e2bb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1803-update"></a>Mise à jour 1803 d’Azure Stack
 
@@ -36,7 +36,7 @@ Le numéro de build de mise à jour d’Azure Stack 1803 est **20180329.1**.
 
 ## <a name="before-you-begin"></a>Avant de commencer    
 > [!IMPORTANT]    
-> Ne tentez pas de créer des machines virtuelles pendant l’installation de cette mise à jour. Pour plus d’informations sur la gestion des mises à jour, consultez [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates) (Vue d’ensemble de la gestion des mises à jour dans Azure Stack).
+> Ne tentez pas de créer des machines virtuelles pendant l’installation de cette mise à jour. Pour plus d’informations sur la gestion des mises à jour, consultez [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates) (Vue d’ensemble de la gestion des mises à jour dans Azure Stack).
 
 
 ### <a name="prerequisites"></a>Prérequis
@@ -45,7 +45,9 @@ Le numéro de build de mise à jour d’Azure Stack 1803 est **20180329.1**.
 
 
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
-*Il n’existe aucune étape après la mise à jour pour la mise à jour 1803.*
+Après l’installation de la version 1803, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).
+
+- [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348) (Le service API du contrôleur réseau se bloque quand vous essayez d’installer une mise à jour Azure Stack)
 
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités 
@@ -65,28 +67,25 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
  
    Les fichiers partiellement alloués sont un format de fichier efficace utilisé pour réduire l’utilisation de l’espace de stockage et améliorer les E/S.  Pour plus d’informations, consultez [Fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) pour Windows Server. 
 
-
 ### <a name="fixed-issues"></a>Problèmes résolus
 
-- <!-- 1739988 -->  **Fixed** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
 
-- <!-- 1805496 --> **Fixed** - An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
+- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
 
-- <!-- 2209262 --> **Fixed** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
 
-- <!-- 1766332 --> **Fixed** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
 
-- <!-- 2096388 --> **Fixed** - Unable to update Network Security Group Rules from the Portal is now fixed. 
+- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
 
-- <!-- 1868283 --> **Fixed** - Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
 
-- <!-- 1756324--> **Fixed** - Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
 
-- <!--  2253274 --> **Fixed** - The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- Lorsque vous créez une machine virtuelle, le message *Impossible d’afficher les tarifs* ne s’affiche plus lors du choix d’une taille pour la machine virtuelle.
 
-- **Résolu** : lorsque vous créez une machine virtuelle, le message *Impossible d’afficher les tarifs* ne s’affiche plus lors du choix d’une taille pour la machine virtuelle.
-
-- **Divers correctifs** pour les performances, la stabilité, la sécurité et le système d’exploitation utilisé par Azure Stack.
+- Divers correctifs pour les performances, la stabilité, la sécurité et le système d’exploitation utilisé par Azure Stack.
 
 
 ### <a name="changes"></a>Changements
@@ -94,7 +93,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 
 
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour    
-*Il n’y a aucun problème connu pour l’installation de la mise à jour 1803.*
+<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 
 ### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
@@ -134,8 +133,6 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 #### <a name="compute"></a>Calcul
 - Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
 
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1803. This is due to the change in support for using availability sets with virtual machine scale sets. This support is added with version 1803.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message Provisioning state failed. We are investigating a fix for this issue to enable an older VMSS to scale, and will update this content if and when that is available. 
-
 - Lorsque vous créez un groupe à haute disponibilité dans le portail en accédant à **Nouveau** > **Compute** > **Groupe à haute disponibilité**, vous pouvez uniquement créer un groupe à haute disponibilité avec un domaine d’erreur et un domaine de mise à jour de 1. Pour contourner ce problème, lors de la création d’une nouvelle machine virtuelle, créez le groupe à haute disponibilité à l’aide de PowerShell, CLI, ou depuis le portail.
 
 - Lorsque vous créez des machines virtuelles sur le portail utilisateur Azure Stack, le portail affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de la série DS. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
@@ -165,6 +162,69 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 - Sur un réseau virtuel a été créé avec un paramètre de serveur DNS défini sur *Automatique*, vous ne pouvez pas choisir un serveur DNS personnalisé. Les paramètres mis à jour ne sont pas envoyés (par push) aux machines virtuelles dans ce réseau virtuel.
 
 - Azure Stack ne prend pas en charge l’ajout d’interfaces réseau supplémentaires sur une instance de machine virtuelle une fois que la machine virtuelle est déployée. Si la machine virtuelle nécessite plusieurs interfaces réseau, elles doivent être définies au moment du déploiement.
+
+- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+
+    Solution de contournement pour App Service : si vous avez besoin d’établir la connexion d’un bureau à distance à des instances de contrôleur, vous modifiez les règles de sécurité dans les groupes de sécurité réseau avec PowerShell.  Voici des exemples montrant comment *autoriser* la configuration, puis la restaurer sur *refuser* :  
+    
+    - *Autoriser :*
+ 
+      ```powershell    
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+      
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+      
+      ##This doesn’t work. Need to set properties again even in case of edit
+      
+      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+      
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+      
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+    - *Refuser :*
+
+        ```powershell
+        
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+        
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+        
+        ##This doesn’t work. Need to set properties again even in case of edit
+    
+        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+    
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+          
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
+        ```
 
 
 #### <a name="sql-and-mysql"></a>SQL et MySQL

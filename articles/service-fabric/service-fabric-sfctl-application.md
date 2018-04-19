@@ -1,12 +1,12 @@
 ---
-title: "Interface de ligne de commande CLI Azure Service Fabric : sfctl application | Microsoft Docs"
-description: "Décrit les commandes sfctl application de l’interface CLI Azure Service Fabric."
+title: 'Interface de ligne de commande CLI Azure Service Fabric : sfctl application | Microsoft Docs'
+description: Décrit les commandes sfctl application de l’interface CLI Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Permet de créer, de supprimer et de gérer les applications et les types d’application.
@@ -71,7 +71,7 @@ Permet de créer une application Service Fabric à l’aide de la description sp
 | --debug              | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h            | Affiche ce message d’aide et quitte.|
 | --output -o          | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut :     json.|
-| --query              | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query              | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose            | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-delete"></a>sfctl application delete
@@ -94,7 +94,7 @@ Supprime une application Service Fabric existante. Une application doit être c
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
 | --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut :        json.|
-| --query                 | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                 | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose               | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
@@ -117,7 +117,7 @@ Permet d’obtenir les informations relatives à une application déployée sur 
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
 | --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut :        json.|
-| --query                 | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                 | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose               | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-health"></a>sfctl application health
@@ -143,7 +143,7 @@ Permet d’obtenir l’état d’intégrité de l’application Service Fabric.
 | --debug                                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                               | Affiche ce message d’aide et quitte.|
 | --output -o                             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query                                 | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
+| --query                                 | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
 | --verbose                               | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -166,7 +166,7 @@ Renvoie les informations sur l’application qui a été créée ou en cours de 
 | --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                    | Affiche ce message d’aide et quitte.|
 | --output -o                  | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.             Valeur par défaut : json.|
-| --query                      | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
+| --query                      | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
 | --verbose                    | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
@@ -192,7 +192,7 @@ Renvoie les informations sur les applications qui ont été créées ou sont en 
 | --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                    | Affiche ce message d’aide et quitte.|
 | --output -o                  | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.             Valeur par défaut : json.|
-| --query                      | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                      | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                    | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-load"></a>sfctl application load
@@ -212,7 +212,7 @@ Retourne des informations de chargement concernant l’application qui a été c
 |--debug                    | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
     --help -h                  | Affiche ce message d’aide et quitte.|
     --output -o                | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-    --query                    | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
+    --query                    | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
     --verbose                  | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -235,15 +235,13 @@ Permet d’obtenir le manifeste qui décrit un type d’application. La réponse
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
 | --output -o                       | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.                  Valeur par défaut : json.|
-| --query                           | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
+| --query                           | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
 | --verbose                         | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
 Permet d’approvisionner ou d’inscrire un type d’application Service Fabric auprès du cluster à l’aide du package SFPKG dans le magasin externe ou du package d’application dans le magasin d’images.
 
-Permet d’approvisionner un type d’application Service Fabric auprès du cluster. Nécessaire avant toute instanciation d’une nouvelle application. L’opération d’approvisionnement peut être effectuée sur le package d’application spécifié par relativePathInImageStore, ou à l’aide de l’URI du package SFPKG externe. À moins que --external-provision soit défini, cette commande exige un approvisionnement
-
-à partir du magasin d’images.
+Permet d’approvisionner un type d’application Service Fabric auprès du cluster. Nécessaire avant toute instanciation d’une nouvelle application. L’opération d’approvisionnement peut être effectuée sur le package d’application spécifié par relativePathInImageStore, ou à l’aide de l’URI du package SFPKG externe. À moins que --external-provision ne soit défini, cette commande provisionne le package d’application du magasin d’images.
         
 
 
@@ -266,7 +264,7 @@ Permet d’approvisionner un type d’application Service Fabric auprès du clus
 | --debug                              | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                            | Affiche ce message d’aide et quitte.|
 | --output -o                          | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query                              | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
+| --query                              | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
 | --verbose                            | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
@@ -293,7 +291,7 @@ Renvoie les informations sur les types d’application qui sont approvisionnés 
 | --debug                        | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                      | Affiche ce message d’aide et quitte.|
 | --output -o                    | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.               Valeur par défaut : json.|
-| --query                        | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                        | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                      | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
@@ -317,7 +315,7 @@ Permet de supprimer ou d’annuler l’inscription d’un type d’application S
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
 | --output -o                       | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.                  Valeur par défaut : json.|
-| --query                           | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
+| --query                           | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
 | --verbose                         | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
@@ -354,7 +352,7 @@ Valide les paramètres de mise à niveau d’application fournis et commence la 
 | --debug                     | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                   | Affiche ce message d’aide et quitte.|
 | --output -o                 | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.            Valeur par défaut : json.|
-| --query                     | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                     | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                   | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-application-upload"></a>sfctl application upload
@@ -377,7 +375,7 @@ Permet d’afficher éventuellement la progression du chargement pour chaque fic
 | --debug       | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h     | Affiche ce message d’aide et quitte.|
 | --output -o   | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query       | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
+| --query       | Chaîne de requête JMESPath. Pour plus d’informations, consultez http://jmespath.org/.|
 | --verbose     | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="next-steps"></a>Étapes suivantes

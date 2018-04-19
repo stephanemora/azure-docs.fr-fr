@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -171,8 +171,8 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**type** | n/a | Doit avoir la valeur « timerTrigger ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Doit être défini sur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente l’objet de minuteur dans le code de la fonction. | 
-|**schedule**|**ScheduleExpression**|Une [expression CRON](#cron-expressions) ou une valeur [TimeSpan](#timespan). `TimeSpan` peut être utilisé uniquement pour une application de fonction qui s’exécute sur un plan App Service. Vous pouvez placer l’expression de planification dans un paramètre d’application et affecter à cette propriété le nom du paramètre d’application encapsulé dans des signes **%**, comme dans cet exemple : « %nom_de_paramètre_d’application_avec_expression_planification% ». |
-|**runOnStartup**|**RunOnStartup**|Si la valeur est `true`, la fonction est appelée au démarrage du runtime. Par exemple, le runtime démarre lorsque l’application de fonction sort de veille après une période d’inactivité. Lorsque l’application de fonction redémarre en raison de modifications apportées à la fonction, et lorsque l’application de fonction augmente la taille des instances. Par conséquent, **runOnStartup** devrait rarement voire ne jamais être défini sur la valeur `true`, cela provoquerait l’exécution du code à des moments hautement imprévisibles. Si vous avez besoin de déclencher la fonction en dehors de la planification du minuteur, vous pouvez créer une deuxième fonction avec un type de déclencheur différent et partager le code entre les deux fonctions. Par exemple, pour déclencher la fonction au moment du déploiement, vous pouvez [personnaliser votre déploiement](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) pour que la deuxième fonction soit appelée via l’exécution d’une requête HTTP à la fin du déploiement.|
+|**schedule**|**ScheduleExpression**|Une [expression CRON](#cron-expressions) ou une valeur [TimeSpan](#timespan). `TimeSpan` peut être utilisé uniquement pour une application de fonction qui s’exécute sur un plan App Service. Vous pouvez placer l’expression de planification dans un paramètre d’application et définir cette propriété selon le nom du paramètre d’application encapsulé dans les signes **%**, comme sur cet exemple : « %ScheduleAppSetting% ». |
+|**runOnStartup**|**RunOnStartup**|Si la valeur est `true`, la fonction est appelée au démarrage du runtime. Par exemple, le runtime démarre lorsque l’application de fonction sort de veille après une période d’inactivité. Lorsque l’application de fonction redémarre en raison de modifications apportées à la fonction, et lorsque l’application de fonction augmente la taille des instances. Par conséquent, **runOnStartup** devrait rarement voire ne jamais être défini sur la valeur `true`, cela provoquerait l’exécution du code à des moments hautement imprévisibles.|
 |**useMonitor**|**UseMonitor**|Peut-être défini sur la valeur `true` ou `false` pour indiquer si la planification doit être surveillée ou non. La surveillance de planification conserve les occurrences de planification pour garantir la maintenance correcte de cette dernière même en cas de redémarrage des instances de l’application de fonction. Si elle n’est pas définie explicitement, la valeur par défaut est `true` pour les planifications dont l’intervalle de récurrence est supérieur à 1 minute. Pour les planifications qui se déclenchent plusieurs fois par minute, la valeur par défaut est `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

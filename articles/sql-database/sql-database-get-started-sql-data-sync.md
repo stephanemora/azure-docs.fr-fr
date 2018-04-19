@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurer SQL Data Sync (Préversion)
 Dans ce didacticiel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation hybride contenant des instances SQL Database et SQL Server. Ce nouveau groupe de synchronisation est entièrement configuré et synchronise sur la planification définie.
@@ -275,7 +275,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Surveiller Azure SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

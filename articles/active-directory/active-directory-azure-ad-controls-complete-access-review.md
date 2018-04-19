@@ -1,11 +1,11 @@
 ---
-title: "Réviser les accès à une application des membres d’un groupe ou des utilisateurs avec Azure AD| Microsoft Docs"
-description: "Découvrez comment réviser les accès des membres d’un groupe ou des utilisateurs ayant accès à une application dans Azure Active Directory."
+title: Réviser les accès à une application des membres d’un groupe ou des utilisateurs avec Azure AD| Microsoft Docs
+description: Découvrez comment réviser les accès des membres d’un groupe ou des utilisateurs ayant accès à une application dans Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: de853d633aa65c9f08f5e28088d5240c2e4d7fa6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c4efdbf5a355ddc9a31091517665f91dd8e68ec0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Effectuer une révision d’accès des membres d’un groupe ou des accès des utilisateurs à une application dans Azure AD
 
-Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application. Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n’a pas reçu d’e-mail, vous pouvez lui envoyer les instructions décrites dans l’article [Effectuer votre propre révision d’accès](active-directory-azure-ad-controls-perform-access-review.md). Si la période de révision d’accès est terminée ou que l’administrateur a arrêté la révision d’accès, suivez les étapes décrites dans cet article pour voir et appliquer les résultats.
+Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application. Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n’a pas reçu d’e-mail, vous pouvez lui envoyer les instructions décrites dans l’article [Effectuer votre propre révision d’accès](active-directory-azure-ad-controls-perform-access-review.md). (Sachez que les invités à qui a été attribué le rôle de réviseur mais qui n’ont pas accepté l’invitation ne recevront pas d’e-mails des révisions d’accès, car il est nécessaire d’avoir accepté l’invitation pour pouvoir commencer la révision.) Si la période de révision d’accès est terminée ou que l’administrateur a arrêté la révision d’accès, suivez les étapes décrites dans cet article pour voir et appliquer les résultats.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Afficher une révision d’accès dans le portail Azure
 
@@ -35,13 +35,15 @@ Si la révision n’a pas encore atteint sa date de fin planifiée, un administr
 
 ## <a name="apply-the-changes"></a>Appliquer les modifications 
 
-Une fois la révision d’accès terminée, c’est-à-dire lorsque celle-ci a atteint sa date de fin ou a été manuellement arrêtée par un administrateur, sélectionnez **Appliquer**. Le résultat de la révision est implémenté via une mise à jour du groupe ou de l’application. Si l’accès d’un utilisateur a été refusé lors de la révision, lorsque l’administrateur sélectionne cette option, Azure AD supprime l’appartenance de cet utilisateur ou son assignation à l’application. 
+Dès qu’une révision d’accès est terminée, soit parce qu’elle a atteint la date de fin, soit parce qu’un administrateur l’a arrêtée manuellement, si l’application automatique n’était pas configurée pour la révision, vous pouvez sélectionner **Appliquer** pour appliquer manuellement les modifications. Le résultat de la révision est implémenté via une mise à jour du groupe ou de l’application. Si l’accès d’un utilisateur a été refusé lors de la révision, lorsque l’administrateur sélectionne cette option, Azure AD supprime l’appartenance de cet utilisateur ou son assignation à l’application. 
 
-Sélectionner l’option **Appliquer** n’aura pas d’effet pour un groupe qui provient d’un répertoire local ou d’un groupe dynamique. Si vous souhaitez modifier un groupe qui provient d’un répertoire local, téléchargez les résultats et appliquez ces modifications à la représentation du groupe dans ce répertoire.
+Dès qu’une révision d’accès est terminée, si l’application automatique était configurée, l’état de la révision passe de Terminé à Appliqué après des états intermédiaires. Les éventuels utilisateurs dont l’accès est refusé devraient perdre leur appartenance au groupe de ressources ou leur affectation d’applications au bout de quelques minutes.
+
+Lorsque l’application automatique est configurée, l’option **Appliquer** n’aura pas d’effet sur un groupe provenant d’un répertoire local ou un groupe dynamique. Si vous souhaitez modifier un groupe qui provient d’un répertoire local, téléchargez les résultats et appliquez ces modifications à la représentation du groupe dans ce répertoire.
 
 ## <a name="download-the-results-of-the-review"></a>Télécharger les résultats de la révision
 
-Pour récupérer les résultats de la révision, sélectionnez **Approbations**, puis cliquez sur **Télécharger**. Le fichier CSV généré peut être affiché dans Excel ou dans d’autres programmes qui permettent d’ouvrir les fichiers CSV.
+Pour récupérer les résultats de la révision, sélectionnez **Approbations**, puis cliquez sur **Télécharger**. Le fichier CSV généré est consultable dans Excel ou dans d’autres programmes qui permettent d’ouvrir des fichiers CSV encodés UTF-8.
 
 ## <a name="optional-delete-a-review"></a>Facultatif : supprimer une révision
 Si la révision ne vous intéresse plus, vous pouvez la supprimer. Sélectionnez **Supprimer** pour supprimer la révision d’Azure AD.

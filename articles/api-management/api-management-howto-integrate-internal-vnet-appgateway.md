@@ -1,8 +1,8 @@
 ---
-title: "Utilisation du service Gestion des API Azure dans un réseau virtuel avec Application Gateway | Microsoft Docs"
-description: "Découvrez comment installer et configurer le service Gestion des API Azure dans un réseau virtuel interne avec Application Gateway (WAF) en tant que FrontEnd"
+title: Utilisation du service Gestion des API Azure dans un réseau virtuel avec Application Gateway | Microsoft Docs
+description: Découvrez comment installer et configurer le service Gestion des API Azure dans un réseau virtuel interne avec Application Gateway (WAF) en tant que FrontEnd
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway 
 
@@ -32,7 +32,8 @@ Combiner la gestion des API configurée dans un réseau virtuel interne avec le 
 * Utilisez une seule ressource de gestion des API et mettez à disposition un sous-ensemble d’API défini dans la gestion des API pour les consommateurs externes.
 * Fournissez un moyen clé en main d’activer et désactiver l’accès à la gestion des API à partir de l’Internet public. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -79,7 +80,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 
 Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager).
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Connexion à Azure
 
@@ -110,7 +111,7 @@ Azure Resource Manager requiert que tous les groupes de ressources spécifient u
 
 L’exemple ci-dessous indique comment créer un réseau virtuel à l’aide de Resource Manager.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Affectez la plage d’adresses 10.0.0.0/24 à la variable subnet à utiliser pour la passerelle Application Gateway lors de la création d’un réseau virtuel.
 
@@ -126,7 +127,7 @@ Affectez la plage d’adresses 10.0.1.0/24 à la variable subnet à utiliser pou
 $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Créez un réseau virtuel nommé **appgwvnet** dans le groupe de ressources **apim-appGw-RG** pour la région États-Unis de l’Ouest utilisant le préfixe 10.0.0.0/16 avec les sous-réseaux 10.0.0.0/24 et 10.0.1.0/24.
 
@@ -146,7 +147,7 @@ $apimsubnetdata=$vnet.Subnets[1]
 
 L’exemple ci-dessous montre comment créer un service Gestion des API dans un réseau virtuel configuré pour un accès interne uniquement.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 Créez un objet de réseau virtuel du service Gestion des API via le sous-réseau $apimsubnetdata créé ci-dessus.
 
 ```powershell
@@ -162,7 +163,7 @@ Après la réussite de la commande ci-dessus, consultez la [configuration DNS re
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Configurer un nom de domaine personnalisé dans le service Gestion des API
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 Chargez le certificat avec la clé privée correspondant au domaine. Pour cet exemple, c’est `*.contoso.net`. 
 
 ```powershell
@@ -199,7 +200,7 @@ Créez une configuration IP de passerelle Application Gateway nommée **gatewayI
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
-### <a name="step-2"></a>Étape 2 :
+### <a name="step-2"></a>Étape 2
 
 Configurez le port IP frontal pour le point de terminaison IP public. Ce port est le port auquel les utilisateurs finaux se connectent.
 
@@ -298,7 +299,7 @@ L’exemple suivant crée une règle simple pour le chemin d’accès « /echo/
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Si le chemin d’accès ne correspond aux règles de chemins d’accès que nous voulons activer dans Gestion des API, la configuration de mappage des chemins de règles configure également un pool d’adresses de serveurs principaux par défaut nommé **dummyBackendPool**. Par exemple, http://api.contoso.net/calc/ * permet d’accéder à **dummyBackendPool**, car il est défini comme pool par défaut pour le trafic sans correspondance.
+Si le chemin d’accès ne correspond aux règles de chemins d’accès que nous voulons activer dans Gestion des API, la configuration de mappage des chemins de règles configure également un pool d’adresses de serveurs principaux par défaut nommé **dummyBackendPool**. Par exemple, http://api.contoso.net/calc/* permet d’accéder à **dummyBackendPool**, car il est défini comme pool par défaut pour le trafic sans correspondance.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
@@ -350,7 +351,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ##<a name="summary"></a> Résumé
 Le service Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour l’ensemble des API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
 
-##<a name="next-steps"></a> Étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur Azure Application Gateway
   * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Pare-feu d’applications web sur Application Gateway](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

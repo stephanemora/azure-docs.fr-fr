@@ -1,12 +1,12 @@
 ---
-title: "Déplacer des applications depuis BizTalk Services vers Azure Logic Apps | Microsoft Docs"
-description: "Déplacer ou migrer Azure BizTalk Services (MABS) vers Azure Logic Apps"
+title: Déplacer des applications depuis BizTalk Services vers Azure Logic Apps | Microsoft Docs
+description: Déplacer ou migrer Azure BizTalk Services (MABS) vers Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jonfancey
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: 6e00e62e60c059a16731a77e529b4b93f50802e9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Déplacer depuis BizTalk Services vers Azure Logic Apps
 
@@ -130,7 +130,7 @@ Contrairement à BizTalk Services, ces actions sont dissociées des protocoles d
 
 ## <a name="manage-and-monitor"></a>Gestion et surveillance
 
-Dans BizTalk Services, un portail dédié fournissait des fonctions de suivi pour surveiller et résoudre les problèmes. Logic Apps offre des fonctions de suivi et de surveillance plus riches via le [portail Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) et avec la [solution Operations Management Suite B2B](../logic-apps/logic-apps-monitor-b2b-message.md), il inclut une application mobile pour vous tenir informé lorsque vous êtes en déplacement.
+Dans BizTalk Services, un portail dédié fournissait des fonctions de suivi pour surveiller et résoudre les problèmes. Logic Apps offre des fonctions de suivi et de surveillance plus riches par le biais du [portail Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md), et inclut également une application mobile pour vous tenir informé lorsque vous êtes en déplacement.
 
 ## <a name="high-availability"></a>Haute disponibilité
 
@@ -138,7 +138,7 @@ Pour la haute disponibilité dans BizTalk Services, vous pouvez partager la char
 
 Dans BizTalk Services, la récupération d’urgence hors région d’un traitement B2B requiert un processus de sauvegarde et de restauration. Pour garantir la continuité d’activité, Logic Apps fournit une [fonction de récupération d’urgence](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) active/passive entre régions, qui vous permet de synchroniser les données B2B entre les comptes d’intégration dans différentes régions.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est-ce que Logic Apps ?](../logic-apps/logic-apps-overview.md)
 * [Créez votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md), ou devenez rapidement opérationnel à l’aide d’un [modèle prédéfini](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  

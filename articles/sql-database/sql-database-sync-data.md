@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync (préversion)
 
@@ -166,7 +166,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Surveiller Azure SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :
