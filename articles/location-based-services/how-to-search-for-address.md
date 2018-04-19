@@ -1,18 +1,17 @@
 ---
-title: "Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion) | Microsoft Docs"
-description: "Découvrez comment rechercher une adresse à l’aide d’Azure Location Based Services (préversion)"
+title: Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion) | Microsoft Docs
+description: Découvrez comment rechercher une adresse à l’aide d’Azure Location Based Services (préversion)
 services: location-based-services
-keywords: "N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion)
 Search Service est un ensemble d’API RESTful destinées aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de lieux, de points d’intérêt, de listes d’entreprises et autres informations d’ordre géographique. Search Service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude retournées par les API Search Service peuvent être utilisées comme paramètres dans d’autres services Azure Location Based Services, tels que les API Route et Traffic Flow.

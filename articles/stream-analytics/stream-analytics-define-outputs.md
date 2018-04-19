@@ -1,26 +1,21 @@
 ---
-title: 'Sorties Stream Analytics : options de stockage et d’analyse | Microsoft Docs'
+title: Types de sorties à partir des travaux de Azure Stream Analytics
 description: Découvrez les options de sorties de données Stream Analytics, notamment Power BI pour les résultats de l’analyse.
-keywords: transformation de données, résultats d’analyse, options de stockage de données
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Sorties Stream Analytics : options de stockage, d’analyse
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Sorties Stream Analytics : options de stockage et d’analyse
 Lorsque vous créez une tâche Stream Analytics, songez à la façon dont les données obtenues devront être consommées. Comment allez-vous afficher les résultats du travail Stream Analytics et où allez-vous les stocker ?
 
 Pour permettre un éventail de modèles d’application, Azure Stream Analytics propose différentes options pour stocker et afficher les résultats de l’analyse. Cela vous permet d’afficher plus facilement la sortie des tâches et de rendre plus flexibles leur consommation et leur stockage pour l’entreposage de données et d’autres utilisations. Toute sortie configurée dans la tâche doit exister avant le démarrage de la tâche et avant le début du transit des événements. Par exemple, si vous utilisez le stockage d’objets blob en tant que sortie, le travail ne crée aucun compte de stockage automatiquement. Créez un compte de stockage avant le début du travail Stream Analytics.
@@ -71,7 +66,7 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 </tr>
 <tr>
 <td>Encodage</td>
-<td>Si vous utilisez le format CSV ou JSON, un encodage doit être spécifié. UTF-8 est le seul format de codage actuellement pris en charge.</td>
+<td>Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge.</td>
 </tr>
 <tr>
 <td>Délimiteur</td>
@@ -92,7 +87,7 @@ Vous devez authentifier de nouveau votre compte Data Lake Store si son mot de pa
 ## <a name="sql-database"></a>Base de données SQL
 [base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Stream Analytics écrivent les données dans une table existante d’une base de données Azure SQL Database.  Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre travail. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) peut également être spécifié en tant que sortie via l’option de sortie SQL Database (il s’agit d’une fonctionnalité d’évaluation). Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
 
-| Nom de la propriété | Description |
+| Nom de la propriété | DESCRIPTION |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette base de données. |
 | Base de données |Nom de la base de données où vous envoyez votre sortie |
@@ -151,7 +146,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 </tr>
 <tr>
 <td>Encodage</td>
-<td>Si vous utilisez le format CSV ou JSON, un encodage doit être spécifié. UTF-8 est le seul format de codage actuellement pris en charge.</td>
+<td>Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge.</td>
 </tr>
 <tr>
 <td>Délimiteur</td>
@@ -178,7 +173,7 @@ Lorsque vous utilisez le stockage d’objets blob en tant que sortie, un fichier
 
 Quelques paramètres sont requis pour configurer les flux de données Event Hub en tant que sortie.
 
-| Nom de la propriété | Description |
+| Nom de la propriété | DESCRIPTION |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
 | Espace de noms Service Bus |Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
@@ -206,7 +201,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 ### <a name="configure-the-power-bi-output-properties"></a>Configuration des propriétés de sortie Power BI
 Une fois le compte Power BI authentifié, vous pouvez configurer les propriétés pour votre sortie Power BI. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour configurer votre sortie Power BI.
 
-| Nom de la propriété | Description |
+| Nom de la propriété | DESCRIPTION |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette sortie Power BI. |
 | Espace de travail de groupe |Pour permettre le partage de données avec d’autres utilisateurs de Power BI, vous pouvez sélectionner des groupes à l’intérieur de votre compte Power BI ou choisir « Mon espace de travail » si vous ne souhaitez pas écrire dans un groupe.  La mise à jour d’un groupe existant nécessite le renouvellement de l’authentification Power BI. |
@@ -265,7 +260,7 @@ Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et acc�
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
-| Nom de la propriété | Description |
+| Nom de la propriété | DESCRIPTION |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers ce stockage de tables. |
 | Compte de stockage |Nom du compte de stockage où vous envoyez votre sortie. |
@@ -280,7 +275,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 
 La table ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de file d’attente.
 
-| Nom de la propriété | Description |
+| Nom de la propriété | DESCRIPTION |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette file d’attente Service Bus. |
 | Espace de noms Service Bus |Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. |
@@ -297,7 +292,7 @@ Les files d'attente Service Bus offrent une communication de type un-à-un entre
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
-| Nom de la propriété | Description |
+| Nom de la propriété | DESCRIPTION |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette rubrique Service Bus. |
 | Espace de noms Service Bus |Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
@@ -305,7 +300,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Nom de la stratégie de rubrique |Lorsque vous créez une rubrique, vous pouvez également créer des stratégies d’accès partagé sur l’onglet Configurer de la rubrique. Chaque stratégie d’accès partagé présente un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
 | Clé de la stratégie de rubrique |Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus |
 | Format de sérialisation de l’événement |Format de sérialisation pour les données de sortie.  JSON, CSV et Avro sont pris en charge. |
- | Encodage |Si vous utilisez le format CSV ou JSON, un encodage doit être spécifié. UTF-8 est le seul format d’encodage actuellement pris en charge |
+ | Encodage |Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format d’encodage actuellement pris en charge |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -328,7 +323,7 @@ Azure Functions est un service de calcul sans serveur qui vous permet d’exécu
 
 Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. Le nouvel adaptateur de sortie Azure Stream Analytics est disponible, avec les propriétés configurables suivantes :
 
-| Nom de la propriété | Description |
+| Nom de la propriété | DESCRIPTION |
 | --- | --- |
 | Function App |Nom de votre application Azure Function App |
 | Fonction |Nom de la fonction dans votre application Azure Function App |
@@ -342,7 +337,7 @@ De plus, si aucun événement n’est signalé dans le temps imparti, aucune sor
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :

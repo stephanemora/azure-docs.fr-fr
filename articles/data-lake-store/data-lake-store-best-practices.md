@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Meilleures pratiques relatives à l’utilisation de Data Lake Store
 Dans cet article, vous allez découvrir les meilleures pratiques et considérations d’utilisation d’Azure Data Lake Store. Cet article fournit des informations concernant la sécurité, les performances, la résilience et la surveillance pour Azure Data Lake Store. Avant Data Lake Store, il était difficile de travailler avec de grandes quantités de données dans des services tels qu’Azure HDInsight. Il fallait partitionner les données sur plusieurs comptes de stockage d’objets blob afin de rendre possible, à cette échelle, le stockage pétaoctet et des performances optimales. Avec Data Lake Store, la plupart des limites inconditionnelles de taille et de performances ont été supprimées. Toutefois, il faut toujours tenir compte de certaines choses. Cet article vous en parle afin que vous profitiez des meilleures performances avec Data Lake Store. 
@@ -129,7 +129,7 @@ Data Lake Store fournit une fonction d’audit et des journaux de diagnostic dé
 
 ### <a name="export-data-lake-store-diagnostics"></a>Exporter des diagnostics Data Lake Store 
 
-L’une des méthodes les plus rapides pour accéder aux journaux consultables depuis Data Lake Store consiste à activer l’envoi de journaux vers **Operations Management Suite (OMS)** sous le panneau **Diagnostics** du compte Data Lake Store. Cela fournit une accès immédiat aux journaux entrants avec des filtres de temps et de contenus, ainsi que des options d’alerte (message électronique/webhook) qui se déclenchent toutes les 15 minutes. Pour plus d’instructions, consultez [Accès aux journaux de diagnostic d’Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+L’une des méthodes les plus rapides pour accéder aux journaux consultables depuis Data Lake Store consiste à activer la copie des journaux de transaction vers **Log Analytics** sous le panneau **Diagnostics** du compte Data Lake Store. Cela fournit une accès immédiat aux journaux entrants avec des filtres de temps et de contenus, ainsi que des options d’alerte (message électronique/webhook) qui se déclenchent toutes les 15 minutes. Pour plus d’instructions, consultez [Accès aux journaux de diagnostic d’Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 Pour plus d’alertes en temps réel et plus de contrôles sur le lieu d’arrivée des journaux, pensez à exporter les journaux vers Azure EventHub, où le contenu peut être analysé individuellement ou sur une fenêtre de temps pour soumettre des notifications en temps réel à une file d’attente. Une application différente telle qu’une [application logique](../connectors/connectors-create-api-azure-event-hubs.md) peut alors utiliser et communiquer les alertes au canal approprié, et soumettre des mesures pour surveiller des outils comme NewRelic, Datadog ou AppDynamics. Aussi, si vous utilisez un outil tiers comme ElasticSearch, vous pouvez exporter les journaux vers le stockage d’objets blob et utiliser le [plugin Azure Logstash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) pour utiliser les données dans votre pile ElasticSearch, Kibana et Logstash (ELK).
 
@@ -139,7 +139,7 @@ Si l’envoi de journaux Data Lake Store n’est pas activé, Azure HDInsight fo
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Store sont écrits dans les journaux YARN sur les nœuds (/tmp/<user>/yarn.log) et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être analysées. Ces mêmes informations peuvent aussi être surveillées dans OMS ou n’importe quel emplacement où sont envoyés les journaux dans le panneau [Diagnostics](data-lake-store-diagnostic-logs.md) du compte Data Lake Store. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Store pour une visibilité opérationnelle et un débogage simplifié.
+Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Store sont écrits dans les journaux YARN sur les nœuds (/tmp/<user>/yarn.log) et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être analysées. Ces mêmes informations peuvent aussi être surveillées dans Log Analytics ou n’importe quel emplacement où sont envoyés les journaux dans le panneau [Diagnostics](data-lake-store-diagnostic-logs.md) du compte Data Lake Store. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Store pour une visibilité opérationnelle et un débogage simplifié.
 
 ### <a name="run-synthetic-transactions"></a>Exécuter des transactions synthétiques 
 

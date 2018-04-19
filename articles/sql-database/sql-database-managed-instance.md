@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -69,6 +69,23 @@ Le tableau suivant montre plusieurs propriétés, accessibles par le biais de Tr
 
 ![Authentification unique](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
+
+Le modèle d’achat basé sur des vCores vous assure flexibilité, contrôle et transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Le modèle vCore permet également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+Un vCore est l’UC logique qui permet de choisir parmi plusieurs générations de matériel.
+- Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz.
+- Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz.
+
+Le tableau suivant vous aidera à sélectionner la configuration optimale pour vos ressources de calcul, de mémoire, de stockage et d’E/S.
+
+||Gen 4|Gen 5|
+|----|------|-----|
+|Matériel|Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché vCore = 1 PP (cœur physique)|Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast eNVM, vCore = 1 LP (hyperthread)|
+|Niveaux de performances|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Mémoire|7 Go par vCore|5,5 Go par vCore|
+||||
+
 ## <a name="managed-instance-service-tier"></a>Niveau de service de Managed Instance
 
 Managed Instance est initialement disponible dans un seul niveau de service (usage général), conçu pour les applications dont les besoins de disponibilité et de latence d’E/S sont standard.
@@ -89,11 +106,11 @@ Voici les principales fonctionnalités du niveau de service Usage général :
 
 |Fonctionnalité | Description|
 |---|---|
-| Nombre de vCores* | 8, 16, 24|
+| Nombre de vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen 5)|
 | Version/Build de SQL Server | SQL Server (version la plus récente disponible) |
 | Taille de stockage minimale | 32 Go |
 | Taille de stockage maximale | 8 To |
-| Espace de stockage maximal par base de données | 4 To |
+| Espace de stockage maximal par base de données | 8 To |
 | IOPS de stockage attendues | De 500 à 7 500 IOPS par fichier de données (dépend du fichier de données) Consultez [Stockage Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes). |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple | 
 | Nombre de fichiers journaux (LOG) par base de données | 1 | 
@@ -106,7 +123,7 @@ Voici les principales fonctionnalités du niveau de service Usage général :
 | Prise en charge du portail | OUI|
 |||
 
-\* Un vCore représente l’UC logique offerte avec un choix à opérer entre plusieurs générations de matériel. Les UC logiques de 4e génération sont basées sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, et celles de 5e génération sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz.  
+\* Un vCore représente l’UC logique offerte avec un choix à opérer entre plusieurs générations de matériel. Les UC logiques de 4e génération sont basées sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, et celles de 5e génération sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz. 
 
 ## <a name="advanced-security-and-compliance"></a>Sécurité et conformité avancées 
 
@@ -152,7 +169,7 @@ SQL Database vous permet de gérer de manière centralisée les identités d’u
 L’authentification de base de données SQL fait référence au processus de validation de l’identité des utilisateurs lorsqu’ils se connectent à la base de données. Une base de données SQL prend en charge deux types d’authentification :  
 
 - L’authentification SQL, qui utilise un nom d’utilisateur et un mot de passe.
-- L’authentification Azure Active Directory, qui utilise des identités gérées par Azure Active Directory et qui est prise en charge pour des domaines gérés et intégrés.  
+- L’authentification Azure Active Directory, qui utilise des identités gérées par Azure Active Directory et qui est prise en charge pour des domaines gérés et intégrés. 
 
 ### <a name="authorization"></a>Authorization
 
@@ -160,11 +177,11 @@ Le terme autorisation fait référence aux actions qu’un utilisateur peut exé
 
 ## <a name="database-migration"></a>Migration de base de données 
 
-Managed Instance cible des scénarios d’utilisateur impliquant une migration de base de données en masse depuis des implémentations locales ou IaaS.  Managed Instance prend en charge plusieurs options de migration de base de données : 
+Managed Instance cible des scénarios d’utilisateur impliquant une migration de base de données en masse depuis des implémentations locales ou IaaS. Managed Instance prend en charge plusieurs options de migration de base de données : 
 
 ### <a name="data-migration-service"></a>Service de migration des données
 
-Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime.   Ce service simplifie les tâches nécessaires pour déplacer des bases de données SQL Server tierces existantes vers Azure. Les options de déploiement incluent Azure SQL Database, Managed Instance et SQL Server dans une machine virtuelle Azure en préversion publique. Consultez [Comment migrer votre base de données locale vers Managed Instance à l’aide de DMS](https://aka.ms/migratetoMIusingDMS).  
+Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Ce service simplifie les tâches nécessaires pour déplacer des bases de données SQL Server tierces existantes vers Azure. Les options de déploiement incluent Azure SQL Database, Managed Instance et SQL Server dans une machine virtuelle Azure en préversion publique. Consultez [Comment migrer votre base de données locale vers Managed Instance à l’aide de DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Sauvegarde et restauration  
 
@@ -174,7 +191,7 @@ L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Bl
 
 Managed Instance vise à assurer une compatibilité de la surface d’exposition proche de 100 % avec SQL Server local par étapes jusqu’à la disponibilité générale du service. Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
  
-Managed Instance prend en charge la compatibilité descendante avec les bases de données SQL 2008.  La migration directe à partir de serveurs de base de données SQL 2005 est prise en charge, le niveau de compatibilité des bases de données SQL 2005 qui ont migré est mis à jour vers SQL 2008. 
+Managed Instance prend en charge la compatibilité descendante avec les bases de données SQL 2008. La migration directe à partir de serveurs de base de données SQL 2005 est prise en charge, le niveau de compatibilité des bases de données SQL 2005 qui ont migré est mis à jour vers SQL 2008. 
  
 Le diagramme suivant illustre la compatibilité de la surface d’exposition dans Managed Instance :  
 
@@ -182,7 +199,7 @@ Le diagramme suivant illustre la compatibilité de la surface d’exposition dan
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Principales différences entre SQL Server local et Managed Instance 
 
-Managed Instance tire parti du fait d’être toujours à jour dans le cloud, ce qui signifie que certaines fonctionnalités de SQL Server local peuvent quant à elles être obsolètes, supprimées ou remplacées par d’autres.  Dans certains cas, les outils ont besoin de reconnaître qu’une fonctionnalité particulière agit de façon légèrement différente ou que le service n’est pas exécuté dans un environnement que vous ne contrôlez pas entièrement : 
+Managed Instance tire parti du fait d’être toujours à jour dans le cloud, ce qui signifie que certaines fonctionnalités de SQL Server local peuvent quant à elles être obsolètes, supprimées ou remplacées par d’autres. Dans certains cas, les outils ont besoin de reconnaître qu’une fonctionnalité particulière agit de façon légèrement différente ou que le service n’est pas exécuté dans un environnement que vous ne contrôlez pas entièrement : 
 
 - La haute disponibilité est intégrée et préconfigurée. Les fonctionnalités de haute disponibilité Always On ne sont pas exposées de la même manière que sur des implémentations SQL IaaS. 
 - Les sauvegardes sont automatisées et la restauration dans le temps limitée. Le client peut lancer des sauvegardes `copy-only` qui n’interfèrent pas avec la chaîne de sauvegarde automatique. 
@@ -192,7 +209,7 @@ Managed Instance tire parti du fait d’être toujours à jour dans le cloud, ce
  
 ### <a name="managed-instance-administration-features"></a>Fonctionnalités administratives de Managed Instance  
 
-Managed Instance permet aux administrateurs système de se concentrer sur ce qui importe le plus à l’entreprise. De nombreuses activités d’administrateur système/de base de données ne sont pas nécessaires ou sont très simples. Par exemple, l’installation et la mise à jour corrective d’un système d’exploitation/système de gestion de base de données relationnelle, le redimensionnement et la configuration d’une instance dynamique, les sauvegardes, la réplication de base de données (notamment des bases de données système), ainsi que la configuration des flux de données de surveillance de l’intégrité et des performances.  
+Managed Instance permet aux administrateurs système de se concentrer sur ce qui importe le plus à l’entreprise. De nombreuses activités d’administrateur système/de base de données ne sont pas nécessaires ou sont très simples. Par exemple, l’installation et la mise à jour corrective d’un système d’exploitation/système de gestion de base de données relationnelle, le redimensionnement et la configuration d’une instance dynamique, les sauvegardes, la réplication de base de données (notamment des bases de données système), ainsi que la configuration des flux de données de surveillance de l’intégrité et des performances. 
 
 > [!IMPORTANT]
 > Pour obtenir la liste des fonctionnalités prises en charge, partiellement prises en charge et non prises en charge, consultez [Fonctionnalités de SQL Database](sql-database-features.md). Pour obtenir la liste des différences de T-SQL entre Managed Instance et SQL Server, consultez [Différences de T-SQL entre Managed Instance et SQL Server](sql-database-managed-instance-transact-sql-information.md)

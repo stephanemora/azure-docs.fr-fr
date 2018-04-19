@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3c6d50ac128cd766a1d22689b737da975922466
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 509570dfe0e3d4be2e589ac1958dd377dc4e8e03
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -69,7 +69,7 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
 2.  Préparez un nouveau jeu de certificats externes de remplacement. Le nouveau jeu répond aux spécifications de certificat décrites sur la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3.  Stockez une sauvegarde des certificats utilisés pour la rotation dans un emplacement de sauvegarde sécurisé. Si votre rotation s’exécute puis échoue, remplacez les certificats dans le partage de fichiers par les copies de sauvegarde avant d’exécuter à nouveau la rotation. Remarque : vous devez conserver des copies de sauvegarde dans l’emplacement de sauvegarde sécurisé.
 3.  Créez un partage de fichiers auquel vous pouvez accéder depuis les machines virtuelles ERCS. Le partage de fichiers doit être accessible en lecture et en écriture pour l’identité **CloudAdmin**.
-4.  Ouvrez une console PowerShell ISE sur la machine virtuelle ERCS à l’aide du compte **CloudAdmin**.  Accédez à votre partage de fichiers. 
+4.  Ouvrez une console PowerShell ISE à partir d’un ordinateur sur lequel vous avez accès au partage de fichiers. Accédez à votre partage de fichiers. 
 5.  Exécutez **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** pour créer les répertoires requis pour vos certificats externes.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Rotation des clés internes et externes

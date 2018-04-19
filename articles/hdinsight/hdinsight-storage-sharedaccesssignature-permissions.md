@@ -1,8 +1,8 @@
 ---
-title: "Restreindre l’accès à l’aide des signatures d’accès partagé (SAP)- Azure HDInsight | Microsoft Docs"
-description: "Découvrez comment utiliser les signatures d’accès partagé pour limiter l’accès HDInsight aux données stockées dans des objets blob de stockage Azure."
+title: Restreindre l’accès à l’aide des signatures d’accès partagé (SAP)- Azure HDInsight | Microsoft Docs
+description: Découvrez comment utiliser les signatures d’accès partagé pour limiter l’accès HDInsight aux données stockées dans des objets blob de stockage Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
 ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilisation des signatures d’accès partagé du stockage Azure pour restreindre l’accès aux données dans HDInsight
 
@@ -44,7 +44,7 @@ HDInsight dispose d’un accès total aux données dans les comptes de stockage 
     > [!IMPORTANT]
     > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Fichiers d’exemple à l’adresse [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Ce dépôt contient les éléments suivants :
+* Les fichiers d’exemple à partir de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Ce dépôt contient les éléments suivants :
 
   * Un projet Visual Studio permettant de créer un conteneur de stockage, une stratégie stockée et une SAP pour une utilisation avec HDInsight.
   * Un script Python permettant de créer un conteneur de stockage, une stratégie stockée et une SAP pour une utilisation avec HDInsight
@@ -196,7 +196,7 @@ L’exécution de ce script prend un certain temps, environ 15 minutes en géné
 
 Si vous disposez d’un cluster existant basé sur Linux, vous pouvez ajouter la SAP pour la configuration **core-site** en procédant comme suit :
 
-1. Ouvrez l’interface utilisateur web Ambari de votre cluster. L’adresse de cette page est https://VOTRE NOM DE CLISTER.azurehdinsight.net. À l’invite, authentifiez-vous auprès du cluster au moyen du nom et du mot de passe d’administrateur que vous avez utilisés lors de la création du cluster.
+1. Ouvrez l’interface utilisateur web Ambari de votre cluster. L’adresse de cette page est https://YOURCLUSTERNAME.azurehdinsight.net. À l’invite, authentifiez-vous auprès du cluster au moyen du nom et du mot de passe d’administrateur que vous avez utilisés lors de la création du cluster.
 
 2. Dans la partie gauche de l’interface utilisateur web d’Ambari, sélectionnez **HDFS**, puis sélectionnez l’onglet **Configurations** au milieu de la page.
 
@@ -300,7 +300,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 * Il doit contenir au moins un caractère non alphanumérique.
 * Il doit contenir au moins une lettre minuscule et une lettre majuscule.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris comment ajouter un stockage à accès limité à votre cluster HDInsight, découvrez d’autres façons de travailler avec des données sur votre cluster :
 

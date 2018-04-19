@@ -1,6 +1,6 @@
 ---
-title: "Considérations relatives à la mise en réseau avec un environnement Azure App Service"
-description: "Cet article présente le trafic réseau d’un environnement App Service Environment (ASE) et explique comment définir des groupes de sécurité réseau et des itinéraires définis par l’utilisateur (UDR) avec votre ASE."
+title: Considérations relatives à la mise en réseau avec un environnement Azure App Service
+description: Cet article présente le trafic réseau d’un environnement App Service Environment (ASE) et explique comment définir des groupes de sécurité réseau et des itinéraires définis par l’utilisateur (UDR) avec votre ASE.
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
@@ -70,7 +70,7 @@ Un ASE présente la dépendance d’accès entrant suivante :
 |-----|------|----|
 | gestion | Adresses de gestion App Service | Sous-réseau de l’ASE : 454, 455 |
 |  Communications internes de l’ASE | Sous-réseau de l’ASE : tous les ports | Sous-réseau de l’ASE : tous les ports
-|  Autoriser le trafic entrant de l’équilibreur de charge Azure | Équilibreur de charge Azure | Sous-réseau de l’ASE : tous les ports
+|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : tous les ports
 |  Adresses IP affectées par l’application | Adresses affectées par l’application | Sous-réseau de l’ASE : tous les ports
 
 Le trafic entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses IP sources pour ce trafic sont répertoriées dans le document [Adresses de gestion App Service Environment][ASEManagement]. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP.
@@ -86,7 +86,7 @@ Pour l’accès sortant, un ASE dépend de plusieurs systèmes externes. Ces dé
 | Utilisation | À partir | À |
 |-----|------|----|
 | Stockage Azure | Sous-réseau de l’ASE | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net : 80, 443, 445 (le port 445 est requis uniquement pour ASEv1) |
-| Azure SQL Database | Sous-réseau de l’ASE | database.windows.net : 1433, 11000-11999, 14000-14999 (pour plus d’informations, consultez [Port utilisé par SQL Database V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
+| Base de données SQL Azure | Sous-réseau de l’ASE | database.windows.net : 1433, 11000-11999, 14000-14999 (pour plus d’informations, consultez [Port utilisé par SQL Database V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
 | Gestion d’Azure | Sous-réseau de l’ASE | management.core.windows.net, management.azure.com : 443 
 | Vérification du certificat SSL |  Sous-réseau de l’ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com : 443
 | Azure Active Directory        | Sous-réseau de l’ASE            |  Internet : 443
@@ -175,31 +175,10 @@ Une fois vos groupes de sécurité réseau définis, vous devez les attribuer au
 
 ## <a name="routes"></a>Itinéraires ##
 
-Les itinéraires sont un aspect essentiel de la nature du tunneling forcé et de son exploitation. Dans un réseau virtuel Azure, le routage repose sur la correspondance de préfixe la plus longue. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
+Le tunneling forcé consiste à définir des itinéraires dans un réseau virtuel de façon à ce que le trafic sortant n’accède pas directement à Internet, mais soit dirigé ailleurs, par exemple vers une passerelle ExpressRoute ou une appliance virtuelle.  Si vous souhaitez configurer ainsi votre environnement ASE, lisez le document [Configurer un environnement App Service Environment avec le tunneling forcé][forcedtunnel].  Il vous indiquera les options possibles pour travailler avec ExpressRoute et le tunneling forcé.
 
-- Itinéraire défini par l’utilisateur (UDR)
-- Itinéraire BGP (lorsque ExpressRoute est utilisé)
-- Itinéraire du système
-
-Pour en savoir plus sur le routage dans un réseau virtuel, consultez [Itinéraires définis par l’utilisateur et transfert IP][UDRs].
-
-La base de données SQL Azure qu’utilise l’ASE pour gérer le système dispose d’un pare-feu. Il requiert une communication provenant de l’adresse IP virtuelle publique ASE. Les connexions à la base de données SQL à partir de l’ASE sont refusées si elles sont envoyées via la connexion ExpressRoute et depuis une autre adresse IP.
-
-Si les réponses aux requêtes de gestion entrantes sont envoyées via le circuit ExpressRoute, l’adresse de réponse est différente de celle de destination. Cette incohérence interrompt la communication TCP.
-
-Pour que votre ASE fonctionne lorsque votre réseau virtuel est configuré avec un circuit ExpressRoute, le plus simple consiste à :
-
--   Configurer ExpressRoute pour qu’il publie _0.0.0.0/0_. Par défaut, il tunnélise de force tout le trafic sortant local.
--   Créer un UDR. Appliquez l’UDR au sous-réseau qui contient l’ASE, avec le préfixe d’adresse _0.0.0.0/0_ et le type de tronçon suivant _Internet_.
-
-Si vous apportez ces deux modifications, le trafic à destination d’Internet provenant du sous-réseau de l’ASE n’est plus acheminé de force via le circuit ExpressRoute et l’ASE peut fonctionner. 
-
-> [!IMPORTANT]
-> Les itinéraires définis dans un UDR doivent être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L’exemple précédent utilise la plage d’adresses 0.0.0.0/0 large. Il peut potentiellement être remplacé accidentellement par des annonces de routage utilisant des plages d’adresses plus spécifiques.
->
-> Les ASE ne sont pas pris en charge avec les configurations ExpressRoute qui annoncent de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les publications de routage de Microsoft. Les publications contiennent un grand ensemble de plages d’adresses IP de Microsoft Azure. Si ces plages d’adresses sont publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’environnement App Service sont tunnélisés de force vers l’infrastructure réseau local d’un client. Ce flux de réseau n’est actuellement pas pris en charge par les environnements App Service. L’une des solutions à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée.
-
-Pour créer un UDR, procédez comme suit :
+Lorsque vous créez un environnement ASE sur le portail, nous créons également différentes tables d’itinéraires sur le sous-réseau créé avec l’environnement.  Ces itinéraires donnent simplement l’instruction d’envoyer directement le trafic sortant sur Internet.  
+Pour créer les mêmes itinéraires manuellement, procédez ainsi :
 
 1. Accédez au portail Azure. Sélectionnez **Mise en réseau** > **Tables d’itinéraires**.
 
@@ -217,17 +196,15 @@ Pour créer un UDR, procédez comme suit :
 
     ![Itinéraires et groupes de sécurité réseau][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>Déploiement dans des réseaux virtuels Azure existants intégrés à ExpressRoute ###
+## <a name="service-endpoints"></a>Points de terminaison de service ##
 
-Pour déployer votre ASE dans un réseau virtuel intégré à ExpressRoute, préconfigurez le sous-réseau dans lequel vous souhaitez que l’ASE soit déployé. Utilisez alors un modèle Resource Manager pour le déployer. Pour créer un ASE dans un réseau virtuel pour lequel ExpressRoute est déjà configuré :
+Les points de terminaison de service vous permettent de restreindre l’accès aux services multilocataires à un ensemble de sous-réseaux et de réseaux virtuels Azure. Pour en savoir plus sur les points de terminaison de service, consultez la documentation [Points de terminaison de service de réseau virtuel][serviceendpoints]. 
 
-- Créez un sous-réseau pour héberger l’ASE.
+Lorsque vous activez les points de terminaison de service sur une ressource, certains itinéraires sont créés avec une priorité plus élevée que d’autres. Si vous utilisez des points de terminaison de service avec un ASE tunnelisé de force, le trafic de gestion Azure SQL et Stockage Azure n’est pas tunnelisé de force. 
 
-    > [!NOTE]
-    > Le sous-réseau doit contenir uniquement l’ASE. Veillez à choisir un espace d’adressage qui permet une croissance future. Vous ne pouvez pas modifier ce paramètre par la suite. Nous vous recommandons une taille de `/25` avec 128 adresses.
+Lorsque les points de terminaison de service sont activés sur un sous-réseau avec une instance Azure SQL, toutes les instances Azure SQL connectées à partir de ce sous-réseau doivent avoir des points de terminaison de service activés. Si vous souhaitez accéder à plusieurs instances Azure SQL à partir du même sous-réseau, vous ne pouvez pas activer les points de terminaison de service sur une instance Azure SQL et pas sur une autre. Stockage Azure ne se comporte pas de la même manière qu’Azure SQL. Lorsque vous activez les points de terminaison de service avec Stockage Azure, vous verrouillez l’accès à cette ressource à partir de votre sous-réseau, mais pourrez toujours accéder aux autres comptes Stockage Azure même si les points de terminaison de service ne sont pas activés.  
 
-- Créez des UDR (par exemple des tables d’itinéraires) en suivant la procédure décrite précédemment et définissez-les sur le sous-réseau.
-- Créez l’ASE à l’aide d’un modèle Resource Manager en suivant la procédure décrite dans [Création d’un ASE à l’aide d’un modèle ARM][MakeASEfromTemplate].
+![Points de terminaison de service][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ Pour déployer votre ASE dans un réseau virtuel intégré à ExpressRoute, pré
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ Pour déployer votre ASE dans un réseau virtuel intégré à ExpressRoute, pré
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

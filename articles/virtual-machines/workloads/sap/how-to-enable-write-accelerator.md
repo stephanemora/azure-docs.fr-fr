@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Accélérateur des écritures Azure pour les déploiements SAP
 L’Accélérateur des écritures Azure est une fonctionnalité qui est fournie uniquement pour les machines virtuelles de la série M. Il n’est pas disponible pour les autres séries de machines virtuelles dans Azure. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. 
@@ -28,10 +28,11 @@ L’Accélérateur des écritures Azure est une fonctionnalité qui est fournie 
 >[!NOTE]
 > L’Accélérateur des écritures Azure est disponible en préversion publique et son utilisation nécessite l’approbation de votre ID d’abonnement Azure
 
-La fonctionnalité Accélérateur des écritures Azure est disponible en préversion publique dans les régions suivantes :
+La fonctionnalité Accélérateur des écritures Azure est disponible pour le déploiement de la série M en préversion publique dans les régions suivantes :
 
 - Ouest des États-Unis 2
 - Europe de l’Ouest
+- Asie du Sud-Est
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Planification de l’utilisation de l’Accélérateur des écritures Azure
 Utilisez l’Accélérateur des écritures Azure pour les volumes qui stockent le journal des transactions ou les journaux de restauration d’un SGBD (système de gestion de base de données). Il n’est pas recommandé de l’utiliser pour les volumes de données d’un SGBD. Cette restriction s’explique par le fait que l’Accélérateur des écritures Azure nécessite le montage de disques durs virtuels de stockage Azure Premium sans le cache de lecture supplémentaire qui est disponible pour le stockage Premium. Ce type de mise en cache est surtout intéressant avec les bases de données conventionnelles. Dans la mesure où l’Accélérateur des écritures Azure impacte uniquement les activités d’écriture et n’accélère pas les lectures, la conception prise en charge par SAP consiste à utiliser l’Accélérateur des écritures sur les disques où se trouvent les journaux des transactions ou de restauration des bases de données SAP prises en charge. 
@@ -61,8 +62,9 @@ L’activation de l’Accélérateur des écritures sur les disques système n�
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Restrictions relatives à l’utilisation de l’Accélérateur des écritures Azure
 Quand vous utilisez l’Accélérateur des écritures Azure sur un disque/disque dur virtuel Azure, les restrictions suivantes s’appliquent :
 
-- La mise en cache du disque Premium doit être définie sur Aucune. Les autres modes de mise en cache ne sont pas pris en charge.
+- La mise en cache du disque Premium doit être définie sur Aucune ou Lecture seule. Les autres modes de mise en cache ne sont pas pris en charge.
 - Les instantanés sur un disque avec l’Accélérateur des écritures activé ne sont pas pris en charge. Cette restriction empêche le service Sauvegarde Azure d’effectuer un instantané cohérent des applications sur tous les disques de la machine virtuelle.
+- Seules les tailles d’E/S plus petites prennent le chemin d’accès accéléré. Dans les cas de charge de travail où les données sont chargées en bloc ou les tampons de journal des transactions des différents systèmes de gestion de base de données (SGBD) sont davantage remplis avant d’être conservés dans le stockage, les E/S écrites sur le disque risquent de ne pas prendre le chemin d’accès accéléré.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Activation de l’Accélérateur des écritures sur un disque spécifique
@@ -290,7 +292,7 @@ Le résultat doit être semblable à ceci :
 
 ```
 
-L’étape suivante consiste à mettre à jour le fichier JSON et à activer l’Accélérateur des écritures sur le disque appelé « log1 ». Pour cela, ajoutez cet attribut après l’entrée du cache du disque dans le fichier JSON. 
+L’étape suivante consiste à mettre à jour le fichier JSON et à activer l’Accélérateur des écritures sur le disque appelé « log1 ». Cette étape peut être effectuée en ajoutant cet attribut après l’entrée du cache du disque dans le fichier JSON. 
 
 ```
         {

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 Tout au long du cycle de vie de vos applications, vous pourrez avoir besoin de modifier ou de mettre à jour votre groupe de machines virtuelles identiques. Ces mises à jour peuvent être liées à la configuration du groupe de machines ou à la modification de la configuration de l’application. Cet article décrit comment modifier un groupe identique avec les API REST, Azure PowerShell ou Azure CLI 2.0.
@@ -367,7 +367,7 @@ Certaines modifications peuvent être appliquées uniquement à certaines machin
 ## <a name="scenarios"></a>Scénarios
 
 ### <a name="application-updates"></a>Mises à jour d’application
-Si une application est déployée dans un groupe identique via des extensions, la mise à jour de la configuration de l’extension va entraîner la mise à jour de l’application conformément à la stratégie de mise à niveau. Par exemple, si vous avez une nouvelle version d’un script qui doit s’exécuter dans une extension de script personnalisé, vous pouvez mettre à jour la propriété *fileUris* pour qu’elle pointe vers le nouveau script. Dans certains cas, toutefois, il est nécessaire de forcer une mise à jour, même si cela ne modifie pas la configuration de l’extension (par exemple, si vous avez mis à jour le script sans modifier son URI). Dans ce cas, vous pouvez modifier le *forceUpdateTag* pour qu’il force la mise à jour. La plateforme Azure n’interprète pas cette propriété. Toute modification de cette valeur n’a aucun effet sur l’exécution de l’extension. Sa modification ne fait que forcer la réexécution de l’extension. Pour plus d’informations sur *forceUpdateTag*, consultez la [documentation API REST sur les extensions](/rest/api/compute/virtualmachineextensions/createorupdate).
+Si une application est déployée dans un groupe identique via des extensions, la mise à jour de la configuration de l’extension va entraîner la mise à jour de l’application conformément à la stratégie de mise à niveau. Par exemple, si vous avez une nouvelle version d’un script qui doit s’exécuter dans une extension de script personnalisé, vous pouvez mettre à jour la propriété *fileUris* pour qu’elle pointe vers le nouveau script. Dans certains cas, toutefois, il est nécessaire de forcer une mise à jour, même si cela ne modifie pas la configuration de l’extension (par exemple, si vous avez mis à jour le script sans modifier son URI). Dans ce cas, vous pouvez modifier le *forceUpdateTag* pour qu’il force la mise à jour. La plateforme Azure n’interprète pas cette propriété. Toute modification de cette valeur n’a aucun effet sur l’exécution de l’extension. Sa modification ne fait que forcer la réexécution de l’extension. Pour plus d’informations sur *forceUpdateTag*, consultez la [documentation API REST sur les extensions](/rest/api/compute/virtualmachineextensions/createorupdate). Notez que la balise *forceUpdateTag* peut être utilisée avec toutes les extensions et pas seulement avec celle de script personnalisé.
 
 Il est également courant de déployer des applications à l’aide d’une image personnalisée. Ce scénario est décrit dans la section suivante.
 

@@ -7,13 +7,13 @@ manager: drasumic
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-automatic-tuning"></a>Activer le réglage automatique
 
@@ -22,7 +22,7 @@ Azure SQL Database est un service de données géré automatiquement qui surveil
 ## <a name="enable-automatic-tuning-on-server"></a>Activer le réglage automatique sur le serveur
 Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir de « Valeurs Azure par défaut » ou de ne pas hériter de la configuration. Les Valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX déactivé.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Configurer les notifications par e-mail sur l’ajustement automatique
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurer les notifications par e-mail sur l’ajustement automatique
 
 Consultez [Notifications par e-mail sur l’ajustement automatique](sql-database-automatic-tuning-email-notifications.md)
 

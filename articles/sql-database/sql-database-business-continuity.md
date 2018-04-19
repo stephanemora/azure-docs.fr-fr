@@ -7,17 +7,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -27,20 +26,20 @@ Cette vue d’ensemble décrit les fonctionnalités de la base de données SQL A
 
 La base de données SQL fournit plusieurs fonctionnalités de continuité d’activité, notamment des sauvegardes automatisées et une réplication facultative de la base de données. Chacune de ces fonctionnalités possède des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données pour les transactions récentes. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et, dans la plupart des scénarios, les utiliser ensemble dans différents scénarios. Lorsque vous élaborez votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption : votre objectif de délai de récupération (RTO). Vous devez également comprendre la quantité maximale des récentes mises à jour de données (intervalle) que l’application peut accepter de perdre lors de la récupération après l’événement d’interruption, il s’agit de votre objectif de point de récupération (RPO).
 
-Le tableau suivant compare l’ERT et le RPO pour les trois scénarios les plus courants.
+Le tableau suivant compare le temps de récupération estimé et l’objectif de point de récupération de chaque niveau de service, pour les trois scénarios les plus courants.
 
-| Fonctionnalité | Niveau de base | Niveau standard | Niveau Premium |
-| --- | --- | --- | --- |
-| Limite de restauration dans le temps à partir de la sauvegarde |Tout point de restauration dans un délai de 7 jours |Tout point de restauration dans un délai de 35 jours |Tout point de restauration dans un délai de 35 jours |
-| Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |
-| Restauration à partir d’Azure Backup Vault |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |
-| Géo-réplication active |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
+| Fonctionnalité | De base | standard | Premium  | Usage général | Critique pour l’entreprise
+| --- | --- | --- | --- |--- |--- |
+| Limite de restauration dans le temps à partir de la sauvegarde |Tout point de restauration dans un délai de 7 jours |Tout point de restauration dans un délai de 35 jours |Tout point de restauration dans un délai de 35 jours |N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|
+| Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
+| Restauration à partir d’Azure Backup Vault |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem.|ERT < 12 h, RPO < 1 sem.|
+| Géo-réplication active |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
 
-### <a name="use-database-backups-to-recover-a-database"></a>Utiliser des sauvegardes de base de données pour récupérer une base de données
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utiliser une limite de restauration dans le temps pour récupérer une base de données
 
-SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq à dix minutes) pour protéger votre entreprise contre la perte de données. Ces sauvegardes sont stockées dans le stockage géo-redondant pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base. Pour en savoir plus, consultez les [niveaux de service](sql-database-service-tiers.md). Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-service-tiers.md). Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
+SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq à dix minutes) pour protéger votre entreprise contre la perte de données. Ces sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base. Dans les niveaux de service Général et Critique pour l’entreprise (en préversion), la rétention des sauvegardes est configurable pendant un maximum de 35 jours. Pour en savoir plus, consultez les [niveaux de service](sql-database-service-tiers.md). Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-service-tiers.md). Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
 
-Si la période de rétention intégrée n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme. Pour plus d’informations, consultez [rétention à long terme](sql-database-long-term-retention.md).
+Si la période maximale de rétention qui est associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
 Vous pouvez utiliser ces sauvegardes automatiques pour récupérer une base de données après divers événements d’interruption, à la fois dans votre propre centre de données et dans un autre centre de données. Lorsque vous utilisez des sauvegardes automatiques, le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures. Lorsque vous effectuez une récupération vers une autre région de données, le risque de perte de données est limité à 1 heure par le stockage géo-redondant des sauvegardes de bases de données différentielle (toutes les heures).
 
@@ -55,7 +54,7 @@ Utilisez des sauvegardes automatisées comme mécanisme de continuité d’activ
 * Affiche un faible taux de modification des données (peu de transactions par heure) et accepte une perte de données correspondant à une heure de modifications.
 * Est sensible aux coûts.
 
-Si vous avez besoin d’une récupération plus rapide, utilisez une [géo-réplication active](sql-database-geo-replication-overview.md) (abordée plus loin). Si vous devez être en mesure de récupérer des données d’une période remontant à plus de 35 jours, utilisez la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md). 
+Si vous avez besoin d’une récupération plus rapide, utilisez une [géo-réplication active](sql-database-geo-replication-overview.md) (abordée plus loin). Si vous devez être en mesure de récupérer des données remontant à plus de 35 jours, utilisez la [rétention de sauvegardes à long terme](sql-database-long-term-retention.md). 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Utilisez la géo-réplication active et les groupes de basculement automatique (en version préliminaire) pour réduire le délai de récupération et les pertes de données associées à la récupération
 
@@ -77,12 +76,12 @@ Utilisez la géo-réplication active et les groupes de basculement automatique (
 * Affiche un taux élevé de données modifiées et la perte d’une heure de données n’est pas acceptable.
 * Le coût supplémentaire lié à l'utilisation de la géoréplication est plus faible que la responsabilité financière potentielle et la perte d'activité associée.
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Récupérer une base de données après une erreur d’utilisateur ou d’application
-* Personne n’est parfait ! Un utilisateur peut supprimer par inadvertance des données, un tableau important voire une base de données tout entière. Ou bien, une erreur d’application peut accidentellement remplacer des données correctes par des données incorrectes.
+
+Personne n’est parfait. Un utilisateur peut supprimer par inadvertance des données, un tableau important voire une base de données tout entière. Ou bien, une erreur d’application peut accidentellement remplacer des données correctes par des données incorrectes.
 
 Dans ce scénario, voici les options de récupération dont vous disposez.
 
@@ -101,8 +100,9 @@ Pour plus d’informations et obtenir la procédure détaillée de restauration 
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>Restauration à partir d’Azure Backup Vault
-Si la perte de données s’est produite en dehors de la période de rétention actuelle pour des sauvegardes automatisées, et si votre base de données est configurée pour une rétention à long terme, vous pouvez effectuer une restauration à partir d’une sauvegarde hebdomadaire dans Azure Backup Vault vers une nouvelle base de données. À ce stade, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les données nécessaires à partir de la base de données restaurée vers la base de données d’origine. Si vous avez besoin de récupérer une version de votre base de données qui soit antérieure à une importante mise à niveau d’application, ou de répondre à une demande dans le cadre d’un audit ou d’un ordre légal, vous pouvez créer une base de données à l’aide d’une sauvegarde complète enregistrée dans Azure Backup Vault.  Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
+### <a name="restore-backups-from-long-term-retention"></a>Restaurer des sauvegardes à partir d’une rétention à long terme
+
+Si la perte de données s’est produite en dehors de la période de rétention actuelle pour des sauvegardes automatisées, et si votre base de données est configurée pour une rétention à long terme, vous pouvez effectuer une restauration complète à partir du stockage LTR vers une nouvelle base de données. À ce stade, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les données nécessaires à partir de la base de données restaurée vers la base de données d’origine. Si vous avez besoin de récupérer une version de votre base de données qui soit antérieure à une importante mise à niveau d’application, ou de répondre à une demande dans le cadre d’un audit ou d’un ordre légal, vous pouvez créer une base de données à l’aide d’une sauvegarde complète enregistrée dans Azure Backup Vault.  Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Récupérer une base de données vers une autre région suite à une panne du centre de données régional Azure
 <!-- Explain this scenario -->

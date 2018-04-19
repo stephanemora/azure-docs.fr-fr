@@ -1,18 +1,18 @@
 ---
-title: "Concept d’Azure Event Grid"
-description: "Détaille Azure Event Grid et ses concepts. Définit plusieurs composants clés de Event Grid."
+title: Concept d’Azure Event Grid
+description: Détaille Azure Event Grid et ses concepts. Définit plusieurs composants clés de Event Grid.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -32,9 +32,11 @@ Les éditeurs catégorisent les événements en rubriques. La rubrique inclut un
 
 Les rubriques système sont des rubriques intégrées fournies par les services Azure. Les rubriques personnalisées sont des rubriques tierces et applicatives.
 
+Lorsque vous concevez votre application, créez une rubrique personnalisée pour chaque catégorie d’événements associés. Par exemple, envisagez une application qui envoie des événements liés à la modification de comptes d’utilisateur et au traitement de commandes. Il est peu probable qu’un gestionnaire d’événements accepte les deux catégories d’événements. Créez deux rubriques personnalisées et laissez les gestionnaires d’événements s’abonner à celle qui les intéresse. Lors de l’abonnement à la rubrique personnalisée, le gestionnaire d’événements peut filtrer par type d’événement.
+
 ## <a name="event-subscriptions"></a>Abonnements à des événements
 
-Un abonnement indique à Event Grid quels événements d’une rubrique un abonné souhaite recevoir.  Un abonnement contient également les informations sur la façon dont les événements doivent être distribués à l’abonné.
+Un abonnement indique à Event Grid quels événements d’une rubrique un abonné souhaite recevoir. Un abonnement contient également les informations sur la façon dont les événements doivent être distribués à l’abonné.
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 

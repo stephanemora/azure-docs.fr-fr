@@ -8,21 +8,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Conception de services hautement disponibles à l’aide d’Azure SQL Database
 
 Pour créer et déployer des services hautement disponibles sur Azure SQL Database, vous devez utiliser des [groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md) en vue de fournir une tolérance aux défaillances régionales et aux défaillances graves. Les groupes de basculement et la géoréplication active permettent également une récupération rapide des bases de données secondaires. Cet article aborde les modèles d’application courants et présente les avantages et inconvénients de chacun d’eux. Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> Si vous utilisez des bases de données et des pools Premium, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone (actuellement en préversion). Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).  
+> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise (préversion), vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone (actuellement en préversion). Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scénario 1 : Utilisation de deux régions Azure pour la continuité d’activité avec temps d’arrêt minimal
 Dans ce scénario, les applications ont les caractéristiques suivantes : 

@@ -3,6 +3,8 @@
 
 * Vous ne pouvez pas annuler la conversion. 
 
+* Gardez à l’esprit que tous les utilisateurs ayant pour rôle [Contributeur de machines virtuelles](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) ne peuvent pas modifier la taille des machines virtuelles (comme ils le pouvaient avant la conversion). Cela s’explique par le fait que les machines virtuelles avec disques managés obligent l’utilisateur à détenir une autorisation d’écriture Microsoft.Compute/disks/write sur les disques du système d’exploitation.
+
 * Veillez à la tester. Migrez une machine virtuelle de test avant d’effectuer la migration en production.
 
 * Lors de la conversion, vous libérez la machine virtuelle. Celle-ci reçoit une nouvelle adresse IP lorsqu’elle est démarrée après la conversion. Si nécessaire, vous pouvez [affecter une adresse IP statique](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) à la machine virtuelle.

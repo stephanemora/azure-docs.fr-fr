@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 356c1343443b33e565c65ef0693b8d8455ff1d1b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Étendre (copier) les alertes à partir du portail OMS vers Azure
 Le portail Operations Management Suite (OMS) affiche uniquement les alertes Log Analytics.  La nouvelle expérience d’alertes intègre désormais l’expérience d’alerte entre les différents services et parties dans Microsoft Azure. La nouvelle expérience, disponible sous forme d’**alertes** sous Azure Monitor dans le portail Azure, contient les alertes de journal d’activité, les alertes de métriques et les alertes de journal sur Log Analytics ainsi qu’Application Insights. 
@@ -30,12 +30,13 @@ Outre le fait de ne pas devoir sortir du portail Azure, l’extension des alerte
 
 - Contrairement au portail OMS, où seules 250 alertes peuvent être créées et affichées, cette limitation ne s’applique pas aux alertes Azure
 - Dans les alertes Azure, tous vos types d’alertes peuvent être gérés, répertoriés et affichés, et pas seulement les alertes Log Analytics comme c’est le cas avec le portail OMS
-- Les alertes Azure utilisent des [groupes d’actions](monitoring-action-groups.md) qui vous permettent de disposer pour chaque alerte de plusieurs actions, notamment les SMS, appels vocaux, le runbook Automation, Webhook, connecteur ITSM et d’autres encore. Dans Log Analytics, toutefois, les alertes sont limitées tant en nombre qu’en type d’actions possibles
+- Contrôler l’accès des utilisateurs à la surveillance et aux alertes uniquement, à l’aide du [rôle Azure Monitor](monitoring-roles-permissions-security.md)
+- Les alertes Azure utilisent des [groupes d’actions](monitoring-action-groups.md) qui vous permettent de disposer pour chaque alerte de plusieurs actions, notamment les SMS, appels vocaux, le runbook Automation, Webhook, connecteur ITSM et d’autres encore. 
 
 ## <a name="process-of-extending-your-alerts"></a>Processus d’extension de vos alertes
 Le processus d’extension des alertes du portail OMS à Azure, n’implique **pas** une modification, de quelque nature que ce soit, de votre définition d’alerte, requête ou configuration. Le seul changement nécessaire est tel que, dans Azure, toutes les actions comme les notifications par courrier électronique, l’appel Webhook, le runbook Automation ou la connexion à l’outil ITSM, se font via le groupe d’actions. Par conséquent, si le groupe d’actions approprié est associé à votre alerte, il sera étendu à Azure.
 
-Le processus d’extension étant non destructif et sans interruption, Microsoft étendra automatiquement les alertes créées dans le portail OMS aux alertes Azure à compter du **23 avril 2018**. À partir de cette date, Microsoft commencera à planifier l’extension des alertes à Azure et mettra progressivement à disposition toutes les alertes dans le portail OMS pour qu’elles soient gérées à partir du portail Azure. 
+Le processus d’extension étant non destructif et sans interruption, Microsoft étendra automatiquement les alertes créées dans le portail OMS aux alertes Azure à compter du **14 mai 2018**. À partir de cette date, Microsoft commencera à planifier l’extension des alertes à Azure et mettra progressivement à disposition toutes les alertes dans le portail OMS pour qu’elles soient gérées à partir du portail Azure. 
 
 Lorsque des alertes dans un espace de travail Log Analytics sont planifiées pour être étendues à Azure, elles continuent à fonctionner et n’affectent **en aucun cas** votre capacité de surveillance. Lorsqu’elles sont planifiées, vos alertes peuvent ne pas être disponibles temporairement pour modification/édition ; de nouvelles alertes Azure peuvent toutefois être créées pendant cette courte période. Pendant cette courte période, si vous modifiez ou créez une alerte dans le portail OMS, vous pourrez continuer dans Azure Log Analytics ou Azure Alerts.
 
@@ -55,7 +56,12 @@ Comme indiqué, les alertes créées dans Microsoft Operation Management Suite s
 
  ![Portail OMS répertoriant les alertes après une extension à Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
-Pour toute opération sur les alertes, comme la modification ou la création effectuée dans le portail OMS, les utilisateurs seront dirigés de manière transparente vers Azure Alerts. La création d’alertes se fera toujours via l’[API Log Analytics](../log-analytics/log-analytics-api-alerts.md) comme auparavant, la seule différence mineure étant qu’une fois les alertes étendues à Azure, les groupes d’actions doivent être inclus dans la planification.
+Pour toute opération sur les alertes, comme la modification ou la création effectuée dans le portail OMS, les utilisateurs seront dirigés de manière transparente vers Azure Alerts. 
+
+> [!NOTE]
+> Comme les utilisateurs seront dirigés vers Azure de manière transparente, lors d’une action d’ajout ou de modification sur une alerte dans OMS, vérifiez que les utilisateurs sont correctement mappés aux [autorisations appropriées d’utilisation d’Azure Monitor et Alerts](monitoring-roles-permissions-security.md)
+
+La création d’alertes se fera toujours via l’[API Log Analytics](../log-analytics/log-analytics-api-alerts.md) comme auparavant, la seule différence mineure étant qu’une fois les alertes étendues à Azure, les groupes d’actions doivent être inclus dans la planification.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

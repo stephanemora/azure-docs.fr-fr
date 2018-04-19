@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Mise à jour 1712 d’Azure Stack
 
@@ -43,11 +43,14 @@ Le numéro de build de mise à jour d’Azure Stack 1712 est **180106.1**. Si un
 Vous devez installer la [mise à jour 1711](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) d’Azure Stack avant d’appliquer cette mise à jour.
 
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
+- Après l’installation de la version 1712, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348) (Le service API du contrôleur réseau se bloque quand vous essayez d’installer une mise à jour Azure Stack)
 
-Cette mise à jour nécessite également l’installation des mises à jour du microprogramme du partenaire OEM après avoir terminé l’installation de la mise à jour 1712 d’Azure Stack.
 
-> [!NOTE]
-> Consultez le site web de votre partenaire OEM pour télécharger les mises à jour.
+- La mise à jour 1712 nécessite également l’installation des mises à jour du microprogramme du partenaire OEM après avoir terminé l’installation de la mise à jour 1712 d’Azure Stack.
+
+  > [!NOTE]
+  > Consultez le site web de votre partenaire OEM pour télécharger les mises à jour.
 
 ### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
 

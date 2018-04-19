@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
@@ -47,7 +47,7 @@ Vous pouvez également :
 
 * Configurer une **règle d’alerte qui envoie une notification ou prend une action de façon automatique** pour une mesure lorsque celle-ci dépasse le seuil que vous avez défini. La mise à l’échelle automatique est une action automatique spéciale qui vous permet de faire évoluer votre ressource afin de répondre aux requêtes entrantes ou à la charge sur votre site web ou vos ressources de calcul. Vous pouvez configurer une règle de paramètre de mise à l’échelle automatique sur la base d’une mesure qui dépasse un seuil.
 
-* **Acheminer** toutes les mesures vers Application Insights ou Log Analytics (OMS) pour activer instantanément des analyses, la recherche et des alertes personnalisées sur les données de mesure de vos ressources. Vous pouvez également diffuser des mesures vers un hub d’événements, pour les acheminer vers Azure Stream Analytics ou des applications personnalisées pour une analyse en quasi temps réel. Vous pouvez paramétrer la diffusion vers un hub d’événements à l’aide des paramètres de diagnostic.
+* **Acheminer** tous les métriques vers Application Insights ou Log Analytics pour activer instantanément analyses, recherche et alertes personnalisées sur les données des métriques depuis vos ressources. Vous pouvez également diffuser des mesures vers un hub d’événements, pour les acheminer vers Azure Stream Analytics ou des applications personnalisées pour une analyse en quasi temps réel. Vous pouvez paramétrer la diffusion vers un hub d’événements à l’aide des paramètres de diagnostic.
 
 * **Archiver les mesures dans le stockage** pour les conserver plus longtemps ou les utiliser pour les rapports en mode hors connexion. Vous pouvez acheminer vos mesures de stockage Azure Blob lorsque vous configurez les paramètres de diagnostic pour votre ressource.
 
@@ -100,11 +100,18 @@ Les mesures Azure sont accessibles via les API Azure Monitor. Il existe deux API
 Pour une description plus détaillée à l’aide de l’API REST d’Azure Monitor, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](monitoring-rest-api-walkthrough.md).
 
 ## <a name="export-metrics"></a>Exporter mesures
-Vous pouvez accéder au panneau **Paramètres de diagnostic** sous l’onglet **Monitor** et afficher les options d’exportation pour les mesures. Vous pouvez sélectionner les mesures (et les journaux de diagnostic) à acheminer vers un stockage d’objets Blob, Azure Hub Events ou pour OMS pour les cas d’utilisation mentionnés précédemment dans cet article.
+Vous pouvez accéder au panneau **Paramètres de diagnostic** sous l’onglet **Monitor** et afficher les options d’exportation pour les mesures. Vous pouvez sélectionner les métriques (et les journaux de diagnostic) à acheminer vers un stockage d’objets Blob, Azure Hub Events ou vers Log Analytics pour les cas d’utilisation mentionnés précédemment dans cet article.
 
  ![Options d’exportation pour les mesures dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 Vous pouvez configurer cela au moyen de modèles Resource Manager, de [PowerShell](insights-powershell-samples.md), de [l’interface de ligne de commande Azure](insights-cli-samples.md) ou des [API REST](https://msdn.microsoft.com/library/dn931943.aspx).
+
+> [!NOTE]
+> L’envoi de métriques multidimensionnels par le biais des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportés en tant que métriques dimensionnels uniques aplatis, et agrégés entre les valeurs de la dimension.
+>
+> *Par exemple* : le métrique « Messages entrants » sur un hub d’événements peut être examiné et représenté sur un niveau par file d’attente. Toutefois, lors de son exportation par le biais des paramètres de diagnostic, le métrique est représenté sous forme de tous les messages entrants dans toutes les files d’attente du hub d’événements.
+>
+>
 
 ## <a name="take-action-on-metrics"></a>Effectuer une opération sur les mesures
 Pour recevoir des notifications ou prendre des actions automatisées sur les données de mesure, vous pouvez configurer des règles d’alerte ou des paramètres de mise à l’échelle automatique.

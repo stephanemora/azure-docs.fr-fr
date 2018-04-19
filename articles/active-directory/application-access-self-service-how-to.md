@@ -1,23 +1,23 @@
 ---
-title: "Configurer l’attribution d’applications en libre-service | Microsoft Docs"
-description: "Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications."
+title: Configurer l’attribution d’applications en libre-service | Microsoft Docs
+description: Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 04/02/2018
 ms.author: asteen
-ms.openlocfilehash: 8aeda498847759debab18ddf4b44a75cd739a56c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configurer l’attribution d’applications en libre-service
 
@@ -64,7 +64,10 @@ Pour activer l’accès en libre-service à une application, procédez comme sui
 8.  Pour activer l’accès en libre-service à cette application, définissez l’option **Autoriser les utilisateurs à demander l’accès à cette application ?** sur **Oui.**
 
 9.  Ensuite, pour sélectionner le groupe auquel les utilisateurs qui demandent l’accès à cette application doivent être ajoutés, cliquez sur le sélecteur en regard de l’étiquette **À quel groupe les utilisateurs attribués doivent-ils être ajoutés ?** et sélectionnez un groupe.
-
+  
+  > [!NOTE]
+  > Les groupes synchronisés à partir de locaux ne sont pas pris en charge pour être utilisés pour le groupe auquel les utilisateurs qui demandent l’accès à cette application doivent être ajoutés.
+  
 10. **Facultatif :** si vous souhaitez exiger une approbation d’entreprise avant d’accorder l’accès aux utilisateurs, définissez l’option **Demander une approbation avant d’accorder l’accès à cette application ?** sur **Oui**.
 
 11. **Facultatif : pour les applications qui nécessitent une authentification unique par mot de passe uniquement,** si vous souhaitez autoriser ces approbateurs d’entreprise à spécifier les mots de passe envoyés à cette application pour les utilisateurs approuvés, définissez l’option **Autoriser les approbateurs à définir les mots de passe de l’utilisateur pour cette application ?** sur **Oui**.

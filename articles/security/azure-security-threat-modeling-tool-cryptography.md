@@ -1,6 +1,6 @@
 ---
-title: "Chiffrement - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
+title: Chiffrement - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
+description: mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : Chiffrement | Mesures de correction 
 | Produit/Service | Article |
 | --------------- | ------- |
-| **Application web** | <ul><li>[Utiliser uniquement les longueurs de clé et les chiffrements par bloc symétriques approuvés](#cipher-length)</li><li>[Utiliser les modes de chiffrement par bloc et les vecteurs d’initialisation pour les chiffrements symétriques approuvés](#vector-ciphers)</li><li>[Utiliser les algorithmes asymétriques, les longueurs de clé et le remplissage approuvés](#padding)</li><li>[Utiliser les générateurs de nombres aléatoires approuvés](#numgen)</li><li>[Ne pas utiliser les chiffrements de flux symétriques](#stream-ciphers)</li><li>[Utiliser les algorithmes de hachage MAC/HMAC/indexé approuvés](#mac-hash)</li><li>[Utiliser uniquement les fonctions de hachage de chiffrement approuvées](#hash-functions)</li></ul> |
+| **Application Web** | <ul><li>[Utiliser uniquement les longueurs de clé et les chiffrements par bloc symétriques approuvés](#cipher-length)</li><li>[Utiliser les modes de chiffrement par bloc et les vecteurs d’initialisation pour les chiffrements symétriques approuvés](#vector-ciphers)</li><li>[Utiliser les algorithmes asymétriques, les longueurs de clé et le remplissage approuvés](#padding)</li><li>[Utiliser les générateurs de nombres aléatoires approuvés](#numgen)</li><li>[Ne pas utiliser les chiffrements de flux symétriques](#stream-ciphers)</li><li>[Utiliser les algorithmes de hachage MAC/HMAC/indexé approuvés](#mac-hash)</li><li>[Utiliser uniquement les fonctions de hachage de chiffrement approuvées](#hash-functions)</li></ul> |
 | **Base de données** | <ul><li>[Utiliser des algorithmes de chiffrement fort pour chiffrer les données dans la base de données](#strong-db)</li><li>[Les packages SSIS doivent être chiffrés et signés numériquement](#ssis-signed)</li><li>[Ajouter une signature numérique aux éléments sécurisables de bases de données critiques](#securables-db)</li><li>[Utiliser EKM SQL Server pour protéger les clés de chiffrement](#ekm-keys)</li><li>[Utiliser la fonction AlwaysEncrypted si les clés de chiffrement ne doivent pas être révélées au moteur de base de données](#keys-engine)</li></ul> |
 | **Appareil IoT** | <ul><li>[Stocker les clés de chiffrement façon sécurisée sur IoT Device](#keys-iot)</li></ul> | 
 | **Passerelle de cloud IoT** | <ul><li>[Générer une clé symétrique aléatoire de longueur suffisante pour l’authentification vers IoT Hub](#random-hub)</li></ul> | 
 | **Client mobile Dynamics CRM** | <ul><li>[Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel utilisateur et permettant la réinitialisation à distance, est en place](#pin-remote)</li></ul> | 
 | **Client Outlook Dynamics CRM** | <ul><li>[Garantir qu’une stratégie de gestion des appareils, demandant un code confidentiel/mot de passe/verrouillage auto et chiffrant toutes les données (p. ex. Bitlocker), est en place](#bitlocker)</li></ul> | 
-| **IdentityServer** | <ul><li>[Garantir que les clés de signature sont annulées lors de l’utilisation d’IdentityServer](#rolled-server)</li><li>[Garantir qu’un ID de client et une clé secrète client forts en termes de chiffrement sont utilisés dans IdentityServer](#client-server)</li></ul> | 
+| **Serveur d’identité** | <ul><li>[Garantir que les clés de signature sont annulées lors de l’utilisation d’IdentityServer](#rolled-server)</li><li>[Garantir qu’un ID de client et une clé secrète client forts en termes de chiffrement sont utilisés dans IdentityServer](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Utiliser uniquement les longueurs de clé et les chiffrements par bloc symétriques approuvés
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
-| **Étapes** | <p>Les produits doivent utiliser les générateurs de nombres aléatoires approuvés. Les fonctions pseudoaléatoires telles que C runtime function rand, .NET Framework class System.Random ou les fonctions système comme GetTickCount doivent par conséquent ne jamais être utilisé dans du code de ce type. L’utilisation de l’algorithme du générateur de nombres aléatoires à courbe elliptique double (DUAL_EC_DRBG) est interdite.</p><ul><li>**CNG-** BCryptGenRandom (utilisation de l’indicateur BCRYPT_USE_SYSTEM_PREFERRED_RNG recommandé, sauf si l’appelant peut s’exécuter sur n’importe quel IRQL supérieur à 0 [c.-à-d. PASSIVE_LEVEL]).</li><li>**CAPI-** cryptGenRandom.</li><li>**Win32/64-** RtlGenRandom (les nouvelles implémentations doivent utiliser BCryptGenRandom ou CryptGenRandom) * rand_s * SystemPrng (pour le mode noyau).</li><li>**.NET-** RNGCryptoServiceProvider ou RNGCng.</li><li>**Applications du Windows Store-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom ou .GenerateRandomNumber.</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t *bytes )</li><li>**Apple OS X (&lt;10.7)-** Utilisez /dev/random pour récupérer des nombres aléatoires</li><li>**Java (y compris le code Java Google Android)-** java.security.SecureRandom class. Notez que pour Android 4.3 (Jelly Bean), les développeurs doivent suivre la solution de contournement Android recommandée et mettre à jour leurs applications pour initialiser explicitement le PRNG avec entropie à partir de /dev/urandom ou/dev/random.</li></ul>|
+| **Étapes** | <p>Les produits doivent utiliser les générateurs de nombres aléatoires approuvés. Les fonctions pseudoaléatoires telles que C runtime function rand, .NET Framework class System.Random ou les fonctions système comme GetTickCount doivent par conséquent ne jamais être utilisé dans du code de ce type. L’utilisation de l’algorithme du générateur de nombres aléatoires à courbe elliptique double (DUAL_EC_DRBG) est interdite.</p><ul><li>**CNG-** BCryptGenRandom (utilisation de l’indicateur BCRYPT_USE_SYSTEM_PREFERRED_RNG recommandé, sauf si l’appelant peut s’exécuter sur n’importe quel IRQL supérieur à 0 [c.-à-d. PASSIVE_LEVEL]).</li><li>**CAPI-** cryptGenRandom.</li><li>**Win32/64-** RtlGenRandom (les nouvelles implémentations doivent utiliser BCryptGenRandom ou CryptGenRandom) * rand_s * SystemPrng (pour le mode noyau).</li><li>**.NET-** RNGCryptoServiceProvider ou RNGCng.</li><li>**Applications du Windows Store-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom ou .GenerateRandomNumber.</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t \*bytes )</li><li>**Apple OS X (<10.7)-** Utilisez /dev/random pour récupérer des nombres aléatoires</li><li>**Java (y compris le code Java Google Android)-** java.security.SecureRandom class. Notez que pour Android 4.3 (Jelly Bean), les développeurs doivent suivre la solution de contournement Android recommandée et mettre à jour leurs applications pour initialiser explicitement le PRNG avec entropie à partir de /dev/urandom ou/dev/random.</li></ul>|
 
 ## <a id="stream-ciphers"></a>Ne pas utiliser les chiffrements de flux symétriques
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/11/2017
 | **Informations de référence**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (Module de plateforme sécurisée sur Windows IoT Standard), [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm) (Module de plateforme sécurisée sur Windows IoT Standard), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (Module de plateforme sécurisée Azure IoT Device SDK) |
 | **Étapes** | Clés privées de certificat ou symétriques dans un stockage matériel protégé tel qu’un module de plateforme sécurisée ou des cartes à puce. Windows 10 IoT Standard prend en charge l’utilisateur d’un module de plateforme sécurisée, dont plusieurs types compatibles peuvent être utilisés : https://developer.microsoft.com/windows/iot/win10/tpm. Il est recommandé d’utiliser un module de plateforme sécurisée de type discret ou micrologiciel. Un module de plateforme sécurisée de type logiciel doit uniquement être utilisé à des fins de développement et de test. Une fois qu’un module de plateforme sécurisée est disponible et que les clés sont approvisionnées dans celui-ci, le code qui génère le jeton doit être écrit sans coder en dur les informations sensibles qu’il contient. | 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```
 TpmDevice myDevice = new TpmDevice(0);
 // Use logical device 0 on the TPM 
@@ -190,7 +190,7 @@ Comme vous pouvez le constater, la clé primaire de l’appareil n’est pas pr�
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Passerelle de cloud IoT | 
+| **Composant**               | Passerelle cloud IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Choix de passerelle - Azure IoT Hub |

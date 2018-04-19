@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Consigner des événements pour l’analyse et l’évaluation de diagnostic des solutions Batch
 
@@ -98,7 +98,7 @@ Outre le stockage d’événements du journal de diagnostic dans un compte de St
   Diffusez les événements de diagnostic de Batch vers le service d’entrée de données hautement extensible Event Hubs. Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel.
 * [Analyser les journaux de diagnostic Azure à l’aide de Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
-  Envoyez vos journaux de diagnostic à Log Analytics où vous pouvez les analyser via le portail Operations Management Suite (OMS), ou les exporter à des fins d’analyse vers Power BI ou Excel.
+  Envoyez vos journaux de diagnostic à Log Analytics, où vous pouvez les analyser dans le Portail Azure ou les importer pour analyse dans Power BI ou Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

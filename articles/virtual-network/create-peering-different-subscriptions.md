@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 92cbcad42508f2ae6113d13449aba7eed5acd251
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents 
 
 Dans ce didacticiel, vous allez découvrir comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés par le biais de Resource Manager. Les réseaux virtuels existent dans des abonnements différents. Homologuer deux réseaux virtuels permet aux ressources de différents réseaux virtuels de communiquer entre elles avec la même bande passante et latence, comme si les ressources se trouvaient sur le même réseau virtuel. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md). 
 
-Les étapes de création d’une homologation de réseaux virtuels sont différentes, selon que les réseaux virtuels sont dans le même abonnement ou dans des abonnements différents, et selon le [modèle de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) utilisé pour les créer. Découvrez comment créer une homologation de réseaux virtuels dans d’autres scénarios en cliquant sur le scénario souhaité dans le tableau suivant :
+Les étapes de création d’une homologation de réseaux virtuels sont différentes, selon que les réseaux virtuels sont dans le même abonnement ou dans des abonnements différents, et selon le [modèle de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) utilisé pour les créer. Découvrez comment créer une homologation de réseaux virtuels dans d’autres scénarios en sélectionnant le scénario souhaité dans le tableau suivant :
 
 |Modèle de déploiement Azure  | Abonnement Azure  |
 |--------- |---------|
@@ -37,15 +37,15 @@ Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux rése
 
 Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region). 
 
-Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de commande](#cli) (CLI) Azure, Azure [PowerShell](#powershell) ou un [modèle Azure Resource Manager](#template) pour créer une homologation de réseaux virtuels. Cliquez sur les liens des outils précédents pour accéder directement à la procédure permettant de créer une homologation de réseaux virtuels à l’aide de l’outil de votre choix.
+Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de commande](#cli) (CLI) Azure, Azure [PowerShell](#powershell) ou un [modèle Azure Resource Manager](#template) pour créer une homologation de réseaux virtuels. Sélectionnez l’un des liens d’outils précédents pour accéder directement à la procédure permettant de créer une homologation de réseaux virtuels à l’aide de l’outil de votre choix.
 
 ## <a name="portal"></a>Créer une homologation - portail Azure
 
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion du portail et ignorer les étapes d’affectation d’autorisations d’accès aux réseaux virtuels à un autre utilisateur.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que UserA. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
-2. Cliquez sur **+ Nouveau**, puis sur **Mise en réseau** et **Réseau virtuel**.
-3. Dans le panneau **Créer un réseau virtuel**, entrez ou sélectionnez les valeurs des paramètres suivants, puis cliquez sur **Créer** :
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que *UserA*. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
+2. Sélectionnez **+ Créer une ressource**, **Mise en réseau**, puis **Réseau virtuel**.
+3. Sélectionnez ou entrez les exemples de valeurs suivants pour les paramètres correspondants, puis cliquez sur **Créer** :
     - **Nom** : *myVnetA*
     - **Espace d’adressage** : *10.0.0.0/16*
     - **Nom du sous-réseau** : *par défaut*
@@ -53,13 +53,13 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     - **Abonnement :** sélectionnez l’abonnement A.
     - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupA*
     - **Emplacement** : *États-Unis de l’Est*
-4. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand la mention **myVnetA** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnetA**.
-5. Dans le panneau **myVnetA** qui apparaît, cliquez sur **Contrôle d’accès (IAM)** dans la liste verticale des options sur le côté gauche du panneau.
-6. Dans le panneau **myVnetA - Contrôle d’accès (IAM)** qui apparaît, cliquez sur **+ Ajouter**.
-7. Dans le panneau **Ajouter les autorisations** qui s’affiche, sélectionnez **Contributeur de réseaux** dans le champ **Rôle**.
-8. Dans la zone **Sélectionner**, sélectionnez UserB ou tapez l’adresse e-mail de UserB pour le rechercher. La liste des utilisateurs affichée provient du même locataire Azure Active Directory que le réseau virtuel pour lequel vous configurez l’homologation.
-9. Cliquez sur **Enregistrer**.
-10. Dans le panneau **myVnetA - Contrôle d’accès (IAM)**, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+4. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée. 
+5. Dans la liste verticale d’options située à gauche, sélectionnez **Contrôle d’accès (IAM)**.
+6. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **+ Ajouter**.
+7. Dans la zone **Rôle**, sélectionnez **Contributeur de réseaux**.
+8. Dans la zone **Sélectionner**, sélectionnez *UserB* ou tapez l’adresse e-mail de UserB pour rechercher cet utilisateur. La liste des utilisateurs affichée provient du même locataire Azure Active Directory que le réseau virtuel pour lequel vous configurez l’homologation. Si vous ne voyez pas UserB, c’est sans doute parce que cet utilisateur se trouve dans un locataire Active Directory autre que celui de UserA. Pour connecter des réseaux virtuels de locataires Active Directory différents, vous pouvez utiliser une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) au lieu d’une homologation de réseaux virtuels.
+9. Sélectionnez **Enregistrer**.
+10. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
 11. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 12. Effectuez les étapes 2 et 3, en entrant ou en sélectionnant les valeurs suivantes à l’étape 3 :
 
@@ -71,25 +71,25 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupB*
     - **Emplacement** : *États-Unis de l’Est*
 
-13. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand la mention **myVnetB** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnetB**.
-14. Dans le panneau **myVnetB** qui s’affiche, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
-15. Cliquez sur **Contrôle d’accès (IAM)** dans le panneau **myVnetB**, puis suivez les étapes 5 à 10 pour myVnetB, en entrant **UserA** à l’étape 8.
+13. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand **myVnetB** apparaît dans les résultats de recherche, sélectionnez cette entrée.
+14. Sous **myVnetB**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+15. Sous **myVnetB**, sélectionnez **Contrôle d’accès (IAM)**, puis suivez les étapes 5 à 10 pour myVnetB, en entrant **UserA** à l’étape 8.
 16. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
-17. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand la mention **myVnetA** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnet**.
-18. Cliquez sur **myVnetA**.
-19. Dans le panneau **myVnetA** qui s’affiche, cliquez sur **Homologations** dans la liste verticale des options sur le côté gauche du panneau.
-20. Dans le panneau **myVnetA - Homologations** qui s’est affiché, cliquez sur **+ Ajouter**.
-21. Dans le panneau **Ajouter l’homologation** qui s’affiche, entrez ou sélectionnez les options suivantes et cliquez sur **OK** :
+17. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
+18. Sélectionnez **myVnetA**.
+19. Sous **PARAMÈTRES**, sélectionnez **Homologations**.
+20. Sous **myVnetA - Homologations**, sélectionnez **+ Ajouter**.
+21. Sous **Ajouter l’homologation**, entrez ou sélectionnez les options suivantes, puis sélectionnez **OK** :
      - **Nom** : *myVnetAToMyVnetB*
      - **Modèle de déploiement de réseau virtuel** : sélectionnez **Resource Manager**.
      - **Je connais mon ID de ressource** : cochez cette case.
      - **ID de ressource** : entrez l’ID de ressource noté à l’étape 14.
      - **Autoriser l’accès au réseau virtuel :** vérifiez que l’option **Activé** est sélectionnée.
     Il n’y aucun autre paramètre utilisé dans ce didacticiel. Pour en savoir plus sur tous les paramètres d’homologation, consultez [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md#create-a-peering) (Créer, modifier ou supprimer une homologation de réseaux virtuels).
-22. Après avoir cliqué sur **OK** à l’étape précédente, le panneau **Ajouter l’homologation** se ferme et vous pouvez à nouveau voir le panneau **myVnetA - Homologations**. Après quelques secondes, l’homologation que vous avez créée apparaît dans le panneau. **Lancé** est indiqué dans la colonne **ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToMyVnetB** que vous avez créée. Vous avez homologué myVnetA à myVnetB, mais vous devez maintenant homologuer myVnetB à myVnetA. L’homologation doit être créée dans les deux directions pour permettre aux ressources des réseaux virtuels de communiquer entre elles.
+22. L’homologation créée s’affiche quelques instants après que vous avez sélectionné **OK** à l’étape précédente. **Lancé** est indiqué dans la colonne **ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToMyVnetB** que vous avez créée. Vous avez homologué myVnetA à myVnetB, mais vous devez maintenant homologuer myVnetB à myVnetA. L’homologation doit être créée dans les deux directions pour permettre aux ressources des réseaux virtuels de communiquer entre elles.
 23. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 24. Répétez les étapes 17 à 21 pour MyVnetB. À l’étape 21, nommez l’homologation *myVnetBToMyVnetA*, sélectionnez *myVnetA* pour **Réseau virtuel** et entrez l’ID noté à l’étape 10 dans la zone **ID de ressource**.
-25. Quelques secondes après que vous avez cliqué sur **OK** pour créer l’homologation pour myVnetB, l’homologation **myVnetBToMyVnetA** que vous venez de créer est répertoriée avec **Connecté** dans la colonne **ÉTAT D’APPAIRAGE**.
+25. Quelques secondes après que vous avez sélectionné **OK** pour créer l’homologation pour myVnetB, l’homologation **myVnetBToMyVnetA** que vous venez de créer est répertoriée avec **Connecté** dans la colonne **ÉTAT D’APPAIRAGE**.
 26. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 27. Répétez les étapes 17-19. L’**ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToVNetB** est maintenant également défini sur **Connecté**. L’homologation est établie avec succès une fois que vous voyez **Connecté** dans la colonne **ÉTAT D’APPAIRAGE** pour les deux réseaux virtuels de l’homologation. Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 28. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
@@ -97,14 +97,14 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 ## <a name="cli"></a>Créer une homologation - interface de ligne de commande Azure
 
-Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB.
+Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. Les deux réseaux virtuels à homologuer doivent se trouver dans des abonnements associés au même locataire Azure Active Directory.  Pour connecter des réseaux virtuels de locataires Active Directory différents, vous pouvez utiliser une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) au lieu d’une homologation de réseaux virtuels.
 
-Le script suivant :
+Les scripts suivants :
 
 - Requiert l’interface de ligne de commande Azure version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez effectuer une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans le client Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Cliquez sur le bouton **Try it** dans le script qui suit, ce qui appelle un Cloud Shell avec lequel vous pouvez vous connecter à votre compte Azure. 
+Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Sélectionnez le bouton **Try it** dans le script qui suit afin d’appeler un Cloud Shell avec lequel vous pouvez vous connecter à votre compte Azure. 
 
 1. Ouvrez une session CLI et connectez-vous à Azure en tant que UserA à l’aide de la commande `azure login`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 2. Copiez le script suivant dans un éditeur de texte sur votre ordinateur, remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A, puis copiez le script modifié, collez-le dans votre session CLI et appuyez sur `Enter`. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande « az account show ». La valeur de **id** dans la sortie est votre ID d’abonnement.
@@ -175,7 +175,7 @@ Les ressources Azure que vous créez dans un réseau virtuel sont désormais en 
  
 ## <a name="powershell"></a>Créer une homologation - PowerShell
 
-Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB.
+Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. Les deux réseaux virtuels à homologuer doivent se trouver dans des abonnements associés au même locataire Azure Active Directory.  Pour connecter des réseaux virtuels de locataires Active Directory différents, vous pouvez utiliser une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md) au lieu d’une homologation de réseaux virtuels.
 
 1. Installez la dernière version du module PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
@@ -286,9 +286,9 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 ### <a name="delete-portal"></a>Portail Azure
 
 1. Connectez-vous au portail Azure en tant que UserA.
-2. Dans le champ de recherche du portail, entrez **myResourceGroupA**. Dans les résultats de la recherche, cliquez sur **myResourceGroupA**.
-3. Dans le panneau **myResourceGroupA**, cliquez sur l’icône **Supprimer**.
-4. Pour confirmer la suppression, dans le champ **Tapez le nom du groupe de ressources**, entrez **myResourceGroupA**, puis cliquez sur **Supprimer**.
+2. Dans le champ de recherche du portail, entrez **myResourceGroupA**. Dans les résultats de la recherche, sélectionnez **myResourceGroupA**.
+3. Sélectionnez **Supprimer**.
+4. Pour confirmer la suppression, dans le champ **Tapez le nom du groupe de ressources**, entrez **myResourceGroupA**, puis sélectionnez **Supprimer**.
 5. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 6. Effectuez les étapes 2 à 4 pour myResourceGroupB.
 

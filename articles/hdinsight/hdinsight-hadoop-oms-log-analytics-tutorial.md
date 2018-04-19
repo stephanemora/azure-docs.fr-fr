@@ -1,8 +1,8 @@
 ---
 title: Utiliser Log Analytics pour surveiller les clusters Azure HDInsight | Microsoft Docs
-description: "Découvrez comment utiliser Azure Log Analytics pour surveiller les travaux en cours d’exécution dans un cluster HDInsight."
+description: Découvrez comment utiliser Azure Log Analytics pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,23 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c43b9aabda56e1204870575e86934bf93d05882
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be71b065999c30546432895804df8633da21b43e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Utiliser Azure Log Analytics pour surveiller les clusters HDInsight
 
 Découvrez comment utiliser Azure Log Analytics pour surveiller les opérations de cluster Hadoop dans HDInsight.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) est un service d’[Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. 
+[Log Analytics](../log-analytics/log-analytics-overview.md) est un service qui surveille vos environnements cloud et locaux, afin de préserver leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. 
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 * **Un abonnement Azure**. Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Voir [Créez votre compte Azure gratuit](https://azure.microsoft.com/free).
 
-* Un **cluster Azure HDInsight**. Actuellement, vous pouvez utiliser Azure Operations Management Suite avec les types de cluster HDInsight suivants :
+* Un **cluster Azure HDInsight**. Vous pouvez actuellement utiliser Log Analytics avec les types de clusters HDInsight suivants :
 
     * Hadoop
     * hbase

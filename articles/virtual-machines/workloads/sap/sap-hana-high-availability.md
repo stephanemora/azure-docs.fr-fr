@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Haute disponibilité de SAP HANA sur des machines virtuelles Azure
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/29/2018
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -155,15 +156,36 @@ Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github
         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple hana-hp)
         1. Sélectionner le protocole TCP et le port 625**03**, et conserver un intervalle de 5 et un seuil de défaillance de 2
         1. Cliquez sur OK
-    1. Créer des règles d’équilibrage de charge
+    1. SAP HANA 1.0 : Créer des règles d’équilibrage de charge
         1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**15)
+        1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple hana-frontend)
+        1. Conserver le protocole TCP et choisir le port 3**03**15
+        1. Augmenter le délai d’inactivité à 30 minutes
+        1. **Veiller à activer IP flottante**
+        1. Cliquez sur OK
+        1. Répéter les étapes ci-dessus pour le port 3**03**17
+    1. SAP HANA 2.0 : Créer des règles d’équilibrage de charge pour la base de données système
+        1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+        1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**13)
         1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple hana-frontend)
         1. Conserver le protocole TCP et choisir le port 3**03**13
         1. Augmenter le délai d’inactivité à 30 minutes
         1. **Veiller à activer IP flottante**
         1. Cliquez sur OK
-        1. Répéter les étapes ci-dessus pour les ports 3**03**15 et 3**03**17
+        1. Répéter les étapes ci-dessus pour le port 3**03**14
+    1. SAP HANA 2.0 : Créer des règles d’équilibrage de charge pour la première base de données locataire
+        1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+        1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**40)
+        1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple hana-frontend)
+        1. Conserver le protocole TCP et choisir le port 3**03**40
+        1. Augmenter le délai d’inactivité à 30 minutes
+        1. **Veiller à activer IP flottante**
+        1. Cliquez sur OK
+        1. Répéter les étapes ci-dessus pour les ports 3**03**41 et 3**03**42
+
+Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) du guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la [Note SAP 2388694][2388694].
+
 
 ## <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 

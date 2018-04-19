@@ -1,8 +1,8 @@
 ---
-title: "Gérer des clusters Hadoop dans HDInsight au moyen du portail Azure | Microsoft Docs"
-description: "Apprenez à créer et à gérer des clusters HDInsight avec le portail Azure."
+title: Gérer des clusters Hadoop dans HDInsight au moyen du portail Azure | Microsoft Docs
+description: Apprenez à créer et à gérer des clusters HDInsight avec le portail Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
 
@@ -103,7 +103,7 @@ Si l’erreur NoRegisteredProviderFound ou MissingSubscriptionRegistration s’a
     * **Metastores externes**: affiche les metastores Hive et Oozie. Les metastores ne peuvent être configurés qu’au cours du processus de création de cluster. Consultez [Utiliser un metastore Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Actions de script**: exécutent des scripts Bash sur le cluster. Consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
     * **Applications** : permet d’ajouter/supprimer des applications HDInsight.  Consultez [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
-    * **Surveillance** : permet de surveiller le cluster dans Azure Operations Management Suite et Azure Log Analytics.
+    * **Analyse** : surveiller le cluster dans Azure Log Analytics.
     * **Propriétés**: affichez les propriétés du cluster
     * **Comptes de stockage** : permet d’afficher les comptes de stockage et les clés. Les comptes de stockage sont configurés pendant le processus de création de cluster.
     * **Accès à Data Lake Store** : permet de configurer l’accès aux Data Lake Stores.  Consultez [Créer des clusters HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).

@@ -1,12 +1,13 @@
 ---
 title: Acheminer le trafic réseau - Azure CLI | Microsoft Docs
-description: Découvrez comment acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure.
+description: Dans cet article, découvrez comment acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure
 
-Par défaut, Azure achemine automatiquement le trafic entre tous les sous-réseaux au sein d’un réseau virtuel. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez router le trafic entre des sous-réseaux via une appliance virtuelle réseau (NVA). Dans cet article, vous apprendrez comment :
+Par défaut, Azure achemine automatiquement le trafic entre tous les sous-réseaux au sein d’un réseau virtuel. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez router le trafic entre des sous-réseaux via une appliance virtuelle réseau (NVA). Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer une table de routage
-> * Créer un itinéraire
-> * Créer un réseau virtuel comprenant plusieurs sous-réseaux
-> * Associer une table de routage à un sous-réseau
-> * Créer une appliance NVA qui route le trafic
-> * Déployer des machines virtuelles sur différents sous-réseaux
-> * Router le trafic d’un sous-réseau vers un autre via une NVA
+* Créer une table de routage
+* Créer un itinéraire
+* Créer un réseau virtuel comprenant plusieurs sous-réseaux
+* Associer une table de routage à un sous-réseau
+* Créer une appliance NVA qui route le trafic
+* Déployer des machines virtuelles sur différents sous-réseaux
+* Router le trafic d’un sous-réseau vers un autre via une NVA
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -203,9 +203,9 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Une foi
   "resourceGroup": "myResourceGroup"
 }
 ```
-Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder à la machine virtuelle à partir d’Internet lors d’une étape ultérieure.
+Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder à la machine virtuelle à partir d’Internet dans une prochaine étape.
 
-## <a name="route-traffic-through-an-nva"></a>Acheminer le trafic via une appliance virtuelle réseau
+## <a name="route-traffic-through-an-nva"></a>Router le trafic via une NVA
 
 Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez *<publicIpAddress>* par l’adresse IP publique de votre machine virtuelle. Dans l’exemple ci-dessus, l’adresse IP est *13.90.242.231*.
 
@@ -275,9 +275,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé une table de routage que vous avez associée à un sous-réseau. Vous avez créé une appliance virtuelle réseau (NVA) simple qui a routé le trafic d’un sous-réseau public vers un sous-réseau privé. Déployez différentes NVA préconfigurées exécutant des fonctions de réseau, telles que la fonction de pare-feu ou l’optimisation WAN, à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Avant de déployer des tables de routage dans un environnement de production, il est recommandé de bien se familiariser avec le [routage dans Azure](virtual-networks-udr-overview.md), la [gestion des tables de routage](manage-route-table.md) et les [limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Dans cet article, vous avez créé une table de routage que vous avez associée à un sous-réseau. Vous avez créé une appliance virtuelle réseau (NVA) simple qui a routé le trafic d’un sous-réseau public vers un sous-réseau privé. Déployez différentes NVA préconfigurées exécutant des fonctions de réseau, telles que la fonction de pare-feu ou l’optimisation WAN, à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Pour en savoir plus sur le routage, consultez [Routage du trafic de réseau virtuel](virtual-networks-udr-overview.md) et [Créer, modifier ou supprimer une table de routage](manage-route-table.md).
 
-Alors que vous pouvez déployer de nombreuses ressources Azure dans un réseau virtuel, les ressources pour certains services Azure PaaS ne peuvent pas être déployées dans un réseau virtuel. Cependant, vous pouvez toujours restreindre l’accès aux ressources de certains services Azure PaaS au trafic provenant uniquement d’un sous-réseau de réseau virtuel. Passez au tutoriel suivant pour apprendre à restreindre l’accès réseau aux ressources Azure PaaS.
-
-> [!div class="nextstepaction"]
-> [Restreindre l’accès réseau aux ressources PaaS](tutorial-restrict-network-access-to-resources-cli.md)
+Alors que vous pouvez déployer de nombreuses ressources Azure dans un réseau virtuel, les ressources pour certains services Azure PaaS ne peuvent pas être déployées dans un réseau virtuel. Cependant, vous pouvez toujours restreindre l’accès aux ressources de certains services Azure PaaS au trafic provenant uniquement d’un sous-réseau de réseau virtuel. Pour savoir comment procéder, consultez [Restreindre l’accès réseau aux ressources PaaS](tutorial-restrict-network-access-to-resources-cli.md).

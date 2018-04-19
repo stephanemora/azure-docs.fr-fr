@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
 
@@ -156,7 +156,7 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
     
     b. Dans la section **Éléments Collaboration**, dans la liste déroulante, sélectionnez **e-mail**.
 
-    c. Dans le champ **Éléments Collaboration**, collez la valeur de revendication que vous avez copiée plus tôt dans le portail Azure (**http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Dans la zone **éléments Collaboration**, collez la valeur de revendication que vous avez copiée plus tôt à partir du portail Azure (c’est-à-dire **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. Dans le champ **Émetteur (ID d’entité)**, collez la valeur Identificateur que vous avez copiée plus tôt à partir de la section relative aux **domaine et adresses URL E Sales Manager Remix** du portail Azure.
 

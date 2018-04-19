@@ -1,38 +1,38 @@
 ---
 title: Restreindre l’accès réseau aux ressources PaaS - Azure CLI | Microsoft Docs
-description: Découvrez comment limiter et restreindre l’accès réseau aux ressources Azure, telles que le service Stockage Azure et Azure SQL Database, à l’aide de points de terminaison de service de réseau virtuel en utilisant Azure CLI.
+description: Dans cet article, vous allez apprendre à limiter et restreindre l’accès réseau aux ressources Azure, telles que Stockage Azure et Azure SQL Database, avec les points de terminaison de service de réseau virtuel à l’aide de l’interface de ligne de commande Azure (CLI).
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c0c6a802c931b71f5be8b01c610cf0810b0b4d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant Azure CLI
 
-Les points de terminaison de service de réseau virtuel permettent de restreindre l’accès réseau à certaines ressources du service Azure en n’autorisant leur accès qu’à partir d’un sous-réseau du réseau virtuel. Vous pouvez également supprimer l’accès Internet aux ressources. Les points de terminaison de service fournissent une connexion directe entre votre réseau virtuel et les services Azure pris en charge, ce qui vous permet d’utiliser l’espace d’adressage privé de votre réseau virtuel pour accéder aux services Azure. Le trafic destiné aux ressources Azure via les points de terminaison de service reste toujours sur le serveur principal de Microsoft Azure. Dans cet article, vous allez apprendre à :
+Les points de terminaison de service de réseau virtuel permettent de restreindre l’accès réseau à certaines ressources du service Azure en n’autorisant leur accès qu’à partir d’un sous-réseau du réseau virtuel. Vous pouvez également supprimer l’accès Internet aux ressources. Les points de terminaison de service fournissent une connexion directe entre votre réseau virtuel et les services Azure pris en charge, ce qui vous permet d’utiliser l’espace d’adressage privé de votre réseau virtuel pour accéder aux services Azure. Le trafic destiné aux ressources Azure via les points de terminaison de service reste toujours sur le serveur principal de Microsoft Azure. Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer un réseau virtuel avec un sous-réseau
-> * Ajouter un sous-réseau et activer un point de terminaison de service
-> * Créer une ressource Azure et autoriser l’accès réseau à cette ressource uniquement à partir d’un sous-réseau
-> * Déployer une machine virtuelle sur chaque sous-réseau
-> * Vérifier l’accès à une ressource à partir d’un sous-réseau
-> * Vérifier que l’accès à une ressource est refusé à partir d’un sous-réseau et d’Internet
+* Créer un réseau virtuel avec un sous-réseau
+* Ajouter un sous-réseau et activer un point de terminaison de service
+* Créer une ressource Azure et autoriser l’accès réseau à cette ressource uniquement à partir d’un sous-réseau
+* Déployer une machine virtuelle sur chaque sous-réseau
+* Vérifier l’accès à une ressource à partir d’un sous-réseau
+* Vérifier que l’accès à une ressource est refusé à partir d’un sous-réseau et d’Internet
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -82,7 +82,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-to-and-from-subnet"></a>Restreindre l’accès réseau vers et à partir d’un sous-réseau
+## <a name="restrict-network-access-for-a-subnet"></a>Restreindre l’accès réseau d’un sous-réseau
 
 Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L’exemple suivant crée un groupe de sécurité réseau nommé *myNsgPrivate*.
 
@@ -153,7 +153,7 @@ az network nsg rule create \
 
 Les étapes nécessaires pour restreindre l’accès réseau aux ressources créées par le biais des services Azure avec activation des points de terminaison varient d’un service à l’autre. Pour connaître les étapes à suivre, consultez la documentation relative à chacun des services. La suite de cet article comprend des étapes permettant de restreindre l’accès réseau pour un compte Stockage Azure.
 
-### <a name="create-a-storage-account"></a>Créer un compte de stockage
+### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Créez un compte de stockage Azure avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). Remplacez `<replace-with-your-unique-storage-account-name>` par un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.
 
@@ -311,7 +311,7 @@ Créez un répertoire comme point de montage :
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Essayez de monter le partage de fichiers Azure dans le répertoire que vous avez créé. Ce tutoriel suppose que vous avez déployé la dernière version d’Ubuntu. Si vous utilisez une version antérieure d’Ubuntu, consultez [Montage sur Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour en savoir plus sur le montage des partages de fichiers. Avant d’exécuter la commande suivante, remplacez `<storage-account-name>` par le nom du compte et `<storage-account-key>` par la clé que vous avez récupérée dans [Créer un compte de stockage](#create-a-storage-account) :
+Essayez de monter le partage de fichiers Azure dans le répertoire que vous avez créé. Cet article suppose que vous ayez déployé la dernière version d’Ubuntu. Si vous utilisez une version antérieure d’Ubuntu, consultez [Montage sur Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour en savoir plus sur le montage des partages de fichiers. Avant d’exécuter la commande suivante, remplacez `<storage-account-name>` par le nom du compte et `<storage-account-key>` par la clé que vous avez récupérée dans [Créer un compte de stockage](#create-a-storage-account) :
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -341,9 +341,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez activé un point de terminaison de service pour un sous-réseau de réseau virtuel. Vous avez vu que les points de terminaison de service peuvent être activés pour les ressources déployées à l’aide de différents services Azure. Vous avez créé un compte Stockage Azure et un accès réseau à ce compte de stockage, limité aux ressources du sous-réseau du réseau virtuel. Avant de créer des points de terminaison de service sur des réseaux virtuels de production, il est recommandé de bien se familiariser avec les [points de terminaison de service](virtual-network-service-endpoints-overview.md).
+Dans cet article, vous avez activé un point de terminaison de service pour un sous-réseau de réseau virtuel. Vous avez vu que les points de terminaison de service peuvent être activés pour les ressources déployées à l’aide de différents services Azure. Vous avez créé un compte Stockage Azure et un accès réseau à ce compte de stockage, limité aux ressources du sous-réseau du réseau virtuel. Pour en savoir plus sur les points de terminaison de service, consultez [Points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md) et [Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel](virtual-network-manage-subnet.md).
 
-Si votre compte comporte plusieurs réseaux virtuels, vous pouvez relier deux réseaux virtuels pour que les ressources de chaque réseau virtuel puissent communiquer entre elles. Passez au tutoriel suivant pour savoir comment connecter deux réseaux virtuels.
-
-> [!div class="nextstepaction"]
-> [Connecter des réseaux virtuels](./tutorial-connect-virtual-networks-cli.md)
+Si votre compte comporte plusieurs réseaux virtuels, vous pouvez relier deux réseaux virtuels pour que les ressources de chaque réseau virtuel puissent communiquer entre elles. Pour connaître la marche à suivre, consultez [Connecter des réseaux virtuels](tutorial-connect-virtual-networks-cli.md).

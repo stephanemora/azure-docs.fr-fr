@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Centre de données virtuel Microsoft Azure : une perspective réseau
 **Microsoft Azure** : accélérez votre migration, faites des économies et intégrez des applications et des données locales
@@ -259,9 +259,9 @@ Dans un vDC, il est primordial d’assurer le suivi des journaux de groupe de s�
 
 Tous les journaux peuvent être stockés dans des comptes de stockage Azure à des fins d’audit, d’analyse statique ou de sauvegarde. Lorsque les journaux sont stockés dans un compte de stockage Azure, les clients peuvent utiliser différents types d’infrastructures pour récupérer, préparer, analyser et visualiser ces données afin de signaler l’état et l’intégrité des ressources cloud.
 
-Les grandes entreprises doivent avoir préalablement acquis une infrastructure standard pour la surveillance des systèmes locaux, et peuvent étendre cette infrastructure afin d’y intégrer les journaux générés par les déploiements cloud. Dans le cas des organisations qui souhaitent conserver l’ensemble de la journalisation dans le cloud, la solution [Microsoft Operations Management Suite (OMS)][OMS] constitue un excellent choix. La solution OMS étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal dans des services d’infrastructure. OMS peut également s’intégrer aux composants System Center, tels que System Center Operations Manager, afin d’étendre au cloud vos investissements de gestion existants.
+Les grandes entreprises doivent avoir préalablement acquis une infrastructure standard pour la surveillance des systèmes locaux, et peuvent étendre cette infrastructure afin d’y intégrer les journaux générés par les déploiements cloud. Dans le cas des organisations qui souhaitent conserver l’ensemble de la journalisation dans le cloud, la solution [Log Analytics][LogAnalytics] constitue un excellent choix. La solution Log Analytics étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal en services d’infrastructure. Log Analytics peut également s’intégrer aux composants System Center, tels que System Center Operations Manager, afin d’étendre au cloud vos investissements de gestion existants.
 
-OMS Log Analytics est un composant de l’infrastructure OMS conçu pour faciliter la collecte, la mise en corrélation, la recherche et l’exploitation des données de journalisation et de performances générées par les systèmes d’exploitation, les applications et les composants d’infrastructure cloud. Ce composant vous offre des informations opérationnelles en temps réel à l’aide d’une fonction de recherche intégrée et de tableaux de bord personnalisés, qui vous permettent d’analyser tous les enregistrements de l’ensemble de vos charges de travail dans un vDC.
+Log Analytics est un service dans Azure conçu pour faciliter la collecte, la mise en corrélation, la recherche et l’exploitation des données de journalisation et de performances générées par les systèmes d’exploitation, les applications et les composants cloud d’infrastructure. Ce composant vous offre des informations opérationnelles en temps réel à l’aide d’une fonction de recherche intégrée et de tableaux de bord personnalisés, qui vous permettent d’analyser tous les enregistrements de l’ensemble de vos charges de travail dans un vDC.
 
 #### <a name="component-type-workloads"></a>Type de composant : charges de travail
 Les composants de type charge de travail désignent l’emplacement où résident vos applications et services proprement dits. Il s’agit également du composant auquel vos équipes de développement d’applications consacrent la majorité de leur temps.
@@ -332,7 +332,7 @@ Ce document a abordé les fonctionnalités ci-après. Pour plus d’informations
 |Fonctionnalités réseau|Équilibrage de la charge.|Connectivité|
 |[Réseaux virtuels Azure][VNet]</br>[Groupes de sécurité réseau][NSG]</br>[Journaux de groupe de sécurité réseau][NSGLog]</br>[Itinéraire défini par l’utilisateur][UDR]</br>[Appliances virtuelles réseau][NVA]</br>[Adresses IP publiques][PIP]|[Azure Load Balancer (L3) ][ALB]</br>[Application Gateway (L7) ][AppGW]</br>[Pare-feu d’applications web][WAF]</br>[Azure Traffic Manager][TM] |[Homologation de réseaux virtuels][VNetPeering]</br>[Réseau privé virtuel][VPN]</br>[ExpressRoute][ExR]
 |Identité</br>|Surveillance</br>|Meilleures pratiques</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Contrôle d’accès en fonction du rôle][RBAC]</br>[Rôles Azure Active Directory par défaut][Roles] |[Journaux d’activité][ActLog]</br>[Journaux de diagnostic][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Meilleures pratiques en matières de réseaux de périmètre][DMZ]</br>[Gestion des abonnements][SubMgmt]</br>[Gestion des groupes de ressources][RGMgmt]</br>[Limites d’abonnement Azure][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Contrôle d’accès en fonction du rôle][RBAC]</br>[Rôles Azure Active Directory par défaut][Roles] |[Journaux d’activité][ActLog]</br>[Journaux de diagnostic][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Meilleures pratiques en matières de réseaux de périmètre][DMZ]</br>[Gestion des abonnements][SubMgmt]</br>[Gestion des groupes de ressources][RGMgmt]</br>[Limites d’abonnement Azure][Limits] |
 |Autres services Azure|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
@@ -379,7 +379,7 @@ Ce document a abordé les fonctionnalités ci-après. Pour plus d’informations
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

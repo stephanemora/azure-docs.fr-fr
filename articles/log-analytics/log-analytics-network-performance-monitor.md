@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -37,7 +37,7 @@ Network Performance Monitor offre trois fonctionnalités générales :
 
     Cette fonctionnalité vous permet d’effectuer des tests HTTP, HTTPS, TCP et ICMP afin d’analyser, en temps quasi réel ou dans le temps, la disponibilité et le temps de réponse de votre service. Vous pouvez également analyser la contribution du réseau en perte de paquets et en latence. Avec un mappage de topologie réseau, vous pouvez isoler les ralentissements du réseau. Vous pouvez identifier les points problématiques sur le chemin d’accès réseau entre le nœud et le service, avec les données de latence sur chaque tronçon. Au moyen de tests intégrés, analysez la connectivité réseau vers Office 365 et Dynamics CRM sans aucune configuration préalable. Avec cette fonctionnalité, vous pouvez analyser la connectivité réseau vers n’importe quel point de terminaison compatible TCP, comme des sites web, des applications SaaS, des applications PaaS et des bases de données SQL.
 
-* [￼Moniteur ExpressRoute](log-analytics-network-performance-monitor-expressroute.md) : analysez la connectivité de bout en bout et les performances entre vos filiales et Azure, le tout sur Azure ExpressRoute.  
+* [Moniteur ExpressRoute](log-analytics-network-performance-monitor-expressroute.md) : analysez la connectivité de bout en bout et les performances entre vos filiales et Azure, le tout sur Azure ExpressRoute.  
 
 Plus d’informations sur les différentes fonctionnalités de prise en charge par [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) sont disponibles en ligne.
  
@@ -251,7 +251,9 @@ La topologie affichée sur la carte est celle du calque 3 et elle ne contient p
 
 Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans une [recherche Log Analytics](log-analytics-log-search-new.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone  **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
 
- 
+##<a name="pricing"></a>Tarifs
+
+Les informations sur les tarifs sont disponibles [en ligne](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Fournir des commentaires 
 

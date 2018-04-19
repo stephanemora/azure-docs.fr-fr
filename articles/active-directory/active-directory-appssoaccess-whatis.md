@@ -1,11 +1,11 @@
 ---
-title: "Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? | Microsoft Docs"
-description: "Utilisez Azure Active Directory pour activer l’authentification unique pour toutes les applications web et SaaS dont vous avez besoin."
+title: Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? | Microsoft Docs
+description: Utilisez Azure Active Directory pour activer l’authentification unique pour toutes les applications web et SaaS dont vous avez besoin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
 Avec l’authentification unique, vous pouvez accéder à toutes les applications et toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte utilisateur. Une fois connecté, vous pouvez accéder à toutes les applications dont vous avez besoin sans devoir vous authentifier à nouveau (par exemple, taper un mot de passe).
@@ -68,7 +68,7 @@ La configuration de l’authentification unique par mot de passe permet aux util
 Azure AD prend en charge l’authentification unique par mot de passe pour toutes les applications cloud qui possèdent une page de connexion HTML. Avec un plug-in de navigateur personnalisé, Azure AD automatise le processus de connexion de l’utilisateur en récupérant en toute sécurité dans l’annuaire les informations d’identification de l’application (par exemple, le nom d’utilisateur et le mot de passe). Ces informations d’identification sont ensuite insérées sur la page de connexion de l’application au nom de l’utilisateur. Il existe deux cas d’utilisation :
 
 1. **Un administrateur gère les informations d’identification** : les administrateurs peuvent créer et gérer les informations d’identification de l’application et les affecter aux utilisateurs ou groupes qui doivent accéder à l’application. Dans ce cas, l’utilisateur final n’a pas besoin de connaître les informations d’identification, mais bénéficie toujours d’une authentification unique pour l’accès à l’application en cliquant dessus dans son panneau d’accès ou via un lien fourni. Cela permet à la fois à l’administrateur de gérer le cycle de vie des informations d’identification et à l’utilisateur de ne pas avoir à mémoriser ou gérer les mots de passe spécifiques de l’application. Les informations d’identification sont masquées pour l’utilisateur final lors de la connexion automatique. Elles sont cependant techniquement détectables par l’utilisateur à l’aide des outils de débogage web. Les utilisateurs et les administrateurs doivent de ce fait suivre les mêmes règles de sécurité que si les informations d’identification étaient présentées directement par l’utilisateur. Les informations d’identification fournies par l’administrateur sont utiles lorsqu’un compte d’accès est partagé entre plusieurs utilisateurs (par exemple, pour les applications de médias sociaux ou de partage de documents).
-2. **L’utilisateur gère les informations d’identification** : les administrateurs peuvent affecter des applications à des utilisateurs ou à des groupes et autoriser les utilisateurs à entrer leurs propres informations d’identification directement lors du premier accès à l’application dans leur panneau d’accès. Ceci simplifie les choses pour les utilisateurs finaux, car ils n’ont pas besoin d’entrer le mot de passe propre à l’application à chaque fois qu’ils y accèdent. Ce cas de figure peut également servir de point de départ pour la gestion administrative des informations d’identification dans laquelle l’administrateur peut définir de nouvelles informations d’identification pour l’application sans modifier l’expérience de l’accès à l’application pour l’utilisateur final.
+2. **L’utilisateur gère les informations d’identification** : les administrateurs peuvent affecter des applications à des utilisateurs ou à des groupes et autoriser les utilisateurs à entrer leurs propres informations d’identification directement lors du premier accès à l’application dans leur panneau d’accès. Ceci simplifie les choses pour les utilisateurs finaux, car ils n’ont pas besoin d’entrer le mot de passe propre à l’application à chaque fois qu’ils y accèdent. Les utilisateurs peuvent continuer à gérer leurs mots de passe (modification ou suppression) comme ils le souhaitent. Ce cas de figure peut également servir de point de départ pour la gestion administrative des informations d’identification dans laquelle l’administrateur peut définir de nouvelles informations d’identification pour l’application sans modifier l’expérience de l’accès à l’application pour l’utilisateur final.
 
 Dans les deux cas, les informations d’identification sont stockées sous forme chiffrée dans l’annuaire et sont transmises uniquement via HTTPS au cours du processus de connexion automatique. Avec l’authentification unique par mot de passe, Azure AD offre une solution de gestion d’accès pratique pour les applications qui ne peuvent pas prendre en charge les protocoles de fédération.
 
@@ -151,7 +151,7 @@ Azure AD offre plusieurs moyens personnalisables pour déployer des application
 Les méthodes que vous choisissez de déployer dans votre organisation sont à votre entière discrétion.
 
 ### <a name="azure-ad-access-panel"></a>Panneau d’accès Azure AD
-Le panneau d'accès à l'adresse https://myapps.microsoft.com est un portail web qui permet à un utilisateur final disposant d'un compte d'organisation dans Azure Active Directory de voir et de lancer les applications cloud pour laquelle il a reçu des autorisations d'accès de l'administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d’accès.
+Le volet d’accès à l’adresse https://myapps.microsoft.com est un portail web qui permet à un utilisateur final disposant d’un compte professionnel dans Azure Active Directory de voir et de lancer les applications cloud auxquelles ils ont été autorisés à accéder par l’administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d’accès.
 
 ![Panneau d’accès Azure AD](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
@@ -160,7 +160,7 @@ Le panneau d’accès est séparé du portail Azure. Pour y accéder, les utilis
 Pour plus d'informations sur le panneau d'accès Azure AD, consultez la [Présentation du panneau d'accès](active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Lanceur d’applications Office 365
-Pour les organisations ayant déployé Office 365, les applications affectées aux utilisateurs via Azure AD sont également affichées dans le portail Office 365 à la page https://portal.office.com/myapps. Pour les utilisateurs d’une organisation, il est donc simple de lancer les applications, sans avoir à utiliser un deuxième portail. Il s’agit de la solution de lancement d’application recommandée pour les organisations qui utilisent Office 365.
+Pour les organisations ayant déployé Office 365, les applications affectées aux utilisateurs par le biais d’Azure AD apparaissent également sur le portail Office 365, à l’adresse https://portal.office.com/myapps. Pour les utilisateurs d’une organisation, il est donc simple de lancer les applications, sans avoir à utiliser un deuxième portail. Il s’agit de la solution de lancement d’application recommandée pour les organisations qui utilisent Office 365.
 
 ![][4]
 

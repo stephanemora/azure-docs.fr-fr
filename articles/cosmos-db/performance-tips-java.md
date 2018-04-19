@@ -3,9 +3,8 @@ title: Conseils sur les performances pour Azure Cosmos DB pour Java | Microsoft 
 description: Découvrez les options de configuration clientes pour améliorer les performances de base de données Azure Cosmos DB
 keywords: comment améliorer les performances de base de données
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
@@ -14,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
-ms.author: mimig
-ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: ace817bc7a703ed2aa1dcd71f7d84f91ee16cce6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 > [!div class="op_single_selector"]
+> * [Java asynchrone](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +80,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
    <a id="max-connection"></a>
 3. **Augmentation de MaxPoolSize par hôte quand le mode passerelle est utilisé**
 
-    Les requêtes Azure Cosmos DB sont effectuées par le biais de HTTPS/REST durant l’utilisation du mode passerelle et sont soumises aux limites de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir MaxPoolSize sur une valeur plus élevée (200 à 1000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à Azure Cosmos DB. Dans le SDK Java, la valeur par défaut de [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) est 100. Utilisez [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) pour changer la valeur.
+    Les requêtes Azure Cosmos DB sont effectuées par le biais de HTTPS/REST durant l’utilisation du mode passerelle et sont soumises aux limites de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir MaxPoolSize sur une valeur plus élevée (200 à 1000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à Azure Cosmos DB. Dans le SDK Java, la valeur par défaut de [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) est 100. Utilisez [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) pour changer la valeur.
 
 4. **Paramétrage des requêtes parallèles pour les collections partitionnées**
 
@@ -103,7 +103,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 7. **Utilisation de l’adressage en fonction du nom**
 
-    Utilisez l’adressage en fonction du nom, où les liens ont le format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, au lieu de liens vers lui-même (_self), qui ont le format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`, pour éviter l’extraction des ID de ressource de toutes les ressources utilisées pour construire le lien. En outre, ces ressources étant recréés (éventuellement avec le même nom), leur mise en cache peut s’avérer superflue.
+    Pour éviter de récupérer les ID de ressource de toutes les ressources utilisées pour construire le lien, utilisez l’adressage en fonction du nom dans lequel les liens ont pour format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, et non SelfLinks (\_self) dans lequel les liens ont pour format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`. En outre, ces ressources étant recréés (éventuellement avec le même nom), leur mise en cache peut s’avérer superflue.
 
    <a id="tune-page-size"></a>
 8. **Réglage de la taille de la page des flux de lecture/requêtes pour de meilleures performances**

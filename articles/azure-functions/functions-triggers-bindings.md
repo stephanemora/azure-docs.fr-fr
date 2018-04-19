@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -49,7 +49,7 @@ Dans la version 2.x du runtime Azure Functions, vous devez inscrire explicitemen
 
 Les extensions sont fournies sous la forme de packages NuGet, où le nom du package commence généralement par [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La façon d’installer et d’inscrire des extensions de liaison dépend de la façon dont vous développez vos fonctions : 
 
-+ [En local dans C# à l’aide de Visual Studio ou de VS Code](#precompiled-functions-c)
++ [En local dans C# à l’aide de Visual Studio ou de VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [En local avec Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [Dans le portail Azure](#azure-portal-development) 
 
@@ -635,7 +635,7 @@ Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison 
 
 ## <a name="functionjson-file-schema"></a>Schéma de fichier function.json
 
-Le schéma de fichier *function.json* est disponible à l’adresse [http://json.schemastore.org/function](http://json.schemastore.org/function).
+Le schéma de fichier *function.json* se trouve à l’adresse [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Gestion des erreurs de liaison
 

@@ -1,11 +1,11 @@
 ---
-title: "Configuration d’un nom de domaine personnalisé dans Services cloud | Microsoft Docs"
-description: "Découvrez comment exposer votre application ou vos données Azure sur Internet, sur un domaine personnalisé, en configurant les paramètres DNS.  Ces exemples utilisent le portail Azure."
+title: Configuration d’un nom de domaine personnalisé dans Services cloud | Microsoft Docs
+description: Découvrez comment exposer votre application ou vos données Azure sur Internet, sur un domaine personnalisé, en configurant les paramètres DNS.  Ces exemples utilisent le portail Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs peuvent accéder à votre application par le biais d’une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
@@ -69,7 +69,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
      
        ![section aperçu rapide indiquant l’URL du site][csurl]
      
-       **OR**
+       **OU**
    * Installez et configurez [Azure Powershell](/powershell/azure/overview), puis utilisez la commande suivante :
      
        ```powershell
@@ -77,7 +77,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
        ```
      
      Enregistrez le nom de domaine utilisé dans l’URL renvoyée par l’une des méthodes, car vous en aurez besoin lors de la création d’un enregistrement CNAME.
-2. Connectez-vous au site web du bureau d’enregistrement de votre DNS et accédez à la page de gestion DNS. Recherchez la mention **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**.
+2. Connectez-vous au site web du bureau d’enregistrement de votre DNS et accédez à la page de gestion DNS. Recherchez la mention **Domain Name**, **DNS** ou **Name Server Management**.
 3. Maintenant, cherchez où vous pouvez sélectionner ou saisir vos enregistrements CNAME. Il se peut que vous deviez sélectionner le type d’enregistrement dans une liste déroulante ou accéder à une page de paramètres avancés. La section recherchée doit normalement comporter les mots **CNAME**, **Alias** ou **Sous-domaines**.
 4. Vous devez également fournir l’alias de domaine ou de sous-domaine pour l’enregistrement CNAME, tel que **www** si vous voulez créer un alias pour **www.domainepersonnalisé.com**. Si vous voulez créer un alias pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole «**@**» dans les outils DNS de votre bureau d’enregistrement.
 5. Vous devez ensuite fournir un nom d’hôte canonique, qui correspond au domaine **cloudapp.net** de votre application dans le cas présent.

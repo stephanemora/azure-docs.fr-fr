@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte est créée dans Azure](monitor-alerts-unified-usage.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
@@ -54,7 +54,7 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | Heure de début de l’intervalle de recherche |#searchintervalstarttimeutc |Heure de début de la requête au format UTC. 
 | SearchQuery |#searchquery |Requête de recherche de journal utilisée par la règle d’alerte. |
 | SearchResults |"IncludeSearchResults": true|Enregistrements retournés par la requête en tant que tableau JSON, limités aux 1 000 premiers enregistrements ; si "IncludeSearchResults": true est ajouté dans la définition de webhook JSON personnalisé en tant que propriété de niveau supérieur. |
-| WorkspaceID |#workspaceid |ID de votre espace de travail Log Analytics (OMS). |
+| WorkspaceID |#workspaceid |ID de votre espace de travail Log Analytics. |
 | ID de l'application |#applicationid |ID de votre application Application Insights. |
 | Identifiant d’abonnement |#subscriptionid |ID de l’abonnement Azure utilisé avec Application Insights. 
 
@@ -77,7 +77,7 @@ Pour inclure les résultats de la recherche dans une charge utile personnalisée
 Cette section présente une exemple de charge utile de webhook pour les alertes de journal, notamment lorsque la charge utile est standard et quand elle est personnalisée.
 
 > [!NOTE]
-> Pour garantir la compatibilité descendante, la charge utile de webhook standard pour les alertes utilisant Azure Log Analytics est identique à celle de la [gestion des alertes OMS](../log-analytics/log-analytics-alerts-creating.md). Mais pour les alertes de journal utilisant [Application Insights](../application-insights/app-insights-analytics.md), la charge utile de webhook standard est basée sur le schéma du Groupe d’actions.
+> Pour garantir la compatibilité descendante, la charge utile de webhook standard pour les alertes utilisant Azure Log Analytics est identique à celle de la [gestion des alertes Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Mais pour les alertes de journal utilisant [Application Insights](../application-insights/app-insights-analytics.md), la charge utile de webhook standard est basée sur le schéma du Groupe d’actions.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook standard pour les alertes de journal 
 Ces deux exemples indiquaient une charge utile fictive ne comprenant que deux colonnes et deux lignes.

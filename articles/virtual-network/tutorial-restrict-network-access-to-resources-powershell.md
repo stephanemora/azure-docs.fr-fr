@@ -1,38 +1,38 @@
 ---
 title: Restreindre l’accès réseau aux ressources PaaS - Azure PowerShell | Microsoft Docs
-description: Découvrez comment limiter et restreindre l’accès réseau aux ressources Azure, telles que le service Stockage Azure et Azure SQL Database, à l’aide de points de terminaison de service de réseau virtuel en utilisant Azure PowerShell.
+description: Dans cet article, vous allez apprendre à limiter et restreindre l’accès réseau aux ressources Azure, telles que le stockage Azure et Azure SQL Database, avec les points de terminaison de service de réseau virtuel à l’aide d’Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7e402af74babda2ce32d4a1597c61d71aba89b9e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28c95e1333b4641e50284a869135a9608dd3242f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant Azure PowerShell
 
 Les points de terminaison de service de réseau virtuel permettent de restreindre l’accès réseau à certaines ressources du service Azure en n’autorisant leur accès qu’à partir d’un sous-réseau du réseau virtuel. Vous pouvez également supprimer l’accès Internet aux ressources. Les points de terminaison de service fournissent une connexion directe entre votre réseau virtuel et les services Azure pris en charge, ce qui vous permet d’utiliser l’espace d’adressage privé de votre réseau virtuel pour accéder aux services Azure. Le trafic destiné aux ressources Azure via les points de terminaison de service reste toujours sur le serveur principal de Microsoft Azure. Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer un réseau virtuel avec un sous-réseau
-> * Ajouter un sous-réseau et activer un point de terminaison de service
-> * Créer une ressource Azure et autoriser l’accès réseau à cette ressource uniquement à partir d’un sous-réseau
-> * Déployer une machine virtuelle sur chaque sous-réseau
-> * Vérifier l’accès à une ressource à partir d’un sous-réseau
-> * Vérifier que l’accès à une ressource est refusé à partir d’un sous-réseau et d’Internet
+* Créer un réseau virtuel avec un sous-réseau
+* Ajouter un sous-réseau et activer un point de terminaison de service
+* Créer une ressource Azure et autoriser l’accès réseau à cette ressource uniquement à partir d’un sous-réseau
+* Déployer une machine virtuelle sur chaque sous-réseau
+* Vérifier l’accès à une ressource à partir d’un sous-réseau
+* Vérifier que l’accès à une ressource est refusé à partir d’un sous-réseau et d’Internet
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -93,7 +93,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Restreindre l’accès réseau vers et à partir d’un sous-réseau
+## <a name="restrict-network-access-for-a-subnet"></a>Restreindre l’accès réseau pour un sous-réseau
 
 Créez des règles de sécurité de groupe de sécurité réseau avec [New-AzureRmNetworkSecurityRuleGroup](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). La règle suivante autorise un accès sortant vers les adresses IP publiques affectées au service Stockage Azure : 
 
@@ -114,7 +114,7 @@ La règle suivante refuse l’accès à toutes les adresses IP publiques. La rè
 
 ```azurepowershell-interactive
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
-  -Name Deny-internet-All `
+  -Name Deny-Internet-All `
   -Access Deny `
   -DestinationAddressPrefix Internet `
   -DestinationPortRange * `
@@ -372,9 +372,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez activé un point de terminaison de service pour un sous-réseau de réseau virtuel. Vous avez vu que les points de terminaison de service peuvent être activés pour les ressources déployées à l’aide de différents services Azure. Vous avez créé un compte Stockage Azure et un accès réseau à ce compte de stockage, limité aux ressources du sous-réseau du réseau virtuel. Avant de créer des points de terminaison de service sur des réseaux virtuels de production, il est recommandé de bien se familiariser avec les [points de terminaison de service](virtual-network-service-endpoints-overview.md).
+Dans cet article, vous avez activé un point de terminaison de service pour un sous-réseau de réseau virtuel. Vous avez vu que les points de terminaison de service peuvent être activés pour les ressources déployées à l’aide de différents services Azure. Vous avez créé un compte Stockage Azure et un accès réseau à ce compte de stockage, limité aux ressources du sous-réseau du réseau virtuel. Pour en savoir plus sur les points de terminaison de service, consultez [Vue d’ensemble des points de terminaison de service](virtual-network-service-endpoints-overview.md) et [Gérer les sous-réseaux](virtual-network-manage-subnet.md).
 
-Si votre compte comporte plusieurs réseaux virtuels, vous pouvez relier deux réseaux virtuels pour que les ressources de chaque réseau virtuel puissent communiquer entre elles. Passez au tutoriel suivant pour savoir comment connecter deux réseaux virtuels.
-
-> [!div class="nextstepaction"]
-> [Connecter des réseaux virtuels](./tutorial-connect-virtual-networks-powershell.md)
+Si votre compte comporte plusieurs réseaux virtuels, vous pouvez relier deux réseaux virtuels pour que les ressources de chaque réseau virtuel puissent communiquer entre elles. Pour savoir comment procéder, consultez [Connecter des réseaux virtuels](tutorial-connect-virtual-networks-powershell.md).

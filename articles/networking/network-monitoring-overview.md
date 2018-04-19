@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>Solutions d’analyse du réseau 
 
@@ -60,9 +60,11 @@ NPM pour ExpressRoute offre une surveillance complète ExpressRoute pour les con
 
 * Détection automatique des circuits ER associés à votre abonnement
 * Détection de la topologie du réseau, des sites locaux aux applications cloud
-* Planification de la capacité, analyse de l’utilisation
+* Planification de la capacité, analyse de l’utilisation, utilisation de bande passante par réseau virtuel
 * Surveillance et alerte sur les chemins d’accès primaires et secondaires
 * Détection des dégradations de la connectivité des réseaux virtuels
+
+![Carte géographique montrant le trafic entre les régions](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Pour plus d’informations, consultez les articles suivants :
 
@@ -116,7 +118,6 @@ Conçue pour les administrateurs DNS, cette solution collecte, analyse et met en
 Liens connexes :
 * [Billet de blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="miscellaneous"></a>Divers
 
-* [Configurer Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configurer Network Performance Monitor pour ExpressRoute](../expressroute/how-to-npm.md)
+* [Pricing Changes for Azure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq) (Modifications apportées à la tarification d’Azure Network Performance Monitor)
