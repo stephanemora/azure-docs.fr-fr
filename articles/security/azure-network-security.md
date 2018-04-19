@@ -1,12 +1,12 @@
 ---
 title: Azure Network Security | Microsoft Docs
-description: "Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise."
+description: Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -69,13 +69,13 @@ Dans ce document, nous évoquerons les fonctionnalités d’entreprise Azure sui
 
 -   Connectivité hybride
 
--   Contrôles de sécurité
+-   Security Controls
 
 -   Validation réseau
 
 ### <a name="basic-network-connectivity"></a>Connectivité réseau de base
 
-Le service [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) vous permet de connecter en toute sécurité les ressources Azure entre elles à l’aide de réseaux virtuels. Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Un réseau virtuel est une isolation logique de l’infrastructure réseau Azure dédiée à votre abonnement. Vous pouvez aussi connecter des réseaux virtuels entre eux et à vos réseaux locaux au moyen de réseaux privés virtuels (VPN￼) de site à site et de [liaisons réseau étendu](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dédiées.
+Le service [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) vous permet de connecter en toute sécurité les ressources Azure entre elles à l’aide de réseaux virtuels. Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Un réseau virtuel est une isolation logique de l’infrastructure réseau Azure dédiée à votre abonnement. Vous pouvez aussi connecter des réseaux virtuels entre eux et à vos réseaux locaux au moyen de réseaux privés virtuels (VPN) de site à site et de [liaisons réseau étendu](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dédiées.
 
 ![Connectivité réseau de base](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -184,7 +184,7 @@ Azure crée des tables de routage qui permettent aux ressources connectées à u
 
 - **Itinéraires définis par l’utilisateur :** vous pouvez créer des tables de routage personnalisées avec des itinéraires qui contrôlent où le trafic est acheminé pour chaque sous-réseau. Pour en savoir plus sur les itinéraires définis par l’utilisateur, lisez l’article [Itinéraires définis par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- **Itinéraires BGP :** si vous connectez votre réseau virtuel à votre réseau local via une connexion ExpressRoute ou la passerelle VPN Azure, vous pouvez propager les itinéraires BGP à vos réseaux virtuels.
+- **Routes BGP :** si vous connectez votre réseau virtuel à votre réseau local via une connexion ExpressRoute ou la passerelle VPN Azure, vous pouvez propager les routes BGP à vos réseaux virtuels.
 
 ### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Connectivité internet hybride : se connecter à un réseau local
 Vous pouvez connecter votre réseau local à un réseau virtuel à l’aide de n’importe quelle combinaison des options suivantes :
@@ -365,7 +365,7 @@ Les appliances de sécurité réseau Azure améliorent la sécurité des réseau
 
 -   Authentification multifacteur
 
-#### <a name="application-gateway"></a>Application Gateway
+#### <a name="application-gateway"></a>passerelle d’application
 
 [Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) est une appliance virtuelle dédiée qui propose un contrôleur de remise d’applications (ADC) en tant que service.
 
@@ -392,7 +392,7 @@ Par ailleurs, le pare-feu WAF Application Gateway vous aide à surveiller les ap
 
 Ce journal au format JSON est directement intégré au compte de stockage du client. Vous bénéficiez d’un contrôle total sur ces journaux et pouvez appliquer vos propres stratégies de rétention.
 
-Vous pouvez aussi ingérer ces journaux dans votre propre système analytique via l’[intégration des journaux Azure](https://aka.ms/AzLog). Les journaux WAF étant également intégrés à [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite), vous pouvez utiliser la fonctionnalité Log Analytics d’OMS pour exécuter des requêtes précises et sophistiquées.
+Vous pouvez aussi ingérer ces journaux dans votre propre système analytique via l’[intégration des journaux Azure](https://aka.ms/AzLog). Les journaux WAF étant également intégrés à [Log Analytics](../log-analytics/log-analytics-overview.md), vous pouvez utiliser Log Analytics pour exécuter des requêtes précises et sophistiquées.
 
 #### <a name="azure-web-application-firewall-waf"></a>Pare-feu d’applications web (WAF) Azure
 
@@ -606,7 +606,7 @@ Network Watcher permet d’afficher les journaux de diagnostic. Cet affichage co
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est un service d’[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est un service d’Azure qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
 
 Log Analytics propose les solutions suivantes pour la surveillance de vos réseaux :
 
