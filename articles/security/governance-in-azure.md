@@ -1,12 +1,12 @@
 ---
 title: Gouvernance dans Azure | Microsoft Docs
-description: "Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise."
+description: Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Gouvernance dans Azure
 
@@ -147,7 +147,7 @@ Lorsqu’Azure a été initialement lancé, les contrôles d’accès à un abon
 
 Cette prolifération d’abonnements n’est plus nécessaire. Avec un contrôle d’accès en fonction du rôle, vous pouvez affecter des utilisateurs aux rôles standard (par exemple, les rôles « lecteur » et « rédacteur » courants). Vous pouvez également définir des rôles personnalisés.
 
-Le [contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) permet une gestion précise de l’accès pour Azure. L’utilisation de RBAC vous permet de n’accorder que les droits d’accès dont les utilisateurs ont besoin pour effectuer leur travail. Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations expose un compte aux attaques. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le contrôle d’accès en fonction du rôle (RBAC) Azure permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions.
+Le [contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) permet une gestion précise de l’accès pour Azure. L’utilisation de RBAC vous permet de n’accorder que les droits d’accès dont les utilisateurs ont besoin pour effectuer leur travail. Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations expose un compte aux attaques. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le contrôle d’accès en fonction du rôle (RBAC) Azure permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions.
 
 Par exemple, vous pouvez utiliser le RBAC pour permettre à un employé donné de gérer les machines virtuelles dans un abonnement, tandis qu’un autre pourra gérer les bases de données SQL au sein du même abonnement.
 
@@ -161,7 +161,7 @@ Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base
 
 Les autres rôles RBAC dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de contributeur de machine virtuelle permet à l’utilisateur de créer et gérer des machines virtuelles. Il ne lui donne pas accès au réseau virtuel ou au sous-réseau auquel la machine virtuelle se connecte.
 
-[Rôles RBAC intégrés](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) répertorie les rôles disponibles dans Azure. Elle indique les opérations et l’étendue que chaque rôle intégré accorde aux utilisateurs.
+[Rôles RBAC intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) répertorie les rôles disponibles dans Azure. Elle indique les opérations et l’étendue que chaque rôle intégré accorde aux utilisateurs.
 
 Accordez les accès en affectant le rôle RBAC approprié aux utilisateurs, groupes et applications, dans une étendue donnée. L’étendue d’une attribution de rôle peut être une seule ressource, un groupe de ressources ou un abonnement. Un rôle attribué à une étendue parent accorde également l’accès aux enfants qu’elle contient.
 
@@ -169,9 +169,9 @@ Par exemple, un utilisateur ayant accès à un groupe de ressources peut gérer 
 
 RBAC Azure prend uniquement en charge les opérations de gestion des ressources Azure dans le portail Azure et les API Azure Resource Manager. Il ne peut pas autoriser toutes les opérations au niveau des données pour les ressources Azure. Par exemple, vous pouvez autoriser une personne à gérer les comptes de stockage, mais non les objets blob ou les tables dans un compte de stockage. De même, une base de données SQL peut être gérée, mais pas les tables qu’elle contient.
 
-Si vous souhaitez plus d’informations sur la gestion des droits d’accès avec RBAC, consultez [Prise en main de la gestion des accès dans le portail Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+Si vous souhaitez plus d’informations sur la gestion des droits d’accès avec RBAC, consultez [Prise en main de la gestion des accès dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-Vous pouvez également [créer un rôle personnalisé](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), de [l’interface CLI Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) et de [l’API REST](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). À l’instar des rôles intégrés, des rôles personnalisés peuvent être affectés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources.
+Vous pouvez également [créer un rôle personnalisé](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), de [l’interface CLI Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) et de [l’API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). À l’instar des rôles intégrés, des rôles personnalisés peuvent être affectés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources.
 
 Dans chaque abonnement, vous pouvez accorder jusqu’à 2000 attributions de rôles.
 
@@ -263,7 +263,7 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 
 Les verrous de ressource prennent actuellement en charge deux valeurs : CanNotDelete et ReadOnly. CanNotDelete signifie que les utilisateurs (disposant des droits appropriés) peuvent toujours lire ou modifier une ressource, mais pas la supprimer. ReadOnly signifie que les utilisateurs autorisés ne peuvent pas supprimer ou modifier une ressource.
 
-Les verrous Resource Manager s’appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c’est-à-dire les opérations envoyées à <https://management.azure.com>. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly sur une base de données SQL vous empêche de supprimer ou de modifier cette base de données, mais il ne vous empêche pas de créer, mettre à jour ou supprimer les données qu'elle contient.
+Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à <https://management.azure.com>. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly sur une base de données SQL vous empêche de supprimer ou de modifier cette base de données, mais il ne vous empêche pas de créer, mettre à jour ou supprimer les données qu'elle contient.
 
 L’application de **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui ressemblent à des opérations de lecture nécessitent des actions supplémentaires. Par exemple, le placement d’un verrou **ReadOnly** sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
 
@@ -271,7 +271,7 @@ L’application de **ReadOnly** peut produire des résultats inattendus, car cer
 
 Autre exemple : le placement d’un verrou ReadOnly sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 
-Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources de cette étendue héritent du même verrou. Même les ressources que vous ajoutez par la suite héritent du verrou du parent. Le verrou le plus restrictif de l’héritage est prioritaire.
 
@@ -396,7 +396,7 @@ Enfin, Azure Security Center analyse l’intégrité de sécurité des ressource
 >[!Note]
 > Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
-Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez au Centre de sécurité pour la première fois, la collecte de données est activée sur toutes les machines virtuelles de votre abonnement. La collecte des données est recommandée, mais vous pouvez refuser cette fonctionnalité en la [désactivant](https://docs.microsoft.com/azure/security-center/security-center-faq) dans la stratégie de Security Center.
+Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez à Security Center pour la première fois, la collecte des données est activée sur toutes les machines virtuelles de votre abonnement. La collecte des données est recommandée, mais vous pouvez refuser cette fonctionnalité en la [désactivant](https://docs.microsoft.com/azure/security-center/security-center-faq) dans la stratégie de Security Center.
 
 Enfin, l’Azure Security Center est une plateforme ouverte qui permet aux partenaires de Microsoft et aux éditeurs de logiciels indépendants de créer un logiciel qui se connecte à l’Azure Security Center pour améliorer leurs fonctionnalités.
 
@@ -410,33 +410,33 @@ Azure Security Center surveille les ressources Azure suivantes :
 
 - Solutions de partenaires intégrées à votre abonnement Azure, par exemple un pare-feu d’applications web sur les machines virtuelles et sur [App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-Le [programme de sécurité et de gouvernance](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) des informations de l’équipe de maintenance et de développement logiciel du Service OMS prend en charge ses besoins métier, et respecte les lois et réglementations décrites sur les sites [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/) et [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Ceux-ci expliquent également comment OMS fixe les exigences de sécurité, identifie les contrôles de sécurité, et gère et analyse les risques. Chaque année, nous révisons les stratégies, normes, procédures et directives.
+Le [programme de sécurité et de gouvernance](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) des informations de l’équipe de maintenance et de développement logiciel de Log Analytics prend en charge ses besoins métiers, et respecte les lois et réglementations décrites sur les sites du [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/) et de [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Ceux-ci expliquent également la façon dont Log Analytics fixe les exigences de sécurité, identifie les contrôles de sécurité, et gère et analyse les risques. Chaque année, nous révisons les stratégies, normes, procédures et directives.
 
-Chaque membre de l’équipe de développement d’OMS reçoit une formation formelle en matière de sécurité des applications. En interne, nous utilisons un système de contrôle de version pour le développement de logiciels. Chaque projet de logiciel est protégé par le système de contrôle de version.
+Chaque membre de l’équipe de développement de Log Analytics reçoit une formation formelle en matière de sécurité des applications. En interne, nous utilisons un système de contrôle de version pour le développement de logiciels. Chaque projet de logiciel est protégé par le système de contrôle de version.
 
-Microsoft dispose d’une équipe dédiée à la sécurité et à la conformité, qui surveille et évalue tous les services en son sein. Les responsables de la sécurité des informations qui constituent l’équipe ne sont pas associés aux services d’ingénierie qui développent OMS. Les responsables de la sécurité ont leur propre chaîne de gestion, et effectuent des évaluations indépendantes des produits et services pour s’assurer de la sécurité et de la conformité de ceux-ci.
+Microsoft dispose d’une équipe dédiée à la sécurité et à la conformité, qui surveille et évalue tous les services en son sein. Les responsables de la sécurité des informations qui constituent l’équipe ne sont pas associés aux services d’ingénierie qui développent Log Analytics. Les responsables de la sécurité ont leur propre chaîne de gestion, et effectuent des évaluations indépendantes des produits et services pour s’assurer de la sécurité et de la conformité de ceux-ci.
 
-Operations Management Suite (également désigné sous l’acronyme OMS) est un ensemble de services de gestion qui ont été conçus dans le cloud dès le début. Plutôt que de déployer et de gérer des ressources locales, les composants OMS sont entièrement hébergés dans Azure. OMS ne requiert qu’une configuration minime et vous permet d’être opérationnel en quelques minutes seulement.
+Azure fournit un ensemble de services de gestion qui ont été conçus dans le cloud dès le début. Plutôt que de déployer et de gérer des ressources locales, ces composants sont entièrement hébergés dans Azure. OMS ne requiert qu’une configuration minime et vous permet d’être opérationnel en quelques minutes seulement.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Le fait que les services OMS s’exécutent dans le cloud ne signifie pas qu’ils ne peuvent pas gérer votre environnement local de manière efficace.
+Le fait que les services Log Analytics s’exécutent dans le cloud ne signifie pas qu’ils ne peuvent pas gérer votre environnement local de manière efficace.
 
 Il vous suffit de placer un agent sur tout ordinateur Windows ou Linux de votre centre de données pour que cet agent envoie des données à Log Analytics, qui les analysera en même temps que toutes les autres données collectées à partir des services cloud ou locaux. Utilisez les services de sauvegarde Azure et Azure Site Recovery pour tirer profit des capacités du cloud en matière de sauvegarde et de haute disponibilité pour vos ressources locales.
 
 Les runbooks figurant dans le cloud ne peuvent généralement pas accéder à vos ressources locales, mais vous pouvez aussi installer un agent sur un ou plusieurs ordinateurs qui hébergeront des runbooks dans votre centre de données. Lorsque vous démarrez un runbook, vous devez simplement indiquer si vous souhaitez l’exécuter dans le cloud ou sur un Worker local.
 
-Les fonctionnalités fondamentales d’OMS sont fournies par un ensemble de services qui s’exécutent dans Azure. Chaque service assure une fonction de gestion spécifique, et vous pouvez combiner plusieurs services pour mettre en œuvre différents scénarios de gestion.
+Les fonctionnalités fondamentales de Log Analytics sont fournies par un ensemble de services qui s’exécutent dans Azure. Chaque service assure une fonction de gestion spécifique, et vous pouvez combiner plusieurs services pour mettre en œuvre différents scénarios de gestion.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure Operation Manager étend ses fonctionnalités en fournissant des solutions de gestion. Les [solutions de gestion](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion tirant profit d’un ou de plusieurs services OMS.
+Azure Operation Manager étend ses fonctionnalités en fournissant des solutions de gestion. Les [solutions de gestion](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion tirant profit d’un ou de plusieurs services de gestion.
 
 ![Gestion des opérations Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Microsoft et ses partenaires mettent à votre disposition différentes solutions que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans la solution OMS.
+Microsoft et ses partenaires mettent à votre disposition différentes solutions que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans Log Analytics.
 
 En tant que partenaire, vous pouvez créer vos propres solutions pour prendre en charge vos applications et services et les fournir aux utilisateurs par le biais de la plateforme Place de marché Azure ou des modèles de démarrage rapide.
 
@@ -455,7 +455,7 @@ Les alertes sont disponibles dans différents services, notamment les suivants :
 >[!Note]
 > Consultez [Définir des alertes dans Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) et [Analyser la disponibilité et la réactivité d’un site web](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Log Analytics (Operations Management Suite) : prend en charge le routage des journaux de diagnostic et d’activité vers Log Analytics. Operations Management Suite autorise les alertes de mesure, de journal, etc.
+- Log Analytics : active le routage des journaux de diagnostic et d’activité vers Log Analytics, et autorise les métriques, les journaux et d’autres types d’alerte.
 
 >[!Note]
 > Pour plus d’informations, consultez Alertes dans [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).

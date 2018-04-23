@@ -9,18 +9,18 @@
 
 ## <a name="introduction"></a>Introduction
 
-Dans l’article [Prise en main des représentations d’appareil IoT Hub][lnk-twin-tutorial], vous avez appris à définir les métadonnées d’appareil à partir de votre serveur principal de solution à l’aide *d’étiquettes*, à signaler les conditions d’appareil à partir d’une application d’appareil au moyen de *propriétés signalées* et à interroger ces informations par le biais d’un langage de type SQL.
+Dans [Prise en main des jumeaux d’appareil IoT Hub][lnk-twin-tutorial], vous avez appris à définir les métadonnées d’un appareil à l’aide de *balises*. Vous avez reçu des conditions d’appareil depuis une application d’appareil à l’aide de *propriétés signalées*, puis interrogé ces informations à l’aide d’un langage de type SQL.
 
-Dans ce didacticiel, vous allez apprendre à combiner les *propriétés souhaitées* du jumeau d’appareil et les *propriétés signalées* pour configurer des applications d’appareil à distance. Plus précisément, ce didacticiel décrit la façon dont les propriétés signalées et souhaitées des représentations d’appareil permettent de procéder à une configuration à plusieurs étapes d’une application d’appareil, ainsi que la façon dont ces propriétés dotent le serveur principal de solution d’une visibilité de l’état de cette opération sur l’ensemble des appareils. Pour plus d’informations sur le rôle des configurations d’appareil, consultez l’article [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-dm-overview].
+Ce didacticiel décrit comment utiliser les *propriétés souhaitées* du jumeau d’appareil et les *propriétés signalées* pour configurer des applications d’appareil à distance. Les propriétés signalées et souhaitées des jumeaux d’appareil permettent de procéder à une configuration à plusieurs étapes d’une application d’appareil, et apportent une visibilité de l’état de cette opération sur l’ensemble des appareils. Pour plus d’informations sur le rôle des configurations d’appareil, consultez l’article [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-dm-overview].
 
-À un niveau supérieur, l’utilisation de représentations d’appareil permet au serveur principal de solution de spécifier la configuration souhaitée pour les appareils gérés, en lieu et place de l’envoi de commandes spécifiques. L’appareil doit donc établir lui-même la meilleure façon de mettre à jour sa configuration (cet aspect est important dans les scénarios IoT dans lesquels des conditions d’appareil spécifiques ont une incidence sur la capacité d’exécution immédiate de commandes données), tout en signalant continuellement au serveur principal de solution l’état actuel et les conditions d’erreur possibles du processus de mise à jour. Ce modèle joue un rôle déterminant dans la gestion d’ensembles volumineux d’appareils, car il offre au serveur principal de solution une visibilité totale de l’état du processus de configuration sur l’ensemble des appareils.
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-> [!NOTE]
-> Pour les scénarios impliquant un contrôle plus interactif des appareils (mise en marche d’un ventilateur à partir d’une application contrôlée par l’utilisateur), envisagez d’utiliser des [méthodes directes][lnk-methods].
-> 
-> 
+À un niveau supérieur, l’utilisation de représentations d’appareil permet au serveur principal de solution de spécifier la configuration souhaitée pour les appareils gérés, en lieu et place de l’envoi de commandes spécifiques. L’appareil établit lui-même la meilleure façon de mettre à jour sa configuration (cet aspect est important dans les scénarios IoT dans lesquels des conditions d’appareil spécifiques ont une incidence sur la capacité d’exécution immédiate de commandes données), tout en signalant continuellement l’état actuel et les conditions d’erreur possibles du processus de mise à jour. Ce modèle joue un rôle déterminant dans la gestion d’ensembles volumineux d’appareils, car il offre au serveur principal de solution une visibilité totale de l’état du processus de configuration sur l’ensemble des appareils.
 
-Dans ce didacticiel, le serveur principal de solution modifie la configuration de télémétrie d’un appareil cible. En conséquence, l’application d’appareil suit un processus à plusieurs étapes pour appliquer une mise à jour de configuration (nécessitant par exemple un redémarrage de module logiciel, ce que ce didacticiel simule avec un simple délai).
+> [!TIP]
+> Pour les scénarios impliquant un contrôle plus interactif des appareils (par exemple, la mise en marche d’un ventilateur à partir d’une application contrôlée par l’utilisateur), envisagez d’utiliser des [méthodes directes][lnk-methods].
+
+Dans ce didacticiel, le serveur principal de solution modifie la configuration de télémétrie d’un appareil cible afin que l’application d’appareil applique une mise à jour de configuration. Par exemple, une mise à jour de configuration nécessiterait un redémarrage du module logiciel, que ce didacticiel simule par un simple délai.
 
 Le serveur principal de la solution stocke la configuration dans les propriétés souhaitées du jumeau d’appareil comme suit :
 
@@ -39,10 +39,8 @@ Le serveur principal de la solution stocke la configuration dans les propriété
             ...
         }
 
-> [!NOTE]
-> Étant donné que les configurations peuvent constituer des objets complexes, elles reçoivent des ID uniques (codes de hachage ou [GUID][lnk-guid]) pour simplifier les comparaisons.
-> 
-> 
+Étant donné que les configurations peuvent constituer des objets complexes, elles reçoivent des ID uniques (codes de hachage ou [GUID][lnk-guid]).
+
 
 L’application d’appareil spécifie sa configuration actuelle reflétant la propriété souhaitée **telemetryConfig** dans les propriétés signalées :
 
@@ -62,7 +60,7 @@ L’application d’appareil spécifie sa configuration actuelle reflétant la p
 
 Notez que la propriété **telemetryConfig** signalée présente une propriété **status** supplémentaire qui permet de spécifier l’état du processus de mise à jour de configuration.
 
-Lorsqu’une nouvelle configuration souhaitée est reçue, l’application d’appareil signale une configuration en attente en modifiant les informations :
+Lorsqu’une nouvelle configuration souhaitée est reçue, l’application d’appareil signale une configuration en attente en modifiant l’état :
 
         {
             "properties": {
@@ -82,8 +80,7 @@ Lorsqu’une nouvelle configuration souhaitée est reçue, l’application d’a
             }
         }
 
-L’application d’appareil signale alors par la suite la réussite ou l’échec de cette opération en mettant à jour la propriété ci-dessus.
-Notez que le serveur principal de solution peut à tout moment interroger l’état du processus de configuration sur l’ensemble des appareils.
+L’application d’appareil signale alors par la suite la réussite ou l’échec de cette opération en mettant à jour la propriété. Le serveur principal de solution peut interroger à tout moment l’état du processus de configuration sur l’ensemble des appareils.
 
 Ce didacticiel vous explique les procédures suivantes :
 

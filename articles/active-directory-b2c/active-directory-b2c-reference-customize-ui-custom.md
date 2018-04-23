@@ -1,8 +1,7 @@
 ---
-title: 'Azure Active Directory B2C : référence : personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées | Microsoft Docs'
-description: Une rubrique sur les stratégies personnalisées Azure Active Directory B2C
+title: Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées | Microsoft Docs
+description: Découvrir les stratégies personnalisées Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: ''
@@ -11,25 +10,25 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Cet article est une description détaillée du fonctionnement de la personnalisation de l’interface utilisateur et de l’activation des stratégies personnalisées B2C à l’aide de l’infrastructure d’expérience d’identité
+> Cet article est une description détaillée du fonctionnement de la personnalisation de l’interface utilisateur et de l’activation des stratégies personnalisées Azure AD B2C à l’aide de l’infrastructure d’expérience d’identité.
 
 
 Une expérience utilisateur transparente est essentielle à toute solution B2C. Une expérience utilisateur transparente désigne une expérience, sur un appareil ou un navigateur, au cours de laquelle le parcours utilisateur au sein du service est impossible à distinguer de celui du service client utilisé.
 
 ## <a name="understand-the-cors-way-for-ui-customization"></a>Comprendre la méthode CORS appliquée à la personnalisation de l’interface utilisateur
 
-Azure AD B2C vous permet de personnaliser l’apparence de l’expérience utilisateur sur les différentes pages qui sont traitées et affichées par Azure AD B2C par le biais de vos stratégies personnalisées.
+Azure AD B2C permet de personnaliser l’apparence de l’expérience utilisateur sur les différentes pages traitées et affichées par Azure AD B2C à l’aide de stratégies personnalisées.
 
 Pour ce faire, Azure AD B2C exécute du code dans le navigateur de votre client et utilise l’approche moderne et standard [Partage des ressources cross-origin (CORS)](http://www.w3.org/TR/cors/) pour charger du contenu personnalisé à partir d’une URL spécifique que vous spécifiez dans une stratégie personnalisée pour qu’elle pointe vers vos modèles HTML5/CSS. CORS est un mécanisme qui permet à des ressources limitées (p. ex des polices) sur une page web d’être demandées à partir d’un autre domaine en dehors du domaine d’origine de la ressource.
 
@@ -57,7 +56,7 @@ Dans chacun de vos modèles HTML5/CSS, vous fournissez un élément *d’ancrage
 </html>
 ```
 
-Le contenu lié à Azure AD B2C de la page est injecté dans cet élément div, tandis que le reste de la page doit être contrôlé par vos soins. Le code JavaScript d’Azure AD B2C extrait votre contenu et injecte du HTML dans cet élément div spécifique. Azure AD B2C injecte les contrôles ci-après selon les besoins : contrôle de sélecteur de compte, contrôles de connexion, contrôles multifacteur (actuellement basés sur le téléphone) et contrôles de collection d’attributs. Azure AD B2C vérifie que tous les contrôles sont accessibles et conformes à HTML5, que des styles peuvent leur être appliqués et qu’une version de contrôle ne fait pas l’objet d’une régression.
+Le contenu lié à Azure AD B2C de la page est injecté dans cet élément div, tandis que le reste de la page doit être contrôlé par vos soins. Le code JavaScript Azure AD B2C capture votre contenu et injecte du HTML dans cet élément div spécifique. Azure AD B2C injecte les contrôles ci-après selon les besoins : contrôle de sélecteur de compte, contrôles de connexion, contrôles multifacteur (actuellement basés sur le téléphone) et contrôles de collection d’attributs. Azure AD B2C vérifie que tous les contrôles sont accessibles et conformes à HTML5, que des styles peuvent leur être appliqués et qu’une version de contrôle ne fait pas l’objet d’une régression.
 
 Le contenu fusionné s’affiche finalement sous forme d’un document dynamique pour votre client.
 
@@ -115,7 +114,7 @@ Si vous avez suivi les étapes précédentes, les fichiers HTML5 et CSS de *UI-C
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Vérifier que CORS est activé sur le compte de stockage
 
-Le mécanisme CORS (Cross-Origin Resource Sharing) doit être activé sur votre point de terminaison pour qu’Azure AD B2C Premium puisse charger votre contenu, car ce dernier est hébergé sur un autre domaine que celui à partir duquel Azure AD B2C Premium traite la page.
+CORS (Cross-Origin Resource Sharing) doit être activé sur votre point de terminaison pour qu’Azure AD B2C Premium puisse charger votre contenu. En effet, votre contenu est hébergé sur un domaine différent du domaine Azure AD B2C à partir duquel la page sera traitée.
 
 Pour vérifier que CORS est activé sur le compte de stockage sur lequel vous hébergez votre contenu, procédez comme suit :
 
@@ -161,11 +160,11 @@ Le tableau ci-après décrit l’ensemble d’ID de définition de contenu recon
 | *api.idpselections.signup* | **Sélection du fournisseur d’identité pour l’inscription**. Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix lors de l’inscription. Il s’agit de fournisseurs d’identité d’entreprise, d’identité de réseaux sociaux tels que Facebook et Google+ ou de comptes locaux (basés sur une adresse e-mail ou un nom d’utilisateur). |
 | *api.localaccountpasswordreset* | **Page de mot de passe oublié**. Cette page contient un formulaire que l’utilisateur doit remplir pour lancer une réinitialisation de mot de passe.  |
 | *api.localaccountsignin* | **Page de connexion à un compte local**. Cette page contient un formulaire de connexion que l’utilisateur doit renseigner lors de la connexion à un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Le formulaire peut contenir une zone de saisie de texte et une zone de saisie de mot de passe. |
-| *api.localaccountsignup* | **Page d’inscription à un compte local**. Cette page contient un formulaire d’inscription que l’utilisateur doit renseigner lors de l’inscription pour un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Le formulaire peut contenir différentes commandes de saisie telles que la zone de saisie de texte, celle du mot de passe, le bouton radio, les cases du menu déroulant à sélection unique et la sélection de plusieurs cases à cocher. |
-| *api.phonefactor* | **Page d’authentification multi-facteur**. Cette page permet aux utilisateurs de vérifier leur numéro de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion. |
-| *api.selfasserted* | **Page d’inscription à un compte de réseau social**. Cette page contient un formulaire d’inscription que l’utilisateur doit remplir lors de l’inscription à l’aide d’un compte existant à partir d’un fournisseur d’identité de réseaux sociaux tel que Facebook ou Google+. Cette page est semblable à la page d’inscription à un compte local précédente, à l’exception des champs de saisie de mot de passe. |
-| *api.selfasserted.profileupdate* | **Page de mise à jour de profil**. Cette page contient un formulaire dont l’utilisateur peut se servir pour mettre à jour son profil. Cette page est semblable à la page d’inscription à un compte local précédente, à l’exception des champs de saisie de mot de passe. |
-| *api.signuporsignin* | **Page de connexion ou d’inscription unifiée**.  Cette page gère l’inscription et la connexion des utilisateurs, qui peuvent utiliser les fournisseurs d’identité d’entreprise, de réseaux sociaux, tels que Facebook ou Google+, ou de comptes locaux.
+| *api.localaccountsignup* | **Page d’inscription à un compte local**. Cette page contient un formulaire d’inscription que l’utilisateur doit renseigner lors de l’inscription pour un compte local basé sur une adresse électronique ou un nom d’utilisateur. Le formulaire peut contenir différentes commandes de saisie telles que la zone de saisie de texte, celle du mot de passe, le bouton radio, les cases du menu déroulant à sélection unique et la sélection de plusieurs cases à cocher. |
+| *api.phonefactor* | **Page d’authentification multi-facteur**. Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion. |
+| *api.selfasserted* | **Page d’inscription à un compte de réseau social**. Cette page contient un formulaire d’inscription que l’utilisateur doit remplir lors de l’inscription à l’aide d’un compte existant à partir d’un fournisseur d’identité de réseaux sociaux tel que Facebook ou Google +. Cette page est la même que la page d’inscription à un réseau social vue précédemment, à l’exception des champs de saisie de mot de passe. |
+| *api.selfasserted.profileupdate* | **Page de mise à jour de profil**. Cette page contient un formulaire dont l’utilisateur peut se servir pour mettre à jour son profil. Cette page est la même que la page d’inscription à un réseau social vue précédemment, à l’exception des champs de saisie de mot de passe. |
+| *api.signuporsignin* | **Page de connexion ou d’inscription unifiée**.  Cette page gère l’inscription et la connexion des utilisateurs, qui peuvent utiliser les fournisseurs d’identité d’entreprise ou de réseaux sociaux (p. ex., Facebook ou Google+), ou des comptes locaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Understanding the custom policies of the Azure AD B2C Custom Policy starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md) (Comprendre les stratégies personnalisées du pack de démarrage AD B2C Custom Policy)

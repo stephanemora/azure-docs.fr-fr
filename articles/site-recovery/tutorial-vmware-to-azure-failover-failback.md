@@ -1,6 +1,6 @@
 ---
-title: "Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués sur Azure avec Site Recovery | Microsoft Docs"
-description: "Découvrez comment basculer des machines virtuelles et des serveurs physiques VMware vers Azure, et comment restaurer automatiquement sur le site local avec Azure Site Recovery"
+title: Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués sur Azure avec Site Recovery | Microsoft Docs
+description: Découvrez comment basculer des machines virtuelles et des serveurs physiques VMware vers Azure, et comment restaurer automatiquement sur le site local avec Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm

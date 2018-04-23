@@ -1,12 +1,12 @@
 ---
-title: "CLI Azure Service Fabric : sfctl rpm | Microsoft Docs"
-description: "Décrit les commandes sfctl rpm de l’interface de ligne de commande (CLI) Service Fabric."
+title: 'CLI Azure Service Fabric : sfctl rpm | Microsoft Docs'
+description: Décrit les commandes sfctl rpm de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -72,6 +72,6 @@ Cette API prend en charge la plateforme Service Fabric ; elle n’est pas cens
 |    --query          | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 |    --verbose        | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

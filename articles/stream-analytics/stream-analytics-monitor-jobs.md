@@ -1,24 +1,19 @@
 ---
-title: Surveiller par programmation les travaux dans Stream Analytics | Microsoft Docs
-description: Découvrez comment surveiller par programme les tâches Stream Analytics créées via des API REST, le kit de développement logiciel Microsoft Azure SDK ou PowerShell.
-keywords: surveillance .net, surveillance de tâches, surveillance d’applications
+title: Surveiller et gérer les travaux Azure Stream Analytics par programme
+description: Cet article décrit comment surveiller par programme les travaux Stream Analytics créés via des API REST, le Kit de développement logiciel (SDK) Microsoft Azure ou PowerShell.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: a619120b2d30284633ba5248edd0b82bb1bf656b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Créer la surveillance des tâches Stream Analytics par programmation
 
@@ -175,7 +170,7 @@ Le code suivant permet d'activer la surveillance pour un travail Stream Analytic
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

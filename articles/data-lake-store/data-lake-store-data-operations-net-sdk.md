@@ -1,8 +1,8 @@
 ---
-title: "Kit de développement logiciel (SDK) .NET : opération de gestion du système de fichiers sur Azure Data Lake Store | Microsoft Docs"
-description: "Utilisez le kit de développement logiciel (SDK) .NET d’Azure Data Lake Store pour réaliser des opérations de gestion du système de fichiers sur Data Lake Store, telles que la création de dossiers, etc."
+title: 'Kit de développement logiciel (SDK) .NET : opération de gestion du système de fichiers sur Azure Data Lake Store | Microsoft Docs'
+description: Utilisez le kit de développement logiciel (SDK) .NET d’Azure Data Lake Store pour réaliser des opérations de gestion du système de fichiers sur Data Lake Store, telles que la création de dossiers, etc.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -182,5 +182,5 @@ Voici quelques exemples sur la façon d’utiliser le Kit de développement logi
 * [Opérations de gestion des comptes sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Store .NET SDK Reference (Informations de référence sur le Kit de développement logiciel (SDK) .NET Azure Data Lake Store)](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)

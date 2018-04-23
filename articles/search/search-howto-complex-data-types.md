@@ -1,25 +1,19 @@
 ---
-title: "Modélisation de types de données complexes dans Recherche Azure | Microsoft Docs"
-description: "Les structures de données imbriquées ou hiérarchiques peuvent être modélisées dans un index Recherche Azure à l’aide d’un ensemble de lignes aplati et du type de données Collection."
-services: search
-documentationcenter: 
-author: LiamCa
-manager: pablocas
-editor: 
+title: Modélisation de types de données complexes dans Recherche Azure | Microsoft Docs
+description: Les structures de données imbriquées ou hiérarchiques peuvent être modélisées dans un index Recherche Azure à l’aide d’un ensemble de lignes aplati et du type de données Collection.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: liamca
-ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modélisation de types de données complexes dans Recherche Azure
 Les jeux de données externes utilisés pour remplir un index Recherche Azure inclut parfois des sous-structures hiérarchiques ou imbriquées qui ne sont pas réparties proprement en un ensemble de lignes tabulaire. Des exemples de telles structures incluent les emplacements et les numéros de téléphone multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de *types de données complexes*, *types de données composées*, *types de données composites* ou *types de données agrégées*, entre autres.
@@ -102,7 +96,7 @@ En supposant que vous avez créé l’index et chargé les données, vous pouvez
 * Obtenir le nombre de personnes qui font du télétravail (Home Office).  
 * Des personnes qui font du télétravail, afficher les bureaux avec lesquels elles travaillent, ainsi que le nombre d’employés de chaque emplacement.  
 
-Cette technique s’avère cependant inutilisable lorsque vous avez besoin d’effectuer une recherche associant l’ID et la description d’emplacement. Par exemple :
+Cette technique s’avère cependant inutilisable lorsque vous avez besoin d’effectuer une recherche associant l’ID et la description d’emplacement. Par exemple : 
 
 * Trouver toutes les personnes qui font du télétravail et dont l’ID d’emplacement est 4.  
 
@@ -117,7 +111,7 @@ Pour mémoire, le contenu d’origine ressemblait à ceci :
 
 Cependant, maintenant que nous avons séparé les données en champs distincts, il est impossible de savoir si la valeur « Home Office » pour Jen Campbell se rapporte à `locationsID 3` ou `locationsID 4`.  
 
-Pour gérer ce cas, définissez un autre champ d’index qui regroupe l’ensemble des données dans une collection unique.  Pour notre exemple, nous appellerons ce champ `locationsCombined` et nous séparerons le contenu à l’aide d’un `||`, bien que vous puissiez choisir comme séparateur n’importe quel ensemble de caractères unique pour votre contenu. Par exemple : 
+Pour gérer ce cas, définissez un autre champ d’index qui regroupe l’ensemble des données dans une collection unique.  Pour notre exemple, nous appellerons ce champ `locationsCombined` et nous séparerons le contenu à l’aide d’un `||`, bien que vous puissiez choisir comme séparateur n’importe quel ensemble de caractères unique pour votre contenu. Par exemple :  
 
 ![Exemple de données, 2 lignes avec séparateur](./media/search-howto-complex-data-types/sample-data-2.png)
 
@@ -126,8 +120,8 @@ Pour gérer ce cas, définissez un autre champ d’index qui regroupe l’ensemb
 * Afficher le nombre de personnes qui font du télétravail et dont l’ID d’emplacement est 4.  
 * Rechercher les personnes qui font du télétravail et dont l’ID d’emplacement est 4. 
 
-## <a name="limitations"></a>Limitations
-Cette technique est utile pour un certain nombre de scénarios, mais elle n’est pas applicable dans tous les cas.  Par exemple :
+## <a name="limitations"></a>Limites
+Cette technique est utile pour un certain nombre de scénarios, mais elle n’est pas applicable dans tous les cas.  Par exemple : 
 
 1. Si vous ne disposez pas d’un ensemble de champs dans votre type de données complexe et il était impossible de mapper tous les types possibles à un seul champ. 
 2. La mise à jour des objets imbriqués demande du travail supplémentaire pour déterminer avec exactitude ce qui doit être mis à jour dans l’index Recherche Azure.
@@ -135,6 +129,7 @@ Cette technique est utile pour un certain nombre de scénarios, mais elle n’es
 ## <a name="sample-code"></a>Exemple de code
 Pour obtenir un exemple de l’indexation d’un jeu de données JSON complexe dans Recherche Azure de l’exécution d’un certain nombre de requêtes sur ce jeu de données, consultez ce [référentiel GitHub](https://github.com/liamca/AzureSearchComplexTypes).
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>Étapes suivantes
+
 [Votez pour la prise en charge native des types de données complexes](https://feedback.azure.com/forums/263029-azure-search) sur la page UserVoice de Recherche Azure et ajoutez tout commentaire que vous aimeriez que nous prenions en compte concernant l’implémentation de fonctionnalités. Vous pouvez également me contacter directement sur Twitter sur @liamca.
 

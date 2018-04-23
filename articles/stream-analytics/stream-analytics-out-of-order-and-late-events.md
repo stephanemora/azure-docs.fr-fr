@@ -1,24 +1,19 @@
 ---
-title: Traitement de l’ordre et du retard des événements avec Azure Stream Analytics | Microsoft Docs
-description: Découvrez le fonctionnement de Stream Analytics avec des événements en retard ou en désordre dans les flux de données.
-keywords: Événements en désordre, en retard
-documentationcenter: ''
+title: Traitement de l’ordre et du retard des événements avec Azure Stream Analytics
+description: Cet article décrit la façon dont Stream Analytics gère des événements en retard ou obsolètes dans les flux de données.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considérations relatives à l’ordre des événements Azure Stream Analytics
 
@@ -132,7 +127,7 @@ Azure Stream Analytics implémente cette fonctionnalité à l’aide de la claus
 * En cas de combinaison de plusieurs chronologies, l’absence de données dans l’une des sources ou partitions peut retarder la sortie d’une fenêtre de tolérance d’arrivée tardive supplémentaire.
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour une assistance supplémentaire, essayez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Pour une assistance supplémentaire, essayez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Stream Analytics](stream-analytics-introduction.md)

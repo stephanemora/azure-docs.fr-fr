@@ -5,7 +5,7 @@ keywords: didacticiel node.js, base de données du nœud
 services: cosmos-db
 documentationcenter: node.js
 author: AndrewHoh
-manager: jhubbard
+manager: kfile
 editor: monicar
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: de1ac7cb11f3e0d9c2de6dd3e5f635a9c508b2d2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d8e5ef9da0d884d3120f71b7b06b079b2bdfbded
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Didacticiel Node.js : utilisez l’API SQL dans Azure Cosmos DB pour créer une application de console Node.js
 > [!div class="op_single_selector"]

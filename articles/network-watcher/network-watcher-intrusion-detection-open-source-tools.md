@@ -1,11 +1,11 @@
 ---
-title: "Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source | Microsoft Docs"
-description: "Cet article explique comment utiliser Azure Network Watcher et des outils open source pour détecter les intrusions dans un réseau"
+title: Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source | Microsoft Docs
+description: Cet article explique comment utiliser Azure Network Watcher et des outils open source pour détecter les intrusions dans un réseau
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source
 
@@ -38,7 +38,7 @@ Les deux outils open source peuvent être configurés sur une machine virtuelle 
 
 ### <a name="install-suricata"></a>Installer Suricata
 
-Pour toutes les autres méthodes d’installation, rendez-vous sur http://suricata.readthedocs.io/en/latest/install.html.
+Pour toutes les autres méthodes d’installation, consultez http://suricata.readthedocs.io/en/latest/install.html
 
 1. Dans le terminal de ligne de commande de votre machine virtuelle, exécutez les commandes suivantes :
 
@@ -283,7 +283,7 @@ L’association des captures de paquets fournies par Network Watcher et des outi
 
 Découvrez comment déclencher des captures de paquets en fonction des alertes en vous rendant sur [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) (Utiliser des captures de paquets pour la surveillance proactive du réseau avec Azure Functions).
 
-Découvrez comment visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI en consultant la page [Visualizing Network Security Group flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualisation des journaux de flux de groupe de sécurité réseau avec Power BI).
+Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualiser les journaux de flux NSG avec Power BI)
 
 
 

@@ -7,13 +7,13 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a5772e67d5b91ff989ac6d049b14b1ccad5c952e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -21,7 +21,7 @@ Vous pouvez utiliser le portail Azure pour trouver des recommandations vous perm
 
 ## <a name="viewing-recommendations"></a>Affichage des recommandations
 
-Pour afficher et appliquer des recommandations en matière de performances, vous devez disposer des autorisations de [contrôle d’accès basé sur les rôles](../active-directory/role-based-access-control-what-is.md) adéquates dans Azure. Les autorisations **Lecteur** et **Collaborateur de base de données SQL** sont obligatoires pour afficher les recommandations, et les autorisations **Propriétaire** et **Collaborateur de base de données SQL** sont obligatoires pour exécuter toutes les actions, créer ou supprimer des index et annuler la création d’index.
+Pour afficher et appliquer des recommandations en matière de performances, vous devez disposer des autorisations de [contrôle d’accès basé sur les rôles](../role-based-access-control/overview.md) adéquates dans Azure. Les autorisations **Lecteur** et **Collaborateur de base de données SQL** sont obligatoires pour afficher les recommandations, et les autorisations **Propriétaire** et **Collaborateur de base de données SQL** sont obligatoires pour exécuter toutes les actions, créer ou supprimer des index et annuler la création d’index.
 
 Pour rechercher des recommandations en matière de performances sur le portail Azure, procédez comme suit :
 
@@ -154,5 +154,5 @@ Surveillez vos recommandations et continuez à les appliquer pour affiner les pe
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)
+* [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md)
 

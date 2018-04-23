@@ -6,13 +6,13 @@ author: MarkMcGeeAtAquent
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 03/26/2018
-ms.author: mimig
+ms.author: v-mamcge
 ms.custom: include file
-ms.openlocfilehash: 544c40d65e84a3bef1a4e933b4d8cf72cfc88d59
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5ffc16a4337c928cc166841e660cb0335c4d8b9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 Le moyen le plus simple de créer votre premier compte de stockage Azure est d’utiliser le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez la page [Créer un compte de stockage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).

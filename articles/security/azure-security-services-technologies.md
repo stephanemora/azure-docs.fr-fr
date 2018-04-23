@@ -1,6 +1,6 @@
 ---
-title: "Services et technologies de sécurité Azure | Microsoft Docs"
-description: "Cet article fournit une liste des services et technologies de sécurité Azure."
+title: Services et technologies de sécurité Azure | Microsoft Docs
+description: Cet article fournit une liste des services et technologies de sécurité Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 20d3eb9a1843e1a223ba7fb060df46a22f9315b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Services et technologies de sécurité Azure
 Dans nos discussions avec les clients Azure actuels et futurs, une question revient souvent : « Avez-vous une liste de tous les services et technologies de sécurité proposés par Azure ? ».
@@ -54,11 +54,11 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Audit de base de données SQL Azure](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Gestion de l’identité et de l’accès Azure
-* [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md)
+* [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Services de domaine Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md)
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d’urgence
 * [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)

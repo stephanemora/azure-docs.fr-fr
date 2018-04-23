@@ -1,6 +1,6 @@
 ---
 title: Authentification avec un registre de conteneurs Azure
-description: "Options d’authentification pour un registre de conteneurs Azure, y compris la connexion de registre et la connexion directe des principaux du service Azure Active Directory."
+description: Options d’authentification pour un registre de conteneurs Azure, y compris la connexion de registre et la connexion directe des principaux du service Azure Active Directory.
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
@@ -31,11 +31,11 @@ Si vous utilisez directement votre registre, par exemple si vous extrayez des im
 az acr login --name <acrName>
 ```
 
-Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton créé lorsque vous avez exécuté `az login` pour authentifier en toute transparence votre session avec votre registre. Une fois que vous êtes connecté de cette façon, vos informations d’identification sont mises en cache, et les commandes `docker` suivantes ne nécessitent pas de nom d’utilisateur ni de mot de passe. Si votre jeton arrive à expiration, vous pouvez l’actualiser en utilisant de nouveau la commande `az acr login` pour la réauthentification. L’utilisation de `az acr login` avec des identités Azure fournit un [accès en fonction du rôle](../active-directory/role-based-access-control-configure.md).
+Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton créé lorsque vous avez exécuté `az login` pour authentifier en toute transparence votre session avec votre registre. Une fois que vous êtes connecté de cette façon, vos informations d’identification sont mises en cache, et les commandes `docker` suivantes ne nécessitent pas de nom d’utilisateur ni de mot de passe. Si votre jeton arrive à expiration, vous pouvez l’actualiser en utilisant de nouveau la commande `az acr login` pour la réauthentification. L’utilisation de `az acr login` avec des identités Azure fournit un [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Principal du service
 
-Vous pouvez affecter un [principal du service](../active-directory/develop/active-directory-application-objects.md) à votre registre, et votre application ou service peut l’utiliser pour une authentification sans périphérique de contrôle. Les principaux du service autorisent les [accès en fonction du rôle](../active-directory/role-based-access-control-configure.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
+Vous pouvez affecter un [principal du service](../active-directory/develop/active-directory-application-objects.md) à votre registre, et votre application ou service peut l’utiliser pour une authentification sans périphérique de contrôle. Les principaux du service autorisent les [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
 
 Rôles disponibles :
 

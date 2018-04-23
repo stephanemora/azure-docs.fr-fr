@@ -1,11 +1,11 @@
 ---
 title: Ajouter un nouveau compte client Azure Stack dans Azure Active Directory | Microsoft Docs
-description: "Après le déploiement du Kit de développement Microsoft Azure Stack, vous devrez créer au moins un compte utilisateur client pour pouvoir explorer le portail client."
+description: Après le déploiement du Kit de développement Microsoft Azure Stack, vous devrez créer au moins un compte utilisateur client pour pouvoir explorer le portail client.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
 ms.workload: na

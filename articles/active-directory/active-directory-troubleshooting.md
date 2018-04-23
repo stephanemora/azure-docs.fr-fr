@@ -1,11 +1,11 @@
 ---
-title: "Dépannage : l’élément « Active Directory » est manquant ou non disponible | Microsoft Docs"
-description: "Que faire lorsque l’élément de menu Active Directory n’apparaît pas dans le portail de gestion Azure."
+title: 'Dépannage : l’élément « Active Directory » est manquant ou non disponible | Microsoft Docs'
+description: Que faire lorsque l’élément de menu Active Directory n’apparaît pas dans le portail de gestion Azure.
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Dépannage : l’élément « Active Directory » est manquant ou non disponible
 De nombreuses instructions relatives à l’utilisation des fonctionnalités et des services d’Azure Active Directory commencent par « Accédez au portail de gestion Azure et cliquez sur **Active Directory**. » Mais que faire si l’élément de menu ou l’extension Active Directory n’apparaît pas ou si elle est marquée comme **non disponible**? Cette rubrique d’aide répond à cette question. Elle décrit les conditions dans lesquelles **Active Directory** n’apparaît pas ou n’est pas disponible et explique comment procéder.
@@ -32,14 +32,14 @@ L’élément Active Directory s’affiche dans le menu de navigation gauche lo
 
 * L’utilisateur actuel est connecté avec un compte Microsoft (anciennement appelé identifiant Windows Live ID).
   
-    OU
+    Ou
 * Le locataire Azure possède un répertoire et le compte actuel est un administrateur d’annuaire.
   
-    OU
+    Ou
 * Le locataire Azure possède au moins un espace de noms Azure AD Access Control (ACS). Pour plus d’informations, consultez la page [À propos des noms d’espaces de contrôle d’accès](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
-    OU
-* Le locataire Azure possède au moins un fournisseur d’authentification multifacteur Azure. Pour plus d’informations, consultez la rubrique [Administration des fournisseurs Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+    Ou
+* Le locataire Azure possède au moins un fournisseur d’authentification multifacteur Azure. Pour plus d’informations, consultez la rubrique [Administration des fournisseurs Azure Multi-Factor Authentication](authentication/howto-mfa-getstarted.md).
 
 Pour créer un espace de noms de contrôle d’accès ou un fournisseur Multi-Factor Authentication, cliquez sur **+ New** > **App Services** > **Active Directory**.
 

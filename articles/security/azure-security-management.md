@@ -1,6 +1,6 @@
 ---
-title: "Améliorer la sécurité de la gestion à distance dans Azure | Microsoft Docs"
-description: "Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées."
+title: Améliorer la sécurité de la gestion à distance dans Azure | Microsoft Docs
+description: Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -64,7 +64,7 @@ La consolidation des ressources d’accès et la suppression des points de termi
 ### <a name="providing-security-for-azure-remote-management"></a>Mesures de sécurité pour la gestion à distance Azure
 Azure propose divers mécanismes de sécurité aux administrateurs responsables de services cloud et de machines virtuelles Azure. Ces mécanismes sont les suivants :
 
-* Authentification et [contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md).
+* Authentification et [contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).
 * Surveillance, journalisation et audit.
 * Certificats et communications chiffrées.
 * Portail de gestion Web.
@@ -99,7 +99,7 @@ La configuration des services cloud Azure s’effectue sur le portail Azure ou S
 
 Machine virtuelle : les applications déployées fournissent leurs propres outils et interfaces clients en fonction des besoins, comme la console Microsoft Management Console (MMC), une console de gestion d’entreprise (par exemple, Microsoft System Center ou Windows Intune) ou une autre application de gestion, telle que Microsoft SQL Server Management Studio. Ces outils se trouvent généralement dans un environnement d’entreprise ou sur un réseau client. Ils peuvent dépendre de protocoles réseau spécifiques, comme le protocole RDP (Remote Desktop Protocol), qui nécessitent des connexions directes avec état. Certains peuvent avoir des interfaces Web qui ne doivent pas être publiées ni accessibles librement sur Internet.
 
-Vous pouvez limiter l’accès à la gestion des services de plateforme et d’infrastructure dans Azure grâce à [l’authentification multifacteur](../multi-factor-authentication/multi-factor-authentication.md), aux [certificats de gestion X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) et aux règles de pare-feu. Le portail Azure et SMAPI nécessitent un protocole TLS (Transport Layer Security). Cependant, les services et applications déployés dans Azure vous obligent à prendre des mesures de protection adaptées à l’application. Ces opérations sont souvent plus faciles avec une station de travail renforcée normalisée.
+Vous pouvez limiter l’accès à la gestion des services de plateforme et d’infrastructure dans Azure grâce à [l’authentification multifacteur](../active-directory/authentication/multi-factor-authentication.md), aux [certificats de gestion X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) et aux règles de pare-feu. Le portail Azure et SMAPI nécessitent un protocole TLS (Transport Layer Security). Cependant, les services et applications déployés dans Azure vous obligent à prendre des mesures de protection adaptées à l’application. Ces opérations sont souvent plus faciles avec une station de travail renforcée normalisée.
 
 ### <a name="management-gateway"></a>Passerelle de gestion
 Pour centraliser tous les accès d’administration et simplifier l’analyse ainsi que la journalisation, vous pouvez déployer un serveur [Passerelle des services Bureau à distance](https://technet.microsoft.com/library/dd560672) dédié sur votre réseau local, qui sera connecté à votre environnement Azure.
@@ -110,7 +110,7 @@ Une passerelle des services Bureau à distance désigne un service de proxy RDP 
 * Associez la passerelle des services Bureau à distance au même [domaine de gestion](http://technet.microsoft.com/library/bb727085.aspx) que les stations de travail d’administration. Cette opération est indispensable lorsque vous utilisez une connexion VPN IPsec de site à site ou ExpressRoute au sein d’un domaine offrant une approbation à sens unique vers Azure AD, ou lorsque vous fédérez des informations d’identification entre votre instance AD DS locale et Azure AD.
 * Configurez une [stratégie d’autorisation de connexion client](http://technet.microsoft.com/library/cc753324.aspx) pour permettre à la passerelle des services Bureau à distance de vérifier que le nom de l’ordinateur client est valide (joint au domaine) et que l’ordinateur est autorisé à accéder au portail Azure.
 * Utilisez IPsec pour [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) afin de protéger le trafic de gestion contre les écoutes clandestines et les vols de jeton, ou vérifiez un lien Internet isolé par le biais d’[Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Activez l’authentification multifacteur (grâce à [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) ou l’authentification par carte à puce pour les administrateurs qui se connectent au moyen de la passerelle des services Bureau à distance.
+* Activez l’authentification multifacteur (grâce à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) ou l’authentification par carte à puce pour les administrateurs qui se connectent au moyen de la passerelle des services Bureau à distance.
 * Configurez les [restrictions d’adresse IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) sources ou les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) dans Azure afin de limiter le nombre de points de terminaison de gestion autorisés.
 
 ## <a name="security-guidelines"></a>Conseils de sécurité

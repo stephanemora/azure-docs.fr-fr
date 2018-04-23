@@ -1,11 +1,11 @@
 ---
-title: "Vérifier le trafic avec la vérification des flux IP d’Azure Network Watcher - REST | Microsoft Docs"
-description: "Cet article explique comment savoir si le trafic en direction ou en provenance d’une machine virtuelle est autorisé ou refusé"
+title: Vérifier le trafic avec la vérification des flux IP d’Azure Network Watcher - REST | Microsoft Docs
+description: Cet article explique comment savoir si le trafic en direction ou en provenance d’une machine virtuelle est autorisé ou refusé
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c3d38f776db63e777174b7dca8b09a0d19c387e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Vérifier si le trafic est autorisé ou refusé avec le composant de vérification des flux IP d’Azure Network Watcher
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/21/2017
 > - [Portail Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
+> - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [API REST Azure](network-watcher-check-ip-flow-verify-rest.md)
 
 
@@ -36,7 +36,7 @@ La vérification des flux IP est une fonctionnalité de Network Watcher qui vous
 
 ARMclient permet d’appeler l’API REST à l’aide de PowerShell. ARMClient est accessible sur le site chocolatey à partir de la page [ARMClient sur Chocolatey](https://chocolatey.org/packages/ARMClient).
 
-Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher.
+Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Create a Network Watcher (Créer une instance Network Watcher)](network-watcher-create.md) pour créer une instance Network Watcher.
 
 ## <a name="scenario"></a>Scénario
 
@@ -165,7 +165,7 @@ La réponse que vous obtenez en retour vous indique si le trafic est autorisé o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si le trafic est bloqué alors qu’il ne devrait pas l’être, consultez [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/virtual-network-manage-nsg-arm-portal.md) pour en savoir plus sur les groupes de sécurité réseau.
+Si le trafic est bloqué alors qu’il ne devrait pas l’être, consultez [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/manage-network-security-group.md) pour en savoir plus sur les groupes de sécurité réseau.
 
 
 

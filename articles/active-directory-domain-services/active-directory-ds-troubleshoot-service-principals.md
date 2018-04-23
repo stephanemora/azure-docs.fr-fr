@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Résoudre les problèmes liés à une configuration de principal de service non valide pour votre domaine managé
 
@@ -93,7 +93,7 @@ Suivez ces étapes si un principal de service avec l’ID ```d87dcbc6-a371-462e-
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerte AADDS105 : l’application de synchronisation du mot de passe est obsolète
 
-**Message d’alerte :** le principal du service avec l’application ID « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé puis recréé. Ce principal du service gère un autre principal du service et une application utilisés pour la synchronisation du mot de passe. Le principal du service managé et/ou l’application ne sont pas autorisés dans le principal du service nouvellement créé, ils ne peuvent donc pas être managés par notre service. Cela signifie que le principal du service nouvellement créé ne pourra pas mettre à jour les anciennes applications managées et que la synchronisation des mots de passe sera affectée.
+**Message d’alerte :** le principal du service avec l’application ID « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé puis recréé. Cette nouvelle création laisse des autorisations incohérentes sur les ressources Azure AD Domain Services nécessaires pour traiter votre domaine managé. La synchronisation des mots de passe dans votre domaine managé pourrait en être affectée.
 
 
 **Résolution :** vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).

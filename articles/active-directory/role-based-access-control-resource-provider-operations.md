@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -959,2900 +959,2900 @@ Ce document répertorie les opérations disponibles pour chaque fournisseur de r
 |/virtualMachineScaleSets/rollingUpgrades/cancel/action|Annule la mise à niveau propagée d’un groupe de machines virtuelles identiques|
 |/virtualMachineScaleSets/rollingUpgrades/read|Obtient l’état de la dernière mise à niveau propagée d’un groupe de machines virtuelles identiques|
 |/virtualMachineScaleSets/scale/action|Vérifie si un groupe de machines virtuelles identiques existant peut être mis à l’échelle vers un nombre d’instances spécifié|
-|/virtualMachineScaleSets/skus/read|Lists the valid SKUs for an existing Virtual Machine Scale Set|
-|/virtualMachineScaleSets/start/action|Starts the instances of the Virtual Machine Scale Set|
-|/virtualMachineScaleSets/virtualMachines/deallocate/action|Powers off and releases the compute resources for a Virtual Machine in a VM Scale Set.|
-|/virtualMachineScaleSets/virtualMachines/delete|Delete a specific Virtual Machine in a VM Scale Set.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/read|Retrieves the instance view of a Virtual Machine in a VM Scale Set.|
-|/virtualMachineScaleSets/virtualMachines/networkInterfaces/ ipConfigurations/publicIPAddresses/read|Get properties of public IP address created using Virtual Machine Scale Set. Virtual Machine Scale Set can create at most one public IP per ipconfiguration (private IP)|
-|/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/read|Get properties of one or all IP configurations of a network interface created using Virtual Machine Scale Set. IP configurations represent private IPs|
-|/virtualMachineScaleSets/virtualMachines/networkInterfaces/read|Get properties of one or all network interfaces of a virtual machine created using Virtual Machine Scale Set|
-|/virtualMachineScaleSets/virtualMachines/performMaintenance/action|Performs planned maintenance on a Virtual Machine instance in a Virtual Machine Scale Set|
-|/virtualMachineScaleSets/virtualMachines/powerOff/action|Powers Off a Virtual Machine instance in a VM Scale Set.|
-|/virtualMachineScaleSets/virtualMachines/providers/ Microsoft.Insights/metricDefinitions/read|Reads Virtual Machine in Scale Set Metric Definitions|
-|/virtualMachineScaleSets/virtualMachines/read|Retrieves the properties of a Virtual Machine in a VM Scale Set|
-|/virtualMachineScaleSets/virtualMachines/redeploy/action|Redeploys a Virtual Machine instance in a Virtual Machine Scale Set|
-|/virtualMachineScaleSets/virtualMachines/reimage/action|Reimages a Virtual Machine instance in a Virtual Machine Scale Set.|
-|/virtualMachineScaleSets/virtualMachines/restart/action|Restarts a Virtual Machine instance in a VM Scale Set.|
-|/virtualMachineScaleSets/virtualMachines/start/action|Starts a Virtual Machine instance in a VM Scale Set.|
-|/virtualMachineScaleSets/virtualMachines/write|Updates the properties of a Virtual Machine in a VM Scale Set|
-|/virtualMachineScaleSets/write|Creates a new Virtual Machine Scale Set or updates an existing one|
+|/virtualMachineScaleSets/skus/read|Répertorie les références SKU valides pour un groupe de machines virtuelles identiques existant|
+|/virtualMachineScaleSets/start/action|Démarre les instances du groupe de machines virtuelles identiques|
+|/virtualMachineScaleSets/virtualMachines/deallocate/action|Mettre hors tension et libérer les ressources de calcul d’une machine virtuelle d’un groupe de machines virtuelles identiques.|
+|/virtualMachineScaleSets/virtualMachines/delete|Supprimer une machine virtuelle spécifique d’un groupe de machines virtuelles identiques|
+|/virtualMachineScaleSets/virtualMachines/instanceView/read|Récupérer la vue d’instance d’une machine virtuelle dans un groupe de machines virtuelles identiques.|
+|/virtualMachineScaleSets/virtualMachines/networkInterfaces/ ipConfigurations/publicIPAddresses/read|Obtient les propriétés de l’adresse IP publique créée à l’aide d’un groupe de machines virtuelles identiques. Un groupe de machines virtuelles identiques peut créer au maximum une adresse IP par configuration IP (adresse IP privée)|
+|/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/read|Obtient les propriétés d’une ou de la totalité des configurations IP d’une interface réseau créée à l’aide d’un groupe de machines virtuelles identiques. Les configurations IP représentent des adresses IP privées|
+|/virtualMachineScaleSets/virtualMachines/networkInterfaces/read|Obtient les propriétés d’une ou de la totalité des interfaces réseau d’une machine virtuelle créée à l’aide d’un groupe de machines virtuelles identiques|
+|/virtualMachineScaleSets/virtualMachines/performMaintenance/action|Effectue une maintenance planifiée sur une instance de machine virtuelle dans un groupe de machines virtuelles identiques|
+|/virtualMachineScaleSets/virtualMachines/powerOff/action|Mettre hors tension une instance de machine virtuelle dans un groupe de machines virtuelles identiques.|
+|/virtualMachineScaleSets/virtualMachines/providers/ Microsoft.Insights/metricDefinitions/read|Lit la machine virtuelle dans les définitions de métrique d’un groupe identique|
+|/virtualMachineScaleSets/virtualMachines/read|Récupérer les propriétés d’une machine virtuelle dans un groupe de machines virtuelles identiques|
+|/virtualMachineScaleSets/virtualMachines/redeploy/action|Redéploie une instance de machine virtuelle dans un groupe de machines virtuelles identiques|
+|/virtualMachineScaleSets/virtualMachines/reimage/action|Réimage une instance de machine virtuelle dans un groupe de machines virtuelles identiques.|
+|/virtualMachineScaleSets/virtualMachines/restart/action|Redémarrer une instance de machine virtuelle dans un groupe de machines virtuelles identiques.|
+|/virtualMachineScaleSets/virtualMachines/start/action|Démarrer une instance de machine virtuelle dans un groupe de machines virtuelles identiques.|
+|/virtualMachineScaleSets/virtualMachines/write|Met à jour les propriétés d’une machine virtuelle dans un groupe de machines virtuelles identiques|
+|/virtualMachineScaleSets/write|Crée ou met à jour un groupe de machines virtuelles identiques|
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/balances/read|List the utilization summary for a billing period for a management group.|
-|/budgets/read|List the budgets by a subscription or a management group.|
-|/budgets/write|Creates, update and delete the budgets by a subscription or a management group.|
-|/marketplaces/read|List the marketplace resource usage details for a scope for EA and WebDirect subscriptions.|
-|/operations/read|List all supported operations by Microsoft.Consumption resource provider.|
-|/pricesheets/read|List the Pricesheets data for a subscription or a management group.|
-|/reservationDetails/read|List the utilization details for reserved instances by reservation order or managment groups. The details data is per instance per day level.|
-|/reservationSummaries/read|List the utilization summary for reserved instances by reservation order or managment groups. The summary data is either at monthly or daily level.|
-|/reservationTransactions/read|List the transaction history for reserved instances by management groups.|
-|/terms/read|List the terms for a subscription or a management group.|
-|/usageDetails/read|List the usage details for a scope for EA and WebDirect subscriptions.|
+|/balances/read|Affiche le récapitulatif d’utilisation d’une période de facturation pour un groupe d’administration.|
+|/budgets/read|Affiche les budgets par abonnement ou un groupe d’administration.|
+|/budgets/write|Crée, met à jour et supprime les budgets par abonnement ou groupe d’administration.|
+|/marketplaces/read|Affiche les détails d’utilisation des ressources de la place de marché pour une étendue en lien avec des abonnements EA et WebDirect.|
+|/operations/read|Répertorie toutes les opérations prises en charge par un fournisseur de ressources Microsoft.Consumption.|
+|/pricesheets/read|Affiche les données de grille tarifaire pour un abonnement ou un groupe d’administration.|
+|/reservationDetails/read|Affiche les détails d’utilisation d’instances réservées par ordre de réservation ou groupe d’administration. Les données sont détaillées par instance par jour.|
+|/reservationSummaries/read|Affiche le récapitulatif d’utilisation d’instances réservées par ordre de réservation ou groupe d’administration. Les données récapitulatives sont affichées au niveau mensuel ou quotidien.|
+|/reservationTransactions/read|Affiche l’historique des transactions pour les instances réservées par groupe d’administration.|
+|/terms/read|Affiche les termes d’un abonnement ou d’un groupe d’administration.|
+|/usageDetails/read|Affiche les détails d’utilisation pour une étendue en lien avec des abonnements EA et WebDirect.|
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/containerGroups/containers/logs/read|Get logs for a specific container.|
-|/containerGroups/delete|Delete the specific container group.|
-|/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the container group.|
-|/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the container group.|
-|/containerGroups/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for container group.|
-|/containerGroups/read|Get all container goups.|
-|/containerGroups/write|Create or update a specific container group.|
+|/containerGroups/containers/logs/read|Obtient les journaux pour un conteneur spécifique.|
+|/containerGroups/delete|Supprime le groupe de conteneurs spécifique.|
+|/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour le groupe de conteneurs.|
+|/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour le groupe de conteneurs.|
+|/containerGroups/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour le groupe de conteneurs.|
+|/containerGroups/read|Obtient tous les groupes de conteneurs.|
+|/containerGroups/write|Crée ou met à jour un groupe de conteneurs spécifique.|
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/read|Checks whether the container registry name is available for use.|
-|/locations/operationResults/read|Gets an async operation result|
-|/operations/read|Lists all of the available Azure Container Registry REST API operations|
-|/register/action|Registers the subscription for the container registry resource provider and enables the creation of container registries.|
-|/registries/delete|Deletes a container registry.|
-|/registries/eventGridFilters/delete|Deletes an event grid filter from a container registry.|
-|/registries/eventGridFilters/read|Gets the properties of the specified event grid filter or lists all the event grid filters for the specified container registry.|
-|/registries/eventGridFilters/write|Creates or updates an event grid filter for a container registry with the specified parameters.|
-|/registries/listCredentials/action|Lists the login credentials for the specified container registry.|
-|/registries/listUsages/read|Lists the quota usages for the specified container registry.|
-|/registries/operationStatuses/read|Gets a registry async operation status|
-|/registries/read|Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription.|
-|/registries/regenerateCredential/action|Regenerates one of the login credentials for the specified container registry.|
-|/registries/replications/delete|Deletes a replication from a container registry.|
-|/registries/replications/operationStatuses/read|Gets a replication async operation status|
-|/registries/replications/read|Gets the properties of the specified replication or lists all the replications for the specified container registry.|
-|/registries/replications/write|Creates or updates a replication for a container registry with the specified parameters.|
-|/registries/webhooks/delete|Deletes a webhook from a container registry.|
-|/registries/webhooks/getCallbackConfig/action|Gets the configuration of service URI and custom headers for the webhook.|
-|/registries/webhooks/listEvents/action|Lists recent events for the specified webhook.|
-|/registries/webhooks/operationStatuses/read|Gets a webhook async operation status|
-|/registries/webhooks/ping/action|Triggers a ping event to be sent to the webhook.|
-|/registries/webhooks/read|Gets the properties of the specified webhook or lists all the webhooks for the specified container registry.|
-|/registries/webhooks/write|Creates or updates a webhook for a container registry with the specified parameters.|
-|/registries/write|Creates or updates a container registry with the specified parameters.|
+|/checkNameAvailability/read|Vérifie si le nom de registre de conteneurs est disponible pour utilisation.|
+|/locations/operationResults/read|Obtient un résultat d’opération asynchrone|
+|/operations/read|Répertorie toutes les opérations disponibles de l’API REST Azure Container Registry|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources du registre de conteneurs et active la création de registres de conteneurs.|
+|/registries/delete|Supprime un registre de conteneurs.|
+|/registries/eventGridFilters/delete|Supprime un filtre Event Grid d’un registre de conteneurs.|
+|/registries/eventGridFilters/read|Obtient les propriétés du filtre Event Grid spécifié ou répertorie tous les filtres Event Grid pour le registre de conteneurs spécifié.|
+|/registries/eventGridFilters/write|Crée ou met à jour un filtre Event Grid pour un registre de conteneurs avec les paramètres spécifiés.|
+|/registries/listCredentials/action|Répertorie les informations d’identification pour le registre de conteneurs spécifié.|
+|/registries/listUsages/read|Affiche les utilisations du quota pour le registre de conteneurs spécifié.|
+|/registries/operationStatuses/read|Obtient un état d’opération asynchrone du registre|
+|/registries/read|Obtient les propriétés du registre de conteneurs spécifié ou affiche tous les registres de conteneurs sous le groupe de ressources ou l’abonnement spécifiés.|
+|/registries/regenerateCredential/action|Régénère l’une des informations d’identification pour le registre de conteneurs spécifié.|
+|/registries/replications/delete|Supprime une réplication d’un registre de conteneurs.|
+|/registries/replications/operationStatuses/read|Obtient un état d’opération asynchrone de réplication|
+|/registries/replications/read|Obtient les propriétés de la réplication spécifiée ou affiche toutes les réplications pour le registre de conteneurs spécifié.|
+|/registries/replications/write|Crée ou met à jour une réplication pour un registre de conteneurs avec les paramètres spécifiés.|
+|/registries/webhooks/delete|Supprime un webhook d’un registre de conteneurs.|
+|/registries/webhooks/getCallbackConfig/action|Obtient la configuration de l’URI de service et les en-têtes personnalisés pour le webhook.|
+|/registries/webhooks/listEvents/action|Affiche les événements récents pour le webhook spécifié.|
+|/registries/webhooks/operationStatuses/read|Obtient un état de l’opération asynchrone de webhook|
+|/registries/webhooks/ping/action|Déclenche un événement de test ping à envoyer au webhook.|
+|/registries/webhooks/read|Obtient les propriétés du webhook spécifié ou affiche tous les webhooks pour le registre de conteneurs spécifié.|
+|/registries/webhooks/write|Crée ou met à jour un webhook pour un registre de conteneurs avec les paramètres spécifiés.|
+|/registries/write|Crée ou met à jour un registre de conteneurs avec les paramètres spécifiés.|
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/containerServices/delete|Deletes the specified Container Service|
-|/containerServices/read|Gets the specified Container Service|
-|/containerServices/write|Puts or Updates the specified Container Service|
+|/containerServices/delete|Supprime le service de conteneur spécifié|
+|/containerServices/read|Affiche le service de conteneur spécifié|
+|/containerServices/write|Ajoute ou met à jour le service de conteneur spécifié|
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/applications/delete|Delete Operation|
-|/applications/listSecrets/action|List Secrets|
-|/applications/listSingleSignOnToken/action|Read Single Sign On Tokens|
-|/applications/read|Read Operation|
-|/applications/write|Write Operation|
-|/applications/write|Write Operation|
-|/listCommunicationPreference/action|List communication preference|
-|/operations/read|read operations|
-|/updateCommunicationPreference/action|Update communication preference|
+|/applications/delete|Opération de suppression|
+|/applications/listSecrets/action|Afficher la liste des clés secrètes|
+|/applications/listSingleSignOnToken/action|Afficher les jetons d’authentification unique|
+|/applications/read|Opération de lecture|
+|/applications/write|Opération d’écriture|
+|/applications/write|Opération d’écriture|
+|/listCommunicationPreference/action|Répertorier les préférences de communication|
+|/operations/read|opérations de lecture|
+|/updateCommunicationPreference/action|Mettre à jour les préférences de communication|
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/hubs/adobemetadata/action|Create or Update any Azure Customer Insights Adobe Metadata|
-|/hubs/adobemetadata/read|Read any Azure Customer Insights Adobe Metadata|
-|/hubs/authorizationPolicies/delete|Delete any Azure Customer Insights Shared Access Signature Policy|
-|/hubs/authorizationPolicies/read|Read any Azure Customer Insights Shared Access Signature Policy|
-|/hubs/authorizationPolicies/regeneratePrimaryKey/action|Regenerate Azure Customer Insights Shared Access Signature Policy primary key|
-|/hubs/authorizationPolicies/regenerateSecondaryKey/action|Regenerate Azure Customer Insights Shared Access Signature Policy secondary key|
-|/hubs/authorizationPolicies/write|Create or Update any Azure Customer Insights Shared Access Signature Policy|
-|/hubs/connectors/activate/action|Activate any Azure Customer Insights Connector|
-|/hubs/connectors/activate/action|Activate any Azure Customer Insights Connector|
-|/hubs/connectors/delete|Delete any Azure Customer Insights Connector|
-|/hubs/connectors/getruntimestatus/action|Get any Azure Customer Insights Connector runtime status|
-|/hubs/connectors/mappings/activate/action|Activate any Azure Customer Insights Connector Mapping|
-|/hubs/connectors/mappings/delete|Delete any Azure Customer Insights Connector Mapping|
-|/hubs/connectors/mappings/operations/read|Read any Azure Customer Insights Connector Mapping operation result|
-|/hubs/connectors/mappings/read|Read any Azure Customer Insights Connector Mapping|
-|/hubs/connectors/mappings/write|Create or Update any Azure Customer Insights Connector Mapping|
-|/hubs/connectors/operations/read|Read any Azure Customer Insights Connector operation result|
-|/hubs/connectors/read|Read any Azure Customer Insights Connector|
-|/hubs/connectors/saveauthinfo/action|Create or Update any Azure Customer Insights Connector Authentication Infomation|
-|/hubs/connectors/update/action|Update any Azure Customer Insights Connector|
-|/hubs/connectors/write|Create or Update any Azure Customer Insights Connector|
-|/hubs/crmmetadata/action|Create or Update any Azure Customer Insights Crm Metadata|
-|/hubs/crmmetadata/read|Read any Azure Customer Insights Crm Metadata|
-|/hubs/delete|Delete any Azure Customer Insights Hub|
-|/hubs/gdpr/delete|Delete any Azure Customer Insights Gdpr|
-|/hubs/gdpr/read|Read any Azure Customer Insights Gdpr|
-|/hubs/gdpr/write|Create or Update any Azure Customer Insights Gdpr|
-|/hubs/getbillingcredits/read|Get Azure Customer Insights Hub Billing Credits|
-|/hubs/getbillinghistory/read|Get Azure Customer Insights Hub Billing History|
-|/hubs/images/delete|Delete any Azure Customer Insights Image|
-|/hubs/images/read|Read any Azure Customer Insights Image|
-|/hubs/images/write|Create or Update any Azure Customer Insights Image|
-|/hubs/interactions/delete|Delete any azure Customer Insights Interactions|
-|/hubs/interactions/operations/read|Read any Azure Customer Insights Interaction operation result|
-|/hubs/interactions/read|Read any Azure Customer Insights Interaction|
-|/hubs/interactions/suggestrelationshiplinks/action|Suggest RelationShip Links for any Azure Customer Insights Interactions|
-|/hubs/interactions/write|Create or Update any Azure Customer Insights Interaction|
-|/hubs/kpi/delete|Delete any Azure Customer Insights Key Performance Indicator|
-|/hubs/kpi/operations/read|Read any Azure Customer Insights Key Performance Indicators operation result|
-|/hubs/kpi/read|Read any Azure Customer Insights Key Performance Indicator|
-|/hubs/kpi/reprocess/action|Reprocess any Azure Customer Insights Key Performance Indicators|
-|/hubs/kpi/write|Create or Update any Azure Customer Insights Key Performance Indicator|
-|/hubs/links/delete|Delete any Azure Customer Insights Links|
-|/hubs/links/operations/read|Read any Azure Customer Insights Links operation result|
-|/hubs/links/read|Read any Azure Customer Insights Links|
-|/hubs/links/write|Create or Update any Azure Customer Links|
-|/hubs/msemetadata/action|Create or Update any Azure Customer Insights Mse Metadata|
-|/hubs/msemetadata/read|Read any Azure Customer Insights Mse Metadata|
-|/hubs/operationresults/read|Get Azure Customer Insights Hub Operation Results|
-|/hubs/predictions/delete|Delete any Azure Customer Insights Predictions|
-|/hubs/predictions/operations/read|Read any Azure Customer Insights Predictions operation result|
-|/hubs/predictions/read|Read any Azure Customer Insights Predictions|
-|/hubs/predictions/write|Create or Update any Azure Customer Predictions|
-|/hubs/predictivematchpolicies/delete|Delete any Azure Customer Insights Predictive Match Policies|
-|/hubs/predictivematchpolicies/operations/read|Read any Azure Customer Insights Predictive Match Policies operation result|
-|/hubs/predictivematchpolicies/read|Read any Azure Customer Insights Predictive Match Policies|
-|/hubs/predictivematchpolicies/write|Create or Update any Azure Customer Insights Predictive Match Policies|
-|/hubs/profiles/delete|Delete any Azure Customer Insights Profile|
-|/hubs/profiles/operations/read|Read any Azure Customer Insights Profile operation result|
-|/hubs/profiles/read|Read any Azure Customer Insights Profile|
-|/hubs/profiles/write|Write any Azure Customer Insights Profile|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/hubs/providers/Microsoft.Insights/logDefinitions/read|Gets the available logs for resource|
-|/hubs/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for resource|
-|/hubs/read|Read any Azure Customer Insights Hub|
-|/hubs/relationshiplinks/delete|Delete any Azure Customer Insights Relationship Links|
-|/hubs/relationshiplinks/operations/read|Read any Azure Customer Insights Relationship Links operation result|
-|/hubs/relationshiplinks/read|Read any Azure Customer Insights Relationship Links|
-|/hubs/relationshiplinks/write|Create or Update any Azure Customer Insights Relationship Links|
-|/hubs/relationships/delete|Delete any Azure Customer Insights Relationships|
-|/hubs/relationships/operations/read|Read any Azure Customer Insights Relationships operation result|
-|/hubs/relationships/read|Read any Azure Customer Insights Relationships|
-|/hubs/relationships/write|Create or Update any Azure Customer Insights Relationships|
-|/hubs/roleAssignments/delete|Delete any Azure Customer Insights Rbac Assignment|
-|/hubs/roleAssignments/operations/read|Read any Azure Customer Insights Rbac Assignment operation result|
-|/hubs/roleAssignments/read|Read any Azure Customer Insights Rbac Assignment|
-|/hubs/roleAssignments/write|Create or Update any Azure Customer Insights Rbac Assignment|
-|/hubs/roles/read|Read any Azure Customer Insights Rbac Roles|
-|/hubs/salesforcemetadata/action|Create or Update any Azure Customer Insights SalesForce Metadata|
-|/hubs/salesforcemetadata/read|Read any Azure Customer Insights SalesForce Metadata|
-|/hubs/segments/delete|Delete any Azure Customer Insights Segments|
-|/hubs/segments/dynamic/action|Management any Azure Customer Insight Dynamic Segments|
-|/hubs/segments/read|Read any Azure Customer Insights Segments|
-|/hubs/segments/static/action|Management any Azure Customer Insight Static Segments|
-|/hubs/segments/write|Create or Update any Azure Customer Insights Segments|
-|/hubs/sqlconnectionstrings/delete|Delete any Azure Customer Insights SqlConnectionStrings|
-|/hubs/sqlconnectionstrings/read|Read any Azure Customer Insights SqlConnectionStrings|
-|/hubs/sqlconnectionstrings/write|Create or Update any Azure Customer Insights SqlConnectionStrings|
-|/hubs/suggesttypeschema/action|Generate Suggest Type Schema from sample data|
-|/hubs/tenantmanagement/read|Manage any Azure Customer Insights hub settings|
-|/hubs/views/delete|Delete any Azure Customer Insights App View|
-|/hubs/views/read|Read any Azure Customer Insights App View|
-|/hubs/views/write|Create or Update any Azure Customer Insights App View|
-|/hubs/widgettypes/read|Read any Azure Customer Insights App Widget Types|
-|/hubs/write|Create or Update any Azure Customer Insights Hub|
-|/operations/read|Read Azure Customer Insights Api Metadatas|
-|/register/action|Registers the subscription for the Customer Insights resource provider and enables the creation of Customer Insights resources|
-|/unregister/action|Unregisters the subscription for the Customer Insights resource provider|
+|/hubs/adobemetadata/action|Crée ou met à jour des métadonnées Adobe Azure Customer Insights|
+|/hubs/adobemetadata/read|Lit des métadonnées Adobe Azure Customer Insights|
+|/hubs/authorizationPolicies/delete|Supprimer une stratégie de signature d’accès partagé Azure Customer Insights|
+|/hubs/authorizationPolicies/read|Afficher une stratégie de signature d’accès partagé Azure Customer Insights|
+|/hubs/authorizationPolicies/regeneratePrimaryKey/action|Régénérer la clé primaire d’une stratégie de signature d’accès partagé Azure Customer Insights|
+|/hubs/authorizationPolicies/regenerateSecondaryKey/action|Régénérer la clé secondaire d’une stratégie de signature d’accès partagé Azure Customer Insights|
+|/hubs/authorizationPolicies/write|Créer ou mettre à jour une stratégie de signature d’accès partagé Azure Customer Insights|
+|/hubs/connectors/activate/action|Active un connecteur Azure Customer Insights|
+|/hubs/connectors/activate/action|Active un connecteur Azure Customer Insights|
+|/hubs/connectors/delete|Supprimer un connecteur Azure Customer Insights|
+|/hubs/connectors/getruntimestatus/action|Obtient un état de runtime du connecteur Azure Customer Insights|
+|/hubs/connectors/mappings/activate/action|Active un mappage de connecteur Azure Customer Insights|
+|/hubs/connectors/mappings/delete|Supprimer un mappage de connecteur Azure Customer Insights|
+|/hubs/connectors/mappings/operations/read|Lit le résultat d’une opération de mappage de connecteur Azure Customer Insights|
+|/hubs/connectors/mappings/read|Afficher un mappage de connecteur Azure Customer Insights|
+|/hubs/connectors/mappings/write|Créer ou mettre à jour un mappage de connecteur Azure Customer Insights|
+|/hubs/connectors/operations/read|Lit le résultat d’une opération de connecteur Azure Customer Insights|
+|/hubs/connectors/read|Afficher un connecteur Azure Customer Insights|
+|/hubs/connectors/saveauthinfo/action|Crée ou met à jour des informations d’authentification du connecteur Azure Customer Insights|
+|/hubs/connectors/update/action|Met à jour un connecteur Azure Customer Insights|
+|/hubs/connectors/write|Créer ou mettre à jour un connecteur Azure Customer Insights|
+|/hubs/crmmetadata/action|Crée ou met à jour des métadonnées Crm Azure Customer Insights|
+|/hubs/crmmetadata/read|Lit des métadonnées Crm Azure Customer Insights|
+|/hubs/delete|Supprimer un concentrateur Azure Customer Insights|
+|/hubs/gdpr/delete|Supprime un Rgpd Azure Customer Insights|
+|/hubs/gdpr/read|Lit un Rgpd Azure Customer Insights|
+|/hubs/gdpr/write|Crée ou met à jour un Rgpd Azure Customer Insights|
+|/hubs/getbillingcredits/read|Obtient des crédits de facturation du hub Azure Customer Insights|
+|/hubs/getbillinghistory/read|Obtient l’historique de facturation du hub Azure Customer Insights|
+|/hubs/images/delete|Supprime une image Azure Customer Insights|
+|/hubs/images/read|Lit une image Azure Customer Insights|
+|/hubs/images/write|Crée ou met à jour une image Azure Customer Insights|
+|/hubs/interactions/delete|Supprime des interactions Azure Customer Insights|
+|/hubs/interactions/operations/read|Lit le résultat d’une opération d’interaction Azure Customer Insights|
+|/hubs/interactions/read|Afficher une interaction Azure Customer Insights|
+|/hubs/interactions/suggestrelationshiplinks/action|Propose des liens de relation pour des interactions Azure Customer Insights|
+|/hubs/interactions/write|Créer ou mettre à jour une interaction Azure Customer Insights|
+|/hubs/kpi/delete|Supprimer un indicateur de performance clé Azure Customer Insights|
+|/hubs/kpi/operations/read|Lit un résultat d’opération d’indicateurs de performance clés Azure Customer Insights|
+|/hubs/kpi/read|Afficher un indicateur de performance clé Azure Customer Insights|
+|/hubs/kpi/reprocess/action|Retraite des indicateurs de performance clés Azure Customer Insights|
+|/hubs/kpi/write|Créer ou mettre à jour un indicateur de performance clé Azure Customer Insights|
+|/hubs/links/delete|Supprime des liens Azure Customer Insights|
+|/hubs/links/operations/read|Lit un résultat d’opération de liens Azure Customer Insights|
+|/hubs/links/read|Lit des liens Azure Customer Insights|
+|/hubs/links/write|Crée ou met à jour des liens Azure Customer Insights|
+|/hubs/msemetadata/action|Crée ou met à jour des métadonnées Mse Azure Customer Insights|
+|/hubs/msemetadata/read|Lit des métadonnées Mse Azure Customer Insights|
+|/hubs/operationresults/read|Obtient les résultats d’opération de hub Azure Customer Insights|
+|/hubs/predictions/delete|Supprime des prédictions Azure Customer Insights|
+|/hubs/predictions/operations/read|Lit un résultat d’opération de prédictions Azure Customer Insights|
+|/hubs/predictions/read|Lit des prédictions Azure Customer Insights|
+|/hubs/predictions/write|Crée ou met à jour des prédictions Azure Customer Insights|
+|/hubs/predictivematchpolicies/delete|Supprime des stratégies de correspondance prédictive Azure Customer Insights|
+|/hubs/predictivematchpolicies/operations/read|Lit un résulat d’opération de stratégies de correspondance prédictive Azure Customer Insights|
+|/hubs/predictivematchpolicies/read|Lit des stratégies de correspondance prédictive Azure Customer Insights|
+|/hubs/predictivematchpolicies/write|Crée ou met à jour des stratégies de correspondance prédictive Azure Customer Insights|
+|/hubs/profiles/delete|Supprime un profil Azure Customer Insights|
+|/hubs/profiles/operations/read|Lit un résultat d’opération de profil Azure Customer Insights|
+|/hubs/profiles/read|Afficher un profil Azure Customer Insights|
+|/hubs/profiles/write|Écrire un profil Azure Customer Insights|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/read|Afficher le paramètre de diagnostic pour la ressource|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/write|Créer ou mettre à jour le paramètre de diagnostic pour la ressource|
+|/hubs/providers/Microsoft.Insights/logDefinitions/read|Obtenir les journaux disponibles pour la ressource|
+|/hubs/providers/Microsoft.Insights/metricDefinitions/read|Afficher les mesures disponibles pour la ressource|
+|/hubs/read|Afficher un concentrateur Azure Customer Insights|
+|/hubs/relationshiplinks/delete|Supprime des liens de relation Azure Customer Insights|
+|/hubs/relationshiplinks/operations/read|Lit un résultat d’opération de liens de relation Azure Customer Insights|
+|/hubs/relationshiplinks/read|Lit des liens de relation Azure Customer Insights|
+|/hubs/relationshiplinks/write|Crée ou met à jour des liens de relation Azure Customer Insights|
+|/hubs/relationships/delete|Supprime des relations Azure Customer Insights|
+|/hubs/relationships/operations/read|Lit un résultat d’opération de relations Azure Customer Insights|
+|/hubs/relationships/read|Lit des relations Azure Customer Insights|
+|/hubs/relationships/write|Crée ou met à jour des relations Azure Customer Insights|
+|/hubs/roleAssignments/delete|Supprimer une affectation RBAC Azure Customer Insights|
+|/hubs/roleAssignments/operations/read|Lit un résultat d’opération d’affectation Rbac Azure Customer Insights|
+|/hubs/roleAssignments/read|Afficher une affectation RBAC Azure Customer Insights|
+|/hubs/roleAssignments/write|Créer ou mettre à jour une affectation RBAC Azure Customer Insights|
+|/hubs/roles/read|Lit des rôles Rbac Azure Customer Insights|
+|/hubs/salesforcemetadata/action|Crée ou met à jour des métadonnées SalesForce Azure Customer Insights|
+|/hubs/salesforcemetadata/read|Lit des métadonnées SalesForce Azure Customer Insights|
+|/hubs/segments/delete|Supprime des segments Azure Customer Insights|
+|/hubs/segments/dynamic/action|Gère des segments dynamiques Azure Customer Insights|
+|/hubs/segments/read|Lit des segments Azure Customer Insights|
+|/hubs/segments/static/action|Gère des segments statiques Azure Customer Insights|
+|/hubs/segments/write|Crée ou met à jour des segments Azure Customer Insights|
+|/hubs/sqlconnectionstrings/delete|Supprime des chaînes de connexion SQL Azure Customer Insights|
+|/hubs/sqlconnectionstrings/read|Lit des chaînes de connexion SQL Azure Customer Insights|
+|/hubs/sqlconnectionstrings/write|Crée ou met à jour des chaînes de connexion SQL Azure Customer Insights|
+|/hubs/suggesttypeschema/action|Génère un schéma de type de suggestion à partir d’un échantillon de données|
+|/hubs/tenantmanagement/read|Gère des paramètres de hub Azure Customer Insights|
+|/hubs/views/delete|Supprimer une vue d’application Azure Customer Insights|
+|/hubs/views/read|Afficher une vue d’application Azure Customer Insights|
+|/hubs/views/write|Créer ou mettre à jour une vue d’application Azure Customer Insights|
+|/hubs/widgettypes/read|Lit des types de widgets d’application Azure Customer Insights|
+|/hubs/write|Créer ou mettre à jour un concentrateur Azure Customer Insights|
+|/operations/read|Lit des métadonnées d’API Azure Customer Insights|
+|/register/action|Enregistre l’abonnement pour le fournisseur de ressources Customer Insights et permet la création de ressources Customer Insights|
+|/unregister/action|Désinscrit l’abonnement pour le fournisseur de ressources Customer Insights|
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/catalogs/delete|Deletes the catalog.|
-|/catalogs/read|Get properties for catalog or catalogs under subscription or resource group.|
-|/catalogs/write|Creates catalog or updates the tags and properties for the catalog.|
-|/checkNameAvailability/action|Checks catalog name availability for tenant.|
-|/operations/read|Lists operations available on Microsoft.DataCatalog resource provider.|
-|/register/action|Registers subscription with Microsoft.DataCatalog resource provider.|
-|/unregister/action|Unregisters subscription from Microsoft.DataCatalog resource provider.|
+|/catalogs/delete|Supprime le catalogue.|
+|/catalogs/read|Affiche les propriétés du ou des catalogues associés à l’abonnement ou au groupe de ressources.|
+|/catalogs/write|Crée un catalogue ou met à jour les balises et les propriétés du catalogue.|
+|/checkNameAvailability/action|Vérifie la disponibilité du nom de catalogue pour le locataire.|
+|/operations/read|Répertorie les opérations disponibles sur le fournisseur de ressources Microsoft.DataCatalog.|
+|/register/action|Inscrit l’abonnement auprès du fournisseur de ressources Microsoft.DataCatalog.|
+|/unregister/action|Désinscrit un abonnement du fournisseur de ressources Microsoft.DataCatalog.|
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/datafactories/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/datafactories/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/datafactories/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for datafactories|
-|/factories/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/factories/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/factories/providers/Microsoft.Insights/logDefinitions/read|Gets the available logs for factories|
-|/factories/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for factories|
+|/datafactories/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/datafactories/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/datafactories/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les fabriques|
+|/factories/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/factories/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/factories/providers/Microsoft.Insights/logDefinitions/read|Obtient les journaux disponibles pour les fabriques|
+|/factories/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les fabriques|
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/accounts/computePolicies/delete|Delete a compute policy.|
-|/accounts/computePolicies/read|Get information about a compute policy.|
-|/accounts/computePolicies/write|Create or update a compute policy.|
-|/accounts/dataLakeStoreAccounts/delete|Unlink a DataLakeStore account from a DataLakeAnalytics account.|
-|/accounts/dataLakeStoreAccounts/read|Get information about a linked DataLakeStore account of a DataLakeAnalytics account.|
-|/accounts/dataLakeStoreAccounts/write|Create or update a linked DataLakeStore account of a DataLakeAnalytics account.|
-|/accounts/delete|Delete a DataLakeAnalytics account.|
-|/accounts/firewallRules/delete|Delete a firewall rule.|
-|/accounts/firewallRules/read|Get information about a firewall rule.|
-|/accounts/firewallRules/write|Create or update a firewall rule.|
-|/accounts/operationResults/read|Get result of a DataLakeAnalytics account operation.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostic settings for the DataLakeAnalytics account.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Create or update the diagnostic settings for the DataLakeAnalytics account.|
-|/accounts/providers/Microsoft.Insights/logDefinitions/read|Get the available logs for the DataLakeAnalytics account.|
-|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Get the available metrics for the DataLakeAnalytics account.|
-|/accounts/read|Get information about an existing DataLakeAnalytics account.|
-|/accounts/storageAccounts/Containers/listSasTokens/action|List SAS tokens for storage containers of a linked Storage account of a DataLakeAnalytics account.|
-|/accounts/storageAccounts/Containers/read|Get containers of a linked Storage account of a DataLakeAnalytics account.|
-|/accounts/storageAccounts/delete|Unlink a Storage account from a DataLakeAnalytics account.|
-|/accounts/storageAccounts/read|Get information about a linked Storage account of a DataLakeAnalytics account.|
-|/accounts/storageAccounts/write|Create or update a linked Storage account of a DataLakeAnalytics account.|
-|/accounts/TakeOwnership/action|Grant permissions to cancel jobs submitted by other users.|
-|/accounts/write|Create or update a DataLakeAnalytics account.|
-|/locations/capability/read|Get capability information of a subscription regarding using DataLakeAnalytics.|
-|/locations/checkNameAvailability/action|Check availability of a DataLakeAnalytics account name.|
-|/locations/operationResults/read|Get result of a DataLakeAnalytics account operation.|
-|/operations/read|Get available operations of DataLakeAnalytics.|
-|/register/action|Register subscription to DataLakeAnalytics.|
+|/accounts/computePolicies/delete|Supprime une stratégie de calcul.|
+|/accounts/computePolicies/read|Obtient des informations sur une stratégie de calcul.|
+|/accounts/computePolicies/write|Crée ou met à jour une stratégie de calcul.|
+|/accounts/dataLakeStoreAccounts/delete|Dissocie un compte Data Lake Store d’un compte Data Lake Analytics.|
+|/accounts/dataLakeStoreAccounts/read|Obtient des informations sur un compte Data Lake Store lié d’un compte Data Lake Analytics.|
+|/accounts/dataLakeStoreAccounts/write|Crée ou met à jour un compte Data Lake Store lié d’un compte Data Lake Analytics.|
+|/accounts/delete|Supprime un compte Data Lake Analytics.|
+|/accounts/firewallRules/delete|Supprimer une règle de pare-feu.|
+|/accounts/firewallRules/read|Obtenir des informations sur une règle de pare-feu.|
+|/accounts/firewallRules/write|Créer ou mettre à jour une règle de pare-feu.|
+|/accounts/operationResults/read|Obtient le résultat d’une opération de compte Data Lake Analytics.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic pour le compte Data Lake Analytics.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic pour le compte Data Lake Analytics.|
+|/accounts/providers/Microsoft.Insights/logDefinitions/read|Obtient les journaux disponibles pour le compte Data Lake Analytics.|
+|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour le compte Data Lake Analytics.|
+|/accounts/read|Obtient des informations sur un compte Data Lake Analytics existant.|
+|/accounts/storageAccounts/Containers/listSasTokens/action|Affiche les jetons SAP pour des conteneurs de stockage d’un compte de stockage lié d’un compte Data Lake Analytics.|
+|/accounts/storageAccounts/Containers/read|Obtient les conteneurs d’un compte de stockage lié d’un compte Data Lake Analytics.|
+|/accounts/storageAccounts/delete|Dissocie un compte de stockage d’un compte Data Lake Analytics.|
+|/accounts/storageAccounts/read|Obtient des informations sur un compte de stockage lié d’un compte Data Lake Analytics.|
+|/accounts/storageAccounts/write|Crée ou met à jour un compte de stockage lié d’un compte Data Lake Analytics.|
+|/accounts/TakeOwnership/action|Accorde des autorisations pour annuler des travaux soumis par d’autres utilisateurs.|
+|/accounts/write|Crée ou met à jour un compte Data Lake Analytics.|
+|/locations/capability/read|Obtient les informations de fonctionnalité d’un abonnement concernant l’utilisation de Data Lake Analytics.|
+|/locations/checkNameAvailability/action|Vérifie la disponibilité d’un nom de compte Data Lake Analytics.|
+|/locations/operationResults/read|Obtient le résultat d’une opération de compte Data Lake Analytics.|
+|/operations/read|Obtient les opérations disponibles de Data Lake Analytics.|
+|/register/action|Inscrit un abonnement à Data Lake Analytics.|
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/accounts/delete|Delete a DataLakeStore account.|
-|/accounts/enableKeyVault/action|Enable KeyVault for a DataLakeStore account.|
-|/accounts/firewallRules/delete|Delete a firewall rule.|
-|/accounts/firewallRules/read|Get information about a firewall rule.|
-|/accounts/firewallRules/write|Create or update a firewall rule.|
-|/accounts/operationResults/read|Get result of a DataLakeStore account operation.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostic settings for the DataLakeStore account.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Create or update the diagnostic settings for the DataLakeStore account.|
-|/accounts/providers/Microsoft.Insights/logDefinitions/read|Get the available logs for the DataLakeStore account.|
-|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Get the available metrics for the DataLakeStore account.|
-|/accounts/read|Get information about an existing DataLakeStore account.|
-|/accounts/Superuser/action|Grant Superuser on Data Lake Store when granted with Microsoft.Authorization/roleAssignments/write.|
-|/accounts/trustedIdProviders/delete|Delete a trusted identity provider.|
-|/accounts/trustedIdProviders/read|Get information about a trusted identity provider.|
-|/accounts/trustedIdProviders/write|Create or update a trusted identity provider.|
-|/accounts/write|Create or update a DataLakeStore account.|
-|/locations/capability/read|Get capability information of a subscription regarding using DataLakeStore.|
-|/locations/checkNameAvailability/action|Check availability of a DataLakeStore account name.|
-|/locations/operationResults/read|Get result of a DataLakeStore account operation.|
-|/operations/read|Get available operations of DataLakeStore.|
-|/register/action|Register subscription to DataLakeStore.|
+|/accounts/delete|Supprime un compte Data Lake Store.|
+|/accounts/enableKeyVault/action|Active le coffre de clés pour un compte Data Lake Store.|
+|/accounts/firewallRules/delete|Supprimer une règle de pare-feu.|
+|/accounts/firewallRules/read|Obtenir des informations sur une règle de pare-feu.|
+|/accounts/firewallRules/write|Créer ou mettre à jour une règle de pare-feu.|
+|/accounts/operationResults/read|Obtient le résultat d’une opération de compte Data Lake Store.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic pour le compte Data Lake Store.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic pour le compte Data Lake Store.|
+|/accounts/providers/Microsoft.Insights/logDefinitions/read|Obtient les journaux disponibles pour le compte Data Lake Store.|
+|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour le compte Data Lake Store.|
+|/accounts/read|Obtient des informations sur un compte Data Lake Store existant.|
+|/accounts/Superuser/action|Accorde des privilèges de superutilisateur sur Data Lake Store quand accordés avec Microsoft.Authorization/roleAssignments/write.|
+|/accounts/trustedIdProviders/delete|Supprimer un fournisseur d’identité approuvé.|
+|/accounts/trustedIdProviders/read|Obtenir des informations sur un fournisseur d’identité approuvé.|
+|/accounts/trustedIdProviders/write|Créer ou mettre à jour un fournisseur d’identité approuvé.|
+|/accounts/write|Crée ou met à jour un compte Data Lake Store.|
+|/locations/capability/read|Obtient les informations de fonctionnalité d’un abonnement concernant l’utilisation de Data Lake Store.|
+|/locations/checkNameAvailability/action|Vérifie la disponibilité d’un nom de compte Data Lake Store.|
+|/locations/operationResults/read|Obtient le résultat d’une opération de compte Data Lake Store.|
+|/operations/read|Obtient les opérations disponibles de Data Lake Store.|
+|/register/action|Inscrit un abonnement à Data Lake Store.|
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/locations/performanceTiers/read|Returns the list of Performance Tiers available.|
-|/performanceTiers/read|Returns the list of Performance Tiers available.|
-|/servers/delete|Deletes an existing server.|
-|/servers/firewallRules/delete|Deletes an existing firewall rule.|
-|/servers/firewallRules/read|Return the list of firewall rules for a server or gets the properties for the specified firewall rule.|
-|/servers/firewallRules/write|Creates a firewall rule with the specified parameters or update an existing rule.|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/read|Gets the disagnostic setting for the resource|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/servers/providers/Microsoft.Insights/metricDefinitions/read|Return types of metrics that are available for databases|
-|/servers/read|Return the list of servers or gets the properties for the specified server.|
-|/servers/recoverableServers/read|Return the recoverable MySQL Server info|
-|/servers/virtualNetworkRules/delete|Deletes an existing Virtual Network Rule|
-|/servers/virtualNetworkRules/read|Return the list of virtual network rules or gets the properties for the specified virtual network rule.|
-|/servers/virtualNetworkRules/write|Creates a virtual network rule with the specified parameters or update the properties or tags for the specified virtual network rule.|
-|/servers/write|Creates a server with the specified parameters or update the properties or tags for the specified server.|
+|/locations/performanceTiers/read|Retourne la liste des niveaux de performances disponibles.|
+|/performanceTiers/read|Retourne la liste des niveaux de performances disponibles.|
+|/servers/delete|Supprime un serveur existant.|
+|/servers/firewallRules/delete|Supprime une règle de pare-feu existante.|
+|/servers/firewallRules/read|Retourne la liste des règles de pare-feu pour un serveur ou obtient les propriétés de la règle de pare-feu spécifiée.|
+|/servers/firewallRules/write|Crée une règle de pare-feu avec les paramètres spécifiés ou met à jour une règle existante.|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/servers/providers/Microsoft.Insights/metricDefinitions/read|Renvoie les types de mesures disponibles pour les bases de données|
+|/servers/read|Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié.|
+|/servers/recoverableServers/read|Retourne les informations du serveur MySQL récupérables|
+|/servers/virtualNetworkRules/delete|Supprime une règle de réseau virtuel existante|
+|/servers/virtualNetworkRules/read|Retourne la liste des règles de réseau virtuel ou obtient les propriétés de la règle de réseau virtuel spécifiée.|
+|/servers/virtualNetworkRules/write|Crée une règle de réseau virtuel avec les paramètres spécifiés ou met à jour les propriétés ou balises de la règle de réseau virtuel spécifiée.|
+|/servers/write|Crée un serveur avec les paramètres spécifiés ou met à jour les propriétés ou balises pour le serveur spécifié.|
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/locations/performanceTiers/read|Returns the list of Performance Tiers available.|
-|/performanceTiers/read|Returns the list of Performance Tiers available.|
-|/servers/delete|Deletes an existing server.|
-|/servers/firewallRules/delete|Deletes an existing firewall rule.|
-|/servers/firewallRules/read|Return the list of firewall rules for a server or gets the properties for the specified firewall rule.|
-|/servers/firewallRules/write|Creates a firewall rule with the specified parameters or update an existing rule.|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/read|Gets the disagnostic setting for the resource|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/servers/providers/Microsoft.Insights/logDefinitions/read|Return types of logs that are available for databases|
-|/servers/providers/Microsoft.Insights/metricDefinitions/read|Return types of metrics that are available for databases|
-|/servers/read|Return the list of servers or gets the properties for the specified server.|
-|/servers/recoverableServers/read|Return the recoverable PostgreSQL Server info|
-|/servers/virtualNetworkRules/delete|Deletes an existing Virtual Network Rule|
-|/servers/virtualNetworkRules/read|Return the list of virtual network rules or gets the properties for the specified virtual network rule.|
-|/servers/virtualNetworkRules/write|Creates a virtual network rule with the specified parameters or update the properties or tags for the specified virtual network rule.|
-|/servers/write|Creates a server with the specified parameters or update the properties or tags for the specified server.|
+|/locations/performanceTiers/read|Retourne la liste des niveaux de performances disponibles.|
+|/performanceTiers/read|Retourne la liste des niveaux de performances disponibles.|
+|/servers/delete|Supprime un serveur existant.|
+|/servers/firewallRules/delete|Supprime une règle de pare-feu existante.|
+|/servers/firewallRules/read|Retourne la liste des règles de pare-feu pour un serveur ou obtient les propriétés de la règle de pare-feu spécifiée.|
+|/servers/firewallRules/write|Crée une règle de pare-feu avec les paramètres spécifiés ou met à jour une règle existante.|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/servers/providers/Microsoft.Insights/logDefinitions/read|Retourne les types de journaux disponibles pour les bases de données|
+|/servers/providers/Microsoft.Insights/metricDefinitions/read|Renvoie les types de mesures disponibles pour les bases de données|
+|/servers/read|Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié.|
+|/servers/recoverableServers/read|Retourne les informations du serveur PostgreSQL récupérables|
+|/servers/virtualNetworkRules/delete|Supprime une règle de réseau virtuel existante|
+|/servers/virtualNetworkRules/read|Retourne la liste des règles de réseau virtuel ou obtient les propriétés de la règle de réseau virtuel spécifiée.|
+|/servers/virtualNetworkRules/write|Crée une règle de réseau virtuel avec les paramètres spécifiés ou met à jour les propriétés ou balises de la règle de réseau virtuel spécifiée.|
+|/servers/write|Crée un serveur avec les paramètres spécifiés ou met à jour les propriétés ou balises pour le serveur spécifié.|
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/Action|Check If IotHub name is available|
-|/checkProvisioningServiceNameAvailability/Action|Check If IotHub name is available|
-|/ElasticPools/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/ElasticPools/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/elasticPools/iotHubTenants/Delete|Delete the IotHub tenant resource|
-|/ElasticPools/IotHubTenants/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/ElasticPools/IotHubTenants/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Delete|Delete EventHub Consumer Group|
-|/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Read|Get EventHub Consumer Group(s)|
-|/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Write|Create EventHub Consumer Group|
-|/elasticPools/iotHubTenants/exportDevices/Action|Export Devices|
-|/elasticPools/iotHubTenants/getStats/Read|Gets the IotHub tenant stats resource|
-|/elasticPools/iotHubTenants/importDevices/Action|Import Devices|
-|/elasticPools/iotHubTenants/iotHubKeys/listkeys/Action|Gets the IotHub tenant key|
-|/elasticPools/iotHubTenants/jobs/Read|Get Job(s) details submitted on given IotHub|
-|/elasticPools/iotHubTenants/listKeys/Action|Gets IotHub tenant keys|
-|/ElasticPools/IotHubTenants/logDefinitions/read|Gets the available log definitions for the IotHub Service|
-|/ElasticPools/IotHubTenants/metricDefinitions/read|Gets the available metrics for the IotHub service|
-|/elasticPools/iotHubTenants/quotaMetrics/Read|Get Quota Metrics|
-|/elasticPools/iotHubTenants/Read|Gets the IotHub tenant resource|
-|/elasticPools/iotHubTenants/routing/routes/$testall/Action|Test a message against all existing Routes|
-|/elasticPools/iotHubTenants/routing/routes/$testnew/Action|Test a message against a provided test Route|
-|/elasticPools/iotHubTenants/routingEndpointsHealth/Read|Gets the health of all routing Endpoints for an IotHub|
-|/elasticPools/iotHubTenants/Write|Create or Update the IotHub tenant resource|
-|/ElasticPools/metricDefinitions/read|Gets the available metrics for the IotHub service|
-|/iotHubs/certificates/generateVerificationCode/Action|Generate Verification code|
-|/iotHubs/certificates/verify/Action|Verify Certificate resource|
-|/iotHubs/Delete|Delete IotHub Resource|
-|/IotHubs/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/IotHubs/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/iotHubs/eventGridFilters/Delete|Deletes the Event Grid filter|
-|/iotHubs/eventGridFilters/Read|Gets the Event Grid filter|
-|/iotHubs/eventGridFilters/Write|Create new or Update existing Event Grid filter|
-|/iotHubs/eventHubEndpoints/consumerGroups/Delete|Delete EventHub Consumer Group|
-|/iotHubs/eventHubEndpoints/consumerGroups/Read|Get EventHub Consumer Group(s)|
-|/iotHubs/eventHubEndpoints/consumerGroups/Write|Create EventHub Consumer Group|
-|/iotHubs/exportDevices/Action|Export Devices|
-|/iotHubs/importDevices/Action|Import Devices|
-|/iotHubs/iotHubKeys/listkeys/Action|Get IotHub Key for the given name|
-|/iotHubs/iotHubStats/Read|Get IotHub Statistics|
-|/iotHubs/jobs/Read|Get Job(s) details submitted on given IotHub|
-|/iotHubs/listkeys/Action|Get all IotHub Keys|
-|/IotHubs/logDefinitions/read|Gets the available log definitions for the IotHub Service|
-|/IotHubs/metricDefinitions/read|Gets the available metrics for the IotHub service|
-|/iotHubs/quotaMetrics/Read|Get Quota Metrics|
-|/iotHubs/Read|Gets the IotHub resource(s)|
-|/iotHubs/routing/$testall/Action|Test a message against all existing Routes|
-|/iotHubs/routing/$testnew/Action|Test a message against a provided test Route|
-|/iotHubs/routingEndpointsHealth/Read|Gets the health of all routing Endpoints for an IotHub|
-|/iotHubs/skus/Read|Get valid IotHub Skus|
-|/iotHubs/Write|Create or update IotHub Resource|
-|/operations/Read|Get All ResourceProvider Operations|
-|/provisioningServices/certificates/generateVerificationCode/Action|Generate Verification code|
-|/provisioningServices/certificates/verify/Action|Verify Certificate resource|
-|/provisioningServices/Delete|Delete IotDps resource|
-|/provisioningServices/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/provisioningServices/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/provisioningServices/listkeys/Action|Get all IotDps keys|
-|/provisioningServices/logDefinitions/read|Gets the available log definitions for the provisioning Service|
-|/provisioningServices/metricDefinitions/read|Gets the available metrics for the provisioning service|
-|/provisioningServices/ProvisioningServiceKeys/listkeys/Action|Get IotDps Keys for key name|
-|/provisioningServices/Read|Get IotDps resource|
-|/provisioningServices/skus/Read|Get valid IotDps Skus|
-|/provisioningServices/Write|Create IotDps resource|
-|/register/action|Register the subscription for the IotHub resource provider and enables the creation of IotHub resources|
-|/register/action|Register the subscription for the IotHub resource provider and enables the creation of IotHub resources|
-|/usages/Read|Get subscription usage details for this provider.|
+|/checkNameAvailability/Action|Vérifier que le nom IotHub est disponible|
+|/checkProvisioningServiceNameAvailability/Action|Vérifier que le nom IotHub est disponible|
+|/ElasticPools/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/ElasticPools/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/elasticPools/iotHubTenants/Delete|Supprime la ressource du locataire IotHub|
+|/ElasticPools/IotHubTenants/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/ElasticPools/IotHubTenants/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Delete|Supprimer le groupe de consommateurs EventHub|
+|/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Read|Afficher les groupes de consommateurs EventHub|
+|/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Write|Créer un groupe de consommateurs EventHub|
+|/elasticPools/iotHubTenants/exportDevices/Action|Exporter des appareils|
+|/elasticPools/iotHubTenants/getStats/Read|Obtient la ressource de statistiques du locataire IotHub|
+|/elasticPools/iotHubTenants/importDevices/Action|Importer des appareils|
+|/elasticPools/iotHubTenants/iotHubKeys/listkeys/Action|Obtient la clé du locataire IotHub|
+|/elasticPools/iotHubTenants/jobs/Read|Obtenir des informations sur les travaux soumis à un concentrateur IotHub donné|
+|/elasticPools/iotHubTenants/listKeys/Action|Obtient les clés du locataire IotHub|
+|/ElasticPools/IotHubTenants/logDefinitions/read|Obtient les définitions de journal disponibles pour le service IotHub|
+|/ElasticPools/IotHubTenants/metricDefinitions/read|Obtenir les mesures disponibles pour le service IotHub|
+|/elasticPools/iotHubTenants/quotaMetrics/Read|Obtenir les mesures de quota|
+|/elasticPools/iotHubTenants/Read|Obtient la ressource du locataire IotHub|
+|/elasticPools/iotHubTenants/routing/routes/$testall/Action|Tester un message sur l’ensemble des itinéraires existants|
+|/elasticPools/iotHubTenants/routing/routes/$testnew/Action|Tester un message sur un itinéraire test fourni|
+|/elasticPools/iotHubTenants/routingEndpointsHealth/Read|Afficher l’état de tous les points de terminaison de routage pour un concentrateur IotHub|
+|/elasticPools/iotHubTenants/Write|Crée ou met à jour la ressource du locataire IotHub|
+|/ElasticPools/metricDefinitions/read|Obtenir les mesures disponibles pour le service IotHub|
+|/iotHubs/certificates/generateVerificationCode/Action|Génère le code de vérification|
+|/iotHubs/certificates/verify/Action|Vérifie la ressource de certificat|
+|/iotHubs/Delete|Supprimer une ressource IotHub|
+|/IotHubs/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/IotHubs/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/iotHubs/eventGridFilters/Delete|Supprime le filtre Event Grid|
+|/iotHubs/eventGridFilters/Read|Obtient le filtre Event Grid|
+|/iotHubs/eventGridFilters/Write|Crée ou met à jour un filtre Event Grid existant|
+|/iotHubs/eventHubEndpoints/consumerGroups/Delete|Supprimer le groupe de consommateurs EventHub|
+|/iotHubs/eventHubEndpoints/consumerGroups/Read|Afficher les groupes de consommateurs EventHub|
+|/iotHubs/eventHubEndpoints/consumerGroups/Write|Créer un groupe de consommateurs EventHub|
+|/iotHubs/exportDevices/Action|Exporter des appareils|
+|/iotHubs/importDevices/Action|Importer des appareils|
+|/iotHubs/iotHubKeys/listkeys/Action|Obtenir la clé IotHub pour le nom spécifié|
+|/iotHubs/iotHubStats/Read|Afficher les statistiques IotHub|
+|/iotHubs/jobs/Read|Obtenir des informations sur les travaux soumis à un concentrateur IotHub donné|
+|/iotHubs/listkeys/Action|Obtenir toutes les clés IotHub|
+|/IotHubs/logDefinitions/read|Obtient les définitions de journal disponibles pour le service IotHub|
+|/IotHubs/metricDefinitions/read|Obtenir les mesures disponibles pour le service IotHub|
+|/iotHubs/quotaMetrics/Read|Obtenir les mesures de quota|
+|/iotHubs/Read|Afficher les ressources IotHub|
+|/iotHubs/routing/$testall/Action|Tester un message sur l’ensemble des itinéraires existants|
+|/iotHubs/routing/$testnew/Action|Tester un message sur un itinéraire test fourni|
+|/iotHubs/routingEndpointsHealth/Read|Afficher l’état de tous les points de terminaison de routage pour un concentrateur IotHub|
+|/iotHubs/skus/Read|Afficher les références IotHub valides|
+|/iotHubs/Write|Créer ou mettre à jour une ressource IotHub|
+|/operations/Read|Afficher toutes les opérations du fournisseur de ressources|
+|/provisioningServices/certificates/generateVerificationCode/Action|Génère le code de vérification|
+|/provisioningServices/certificates/verify/Action|Vérifie la ressource de certificat|
+|/provisioningServices/Delete|Supprime la ressource IotDps|
+|/provisioningServices/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/provisioningServices/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/provisioningServices/listkeys/Action|Obtient toutes les clés IotDps|
+|/provisioningServices/logDefinitions/read|Obtient les définitions de journal disponibles pour le service d’approvisionnement|
+|/provisioningServices/metricDefinitions/read|Obtient les métriques disponibles pour le service d’approvisionnement|
+|/provisioningServices/ProvisioningServiceKeys/listkeys/Action|Obtient les clés IotDps pour le nom de clé|
+|/provisioningServices/Read|Obtient la ressource IotDps|
+|/provisioningServices/skus/Read|Obtient les références (SKU) IotDps valides|
+|/provisioningServices/Write|Crée une ressource IotDps|
+|/register/action|Inscrire l’abonnement pour le fournisseur de ressources IotHub et activer la création de ressources IotHub|
+|/register/action|Inscrire l’abonnement pour le fournisseur de ressources IotHub et activer la création de ressources IotHub|
+|/usages/Read|Obtenir des informations sur l’utilisation de l’abonnement pour ce fournisseur|
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/labCenters/delete|Delete lab centers.|
-|/labCenters/read|Read lab centers.|
-|/labCenters/write|Add or modify lab centers.|
-|/labs/artifactSources/armTemplates/read|Read azure resource manager templates.|
-|/labs/artifactSources/artifacts/GenerateArmTemplate/action|Generates an ARM template for the given artifact, uploads the required files to a storage account, and validates the generated artifact.|
-|/labs/artifactSources/artifacts/read|Read artifacts.|
-|/labs/artifactSources/delete|Delete artifact sources.|
-|/labs/artifactSources/read|Read artifact sources.|
-|/labs/artifactSources/write|Add or modify artifact sources.|
-|/labs/ClaimAnyVm/action|Claim a random claimable virtual machine in the lab.|
-|/labs/costs/read|Read costs.|
-|/labs/costs/write|Add or modify costs.|
-|/labs/CreateEnvironment/action|Create virtual machines in a lab.|
-|/labs/customImages/delete|Delete custom images.|
-|/labs/customImages/read|Read custom images.|
-|/labs/customImages/write|Add or modify custom images.|
-|/labs/delete|Delete labs.|
-|/labs/ExportResourceUsage/action|Exports the lab resource usage into a storage account|
-|/labs/formulas/delete|Delete formulas.|
-|/labs/formulas/read|Read formulas.|
-|/labs/formulas/write|Add or modify formulas.|
-|/labs/galleryImages/read|Read gallery images.|
-|/labs/GenerateUploadUri/action|Generate a URI for uploading custom disk images to a Lab.|
-|/labs/ImportVirtualMachine/action|Import a virtual machine into a different lab.|
-|/labs/ListVhds/action|List disk images available for custom image creation.|
-|/labs/notificationChannels/delete|Delete notificationchannels.|
-|/labs/notificationChannels/Notify/action|Send notification to provided channel.|
-|/labs/notificationChannels/read|Read notificationchannels.|
-|/labs/notificationChannels/write|Add or modify notificationchannels.|
-|/labs/policySets/EvaluatePolicies/action|Evaluates lab policy.|
-|/labs/policySets/policies/delete|Delete policies.|
-|/labs/policySets/policies/read|Read policies.|
-|/labs/policySets/policies/write|Add or modify policies.|
-|/labs/read|Read labs.|
-|/labs/schedules/delete|Delete schedules.|
-|/labs/schedules/Execute/action|Execute a schedule.|
-|/labs/schedules/ListApplicable/action|Lists all applicable schedules|
-|/labs/schedules/read|Read schedules.|
-|/labs/schedules/write|Add or modify schedules.|
-|/labs/serviceRunners/delete|Delete service runners.|
-|/labs/serviceRunners/read|Read service runners.|
-|/labs/serviceRunners/write|Add or modify service runners.|
-|/labs/users/delete|Delete user profiles.|
-|/labs/users/disks/Attach/action|Attach and create the lease of the disk to the virtual machine.|
-|/labs/users/disks/delete|Delete disks.|
-|/labs/users/disks/Detach/action|Detach and break the lease of the disk attached to the virtual machine.|
-|/labs/users/disks/read|Read disks.|
-|/labs/users/disks/write|Add or modify disks.|
-|/labs/users/environments/delete|Delete environments.|
-|/labs/users/environments/read|Read environments.|
-|/labs/users/environments/write|Add or modify environments.|
-|/labs/users/read|Read user profiles.|
-|/labs/users/secrets/delete|Delete secrets.|
-|/labs/users/secrets/read|Read secrets.|
-|/labs/users/secrets/write|Add or modify secrets.|
-|/labs/users/serviceFabrics/delete|Delete service fabrics.|
-|/labs/users/serviceFabrics/ListApplicableSchedules/action|Lists all applicable schedules|
-|/labs/users/serviceFabrics/read|Read service fabrics.|
-|/labs/users/serviceFabrics/schedules/delete|Delete schedules.|
-|/labs/users/serviceFabrics/schedules/Execute/action|Execute a schedule.|
-|/labs/users/serviceFabrics/schedules/read|Read schedules.|
-|/labs/users/serviceFabrics/schedules/write|Add or modify schedules.|
-|/labs/users/serviceFabrics/Start/action|Start a service fabric.|
-|/labs/users/serviceFabrics/Stop/action|Stop a service fabric|
-|/labs/users/serviceFabrics/write|Add or modify service fabrics.|
-|/labs/users/write|Add or modify user profiles.|
-|/labs/virtualMachines/AddDataDisk/action|Attach a new or existing data disk to virtual machine.|
-|/labs/virtualMachines/ApplyArtifacts/action|Apply artifacts to virtual machine.|
-|/labs/virtualMachines/Claim/action|Take ownership of an existing virtual machine|
-|/labs/virtualMachines/delete|Delete virtual machines.|
-|/labs/virtualMachines/DetachDataDisk/action|Detach the specified disk from the virtual machine.|
-|/labs/virtualMachines/ListApplicableSchedules/action|Lists all applicable schedules|
-|/labs/virtualMachines/read|Read virtual machines.|
-|/labs/virtualMachines/Restart/action|Restart a virtual machine.|
-|/labs/virtualMachines/schedules/delete|Delete schedules.|
-|/labs/virtualMachines/schedules/Execute/action|Execute a schedule.|
-|/labs/virtualMachines/schedules/read|Read schedules.|
-|/labs/virtualMachines/schedules/write|Add or modify schedules.|
-|/labs/virtualMachines/Start/action|Start a virtual machine.|
-|/labs/virtualMachines/Stop/action|Stop a virtual machine|
-|/labs/virtualMachines/TransferDisks/action|Transfer ownership of virtual machine data disks to yourself|
-|/labs/virtualMachines/UnClaim/action|Release ownership of an existing virtual machine|
-|/labs/virtualMachines/write|Add or modify virtual machines.|
-|/labs/virtualNetworks/delete|Delete virtual networks.|
-|/labs/virtualNetworks/read|Read virtual networks.|
-|/labs/virtualNetworks/write|Add or modify virtual networks.|
-|/labs/write|Add or modify labs.|
-|/locations/operations/read|Read operations.|
-|/register/action|Registers the subscription|
-|/schedules/delete|Delete schedules.|
-|/schedules/Execute/action|Execute a schedule.|
-|/schedules/read|Read schedules.|
-|/schedules/Retarget/action|Updates a schedule's target resource Id.|
-|/schedules/write|Add or modify schedules.|
+|/labCenters/delete|Supprime les centres lab.|
+|/labCenters/read|Lit les centres lab.|
+|/labCenters/write|Ajoute ou modifie les centres lab.|
+|/labs/artifactSources/armTemplates/read|Lire les modèles Azure Resource Manager.|
+|/labs/artifactSources/artifacts/GenerateArmTemplate/action|Générer un modèle ARM pour l’artefact donné, télécharger les fichiers requis vers un compte de stockage et valider l’artefact généré.|
+|/labs/artifactSources/artifacts/read|Lire des artefacts.|
+|/labs/artifactSources/delete|Supprimer des sources d’artefact.|
+|/labs/artifactSources/read|Lire des sources d’artefact.|
+|/labs/artifactSources/write|Ajouter ou modifier des sources d’artefact.|
+|/labs/ClaimAnyVm/action|Revendiquer une machine virtuelle exigible aléatoire dans le laboratoire.|
+|/labs/costs/read|Lire les coûts.|
+|/labs/costs/write|Ajouter ou modifier les coûts.|
+|/labs/CreateEnvironment/action|Créer des machines virtuelles dans un laboratoire.|
+|/labs/customImages/delete|Supprimer des images personnalisées.|
+|/labs/customImages/read|Lire des images personnalisées.|
+|/labs/customImages/write|Ajouter ou modifier des images personnalisées.|
+|/labs/delete|Supprimer des laboratoires.|
+|/labs/ExportResourceUsage/action|Exporter les données d’utilisation des ressources du laboratoire vers un compte de stockage.|
+|/labs/formulas/delete|Supprimer des formules.|
+|/labs/formulas/read|Lire des formules.|
+|/labs/formulas/write|Ajouter ou modifier des formules.|
+|/labs/galleryImages/read|Lire des images de la galerie.|
+|/labs/GenerateUploadUri/action|Générer un URI pour charger des images de disque personnalisées dans un laboratoire.|
+|/labs/ImportVirtualMachine/action|Importe une machine virtuelle dans un autre laboratoire.|
+|/labs/ListVhds/action|Répertorier les images de disque disponibles pour la création d’images personnalisées.|
+|/labs/notificationChannels/delete|Supprimer des canaux de notification.|
+|/labs/notificationChannels/Notify/action|Envoyer une notification au canal fourni.|
+|/labs/notificationChannels/read|Lire les canaux de notification.|
+|/labs/notificationChannels/write|Ajouter ou modifier des canaux de notification.|
+|/labs/policySets/EvaluatePolicies/action|Évaluer la stratégie de laboratoire.|
+|/labs/policySets/policies/delete|Supprimer des stratégies.|
+|/labs/policySets/policies/read|Lire les stratégies.|
+|/labs/policySets/policies/write|Ajouter ou modifier des stratégies.|
+|/labs/read|Afficher des laboratoires.|
+|/labs/schedules/delete|Supprimer des planifications.|
+|/labs/schedules/Execute/action|Exécuter une planification.|
+|/labs/schedules/ListApplicable/action|Répertorier toutes les planifications applicables.|
+|/labs/schedules/read|Lire les planifications.|
+|/labs/schedules/write|Ajouter ou modifier des planifications.|
+|/labs/serviceRunners/delete|Supprimer des exécuteurs de service.|
+|/labs/serviceRunners/read|Lire des exécuteurs de service.|
+|/labs/serviceRunners/write|Ajouter ou modifier des exécuteurs de service.|
+|/labs/users/delete|Supprimer des profils utilisateur.|
+|/labs/users/disks/Attach/action|Créer le bail du disque et l’associer à la machine virtuelle.|
+|/labs/users/disks/delete|Supprimer des disques.|
+|/labs/users/disks/Detach/action|Casser et dissocier le bail du disque associé à la machine virtuelle.|
+|/labs/users/disks/delete|Afficher les disques.|
+|/labs/users/disks/write|Ajouter ou modifier des disques.|
+|/labs/users/environments/delete|Supprimer des environnements.|
+|/labs/users/environments/read|Afficher les environnements.|
+|/labs/users/environments/write|Ajouter ou modifier des environnements.|
+|/labs/users/read|Afficher les profils utilisateur.|
+|/labs/users/secrets/delete|Supprimer des clés secrètes.|
+|/labs/users/secrets/read|Afficher les clés secrètes.|
+|/labs/users/secrets/write|Ajouter ou modifier des clés secrètes.|
+|/labs/users/serviceFabrics/delete|Supprime les structures Service Fabric.|
+|/labs/users/serviceFabrics/ListApplicableSchedules/action|Répertorier toutes les planifications applicables.|
+|/labs/users/serviceFabrics/read|Lit les structures Service Fabric.|
+|/labs/users/serviceFabrics/schedules/delete|Supprimer des planifications.|
+|/labs/users/serviceFabrics/schedules/Execute/action|Exécuter une planification.|
+|/labs/users/serviceFabrics/schedules/read|Lire les planifications.|
+|/labs/users/serviceFabrics/schedules/write|Ajouter ou modifier des planifications.|
+|/labs/users/serviceFabrics/Start/action|Démarre une structure Service Fabric.|
+|/labs/users/serviceFabrics/Stop/action|Arrête une structure Service Fabric.|
+|/labs/users/serviceFabrics/write|Ajoute ou modifie des structures Service Fabric.|
+|/labs/users/write|Ajouter ou modifier des profils utilisateur.|
+|/labs/virtualMachines/AddDataDisk/action|Attacher un nouveau disque de données ou un disque de données existant à la machine virtuelle.|
+|/labs/virtualMachines/ApplyArtifacts/action|Appliquer des artefacts à une machine virtuelle.|
+|/labs/virtualMachines/Claim/action|Prendre possession d’une machine virtuelle existante.|
+|/labs/virtualMachines/delete|Supprimer des machines virtuelles.|
+|/labs/virtualMachines/DetachDataDisk/action|Détacher le disque spécifié de la machine virtuelle.|
+|/labs/virtualMachines/ListApplicableSchedules/action|Répertorier toutes les planifications applicables.|
+|/labs/virtualMachines/read|Lire les machines virtuelles.|
+|/labs/virtualMachines/Restart/action|Redémarre une machine virtuelle.|
+|/labs/virtualMachines/schedules/delete|Supprimer des planifications.|
+|/labs/virtualMachines/schedules/Execute/action|Exécuter une planification.|
+|/labs/virtualMachines/schedules/read|Lire les planifications.|
+|/labs/virtualMachines/schedules/write|Ajouter ou modifier des planifications.|
+|/labs/virtualMachines/Start/action|Démarrer une machine virtuelle.|
+|/labs/virtualMachines/Stop/action|Arrêt d’une machine virtuelle|
+|/labs/virtualMachines/TransferDisks/action|Transfère la propriété de disques de données de machine virtuelle à vous-même|
+|/labs/virtualMachines/UnClaim/action|Cesse d’être propriétaire d’une machine virtuelle existante|
+|/labs/virtualMachines/write|Ajouter ou modifier des machines virtuelles.|
+|/labs/virtualNetworks/delete|Supprimer des réseaux virtuels.|
+|/labs/virtualNetworks/read|Lire les réseaux virtuels.|
+|/labs/virtualNetworks/write|Ajouter ou modifier des réseaux virtuels.|
+|/labs/write|Ajouter ou modifier des laboratoires.|
+|/locations/operations/read|Opérations de lecture.|
+|/register/action|Enregistrer l’abonnement.|
+|/schedules/delete|Supprimer des planifications.|
+|/schedules/Execute/action|Exécuter une planification.|
+|/schedules/read|Lire les planifications.|
+|/schedules/Retarget/action|Mettre à jour l’ID de ressource cible d’une planification.|
+|/schedules/write|Ajouter ou modifier des planifications.|
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/databaseAccountNames/read|Checks for name availability.|
-|/databaseAccounts/changeResourceGroup/action|Change resource group of a database account|
-|/databaseAccounts/databases/collections/metricDefinitions/read|Reads the collection metric definitions.|
-|/databaseAccounts/databases/collections/metrics/read|Reads the collection metrics.|
-|/databaseAccounts/databases/collections/partitionKeyRangeId/metrics/read|Read database account partition key level metrics|
-|/databaseAccounts/databases/collections/partitions/metrics/read|Read database account partition level metrics|
-|/databaseAccounts/databases/collections/partitions/usages/read|Read database account partition level usages|
-|/databaseAccounts/databases/collections/usages/read|Reads the collection usages.|
-|/databaseAccounts/databases/metricDefinitions/read|Reads the database metric definitions|
-|/databaseAccounts/databases/metrics/read|Reads the database metrics.|
-|/databaseAccounts/databases/usages/read|Reads the database usages.|
-|/databaseAccounts/delete|Deletes the database accounts.|
-|/databaseAccounts/failoverPriorityChange/action|Change failover priorities of regions of a database account. This is used to perform manual failover operation|
-|/databaseAccounts/listConnectionStrings/action|Get the connection strings for a database account|
-|/databaseAccounts/listKeys/action|List keys of a database account|
-|/databaseAccounts/metricDefinitions/read|Reads the database account metrics definitions.|
-|/databaseAccounts/metrics/read|Reads the database account metrics.|
-|/databaseAccounts/operationResults/read|Read status of the asynchronous operation|
-|/databaseAccounts/percentile/metrics/read|Read latency metrics|
-|/databaseAccounts/percentile/sourceRegion/targetRegion/metrics/read|Read latency metrics for a specific source and target region|
-|/databaseAccounts/percentile/targetRegion/metrics/read|Read latency metrics for a specific target region|
-|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/databaseAccounts/providers/Microsoft.Insights/logDefinitions/read|Gets the available log catageries for Database Account|
-|/databaseAccounts/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for the database Account|
-|/databaseAccounts/read|Reads a database account.|
-|/databaseAccounts/readonlykeys/action|Reads the database account readonly keys.|
-|/databaseAccounts/readonlykeys/read|Reads the database account readonly keys.|
-|/databaseAccounts/regenerateKey/action|Rotate keys of a database account|
-|/databaseAccounts/region/databases/collections/metrics/read|Reads the regional collection metrics.|
-|/databaseAccounts/region/databases/collections/partitionKeyRangeId/metrics/read|Read regional database account partition key level metrics|
-|/databaseAccounts/region/databases/collections/partitions/metrics/read|Read regional database account partition level metrics|
-|/databaseAccounts/region/databases/collections/partitions/read|Read database account partitions in a collection|
-|/databaseAccounts/region/metrics/read|Reads the region and database account metrics.|
-|/databaseAccounts/usages/read|Reads the database account usages.|
-|/databaseAccounts/write|Update a database accounts.|
-|/locations/deleteVirtualNetworkOrSubnets/action|Notifies Microsoft.DocumentDB that VirtualNetwork or Subnet is being deleted|
-|/operationResults/read|Read status of the asynchronous operation|
-|/operations/read|Read operations available for the Microsoft DocumentDB |
-|/register/action| Register the Microsoft DocumentDB resource provider for the subscription|
+|/databaseAccountNames/read|Vérifier la disponibilité du nom.|
+|/databaseAccounts/changeResourceGroup/action|Modifier le groupe de ressources d’un compte de base de données.|
+|/databaseAccounts/databases/collections/metricDefinitions/read|Lire les définitions de mesures de la collection.|
+|/databaseAccounts/databases/collections/metrics/read|Lire les mesures de la collection.|
+|/databaseAccounts/databases/collections/partitionKeyRangeId/metrics/read|Lit les métriques de niveau de clé de partition de compte de base de données|
+|/databaseAccounts/databases/collections/partitions/metrics/read|Lit les métriques de niveau de partition de compte de base de données|
+|/databaseAccounts/databases/collections/partitions/usages/read|Lit les utilisations de niveau de partition de compte de base de données|
+|/databaseAccounts/databases/collections/usages/read|Lire les données d’utilisation de la collection.|
+|/databaseAccounts/databases/metricDefinitions/read|Lire les définitions de mesures de la base de données.|
+|/databaseAccounts/databases/metrics/read|Lire les mesures de la base de données.|
+|/databaseAccounts/databases/usages/read|Lire les données d’utilisation de la base de données.|
+|/databaseAccounts/delete|Supprimer les comptes de base de données.|
+|/databaseAccounts/failoverPriorityChange/action|Modifier les priorités de basculement des régions pour un compte de base de données. Cela permet d’effectuer un basculement manuel.|
+|/databaseAccounts/listConnectionStrings/action|Obtenir les chaînes de connexion d’un compte de base de données.|
+|/databaseAccounts/listKeys/action|Répertorier les clés d’un compte de base de données.|
+|/databaseAccounts/metricDefinitions/read|Lire les définitions de mesures du compte de base de données.|
+|/databaseAccounts/metrics/read|Lire les mesures du compte de base de données.|
+|/databaseAccounts/operationResults/read|Lit l’état de l’opération asynchrone|
+|/databaseAccounts/percentile/metrics/read|Lit les métriques de latence|
+|/databaseAccounts/percentile/sourceRegion/targetRegion/metrics/read|Lit les métriques de latence pour une source et une région cible spécifiques|
+|/databaseAccounts/percentile/targetRegion/metrics/read|Lit les métriques de latence pour une région cible spécifique|
+|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/databaseAccounts/providers/Microsoft.Insights/logDefinitions/read|Obtient les catégories de journal disponibles pour le compte de base de données|
+|/databaseAccounts/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour le compte de base de données|
+|/databaseAccounts/read|Lire un compte de base de données.|
+|/databaseAccounts/readonlykeys/action|Lire les clés en lecture seule du compte de base de données.|
+|/databaseAccounts/readonlykeys/read|Lire les clés en lecture seule du compte de base de données.|
+|/databaseAccounts/regenerateKey/action|Régénérer les clés d’un compte de base de données.|
+|/databaseAccounts/region/databases/collections/metrics/read|Lit les métriques de collection régionales.|
+|/databaseAccounts/region/databases/collections/partitionKeyRangeId/metrics/read|Lit les métriques régionales de niveau de clé de partition de compte de base de données|
+|/databaseAccounts/region/databases/collections/partitions/metrics/read|Lit les métriques régionales de niveau de partition de compte de base de données|
+|/databaseAccounts/region/databases/collections/partitions/read|Lit les partitions de compte de base de données dans une collection|
+|/databaseAccounts/region/metrics/read|Lit les métriques de compte de région et de base de données.|
+|/databaseAccounts/usages/read|Lire les données d’utilisation du compte de base de données.|
+|/databaseAccounts/write|Mettre à jour les comptes de base de données.|
+|/locations/deleteVirtualNetworkOrSubnets/action|Informe Microsoft.DocumentDB qu’un sous-réseau ou réseau virtuel est en cours de suppression|
+|/operationResults/read|Lit l’état de l’opération asynchrone|
+|/operations/read|Lit les opérations disponibles pour Microsoft DocumentDB |
+|/register/action| Inscrit le fournisseur de ressources Microsoft DocumentDB pour l’abonnement|
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkDomainAvailability/Action|Check if a domain is available for purchase|
-|/domains/Delete|Delete an existing domain.|
-|/domains/domainownershipidentifiers/Delete|Delete ownership identifier|
-|/domains/domainownershipidentifiers/Read|List ownership identifiers|
-|/domains/domainownershipidentifiers/Read|Get ownership identifier|
-|/domains/domainownershipidentifiers/Write|Create or update identifier|
-|/domains/operationresults/Read|Get a domain operation|
-|/domains/operations/Read|List all operations from app service domain registration|
-|/domains/Read|Get the list of domains|
-|/domains/Read|Get domain|
-|/domains/renew/Action|Renew an existing domain.|
-|/domains/Write|Add a new Domain or update an existing one|
-|/generateSsoRequest/Action|Generate a request for signing into domain control center.|
-|/listDomainRecommendations/Action|Retrieve the list domain recommendations based on keywords|
-|/register/action|Register the Microsoft Domains resource provider for the subscription|
-|/topLevelDomains/listAgreements/Action|List Agreement action|
-|/topLevelDomains/Read|Get toplevel domains|
-|/topLevelDomains/Read|Get toplevel domain|
-|/validateDomainRegistrationInformation/Action|Validate domain purchase object without submitting it|
+|/checkDomainAvailability/Action|Vérifier si un domaine est disponible à l’achat.|
+|/domains/Delete|Supprimer un domaine existant.|
+|/domains/domainownershipidentifiers/Delete|Supprime l’identificateur de propriété|
+|/domains/domainownershipidentifiers/Read|Affiche les identificateurs de propriété|
+|/domains/domainownershipidentifiers/Read|Obtient l’identificateur de propriété|
+|/domains/domainownershipidentifiers/Write|Crée ou met à jour l’identificateur|
+|/domains/operationresults/Read|Obtenir une opération de domaine.|
+|/domains/operations/Read|Affiche toutes les opérations de l’inscription de domaine de service d’application|
+|/domains/Read|Obtenir la liste des domaines.|
+|/domains/Read|Obtient le domaine|
+|/domains/renew/Action|Renouvelle un domaine existant.|
+|/domains/Write|Ajouter ou mettre à jour un domaine.|
+|/generateSsoRequest/Action|Générer une demande de connexion au centre de contrôle du domaine.|
+|/listDomainRecommendations/Action|Récupérer les recommandations de domaine en fonction de mots clés.|
+|/register/action|Inscrire le fournisseur de ressources de domaines Microsoft pour l’abonnement.|
+|/topLevelDomains/listAgreements/Action|Affiche l’action d’accord|
+|/topLevelDomains/Read|Obtient les domaines de niveau supérieur|
+|/topLevelDomains/Read|Obtient le domaine de niveau supérieur|
+|/validateDomainRegistrationInformation/Action|Valider l’objet d’achat de domaine sans le soumettre.|
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/lcsprojects/clouddeployments/read|Display Microsoft Dynamics AX 2012 R3 Evaluation deployments in a Microsoft Dynamics Lifecycle Services project that belong to a user|
-|/lcsprojects/clouddeployments/write|Create Microsoft Dynamics AX 2012 R3 Evaluation deployment in a Microsoft Dynamics Lifecycle Services project that belong to a user. Deployments can be managed from Azure management portal|
-|/lcsprojects/connectors/read|Read connectors that belong to a Microsoft Dynamics Lifecycle Services project|
-|/lcsprojects/connectors/write|Create and update connectors that belong to a Microsoft Dynamics Lifecycle Services project|
-|/lcsprojects/delete|Delete Microsoft Dynamics Lifecycle Services projects that belong to the user|
-|/lcsprojects/read|Display Microsoft Dynamics Lifecycle Services projects that belong to a user|
-|/lcsprojects/write|Create and update Microsoft Dynamics Lifecycle Services projects that belong to the user. Only the name and description properties can be updated. The subscription and location associated with the project cannot be updated after creation|
+|/lcsprojects/clouddeployments/read|Afficher les déploiements de test Microsoft Dynamics AX 2012 R3 dans un projet Microsoft Dynamics Lifecycle Services appartenant à un utilisateur|
+|/lcsprojects/clouddeployments/write|Créer un déploiement de test Microsoft Dynamics AX 2012 R3 dans un projet Microsoft Dynamics Lifecycle Services appartenant à un utilisateur. Les déploiements peuvent être gérés depuis le portail de gestion Azure.|
+|/lcsprojects/connectors/read|Lire les connecteurs appartenant à un projet Microsoft Dynamics Lifecycle Services|
+|/lcsprojects/connectors/write|Créer et mettre à jour des connecteurs appartenant à un projet Microsoft Dynamics Lifecycle Services|
+|/lcsprojects/delete|Supprimer des projets Microsoft Dynamics Lifecycle Services appartenant à l’utilisateur|
+|/lcsprojects/read|Afficher les projets Microsoft Dynamics Lifecycle Services appartenant à un utilisateur|
+|/lcsprojects/write|Créer et mettre à jour des projets Microsoft Dynamics Lifecycle Services appartenant à l’utilisateur. Seules les propriétés de nom et de description peuvent être mises à jour. L’abonnement et l’emplacement associés au projet ne peuvent pas être mis à jour après la création.|
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/eventSubscriptions/delete|Delete a eventSubscription|
-|/eventSubscriptions/getFullUrl/action|Get full url for the event subscription|
-|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for event subscriptions|
-|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for event subscriptions|
-|/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for eventSubscriptions|
-|/eventSubscriptions/read|Read a eventSubscription|
-|/eventSubscriptions/write|Create or update a eventSubscription|
-|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for topics|
-|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for topics|
-|/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for topics|
-|/register/action|Registers the eventSubscription for the EventGrid resource provider and enables the creation of Event Grid subscriptions.|
-|/topics/delete|Delete a topic|
-|/topics/listKeys/action|List keys for the topic|
-|/topics/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for topics|
-|/topics/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for topics|
-|/topics/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for topics|
-|/topics/read|Read a topic|
-|/topics/regenerateKey/action|Regenerate key for the topic|
-|/topics/write|Create or update a topic|
+|/eventSubscriptions/delete|Supprime un abonnement à un événement|
+|/eventSubscriptions/getFullUrl/action|Obtient l’URL complète de l’abonnement à l’événement|
+|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour les abonnements aux événements|
+|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour les abonnements aux événements|
+|/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les abonnements aux événements|
+|/eventSubscriptions/read|Lit un abonnement à un événement|
+|/eventSubscriptions/write|Crée ou met à jour un abonnement à un événement|
+|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour des rubriques|
+|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour des rubriques|
+|/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les rubriques|
+|/register/action|Enregistre l’abonnement à un événement pour le fournisseur de ressources Event Grid et permet la création d’abonnements Event Grid.|
+|/topics/delete|Supprimer une rubrique|
+|/topics/listKeys/action|Affiche les clés pour la rubrique|
+|/topics/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour des rubriques|
+|/topics/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour des rubriques|
+|/topics/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les rubriques|
+|/topics/read|Lit une rubrique|
+|/topics/regenerateKey/action|Régénère une clé pour la rubrique|
+|/topics/write|Crée ou met à jour une rubrique|
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/action|Checks availability of namespace under given subscription.|
-|/checkNamespaceAvailability/action|Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailabiltiy instead.|
-|/namespaces/authorizationRules/action|Updates Namespace Authorization Rule. This API is depricated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/authorizationRules/delete|Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. |
-|/namespaces/authorizationRules/listkeys/action|Get the Connection String to the Namespace|
-|/namespaces/authorizationRules/read|Get the list of Namespaces Authorization Rules description.|
-|/namespaces/authorizationRules/regenerateKeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/authorizationRules/write|Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.|
-|/namespaces/Delete|Delete Namespace Resource|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|Gets the authorization rules keys for the Disaster Recovery primary namespace|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Get Disaster Recovery Primary Namespace's Authorization Rules|
-|/namespaces/disasterRecoveryConfigs/breakPairing/action|Disables Disaster Recovery and stops replicating changes from primary to secondary namespaces.|
-|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Checks availability of namespace alias under given subscription.|
-|/namespaces/disasterRecoveryConfigs/delete|Deletes the Disaster Recovery configuration associated with the namespace. This operation can only be invoked via the primary namespace.|
-|/namespaces/disasterRecoveryConfigs/failover/action|Invokes a GEO DR failover and reconfigures the namespace alias to point to the secondary namespace.|
-|/namespaces/disasterRecoveryConfigs/read|Gets the Disaster Recovery configuration associated with the namespace.|
-|/namespaces/disasterRecoveryConfigs/write|Creates or Updates the Disaster Recovery configuration associated with the namespace.|
-|/namespaces/eventhubs/authorizationRules/action|Operation to update EventHub. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule.|
-|/namespaces/eventhubs/authorizationRules/delete|Operation to delete EventHub Authorization Rules|
-|/namespaces/eventhubs/authorizationRules/listkeys/action|Get the Connection String to EventHub|
-|/namespaces/eventhubs/authorizationRules/read| Get the list of EventHub Authorization Rules|
-|/namespaces/eventhubs/authorizationRules/regenerateKeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/eventhubs/authorizationRules/write|Create EventHub Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated.|
-|/namespaces/eventHubs/consumergroups/Delete|Operation to delete ConsumerGroup Resource|
-|/namespaces/eventHubs/consumergroups/read|Get list of ConsumerGroup Resource Descriptions|
-|/namespaces/eventHubs/consumergroups/write|Create or Update ConsumerGroup properties.|
-|/namespaces/eventhubs/Delete|Operation to delete EventHub Resource|
-|/namespaces/eventhubs/read|Get list of EventHub Resource Descriptions|
-|/namespaces/eventhubs/write|Create or Update EventHub properties.|
-|/namespaces/messagingPlan/read|Gets the Messaging Plan for a namespace. This API is deprecated. Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/messagingPlan/write|Updates the Messaging Plan for a namespace. This API is deprecated. Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/operationresults/read|Get the status of Namespace operation|
-|/namespaces/providers/Microsoft.Insights/diagnosticSettings/read|Get list of Namespace diagnostic settings Resource Descriptions|
-|/namespaces/providers/Microsoft.Insights/diagnosticSettings/write|Get list of Namespace diagnostic settings Resource Descriptions|
-|/namespaces/providers/Microsoft.Insights/logDefinitions/read|Get list of Namespace logs Resource Descriptions|
-|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Get list of Namespace metrics Resource Descriptions|
-|/namespaces/read|Get the list of Namespace Resource Description|
-|/namespaces/write|Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated.|
-|/operations/read|Get Operations|
-|/register/action|Registers the subscription for the EventHub resource provider and enables the creation of EventHub resources|
-|/sku/read|Get list of Sku Resource Descriptions|
-|/sku/regions/read|Get list of SkuRegions Resource Descriptions|
-|/unregister/action|Registers the EventHub Resource Provider|
+|/checkNameAvailability/action|Vérifier la disponibilité d’un espace de noms sous un abonnement donné|
+|/checkNamespaceAvailability/action|Vérifier la disponibilité d’un espace de noms sous un abonnement donné Cette API étant déconseillée, utilisez CheckNameAvailabiltiy à la place.|
+|/namespaces/authorizationRules/action|Met à jour une règle d’autorisation d’espace de noms. Cette API est déconseillée. Utilisez un appel PUT à la place pour mettre à jour la règle d’autorisation d’espace de noms... Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/authorizationRules/delete|Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée. |
+|/namespaces/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à la ressource Namespace|
+|/namespaces/authorizationRules/read|Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces.|
+|/namespaces/authorizationRules/regenerateKeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/authorizationRules/write|Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour.|
+|/namespaces/Delete|Supprimer une ressource Namespace|
+|/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|Obtient les clés de règles d’autorisation pour l’espace de noms principal de récupération d’urgence|
+|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Obtient les règles d’autorisation de l’espace de noms principal de récupération d’urgence|
+|/namespaces/disasterRecoveryConfigs/breakPairing/action|Désactive la récupération d’urgence et arrête la réplication des changements de l’espace de noms principal sur l’espace de noms secondaire.|
+|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Vérifie la disponibilité d’un alias d’espace de noms sous un abonnement donné.|
+|/namespaces/disasterRecoveryConfigs/delete|Supprime la configuration de récupération d’urgence associée à l’espace de noms. Cette opération peut être appelée uniquement via l’espace de noms principal.|
+|/namespaces/disasterRecoveryConfigs/failover/action|Appelle un basculement de géorécupération d’urgence et reconfigure l’alias d’espace de noms pour qu’il pointe vers l’espace de noms secondaire.|
+|/namespaces/disasterRecoveryConfigs/read|Obtient la configuration de récupération d’urgence associée à l’espace de noms.|
+|/namespaces/disasterRecoveryConfigs/write|Crée ou met à jour la configuration de récupération d’urgence associée à l’espace de noms.|
+|/namespaces/eventhubs/authorizationRules/action|Met à jour EventHub. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation.|
+|/namespaces/eventhubs/authorizationRules/delete|Supprimer des règles d’autorisation EventHub|
+|/namespaces/eventhubs/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à EventHub|
+|/namespaces/eventhubs/authorizationRules/read| Obtenir la liste des règles d’autorisation EventHub|
+|/namespaces/eventhubs/authorizationRules/regenerateKeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/eventhubs/authorizationRules/write|Créer des règles d’autorisation EventHub et mettre à jour leurs propriétés. Les droits d’accès des règles d’autorisation peuvent être mis à jour.|
+|/namespaces/eventHubs/consumergroups/Delete|Supprimer des ressources du groupe de consommateurs|
+|/namespaces/eventHubs/consumergroups/read|Obtenir la liste des descriptions de ressources du groupe de consommateurs|
+|/namespaces/eventHubs/consumergroups/write|Créer ou mettre à jour les propriétés d’un groupe de consommateurs|
+|/namespaces/eventhubs/Delete|Supprimer des ressources EventHub|
+|/namespaces/eventhubs/read|Obtenir la liste des descriptions de ressources EventHub|
+|/namespaces/eventhubs/write|Créer ou mettre à jour des propriétés EventHub|
+|/namespaces/messagingPlan/read|Obtient le plan de messagerie pour un espace de noms. Cette API est déconseillée. Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/messagingPlan/write|Met à jour le plan de messagerie pour un espace de noms. Cette API est déconseillée. Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/operationresults/read|Obtient l’état de l’opération d’espace de noms|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/read|Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace.|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/write|Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace.|
+|/namespaces/providers/Microsoft.Insights/logDefinitions/read|Obtenir la liste des descriptions des ressources des journaux Namespace.|
+|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Obtenir la liste des descriptions des mesures de ressource Namespace.|
+|/namespaces/read|Obtenir la liste des descriptions des ressources Namespace.|
+|/namespaces/write|Créer une ressource Namespace et mettre à jour ses propriétés. Les balises et la capacité de l’espace de noms sont les propriétés qui peuvent être mises à jour.|
+|/operations/read|Obtient les opérations|
+|/register/action|Inscrire l’abonnement pour le fournisseur de ressources EventHub et activer la création de ressources EventHub|
+|/sku/read|Obtient la liste des descriptions des ressources de référence (SKU).|
+|/sku/regions/read|Obtient la liste des descriptions de ressources SkuRegions|
+|/unregister/action|Enregistre le fournisseur de ressources EventHub|
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/features/read|Gets the features of a subscription.|
-|/providers/features/read|Gets the feature of a subscription in a given resource provider.|
-|/providers/features/register/action|Registers the feature for a subscription in a given resource provider.|
-|/providers/features/unregister/action|Unregisters the feature for a subscription in a given resource provider.|
+|/features/read|Afficher les fonctionnalités d’un abonnement|
+|/providers/features/read|Afficher les fonctionnalités d’un abonnement pour un fournisseur de ressources donné|
+|/providers/features/register/action|Enregistrer les fonctionnalités d’un abonnement pour un fournisseur de ressources donné|
+|/providers/features/unregister/action|Désinscrit la fonctionnalité pour un abonnement dans un fournisseur de ressources donné.|
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/clusters/changerdpsetting/action|Change RDP setting for HDInsight Cluster|
-|/clusters/configurations/action|Update HDInsight Cluster Configuration|
-|/clusters/configurations/read|Get HDInsight Cluster Configurations|
-|/clusters/delete|Delete a HDInsight Cluster|
-|/clusters/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource HDInsight Cluster|
-|/clusters/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource HDInsight Cluster|
-|/clusters/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for HDInsight Cluster|
-|/clusters/read|Get details about HDInsight Cluster|
-|/clusters/roles/resize/action|Resize a HDInsight Cluster|
-|/clusters/write|Create or Update HDInsight Cluster|
-|/locations/capabilities/read|Get Subscription Capabilities|
-|/locations/checkNameAvailability/read|Check Name Availability|
+|/clusters/changerdpsetting/action|Modifier le paramètre RDP du cluster HDInsight|
+|/clusters/configurations/action|Mettre à jour la configuration du cluster HDInsight|
+|/clusters/configurations/read|Afficher les configurations du cluster HDInsight|
+|/clusters/delete|Supprimer un cluster HDInsight|
+|/clusters/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour le cluster HDInsight de ressource|
+|/clusters/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour le cluster HDInsight de ressource|
+|/clusters/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour le cluster HDInsight|
+|/clusters/read|Obtenir des informations sur un cluster HDInsight|
+|/clusters/roles/resize/action|Redimensionner un cluster HDInsight|
+|/clusters/write|Créer ou mettre à jour un cluster HDInsight|
+|/locations/capabilities/read|Afficher les fonctionnalités de l’abonnement|
+|/locations/checkNameAvailability/read|Vérifier la disponibilité du nom|
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/jobs/delete|Deletes an existing job.|
-|/jobs/listBitLockerKeys/action|Gets the BitLocker keys for the specified job.|
-|/jobs/read|Gets the properties for the specified job or returns the list of jobs.|
-|/jobs/write|Creates a job with the specified parameters or update the properties or tags for the specified job.|
-|/locations/read|Gets the properties for the specified location or returns the list of locations.|
+|/jobs/delete|Supprime un travail existant.|
+|/jobs/listBitLockerKeys/action|Génère les clés BitLocker pour le travail spécifié.|
+|/jobs/read|Affiche les propriétés du travail spécifié ou retourne la liste des travaux.|
+|/jobs/write|Crée un travail avec les paramètres spécifiés ou met à jour les propriétés ou les balises pour le travail spécifié.|
+|/locations/read|Affiche les propriétés de l’emplacement spécifié ou retourne la liste des emplacements.|
 |/register/action|Registers the subscription for the import/export resource provider and enables the creation of import/export jobs.|
 
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/ActionGroups/Delete|Deleting an action group|
-|/ActionGroups/Read|Reading an action group|
-|/ActionGroups/Write|Writing an action group|
-|/ActivityLogAlerts/Activated/Action|Triggered the Activity Log Alert|
-|/ActivityLogAlerts/Delete|Deleting an activity log alert|
-|/ActivityLogAlerts/Read|Reading an activity log alert|
-|/ActivityLogAlerts/Write|Reading an activity log alert|
-|/AlertRules/Activated/Action|Alert Rule activated|
-|/AlertRules/Delete|Deleting an alert rule configuration|
-|/AlertRules/Incidents/Read|Reading an alert rule incident configuration|
-|/AlertRules/Read|Reading an alert rule configuration|
-|/AlertRules/Resolved/Action|Alert Rule resolved|
-|/AlertRules/Throttled/Action|Alert rule is throttled|
-|/AlertRules/Write|Writing to an alert rule configuration|
-|/AutoscaleSettings/Delete|Deleting an autoscale setting configuration|
-|/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Read metric definitions|
-|/AutoscaleSettings/Read|Reading an autoscale setting configuration|
-|/AutoscaleSettings/Scaledown/Action|Autoscale scale down operation|
-|/AutoscaleSettings/Scaleup/Action|Autoscale scale up operation|
-|/AutoscaleSettings/Write|Writing to an autoscale setting configuration|
-|/Components/AnalyticsItems/Delete|Deleting an Application Insights analytics item|
-|/Components/AnalyticsItems/Read|Reading an Application Insights analytics item|
-|/Components/AnalyticsItems/Write|Writing an Application Insights analytics item|
-|/Components/AnalyticsTables/Action|Application Insights analytics table action|
-|/Components/AnalyticsTables/Delete|Deleting an Application Insights analytics table schema|
-|/Components/AnalyticsTables/Read|Reading an Application Insights analytics table schema|
-|/Components/AnalyticsTables/Write|Writing an Application Insights analytics table schema|
-|/Components/Annotations/Delete|Deleting an Application Insights annotation|
-|/Components/Annotations/Read|Reading an Application Insights annotation|
-|/Components/Annotations/Write|Writing an Application Insights annotation|
-|/Components/Api/Read|Reading Application Insights component data API|
-|/Components/ApiKeys/Action|Generating an Application Insights API key|
-|/Components/ApiKeys/Delete|Deleting an Application Insights API key|
-|/Components/ApiKeys/Read|Reading an Application Insights API key|
-|/Components/BillingPlanForComponent/Read|Reading a billing plan for Application Insights component|
-|/Components/CurrentBillingFeatures/Read|Reading current billing features for Application Insights component|
-|/Components/CurrentBillingFeatures/Write|Writing current billing features for Application Insights component|
-|/Components/DefaultWorkItemConfig/Read|Reading an Application Insights default ALM integration configuration|
-|/Components/Delete|Deleting an application insights component configuration|
-|/Components/ExportConfiguration/Action|Application Insights export settings action|
-|/Components/ExportConfiguration/Delete|Deleting Application Insights export settings|
-|/Components/ExportConfiguration/Read|Reading Application Insights export settings|
-|/Components/ExportConfiguration/Write|Writing Application Insights export settings|
-|/Components/ExtendQueries/Read|Reading Application Insights component extended query results|
-|/Components/Favorites/Delete|Deleting an Application Insights favorite|
-|/Components/Favorites/Read|Reading an Application Insights favorite|
-|/Components/Favorites/Write|Writing an Application Insights favorite|
-|/Components/FeatureCapabilities/Read|Reading Application Insights component feature capabilities|
-|/Components/GetAvailableBillingFeatures/Read|Reading Application Insights component available billing features|
-|/Components/GetToken/Read|Reading an Application Insights component token|
-|/Components/ListMigrationDate/Action|Get back Subscription migration date|
-|/Components/ListMigrationDate/Read|Get back subscription migration date|
-|/Components/MetricDefinitions/Read|Reading Application Insights component metric definitions|
-|/Components/Metrics/Read|Reading Application Insights component metrics|
-|/Components/MigrateToNewpricingModel/Action|Migrate subscription to new pricing model|
-|/Components/Move/Action|Move an Application Insights Component to another resource group or subscription|
-|/Components/MyAnalyticsItems/Delete|Deleting an Application Insights personal analytics item|
-|/Components/MyAnalyticsItems/Read|Reading an Application Insights personal analytics item|
-|/Components/MyAnalyticsItems/Write|Writing an Application Insights personal analytics item|
-|/Components/MyFavorites/Read|Reading an Application Insights personal favorite|
-|/Components/PricingPlans/Read|Reading an Application Insights component pricing plan|
-|/Components/PricingPlans/Write|Writing an Application Insights component pricing plan|
-|/Components/ProactiveDetectionConfigs/Read|Reading Application Insights proactive detection configuration|
-|/Components/ProactiveDetectionConfigs/Write|Writing Application Insights proactive detection configuration|
-|/Components/providers/Microsoft.Insights/MetricDefinitions/Read|Read metric definitions|
-|/Components/QuotaStatus/Read|Reading Application Insights component quota status|
-|/Components/Read|Reading an application insights component configuration|
-|/Components/RollbackToLegacyPricingModel/Action|Rollback subscription to legacy pricing model|
-|/Components/SyntheticMonitorLocations/Read|Reading Application Insights webtest locations|
-|/Components/WorkItemConfigs/Delete|Deleting an Application Insights ALM integration configuration|
-|/Components/WorkItemConfigs/Read|Reading an Application Insights ALM integration configuration|
-|/Components/WorkItemConfigs/Write|Writing an Application Insights ALM integration configuration|
-|/Components/Write|Writing to an application insights component configuration|
-|/DiagnosticSettings/Delete|Deleting diagnostic settings configuration|
-|/DiagnosticSettings/Read|Reading a diagnostic settings configuration|
-|/DiagnosticSettings/Write|Writing to diagnostic settings configuration|
-|/EventCategories/Read|Reading an event category|
-|/eventtypes/digestevents/Read|Read management event type digest|
-|/eventtypes/values/Read|Read management event type values|
-|/ExtendedDiagnosticSettings/Delete|Deleting extended diagnostic settings configuration|
-|/ExtendedDiagnosticSettings/Read|Reading a extended diagnostic settings configuration|
-|/ExtendedDiagnosticSettings/Write|Writing to extended diagnostic settings configuration|
-|/LogDefinitions/Read|Read log definitions|
-|/LogProfiles/Delete|Delete log profiles configuration|
-|/LogProfiles/Read|Read log profiles|
-|/LogProfiles/Write|Writing to a log profile configuration|
-|/MetricAlerts/Delete|Deleting a metric alert|
-|/MetricAlerts/Read|Reading a metric alert|
-|/MetricAlerts/Write|Writing a metric alert|
-|/MetricDefinitions/Microsoft.Insights/Read|Read metric definitions|
-|/MetricDefinitions/providers/Microsoft.Insights/Read|Read metric definitions|
-|/MetricDefinitions/Read|Read metric definitions|
-|/Metrics/providers/Metrics/Read|Read metrics|
-|/Metrics/Read|Read metrics|
-|/Metrics/Write|Write metrics|
-|/Operations/Read|Reading operations|
-|/Register/Action|Register the microsoft insights provider|
-|/Tenants/Register/Action|Initializes the microsoft insights provider|
-|/Unregister/Action|Register the microsoft insights provider|
-|/Webtests/Delete|Deleting a webtest configuration|
-|/Webtests/GetToken/Read|Reading a webtest token|
-|/Webtests/MetricDefinitions/Read|Reading a webtest metric definitions|
-|/Webtests/Metrics/Read|Reading a webtest metrics|
-|/Webtests/Read|Reading a webtest configuration|
-|/Webtests/Write|Writing to a webtest configuration|
+|/ActionGroups/Delete|Supprime un groupe d’actions|
+|/ActionGroups/Read|Lit un groupe d’actions|
+|/ActionGroups/Write|Écrit un groupe d’actions|
+|/ActivityLogAlerts/Activated/Action|Déclencher une alerte de journal d’activité|
+|/ActivityLogAlerts/Delete|Supprime une alerte du journal d’activité|
+|/ActivityLogAlerts/Read|Lit une alerte du journal d’activité|
+|/ActivityLogAlerts/Write|Écrit une alerte du journal d’activité|
+|/AlertRules/Activated/Action|Règle d’alerte activée|
+|/AlertRules/Delete|Supprimer une configuration de règle d’alerte|
+|/AlertRules/Incidents/Read|Lire une configuration d’incident de règle d’alerte|
+|/AlertRules/Read|Lire une configuration de règle d’alerte|
+|/AlertRules/Resolved/Action|Règle d’alerte résolue|
+|/AlertRules/Throttled/Action|Règle d’alerte limitée|
+|/AlertRules/Write|Écrire dans une configuration de règle d’alerte|
+|/AutoscaleSettings/Delete|Supprimer une configuration de mise à l’échelle|
+|/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Lire les définitions des mesures|
+|/AutoscaleSettings/Read|Lire une configuration de mise à l’échelle|
+|/AutoscaleSettings/Scaledown/Action|Effectuer une opération de descente en puissance|
+|/AutoscaleSettings/Scaleup/Action|Effectuer une opération de montée en puissance|
+|/AutoscaleSettings/Write|Écrire dans une configuration de mise à l’échelle|
+|/Components/AnalyticsItems/Delete|Supprime un élément analytique Application Insights|
+|/Components/AnalyticsItems/Read|Lit un élément analytique Application Insights|
+|/Components/AnalyticsItems/Write|Écrit un élément analytique Application Insights|
+|/Components/AnalyticsTables/Action|Action de table analytique Application Insights|
+|/Components/AnalyticsTables/Delete|Supprime un schéma de table analytique Application Insights|
+|/Components/AnalyticsTables/Read|Lit un schéma de table analytique Application Insights|
+|/Components/AnalyticsTables/Write|Écrit un schéma de table analytique Application Insights|
+|/Components/Annotations/Delete|Supprime une annotation Application Insights|
+|/Components/Annotations/Read|Lit une annotation Application Insights|
+|/Components/Annotations/Write|Écrit une annotation Application Insights|
+|/Components/Api/Read|Lit l’API Données de composant Application Insights|
+|/Components/ApiKeys/Action|Génère une clé d’API Application Insights|
+|/Components/ApiKeys/Delete|Supprime une clé d’API Application Insights|
+|/Components/ApiKeys/Read|Lit une clé d’API Application Insights|
+|/Components/BillingPlanForComponent/Read|Lit un plan de facturation pour le composant Application Insights|
+|/Components/CurrentBillingFeatures/Read|Lit les fonctionnalités de facturation actuelles pour le composant Application Insights|
+|/Components/CurrentBillingFeatures/Write|Écrit les fonctionnalités de facturation actuelles pour le composant Application Insights|
+|/Components/DefaultWorkItemConfig/Read|Lit une configuration d’intégration ALM Application Insights par défaut|
+|/Components/Delete|Supprime une configuration du composant Application Insights|
+|/Components/ExportConfiguration/Action|Action de paramètres d’exportation Application Insights|
+|/Components/ExportConfiguration/Delete|Supprime les paramètres d’exportation Application Insights|
+|/Components/ExportConfiguration/Read|Lit les paramètres d’exportation Application Insights|
+|/Components/ExportConfiguration/Write|Écrit les paramètres d’exportation Application Insights|
+|/Components/ExtendQueries/Read|Lit les résultats de requête étendue du composant Application Insights|
+|/Components/Favorites/Delete|Supprime un favori Application Insights|
+|/Components/Favorites/Read|Lit un favori Application Insights|
+|/Components/Favorites/Write|Écrit un favori Application Insights|
+|/Components/FeatureCapabilities/Read|Lit les capacités de fonctionnalité du composant Application Insights|
+|/Components/GetAvailableBillingFeatures/Read|Lit les fonctionnalités de facturation disponibles du composant Application Insights|
+|/Components/GetToken/Read|Lit un jeton du composant Application Insights|
+|/Components/ListMigrationDate/Action|Récupère la date de migration de l’abonnement|
+|/Components/ListMigrationDate/Read|Récupère la date de migration de l’abonnement|
+|/Components/MetricDefinitions/Read|Lit les définitions de métrique du composant Application Insights|
+|/Components/Metrics/Read|Lit les métriques du composant Application Insights|
+|/Components/MigrateToNewpricingModel/Action|Migre un abonnement vers un nouveau modèle de tarification|
+|/Components/Move/Action|Déplace un composant Application Insights vers un autre groupe de ressources ou abonnement|
+|/Components/MyAnalyticsItems/Delete|Supprime un élément analytique personnel Application Insights|
+|/Components/MyAnalyticsItems/Read|Lit un élément analytique personnel Application Insights|
+|/Components/MyAnalyticsItems/Write|Écrit un élément analytique personnel Application Insights|
+|/Components/MyFavorites/Read|Lit un favori personnel Application Insights|
+|/Components/PricingPlans/Read|Lit un plan de tarification du composant Application Insights|
+|/Components/PricingPlans/Write|Écrit un plan de tarification du composant Application Insights|
+|/Components/ProactiveDetectionConfigs/Read|Lit une configuration de détection proactive Application Insights|
+|/Components/ProactiveDetectionConfigs/Write|Écrit une configuration de détection proactive Application Insights|
+|/Components/providers/Microsoft.Insights/MetricDefinitions/Read|Lire les définitions des mesures|
+|/Components/QuotaStatus/Read|Lit l’état de quota du composant Application Insights|
+|/Components/Read|Lit une configuration du composant Application Insights|
+|/Components/RollbackToLegacyPricingModel/Action|Restaure un abonnement au modèle de tarification hérité|
+|/Components/SyntheticMonitorLocations/Read|Lit les emplacements de test web Application Insights|
+|/Components/WorkItemConfigs/Delete|Supprime une configuration d’intégration ALM Application Insights|
+|/Components/WorkItemConfigs/Read|Lit une configuration d’intégration ALM Application Insights|
+|/Components/WorkItemConfigs/Write|Écrit une configuration d’intégration ALM Application Insights|
+|/Components/Write|Écrit dans une configuration du composant Application Insights|
+|/DiagnosticSettings/Delete|Supprimer la configuration de diagnostic|
+|/DiagnosticSettings/Read|Lire la configuration de diagnostic|
+|/DiagnosticSettings/Write|Écrire dans la configuration de diagnostic|
+|/EventCategories/Read|Lit une catégorie d’événement|
+|/eventtypes/digestevents/Read|Lire le résumé des types d’événement de gestion|
+|/eventtypes/values/Read|Lire les valeurs de types d’événement de gestion|
+|/ExtendedDiagnosticSettings/Delete|Supprimer la configuration de diagnostic étendue|
+|/ExtendedDiagnosticSettings/Read|Lire une configuration de diagnostic étendue|
+|/ExtendedDiagnosticSettings/Write|Écrire dans la configuration de diagnostic étendue|
+|/LogDefinitions/Read|Lire les définitions de journal|
+|/LogProfiles/Delete|Supprimer la configuration de profil de journal|
+|/LogProfiles/Read|Lire les profils de journal|
+|/LogProfiles/Write|Écrire dans une configuration de profil de journal|
+|/MetricAlerts/Delete|Supprime une alerte Métrique|
+|/MetricAlerts/Read|Lit une alerte Métrique|
+|/MetricAlerts/Write|Écrit une alerte Métrique|
+|/MetricDefinitions/Microsoft.Insights/Read|Lire les définitions des mesures|
+|/MetricDefinitions/providers/Microsoft.Insights/Read|Lire les définitions des mesures|
+|/MetricDefinitions/Read|Lire les définitions des mesures|
+|/Metrics/providers/Metrics/Read|Lire des mesures|
+|/Metrics/Read|Lire des mesures|
+|/Metrics/Write|Écrit des métriques|
+|/Operations/Read|Lit des opérations|
+|/Register/Action|Inscrire le fournisseur Microsoft.Insights|
+|/Tenants/Register/Action|Initialise le fournisseur Microsoft Insights|
+|/Unregister/Action|Inscrire le fournisseur Microsoft.Insights|
+|/Webtests/Delete|Supprime une configuration de test web|
+|/Webtests/GetToken/Read|Lit un jeton de test web|
+|/Webtests/MetricDefinitions/Read|Lit des définitions de métrique de test web|
+|/Webtests/Metrics/Read|Lit des métriques de test web|
+|/Webtests/Read|Lit une configuration de test web|
+|/Webtests/Write|Écrit dans une configuration de test web|
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/read|Checks that a key vault name is valid and is not in use|
-|/deletedVaults/read|View the properties of soft deleted key vaults|
-|/hsmPools/delete|Delete an HSM pool|
-|/hsmPools/joinVault/action|Join a key vault to an HSM pool|
-|/hsmPools/read|View the properties of an HSM pool|
-|/hsmPools/write|Create a new HSM pool of update the properties of an existing HSM pool|
-|/locations/deletedVaults/purge/action|Purge a soft deleted key vault|
-|/locations/deletedVaults/read|View the properties of a soft deleted key vault|
-|/locations/deleteVirtualNetworkOrSubnets/action|Notifies Microsoft.KeyVault that a virtual network or subnet is being deleted|
-|/locations/operationResults/read|Check the result of a long run operation|
-|/operations/read|Lists operations available on Microsoft.KeyVault resource provider|
-|/register/action|Registers a subscription|
-|/unregister/action|Unregisters a subscription|
-|/vaults/accessPolicies/write|Update an existing access policy by merging or replacing, or add a new access policy to a vault.|
-|/vaults/delete|Delete a key vault|
-|/vaults/deploy/action|Enables access to secrets in a key vault when deploying Azure resources|
-|/vaults/providers/Microsoft.Insights/diagnosticSettings/Read|Gets the diagnostic setting for the resource|
-|/vaults/providers/Microsoft.Insights/diagnosticSettings/Write|Creates or updates the diagnostic setting for the resource|
-|/vaults/providers/Microsoft.Insights/logDefinitions/read|Gets the available logs for a key vault|
-|/vaults/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for a key vault|
-|/vaults/read|View the properties of a key vault|
-|/vaults/secrets/read|View the properties of a secret, but not its value|
-|/vaults/secrets/write|Create a new secret or update the value of an existing secret|
-|/vaults/write|Create a new key vault or update the properties of an existing key vault|
+|/checkNameAvailability/read|Vérifier que le nom du coffre Key Vault est valide et qu’il n’est pas déjà utilisé|
+|/deletedVaults/read|Afficher les propriétés de coffres Key Vault supprimés de manière réversible|
+|/hsmPools/delete|Supprime un pool HSM|
+|/hsmPools/joinVault/action|Joint un coffre de clés à un pool HSM|
+|/hsmPools/read|Affiche les propriétés d’un pool HSM|
+|/hsmPools/write|Crée un pool HSM pour mettre à jour les propriétés d’un pool HSM existant|
+|/locations/deletedVaults/purge/action|Vider un coffre Key Vault supprimé de manière réversible|
+|/locations/deletedVaults/read|Afficher les propriétés d’un coffre Key Vault supprimé de manière réversible|
+|/locations/deleteVirtualNetworkOrSubnets/action|Avertit Microsoft.KeyVault de la suppression d’un réseau virtuel ou d’un sous-réseau|
+|/locations/operationResults/read|Vérifier le résultat d’une opération longue|
+|/operations/read|Répertorie les opérations disponibles sur le fournisseur de ressources Microsoft.KeyVault|
+|/register/action|Enregistrer un abonnement|
+|/unregister/action|Désinscrit un abonnement|
+|/vaults/accessPolicies/write|Mettre à jour une stratégie d’accès existante via une fusion ou un remplacement, ou ajouter une nouvelle stratégie d’accès à un coffre|
+|/vaults/delete|Supprimer un coffre Key Vault|
+|/vaults/deploy/action|Permettre l’accès aux clés secrètes dans un coffre Key Vault lors du déploiement de ressources Azure|
+|/vaults/providers/Microsoft.Insights/diagnosticSettings/Read|Obtient le paramètre de diagnostic pour la ressource|
+|/vaults/providers/Microsoft.Insights/diagnosticSettings/Write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/vaults/providers/Microsoft.Insights/logDefinitions/read|Obtient les journaux disponibles pour un coffre de clés|
+|/vaults/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour un coffre de clés|
+|/vaults/read|Afficher les propriétés d’un coffre Key Vault|
+|/vaults/secrets/read|Afficher les propriétés d’une clé secrète, mais pas sa valeur|
+|/vaults/secrets/write|Créer une nouvelle clé sécrète ou mettre à jour la valeur d’une clé secrète existante|
+|/vaults/write|Créer un coffre Key Vault ou mettre à jour les propriétés d’un coffre Key Vault existant|
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/labAccounts/CreateLab/action|Create a lab in a lab account.|
-|/labAccounts/delete|Delete lab accounts.|
-|/labAccounts/labs/delete|Delete labs.|
-|/labAccounts/labs/environmentSettings/delete|Delete environment setting.|
-|/labAccounts/labs/environmentSettings/environments/delete|Delete environments.|
-|/labAccounts/labs/environmentSettings/environments/read|Read environments.|
-|/labAccounts/labs/environmentSettings/environments/write|Add or modify environments.|
-|/labAccounts/labs/environmentSettings/Publish/action|Provisions/deprovisions required resources for an environment setting based on current state of the lab/environment setting.|
-|/labAccounts/labs/environmentSettings/read|Read environment setting.|
-|/labAccounts/labs/environmentSettings/write|Add or modify environment setting.|
-|/labAccounts/labs/read|Read labs.|
-|/labAccounts/labs/users/delete|Delete users.|
-|/labAccounts/labs/users/read|Read users.|
-|/labAccounts/labs/users/write|Add or modify users.|
-|/labAccounts/labs/write|Add or modify labs.|
-|/labAccounts/read|Read lab accounts.|
-|/labAccounts/write|Add or modify lab accounts.|
-|/locations/operations/read|Read operations.|
-|/register/action|Registers the subscription|
+|/labAccounts/CreateLab/action|Crée un lab dans un compte lab.|
+|/labAccounts/delete|Supprime des comptes de laboratoire.|
+|/labAccounts/labs/delete|Supprimer des laboratoires.|
+|/labAccounts/labs/environmentSettings/delete|Supprime un paramètre d’environnement.|
+|/labAccounts/labs/environmentSettings/environments/delete|Supprimer des environnements.|
+|/labAccounts/labs/environmentSettings/environments/read|Afficher les environnements.|
+|/labAccounts/labs/environmentSettings/environments/write|Ajouter ou modifier des environnements.|
+|/labAccounts/labs/environmentSettings/Publish/action|Approvisionne/déprovisionne des ressources requises pour un paramètre d’environnement en fonction de l’état actuel du paramètre de laboratoire/d’environnement.|
+|/labAccounts/labs/environmentSettings/read|Lit le paramètre environnement.|
+|/labAccounts/labs/environmentSettings/write|Ajoute ou modifie un paramètre d’environnement.|
+|/labAccounts/labs/read|Afficher des laboratoires.|
+|/labAccounts/labs/users/delete|Supprime des utilisateurs.|
+|/labAccounts/labs/users/read|Lit des utilisateurs.|
+|/labAccounts/labs/users/write|Ajoute ou modifie des utilisateurs.|
+|/labAccounts/labs/write|Ajouter ou modifier des laboratoires.|
+|/labAccounts/read|Lit les comptes de laboratoire.|
+|/labAccounts/write|Ajoute ou modifie les comptes de laboratoire.|
+|/locations/operations/read|Opérations de lecture.|
+|/register/action|Enregistrer l’abonnement.|
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/accounts/delete|Delete a Location Based Services Account.|
-|/accounts/listKeys/action|List Location Based Services Account keys|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Location Based Services Accounts|
-|/accounts/read|Get a Location Based Services Account.|
-|/accounts/regenerateKey/action|Generate new Location Based Services Account primary or secondary key|
-|/accounts/write|Create or update a Location Based Services Account.|
-|/register/action|Register the provider|
+|/accounts/delete|Supprime un compte Location Based Services.|
+|/accounts/listKeys/action|Répertorie les clés de compte Location Based Services|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les comptes Location Based Services|
+|/accounts/read|Obtient un compte Location Based Services.|
+|/accounts/regenerateKey/action|Génère une nouvelle clé primaire ou secondaire de compte Location Based Services|
+|/accounts/write|Crée ou met à jour un compte Location Based Services.|
+|/register/action|Inscrit le fournisseur|
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/integrationAccounts/agreements/delete|Deletes the agreement in integration account.|
-|/integrationAccounts/agreements/listContentCallbackUrl/action|Gets the callback URL for agreement content in integration account.|
-|/integrationAccounts/agreements/read|Reads the agreement in integration account.|
-|/integrationAccounts/agreements/write|Creates or updates the agreement in integration account.|
-|/integrationAccounts/assemblies/delete|Deletes the assembly in integration account.|
-|/integrationAccounts/assemblies/listContentCallbackUrl/action|Gets the callback URL for assembly content in integration account.|
-|/integrationAccounts/assemblies/read|Reads the assembly in integration account.|
-|/integrationAccounts/assemblies/write|Creates or updates the assembly in integration account.|
-|/integrationAccounts/batchConfigurations/delete|Deletes the batch configuration in integration account.|
-|/integrationAccounts/batchConfigurations/read|Reads the batch configuration in integration account.|
-|/integrationAccounts/batchConfigurations/write|Creates or updates the batch configuration in integration account.|
-|/integrationAccounts/certificates/delete|Deletes the certificate in integration account.|
-|/integrationAccounts/certificates/read|Reads the certificate in integration account.|
-|/integrationAccounts/certificates/write|Creates or updates the certificate in integration account.|
-|/integrationAccounts/delete|Deletes the integration account.|
-|/integrationAccounts/listCallbackUrl/action|Gets the callback URL for integration account.|
-|/integrationAccounts/listKeyVaultKeys/action|Gets the keys in the key vault.|
-|/integrationAccounts/logTrackingEvents/action|Logs the tracking events in the integration account.|
-|/integrationAccounts/maps/delete|Deletes the map in integration account.|
-|/integrationAccounts/maps/listContentCallbackUrl/action|Gets the callback URL for map content in integration account.|
-|/integrationAccounts/maps/read|Reads the map in integration account.|
-|/integrationAccounts/maps/write|Creates or updates the map in integration account.|
-|/integrationAccounts/partners/delete|Deletes the partner in integration account.|
-|/integrationAccounts/partners/listContentCallbackUrl/action|Gets the callback URL for partner content in integration account.|
-|/integrationAccounts/partners/read|Reads the parter in integration account.|
-|/integrationAccounts/partners/write|Creates or updates the partner in integration account.|
-|/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read|Reads the Integration Account log definitions.|
-|/integrationAccounts/read|Reads the integration account.|
-|/integrationAccounts/regenerateAccessKey/action|Regenerates the access key secrets.|
-|/integrationAccounts/schemas/delete|Deletes the schema in integration account.|
-|/integrationAccounts/schemas/listContentCallbackUrl/action|Gets the callback URL for schema content in integration account.|
-|/integrationAccounts/schemas/read|Reads the schema in integration account.|
-|/integrationAccounts/schemas/write|Creates or updates the schema in integration account.|
-|/integrationAccounts/sessions/delete|Deletes the session in integration account.|
-|/integrationAccounts/sessions/read|Reads the batch configuration in integration account.|
-|/integrationAccounts/sessions/write|Creates or updates the session in integration account.|
-|/integrationAccounts/write|Creates or updates the integration account.|
-|/locations/workflows/validate/action|Validates the workflow.|
-|/operations/read|Gets the operation.|
-|/register/action|Registers the Microsoft.Logic resource provider for a given subscription.|
-|/workflows/accessKeys/delete|Deletes the access key.|
-|/workflows/accessKeys/list/action|Lists the access key secrets.|
-|/workflows/accessKeys/read|Reads the access key.|
-|/workflows/accessKeys/regenerate/action|Regenerates the access key secrets.|
-|/workflows/accessKeys/write|Creates or updates the access key.|
-|/workflows/delete|Deletes the workflow.|
-|/workflows/disable/action|Disables the workflow.|
-|/workflows/enable/action|Enables the workflow.|
-|/workflows/listCallbackUrl/action|Gets the callback URL for workflow.|
-|/workflows/listSwagger/action|Gets the workflow swagger definitions.|
-|/workflows/move/action|Moves Workflow from its existing subscription id, resource group, and/or name to a different subscription id, resource group, and/or name.|
-|/workflows/providers/Microsoft.Insights/diagnosticSettings/read|Reads the workflow diagnostic settings.|
-|/workflows/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the workflow diagnostic setting.|
-|/workflows/providers/Microsoft.Insights/logDefinitions/read|Reads the workflow log definitions.|
-|/workflows/providers/Microsoft.Insights/metricDefinitions/read|Reads the workflow metric definitions.|
-|/workflows/read|Reads the workflow.|
-|/workflows/regenerateAccessKey/action|Regenerates the access key secrets.|
-|/workflows/run/action|Starts a run of the workflow.|
-|/workflows/runs/actions/listExpressionTraces/action|Gets the workflow run action expression traces.|
-|/workflows/runs/actions/read|Reads the workflow run action.|
-|/workflows/runs/actions/repetitions/listExpressionTraces/action|Gets the workflow run action repetition expression traces.|
-|/workflows/runs/actions/repetitions/read|Reads the workflow run action repetition.|
-|/workflows/runs/actions/scoperepetitions/read|Reads the workflow run action scope repetition.|
-|/workflows/runs/cancel/action|Cancels the run of a workflow.|
-|/workflows/runs/operations/read|Reads the workflow run operation status.|
-|/workflows/runs/read|Reads the workflow run.|
-|/workflows/suspend/action|Suspends the workflow.|
-|/workflows/triggers/histories/read|Reads the trigger histories.|
-|/workflows/triggers/histories/resubmit/action|Resubmits the workflow trigger.|
-|/workflows/triggers/listCallbackUrl/action|Gets the callback URL for trigger.|
-|/workflows/triggers/read|Reads the trigger.|
-|/workflows/triggers/reset/action|Resets the trigger.|
-|/workflows/triggers/run/action|Executes the trigger.|
-|/workflows/triggers/setState/action|Sets the trigger state.|
-|/workflows/validate/action|Validates the workflow.|
-|/workflows/versions/read|Reads the workflow version.|
-|/workflows/versions/triggers/listCallbackUrl/action|Gets the callback URL for trigger.|
-|/workflows/write|Creates or updates the workflow.|
+|/integrationAccounts/agreements/delete|Supprime l’accord dans le compte d’intégration.|
+|/integrationAccounts/agreements/listContentCallbackUrl/action|Obtient l’URL de rappel pour le contenu de l’accord dans le compte d’intégration.|
+|/integrationAccounts/agreements/read|Lit l’accord dans le compte d’intégration.|
+|/integrationAccounts/agreements/write|Crée ou met à jour l’accord dans le compte d’intégration.|
+|/integrationAccounts/assemblies/delete|Supprime l’assembly dans le compte d’intégration.|
+|/integrationAccounts/assemblies/listContentCallbackUrl/action|Obtient l’URL de rappel pour le contenu d’assembly dans le compte d’intégration.|
+|/integrationAccounts/assemblies/read|Lit l’assembly dans le compte d’intégration.|
+|/integrationAccounts/assemblies/write|Crée ou met à jour l’assembly dans le compte d’intégration.|
+|/integrationAccounts/batchConfigurations/delete|Supprime la configuration du lot dans le compte d’intégration.|
+|/integrationAccounts/batchConfigurations/read|Lit la configuration du lot dans le compte d’intégration.|
+|/integrationAccounts/batchConfigurations/write|Crée ou met à jour la configuration du lot dans le compte d’intégration.|
+|/integrationAccounts/certificates/delete|Supprime le certificat dans le compte d’intégration.|
+|/integrationAccounts/certificates/read|Lit le certificat dans le compte d’intégration.|
+|/integrationAccounts/certificates/write|Crée ou met à jour le certificat dans le compte d’intégration.|
+|/integrationAccounts/delete|Supprime le compte d’intégration.|
+|/integrationAccounts/listCallbackUrl/action|Obtient l’URL de rappel pour le compte d’intégration.|
+|/integrationAccounts/listKeyVaultKeys/action|Obtient les clés dans le coffre de clés.|
+|/integrationAccounts/logTrackingEvents/action|Journalise les événements de suivi dans le compte d’intégration.|
+|/integrationAccounts/maps/delete|Supprime le mappage dans le compte d’intégration.|
+|/integrationAccounts/maps/listContentCallbackUrl/action|Obtient l’URL de rappel pour le mappage de contenu dans le compte d’intégration.|
+|/integrationAccounts/maps/read|Lit le mappage dans le compte d’intégration.|
+|/integrationAccounts/maps/write|Crée ou met à jour le mappage dans le compte d’intégration.|
+|/integrationAccounts/partners/delete|Supprime le partenaire dans le compte d’intégration.|
+|/integrationAccounts/partners/listContentCallbackUrl/action|Obtient l’URL de rappel pour le contenu partenaire dans le compte d’intégration.|
+|/integrationAccounts/partners/read|Lit le partenaire dans le compte d’intégration.|
+|/integrationAccounts/partners/write|Crée ou met à jour le partenaire dans le compte d’intégration.|
+|/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read|Lit les définitions de journal du compte d’intégration.|
+|/integrationAccounts/read|Lit le compte d’intégration.|
+|/integrationAccounts/regenerateAccessKey/action|Régénère les secrets de clé d’accès.|
+|/integrationAccounts/schemas/delete|Supprime le schéma dans le compte d’intégration.|
+|/integrationAccounts/schemas/listContentCallbackUrl/action|Obtient l’URL de rappel pour le contenu de schéma dans le compte d’intégration.|
+|/integrationAccounts/schemas/read|Lit le schéma dans le compte d’intégration.|
+|/integrationAccounts/schemas/write|Crée ou met à jour le schéma dans le compte d’intégration.|
+|/integrationAccounts/sessions/delete|Supprime la session dans le compte d’intégration.|
+|/integrationAccounts/sessions/read|Lit la configuration du lot dans le compte d’intégration.|
+|/integrationAccounts/sessions/write|Crée ou met à jour la session dans le compte d’intégration.|
+|/integrationAccounts/write|Crée ou met à jour le compte d’intégration.|
+|/locations/workflows/validate/action|Valide le workflow.|
+|/operations/read|Obtient l’opération.|
+|/register/action|Inscrit le fournisseur de ressources Microsoft.Logic pour un abonnement donné.|
+|/workflows/accessKeys/delete|Supprime la clé d’accès.|
+|/workflows/accessKeys/list/action|Répertorie les secrets de clé d’accès.|
+|/workflows/accessKeys/read|Lit la clé d’accès.|
+|/workflows/accessKeys/regenerate/action|Régénère les secrets de clé d’accès.|
+|/workflows/accessKeys/write|Crée ou met à jour la clé d’accès.|
+|/workflows/delete|Supprime le workflow.|
+|/workflows/disable/action|Désactive le workflow.|
+|/workflows/enable/action|Active le workflow.|
+|/workflows/listCallbackUrl/action|Obtient l’URL de rappel pour le workflow.|
+|/workflows/listSwagger/action|Obtient les définitions Swagger du workflow.|
+|/workflows/move/action|Déplace le workflow vers un ID d’abonnement, un groupe de ressources et/ou un nom différent.|
+|/workflows/providers/Microsoft.Insights/diagnosticSettings/read|Lit les paramètres de diagnostic de flux de travail.|
+|/workflows/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic de flux de travail.|
+|/workflows/providers/Microsoft.Insights/logDefinitions/read|Lit les définitions de journal de flux de travail.|
+|/workflows/providers/Microsoft.Insights/metricDefinitions/read|Lit les définitions de métrique de flux de travail.|
+|/workflows/read|Lit le workflow.|
+|/workflows/regenerateAccessKey/action|Régénère les secrets de clé d’accès.|
+|/workflows/run/action|Démarre l’exécution du workflow.|
+|/workflows/runs/actions/listExpressionTraces/action|Obtient les traces d’expression d’action d’exécution de flux de travail.|
+|/workflows/runs/actions/read|Lit l’action d’exécution d’un workflow.|
+|/workflows/runs/actions/repetitions/listExpressionTraces/action|Obtient les traces d’expression de répétition d’action d’exécution de flux de travail.|
+|/workflows/runs/actions/repetitions/read|Lit la répétition d’action d’exécution de flux de travail.|
+|/workflows/runs/actions/scoperepetitions/read|Lit la répétition de l’étendue de l’action d’exécution de flux de travail.|
+|/workflows/runs/cancel/action|Annule l’exécution d’un workflow.|
+|/workflows/runs/operations/read|Lit l’état d’exécution d’un workflow.|
+|/workflows/runs/read|Lit l’exécution d’un workflow.|
+|/workflows/suspend/action|Suspend le flux de travail.|
+|/workflows/triggers/histories/read|Lit l’historique du déclencheur.|
+|/workflows/triggers/histories/resubmit/action|Soumet à nouveau le déclencheur du workflow.|
+|/workflows/triggers/listCallbackUrl/action|Obtient l’URL de rappel pour le déclencheur.|
+|/workflows/triggers/read|Lit le déclencheur.|
+|/workflows/triggers/reset/action|Réinitialise le déclencheur.|
+|/workflows/triggers/run/action|Exécute le déclencheur.|
+|/workflows/triggers/setState/action|Définit l’état du déclencheur.|
+|/workflows/validate/action|Valide le workflow.|
+|/workflows/versions/read|Lit la version du workflow.|
+|/workflows/versions/triggers/listCallbackUrl/action|Obtient l’URL de rappel pour le déclencheur.|
+|/workflows/write|Crée ou met à jour le workflow.|
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/commitmentPlans/commitmentAssociations/move/action|Move any Machine Learning Commitment Plan Association|
-|/commitmentPlans/commitmentAssociations/read|Read any Machine Learning Commitment Plan Association|
-|/commitmentPlans/delete|Delete any Machine Learning Commitment Plan|
-|/commitmentPlans/join/action|Join any Machine Learning Commitment Plan|
-|/commitmentPlans/read|Read any Machine Learning Commitment Plan|
-|/commitmentPlans/write|Create or Update any Machine Learning Commitment Plan|
-|/locations/operationresults/read|Get result of a Machine Learning Operation|
-|/locations/operationsstatus/read|Get status of an ongoing Machine Learning Operation|
-|/operations/read|Get Machine Learning Operations|
-|/register/action|Registers the subscription for the machine learning web service resource provider and enables the creation of web services.|
-|/skus/read|Get Machine Learning Commitment Plan SKUs|
-|/webServices/action|Create regional Web Service Properties for supported regions|
-|/webServices/delete|Delete any Machine Learning Web Service|
-|/webServices/read|Read any Machine Learning Web Service|
-|/webServices/write|Create or Update any Machine Learning Web Service|
-|/Workspaces/delete|Delete any Machine Learning Workspace|
-|/Workspaces/listworkspacekeys/action|List keys for a Machine Learning Workspace|
-|/Workspaces/read|Read any Machine Learning Workspace|
-|/Workspaces/resyncstoragekeys/action|Resync keys of storage account configured for a Machine Learning Workspace|
-|/Workspaces/write|Create or Update any Machine Learning Workspace|
+|/commitmentPlans/commitmentAssociations/move/action|Déplacer une association de plans d’engagement Machine Learning|
+|/commitmentPlans/commitmentAssociations/read|Lire une association de plans d’engagement Machine Learning|
+|/commitmentPlans/delete|Supprimer un plan d’engagement Machine Learning|
+|/commitmentPlans/join/action|Rejoindre un plan d’engagement Machine Learning|
+|/commitmentPlans/read|Lire un plan d’engagement Machine Learning|
+|/commitmentPlans/write|Créer ou mettre à jour un plan d’engagement Machine Learning|
+|/locations/operationresults/read|Obtient le résultat d’une opération de Machine Learning|
+|/locations/operationsstatus/read|Obtient l’état d’une opération de Machine Learning en cours|
+|/operations/read|Obtient les opérations de Machine Learning|
+|/register/action|Enregistrer l’abonnement pour le fournisseur de ressources du service web Machine Learning et activer la création de services web|
+|/skus/read|Obtient les références (SKU) de plan d’engagement de Machine Learning|
+|/webServices/action|Créer des propriétés régionales de service web pour les régions prises en charge|
+|/webServices/delete|Supprimer un service web Machine Learning|
+|/webServices/read|Afficher un service web Machine Learning|
+|/webServices/write|Créer ou mettre à jour un service web Machine Learning|
+|/Workspaces/delete|Supprimer un espace de travail Machine Learning|
+|/Workspaces/listworkspacekeys/action|Répertorier les clés d’un espace de travail Machine Learning|
+|/Workspaces/read|Afficher un espace de travail Machine Learning|
+|/Workspaces/resyncstoragekeys/action|Resynchroniser les clés d’un compte de stockage configuré pour un espace de travail Machine Learning|
+|/Workspaces/write|Créer ou mettre à jour un espace de travail Machine Learning|
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/operationalizationClusters/checkUpdate/action|Check if updates are available for system services for the operationalization cluster|
-|/operationalizationClusters/delete|Delete any hosting account|
-|/operationalizationClusters/listKeys/action|List the keys associated with operationalization cluster|
-|/operationalizationClusters/read|Read any hosting account|
-|/operationalizationClusters/updateSystem/action|Update the system services in an operationalization cluster|
-|/operationalizationClusters/write|Create or update any hosting account|
-|/register/action|Registers subscription ID to the resource provider and enables the creation of a machine learning compute resources|
+|/operationalizationClusters/checkUpdate/action|Vérifie si des mises à jour sont disponibles pour les services système pour le cluster d’opérationnalisation|
+|/operationalizationClusters/delete|Supprime un compte d’hébergement|
+|/operationalizationClusters/listKeys/action|Affiche les clés associées au cluster d’opérationnalisation|
+|/operationalizationClusters/read|Lit un compte d’hébergement|
+|/operationalizationClusters/updateSystem/action|Met à jour les services système dans un cluster d’opérationnalisation|
+|/operationalizationClusters/write|Crée ou met à jour un compte d’hébergement|
+|/register/action|Inscrit l’ID d’abonnement auprès du fournisseur de ressources et permet la création de ressources de calcul de Machine Learning|
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/accounts/delete|Delete any hosting account|
-|/accounts/read|Read any hosting account|
-|/accounts/write|Create or update any hosting account|
-|/register/action|Registers subscription ID to the resource provider and enables the creation of a hosting account|
+|/accounts/delete|Supprime un compte d’hébergement|
+|/accounts/read|Lit un compte d’hébergement|
+|/accounts/write|Crée ou met à jour un compte d’hébergement|
+|/register/action|Inscrit l’ID d’abonnement auprès du fournisseur de ressources et permet la création d’un compte d’hébergement|
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/userAssignedIdentities/assign/action|RBAC action for assigning an existing user assigned identity to a resource|
-|/userAssignedIdentities/delete|Deletes an existing user assigned identity|
-|/userAssignedIdentities/read|Gets an existing user assigned identity|
-|/userAssignedIdentities/write|Creates a new user assigned identity or updates the tags associated with an existing user assigned identity|
+|/userAssignedIdentities/assign/action|Action RBAC pour l’affectation de l’identité assignée d’un utilisateur existant à une ressource|
+|/userAssignedIdentities/delete|Supprime l’identité assignée d’un utilisateur existant|
+|/userAssignedIdentities/read|Obtient l’identité assignée d’un utilisateur existant|
+|/userAssignedIdentities/write|Crée une identité assignée d’utilisateur ou met à jour les balises associées à l’identité assignée d’un utilisateur existant|
 
 ## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/labAccounts/CreateLab/action|Create a lab in a lab account.|
-|/labAccounts/delete|Delete lab accounts.|
-|/labAccounts/labs/delete|Delete labs.|
-|/labAccounts/labs/environmentSettings/delete|Delete environment setting.|
-|/labAccounts/labs/environmentSettings/environments/delete|Delete environments.|
-|/labAccounts/labs/environmentSettings/environments/read|Read environments.|
-|/labAccounts/labs/environmentSettings/environments/write|Add or modify environments.|
-|/labAccounts/labs/environmentSettings/read|Read environment setting.|
-|/labAccounts/labs/environmentSettings/write|Add or modify environment setting.|
-|/labAccounts/labs/labVms/delete|Delete lab virtual machines.|
-|/labAccounts/labs/labVms/read|Read lab virtual machines.|
-|/labAccounts/labs/labVms/write|Add or modify lab virtual machines.|
-|/labAccounts/labs/read|Read labs.|
-|/labAccounts/labs/write|Add or modify labs.|
-|/labAccounts/read|Read lab accounts.|
-|/labAccounts/write|Add or modify lab accounts.|
-|/locations/operations/read|Read operations.|
-|/register/action|Registers the subscription|
+|/labAccounts/CreateLab/action|Crée un lab dans un compte lab.|
+|/labAccounts/delete|Supprime des comptes de laboratoire.|
+|/labAccounts/labs/delete|Supprimer des laboratoires.|
+|/labAccounts/labs/environmentSettings/delete|Supprime un paramètre d’environnement.|
+|/labAccounts/labs/environmentSettings/environments/delete|Supprimer des environnements.|
+|/labAccounts/labs/environmentSettings/environments/read|Afficher les environnements.|
+|/labAccounts/labs/environmentSettings/environments/write|Ajouter ou modifier des environnements.|
+|/labAccounts/labs/environmentSettings/read|Lit le paramètre environnement.|
+|/labAccounts/labs/environmentSettings/write|Ajoute ou modifie un paramètre d’environnement.|
+|/labAccounts/labs/labVms/delete|Supprime les machines virtuelles lab.|
+|/labAccounts/labs/labVms/read|Lit les machines virtuelles lab.|
+|/labAccounts/labs/labVms/write|Ajoute ou modifie des machines virtuelles lab.|
+|/labAccounts/labs/read|Afficher des laboratoires.|
+|/labAccounts/labs/write|Ajouter ou modifier des laboratoires.|
+|/labAccounts/read|Lit les comptes de laboratoire.|
+|/labAccounts/write|Ajoute ou modifie les comptes de laboratoire.|
+|/locations/operations/read|Opérations de lecture.|
+|/register/action|Enregistrer l’abonnement.|
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/action|Checks if the specified management group name is valid and unique.|
-|/getEntities/action|List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.|
-|/managementGroups/delete|Delete management group.|
-|/managementGroups/read|List management groups for the authenticated user.|
-|/managementGroups/subscriptions/delete|De-associates subscription from the management group.|
-|/managementGroups/subscriptions/write|Associates existing subscription with the management group.|
-|/managementGroups/write|Create or update a management group.|
+|/checkNameAvailability/action|Vérifie si le nom de groupe d’administration spécifié est valide et unique.|
+|/getEntities/action|Affiche toutes les entités (groupes d’administration, abonnements, etc.) pour l’utilisateur authentifié.|
+|/managementGroups/delete|Supprime un groupe d’administration.|
+|/managementGroups/read|Répertorie les groupes d’administration de l’utilisateur authentifié.|
+|/managementGroups/subscriptions/delete|Dissocie un abonnement du groupe d’administration.|
+|/managementGroups/subscriptions/write|Associe un abonnement existant au groupe d’administration.|
+|/managementGroups/write|Crée ou met à jour un groupe d’administration.|
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/ClassicDevServices/delete|Does a DELETE operation on a classic dev service resource.|
-|/ClassicDevServices/listSecrets/action|Gets a classic dev service resource management keys.|
-|/ClassicDevServices/listSingleSignOnToken/action|Gets the Single Sign On URL for a classic dev service.|
-|/ClassicDevServices/read|Does a GET operation on a classic dev service.|
-|/ClassicDevServices/regenerateKey/action|Generates a classic dev service resource management keys.|
-|/Operations/read|Read the operations for all resource types.|
+|/ClassicDevServices/delete|Effectue une opération DELETE sur une ressource de service de développement classique.|
+|/ClassicDevServices/listSecrets/action|Obtient les clés de gestion des ressources d’un service de développement classique.|
+|/ClassicDevServices/listSingleSignOnToken/action|Obtient l’URL d’authentification unique pour un service de développement classique.|
+|/ClassicDevServices/read|Effectue une opération GET sur un service de développement classique.|
+|/ClassicDevServices/regenerateKey/action|Génère les clés de gestion des ressources d’un service de développement classique.|
+|/Operations/read|Lit les opérations pour tous les types de ressources.|
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/agreements/offers/plans/cancel/action|Cancel an agreement for a given marketplace item|
-|/agreements/offers/plans/read|Return an agreement for a given marketplace item|
-|/agreements/offers/plans/sign/action|Sign an agreement for a given marketplace item|
-|/agreements/read|Return all agreements under given subscription|
-|/offertypes/publishers/offers/plans/agreements/read|Get an agreement for a given marketplace virtual machine item|
-|/offertypes/publishers/offers/plans/agreements/write|Sign or Cancel an agreement for a given marketplace virtual machine item|
+|/agreements/offers/plans/cancel/action|Annuler un contrat pour un élément de place de marché donné|
+|/agreements/offers/plans/read|Renvoyer un contrat pour un élément de place de marché donné|
+|/agreements/offers/plans/sign/action|Signer un contrat pour un élément de place de marché donné|
+|/agreements/read|Retourne tous les accords sous un abonnement spécifié|
+|/offertypes/publishers/offers/plans/agreements/read|Obtient un accord pour un élément spécifié de machine virtuelle de la place de marché|
+|/offertypes/publishers/offers/plans/agreements/write|Signe ou annule un accord pour un élément spécifié de machine virtuelle de la place de marché|
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checknameavailability/action|Checks if a Media Services account name is available|
-|/mediaservices/delete|Delete any Media Services Account|
-|/mediaservices/listKeys/action|List the ACS keys for the Media Services account|
-|/mediaservices/read|Read any Media Services Account|
-|/mediaservices/regenerateKey/action|Regenerate a Media Services ACS key|
-|/mediaservices/syncStorageKeys/action|Synchronize the Storage Keys for an attached Azure Storage account|
-|/mediaservices/write|Create or Update any Media Services Account|
-|/operations/read|Read any Media Services Account|
-|/register/action|Registers the subscription for the Media Services resource provider and enables the creation of Media Services accounts|
+|/checknameavailability/action|Vérifie si un nom de compte Media Services est disponible|
+|/mediaservices/delete|Supprime un compte Media Services|
+|/mediaservices/listKeys/action|Affiche les clés ACS pour le compte Media Services|
+|/mediaservices/read|Lit un compte Media Services|
+|/mediaservices/regenerateKey/action|Régénère une clé ACS Media Services|
+|/mediaservices/syncStorageKeys/action|Synchronise les clés de stockage pour un compte de stockage Azure attaché|
+|/mediaservices/write|Crée ou met à jour un compte Media Services|
+|/operations/read|Lit un compte Media Services|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources Media Services et active la création de comptes Media Services|
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/Operations/read|Reads the exposed operations|
+|/Operations/read|Lit les opérations exposées|
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/applicationGatewayAvailableSslOptions/predefinedPolicies/read|Application Gateway Ssl Predefined Policy|
-|/applicationGatewayAvailableSslOptions/read|Application Gateway available Ssl Options|
-|/applicationGatewayAvailableWafRuleSets/read|Gets Application Gateway Available Waf Rule Sets|
-|/applicationGateways/backendAddressPools/join/action|Joins an application gateway backend address pool|
-|/applicationGateways/backendhealth/action|Gets an application gateway backend health|
-|/applicationGateways/delete|Deletes an application gateway|
-|/applicationGateways/effectiveNetworkSecurityGroups/action|Get Route Table configured On Application Gateway|
-|/applicationGateways/effectiveRouteTable/action|Get Route Table configured On Application Gateway|
-|/applicationGateways/providers/Microsoft.Insights/logDefinitions/read|Gets the events for Application Gateway|
-|/applicationGateways/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Application Gateway|
-|/applicationGateways/read|Gets an application gateway|
-|/applicationGateways/setSecurityCenterConfiguration/action|Sets Application Gateway Security Center Configuration|
-|/applicationGateways/start/action|Starts an application gateway|
-|/applicationGateways/stop/action|Stops an application gateway|
-|/applicationGateways/write|Creates an application gateway or updates an application gateway|
-|/applicationSecurityGroups/delete|Deletes an Application Security Group|
-|/applicationSecurityGroups/joinIpConfiguration/action|Joins an IP Configuration to Application Security Groups.|
-|/applicationSecurityGroups/joinNetworkSecurityRule/action|Joins a Security Rule to Application Security Groups.|
-|/applicationSecurityGroups/read|Gets an Application Security Group ID.|
-|/applicationSecurityGroups/write|Creates an Application Security Group, or updates an existing Application Security Group.|
-|/bgpServiceCommunities/read|Get Bgp Service Communities|
-|/checkTrafficManagerNameAvailability/action|Checks the availability of a Traffic Manager Relative DNS name.|
-|/connections/delete|Deletes VirtualNetworkGatewayConnection|
-|/connections/read|Gets VirtualNetworkGatewayConnection|
-|/connections/sharedkey/action|Get VirtualNetworkGatewayConnection SharedKey|
-|/connections/sharedKey/read|Gets VirtualNetworkGatewayConnection SharedKey|
-|/connections/sharedKey/write|Creates or updates an existing VirtualNetworkGatewayConnection SharedKey|
-|/connections/vpndeviceconfigurationscript/read|Gets Vpn Device Configuration of VirtualNetworkGatewayConnection|
-|/connections/write|Creates or updates an existing VirtualNetworkGatewayConnection|
-|/ddosProtectionPlans/ddosProtectionPlanProxies/delete|Deletes a DDoS Protection Plan Proxy|
-|/ddosProtectionPlans/ddosProtectionPlanProxies/read|Gets a DDoS Protection Plan Proxy definition|
-|/ddosProtectionPlans/ddosProtectionPlanProxies/write|Creates a DDoS Protection Plan Proxy or updates and existing DDoS Protection Plan Proxy|
-|/ddosProtectionPlans/delete|Deletes a DDoS Protection Plan|
-|/ddosProtectionPlans/join/action|Joins a DDoS Protection Plan|
-|/ddosProtectionPlans/read|Gets a DDoS Protection Plan|
-|/ddosProtectionPlans/write|Creates a DDoS Protection Plan or updates a DDoS Protection Plan |
-|/dnsoperationresults/read|Gets results of a DNS operation|
-|/dnsoperationstatuses/read|Gets status of a DNS operation |
-|/dnszones/A/delete|Remove the record set of a given name and type ‘A’ from a DNS zone.|
-|/dnszones/A/read|Get the record set of type ‘A’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag.|
-|/dnszones/A/write|Create or update a record set of type ‘A’ within a DNS zone. The records specified will replace the current records in the record set.|
-|/dnszones/AAAA/delete|Remove the record set of a given name and type ‘AAAA’ from a DNS zone.|
-|/dnszones/AAAA/read|Get the record set of type ‘AAAA’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag.|
-|/dnszones/AAAA/write|Create or update a record set of type ‘AAAA’ within a DNS zone. The records specified will replace the current records in the record set.|
-|/dnszones/all/read|Gets DNS record sets across types|
-|/dnszones/CAA/delete|Remove the record set of a given name and type ‘CAA’ from a DNS zone.|
-|/dnszones/CAA/read|Get the record set of type ‘CAA’, in JSON format. The record set contains the TTL, tags, and etag.|
-|/dnszones/CAA/write|Create or update a record set of type ‘CAA’ within a DNS zone. The records specified will replace the current records in the record set.|
-|/dnszones/CNAME/delete|Remove the record set of a given name and type ‘CNAME’ from a DNS zone.|
-|/dnszones/CNAME/read|Get the record set of type ‘CNAME’, in JSON format. The record set contains the TTL, tags, and etag.|
-|/dnszones/CNAME/write|Create or update a record set of type ‘CNAME’ within a DNS zone. The records specified will replace the current records in the record set.|
-|/dnszones/delete|Delete the DNS zone, in JSON format. The zone properties include tags, etag, numberOfRecordSets, and maxNumberOfRecordSets.|
-|/dnszones/MX/delete|Remove the record set of a given name and type ‘MX’ from a DNS zone.|
-|/dnszones/MX/read|Get the record set of type ‘MX’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag.|
-|/dnszones/MX/write|Create or update a record set of type ‘MX’ within a DNS zone. The records specified will replace the current records in the record set.|
-|/dnszones/NS/delete|Deletes the DNS record set of type NS|
-|/dnszones/NS/read|Gets DNS record set of type NS|
-|/dnszones/NS/write|Creates or updates DNS record set of type NS|
-|/dnszones/providers/Microsoft.Insights/diagnosticSettings/read|Gets the DNS zone diagnostic settings|
-|/dnszones/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the DNS zone diagnostic settings|
-|/dnszones/providers/Microsoft.Insights/metricDefinitions/read|Gets the DNS zone metric definitions|
-|/dnszones/PTR/delete|Remove the record set of a given name and type ‘PTR’ from a DNS zone.|
-|/dnszones/PTR/read|Get the record set of type ‘PTR’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag.|
-|/dnszones/PTR/write|Create or update a record set of type ‘PTR’ within a DNS zone. The records specified will replace the current records in the record set.|
-|/dnszones/read|Get the DNS zone, in JSON format. The zone properties include tags, etag, numberOfRecordSets, and maxNumberOfRecordSets. Note that this command does not retrieve the record sets contained within the zone.|
-|/dnszones/recordsets/read|Gets DNS record sets across types|
-|/dnszones/SOA/read|Gets DNS record set of type SOA|
-|/dnszones/SOA/write|Creates or updates DNS record set of type SOA|
-|/dnszones/SRV/delete|Remove the record set of a given name and type ‘SRV’ from a DNS zone.|
-|/dnszones/SRV/read|Get the record set of type ‘SRV’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag.|
-|/dnszones/SRV/write|Create or update record set of type SRV|
-|/dnszones/TXT/delete|Remove the record set of a given name and type ‘TXT’ from a DNS zone.|
-|/dnszones/TXT/read|Get the record set of type ‘TXT’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag.|
-|/dnszones/TXT/write|Create or update a record set of type ‘TXT’ within a DNS zone. The records specified will replace the current records in the record set.|
-|/dnszones/write|Create or update a DNS zone within a resource group.  Used to update the tags on a DNS zone resource. Note that this command can not be used to create or update record sets within the zone.|
-|/expressRouteCircuits/authorizations/delete|Deletes an ExpressRouteCircuit Authorization|
-|/expressRouteCircuits/authorizations/read|Gets an ExpressRouteCircuit Authorization|
-|/expressRouteCircuits/authorizations/write|Creates or updates an existing ExpressRouteCircuit Authorization|
-|/expressRouteCircuits/delete|Deletes an ExpressRouteCircuit|
-|/expressRouteCircuits/peerings/arpTables/action|Gets an ExpressRouteCircuit Peering ArpTable|
-|/expressRouteCircuits/peerings/connections/delete|Deletes an ExpressRouteCircuit Connection|
-|/expressRouteCircuits/peerings/connections/read|Gets an ExpressRouteCircuit Connection|
-|/expressRouteCircuits/peerings/connections/write|Creates or updates an existing ExpressRouteCircuit Connection Resource|
-|/expressRouteCircuits/peerings/delete|Deletes an ExpressRouteCircuit Peering|
-|/expressRouteCircuits/peerings/read|Gets an ExpressRouteCircuit Peering|
-|/expressRouteCircuits/peerings/routeTables/action|Gets an ExpressRouteCircuit Peering RouteTable|
-|/expressRouteCircuits/peerings/routeTablesSummary/action|Gets an ExpressRouteCircuit Peering RouteTable Summary|
-|/expressRouteCircuits/peerings/stats/read|Gets an ExpressRouteCircuit Peering Stat|
-|/expressRouteCircuits/peerings/write|Creates or updates an existing ExpressRouteCircuit Peering|
-|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/read|Gets diagnostic settings for ExpressRoute Circuits|
-|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates diagnostic settings for ExpressRoute Circuits|
-|/expressRouteCircuits/providers/Microsoft.Insights/logDefinitions/read|Get the events for ExpressRoute Circuits|
-|/expressRouteCircuits/providers/Microsoft.Insights/metricDefinitions/read|Gets the metric definitions for ExpressRoute Circuits|
-|/expressRouteCircuits/read|Get an ExpressRouteCircuit|
-|/expressRouteCircuits/stats/read|Gets an ExpressRouteCircuit Stat|
-|/expressRouteCircuits/write|Creates or updates an existing ExpressRouteCircuit|
-|/expressRouteCrossConnections/delete|Delete Express Route Cross Connection|
-|/expressRouteCrossConnections/join/action|Joins an Express Route Cross Connection|
-|/expressRouteCrossConnections/peerings/arpTables/action|Gets an Express Route Cross Connection Peering Arp Table|
-|/expressRouteCrossConnections/peerings/delete|Deletes an Express Route Cross Connection Peering|
-|/expressRouteCrossConnections/peerings/read|Gets an Express Route Cross Connection Peering|
-|/expressRouteCrossConnections/peerings/routeTables/action|Gets an Express Route Cross Connection Peering Route Table|
-|/expressRouteCrossConnections/peerings/routeTableSummary/action|Gets an Express Route Cross Connection Peering Route Table Summary|
-|/expressRouteCrossConnections/peerings/stats/read|Gets an Express Route Cross Connection Peering Stat|
-|/expressRouteCrossConnections/peerings/write|Creates an Express Route Cross Connection Peering or Updates an existing Express Route Cross Connection Peering|
-|/expressRouteCrossConnections/read|Get Express Route Cross Connection|
-|/expressRouteCrossConnections/write|Create or Update Express Route Cross Connection|
-|/expressRouteServiceProviders/read|Gets Express Route Service Providers|
-|/loadBalancers/backendAddressPools/join/action|Joins a load balancer backend address pool|
-|/loadBalancers/backendAddressPools/read|Gets a load balancer backend address pool definition|
-|/loadBalancers/delete|Deletes a load balancer|
-|/loadBalancers/frontendIPConfigurations/read|Gets a load balancer frontend IP configuration definition|
-|/loadBalancers/inboundNatPools/join/action|Joins a load balancer inbound nat pool|
-|/loadBalancers/inboundNatPools/read|Gets a load balancer inbound nat pool definition|
-|/loadBalancers/inboundNatRules/delete|Deletes a load balancer inbound nat rule|
-|/loadBalancers/inboundNatRules/join/action|Joins a load balancer inbound nat rule|
-|/loadBalancers/inboundNatRules/read|Gets a load balancer inbound nat rule definition|
-|/loadBalancers/inboundNatRules/write|Creates a load balancer inbound nat rule or updates an existing load balancer inbound nat rule|
-|/loadBalancers/loadBalancingRules/read|Gets a load balancer load balancing rule definition|
-|/loadBalancers/networkInterfaces/read|Gets references to all the network interfaces under a load balancer|
-|/loadBalancers/outboundNatRules/read|Gets a load balancer outbound nat rule definition|
-|/loadBalancers/probes/join/action|Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe.|
-|/loadBalancers/probes/read|Gets a load balancer probe|
-|/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/read|Gets the Load Balancer Diagnostic Settings|
-|/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the Load Balancer Diagnostic Settings|
-|/loadBalancers/providers/Microsoft.Insights/logDefinitions/read|Gets the events for Load Balancer|
-|/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Load Balancer|
-|/loadBalancers/read|Gets a load balancer definition|
-|/loadBalancers/virtualMachines/read|Gets references to all the virtual machines under a load balancer|
-|/loadBalancers/write|Creates a load balancer or updates an existing load balancer|
-|/localnetworkgateways/delete|Deletes LocalNetworkGateway|
-|/localnetworkgateways/read|Gets LocalNetworkGateway|
-|/localnetworkgateways/write|Creates or updates an existing LocalNetworkGateway|
-|/locations/checkDnsNameAvailability/read|Checks if dns label is available at the specified location|
-|/locations/operationResults/read|Gets operation result of an async POST or DELETE operation|
-|/locations/operations/read|Gets operation resource that represents status of an asynchronous operation|
-|/locations/usages/read|Gets the resources usage metrics|
-|/locations/virtualNetworkAvailableEndpointServices/read|Gets a list of available Virtual Network Endpoint Services|
-|/networkInterfaces/delete|Deletes a network interface|
-|/networkInterfaces/diagnosticIdentity/read|Gets Diagnostic Identity Of The Resource|
-|/networkInterfaces/effectiveNetworkSecurityGroups/action|Get Network Security Groups configured On Network Interface Of The Vm|
-|/networkInterfaces/effectiveRouteTable/action|Get Route Table configured On Network Interface Of The Vm|
-|/networkInterfaces/ipconfigurations/read|Gets a network interface ip configuration definition. |
-|/networkInterfaces/join/action|Joins a Virtual Machine to a network interface|
-|/networkInterfaces/loadBalancers/read|Gets all the load balancers that the network interface is part of|
-|/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read|Gets available metrics for the Network Interface|
-|/networkInterfaces/read|Gets a network interface definition. |
-|/networkInterfaces/write|Creates a network interface or updates an existing network interface. |
-|/networkSecurityGroups/defaultSecurityRules/read|Gets a default security rule definition|
-|/networkSecurityGroups/delete|Deletes a network security group|
-|/networkSecurityGroups/join/action|Joins a network security group|
-|/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read|Gets the Network Security Groups Diagnostic Settings|
-|/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the Network Security Groups diagnostic settings, this operation is supplimented by insghts resource provider.|
-|/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read|Gets the events for network security group|
-|/networkSecurityGroups/read|Gets a network security group definition|
-|/networkSecurityGroups/securityRules/delete|Deletes a security rule|
-|/networkSecurityGroups/securityRules/read|Gets a security rule definition|
-|/networkSecurityGroups/securityRules/write|Creates a security rule or updates an existing security rule|
-|/networkSecurityGroups/write|Creates a network security group or updates an existing network security group|
-|/networkWatchers/availableProvidersList/action|Returns all available internet service providers for a specified Azure region.|
-|/networkWatchers/azureReachabilityReport/action|Returns the relative latency score for internet service providers from a specified location to Azure regions.|
-|/networkWatchers/configureFlowLog/action|Configures flow logging for a target resource.|
-|/networkWatchers/connectionMonitors/delete|Deletes a Connection Monitor|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/read|Get the diagnostic settings of Connection Monitor|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/write|Creates or updates the Connection Monitor Diagnostic Settings|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ metricDefinitions/read|Gets the available metrics for Connection Monitor|
-|/networkWatchers/connectionMonitors/query/action|Query monitoring connectivity between specified endpoints|
-|/networkWatchers/connectionMonitors/read|Get Connection Monitor details|
-|/networkWatchers/connectionMonitors/start/action|Start monitoring connectivity between specified endpoints|
-|/networkWatchers/connectionMonitors/stop/action|Stop/pause monitoring connectivity between specified endpoints|
-|/networkWatchers/connectionMonitors/write|Creates a Connection Monitor|
-|/networkWatchers/connectivityCheck/action|Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server.|
-|/networkWatchers/delete|Deletes a network watcher|
-|/networkWatchers/ipFlowVerify/action|Returns whether the packet is allowed or denied to or from a particular destination.|
-|/networkWatchers/lenses/delete|Deletes a Lens|
-|/networkWatchers/lenses/query/action|Query monitoring network traffic on a specified endpoint|
-|/networkWatchers/lenses/read|Get Lens details|
-|/networkWatchers/lenses/start/action|Start monitoring network traffic on a specified endpoint|
-|/networkWatchers/lenses/stop/action|Stop/pause monitoring network traffic on a specified endpoint|
-|/networkWatchers/lenses/write|Creates a Lens|
-|/networkWatchers/nextHop/action|For a specified target and destination IP address, return the next hop type and next hope IP address.|
-|/networkWatchers/packetCaptures/delete|Deletes a packet capture|
-|/networkWatchers/packetCaptures/queryStatus/action|Gets information about properties and status of a packet capture resource.|
-|/networkWatchers/packetCaptures/read|Get the packet capture definition|
-|/networkWatchers/packetCaptures/stop/action|Stop the running packet capture session.|
-|/networkWatchers/packetCaptures/write|Creates a packet capture|
-|/networkWatchers/queryFlowLogStatus/action|Gets the status of flow logging on a resource.|
-|/networkWatchers/queryTroubleshootResult/action|Gets the troubleshooting result from the previously run or currently running troubleshooting operation.|
-|/networkWatchers/read|Get the network watcher definition|
-|/networkWatchers/securityGroupView/action|View the configured and effective network security group rules applied on a VM.|
-|/networkWatchers/topology/action|Gets a network level view of resources and their relationships in a resource group.|
-|/networkWatchers/troubleshoot/action|Starts troubleshooting on a Networking resource in Azure.|
-|/networkWatchers/write|Creates a network watcher or updates an existing network watcher|
-|/operations/read|Get Available Operations|
-|/publicIPAddresses/delete|Deletes a public Ip address.|
-|/publicIPAddresses/join/action|Joins a public ip address|
-|/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostic settings of Public IP Address|
-|/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write|Create or update the diagnostic settings of Public IP Address|
-|/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read|Get the log definitions of Public IP Address|
-|/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read|Get the metrics definitions of Public IP Address|
-|/publicIPAddresses/read|Gets a public ip address definition.|
-|/publicIPAddresses/write|Creates a public Ip address or updates an existing public Ip address. |
-|/register/action|Registers the subscription|
-|/routeFilters/delete|Deletes a route filter definition|
-|/routeFilters/join/action|Joins a route filter|
-|/routeFilters/read|Gets a route filter definition|
-|/routeFilters/routeFilterRules/delete|Deletes a route filter rule definition|
-|/routeFilters/routeFilterRules/read|Gets a route filter rule definition|
-|/routeFilters/routeFilterRules/write|Creates a route filter rule or Updates an existing route filter rule|
-|/routeFilters/write|Creates a route filter or Updates an existing rotue filter|
-|/routeTables/delete|Deletes a route table definition|
-|/routeTables/join/action|Joins a route table|
-|/routeTables/read|Gets a route table definition|
-|/routeTables/routes/delete|Deletes a route definition|
-|/routeTables/routes/read|Gets a route definition|
-|/routeTables/routes/write|Creates a route or Updates an existing route|
-|/routeTables/write|Creates a route table or Updates an existing rotue table|
-|/securegateways/applicationRuleCollections/delete|Deletes an Application Rule Collection for a Secure Gateway|
-|/securegateways/applicationRuleCollections/read|Retrieve an Application Rule Collection for a given Secure Gateway|
-|/securegateways/applicationRuleCollections/write|Creates or updates an Application Rule Collection for a Secure Gateway|
-|/securegateways/delete|Delete Secure Gateway|
-|/securegateways/networkRuleCollections/delete|Deletes a Network Rule Collection for a Secure Gateway|
-|/securegateways/networkRuleCollections/read|Retrieve a Network Rule Collection for a given Secure Gateway|
-|/securegateways/networkRuleCollections/write|Creates or updates a Network Rule Collection for a Secure Gateway|
-|/securegateways/read|Get Secure Gateway|
-|/securegateways/write|Creates or updates a Secure Gateway|
-|/serviceEndpointPolicies/delete|Deletes a Service Endpoint Policy|
-|/serviceEndpointPolicies/join/action|Joins a Service Endpoint Policy|
-|/serviceEndpointPolicies/joinSubnet/action|Joins a Subnet To Service Endpoint Policies|
-|/serviceEndpointPolicies/read|Gets a Service Endpoint Policy Description|
-|/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete|Deletes a Service Endpoint Policy Definition|
-|/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read|Gets a Service Endpoint Policy Definition Decription|
-|/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/write|Creates a Service Endpoint Policy Definition or updates an existing Service Endpoint Policy Definition|
-|/serviceEndpointPolicies/write|Creates a Service Endpoint Policy or updates an existing Service Endpoint Policy|
-|/trafficManagerGeographicHierarchies/read|Gets the Traffic Manager Geographic Hierarchy containing regions which can be used with the Geographic traffic routing method|
-|/trafficManagerProfiles/azureEndpoints/delete|Deletes an Azure Endpoint from an existing Traffic Manager Profile. Traffic Manager will stop routing traffic to the deleted Azure Endpoint.|
-|/trafficManagerProfiles/azureEndpoints/read|Gets an Azure Endpoint which belongs to a Traffic Manager Profile, including all the properties of that Azure Endpoint.|
-|/trafficManagerProfiles/azureEndpoints/write|Add a new Azure Endpoint in an existing Traffic Manager Profile or update the properties of an existing Azure Endpoint in that Traffic Manager Profile.|
-|/trafficManagerProfiles/delete|Delete the Traffic Manager profile. All settings associated with the Traffic Manager profile will be lost, and the profile can no longer be used to route traffic.|
-|/trafficManagerProfiles/externalEndpoints/delete|Deletes an External Endpoint from an existing Traffic Manager Profile. Traffic Manager will stop routing traffic to the deleted External Endpoint.|
-|/trafficManagerProfiles/externalEndpoints/read|Gets an External Endpoint which belongs to a Traffic Manager Profile, including all the properties of that External Endpoint.|
-|/trafficManagerProfiles/externalEndpoints/write|Add a new External Endpoint in an existing Traffic Manager Profile or update the properties of an existing External Endpoint in that Traffic Manager Profile.|
-|/trafficManagerProfiles/heatMaps/read|Gets the Traffic Manager Heat Map for the given Traffic Manager profile which contains query counts and latency data by location and source IP.|
-|/trafficManagerProfiles/nestedEndpoints/delete|Deletes an Nested Endpoint from an existing Traffic Manager Profile. Traffic Manager will stop routing traffic to the deleted Nested Endpoint.|
-|/trafficManagerProfiles/nestedEndpoints/read|Gets an Nested Endpoint which belongs to a Traffic Manager Profile, including all the properties of that Nested Endpoint.|
-|/trafficManagerProfiles/nestedEndpoints/write|Add a new Nested Endpoint in an existing Traffic Manager Profile or update the properties of an existing Nested Endpoint in that Traffic Manager Profile.|
-|/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read|Gets the Traffic Manager Diagnostic Settings|
-|/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the Traffic Manager diagnostic settings, this operation is supplimented by insights resource provider.|
-|/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read|Gets the events for Traffic Manager|
-|/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Traffic Manager.|
-|/trafficManagerProfiles/read|Get the Traffic Manager profile configuration. This includes DNS settings, traffic routing settings, endpoint monitoring settings, and the list of endpoints routed by this Traffic Manager profile.|
-|/trafficManagerProfiles/write|Create a Traffic Manager profile, or modify the configuration of an existing Traffic Manager profile. This includes enabling or disabling a profile and modifying DNS settings, traffic routing settings, or endpoint monitoring settings. Endpoints routed by the Traffic Manager profile can be added, removed, enabled or disabled.|
-|/trafficManagerUserMetricsKeys/delete|Deletes the subscription-level key used for Realtime User Metrics collection.|
-|/trafficManagerUserMetricsKeys/read|Gets the subscription-level key used for Realtime User Metrics collection.|
-|/trafficManagerUserMetricsKeys/write|Creates a new subscription-level key to be used for Realtime User Metrics collection.|
-|/unregister/action|Unregisters the subscription|
-|/virtualHubs/delete|Deletes a Virtual Hub|
-|/virtualHubs/hubVirtualNetworkConnections/delete|Deletes a HubVirtualNetworkConnection|
-|/virtualHubs/hubVirtualNetworkConnections/read|Get a HubVirtualNetworkConnection|
-|/virtualHubs/hubVirtualNetworkConnections/write|Create or update a HubVirtualNetworkConnection|
-|/virtualHubs/read|Get a Virtual Hub|
-|/virtualHubs/write|Create or update a Virtual Hub|
-|/virtualnetworkgateways/connections/read|Get VirtualNetworkGatewayConnection|
-|/virtualNetworkGateways/delete|Deletes a virtualNetworkGateway|
-|/virtualnetworkgateways/generatevpnclientpackage/action|Generate VpnClient package for virtualNetworkGateway|
-|/virtualnetworkgateways/generatevpnprofile/action|Generate VpnProfile package for VirtualNetworkGateway|
-|/virtualnetworkgateways/getadvertisedroutes/action|Gets virtualNetworkGateway advertised routes|
-|/virtualnetworkgateways/getbgppeerstatus/action|Gets virtualNetworkGateway bgp peer status|
-|/virtualnetworkgateways/getlearnedroutes/action|Gets virtualnetworkgateway learned routes|
-|/virtualnetworkgateways/getvpnclientipsecparameters/action|Get Vpnclient Ipsec parameters for VirtualNetworkGateway P2S client.|
-|/virtualnetworkgateways/getvpnprofilepackageurl/action|Gets the URL of a pre-generated vpn client profile package|
-|/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read|Gets the Virtual Network Gateway Diagnostic Settings|
-|/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the Virtual Network Gateway diagnostic settings, this operation is supplimented by insights resource provider.|
-|/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read|Gets the events for Virtual Network Gateway|
-|/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Virtual Network Gateway|
-|/virtualNetworkGateways/read|Gets a VirtualNetworkGateway|
-|/virtualnetworkgateways/reset/action|Resets a virtualNetworkGateway|
-|/virtualnetworkgateways/setvpnclientipsecparameters/action|Set Vpnclient Ipsec parameters for VirtualNetworkGateway P2S client.|
-|/virtualnetworkgateways/supportedvpndevices/action|Lists Supported Vpn Devices|
-|/virtualNetworkGateways/write|Creates or updates a VirtualNetworkGateway|
-|/virtualNetworks/checkIpAddressAvailability/read|Check if Ip Address is available at the specified virtual network|
-|/virtualNetworks/customViews/get/action|Get a Virtual Network custom view content|
-|/virtualNetworks/customViews/read|Get definition of a custom view of Virtual Network|
-|/virtualNetworks/delete|Deletes a virtual network|
-|/virtualNetworks/peer/action|Peers a virtual network with another virtual network|
-|/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostic settings of Virtual Network|
-|/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/write|Create or update the diagnostic settings of the Virtual Network|
-|/virtualNetworks/providers/Microsoft.Insights/logDefinitions/read|Get the log definitions of Virtual Network|
-|/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read|Get the metric definitions of Virtual Network|
-|/virtualNetworks/read|Get the virtual network definition|
-|/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete|Deletes a virtual network peering proxy|
-|/virtualNetworks/remoteVirtualNetworkPeeringProxies/read|Gets a virtual network peering proxy definition|
-|/virtualNetworks/remoteVirtualNetworkPeeringProxies/write|Creates a virtual network peering proxy or updates an existing virtual network peering proxy|
-|/virtualNetworks/subnets/delete|Deletes a virtual network subnet|
-|/virtualNetworks/subnets/join/action|Joins a virtual network|
-|/virtualNetworks/subnets/joinViaServiceEndpoint/action|Joins resource such as storage account or SQL database to a subnet.|
-|/virtualNetworks/subnets/read|Gets a virtual network subnet definition|
-|/virtualNetworks/subnets/resourceNavigationLinks/delete|Deletes a Resource Navigation Link|
-|/virtualNetworks/subnets/resourceNavigationLinks/read|Get the Resource Navigation Link definition|
-|/virtualNetworks/subnets/resourceNavigationLinks/write|Creates a Resource Navigation Link or updates an existing Resource Navigation Link|
-|/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|
-|/virtualNetworks/subnets/write|Creates a virtual network subnet or updates an existing virtual network subnet|
-|/virtualNetworks/taggedTrafficConsumers/delete|Deletes a Tagged Traffic Consumer|
-|/virtualNetworks/taggedTrafficConsumers/read|Get the Tagged Traffic Consumer definition|
-|/virtualNetworks/taggedTrafficConsumers/validate/action|Validates a Tagged Traffic Consumer|
-|/virtualNetworks/taggedTrafficConsumers/write|Creates a Tagged Traffic Consumer or updates an existing Tagged Traffic Consumer|
-|/virtualNetworks/usages/read|Get the IP usages for each subnet of the virtual network|
-|/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|
-|/virtualNetworks/virtualNetworkPeerings/delete|Deletes a virtual network peering|
-|/virtualNetworks/virtualNetworkPeerings/read|Gets a virtual network peering definition|
-|/virtualNetworks/virtualNetworkPeerings/write|Creates a virtual network peering or updates an existing virtual network peering|
-|/virtualNetworks/write|Creates a virtual network or updates an existing virtual network|
-|/virtualNetworkTaps/delete|Delete Virtual Network Tap|
-|/virtualNetworkTaps/join/action|Joins a virtual network tap|
-|/virtualNetworkTaps/read|Get Virtual Network Tap|
-|/virtualNetworkTaps/write|Create or Update Virtual Network Tap|
-|/virtualwans/delete|Deletes a Virtual Wan|
-|/virtualwans/read|Get a Virtual Wan|
-|/virtualWans/virtualHubProxies/delete|Deletes a Virtual Hub proxy|
-|/virtualWans/virtualHubProxies/read|Gets a Virtual Hub proxy definition|
-|/virtualWans/virtualHubProxies/write|Creates a Virtual Hub proxy or updates a Virtual Hub proxy|
-|/virtualwans/virtualHubs/read|Gets all Virtual Hubs that are associated to a Virtual Wan.|
-|/virtualwans/vpnconfiguration/read|Gets a Vpn Configuration|
-|/virtualWans/vpnSiteProxies/delete|Deletes a Vpn Site proxy|
-|/virtualWans/vpnSiteProxies/read|Gets a Vpn Site proxy definition|
-|/virtualWans/vpnSiteProxies/write|Creates a Vpn Site proxy or updates a Vpn Site proxy|
-|/virtualwans/vpnSites/read|Gets all VPN Sites that are associated to a Virtual Wan.|
-|/virtualwans/write|Create or update a Virtual Wan|
-|/vpnGateways/read|Gets a VpnGateway.|
-|/vpnGateways/vpnConnections/read|Gets a VpnConnection.|
-|/vpnGateways/vpnConnections/write|Puts a VpnConnection.|
-|/vpnGateways/write|Puts a VpnGateway.|
-|/vpnsites/delete|Deletes a Vpn Site resource.|
-|/vpnsites/read|Gets a Vpn Site resource.|
-|/vpnsites/write|Creates or updates a Vpn Site resource.|
+|/applicationGatewayAvailableSslOptions/predefinedPolicies/read|Stratégie SSL prédéfinie d’Application Gateway|
+|/applicationGatewayAvailableSslOptions/read|Options SSL disponibles d’Application Gateway|
+|/applicationGatewayAvailableWafRuleSets/read|Obtient les ensembles de règles WAF disponibles pour Application Gateway.|
+|/applicationGateways/backendAddressPools/join/action|Joint un pool d’adresses principales de passerelle d’application.|
+|/applicationGateways/backendhealth/action|Obtient l’intégrité du serveur principal d’une passerelle d’application.|
+|/applicationGateways/delete|Supprime une passerelle d’application.|
+|/applicationGateways/effectiveNetworkSecurityGroups/action|Obtient la table de routage configurée sur Application Gateway|
+|/applicationGateways/effectiveRouteTable/action|Obtient la table de routage configurée sur Application Gateway|
+|/applicationGateways/providers/Microsoft.Insights/logDefinitions/read|Obtient les événements pour Application Gateway|
+|/applicationGateways/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour Application Gateway|
+|/applicationGateways/read|Obtient une passerelle d’application.|
+|/applicationGateways/setSecurityCenterConfiguration/action|Définit la configuration du centre de sécurité d’Application Gateway|
+|/applicationGateways/start/action|Démarre une passerelle d’application.|
+|/applicationGateways/stop/action|Arrête une passerelle d’application.|
+|/applicationGateways/write|Crée une passerelle d’application ou met à jour une passerelle d’application.|
+|/applicationSecurityGroups/delete|Supprime un groupe de sécurité d’application|
+|/applicationSecurityGroups/joinIpConfiguration/action|Joint une configuration IP aux groupes de sécurité d’application.|
+|/applicationSecurityGroups/joinNetworkSecurityRule/action|Joint une règle de sécurité aux groupes de sécurité d’application.|
+|/applicationSecurityGroups/read|Obtient un ID de groupe de sécurité d’application.|
+|/applicationSecurityGroups/write|Crée un groupe de sécurité d’application ou met à jour un groupe de sécurité d’application existant.|
+|/bgpServiceCommunities/read|Obtenir les communautés de services BGP.|
+|/checkTrafficManagerNameAvailability/action|Vérifier la disponibilité d’un nom DNS relatif dans Traffic Manager.|
+|/connections/delete|Supprime une VirtualNetworkGatewayConnection.|
+|/connections/read|Obtient une VirtualNetworkGatewayConnection.|
+|/connections/sharedkey/action|Obtient une clé partagée de connexion de passerelle de réseau virtuel|
+|/connections/sharedKey/read|Obtient une SharedKey VirtualNetworkGatewayConnection.|
+|/connections/sharedKey/write|Crée une SharedKey VirtualNetworkGatewayConnection ou met à jour une SharedKey VirtualNetworkGatewayConnection existante.|
+|/connections/vpndeviceconfigurationscript/read|Obtient la configuration de l’appareil VPN d’une connexion de passerelle de réseau virtuel|
+|/connections/write|Crée une VirtualNetworkGatewayConnection ou met à jour une VirtualNetworkGatewayConnection existante.|
+|/ddosProtectionPlans/ddosProtectionPlanProxies/delete|Supprime un proxy de plan de protection DDoS|
+|/ddosProtectionPlans/ddosProtectionPlanProxies/read|Obtient une définition de proxy de plan de protection DDoS|
+|/ddosProtectionPlans/ddosProtectionPlanProxies/write|Crée un proxy de plan de protection DDoS ou met à jour un proxy de plan de protection DDoS existant|
+|/ddosProtectionPlans/delete|Supprime un plan de protection DDoS|
+|/ddosProtectionPlans/join/action|Joint un plan de protection DDoS|
+|/ddosProtectionPlans/read|Obtient un plan de protection DDoS|
+|/ddosProtectionPlans/write|Crée ou met à jour un plan de protection DDoS |
+|/dnsoperationresults/read|Obtient les résultats d’une opération DNS.|
+|/dnsoperationstatuses/read|Obtient l’état d’une opération DNS. |
+|/dnszones/A/delete|Supprimer le jeu d’enregistrements d’un nom donné et de type « A » d’une zone DNS.|
+|/dnszones/A/read|Obtenir le jeu d’enregistrements de type « A » au format JSON. Le jeu d’enregistrements contient une liste d’enregistrements, ainsi que la durée de vie, les balises et l’etag.|
+|/dnszones/A/write|Créer ou mettre à jour un jeu d’enregistrements de type « A » dans une zone DNS. Les enregistrements spécifiés remplaceront les enregistrements actuels dans le jeu d’enregistrements.|
+|/dnszones/AAAA/delete|Supprimer le jeu d’enregistrements d’un nom donné et de type « AAAA » d’une zone DNS.|
+|/dnszones/AAAA/read|Obtenir le jeu d’enregistrements de type « AAAA » au format JSON. Le jeu d’enregistrements contient une liste d’enregistrements, ainsi que la durée de vie, les balises et l’etag.|
+|/dnszones/AAAA/write|Créer ou mettre à jour un jeu d’enregistrements de type « AAAA » dans une zone DNS. Les enregistrements spécifiés remplaceront les enregistrements actuels dans le jeu d’enregistrements.|
+|/dnszones/all/read|Obtient les jeux d’enregistrements DNS parmi les types.|
+|/dnszones/CAA/delete|Supprime le jeu d’enregistrements d’un nom donné et le type CAA d’une zone DNS.|
+|/dnszones/CAA/read|Obtient le jeu d’enregistrements de type CAA au format JSON. Le jeu d’enregistrements contient la durée de vie, les balises et l’etag.|
+|/dnszones/CAA/write|Crée ou met à jour un jeu d’enregistrements de type CAA à l’intérieur d’une zone DNS. Les enregistrements spécifiés remplaceront les enregistrements actuels dans le jeu d’enregistrements.|
+|/dnszones/CNAME/delete|Supprimer le jeu d’enregistrements d’un nom donné et de type « CNAME » d’une zone DNS.|
+|/dnszones/CNAME/read|Obtenir le jeu d’enregistrements de type « CNAME » au format JSON. Le jeu d’enregistrements contient la durée de vie, les balises et l’etag.|
+|/dnszones/CNAME/write|Créer ou mettre à jour un jeu d’enregistrements de type « CNAME » dans une zone DNS. Les enregistrements spécifiés remplaceront les enregistrements actuels dans le jeu d’enregistrements.|
+|/dnszones/delete|Supprimer la zone DNS au format JSON. Exemples de propriétés de la zone : balises, etag, numberOfRecordSets et maxNumberOfRecordSets.|
+|/dnszones/MX/delete|Supprimer le jeu d’enregistrements d’un nom donné et de type « MX » d’une zone DNS.|
+|/dnszones/MX/read|Obtenir le jeu d’enregistrements de type « MX » au format JSON. Le jeu d’enregistrements contient une liste d’enregistrements, ainsi que la durée de vie, les balises et l’etag.|
+|/dnszones/MX/write|Créer ou mettre à jour un jeu d’enregistrements de type « MX » dans une zone DNS. Les enregistrements spécifiés remplaceront les enregistrements actuels dans le jeu d’enregistrements.|
+|/dnszones/NS/delete|Supprimer le jeu d’enregistrements DNS de type NS|
+|/dnszones/NS/read|Obtenir le jeu d’enregistrements DNS de type NS|
+|/dnszones/NS/write|Créer ou mettre à jour un jeu d’enregistrements DNS de type NS|
+|/dnszones/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic de la zone DNS|
+|/dnszones/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic de la zone DNS|
+|/dnszones/providers/Microsoft.Insights/metricDefinitions/read|Obtient les définitions de métrique de la zone DNS|
+|/dnszones/PTR/delete|Supprimer le jeu d’enregistrements d’un nom donné et de type « PTR » d’une zone DNS.|
+|/dnszones/PTR/read|Obtenir le jeu d’enregistrements de type « PTR » au format JSON. Le jeu d’enregistrements contient une liste d’enregistrements, ainsi que la durée de vie, les balises et l’etag.|
+|/dnszones/PTR/write|Créer ou mettre à jour un jeu d’enregistrements de type « PTR » dans une zone DNS. Les enregistrements spécifiés remplaceront les enregistrements actuels dans le jeu d’enregistrements.|
+|/dnszones/read|Obtenir la zone DNS au format JSON. Exemples de propriétés de la zone : balises, etag, numberOfRecordSets et maxNumberOfRecordSets. Notez que cette commande ne récupère pas les jeux d’enregistrements contenus dans la zone.|
+|/dnszones/recordsets/read|Obtient les jeux d’enregistrements DNS parmi les types.|
+|/dnszones/SOA/read|Obtenir le jeu d’enregistrements DNS de type SOA|
+|/dnszones/SOA/write|Créer ou mettre à jour un jeu d’enregistrements DNS de type SOA|
+|/dnszones/SRV/delete|Supprimer le jeu d’enregistrements d’un nom donné et de type « SRV » d’une zone DNS.|
+|/dnszones/SRV/read|Obtenir le jeu d’enregistrements de type « SRV » au format JSON. Le jeu d’enregistrements contient une liste d’enregistrements, ainsi que la durée de vie, les balises et l’etag.|
+|/dnszones/SRV/write|Créer ou mettre à jour un jeu d’enregistrements de type SRV|
+|/dnszones/TXT/delete|Supprimer le jeu d’enregistrements d’un nom donné et de type « TXT » d’une zone DNS.|
+|/dnszones/TXT/read|Obtenir le jeu d’enregistrements de type « TXT », au format JSON. Le jeu d’enregistrements contient une liste d’enregistrements, ainsi que la durée de vie, les balises et l’etag.|
+|/dnszones/TXT/write|Créer ou mettre à jour un jeu d’enregistrements de type « TXT » dans une zone DNS. Les enregistrements spécifiés remplaceront les enregistrements actuels dans le jeu d’enregistrements.|
+|/dnszones/write|Créer ou mettre à jour une zone DNS dans un groupe de ressources.  Permet de mettre à jour les balises dans une ressource de la zone DNS. Notez que cette commande ne peut pas être utilisée pour créer ou mettre à jour des jeux d’enregistrements au sein de la zone.|
+|/expressRouteCircuits/authorizations/delete|Supprime une autorisation ExpressRouteCircuit.|
+|/expressRouteCircuits/authorizations/read|Obtient une autorisation ExpressRouteCircuit.|
+|/expressRouteCircuits/authorizations/write|Crée une autorisation ExpressRouteCircuit ou met à jour une autorisation ExpressRouteCircuit existante.|
+|/expressRouteCircuits/delete|Supprime un ExpressRouteCircuit.|
+|/expressRouteCircuits/peerings/arpTables/action|Obtient une ArpTable d’homologation ExpressRouteCircuit.|
+|/expressRouteCircuits/peerings/connections/delete|Supprime une connexion ExpressRouteCircuit|
+|/expressRouteCircuits/peerings/connections/read|Obtient une connexion ExpressRouteCircuit|
+|/expressRouteCircuits/peerings/connections/write|Crée ou met à jour une ressource de connexion ExpressRouteCircuit existante|
+|/expressRouteCircuits/peerings/delete|Supprime une homologation ExpressRouteCircuit.|
+|/expressRouteCircuits/peerings/read|Obtient une homologation ExpressRouteCircuit.|
+|/expressRouteCircuits/peerings/routeTables/action|Obtient une RouteTable d’homologation ExpressRouteCircuit.|
+|/expressRouteCircuits/peerings/routeTablesSummary/action|Obtient un résumé RouteTable d’homologation ExpressRouteCircuit.|
+|/expressRouteCircuits/peerings/stats/read|Obtient les statistiques d’homologation d’un ExpressRouteCircuit.|
+|/expressRouteCircuits/peerings/write|Crée une homologation ExpressRouteCircuit ou met à jour une homologation ExpressRouteCircuit existante.|
+|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/read|Obtient des paramètres de diagnostic pour les circuits ExpressRoute|
+|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour des paramètres de diagnostic pour les circuits ExpressRoute|
+|/expressRouteCircuits/providers/Microsoft.Insights/logDefinitions/read|Obtient les événements pour les circuits ExpressRoute|
+|/expressRouteCircuits/providers/Microsoft.Insights/metricDefinitions/read|Obtient les définitions de métrique pour les circuits ExpressRoute|
+|/expressRouteCircuits/read|Obtenir un ExpressRouteCircuit.|
+|/expressRouteCircuits/stats/read|Obtient les statistiques d’un ExpressRouteCircuit.|
+|/expressRouteCircuits/write|Crée un ExpressRouteCircuit ou met à jour un ExpressRouteCircuit existant.|
+|/expressRouteCrossConnections/delete|Supprime une connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/join/action|Joint une connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/peerings/arpTables/action|Obtient une table ARP d’appairage de connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/peerings/delete|Supprime un appairage de connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/peerings/read|Obtient un appairage de connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/peerings/routeTables/action|Obtient une table de routage d’appairage de connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/peerings/routeTableSummary/action|Obtient un résumé de table de routage d’appairage de connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/peerings/stats/read|Obtient une statistique d’appairage de connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/peerings/write|Crée un appairage de connexion croisée ExpressRoute ou met à jour un appairage de connexion croisée ExpressRoute existant|
+|/expressRouteCrossConnections/read|Obtient une connexion croisée ExpressRoute|
+|/expressRouteCrossConnections/write|Crée ou met à jour une connexion croisée ExpressRoute|
+|/expressRouteServiceProviders/read|Obtient les fournisseurs de services ExpressRoute.|
+|/loadBalancers/backendAddressPools/join/action|Joint un pool d’adresses principales d’équilibrage de charge.|
+|/loadBalancers/backendAddressPools/read|Obtient une définition de pool d’adresses principales d’équilibrage de charge.|
+|/loadBalancers/delete|Supprime un équilibrage de charge.|
+|/loadBalancers/frontendIPConfigurations/read|Obtient une définition de configuration d’adresse IP frontale d’équilibrage de charge.|
+|/loadBalancers/inboundNatPools/join/action|Joint un pool NAT entrant d’équilibrage de charge.|
+|/loadBalancers/inboundNatPools/read|Obtient une définition de pool NAT entrant d’équilibrage de charge.|
+|/loadBalancers/inboundNatRules/delete|Supprime une règle NAT entrante d’équilibrage de charge.|
+|/loadBalancers/inboundNatRules/join/action|Joint une règle NAT entrante d’équilibrage de charge.|
+|/loadBalancers/inboundNatRules/read|Obtient une définition de règle NAT entrante d’équilibrage de charge.|
+|/loadBalancers/inboundNatRules/write|Crée une règle NAT entrante d’équilibrage de charge ou met à jour une règle NAT entrante d’équilibrage de charge existante.|
+|/loadBalancers/loadBalancingRules/read|Obtient une définition de règle d’équilibrage de charge.|
+|/loadBalancers/networkInterfaces/read|Obtient les références à toutes les interfaces réseau sous un équilibrage de charge.|
+|/loadBalancers/outboundNatRules/read|Obtient une définition de règle NAT sortante d’équilibrage de charge.|
+|/loadBalancers/probes/join/action|Autorise l’utilisation des sondes d’un équilibreur de charge. Par exemple, avec cette autorisation, la propriété healthProbe du groupe de machines virtuelles identiques peut faire référence à la sonde.|
+|/loadBalancers/probes/read|Obtient une sonde d’équilibrage de charge.|
+|/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic de l’équilibreur de charge|
+|/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic de l’équilibreur de charge|
+|/loadBalancers/providers/Microsoft.Insights/logDefinitions/read|Obtient les événements pour l’équilibreur de charge|
+|/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour l’équilibreur de charge|
+|/loadBalancers/read|Obtient une définition d’équilibrage de charge.|
+|/loadBalancers/virtualMachines/read|Obtient les références à toutes les machines virtuelles sous un équilibrage de charge.|
+|/loadBalancers/write|Crée un équilibrage de charge ou met à jour un équilibrage de charge existant.|
+|/localnetworkgateways/delete|Supprime une LocalNetworkGateway.|
+|/localnetworkgateways/read|Obtient une LocalNetworkGateway.|
+|/localnetworkgateways/write|Crée une LocalNetworkGateway ou met à jour une LocalNetworkGateway existante.|
+|/locations/checkDnsNameAvailability/read|Vérifie si le nom DNS est disponible à l’emplacement spécifié.|
+|/locations/operationResults/read|Obtient le résultat d’une opération DELETE ou POST asynchrone.|
+|/locations/operations/read|Obtient la ressource d’opération qui représente l’état d’une opération asynchrone.|
+|/locations/usages/read|Obtient les mesures d’utilisation des ressources.|
+|/locations/virtualNetworkAvailableEndpointServices/read|Obtient la liste des services de point de terminaison de réseau virtuel disponibles|
+|/networkInterfaces/delete|Supprime une interface réseau.|
+|/networkInterfaces/diagnosticIdentity/read|Obtient l’identité de diagnostic de la ressource|
+|/networkInterfaces/effectiveNetworkSecurityGroups/action|Obtenir les groupes de sécurité réseau configurés sur l’interface réseau de la machine virtuelle.|
+|/networkInterfaces/effectiveRouteTable/action|Obtenir la table de routage configurée sur l’interface réseau de la machine virtuelle.|
+|/networkInterfaces/ipconfigurations/read|Obtient une définition de la configuration de l’adresse IP de l’interface réseau. |
+|/networkInterfaces/join/action|Joint une machine virtuelle à une interface réseau.|
+|/networkInterfaces/loadBalancers/read|Obtient tous les équilibrages de charge auxquels l’interface réseau appartient.|
+|/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour l’interface réseau|
+|/networkInterfaces/read|Obtient une définition d’interface réseau. |
+|/networkInterfaces/write|Crée une interface réseau ou met à jour une interface réseau existante. |
+|/networkSecurityGroups/defaultSecurityRules/read|Obtient une définition de règle de sécurité par défaut.|
+|/networkSecurityGroups/delete|Supprime un groupe de sécurité réseau.|
+|/networkSecurityGroups/join/action|Joint un groupe de sécurité réseau.|
+|/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic des groupes de sécurité réseau|
+|/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic des groupes de sécurité réseau, cette opération étant complétée par le fournisseur de ressources Insights.|
+|/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read|Obtient les événements pour le groupe de sécurité réseau|
+|/networkSecurityGroups/read|Obtient une définition de groupe de sécurité réseau.|
+|/networkSecurityGroups/securityRules/delete|Supprime une règle de sécurité.|
+|/networkSecurityGroups/securityRules/read|Obtient une définition de règle de sécurité.|
+|/networkSecurityGroups/securityRules/write|Crée une règle de sécurité ou met à jour une règle de sécurité existante.|
+|/networkSecurityGroups/write|Crée un groupe de sécurité réseau ou met à jour un groupe de sécurité réseau existant.|
+|/networkWatchers/availableProvidersList/action|Retourne tous les fournisseurs de services Internet disponibles pour une région Azure spécifiée.|
+|/networkWatchers/azureReachabilityReport/action|Retourne le score de la latence relatif pour les fournisseurs de services Internet d’un emplacement spécifié vers les régions Azure.|
+|/networkWatchers/configureFlowLog/action|Configure la journalisation des flux pour une ressource cible.|
+|/networkWatchers/connectionMonitors/delete|Supprime un moniteur de connexion|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/read|Obtient les paramètres de diagnostic du moniteur de connexion|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic du moniteur de connexion|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ metricDefinitions/read|Obtient les métriques disponibles pour le moniteur de connexion|
+|/networkWatchers/connectionMonitors/query/action|Interroge la connectivité de surveillance entre des points de terminaison spécifiés|
+|/networkWatchers/connectionMonitors/read|Obtient les détails du moniteur de connexion|
+|/networkWatchers/connectionMonitors/start/action|Démarre la surveillance de la connectivité entre des points de terminaison spécifiés|
+|/networkWatchers/connectionMonitors/stop/action|Arrête/suspend la surveillance de la connectivité entre des points de terminaison spécifiés|
+|/networkWatchers/connectionMonitors/write|Crée un moniteur de connexion|
+|/networkWatchers/connectivityCheck/action|Vérifie la possibilité d’établir une connexion TCP directe à partir d’une machine virtuelle à un point de terminaison spécifié, notamment une autre machine virtuelle ou un serveur distant arbitraire.|
+|/networkWatchers/delete|Supprime un observateur de réseau.|
+|/networkWatchers/ipFlowVerify/action|Indique si le paquet est autorisé ou refusé vers ou depuis une destination particulière.|
+|/networkWatchers/lenses/delete|Supprime un filtre|
+|/networkWatchers/lenses/query/action|Interroge le trafic réseau de surveillance sur un point de terminaison spécifié|
+|/networkWatchers/lenses/read|Obtient les détails du filtre|
+|/networkWatchers/lenses/start/action|Démarre la surveillance du trafic réseau sur un point de terminaison spécifié|
+|/networkWatchers/lenses/stop/action|Arrête/suspend la surveillance du trafic réseau sur un point de terminaison spécifié|
+|/networkWatchers/lenses/write|Crée un filtre|
+|/networkWatchers/nextHop/action|Pour une adresse IP de destination et une cible spécifiées, indique le type de saut suivant et l’adresse IP de saut suivant.|
+|/networkWatchers/packetCaptures/delete|Supprimer une capture de paquets.|
+|/networkWatchers/packetCaptures/queryStatus/action|Obtient des informations sur les propriétés et l’état d’une ressource de capture de paquets.|
+|/networkWatchers/packetCaptures/read|Obtenir la définition de la capture de paquets.|
+|/networkWatchers/packetCaptures/stop/action|Arrêter la session de capture de paquets en cours d’exécution.|
+|/networkWatchers/packetCaptures/write|Crée une capture de paquets.|
+|/networkWatchers/queryFlowLogStatus/action|Obtient l’état de la journalisation des flux sur une ressource.|
+|/networkWatchers/queryTroubleshootResult/action|Obtient le résultat de la résolution des problèmes à partir de l’opération de résolution des problèmes en cours d’exécution ou exécutée précédemment.|
+|/networkWatchers/read|Obtient la définition d’un observateur de réseau.|
+|/networkWatchers/securityGroupView/action|Afficher les règles de groupe de sécurité réseau configurées et en vigueur appliquées à une machine virtuelle.|
+|/networkWatchers/topology/action|Obtient une vue au niveau du réseau des ressources et de leurs relations dans un groupe de ressources.|
+|/networkWatchers/troubleshoot/action|Démarre la résolution des problèmes sur une ressource réseau dans Azure.|
+|/networkWatchers/write|Crée un observateur de réseau ou met à jour un observateur de réseau existant.|
+|/operations/read|Obtenir les opérations disponibles.|
+|/publicIPAddresses/delete|Supprime une adresse IP publique.|
+|/publicIPAddresses/join/action|Joint une adresse IP publique.|
+|/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic de l’adresse IP publique|
+|/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic de l’adresse IP publique|
+|/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read|Obtient les définitions de journal de l’adresse IP publique|
+|/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read|Obtient les définitions de métrique de l’adresse IP publique|
+|/publicIPAddresses/read|Obtient une définition de l’adresse IP publique.|
+|/publicIPAddresses/write|Crée une adresse IP publique ou met à jour une adresse IP publique existante. |
+|/register/action|Enregistrer l’abonnement.|
+|/routeFilters/delete|Supprime une définition de filtre de routage.|
+|/routeFilters/join/action|Joint un filtre de routage.|
+|/routeFilters/read|Obtient une définition de filtre de routage.|
+|/routeFilters/routeFilterRules/delete|Supprime une définition de règle de filtre de routage.|
+|/routeFilters/routeFilterRules/read|Obtient une définition de règle de filtre de routage.|
+|/routeFilters/routeFilterRules/write|Crée une règle de filtre de routage ou met à jour une règle de filtre de routage existante.|
+|/routeFilters/write|Crée un filtre de routage ou met à jour un filtre de routage existant.|
+|/routeTables/delete|Supprime une définition de table de routage.|
+|/routeTables/join/action|Joint une table de routage.|
+|/routeTables/read|Obtient une définition de table de routage.|
+|/routeTables/routes/delete|Supprime une définition de routage.|
+|/routeTables/routes/read|Obtient une définition de routage.|
+|/routeTables/routes/write|Crée un routage ou met à jour un routage existant.|
+|/routeTables/write|Crée une table de routage ou met à jour une table de routage existante.|
+|/securegateways/applicationRuleCollections/delete|Supprime un regroupement de règles d’application pour une passerelle sécurisée|
+|/securegateways/applicationRuleCollections/read|Récupère un regroupement de règles d’application pour une passerelle sécurisée spécifiée|
+|/securegateways/applicationRuleCollections/write|Crée ou met à jour un regroupement de règles d’application pour une passerelle sécurisée|
+|/securegateways/delete|Supprime une passerelle sécurisée|
+|/securegateways/networkRuleCollections/delete|Supprime un regroupement de règles de réseau pour une passerelle sécurisée|
+|/securegateways/networkRuleCollections/read|Récupère un regroupement de règles de réseau pour une passerelle sécurisée spécifiée|
+|/securegateways/networkRuleCollections/write|Crée ou met à jour un regroupement de règles de réseau pour une passerelle sécurisée|
+|/securegateways/read|Obtient une passerelle sécurisée|
+|/securegateways/write|Crée ou met à jour une passerelle sécurisée|
+|/serviceEndpointPolicies/delete|Supprime une stratégie de point de terminaison de service|
+|/serviceEndpointPolicies/join/action|Joint une stratégie de point de terminaison de service|
+|/serviceEndpointPolicies/joinSubnet/action|Joint un sous-réseau aux stratégies de point de terminaison de service|
+|/serviceEndpointPolicies/read|Obtient une description de stratégie de point de terminaison de service|
+|/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete|Supprime une définition de stratégie de point de terminaison de service|
+|/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read|Obtient une description de définition de stratégie de point de terminaison de service|
+|/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/write|Crée une définition de stratégie de point de terminaison de service ou met à jour une définition de stratégie de point de terminaison de service existante|
+|/serviceEndpointPolicies/write|Crée une stratégie de point de terminaison de service ou met à jour une stratégie de point de terminaison de service existante|
+|/trafficManagerGeographicHierarchies/read|Obtient la hiérarchie géographique Traffic Manager contenant des régions qui peuvent être utilisées dans la méthode de routage du trafic géographique.|
+|/trafficManagerProfiles/azureEndpoints/delete|Supprime un point de terminaison Azure d’un profil Traffic Manager existant. Traffic Manager cesse de router le trafic vers le point de terminaison Azure supprimé.|
+|/trafficManagerProfiles/azureEndpoints/read|Obtient un point de terminaison Azure qui appartient à un profil Traffic Manager, incluant toutes les propriétés de ce point de terminaison Azure.|
+|/trafficManagerProfiles/azureEndpoints/write|Ajoute un nouveau point de terminaison Azure dans un profil Traffic Manager existant ou met à jour les propriétés d’un point de terminaison Azure existant dans ce profil Traffic Manager.|
+|/trafficManagerProfiles/delete|Supprimer le profil Traffic Manager. Tous les paramètres associés au profil Traffic Manager seront perdus et le profil ne pourra plus être utilisé pour acheminer le trafic.|
+|/trafficManagerProfiles/externalEndpoints/delete|Supprime un point de terminaison externe d’un profil Traffic Manager existant. Traffic Manager cesse de router le trafic vers le point de terminaison externe supprimé.|
+|/trafficManagerProfiles/externalEndpoints/read|Obtient un point de terminaison externe qui appartient à un profil Traffic Manager, incluant toutes les propriétés de ce point de terminaison externe.|
+|/trafficManagerProfiles/externalEndpoints/write|Ajoute un nouveau point de terminaison externe dans un profil Traffic Manager existant ou met à jour les propriétés d’un point de terminaison externe existant dans ce profil Traffic Manager.|
+|/trafficManagerProfiles/heatMaps/read|Obtient la carte thermique Traffic Manager pour le profil Traffic Manager spécifié qui contient les données de nombre et de latence des requêtes par emplacement et IP source.|
+|/trafficManagerProfiles/nestedEndpoints/delete|Supprime un point de terminaison imbriqué d’un profil Traffic Manager existant. Traffic Manager cesse de router le trafic vers le point de terminaison imbriqué supprimé.|
+|/trafficManagerProfiles/nestedEndpoints/read|Obtient un point de terminaison imbriqué qui appartient à un profil Traffic Manager, incluant toutes les propriétés de ce point de terminaison imbriqué.|
+|/trafficManagerProfiles/nestedEndpoints/write|Ajoute un nouveau point de terminaison imbriqué dans un profil Traffic Manager existant ou met à jour les propriétés d’un point de terminaison imbriqué existant dans ce profil Traffic Manager.|
+|/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic de Traffic Manager|
+|/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic de Traffic Manager, cette opération étant complétée par le fournisseur de ressources Insights.|
+|/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read|Obtient les événements pour Traffic Manager|
+|/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour Traffic Manager.|
+|/trafficManagerProfiles/read|Obtient la configuration du profil Traffic Manager. Cela inclut les paramètres DNS, les paramètres de routage du trafic, les paramètres de surveillance des points de terminaison et la liste des points de terminaison acheminés par ce profil Traffic Manager.|
+|/trafficManagerProfiles/write|Créer un profil Traffic Manager ou modifier la configuration d’un profil Traffic Manager existant. Cela inclut l’activation ou la désactivation d’un profil et la modification des paramètres DNS, des paramètres de routage du trafic ou des paramètres de surveillance des points de terminaison. Les points de terminaison acheminés par le profil Traffic Manager peuvent être ajoutés, supprimés, activés ou désactivés.|
+|/trafficManagerUserMetricsKeys/delete|Supprime la clé de niveau d’abonnement utilisée pour la collecte de métriques utilisateur en temps réel.|
+|/trafficManagerUserMetricsKeys/read|Obtient la clé de niveau d’abonnement utilisée pour la collecte de métriques utilisateur en temps réel.|
+|/trafficManagerUserMetricsKeys/write|Crée une nouvelle clé de niveau d’abonnement à utiliser pour la collecte de métriques utilisateur en temps réel.|
+|/unregister/action|Désenregistrer l’abonnement.|
+|/virtualHubs/delete|Supprime un hub virtuel|
+|/virtualHubs/hubVirtualNetworkConnections/delete|Supprime une connexion de réseau virtuel hub|
+|/virtualHubs/hubVirtualNetworkConnections/read|Obtient une connexion de réseau virtuel hub|
+|/virtualHubs/hubVirtualNetworkConnections/write|Crée ou met à jour une connexion de réseau virtuel hub|
+|/virtualHubs/read|Obtient un hub virtuel|
+|/virtualHubs/write|Crée ou met à jour un hub virtuel|
+|/virtualnetworkgateways/connections/read|Obtient une connexion de passerelle de réseau virtuel|
+|/virtualNetworkGateways/delete|Supprime une passerelle de réseau virtuel|
+|/virtualnetworkgateways/generatevpnclientpackage/action|Génère le package du client VPN pour la passerelle de réseau virtuel|
+|/virtualnetworkgateways/generatevpnprofile/action|Génère le package du profil VPN pour la passerelle de réseau virtuel|
+|/virtualnetworkgateways/getadvertisedroutes/action|Obtient les itinéraires annoncés de la passerelle de réseau virtuel|
+|/virtualnetworkgateways/getbgppeerstatus/action|Obtient l’état d’homologue BGP de la passerelle de réseau virtuel|
+|/virtualnetworkgateways/getlearnedroutes/action|Obtient les itinéraires appris de la passerelle de réseau virtuel|
+|/virtualnetworkgateways/getvpnclientipsecparameters/action|Obtient les paramètres IPsec de client VPN pour le client P2S de la passerelle de réseau virtuel.|
+|/virtualnetworkgateways/getvpnprofilepackageurl/action|Obtient l’URL d’un package de profil de client VPN prégénéré|
+|/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic de la passerelle de réseau virtuel|
+|/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic de la passerelle de réseau virtuel, cette opération étant complétée par le fournisseur de ressources Insights.|
+|/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read|Obtient les événements pour la passerelle de réseau virtuel|
+|/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour la passerelle de réseau virtuel|
+|/virtualNetworkGateways/read|Obtient une passerelle de réseau virtuel|
+|/virtualnetworkgateways/reset/action|Réinitialise une passerelle de réseau virtuel|
+|/virtualnetworkgateways/setvpnclientipsecparameters/action|Définit les paramètres IPsec de client VPN pour le client P2S de la passerelle de réseau virtuel.|
+|/virtualnetworkgateways/supportedvpndevices/action|Affiche les appareils VPN pris en charge|
+|/virtualNetworkGateways/write|Crée ou met à jour une passerelle de réseau virtuel|
+|/virtualNetworks/checkIpAddressAvailability/read|Vérifier si l’adresse IP est disponible sur le réseau virtuel spécifié.|
+|/virtualNetworks/customViews/get/action|Obtient un contenu d’affichage personnalisé de réseau virtuel|
+|/virtualNetworks/customViews/read|Obtient une définition d’affichage personnalisé de réseau virtuel|
+|/virtualNetworks/delete|Supprime un réseau virtuel.|
+|/virtualNetworks/peer/action|Appaire un réseau virtuel avec un autre réseau virtuel.|
+|/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/read|Obtient les paramètres de diagnostic du réseau virtuel|
+|/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour les paramètres de diagnostic du réseau virtuel|
+|/virtualNetworks/providers/Microsoft.Insights/logDefinitions/read|Obtient les définitions de journal du réseau virtuel|
+|/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read|Obtient les définitions de métrique de réseau virtuel|
+|/virtualNetworks/read|Obtenir la définition de réseau virtuel.|
+|/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete|Supprime un proxy d’appairage de réseau virtuel|
+|/virtualNetworks/remoteVirtualNetworkPeeringProxies/read|Obtient une définition de proxy d’appairage de réseau virtuel|
+|/virtualNetworks/remoteVirtualNetworkPeeringProxies/write|Crée un proxy d’appairage de réseau virtuel ou met à jour un proxy d’appairage de réseau virtuel existant|
+|/virtualNetworks/subnets/delete|Supprime un sous-réseau de réseau virtuel.|
+|/virtualNetworks/subnets/join/action|Joint un réseau virtuel.|
+|/virtualNetworks/subnets/joinViaServiceEndpoint/action|Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau.|
+|/virtualNetworks/subnets/read|Obtient une définition de sous-réseau de réseau virtuel.|
+|/virtualNetworks/subnets/resourceNavigationLinks/delete|Supprime un lien de navigation dans les ressources|
+|/virtualNetworks/subnets/resourceNavigationLinks/read|Obtient la définition du lien de navigation dans les ressources|
+|/virtualNetworks/subnets/resourceNavigationLinks/write|Crée un lien de navigation dans les ressources ou met à jour un lien de navigation dans les ressources existant|
+|/virtualNetworks/subnets/virtualMachines/read|Obtient les références à toutes les machines virtuelles dans un sous-réseau de réseau virtuel.|
+|/virtualNetworks/subnets/write|Crée un sous-réseau de réseau virtuel ou met à jour un sous-réseau de réseau virtuel existant.|
+|/virtualNetworks/taggedTrafficConsumers/delete|Supprime un consommateur de trafic avec balise|
+|/virtualNetworks/taggedTrafficConsumers/read|Obtient la définition du consommateur de trafic avec balise|
+|/virtualNetworks/taggedTrafficConsumers/validate/action|Valide un consommateur de trafic avec balise|
+|/virtualNetworks/taggedTrafficConsumers/write|Crée un consommateur de trafic avec balise ou met à jour un consommateur de trafic avec balise existant|
+|/virtualNetworks/usages/read|Obtient les utilisations d’IP pour chaque sous-réseau du réseau virtuel|
+|/virtualNetworks/virtualMachines/read|Obtient les références à toutes les machines virtuelles dans un réseau virtuel.|
+|/virtualNetworks/virtualNetworkPeerings/delete|Supprime une homologation de réseau virtuel.|
+|/virtualNetworks/virtualNetworkPeerings/read|Obtient une définition d’homologation de réseau virtuel.|
+|/virtualNetworks/virtualNetworkPeerings/write|Crée une homologation de réseau virtuel ou met à jour une homologation de réseau virtuel existante.|
+|/virtualNetworks/write|Crée un réseau virtuel ou met à jour un réseau virtuel existant.|
+|/virtualNetworkTaps/delete|Supprime un TAP de réseau virtuel|
+|/virtualNetworkTaps/join/action|Joint un TAP de réseau virtuel|
+|/virtualNetworkTaps/read|Obtient un TAP de réseau virtuel|
+|/virtualNetworkTaps/write|Crée ou met à jour un TAP de réseau virtuel|
+|/virtualwans/delete|Supprime un WAN virtuel|
+|/virtualwans/read|Obtient un WAN virtuel|
+|/virtualWans/virtualHubProxies/delete|Supprime un proxy de hub virtuel|
+|/virtualWans/virtualHubProxies/read|Obtient une définition de proxy de hub virtuel|
+|/virtualWans/virtualHubProxies/write|Crée ou met à jour un proxy de hub virtuel|
+|/virtualwans/virtualHubs/read|Obtient tous les hubs virtuels associés à un WAN virtuel.|
+|/virtualwans/vpnconfiguration/read|Obtient une configuration VPN|
+|/virtualWans/vpnSiteProxies/delete|Supprime un proxy de site VPN|
+|/virtualWans/vpnSiteProxies/read|Obtient une définition de proxy de site VPN|
+|/virtualWans/vpnSiteProxies/write|Crée ou met à jour un proxy de site VPN|
+|/virtualwans/vpnSites/read|Obtient tous les sites VPN associés à un WAN virtuel.|
+|/virtualwans/write|Crée ou met à jour un WAN virtuel|
+|/vpnGateways/read|Obtient une passerelle VPN.|
+|/vpnGateways/vpnConnections/read|Obtient une connexion VPN.|
+|/vpnGateways/vpnConnections/write|Place une connexion VPN.|
+|/vpnGateways/write|Place une passerelle VPN.|
+|/vpnsites/delete|Supprime une ressource de site VPN.|
+|/vpnsites/read|Obtient une ressource de site VPN.|
+|/vpnsites/write|Crée ou met à jour une ressource de site VPN.|
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/CheckNamespaceAvailability/action|Checks whether or not a given Namespace resource name is available within the NotificationHub service.|
-|/Namespaces/authorizationRules/action|Get the list of Namespaces Authorization Rules description.|
-|/Namespaces/authorizationRules/delete|Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. |
-|/Namespaces/authorizationRules/listkeys/action|Get the Connection String to the Namespace|
-|/Namespaces/authorizationRules/read|Get the list of Namespaces Authorization Rules description.|
-|/Namespaces/authorizationRules/regenerateKeys/action|Namespace Authorization Rule Regenerate Primary/SecondaryKey, Specify the Key that needs to be regenerated|
-|/Namespaces/authorizationRules/write|Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.|
-|/Namespaces/CheckNotificationHubAvailability/action|Checks whether or not a given NotificationHub name is available inside a Namespace.|
-|/Namespaces/Delete|Delete Namespace Resource|
-|/Namespaces/NotificationHubs/authorizationRules/action|Get the list of Notification Hub Authorization Rules|
-|/Namespaces/NotificationHubs/authorizationRules/delete|Delete Notification Hub Authorization Rules|
-|/Namespaces/NotificationHubs/authorizationRules/listkeys/action|Get the Connection String to the Notification Hub|
-|/Namespaces/NotificationHubs/authorizationRules/read|Get the list of Notification Hub Authorization Rules|
-|/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action|Notification Hub Authorization Rule Regenerate Primary/SecondaryKey, Specify the Key that needs to be regenerated|
-|/Namespaces/NotificationHubs/authorizationRules/write|Create Notification Hub Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.|
-|/Namespaces/NotificationHubs/debugSend/action|Send a test push notification.|
-|/Namespaces/NotificationHubs/Delete|Delete Notification Hub Resource|
-|/Namespaces/NotificationHubs/metricDefinitions/read|Get list of Namespace metrics Resource Descriptions|
-|/Namespaces/NotificationHubs/pnsCredentials/action|Get All Notification Hub PNS Credentials. This includes, WNS, MPNS, APNS, GCM and Baidu credentials|
-|/Namespaces/NotificationHubs/read|Get list of Notification Hub Resource Descriptions|
-|/Namespaces/NotificationHubs/write|Create a Notification Hub and Update its properties. Its properties mainly include PNS Credentials. Authorization Rules and TTL|
-|/Namespaces/read|Get the list of Namespace Resource Description|
-|/Namespaces/write|Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated.|
-|/register/action|Registers the subscription for the NotifciationHubs resource provider and enables the creation of Namespaces and NotificationHubs|
+|/CheckNamespaceAvailability/action|Vérifie si un nom de ressource Namespace donné est disponible dans le service NotificationHub.|
+|/Namespaces/authorizationRules/action|Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces.|
+|/Namespaces/authorizationRules/delete|Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée. |
+|/Namespaces/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à la ressource Namespace|
+|/Namespaces/authorizationRules/read|Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces.|
+|/Namespaces/authorizationRules/regenerateKeys/action|Règle d’autorisation de ressource Namespace pour régénérer les clés primaires et secondaires ; spécifier la clé qui doit être régénérée.|
+|/Namespaces/authorizationRules/write|Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour.|
+|/Namespaces/CheckNotificationHubAvailability/action|Vérifie si un nom de NotificationHub donné est disponible à l’intérieur d’une ressource Namespace.|
+|/Namespaces/Delete|Supprimer une ressource Namespace|
+|/Namespaces/NotificationHubs/authorizationRules/action|Obtenir la liste des règles d’autorisation de concentrateur de notification.|
+|/Namespaces/NotificationHubs/authorizationRules/delete|Supprimer les règles d’autorisation de concentrateur de notification.|
+|/Namespaces/NotificationHubs/authorizationRules/listkeys/action|Obtenir la chaîne de connexion au concentrateur de notification.|
+|/Namespaces/NotificationHubs/authorizationRules/read|Obtenir la liste des règles d’autorisation de concentrateur de notification.|
+|/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action|Règle d’autorisation de concentrateur de notification pour régénérer les clés primaires et secondaires ; spécifier la clé qui doit être régénérée.|
+|/Namespaces/NotificationHubs/authorizationRules/write|Créer des règles d’autorisation de concentrateur de notification et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour.|
+|/Namespaces/NotificationHubs/debugSend/action|Envoyer une notification Push de test.|
+|/Namespaces/NotificationHubs/Delete|Supprimer une ressource de concentrateur de notification.|
+|/Namespaces/NotificationHubs/metricDefinitions/read|Obtenir la liste des descriptions des mesures de ressource Namespace.|
+|/Namespaces/NotificationHubs/pnsCredentials/action|Obtenir toutes les informations d’identification PNS du concentrateur de notification. Cela inclut les informations d’identification WNS, MPNS, APNS, GCM et BAIDU.|
+|/Namespaces/NotificationHubs/read|Obtenir la liste des descriptions des ressources de concentrateur de notification.|
+|/Namespaces/NotificationHubs/write|Créer un concentrateur de notification et mettre à jour ses propriétés. Ses propriétés incluent principalement des informations d’identification PNS. Durée de vie et règles d’autorisation|
+|/Namespaces/read|Obtenir la liste des descriptions des ressources Namespace.|
+|/Namespaces/write|Créer une ressource Namespace et mettre à jour ses propriétés. Les balises et la capacité de l’espace de noms sont les propriétés qui peuvent être mises à jour.|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources NotificationHubs et active la création de ressources Namespaces et NotificationHubs.|
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/linkTargets/read|Lists existing accounts that are not associated with an Azure subscription. To link this Azure subscription to a workspace, use a customer id returned by this operation in the customer id property of the Create Workspace operation.|
-|/register/action|Register a subscription to a resource provider.|
-|/workspaces/analytics/query/action|Search using new engine.|
-|/workspaces/analytics/query/schema/read|Get search schema V2.|
-|/workspaces/api/query/action|Search using new engine.|
-|/workspaces/api/query/schema/read|Get search schema V2.|
-|/workspaces/configurationScopes/delete|Delete Configuration Scope|
-|/workspaces/configurationScopes/read|Get Configuration Scope|
-|/workspaces/configurationScopes/write|Set Configuration Scope|
-|/workspaces/datasources/delete|Delete datasources under a workspace.|
-|/workspaces/datasources/read|Get datasources under a workspace.|
-|/workspaces/datasources/write|Create/Update datasources under a workspace.|
-|/workspaces/delete|Deletes a workspace. If the workspace was linked to an existing workspace at creation time then the workspace it was linked to is not deleted.|
-|/workspaces/generateregistrationcertificate/action|Generates Registration Certificate for the workspace. This Certificate is used to connect Microsoft System Center Operation Manager to the workspace.|
-|/workspaces/intelligencepacks/disable/action|Disables an intelligence pack for a given workspace.|
-|/workspaces/intelligencepacks/enable/action|Enables an intelligence pack for a given workspace.|
-|/workspaces/intelligencepacks/read|Lists all intelligence packs that are visible for a given worksapce and also lists whether the pack is enabled or disabled for that workspace.|
-|/workspaces/linkedServices/delete|Delete linked services under given workspace.|
-|/workspaces/linkedServices/read|Get linked services under given workspace.|
-|/workspaces/linkedServices/write|Create/Update linked services under given workspace.|
-|/workspaces/listKeys/action|Retrieves the list keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace.|
-|/workspaces/listKeys/read|Retrieves the list keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace.|
-|/workspaces/managementGroups/read|Gets the names and metadata for System Center Operations Manager management groups connected to this workspace.|
-|/workspaces/metricDefinitions/read|Get Metric Definitions under workspace|
-|/workspaces/notificationSettings/delete|Delete the user's notification settings for the workspace.|
-|/workspaces/notificationSettings/read|Get the user's notification settings for the workspace.|
-|/workspaces/notificationSettings/write|Set the user's notification settings for the workspace.|
-|/workspaces/purge/action|Delete specified data from workspace|
-|/workspaces/read|Gets an existing workspace|
-|/workspaces/savedSearches/delete|Deletes a saved search query|
-|/workspaces/savedSearches/read|Gets a saved search query|
-|/workspaces/savedSearches/write|Creates a saved search query|
-|/workspaces/schema/read|Gets the search schema for the workspace.  Search schema includes the exposed fields and their types.|
-|/workspaces/search/action|Executes a search query|
-|/workspaces/sharedKeys/action|Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace.|
-|/workspaces/sharedKeys/read|Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace.|
-|/workspaces/storageinsightconfigs/delete|Deletes a storage configuration. This will stop Microsoft Operational Insights from reading data from the storage account.|
-|/workspaces/storageinsightconfigs/read|Gets a storage configuration.|
-|/workspaces/storageinsightconfigs/write|Creates a new storage configuration. These configurations are used to pull data from a location in an existing storage account.|
-|/workspaces/usages/read|Gets usage data for a workspace including the amount of data read by the workspace.|
-|/workspaces/write|Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace.|
+|/linkTargets/read|Répertorie les comptes existants qui ne sont pas associés à un abonnement Azure. Pour lier cet abonnement Azure à un espace de travail, utilisez un ID de client renvoyé par cette opération dans la propriété d’ID de client de l’opération de création d’un espace de travail.|
+|/register/action|Inscrire un abonnement à un fournisseur de ressources.|
+|/workspaces/analytics/query/action|Effectue les recherches à l’aide d’un nouveau moteur.|
+|/workspaces/analytics/query/schema/read|Obtient le schéma de recherche V2.|
+|/workspaces/api/query/action|Effectue les recherches à l’aide d’un nouveau moteur.|
+|/workspaces/api/query/schema/read|Obtient le schéma de recherche V2.|
+|/workspaces/configurationScopes/delete|Supprimer l’étendue de la configuration.|
+|/workspaces/configurationScopes/read|Obtenir l’étendue de la configuration.|
+|/workspaces/configurationScopes/write|Définir l’étendue de la configuration.|
+|/workspaces/datasources/delete|Supprimer des sources de données sous un espace de travail.|
+|/workspaces/datasources/read|Obtenir des sources de données sous un espace de travail.|
+|/workspaces/datasources/write|Créer/mettre à jour des sources de données sous un espace de travail.|
+|/workspaces/delete|Supprime un espace de travail. Si l’espace de travail a été lié à un espace de travail existant au moment de la création, l’espace de travail auquel il a été lié n’est pas supprimé.|
+|/workspaces/generateregistrationcertificate/action|Génère le certificat d’inscription de l’espace de travail. Ce certificat est utilisé pour connecter Microsoft System Center Operation Manager à l’espace de travail.|
+|/workspaces/intelligencepacks/disable/action|Désactive un Intelligence Pack pour un espace de travail donné.|
+|/workspaces/intelligencepacks/enable/action|Active un Intelligence Pack pour un espace de travail donné.|
+|/workspaces/intelligencepacks/read|Répertorie tous les Intelligence Packs visibles pour un espace de travail donné et répertorie également si le pack est activé ou désactivé pour cet espace de travail.|
+|/workspaces/linkedServices/delete|Supprime les services liés sous un espace de travail spécifié.|
+|/workspaces/linkedServices/read|Obtient les services liés sous un espace de travail spécifié.|
+|/workspaces/linkedServices/write|Crée/met à jour les services liés sous un espace de travail spécifié.|
+|/workspaces/listKeys/action|Récupère les clés de liste pour l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail.|
+|/workspaces/listKeys/read|Récupère les clés de liste pour l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail.|
+|/workspaces/managementGroups/read|Obtient les noms et les métadonnées des groupes d’administration System Center Operations Manager connectés à cet espace de travail.|
+|/workspaces/metricDefinitions/read|Obtient les définitions de métrique sous un espace de travail|
+|/workspaces/notificationSettings/delete|Supprime les paramètres de notification de l’utilisateur pour l’espace de travail.|
+|/workspaces/notificationSettings/read|Obtient les paramètres de notification de l’utilisateur pour l’espace de travail.|
+|/workspaces/notificationSettings/write|Définit les paramètres de notification de l’utilisateur pour l’espace de travail.|
+|/workspaces/purge/action|Supprime les données spécifiées de l’espace de travail|
+|/workspaces/read|Obtient un espace de travail existant.|
+|/workspaces/savedSearches/delete|Supprime une requête de recherche enregistrée.|
+|/workspaces/savedSearches/read|Obtient une requête de recherche enregistrée.|
+|/workspaces/savedSearches/write|Crée une requête de recherche enregistrée.|
+|/workspaces/schema/read|Obtient le schéma de recherche de l’espace de travail.  Le schéma de recherche inclut les champs exposés et leurs types.|
+|/workspaces/search/action|Exécute une requête de recherche.|
+|/workspaces/sharedKeys/action|Récupère les clés partagées de l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail.|
+|/workspaces/sharedKeys/read|Récupère les clés partagées de l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail.|
+|/workspaces/storageinsightconfigs/delete|Supprime une configuration de stockage. Cela empêchera Microsoft Operational Insights de lire des données du compte de stockage.|
+|/workspaces/storageinsightconfigs/read|Obtient une configuration de stockage.|
+|/workspaces/storageinsightconfigs/write|Crée une configuration de stockage. Ces configurations sont utilisées pour extraire des données à partir d’un emplacement dans un compte de stockage existant.|
+|/workspaces/usages/read|Obtient les données d’utilisation d’un espace de travail, y compris la quantité de données lues par l’espace de travail.|
+|/workspaces/write|Crée un espace de travail ou lie un espace de travail existant en fournissant l’ID de client à partir de l’espace de travail existant.|
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/managementAssociations/delete|Delete existing Management Association|
-|/managementAssociations/read|Get Existing Management Association|
-|/managementAssociations/write|Create a new Management Association|
-|/managementConfigurations/delete|Delete existing Management Configuratin|
-|/managementConfigurations/read|Get Existing Management Configuration|
-|/managementConfigurations/write|Create a new Management Configuration|
-|/register/action|Register a subscription to a resource provider.|
-|/solutions/delete|Delete existing OMS solution|
-|/solutions/read|Get exiting OMS solution|
-|/solutions/write|Create new OMS solution|
+|/managementAssociations/delete|Supprime une association de gestion existante|
+|/managementAssociations/read|Obtient une association de gestion existante|
+|/managementAssociations/write|Crée une association de gestion|
+|/managementConfigurations/delete|Supprime une configuration de gestion existante|
+|/managementConfigurations/read|Obtient une configuration de gestion existante|
+|/managementConfigurations/write|Crée une configuration de gestion|
+|/register/action|Inscrire un abonnement à un fournisseur de ressources.|
+|/solutions/delete|Supprimer la solution OMS existante.|
+|/solutions/read|Obtenir la solution OMS existante.|
+|/solutions/write|Créer une solution OMS.|
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/dashboards/delete|Removes the dashboard from the subscription.|
-|/dashboards/read|Reads the dashboards for the subscription.|
-|/dashboards/write|Add or modify dashboard to a subscription.|
+|/dashboards/delete|Supprime le tableau de bord de l’abonnement.|
+|/dashboards/read|Lit les tableaux de bord pour l’abonnement.|
+|/dashboards/write|Ajoute ou modifie un tableau de bord à un abonnement.|
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/capacities/checkNameAvailability/action|Checks that given Power BI Dedicated Capacity name is valid and not in use.|
-|/capacities/delete|Deletes the Power BI Dedicated Capacity.|
-|/capacities/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Power BI Dedicated Capacity.|
-|/capacities/read|Retrieves the information of the specified Power BI Dedicated Capacity.|
-|/capacities/write|Creates or updates the specified Power BI Dedicated Capacity.|
+|/capacities/checkNameAvailability/action|Vérifie que le nom de la capacité dédiée Power BI spécifié est valide et non utilisé.|
+|/capacities/delete|Supprime la capacité dédiée Power BI.|
+|/capacities/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour la capacité dédiée Power BI.|
+|/capacities/read|Récupère les informations de la capacité dédiée Power BI spécifiée.|
+|/capacities/write|Crée ou met à jour la capacité dédiée Power BI spécifiée.|
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/locations/allocatedStamp/read|GetAllocatedStamp is internal operation used by service|
-|/locations/allocateStamp/action|AllocateStamp is internal operation used by service|
+|/locations/allocatedStamp/read|GetAllocatedStamp est une opération interne utilisée par le service.|
+|/locations/allocateStamp/action|AllocateStamp est une opération interne utilisée par le service.|
 |/locations/backupPreValidateProtection/action||
-|/locations/backupStatus/action|Check Backup Status for Recovery Services Vaults|
-|/locations/backupValidateFeatures/action|Validate Features|
-|/operations/read|Operation returns the list of Operations for a Resource Provider|
-|/register/action|Registers subscription for given Resource Provider|
-|/Vaults/backupconfig/read|Returns Configuration for Recovery Services Vault.|
-|/Vaults/backupconfig/write|Updates Configuration for Recovery Services Vault.|
-|/Vaults/backupEngines/read|Returns all the backup management servers registered with vault.|
-|/Vaults/backupFabrics/{fabricName}/protectionContainers/{containerName}/items/read|Get all items in a container|
-|/Vaults/backupFabrics/backupProtectionIntent/write|Create a backup Protection Intent|
-|/Vaults/backupFabrics/operationResults/read|Returns status of the operation|
-|/Vaults/backupFabrics/protectableContainers/read|Get all protectable containers|
-|/Vaults/backupFabrics/protectionContainers/inquire/action|Do inquiry for workloads within a container|
-|/Vaults/backupFabrics/protectionContainers/operationResults/read|Gets result of Operation performed on Protection Container.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action|Performs Backup for Protected Item.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/delete|Deletes Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read|Gets Result of Operation Performed on Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read|Returns the status of Operation performed on Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/read|Returns object details of the Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/provisionInstantItemRecovery/action|Provision Instant Item Recovery for Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read|Get Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/restore/action|Restore Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/revokeInstantItemRecovery/action|Revoke Instant Item Recovery for Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/write|Create a backup Protected Item|
-|/Vaults/backupFabrics/protectionContainers/read|Returns all registered containers|
-|/Vaults/backupFabrics/protectionContainers/write|Creates a registered container|
-|/Vaults/backupFabrics/refreshContainers/action|Refreshes the container list|
-|/Vaults/backupJobs/cancel/action|Cancel the Job|
-|/Vaults/backupJobs/operationResults/read|Returns the Result of Job Operation.|
-|/Vaults/backupJobs/read|Returns all Job Objects|
-|/Vaults/backupJobsExport/action|Export Jobs|
-|/Vaults/backupJobsExport/operationResults/read|Returns the Result of Export Job Operation.|
-|/Vaults/backupManagementMetaData/read|Returns Backup Management Metadata for Recovery Services Vault.|
-|/Vaults/backupOperationResults/read|Returns Backup Operation Result for Recovery Services Vault.|
-|/Vaults/backupOperations/read|Returns Backup Operation Status for Recovery Services Vault.|
-|/Vaults/backupPolicies/delete|Delete a Protection Policy|
-|/Vaults/backupPolicies/operationResults/read|Get Results of Policy Operation.|
-|/Vaults/backupPolicies/operations/read|Get Status of Policy Operation.|
-|/Vaults/backupPolicies/read|Returns all Protection Policies|
-|/Vaults/backupPolicies/write|Creates Protection Policy|
-|/Vaults/backupProtectableItems/read|Returns list of all Protectable Items.|
-|/Vaults/backupProtectedItems/read|Returns the list of all Protected Items.|
-|/Vaults/backupProtectionContainers/read|Returns all containers belonging to the subscription|
-|/Vaults/backupSecurityPIN/action|Returns Security PIN Information for Recovery Services Vault.|
-|/Vaults/backupstorageconfig/read|Returns Storage Configuration for Recovery Services Vault.|
-|/Vaults/backupstorageconfig/write|Updates Storage Configuration for Recovery Services Vault.|
-|/Vaults/backupUsageSummaries/read|Returns summaries for Protected Items and Protected Servers for a Recovery Services .|
-|/Vaults/certificates/write|The Update Resource Certificate operation updates the resource/vault credential certificate.|
-|/Vaults/delete|The Delete Vault operation deletes the specified Azure resource of type 'vault'|
-|/Vaults/extendedInformation/delete|The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault?|
-|/Vaults/extendedInformation/read|The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault?|
-|/Vaults/extendedInformation/write|The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault?|
-|/Vaults/monitoringAlerts/read|Gets the alerts for the Recovery services vault.|
-|/Vaults/monitoringAlerts/write|Resolves the alert.|
-|/Vaults/monitoringConfigurations/read|Gets the Recovery services vault notification configuration.|
-|/Vaults/monitoringConfigurations/write|Configures e-mail notifications to Recovery services vault.|
-|/Vaults/providers/Microsoft.Insights/diagnosticSettings/read|Azure Backup Diagnostics|
-|/Vaults/providers/Microsoft.Insights/diagnosticSettings/write|Azure Backup Diagnostics|
-|/Vaults/providers/Microsoft.Insights/logDefinitions/read|Azure Backup Logs|
-|/Vaults/providers/Microsoft.Insights/metricDefinitions/read|Azure Backup Metrics|
-|/Vaults/read|The Get Vault operation gets an object representing the Azure resource of type 'vault'|
-|/Vaults/registeredIdentities/delete|The UnRegister Container operation can be used to unregister a container.|
-|/Vaults/registeredIdentities/operationResults/read|The Get Operation Results operation can be used get the operation status and result for the asynchronously submitted operation|
-|/Vaults/registeredIdentities/read|The Get Containers operation can be used get the containers registered for a resource.|
-|/Vaults/registeredIdentities/write|The Register Service Container operation can be used to register a container with Recovery Service.|
-|/vaults/replicationAlertSettings/read|Read Any Alerts Settings|
-|/vaults/replicationAlertSettings/write|Create or Update Any Alerts Settings|
-|/vaults/replicationEvents/read|Read Any Events|
-|/vaults/replicationFabrics/checkConsistency/action|Checks Consistency of the Fabric|
-|/vaults/replicationFabrics/delete|Delete Any Fabrics|
-|/vaults/replicationFabrics/deployProcessServerImage/action|Deploy Process Server Image|
-|/vaults/replicationFabrics/read|Read Any Fabrics|
-|/vaults/replicationFabrics/reassociateGateway/action|Reassociate Gateway|
-|/vaults/replicationFabrics/remove/action|Remove Fabric|
-|/vaults/replicationFabrics/renewcertificate/action|Renew Certificate for Fabric|
-|/vaults/replicationFabrics/replicationNetworks/read|Read Any Networks|
-|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/delete|Delete Any Network Mappings|
-|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read|Read Any Network Mappings|
-|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/write|Create or Update Any Network Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/ discoverProtectableItem/action|Discover Protectable Item|
-|/vaults/replicationFabrics/replicationProtectionContainers/read|Read Any Protection Containers|
-|/vaults/replicationFabrics/replicationProtectionContainers/remove/action|Remove Protection Container|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectableItems/read|Read Any Protectable Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/applyRecoveryPoint/action|Apply Recovery Point|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/delete|Delete Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/failoverCommit/action|Failover Commit|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/plannedFailover/action|Planned Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/read|Read Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/recoveryPoints/read|Read Any Replication Recovery Points|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/remove/action|Remove Protected Item|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/repairReplication/action|Repair replication|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/reProtect/action|ReProtect Protected Item|
+|/locations/backupStatus/action|Vérifie l’état de la sauvegarde pour les coffres Recovery Services|
+|/locations/backupValidateFeatures/action|Valide des fonctionnalités|
+|/operations/read|Retourne la liste d’opérations pour un fournisseur de ressources|
+|/register/action|Inscrit un abonnement pour le fournisseur de ressources spécifié|
+|/Vaults/backupconfig/read|Renvoie la configuration pour le coffre Recovery Services.|
+|/Vaults/backupconfig/write|Met à jour la configuration pour le coffre Recovery Services.|
+|/Vaults/backupEngines/read|Retourne tous les serveurs d’administration de sauvegarde inscrits auprès du coffre.|
+|/Vaults/backupFabrics/{fabricName}/protectionContainers/{containerName}/items/read|Obtient tous les éléments figurant dans un conteneur|
+|/Vaults/backupFabrics/backupProtectionIntent/write|Crée une intention de protection de sauvegarde.|
+|/Vaults/backupFabrics/operationResults/read|Renvoie l’état de l’opération.|
+|/Vaults/backupFabrics/protectableContainers/read|Obtient tous les conteneurs protégeables|
+|/Vaults/backupFabrics/protectionContainers/inquire/action|Recherche les charges de travail dans un conteneur|
+|/Vaults/backupFabrics/protectionContainers/operationResults/read|Obtient les résultats de l’opération effectuée sur le conteneur de protection.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action|Effectue la sauvegarde d’un élément protégé.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/delete|Supprime un élément protégé.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read|Obtient les résultats de l’opération effectuée sur les éléments protégés.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read|Renvoie l’état de l’opération effectuée sur les éléments protégés.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/read|Renvoie des détails d’objet de l’élément protégé.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/provisionInstantItemRecovery/action|Approvisionner la récupération d’éléments instantanée pour l’élément protégé.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read|Obtenir les points de récupération des éléments protégés.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/restore/action|Restaurer les points de récupération des éléments protégés.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/revokeInstantItemRecovery/action|Révoquer la récupération d’éléments instantanée pour l’élément protégé.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/write|Créer un élément protégé de sauvegarde.|
+|/Vaults/backupFabrics/protectionContainers/read|Renvoie tous les conteneurs inscrits.|
+|/Vaults/backupFabrics/protectionContainers/write|Crée un conteneur inscrit|
+|/Vaults/backupFabrics/refreshContainers/action|Actualise la liste de conteneurs.|
+|/Vaults/backupJobs/cancel/action|Annuler le travail.|
+|/Vaults/backupJobs/operationResults/read|Renvoie le résultat de l’opération de travail.|
+|/Vaults/backupJobs/read|Renvoie tous les objets de travail.|
+|/Vaults/backupJobsExport/action|Travaux d’exportation|
+|/Vaults/backupJobsExport/operationResults/read|Renvoie le résultat de l’opération de travail d’exportation.|
+|/Vaults/backupManagementMetaData/read|Renvoie les métadonnées de gestion des sauvegardes pour le coffre Recovery Services.|
+|/Vaults/backupOperationResults/read|Renvoie le résultat de l’opération de sauvegarde pour le coffre Recovery Services.|
+|/Vaults/backupOperations/read|Renvoie l’état de l’opération de sauvegarde pour le coffre Recovery Services.|
+|/Vaults/backupPolicies/delete|Supprimer une stratégie de protection.|
+|/Vaults/backupPolicies/operationResults/read|Obtenir les résultats de l’opération de stratégie.|
+|/Vaults/backupPolicies/operations/read|Obtenir l’état de l’opération de stratégie.|
+|/Vaults/backupPolicies/read|Renvoie toutes les stratégies de protection.|
+|/Vaults/backupPolicies/write|Crée une stratégie de protection.|
+|/Vaults/backupProtectableItems/read|Renvoie la liste de tous les éléments pouvant être protégés.|
+|/Vaults/backupProtectedItems/read|Renvoie la liste de tous les éléments protégés.|
+|/Vaults/backupProtectionContainers/read|Renvoie tous les conteneurs appartenant à l’abonnement.|
+|/Vaults/backupSecurityPIN/action|Renvoie les informations relatives au code PIN de sécurité pour le coffre Recovery Services.|
+|/Vaults/backupstorageconfig/read|Renvoie la configuration de stockage pour le coffre Recovery Services.|
+|/Vaults/backupstorageconfig/write|Met à jour la configuration de stockage pour le coffre Recovery Services.|
+|/Vaults/backupUsageSummaries/read|Renvoie des résumés pour les éléments protégés et les serveurs protégés d’un coffre Recovery Services.|
+|/Vaults/certificates/write|L’opération de mise à jour de certificat de ressource met à jour le certificat d’informations d’identification du coffre/de la ressource.|
+|/Vaults/delete|L’opération de suppression de coffre supprime la ressource Azure de type « coffre » spécifiée.|
+|/Vaults/extendedInformation/delete|L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ».|
+|/Vaults/extendedInformation/read|L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ».|
+|/Vaults/extendedInformation/write|L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ».|
+|/Vaults/monitoringAlerts/read|Obtient les alertes pour le coffre Recovery Services.|
+|/Vaults/monitoringAlerts/write|Résout l’alerte.|
+|/Vaults/monitoringConfigurations/read|Obtient la configuration de notification du coffre Recovery Services.|
+|/Vaults/monitoringConfigurations/write|Configure les notifications par e-mail au coffre Recovery Services.|
+|/Vaults/providers/Microsoft.Insights/diagnosticSettings/read|Diagnostics de sauvegarde Azure|
+|/Vaults/providers/Microsoft.Insights/diagnosticSettings/write|Diagnostics de sauvegarde Azure|
+|/Vaults/providers/Microsoft.Insights/logDefinitions/read|Journaux de sauvegarde Azure|
+|/Vaults/providers/Microsoft.Insights/metricDefinitions/read|Métriques de sauvegarde Azure|
+|/Vaults/read|L’opération d’obtention de coffre obtient un objet représentant la ressource Azure de type « coffre ».|
+|/Vaults/registeredIdentities/delete|L’opération d’annulation de l’inscription d’un conteneur peut être utilisée pour annuler l’inscription d’un conteneur.|
+|/Vaults/registeredIdentities/operationResults/read|L’opération d’obtention des résultats d’une opération peut être utilisée pour obtenir l’état de l’opération et le résultat de l’opération envoyée de manière asynchrone.|
+|/Vaults/registeredIdentities/read|L’opération d’obtention de conteneurs peut être utilisée pour obtenir les conteneurs inscrits pour une ressource.|
+|/Vaults/registeredIdentities/write|L’opération d’inscription d’un conteneur de service peut être utilisée pour inscrire un conteneur avec Recovery Services.|
+|/vaults/replicationAlertSettings/read|Lire des paramètres d’alertes.|
+|/vaults/replicationAlertSettings/write|Créer ou mettre à jour des paramètres d’alertes.|
+|/vaults/replicationEvents/read|Lire des événements.|
+|/vaults/replicationFabrics/checkConsistency/action|Vérifie la cohérence de la structure.|
+|/vaults/replicationFabrics/delete|Supprimer des structures.|
+|/vaults/replicationFabrics/deployProcessServerImage/action|Déployer une image de serveur de traitement.|
+|/vaults/replicationFabrics/read|Lire des structures.|
+|/vaults/replicationFabrics/reassociateGateway/action|Réassocier une passerelle.|
+|/vaults/replicationFabrics/remove/action|Supprimer une structure.|
+|/vaults/replicationFabrics/renewcertificate/action|Renouveler le certificat pour Fabric|
+|/vaults/replicationFabrics/replicationNetworks/read|Lire des réseaux.|
+|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/delete|Supprimer des mappages de réseau.|
+|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read|Lire des mappages de réseau.|
+|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/write|Créer ou mettre à jour des mappages de réseau.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ discoverProtectableItem/action|Découvrir un élément pouvant être protégé.|
+|/vaults/replicationFabrics/replicationProtectionContainers/read|Lire des conteneurs de protection.|
+|/vaults/replicationFabrics/replicationProtectionContainers/remove/action|Supprimer un conteneur de protection.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectableItems/read|Lire des éléments pouvant être protégés.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/applyRecoveryPoint/action|Appliquer un point de récupération.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/delete|Supprimer des éléments protégés.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/failoverCommit/action|Validation du basculement.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/plannedFailover/action|Basculement planifié.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/read|Lire des éléments protégés.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/recoveryPoints/read|Lire des points de récupération de réplication.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/remove/action|Supprimer un élément protégé.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/repairReplication/action|Réparer la réplication.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/reProtect/action|Reprotéger l’élément protégé.|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailover/action|Test Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailoverCleanup/action|Test Failover Cleanup|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/unplannedFailover/action|Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/updateMobilityService/action|Update Mobility Service|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/write|Create or Update Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/delete|Delete Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/read|Read Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/remove/action|Remove Protection Container Mapping|
-|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/write|Create or Update Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action|Switch Protection Container|
-|/vaults/replicationFabrics/replicationProtectionContainers/write|Create or Update Any Protection Containers|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete|Delete Any Recovery Services Providers|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/read|Read Any Recovery Services Providers|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/ refreshProvider/action|Refresh Provider|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/remove/action|Remove Recovery Services Provider|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/write|Create or Update Any Recovery Services Providers|
-|/vaults/replicationFabrics/replicationStorageClassifications/read|Read Any Storage Classifications|
-|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/delete|Delete Any Storage Classification Mappings|
-|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/read|Read Any Storage Classification Mappings|
-|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/write|Create or Update Any Storage Classification Mappings|
-|/vaults/replicationFabrics/replicationvCenters/delete|Delete Any Jobs|
-|/vaults/replicationFabrics/replicationvCenters/read|Read Any Jobs|
-|/vaults/replicationFabrics/replicationvCenters/write|Create or Update Any Jobs|
-|/vaults/replicationFabrics/write|Create or Update Any Fabrics|
-|/vaults/replicationJobs/cancel/action|Cancel Job|
-|/vaults/replicationJobs/read|Read Any Jobs|
-|/vaults/replicationJobs/restart/action|Restart job|
-|/vaults/replicationJobs/resume/action|Resume Job|
-|/vaults/replicationPolicies/delete|Delete Any Policies|
-|/vaults/replicationPolicies/read|Read Any Policies|
-|/vaults/replicationPolicies/write|Create or Update Any Policies|
-|/vaults/replicationRecoveryPlans/delete|Delete Any Recovery Plans|
-|/vaults/replicationRecoveryPlans/failoverCommit/action|Failover Commit Recovery Plan|
-|/vaults/replicationRecoveryPlans/plannedFailover/action|Planned Failover Recovery Plan|
-|/vaults/replicationRecoveryPlans/read|Read Any Recovery Plans|
-|/vaults/replicationRecoveryPlans/reProtect/action|ReProtect Recovery Plan|
-|/vaults/replicationRecoveryPlans/testFailover/action|Test Failover Recovery Plan|
-|/vaults/replicationRecoveryPlans/testFailoverCleanup/action|Test Failover Cleanup Recovery Plan|
-|/vaults/replicationRecoveryPlans/unplannedFailover/action|Failover Recovery Plan|
-|/vaults/replicationRecoveryPlans/write|Create or Update Any Recovery Plans|
-|/Vaults/tokenInfo/read|Returns token information for Recovery Services Vault.|
-|/vaults/usages/read|Read Any Vault Usages|
-|/Vaults/usages/read|Returns usage details for a Recovery Services Vault.|
-|/Vaults/vaultTokens/read|The Vault Token operation can be used to get Vault Token for vault level backend operations.|
-|/Vaults/write|Create Vault operation creates an Azure resource of type 'vault'|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailoverCleanup/action|Nettoyage de basculement test.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/unplannedFailover/action|Basculement|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/updateMobilityService/action|Mettre à jour le service Mobilité.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/write|Créer ou mettre à jour des éléments protégés.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/delete|Supprimer des mappages de conteneurs de protection.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/read|Lire des mappages de conteneurs de protection.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/remove/action|Supprimer un mappage de conteneurs de protection.|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/write|Créer ou mettre à jour des mappages de conteneurs de protection.|
+|/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action|Basculer un conteneur de protection.|
+|/vaults/replicationFabrics/replicationProtectionContainers/write|Créer ou mettre à jour des conteneurs de protection.|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete|Supprimer des fournisseurs Recovery Services.|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/read|Lire des fournisseurs Recovery Services.|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/ refreshProvider/action|Actualiser un fournisseur.|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/remove/action|Supprimer un fournisseur Recovery Services.|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/write|Crée ou met à jour des fournisseurs Recovery Services|
+|/vaults/replicationFabrics/replicationStorageClassifications/read|Lire des classifications de stockage.|
+|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/delete|Supprimer des mappages de classifications de stockage.|
+|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/read|Lire des mappages de classifications de stockage.|
+|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/write|Créer ou mettre à jour des mappages de classifications de stockage.|
+|/vaults/replicationFabrics/replicationvCenters/delete|Supprimer des travaux.|
+|/vaults/replicationFabrics/replicationvCenters/read|Lire des travaux.|
+|/vaults/replicationFabrics/replicationvCenters/write|Créer ou mettre à jour des travaux.|
+|/vaults/replicationFabrics/write|Créer ou mettre à jour des structures.|
+|/vaults/replicationJobs/cancel/action|Annuler un travail.|
+|/vaults/replicationJobs/read|Lire des travaux.|
+|/vaults/replicationJobs/restart/action|Redémarrer un travail.|
+|/vaults/replicationJobs/resume/action|Reprendre un travail.|
+|/vaults/replicationPolicies/delete|Supprimer des stratégies.|
+|/vaults/replicationPolicies/read|Lire des stratégies.|
+|/vaults/replicationPolicies/write|Créer ou mettre à jour des stratégies.|
+|/vaults/replicationRecoveryPlans/delete|Supprimer des plans de récupération.|
+|/vaults/replicationRecoveryPlans/failoverCommit/action|Plan de récupération de validation de basculement.|
+|/vaults/replicationRecoveryPlans/plannedFailover/action|Plan de récupération de basculement planifié.|
+|/vaults/replicationRecoveryPlans/read|Lire des plans de récupération.|
+|/vaults/replicationRecoveryPlans/reProtect/action|Reprotéger le plan de récupération.|
+|/vaults/replicationRecoveryPlans/testFailover/action|Plan de récupération de basculement test.|
+|/vaults/replicationRecoveryPlans/testFailoverCleanup/action|Plan de récupération de nettoyage de basculement test.|
+|/vaults/replicationRecoveryPlans/unplannedFailover/action|Plan de récupération de basculement.|
+|/vaults/replicationRecoveryPlans/write|Créer ou mettre à jour des plans de récupération.|
+|/Vaults/tokenInfo/read|Renvoie des informations de jeton pour le coffre Recovery Services.|
+|/vaults/usages/read|Lire des utilisations de coffre.|
+|/Vaults/usages/read|Renvoie des détails d’utilisation d’un coffre Recovery Services.|
+|/Vaults/vaultTokens/read|L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre.|
+|/Vaults/write|L’opération de création de coffre entraîne la création d’une ressource Azure de type « coffre ».|
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/action|Checks availability of namespace under given subscription.|
-|/checkNamespaceAvailability/action|Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailabiltiy instead.|
-|/namespaces/authorizationRules/action|Updates Namespace Authorization Rule. This API is depricated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/authorizationRules/delete|Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. |
-|/namespaces/authorizationRules/listkeys/action|Get the Connection String to the Namespace|
-|/namespaces/authorizationRules/read|Get the list of Namespaces Authorization Rules description.|
-|/namespaces/authorizationRules/regenerateKeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/authorizationRules/write|Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.|
-|/namespaces/Delete|Delete Namespace Resource|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|Gets the authorization rules keys for the Disaster Recovery primary namespace|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Get Disaster Recovery Primary Namespace's Authorization Rules|
-|/namespaces/disasterRecoveryConfigs/breakPairing/action|Disables Disaster Recovery and stops replicating changes from primary to secondary namespaces.|
-|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Checks availability of namespace alias under given subscription.|
-|/namespaces/disasterRecoveryConfigs/delete|Deletes the Disaster Recovery configuration associated with the namespace. This operation can only be invoked via the primary namespace.|
-|/namespaces/disasterRecoveryConfigs/failover/action|Invokes a GEO DR failover and reconfigures the namespace alias to point to the secondary namespace.|
-|/namespaces/disasterRecoveryConfigs/read|Gets the Disaster Recovery configuration associated with the namespace.|
-|/namespaces/disasterRecoveryConfigs/write|Creates or Updates the Disaster Recovery configuration associated with the namespace.|
-|/namespaces/HybridConnections/authorizationRules/action|Operation to update HybridConnection. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule.|
-|/namespaces/HybridConnections/authorizationRules/delete|Operation to delete HybridConnection Authorization Rules|
-|/namespaces/HybridConnections/authorizationRules/listkeys/action|Get the Connection String to HybridConnection|
-|/namespaces/HybridConnections/authorizationRules/read| Get the list of HybridConnection Authorization Rules|
-|/namespaces/HybridConnections/authorizationRules/regeneratekeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/HybridConnections/authorizationRules/write|Create HybridConnection Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated.|
-|/namespaces/HybridConnections/Delete|Operation to delete HybridConnection Resource|
-|/namespaces/HybridConnections/read|Get list of HybridConnection Resource Descriptions|
-|/namespaces/HybridConnections/write|Create or Update HybridConnection properties.|
-|/namespaces/messagingPlan/read|Gets the Messaging Plan for a namespace. This API is deprecated. Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/messagingPlan/write|Updates the Messaging Plan for a namespace. This API is deprecated. Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/operationresults/read|Get the status of Namespace operation|
-|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Get list of Namespace metrics Resource Descriptions|
-|/namespaces/read|Get the list of Namespace Resource Description|
-|/namespaces/WcfRelays/authorizationRules/action|Operation to update WcfRelay. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule.|
-|/namespaces/WcfRelays/authorizationRules/delete|Operation to delete WcfRelay Authorization Rules|
-|/namespaces/WcfRelays/authorizationRules/listkeys/action|Get the Connection String to WcfRelay|
-|/namespaces/WcfRelays/authorizationRules/read| Get the list of WcfRelay Authorization Rules|
-|/namespaces/WcfRelays/authorizationRules/regeneratekeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/WcfRelays/authorizationRules/write|Create WcfRelay Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated.|
-|/namespaces/WcfRelays/Delete|Operation to delete WcfRelay Resource|
-|/namespaces/WcfRelays/read|Get list of WcfRelay Resource Descriptions|
-|/namespaces/WcfRelays/write|Create or Update WcfRelay properties.|
-|/namespaces/write|Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated.|
-|/operations/read|Get Operations|
-|/register/action|Registers the subscription for the Relay resource provider and enables the creation of Relay resources|
-|/unregister/action|Registers the subscription for the Relay resource provider and enables the creation of Relay resources|
+|/checkNameAvailability/action|Vérifier la disponibilité d’un espace de noms sous un abonnement donné|
+|/checkNamespaceAvailability/action|Vérifier la disponibilité d’un espace de noms sous un abonnement donné Cette API étant déconseillée, utilisez CheckNameAvailabiltiy à la place.|
+|/namespaces/authorizationRules/action|Met à jour une règle d’autorisation d’espace de noms. Cette API est déconseillée. Utilisez un appel PUT à la place pour mettre à jour la règle d’autorisation d’espace de noms... Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/authorizationRules/delete|Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée. |
+|/namespaces/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à la ressource Namespace|
+|/namespaces/authorizationRules/read|Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces.|
+|/namespaces/authorizationRules/regenerateKeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/authorizationRules/write|Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour.|
+|/namespaces/Delete|Supprimer une ressource Namespace|
+|/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|Obtient les clés de règles d’autorisation pour l’espace de noms principal de récupération d’urgence|
+|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Obtient les règles d’autorisation de l’espace de noms principal de récupération d’urgence|
+|/namespaces/disasterRecoveryConfigs/breakPairing/action|Désactive la récupération d’urgence et arrête la réplication des changements de l’espace de noms principal sur l’espace de noms secondaire.|
+|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Vérifie la disponibilité d’un alias d’espace de noms sous un abonnement donné.|
+|/namespaces/disasterRecoveryConfigs/delete|Supprime la configuration de récupération d’urgence associée à l’espace de noms. Cette opération peut être appelée uniquement via l’espace de noms principal.|
+|/namespaces/disasterRecoveryConfigs/failover/action|Appelle un basculement de géorécupération d’urgence et reconfigure l’alias d’espace de noms pour qu’il pointe vers l’espace de noms secondaire.|
+|/namespaces/disasterRecoveryConfigs/read|Obtient la configuration de récupération d’urgence associée à l’espace de noms.|
+|/namespaces/disasterRecoveryConfigs/write|Crée ou met à jour la configuration de récupération d’urgence associée à l’espace de noms.|
+|/namespaces/HybridConnections/authorizationRules/action|Met à jour HybridConnection. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation.|
+|/namespaces/HybridConnections/authorizationRules/delete|Opération de suppression des règles d’autorisation HybridConnection.|
+|/namespaces/HybridConnections/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à HybridConnection.|
+|/namespaces/HybridConnections/authorizationRules/read| Obtient la liste des règles d’autorisation de HybridConnection|
+|/namespaces/HybridConnections/authorizationRules/regeneratekeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/HybridConnections/authorizationRules/write|Créer des règles d’autorisation HybridConnection et mettre à jour leurs propriétés. Les droits d’accès des règles d’autorisation peuvent être mis à jour.|
+|/namespaces/HybridConnections/Delete|Opération de suppression des ressources HybridConnection.|
+|/namespaces/HybridConnections/read|Obtenir la liste des descriptions des ressources HybridConnection.|
+|/namespaces/HybridConnections/write|Créer ou mettre à jour des propriétés HybridConnection.|
+|/namespaces/messagingPlan/read|Obtient le plan de messagerie pour un espace de noms. Cette API est déconseillée. Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/messagingPlan/write|Met à jour le plan de messagerie pour un espace de noms. Cette API est déconseillée. Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/operationresults/read|Obtient l’état de l’opération d’espace de noms|
+|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Obtenir la liste des descriptions des mesures de ressource Namespace.|
+|/namespaces/read|Obtenir la liste des descriptions des ressources Namespace.|
+|/namespaces/WcfRelays/authorizationRules/action|Met à jour WcfRelay. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation.|
+|/namespaces/WcfRelays/authorizationRules/delete|Opération de suppression des règles d’autorisation WcfRelay.|
+|/namespaces/WcfRelays/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à WcfRelay.|
+|/namespaces/WcfRelays/authorizationRules/read| Obtient la liste des règles d’autorisation de WcfRelay|
+|/namespaces/WcfRelays/authorizationRules/regeneratekeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/WcfRelays/authorizationRules/write|Créer des règles d’autorisation WcfRelay et mettre à jour leurs propriétés. Les droits d’accès des règles d’autorisation peuvent être mis à jour.|
+|/namespaces/WcfRelays/Delete|Opération de suppression des ressources WcfRelay.|
+|/namespaces/WcfRelays/read|Obtenir la liste des descriptions des ressources WcfRelay.|
+|/namespaces/WcfRelays/write|Créer ou mettre à jour des propriétés WcfRelay.|
+|/namespaces/write|Créer une ressource Namespace et mettre à jour ses propriétés. Les balises et la capacité de l’espace de noms sont les propriétés qui peuvent être mises à jour.|
+|/operations/read|Obtient les opérations|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources Relay et active la création de ressources Relay.|
+|/unregister/action|Inscrit l’abonnement pour le fournisseur de ressources Relay et active la création de ressources Relay.|
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/AvailabilityStatuses/current/read|Gets the availability status for the specified resource|
-|/AvailabilityStatuses/read|Gets the availability statuses for all resources in the specified scope|
-|/healthevent/action|Denotes the change in health state for the specified resource|
-|/healthevent/Activated/action|Denotes the change in health state for the specified resource|
-|/healthevent/InProgress/action|Denotes the change in health state for the specified resource|
-|/healthevent/Pending/action|Denotes the change in health state for the specified resource|
-|/healthevent/Resolved/action|Denotes the change in health state for the specified resource|
-|/healthevent/Updated/action|Denotes the change in health state for the specified resource|
-|/register/action|Registers the subscription for the Microsoft ResourceHealth|
+|/AvailabilityStatuses/current/read|Obtient l’état de disponibilité de la ressource spécifiée.|
+|/AvailabilityStatuses/read|Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée.|
+|/healthevent/action|Indique le changement d’état d’intégrité de la ressource spécifiée|
+|/healthevent/Activated/action|Indique le changement d’état d’intégrité de la ressource spécifiée|
+|/healthevent/InProgress/action|Indique le changement d’état d’intégrité de la ressource spécifiée|
+|/healthevent/Pending/action|Indique le changement d’état d’intégrité de la ressource spécifiée|
+|/healthevent/Resolved/action|Indique le changement d’état d’intégrité de la ressource spécifiée|
+|/healthevent/Updated/action|Indique le changement d’état d’intégrité de la ressource spécifiée|
+|/register/action|Inscrit l’abonnement à Microsoft ResourceHealth|
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkResourceName/action|Check the resource name for validity.|
-|/deployments/cancel/action|Cancels a deployment.|
-|/deployments/delete|Deletes a deployment.|
-|/deployments/operations/read|Gets or lists deployment operations.|
-|/deployments/read|Gets or lists deployments.|
-|/deployments/validate/action|Validates an deployment.|
-|/deployments/write|Creates or updates an deployment.|
-|/links/delete|Deletes a resource link.|
-|/links/read|Gets or lists resource links.|
-|/links/write|Creates or updates a resource link.|
-|/marketplace/purchase/action|Purchases a resource from the marketplace.|
-|/providers/read|Get the list of providers.|
-|/resources/read|Get the list of resources based upon filters.|
-|/subscriptions/locations/read|Gets the list of locations supported.|
-|/subscriptions/operationresults/read|Get the subscription operation results.|
-|/subscriptions/providers/read|Gets or lists resource providers.|
-|/subscriptions/read|Gets the list of subscriptions.|
-|/subscriptions/resourceGroups/delete|Deletes a resource group and all its resources.|
-|/subscriptions/resourcegroups/deployments/operations/read|Gets or lists deployment operations.|
-|/subscriptions/resourcegroups/deployments/operationstatuses/read|Gets or lists deployment operation statuses.|
-|/subscriptions/resourcegroups/deployments/read|Gets or lists deployments.|
-|/subscriptions/resourcegroups/deployments/write|Creates or updates an deployment.|
-|/subscriptions/resourceGroups/moveResources/action|Moves resources from one resource group to another.|
-|/subscriptions/resourceGroups/read|Gets or lists resource groups.|
-|/subscriptions/resourcegroups/resources/read|Gets the resources for the resource group.|
-|/subscriptions/resourceGroups/validateMoveResources/action|Validate move of resources from one resource group to another.|
-|/subscriptions/resourceGroups/write|Creates or updates a resource group.|
-|/subscriptions/resources/read|Gets resources of a subscription.|
-|/subscriptions/tagNames/delete|Deletes a subscription tag.|
-|/subscriptions/tagNames/read|Gets or lists subscription tags.|
-|/subscriptions/tagNames/tagValues/delete|Deletes a subscription tag value.|
-|/subscriptions/tagNames/tagValues/read|Gets or lists subscription tag values.|
-|/subscriptions/tagNames/tagValues/write|Adds a subscription tag value.|
-|/subscriptions/tagNames/write|Adds a subscription tag.|
-|/tenants/read|Gets the list of tenants.|
+|/checkResourceName/action|Vérifier la validité du nom de la ressource.|
+|/deployments/cancel/action|Annule un déploiement.|
+|/deployments/delete|Supprime un déploiement.|
+|/deployments/operations/read|Obtient ou répertorie les opérations de déploiement.|
+|/deployments/read|Obtient ou répertorie les déploiements.|
+|/deployments/validate/action|Valide un déploiement.|
+|/deployments/write|Crée ou met à jour un déploiement.|
+|/links/delete|Supprime un lien de ressource.|
+|/links/read|Obtient ou répertorie les liens des ressources.|
+|/links/write|Crée ou met à jour un lien de ressource.|
+|/marketplace/purchase/action|Achète une ressource sur la place de marché.|
+|/providers/read|Obtient la liste des fournisseurs.|
+|/resources/read|Obtenir la liste des ressources en fonction des filtres.|
+|/subscriptions/locations/read|Obtient la liste des emplacements pris en charge.|
+|/subscriptions/operationresults/read|Obtenir les résultats de l’opération de l’abonnement.|
+|/subscriptions/providers/read|Obtient ou répertorie les fournisseurs de ressources.|
+|/subscriptions/read|Obtient la liste des abonnements.|
+|/subscriptions/resourceGroups/delete|Supprime un groupe de ressources, ainsi que toutes ses ressources.|
+|/subscriptions/resourcegroups/deployments/operations/read|Obtient ou répertorie les opérations de déploiement.|
+|/subscriptions/resourcegroups/deployments/operationstatuses/read|Obtient ou répertorie les états de l’opération de déploiement.|
+|/subscriptions/resourcegroups/deployments/read|Obtient ou répertorie les déploiements.|
+|/subscriptions/resourcegroups/deployments/write|Crée ou met à jour un déploiement.|
+|/subscriptions/resourceGroups/moveResources/action|Déplace les ressources d’un groupe de ressources à un autre.|
+|/subscriptions/resourceGroups/read|Obtient ou répertorie les groupes de ressources.|
+|/subscriptions/resourcegroups/resources/read|Obtient les ressources du groupe de ressources.|
+|/subscriptions/resourceGroups/validateMoveResources/action|Valide le déplacement des ressources d’un groupe de ressources à un autre.|
+|/subscriptions/resourceGroups/write|Crée ou met à jour un groupe de ressources.|
+|/subscriptions/resources/read|Obtient les ressources d’un abonnement.|
+|/subscriptions/tagNames/delete|Supprime une balise d’abonnement.|
+|/subscriptions/tagNames/read|Obtient ou répertorie les balises d’abonnement.|
+|/subscriptions/tagNames/tagValues/delete|Supprime une valeur de balise d’abonnement.|
+|/subscriptions/tagNames/tagValues/read|Obtient ou répertorie les valeurs des balises d’abonnement.|
+|/subscriptions/tagNames/tagValues/write|Ajoute une valeur de balise d’abonnement.|
+|/subscriptions/tagNames/write|Ajoute une balise d’abonnement.|
+|/tenants/read|Obtient la liste des clients.|
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/jobcollections/delete|Deletes job collection.|
-|/jobcollections/disable/action|Disables job collection.|
-|/jobcollections/enable/action|Enables job collection.|
-|/jobcollections/jobs/delete|Deletes job.|
-|/jobcollections/jobs/generateLogicAppDefinition/action|Generates Logic App definition based on a Scheduler Job.|
-|/jobcollections/jobs/jobhistories/read|Gets job history.|
-|/jobcollections/jobs/read|Gets job.|
-|/jobcollections/jobs/run/action|Runs job.|
-|/jobcollections/jobs/write|Creates or updates job.|
-|/jobcollections/read|Get Job Collection|
-|/jobcollections/write|Creates or updates job collection.|
+|/jobcollections/delete|Supprime une collection de travaux.|
+|/jobcollections/disable/action|Désactive une collection de travaux.|
+|/jobcollections/enable/action|Active une collection de travaux.|
+|/jobcollections/jobs/delete|Supprime un travail.|
+|/jobcollections/jobs/generateLogicAppDefinition/action|Génère une définition d’application logique basée sur un travail de Scheduler.|
+|/jobcollections/jobs/jobhistories/read|Affiche l’historique des travaux.|
+|/jobcollections/jobs/read|Obtient un travail.|
+|/jobcollections/jobs/run/action|Exécute un travail.|
+|/jobcollections/jobs/write|Crée ou met à jour un travail.|
+|/jobcollections/read|Obtenir une collection de travaux.|
+|/jobcollections/write|Crée ou met à jour une collection de travaux.|
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/action|Checks availability of the service name.|
-|/register/action|Registers the subscription for the search resource provider and enables the creation of search services.|
-|/searchServices/createQueryKey/action|Creates the query key.|
-|/searchServices/delete|Deletes the search service.|
-|/searchServices/diagnosticSettings/read|Gets the diganostic setting read for the resource|
-|/searchServices/diagnosticSettings/write|Creates or updates the diganostic setting for the resource|
-|/searchServices/listAdminKeys/action|Reads the admin keys.|
-|/searchServices/logDefinitions/read|Gets the available logs for the search service|
-|/searchServices/metricDefinitions/read|Gets the available metrics for the search service|
-|/searchServices/queryKey/delete|Deletes the query key.|
-|/searchServices/queryKey/read|Reads the query keys.|
-|/searchServices/read|Reads the search service.|
-|/searchServices/regenerateAdminKey/action|Regenerates the admin key.|
-|/searchServices/start/action|Starts the search service.|
-|/searchServices/stop/action|Stops the search service.|
-|/searchServices/write|Creates or updates the search service.|
+|/checkNameAvailability/action|Vérifie la disponibilité du nom du service.|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources de recherche et active la création de services de recherche.|
+|/searchServices/createQueryKey/action|Crée la clé de requête.|
+|/searchServices/delete|Supprime le service de recherche.|
+|/searchServices/diagnosticSettings/read|Obtient le paramètre de diagnostic lu pour la ressource|
+|/searchServices/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/searchServices/listAdminKeys/action|Lit les clés d’administration.|
+|/searchServices/logDefinitions/read|Obtient les journaux disponibles pour le service de recherche|
+|/searchServices/metricDefinitions/read|Obtient les métriques disponibles pour le service de recherche|
+|/searchServices/queryKey/delete|Supprime la clé de requête.|
+|/searchServices/queryKey/read|Lit les clés de requête.|
+|/searchServices/read|Lit le service de recherche.|
+|/searchServices/regenerateAdminKey/action|Régénère la clé d’administration.|
+|/searchServices/start/action|Démarre le service de recherche.|
+|/searchServices/stop/action|Arrête le service de recherche.|
+|/searchServices/write|Crée ou met à jour le service de recherche.|
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/alerts/read|Gets all available security alerts|
-|/applicationWhitelistings/read|Gets the application whitelistings|
-|/applicationWhitelistings/write|Creates a new application whitelisting or updates an existing one|
-|/complianceResults/read|Gets the compliance results for the resource|
-|/locations/alerts/activate/action|Activate a security alert|
-|/locations/alerts/dismiss/action|Dismiss a security alert|
-|/locations/alerts/read|Gets all available security alerts|
-|/locations/jitNetworkAccessPolicies/initiate/action|Initiates a just-in-time network access policy|
-|/locations/jitNetworkAccessPolicies/read|Gets the just-in-time network access policies|
-|/locations/jitNetworkAccessPolicies/write|Creates a new just-in-time network access policy or updates an existing one|
-|/locations/read|Gets the security data location|
-|/locations/tasks/activate/action|Activate a security recommendation|
-|/locations/tasks/dismiss/action|Dismiss a security recommendation|
-|/locations/tasks/read|Gets all available security recommendations|
-|/locations/tasks/resolve/action|Resolve a security recommendation|
-|/locations/tasks/start/action|Start a security recommendation|
-|/policies/read|Gets the security policy|
-|/policies/write|Updates the security policy|
-|/pricings/delete|Deletes the pricing settings for the scope|
-|/pricings/read|Gets the pricing settings for the scope|
-|/pricings/write|Updates the pricing settings for the scope|
-|/register/action|Registers the subscription for Azure Security Center|
-|/securityContacts/delete|Deletes the security contact|
-|/securityContacts/read|Gets the security contact|
-|/securityContacts/write|Updates the security contact|
-|/securitySolutions/delete|Deletes a security solution|
-|/securitySolutions/read|Gets the security solutions|
-|/securitySolutions/write|Creates a new security solution or updates an existing one|
-|/securitySolutionsReferenceData/read|Gets the security solutions reference data|
-|/securityStatuses/read|Gets the security health statuses for Azure resources|
-|/securityStatusesSummaries/read|Gets the security statuses summaries for the scope|
-|/tasks/read|Gets all available security recommendations|
-|/webApplicationFirewalls/delete|Deletes a web application firewall|
-|/webApplicationFirewalls/read|Gets the web application firewalls|
-|/webApplicationFirewalls/write|Creates a new web application firewall or updates an existing one|
-|/workspaceSettings/connect/action|Change workspace settings reconnection settings|
-|/workspaceSettings/delete|Deletes the workspace settings|
-|/workspaceSettings/read|Gets the workspace settings|
-|/workspaceSettings/write|Updates the workspace settings|
+|/alerts/read|Obtient toutes les alertes de sécurité disponibles|
+|/applicationWhitelistings/read|Obtient les listes blanches des applications.|
+|/applicationWhitelistings/write|Crée une liste verte des applications ou met à jour une liste verte des applications existante.|
+|/complianceResults/read|Obtient les résultats de conformité pour la ressource|
+|/locations/alerts/activate/action|Active une alerte de sécurité|
+|/locations/alerts/dismiss/action|Ignore une alerte de sécurité.|
+|/locations/alerts/read|Obtient toutes les alertes de sécurité disponibles|
+|/locations/jitNetworkAccessPolicies/initiate/action|Initie une stratégie d’accès réseau immédiat.|
+|/locations/jitNetworkAccessPolicies/read|Obtient les stratégies d’accès réseau immédiat.|
+|/locations/jitNetworkAccessPolicies/write|Crée une stratégie d’accès réseau immédiat ou met à jour une stratégie d’accès réseau immédiat existante.|
+|/locations/read|Obtient l’emplacement des données de sécurité|
+|/locations/tasks/activate/action|Activer une recommandation de sécurité.|
+|/locations/tasks/dismiss/action|Ignorer une recommandation de sécurité.|
+|/locations/tasks/read|Obtient toutes les recommandations de sécurité disponibles.|
+|/locations/tasks/resolve/action|Résout une recommandation de sécurité|
+|/locations/tasks/start/action|Démarre une recommandation de sécurité|
+|/policies/read|Obtient la stratégie de sécurité.|
+|/policies/write|Met à jour la stratégie de sécurité.|
+|/pricings/delete|Supprime les paramètres de tarification pour l’étendue|
+|/pricings/read|Obtient les paramètres de tarification pour l’étendue|
+|/pricings/write|Met à jour les paramètres de tarification pour l’étendue|
+|/register/action|Enregistre l’abonnement pour Azure Security Center|
+|/securityContacts/delete|Supprime le contact de sécurité|
+|/securityContacts/read|Obtient le contact de sécurité|
+|/securityContacts/write|Met à jour le contact de sécurité|
+|/securitySolutions/delete|Supprime une solution de sécurité.|
+|/securitySolutions/read|Obtient les solutions de sécurité.|
+|/securitySolutions/write|Crée une solution de sécurité ou met à jour une solution de sécurité existante.|
+|/securitySolutionsReferenceData/read|Obtient les données de référence des solutions de sécurité.|
+|/securityStatuses/read|Obtient les états d’intégrité de la sécurité des ressources Azure.|
+|/securityStatusesSummaries/read|Obtient les résumés d’état de sécurité pour l’étendue|
+|/tasks/read|Obtient toutes les recommandations de sécurité disponibles.|
+|/webApplicationFirewalls/delete|Supprime un pare-feu d’applications web.|
+|/webApplicationFirewalls/read|Obtient le pare-feu d’applications web.|
+|/webApplicationFirewalls/write|Crée un pare-feu d’applications web nouvelles ou met à jour un pare-feu d’applications web existant.|
+|/workspaceSettings/connect/action|Modifie les paramètres de reconnexion de l’espace de travail|
+|/workspaceSettings/delete|Supprime les paramètres de l’espace de travail|
+|/workspaceSettings/read|Obtient les paramètres de l’espace de travail|
+|/workspaceSettings/write|Met à jour les paramètres de l’espace de travail|
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/action|Checks availability of namespace under given subscription.|
-|/checkNamespaceAvailability/action|Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailabiltiy instead.|
-|/namespaces/authorizationRules/action|Updates Namespace Authorization Rule. This API is depricated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/authorizationRules/delete|Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. |
-|/namespaces/authorizationRules/listkeys/action|Get the Connection String to the Namespace|
-|/namespaces/authorizationRules/read|Get the list of Namespaces Authorization Rules description.|
-|/namespaces/authorizationRules/regenerateKeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/authorizationRules/write|Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.|
-|/namespaces/Delete|Delete Namespace Resource|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|Gets the authorization rules keys for the Disaster Recovery primary namespace|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Get Disaster Recovery Primary Namespace's Authorization Rules|
-|/namespaces/disasterRecoveryConfigs/breakPairing/action|Disables Disaster Recovery and stops replicating changes from primary to secondary namespaces.|
-|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Checks availability of namespace alias under given subscription.|
-|/namespaces/disasterRecoveryConfigs/delete|Deletes the Disaster Recovery configuration associated with the namespace. This operation can only be invoked via the primary namespace.|
-|/namespaces/disasterRecoveryConfigs/failover/action|Invokes a GEO DR failover and reconfigures the namespace alias to point to the secondary namespace.|
-|/namespaces/disasterRecoveryConfigs/read|Gets the Disaster Recovery configuration associated with the namespace.|
-|/namespaces/disasterRecoveryConfigs/write|Creates or Updates the Disaster Recovery configuration associated with the namespace.|
-|/namespaces/eventGridFilters/delete|Deletes the Event Grid filter associated with the namespace.|
-|/namespaces/eventGridFilters/read|Gets the Event Grid filter associated with the namespace.|
-|/namespaces/eventGridFilters/write|Creates or Updates the Event Grid filter associated with the namespace.|
-|/namespaces/eventhubs/read|Get list of EventHub Resource Descriptions|
-|/namespaces/messagingPlan/read|Gets the Messaging Plan for a namespace. This API is deprecated. Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/messagingPlan/write|Updates the Messaging Plan for a namespace. This API is deprecated. Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions.. This operation is not supported on API version 2017-04-01.|
-|/namespaces/migrate/action|Migrate namespace operation|
-|/namespaces/operationresults/read|Get the status of Namespace operation|
-|/namespaces/providers/Microsoft.Insights/diagnosticSettings/read|Get list of Namespace diagnostic settings Resource Descriptions|
-|/namespaces/providers/Microsoft.Insights/diagnosticSettings/write|Get list of Namespace diagnostic settings Resource Descriptions|
-|/namespaces/providers/Microsoft.Insights/logDefinitions/read|Get list of Namespace logs Resource Descriptions|
-|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Get list of Namespace metrics Resource Descriptions|
-|/namespaces/queues/authorizationRules/action|Operation to update Queue. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule.|
-|/namespaces/queues/authorizationRules/delete|Operation to delete Queue Authorization Rules|
-|/namespaces/queues/authorizationRules/listkeys/action|Get the Connection String to Queue|
-|/namespaces/queues/authorizationRules/read| Get the list of Queue Authorization Rules|
-|/namespaces/queues/authorizationRules/regenerateKeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/queues/authorizationRules/write|Create Queue Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated.|
-|/namespaces/queues/Delete|Operation to delete Queue Resource|
-|/namespaces/queues/read|Get list of Queue Resource Descriptions|
-|/namespaces/queues/write|Create or Update Queue properties.|
-|/namespaces/read|Get the list of Namespace Resource Description|
-|/namespaces/topics/authorizationRules/action|Operation to update Topic. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule.|
-|/namespaces/topics/authorizationRules/delete|Operation to delete Topic Authorization Rules|
-|/namespaces/topics/authorizationRules/listkeys/action|Get the Connection String to Topic|
-|/namespaces/topics/authorizationRules/read| Get the list of Topic Authorization Rules|
-|/namespaces/topics/authorizationRules/regenerateKeys/action|Regenerate the Primary or Secondary key to the Resource|
-|/namespaces/topics/authorizationRules/write|Create Topic Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated.|
-|/namespaces/topics/Delete|Operation to delete Topic Resource|
-|/namespaces/topics/read|Get list of Topic Resource Descriptions|
-|/namespaces/topics/subscriptions/Delete|Operation to delete TopicSubscription Resource|
-|/namespaces/topics/subscriptions/read|Get list of TopicSubscription Resource Descriptions|
-|/namespaces/topics/subscriptions/rules/Delete|Operation to delete Rule Resource|
-|/namespaces/topics/subscriptions/rules/read|Get list of Rule Resource Descriptions|
-|/namespaces/topics/subscriptions/rules/write|Create or Update Rule properties.|
-|/namespaces/topics/subscriptions/write|Create or Update TopicSubscription properties.|
-|/namespaces/topics/write|Create or Update Topic properties.|
-|/namespaces/write|Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated.|
-|/operations/read|Get Operations|
-|/register/action|Registers the subscription for the ServiceBus resource provider and enables the creation of ServiceBus resources|
-|/sku/read|Get list of Sku Resource Descriptions|
-|/sku/regions/read|Get list of SkuRegions Resource Descriptions|
-|/unregister/action|Registers the subscription for the ServiceBus resource provider and enables the creation of ServiceBus resources|
+|/checkNameAvailability/action|Vérifier la disponibilité d’un espace de noms sous un abonnement donné|
+|/checkNamespaceAvailability/action|Vérifier la disponibilité d’un espace de noms sous un abonnement donné Cette API étant déconseillée, utilisez CheckNameAvailabiltiy à la place.|
+|/namespaces/authorizationRules/action|Met à jour une règle d’autorisation d’espace de noms. Cette API est déconseillée. Utilisez un appel PUT à la place pour mettre à jour la règle d’autorisation d’espace de noms... Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/authorizationRules/delete|Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée. |
+|/namespaces/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à la ressource Namespace|
+|/namespaces/authorizationRules/read|Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces.|
+|/namespaces/authorizationRules/regenerateKeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/authorizationRules/write|Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour.|
+|/namespaces/Delete|Supprimer une ressource Namespace|
+|/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|Obtient les clés de règles d’autorisation pour l’espace de noms principal de récupération d’urgence|
+|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Obtient les règles d’autorisation de l’espace de noms principal de récupération d’urgence|
+|/namespaces/disasterRecoveryConfigs/breakPairing/action|Désactive la récupération d’urgence et arrête la réplication des changements de l’espace de noms principal sur l’espace de noms secondaire.|
+|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Vérifie la disponibilité d’un alias d’espace de noms sous un abonnement donné.|
+|/namespaces/disasterRecoveryConfigs/delete|Supprime la configuration de récupération d’urgence associée à l’espace de noms. Cette opération peut être appelée uniquement via l’espace de noms principal.|
+|/namespaces/disasterRecoveryConfigs/failover/action|Appelle un basculement de géorécupération d’urgence et reconfigure l’alias d’espace de noms pour qu’il pointe vers l’espace de noms secondaire.|
+|/namespaces/disasterRecoveryConfigs/read|Obtient la configuration de récupération d’urgence associée à l’espace de noms.|
+|/namespaces/disasterRecoveryConfigs/write|Crée ou met à jour la configuration de récupération d’urgence associée à l’espace de noms.|
+|/namespaces/eventGridFilters/delete|Supprime le filtre Event Grid associé à l’espace de noms.|
+|/namespaces/eventGridFilters/read|Obtient le filtre Event Grid associé à l’espace de noms.|
+|/namespaces/eventGridFilters/write|Crée ou met à jour le filtre Event Grid associé à l’espace de noms.|
+|/namespaces/eventhubs/read|Obtenir la liste des descriptions de ressources EventHub|
+|/namespaces/messagingPlan/read|Obtient le plan de messagerie pour un espace de noms. Cette API est déconseillée. Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/messagingPlan/write|Met à jour le plan de messagerie pour un espace de noms. Cette API est déconseillée. Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01.|
+|/namespaces/migrate/action|Migre une opération d’espace de noms|
+|/namespaces/operationresults/read|Obtient l’état de l’opération d’espace de noms|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/read|Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace.|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/write|Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace.|
+|/namespaces/providers/Microsoft.Insights/logDefinitions/read|Obtenir la liste des descriptions des ressources des journaux Namespace.|
+|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Obtenir la liste des descriptions des mesures de ressource Namespace.|
+|/namespaces/queues/authorizationRules/action|Met à jour la file d’attente. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation.|
+|/namespaces/queues/authorizationRules/delete|Opération de suppression des règles d’autorisation de file d’attente.|
+|/namespaces/queues/authorizationRules/listkeys/action|Obtenir la chaîne de connexion à la file d’attente.|
+|/namespaces/queues/authorizationRules/read| Obtenir la liste des règles d’autorisation de file d’attente.|
+|/namespaces/queues/authorizationRules/regenerateKeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/queues/authorizationRules/write|Créer des règles d’autorisation de file d’attente et mettre à jour leurs propriétés. Les droits d’accès des règles d’autorisation peuvent être mis à jour.|
+|/namespaces/queues/Delete|Opération de suppression des ressources de file d’attente.|
+|/namespaces/queues/read|Obtenir la liste des descriptions des ressources de file d’attente.|
+|/namespaces/queues/write|Créer ou mettre à jour des propriétés de file d’attente.|
+|/namespaces/read|Obtenir la liste des descriptions des ressources Namespace.|
+|/namespaces/topics/authorizationRules/action|Met à jour la rubrique. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation.|
+|/namespaces/topics/authorizationRules/delete|Opération de suppression des règles d’autorisation de rubrique|
+|/namespaces/topics/authorizationRules/listkeys/action|Récupère la chaîne de connexion à la rubrique.|
+|/namespaces/topics/authorizationRules/read| Récupère la liste des règles d’autorisation de rubrique.|
+|/namespaces/topics/authorizationRules/regenerateKeys/action|Régénère la clé primaire ou secondaire pour la ressource.|
+|/namespaces/topics/authorizationRules/write|Crée des règles d’autorisation de rubrique et met à jour leurs propriétés. Les droits d’accès des règles d’autorisation peuvent être mis à jour.|
+|/namespaces/topics/Delete|Opération de suppression des ressources de rubrique.|
+|/namespaces/topics/read|Obtenir la liste des descriptions des ressources de rubrique.|
+|/namespaces/topics/subscriptions/Delete|Opération de suppression d’une ressource TopicSubscription|
+|/namespaces/topics/subscriptions/read|Récupère la liste des descriptions des ressources TopicSubscription.|
+|/namespaces/topics/subscriptions/rules/Delete|Opération de suppression d’une ressource de règle.|
+|/namespaces/topics/subscriptions/rules/read|Récupère la liste des descriptions des ressources de règle.|
+|/namespaces/topics/subscriptions/rules/write|Crée ou met à jour les propriétés de règle.|
+|/namespaces/topics/subscriptions/write|Crée ou met à jour les propriétés TopicSubscription.|
+|/namespaces/topics/write|Créer ou mettre à jour des propriétés de rubrique.|
+|/namespaces/write|Créer une ressource Namespace et mettre à jour ses propriétés. Les balises et la capacité de l’espace de noms sont les propriétés qui peuvent être mises à jour.|
+|/operations/read|Obtient les opérations|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources ServiceBus et active la création de ressources ServiceBus.|
+|/sku/read|Obtient la liste des descriptions des ressources de référence (SKU).|
+|/sku/regions/read|Obtient la liste des descriptions de ressources SkuRegions|
+|/unregister/action|Inscrit l’abonnement pour le fournisseur de ressources ServiceBus et active la création de ressources ServiceBus.|
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/clusters/applications/delete|Delete any Application|
-|/clusters/applications/read|Read any Application|
-|/clusters/applications/services/delete|Delete any Service|
-|/clusters/applications/services/partitions/read|Read any Partition|
-|/clusters/applications/services/partitions/replicas/read|Read any Replica|
-|/clusters/applications/services/read|Read any Service|
-|/clusters/applications/services/statuses/read|Read any Service Status|
-|/clusters/applications/services/write|Create or Update any Service|
-|/clusters/applications/write|Create or Update any Application|
-|/clusters/applicationTypes/delete|Delete any Application Type|
-|/clusters/applicationTypes/read|Read any Application Type|
-|/clusters/applicationTypes/versions/delete|Delete any Application Type Version|
-|/clusters/applicationTypes/versions/read|Read any Application Type Version|
-|/clusters/applicationTypes/versions/write|Create or Update any Application Type Version|
-|/clusters/applicationTypes/write|Create or Update any Application Type|
-|/clusters/delete|Delete any Cluster|
-|/clusters/nodes/read|Read any Node|
-|/clusters/read|Read any Cluster|
-|/clusters/statuses/read|Read any Cluster Status|
-|/clusters/write|Create or Update any Cluster|
-|/locations/clusterVersions/read|Read any Cluster Version|
-|/locations/environments/clusterVersions/read|Read any Cluster Version for a specific environment|
-|/locations/operationresults/read|Read any Operation Results|
-|/locations/operations/read|Read any Operations by location|
-|/operations/read|Read any Available Operations|
-|/register/action|Register any Action|
+|/clusters/applications/delete|Supprime une application|
+|/clusters/applications/read|Lit une application|
+|/clusters/applications/services/delete|Supprime un service|
+|/clusters/applications/services/partitions/read|Lit une partition|
+|/clusters/applications/services/partitions/replicas/read|Lit un réplica|
+|/clusters/applications/services/read|Lit un service|
+|/clusters/applications/services/statuses/read|Lit un état de service|
+|/clusters/applications/services/write|Crée ou met à jour un service|
+|/clusters/applications/write|Crée ou met à jour une application|
+|/clusters/applicationTypes/delete|Supprime un type d’application|
+|/clusters/applicationTypes/read|Lit un type d’application|
+|/clusters/applicationTypes/versions/delete|Supprime une version de type d’application|
+|/clusters/applicationTypes/versions/read|Lit une version de type d’application|
+|/clusters/applicationTypes/versions/write|Crée ou met à jour une version de type d’application|
+|/clusters/applicationTypes/write|Crée ou met à jour un type d’application|
+|/clusters/delete|Supprime un cluster|
+|/clusters/nodes/read|Lit un nœud|
+|/clusters/read|Lit un cluster|
+|/clusters/statuses/read|Lit un état de cluster|
+|/clusters/write|Crée ou met à jour un cluster|
+|/locations/clusterVersions/read|Lit une version de cluster|
+|/locations/environments/clusterVersions/read|Lit une version de cluster pour un environnement spécifique|
+|/locations/operationresults/read|Lit les résultats d’une opération|
+|/locations/operations/read|Lit des opérations par emplacement|
+|/operations/read|Lit des opérations disponibles|
+|/register/action|Inscrit une action|
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/applicationDefinitions/delete|Removes an application definition.|
-|/applicationDefinitions/read|Retrieves a list of application definitions.|
-|/applicationDefinitions/write|Add or modify an application definition.|
-|/applications/delete|Removes an application.|
-|/applications/read|Retrieves a list of applications.|
-|/applications/write|Creates an application.|
-|/locations/operationStatuses/read|Reads the operation status for the resource.|
-|/register/action|Register to Solutions.|
+|/applicationDefinitions/delete|Supprime une définition d’application.|
+|/applicationDefinitions/read|Récupère une liste de définitions d’application.|
+|/applicationDefinitions/write|Ajoute ou modifie une définition d’application.|
+|/applications/delete|Supprime une application.|
+|/applications/read|Récupère une liste d’applications.|
+|/applications/write|Crée une application.|
+|/locations/operationStatuses/read|Lit l’état de l’opération pour la ressource.|
+|/register/action|Inscrit à Solutions.|
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checkNameAvailability/action|Verify whether given server name is available for provisioning worldwide for a given subscription.|
-|/locations/auditingSettingsAzureAsyncOperation/read|Retrieve result of the extended server blob auditing policy Set operation|
-|/locations/auditingSettingsOperationResults/read|Retrieve result of the server blob auditing policy Set operation|
-|/locations/capabilities/read|Gets the capabilities for this subscription in a given location|
-|/locations/databaseAzureAsyncOperation/read|Gets the status of a database operation.|
-|/locations/databaseOperationResults/read|Gets the status of a database operation.|
-|/locations/deletedServerAsyncOperation/read|Gets in-progress operations on deleted server|
-|/locations/deletedServerOperationResults/read|Gets in-progress operations on deleted server|
-|/locations/deletedServers/read|Return the list of deleted servers or gets the properties for the specified deleted server.|
-|/locations/deletedServers/recover/action|Recover a deleted server|
-|/locations/deleteVirtualNetworkOrSubnets/action|Deletes Virtual network rules associated to a virtual network or subnet|
-|/locations/elasticPoolAzureAsyncOperation/read|Gets the azure async operation for an elastic pool async operation|
-|/locations/elasticPoolOperationResults/read|Gets the result of an elastic pool operation.|
-|/locations/extendedAuditingSettingsAzureAsyncOperation/read|Retrieve result of the extended server blob auditing policy Set operation|
-|/locations/extendedAuditingSettingsOperationResults/read|Retrieve result of the extended server blob auditing policy Set operation|
-|/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action|Completes managed database restore operation|
-|/locations/managedTransparentDataEncryptionAzureAsyncOperation/read|Gets in-progress operations on managed database transparent data encryption|
-|/locations/managedTransparentDataEncryptionOperationResults/read|Gets in-progress operations on managed database transparent data encryption|
-|/locations/read|Gets the available locations for a given subscription|
-|/locations/syncAgentOperationResults/read|Retrieve result of the sync agent resource operation|
-|/locations/syncDatabaseIds/read|Retrieve the sync database ids for a particular region and subscription|
-|/locations/syncGroupOperationResults/read|Retrieve result of the sync group resource operation|
-|/locations/syncMemberOperationResults/read|Retrieve result of the sync member resource operation|
-|/locations/usages/read|Gets a collection of usage metrics for this subscription in a location|
-|/locations/virtualNetworkRulesAzureAsyncOperation/read|Returns the details of the specified virtual network rules azure async operation |
-|/locations/virtualNetworkRulesOperationResults/read|Returns the details of the specified virtual network rules operation |
-|/managedInstances/administrators/delete|Deletes an existing administrator of managed instance.|
-|/managedInstances/administrators/read|Gets a list of managed instance administrators.|
-|/managedInstances/administrators/write|Creates or updates managed instance administrator with the specified parameters.|
-|/managedInstances/databases/delete|Deletes an existing managed database|
-|/managedInstances/databases/read|Gets existing managed database|
-|/managedInstances/databases/securityAlertPolicies/read|Retrieve details of the database threat detection policy configured on a given managed database|
-|/managedInstances/databases/securityAlertPolicies/write|Change the database threat detection policy for a given managed database|
-|/managedInstances/databases/securityEvents/read|Retrieves the managed database security events|
-|/managedInstances/databases/transparentDataEncryption/read|Retrieve details of the database Transparent Data Encryption on a given managed database|
-|/managedInstances/databases/transparentDataEncryption/write|Change the database Transparent Data Encryption for a given managed database|
-|/managedInstances/databases/write|Creates a new database or updates an existing database.|
-|/managedInstances/delete|Deletes an existing  managed instance.|
-|/managedInstances/metricDefinitions/read|Get managed instance metric definitions|
-|/managedInstances/metrics/read|Get managed instance metrics|
-|/managedInstances/read|Return the list of managed instances or gets the properties for the specified managed instance.|
-|/managedInstances/securityAlertPolicies/read|Retrieve details of the managed server threat detection policy configured on a given managed server|
-|/managedInstances/securityAlertPolicies/write|Change the managed server threat detection policy for a given managed server|
-|/managedInstances/write|Creates a managed instance with the specified parameters or update the properties or tags for the specified managed instance.|
-|/operations/read|Gets available REST operations|
-|/register/action|Registers the subscription for the Microsoft SQL Database resource provider and enables the creation of Microsoft SQL Databases.|
-|/servers/administratorOperationResults/read|Gets in-progress operations on server administrators|
-|/servers/administrators/delete|Delete server administrator|
-|/servers/administrators/read|Retrieve server administrator details|
-|/servers/administrators/write|Create or update server administrator|
-|/servers/advisors/read|Returns list of advisors available for the server|
-|/servers/advisors/recommendedActions/read|Returns list of recommended actions of specified advisor for the server|
-|/servers/advisors/recommendedActions/write|Apply the recommended action on the server|
-|/servers/advisors/write|Updates auto-execute status of an advisor on server level.|
-|/servers/auditingPolicies/read|Retrieve details of the default server table auditing policy configured on a given server|
-|/servers/auditingPolicies/write|Change the default server table auditing for a given server|
-|/servers/auditingSettings/operationResults/read|Retrieve result of the server blob auditing policy Set operation|
-|/servers/auditingSettings/read|Retrieve details of the server blob auditing policy configured on a given server|
-|/servers/auditingSettings/write|Change the server blob auditing for a given server|
-|/servers/automaticTuning/read|Returns automatic tuning settings for the server|
-|/servers/automaticTuning/write|Updates automatic tuning settings for the server and returns updated settings|
-|/servers/backupLongTermRetentionVaults/delete|Deletes an existing backup archival vault.|
-|/servers/backupLongTermRetentionVaults/read|This operation is used to get a backup long term retention vault. It returns information about the vault registered to this server|
-|/servers/backupLongTermRetentionVaults/write|This operation is used to register a backup long term retention vault to a server|
-|/servers/communicationLinks/delete|Deletes an existing server communication link.|
-|/servers/communicationLinks/read|Return the list of communication links of a specified server.|
-|/servers/communicationLinks/write|Create or update a server communication link.|
-|/servers/connectionPolicies/read|Return the list of server connection policies of a specified server.|
-|/servers/connectionPolicies/write|Create or update a server connection policy.|
-|/servers/databases/advisors/read|Returns list of advisors available for the database|
-|/servers/databases/advisors/recommendedActions/read|Returns list of recommended actions of specified advisor for the database|
-|/servers/databases/advisors/recommendedActions/write|Apply the recommended action on the database|
-|/servers/databases/advisors/write|Update auto-execute status of an advisor on database level.|
-|/servers/databases/auditingPolicies/read|Retrieve details of the table auditing policy configured on a given database|
-|/servers/databases/auditingPolicies/write|Change the table auditing policy for a given database|
-|/servers/databases/auditingSettings/read|Retrieve details of the blob auditing policy configured on a given database|
-|/servers/databases/auditingSettings/write|Change the blob auditing policy for a given database|
-|/servers/databases/auditRecords/read|Retrieve the database blob audit records|
-|/servers/databases/automaticTuning/read|Returns automatic tuning settings for a database|
-|/servers/databases/automaticTuning/write|Updates automatic tuning settings for a database and returns updated settings|
-|/servers/databases/azureAsyncOperation/read|Gets the status of a database operation.|
-|/servers/databases/backupLongTermRetentionPolicies/read|Return the list of backup archival policies of a specified database.|
-|/servers/databases/backupLongTermRetentionPolicies/write|Create or update a database backup archival policy.|
-|/servers/databases/connectionPolicies/read|Retrieve details of the connection policy configured on a given database|
-|/servers/databases/connectionPolicies/write|Change connection policy for a given database|
-|/servers/databases/dataMaskingPolicies/read|Return the list of database data masking policies.|
-|/servers/databases/dataMaskingPolicies/rules/delete|Delete data masking policy rule for a given database|
-|/servers/databases/dataMaskingPolicies/rules/read|Retrieve details of the data masking policy rule configured on a given database|
-|/servers/databases/dataMaskingPolicies/rules/write|Change data masking policy rule for a given database|
-|/servers/databases/dataMaskingPolicies/write|Change data masking policy for a given database|
-|/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read|Returns the distributed query step information of data warehouse query for selected step ID|
-|/servers/databases/dataWarehouseQueries/read|Returns the data warehouse distribution query information for selected query ID|
-|/servers/databases/dataWarehouseUserActivities/read|Retrieves the user activities of a SQL Data Warehouse instance which includes running and suspended queries|
-|/servers/databases/delete|Deletes an existing database.|
-|/servers/databases/export/action|Export Azure SQL Database|
-|/servers/databases/extendedAuditingSettings/read|Retrieve details of the extended blob auditing policy configured on a given database|
-|/servers/databases/extendedAuditingSettings/write|Change the extended blob auditing policy for a given database|
-|/servers/databases/extensions/read|Gets a collection of extensions for the database.|
-|/servers/databases/extensions/write|Change the extension for a given database|
-|/servers/databases/geoBackupPolicies/read|Retrieve geo backup policies for a given database|
-|/servers/databases/geoBackupPolicies/write|Create or update a database geobackup policy|
-|/servers/databases/importExportOperationResults/read|Gets in-progress import/export operations|
-|/servers/databases/metricDefinitions/read|Return types of metrics that are available for databases|
-|/servers/databases/metrics/read|Return metrics for databases|
-|/servers/databases/move/action|Rename Azure SQL Database|
-|/servers/databases/operationResults/read|Gets the status of a database operation.|
-|/servers/databases/operations/cancel/action|Cancels Azure SQL Database pending asynchronous operation that is not finished yet.|
-|/servers/databases/operations/read|Return the list of operations performed on the database|
-|/servers/databases/pause/action|Pause Azure SQL Datawarehouse Database|
-|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/servers/databases/providers/Microsoft.Insights/logDefinitions/read|Gets the available logs for databases|
-|/servers/databases/providers/Microsoft.Insights/metricDefinitions/read|Return types of metrics that are available for databases|
-|/servers/databases/queryStore/queryTexts/read|Returns the collection of query texts that correspond to the specified parameters.|
-|/servers/databases/queryStore/read|Returns current values of Query Store settings for the database.|
-|/servers/databases/queryStore/write|Updates Query Store setting for the database|
-|/servers/databases/read|Return the list of databases or gets the properties for the specified database.|
-|/servers/databases/replicationLinks/delete|Terminate the replication relationship forcefully and with potential data loss|
-|/servers/databases/replicationLinks/failover/action|Failover after synchronizing all changes from the primary, making this database into the replication relationship\u0027s primary and making the remote primary into a secondary|
-|/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action|Failover immediately with potential data loss, making this database into the replication relationship\u0027s primary and making the remote primary into a secondary|
-|/servers/databases/replicationLinks/read|Return details about replication links established for a particular database|
-|/servers/databases/replicationLinks/unlink/action|Terminate the replication relationship forcefully or after synchronizing with the partner|
-|/servers/databases/replicationLinks/updateReplicationMode/action|Update replication mode for link to synchronous or asynchronous mode|
-|/servers/databases/restorePoints/action|Creates a new restore point|
-|/servers/databases/restorePoints/read|Returns restore points for the database.|
-|/servers/databases/resume/action|Resume Azure SQL Datawarehouse Database|
-|/servers/databases/schemas/read|Retrieve list of schemas of a database|
-|/servers/databases/schemas/tables/columns/read|Retrieve list of columns of a table|
-|/servers/databases/schemas/tables/columns/sensitivityLabels/delete|Delete the sensitivity label of a given column|
-|/servers/databases/schemas/tables/columns/sensitivityLabels/read|Get the sensitivity label of a given column|
-|/servers/databases/schemas/tables/columns/sensitivityLabels/write|Create or update the sensitivity label of a given column|
-|/servers/databases/schemas/tables/read|Retrieve list of tables of a database|
-|/servers/databases/schemas/tables/recommendedIndexes/read|Retrieve list of index recommendations on a database|
-|/servers/databases/schemas/tables/recommendedIndexes/write|Apply index recommendation|
-|/servers/databases/securityAlertPolicies/read|Retrieve details of the threat detection policy configured on a given database|
-|/servers/databases/securityAlertPolicies/write|Change the threat detection policy for a given database|
-|/servers/databases/securityMetrics/read|Gets a collection of database security metrics|
-|/servers/databases/sensitivityLabels/read|List sensitivity labels of a given database|
-|/servers/databases/serviceTierAdvisors/read|Return suggestion about scaling database up or down based on query execution statistics to improve performance or reduce cost|
-|/servers/databases/syncGroups/cancelSync/action|Cancel sync group synchronization|
-|/servers/databases/syncGroups/delete|Deletes an existing sync group.|
-|/servers/databases/syncGroups/hubSchemas/read|Return the list of sync hub database schemas|
-|/servers/databases/syncGroups/logs/read|Return the list of sync group logs|
-|/servers/databases/syncGroups/read|Return the list of sync groups or gets the properties for the specified sync group.|
-|/servers/databases/syncGroups/refreshHubSchema/action|Refresh sync hub database schema|
-|/servers/databases/syncGroups/refreshHubSchemaOperationResults/read|Retrieve result of the sync hub schema refresh operation|
-|/servers/databases/syncGroups/syncMembers/delete|Deletes an existing sync member.|
-|/servers/databases/syncGroups/syncMembers/read|Return the list of sync members or gets the properties for the specified sync member.|
-|/servers/databases/syncGroups/syncMembers/refreshSchema/action|Refresh sync member schema|
-|/servers/databases/syncGroups/syncMembers/refreshSchemaOperationResults/read|Retrieve result of the sync member schema refresh operation|
-|/servers/databases/syncGroups/syncMembers/schemas/read|Return the list of sync member database schemas|
-|/servers/databases/syncGroups/syncMembers/write|Creates a sync member with the specified parameters or update the properties for the specified sync member.|
-|/servers/databases/syncGroups/triggerSync/action|Trigger sync group synchronization|
-|/servers/databases/syncGroups/write|Creates a sync group with the specified parameters or update the properties for the specified sync group.|
-|/servers/databases/topQueries/queryText/action|Returns the Transact-SQL text for selected query ID|
-|/servers/databases/topQueries/read|Returns aggregated runtime statistics for selected query in selected time period|
-|/servers/databases/topQueries/statistics/read|Returns aggregated runtime statistics for selected query in selected time period|
-|/servers/databases/transparentDataEncryption/operationResults/read|Gets in-progress operations on transparent data encryption|
-|/servers/databases/transparentDataEncryption/read|Retrieve status and details of transparent data encryption security feature for a given database|
-|/servers/databases/transparentDataEncryption/write|Change transparent data encryption state|
-|/servers/databases/upgradeDataWarehouse/action|Upgrade Azure SQL Datawarehouse Database|
-|/servers/databases/usages/read|Gets the Azure SQL Database usages information|
-|/servers/databases/vulnerabilityAssessments/delete|Remove the vulnerability assessment for a given database|
-|/servers/databases/vulnerabilityAssessments/read|Retrieve details of the vulnerability assessment configured on a given database|
-|/servers/databases/vulnerabilityAssessments/rules/baselines/delete|Remove the vulnerability assessment rule baseline for a given database|
-|/servers/databases/vulnerabilityAssessments/rules/baselines/read|Get the vulnerability assessment rule baseline for a given database|
-|/servers/databases/vulnerabilityAssessments/rules/baselines/write|Change the vulnerability assessment rule baseline for a given database|
-|/servers/databases/vulnerabilityAssessments/scans/action|Execute vulnerability assessment database scan.|
-|/servers/databases/vulnerabilityAssessments/scans/export/action|Convert an existing scan result to a human readable format. If already exists nothing happens|
-|/servers/databases/vulnerabilityAssessments/scans/read|Return the list of database vulnerability assessment scan records or get the scan record for the specified scan ID.|
-|/servers/databases/vulnerabilityAssessments/write|Change the vulnerability assessment for a given database|
-|/servers/databases/vulnerabilityAssessmentScans/action|Execute vulnerability assessment database scan.|
-|/servers/databases/vulnerabilityAssessmentScans/operationResults/read|Retrieve the result of the database vulnerability assessment scan Execute operation|
-|/servers/databases/vulnerabilityAssessmentSettings/read|Retrieve details of the vulnerability assessment configured on a given database|
-|/servers/databases/vulnerabilityAssessmentSettings/write|Change the vulnerability assessment for a given database|
-|/servers/databases/write|Creates a database with the specified parameters or update the properties or tags for the specified database.|
-|/servers/delete|Deletes an existing server.|
-|/servers/disasterRecoveryConfiguration/delete|Deletes an existing disaster recovery configurations for a given server|
-|/servers/disasterRecoveryConfiguration/failover/action|Failover a DisasterRecoveryConfiguration|
-|/servers/disasterRecoveryConfiguration/forceFailoverAllowDataLoss/action|Force Failover a DisasterRecoveryConfiguration|
-|/servers/disasterRecoveryConfiguration/read|Gets a collection of disaster recovery configurations that include this server|
-|/servers/disasterRecoveryConfiguration/write|Change server disaster recovery configuration|
-|/servers/elasticPoolEstimates/read|Returns list of elastic pool estimates already created for this server|
-|/servers/elasticPoolEstimates/write|Creates new elastic pool estimate for list of databases provided|
-|/servers/elasticPools/advisors/read|Returns list of advisors available for the elastic pool|
-|/servers/elasticPools/advisors/recommendedActions/read|Returns list of recommended actions of specified advisor for the elastic pool|
-|/servers/elasticPools/advisors/recommendedActions/write|Apply the recommended action on the elastic pool|
-|/servers/elasticPools/advisors/write|Update auto-execute status of an advisor on elastic pool level.|
-|/servers/elasticPools/databases/read|Gets a list of databases for an elastic pool|
-|/servers/elasticPools/delete|Delete existing elastic pool|
-|/servers/elasticPools/elasticPoolActivity/read|Retrieve activities and details on a given elastic database pool|
-|/servers/elasticPools/elasticPoolDatabaseActivity/read|Retrieve activities and details on a given database that is part of elastic database pool|
-|/servers/elasticPools/metricDefinitions/read|Return types of metrics that are available for elastic database pools|
-|/servers/elasticPools/metrics/read|Return metrics for elastic database pools|
-|/servers/elasticPools/operations/cancel/action|Cancels Azure SQL elastic pool pending asynchronous operation that is not finished yet.|
-|/servers/elasticPools/operations/read|Return the list of operations performed on the elastic pool|
-|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/servers/elasticPools/providers/Microsoft.Insights/metricDefinitions/read|Return types of metrics that are available for elastic database pools|
-|/servers/elasticPools/read|Retrieve details of elastic pool on a given server|
-|/servers/elasticPools/skus/read|Gets a collection of skus available for this elastic pool|
-|/servers/elasticPools/write|Create a new or change properties of existing elastic pool|
-|/servers/encryptionProtector/read|Returns a list of server encryption protectors or gets the properties for the specified server encryption protector.|
-|/servers/encryptionProtector/write|Update the properties for the specified Server Encryption Protector.|
-|/servers/extendedAuditingSettings/read|Retrieve details of the extended server blob auditing policy configured on a given server|
-|/servers/extendedAuditingSettings/write|Change the extended server blob auditing for a given server|
-|/servers/failoverGroups/delete|Deletes an existing failover group.|
-|/servers/failoverGroups/failover/action|Executes planned failover in an existing failover group.|
-|/servers/failoverGroups/forceFailoverAllowDataLoss/action|Executes forced failover in an existing failover group.|
-|/servers/failoverGroups/read|Returns the list of failover groups or gets the properties for the specified failover group.|
-|/servers/failoverGroups/write|Creates a failover group with the specified parameters or updates the properties or tags for the specified failover group.|
-|/servers/firewallRules/delete|Deletes an existing server firewall rule.|
-|/servers/firewallRules/read|Return the list of server firewall rules or gets the properties for the specified server firewall rule.|
-|/servers/firewallRules/write|Creates a server firewall rule with the specified parameters, update the properties for the specified rule or overwrite all existing rules with new server firewall rule(s).|
-|/servers/import/action|Create a new database on the server and deploy schema and data from a DacPac package|
-|/servers/importExportOperationResults/read|Gets in-progress import/export operations|
-|/servers/keys/delete|Deletes an existing server key.|
-|/servers/keys/read|Return the list of server keys or gets the properties for the specified server key.|
-|/servers/keys/write|Creates a key with the specified parameters or update the properties or tags for the specified server key.|
-|/servers/operationResults/read|Gets in-progress server operations|
-|/servers/providers/Microsoft.Insights/metricDefinitions/read|Return types of metrics that are available for servers|
-|/servers/read|Return the list of servers or gets the properties for the specified server.|
-|/servers/recommendedElasticPools/databases/read|Retrieve metrics for recommended elastic database pools for a given server|
-|/servers/recommendedElasticPools/read|Retrieve recommendation for elastic database pools to reduce cost or improve performance based on historica resource utilization|
-|/servers/recoverableDatabases/read|This operation is used for disaster recovery of live database to restore database to last-known good backup point. It returns information about the last good backup but it doesn\u0027t actually restore the database.|
-|/servers/restorableDroppedDatabases/read|Get a list of databases that were dropped on a given server that are still within retention policy.|
-|/servers/securityAlertPolicies/operationResults/read|Retrieve results of the server threat detection policy write operation|
-|/servers/securityAlertPolicies/read|Retrieve details of the server threat detection policy configured on a given server|
-|/servers/securityAlertPolicies/write|Change the server threat detection policy for a given server|
-|/servers/serviceObjectives/read|Retrieve list of service level objectives (also known as performance tiers) available on a given server|
-|/servers/syncAgents/delete|Deletes an existing sync agent.|
-|/servers/syncAgents/generateKey/action|Generate sync agent registeration key|
-|/servers/syncAgents/linkedDatabases/read|Return the list of sync agent linked databases|
-|/servers/syncAgents/read|Return the list of sync agents or gets the properties for the specified sync agent.|
-|/servers/syncAgents/write|Creates a sync agent with the specified parameters or update the properties for the specified sync agent.|
-|/servers/usages/read|Return server DTU quota and current DTU consuption by all databases within the server|
-|/servers/virtualNetworkRules/delete|Deletes an existing Virtual Network Rule|
-|/servers/virtualNetworkRules/read|Return the list of virtual network rules or gets the properties for the specified virtual network rule.|
-|/servers/virtualNetworkRules/write|Creates a virtual network rule with the specified parameters or update the properties or tags for the specified virtual network rule.|
-|/servers/write|Creates a server with the specified parameters or update the properties or tags for the specified server.|
-|/unregister/action|UnRegisters the subscription for the Microsoft SQL Database resource provider and enables the creation of Microsoft SQL Databases.|
-|/virtualClusters/read|Return the list of virtual clusters or gets the properties for the specified virtual cluster.|
-|/virtualClusters/write|Updates virtual cluster tags.|
+|/checkNameAvailability/action|Vérifie si le nom du serveur spécifié est disponible pour l’approvisionnement dans le monde entier pour un abonnement donné.|
+|/locations/auditingSettingsAzureAsyncOperation/read|Récupère le résultat de l’opération de configuration de la stratégie d’audit des objets blob de serveur.|
+|/locations/auditingSettingsOperationResults/read|Récupérer le résultat l’opération de configuration de la stratégie d’audit des objets blob de serveur|
+|/locations/capabilities/read|Obtient les capacités pour cet abonnement dans un emplacement donné|
+|/locations/databaseAzureAsyncOperation/read|Obtient l’état d’une opération de base de données.|
+|/locations/databaseOperationResults/read|Obtient l’état d’une opération de base de données.|
+|/locations/deletedServerAsyncOperation/read|Obtient les opérations en cours d’exécution sur le serveur supprimé|
+|/locations/deletedServerOperationResults/read|Obtient les opérations en cours d’exécution sur le serveur supprimé|
+|/locations/deletedServers/read|Retourne la liste des serveurs supprimés ou obtient les propriétés du serveur supprimé spécifié.|
+|/locations/deletedServers/recover/action|Récupère un serveur supprimé|
+|/locations/deleteVirtualNetworkOrSubnets/action|Supprime les règles de réseau virtuel associés à un réseau virtuel ou à un sous-réseau|
+|/locations/elasticPoolAzureAsyncOperation/read|Obtient l’opération asynchrone Azure pour une opération asynchrone de pool élastique|
+|/locations/elasticPoolOperationResults/read|Obtient le résultat d’une opération de pool élastique.|
+|/locations/extendedAuditingSettingsAzureAsyncOperation/read|Récupère le résultat de l’opération de configuration de la stratégie d’audit des objets blob de serveur.|
+|/locations/extendedAuditingSettingsOperationResults/read|Récupère le résultat de l’opération de configuration de la stratégie d’audit des objets blob de serveur.|
+|/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action|Achève l’opération de restauration de base de données managée|
+|/locations/managedTransparentDataEncryptionAzureAsyncOperation/read|Obtient les opérations en cours d’exécution sur le chiffrement transparent des données de base de données managée|
+|/locations/managedTransparentDataEncryptionOperationResults/read|Obtient les opérations en cours d’exécution sur le chiffrement transparent des données de base de données managée|
+|/locations/read|Obtient les emplacements disponibles pour un abonnement spécifié|
+|/locations/syncAgentOperationResults/read|Récupère le résultat de l’opération de ressource de l’agent de synchronisation|
+|/locations/syncDatabaseIds/read|Récupère les ID de base de données de synchronisation pour une région et un abonnement particuliers|
+|/locations/syncGroupOperationResults/read|Récupère le résultat de l’opération de ressource de groupe de synchronisation|
+|/locations/syncMemberOperationResults/read|Récupère le résultat de l’opération de ressource de membre de synchronisation|
+|/locations/usages/read|Obtient une collection de métriques d’utilisation pour cet abonnement dans un emplacement|
+|/locations/virtualNetworkRulesAzureAsyncOperation/read|Retourne les résultats de l’opération asynchrone Azure effectuée selon les règles de réseau virtuel spécifiées |
+|/locations/virtualNetworkRulesOperationResults/read|Retourne les détails de l’opération effectuée selon les règles de réseau virtuel spécifiées |
+|/managedInstances/administrators/delete|Supprime un administrateur existant de l’instance gérée.|
+|/managedInstances/administrators/read|Obtient la liste des administrateurs de l’instance gérée.|
+|/managedInstances/administrators/write|Crée ou met à jour l’administrateur d’instance gérée avec les paramètres spécifiés.|
+|/managedInstances/databases/delete|Supprime une base de données managée existante|
+|/managedInstances/databases/read|Obtient une base de données managée existante|
+|/managedInstances/databases/securityAlertPolicies/read|Récupère les détails de la stratégie de détection des menaces de base de données configurée sur une base de données managée spécifique|
+|/managedInstances/databases/securityAlertPolicies/write|Modifie la stratégie de détection des menaces pour une base de données managée spécifiée|
+|/managedInstances/databases/securityEvents/read|Récupère les événements de sécurité de base de données managée|
+|/managedInstances/databases/transparentDataEncryption/read|Récupère les détails de chiffrement transparent des données sur une base de données managée spécifiée|
+|/managedInstances/databases/transparentDataEncryption/write|Modifie le chiffrement transparent des données pour une base de données managée spécifiée|
+|/managedInstances/databases/write|Crée une base de données ou met à jour une base de données existante.|
+|/managedInstances/delete|Supprime une instance gérée existante.|
+|/managedInstances/metricDefinitions/read|Obtient les définitions de métrique de l’instance gérée|
+|/managedInstances/metrics/read|Obtient les métriques de l’instance gérée|
+|/managedInstances/read|Retourne la liste des instances gérées ou obtient les propriétés de l’instance gérée spécifiée.|
+|/managedInstances/securityAlertPolicies/read|Récupère les détails de la stratégie de détection des menaces de serveur configurée sur un serveur géré spécifique|
+|/managedInstances/securityAlertPolicies/write|Modifie la stratégie de détection des menaces pour un serveur géré spécifié|
+|/managedInstances/write|Crée une instance gérée avec les paramètres spécifiés ou met à jour les propriétés ou balises pour l’instance gérée spécifiée.|
+|/operations/read|Obtient les opérations REST disponibles|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources Microsoft SQL Database et permet la création de bases de données Microsoft SQL.|
+|/servers/administratorOperationResults/read|Obtient les opérations en cours sur les administrateurs du serveur|
+|/servers/administrators/delete|Supprime un administrateur du serveur|
+|/servers/administrators/read|Récupère les détails d’administrateur du serveur.|
+|/servers/administrators/write|Crée ou met à jour un administrateur de serveur.|
+|/servers/advisors/read|Renvoie la liste des conseillers disponibles pour le serveur|
+|/servers/advisors/recommendedActions/read|Renvoie la liste des actions recommandées du conseiller spécifié pour le serveur|
+|/servers/advisors/recommendedActions/write|Appliquer l’action recommandée sur le serveur|
+|/servers/advisors/write|Met à jour l’état d’exécution automatique d’un conseiller au niveau du serveur.|
+|/servers/auditingPolicies/read|Récupérer les détails de la stratégie d’audit de table du serveur par défaut configurée sur un serveur donné|
+|/servers/auditingPolicies/write|Modifier l’audit de table du serveur par défaut pour un serveur donné|
+|/servers/auditingSettings/operationResults/read|Récupérer le résultat l’opération de configuration de la stratégie d’audit des objets blob de serveur|
+|/servers/auditingSettings/read|Récupérer les détails de la stratégie d’audit des objets blob de serveur configurée sur un serveur donné|
+|/servers/auditingSettings/write|Modifier l’audit des objets blob de serveur pour un serveur donné|
+|/servers/automaticTuning/read|Retourne les paramètres de réglage automatique pour le serveur|
+|/servers/automaticTuning/write|Met à jour les paramètres de réglage automatique pour le serveur et retourne les paramètres mis à jour|
+|/servers/backupLongTermRetentionVaults/delete|Supprime un coffre d’archivage de sauvegarde existant.|
+|/servers/backupLongTermRetentionVaults/read|Cette opération est utilisée pour obtenir un coffre de rétention de sauvegarde à long terme. Retourne des informations sur le coffre inscrit sur ce serveur|
+|/servers/backupLongTermRetentionVaults/write|Cette opération permet d’inscrire un coffre de rétention de sauvegarde à long terme auprès d’un serveur|
+|/servers/communicationLinks/delete|Supprime un lien de communication de serveur existant.|
+|/servers/communicationLinks/read|Retourne la liste des liens de communication d’un serveur spécifié.|
+|/servers/communicationLinks/write|Crée ou met à jour un lien de communication du serveur.|
+|/servers/connectionPolicies/read|Retourne la liste des stratégies de connexion d’un serveur spécifié.|
+|/servers/connectionPolicies/write|Crée ou met à jour une stratégie de connexion du serveur.|
+|/servers/databases/advisors/read|Retourne la liste des conseillers disponibles pour la base de données.|
+|/servers/databases/advisors/recommendedActions/read|Retourne la liste des actions recommandées du conseiller spécifié pour la base de données.|
+|/servers/databases/advisors/recommendedActions/write|Applique l’action recommandée sur la base de données.|
+|/servers/databases/advisors/write|Met à jour l’état d’exécution automatique d’un conseiller au niveau de la base de données.|
+|/servers/databases/auditingPolicies/read|Récupère les détails de la stratégie d’audit des tables configurée dans une base de données spécifique.|
+|/servers/databases/auditingPolicies/write|Modifie la stratégie d’audit des tables pour une base de données spécifique.|
+|/servers/databases/auditingSettings/read|Récupère les détails de la stratégie d’audit d’objets blob configurée dans une base de données spécifique.|
+|/servers/databases/auditingSettings/write|Modifie la stratégie d’audit d’objets blob pour une base de données spécifique.|
+|/servers/databases/auditRecords/read|Récupère les enregistrements d’audit d’objet blob de base de données.|
+|/servers/databases/automaticTuning/read|Retourne les paramètres de réglage automatique pour une base de données|
+|/servers/databases/automaticTuning/write|Met à jour les paramètres de réglage automatique pour une base de données et retourne les paramètres mis à jour|
+|/servers/databases/azureAsyncOperation/read|Obtient l’état d’une opération de base de données.|
+|/servers/databases/backupLongTermRetentionPolicies/read|Retourne la liste des stratégies d’archivage de sauvegarde d’une base de données spécifiée.|
+|/servers/databases/backupLongTermRetentionPolicies/write|Crée ou met à jour une stratégie d’archivage de sauvegarde de base de données.|
+|/servers/databases/connectionPolicies/read|Récupère les détails de la stratégie de connexion configurée d’une base de données spécifique.|
+|/servers/databases/connectionPolicies/write|Modifie la stratégie de connexion d’une base de données spécifique.|
+|/servers/databases/dataMaskingPolicies/read|Retourne la liste des stratégies de masquage des données de base de données.|
+|/servers/databases/dataMaskingPolicies/rules/delete|Supprime une règle de stratégie de masquage de données pour une base de données spécifique|
+|/servers/databases/dataMaskingPolicies/rules/read|Récupérer les détails de la règle de stratégie de masquage des données configurée sur une base de données spécifique|
+|/servers/databases/dataMaskingPolicies/rules/write|Modifier la règle de stratégie de masquage des données pour une base de données spécifique|
+|/servers/databases/dataMaskingPolicies/write|Modifier la stratégie de masquage des données pour une base de données spécifique|
+|/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read|Retourne les informations d’étape de requête distribuée de la requête de l’entrepôt de données pour l’ID d’étape sélectionné.|
+|/servers/databases/dataWarehouseQueries/read|Retourne les informations de requête de distribution d’entrepôt de données pour l’ID de requête sélectionné.|
+|/servers/databases/dataWarehouseUserActivities/read|Récupère les activités d’utilisateur d’une instance SQL Data Warehouse qui inclut les requêtes en cours d’exécution et suspendues|
+|/servers/databases/delete|Supprime une base de données existante.|
+|/servers/databases/export/action|Exporte Azure SQL Database|
+|/servers/databases/extendedAuditingSettings/read|Récupère les détails de la stratégie étendue d’audit d’objets blob configurée dans une base de données spécifique|
+|/servers/databases/extendedAuditingSettings/write|Modifie la stratégie étendue d’audit d’objets blob pour une base de données spécifique|
+|/servers/databases/extensions/read|Obtient une collection d’extensions pour la base de données.|
+|/servers/databases/extensions/write|Modifie l’extension d’une base de données spécifiée|
+|/servers/databases/geoBackupPolicies/read|Récupère les stratégies de géosauvegarde pour une base de données spécifiée|
+|/servers/databases/geoBackupPolicies/write|Crée ou met à jour une stratégie de géosauvegarde de base de données|
+|/servers/databases/importExportOperationResults/read|Obtient les opérations d’importation/exportation en cours|
+|/servers/databases/metricDefinitions/read|Renvoie les types de mesures disponibles pour les bases de données|
+|/servers/databases/metrics/read|Retourne les métriques pour les bases de données|
+|/servers/databases/move/action|Renomme Azure SQL Database|
+|/servers/databases/operationResults/read|Obtient l’état d’une opération de base de données.|
+|/servers/databases/operations/cancel/action|Annule une opération asynchrone de base de données Azure SQL qui n’est pas encore terminée.|
+|/servers/databases/operations/read|Retourne la liste des opérations effectuées sur la base de données|
+|/servers/databases/pause/action|Suspend la base de données de l’entrepôt de données Azure SQL|
+|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/servers/databases/providers/Microsoft.Insights/logDefinitions/read|Obtient les journaux disponibles pour les bases de données|
+|/servers/databases/providers/Microsoft.Insights/metricDefinitions/read|Renvoie les types de mesures disponibles pour les bases de données|
+|/servers/databases/queryStore/queryTexts/read|Retourne la collection de textes de requêtes qui correspondent aux paramètres spécifiés.|
+|/servers/databases/queryStore/read|Retourne les valeurs actuelles des paramètres du magasin des requêtes pour la base de données.|
+|/servers/databases/queryStore/write|Met à jour les paramètres de magasin de requêtes pour la base de données.|
+|/servers/databases/read|Retourner la liste des bases de données ou obtenir les propriétés pour la base de données spécifiée.|
+|/servers/databases/replicationLinks/delete|Mettre fin à la relation de réplication volontairement avec une perte de données potentielle|
+|/servers/databases/replicationLinks/failover/action|Bascule après synchronisation toutes les modifications de la base de données principale, transformant celle-ci en base de données principale dans la relation de réplication, et la base de données principale distante en base de données secondaire|
+|/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action|Bascule immédiatement avec perte de données potentielle, transformant cette base de données en base de données principale dans la relation de réplication, et la base de données principale distante en base de données secondaire|
+|/servers/databases/replicationLinks/read|Renvoie des informations sur les liens de réplication établis pour une base de données spécifique|
+|/servers/databases/replicationLinks/unlink/action|Mettre fin à la relation de réplication volontairement ou après la synchronisation avec le partenaire|
+|/servers/databases/replicationLinks/updateReplicationMode/action|Mettre à jour le mode de réplication pour le lien vers un mode synchrone ou asynchrone|
+|/servers/databases/restorePoints/action|Créer un nouveau point de restauration|
+|/servers/databases/restorePoints/read|Retourne les points de restauration pour la base de données.|
+|/servers/databases/resume/action|Reprend la base de données de l’entrepôt de données Azure SQL|
+|/servers/databases/schemas/read|Récupérer la liste des schémas d’une base de données|
+|/servers/databases/schemas/tables/columns/read|Récupère la liste des colonnes d’une table.|
+|/servers/databases/schemas/tables/columns/sensitivityLabels/delete|Supprime l’étiquette de sensibilité d’une colonne donnée|
+|/servers/databases/schemas/tables/columns/sensitivityLabels/read|Obtient l’étiquette de sensibilité d’une colonne donnée|
+|/servers/databases/schemas/tables/columns/sensitivityLabels/write|Crée ou met à jour l’étiquette de sensibilité d’une colonne donnée|
+|/servers/databases/schemas/tables/read|Récupérer la liste des tables d’une base de données|
+|/servers/databases/schemas/tables/recommendedIndexes/read|Récupère la liste des recommandations d’index d’une base de données.|
+|/servers/databases/schemas/tables/recommendedIndexes/write|Applique une recommandation d’index.|
+|/servers/databases/securityAlertPolicies/read|Récupérer les détails de la stratégie de détection des menaces configurée sur une base de données spécifique|
+|/servers/databases/securityAlertPolicies/write|Modifier la stratégie de détection des menaces pour une base de données spécifique|
+|/servers/databases/securityMetrics/read|Obtient une collection de métriques de sécurité de base de données|
+|/servers/databases/sensitivityLabels/read|Affiche les étiquettes de sensibilité d’une base de données spécifiée|
+|/servers/databases/serviceTierAdvisors/read|Retourne une suggestion sur la montée ou la descente en puissance d’une base de données en fonction des statistiques d’exécution de requête afin d’améliorer les performances ou de réduire les coûts.|
+|/servers/databases/syncGroups/cancelSync/action|Annule la synchronisation du groupe de synchronisation|
+|/servers/databases/syncGroups/delete|Supprime un groupe de synchronisation existant.|
+|/servers/databases/syncGroups/hubSchemas/read|Retourne la liste des schémas de base de données du hub de synchronisation|
+|/servers/databases/syncGroups/logs/read|Retourne la liste des journaux du groupe de synchronisation|
+|/servers/databases/syncGroups/read|Retourne la liste des groupes de synchronisation ou obtient les propriétés du groupe de synchronisation spécifié.|
+|/servers/databases/syncGroups/refreshHubSchema/action|Actualise le schéma de base de données du hub de synchronisation|
+|/servers/databases/syncGroups/refreshHubSchemaOperationResults/read|Récupère le résultat de l’opération d’actualisation du schéma du hub de synchronisation|
+|/servers/databases/syncGroups/syncMembers/delete|Supprime un membre de synchronisation existant.|
+|/servers/databases/syncGroups/syncMembers/read|Retourne la liste des membres de synchronisation ou obtient les propriétés du membre de synchronisation spécifié.|
+|/servers/databases/syncGroups/syncMembers/refreshSchema/action|Actualise le schéma du membre de synchronisation|
+|/servers/databases/syncGroups/syncMembers/refreshSchemaOperationResults/read|Récupère le résultat de l’opération d’actualisation du schéma du membre de synchronisation|
+|/servers/databases/syncGroups/syncMembers/schemas/read|Retourne la liste des schémas de base de données du membre de synchronisation|
+|/servers/databases/syncGroups/syncMembers/write|Crée un membre de synchronisation avec les paramètres spécifiés ou met à jour les propriétés du membre de synchronisation spécifié.|
+|/servers/databases/syncGroups/triggerSync/action|Déclenche la synchronisation du groupe de synchronisation|
+|/servers/databases/syncGroups/write|Crée un groupe de synchronisation avec les paramètres spécifiés ou met à jour les propriétés du groupe de synchronisation spécifié.|
+|/servers/databases/topQueries/queryText/action|Retourne le texte Transact-SQL pour l’ID de requête sélectionné|
+|/servers/databases/topQueries/read|Renvoie les statistiques d’exécution agrégées de la requête sélectionnée dans la période choisie|
+|/servers/databases/topQueries/statistics/read|Renvoie les statistiques d’exécution agrégées de la requête sélectionnée dans la période choisie|
+|/servers/databases/transparentDataEncryption/operationResults/read|Obtient les opérations en cours d’exécution sur le chiffrement transparent des données|
+|/servers/databases/transparentDataEncryption/read|Récupère l’état et les détails de la fonctionnalité de sécurité Transparent Data Encryption pour une base de données spécifique.|
+|/servers/databases/transparentDataEncryption/write|Modifie l’état de chiffrement transparent des données|
+|/servers/databases/upgradeDataWarehouse/action|Met à niveau la base de données de l’entrepôt de données Azure SQL|
+|/servers/databases/usages/read|Obtient les informations d’utilisation d’Azure SQL Database|
+|/servers/databases/vulnerabilityAssessments/delete|Supprime l’évaluation des vulnérabilités d’une base de données spécifiée|
+|/servers/databases/vulnerabilityAssessments/read|Récupère les détails de l’évaluation des vulnérabilités configurée sur une base de données spécifique|
+|/servers/databases/vulnerabilityAssessments/rules/baselines/delete|Supprime la ligne de base de la règle d’évaluation des vulnérabilités pour une base de données spécifiée|
+|/servers/databases/vulnerabilityAssessments/rules/baselines/read|Obtient la ligne de base de la règle d’évaluation des vulnérabilités pour une base de données spécifiée|
+|/servers/databases/vulnerabilityAssessments/rules/baselines/write|Modifie la ligne de base de la règle d’évaluation des vulnérabilités pour une base de données spécifiée|
+|/servers/databases/vulnerabilityAssessments/scans/action|Exécuter l’analyse de la base de données d’évaluation de la vulnérabilité.|
+|/servers/databases/vulnerabilityAssessments/scans/export/action|Convertit un résultat d’analyse existant en un format lisible. S’il existe déjà, rien ne se passe|
+|/servers/databases/vulnerabilityAssessments/scans/read|Retourne la liste des enregistrements d’analyse d’évaluation des vulnérabilités de la base de données ou obtient l’enregistrement d’analyse pour l’ID d’analyse spécifié.|
+|/servers/databases/vulnerabilityAssessments/write|Modifie l’évaluation des vulnérabilités pour une base de données|
+|/servers/databases/vulnerabilityAssessmentScans/action|Exécuter l’analyse de la base de données d’évaluation de la vulnérabilité.|
+|/servers/databases/vulnerabilityAssessmentScans/operationResults/read|Récupère le résultat de l’opération d’analyse d’évaluation des vulnérabilités de la base de données|
+|/servers/databases/vulnerabilityAssessmentSettings/read|Récupère les détails de l’évaluation des vulnérabilités configurée sur une base de données spécifique|
+|/servers/databases/vulnerabilityAssessmentSettings/write|Modifie l’évaluation des vulnérabilités pour une base de données|
+|/servers/databases/write|Crée une base de données avec les paramètres spécifiés ou met à jour les propriétés ou balises de la base de données spécifiée.|
+|/servers/delete|Supprime un serveur existant.|
+|/servers/disasterRecoveryConfiguration/delete|Supprime une configuration de récupération d’urgence existante pour un serveur spécifié|
+|/servers/disasterRecoveryConfiguration/failover/action|Bascule une configuration de récupération d’urgence|
+|/servers/disasterRecoveryConfiguration/forceFailoverAllowDataLoss/action|Force le basculement d’une configuration de récupération d’urgence|
+|/servers/disasterRecoveryConfiguration/read|Obtient une collection de configurations de récupération d’urgence qui incluent ce serveur|
+|/servers/disasterRecoveryConfiguration/write|Modifie la configuration de récupération d’urgence du serveur|
+|/servers/elasticPoolEstimates/read|Renvoie la liste des estimations du pool élastique déjà créée pour ce serveur|
+|/servers/elasticPoolEstimates/write|Crée la nouvelle estimation du pool élastique pour la liste des bases de données fournie|
+|/servers/elasticPools/advisors/read|Retourne la liste des conseillers disponibles pour le pool élastique.|
+|/servers/elasticPools/advisors/recommendedActions/read|Retourne la liste des actions recommandées du conseiller spécifié pour le pool élastique.|
+|/servers/elasticPools/advisors/recommendedActions/write|Appliquer l’action recommandée sur le pool élastique|
+|/servers/elasticPools/advisors/write|Met à jour l’état d’exécution automatique d’un conseiller au niveau du pool élastique.|
+|/servers/elasticPools/databases/read|Obtient une liste de bases de données pour un pool élastique|
+|/servers/elasticPools/delete|Supprime un pool élastique existant|
+|/Servers/elasticPools/elasticPoolActivity/Read|Récupérer les activités et les détails sur un pool de bases de données élastique donné|
+|/servers/elasticPools/elasticPoolDatabaseActivity/read|Récupère les activités et les détails d’une base de données spécifique faisant partie d’un pool de bases de données élastique.|
+|/servers/elasticPools/metricDefinitions/read|Retourne les types de mesure disponibles pour les pools de bases de données élastiques.|
+|/servers/elasticPools/metrics/read|Retourne des métriques pour des pools de bases de données élastiques|
+|/servers/elasticPools/operations/cancel/action|Annule une opération asynchrone de pool élastique SQL qui n’est pas encore terminée.|
+|/servers/elasticPools/operations/read|Retourne la liste des opérations effectuées sur le pool élastique|
+|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/servers/elasticPools/providers/Microsoft.Insights/metricDefinitions/read|Retourne les types de mesure disponibles pour les pools de bases de données élastiques.|
+|/servers/elasticPools/read|Récupère les détails d’un pool élastique sur un serveur spécifié|
+|/servers/elasticPools/skus/read|Obtient une collection de références (SKU) disponibles pour ce pool élastique|
+|/servers/elasticPools/write|Crée ou modifie les propriétés d’un pool élastique existant|
+|/servers/encryptionProtector/read|Retourne la liste des protecteurs de chiffrement de serveur ou obtient les propriétés pour le protecteur du chiffrement du serveur spécifié.|
+|/servers/encryptionProtector/write|Met à jour les propriétés pour le protecteur du chiffrement du serveur spécifié.|
+|/servers/extendedAuditingSettings/read|Récupère les détails de la stratégie étendue d’audit des objets blob de serveur configurée sur un serveur spécifié|
+|/servers/extendedAuditingSettings/write|Modifie l’audit étendu des objets blob de serveur pour un serveur spécifié|
+|/servers/failoverGroups/delete|Supprime un groupe de basculement existant.|
+|/servers/failoverGroups/failover/action|Exécute un basculement planifié dans un groupe de basculement existant.|
+|/servers/failoverGroups/forceFailoverAllowDataLoss/action|Exécute un basculement forcé dans un groupe de basculement existant.|
+|/servers/failoverGroups/read|Retourne la liste des groupes de basculement ou obtient les propriétés du groupe de basculement spécifié.|
+|/servers/failoverGroups/write|Crée un groupe de basculement avec les paramètres spécifiés ou met à jour les propriétés ou balises pour le groupe de basculement spécifié.|
+|/servers/firewallRules/delete|Supprime une règle de pare-feu de serveur existante.|
+|/servers/firewallRules/read|Retourne la liste des règles de pare-feu de serveur ou obtient les propriétés pour la règle de pare-feu du serveur spécifié.|
+|/servers/firewallRules/write|Crée une règle de pare-feu de serveur avec les paramètres spécifiés, met à jour les propriétés de la règle spécifiée, ou remplace toutes les règles existantes par des règles de pare-feu de serveur plus récentes.|
+|/servers/import/action|Créer une nouvelle base de données sur le serveur et de déployer le schéma et les données à partir d’un package DacPac|
+|/servers/importExportOperationResults/read|Obtient les opérations d’importation/exportation en cours|
+|/servers/keys/delete|Supprime une clé de serveur existante.|
+|/servers/keys/read|Retourne la liste des clés de serveur ou obtient les propriétés de la clé de serveur spécifiée.|
+|/servers/keys/write|Crée une clé avec les paramètres spécifiés ou met à jour les propriétés ou balises pour la clé de serveur spécifiée.|
+|/servers/operationResults/read|Obtient les opérations du serveur en cours|
+|/servers/providers/Microsoft.Insights/metricDefinitions/read|Retourne les types de métriques disponibles pour les serveurs|
+|/servers/read|Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié.|
+|/servers/recommendedElasticPools/databases/read|Récupère les mesures pour les pools de bases de données élastiques recommandés pour un serveur donné.|
+|/servers/recommendedElasticPools/read|Récupère une recommandation pour les pools de bases de données élastiques afin de réduire les coûts ou d’améliorer les performances en fonction de l’utilisation des ressources d’historique.|
+|/servers/recoverableDatabases/read|Cette opération est utilisée pour la récupération d’urgence de base de données active pour restaurer la base de données au point de sauvegarde correct connu. Elle retourne des informations sur la dernière sauvegarde correcte, mais ne restaure pas réellement la base de données.|
+|/servers/restorableDroppedDatabases/read|Récupère la liste des bases de données supprimées d’un serveur donné, qui figurent toujours dans la stratégie de rétention.|
+|/servers/securityAlertPolicies/operationResults/read|Récupère les résultats de l’opération d’écriture de la stratégie de détection des menaces de serveur|
+|/servers/securityAlertPolicies/read|Récupère les détails de la stratégie de détection des menaces configurée sur un serveur donné.|
+|/servers/securityAlertPolicies/write|Modifie la stratégie de détection des menaces de serveur pour un serveur donné|
+|/servers/serviceObjectives/read|Récupère la liste des objectifs de niveau de service (également appelés niveaux de performance) disponibles sur un serveur donné.|
+|/servers/syncAgents/delete|Supprime un agent de synchronisation existant.|
+|/servers/syncAgents/generateKey/action|Génère la clé d’inscription de l’agent de synchronisation|
+|/servers/syncAgents/linkedDatabases/read|Retourne la liste des bases de données liées à l’agent de synchronisation|
+|/servers/syncAgents/read|Retourne la liste des agents de synchronisation ou obtient les propriétés de l’agent de synchronisation spécifié.|
+|/servers/syncAgents/write|Crée un agent de synchronisation avec les paramètres spécifiés ou met à jour les propriétés de l’agent de synchronisation spécifié.|
+|/servers/usages/read|Renvoyer le quota DTU du serveur et la consommation DTU actuelle par toutes les bases de données au sein du serveur|
+|/servers/virtualNetworkRules/delete|Supprime une règle de réseau virtuel existante|
+|/servers/virtualNetworkRules/read|Retourne la liste des règles de réseau virtuel ou obtient les propriétés de la règle de réseau virtuel spécifiée.|
+|/servers/virtualNetworkRules/write|Crée une règle de réseau virtuel avec les paramètres spécifiés ou met à jour les propriétés ou balises de la règle de réseau virtuel spécifiée.|
+|/servers/write|Crée un serveur avec les paramètres spécifiés ou met à jour les propriétés ou balises pour le serveur spécifié.|
+|/unregister/action|Désinscrit l’abonnement pour le fournisseur de ressources Microsoft SQL Database et permet la création de bases de données Microsoft SQL.|
+|/virtualClusters/read|Retourne la liste des clusters virtuels ou obtient les propriétés du serveur virtuel spécifié.|
+|/virtualClusters/write|Met à jour des balises de cluster virtuel.|
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/checknameavailability/read|Checks that account name is valid and is not in use.|
-|/locations/deleteVirtualNetworkOrSubnets/action|Notifies Microsoft.Storage that virtual network or subnet is being deleted|
-|/operations/read|Polls the status of an asynchronous operation.|
-|/register/action|Registers the subscription for the storage resource provider and enables the creation of storage accounts.|
-|/skus/read|Lists the Skus supported by Microsoft.Storage.|
-|/storageAccounts/blobServices/containers/clearLegalHold/action|Clear blob container legal hold|
-|/storageAccounts/blobServices/containers/delete|Returns the result of deleting a container|
-|/storageAccounts/blobServices/containers/immutabilityPolicies/delete|Delete blob container immutability policy|
-|/storageAccounts/blobServices/containers/immutabilityPolicies/extend/action|Extend blob container immutability policy|
-|/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action|Lock blob container immutability policy|
-|/storageAccounts/blobServices/containers/immutabilityPolicies/read|Get blob container immutability policy|
-|/storageAccounts/blobServices/containers/immutabilityPolicies/write|Put blob container immutability policy|
-|/storageAccounts/blobServices/containers/read|Returns a container or a list of containers|
-|/storageAccounts/blobServices/containers/setLegalHold/action|Set blob container legal hold|
-|/storageAccounts/blobServices/containers/write|Returns the result of put or lease blob container|
-|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
-|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource.|
-|/storageAccounts/blobServices/providers/Microsoft.Insights/metricDefinitions/read|Get list of Microsoft Storage Metrics definitions.|
-|/storageAccounts/blobServices/read|Returns blob service properties or statistics|
-|/storageAccounts/blobServices/write|Returns the result of put blob service properties|
-|/storageAccounts/delete|Deletes an existing storage account.|
-|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
-|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource.|
-|/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read|Get list of Microsoft Storage Metrics definitions.|
-|/storageAccounts/listAccountSas/action|Returns the Account SAS token for the specified storage account.|
-|/storageAccounts/listkeys/action|Returns the access keys for the specified storage account.|
-|/storageAccounts/listServiceSas/action|Returns the Service SAS token for the specified storage account.|
-|/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
-|/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource.|
-|/storageAccounts/providers/Microsoft.Insights/metricDefinitions/read|Get list of Microsoft Storage Metrics definitions.|
-|/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource.|
-|/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read|Get list of Microsoft Storage Metrics definitions.|
-|/storageAccounts/queueServices/queues/delete|Returns the result of deleting a queue|
-|/storageAccounts/queueServices/queues/read|Returns a queue or a list of queues.|
-|/storageAccounts/queueServices/queues/write|Returns the result of writing a queue|
-|/storageAccounts/queueServices/read|Returns queue service properties or statistics.|
-|/storageAccounts/queueServices/write|Returns the result of setting queue service properties|
-|/storageAccounts/read|Returns the list of storage accounts or gets the properties for the specified storage account.|
-|/storageAccounts/regeneratekey/action|Regenerates the access keys for the specified storage account.|
-|/storageAccounts/services/diagnosticSettings/write|Create/Update storage account diagnostic settings.|
-|/storageAccounts/storageAccounts/queueServices/providers/ Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
-|/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
-|/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource.|
-|/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read|Get list of Microsoft Storage Metrics definitions.|
-|/storageAccounts/write|Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account.|
-|/usages/read|Returns the limit and the current usage count for resources in the specified subscription|
+|/checknameavailability/read|Vérifie que le nom du valide est valide et qu’il n’est pas déjà utilisé.|
+|/locations/deleteVirtualNetworkOrSubnets/action|Informe Microsoft.Storage que le sous-réseau ou le réseau virtuel est en cours de suppression.|
+|/operations/read|Interroge l’état d’une opération asynchrone.|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources de stockage et permet la création de comptes de stockage.|
+|/skus/read|Répertorie les références prises en charge par Microsoft.Storage.|
+|/storageAccounts/blobServices/containers/clearLegalHold/action|Efface la conservation légale du conteneur d’objets blob|
+|/storageAccounts/blobServices/containers/delete|Retourne le résultat de la suppression d’un conteneur|
+|/storageAccounts/blobServices/containers/immutabilityPolicies/delete|Supprime la stratégie d’immuabilité du conteneur d’objets blob|
+|/storageAccounts/blobServices/containers/immutabilityPolicies/extend/action|Étend la stratégie d’immuabilité du conteneur d’objets blob|
+|/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action|Verrouille la stratégie d’immuabilité du conteneur d’objets blob|
+|/storageAccounts/blobServices/containers/immutabilityPolicies/read|Obtient la stratégie d’immuabilité du conteneur d’objets blob|
+|/storageAccounts/blobServices/containers/immutabilityPolicies/write|Place la stratégie d’immuabilité du conteneur d’objets blob|
+|/storageAccounts/blobServices/containers/read|Retourne un conteneur ou une liste de conteneurs|
+|/storageAccounts/blobServices/containers/setLegalHold/action|Définit la conservation légale du conteneur d’objets blob|
+|/storageAccounts/blobServices/containers/write|Retourne le résultat du placement ou du bail du conteneur d’objets blob|
+|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/storageAccounts/blobServices/providers/Microsoft.Insights/metricDefinitions/read|Obtient la liste des définitions des métriques de stockage Microsoft.|
+|/storageAccounts/blobServices/read|Retourne les propriétés ou statistiques du service blob|
+|/storageAccounts/blobServices/write|Retourne le résultat des propriétés du service blob de placement|
+|/storageAccounts/delete|Supprime un compte de stockage existant.|
+|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read|Obtient la liste des définitions des métriques de stockage Microsoft.|
+|/storageAccounts/listAccountSas/action|Retourne le jeton SAS du compte de stockage spécifié.|
+|/storageAccounts/listkeys/action|Retourne les clés d’accès au compte de stockage spécifié.|
+|/storageAccounts/listServiceSas/action|Retourne le jeton SAS de service pour le compte de stockage spécifié.|
+|/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/storageAccounts/providers/Microsoft.Insights/metricDefinitions/read|Obtient la liste des définitions des métriques de stockage Microsoft.|
+|/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read|Obtient la liste des définitions des métriques de stockage Microsoft.|
+|/storageAccounts/queueServices/queues/delete|Retourne le résultat de la suppression d’une file d’attente|
+|/storageAccounts/queueServices/queues/read|Retourne une file d’attente ou une liste de files d’attente.|
+|/storageAccounts/queueServices/queues/write|Retourne le résultat de l’écriture d’une file d’attente|
+|/storageAccounts/queueServices/read|Retourne les propriétés ou les statistiques du service de file d’attente.|
+|/storageAccounts/queueServices/write|Retourne le résultat de la définition des propriétés du service de file d’attente|
+|/storageAccounts/read|Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié.|
+|/storageAccounts/regeneratekey/action|Régénère les clés d’accès au compte de stockage spécifié.|
+|/storageAccounts/services/diagnosticSettings/write|Crée/met à jour les paramètres de diagnostic de compte de stockage.|
+|/storageAccounts/storageAccounts/queueServices/providers/ Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read|Obtient la liste des définitions des métriques de stockage Microsoft.|
+|/storageAccounts/write|Crée un compte de stockage avec les paramètres spécifiés ou met à jour les propriétés ou les balises, ou ajoute un domaine personnalisé pour le compte de stockage spécifié.|
+|/usages/read|Retourne la limite et le nombre actuel d’utilisations des ressources dans l’abonnement spécifié.|
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/storageSyncServices/delete|Delete any Storage Sync Services|
-|/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Storage Sync Services|
-|/storageSyncServices/read|Read any Storage Sync Services|
-|/storageSyncServices/registeredServers/delete|Delete any Registered Server|
-|/storageSyncServices/registeredServers/read|Read any Registered Server|
-|/storageSyncServices/registeredServers/write|Create or Update any Registered Server|
-|/storageSyncServices/syncGroups/cloudEndpoints/delete|Delete any Cloud Endpoints|
-|/storageSyncServices/syncGroups/cloudEndpoints/operationresults/read|Location api for async backup calls|
-|/storageSyncServices/syncGroups/cloudEndpoints/postbackup/action|Call this action after backup|
-|/storageSyncServices/syncGroups/cloudEndpoints/postrestore/action|Call this action after restore|
-|/storageSyncServices/syncGroups/cloudEndpoints/prebackup/action|Call this action before backup|
-|/storageSyncServices/syncGroups/cloudEndpoints/prerestore/action|Call this action before restore|
-|/storageSyncServices/syncGroups/cloudEndpoints/read|Read any Cloud Endpoints|
-|/storageSyncServices/syncGroups/cloudEndpoints/restoreheartbeat/action|Restore heartbeat|
-|/storageSyncServices/syncGroups/cloudEndpoints/write|Create or Update any Cloud Endpoints|
-|/storageSyncServices/syncGroups/delete|Delete any Sync Groups|
-|/storageSyncServices/syncGroups/read|Read any Sync Groups|
-|/storageSyncServices/syncGroups/serverEndpoints/delete|Delete any Server Endpoints|
-|/storageSyncServices/syncGroups/serverEndpoints/read|Read any Server Endpoints|
-|/storageSyncServices/syncGroups/serverEndpoints/recallAction/action|Call this action to recall files to a server|
-|/storageSyncServices/syncGroups/serverEndpoints/write|Create or Update any Server Endpoints|
-|/storageSyncServices/syncGroups/write|Create or Update any Sync Groups|
-|/storageSyncServices/write|Create or Update any Storage Sync Services|
+|/storageSyncServices/delete|Supprime des services de synchronisation de stockage|
+|/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les services de synchronisation de stockage|
+|/storageSyncServices/read|Lit des services de synchronisation de stockage|
+|/storageSyncServices/registeredServers/delete|Supprime un serveur inscrit|
+|/storageSyncServices/registeredServers/read|Lit un serveur inscrit|
+|/storageSyncServices/registeredServers/write|Crée ou met à jour un serveur inscrit|
+|/storageSyncServices/syncGroups/cloudEndpoints/delete|Supprime des points de terminaison cloud|
+|/storageSyncServices/syncGroups/cloudEndpoints/operationresults/read|API d’emplacement pour les appels de sauvegarde asynchrone|
+|/storageSyncServices/syncGroups/cloudEndpoints/postbackup/action|Appelle cette action après une sauvegarde|
+|/storageSyncServices/syncGroups/cloudEndpoints/postrestore/action|Appelle cette action après une restauration|
+|/storageSyncServices/syncGroups/cloudEndpoints/prebackup/action|Appelle cette action avant une sauvegarde|
+|/storageSyncServices/syncGroups/cloudEndpoints/prerestore/action|Appelle cette action avant une restauration|
+|/storageSyncServices/syncGroups/cloudEndpoints/read|Lit des points de terminaison cloud|
+|/storageSyncServices/syncGroups/cloudEndpoints/restoreheartbeat/action|Restaure la pulsation|
+|/storageSyncServices/syncGroups/cloudEndpoints/write|Crée ou met à jour des points de terminaison cloud|
+|/storageSyncServices/syncGroups/delete|Supprime des groupes de synchronisation|
+|/storageSyncServices/syncGroups/read|Lit des groupes de synchronisation|
+|/storageSyncServices/syncGroups/serverEndpoints/delete|Supprime des points de terminaison de serveur|
+|/storageSyncServices/syncGroups/serverEndpoints/read|Lit des points de terminaison de serveur|
+|/storageSyncServices/syncGroups/serverEndpoints/recallAction/action|Appelle cette action pour rappeler des fichiers sur un serveur|
+|/storageSyncServices/syncGroups/serverEndpoints/write|Crée ou met à jour des points de terminaison de serveur|
+|/storageSyncServices/syncGroups/write|Crée ou met à jour des groupes de synchronisation|
+|/storageSyncServices/write|Crée ou met à jour des services de synchronisation de stockage|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/managers/accessControlRecords/delete|Deletes the Access Control Records|
-|/managers/accessControlRecords/read|Lists or gets the Access Control Records|
-|/managers/accessControlRecords/write|Create or update the Access Control Records|
-|/managers/alerts/read|Lists or gets the Alerts|
-|/managers/bandwidthSettings/delete|Deletes an existing Bandwidth Settings (8000 Series Only)|
-|/managers/bandwidthSettings/read|List the Bandwidth Settings (8000 Series Only)|
-|/managers/bandwidthSettings/write|Creates a new or updates Bandwidth Settings (8000 Series Only)|
-|/Managers/certificates/write|The Update Resource Certificate operation updates the resource/vault credential certificate.|
-|/managers/clearAlerts/action|Clear all the alerts associated with the device manager.|
-|/managers/cloudApplianceConfigurations/read|List the Cloud Appliance Supported Configurations|
-|/managers/configureDevice/action|Configures a device|
-|/managers/delete|Deletes the Device Managers|
-|/Managers/delete|The Delete Vault operation deletes the specified Azure resource of type 'vault'|
-|/managers/devices/alertSettings/read|Lists or gets the Alert Settings|
-|/managers/devices/alertSettings/write|Create or update the Alert Settings|
-|/managers/devices/backupPolicies/backup/action|Take a manual backup to create an on-demand backup of all the volumes protected by the policy.|
-|/managers/devices/backupPolicies/delete|Deletes an existing Backup Polices (8000 Series Only)|
-|/managers/devices/backupPolicies/read|List the Backup Polices (8000 Series Only)|
-|/managers/devices/backupPolicies/schedules/delete|Deletes an existing Schedules|
-|/managers/devices/backupPolicies/schedules/read|List the Schedules|
-|/managers/devices/backupPolicies/schedules/write|Creates a new or updates Schedules|
-|/managers/devices/backupPolicies/write|Creates a new or updates Backup Polices (8000 Series Only)|
-|/managers/devices/backups/delete|Deletes the Backup Set|
-|/managers/devices/backups/elements/clone/action|Clone a share or volume using a backup element.|
-|/managers/devices/backups/read|Lists or gets the Backup Set|
-|/managers/devices/backups/restore/action|Restore all the volumes from a backup set.|
-|/managers/devices/backupScheduleGroups/delete|Deletes the Backup Schedule Groups|
-|/managers/devices/backupScheduleGroups/read|Lists or gets the Backup Schedule Groups|
-|/managers/devices/backupScheduleGroups/write|Create or update the Backup Schedule Groups|
-|/managers/devices/chapSettings/delete|Deletes the Chap Settings|
-|/managers/devices/chapSettings/read|Lists or gets the Chap Settings|
-|/managers/devices/chapSettings/write|Create or update the Chap Settings|
-|/managers/devices/deactivate/action|Deactivates a device.|
-|/managers/devices/delete|Deletes the Devices|
-|/managers/devices/download/action|Dowload updates for a device.|
-|/managers/devices/failover/action|Failover of the device.|
-|/managers/devices/fileservers/backup/action|Take backup of an File Server.|
-|/managers/devices/fileservers/delete|Deletes the File Servers|
-|/managers/devices/fileservers/metrics/read|Lists or gets the Metrics|
-|/managers/devices/fileservers/metricsDefinitions/read|Lists or gets the Metrics Definitions|
-|/managers/devices/fileservers/read|Lists or gets the File Servers|
-|/managers/devices/fileservers/shares/delete|Deletes the Shares|
-|/managers/devices/fileservers/shares/metrics/read|Lists or gets the Metrics|
-|/managers/devices/fileservers/shares/metricsDefinitions/read|Lists or gets the Metrics Definitions|
-|/managers/devices/fileservers/shares/read|Lists or gets the Shares|
-|/managers/devices/fileservers/shares/write|Create or update the Shares|
-|/managers/devices/fileservers/write|Create or update the File Servers|
-|/managers/devices/hardwareComponentGroups/changeControllerPowerState/action|Change controller power state of hardware component groups|
-|/managers/devices/hardwareComponentGroups/read|List the Hardware Component Groups|
-|/managers/devices/install/action|Install updates on a device.|
-|/managers/devices/installUpdates/action|Installs updates on the devices|
-|/managers/devices/iscsiservers/backup/action|Take backup of an iSCSI server.|
-|/managers/devices/iscsiservers/delete|Deletes the iSCSI Servers|
-|/managers/devices/iscsiservers/disks/delete|Deletes the Disks|
-|/managers/devices/iscsiservers/disks/metrics/read|Lists or gets the Metrics|
-|/managers/devices/iscsiservers/disks/metricsDefinitions/read|Lists or gets the Metrics Definitions|
-|/managers/devices/iscsiservers/disks/read|Lists or gets the Disks|
-|/managers/devices/iscsiservers/disks/write|Create or update the Disks|
-|/managers/devices/iscsiservers/metrics/read|Lists or gets the Metrics|
-|/managers/devices/iscsiservers/metricsDefinitions/read|Lists or gets the Metrics Definitions|
-|/managers/devices/iscsiservers/read|Lists or gets the iSCSI Servers|
-|/managers/devices/iscsiservers/write|Create or update the iSCSI Servers|
-|/managers/devices/jobs/cancel/action|Cancel a running job|
-|/managers/devices/jobs/read|Lists or gets the Jobs|
-|/managers/devices/listFailoverSets/action|List the failover sets for an existing device.|
-|/managers/devices/listFailoverTargets/action|List failover targets of the devices|
-|/managers/devices/metrics/read|Lists or gets the Metrics|
-|/managers/devices/metricsDefinitions/read|Lists or gets the Metrics Definitions|
-|/managers/devices/migrationSourceConfigurations/confirmMigration/action|Confirms a successful migration and commit it.|
-|/managers/devices/migrationSourceConfigurations/fetchConfirmMigrationStatus/action|Fetch the confirm status of migration.|
-|/managers/devices/migrationSourceConfigurations/fetchMigrationEstimate/action|Fetch the status for the migration estimation job.|
-|/managers/devices/migrationSourceConfigurations/fetchMigrationStatus/action|Fetch the status for the migration.|
-|/managers/devices/migrationSourceConfigurations/import/action|Import source configurations for migration|
-|/managers/devices/migrationSourceConfigurations/startMigration/action|Start migration using source configurations|
-|/managers/devices/migrationSourceConfigurations/startMigrationEstimate/action|Start a job to estimate the duration of the migration process.|
-|/managers/devices/networkSettings/read|Lists or gets the Network Settings|
-|/managers/devices/networkSettings/write|Creates a new or updates Network Settings|
-|/managers/devices/publicEncryptionKey/action|List public encryption key of the device manager|
-|/managers/devices/publishSupportPackage/action|Publish support package of a device for Microsoft Support troubleshooting.|
-|/managers/devices/read|Lists or gets the Devices|
-|/managers/devices/scanForUpdates/action|Scan for updates in a device.|
-|/managers/devices/securitySettings/read|List the Security Settings|
-|/managers/devices/securitySettings/syncRemoteManagementCertificate/action|Synchronize the remote management certificate for a device.|
-|/managers/devices/securitySettings/update/action|Update the security settings.|
-|/managers/devices/securitySettings/write|Creates a new or updates Security Settings|
-|/managers/devices/sendTestAlertEmail/action|Send test alert email to configured email recipients.|
-|/managers/devices/timeSettings/read|Lists or gets the Time Settings|
-|/managers/devices/timeSettings/write|Creates a new or updates Time Settings|
-|/managers/devices/updateSummary/read|Lists or gets the Update Summary|
-|/managers/devices/volumeContainers/delete|Deletes an existing Volume Containers (8000 Series Only)|
-|/managers/devices/volumeContainers/listEncryptionKeys/action|List encryption keys of Volume Containers|
-|/managers/devices/volumeContainers/metrics/read|List the Metrics|
-|/managers/devices/volumeContainers/metricsDefinitions/read|List the Metrics Definitions|
-|/managers/devices/volumeContainers/read|List the Volume Containers (8000 Series Only)|
-|/managers/devices/volumeContainers/rolloverEncryptionKey/action|Rollover encryption keys of Volume Containers|
-|/managers/devices/volumeContainers/volumes/delete|Deletes an existing Volumes|
-|/managers/devices/volumeContainers/volumes/metrics/read|List the Metrics|
-|/managers/devices/volumeContainers/volumes/metricsDefinitions/read|List the Metrics Definitions|
-|/managers/devices/volumeContainers/volumes/read|List the Volumes|
-|/managers/devices/volumeContainers/volumes/write|Creates a new or updates Volumes|
-|/managers/devices/volumeContainers/write|Creates a new or updates Volume Containers (8000 Series Only)|
-|/managers/devices/write|Create or update the Devices|
-|/managers/encryptionSettings/read|Lists or gets the Encryption Settings|
-|/Managers/extendedInformation/delete|The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault?|
-|/Managers/extendedInformation/read|The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault?|
-|/Managers/extendedInformation/write|The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault?|
-|/managers/getActivationKey/action|Get activation key for the device manager.|
-|/managers/getEncryptionKey/action|Get encryption key for the device manager.|
-|/managers/listActivationKey/action|Gets the activation key of the StorSimple Device Manager.|
-|/managers/listPrivateEncryptionKey/action|Gets private encryption key for a StorSimple Device Manager.|
-|/managers/listPublicEncryptionKey/action|List public encryption keys of a StorSimple Device Manager.|
-|/managers/metrics/read|Lists or gets the Metrics|
-|/managers/metricsDefinitions/read|Lists or gets the Metrics Definitions|
-|/managers/provisionCloudAppliance/action|Create a new cloud appliance.|
-|/managers/read|Lists or gets the Device Managers|
-|/Managers/read|The Get Vault operation gets an object representing the Azure resource of type 'vault'|
-|/managers/regenarateRegistationCertificate/action|Regenerate registration certificate for the device managers.|
-|/managers/regenerateActivationKey/action|Regenerate activation key for the device manager.|
-|/managers/storageAccountCredentials/delete|Deletes the Storage Account Credentials|
-|/managers/storageAccountCredentials/listAccessKey/action|List access keys of Storage Account Credentials|
-|/managers/storageAccountCredentials/read|Lists or gets the Storage Account Credentials|
-|/managers/storageAccountCredentials/write|Create or update the Storage Account Credentials|
-|/managers/storageDomains/delete|Deletes the Storage Domains|
-|/managers/storageDomains/read|Lists or gets the Storage Domains|
-|/managers/storageDomains/write|Create or update the Storage Domains|
-|/managers/write|Create or update the Device Managers|
-|/Managers/write|Create Vault operation creates an Azure resource of type 'vault'|
+|/managers/accessControlRecords/delete|Supprime les enregistrements de contrôle d’accès.|
+|/managers/accessControlRecords/read|Répertorie ou récupère les enregistrements de contrôle d’accès.|
+|/managers/accessControlRecords/write|Crée ou met à jour les enregistrements de contrôle d’accès.|
+|/managers/alerts/read|Répertorie ou récupère les alertes.|
+|/managers/bandwidthSettings/delete|Supprime des paramètres de bande passante existants (série 8000 uniquement).|
+|/managers/bandwidthSettings/read|Répertorie les paramètres de bande passante (série 8000 uniquement).|
+|/managers/bandwidthSettings/write|Crée ou met à jour les paramètres de bande passante (série 8000 uniquement).|
+|/Managers/certificates/write|L’opération de mise à jour de certificat de ressource met à jour le certificat d’informations d’identification du coffre/de la ressource.|
+|/managers/clearAlerts/action|Efface toutes les alertes associées au gestionnaire d’appareils.|
+|/managers/cloudApplianceConfigurations/read|Répertorie les configurations prises en charge d’appliance cloud.|
+|/managers/configureDevice/action|Configure un appareil.|
+|/managers/delete|Supprime les gestionnaires d’appareils.|
+|/Managers/delete|L’opération de suppression de coffre supprime la ressource Azure de type « coffre » spécifiée.|
+|/managers/devices/alertSettings/read|Répertorie ou récupère les paramètres d’alerte.|
+|/managers/devices/alertSettings/write|Crée ou met à jour les paramètres d’alerte.|
+|/managers/devices/backupPolicies/backup/action|Exécute une sauvegarde manuelle pour créer une sauvegarde à la demande de tous les volumes protégés par la stratégie.|
+|/managers/devices/backupPolicies/delete|Supprime des stratégies de sauvegarde existantes (série 8000 uniquement).|
+|/managers/devices/backupPolicies/read|Répertorie les stratégies de sauvegarde (série 8000 uniquement).|
+|/managers/devices/backupPolicies/schedules/delete|Supprime une planification existante.|
+|/managers/devices/backupPolicies/schedules/read|Répertorie les planifications.|
+|/managers/devices/backupPolicies/schedules/write|Crée une planification ou met à jour des planifications existantes.|
+|/managers/devices/backupPolicies/write|Crée ou met à jour des stratégies de sauvegarde (série 8000 uniquement).|
+|/managers/devices/backups/delete|Supprime le jeu de sauvegarde.|
+|/managers/devices/backups/elements/clone/action|Clone un partage ou un volume à l’aide d’un élément de sauvegarde.|
+|/managers/devices/backups/read|Répertorie ou récupère le jeu de sauvegarde.|
+|/managers/devices/backups/restore/action|Restaure tous les volumes d’un jeu de sauvegarde.|
+|/managers/devices/backupScheduleGroups/delete|Supprime les groupes de planification de sauvegarde.|
+|/managers/devices/backupScheduleGroups/read|Répertorie ou récupère les groupes de planification de sauvegarde.|
+|/managers/devices/backupScheduleGroups/write|Crée ou met à jour les groupes de planification de sauvegarde.|
+|/managers/devices/chapSettings/delete|Supprime les paramètres CHAP.|
+|/managers/devices/chapSettings/read|Répertorie ou récupère les paramètres CHAP.|
+|/managers/devices/chapSettings/write|Crée ou met à jour les paramètres CHAP.|
+|/managers/devices/deactivate/action|Désactive un appareil.|
+|/managers/devices/delete|Supprime les appareils.|
+|/managers/devices/download/action|Télécharge les mises à jour d’un appareil.|
+|/managers/devices/failover/action|Basculement de l’appareil.|
+|/managers/devices/fileservers/backup/action|Exécute la sauvegarde d’un serveur de fichiers.|
+|/managers/devices/fileservers/delete|Supprime les serveurs de fichiers.|
+|/managers/devices/fileservers/metrics/read|Répertorie ou récupère les mesures.|
+|/managers/devices/fileservers/metricsDefinitions/read|Répertorie ou récupère les définitions de mesures.|
+|/managers/devices/fileservers/read|Répertorie ou récupère les serveurs de fichiers.|
+|/managers/devices/fileservers/shares/delete|Supprime les partages.|
+|/managers/devices/fileservers/shares/metrics/read|Répertorie ou récupère les mesures.|
+|/managers/devices/fileservers/shares/metricsDefinitions/read|Répertorie ou récupère les définitions de mesures.|
+|/managers/devices/fileservers/shares/read|Répertorie ou récupère les partages.|
+|/managers/devices/fileservers/shares/write|Crée ou met à jour les partages.|
+|/managers/devices/fileservers/write|Crée ou met à jour les serveurs de fichiers.|
+|/managers/devices/hardwareComponentGroups/changeControllerPowerState/action|Modifie l’état d’alimentation du contrôleur des groupes de composants matériels.|
+|/managers/devices/hardwareComponentGroups/read|Répertorie les groupes de composants matériels.|
+|/managers/devices/install/action|Installe des mises à jour sur un appareil.|
+|/managers/devices/installUpdates/action|Installe des mises à jour sur les appareils.|
+|/managers/devices/iscsiservers/backup/action|Exécute la sauvegarde d’un serveur iSCSI.|
+|/managers/devices/iscsiservers/delete|Supprime les serveurs iSCSI.|
+|/managers/devices/iscsiservers/disks/delete|Supprime les disques.|
+|/managers/devices/iscsiservers/disks/metrics/read|Répertorie ou récupère les mesures.|
+|/managers/devices/iscsiservers/disks/metricsDefinitions/read|Répertorie ou récupère les définitions de mesures.|
+|/managers/devices/iscsiservers/disks/read|Répertorie ou récupère les disques.|
+|/managers/devices/iscsiservers/disks/write|Crée ou met à jour les disques.|
+|/managers/devices/iscsiservers/metrics/read|Répertorie ou récupère les mesures.|
+|/managers/devices/iscsiservers/metricsDefinitions/read|Répertorie ou récupère les définitions de mesures.|
+|/managers/devices/iscsiservers/read|Répertorie ou récupère les serveurs iSCSI.|
+|/managers/devices/iscsiservers/write|Crée ou met à jour les serveurs iSCSI.|
+|/managers/devices/jobs/cancel/action|Annule un travail en cours d’exécution.|
+|/managers/devices/jobs/read|Répertorie ou récupère les travaux.|
+|/managers/devices/listFailoverSets/action|Répertorie les ensembles de basculement d’un appareil existant.|
+|/managers/devices/listFailoverTargets/action|Répertorie les cibles de basculement des appareils.|
+|/managers/devices/metrics/read|Répertorie ou récupère les mesures.|
+|/managers/devices/metricsDefinitions/read|Répertorie ou récupère les définitions de mesures.|
+|/managers/devices/migrationSourceConfigurations/confirmMigration/action|Vérifie et valide une migration réussie.|
+|/managers/devices/migrationSourceConfigurations/fetchConfirmMigrationStatus/action|Extrait l’état de confirmation de la migration.|
+|/managers/devices/migrationSourceConfigurations/fetchMigrationEstimate/action|Extrait l’état du travail d’estimation de la migration.|
+|/managers/devices/migrationSourceConfigurations/fetchMigrationStatus/action|Extrait l’état de la migration.|
+|/managers/devices/migrationSourceConfigurations/import/action|Importe les configurations de source pour la migration.|
+|/managers/devices/migrationSourceConfigurations/startMigration/action|Démarre la migration à l’aide des configurations de source.|
+|/managers/devices/migrationSourceConfigurations/startMigrationEstimate/action|Démarre un travail pour estimer la durée du processus de migration.|
+|/managers/devices/networkSettings/read|Répertorie ou récupère les paramètres réseau.|
+|/managers/devices/networkSettings/write|Crée ou met à jour les paramètres réseau.|
+|/managers/devices/publicEncryptionKey/action|Répertorie les clés de chiffrement publiques d’un gestionnaire d’appareils.|
+|/managers/devices/publishSupportPackage/action|Publie le package de support d’un appareil pour la résolution des problèmes du Support Microsoft.|
+|/managers/devices/read|Répertorie ou récupère les appareils.|
+|/managers/devices/scanForUpdates/action|Recherche des mises à jour sur un appareil.|
+|/managers/devices/securitySettings/read|Répertorie les paramètres de sécurité.|
+|/managers/devices/securitySettings/syncRemoteManagementCertificate/action|Synchronise le certificat de gestion à distance d’un appareil.|
+|/managers/devices/securitySettings/update/action|Met à jour les paramètres de sécurité.|
+|/managers/devices/securitySettings/write|Crée ou met à jour les paramètres de sécurité.|
+|/managers/devices/sendTestAlertEmail/action|Envoie un test d’alerte par e-mail aux destinataires de courrier électronique configurés.|
+|/managers/devices/timeSettings/read|Répertorie ou récupère les paramètres horaires.|
+|/managers/devices/timeSettings/write|Crée ou met à jour les paramètres horaires.|
+|/managers/devices/updateSummary/read|Répertorie ou récupère le résumé de la mise à jour.|
+|/managers/devices/volumeContainers/delete|Supprime des conteneurs de volumes existants (série 8000 uniquement).|
+|/managers/devices/volumeContainers/listEncryptionKeys/action|Répertorie les clés de chiffrement des conteneurs de volumes.|
+|/managers/devices/volumeContainers/metrics/read|Répertorie les mesures.|
+|/managers/devices/volumeContainers/metricsDefinitions/read|Répertorie les définitions de mesures.|
+|/managers/devices/volumeContainers/read|Répertorie les conteneurs de volumes (série 8000 uniquement).|
+|/managers/devices/volumeContainers/rolloverEncryptionKey/action|Clés de chiffrement de substitution des conteneurs de volumes|
+|/managers/devices/volumeContainers/volumes/delete|Supprime un volume existant.|
+|/managers/devices/volumeContainers/volumes/metrics/read|Répertorie les mesures.|
+|/managers/devices/volumeContainers/volumes/metricsDefinitions/read|Répertorie les définitions de mesures.|
+|/managers/devices/volumeContainers/volumes/read|Répertorie les volumes.|
+|/managers/devices/volumeContainers/volumes/write|Crée un volume ou met à jour des volumes existants.|
+|/managers/devices/volumeContainers/write|Crée ou met à jour des conteneurs de volumes (série 8000 uniquement).|
+|/managers/devices/write|Crée ou met à jour les appareils.|
+|/managers/encryptionSettings/read|Répertorie ou récupère les paramètres de chiffrement.|
+|/Managers/extendedInformation/delete|L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ».|
+|/Managers/extendedInformation/read|L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ».|
+|/Managers/extendedInformation/write|L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ».|
+|/managers/getActivationKey/action|Récupère la clé d’activation du gestionnaire d’appareils.|
+|/managers/getEncryptionKey/action|Récupère la clé de chiffrement du gestionnaire d’appareils.|
+|/managers/listActivationKey/action|Récupère la clé d’activation du gestionnaire StorSimple Device Manager.|
+|/managers/listPrivateEncryptionKey/action|Récupère la clé de chiffrement publique d’un gestionnaire StorSimple Device Manager.|
+|/managers/listPublicEncryptionKey/action|Répertorie les clés de chiffrement publiques d’un gestionnaire StorSimple Device Manager.|
+|/managers/metrics/read|Répertorie ou récupère les mesures.|
+|/managers/metricsDefinitions/read|Répertorie ou récupère les définitions de mesures.|
+|/managers/provisionCloudAppliance/action|Crée une appliance cloud.|
+|/managers/read|Répertorie ou récupère les gestionnaires d’appareils.|
+|/Managers/read|L’opération d’obtention de coffre obtient un objet représentant la ressource Azure de type « coffre ».|
+|/managers/regenarateRegistationCertificate/action|Régénère le certificat d’inscription du gestionnaire d’appareils.|
+|/managers/regenerateActivationKey/action|Régénère la clé d’activation du gestionnaire d’appareils.|
+|/managers/storageAccountCredentials/delete|Supprime les informations d’identification du compte de stockage.|
+|/managers/storageAccountCredentials/listAccessKey/action|Répertorie les clés d’accès des informations d’identification de compte de stockage.|
+|/managers/storageAccountCredentials/read|Répertorie ou récupère les informations d’identification du compte de stockage.|
+|/managers/storageAccountCredentials/write|Crée ou met à jour les informations d’identification du compte de stockage.|
+|/managers/storageDomains/delete|Supprime les domaines de stockage.|
+|/managers/storageDomains/read|Répertorie ou récupère les domaines de stockage.|
+|/managers/storageDomains/write|Crée ou met à jour les domaines de stockage.|
+|/managers/write|Crée ou met à jour les gestionnaires d’appareils.|
+|/Managers/write|L’opération de création de coffre entraîne la création d’une ressource Azure de type « coffre ».|
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/locations/quotas/Read|Read Stream Analytics Subscription Quota|
-|/operations/Read|Read Stream Analytics Operations|
-|/Register/action|Register subscription with Stream Analytics Resource Provider|
-|/streamingjobs/Delete|Delete Stream Analytics Job|
-|/streamingjobs/functions/Delete|Delete Stream Analytics Job Function|
-|/streamingjobs/functions/operationresults/Read|Read operation results for Stream Analytics Job Function|
-|/streamingjobs/functions/Read|Read Stream Analytics Job Function|
-|/streamingjobs/functions/RetrieveDefaultDefinition/action|Retrieve Default Definition of a Stream Analytics Job Function|
-|/streamingjobs/functions/Test/action|Test Stream Analytics Job Function|
-|/streamingjobs/functions/Write|Write Stream Analytics Job Function|
-|/streamingjobs/inputs/Delete|Delete Stream Analytics Job Input|
-|/streamingjobs/inputs/operationresults/Read|Read operation results for Stream Analytics Job Input|
-|/streamingjobs/inputs/Read|Read Stream Analytics Job Input|
-|/streamingjobs/inputs/Sample/action|Sample Stream Analytics Job Input|
-|/streamingjobs/inputs/Test/action|Test Stream Analytics Job Input|
-|/streamingjobs/inputs/Write|Write Stream Analytics Job Input|
-|/streamingjobs/metricdefinitions/Read|Read Metric Definitions|
-|/streamingjobs/operationresults/Read|Read operation results for Stream Analytics Job|
-|/streamingjobs/outputs/Delete|Delete Stream Analytics Job Output|
-|/streamingjobs/outputs/operationresults/Read|Read operation results for Stream Analytics Job Output|
-|/streamingjobs/outputs/Read|Read Stream Analytics Job Output|
-|/streamingjobs/outputs/Test/action|Test Stream Analytics Job Output|
-|/streamingjobs/outputs/Write|Write Stream Analytics Job Output|
-|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/read|Read diagnostic setting.|
-|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write|Write diagnostic setting.|
-|/streamingjobs/providers/Microsoft.Insights/logDefinitions/read|Gets the available logs for streamingjobs|
-|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for streamingjobs|
-|/streamingjobs/Read|Read Stream Analytics Job|
-|/streamingjobs/Start/action|Start Stream Analytics Job|
-|/streamingjobs/Stop/action|Stop Stream Analytics Job|
-|/streamingjobs/transformations/Delete|Delete Stream Analytics Job Transformation|
-|/streamingjobs/transformations/Read|Read Stream Analytics Job Transformation|
-|/streamingjobs/transformations/Write|Write Stream Analytics Job Transformation|
-|/streamingjobs/Write|Write Stream Analytics Job|
+|/locations/quotas/Read|Lit le quota d’abonnement Stream Analytics|
+|/operations/Read|Lit les opérations Stream Analytics|
+|/Register/action|Inscrit l’abonnement auprès du fournisseur de ressources Stream Analytics|
+|/streamingjobs/Delete|Supprime une tâche Stream Analytics.|
+|/streamingjobs/functions/Delete|Supprime la fonction de tâche Stream Analytics|
+|/streamingjobs/functions/operationresults/Read|Lit les résultats d’opération pour la fonction de tâche Stream Analytics|
+|/streamingjobs/functions/Read|Lit la fonction de tâche Stream Analytics|
+|/streamingjobs/functions/RetrieveDefaultDefinition/action|Récupère la définition par défaut d’une fonction de tâche Stream Analytics|
+|/streamingjobs/functions/Test/action|Teste la fonction de tâche Stream Analytics|
+|/streamingjobs/functions/Write|Écrit la fonction de tâche Stream Analytics|
+|/streamingjobs/inputs/Delete|Supprime une entrée de tâche Stream Analytics.|
+|/streamingjobs/inputs/operationresults/Read|Lit les résultats d’opération pour l’entrée de la tâche Stream Analytics|
+|/streamingjobs/inputs/Read|Lit une entrée de tâche Stream Analytics.|
+|/streamingjobs/inputs/Sample/action|Échantillonne une entrée de tâche Stream Analytics|
+|/streamingjobs/inputs/Test/action|Teste une entrée de tâche Stream Analytics|
+|/streamingjobs/inputs/Write|Écrit une entrée de tâche Stream Analytics.|
+|/streamingjobs/metricdefinitions/Read|Lit les définitions des métriques|
+|/streamingjobs/operationresults/Read|Lit les résultats d’opération pour la tâche Stream Analytics|
+|/streamingjobs/outputs/Delete|Supprime une sortie de tâche Stream Analytics.|
+|/streamingjobs/outputs/operationresults/Read|Lit les résultats d’opération pour la sortie de tâche Stream Analytics|
+|/streamingjobs/outputs/Read|Lit une sortie de tâche Stream Analytics.|
+|/streamingjobs/outputs/Test/action|Teste une sortie de tâche Stream Analytics|
+|/streamingjobs/outputs/Write|Écrit une sortie de tâche Stream Analytics.|
+|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/read|Lit le paramètre de diagnostic.|
+|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write|Écrit un paramètre de diagnostic.|
+|/streamingjobs/providers/Microsoft.Insights/logDefinitions/read|Récupère les journaux disponibles pour les tâches de diffusion de contenu.|
+|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read|Récupère les mesures disponibles pour les tâches de diffusion de contenu.|
+|/streamingjobs/Read|Lit une tâche Stream Analytics.|
+|/streamingjobs/Start/action|Démarre une tâche Stream Analytics.|
+|/streamingjobs/Stop/action|Arrête une tâche Stream Analytics.|
+|/streamingjobs/transformations/Delete|Supprime une transformation de tâche Stream Analytics.|
+|/streamingjobs/transformations/Read|Lit une transformation de tâche Stream Analytics.|
+|/streamingjobs/transformations/Write|Écrit une transformation de tâche Stream Analytics.|
+|/streamingjobs/Write|Écrit une tâche Stream Analytics.|
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/SubscriptionDefinitions/read|Get an Azure subscription definition within a management group.|
-|/SubscriptionDefinitions/write|Create an Azure subscription definition|
+|/SubscriptionDefinitions/read|Obtient une définition d’abonnement Azure dans un groupe d’administration.|
+|/SubscriptionDefinitions/write|Crée une définition d’abonnement Azure|
 
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/register/action|Registers to Support Resource Provider|
-|/supportTickets/read|Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions.|
-|/supportTickets/write|Creates or Updates a Support Ticket. You can create a Support Ticket for Technical, Billing, Quotas or Subscription Management related issues. You can update severity, contact details and communications for existing support tickets.|
+|/register/action|S’inscrit auprès du fournisseur de ressources de support.|
+|/supportTickets/read|Récupère les détails du ticket de support (notamment l’état, la gravité, les détails du contact et les communications) ou la liste des tickets de support des abonnements.|
+|/supportTickets/write|Crée ou met à jour un ticket de support. Vous pouvez créer un ticket de support pour les problèmes techniques ou les problèmes liés à la facturation, aux quotas ou à la gestion des abonnements. Vous pouvez mettre à jour la gravité des problèmes, les détails du contact et les communications pour les tickets de support existants.|
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/environments/accesspolicies/delete|Deletes the access policy.|
-|/environments/accesspolicies/read|Get the properties of an access policy.|
-|/environments/accesspolicies/write|Creates a new access policy for an environment, or updates an existing access policy.|
-|/environments/delete|Deletes the environment.|
-|/environments/eventsources/delete|Deletes the event source.|
-|/environments/eventsources/eventsources/providers/Microsoft.Insights/ diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/environments/eventsources/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for eventsources|
-|/environments/eventsources/read|Get the properties of an event source.|
-|/environments/eventsources/write|Creates a new event source for an environment, or updates an existing event source.|
-|/environments/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/environments/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/environments/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for environments|
-|/environments/read|Get the properties of an environment.|
-|/environments/referencedatasets/delete|Deletes the reference data set.|
-|/environments/referencedatasets/read|Get the properties of a reference data set.|
-|/environments/referencedatasets/write|Creates a new reference data set for an environment, or updates an existing reference data set.|
-|/environments/status/read|Get the status of the environment, state of its associated operations like ingress.|
-|/environments/write|Creates a new environment, or updates an existing environment.|
-|/register/action|Registers the subscription for the Time Series Insights resource provider and enables the creation of Time Series Insights environments.|
+|/environments/accesspolicies/delete|Supprime la stratégie d’accès.|
+|/environments/accesspolicies/read|Obtient les propriétés d’une stratégie d’accès.|
+|/environments/accesspolicies/write|Crée une stratégie d’accès ou met à jour une stratégie d’accès existante pour un environnement.|
+|/environments/delete|Supprime l’environnement.|
+|/environments/eventsources/delete|Supprime la source de l’événement.|
+|/environments/eventsources/eventsources/providers/Microsoft.Insights/ diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/environments/eventsources/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les sources d’événements|
+|/environments/eventsources/read|Obtient les propriétés d’une source de l’événement.|
+|/environments/eventsources/write|Crée une source d’événement ou met à jour une source d’événement existante pour un environnement.|
+|/environments/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/environments/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/environments/providers/Microsoft.Insights/metricDefinitions/read|Obtient les métriques disponibles pour les environnements|
+|/environments/read|Obtient les propriétés d’un environnement.|
+|/environments/referencedatasets/delete|Supprime le jeu de données de référence.|
+|/environments/referencedatasets/read|Obtient les propriétés d’un jeu de données de référence.|
+|/environments/referencedatasets/write|Crée un jeu de données de référence ou met à jour un jeu de données de référence existant pour un environnement.|
+|/environments/status/read|Obtient l’état de l’environnement, l’état de ses opérations associées comme l’entrée.|
+|/environments/write|Crée un environnement ou met à jour un environnement existant.|
+|/register/action|Inscrit l’abonnement pour le fournisseur de ressources Time Series Insights et permet la création d’environnements Time Series Insights.|
 
 ## <a name="microsoftweb"></a>microsoft.web
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/apimanagementaccounts/apiacls/read|Get Api Management Accounts Apiacls.|
-|/apimanagementaccounts/apis/apiacls/delete|Delete Api Management Accounts APIs Apiacls.|
-|/apimanagementaccounts/apis/apiacls/read|Get Api Management Accounts APIs Apiacls.|
-|/apimanagementaccounts/apis/apiacls/write|Update Api Management Accounts APIs Apiacls.|
-|/apimanagementaccounts/apis/connectionacls/read|Get Api Management Accounts APIs Connectionacls.|
-|/apimanagementaccounts/apis/connections/confirmconsentcode/action|Confirm Consent Code Api Management Accounts APIs Connections.|
-|/apimanagementaccounts/apis/connections/connectionacls/delete|Delete Api Management Accounts APIs Connections Connectionacls.|
-|/apimanagementaccounts/apis/connections/connectionacls/read|Get Api Management Accounts APIs Connections Connectionacls.|
-|/apimanagementaccounts/apis/connections/connectionacls/write|Update Api Management Accounts APIs Connections Connectionacls.|
-|/apimanagementaccounts/apis/connections/delete|Delete Api Management Accounts APIs Connections.|
-|/apimanagementaccounts/apis/connections/getconsentlinks/action|Get Consent Links for Api Management Accounts APIs Connections.|
-|/apimanagementaccounts/apis/connections/listconnectionkeys/action|List Connection Keys Api Management Accounts APIs Connections.|
-|/apimanagementaccounts/apis/connections/listsecrets/action|List Secrets Api Management Accounts APIs Connections.|
-|/apimanagementaccounts/apis/connections/read|Get Api Management Accounts APIs Connections.|
-|/apimanagementaccounts/apis/connections/write|Update Api Management Accounts APIs Connections.|
-|/apimanagementaccounts/apis/delete|Delete Api Management Accounts APIs.|
-|/apimanagementaccounts/apis/localizeddefinitions/delete|Delete Api Management Accounts APIs Localized Definitions.|
-|/apimanagementaccounts/apis/localizeddefinitions/read|Get Api Management Accounts APIs Localized Definitions.|
-|/apimanagementaccounts/apis/localizeddefinitions/write|Update Api Management Accounts APIs Localized Definitions.|
-|/apimanagementaccounts/apis/read|Get Api Management Accounts APIs.|
-|/apimanagementaccounts/apis/write|Update Api Management Accounts APIs.|
-|/apimanagementaccounts/connectionacls/read|Get Api Management Accounts Connectionacls.|
-|/availablestacks/read|Get Available Stacks.|
-|/billingmeters/read|Get list of billing meters.|
-|/certificates/Delete|Delete an existing certificate.|
-|/certificates/Read|Get the list of certificates.|
-|/certificates/Write|Add a new certificate or update an existing one.|
-|/checknameavailability/read|Check if resource name is available.|
-|/classicmobileservices/read|Get Classic Mobile Services.|
-|/connectionGateways/Delete|Deletes a Connection Gateway.|
-|/connectionGateways/Join/Action|Joins a Connection Gateway.|
-|/connectiongateways/liststatus/action|List Status Connection Gateways.|
-|/connectionGateways/ListStatus/Action|Lists status of a Connection Gateway.|
-|/connectionGateways/Move/Action|Moves a Connection Gateway.|
-|/connectionGateways/Read|Get the list of Connection Gateways.|
-|/connectionGateways/Write|Creates or updates a Connection Gateway.|
-|/connections/confirmconsentcode/action|Confirm Connections Consent Code.|
-|/connections/Delete|Deletes a Connection.|
-|/connections/Join/Action|Joins a Connection.|
-|/connections/listconsentlinks/action|List Consent Links for Connections.|
-|/connections/Move/Action|Moves a Connection.|
-|/connections/Read|Get the list of Connections.|
-|/connections/Write|Creates or updates a Connection.|
-|/customApis/Delete|Deletes a Custom API.|
-|/customApis/extractApiDefinitionFromWsdl/Action|Extracts API definition from a WSDL.|
-|/customApis/Join/Action|Joins a Custom API.|
-|/customApis/listWsdlInterfaces/Action|Lists WSDL interfaces for a Custom API.|
-|/customApis/Move/Action|Moves a Custom API.|
-|/customApis/Read|Get the list of Custom API.|
-|/customApis/Write|Creates or updates a Custom API.|
-|/deploymentlocations/read|Get Deployment Locations.|
-|/geoRegions/Read|Get the list of Geo regions.|
-|/hostingenvironments/capacities/read|Get Hosting Environments Capacities.|
-|/hostingEnvironments/Delete|Delete an App Service Environment|
-|/hostingenvironments/diagnostics/read|Get Hosting Environments Diagnostics.|
-|/hostingenvironments/inboundnetworkdependenciesendpoints/read|Get the network endpoints of all inbound dependencies.|
-|/hostingenvironments/metricdefinitions/read|Get Hosting Environments Metric Definitions.|
-|/hostingenvironments/multirolepools/metricdefinitions/read|Get Hosting Environments MultiRole Pools Metric Definitions.|
-|/hostingenvironments/multirolepools/metrics/read|Get Hosting Environments MultiRole Pools Metrics.|
-|/hostingEnvironments/multiRolePools/providers/Microsoft.Insights/ metricDefinitions/Read|Gets the available metrics for App Service Environment MultiRole|
-|/hostingEnvironments/multiRolePools/Read|Get the properties of a FrontEnd Pool in an App Service Environment|
-|/hostingenvironments/multirolepools/skus/read|Get Hosting Environments MultiRole Pools SKUs.|
-|/hostingenvironments/multirolepools/usages/read|Get Hosting Environments MultiRole Pools Usages.|
-|/hostingEnvironments/multiRolePools/Write|Create a new FrontEnd Pool in an App Service Environment or update an existing one|
-|/hostingenvironments/operations/read|Get Hosting Environments Operations.|
-|/hostingenvironments/outboundnetworkdependenciesendpoints/read|Get the network endpoints of all outbound dependencies.|
-|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/hostingEnvironments/Read|Get the properties of an App Service Environment|
-|/hostingEnvironments/reboot/Action|Reboot all machines in an App Service Environment|
-|/hostingenvironments/resume/action|Resume Hosting Environments.|
-|/hostingenvironments/serverfarms/read|Get Hosting Environments App Service Plans.|
-|/hostingenvironments/sites/read|Get Hosting Environments Web Apps.|
-|/hostingenvironments/suspend/action|Suspend Hosting Environments.|
-|/hostingenvironments/usages/read|Get Hosting Environments Usages.|
-|/hostingenvironments/workerpools/metricdefinitions/read|Get Hosting Environments Workerpools Metric Definitions.|
-|/hostingenvironments/workerpools/metrics/read|Get Hosting Environments Workerpools Metrics.|
-|/hostingEnvironments/workerPools/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for App Service Environment WorkerPool|
-|/hostingEnvironments/workerPools/Read|Get the properties of a Worker Pool in an App Service Environment|
-|/hostingenvironments/workerpools/skus/read|Get Hosting Environments Workerpools SKUs.|
-|/hostingenvironments/workerpools/usages/read|Get Hosting Environments Workerpools Usages.|
-|/hostingEnvironments/workerPools/Write|Create a new Worker Pool in an App Service Environment or update an existing one|
-|/hostingEnvironments/Write|Create a new App Service Environment or update existing one|
-|/ishostingenvironmentnameavailable/read|Get if Hosting Environment Name is available.|
-|/ishostnameavailable/read|Check if Hostname is Available.|
-|/isusernameavailable/read|Check if Username is available.|
-|/listSitesAssignedToHostName/Read|Get names of sites assigned to hostname.|
-|/locations/apioperations/read|Get Locations API Operations.|
-|/locations/connectiongatewayinstallations/read|Get Locations Connection Gateway Installations.|
-|/locations/extractapidefinitionfromwsdl/action|Extract Api Definition from WSDL for Locations.|
-|/locations/listwsdlinterfaces/action|List WSDL Interfaces for Locations.|
-|/locations/managedapis/apioperations/read|Get Locations Managed API Operations.|
-|/locations/managedapis/Join/Action|Joins a Managed API.|
-|/locations/managedapis/read|Get Locations Managed APIs.|
-|/operations/read|Get Operations.|
-|/publishingusers/read|Get Publishing Users.|
-|/publishingusers/write|Update Publishing Users.|
-|/recommendations/Read|Get the list of recommendations for subscriptions.|
-|/register/action|Register Microsoft.Web resource provider for the subscription.|
-|/resourcehealthmetadata/read|Get Resource Health Metadata.|
-|/serverfarms/capabilities/read|Get App Service Plans Capabilities.|
-|/serverfarms/Delete|Delete an existing App Service Plan|
-|/serverfarms/firstpartyapps/settings/delete|Delete App Service Plans First Party Apps Settings.|
-|/serverfarms/firstpartyapps/settings/read|Get App Service Plans First Party Apps Settings.|
-|/serverfarms/firstpartyapps/settings/write|Update App Service Plans First Party Apps Settings.|
-|/serverfarms/hybridconnectionnamespaces/relays/delete|Delete App Service Plans Hybrid Connection Namespaces Relays.|
-|/serverfarms/hybridconnectionnamespaces/relays/read|Get App Service Plans Hybrid Connection Namespaces Relays.|
-|/serverfarms/hybridconnectionnamespaces/relays/sites/read|Get App Service Plans Hybrid Connection Namespaces Relays Web Apps.|
-|/serverfarms/hybridconnectionplanlimits/read|Get App Service Plans Hybrid Connection Plan Limits.|
-|/serverfarms/hybridconnectionrelays/read|Get App Service Plans Hybrid Connection Relays.|
-|/serverfarms/metricdefinitions/read|Get App Service Plans Metric Definitions.|
-|/serverfarms/metrics/read|Get App Service Plans Metrics.|
-|/serverfarms/operationresults/read|Get App Service Plans Operation Results.|
-|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/serverfarms/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for App Service Plan|
-|/serverfarms/Read|Get the properties on an App Service Plan|
-|/serverfarms/restartSites/Action|Restart all Web Apps in an App Service Plan|
-|/serverfarms/sites/read|Get App Service Plans Web Apps.|
-|/serverfarms/skus/read|Get App Service Plans SKUs.|
-|/serverfarms/usages/read|Get App Service Plans Usages.|
-|/serverfarms/virtualnetworkconnections/gateways/write|Update App Service Plans Virtual Network Connections Gateways.|
-|/serverfarms/virtualnetworkconnections/read|Get App Service Plans Virtual Network Connections.|
-|/serverfarms/virtualnetworkconnections/routes/delete|Delete App Service Plans Virtual Network Connections Routes.|
-|/serverfarms/virtualnetworkconnections/routes/read|Get App Service Plans Virtual Network Connections Routes.|
-|/serverfarms/virtualnetworkconnections/routes/write|Update App Service Plans Virtual Network Connections Routes.|
-|/serverfarms/workers/reboot/action|Reboot App Service Plans Workers.|
-|/serverfarms/Write|Create a new App Service Plan or update an existing one|
-|/sites/analyzecustomhostname/read|Analyze Custom Hostname.|
-|/sites/applySlotConfig/Action|Apply web app slot configuration from target slot to the current web app|
-|/sites/backup/Action|Create a new web app backup|
-|/sites/backup/read|Get Web Apps Backup.|
-|/sites/backup/write|Update Web Apps Backup.|
-|/sites/backups/delete|Delete Web Apps Backups.|
-|/sites/backups/list/action|List Web Apps Backups.|
-|/sites/backups/Read|Get the properties of a web app's backup|
-|/sites/backups/restore/action|Restore Web Apps Backups.|
-|/sites/config/delete|Delete Web Apps Config.|
-|/sites/config/list/Action|List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings|
-|/sites/config/Read|Get Web App configuration settings|
-|/sites/config/Write|Update Web App's configuration settings|
-|/sites/continuouswebjobs/delete|Delete Web Apps Continuous Web Jobs.|
-|/sites/continuouswebjobs/read|Get Web Apps Continuous Web Jobs.|
-|/sites/continuouswebjobs/start/action|Start Web Apps Continuous Web Jobs.|
-|/sites/continuouswebjobs/stop/action|Stop Web Apps Continuous Web Jobs.|
-|/sites/Delete|Delete an existing Web App|
-|/sites/deployments/delete|Delete Web Apps Deployments.|
-|/sites/deployments/log/read|Get Web Apps Deployments Log.|
-|/sites/deployments/read|Get Web Apps Deployments.|
-|/sites/deployments/write|Update Web Apps Deployments.|
-|/sites/diagnostics/analyses/execute/Action|Run Web Apps Diagnostics Analysis.|
-|/sites/diagnostics/analyses/read|Get Web Apps Diagnostics Analysis.|
-|/sites/diagnostics/aspnetcore/read|Get Web Apps Diagnostics for ASP.NET Core app.|
-|/sites/diagnostics/autoheal/read|Get Web Apps Diagnostics Autoheal.|
-|/sites/diagnostics/deployment/read|Get Web Apps Diagnostics Deployment.|
-|/sites/diagnostics/deployments/read|Get Web Apps Diagnostics Deployments.|
-|/sites/diagnostics/detectors/execute/Action|Run Web Apps Diagnostics Detector.|
-|/sites/diagnostics/detectors/read|Get Web Apps Diagnostics Detector.|
-|/sites/diagnostics/failedrequestsperuri/read|Get Web Apps Diagnostics Failed Requests Per Uri.|
-|/sites/diagnostics/frebanalysis/read|Get Web Apps Diagnostics FREB Analysis.|
-|/sites/diagnostics/loganalyzer/read|Get Web Apps Diagnostics Log Analyzer.|
-|/sites/diagnostics/read|Get Web Apps Diagnostics Categories.|
-|/sites/diagnostics/runtimeavailability/read|Get Web Apps Diagnostics Runtime Availability.|
-|/sites/diagnostics/servicehealth/read|Get Web Apps Diagnostics Service Health.|
-|/sites/diagnostics/sitecpuanalysis/read|Get Web Apps Diagnostics Site CPU Analysis.|
-|/sites/diagnostics/sitecrashes/read|Get Web Apps Diagnostics Site Crashes.|
-|/sites/diagnostics/sitelatency/read|Get Web Apps Diagnostics Site Latency.|
-|/sites/diagnostics/sitememoryanalysis/read|Get Web Apps Diagnostics Site Memory Analysis.|
-|/sites/diagnostics/siterestartsettingupdate/read|Get Web Apps Diagnostics Site Restart Setting Update.|
-|/sites/diagnostics/siterestartuserinitiated/read|Get Web Apps Diagnostics Site Restart User Initiated.|
-|/sites/diagnostics/siteswap/read|Get Web Apps Diagnostics Site Swap.|
-|/sites/diagnostics/threadcount/read|Get Web Apps Diagnostics Thread Count.|
-|/sites/diagnostics/workeravailability/read|Get Web Apps Diagnostics Workeravailability.|
-|/sites/diagnostics/workerprocessrecycle/read|Get Web Apps Diagnostics Worker Process Recycle.|
-|/sites/domainownershipidentifiers/read|Get Web Apps Domain Ownership Identifiers.|
-|/sites/domainownershipidentifiers/write|Update Web Apps Domain Ownership Identifiers.|
-|/sites/functions/action|Functions Web Apps.|
-|/sites/functions/delete|Delete Web Apps Functions.|
-|/sites/functions/listsecrets/action|List Secrets Web Apps Functions.|
-|/sites/functions/masterkey/read|Get Web Apps Functions Masterkey.|
-|/sites/functions/read|Get Web Apps Functions.|
-|/sites/functions/token/read|Get Web Apps Functions Token.|
-|/sites/functions/write|Update Web Apps Functions.|
-|/sites/hostnamebindings/delete|Delete Web Apps Hostname Bindings.|
-|/sites/hostnamebindings/read|Get Web Apps Hostname Bindings.|
-|/sites/hostnamebindings/write|Update Web Apps Hostname Bindings.|
-|/sites/hybridconnection/delete|Delete Web Apps Hybrid Connection.|
-|/sites/hybridconnection/read|Get Web Apps Hybrid Connection.|
-|/sites/hybridconnection/write|Update Web Apps Hybrid Connection.|
-|/sites/hybridconnectionnamespaces/relays/delete|Delete Web Apps Hybrid Connection Namespaces Relays.|
-|/sites/hybridconnectionnamespaces/relays/listkeys/action|List Keys Web Apps Hybrid Connection Namespaces Relays.|
-|/sites/hybridconnectionnamespaces/relays/read|Get Web Apps Hybrid Connection Namespaces Relays.|
-|/sites/hybridconnectionnamespaces/relays/write|Update Web Apps Hybrid Connection Namespaces Relays.|
-|/sites/hybridconnectionrelays/read|Get Web Apps Hybrid Connection Relays.|
-|/sites/instances/deployments/delete|Delete Web Apps Instances Deployments.|
-|/sites/instances/deployments/read|Get Web Apps Instances Deployments.|
-|/sites/instances/extensions/log/read|Get Web Apps Instances Extensions Log.|
-|/sites/instances/extensions/read|Get Web Apps Instances Extensions.|
-|/sites/instances/processes/delete|Delete Web Apps Instances Processes.|
-|/sites/instances/processes/read|Get Web Apps Instances Processes.|
-|/sites/instances/read|Get Web Apps Instances.|
-|/sites/listsyncfunctiontriggerstatus/action|List Sync Function Trigger Status Web Apps.|
-|/sites/metricdefinitions/read|Get Web Apps Metric Definitions.|
-|/sites/metrics/read|Get Web Apps Metrics.|
-|/sites/metricsdefinitions/read|Get Web Apps Metrics Definitions.|
-|/sites/migratemysql/action|Migrate MySql Web Apps.|
-|/sites/migratemysql/read|Get Web Apps Migrate MySql.|
-|/sites/networktrace/action|Network Trace Web Apps.|
+|/apimanagementaccounts/apiacls/read|Obtient des Apiacl de comptes de gestion des API.|
+|/apimanagementaccounts/apis/apiacls/delete|Supprime des Apiacl de comptes de gestion des API.|
+|/apimanagementaccounts/apis/apiacls/read|Obtient des Apiacl d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/apiacls/write|Met à jour des Apiacl d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/connectionacls/read|Obtient des Connectionacl d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/connections/confirmconsentcode/action|Vérifie les connexions d’API des comptes de gestion des API de code de confirmation.|
+|/apimanagementaccounts/apis/connections/connectionacls/delete|Supprime des Connectionacl de connexions d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/connections/connectionacls/read|Obtient des Connectionacl de connexions d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/connections/connectionacls/write|Met à jour des Connectionacl de connexions d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/connections/delete|Supprime des connexions d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/connections/getconsentlinks/action|Obtient des liens de confirmation pour les connexions d’API des comptes de gestion des API.|
+|/apimanagementaccounts/apis/connections/listconnectionkeys/action|Affiche les connexions d’API des comptes de gestion des API des clés de connexion.|
+|/apimanagementaccounts/apis/connections/listsecrets/action|Affiche les connexions d’API des comptes de gestion des API des secrets.|
+|/apimanagementaccounts/apis/connections/read|Obtient des connexions d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/connections/write|Met à jour des connexions d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/delete|Supprime des API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/localizeddefinitions/delete|Supprime des définitions localisées d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/localizeddefinitions/read|Obtient des définitions localisées d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/localizeddefinitions/write|Met à jour des définitions localisées d’API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/read|Obtient des API de comptes de gestion des API.|
+|/apimanagementaccounts/apis/write|Met à jour des API de comptes de gestion des API.|
+|/apimanagementaccounts/connectionacls/read|Obtient des Connectionacl de comptes de gestion des API.|
+|/availablestacks/read|Récupère les piles disponibles.|
+|/billingmeters/read|Obtient la liste des compteurs de facturation.|
+|/certificates/Delete|Supprime un certificat existant.|
+|/certificates/Read|Récupère la liste des certificats.|
+|/certificates/Write|Ajoute un nouveau certificat ou en met un à jour.|
+|/checknameavailability/read|Vérifie si le nom de la ressource est disponible.|
+|/classicmobileservices/read|Récupère Classic Mobile Services.|
+|/connectionGateways/Delete|Supprime une passerelle de connexion.|
+|/connectionGateways/Join/Action|Joint une passerelle de connexion.|
+|/connectiongateways/liststatus/action|Affiche les passerelles de connexion d’état.|
+|/connectionGateways/ListStatus/Action|Affiche l’état d’une passerelle de connexion.|
+|/connectionGateways/Move/Action|Déplace une passerelle de connexion.|
+|/connectionGateways/Read|Récupère la liste des passerelles de connexions.|
+|/connectionGateways/Write|Crée ou met à jour une passerelle de connexion.|
+|/connections/confirmconsentcode/action|Vérifie le code de consentement des connexions.|
+|/connections/Delete|Supprime une connexion.|
+|/connections/Join/Action|Joint une connexion.|
+|/connections/listconsentlinks/action|Répertorie les liens de consentement pour les connexions.|
+|/connections/Move/Action|Déplace une connexion.|
+|/connections/Read|Récupère la liste des connexions.|
+|/connections/Write|Crée ou met à jour une connexion.|
+|/customApis/Delete|Supprime une API personnalisée.|
+|/customApis/extractApiDefinitionFromWsdl/Action|Extrait une définition d’API de WSDL.|
+|/customApis/Join/Action|Joint une API personnalisée.|
+|/customApis/listWsdlInterfaces/Action|Affiche les interfaces WSDL pour une API personnalisée.|
+|/customApis/Move/Action|Déplace une API personnalisée.|
+|/customApis/Read|Obtient la liste des API personnalisées.|
+|/customApis/Write|Crée ou met à jour une API personnalisée.|
+|/deploymentlocations/read|Récupère les emplacements de déploiement.|
+|/geoRegions/Read|Récupère la liste des zones géographiques.|
+|/hostingenvironments/capacities/read|Récupère les fonctionnalités des environnements d’hébergement.|
+|/hostingEnvironments/Delete|Supprime un environnement App Service.|
+|/hostingenvironments/diagnostics/read|Récupère les diagnostics des environnements d’hébergement.|
+|/hostingenvironments/inboundnetworkdependenciesendpoints/read|Obtient les points de terminaison réseau de toutes les dépendances entrantes.|
+|/hostingenvironments/metricdefinitions/read|Récupère les définitions métriques des environnements d’hébergement.|
+|/hostingenvironments/multirolepools/metricdefinitions/read|Récupère les définitions métriques des pools multirôles des environnements d’hébergement.|
+|/hostingenvironments/multirolepools/metrics/read|Récupère les mesures des pools multirôles des environnements d’hébergement.|
+|/hostingEnvironments/multiRolePools/providers/Microsoft.Insights/ metricDefinitions/Read|Obtient les métriques disponibles pour le multirôle d’environnement App Service|
+|/hostingEnvironments/multiRolePools/Read|Récupère les propriétés d’un pool frontal dans un environnement App Service.|
+|/hostingenvironments/multirolepools/skus/read|Récupère les références des pools multirôles des environnements d’hébergement.|
+|/hostingenvironments/multirolepools/usages/read|Récupère les utilisations des pools multirôles des environnements d’hébergement.|
+|/hostingEnvironments/multiRolePools/Write|Crée un pool frontal dans un environnement App Service ou en met un à jour.|
+|/hostingenvironments/operations/read|Récupère les opérations des environnements d’hébergement.|
+|/hostingenvironments/outboundnetworkdependenciesendpoints/read|Obtient les points de terminaison réseau de toutes les dépendances sortantes.|
+|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/hostingEnvironments/Read|Récupère les propriétés d’un environnement App Service.|
+|/hostingEnvironments/reboot/Action|Redémarre tous les ordinateurs dans un environnement App Service.|
+|/hostingenvironments/resume/action|Reprend les environnements d’hébergement.|
+|/hostingenvironments/serverfarms/read|Récupère les plans App Service des environnements d’hébergement.|
+|/hostingenvironments/sites/read|Récupère les applications web des environnements d’hébergement.|
+|/hostingenvironments/suspend/action|Interrompt les environnements d’hébergement.|
+|/hostingenvironments/usages/read|Récupère les utilisations des environnements d’hébergement.|
+|/hostingenvironments/workerpools/metricdefinitions/read|Récupère les définitions métriques des pools de workers des environnements d’hébergement.|
+|/hostingenvironments/workerpools/metrics/read|Récupère les mesures des pools de workers des environnements d’hébergement.|
+|/hostingEnvironments/workerPools/providers/Microsoft.Insights/metricDefinitions/Read|Obtient les métriques disponibles pour le pool de workers d’environnement App Service|
+|/hostingEnvironments/workerPools/Read|Récupère les propriétés d’un pool de workers dans un environnement App Service.|
+|/hostingenvironments/workerpools/skus/read|Récupère les références des pools de workers des environnements d’hébergement.|
+|/hostingenvironments/workerpools/usages/read|Récupère les utilisations des pools de workers des environnements d’hébergement.|
+|/hostingEnvironments/workerPools/Write|Crée un pool de workers dans un environnement App Service ou en met un à jour.|
+|/hostingEnvironments/Write|Crée un environnement App Service ou en met un à jour.|
+|/ishostingenvironmentnameavailable/read|Récupère des éléments si le nom de l’environnement d’hébergement est disponible.|
+|/ishostnameavailable/read|Vérifie si le nom d’hôte est disponible.|
+|/isusernameavailable/read|Vérifie si le nom d’utilisateur est disponible.|
+|/listSitesAssignedToHostName/Read|Récupère les noms de sites affectés à un nom d’hôte.|
+|/locations/apioperations/read|Récupère les opérations API d’emplacements.|
+|/locations/connectiongatewayinstallations/read|Récupère les installations de la passerelle de connexion des emplacements.|
+|/locations/extractapidefinitionfromwsdl/action|Extrait la définition d’API de WSDL pour les emplacements.|
+|/locations/listwsdlinterfaces/action|Affiche les interfaces WSDL pour les emplacements.|
+|/locations/managedapis/apioperations/read|Obtient les opérations API managée d’emplacements.|
+|/locations/managedapis/Join/Action|Joint une API managée.|
+|/locations/managedapis/read|Récupère les API managées des emplacements.|
+|/operations/read|Récupère les opérations.|
+|/publishingusers/read|Récupère la publication des utilisateurs.|
+|/publishingusers/write|Met à jour la publication des utilisateurs.|
+|/recommendations/Read|Récupère la liste des recommandations pour les abonnements.|
+|/register/action|Inscrit le fournisseur de ressources Microsoft.Web pour l’abonnement.|
+|/resourcehealthmetadata/read|Obtient les métadonnées de Resource Health.|
+|/serverfarms/capabilities/read|Récupère les fonctionnalités des plans App Service.|
+|/serverfarms/Delete|Supprimer un plan App Service existant|
+|/serverfarms/firstpartyapps/settings/delete|Supprime les paramètres des applications principales des plans App Service.|
+|/serverfarms/firstpartyapps/settings/read|Récupère les paramètres des applications principales des plans App Service.|
+|/serverfarms/firstpartyapps/settings/write|Met à jour les paramètres des applications principales des plans App Service.|
+|/serverfarms/hybridconnectionnamespaces/relays/delete|Supprime les relais d’espace de noms de connexion hybride de plans App Service.|
+|/serverfarms/hybridconnectionnamespaces/relays/read|Obtient les relais d’espace de noms de connexion hybride de plans App Service.|
+|/serverfarms/hybridconnectionnamespaces/relays/sites/read|Récupère les applications web des relais d’espace de noms de connexion hybride des plans App Service.|
+|/serverfarms/hybridconnectionplanlimits/read|Récupère les limites de plan de connexion hybride des plans App Service.|
+|/serverfarms/hybridconnectionrelays/read|Récupère les relais de connexion hybride des plans App Service.|
+|/serverfarms/metricdefinitions/read|Récupère les définitions métriques des plans App Service.|
+|/serverfarms/metrics/read|Récupère les mesures des plans App Service.|
+|/serverfarms/operationresults/read|Récupère les résultats de l’opération des plans App Service.|
+|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/serverfarms/providers/Microsoft.Insights/metricDefinitions/Read|Obtient les métriques disponibles pour un plan App Service|
+|/serverfarms/Read|Récupère les propriétés d’un plan App Service.|
+|/serverfarms/restartSites/Action|Redémarre toutes les applications web d’un plan App Service.|
+|/serverfarms/sites/read|Récupère les applications web des plans App Service.|
+|/serverfarms/skus/read|Récupère les références des plans App Service.|
+|/serverfarms/usages/read|Récupère les usages des plans App Service.|
+|/serverfarms/virtualnetworkconnections/gateways/write|Met à jour les passerelles de connexions de réseau virtuel des plans App Service.|
+|/serverfarms/virtualnetworkconnections/read|Récupère les connexions de réseau virtuel des plans App Service.|
+|/serverfarms/virtualnetworkconnections/routes/delete|Supprime les itinéraires des connexions de réseau virtuel des plans App Service.|
+|/serverfarms/virtualnetworkconnections/routes/read|Récupère les itinéraires des connexions de réseau virtuel des plans App Service.|
+|/serverfarms/virtualnetworkconnections/routes/write|Met à jour les itinéraires des connexions de réseau virtuel des plans App Service.|
+|/serverfarms/workers/reboot/action|Redémarre les Workers des plans App Service.|
+|/serverfarms/Write|Crée un plan App Service ou en met un à jour.|
+|/sites/analyzecustomhostname/read|Analyse le nom d’hôte personnalisé.|
+|/sites/applySlotConfig/Action|Applique la configuration d’emplacement d’application web de l’emplacement cible à l’application web actuelle.|
+|/sites/backup/Action|Crée une sauvegarde d’application web.|
+|/sites/backup/read|Récupère la sauvegarde Web Apps.|
+|/sites/backup/write|Met à jour la sauvegarde Web Apps.|
+|/sites/backups/delete|Supprime les sauvegardes Web Apps.|
+|/sites/backups/list/action|Répertorie les sauvegardes Web Apps.|
+|/sites/backups/Read|Récupère les propriétés de sauvegarde d’une application web.|
+|/sites/backups/restore/action|Restaure les sauvegardes Web Apps.|
+|/sites/config/delete|Supprime la configuration de Web Apps.|
+|/sites/config/list/Action|Répertorie les paramètres sensibles de sécurité d’application web, tels que les informations d’identification de publication, les paramètres d’application et les chaînes de connexion.|
+|/sites/config/Read|Récupère les paramètres de configuration des applications web.|
+|/sites/config/Write|Met à jour les paramètres de configuration d’application web.|
+|/sites/continuouswebjobs/delete|Supprime des tâches web continues Web Apps.|
+|/sites/continuouswebjobs/read|Récupère des tâches web continues Web Apps.|
+|/sites/continuouswebjobs/start/action|Démarre des tâches web continues Web Apps.|
+|/sites/continuouswebjobs/stop/action|Arrête des tâches web continues Web Apps.|
+|/sites/Delete|Supprimer une application web existante|
+|/sites/deployments/delete|Supprime les déploiements de Web Apps.|
+|/sites/deployments/log/read|Récupère le journal des déploiements de Web Apps.|
+|/sites/deployments/read|Récupère les déploiements de Web Apps.|
+|/sites/deployments/write|Met à jour les déploiements de Web Apps.|
+|/sites/diagnostics/analyses/execute/Action|Exécute l’analyse de diagnostics Web Apps.|
+|/sites/diagnostics/analyses/read|Obtient l’analyse des diagnostics Web Apps.|
+|/sites/diagnostics/aspnetcore/read|Obtient des diagnostics Web Apps pour une application ASP.NET Core.|
+|/sites/diagnostics/autoheal/read|Obtient l’Autoheal des diagnostics Web Apps.|
+|/sites/diagnostics/deployment/read|Obtient le déploiement des diagnostics Web Apps.|
+|/sites/diagnostics/deployments/read|Obtient des déploiements des diagnostics Web Apps.|
+|/sites/diagnostics/detectors/execute/Action|Exécute le détecteur de diagnostics Web Apps.|
+|/sites/diagnostics/detectors/read|Obtient le détecteur des diagnostics Web Apps.|
+|/sites/diagnostics/failedrequestsperuri/read|Obtient les échecs de requêtes de diagnostics Web Apps par Uri.|
+|/sites/diagnostics/frebanalysis/read|Récupère l’analyse FREB dans les diagnostics de Web Apps.|
+|/sites/diagnostics/loganalyzer/read|Obtient l’analyseur de journal des diagnostics Web Apps.|
+|/sites/diagnostics/read|Obtient les catégories de diagnostics Web Apps.|
+|/sites/diagnostics/runtimeavailability/read|Récupère la disponibilité d’exécution des diagnostics Web Apps.|
+|/sites/diagnostics/servicehealth/read|Récupère l’état du service dans les diagnostics de Web Apps.|
+|/sites/diagnostics/sitecpuanalysis/read|Obtient l’analyse d’UC du site des diagnostics Web Apps.|
+|/sites/diagnostics/sitecrashes/read|Obtient les pannes du site des diagnostics Web Apps.|
+|/sites/diagnostics/sitelatency/read|Obtient la latence du site des diagnostics Web Apps.|
+|/sites/diagnostics/sitememoryanalysis/read|Obtient l’analyse de mémoire du site des diagnostics Web Apps.|
+|/sites/diagnostics/siterestartsettingupdate/read|Obtient la mise à jour du paramètre de redémarrage du site des diagnostics Web Apps.|
+|/sites/diagnostics/siterestartuserinitiated/read|Obtient le redémarrage du site des diagnostics Web Apps que l’utilisateur a déclenché.|
+|/sites/diagnostics/siteswap/read|Obtient l’échange de sites des diagnostics Web Apps.|
+|/sites/diagnostics/threadcount/read|Obtient le nombre de threads des diagnostics Web Apps.|
+|/sites/diagnostics/workeravailability/read|Récupère la disponibilité Worker des diagnostics Web Apps.|
+|/sites/diagnostics/workerprocessrecycle/read|Récupère le recyclage du processus Worker des diagnostics Web Apps.|
+|/sites/domainownershipidentifiers/read|Récupère l’identificateur de propriété de domaine Web Apps.|
+|/sites/domainownershipidentifiers/write|Met à jour l’identificateur de propriété de domaine Web Apps.|
+|/sites/functions/action|Fonctions Web Apps.|
+|/sites/functions/delete|Supprime les fonctions Web Apps.|
+|/sites/functions/listsecrets/action|Répertorie les fonctions Web Apps des clés secrètes.|
+|/sites/functions/masterkey/read|Obtient la clé principale des fonctions Web Apps.|
+|/sites/functions/read|Récupère les fonctions Web Apps.|
+|/sites/functions/token/read|Obtient le jeton des fonctions Web Apps.|
+|/sites/functions/write|Met à jour les fonctions Web Apps.|
+|/sites/hostnamebindings/delete|Supprime les liaisons de nom d’hôte Web Apps.|
+|/sites/hostnamebindings/read|Récupère les liaisons de nom d’hôte Web Apps.|
+|/sites/hostnamebindings/write|Met à jour les liaisons de nom d’hôte Web Apps.|
+|/sites/hybridconnection/delete|Supprime une connexion hybride Web Apps.|
+|/sites/hybridconnection/read|Récupère une connexion hybride Web Apps.|
+|/sites/hybridconnection/write|Met à jour une connexion hybride Web Apps.|
+|/sites/hybridconnectionnamespaces/relays/delete|Supprime les relais d’espaces de noms de connexion hybride Web Apps.|
+|/sites/hybridconnectionnamespaces/relays/listkeys/action|Affiche les relais d’espaces de noms de connexion hybride Web Apps de clés.|
+|/sites/hybridconnectionnamespaces/relays/read|Obtient les relais d’espaces de noms de connexion hybride Web Apps.|
+|/sites/hybridconnectionnamespaces/relays/write|Met à jour les relais d’espaces de noms de connexion hybride Web Apps.|
+|/sites/hybridconnectionrelays/read|Récupère les relais de connexions hybrides Web Apps.|
+|/sites/instances/deployments/delete|Supprime les déploiements d’instances de Web Apps.|
+|/sites/instances/deployments/read|Récupère les déploiements des instances Web Apps.|
+|/sites/instances/extensions/log/read|Obtient le journal des extensions des instances Web Apps.|
+|/sites/instances/extensions/read|Obtient les extensions des instances Web Apps.|
+|/sites/instances/processes/delete|Supprime les processus des instances Web Apps.|
+|/sites/instances/processes/read|Récupère les processus des instances Web Apps.|
+|/sites/instances/read|Récupère des instances Web Apps.|
+|/sites/listsyncfunctiontriggerstatus/action|Répertorie le statut de déclenchement de fonction de synchronisation Web Apps.|
+|/sites/metricdefinitions/read|Récupère les définitions métriques Web Apps.|
+|/sites/metrics/read|Récupère les mesures Web Apps.|
+|/sites/metricsdefinitions/read|Obtient les définitions de métrique de Web Apps.|
+|/sites/migratemysql/action|Migre MySql Web Apps.|
+|/sites/migratemysql/read|Obtient MySql de migration Web Apps.|
+|/sites/networktrace/action|Trace réseau Web Apps.|
 |/sites/newpassword/action|Newpassword Web Apps.|
-|/sites/operationresults/read|Get Web Apps Operation Results.|
-|/sites/operations/read|Get Web Apps Operations.|
-|/sites/perfcounters/read|Get Web Apps Performance Counters.|
-|/sites/premieraddons/delete|Delete Web Apps Premier Addons.|
-|/sites/premieraddons/read|Get Web Apps Premier Addons.|
-|/sites/premieraddons/write|Update Web Apps Premier Addons.|
-|/sites/processes/read|Get Web Apps Processes.|
-|/sites/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/sites/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/sites/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for Web App|
-|/sites/publiccertificates/delete|Delete Web Apps Public Certificates.|
-|/sites/publiccertificates/read|Get Web Apps Public Certificates.|
-|/sites/publiccertificates/write|Update Web Apps Public Certificates.|
-|/sites/publish/Action|Publish a Web App|
-|/sites/publishxml/Action|Get publishing profile xml for a Web App|
-|/sites/publishxml/read|Get Web Apps Publishing XML.|
-|/sites/Read|Get the properties of a Web App|
-|/sites/recommendationhistory/read|Get Web Apps Recommendation History.|
-|/sites/recommendations/disable/action|Disable Web Apps Recommendations.|
-|/sites/recommendations/Read|Get the list of recommendations for web app.|
-|/sites/recover/action|Recover Web Apps.|
-|/sites/resetSlotConfig/Action|Reset web app configuration|
-|/sites/resourcehealthmetadata/read|Get Web Apps Resource Health Metadata.|
-|/sites/restart/Action|Restart a Web App|
-|/sites/restore/read|Get Web Apps Restore.|
-|/sites/restore/write|Restore Web Apps.|
-|/sites/siteextensions/delete|Delete Web Apps Site Extensions.|
-|/sites/siteextensions/read|Get Web Apps Site Extensions.|
-|/sites/siteextensions/write|Update Web Apps Site Extensions.|
-|/sites/slots/analyzecustomhostname/read|Get Web Apps Slots Analyze Custom Hostname.|
-|/sites/slots/applySlotConfig/Action|Apply web app slot configuration from target slot to the current slot.|
-|/sites/slots/backup/Action|Create new Web App Slot backup.|
-|/sites/slots/backup/read|Get Web Apps Slots Backup.|
-|/sites/slots/backup/write|Update Web Apps Slots Backup.|
-|/sites/slots/backups/delete|Delete Web Apps Slots Backups.|
-|/sites/slots/backups/list/action|List Web Apps Slots Backups.|
-|/sites/slots/backups/Read|Get the properties of a web app slots' backup|
-|/sites/slots/backups/restore/action|Restore Web Apps Slots Backups.|
-|/sites/slots/config/delete|Delete Web Apps Slots Config.|
-|/sites/slots/config/list/Action|List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings|
-|/sites/slots/config/Read|Get Web App Slot's configuration settings|
-|/sites/slots/config/Write|Update Web App Slot's configuration settings|
-|/sites/slots/continuouswebjobs/delete|Delete Web Apps Slots Continuous Web Jobs.|
-|/sites/slots/continuouswebjobs/read|Get Web Apps Slots Continuous Web Jobs.|
-|/sites/slots/continuouswebjobs/start/action|Start Web Apps Slots Continuous Web Jobs.|
-|/sites/slots/continuouswebjobs/stop/action|Stop Web Apps Slots Continuous Web Jobs.|
-|/sites/slots/Delete|Delete an existing Web App Slot|
-|/sites/slots/deployments/delete|Delete Web Apps Slots Deployments.|
-|/sites/slots/deployments/log/read|Get Web Apps Slots Deployments Log.|
-|/sites/slots/deployments/read|Get Web Apps Slots Deployments.|
-|/sites/slots/deployments/write|Update Web Apps Slots Deployments.|
-|/sites/slots/diagnostics/analyses/execute/Action|Run Web Apps Slots Diagnostics Analysis.|
-|/sites/slots/diagnostics/analyses/read|Get Web Apps Slots Diagnostics Analysis.|
-|/sites/slots/diagnostics/aspnetcore/read|Get Web Apps Slots Diagnostics for ASP.NET Core app.|
-|/sites/slots/diagnostics/autoheal/read|Get Web Apps Slots Diagnostics Autoheal.|
-|/sites/slots/diagnostics/deployment/read|Get Web Apps Slots Diagnostics Deployment.|
-|/sites/slots/diagnostics/deployments/read|Get Web Apps Slots Diagnostics Deployments.|
-|/sites/slots/diagnostics/detectors/execute/Action|Run Web Apps Slots Diagnostics Detector.|
-|/sites/slots/diagnostics/detectors/read|Get Web Apps Slots Diagnostics Detector.|
-|/sites/slots/diagnostics/frebanalysis/read|Get Web Apps Slots Diagnostics FREB Analysis.|
-|/sites/slots/diagnostics/loganalyzer/read|Get Web Apps Slots Diagnostics Log Analyzer.|
-|/sites/slots/diagnostics/read|Get Web Apps Slots Diagnostics.|
-|/sites/slots/diagnostics/runtimeavailability/read|Get Web Apps Slots Diagnostics Runtime Availability.|
-|/sites/slots/diagnostics/servicehealth/read|Get Web Apps Slots Diagnostics Service Health.|
-|/sites/slots/diagnostics/sitecpuanalysis/read|Get Web Apps Slots Diagnostics Site CPU Analysis.|
-|/sites/slots/diagnostics/sitecrashes/read|Get Web Apps Slots Diagnostics Site Crashes.|
-|/sites/slots/diagnostics/sitelatency/read|Get Web Apps Slots Diagnostics Site Latency.|
-|/sites/slots/diagnostics/sitememoryanalysis/read|Get Web Apps Slots Diagnostics Site Memory Analysis.|
-|/sites/slots/diagnostics/siterestartsettingupdate/read|Get Web Apps Slots Diagnostics Site Restart Setting Update.|
-|/sites/slots/diagnostics/siterestartuserinitiated/read|Get Web Apps Slots Diagnostics Site Restart User Initiated.|
-|/sites/slots/diagnostics/siteswap/read|Get Web Apps Slots Diagnostics Site Swap.|
-|/sites/slots/diagnostics/threadcount/read|Get Web Apps Slots Diagnostics Thread Count.|
-|/sites/slots/diagnostics/workeravailability/read|Get Web Apps Slots Diagnostics Workeravailability.|
-|/sites/slots/diagnostics/workerprocessrecycle/read|Get Web Apps Slots Diagnostics Worker Process Recycle.|
-|/sites/slots/domainownershipidentifiers/read|Get Web Apps Slots Domain Ownership Identifiers.|
-|/sites/slots/hostnamebindings/delete|Delete Web Apps Slots Hostname Bindings.|
-|/sites/slots/hostnamebindings/read|Get Web Apps Slots Hostname Bindings.|
-|/sites/slots/hostnamebindings/write|Update Web Apps Slots Hostname Bindings.|
-|/sites/slots/hybridconnection/delete|Delete Web Apps Slots Hybrid Connection.|
-|/sites/slots/hybridconnection/read|Get Web Apps Slots Hybrid Connection.|
-|/sites/slots/hybridconnection/write|Update Web Apps Slots Hybrid Connection.|
-|/sites/slots/hybridconnectionnamespaces/relays/delete|Delete Web Apps Slots Hybrid Connection Namespaces Relays.|
-|/sites/slots/hybridconnectionnamespaces/relays/write|Update Web Apps Slots Hybrid Connection Namespaces Relays.|
-|/sites/slots/hybridconnectionrelays/read|Get Web Apps Slots Hybrid Connection Relays.|
-|/sites/slots/instances/deployments/read|Get Web Apps Slots Instances Deployments.|
-|/sites/slots/instances/processes/delete|Delete Web Apps Slots Instances Processes.|
-|/sites/slots/instances/processes/read|Get Web Apps Slots Instances Processes.|
-|/sites/slots/instances/read|Get Web Apps Slots Instances.|
-|/sites/slots/metricdefinitions/read|Get Web Apps Slots Metric Definitions.|
-|/sites/slots/metrics/read|Get Web Apps Slots Metrics.|
-|/sites/slots/migratemysql/read|Get Web Apps Slots Migrate MySql.|
-|/sites/slots/networktrace/action|Network Trace Web Apps Slots.|
-|/sites/slots/newpassword/action|Newpassword Web Apps Slots.|
-|/sites/slots/operationresults/read|Get Web Apps Slots Operation Results.|
-|/sites/slots/operations/read|Get Web Apps Slots Operations.|
-|/sites/slots/perfcounters/read|Get Web Apps Slots Performance Counters.|
-|/sites/slots/phplogging/read|Get Web Apps Slots Phplogging.|
-|/sites/slots/premieraddons/delete|Delete Web Apps Slots Premier Addons.|
-|/sites/slots/premieraddons/read|Get Web Apps Slots Premier Addons.|
-|/sites/slots/premieraddons/write|Update Web Apps Slots Premier Addons.|
-|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for Web App Slot|
-|/sites/slots/publiccertificates/read|Get Web Apps Slots Public Certificates.|
-|/sites/slots/publiccertificates/write|Create or Update Web Apps Slots Public Certificates.|
-|/sites/slots/publish/Action|Publish a Web App Slot|
-|/sites/slots/publishxml/Action|Get publishing profile xml for Web App Slot|
-|/sites/slots/Read|Get the properties of a Web App deployment slot|
-|/sites/slots/resetSlotConfig/Action|Reset web app slot configuration|
-|/sites/slots/resourcehealthmetadata/read|Get Web Apps Slots Resource Health Metadata.|
-|/sites/slots/restart/Action|Restart a Web App Slot|
-|/sites/slots/restore/read|Get Web Apps Slots Restore.|
-|/sites/slots/restore/write|Restore Web Apps Slots.|
-|/sites/slots/siteextensions/delete|Delete Web Apps Slots Site Extensions.|
-|/sites/slots/siteextensions/read|Get Web Apps Slots Site Extensions.|
-|/sites/slots/siteextensions/write|Update Web Apps Slots Site Extensions.|
-|/sites/slots/slotsdiffs/Action|Get differences in configuration between web app and slots|
-|/sites/slots/slotsswap/Action|Swap Web App deployment slots|
-|/sites/slots/snapshots/read|Get Web Apps Slots Snapshots.|
-|/sites/slots/sourcecontrols/Delete|Delete Web App Slot's source control configuration settings|
-|/sites/slots/sourcecontrols/Read|Get Web App Slot's source control configuration settings|
-|/sites/slots/sourcecontrols/Write|Update Web App Slot's source control configuration settings|
-|/sites/slots/start/Action|Start a Web App Slot|
-|/sites/slots/stop/Action|Stop a Web App Slot|
-|/sites/slots/sync/action|Sync Web Apps Slots.|
-|/sites/slots/triggeredwebjobs/delete|Delete Web Apps Slots Triggered WebJobs.|
-|/sites/slots/triggeredwebjobs/read|Get Web Apps Slots Triggered WebJobs.|
-|/sites/slots/triggeredwebjobs/run/action|Run Web Apps Slots Triggered WebJobs.|
-|/sites/slots/usages/read|Get Web Apps Slots Usages.|
-|/sites/slots/virtualnetworkconnections/delete|Delete Web Apps Slots Virtual Network Connections.|
-|/sites/slots/virtualnetworkconnections/gateways/write|Update Web Apps Slots Virtual Network Connections Gateways.|
-|/sites/slots/virtualnetworkconnections/read|Get Web Apps Slots Virtual Network Connections.|
-|/sites/slots/virtualnetworkconnections/write|Update Web Apps Slots Virtual Network Connections.|
-|/sites/slots/webjobs/read|Get Web Apps Slots WebJobs.|
-|/sites/slots/Write|Create a new Web App Slot or update an existing one|
-|/sites/slotsdiffs/Action|Get differences in configuration between web app and slots|
-|/sites/slotsswap/Action|Swap Web App deployment slots|
-|/sites/snapshots/read|Get Web Apps Snapshots.|
-|/sites/sourcecontrols/Delete|Delete Web App's source control configuration settings|
-|/sites/sourcecontrols/Read|Get Web App's source control configuration settings|
-|/sites/sourcecontrols/Write|Update Web App's source control configuration settings|
-|/sites/start/Action|Start a Web App|
-|/sites/stop/Action|Stop a Web App|
-|/sites/sync/action|Sync Web Apps.|
-|/sites/syncfunctiontriggers/action|Sync Function Triggers for Web Apps.|
-|/sites/triggeredwebjobs/delete|Delete Web Apps Triggered WebJobs.|
-|/sites/triggeredwebjobs/history/read|Get Web Apps Triggered WebJobs History.|
-|/sites/triggeredwebjobs/read|Get Web Apps Triggered WebJobs.|
-|/sites/triggeredwebjobs/run/action|Run Web Apps Triggered WebJobs.|
-|/sites/usages/read|Get Web Apps Usages.|
-|/sites/virtualnetworkconnections/delete|Delete Web Apps Virtual Network Connections.|
-|/sites/virtualnetworkconnections/gateways/read|Get Web Apps Virtual Network Connections Gateways.|
-|/sites/virtualnetworkconnections/gateways/write|Update Web Apps Virtual Network Connections Gateways.|
-|/sites/virtualnetworkconnections/read|Get Web Apps Virtual Network Connections.|
-|/sites/virtualnetworkconnections/write|Update Web Apps Virtual Network Connections.|
-|/sites/webjobs/read|Get Web Apps WebJobs.|
-|/sites/Write|Create a new Web App or update an existing one|
-|/skus/read|Get SKUs.|
-|/sourcecontrols/read|Get Source Controls.|
-|/sourcecontrols/write|Update Source Controls.|
-|/unregister/action|Unregister Microsoft.Web resource provider for the subscription.|
-|/validate/action|Validate .|
-|/verifyhostingenvironmentvnet/action|Verify Hosting Environment Vnet.|
+|/sites/operationresults/read|Récupère les résultats de l’opération Web Apps.|
+|/sites/operations/read|Obtient les opérations Web Apps.|
+|/sites/perfcounters/read|Récupère les compteurs de performances Web Apps.|
+|/sites/premieraddons/delete|Supprime les modules complémentaires Premier Web Apps.|
+|/sites/premieraddons/read|Récupère les modules complémentaires Premier Web Apps.|
+|/sites/premieraddons/write|Met à jour les modules complémentaires Premier Web Apps.|
+|/sites/processes/read|Obtient les processus Web Apps.|
+|/sites/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/sites/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/sites/providers/Microsoft.Insights/metricDefinitions/Read|Obtient les métriques disponibles pour Web Apps|
+|/sites/publiccertificates/delete|Supprime les certificats publics Web Apps.|
+|/sites/publiccertificates/read|Obtient les certificats publics Web Apps.|
+|/sites/publiccertificates/write|Met à jour les certificats publics Web Apps.|
+|/sites/publish/Action|Publie une application web.|
+|/sites/publishxml/Action|Récupère le profil de publication xml pour une application web.|
+|/sites/publishxml/read|Récupère publication XML Web Apps.|
+|/sites/Read|Récupère les propriétés d’une application web.|
+|/sites/recommendationhistory/read|Récupère un historique des recommandations Web Apps.|
+|/sites/recommendations/disable/action|Désactive les recommandations des applications web.|
+|/sites/recommendations/Read|Récupère la liste des recommandations pour l’application web.|
+|/sites/recover/action|Récupère Web Apps.|
+|/sites/resetSlotConfig/Action|Réinitialise la configuration d’application web.|
+|/sites/resourcehealthmetadata/read|Obtient les métadonnées de Resource Health Web Apps.|
+|/sites/restart/Action|Redémarre une application web.|
+|/sites/restore/read|Récupère la restauration Web Apps.|
+|/sites/restore/write|Restaure Web Apps.|
+|/sites/siteextensions/delete|Supprime les extensions de site Web Apps.|
+|/sites/siteextensions/read|Obtient les extensions de site Web Apps.|
+|/sites/siteextensions/write|Met à jour les extensions de site Web Apps.|
+|/sites/slots/analyzecustomhostname/read|Récupère le nom d’hôte personnalisé d’analyse des emplacements Web Apps.|
+|/sites/slots/applySlotConfig/Action|Applique la configuration d’emplacement d’application web de l’emplacement cible à l’emplacement actuel.|
+|/sites/slots/backup/Action|Crée une sauvegarde d’emplacement d’application web.|
+|/sites/slots/backup/read|Obtient la sauvegarde des emplacements de Web Apps.|
+|/sites/slots/backup/write|Met à jour la sauvegarde des emplacements Web Apps.|
+|/sites/slots/backups/delete|Supprime les sauvegardes des emplacements de Web Apps.|
+|/sites/slots/backups/list/action|Répertorie les sauvegardes des emplacements Web Apps.|
+|/sites/slots/backups/Read|Récupère les propriétés de sauvegarde des emplacements d’une application web.|
+|/sites/slots/backups/restore/action|Restaure les sauvegardes des emplacements Web Apps.|
+|/sites/slots/config/delete|Supprime la configuration des emplacements Web Apps.|
+|/sites/slots/config/list/Action|Répertorie les paramètres sensibles de sécurité de l’emplacement d’application web, tels que les informations d’identification de publication, les paramètres d’application et les chaînes de connexion.|
+|/sites/slots/config/Read|Récupère les paramètres de configuration de l’emplacement d’application web.|
+|/sites/slots/config/Write|Met à jour les paramètres de configuration de l’emplacement d’application web.|
+|/sites/slots/continuouswebjobs/delete|Supprime des tâches web continues dans les emplacements Web Apps.|
+|/sites/slots/continuouswebjobs/read|Récupère des tâches web continues dans les emplacements Web Apps.|
+|/sites/slots/continuouswebjobs/start/action|Démarre des tâches web continues dans les emplacements Web Apps.|
+|/sites/slots/continuouswebjobs/stop/action|Arrête des tâches web continues dans les emplacements Web Apps.|
+|/sites/slots/Delete|Supprime un emplacement d’application web existant.|
+|/sites/slots/deployments/delete|Supprime les déploiements des emplacements Web Apps.|
+|/sites/slots/deployments/log/read|Récupère le journal des déploiements des emplacements Web Apps.|
+|/sites/slots/deployments/read|Récupère les déploiements des emplacements Web Apps.|
+|/sites/slots/deployments/write|Met à jour les déploiements des emplacements Web Apps.|
+|/sites/slots/diagnostics/analyses/execute/Action|Exécuter l’analyse des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/analyses/read|Obtient l’analyse des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/aspnetcore/read|Obtient les diagnostics des emplacements Web Apps pour l’application ASP.NET Core.|
+|/sites/slots/diagnostics/autoheal/read|Obtient l’Autoheal des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/deployment/read|Obtient le déploiement des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/deployments/read|Obtient les déploiements des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/detectors/execute/Action|Exécute le détecteur des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/detectors/read|Obtient le détecteur des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/frebanalysis/read|Obtient l’analyse FREB des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/loganalyzer/read|Obtient l’analyseur de journal des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/read|Obtient les diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/runtimeavailability/read|Obtient la disponibilité du runtime des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/servicehealth/read|Obtient l’état du service des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/sitecpuanalysis/read|Obtient l’analyse d’UC du site des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/sitecrashes/read|Obtient les pannes du site des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/sitelatency/read|Obtient la latence du site des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/sitememoryanalysis/read|Obtient l’analyse de mémoire du site des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/siterestartsettingupdate/read|Obtient la mise à jour du paramètre de redémarrage du site des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/siterestartuserinitiated/read|Obtient le redémarrage du site des diagnostics des emplacements Web Apps que l’utilisateur a déclenché.|
+|/sites/slots/diagnostics/siteswap/read|Obtient l’échange de sites des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/threadcount/read|Obtient le nombre de threads des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/workeravailability/read|Obtient la disponibilité du processus de travail des diagnostics des emplacements Web Apps.|
+|/sites/slots/diagnostics/workerprocessrecycle/read|Obtient le recyclage du processus de travail des diagnostics des emplacements Web Apps.|
+|/sites/slots/domainownershipidentifiers/read|Obtient les identificateurs de propriété de domaine des emplacements Web Apps.|
+|/sites/slots/hostnamebindings/delete|Supprime les liaisons de nom d’hôte dans les emplacements Web Apps.|
+|/sites/slots/hostnamebindings/read|Récupère les liaisons de nom d’hôte des emplacements Web Apps.|
+|/sites/slots/hostnamebindings/write|Met à jour les liaisons de nom d’hôte des emplacements Web Apps.|
+|/sites/slots/hybridconnection/delete|Supprime une connexion hybride dans les emplacements Web Apps.|
+|/sites/slots/hybridconnection/read|Récupère une connexion hybride dans les emplacements Web Apps.|
+|/sites/slots/hybridconnection/write|Met à jour une connexion hybride dans les emplacements Web Apps.|
+|/sites/slots/hybridconnectionnamespaces/relays/delete|Supprime les relais d’espaces de noms de connexion hybride des emplacements Web Apps.|
+|/sites/slots/hybridconnectionnamespaces/relays/write|Met à jour les relais d’espaces de noms de connexion hybride des emplacements Web Apps.|
+|/sites/slots/hybridconnectionrelays/read|Obtient les relais de connexion hybride des emplacements Web Apps.|
+|/sites/slots/instances/deployments/read|Récupère les déploiements des instances des emplacements Web Apps.|
+|/sites/slots/instances/processes/delete|Supprime les processus d’instances des emplacements Web Apps.|
+|/sites/slots/instances/processes/read|Récupère les processus des instances des emplacements Web Apps.|
+|/sites/slots/instances/read|Récupère les instances des emplacements Web Apps.|
+|/sites/slots/metricdefinitions/read|Récupère les définitions métriques des emplacements Web Apps.|
+|/sites/slots/metrics/read|Récupère les mesures des emplacements Web Apps.|
+|/sites/slots/migratemysql/read|Obtient MySql de migration des emplacements Web Apps.|
+|/sites/slots/networktrace/action|Obtient la trace réseau des emplacements Web Apps.|
+|/sites/slots/newpassword/action|Emplacements Newpassword Web Apps.|
+|/sites/slots/operationresults/read|Récupère les résultats de l’opération des emplacements Web Apps.|
+|/sites/slots/operations/read|Obtient les opérations des emplacements Web Apps.|
+|/sites/slots/perfcounters/read|Obtient les compteurs de performances des emplacements Web Apps.|
+|/sites/slots/phplogging/read|Récupère Phplogging des emplacements Web Apps.|
+|/sites/slots/premieraddons/delete|Supprime les modules complémentaires Premier dans les emplacements Web Apps.|
+|/sites/slots/premieraddons/read|Récupère les modules complémentaires Premier dans les emplacements Web Apps.|
+|/sites/slots/premieraddons/write|Met à jour les modules complémentaires Premier dans les emplacements Web Apps.|
+|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read|Obtient le paramètre de diagnostic pour la ressource|
+|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write|Crée ou met à jour le paramètre de diagnostic pour la ressource|
+|/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read|Obtient les métriques disponibles pour un emplacement Web Apps|
+|/sites/slots/publiccertificates/read|Obtient les certificats publics des emplacements Web Apps.|
+|/sites/slots/publiccertificates/write|Crée ou met à jour les certificats publics des emplacements Web Apps.|
+|/sites/slots/publish/Action|Publie un emplacement d’application web.|
+|/sites/slots/publishxml/Action|Récupère le profil de publication xml pour l’emplacement d’application web.|
+|/sites/slots/Read|Récupère les propriétés d’un emplacement de déploiement d’une application web.|
+|/sites/slots/resetSlotConfig/Action|Réinitialise la configuration d’emplacement de l’application web.|
+|/sites/slots/resourcehealthmetadata/read|Obtient les métadonnées de Resource Health des emplacements Web Apps.|
+|/sites/slots/restart/Action|Redémarre un emplacement d’application web.|
+|/sites/slots/restore/read|Récupère la restauration des emplacements Web Apps.|
+|/sites/slots/restore/write|Restaure les emplacements Web Apps.|
+|/sites/slots/siteextensions/delete|Supprime les extensions de site des emplacements Web Apps.|
+|/sites/slots/siteextensions/read|Obtient les extensions de site des emplacements Web Apps.|
+|/sites/slots/siteextensions/write|Met à jour les extensions de site des emplacements Web Apps.|
+|/sites/slots/slotsdiffs/Action|Récupère les différences de configuration entre l’application web et les emplacements.|
+|/sites/slots/slotsswap/Action|Permute des emplacements de déploiement d’application web.|
+|/sites/slots/snapshots/read|Obtient les captures instantanées des emplacements Web Apps.|
+|/sites/slots/sourcecontrols/Delete|Supprime les paramètres de configuration du contrôle de code source de l’emplacement d’application web.|
+|/sites/slots/sourcecontrols/Read|Récupère les paramètres de configuration du contrôle de code source de l’emplacement d’application Web.|
+|/sites/slots/sourcecontrols/Write|Met à jour les paramètres de configuration du contrôle de code source de l’emplacement d’application web.|
+|/sites/slots/start/Action|Démarre un emplacement d’application web.|
+|/sites/slots/stop/Action|Arrête un emplacement d’application web.|
+|/sites/slots/sync/action|Synchronise les emplacements Web Apps.|
+|/sites/slots/triggeredwebjobs/delete|Supprime les tâches web déclenchées dans les emplacements Web Apps.|
+|/sites/slots/triggeredwebjobs/read|Récupère les tâches web déclenchées dans les emplacements Web Apps.|
+|/sites/slots/triggeredwebjobs/run/action|Exécute les tâches web déclenchées dans les emplacements Web Apps.|
+|/sites/slots/usages/read|Récupère les utilisations des emplacements Web Apps.|
+|/sites/slots/virtualnetworkconnections/delete|Supprime les connexions de réseau virtuel dans les emplacements Web Apps.|
+|/sites/slots/virtualnetworkconnections/gateways/write|Met à jour les passerelles de connexions de réseau virtuel dans les emplacements Web Apps.|
+|/sites/slots/virtualnetworkconnections/read|Récupère les connexions de réseau virtuel dans les emplacements Web Apps.|
+|/sites/slots/virtualnetworkconnections/write|Met à jour les connexions de réseau virtuel dans les emplacements Web Apps.|
+|/sites/slots/webjobs/read|Récupère WebJobs des emplacements Web Apps.|
+|/sites/slots/Write|Crée un emplacement d’application web ou en met un à jour.|
+|/sites/slotsdiffs/Action|Récupère les différences de configuration entre l’application web et les emplacements.|
+|/sites/slotsswap/Action|Permute des emplacements de déploiement d’application web.|
+|/sites/snapshots/read|Récupère les captures instantanées de Web Apps.|
+|/sites/sourcecontrols/Delete|Supprime les paramètres de configuration du contrôle de code source d’application web.|
+|/sites/sourcecontrols/Read|Récupère les paramètres de configuration du contrôle de code source d’application web.|
+|/sites/sourcecontrols/Write|Met à jour les paramètres de configuration du contrôle de code source d’application web.|
+|/sites/start/Action|Démarre une application web.|
+|/sites/stop/Action|Arrête une application web.|
+|/sites/sync/action|Synchronise Web Apps.|
+|/sites/syncfunctiontriggers/action|Synchronise les déclencheurs de fonction pour Web Apps.|
+|/sites/triggeredwebjobs/delete|Supprime les tâches web déclenchées dans Web Apps.|
+|/sites/triggeredwebjobs/history/read|Obtient l’historique des tâches web déclenchées de Web Apps.|
+|/sites/triggeredwebjobs/read|Récupère les tâches web déclenchées dans Web Apps.|
+|/sites/triggeredwebjobs/run/action|Exécute les tâches web déclenchées dans Web Apps.|
+|/sites/usages/read|Récupère les utilisations Web Apps.|
+|/sites/virtualnetworkconnections/delete|Supprime les connexions de réseau virtuel Web Apps.|
+|/sites/virtualnetworkconnections/gateways/read|Récupère les passerelles de connexions de réseau virtuel Web Apps.|
+|/sites/virtualnetworkconnections/gateways/write|Met à jour les passerelles de connexions de réseau virtuel Web Apps.|
+|/sites/virtualnetworkconnections/read|Récupère les connexions de réseau virtuel Web Apps.|
+|/sites/virtualnetworkconnections/write|Met à jour les connexions de réseau virtuel Web Apps.|
+|/sites/webjobs/read|Récupère WebJobs de Web Apps.|
+|/sites/Write|Crée une application web ou en met une à jour.|
+|/skus/read|Récupère des références.|
+|/sourcecontrols/read|Récupère les contrôles de code source.|
+|/sourcecontrols/write|Met à jour les contrôles de code source.|
+|/unregister/action|Désinscrit le fournisseur de ressources Microsoft.Web pour l’abonnement.|
+|/validate/action|Valide.|
+|/verifyhostingenvironmentvnet/action|Vérifie le réseau virtuel de l’environnement d’hébergement.|
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
-| Operation | Description |
+| Opération | Description |
 |---|---|
-|/components/read|Read operations resources|
-|/healthInstances/read|Read operations resources|
-|/Operations/read|Read operations resources|
-|/workloads/delete|Deletes a workload resource|
-|/workloads/read|Reads a workload resource|
-|/workloads/write|Writes a workload resource|
+|/components/read|Lit les ressources d’opérations|
+|/healthInstances/read|Lit les ressources d’opérations|
+|/Operations/read|Lit les ressources d’opérations|
+|/workloads/delete|Supprime une ressource de charge de travail|
+|/workloads/read|Lit une ressource de charge de travail|
+|/workloads/write|Écrit une ressource de charge de travail|
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-- Learn how to <bpt id="p1">[</bpt>create a custom role<ept id="p1">](role-based-access-control-custom-roles.md)</ept>.
-- Review the <bpt id="p1">[</bpt>built in RBAC roles<ept id="p1">](role-based-access-built-in-roles.md)</ept>.
-- Learn how to manage access assignments <bpt id="p1">[</bpt>by user<ept id="p1">](role-based-access-control-manage-assignments.md)</ept> or <bpt id="p2">[</bpt>by resource<ept id="p2">](role-based-access-control-configure.md)</ept> 
-- Learn how to <bpt id="p1">[</bpt>View activity logs to audit actions on resources<ept id="p1">](~/articles/azure-resource-manager/resource-group-audit.md)</ept>
+- Découvrez comment [créer un rôle personnalisé](role-based-access-control-custom-roles.md).
+- Passez en revue les [rôles RBAC intégrés](role-based-access-built-in-roles.md).
+- Découvrez comment gérer les affectations d’accès [par utilisateur](role-based-access-control-manage-assignments.md) ou [par ressource](role-based-access-control-configure.md). 
+- Découvrez comment [afficher les journaux d’activité pour auditer les actions sur les ressources](~/articles/azure-resource-manager/resource-group-audit.md).

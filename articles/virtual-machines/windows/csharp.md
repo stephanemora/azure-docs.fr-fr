@@ -1,10 +1,10 @@
 ---
-title: "Créer et gérer une machine virtuelle Azure à l’aide de C# | Microsoft Docs"
-description: "Utiliser C# et Azure Resource Manager pour déployer une machine virtuelle et toutes ses ressources de soutien."
+title: Créer et gérer une machine virtuelle Azure à l’aide de C# | Microsoft Docs
+description: Utiliser C# et Azure Resource Manager pour déployer une machine virtuelle et toutes ses ressources de soutien.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: 5d9021c2f65b70e36d5ea82992c9fb9d2d6d394a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cynthn
+ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C# #
 
@@ -158,7 +158,7 @@ var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
 
 ### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
 
-Une machine virtuelle doit être incluse dans un sous-réseau d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
+Un machine virtuelle doit figurer dans un sous-réseau d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
 
 Pour créer un sous-réseau et un réseau virtuel, ajoutez ce code à la méthode Main :
 

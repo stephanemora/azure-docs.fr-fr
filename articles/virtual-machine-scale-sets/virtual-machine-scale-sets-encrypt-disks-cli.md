@@ -1,13 +1,13 @@
 ---
-title: "Disques chiffrés de groupes de machines virtuelles identiques Azure | Microsoft Docs"
-description: "Découvrez comment chiffrer des disques joints dans des groupes de machines virtuelles identiques."
+title: Disques chiffrés de groupes de machines virtuelles identiques Azure | Microsoft Docs
+description: Découvrez comment chiffrer des disques joints dans des groupes de machines virtuelles identiques.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Chiffrer des disques de données joints et de systèmes d’exploitation dans un groupe de machines virtuelles identiques
 Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge Azure Disk Encryption (ADE).  Azure Disk Encryption peut être activé pour les groupes de machines virtuelles identiques Windows et Linux, afin de protéger les données au repos des groupes identiques à l’aide d’une technologie de chiffrement standard du secteur. Pour plus d’informations, consultez Azure Disk Encryption pour machines virtuelles Windows et Linux.
@@ -42,7 +42,7 @@ Installez les dernières versions [d’Azure Powershell](https://github.com/Azur
 La préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques nécessite que vous inscriviez automatiquement votre abonnement via les commandes PowerShell suivantes : 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

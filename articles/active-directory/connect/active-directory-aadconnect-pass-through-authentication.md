@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -39,7 +39,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - *Une meilleure expérience utilisateur*
   - Les utilisateurs utilisent les mêmes mots de passe pour se connecter aux applications locales et sur le cloud.
   - Les utilisateurs passent moins de temps à communiquer avec le service d’assistance informatique pour résoudre les problèmes de mot de passe.
-  - Les utilisateurs peuvent effectuer les tâches de [gestion de mot de passe en libre-service](../active-directory-passwords-overview.md) dans le cloud.
+  - Les utilisateurs peuvent effectuer les tâches de [gestion de mot de passe en libre-service](../authentication/active-directory-passwords-overview.md) dans le cloud.
 - *Facile à déployer et à gérer*
   - Des déploiements locaux ou une configuration réseau complexes ne sont pas nécessaires.
   - Seul un agent léger doit être installé localement.
@@ -56,7 +56,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - Prend en charge la connexion de l’utilisateur dans toutes les applications basées sur un navigateur web et dans les applications clientes Microsoft Office qui utilisent [l’authentification moderne](https://aka.ms/modernauthga).
 - Les noms d’utilisateur de connexion peuvent être soit un nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (appelé `Alternate ID`).
 - La fonctionnalité fonctionne de façon transparente avec les fonctionnalités [d’accès conditionnel](../active-directory-conditional-access-azure-portal.md) telles que l’authentification multifacteur (MFA) pour aider à sécuriser vos utilisateurs.
-- Elle est intégrée à la [gestion des mots de passe libre-service](../active-directory-passwords-overview.md) sur le cloud, y compris la réécriture des mots de passe dans l’annuaire Active Directory local et la protection par mot de passe en interdisant l’emploi de mots de passe courants.
+- Elle est intégrée à la [gestion des mots de passe libre-service](../authentication/active-directory-passwords-overview.md) sur le cloud, y compris la réécriture des mots de passe dans l’annuaire Active Directory local et la protection par mot de passe en interdisant l’emploi de mots de passe courants.
 - Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations de forêts entre les forêts AD et si le routage du suffixe de leurs noms est configuré correctement.
 - Cette fonctionnalité est gratuite et il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
 - Elle peut être activée via [Azure AD Connect](active-directory-aadconnect.md).

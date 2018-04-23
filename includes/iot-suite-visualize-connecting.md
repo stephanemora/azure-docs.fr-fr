@@ -26,7 +26,7 @@ Pour appeler des méthodes sur vos périphériques, utilisez la page **Périphé
 
 1. Pour afficher une liste des méthodes que vous pouvez appeler sur votre périphérique, choisissez **Planification**. Pour planifier une méthode à exécuter sur plusieurs périphériques, vous pouvez sélectionner plusieurs périphériques dans la liste. Le volet **Planification** affiche les types de méthodes communes à tous les périphériques que vous avez sélectionnés.
 
-1. Sélectionnez **FirmwareUpdate**, définissez le nom de la tâche par **UpdatePhysicalChiller**. Définissez la **version du microprogramme** par **2.0.0**, l’**URI du microprogramme** par **http://contoso.com/updates/firmware.bin**, puis sélectionnez **Appliquer** :
+1. Sélectionnez **FirmwareUpdate**, définissez le nom de la tâche par **UpdatePhysicalChiller**. Définissez la **version du microprogramme** sur **2.0.0**, définissez **l’URI du microprogramme** sur **http://contoso.com/updates/firmware.bin**, puis sélectionnez **Appliquer** :
 
     ![Planifier la mise à jour du microprogramme](media/iot-suite-visualize-connecting/deviceschedule.png)
 
@@ -39,6 +39,6 @@ Pour appeler des méthodes sur vos périphériques, utilisez la page **Périphé
 > [!NOTE]
 > Pour suivre l’état de la tâche dans la solution, choisissez **Afficher**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 L’article [Personnaliser la solution de surveillance à distance préconfigurée](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) décrit quelques méthodes permettant de personnaliser la solution préconfigurée.

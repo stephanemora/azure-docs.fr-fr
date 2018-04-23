@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cet article comprend les descriptions détaillées des fonctionnalités du [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -28,7 +28,6 @@ La troisième partie d’une règle est la fonctionnalité. Une fonctionnalité 
 ## <a name="access-features"></a>Fonctionnalités d’accès
 
 Ces fonctionnalités sont conçues pour contrôler l’accès au contenu.
-
 
 NOM | Objectif
 -----|--------
@@ -312,7 +311,7 @@ Supprimer| Cette option permet de garantir qu’aucun en-tête `Cache-Control` n
 
 Informations essentielles :
 
-- Spécifiez un ou plusieurs noms de paramètre de chaîne de requête. Délimite chaque nom de paramètre par un espace.
+- Spécifiez un ou plusieurs noms de paramètre de chaîne de requête et séparez chaque nom de paramètre par un espace unique.
 - Cette fonctionnalité détermine si les paramètres de chaîne de requête sont inclus ou exclus de la clé de cache. Vous trouverez des informations supplémentaires pour chaque option dans le tableau suivant.
 
 type|Description
@@ -326,11 +325,14 @@ Le moteur de règles vous permet de personnaliser la manière dont la mise en ca
 
 Pour dupliquer le comportement de mise en cache de la chaîne de requête « no-cache » sur la page de mise en cache de la chaîne de requête, créez une règle qui contient une condition de correspondance de caractère générique de requête d’URL et une fonctionnalité Ignorer le cache. Définissez la condition de correspondance de caractère générique de requête d’URL sur un astérisque (*).
 
+>[!IMPORTANT] 
+> Si l’autorisation du jeton est activée pour n’importe quel chemin d’accès sur ce compte, le mode de cache standard est le seul mode qui peut être utilisé pour la mise en cache de la chaîne de requête. Pour plus d’informations, consultez [Contrôle du comportement de mise en cache du CDN Azure avec des chaînes de requête](cdn-query-string-premium.md).
+
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 
 L’exemple d’utilisation suivant inclut un exemple de requête et la clé de cache par défaut :
 
-- **Exemple de requête :** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&amp;language=EN&amp;userid=01
+- **Exemple de requête :** http://wpc.0001.&lt;Domaine&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clé de cache par défaut :** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Inclure
@@ -874,7 +876,7 @@ Informations essentielles :
     - content-length
     - content-range
     - date
-    - server
+    - serveur
     - trailer
     - transfer-encoding
     - mettre à niveau
@@ -1054,10 +1056,12 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 ### <a name="token-auth-denial-code"></a>Code de refus d’authentification de jeton
 **Objectif :** détermine le type de réponse à retourner à un utilisateur quand une requête est refusée en raison de l’authentification basée sur les jetons.
 
-Les codes de réponse disponibles sont répertoriés ci-dessous.
+Le code de refus d’authentification du jeton ne peut pas être utilisé avec une condition de correspondance Toujours. Au lieu de cela, utilisez la section **Gestion des refus personnalisés** dans la page **Authentification du jeton** du portail **Gérer**. Pour plus d’informations, consultez [Sécurisation des ressources CDN Azure avec l’authentification du jeton](cdn-token-auth.md).
+
+Les codes de réponse disponibles sont répertoriés dans la table suivante.
 
 Code de la réponse|Nom de la réponse|Description
-----------------|-----------|--------
+-------------|-------------|--------
 301|Déplacé de façon permanente|Ce code d’état redirige les utilisateurs non autorisés vers l’URL spécifiée dans l’en-tête Location.
 302|Trouvé|Ce code d’état redirige les utilisateurs non autorisés vers l’URL spécifiée dans l’en-tête Location. Ce code d’état est la méthode standard du secteur en termes d’exécution d’une redirection.
 307|Redirection temporaire|Ce code d’état redirige les utilisateurs non autorisés vers l’URL spécifiée dans l’en-tête Location.

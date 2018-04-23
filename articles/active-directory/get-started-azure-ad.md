@@ -1,25 +1,25 @@
 ---
 title: Prise en main de Azure Active Directory | Microsoft Docs
-description: "Obtenir des licences, ajouter un nom de domaine, créer une page de connexion personnalisée et ajouter la réinitialisation du mot de passe libre-service dans Azure Active Directory"
-keywords: 
+description: Obtenir des licences, ajouter un nom de domaine, créer une page de connexion personnalisée et ajouter la réinitialisation du mot de passe libre-service dans Azure Active Directory
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Prise en main de Azure AD
 La gestion moderne des identités requiert une fiabilité évolutive et cohérente pour garantir la disponibilité des applications et des services uniquement aux utilisateurs authentifiés. Pour prendre correctement en charge les besoins de gestion d’identité des utilisateurs, le service informatique doit disposer d’un moyen de fournir un accès aux applications SaaS publics approuvées, un moyen d’accueillir une ligne interne d’applications métiers et même des moyens pour améliorer le développement et l’utilisation d’applications locales. Toutes ces exigences montrent la nécessité de disposer d’une solution de gestion d’identité basée sur le cloud.      
@@ -81,7 +81,7 @@ Vous pouvez utiliser l’attribution de licence basée sur le groupe pour config
 Revoyez les licences attribuées et disponibles sous **Azure Active Directory** > **Licences** > **Tous les produits**.
 
 ## <a name="configure-self-service-password-reset"></a>Configurer la réinitialisation du mot de passe libre-service
-Grâce à la [réinitialisation de mot de passe en libre-service](active-directory-passwords-getting-started.md), les administrateurs informatiques disposent d’un moyen simple pour permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes ou leurs mots de passe. Le système inclut des rapports détaillés de suivi d’utilisation ainsi que des notifications pour vous prévenir de toute utilisation malveillante ou de tout abus.
+Grâce à la [réinitialisation de mot de passe en libre-service](authentication/quickstart-sspr.md), les administrateurs informatiques disposent d’un moyen simple pour permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes ou leurs mots de passe. Le système inclut des rapports détaillés de suivi d’utilisation ainsi que des notifications pour vous prévenir de toute utilisation malveillante ou de tout abus.
 
 ### <a name="verification-step"></a>Étape de vérification
 Revoyez les propriétés SSPR activées sous **Azure Active Directory** > **Réinitialisation du mot de passe** pour vous assurer que les attributions correctes d’utilisateur et de groupe sont ont été effectuées. 

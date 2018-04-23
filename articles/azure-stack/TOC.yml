@@ -55,11 +55,11 @@
         - name: Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack
           href: azure-stack-pki-certs.md
           items:
-            - name: Obtenir des certificats PKI Azure Stack
+            - name: Générer des certificats d’infrastructure à clé publique
               href: azure-stack-get-pki-certs.md
             - name: Préparer des certificats PKI Azure Stack
               href: azure-stack-prepare-pki-certs.md
-            - name: Valider des certificats PKI Azure Stack
+            - name: Valider des certificats d’infrastructure à clé publique
               href: azure-stack-validate-pki-certs.md
         - name: Intégration des identités
           href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: "Validation pour Azure\_Stack"
           href: azure-stack-diagnostic-test.md
-        - name: Redéployer le Kit de développement Azure Stack
-          href: azure-stack-redeploy.md
 - name: Informations de référence
   items:
     - name: Azure Stack PowerShell

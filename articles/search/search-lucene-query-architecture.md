@@ -1,22 +1,19 @@
 ---
-title: "Architecture du moteur de recherche en texte intégral (Lucene) dans la recherche Azure | Microsoft Docs"
-description: "Explication des concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à la recherche Azure."
-services: search
-manager: jhubbard
+title: Architecture du moteur de recherche en texte intégral (Lucene) dans la recherche Azure | Microsoft Docs
+description: Explication des concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à la recherche Azure.
+manager: jlembicz
 author: yahnoosh
-documentationcenter: 
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d05aade97ea5713b63b921d9e39d4df0c30b8fa0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
@@ -363,7 +360,7 @@ L’exemple suivant illustre l’importance de ce facteur. Les recherches avec c
 Il existe deux façons de régler les scores de pertinence dans la recherche Azure :
 
 1. Les **profils de score** promeuvent les documents dans la liste ordonnée des résultats en fonction d’un ensemble de règles. Dans notre exemple, nous pourrions considérer que les documents correspondant au champ Titre sont plus pertinents que les documents correspondant au champ Description. En outre, si notre index comporte un champ Prix pour chaque hôtel, nous aurions pu promouvoir les documents avec un prix inférieur. Pour plus d’informations, voir [Ajouter des profils de notation à un index de recherche.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. La **promotion de termes** (disponible uniquement dans la syntaxe de requête complète Lucene) fournit un opérateur de promotion `^` qui peut être appliqué à d’autres parties de l’arborescence de requête. Dans notre exemple, au lieu de rechercher le préfixe *air condition*\*, on peut rechercher le terme exact *air condition* ou le préfixe, mais les documents qui correspondent au terme exact sont mieux classés lorsqu’on applique la promotion à la requête de terme : *air condition ^ 2 || air condition**. En savoir plus sur la [promotion de termes](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. La **promotion de termes** (disponible uniquement dans la syntaxe de requête complète Lucene) fournit un opérateur de promotion `^` qui peut être appliqué à d’autres parties de l’arborescence de requête. Dans notre exemple, au lieu de rechercher le préfixe *air condition*\*, on peut rechercher le terme exact *air condition* ou le préfixe, mais les documents qui correspondent au terme exact sont mieux classés lorsqu’on applique la promotion à la requête de terme : *air condition^2||air condition**. En savoir plus sur la [promotion de termes](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Notation dans un index distribué

@@ -1,8 +1,8 @@
 ---
-title: "Renouvellement des certificats pour les utilisateurs d’Office 365 et d’Azure AD. | Microsoft Docs"
-description: "Cet article explique aux utilisateurs d’Office 365 comment procéder s’ils reçoivent un e-mail les invitant à renouveler un certificat."
+title: Renouvellement des certificats pour les utilisateurs d’Office 365 et d’Azure AD. | Microsoft Docs
+description: Cet article explique aux utilisateurs d’Office 365 comment procéder s’ils reçoivent un e-mail les invitant à renouveler un certificat.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
 ## <a name="overview"></a>Vue d'ensemble
@@ -89,9 +89,9 @@ Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez l
 
 | AutoCertificateRollover | Certificats synchronisés avec Azure AD | Les métadonnées de fédération sont accessibles publiquement | Validité | Action |
 |:---:|:---:|:---:|:---:|:---:|
-| Oui |Oui |Oui |- |Aucune action n'est nécessaire. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). |
-| Oui |Non |- |Moins de 15 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
-| Non |- |- |Moins de 30 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
+| OUI |OUI |OUI |- |Aucune action n'est nécessaire. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). |
+| OUI |Non  |- |Moins de 15 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
+| Non  |- |- |Moins de 30 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
 
 \[-]  N’a pas d’importance
 
@@ -111,8 +111,7 @@ https://(votre_nom_FS)/federationmetadata/2007-06/federationmetadata.xml
 
 où `(your_FS_name) `est remplacé par le nom d’hôte du service de fédération utilisé par votre organisation, tel que fs.contoso.com.  Si vous êtes parvenu à vérifier la présence de ces deux paramètres, vous n’avez rien d’autre à faire.  
 
-Exemple : https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
+Exemple : https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Renouveler le certificat de signature de jetons manuellement <a name="manualrenew"></a>
 Vous pouvez choisir le renouvellement manuel des certificats de signature de jeton. Par exemple, il se peut que les scénarios fonctionnent mieux pour le renouvellement manuel :
 
@@ -152,8 +151,8 @@ Mettez Office 365 à jour avec les nouveaux certificats de signature de jeton de
 1. Ouvrez le Module Microsoft Azure Active Directory pour Windows PowerShell.
 2. Exécutez la commande $cred=Get-Credential. Lorsque cette applet de commande vous demande des informations d’identification, tapez vos informations d’identification de compte administrateur de services cloud.
 3. Exécutez la commande Connect-MsolService –Credential $cred. Cette applet de commande vous connecte au service cloud. Avant d’exécuter l’une des applets de commande supplémentaires installées par l’outil, vous devez créer un contexte qui vous connecte au service cloud.
-4. Si vous exécutez ces commandes sur un ordinateur autre que le serveur de fédération principal AD FS, exécutez Set-MSOLAdfscontext -Computer <AD FS primary server>, où <AD FS primary server> est le nom de domaine complet interne du serveur AD FS principal. Cette applet de commande crée un contexte qui vous connecte à AD FS.
-5. Exécutez Update-MSOLFederatedDomain –DomainName <domain>. Cette applet de commande met à jour les paramètres d’AD FS dans le service cloud et configure la relation d’approbation entre les deux.
+4. Si vous exécutez ces commandes sur un ordinateur autre que le serveur de fédération principal AD FS, exécutez Set-MSOLAdfscontext -Computer &lt;serveur principal AD FS&gt;, où &lt;serveur principal AD FS&gt; est le nom de domaine complet interne du serveur AD FS principal. Cette applet de commande crée un contexte qui vous connecte à AD FS.
+5. Exécutez Update-MSOLFederatedDomain –DomainName &lt;domaine&gt;. Cette applet de commande met à jour les paramètres d’AD FS dans le service cloud et configure la relation d’approbation entre les deux.
 
 > [!NOTE]
 > Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur **SupportMultipleDomain** avec les applets de commande. Pour plus d’informations, consultez [Prise en charge de plusieurs domaines de premier niveau](active-directory-aadconnect-multiple-domains.md).

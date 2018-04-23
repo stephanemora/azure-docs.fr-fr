@@ -1,23 +1,18 @@
 ---
-title: "Qu’est-ce que la Recherche Azure ? | Microsoft Docs"
-description: "Azure Search est un service de recherche cloud hébergé intégralement géré. En savoir plus dans la vue d'ensemble de cette fonctionnalité."
-services: search
-manager: jhubbard
+title: Qu’est-ce que la Recherche Azure ? | Microsoft Docs
+description: Azure Search est un service de recherche cloud hébergé intégralement géré. En savoir plus dans la vue d'ensemble de cette fonctionnalité.
+manager: cgronlun
 author: HeidiSteen
-documentationcenter: 
-ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: overview
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 2fa637b2119e55f0ad8a0aec3926df11871e7a2a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ad5c60c246c2946e4dd3a5bb6b4d6e8d21d2b03d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-search"></a>Présentation d’Azure Search
 Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant votre contenu dans les applications web, mobiles et d’entreprise.

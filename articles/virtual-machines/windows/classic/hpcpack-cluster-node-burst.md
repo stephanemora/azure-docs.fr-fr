@@ -1,11 +1,11 @@
 ---
-title: "Ajouter des nœuds d’extension à un cluster HPC Pack | Microsoft Docs"
-description: "Apprenez à augmenter un cluster HPC Pack à la demande dans Azure en ajoutant des instances de rôle de travail s’exécutant dans un service cloud"
+title: Ajouter des nœuds d’extension à un cluster HPC Pack | Microsoft Docs
+description: Apprenez à augmenter un cluster HPC Pack à la demande dans Azure en ajoutant des instances de rôle de travail s’exécutant dans un service cloud
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,24 +15,25 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Ajouter des nœuds d’extension sur demande à un cluster HPC Pack dans Azure
 Si vous avez configuré un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) dans Azure, vous aurez peut-être besoin d’une solution permettant de mettre rapidement à l’échelle sa capacité en l’augmentant ou en la réduisant, sans avoir à conserver un ensemble de machines virtuelles de nœud de calcul préconfiguré. Cet article vous montre comment ajouter des nœuds « d’extension » à la demande (instances de rôle de travail en cours d’exécution dans un service cloud) en tant que ressources de calcul à un nœud principal dans Azure. 
 
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Nœuds d’extension][burst]
 
 Les étapes décrites dans cet article vous aident à ajouter rapidement des nœuds Azure à une machine virtuelle à nœud principal HPC Pack basée sur le cloud en vue d’un test ou d’un déploiement pour validation technique. La procédure générale est la même que la procédure « d’extension à Azure » pour ajouter de la capacité de calcul de cloud à un cluster HPC Pack local. Pour obtenir un didacticiel, consultez [Configuration d’un cluster de calcul hybride avec Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Pour obtenir des instructions et considérations détaillées sur les déploiements de production, consultez [Extension à Azure avec Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : vous pouvez utiliser une machine virtuelle à nœud principal autonome ou une machine virtuelle faisant partie d’un cluster plus grand. Pour créer un nœud principal autonome, consultez [Déployer un nœud principal HPC Pack dans une machine virtuelle Azure](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pour connaître les options de déploiement de cluster HPC Pack automatisé, consultez la page [Options pour la création et la gestion d’un cluster HPC Windows dans Azure avec Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]
@@ -65,7 +66,7 @@ Pour ce scénario, vous pouvez choisir le **certificat de gestion Azure HPC par 
 
 1. Cliquez sur **Abonnements** > *nom_de_votre_abonnement*.
 
-2. Cliquez sur **Certificats de gestion** > **Charger**.
+2. Cliquez sur **Certificats de gestion** > **Télécharger**.
 
 Pour obtenir des options supplémentaires pour configurer le certificat de gestion, consultez [Scénarios de configuration du certificat de gestion Azure pour les déploiements d’extension Azure](http://technet.microsoft.com/library/gg481759.aspx).
 

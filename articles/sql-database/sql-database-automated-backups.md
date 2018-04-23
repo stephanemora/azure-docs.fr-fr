@@ -2,19 +2,20 @@
 title: Sauvegardes Azure SQL Database automatiques ou géoredondantes | Microsoft Docs
 description: SQL Database crée automatiquement une sauvegarde de base de données locale toutes les cinq minutes et utilise le stockage géoredondant avec accès en lecture pour fournir la géoredondance.
 services: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: Active
-ms.date: 07/05/2017
-ms.author: carlrab
-ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>En savoir plus sur les sauvegardes automatiques SQL Database
 
@@ -22,7 +23,7 @@ SQL Database crée automatiquement des sauvegardes de base de données et utilis
 
 ## <a name="what-is-a-sql-database-backup"></a>Qu’est-ce qu’une sauvegarde SQL Database ?
 
-SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://msdn.microsoft.com/library/ms186289.aspx), [différentielles](https://msdn.microsoft.com/library/ms175526.aspx) et du [journal des transactions](https://msdn.microsoft.com/library/ms191429.aspx). Les sauvegardes du journal des transactions se produisent, en général, toutes les 5 à 10 minutes. La fréquence varie selon le niveau de performance et l’activité de la base de données. Les sauvegardes du journal des transactions, avec les sauvegardes complètes et différentielles, vous permettent de restaurer une base de données à un point spécifique sur le même serveur qui héberge la base de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
+SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://msdn.microsoft.com/library/ms186289.aspx), [différentielles](https://msdn.microsoft.com/library/ms175526.aspx) et du [journal des transactions](https://msdn.microsoft.com/library/ms191429.aspx) dans le cadre de la limite de restauration dans le temps. Les sauvegardes du journal des transactions se produisent, en général, toutes les 5 à 10 minutes. La fréquence varie selon le niveau de performance et l’activité de la base de données. Les sauvegardes du journal des transactions, avec les sauvegardes complètes et différentielles, vous permettent de restaurer une base de données à un point spécifique sur le même serveur qui héberge la base de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
 
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :
@@ -30,7 +31,7 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 * Restaure une base de données à un point dans le temps dans la période de rétention. Cette opération crée une base de données dans le même serveur que la base de données d’origine.
 * Restaurer une base de données supprimée sur le moment où elle été supprimée ou tout moment pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le même serveur où la base de données d’origine a été créée.
 * Restaurer une base de données dans une autre région géographique. Ceci vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier. 
-* Restaurer une base de données à partir d’une sauvegarde spécifique stockée dans le coffre Azure Recovery Services. Ceci vous permet de restaurer une ancienne version de la base de données pour répondre à une demande de conformité ou exécuter une ancienne version de l’application. Consultez [Rétention à long terme](sql-database-long-term-retention.md).
+* Restaurer une base de données à partir d’une sauvegarde à long terme spécifique si la base de données a été configurée avec une stratégie de rétention à long terme. Ceci vous permet de restaurer une ancienne version de la base de données pour répondre à une demande de conformité ou exécuter une ancienne version de l’application. Consultez [Rétention à long terme](sql-database-long-term-retention.md).
 * Pour effectuer une restauration, consultez [Restauration de la base de données à partir de la sauvegarde](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -49,10 +50,14 @@ Chaque sauvegarde SQL Database a une période de rétention qui est basée sur l
 * Niveau de service De base : 7 jours.
 * Niveau de service Standard : 35 jours.
 * Niveau de service Premium : 35 jours.
+* Pour le niveau Usage général, une période de 35 jours maximum peut être configurée (7 jours par défaut)*.
+* Pour le niveau Critique pour l’entreprise (préversion), une période de 35 jours maximum peut être configurée (7 jours par défaut)*.
 
-Si vous rétrogradez votre base de données des niveaux de service Standard ou Premium au niveau De base, les sauvegardes sont conservées sept jours. Toutes les sauvegardes existantes d’une ancienneté supérieure à sept jours ne sont plus disponibles. 
+\* Pendant la préversion, la période de rétention des sauvegardes n’est pas configurable et est fixée à 7 jours.
 
-Si vous mettez à niveau votre base de données du niveau De base vers le niveau Standard ou Premium, SQL Database conserve les sauvegardes existantes jusqu’à ce que leur ancienneté soit de 35 jours. Il conserve les nouvelles sauvegardes pendant 35 jours.
+Si vous convertissez une base de données en une base de données présentant une période de rétention plus courte, toutes les sauvegardes plus anciennes que la période de rétention du niveau cible ne sont plus disponibles.
+
+Si vous mettez à niveau une base de données vers une base de données présentant une période de rétention plus longue, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention en question soit atteinte. 
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, supposons que vous supprimez une base de données qui a une période de rétention de sept jours. Une sauvegarde dont l’ancienneté est de quatre jours est conservée trois jours de plus.
 
@@ -61,17 +66,17 @@ Si vous supprimez une base de données, SQL Database conserve les sauvegardes de
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Comment étendre la période de rétention de la sauvegarde ?
-Si votre application nécessite que les sauvegardes soient disponibles pendant une période de temps plus longue, vous pouvez étendre la période de rétention intégrée en configurant la stratégie de rétention de sauvegarde à long terme pour les bases de données individuelles (stratégie LTR). Cela vous permet d’étendre la période de rétention intégrée de 35 jours à 10 ans. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
-Une fois que vous ajoutez la stratégie LTR à une base de données à l’aide de l’API ou du portail Azure, les sauvegardes de base de données complètes hebdomadaires sont copiées automatiquement dans votre propre coffre de service Sauvegarde Azure. Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont automatiquement chiffrées au repos.  Le coffre des services supprime automatiquement vos sauvegardes ayant expiré en fonction de leur horodatage et de la stratégie LTR.  Vous n’avez pas besoin de gérer la planification des sauvegardes ni de vous préoccuper du nettoyage des anciens fichiers. L’API de restauration prend en charge les sauvegardes stockées dans le coffre tant que celui-ci se trouve dans le même abonnement que votre base de données SQL. Vous pouvez utiliser le portail Azure ou PowerShell pour accéder à ces sauvegardes.
+Si votre application nécessite que les sauvegardes soient disponibles pendant une période plus longue que la limite maximale de restauration dans le temps, vous pouvez configurez une stratégie de rétention des sauvegardes à long terme pour des bases de données individuelles (stratégie LTR). Cela permet d’étendre la période de rétention intégrée de 35 jours maximum à 10 ans. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
-> [!TIP]
-> Pour obtenir une procédure, consultez [Configurer et restaurer à partir de la rétention des sauvegardes à long terme de base de données SQL Azure](sql-database-long-term-backup-retention-configure.md)
->
+Une fois que vous ajoutez la stratégie LTR à une base de données à l’aide de l’API ou du portail Azure, les sauvegardes de base de données complètes hebdomadaires sont copiées automatiquement dans un conteneur de stockage RA-GRS distinct aux fins de rétention à long terme. Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont automatiquement chiffrées au repos. SQL Database supprime automatiquement vos sauvegardes ayant expiré en fonction de leur horodatage et de la stratégie LTR. Une fois la stratégie configurée, vous n’avez pas besoin de gérer la planification des sauvegardes ni de vous préoccuper du nettoyage des anciens fichiers. Vous pouvez utiliser le portail Azure ou PowerShell pour afficher, restaurer ou supprimer ces sauvegardes.
 
 ## <a name="are-backups-encrypted"></a>Les sauvegardes sont-elles chiffrées ?
 
 Lorsque le TDE est activé pour une base de données SQL Azure, les sauvegardes sont également chiffrées. Le TDE est configuré par défaut sur l’ensemble des nouvelles bases de données SQL Azure. Pour en savoir plus sur le TDE, consultez la page [Chiffrement transparent des données avec Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>Les sauvegardes automatiques respectent-elles les exigences du RGPD ?
+Si la sauvegarde contient des données personnelles, qui sont soumises au Règlement général sur la protection des données (RGPD), vous devez appliquer des mesures de sécurité renforcées pour protéger les données contre tout accès non autorisé. Pour vous conformer au RGPD, vous devez pouvoir gérer les demandes de données des propriétaires de données sans avoir à accéder aux sauvegardes.  Pour les sauvegardes à court terme, vous pouvez par exemple réduire la fenêtre de sauvegarde à une période inférieure au délai maximal autorisé pour répondre aux demandes d’accès aux données, soit 30 jours.  Si vous avez besoin de sauvegardes à plus long terme, il est recommandé de stocker uniquement des données « pseudonymisées » dans les sauvegardes. Si des données relatives à une personne doivent par exemple être supprimées ou mises à jour, il ne sera alors par nécessaire de supprimer ou de mettre à jour les sauvegardes existantes. Pour plus d’informations sur les meilleures pratiques en matière de RGPD, consultez [Data Governance for GDPR Compliance](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html) (Gouvernance des données pour la conformité au RGPD).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

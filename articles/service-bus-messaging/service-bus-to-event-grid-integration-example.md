@@ -189,7 +189,7 @@ Connectez une application logique avec Azure Service Bus et Azure Event Grid en 
 
 1. Créez une application logique dans le portail Azure et sélectionnez **Event Grid** comme action de démarrage.
 
-    ![13.][]
+    ![13][]
 
     La fenêtre du concepteur Logic Apps s’ouvre.
 

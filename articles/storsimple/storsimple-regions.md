@@ -1,12 +1,12 @@
 ---
-title: "Disponibilité dans la région StorSimple | Microsoft Docs"
-description: "Décrit les régions Azure dans lesquelles les différents modèles d’appareil StorSimple sont disponibles."
+title: Disponibilité dans la région StorSimple | Microsoft Docs
+description: Décrit les régions Azure dans lesquelles les différents modèles d’appareil StorSimple sont disponibles.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -68,7 +68,7 @@ Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponibl
 
 | #  | Pays        | #  | Pays     | #  | Pays      | #  | Pays              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australie      | 16 | Hong Kong   | 31 | Nouvelle-Zélande  | 46 | Afrique du Sud         |
+| 1  | Australie      | 16 | Hong Kong (R.A.S.)   | 31 | Nouvelle-Zélande  | 46 | Afrique du Sud         |
 | 2  | Autriche        | 17 | Hongrie     | 32 | Nigeria      | 47 | Corée du Sud          |
 | 3  | Bahreïn        | 18 | Islande     | 33 | Norvège       | 48 | Espagne                |
 | 4  | Belgique        | 19 | Inde       | 34 | Pérou         | 49 | Sri Lanka            |
@@ -79,9 +79,9 @@ Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponibl
 | 9  | République tchèque | 24 | Japon       | 39 | Qatar        | 54 | Turquie               |
 | 10 | Danemark        | 25 | Kenya       | 40 | Roumanie      | 55 | Ukraine              |
 | 11 | Égypte          | 26 | Koweït      | 41 | Russie       | 56 | Émirats Arabes Unis |
-| 12 | Finlande        | 27 | Macao       | 42 | Arabie Saoudite | 57 | Royaume-Uni       |
+| 12 | Finlande        | 27 | Macao (R.A.S.)       | 42 | Arabie Saoudite | 57 | Royaume-Uni       |
 | 13. | France         | 28 | Malaisie    | 43 | Singapour    | 58 | États-Unis        |
-| 14 | Allemagne        | 29 | Mexique      | 44 | Slovaquie     | 59 | Viêt Nam              |
+| 14 | Allemagne        | 29 | Mexique      | 44 | Slovaquie     | 59 | Vietnam              |
 | 15 | Grèce         | 30 | Pays-bas | 45 | Slovénie     | 60 | Croatie              |
 
 Cette liste évolue au fur et à mesure que de nouveaux pays sont ajoutés. Pour obtenir la liste actualisée des zones géographiques, accédez à l’annexe sur les conditions des groupes de stockage dans les [conditions du produit](https://www.microsoft.com/en-us/Licensing/product-licensing).

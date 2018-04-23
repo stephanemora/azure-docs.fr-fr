@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 
@@ -26,7 +26,7 @@ Les journaux de diagnostic Azure permettent d’afficher l’analytique principa
 
  - Compte de Stockage Azure
  - Hubs d'événements Azure
- - [Référentiel OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Cette fonctionnalité est disponible pour tous les points de terminaison CDN appartenant à des profils CDN Verizon (Standard et Premium) et Akamai (Standard). 
 
@@ -34,7 +34,7 @@ Les journaux de diagnostic Azure vous permettent d’exporter des métriques d�
 
 - Exporter des données vers un stockage d’objets blob, exporter au format CSV et générer des graphiques dans Excel.
 - Exporter des données vers des hubs d’événements et mettre les données en corrélation avec d’autres services Azure.
-- Exporter des données vers Log Analytics et afficher les données dans votre propre espace de travail OMS
+- Exporter des données vers Log Analytics et afficher les données dans votre propre espace de travail Log Analytics
 
 La figure suivante montre une vue des données au moyen de l’analytique principale CDN classique.
 
@@ -68,9 +68,9 @@ Connectez-vous au [Portail Azure](http://portal.azure.com). Si vous n’avez pas
 
 *Figure 2 : activation de la journalisation avec Stockage Azure*
 
-### <a name="logging-with-oms-log-analytics"></a>Journalisation avec OMS Log Analytics
+### <a name="logging-with-log-analytics"></a>Journalisation avec Log Analytics
 
-Pour stocker les journaux à l’aide d’OMS Log Analytics, effectuez les étapes suivantes :
+Pour stocker les journaux à l’aide de Log Analytics, effectuez les étapes suivantes :
 
 1. Dans le panneau **Journaux de diagnostic**, sélectionnez **Envoyer à Log Analytics**. 
 
@@ -84,7 +84,7 @@ Pour stocker les journaux à l’aide d’OMS Log Analytics, effectuez les étap
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Entrez un nouveau nom d’espace de travail OMS. Les noms d’espace de travail OMS doivent être uniques et contenir uniquement des lettres, des chiffres et des traits d’union. Les espaces et les traits de soulignement ne sont pas autorisés. 
+4. Entrez un nouveau nom de l’espace de travail Log Analytics. Les noms d’espace de travail Log Analytics doivent être uniques et contenir uniquement des lettres, des chiffres et des traits d’union. Les espaces et les traits de soulignement ne sont pas autorisés. 
 5. Sélectionnez ensuite un abonnement existant, un groupe de ressources (nouveau ou existant), un emplacement et un niveau tarifaire. Vous pouvez également épingler cette configuration à votre tableau de bord. Cliquez sur **OK** pour achever la configuration.
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ Pour stocker les journaux à l’aide d’OMS Log Analytics, effectuez les étap
 
 6. Cliquez sur **Enregistrer**.
 
-7. Pour afficher votre nouvel espace de travail OMS, accédez à votre tableau de bord dans le portail Azure et cliquez sur le nom de votre espace de travail Log Analytics. Cliquez sur la vignette Portail OMS pour afficher votre espace de travail dans le référentiel OMS. 
+7. Pour afficher votre nouvel espace de travail Log Analytics, accédez à votre tableau de bord du Portail Azure et cliquez sur le nom de votre espace de travail Log Analytics. Cliquez sur la mosaïque du Portail OMS pour afficher votre espace de travail de Log Analytics. 
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    Votre référentiel OMS est maintenant prêt à enregistrer des données. Pour utiliser ces données, vous devez recourir à une [solution OMS](#consuming-oms-log-analytics-data), comme indiqué plus loin dans cet article.
+    Votre espace de travail Log Analytics est maintenant prêt à enregistrer des données. Pour utiliser ces données, vous devez recourir à une [solution Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), comme indiqué plus loin dans cet article.
 
 Pour plus d’informations sur les retards des données de journal, consultez [Retards des données de journal](#log-data-delays).
 
@@ -113,7 +113,7 @@ L’exemple suivant montre comment activer les journaux de diagnostic via les ap
 
 Commencez par vous connecter et sélectionner un abonnement :
 
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
@@ -123,7 +123,7 @@ Pour activer les journaux de diagnostic dans un compte de stockage, utilisez cet
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-Pour activer les journaux de diagnostic dans un espace de travail OMS, utilisez cette commande :
+Pour activer les journaux de diagnostic dans un espace de travail Log Analytics, utilisez cette commande :
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -179,16 +179,16 @@ Voici comment vous pouvez utiliser l’outil :
 4.  Exécutez l’outil.
 5.  Le fichier CSV résultant présente les données d’analyse dans une hiérarchie plate simple.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Utilisation des journaux de diagnostics à partir d’un référentiel OMS Log Analytics
-Log Analytics est un service d’Operations Management Suite (OMS) qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Utilisation des journaux de diagnostic à partir d’un espace de travail Log Analytics
+Log Analytics est un service d’Azure qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources. 
 
-Pour utiliser Log Analytics, vous devez [activer la journalisation](#enable-logging-with-azure-storage) dans le référentiel OMS Log Analytics (voir plus haut dans cet article).
+Pour utiliser Log Analytics, vous devez [activer la journalisation](#enable-logging-with-azure-storage) dans l’espace de travail Log Analytics, discuté plus haut dans cet article.
 
-### <a name="using-the-oms-repository"></a>Utilisation du référentiel OMS
+### <a name="using-the-log-analytics-workspace"></a>Utilisation de l’espace de travail Log Analytics
 
  Le diagramme suivant illustre l’architecture des entrées et sorties du référentiel :
 
-![Référentiel OMS Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Espace de travail Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figure 3 : référentiel OMS Log Analytics*
 
@@ -196,7 +196,7 @@ Vous pouvez afficher les données de plusieurs façons à l’aide des solutions
 
 Vous pouvez installer des solutions de gestion à partir de la Place de marché Azure en cliquant sur le lien **Obtenir maintenant** au bas de chaque solution.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>Ajout d’une solution de gestion CDN d’OMS
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Ajout d’une solution de gestion du CDN dans Log Analytics
 
 Suivez ces étapes pour ajouter une solution de gestion :
 
@@ -219,7 +219,7 @@ Suivez ces étapes pour ajouter une solution de gestion :
 
     ![Afficher tout](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  Après avoir cliqué sur **Créer**, vous êtes invité à créer un espace de travail OMS ou à en utiliser un existant. 
+6.  Après avoir cliqué sur **Créer**, vous êtes invité à créer un espace de travail Log Analytics ou à en utiliser un existant. 
 
     ![Afficher tout](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Suivez ces étapes pour ajouter une solution de gestion :
 
     Cliquez sur l’espace de travail Log Analytics que vous avez créé pour accéder à votre espace de travail. 
 
-11. Cliquez sur la vignette **Portail OMS** pour afficher votre nouvelle solution dans le portail OMS.
+11. Cliquez sur la mosaïque **Portail OMS** pour afficher votre nouvelle solution.
 
     ![Afficher tout](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. Votre portail OMS doit maintenant ressembler à la capture d’écran suivante :
+12. Votre portail doit maintenant ressembler à l’écran suivant :
 
     ![Afficher tout](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Suivez ces étapes pour ajouter une solution de gestion :
 
 ### <a name="offers-and-pricing-tiers"></a>Offres et niveaux tarifaires
 
-Vous pouvez voir des offres et des niveaux tarifaires pour les solutions de gestion OMS [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Vous pouvez afficher des offres et des niveaux tarifaires pour les solutions de gestion [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Personnalisation des vues
 
-Vous pouvez personnaliser la vue de vos données à l’aide du **Concepteur de vues**. Pour commencer la conception, accédez à votre espace de travail OMS, puis cliquez sur la vignette **Concepteur de vues**.
+Vous pouvez personnaliser la vue de vos données à l’aide du **Concepteur de vues**. Pour commencer la conception, accédez à votre espace de travail Log Analytics, puis cliquez sur la mosaïque **Concepteur de vues**.
 
 ![Concepteur de vues](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -410,7 +410,7 @@ Exemple de propriétés :
 
 * [Journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core Analytics via le portail supplémentaire Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [API REST Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

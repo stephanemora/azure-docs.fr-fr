@@ -1,25 +1,19 @@
 ---
-title: "Didacticiel Recherche Azure sur l’indexation, l’interrogation et le filtrage à l’aide du portail | Microsoft Docs"
-description: "Dans le portail Azure, utilisez les exemples de données prédéfinis pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage."
-services: search
-documentationcenter: 
+title: Didacticiel Recherche Azure sur l’indexation, l’interrogation et le filtrage à l’aide du portail | Microsoft Docs
+description: Dans le portail Azure, utilisez les exemples de données prédéfinis pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Créer, interroger et filtrer un index Recherche Azure dans le portail
 
@@ -37,6 +31,7 @@ Cette présentation dénuée de code est destinée à vous familiariser avec les
 Vous pouvez également commencer en vous aidant d’une [introduction à la programmation basée sur le code du service Recherche Azure dans .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Ce didacticiel repose sur le principe que vous disposez [d’un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et du [service Recherche Azure](search-create-service-portal.md). 
 

@@ -1,11 +1,11 @@
 ---
-title: "Déboguer vos API à l’aide du suivi des demandes dans la Gestion des API Azure | Microsoft Docs"
-description: "Suivez les étapes de ce didacticiel pour apprendre à inspecter les étapes du traitement des demandes dans la Gestion des API Azure."
+title: Déboguer vos API à l’aide du suivi des demandes dans la Gestion des API Azure | Microsoft Docs
+description: Suivez les étapes de ce didacticiel pour apprendre à inspecter les étapes du traitement des demandes dans la Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,17 +14,17 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7b9bec7927169b9d820c095a7d11705264e7dcfe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4db89b52a3fa9585572322d546d87513da41c3f0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Déboguer vos API à l’aide du suivi des demandes
 
 Ce didacticiel explique comment inspecter le traitement des demandes pour mieux déboguer et résoudre les problèmes liés à votre API. 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Suivre un appel
@@ -33,10 +33,9 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="trace-a-call"></a>Suivre un appel
 
@@ -60,7 +59,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Suivre un appel

@@ -10,11 +10,11 @@ ms.workload: identity
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: davidmu
-ms.openlocfilehash: 0d3c351ebe70a963db0453538108ae9b2fefef86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8ba511464f8ce0bef2a14706a272f6c09dfe5d07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C : inscription de votre application
 
@@ -132,7 +132,7 @@ Pour supprimer l’application, accédez au [Portail d’inscription des applica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent que vous avez une application inscrite auprès d’Azure AD B2C, vous pouvez suivre l’un des [didacticiels de démarrage rapide](active-directory-b2c-overview.md#get-started) afin de devenir opérationnel.
+À présent que vous avez une application inscrite auprès d’Azure AD B2C, vous pouvez suivre l’un des [didacticiels de démarrage rapide](active-directory-b2c-overview.md) afin de devenir opérationnel.
 
 > [!div class="nextstepaction"]
 > [Créer une application web ASP.NET avec inscription, connexion et réinitialisation de mot de passe](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

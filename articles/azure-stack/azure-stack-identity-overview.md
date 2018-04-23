@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Vue d’ensemble d’une identité pour Azure Stack
 
@@ -169,9 +169,9 @@ Une fois toutes les validations terminées, Azure Resource Manager utilise les r
 
 ### <a name="use-role-based-access-control"></a>Utiliser le contrôle d’accès en fonction du rôle  
 Le contrôle d’accès en fonction du rôle (RBAC) dans Azure Stack est cohérent avec la mise en œuvre dans Microsoft Azure. Vous pouvez gérer l’accès aux ressources en assignant le rôle RBAC approprié aux utilisateurs, groupes et applications. Pour plus d’informations sur l’utilisation de RBAC avec Azure Stack, consultez les articles suivants :
-- [Découvrir le contrôle d’accès en fonction du rôle dans le portail Azure](/azure/active-directory/role-based-access-control-what-is).
-- [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](/azure/active-directory/role-based-access-control-configure).
-- [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](/azure/active-directory/role-based-access-control-custom-roles).
+- [Découvrir le contrôle d’accès en fonction du rôle dans le portail Azure](/azure/role-based-access-control/overview).
+- [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](/azure/role-based-access-control/role-assignments-portal).
+- [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](/azure/role-based-access-control/custom-roles).
 - [Gérer le contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md) dans Azure Stack.
 
 

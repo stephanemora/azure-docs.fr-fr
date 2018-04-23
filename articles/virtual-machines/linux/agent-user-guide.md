@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble de l’agent de machine virtuelle Linux Azure | Microsoft Docs"
-description: "Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure."
+title: Vue d’ensemble de l’agent de machine virtuelle Linux Azure | Microsoft Docs
+description: Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Présentation et utilisation de l’agent Linux Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -62,7 +62,7 @@ L’agent Microsoft Azure Linux (waagent) gère l’approvisionnement de Linux e
 * **Extension de machine virtuelle**
   
   * Injection de composants créés par Microsoft et ses partenaires dans la machine virtuelle Linux pour activer les logiciels et l’automatisation de la configuration
-  * Implémentation de référence de l’extension de machine virtuelle à l’adresse [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implémentation de référence d’extension de machine virtuelle sur [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Communication
 Le flux d'informations de la plateforme à l'agent se produit via deux canaux :
@@ -163,7 +163,7 @@ Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent
 Les diverses options de configuration sont décrites de manière détaillée ci-dessous. Elles sont de trois types : Boolean, String ou Integer. Les options de configuration Boolean peuvent être spécifiées à l'aide de « y » (oui) ou « n » (non). Le mot clé « None » (Aucun) peut être utilisé dans le cas de certaines entrées de type chaîne comme décrit ci-dessous.
 
 **Provisioning.Enabled :**  
-Type : booléen  
+Type : booléen  
 Par défaut : y
 
 L'utilisateur peut activer ou désactiver la fonctionnalité d'approvisionnement dans l'agent. Les valeurs valides sont « y » ou « n ». Si l'approvisionnement est désactivé, les clés d'utilisateur et d'hôte SSH dans l'image sont conservées et toute configuration spécifiée dans l'API d'approvisionnement Azure est ignorée.
@@ -174,13 +174,13 @@ L'utilisateur peut activer ou désactiver la fonctionnalité d'approvisionnement
 > 
 
 **Provisioning.DeleteRootPassword :**  
-Type : booléen  
+Type : booléen  
 Par défaut : n
 
 Si elle est définie, le mot de passe racine dans le fichier /etc/shadow est effacé au cours du processus d'approvisionnement.
 
 **Provisioning.RegenerateSshHostKeyPair :**  
-Type : booléen  
+Type : booléen  
 Par défaut : y
 
 Si elle est définie, toutes les paires de clés d'hôte SSH (ecdsa, dsa et rsa) sont supprimées de /etc/ssh/ au cours du processus d'approvisionnement. Une nouvelle paire de clés unique est générée.
@@ -200,13 +200,13 @@ Par défaut : y
 Si elle est définie, waagent surveille la machine virtuelle Linux en vue de détecter des modifications de nom d'hôte (comme renvoyé par la commande « hostname ») et met automatiquement à jour la configuration de mise en réseau dans l'image afin de refléter la modification. Afin de transmettre la modification de nom aux serveurs DNS, la mise en réseau est redémarrée sur la machine virtuelle. La connexion Internet est alors brièvement interrompue.
 
 **Provisioning.DecodeCustomData**  
-Type : booléen  
+Type : booléen  
 Par défaut : n
 
 Si ce paramètre est défini, waagent décodera CustomData en Base64.
 
 **Provisioning.ExecuteCustomData**  
-Type : booléen  
+Type : booléen  
 Par défaut : n
 
 Si ce paramètre est défini, waagent exécute CustomData après l’approvisionnement.
@@ -232,7 +232,7 @@ Valeur par défaut : 10
 Longueur de la chaîne salt aléatoire utilisée lors de la génération du hachage de mot de passe.
 
 **ResourceDisk.Format :**  
-Type : booléen  
+Type : booléen  
 Par défaut : y
 
 Si elle est définie, le disque de ressources fourni par la plateforme est formaté et monté par waagent si le type de système de fichiers demandé par l'utilisateur dans « ResourceDisk.Filesystem » est différent de « ntfs ». Une partition unique de type Linux (83) est mise à la disposition sur le disque. Notez que cette partition n'est pas formatée si elle ne peut pas être correctement montée.
@@ -256,7 +256,7 @@ Par défaut : aucun
 Spécifie les options de montage de disque à transmettre à la commande mount -o. Les valeurs de cette liste sont séparées par des virgules, par exemple 'nodev,nosuid'. Pour plus d’informations, consultez mount(8).
 
 **ResourceDisk.EnableSwap :**  
-Type : booléen  
+Type : booléen  
 Par défaut : n
 
 Si elle est définie, un fichier d'échange (/swapfile) est créé sur le disque de ressources et est ajouté à l'espace d'échange système.
@@ -268,13 +268,13 @@ Par défaut : 0
 Taille du fichier d'échange en mégaoctets.
 
 **Logs.Verbose :**  
-Type : booléen  
+Type : booléen  
 Par défaut : n
 
 Si elle est définie, le niveau de détail du journal est optimisé. Waagent enregistre dans /var/log/waagent.log et exploite la fonctionnalité logrotate du système pour faire tourner les journaux.
 
 **OS.EnableRDMA**  
-Type : booléen  
+Type : booléen  
 Par défaut : n
 
 Si ce paramètre est défini, l’agent tente de s’installer, puis charge un pilote de noyau RDMA qui correspond à la version du microprogramme sur le matériel sous-jacent.

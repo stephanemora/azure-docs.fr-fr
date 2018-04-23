@@ -1,12 +1,11 @@
 ---
-title: "Modélisation de données de document pour une base de données NoSQL | Microsoft Docs"
-description: "Découvrir la modélisation des données pour les bases de données NoSQL"
-keywords: "modélisation des données"
+title: Modélisation de données de document pour une base de données NoSQL | Microsoft Docs
+description: Découvrir la modélisation des données pour les bases de données NoSQL
+keywords: modélisation des données
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: mimig1
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
-ms.author: arramac
-ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: 8704c8b9278406b56475d30d149e33055278ef70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modélisation de données de document pour des bases de données NoSQL
 Bien que les bases de données exemptes de schéma, comme Azure Cosmos DB, rendent très facile l’adoption des modifications apportées à votre modèle de données, vous devez quand même prendre le temps de réfléchir à vos données. 

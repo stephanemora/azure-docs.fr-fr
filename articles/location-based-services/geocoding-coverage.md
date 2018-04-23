@@ -97,12 +97,12 @@ Azure Location Based Services (LBS) fournit des informations de géocodage déta
 | Fidji |                 |                |              |      ✓     |          ✓         |
 | Polynésie française                                    |                 |                |              |      ✓     |          ✓         |
 | Heard et McDonald (îles)                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hong Kong (R.A.S.)                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésie                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Japon                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macao (R.A.S.)                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaisie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronésie |                 |                |              |      ✓     |          ✓         |
 | Mongolie                                            |                 |                |              |      ✓     |          ✓         |
@@ -121,7 +121,7 @@ Azure Location Based Services (LBS) fournit des informations de géocodage déta
 | Philippines                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Île Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
-| Îles Senkaku                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Îles Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapour                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Salomon (îles)                                     |                 |                |              |      ✓     |          ✓         |
 | Corée du Sud                                         |                 |                |              |      ✓     |          ✓         |
@@ -135,7 +135,7 @@ Azure Location Based Services (LBS) fournit des informations de géocodage déta
 | Turques-et-Caïques (îles)                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
-| Viêt Nam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Wallis et Futuna|                 |                |              |      ✓     |          ✓         |
 | |                 |                |              |            |                    |
 | **Europe**                                              |                 |                |              |            |                    |
@@ -147,7 +147,7 @@ Azure Location Based Services (LBS) fournit des informations de géocodage déta
 | Belgique                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnie-Herzégovine                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgarie                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Biélorussie|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bélarus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croatie                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chypre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | République tchèque                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -176,7 +176,7 @@ Azure Location Based Services (LBS) fournit des informations de géocodage déta
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituanie                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxembourg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macédoine (Ex-République yougoslave de)                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| République de Macédoine                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Malte                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -214,7 +214,7 @@ Azure Location Based Services (LBS) fournit des informations de géocodage déta
 | Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Cameroun                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Cap-Vert|                 |                |       ✓      |      ✓     |          ✓         |
+| Cabo Verde|                 |                |       ✓      |      ✓     |          ✓         |
 | République centrafricaine                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Tchad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |

@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/19/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4928f1b92e84fc2b960c1f41e7531de9e346dfa2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Comment supprimer le lien de votre compte Automation dans un espace de travail Log Analytics
 
@@ -21,16 +21,27 @@ Azure Automation s’intègre dans Log Analytics non seulement pour assurer une 
 * [Gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)
 * [Suivi des modifications](../log-analytics/log-analytics-change-tracking.md)
 * [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
- 
-Si vous ne souhaitez plus intégrer votre compte Automation dans Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure.  Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir.  Consultez la rubrique relative à la solution que vous avez importée pour comprendre sa procédure de suppression.  
+
+Si vous ne souhaitez plus intégrer votre compte Automation dans Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure.  Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez la rubrique relative à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 
+> [!NOTE]
+> Certaines solutions, y compris les versions antérieures de la solution d’analyse de SQL Azure ont peut-être créé des ressources d’automatisation et doivent également être supprimées avant d’être de l’espace de travail.
+
 ## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
 
-1. Dans le portail Azure, ouvrez votre compte Automation puis, dans le panneau de ce dernier, sélectionnez **Dissocier l'espace de travail** dans la section **Ressources associées** sur la gauche.<br><br> ![Option Unlink workspace (Supprimer le lien de l’espace de travail)](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
-2. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.<br><br> ![Page Dissocier l’espace de travail](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  Vous recevez une invite de confirmation de la suppression.<br><br>
-3. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
+1. Dans le portail Azure, ouvrez votre compte Automation puis, dans le panneau de ce dernier, sélectionnez **Dissocier l'espace de travail** dans la section **Ressources associées** sur la gauche.
+
+   ![Option Dissocier l’espace de travail](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+
+1. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
+
+   ![Page Dissocier l’espace de travail](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).
+
+   Vous recevez une invite de confirmation de la suppression.
+
+1. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
 
 Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
@@ -40,10 +51,10 @@ Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si
 
 Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pendant les heures creuses, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
-* Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle) 
+* Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
-* variables   
+* variables
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour reconfigurer votre compte Automation et l’intégrer dans OMS Log Analytics, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 
+Pour reconfigurer votre compte Automation et l’intégrer à Log Analytics, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics](automation-manage-send-joblogs-log-analytics.md).

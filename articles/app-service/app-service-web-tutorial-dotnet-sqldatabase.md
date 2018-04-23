@@ -1,11 +1,11 @@
 ---
-title: "Création d’une application ASP.NET dans Azure avec SQL Database | Microsoft Docs"
-description: "Découvrez comment faire fonctionner une application ASP.NET dans Azure en établissant une connexion à une instance SQL Database."
+title: Création d’une application ASP.NET dans Azure avec SQL Database | Microsoft Docs
+description: Découvrez comment faire fonctionner une application ASP.NET dans Azure en établissant une connexion à une instance SQL Database.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Création d’une application ASP.NET dans Azure avec SQL Database
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database
 
 [Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment déployer dans Azure une application web ASP.NET axée sur les données et comment la connecter à [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Lorsque vous avez terminé, vous disposez d’une application ASP.NET exécutée dans Azure et connectée à la base de données SQL.
 
@@ -41,6 +41,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel :
 
 * Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
@@ -48,6 +49,8 @@ Pour suivre ce didacticiel :
   - **Développement Azure**
 
   ![Développement web et ASP.NET et Développement Azure (sous Web et cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Si vous avez déjà installé Visual Studio, ajoutez les charges de travail dans Visual Studio en cliquant sur **Outils** > **Obtenir des outils et des fonctionnalités**.
 
 ## <a name="download-the-sample"></a>Téléchargez l’exemple
 

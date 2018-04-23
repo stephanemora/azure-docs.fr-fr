@@ -1,25 +1,25 @@
 ---
-title: "Utilisation de l’interface de ligne de commande Azure sur Windows | Microsoft Docs"
-description: "Utilisation de l’interface de ligne de commande Azure sur Windows"
+title: Utilisation de l’interface de ligne de commande Azure sur Windows | Microsoft Docs
+description: Utilisation de l’interface de ligne de commande Azure sur Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
-ms.author: nepeters
-ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: cynthn
+ms.openlocfilehash: ece7806dd757ee5169a25ac83590aa4a740d6dcc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Utilisation de l’interface de ligne de commande Azure sur Windows
 

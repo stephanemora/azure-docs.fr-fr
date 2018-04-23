@@ -96,7 +96,7 @@
     - name: Création d’applications
       href: service-fabric-choose-framework.md
       items:
-        - name: Conteneurs
+        - name: Containers
           href: service-fabric-containers-overview.md
           items:
             - name: Docker Compose (préversion)
@@ -201,6 +201,8 @@
       items:
         - name: Sécurité des clusters
           href: service-fabric-cluster-security.md
+        - name: Mise à l'échelle
+          href: service-fabric-cluster-scaling.md
         - name: Différences de fonctionnalités entre Linux et Windows
           href: service-fabric-linux-windows-differences.md
         - name: Clusters sur Azure
@@ -236,6 +238,8 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Mouvement de service
               href: service-fabric-cluster-resource-manager-movement-cost.md
+            - name: Services de mise à l’échelle automatique
+              href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: Surveillance et diagnostics
       items:
         - name: Vue d’ensemble de la surveillance
@@ -259,8 +263,6 @@
           href: service-fabric-health-introduction.md
         - name: Créer des rapports sur les événements d’intégrité
           href: service-fabric-report-health.md
-        - name: Surveiller avec OMS
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Intégration avec la gestion des API
       href: service-fabric-api-management-overview.md
 - name: Procédures
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Pilotes de journalisation et de volume
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Afficher les journaux d’un conteneur
+              href: service-fabric-containers-view-logs.md
             - name: Services à l’intérieur des conteneurs
               href: service-fabric-services-inside-containers.md
             - name: Modes de mise en réseau du conteneur
@@ -401,6 +405,10 @@
               href: service-fabric-securing-containers.md
             - name: Configurer le gMSA pour les conteneurs Windows
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Configurer des sauvegardes périodiques (Clusters sur Azure)
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: Configurer des sauvegardes périodiques (Clusters autonomes)
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: Migrer l’ancienne application Java pour prendre en charge Maven
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Travailler dans un environnement de développement Windows/VS
@@ -539,8 +547,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Se connecter à un cluster sécurisé
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Corriger des nœuds de cluster
+        - name: Corriger des nœuds de cluster (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Corriger des nœuds de cluster (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: Surveiller et diagnostiquer
       items:
         - name: "Analyser avec\_OMS"
@@ -549,6 +559,8 @@
               href: service-fabric-diagnostics-oms-setup.md
             - name: Ajouter l’agent OMS
               href: service-fabric-diagnostics-oms-agent.md
+            - name: Surveiller avec OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
             - name: Analyser les conteneurs
               href: service-fabric-diagnostics-oms-containers.md
         - name: "Analyser avec\_Application\_Insights"

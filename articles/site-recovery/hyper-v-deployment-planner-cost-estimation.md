@@ -1,6 +1,6 @@
 ---
-title: "Détails d’estimation de coût du planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure| Microsoft Docs"
-description: "Cet article décrit le détail de l’estimation du coût d’un rapport généré par le planificateur de déploiement Azure Site Recovery pour un scénario de déploiement de Hyper-V vers Azure."
+title: Détails d’estimation de coût du planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure| Microsoft Docs
+description: Cet article décrit le détail de l’estimation du coût d’un rapport généré par le planificateur de déploiement Azure Site Recovery pour un scénario de déploiement de Hyper-V vers Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -170,12 +170,12 @@ Le planificateur de déploiement Site Recovery peut générer le rapport de coû
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentin ($)||AUD|Dollar australien ($)||BRL|Réal brésilien (R$)|
 |CAD|Dollar canadien ($)||CHF|Franc suisse (CHF)||DKK|Couronne danoise (kr)|
-|EUR|Euro (€)||GBP|Livre britannique (£)||HKD|Dollar de Hong Kong (HK$)|
+|EUR|Euro (€)||GBP|Livre britannique (£)||HKD|Dollar de Hong Kong (R.A.S.) (HK$)|
 |IDR|Roupie indonésienne (Rp)||INR|Roupie indienne (₹)||JPY|Yen japonais (¥)|
 |KRW|Won coréen (₩)||MXN|Peso mexicain (MXN$)||MYR|Ringgit malais (RM$)|
 |NOK|Couronne norvégienne (kr)||NZD|Dollar néo-zélandais ($)||RUB|Rouble russe (руб)|
 |SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur la protection des [machines virtuelles Hyper-V vers Azure à l’aide de Site Recovery](hyper-v-azure-tutorial.md).

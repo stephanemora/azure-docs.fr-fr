@@ -1,11 +1,11 @@
 ---
 title: API REST Resource Manager | Microsoft Docs
-description: "Une vue d’ensemble des exemples d’authentification et de cas d’utilisation des API REST Resource Manager"
+description: Une vue d’ensemble des exemples d’authentification et de cas d’utilisation des API REST Resource Manager
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e8d7a1d2-1e82-4212-8288-8697341408c5
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -249,6 +249,6 @@ Content-Type: application/json
 
 La réponse JSON longue pour cette requête a été omise afin d’améliorer la lisibilité de cette documentation. La réponse contient des informations sur le déploiement basé sur un modèle que vous avez créé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour en savoir plus sur la gestion des opérations REST asynchrones, consultez [Suivre les opérations asynchrones Azure](resource-manager-async-operations.md).

@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble d’Azure Operational Security | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble de l’infrastructure Azure Operational Security."
+title: Vue d’ensemble d’Azure Operational Security | Microsoft Docs
+description: Cet article fournit une vue d’ensemble de l’infrastructure Azure Operational Security.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 Azure Operational Security renvoie aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) est une infrastructure qui intègre les connaissances acquises via différentes fonctionnalités spécifiques de Microsoft, notamment Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces.
@@ -65,7 +65,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 -   assure la centralisation de la gestion de l’accès, l’authentification unique et le compte-rendu ;
 -   prend en charge la gestion intégrée de l’accès à des [milliers d’applications](https://azure.microsoft.com/marketplace/active-directory/) dans la galerie d’applications, notamment à Salesforce, Google Apps, Box, Concur et bien d’autres encore.
 
-Azure AD inclut également une suite complète de [fonctionnalités de gestion d’identité](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), comme l’[authentification multifacteur](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), l’[inscription d’appareil]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), la [gestion de mot de passe libre-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), la [gestion de groupes libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), la [gestion des comptes privilégiés](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), le [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is), la [surveillance de l’utilisation de l’application](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), ainsi que la [création d’audits complets](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), la [surveillance de la sécurité et la création d’alertes](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+Azure AD inclut également une suite complète de [fonctionnalités de gestion d’identité](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), comme l’[authentification multifacteur](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), l’[inscription d’appareil]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), la [gestion de mot de passe libre-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), la [gestion de groupes libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), la [gestion des comptes privilégiés](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), le [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview), la [surveillance de l’utilisation de l’application](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), ainsi que la [création d’audits complets](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), la [surveillance de la sécurité et la création d’alertes](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
 
 Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) présentent des fonctionnalités identiques de gestion de l’identité et de l’accès. Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
 
@@ -80,7 +80,7 @@ Avec Azure Active Directory, toutes les applications que vous publiez pour vos p
 -   Validation du chiffrement de disque
 -   Attaques réseau
 
-Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) qui fournit des [rôles intégrés](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) susceptibles d’être affectés à des utilisateurs, des groupes et des services dans Azure.
+Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) qui fournit des [rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) susceptibles d’être affectés à des utilisateurs, des groupes et des services dans Azure.
 
 Security Center évalue la configuration de vos ressources pour identifier les vulnérabilités et les problèmes de sécurité. Dans Security Center, vous ne voyez les informations relatives à une ressource que lorsque vous avez reçu le rôle de propriétaire, de collaborateur ou de lecteur pour l’abonnement ou le groupe de ressources auquel appartient la ressource.
 

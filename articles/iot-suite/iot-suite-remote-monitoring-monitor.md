@@ -1,7 +1,7 @@
 ---
-title: "Surveillance avancée dans la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Ce didacticiel vous montre comment surveiller les appareils à l’aide du tableau de bord de la solution de surveillance à distance."
-services: 
+title: Surveillance avancée dans la solution de surveillance à distance - Azure | Microsoft Docs
+description: Ce didacticiel vous montre comment surveiller les appareils à l’aide du tableau de bord de la solution de surveillance à distance.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -99,7 +99,7 @@ La page **Tableau de bord** affiche les KPI du système :
 
 Vous pouvez utiliser le filtre des **KPI du système** pour ajuster la période d’agrégation des KPI. Par défaut, le panneau affiche les KPI agrégés pendant la dernière heure écoulée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment utiliser la page **Tableau de bord** pour filtrer et surveiller les camions simulés approvisionnés dans votre solution de surveillance à distance :
 

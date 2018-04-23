@@ -3,9 +3,8 @@ title: 'Stockage Table Azure : créer une application web Node.js | Microsoft Do
 description: Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 6608c9a40c017709be4a482c7825729f8d292715
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Stockage Table Azure : application web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -39,6 +38,15 @@ La capture d’écran suivante présente l’application terminée :
 
 ![Page Web terminée dans Internet Explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
+## <a name="create-an-azure-service-account"></a>Créer un compte de service Azure
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Créer un compte d’API de table Azure Cosmos DB
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
+
 ## <a name="setting-storage-credentials-in-webconfig"></a>Définition des informations d'identification de stockage dans Web.Config
 Vous devez transmettre des informations d’identification de stockage pour accéder au Stockage Azure ou à Azure Cosmos DB. Cette opération s’effectue en utilisant les paramètres d’application de web.config.
 Les paramètres web.config sont transmis en tant que variables d’environnement à Node, qui sont alors lues par le kit SDK Azure.
@@ -55,7 +63,7 @@ Procédez comme suit pour extraire les informations d'identification de stockage
 3. Dans la fenêtre Azure Powershell, entrez l’applet de commande suivante pour extraire les informations de compte de stockage :
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    L’applet de commande précédente permet d’extraire la liste des comptes de stockage et des clés de compte qui sont associés à votre service hébergé.
@@ -342,9 +350,20 @@ Le fichier **layout.jade** du répertoire **views** sert de modèle global aux a
 
 1. Téléchargez les fichiers du [Twitter Bootstrap](http://getbootstrap.com/), puis procédez à l'extraction. Copiez le fichier **bootstrap.min.css** du dossier **bootstrap\\dist\\css** vers le répertoire **public\\stylesheets** de votre application de liste de tâches.
 2. Dans le dossier **views**, ouvrez le fichier **layout.jade** dans votre éditeur de texte et remplacez son contenu par le code suivant :
-
-    doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. Enregistrez le fichier **layout.jade**.
 
 ### <a name="running-the-application-in-the-emulator"></a>Exécution de l'application dans l'émulateur

@@ -1,6 +1,6 @@
 ---
 title: Migrer des machines virtuelles depuis AWS vers Azure avec Azure Site Recovery | Microsoft Docs
-description: "Cet article décrit comment migrer des machines virtuelles s’exécutant dans Amazon Web Services (AWS) vers Azure en utilisant Azure Site Recovery."
+description: Cet article décrit comment migrer des machines virtuelles s’exécutant dans Amazon Web Services (AWS) vers Azure en utilisant Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -252,7 +252,7 @@ Effectuez un basculement réel pour les instances EC2 pour les migrer vers des m
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cette rubrique, vous avez découvert comment migrer des instances AWS EC2 vers des machines virtuelles Azure. Pour plus d’informations sur les machines virtuelles Azure, consultez les didacticiels sur les machines virtuelles Windows.
 

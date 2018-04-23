@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL
 
@@ -102,7 +102,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Ensuite, ajoutez la MSI de la machine virtuelle au groupe.  Vous avez besoin de l’**ObjectId** de la MSI, que vous pouvez obtenir à l’aide d’Azure PowerShell.  Commencez par télécharger [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Ensuite, connectez-vous à l’aide de l’applet de commande `Login-AzureRmAccount`, puis exécutez les commandes suivantes pour :
+Ensuite, ajoutez la MSI de la machine virtuelle au groupe.  Vous avez besoin de l’**ObjectId** de la MSI, que vous pouvez obtenir à l’aide d’Azure PowerShell.  Commencez par télécharger [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Ensuite, connectez-vous à l’aide de l’applet de commande `Connect-AzureRmAccount`, puis exécutez les commandes suivantes pour :
 - vérifier que votre contexte de session est défini sur l’abonnement Azure souhaité si vous en avez plusieurs ;
 - répertorier les ressources disponibles dans votre abonnement Azure, et vérifier que les noms de groupe de ressources et de machine virtuelle sont corrects ;
 - obtenir les propriétés de la MSI de la machine virtuelle, en utilisant les valeurs appropriées pour `<RESOURCE-GROUP>` et `<VM-NAME>`.

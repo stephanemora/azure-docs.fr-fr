@@ -1,8 +1,8 @@
 ---
-title: "Utiliser une action de script pour installer Solr sur HDInsight basé sur Linux - Azure | Documents Microsoft"
-description: "Découvrez comment installer Solr sur des clusters Hadoop HDInsight basés sur Linux à l’aide des actions de script."
+title: Utiliser une action de script pour installer Solr sur HDInsight basé sur Linux - Azure | Documents Microsoft
+description: Découvrez comment installer Solr sur des clusters Hadoop HDInsight basés sur Linux à l’aide des actions de script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Solr sur des clusters HDInsight Hadoop
 
@@ -39,7 +37,7 @@ Découvrez comment installer Solr sur Azure HDInsight en utilisant une action de
 > [!WARNING]
 > Les composants fournis avec le cluster HDInsight sont entièrement pris en charge par Microsoft.
 >
-> Les composants personnalisés, tels que Solr, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Il se peut que le support Microsoft ne soit pas en mesure de résoudre les problèmes avec des composants personnalisés. Vous devrez peut-être contacter les communautés open source pour obtenir de l’aide. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple : [Hadoop](http://hadoop.apache.org/).
+> Les composants personnalisés, tels que Solr, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Il se peut que le support Microsoft ne soit pas en mesure de résoudre les problèmes avec des composants personnalisés. Vous devrez peut-être contacter les communautés open source pour obtenir de l’aide. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple: [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Ce que fait le script
 
@@ -61,7 +59,7 @@ Pour créer un cluster sur lequel Solr est installé, utilisez les étapes décr
 1. Dans la section __Résumé du cluster__ sélectionnez__Paramètres avancés__, puis __Actions de script__. Utilisez les informations suivantes pour remplir le formulaire :
 
    * **NAME**: saisissez un nom convivial pour l’action de script.
-   * **URI du script** : https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **URI DU SCRIPT** : https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: cochez cette option.
    * **WORKER** : cochez cette option
    * **ZOOKEEPER** : cochez cette option pour installer le nœud ZooKeeper
@@ -116,7 +114,7 @@ Procédez comme suit pour ajouter des exemples de données vers Solr, puis proc�
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Cette commande recherche **collection1** pour tous les documents correspondant à  **\*:\***  (encodé sous la forme \*%3A\* dans la chaîne de requête). Le document JSON suivant est un exemple de réponse :
+    Cette commande recherche **collection1** pour tous les documents correspondant à **\*:\*** (encodé sous la forme \*%3A\* dans la chaîne de requête). Le document JSON suivant est un exemple de réponse :
 
             "response": {
                 "numFound": 2,
@@ -194,7 +192,7 @@ Une fois que vous avez établi un tunnel SSH, procédez comme suit pour utiliser
 
         Enregistrez la valeur retournée, car elle est utilisée ultérieurement.
 
-2. Dans votre navigateur, connectez-vous à **http://HOSTNAME:8983/solr/#/**, où **HOSTNAME** correspond au nom que vous avez déterminé aux étapes précédentes.
+2. Dans votre navigateur, connectez-vous à **http://HOSTNAME:8983/solr/#/**, sachant que **HOSTNAME** correspond au nom que vous avez déterminé aux étapes précédentes.
 
     La requête est routée via le tunnel SSH jusqu’à l’interface utilisateur web Solr sur votre cluster. Le page est similaire à l’image suivante :
 
@@ -319,9 +317,9 @@ Pour sauvegarder les données de Solr sur le stockage par défaut pour votre clu
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Pour plus d’informations sur l’utilisation de sauvegardes et de restaurations Solr, consultez [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Pour plus d’informations sur l’utilisation des sauvegardes et restaurations Solr, consultez [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques à l’aide de Hadoop et peut être utilisé avec Azure HDInsight.
 

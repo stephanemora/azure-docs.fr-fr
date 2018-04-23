@@ -1,11 +1,11 @@
 ---
-title: "Concepts clés et présentation de la gestion des API Azure | Microsoft Docs"
+title: Concepts clés et présentation de la gestion des API Azure | Microsoft Docs
 description: Learn about APIs, products, roles, groups, and other API Management key concepts.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -119,7 +119,7 @@ Pour en savoir plus sur la gestion des API, regardez la présentation suivante i
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Terminez le démarrage rapide suivant et commencez à utiliser la Gestion des API Azure :
 

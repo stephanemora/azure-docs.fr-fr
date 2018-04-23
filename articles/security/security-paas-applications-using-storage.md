@@ -1,12 +1,12 @@
 ---
-title: "Sécurisation des applications PaaS à l’aide du stockage Azure | Microsoft Docs"
+title: Sécurisation des applications PaaS à l’aide du stockage Azure | Microsoft Docs
 description: " Découvrez les bonnes pratiques de sécurité du stockage Azure pour protéger vos applications mobiles et web PaaS. "
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Sécurisation des applications mobiles et web PaaS à l’aide du stockage Azure
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité du stockage Azure pour protéger vos applications mobiles et web PaaS. Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
 
 Le [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md) constitue une source précieuse pour obtenir plus d’informations sur la sécurité et le Stockage Azure.  Cet article traite de façon générale certains concepts abordés dans le guide de sécurité et propose des liens vers ce dernier, ainsi que vers d’autres sources.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage"></a>Stockage Azure
 Azure permet de déployer et d’utiliser le stockage plus aisément que dans le cadre d’une configuration locale. Grâce au stockage Azure, vous pouvez atteindre des niveaux élevés de scalabilité et de disponibilité avec relativement peu d’effort. En plus de constituer la base des machines virtuelles Microsoft Azure et Linux, le stockage Azure peut prendre en charge de grandes applications distribuées.
 
 Les services Azure Storage assurent le stockage d’objets blob (Blob Storage), de tables (Table Storage), de files d’attente (Queue Storage) et de fichiers (File Storage). Pour en savoir plus, consultez [Présentation du stockage Microsoft Azure](../storage/storage-introduction.md).
@@ -75,7 +75,7 @@ Pour plus d’informations, consultez [Forum aux questions sur les disques Premi
 
 Nous avons vu plus haut la possibilité d’utiliser une signature d’accès partagé (SAP) pour octroyer aux autres clients un accès limité aux objets dans votre compte de stockage, sans exposer votre clé de compte de stockage. Parfois, les risques associés à une opération particulière sur votre compte de stockage l'emportent sur les avantages offerts par la signature d'accès partagé. Parfois, il est plus simple de gérer l’accès par d’autres moyens.
 
-Une autre façon de gérer l’accès consiste à utiliser le [contrôle d’accès en fonction du rôle dans Azure](../active-directory/role-based-access-control-what-is.md) (RBAC). Avec RBAC, vous vous concentrez sur l’octroi aux employés des autorisations exactes dont ils ont besoin, selon les principes de sécurité de la séparation des privilèges et du besoin de connaître. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. RBAC permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure. Ces principes sont impératifs pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données.
+Une autre façon de gérer l’accès consiste à utiliser le [contrôle d’accès en fonction du rôle dans Azure](../role-based-access-control/overview.md) (RBAC). Avec RBAC, vous vous concentrez sur l’octroi aux employés des autorisations exactes dont ils ont besoin, selon les principes de sécurité de la séparation des privilèges et du besoin de connaître. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. RBAC permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure. Ces principes sont impératifs pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données.
 
 Vous pouvez tirer parti des rôles RBAC intégrés dans Azure pour assigner des privilèges aux utilisateurs. Envisagez l’utilisation du rôle Contributeur de comptes de stockage pour les opérateurs de cloud qui ont besoin de gérer des comptes de stockage, et du rôle Contributeur de comptes de stockage classiques pour ceux qui gèrent des comptes de stockage classiques. Concernant les opérateurs de cloud qui ont besoin de gérer des machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées, envisagez de les ajouter au rôle Collaborateur de machine virtuelle.
 
@@ -83,8 +83,8 @@ Les organisations qui n’appliquent aucun contrôle d’accès aux données via
 
 Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez :
 
-- [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md)
-- [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md)
+- [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md)
+- [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md)
 - [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md) pour plus de détails sur la sécurisation de votre compte de stockage avec RBAC
 
 ## <a name="storage-encryption"></a>Chiffrement du stockage

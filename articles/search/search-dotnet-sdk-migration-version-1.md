@@ -1,23 +1,19 @@
 ---
-title: "Mise à niveau vers la version v1.1 du Kit de développement logiciel (SDK) .NET Recherche Azure | Microsoft Docs"
-description: "Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1"
-services: search
-documentationcenter: 
+title: Mise à niveau vers la version v1.1 du Kit de développement logiciel (SDK) .NET Recherche Azure | Microsoft Docs
+description: Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 387a052a116388cc9ad816ec8b339347d5c28322
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ccefd21e2aa89a2b46129956b3c4417d548cbf32
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1
 
@@ -58,7 +54,7 @@ La liste qui suit est classée selon la probabilité que la modification affecte
 
 `IndexAction` ne contient plus de constructeurs publics et ses propriétés sont immuables. Vous devez utiliser les nouvelles méthodes statiques pour la création d’actions à des fins différentes : `Delete`, `Merge`, `MergeOrUpload` et `Upload`. `IndexAction.Create` a été supprimé. Si vous avez utilisé la surcharge qui accepte uniquement un document, veillez à utiliser `Upload` à la place.
 
-##### <a name="example"></a>Exemple
+##### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
@@ -77,7 +73,7 @@ Si vous le souhaitez, vous pouvez encore le simplifier en le ramenant à ce qui 
 #### <a name="indexbatchexception-changes"></a>Modifications IndexBatchException
 La propriété `IndexBatchException.IndexResponse` a été renommée `IndexingResults`, et son type est désormais `IList<IndexingResult>`.
 
-##### <a name="example"></a>Exemple
+##### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     catch (IndexBatchException e)
@@ -157,7 +153,7 @@ Dans `IndexesOperationsExtensions`:
 #### <a name="scoringparameters-changes"></a>Modifications ScoringParameters
 Une nouvelle classe nommée `ScoringParameter` a été ajoutée à la dernière version du Kit de développement logiciel (SDK) pour faciliter la fourniture de paramètres de profils de score dans une requête de recherche. Précédemment, la propriété `ScoringProfiles` de la classe `SearchParameters` était de type `IList<string>`. À présent, elle est de type `IList<ScoringParameter>`.
 
-##### <a name="example"></a>Exemple
+##### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     var sp = new SearchParameters();
@@ -187,7 +183,7 @@ En raison des modifications de signature décrites dans [Modifications des méth
 
 Pour résumer, les classes dérivées de `OperationResponse`qui servaient uniquement à encapsuler un objet de modèle ont été supprimées. Les classes restantes ont vu leur suffixe passer de `Response` à `Result`.
 
-##### <a name="example"></a>Exemple
+##### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     IndexerGetStatusResponse statusResponse = null;
@@ -302,7 +298,7 @@ Dans les versions antérieures du Kit de développement logiciel (SDK), vous pou
 > 
 > 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 Si vous avez un code qui ressemble à ce qui suit :
 
     client.SetClientRequestId(Guid.NewGuid());

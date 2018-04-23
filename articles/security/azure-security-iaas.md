@@ -1,5 +1,5 @@
 ---
-title: "Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure | Microsoft Docs"
+title: Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure | Microsoft Docs
 description: " La migration des charges de travail vers Azure IaaS nous offre l’occasion de réévaluer nos conceptions "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -52,7 +52,7 @@ Dans le passé, votre périmètre réseau était utilisé pour contrôler l’ac
 
 L’une des mesures les plus intéressantes que vous pouvez prendre pour sécuriser un compte consiste à activer l’authentification à deux facteurs. L’authentification à deux facteurs est une méthode d’authentification qui est complémentaire au mot de passe. Cela permet d’atténuer le risque d’accès par une personne qui serait parvenue à obtenir le mot de passe de quelqu’un d’autre.
 
-[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) contribue à sécuriser l'accès aux données et aux applications tout en répondant à la demande de l'utilisateur d'un processus d'authentification simple. Il fournit une authentification forte via diverses options de vérification simples : appel téléphonique, SMS, notification sur l’application mobile. Les utilisateurs choisissent la méthode qu’ils préfèrent.
+[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) contribue à sécuriser l'accès aux données et aux applications tout en répondant à la demande de l'utilisateur d'un processus d'authentification simple. Il fournit une authentification forte via diverses options de vérification simples : appel téléphonique, SMS, notification sur l’application mobile. Les utilisateurs choisissent la méthode qu’ils préfèrent.
 
 Le moyen le plus simple d’utiliser Multi-Factor Authentication est l’application mobile Microsoft Authenticator, utilisable sur des appareils mobiles sous Windows, iOS et Android. Avec la dernière version de Windows 10 et l’intégration de votre instance Active Directory locale à Azure Active Directory (Azure AD), [Windows Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) peut être utilisé pour une authentification unique transparente auprès des ressources Azure. Dans ce cas, l’appareil Windows 10 sert de second facteur d’authentification.
 
@@ -83,7 +83,7 @@ Vous pouvez utiliser [Privileged Identity Management](../active-directory/active
 
 Utiliser Azure pour les environnements de développement et les labos permet aux organisations de gagner en agilité de test et de développement en éliminant les retards dus à l’approvisionnement en matériel. Malheureusement, l’administrateur peut être trop permissif en ce qui concerne l’affectation des droits en raison d’un manque de connaissance d’Azure ou de la volonté d’accélérer son adoption. Cela peut exposer involontairement l’organisation à des attaques internes. Certains utilisateurs peuvent alors disposer de droits d’accès bien supérieurs à ce qu’ils devraient avoir.
 
-Le service [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) utilise le [contrôle d’accès en fonction du rôle (RBAC) Azure](../active-directory/role-based-access-control-what-is.md). RBAC vous permet de séparer les responsabilités au sein de votre équipe au sein de rôles qui accordent uniquement le niveau d’accès nécessaire pour permettre aux utilisateurs d’effectuer leurs travaux. RBAC est fourni avec des rôles prédéfinis (propriétaire, utilisateur de labo et collaborateur). Vous pouvez même utiliser ces rôles pour affecter des droits à des partenaires externes et simplifier considérablement la collaboration.
+Le service [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) utilise le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). RBAC vous permet de séparer les responsabilités au sein de votre équipe au sein de rôles qui accordent uniquement le niveau d’accès nécessaire pour permettre aux utilisateurs d’effectuer leurs travaux. RBAC est fourni avec des rôles prédéfinis (propriétaire, utilisateur de labo et collaborateur). Vous pouvez même utiliser ces rôles pour affecter des droits à des partenaires externes et simplifier considérablement la collaboration.
 
 Étant donné que DevTest Labs utilise RBAC, il est possible de créer d’autres [rôles personnalisés](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs ne simplifie pas seulement la gestion des autorisations, il simplifie le processus de configuration des environnements. Cela vous permet également de traiter les autres défis types des équipes qui travaillent sur des environnements de développement et de test. Une certaine préparation s’impose mais, à long terme, cela rendra les choses plus faciles pour votre équipe.
 
@@ -118,7 +118,7 @@ Il existe également l’option [de point à site](../vpn-gateway/vpn-gateway-ho
 >[!NOTE]
 >Vous pouvez utiliser l’une des deux options de VPN pour reconfigurer les ACL sur les NSG de façon à interdire l’accès aux points de terminaison de gestion à partir d’Internet.
 
-Une autre option intéressante consiste à envisager un déploiement de type [Passerelle des services Bureau à distance](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md). Vous pouvez utiliser ce déploiement pour vous connecter de manière sécurisée aux serveurs Bureau à distance via HTTPS, tout en appliquant des contrôles plus granulaires à ces connexions.
+Une autre option intéressante consiste à envisager un déploiement de type [Passerelle des services Bureau à distance](../active-directory/authentication/howto-mfaserver-nps-rdg.md). Vous pouvez utiliser ce déploiement pour vous connecter de manière sécurisée aux serveurs Bureau à distance via HTTPS, tout en appliquant des contrôles plus granulaires à ces connexions.
 
 Voici quelques-unes des fonctionnalités auxquelles vous auriez accès :
 

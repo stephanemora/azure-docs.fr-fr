@@ -1,8 +1,8 @@
 ---
-title: "Réplication de machines virtuelles Hyper-V dans des clouds VMM à l’aide d’Azure Site Recovery et de PowerShell (Resource Manager) | Microsoft Docs"
-description: "Réplication de machines virtuelles Hyper-V dans des clouds VMM à l'aide d'Azure Site Recovery et PowerShell"
+title: Réplication de machines virtuelles Hyper-V dans des clouds VMM à l’aide d’Azure Site Recovery et de PowerShell (Resource Manager) | Microsoft Docs
+description: Réplication de machines virtuelles Hyper-V dans des clouds VMM à l'aide d'Azure Site Recovery et PowerShell
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: Rajani-Janaki-Ram
 manager: rochakm
 editor: raynew
@@ -304,5 +304,5 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [En savoir plus](/powershell/module/azurerm.recoveryservices.backup/#recovery) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.

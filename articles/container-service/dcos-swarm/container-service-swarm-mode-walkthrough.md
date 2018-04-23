@@ -1,6 +1,6 @@
 ---
-title: "Guide de démarrage rapide - Cluster Azure Docker CE pour Linux"
-description: "Découvrez rapidement comment créer un cluster Docker CE pour des conteneurs Linux dans Azure Container Service, avec Azure CLI."
+title: Guide de démarrage rapide - Cluster Azure Docker CE pour Linux
+description: Découvrez rapidement comment créer un cluster Docker CE pour des conteneurs Linux dans Azure Container Service, avec Azure CLI.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,7 +8,7 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: nepeters
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: 3c06aaa09366df89ad73cb60780511d2087d5994
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
@@ -164,7 +164,7 @@ Dans ce guide de démarrage rapide, des images de conteneur créées au préalab
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez déployé un cluster Docker Swarm et vous y avez déployé une application de plusieurs conteneurs.
 

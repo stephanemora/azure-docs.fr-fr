@@ -1,11 +1,11 @@
 ---
-title: "Chargement de données dans Azure SQL Data Warehouse – Data Factory | Microsoft Docs"
-description: "Ce didacticiel charge les données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory et utilise une base de données SQL Server comme source de données."
+title: Chargement de données dans Azure SQL Data Warehouse – Data Factory | Microsoft Docs
+description: Ce didacticiel charge les données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory et utilise une base de données SQL Server comme source de données.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Chargement de données dans SQL Data Warehouse avec Data Factory
 
@@ -27,7 +27,8 @@ Vous pouvez utiliser Azure Data Factory pour charger des données dans Azure SQL
 
 **Durée estimée** : ce didacticiel dure environ 10 à 15 minutes une fois les conditions préalables remplies.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 - Vous avez besoin d’une **base de données SQL Server** avec des tables qui contiennent les données à copier dans SQL Data Warehouse.  
 

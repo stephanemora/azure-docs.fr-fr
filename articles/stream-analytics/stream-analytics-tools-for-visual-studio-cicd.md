@@ -1,35 +1,30 @@
 ---
-title: Utiliser les outils Visual Studio Stream Analytics pour configurer le processus de déploiement et d’intégration continus | Microsoft Docs
-description: Didacticiel pour l’utilisation des outils Visual Studio Stream Analytics pour configurer un processus de déploiement et d’intégration continus
-keywords: visual studio, NuGet, DevOps, CI/CD
-documentationcenter: ''
+title: Intégrer et développer en continu avec les outils Stream Analytics
+description: Cet article explique comment utiliser les outils Visual Studio pour Azure Stream Analytics afin de configurer un processus de déploiement et d’intégration continus.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 14bb15f19b517b55281959f0de970e3f5e0d360b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 9/27/2017
+ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Utiliser les outils Visual Studio Stream Analytics pour configurer un processus de déploiement et d’intégration continus
-Dans ce didacticiel, vous allez apprendre à utiliser les outils Azure Visual Studio Stream Analytics pour configurer un processus de déploiement et d’intégration continus.
+# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Intégrer et développer en continu avec les outils Stream Analytics
+Cet article explique comment utiliser les outils Azure Stream Analytics pour Visual Studio afin de configurer un processus de déploiement et d’intégration continus.
 
-La version la plus récente (2.3.0000.0 ou ultérieure) des [outils Stream Analytics pour Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) ajoute la prise en charge de MSBuild.
+Utilisez la version 2.3.0000.0 ou une version ultérieure des [outils Stream Analytics pour Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) pour que MSBuild soit pris en charge.
 
-Il existe également un package NuGet nouvellement publié, [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Il fournit MSBuild, une série locale et des outils de déploiement qui prennent en charge le processus de déploiement et d’intégration continus des projets Visual Studio Stream Analytics. 
+Un package NuGet est également disponible : [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Il fournit MSBuild, une série locale et des outils de déploiement qui prennent en charge le processus de déploiement et d’intégration continus des projets Visual Studio Stream Analytics. 
 > [!NOTE] 
 Le package NuGet peut uniquement être utilisé avec la version 2.3.0000.0 ou une version ultérieure des outils Stream Analytics pour Visual Studio. Si vous avez des projets créés dans les versions précédentes des outils Visual Studio, ouvrez-les simplement avec la version 2.3.0000.0 ou une version ultérieure, et enregistrez-les. Ensuite, les nouvelles fonctionnalités sont activées. 
 
-Découvrez comment utiliser les [outils Stream Analytics pour Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Pour plus d’informations, consultez la page [Outils Stream Analytics pour Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Comme l’expérience standard Visual Studio MSBuild, vous avez deux options pour générer un projet. Vous pouvez cliquer sur le projet avec le bouton droit, puis choisir **Générer**. Vous pouvez également utiliser **MSBuild** dans le package NuGet à partir de la ligne de commande.

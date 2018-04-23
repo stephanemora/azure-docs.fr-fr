@@ -1,8 +1,8 @@
 ---
-title: "Collecte des performances d’application Linux dans OMS Log Analytics | Documents Microsoft"
-description: "Cet article fournit des détails sur la configuration de l’agent OMS pour Linux pour collecter les compteurs de performances pour MySQL et Apache HTTP Server."
+title: Collecte des performances d’application Linux dans OMS Log Analytics | Documents Microsoft
+description: Cet article fournit des détails sur la configuration de l’agent OMS pour Linux pour collecter les compteurs de performances pour MySQL et Apache HTTP Server.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Collecte des compteurs de performances pour les applications Linux dans Log Analytics 
 Cet article fournit des détails sur la configuration de l’[agent OMS pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) pour la collecte des compteurs de performances pour des applications spécifiques.  Les applications incluses dans cet article sont :  
@@ -76,11 +76,11 @@ Le programme du fichier d’authentification OMI MySQL est inclus dans l’insta
 
 Le tableau suivant fournit des détails sur la syntaxe pour utiliser mycimprovauth.
 
-| Opération | Exemple | Description
+| Opération | Exemples | Description
 |:--|:--|:--|
 | autoupdate *false\|true* | mycimprovauth autoupdate false | Définit si le fichier d’authentification sera automatiquement mis à jour au redémarrage ou lors de la mise à jour. |
 | default *adresse_de_liaison nom_utilisateur mot_de_passe* | mycimprovauth default 127.0.0.1 root pwd | Définit l’instance par défaut dans le fichier d’authentification OMI MySQL.<br>Le champ du mot de passe doit être renseigné en texte brut ; le mot de passe dans le fichier d’authentification MySQL OMI sera encodé en Base64. |
-| delete *valeur_par_défaut\|num_port* | mycimprovauth 3308 | Supprime l’instance indiquée par valeur par défaut ou numéro de port. |
+| delete *default\|port_num* | mycimprovauth 3308 | Supprime l’instance indiquée par valeur par défaut ou numéro de port. |
 | help | mycimprov help | Imprime une liste de commandes à utiliser. |
 | print | mycimprov print | Imprime un fichier d’authentification OMI MySQL facile à lire. |
 | update num_port *adresse_de_liaison nom_utilisateur mot_de_passe* | mycimprov update 3307 127.0.0.1 root pwd | Met à jour l’instance indiquée ou ajoute l’instance si elle n’existe pas. |
@@ -167,4 +167,4 @@ Une fois l’agent OMS pour Linux configuré pour envoyer des données vers Log 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Collecter les compteurs de performances](log-analytics-data-sources-performance-counters.md) à partir d’agents Linux.
-* En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
+* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions. 

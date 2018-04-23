@@ -1,6 +1,6 @@
 ---
-title: "Intégration d’un service cloud Azure à Azure CDN | Microsoft Docs"
-description: "Découvrez comment déployer un service cloud qui traite le contenu à partir d’un point de terminaison CDN Azure intégré"
+title: Intégration d’un service cloud Azure à Azure CDN | Microsoft Docs
+description: Découvrez comment déployer un service cloud qui traite le contenu à partir d’un point de terminaison CDN Azure intégré
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro"></a> Intégration d’un service cloud à Azure CDN
 Vous pouvez intégrer un service cloud à Azure CDN pour distribuer du contenu à partir de l'emplacement du service cloud. Cette approche offre les avantages suivants :
@@ -157,7 +157,7 @@ De même, vous pouvez accéder à toute URL accessible publiquement à l’adres
 * un contrôleur/une action ;
 * si la chaîne de requête est activée sur le point de terminaison CDN, une URL avec des chaînes de requête.
 
-En effet, avec la configuration précédente, vous pouvez héberger l’ensemble du service cloud depuis **http://*&lt;cdnName>*.azureedge.net/**. Si vous accédez à l’adresse **http://camservice.azureedge.net/** , vous obtenez le résultat de l’action à partir de Home/Index.
+En effet, avec la configuration précédente, vous pouvez héberger l’ensemble du service cloud depuis **http://*&lt;nom_CDN>*.azureedge.net/**. Si vous accédez à l’adresse **http://camservice.azureedge.net/**, vous obtenez le résultat de l’action à partir de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 

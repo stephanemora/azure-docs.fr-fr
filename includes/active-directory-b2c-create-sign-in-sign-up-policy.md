@@ -1,5 +1,3 @@
-Pour activer la connexion à votre application, vous devez créer une stratégie de connexion. Cette stratégie décrit les expériences des clients lors de la connexion et le contenu des jetons que l’application reçoit en cas de connexion réussie.
-
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Dans la section stratégie des paramètres, sélectionnez **Stratégies d’inscription ou de connexion** et cliquez sur **+ Ajouter**.

@@ -1,23 +1,19 @@
 ---
-title: "Mise à niveau vers la version 3 du Kit de développement logiciel (SDK) .NET Recherche Azure | Microsoft Docs"
-description: "Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3"
-services: search
-documentationcenter: 
+title: Mise à niveau vers la version 3 du Kit de développement logiciel (SDK) .NET Recherche Azure | Microsoft Docs
+description: Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 48238788e06057ccaba41d1d3f500b5c10c93cb7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3
 Si vous utilisez la version préliminaire 2.0 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Azure Search](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 3.
@@ -68,7 +64,7 @@ Il n’y a qu’un petit nombre de modifications dans la version 3 qui soient su
 ### <a name="indexesgetclient-return-type"></a>Type de retour Indexes.GetClient
 La méthode `Indexes.GetClient` a un nouveau type de retour. Auparavant, elle renvoyait `SearchIndexClient`, mais elle a été remplacée par `ISearchIndexClient` dans la version 2.0-preview et cette modification a été répercutée dans la version 3. L’objectif est de prendre en charge les clients qui souhaitent simuler la méthode `GetClient` pour les tests unitaires en retournant une implémentation fictive de `ISearchIndexClient`.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -84,7 +80,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ### <a name="analyzername-datatype-and-others-are-no-longer-implicitly-convertible-to-strings"></a>Les éléments AnalyzerName et DataType, entre autres, ne sont plus implicitement convertibles en chaînes
 Il existe de nombreux types dans le SDK .NET Azure Search qui dérivent de `ExtensibleEnum`. Précédemment, ces types étaient tous implicitement convertibles en type `string`. Toutefois, un bogue a été découvert dans l'implémentation `Object.Equals` de ces classes et la résolution de ce bogue a nécessité la désactivation de cette conversion implicite. Une conversion explicite vers `string` reste autorisée.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -142,6 +138,6 @@ Si votre application dépend fortement de ces fonctionnalités, vous ne pourrez 
 ## <a name="conclusion"></a>Conclusion
 Si vous souhaitez plus d’informations sur l’utilisation du Kit de développement logiciel (SDK) Azure Search .NET, consultez les articles [Procédures .NET](search-howto-dotnet-sdk.md).
 
-N’hésitez pas à nous faire part de vos commentaires sur le kit de développement logiciel. Si vous rencontrez des problèmes, n’hésitez pas à nous demander de l’aide sur le [forum Azure Search MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Si vous trouvez un bogue, vous pouvez signaler un problème dans le [Référentiel GitHub du Kit de développement logiciel (SDK) Azure .NET](https://github.com/Azure/azure-sdk-for-net/issues). N’oubliez pas de faire précéder le titre de votre problème du préfixe « [Recherche Azure] ».
+N’hésitez pas à nous faire part de vos commentaires sur le kit de développement logiciel. Si vous rencontrez des problèmes, n’hésitez pas à nous demander de l’aide sur le [forum Azure Search MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Si vous trouvez un bogue, vous pouvez signaler un problème dans le [Référentiel GitHub du Kit de développement logiciel (SDK) Azure .NET](https://github.com/Azure/azure-sdk-for-net/issues). N’oubliez pas de faire précéder le titre de votre problème du préfixe « [Recherche Azure] ».
 
 Merci d’utiliser Azure Search !

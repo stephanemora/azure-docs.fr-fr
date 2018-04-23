@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Azure Container Service - Préparer l’application"
-description: "Didacticiel Azure Container Service - Préparer l’application"
+title: Didacticiel Azure Container Service - Préparer l’application
+description: Didacticiel Azure Container Service - Préparer l’application
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -121,7 +121,7 @@ docker-compose down
 
 Une fois terminé, vous disposez de deux images conteneur contenant l’application Azure Vote.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
 

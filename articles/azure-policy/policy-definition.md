@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2018
+ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c98712b8fb2f8d6a85906b2c78fb678fc0f970b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -67,10 +67,10 @@ Pour découvrir tous les exemples de modèles Azure Policy, consultez [Modèles 
 ## <a name="mode"></a>Mode
 
 Le **mode** détermine les types de ressources à évaluer pour une stratégie. Les modes pris en charge sont les suivants :
-* `all` : évaluer les groupes de ressources et tous les types de ressources 
+* `all` : évaluer les groupes de ressources et tous les types de ressources
 * `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
 
-Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous devez spécifier le paramètre **mode** manuellement.
+Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous devez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne contient pas de valeur **mode**, `indexed` est la valeur par défaut utilisée pour des raisons de compatibilité descendante.
 
 `indexed` doit être utilisé lors de la création de stratégies qui appliqueront des balises ou des emplacements. Cela n’est pas nécessaire, mais empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme des résultats non conformes dans les résultats de conformité. La seule exception est les **groupes de ressources**. Les stratégies qui tentent d’appliquer des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroup`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](scripts/enforce-tag-rg.md).
 
@@ -102,6 +102,8 @@ Dans la propriété de métadonnées, vous pouvez utiliser **strongType** pour f
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe suivante :
 

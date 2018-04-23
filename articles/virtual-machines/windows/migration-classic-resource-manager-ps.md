@@ -1,11 +1,11 @@
 ---
 title: Migrer vers Resource Manager avec PowerShell | Microsoft Docs
-description: "Cet article décrit pas à pas la procédure de migration de ressources IaaS, comme les machines virtuelles (VM), les réseaux virtuels (VNET) et les comptes de stockage, prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager (ARM) à l’aide de commandes Azure PowerShell"
+description: Cet article décrit pas à pas la procédure de migration de ressources IaaS, comme les machines virtuelles (VM), les réseaux virtuels (VNET) et les comptes de stockage, prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager (ARM) à l’aide de commandes Azure PowerShell
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a57337acadafe40839e16d6a31861ff7c892c071
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell
 Ces étapes vous montrent comment utiliser les commandes Azure PowerShell pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager.
@@ -70,7 +70,7 @@ Commencez par démarrer une invite de commandes PowerShell. Pour la migration, v
 Connectez-vous à votre compte pour le modèle Resource Manager.
 
 ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 ```
 
 Obtenez tous les abonnements disponibles à l’aide de la commande suivante :

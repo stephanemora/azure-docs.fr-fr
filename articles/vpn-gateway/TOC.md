@@ -11,6 +11,12 @@
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [interface de ligne de commande Azure](create-routebased-vpn-gateway-cli.md)
 
+# Exemples
+## [Créer une passerelle VPN](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Point à site : authentification RADIUS](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Point à site : certificat d’authentification](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [De site à site](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
+
 # Concepts
 ## [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md)
 ## [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md)
@@ -19,38 +25,32 @@
 ## [À propos des passerelles VPN et BGP](vpn-gateway-bgp-overview.md)
 ## [À propos de la connectivité hautement disponible](vpn-gateway-highlyavailable.md)
 ## [À propos des connexions de point à site](point-to-site-about.md)
+## [À propos du routage de point à site](vpn-gateway-about-point-to-site-routing.md)
 
-# Procédure
+# Procédures
 ## Configurer des connexions de site à site
 ### [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [interface de ligne de commande Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-### [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)
-
 ## [Télécharger des script de configuration de périphérique VPN](vpn-gateway-download-vpndevicescript.md)
-
 ## Configurer des connexions de point à site - authentification par certificat Azure natif
 ### Configurer un VPN de point à site
 #### [Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-#### [Portail Azure (classique)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Générer des certificats auto-signés
 #### [Azure PowerShell](vpn-gateway-certificates-point-to-site.md)
 #### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ### [Créer et installer les fichiers de configuration du client VPN](point-to-site-vpn-client-configuration-azure-cert.md)
 ### [Installer les certificats clients](point-to-site-how-to-vpn-client-install-azure-cert.md)
-
 ## Configurer des connexions de point à site - Authentification RADIUS
 ### Configurer un VPN de point à site
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Créer et installer les fichiers de configuration du client VPN](point-to-site-vpn-client-configuration-radius.md)
 ### [Intégrer l’authentification RADIUS VPN P2S avec le serveur NPS](vpn-gateway-radiuis-mfa-nsp.md)
-
 ## Configurer des connexions de réseau virtuel à réseau virtuel
 ### [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
-### [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Configurer une connexion de réseau virtuel à réseau virtuel entre modèles de déploiement
 ### [Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -58,7 +58,6 @@
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Configurer plusieurs connexions site à site
 ### [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-### [Azure PowerShell (classic)](vpn-gateway-multi-site.md)
 ## Connecter plusieurs appareils VPN en fonction de stratégies
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## Configurer des stratégies IPsec/IKE sur des connexions
@@ -70,7 +69,6 @@
 ### [interface de ligne de commande Azure](bgp-how-to-cli.md)
 ## Configurer un tunneling forcé
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [Azure PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
 ## Modifier les paramètres de la passerelle réseau locale
 ### [Portail Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
@@ -80,13 +78,10 @@
 ## Supprimer une passerelle VPN
 ### [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Azure PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [SKU de passerelle (hérité)](vpn-gateway-about-skus-legacy.md)
 ## Configurer des appareils VPN tiers
 ### [Vue d’ensemble et configuration d’Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Exemple : appareil Cisco ASA (IKEv2/sans BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
-## [Migration du modèle Classic vers le modèle Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## [Résolution des problèmes](vpn-gateway-troubleshoot.md)
 ### [Paramètres du VPN suggéré par la communauté ou du dispositif de pare-feu](vpn-gateway-third-party-settings.md)
 ### [Configurer et valider les connexions VNet ou VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
@@ -98,6 +93,15 @@
 #### [Problèmes de connexion site à site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
 #### [Déconnexion intermittente de la connexion site à site](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
+## Articles sur le modèle de déploiement classique
+### [Configurer une connexion de site à site](vpn-gateway-howto-site-to-site-classic-portal.md)
+### [Configurer une connexion de point à site](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [Configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+### [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md)
+### [Supprimer une passerelle VPN](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+### [Configurer plusieurs connexions de site à site](vpn-gateway-multi-site.md)
+### [Configurer une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md)
+### [Migration du modèle Classic vers le modèle Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 
 # Informations de référence
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

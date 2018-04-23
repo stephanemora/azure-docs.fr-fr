@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f2f0819f987bf389ff4b2816ad422fdd8a81f82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques de bases de données SQL
 Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes avaient lieu. SQL Database offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données uniques prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
@@ -26,7 +26,7 @@ Cet article utilise le modèle d’application d’éditeur de logiciels indépe
 Cet article aborde les stratégies de récupération d’urgence applicables à des scénarios allant des applications de start-ups soucieuses des coûts aux applications présentant des exigences de disponibilité strictes.
 
 > [!NOTE]
-> Si vous utilisez des bases de données et des pools Premium, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone (actuellement en préversion). Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).
+> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise (préversion), vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone (actuellement en préversion). Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scénario 1 Start-up soucieuse des coûts
 <i>Ma jeune entreprise a un budget très serré.  Je souhaite simplifier le déploiement et la gestion de l’application et peux avoir un contrat SLA limité pour chacun de mes clients. Mais je veux être sûr que l’application ne sera jamais hors connexion.</i>
@@ -65,7 +65,7 @@ Si la panne est temporaire, il est possible que la région primaire soit restaur
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Scénario 2 Application arrivée à maturité avec un service sur plusieurs niveaux
 <i>Je propose une application SaaS mature avec plusieurs offres de service et différents contrats SLA pour les clients qui utilisent une version d’évaluation gratuite ou une version payante. Pour les clients utilisant une version d’évaluation, je dois réduire les coûts autant que possible. Les interruptions de service sont acceptables pour les clients utilisant une version d’évaluation, mais je souhaite les éviter au maximum. Pour les clients utilisant une version payante, les interruptions de service ne sont pas acceptables (risque de perte du client). Je veux donc m’assurer que les clients qui utilisent une version payante ont accès à leurs données à tout moment.</i> 
 
-Dans ce scénario, séparez les clients utilisant une version d’évaluation des clients utilisant une version payante en les plaçant dans des pools élastiques distincts. Les clients utilisant une version d’évaluation ont un nombre inférieur d’eDTU par client et un contrat SLA moins élevé avec un temps de récupération plus long. Les clients utilisant une version payante se trouvent dans un pool avec un nombre d’eDTU par client plus élevé et un contrat SLA plus élevé. Pour limiter au maximum le temps de récupération, les bases de données client des clients utilisant une version payante sont géorépliquées. Cette configuration est illustrée dans le schéma suivant. 
+Dans ce scénario, séparez les clients utilisant une version d’évaluation des clients utilisant une version payante en les plaçant dans des pools élastiques distincts. Les clients utilisant une version d’évaluation ont un nombre inférieur d’eDTU ou de vCore par client et un contrat SLA moins élevé avec un temps de récupération plus long. Les clients utilisant une version payante se trouvent dans un pool avec un nombre d’eDTU ou de vCore par client plus élevé et un contrat SLA plus élevé. Pour limiter au maximum le temps de récupération, les bases de données client des clients utilisant une version payante sont géorépliquées. Cette configuration est illustrée dans le schéma suivant. 
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
@@ -80,7 +80,7 @@ En cas de panne dans la région primaire, les étapes de récupération à suivr
 * Basculez immédiatement les bases de données de gestion vers la région de récupération d’urgence (3).
 * Modifiez la chaîne de connexion de l’application pour la diriger vers la région de récupération d’urgence. Tous les nouveaux comptes et bases de données client sont désormais créés dans la région de récupération d’urgence. Les données des clients existants utilisant une version d’évaluation sont temporairement indisponibles.
 * Basculez les bases de données client des clients utilisant une version payante vers le pool de la région de récupération d’urgence afin de restaurer immédiatement leur disponibilité (4). Le basculement étant un processus de modification rapide au niveau des métadonnées, envisagez de l’optimiser en permettant le déclenchement à la demande des basculements individuels via les connexions de l’utilisateur final. 
-* Si le nombre d’eDTU de votre pool secondaire était inférieur à celui de votre pool principal car les bases de données secondaires n’avaient besoin que d’une capacité limitée pour traiter les journaux des modifications en tant que bases de données secondaires, augmentez immédiatement la capacité du pool pour prendre en charge la charge de travail globale de tous les clients (5). 
+* Si le nombre d’eDTU de votre pool secondaire ou la valeur de vCore était inférieur à celui de votre pool principal car les bases de données secondaires n’avaient besoin que d’une capacité limitée pour traiter les journaux des modifications en tant que bases de données secondaires, augmentez immédiatement la capacité du pool pour prendre en charge la charge de travail globale de tous les clients (5). 
 * Créez le nouveau pool élastique avec le même nom et la même configuration dans la région de récupération d’urgence pour les bases de données des clients utilisant une version d’évaluation (6). 
 * Une fois le pool créé pour les clients utilisant une version d’évaluation, utilisez la géo-restauration pour restaurer chaque base de données client en version d’évaluation dans le nouveau pool (7). Envisagez de déclencher les restaurations individuelles via les connexions de l’utilisateur final ou d’utiliser d’autres schémas de priorité spécifiques à l’application.
 
@@ -108,7 +108,7 @@ Lorsque la région primaire est restaurée par Azure *après* que vous ayez rest
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scénario 3 Application dispersée géographiquement avec un service sur plusieurs niveaux
 <i>Je propose une application SaaS mature avec des offres de service sur plusieurs niveaux. Je souhaite offrir un contrat SLA très agressif à mes clients qui utilisent la version payante et réduire l’impact d’une éventuelle panne car je sais que même une brève interruption de service peut rendre mes clients mécontents. Il est essentiel que les clients utilisant la version payante puissent accéder à leurs données à tout moment. Les versions d’évaluation sont gratuites et n’incluent aucun contrat SLA. </i> 
 
-Dans ce scénario, vous devez configurer trois pools élastiques distincts. Configurez deux pools de taille égale avec un nombre élevé d’eDTU par base de données dans deux régions différentes pour accueillir les bases de données client des clients utilisant la version payante. Le troisième pool, qui accueille les bases de données client des clients utilisant la version d’évaluation, peut avoir un nombre moins élevé d’eDTU par base de données et être configuré dans l’une des deux régions.
+Dans ce scénario, vous devez configurer trois pools élastiques distincts. Configurez deux pools de taille égale avec un nombre élevé d’eDTU ou de vCore par base de données dans deux régions différentes pour accueillir les bases de données client des clients utilisant la version payante. Le troisième pool, qui accueille les bases de données client des clients utilisant la version d’évaluation, peut avoir un nombre moins élevé d’eDTU ou de vCore par base de données et être configuré dans l’une des deux régions.
 
 Pour limiter au maximum le temps de récupération en cas de panne, les bases de données client des clients utilisant la version payante sont géorépliquées avec 50 % des bases de données primaires dans chacune des deux régions. De même, chaque région a 50 % des bases de données secondaires. Ainsi, si une région est hors connexion, seule la moitié des bases de données des clients utilisant la version payante est affectée et devra être basculée. Les autres bases de données ne sont pas affectées. Cette configuration est illustrée dans le schéma suivant :
 
@@ -125,7 +125,7 @@ Le schéma suivant détaille la procédure de récupération à suivre en cas de
 * Basculez immédiatement les bases de données de gestion vers la région B (3).
 * Modifiez la chaîne de connexion de l’application pour la diriger vers les bases de données de gestion dans la région B. Modifiez les bases de données de gestion pour vous assurer que les nouveaux comptes et bases de données client sont créés dans la région B et que les bases de données client existantes s’y trouvent également. Les données des clients existants utilisant une version d’évaluation sont temporairement indisponibles.
 * Basculez les bases de données client des clients utilisant une version payante vers le pool 2 de la région B afin de restaurer immédiatement leur disponibilité (4). Le basculement étant un processus de modification rapide au niveau des métadonnées, vous pouvez envisager de l’optimiser en permettant le déclenchement à la demande des basculements individuels via les connexions de l’utilisateur final. 
-* Comme le pool 2 ne contient désormais que les bases de données primaires, la charge de travail totale du pool augmente. Vous pouvez donc immédiatement augmenter son nombre d’eDTU (5). 
+* Comme le pool 2 ne contient désormais que les bases de données primaires, la charge de travail totale du pool augmente. Vous pouvez donc immédiatement augmenter son nombre d’eDTU (5) ou de vCore. 
 * Créez le nouveau pool élastique avec le même nom et la même configuration dans la région B pour les bases de données des clients utilisant une version d’évaluation (6). 
 * Une fois le pool créé, utilisez la géo-restauration pour restaurer chaque base de données client en version d’évaluation dans le pool (7). Vous pouvez envisager de déclencher les restaurations individuelles via les connexions de l’utilisateur final ou d’utiliser d’autres schémas de priorité spécifiques à l’application.
 
@@ -142,7 +142,7 @@ Après la récupération de la région A, vous devez décider si vous souhaitez 
 * Annulez toutes les requêtes de géo-restauration en attente pour le pool de récupération d’urgence des bases de données en version d’évaluation.   
 * Basculez la base de données de gestion (8). Après la récupération de la région, l’ancienne base de données primaire est automatiquement devenue une base de données secondaire. Celles-ci redeviennent désormais les bases de données primaires.  
 * Choisissez les bases de données client des clients utilisant la version payante qui seront restaurées dans le pool 1 et initiez le basculement vers les bases de données secondaires (9). Après la récupération de la région, toutes les bases de données du pool 1 sont automatiquement devenues des bases de données secondaires. Désormais, 50 % d’entre elles redeviennent des bases de données primaires. 
-* Réduisez la taille du pool 2 en rétablissant le nombre d’eDTU d’origine (10).
+* Réduisez la taille du pool 2 en rétablissant le nombre d’eDTU d’origine (10) ou le nombre de vCore.
 * Définissez toutes les bases de données d’évaluation restaurées de la région B en lecture seule (11).
 * Pour chaque base de données du pool de récupération d’urgence des versions d’évaluation qui a été modifiée depuis la récupération, renommez ou supprimez la base de données correspondante dans le pool principal des versions d’évaluation (12). 
 * Copiez les bases de données mises à jour du pool de récupération d’urgence vers le pool principal (13). 

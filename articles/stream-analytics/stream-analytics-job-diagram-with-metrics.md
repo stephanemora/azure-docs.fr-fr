@@ -1,24 +1,19 @@
 ---
-title: Débogage piloté par les données d’Azure Stream Analytics à l’aide du diagramme de travail | Microsoft Docs
-description: Résolvez les problèmes liés à votre travail Stream Analytics en utilisant le diagramme de travail et les mesures.
-keywords: ''
-documentationcenter: ''
+title: Débogage piloté par les données dans Azure Stream Analytics
+description: Cet article décrit comment résoudre les problèmes liés à votre travail Azure Stream Analytics en utilisant le diagramme de travail et les mesures du portail Azure.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 65eeeee7daa22b94074f55defdfd1219049774c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Débogage piloté par les données à l’aide du diagramme de travail
 
@@ -85,7 +80,7 @@ Si l’étape de requête précédente est un processeur d’entrée, utilisez l
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Stream Analytics](stream-analytics-introduction.md)

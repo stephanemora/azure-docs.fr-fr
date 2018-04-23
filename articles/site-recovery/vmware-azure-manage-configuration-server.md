@@ -1,17 +1,17 @@
 ---
-title: "Gérer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs"
-description: "Cet article explique comment utiliser Azure Site Recovery afin de gérer un serveur de configuration existant pour la reprise après sinistre de VMware sur Azure."
+title: Gérer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs
+description: Cet article explique comment utiliser Azure Site Recovery afin de gérer un serveur de configuration existant pour la reprise après sinistre de VMware sur Azure.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: ddb1c9426874634fea54f1b67509d4ac2af70eba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gérer le serveur de configuration pour les machines virtuelles VMware
 
@@ -112,7 +112,7 @@ Vous pouvez également supprimer le serveur de configuration à l’aide de Powe
 1. [Installez](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) le module Azure PowerShell.
 2. Connectez-vous à votre compte Azure à l’aide de cette commande :
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Sélectionnez l’abonnement du coffre.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

@@ -1,11 +1,11 @@
 ---
 title: Gestion du Cache Redis Azure avec Azure PowerShell | Microsoft Docs
-description: "Découvrez comment effectuer des tâches administratives pour le Cache Redis Azure à l'aide d'Azure PowerShell."
+description: Découvrez comment effectuer des tâches administratives pour le Cache Redis Azure à l'aide d'Azure PowerShell.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gestion du Cache Redis Azure avec Azure PowerShell
 > [!div class="op_single_selector"]
@@ -33,7 +33,8 @@ Cette rubrique décrit comment effectuer des tâches courantes telles que la cr�
 
 Pour en savoir plus sur le modèle de déploiement Classic, consultez [Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Si vous avez déjà installé Azure PowerShell, vous devez disposer d’Azure PowerShell version 1.0.0 ou ultérieure. Vous pouvez vérifier la version d’Azure PowerShell que vous avez installée à l’aide de cette commande à l’invite de commandes Azure PowerShell.
 
     Get-Module azure | format-table version
@@ -41,7 +42,7 @@ Si vous avez déjà installé Azure PowerShell, vous devez disposer d’Azure Po
 
 Tout d’abord, vous devez vous connecter à Azure avec cette commande.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Spécifiez l'adresse de messagerie électronique et le mot de passe de votre compte Azure dans la boîte de dialogue de connexion à Microsoft Azure.
 
@@ -66,18 +67,18 @@ Par exemple, pour obtenir de l’aide sur l’applet de commande `New-AzureRmRed
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Guide pratique pour se connecter à d’autres clouds
-Par défaut, l’environnement Azure est `AzureCloud`, qui représente l’instance globale du cloud Azure. Pour vous connecter à une autre instance, utilisez la commande `Add-AzureRmAccount` avec le commutateur de ligne de commande `-Environment` ou -`EnvironmentName` accompagné de l’environnement ou du nom d’environnement désiré.
+Par défaut, l’environnement Azure est `AzureCloud`, qui représente l’instance globale du cloud Azure. Pour vous connecter à une autre instance, utilisez la commande `Connect-AzureRmAccount` avec le commutateur de ligne de commande `-Environment` ou -`EnvironmentName` accompagné de l’environnement ou du nom d’environnement désiré.
 
 Pour afficher la liste des environnements disponibles, exécutez l’applet de commande `Get-AzureRmEnvironment` .
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Pour vous connecter au cloud Azure Government
 Pour vous connecter au cloud Azure Government, utilisez une des commandes suivantes.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Pour créer un cache dans le cloud Azure Government, utilisez un des emplacements suivants.
 
@@ -89,11 +90,11 @@ Pour plus d’informations sur le cloud Azure Government, voir [Microsoft Azure 
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Pour vous connecter au cloud Azure de Chine
 Pour vous connecter au cloud Azure de Chine, utilisez une des commandes suivantes.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 or
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Pour créer un cache dans le cloud Azure de Chine, utilisez un des emplacements suivants.
 
@@ -105,12 +106,12 @@ Pour plus d’informations sur le cloud Azure de Chine, consultez [AzureChinaClo
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Pour se connecter à Microsoft Azure Allemagne
 Pour vous connecter à Microsoft Azure Allemagne, utilisez une des commandes suivantes.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 ou
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Pour créer un cache dans Microsoft Azure Allemagne, utilisez un des emplacements suivants.
 

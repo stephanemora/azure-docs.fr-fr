@@ -1,11 +1,11 @@
 ---
-title: "Configurer l’encodeur Telestream Wirecast pour envoyer un flux en direct à débit binaire unique | Microsoft Docs"
-description: "Cette rubrique explique comment configurer l’encodeur en direct Wirecast afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel. "
+title: Configurer l’encodeur Telestream Wirecast pour envoyer un flux en direct à débit binaire unique | Microsoft Docs
+description: 'Cette rubrique explique comment configurer l’encodeur en direct Wirecast afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel. '
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Wirecast pour envoyer un flux en direct à débit binaire unique
 > [!div class="op_single_selector"]
@@ -33,7 +33,8 @@ Cet article explique comment configurer l’encodeur en direct [Telestream Wirec
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
 * Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -150,7 +151,7 @@ Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à teste
 
 Si le flux s’affiche dans le lecteur, cela signifie que l’encodeur a été correctement configuré pour se connecter à AMS.
 
-Si vous recevez une erreur, vous devez réinitialiser le canal et ajuster les paramètres de l’encodeur. Pour obtenir des conseils, consultez l’article [Dépannage](media-services-troubleshooting-live-streaming.md).  
+Si vous recevez une erreur, vous devez réinitialiser le canal et ajuster les paramètres de l’encodeur. Pour obtenir des conseils, consultez l’article sur la [résolution des problèmes](media-services-troubleshooting-live-streaming.md).  
 
 ## <a name="create-a-program"></a>Créer un programme
 1. Une fois que vous avez vérifié que la lecture fonctionne sur le canal, créez un programme. Sous l’onglet **Live** de l’outil AMSE, cliquez avec le bouton droit dans la zone des programmes et sélectionnez **Créer un programme**.  
@@ -169,7 +170,7 @@ Si vous recevez une erreur, vous devez réinitialiser le canal et ajuster les pa
 Le flux est maintenant prêt à être incorporé dans un lecteur ou distribué à une audience pour un affichage en direct.  
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
-Pour obtenir des conseils, consultez l’article [Dépannage](media-services-troubleshooting-live-streaming.md).
+Pour obtenir des conseils, consultez l’article sur la [résolution des problèmes](media-services-troubleshooting-live-streaming.md).
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

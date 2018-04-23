@@ -1,25 +1,20 @@
 ---
-title: "Créer un index (API REST - Recherche Azure) | Microsoft Docs"
-description: "Créer un index dans le code à l’aide de l’API REST HTTP d’Azure Search."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
+title: Créer un index (API REST - Recherche Azure) | Microsoft Docs
+description: Créer un index dans le code à l’aide de l’API REST HTTP d’Azure Search.
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
 tags: azure-portal
-ms.assetid: ac6c5fba-ad59-492d-b715-d25a7a7ae051
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e871fa8cd2228067b3a1511b74ff7a425d1dc9fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Création d’un index Azure Search à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -47,7 +42,7 @@ Maintenant que vous avez configuré un service Azure Search, vous pouvez émettr
 Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
 * Les *clés d’administration* principales et secondaires vous accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
-* Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
+* Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
 
 Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’administration principale ou secondaire.
 

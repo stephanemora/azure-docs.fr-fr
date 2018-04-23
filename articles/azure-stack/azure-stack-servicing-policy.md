@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e37b63580d8cea4b5772bc54f7b2f79980afc0bc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 Cet article décrit la stratégie de maintenance pour les systèmes intégrés Azure Stack et la marche à suivre pour conserver votre système dans un état de prise en charge. 
@@ -47,19 +47,6 @@ Par exemple, si la dernière version mise à jour disponible est 1805 et que les
 
 La mise à jour logicielle Microsoft est non cumulative et nécessite la mise à jour précédente comme composant requis. Si vous décidez de reporter une ou plusieurs mises à jour, prenez le runtime général en compte si vous souhaitez obtenir la dernière version. 
 
-Le tableau suivant présente des exemples de versions de package de mise à jour, leur prérequis et la version minimale prise en charge dont votre système doit disposer pour bénéficier de la prise en charge. Ce tableau est basé sur la version initiale des systèmes intégrés Azure Stack (build 1708), avec la première publication de package de mise à jour (1709) en septembre 2017. 
-
-| Package de mise à jour le plus récent (*exemple*) | Configuration requise | Version minimale prise en charge |
-| -- | -- | -- |
-| 1710 | 1709 | N/A |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1712 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
-Dans la table précédente, il n’existe aucune version 1801.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

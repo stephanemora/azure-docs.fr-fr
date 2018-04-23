@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Créer des alertes de métriques classiques dans Azure Monitor pour les services Azure - Portail Azure
 > [!div class="op_single_selector"]
@@ -31,25 +31,25 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Vue d'ensemble
 
 > [!NOTE]
-> Cet article décrit comment créer des alertes de métriques plus anciennes. Désormais, Azure Monitor prend en charge des alertes de métriques plus récentes et plus performantes. Ces alertes peuvent surveiller plusieurs métriques et permettent d’obtenir des alertes sur des métriques dimensionnelles. Découvrez plus en détail les [alertes de métriques en quasi temps réel](monitoring-near-real-time-metric-alerts.md).
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Désormais, Azure Monitor prend en charge des [alertes de métriques plus récentes](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 
-Cet article vous montre comment configurer des alertes de métrique Azure avec le portail Azure. 
+Cet article vous montre comment configurer des alertes de métriques classiques Azure avec le portail Azure. 
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
 
 * **Valeurs de métriques** : l’alerte se déclenche lorsque la valeur d’une métrique spécifiée dépasse un seuil que vous affectez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois lorsque la condition est remplie et par la suite une fois que la condition n’est plus remplie.    
 * **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou seulement quand un événement particulier se produit. Découvrez plus en détail les [alertes du journal d’activité](monitoring-activity-log-alerts.md).
 
-Vous pouvez configurer une alerte de métrique pour effectuer les opérations suivantes lors de son déclenchement :
+Vous pouvez configurer une alerte de métrique classique pour effectuer les opérations suivantes lors de son déclenchement :
 
 * envoyer des notifications par courrier électronique à l’administrateur du service et aux coadministrateurs
 * envoyer un courrier électronique à d’autres adresses que vous spécifiez.
 * appeler un webhook
 * démarrer l’exécution d’un runbook Azure (uniquement à partir du Portail Azure)
 
-Vous pouvez configurer et obtenir des informations sur les règles d’alerte de métrique via
+Vous pouvez configurer et obtenir des informations sur les règles d’alerte de métrique classique via
 
 * [Portail Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -63,7 +63,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte de
 
     ![Surveillance](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Sélectionnez la commande **Ajouter une alerte de métrique** et renseignez les champs.
+3. Sélectionnez la commande **Ajouter une alerte de métrique (classique)** et renseignez les champs.
 
     ![Ajouter une alerte](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 

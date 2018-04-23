@@ -1,12 +1,12 @@
 ---
-title: "Interagir avec des rapports Power BI à l’aide de l’API JavaScript | Microsoft Docs"
-description: "L’API JavaScript de Power BI vous permet d’incorporer facilement des rapports Power BI dans vos applications."
+title: Interagir avec des rapports Power BI à l’aide de l’API JavaScript | Microsoft Docs
+description: L’API JavaScript de Power BI vous permet d’incorporer facilement des rapports Power BI dans vos applications.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
@@ -15,19 +15,19 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 62a95807c35fcba15a8e5ffdf340a307dd22a642
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0b10f0fc39382e1944f11eef925733cbe5733c32
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagir avec des rapports Power BI à l’aide de l’API JavaScript
 
 L’API JavaScript de Power BI vous permet d’incorporer facilement des rapports Power BI dans vos applications. Avec l’API, vos applications peuvent interagir par programmation avec différents éléments d’un rapport, comme des pages et des filtres. Cette interactivité intègre les rapports Power BI plus étroitement dans votre application.
 
 > [!IMPORTANT]
-> Power BI Workspace Collections est déconseillée et disponible jusqu’en juin 2018, ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour en savoir plus sur la migration de vos données vers Power BI Embedded, voir [How to migrate Power BI Workspace Collections content to Power BI Embedded (Guide pratique pour migrer le contenu de Power BI Workspace Collections vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Les collections d’espaces de travail Power BI sont déconseillées et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Vous incorporez un rapport Power BI dans votre application en utilisant un iframe qui est hébergé dans le cadre de l’application. Comme vous pouvez le voir dans l’image suivante, l’iframe agit comme une barrière entre votre application et le rapport :
 
@@ -88,7 +88,7 @@ Les filtres avancés utilisent l’opérateur logique AND ou OR, et acceptent un
 * LessThanOrEqual
 * GreaterThan
 * GreaterThanOrEqual
-* Contient
+* Contains
 * DoesNotContain
 * StartsWith
 * DoesNotStartWith

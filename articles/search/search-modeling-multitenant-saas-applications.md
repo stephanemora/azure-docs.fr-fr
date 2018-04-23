@@ -1,23 +1,19 @@
 ---
-title: "Modélisation d’une architecture mutualisée dans la Recherche Azure | Microsoft Docs"
-description: "Découvrez les modèles de conception courants pour les applications SaaS mutualisées lors de l’utilisation de Recherche Azure."
-services: search
-manager: jhubbard
+title: Modélisation d’une architecture mutualisée dans la Recherche Azure | Microsoft Docs
+description: Découvrez les modèles de conception courants pour les applications SaaS mutualisées lors de l’utilisation de Recherche Azure.
+manager: jlembicz
 author: ashmaka
-documentationcenter: 
-ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche Azure
 Une application mutualisée est une application qui fournit les mêmes services et fonctionnalités à plusieurs clients qui ne peuvent pas voir ni partager les données d’un autre client. Ce document aborde les stratégies d’isolation de client pour les applications mutualisées conçues avec Recherche Azure.
@@ -50,7 +46,7 @@ Il existe différents [niveaux tarifaires](https://azure.microsoft.com/pricing/d
 | Stockage maximal par service |2 Go |300 Go |1,2 To |2,4 To |600 Go |
 | Nombre maximal de documents par partition |1 million |15 millions |60 millions |120 millions |200 millions |
 | Stockage maximal par partition |2 Go |25 Go |100 Go |200 Go |200 Go |
-| Nombre maximal d’index par service |5 |50 |200 |200 |3000 (1 000 index max. par partition) |
+| Nombre maximal d’index par service |5. |50 |200 |200 |3000 (1 000 index max. par partition) |
 
 #### <a name="s3-high-density"></a>Haute densité S3
 Dans le niveau tarifaire S3 de Recherche Azure, il existe une option pour le mode haute densité (HD) conçu spécifiquement pour les scénarios mutualisés. Dans de nombreux cas, il est nécessaire de prendre en charge un grand nombre de clients plus petits sous un seul service pour tirer parti des avantages de simplicité et de rentabilité.

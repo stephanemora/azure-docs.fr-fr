@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: FAQ sur la sauvegarde des partages de fichiers Azure
           href: backup-azure-files-faq.md
-        - name: Résoudre les problèmes de sauvegarde des partages de fichiers Azure
-          href: troubleshoot-azure-files.md
     - name: Machines virtuelles Azure
       items:
         - name: Préparation de la machine virtuelle
@@ -102,7 +100,7 @@
         - name: Sauvegarder des machines virtuelles
           items:
             - name: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Sauvegarder des machines virtuelles chiffrées
               href: backup-azure-vms-encryption.md
             - name: Activer la sauvegarde de machines virtuelles lors de leur création
@@ -181,24 +179,32 @@
           href: backup-azure-delete-vault.md
     - name: Résolution des problèmes
       items:
-        - name: Problèmes de sauvegarde de machines virtuelles Azure dans le portail Azure
+        - name: Microsoft Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Échec de sauvegarde des machines virtuelles Azure : impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané ; la sous-tâche de capture instantanée de la machine virtuelle a expiré.'
+        - name: L’agent de Sauvegarde Azure ou l’extension de machine virtuelle a expiré
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Sauvegarde lente de fichiers et de dossiers dans Sauvegarde Azure
+        - name: La sauvegarde des fichiers et dossiers est lente
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: "Résoudre les problèmes d’un serveur de sauvegarde\_Azure"
+        - name: Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
-        - name: Résoudre les problèmes liés à System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: "Résoudre les problèmes de l’agent de sauvegarde\_Azure"
+        - name: Agent Azure Backup
           href: backup-azure-mars-troubleshoot.md
+        - name: Partage de fichiers Azure
+          href: troubleshoot-azure-files.md
 - name: Informations de référence
   items:
-    - name: "Azure\_PowerShell"
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: "Azure CLI\_2.0"
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST - Sauvegarde
+      href: /rest/api/backup/
+    - name: REST - Coffre Recovery Services
+      href: /rest/api/recoveryservices/
 - name: Ressources
   items:
     - name: Feuille de route Azure

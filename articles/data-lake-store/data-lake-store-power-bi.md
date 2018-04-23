@@ -1,8 +1,8 @@
 ---
-title: "Analyse des données dans Data Lake Store à l’aide de Power BI | Microsoft Docs"
-description: "Utilisez Power BI pour analyser des données stockées dans Azure Data Lake Store"
+title: Analyse des données dans Data Lake Store à l’aide de Power BI | Microsoft Docs
+description: Utilisez Power BI pour analyser des données stockées dans Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun

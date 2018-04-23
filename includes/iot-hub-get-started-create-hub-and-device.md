@@ -34,7 +34,7 @@ Vous n’aurez pas besoin de cette chaîne de connexion iothubowner pour ce dida
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Cliquez sur **Save**.
+4. Cliquez sur **Enregistrer**.
 5. Une fois que l’appareil est créé, ouvrez-le dans le volet **Explorateur d’appareils**.
 6. Notez la clé primaire de la chaîne de connexion.
 

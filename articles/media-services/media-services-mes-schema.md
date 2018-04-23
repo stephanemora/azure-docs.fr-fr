@@ -1,11 +1,11 @@
 ---
-title: "Schéma Media Encoder Standard | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble du schéma Media Encoder Standard."
+title: Schéma Media Encoder Standard | Microsoft Docs
+description: Cet article fournit une vue d’ensemble du schéma Media Encoder Standard.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.openlocfilehash: e936f5c47abe5bb5531f9af3be48662ea2f48c97
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="media-encoder-standard-schema"></a>Schéma Media Encoder Standard
 Cet article décrit certains des éléments et types du schéma XML sur lequel [les préréglages Media Encoder Standard](media-services-mes-presets-overview.md) sont basés. L’article fournit des explications sur les éléments et leurs valeurs valides.  
@@ -35,7 +35,7 @@ Définit une valeur prédéfinie d’encodage.
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
 | --- | --- | --- |
-| **Version**<br/><br/> Nécessaire |**xs: decimal** |La version de présélection. Les restrictions suivantes s’appliquent : xs:fractionDigits value="1"  et xs:minInclusive value="1" Par exemple, **version="1.0"**. |
+| **Version**<br/><br/> Obligatoire |**xs: decimal** |La version de présélection. Les restrictions suivantes s’appliquent : xs:fractionDigits value="1"  et xs:minInclusive value="1" Par exemple, **version="1.0"**. |
 
 ## <a name="Encoding"></a> Encodage
 Contient une séquence des éléments suivants :  
@@ -113,7 +113,7 @@ Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de
 | **Condition** |**xs: string** |Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».<br/><br/> Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupe les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux. |
 
 ### <a name="groups"></a>Groupes
-| Référence | Description |
+| Informations de référence | Description |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Consultez la description de [AudioGroup](media-services-mes-schema.md#AudioGroup) pour connaître le nombre approprié de canaux, le taux d’échantillonnage et le taux de bits qui peuvent être configurés pour chaque profil. |
 
@@ -146,7 +146,7 @@ Codec audio|Détails
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
 | --- | --- | --- |
-| **FileName** |**xs:string** |Le nom du fichier de sortie.<br/><br/> Vous pouvez utiliser les macros décrites dans le tableau suivant pour générer les noms de fichier de sortie. Par exemple : <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |Le nom du fichier de sortie.<br/><br/> Vous pouvez utiliser les macros décrites dans le tableau suivant pour générer les noms de fichier de sortie. Par exemple : <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Résolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
 | Macro | Description |
@@ -268,7 +268,7 @@ Vous pouvez aussi utiliser l’indicateur **PreserveResolutionAfterRotation** et
 ## <a name="examples"></a>Exemples
 Pour voir des exemples de présélections XML qui sont générées conformément à ce schéma, consultez [Présélections de tâches pour MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires

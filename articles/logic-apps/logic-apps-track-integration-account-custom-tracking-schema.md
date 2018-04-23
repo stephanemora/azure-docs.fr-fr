@@ -1,11 +1,11 @@
 ---
-title: "Schémas de suivi personnalisé pour la surveillance B2B - Azure Logic Apps | Microsoft Docs"
-description: "Créez des schémas de suivi personnalisé pour surveiller les messages B2B des transactions de votre compte d’intégration Azure."
+title: Schémas de suivi personnalisé pour la surveillance B2B - Azure Logic Apps | Microsoft Docs
+description: Créez des schémas de suivi personnalisé pour surveiller les messages B2B des transactions de votre compte d’intégration Azure.
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Activation du suivi pour surveiller votre flux de travail complet, de bout en bout
 Vous pouvez activer un suivi intégré pour les différentes parties de votre flux de travail d’entreprise à entreprise, notamment le suivi des messages AS2 ou X12. Lorsque vous créez des flux de travail qui incluent une application logique, BizTalk Server, SQL Server ou n’importe quelle autre couche, vous pouvez activer un suivi personnalisé qui consigne les événements du début à la fin de votre flux de travail. 
@@ -61,18 +61,18 @@ Cette rubrique fournit un code personnalisé que vous pouvez utiliser dans les c
 
 ````
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | --- | --- | --- |
 | sourceType |   | Type de source d’exécution. Les valeurs autorisées sont **Microsoft.Logic/workflows** et **custom**. (obligatoire) |
 | Source |   | Si le type de source est **Microsoft.Logic/workflows**, les informations source doivent suivre ce schéma. Si le type de source est **custom**, le schéma est un JToken. (obligatoire) |
-| systemId | String | ID système d’application logique. (obligatoire) |
-| runId | String | ID d’exécution d’application logique. (obligatoire) |
-| operationName | String | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
-| repeatItemScopeName | String | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. (obligatoire) |
+| systemId | Chaîne | ID système d’application logique. (obligatoire) |
+| runId | Chaîne | ID d’exécution d’application logique. (obligatoire) |
+| operationName | Chaîne | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
+| repeatItemScopeName | Chaîne | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. (obligatoire) |
 | repeatItemIndex | Entier  | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. (obligatoire) |
-| trackingId | String | ID de suivi permettant de corréler les messages. (facultatif) |
-| correlationId | String | ID de corrélation permettant de corréler les messages. (facultatif) |
-| clientRequestId | String | Le client peut remplir ce champ pour corréler les messages. (facultatif) |
+| trackingId | Chaîne | ID de suivi permettant de corréler les messages. (facultatif) |
+| correlationId | Chaîne | ID de corrélation permettant de corréler les messages. (facultatif) |
+| clientRequestId | Chaîne | Le client peut remplir ce champ pour corréler les messages. (facultatif) |
 | eventLevel |   | Niveau de l’événement. (obligatoire) |
 | eventTime |   | Heure de l’événement au format UTC AAAA-MM-JJTHH:MM:SS.00000Z. (obligatoire) |
 | recordType |   | Type de l’enregistrement de suivi. La valeur autorisée est **Custom**. (obligatoire) |
@@ -85,5 +85,5 @@ Pour plus d’informations sur les schémas de suivi de protocole B2B, consultez
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le [suivi des messages B2B](logic-apps-monitor-b2b-message.md).   
-* En savoir plus sur le [suivi de messages B2B dans le portail Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* En savoir plus sur [le suivi des messages B2B dans Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * En savoir plus sur [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).

@@ -1,8 +1,8 @@
 ---
-title: "Ressources, rôles et contrôle d’accès dans Azure Application Insights | Microsoft Docs"
-description: "Propriétaires, collaborateurs et lecteurs des perspectives de votre organisation."
+title: Ressources, rôles et contrôle d’accès dans Azure Application Insights | Microsoft Docs
+description: Propriétaires, collaborateurs et lecteurs des perspectives de votre organisation.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bb6c33c083e1be690b70b63ca087c923d43f3ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
-Vous pouvez contrôler qui a lu et mis à jour l’accès à vos données dans Azure [Application Insights][start], à l’aide du [Contrôle d’accès basé sur les rôles dans Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+Vous pouvez contrôler qui a lu et mis à jour l’accès à vos données dans Azure [Application Insights][start], à l’aide du [Contrôle d’accès basé sur les rôles dans Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Accordez l’accès aux utilisateurs dans le **groupe de ressources ou l’abonnement** auquel appartient votre ressource d’application et non dans la ressource elle-même. Affectez le rôle de **collaborateur de composants Application Insights** . Cela garantit un contrôle d’accès uniforme aux tests et aux alertes Web, ainsi qu’aux ressources de votre application. [En savoir plus](#access).
@@ -73,7 +73,7 @@ Vous pouvez également monter d’un niveau supplémentaire et ajouter l’utili
 | Rôle | Dans le groupe de ressources |
 | --- | --- |
 | Propriétaire |Peut tout modifier, y compris l’accès utilisateur |
-| Collaborateur |Peut tout modifier, y compris l’ensemble des ressources |
+| Contributeur |Peut tout modifier, y compris l’ensemble des ressources |
 | collaborateur de composants Application Insights |Peut modifier les ressources, les tests Web et les alertes Application Insights |
 | Lecteur |Peut afficher les éléments, mais ne peut rien modifier |
 
@@ -91,7 +91,7 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 
 ## <a name="related-content"></a>Contenu connexe
 
-* [Contrôle d’accès en fonction du rôle dans Azure](../active-directory/role-based-access-control-configure.md)
+* [Contrôle d’accès en fonction du rôle dans Azure](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

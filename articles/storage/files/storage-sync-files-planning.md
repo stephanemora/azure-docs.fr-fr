@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -97,6 +97,19 @@ Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windo
 > [!Note]  
 > Seuls les volumes NTFS sont pris en charge. ReFS, FAT, FAT32 et les autres systèmes de fichiers ne sont pas pris en charge.
 
+### <a name="files-skipped"></a>Fichiers ignorés
+| Fichier/Dossier | Remarque |
+|-|-|
+| Desktop.ini | Fichier spécifique au système |
+| ethumbs.db$ | Fichier temporaire pour les miniatures |
+| ~$\*.\* | Fichier temporaire Office |
+| \*.tmp | Fichier temporaire |
+| \*.laccdb | Accès au fichier de verrouillage de base de données|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\System Volume Information | Dossier spécifique au volume |
+| $RECYCLE.BIN| Dossier |
+| \\SyncShareState | Dossier de synchronisation |
+
 ### <a name="failover-clustering"></a>Clustering de basculement
 Le clustering de basculement Windows Server est pris en charge par Azure File Sync pour l’option de déploiement « Serveur de fichiers pour une utilisation générale ». Le clustering de basculement n’est pas pris en charge sur le « serveur de fichiers avec montée en puissance parallèle pour les données d’application » (SOFS) ou sur les volumes partagés de cluster (CSV).
 
@@ -160,6 +173,7 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 |--------|---------------------|
 | Est de l’Australie | Nouvelle-Galles du Sud |
 | Centre du Canada | Toronto |
+| Est du Canada | Québec |
 | Centre des États-Unis | Iowa |
 | Est de l'Asie | Hong Kong |
 | Est des États-Unis | Virginie |
@@ -167,7 +181,6 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 | Europe du Nord | Irlande |
 | Asie du Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
-| Ouest du centre des États-Unis |
 | Europe de l'Ouest | Pays-bas |
 | États-Unis de l’Ouest | Californie |
 

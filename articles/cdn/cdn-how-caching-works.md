@@ -4,7 +4,7 @@ description: La mise en cache est le processus de stockage local des données af
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
 
@@ -64,7 +64,7 @@ Deux en-têtes peuvent être utilisés pour définir l’actualisation du cache�
 ## <a name="cache-directive-headers"></a>En-têtes de la directive du cache
 
 > [!IMPORTANT]
-> Par défaut, un point de terminaison Azure CDN optimisé pour DSA ignore les en-têtes de la directive du cache et la mise en cache. En ce qui concerne les profils **Azure CDN de Verizon Standard** et **Azure CDN d’Akamai Standard**, vous pouvez ajuster la manière dont un point de terminaison Azure CDN traite ces en-têtes en utilisant des [règles de mise en cache CDN](cdn-caching-rules.md) pour activer la mise en cache. Dans le cas des profils **Azure CDN de Verizon Premium**, vous utiliserez pour cela le [moteur de règles](cdn-rules-engine.md).
+> Par défaut, un point de terminaison Azure CDN optimisé pour DSA ignore les en-têtes de la directive du cache et la mise en cache. En ce qui concerne les profils **Azure CDN Standard de Verizon** et **Azure CDN Standard d’Akamai**, vous pouvez ajuster la manière dont un point de terminaison Azure CDN traite ces en-têtes en utilisant des [règles de mise en cache CDN](cdn-caching-rules.md) pour activer la mise en cache. Dans le cas des profils **Azure CDN Premium de Verizon**, vous utiliserez pour cela le [moteur de règles](cdn-rules-engine.md).
 
 Azure CDN prend en charge les en-têtes de la directive de cache HTTP suivants, qui définissent la durée et le partage du cache.
 

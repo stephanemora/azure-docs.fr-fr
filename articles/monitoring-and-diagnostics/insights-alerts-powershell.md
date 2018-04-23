@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca9df36c642334d9323736abb51a931a6610fd3e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Créer des alertes de métriques classiques dans Azure Monitor pour les Services Azure - PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Vue d'ensemble
 
 > [!NOTE]
-> Cet article décrit comment créer des alertes de métriques plus anciennes. Désormais, Azure Monitor prend en charge des [alertes de métriques plus récentes et plus performantes](monitoring-near-real-time-metric-alerts.md). Ces alertes peuvent surveiller plusieurs métriques, et permettent d’obtenir des alertes sur des métriques dimensionnelles. La prise en charge de PowerShell pour les alertes de métriques plus récentes sera bientôt disponible.
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Désormais, Azure Monitor prend en charge des [alertes de métriques plus récentes et plus performantes](monitoring-near-real-time-metric-alerts.md). Ces alertes peuvent surveiller plusieurs métriques, et permettent d’obtenir des alertes sur des métriques dimensionnelles. La prise en charge de PowerShell pour les alertes de métriques plus récentes sera bientôt disponible.
 >
 >
 
-Cet article vous montre comment configurer des alertes de métrique Azure avec PowerShell.  
+Cet article vous montre comment configurer des alertes de métriques classiques Azure avec PowerShell.  
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
 
 * **Valeurs de métriques** : l’alerte se déclenche lorsque la valeur d’une métrique spécifiée dépasse un seuil que vous affectez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois lorsque la condition est remplie et par la suite une fois que la condition n’est plus remplie.    
 * **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou seulement quand un certain événement se produit. Pour plus d’informations sur les alertes du journal d’activité, [cliquez ici](monitoring-activity-log-alerts.md)
 
-Vous pouvez configurer une alerte de métrique pour effectuer les opérations suivantes lors de son déclenchement :
+Vous pouvez configurer une alerte de métrique classique pour effectuer les opérations suivantes lors de son déclenchement :
 
 * envoyer des notifications par courrier électronique à l’administrateur du service et aux coadministrateurs
 * envoyer un courrier électronique à d’autres adresses que vous spécifiez.
@@ -62,7 +62,7 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
 1. Connectez-vous à Azure.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Récupérez la liste des abonnements dont vous disposez. Vérifiez que vous travaillez avec le bon abonnement. Dans le cas contraire, choisissez le bon à l’aide de la sortie de `Get-AzureRmSubscription`.
@@ -135,8 +135,8 @@ Pour obtenir des informations complémentaires, vous pouvez à tout moment taper
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Consultez une vue d’ensemble de la surveillance Azure](monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
-* Découvrez plus en détail la [configuration des webhooks dans les alertes](insights-webhooks-alerts.md).
-* Découvrez plus d’informations sur la [configuration des alertes sur les événements de journal d’activité](monitoring-activity-log-alerts.md).
+* Découvrez comment [configurer des Webhooks dans les alertes](insights-webhooks-alerts.md).
+* Découvrez comment [configurer des alertes en fonction des événements du journal d’activité](monitoring-activity-log-alerts.md).
 * Découvrez plus en détails les [runbooks Azure Automation](../automation/automation-starting-a-runbook.md).
 * Consultez une [vue d’ensemble de la collecte des journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md) pour collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.

@@ -1,12 +1,12 @@
 ---
-title: "Déployer et appeler des API web et des API REST à partir d’Azure Logic Apps | Microsoft Docs"
-description: "Déployer et appeler vos API web et REST pour les workflows d’intégration système dans Azure Logic Apps"
-keywords: "API web, API REST, connecteurs, flux de travail, intégration système, authentifier"
+title: Déployer et appeler des API web et des API REST à partir d’Azure Logic Apps | Microsoft Docs
+description: Déployer et appeler vos API web et REST pour les workflows d’intégration système dans Azure Logic Apps
+keywords: API web, API REST, connecteurs, flux de travail, intégration système, authentifier
 services: logic-apps
 author: stepsic-microsoft-com
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
 ms.workload: integration
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
 ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Déployer et appeler des API personnalisées à partir de workflows d’application logique
 
@@ -57,6 +57,6 @@ Après avoir configuré les propriétés de définition d’API et le partage CO
 
 *  Pour appeler n’importe quelle API, y compris celles qui ne comportent pas ou n’exposent pas de document OpenAPI, vous pouvez toujours créer une requête à l’aide de [l’action HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble des connecteurs personnalisés](../logic-apps/custom-connector-overview.md)

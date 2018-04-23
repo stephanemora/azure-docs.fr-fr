@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès Juste à temps à la machine virtuelle
 
@@ -41,7 +41,7 @@ Pour réduire l’exposition aux attaques par force brute, vous pouvez limiter l
 
 Lorsque la fonctionnalité Juste à temps est activée, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlés par la solution Juste à temps.
 
-Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur a les autorisations [Contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) qui fournissent un accès en écriture sur la machine virtuelle. S’il dispose d’une autorisation en écriture, la requête est approuvée et Security Center configure automatiquement les groupes de sécurité réseau afin d’autoriser le trafic entrant vers les ports de gestion pendant la durée que vous avez spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent.
+Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur a les autorisations [Contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournissent un accès en écriture sur la machine virtuelle. S’il dispose d’une autorisation en écriture, la requête est approuvée et Security Center configure automatiquement les groupes de sécurité réseau afin d’autoriser le trafic entrant vers les ports de gestion pendant la durée que vous avez spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent.
 
 > [!NOTE]
 > L’accès Juste à temps à la machine virtuelle Security Center prend en charge uniquement les machines virtuelles déployées par le biais d’Azure Resource Manager. Pour en savoir plus sur les modèles de déploiement de type Classic et Resource Manager, consultez [Déploiement Azure Resource Manager et déploiement Classic](../azure-resource-manager/resource-manager-deployment-model.md).

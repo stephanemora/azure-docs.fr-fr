@@ -1,26 +1,26 @@
 ---
 title: Azure Security Center et machines virtuelles Windows dans Azure | Microsoft Docs
-description: "Découvrez plus d’informations sur la sécurité de votre machine virtuelle Windows Azure avec Azure Security Center."
+description: Découvrez plus d’informations sur la sécurité de votre machine virtuelle Windows Azure avec Azure Security Center.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Surveiller la sécurité des machines virtuelles à l’aide d’Azure Security Center
 

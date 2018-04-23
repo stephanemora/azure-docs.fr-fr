@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble des instantanés de partage pour Azure Files (préversion) | Microsoft Docs
+title: Vue d’ensemble des instantanés de partage pour Azure Files | Microsoft Docs
 description: Un instantané de partage est une version en lecture seule d’un partage Azure Files enregistrée à un point dans le temps pour sauvegarder le partage.
 services: storage
 documentationcenter: .net
@@ -14,32 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
 
-
 ## <a name="when-to-use-share-snapshots"></a>Quand utiliser les instantanés de partage
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Protection contre l’altération des données et les erreurs d’application
-
 Les applications qui utilisent des partages de fichiers effectuent des opérations telles que l’écriture, la lecture, le stockage, la transmission et le traitement de données. Si une application présente un défaut de configuration ou qu’un bogue involontaire est introduit, cela risque d’entraîner l’altération ou le remplacement accidentel de quelques blocs. Pour vous protéger contre ces scénarios, vous pouvez prendre un instantané de partage avant de déployer le nouveau code d’application. Si le nouveau déploiement introduit un bogue ou une erreur d’application, vous pouvez revenir à une version précédente de vos données sur ce partage de fichiers. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Protection contre une suppression accidentelle ou une modification involontaire
-
 Supposons que vous travailliez sur un fichier texte dans un partage de fichiers. Une fois le fichier texte fermé, vous ne pouvez plus annuler les modifications apportées. Dans ce cas, vous devez récupérer une version précédente du fichier. Vous pouvez utiliser les instantanés de partage pour récupérer des versions précédentes du fichier s’il est renommé ou supprimé accidentellement.
 
 ### <a name="general-backup-purposes"></a>Sauvegarde générale
-
 Après avoir créé un partage de fichiers, vous pouvez régulièrement créer un instantané de ce partage en vue de l’utiliser à des fins de sauvegarde de données. Pris régulièrement, un instantané de partage facilite la conservation de versions antérieures de données à des fins d’audit ou de récupération d’urgence.
 
 ## <a name="capabilities"></a>Fonctionnalités
-
 Un instantané de partage est une copie en lecture seule de vos données à un point dans le temps. Vous pouvez créer, supprimer et gérer les instantanés à l’aide de l’API REST. Les mêmes fonctionnalités sont disponibles dans la bibliothèque cliente, l’interface de ligne de commande Azure (Azure CLI) et le portail Azure. 
 
 Vous pouvez afficher les instantanés d’un partage à l’aide de l’API REST et de SMB. Vous pouvez récupérer la liste des versions d’un répertoire ou d’un fichier, ainsi que monter une version spécifique directement en tant que lecteur. 
@@ -59,9 +54,7 @@ Quand vous créez un instantané d’un partage de fichiers, les fichiers stock�
 
 Pour pouvoir supprimer un partage qui contient des instantanés de partage, vous devez d’abord supprimer l’ensemble de ces instantanés.
 
-
 ## <a name="space-usage"></a>Utilisation de l’espace 
-
 Les instantanés de partage sont incrémentiels par nature. Seules les données qui ont changé depuis le dernier instantané de partage sont enregistrées. Cela réduit le temps nécessaire à la création de l’instantané de partage, ainsi que les coûts de stockage. Toute opération d’écriture sur l’objet ou de mise à jour de métadonnées ou de propriétés est stockée dans l’instantané de partage, car elle est considérée comme du contenu changé. 
 
 Afin d’économiser l’espace, vous pouvez supprimer l’instantané de partage pour la période qui a connu la plus forte évolution.
@@ -71,13 +64,11 @@ Bien que les instantanés de partage soient enregistrés de façon incrémentiel
 Les instantanés ne sont pas décomptés de votre limite de partage 5 To. L’espace total occupé par les instantanés de partage n’est pas limité. Les limites de compte de stockage continuent de s’appliquer.
 
 ## <a name="limits"></a>limites
-
 Le nombre maximal d’instantanés de partage autorisé par Azure Files s’élève aujourd’hui à 200. Au-delà de 200 instantanés de partage, vous devez supprimer les anciens instantanés pour en créer d’autres. 
 
 Les appels simultanés de création d’instantanés de partage ne sont pas limités. La quantité d’espace utilisable par les instantanés d’un partage de fichiers particulier n’est pas limitée. 
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copie des données vers un partage à partir d’un instantané de partage
-
 Les opérations de copie qui impliquent des fichiers et des instantanés de partage obéissent aux règles suivantes :
 
 Vous pouvez copier des fichiers individuels d’un instantané de partage de fichiers vers son partage de base ou vers un autre emplacement. Vous pouvez restaurer une version antérieure d’un fichier ou restaurer le partage de fichiers complet en effectuant une copie fichier par fichier à partir de l’instantané de partage. L’instantané de partage n’est pas promu vers le partage de base. 
@@ -89,7 +80,6 @@ Vous pouvez copier un fichier dans un instantané de partage vers une destinatio
 Quand un fichier de destination est remplacé par une copie, tous les instantanés de partage associés au fichier de destination d’origine restent intacts.
 
 ## <a name="general-best-practices"></a>Bonnes pratiques générales 
-
 Quand vous exécutez l’infrastructure sur Azure, automatisez les sauvegardes pour la récupération de données chaque fois que possible. Les actions automatisées sont plus fiables que les processus manuels, contribuant à améliorer la capacité de récupération et la protection des données. Vous pouvez utiliser l’API REST, le Kit de développement logiciel (SDK) client ou des scripts pour l’automatisation.
 
 Avant de déployer le planificateur d’instantané de partage, étudiez attentivement vos paramètres de fréquence et de rétention des instantanés de partage pour éviter de subir des frais d’instantané de partage inutiles.
@@ -97,6 +87,8 @@ Avant de déployer le planificateur d’instantané de partage, étudiez attenti
 Les instantanés de partage assurent uniquement une protection au niveau des fichiers. Ils n’empêchent pas les suppressions accidentelles sur un compte de stockage ou un partage de fichiers. Pour protéger un compte de stockage contre les suppressions accidentelles, vous pouvez verrouiller celui-ci ou le groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser des instantanés de partage](storage-how-to-use-files-snapshots.md)
-* [Forum aux questions sur les instantanés de partage](storage-files-faq.md#share-snapshots)
-
+- Utilisation des instantanés de partage dans :
+    - [Portail](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
+    - [INTERFACE DE LIGNE DE COMMANDE](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+- [Forum aux questions sur les instantanés de partage](storage-files-faq.md#share-snapshots)

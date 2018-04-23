@@ -1,26 +1,24 @@
 ---
-title: "Analyse des données de capteur au moyen de Hive et de Hadoop - HDInsight | Microsoft Docs"
-description: "Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Hadoop), puis visualiser les données dans Microsoft Excel avec Power View."
+title: Analyse des données de capteur au moyen de Hive et de Hadoop - HDInsight | Microsoft Docs
+description: Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Hadoop), puis visualiser les données dans Microsoft Excel avec Power View.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/14/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: d4d216cd1d8de7c86f71d0181270607e12f761cf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: eb3dc93d7cb741a8a3099abe13d00f40c9639705
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight
 
@@ -39,7 +37,8 @@ Dans cet exemple, vous utilisez Hive pour traiter les données historiques et id
 
 ![A diagram of the solution architecture](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * Un cluster HDInsight (Hadoop) : consultez la rubrique [Créer des clusters Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) pour des informations sur la création d’un cluster.
 * Microsoft Excel 2013

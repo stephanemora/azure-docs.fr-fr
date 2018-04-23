@@ -1,6 +1,6 @@
 ---
 title: Utiliser Log Analytics avec une application mutualisée SQL Database | Microsoft Docs
-description: Configurer et utiliser Log Analytics (Operations Management Suite) avec une application SaaS Azure SQL Database mutualisée
+description: Configurer et utiliser Log Analytics avec une application SaaS Azure SQL Database multilocataire
 keywords: didacticiel sur les bases de données SQL
 services: sql-database
 author: stevestein
@@ -8,23 +8,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 38a849ca5f4a767a4b9d9b9b86549e89a8217a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="set-up-and-use-log-analytics-operations-management-suite-with-a-multitenant-sql-database-saas-app"></a>Configurer et utiliser Log Analytics (Operations Management Suite) avec une application SaaS SQL Database mutualisée
+# <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurer et utiliser Log Analytics avec une application SaaS SQL Database multilocataire
 
-Dans ce didacticiel, vous configurez et utilisez Azure Log Analytics ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) pour surveiller les bases de données et les pools élastiques. Ce didacticiel s’appuie sur le [didacticiel Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire](saas-dbpertenant-performance-monitoring.md). Il montre comment utiliser Log Analytics pour améliorer la surveillance et la création d’alertes disponibles dans le portail Azure. Log Analytics prend en charge la surveillance de milliers de pools élastiques et de centaines de milliers de bases de données. Log Analytics offre une solution de surveillance unique qui permet d’intégrer la surveillance de différents services Azure et applications dans plusieurs abonnements Azure.
+Dans ce tutoriel, vous configurez et utilisez [Log Analytics ](/azure/log-analytics/log-analytics-overview) pour surveiller les pools élastiques et les bases de données. Ce didacticiel s’appuie sur le [didacticiel Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire](saas-dbpertenant-performance-monitoring.md). Il montre comment utiliser Log Analytics pour améliorer la surveillance et la création d’alertes disponibles dans le portail Azure. Log Analytics prend en charge la surveillance de milliers de pools élastiques et de centaines de milliers de bases de données. Log Analytics offre une solution de surveillance unique qui permet d’intégrer la surveillance de différents services Azure et applications dans plusieurs abonnements Azure.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Installer et configurer Log Analytics (Operations Management Suite).
+> * Installez et configurez Log Analytics.
 > * Utiliser Log Analytics pour surveiller des pools et des bases de données.
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
@@ -34,11 +34,11 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 Pour plus d’informations sur les scénarios et les modèles SaaS, et leur incidence sur les exigences applicables à une solution de surveillance, consultez le [didacticiel Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire](saas-dbpertenant-performance-monitoring.md).
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite"></a>Surveiller et gérer des performances de base de données et de pool élastique avec Log Analytics ou Operations Management Suite
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics"></a>Surveiller et gérer des performances de base de données et de pool élastique avec Log Analytics
 
 Pour Azure SQL Database, la surveillance et les alertes sont disponibles pour les bases de données et les pools dans le portail Azure. Ces fonctions de surveillance et de génération d’alertes intégrées sont pratiques, mais également propres à la ressource. Cela signifie qu’elles sont moins bien adaptées pour surveiller les installations de grande taille ou fournir une vue unifiée sur l’ensemble des ressources et abonnements.
 
-Pour les scénarios à volumes élevés, vous pouvez utiliser Log Analytics pour la surveillance et les alertes. Log Analytics est un service Azure distinct qui permet d’analyser des journaux de diagnostic et des données de télémétrie recueillis dans un espace de travail à partir de nombreux services. Log Analytics offre un langage de requête intégré et des outils de visualisation pour l’analyse des données opérationnelles. La solution SQL Analytics fournit plusieurs vues et requêtes prédéfinies de surveillance et d’alertes pour les pools élastiques et les bases de données. Operations Management Suite fournit également un concepteur de vues personnalisées.
+Pour les scénarios à volumes élevés, vous pouvez utiliser Log Analytics pour la surveillance et les alertes. Log Analytics est un service Azure distinct qui permet d’analyser des journaux de diagnostic et des données de télémétrie recueillis dans un espace de travail à partir de nombreux services. Log Analytics offre un langage de requête intégré et des outils de visualisation pour l’analyse des données opérationnelles. La solution SQL Analytics fournit plusieurs vues et requêtes prédéfinies de surveillance et d’alertes pour les pools élastiques et les bases de données. Log Analytics offre également un concepteur de vues personnalisées.
 
 Les espaces de travail et les solutions d’analyse de Log Analytics s’ouvrent dans le portail Azure et dans Operations Management Suite. Le portail Azure constitue le point d’accès le plus récent, mais il peut être moins évolué que le portail Operations Management Suite dans certains domaines.
 
@@ -55,7 +55,7 @@ Les espaces de travail et les solutions d’analyse de Log Analytics s’ouvrent
 
     a. Définissez **$DemoScenario = 2**, _Generate normal intensity load (Générer une charge d’intensité normale) (environ 30 DTU)_.
 
-    b. Pour exécuter le script, appuyez sur F5.
+    b. Pour exécuter le script, appuyez sur la touche F5.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application de base de données par locataire SaaS Wingtip Tickets
 
@@ -129,9 +129,9 @@ Dans cet exercice, ouvrez Log Analytics et le portail Operations Management Suit
 
 Dans le portail Operations Management Suite, vous pouvez explorer plus en détail les données de journal et les métriques dans l’espace de travail. 
 
-La surveillance et les alertes dans Log Analytics et Operations Management Suite sont basées sur des requêtes portant sur les données dans l’espace de travail, à la différence des alertes définies sur chaque ressource dans le portail Azure. En basant les alertes sur les requêtes, vous pouvez définir une seule alerte qui examine toutes les bases de données plutôt que d’en définir une par base de données. Les requêtes sont seulement limitées par les données disponibles dans l’espace de travail.
+La surveillance et les alertes dans Log Analytics sont basées sur des requêtes portant sur les données dans l’espace de travail, à la différence des alertes définies sur chaque ressource dans le portail Azure. En basant les alertes sur les requêtes, vous pouvez définir une seule alerte qui examine toutes les bases de données plutôt que d’en définir une par base de données. Les requêtes sont seulement limitées par les données disponibles dans l’espace de travail.
 
-Pour plus d’informations sur l’utilisation d’Operations Management Suite pour interroger et définir des alertes, consultez [Utilisation des règles d’alerte dans Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Pour plus d’informations sur l’utilisation de Log Analytics pour interroger et définir des alertes, consultez [Utilisation des règles d’alerte dans Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Log Analytics pour SQL Database est facturé en fonction du volume de données dans l’espace de travail. Dans ce didacticiel, vous avez créé un espace de travail gratuit, qui est limité à 500 Mo par jour. Une fois cette limite atteinte, l’ajout de données à l’espace de travail est interrompu.
 
@@ -141,7 +141,7 @@ Log Analytics pour SQL Database est facturé en fonction du volume de données d
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Installer et configurer Log Analytics (Operations Management Suite).
+> * Installez et configurez Log Analytics.
 > * Utiliser Log Analytics pour surveiller des pools et des bases de données.
 
 Essayez maintenant le [didacticiel sur l’analyse des locataires](saas-dbpertenant-log-analytics.md).
@@ -150,4 +150,3 @@ Essayez maintenant le [didacticiel sur l’analyse des locataires](saas-dbperten
 
 * [Autres didacticiels reposant sur le déploiement initial de l’application de base de données Wingtip Tickets SaaS par locataire](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
-* [Operations Management Suite](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

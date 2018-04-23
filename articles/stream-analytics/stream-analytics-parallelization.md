@@ -1,24 +1,19 @@
 ---
-title: Profiter de la parallélisation de requête dans Azure Stream Analytics| Microsoft Docs
-description: Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail.
-keywords: diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse
+title: Utiliser la parallélisation et la mise à l’échelle de requête dans Azure Stream Analytics
+description: Cet article décrit comment mettre à l’échelle des tâches Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de streaming d’un travail.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -50,7 +45,7 @@ Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement
 -   IoT Hub (nécessité de définir la clé de partition explicitement)
 -   Service Bus
 
-Les sorties PowerBI, SQL et SQL Data Warehouse ne prennent pas en charge le partitionnement. Toutefois, vous pouvez toujours partitionner l’entrée comme décrit dans [cette section](#multi-step-query-with-a-grouping-key) 
+Les sorties PowerBI, SQL et SQL Data Warehouse ne prennent pas en charge le partitionnement. Toutefois, vous pouvez toujours partitionner l’entrée comme décrit dans [cette section](#multi-step-query-with-different-partition-by-values) 
 
 Pour plus d’informations sur les partitions, consultez les articles suivants :
 
@@ -65,7 +60,7 @@ Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure
 
 2. Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **PARTITION BY** à toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Pour le moment, la clé de partitionnement doit être définie sur **PartitionId** afin que le travail soit entièrement parallèle.  
 
-3. La plupart de nos sorties peuvent tirer parti du partitionnement mais, si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail n’est pas totalement parallèle. Reportez-vous à la [section relative aux sorties](#Outputs) pour plus d’informations.
+3. La plupart de nos sorties peuvent tirer parti du partitionnement mais, si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail n’est pas totalement parallèle. Reportez-vous à la [section relative aux sorties](#outputs) pour plus d’informations.
 
 4. Le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. Actuellement, la sortie du stockage d’objets blob ne prend pas en charge les partitions, mais cela ne pose pas de problèmes, car elle hérite du schéma de partitionnement de la requête en amont. Voici des exemples de valeurs de partition qui permettent la création d’un travail entièrement parallèle :  
 
@@ -221,7 +216,7 @@ Cette requête peut être mise à l’échelle jusqu’à comporter 24 unités�
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

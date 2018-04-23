@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fdb8009e3dbca1037cae61ec8627f73190a8263d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Surveiller et mettre à jour une machine virtuelle Windows avec Azure PowerShell
 
@@ -36,6 +36,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Afficher les métriques de la machine virtuelle
 > * Créer une alerte
 > * Gérer les mises à jour Windows
+> * Surveiller les modifications et l’inventaire
 > * Configurer la surveillance avancée
 
 Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -196,11 +197,11 @@ Vous pouvez collecter et afficher l’inventaire des logiciels, fichiers, démon
 
 ### <a name="enable-change-and-inventory-management"></a>Activer la gestion des modifications et de l’inventaire
 
-Activez la gestion des modifications et de l’inventaire pour votre machine virtuelle :
+Activez la gestion des modifications et de l’inventaire pour votre machine virtuelle :
 
 1. Sur le côté gauche de l’écran, sélectionnez **Machines virtuelles**.
 2. Sélectionnez une machine virtuelle dans la liste.
-3. Dans l’écran de la machine virtuelle, dans la section **Operations**, cliquez sur **Inventaire** ou **Suivi des modifications**. L’écran **Enable Change Tracking and Inventory** (Activer le suivi des modifications et inventaire) s’ouvre.
+3. Sur l’écran de la machine virtuelle, dans la section **Opérations**, cliquez sur **Inventaire** ou **Suivi des modifications**. L’écran **Enable Change Tracking and Inventory** (Activer le suivi des modifications et inventaire) s’ouvre.
 
 Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés. Même si les solutions sont distinctes dans le menu, elles forment une même solution. Le fait d’en activer une active les deux pour votre machine virtuelle.
 
@@ -237,7 +238,7 @@ Le graphique affiche les modifications qui se sont produites au fil du temps. Ap
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée
 
-Vous pouvez effectuer un suivi plus avancé de votre machine virtuelle à l’aide de solutions telles que Update Management et Change and Inventory fournies par Azure Automation. [Operations Management Suite](../../automation/automation-intro.md).
+Vous pouvez effectuer un suivi plus avancé de votre machine virtuelle à l’aide de solutions telles que Update Management et Change and Inventory fournies par [Azure Automation](../../automation/automation-intro.md).
 
 Lorsque vous avez accès à l’espace de travail Log Analytics, vous pouvez trouver la clé de l’espace de travail et l’identificateur de l’espace de travail en sélectionnant **Paramètres avancés** sous **PARAMÈTRES**. Utilisez la commande [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) pour ajouter l’extension de l’agent Microsoft Monitoring à la machine virtuelle. Mettez à jour les valeurs des variables dans l’exemple ci-dessous de manière à refléter la clé et l’ID de l’espace de travail Log Analytics.
 
@@ -274,6 +275,7 @@ Dans ce didacticiel, vous avez configuré et examiné des machines virtuelles av
 > * Afficher les métriques de la machine virtuelle
 > * Créer une alerte
 > * Gérer les mises à jour Windows
+> * Surveiller les modifications et l’inventaire
 > * Configurer la surveillance avancée
 
 Passez au didacticiel suivant pour découvrir plus d’informations sur Azure Security Center.

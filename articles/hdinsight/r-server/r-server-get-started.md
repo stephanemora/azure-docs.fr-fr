@@ -1,13 +1,13 @@
 ---
 title: Prise en main de R Server sur HDInsight - Azure | Microsoft Docs
 description: Apprenez à créer un Apache Spark sur un cluster HDInsight incluant R Server, puis à envoyer un script R sur le cluster.
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: get-started-article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: f4265ce7370542d8253222a5e268ea9cde7fd36e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d6910ab257312626ca25126721410edeed6cdeae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Prise en main du cluster R Server sur Azure HDInsight
 
@@ -238,4 +238,4 @@ Dans cet article, vous avez appris à créer un cluster R Server dans Azure HDIn
 * [Manage R Server cluster on HDInsight](r-server-hdinsight-manage.md) (Gérer un cluster R Server sur HDInsight)
 * [Operationalize R Server cluster on HDInsight](r-server-operationalize.md) (Faire fonctionner un cluster R Server sur HDInsight)
 * [Options de contexte de calcul pour R Server sur HDInsight](r-server-compute-contexts.md)
-* [Solutions de stockage Azure pour R Server sur HDInsight](r-server-storage.md)
+* [Solutions de stockage Azure pour un cluster R Server sur HDInsight](r-server-storage.md)

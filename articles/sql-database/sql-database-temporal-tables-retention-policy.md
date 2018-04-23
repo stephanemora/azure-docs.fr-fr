@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 36ce6889cccbf5ae7df519c5c73846f12eed4a08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175236306f05831a78ae8ca01911d0c5d19f893
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gérer les données d’historique dans les tables temporelles avec la stratégie de rétention
 Par rapport aux tables normales, les tables temporelles peuvent augmenter la taille des bases de données, notamment si vous conservez les données d’historique pendant longtemps. Par conséquent, une stratégie de rétention des données d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Les tables temporelles dans Azure SQL Database sont fournies avec un mécanisme de rétention facile à utiliser qui vous permet d’accomplir cette tâche.
@@ -102,7 +102,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>Comment SQL Database supprime les anciennes lignes ?
 Le processus de nettoyage dépend de la disposition de l’index de la table d’historique. Il est important de noter que *seules les tables d’historique avec un index cluster (B-tree ou columnstore) peuvent avoir une stratégie de rétention limitée configurée*. Une tâche en arrière-plan est créée pour effectuer le nettoyage des anciennes données pour toutes les tables temporelles avec une période de rétention limitée.
-La logique de nettoyage de l’index cluster rowstore (B-tree) supprime les anciennes lignes dans des blocs plus petits (jusqu’à 10 K) en réduisant la pression sur le journal de la base de données et le sous-système d’E/S. Bien que la logique de nettoyage utilise l’index B-tree, l’ordre des suppressions de lignes antérieures à la période de rétention ne peut pas être garanti complètement. Par conséquent, *ne dépendez pas de l’ordre de nettoyage dans vos applications*.
+La logique de nettoyage de l’index cluster rowstore (arbre B (B-tree)) supprime les anciennes lignes dans des blocs plus petits (jusqu’à 10 K), ce qui permet de réduire la pression sur le journal de la base de données et le sous-système d’E/S. Bien que la logique de nettoyage utilise l’index B-tree, l’ordre des suppressions de lignes antérieures à la période de rétention ne peut pas être garanti complètement. Par conséquent, *ne dépendez pas de l’ordre de nettoyage dans vos applications*.
 
 La tâche de nettoyage pour le cluster columnstore supprime l’ensemble [des groupes de lignes](https://msdn.microsoft.com/library/gg492088.aspx) en une fois (ceux-ci contiennent généralement 1 million de lignes chacun), ce qui est très efficace, en particulier lorsque les données d’historique sont générées à un rythme élevé.
 

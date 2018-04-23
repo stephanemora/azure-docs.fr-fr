@@ -1,18 +1,18 @@
 ---
-title: "Rechercher des données semi-structurées dans le stockage cloud Azure"
-description: "Recherche de données blob semi-structurées à l’aide de Recherche Azure."
+title: Rechercher des données semi-structurées dans le stockage cloud Azure
+description: Recherche de données blob semi-structurées à l’aide de Recherche Azure.
 author: roygara
-manager: timlt
+manager: cgronlun
+services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Partie 2 : Rechercher des données semi-structurées dans le stockage cloud
 
@@ -30,7 +30,8 @@ Dans la partie 2, vous allez apprendre à :
 > [!NOTE]
 > Ce didacticiel implique la prise en charge des tableaux JSON, qui est une fonctionnalité en version préliminaire du service Recherche Azure. Elle n’est pas disponible dans le portail. Pour cette raison, nous utilisons l’API REST d’évaluation, qui fournit cette fonctionnalité, ainsi qu’un outil client REST pour appeler l’API.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 * Vous devez avoir effectué le [précédent didacticiel](../storage/blobs/storage-unstructured-search.md) pour obtenir le compte de stockage et le service de recherche créés dans le didacticiel précédent.
 

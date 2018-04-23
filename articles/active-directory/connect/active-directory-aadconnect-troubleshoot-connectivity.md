@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect : Résoudre les problèmes de connectivité | Microsoft Docs"
-description: "Explique comment résoudre les problèmes de connectivité liés à Azure AD Connect."
+title: 'Azure AD Connect : Résoudre les problèmes de connectivité | Microsoft Docs'
+description: Explique comment résoudre les problèmes de connectivité liés à Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -66,7 +66,7 @@ Si vous utilisez un **compte Microsoft** au lieu d’un compte **scolaire ou d�
 ![Un compte Microsoft est utilisé](./media/active-directory-aadconnect-troubleshoot-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Impossible d’atteindre le point de terminaison de l’authentification MFA
-Cette erreur apparaît si le point de terminaison **https://secure.aadcdn.microsoftonline-p.com** ne peut pas être atteint et que MFA est activé pour votre administrateur global.  
+Cette erreur s’affiche si le point de terminaison **https://secure.aadcdn.microsoftonline-p.com** n’est pas accessible et que votre administration globale a une MFA activée.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 * Si vous voyez cette erreur, vérifiez que le point de terminaison **secure.aadcdn.microsoftonline-p.com** a été ajouté au proxy.
@@ -75,10 +75,10 @@ Cette erreur apparaît si le point de terminaison **https://secure.aadcdn.micros
 Si l’Assistant Installation réussit à se connecter à Azure AD, mais que le mot de passe lui-même ne peut pas être vérifié, le message suivant apparaît :  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* Le mot de passe est-il temporaire et doit-il être modifié ? Le mot de passe est-il correct ? Connectez-vous à https://login.microsoftonline.com (sur un ordinateur autre que le serveur Azure AD Connect) et vérifiez que le compte est utilisable.
+* Le mot de passe est-il temporaire et doit-il être modifié ? Le mot de passe est-il correct ? Connectez-vous à https://login.microsoftonline.com (sur un autre ordinateur que le serveur Azure AD Connect) et vérifiez que le compte est utilisable.
 
 ### <a name="verify-proxy-connectivity"></a>Vérifier la connectivité du proxy
-Pour vérifier si le serveur Azure AD Connect dispose d’une connectivité réelle avec le proxy et Internet, utilisez quelques commandes PowerShell pour voir si le proxy autorise ou non les demandes web. À une invite PowerShell, exécutez `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Techniquement, le premier appel est fait à https://login.microsoftonline.com et cet URI fonctionne également, mais l’autre URI répond plus rapidement.)
+Pour vérifier si le serveur Azure AD Connect dispose d’une connectivité réelle avec le proxy et Internet, utilisez quelques commandes PowerShell pour voir si le proxy autorise ou non les demandes web. À une invite PowerShell, exécutez `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Techniquement, le premier appel est vers https://login.microsoftonline.com et cet URI fonctionne également, mais l’autre URI répond plus rapidement.)
 
 PowerShell utilise la configuration du fichier machine.config pour contacter le proxy. Les paramètres de winhttp/netsh ne doivent pas affecter ces applets de commande.
 
@@ -101,7 +101,7 @@ Quand Azure AD Connect envoie une demande d'exportation à Azure AD, Azure AD pe
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Modèle de communication entre Azure AD Connect et Azure AD
 Si vous avez suivi l’ensemble des étapes précédentes et que vous ne pouvez toujours pas vous connecter, vous pouvez commencer à examiner les journaux du réseau. Cette section documente un modèle de connectivité réussi et normal. Elle indique également les fausses pistes courantes qui peuvent être ignorées quand vous lisez les journaux du réseau.
 
-* Il y a des appels à https://dc.services.visualstudio.com. Il n’est pas impératif que cette URL soit ouverte dans le proxy pour que l’installation réussisse, et vous pouvez ignorer ces appels.
+* Il s’agit d’appels vers https://dc.services.visualstudio.com. Il n’est pas impératif que cette URL soit ouverte dans le proxy pour que l’installation réussisse, et vous pouvez ignorer ces appels.
 * Vous constatez que la résolution DNS répertorie les hôtes réels de l’espace de noms DNS nsatc.net et d’autres espaces de noms ne figurant pas sous microsoftonline.com. Néanmoins, il n’existe pas de demandes de service web sur les noms de serveur réels, et vous n’avez pas à ajouter ces URL au proxy.
 * Les points de terminaison adminwebservice et provisioningapi sont des points de terminaison de découverte, et ils sont utilisés pour rechercher le point de terminaison réel à utiliser. Ces points de terminaison diffèrent selon votre région.
 
@@ -197,5 +197,5 @@ Cette erreur apparaît quand l’Assistant de connexion ne peut pas accéder au 
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

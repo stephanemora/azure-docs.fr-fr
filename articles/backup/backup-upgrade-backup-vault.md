@@ -1,11 +1,11 @@
 ---
-title: "Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services de la sauvegarde Azure | Microsoft Docs"
-description: "Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services pour bénéficier de nouvelles fonctionnalités comme la sauvegarde de machines virtuelles Resource Manager, la sécurité renforcée, la sauvegarde de machines virtuelles VMware et la sauvegarde de l’état du système pour les serveurs Windows"
+title: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services de la sauvegarde Azure | Microsoft Docs
+description: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services pour bénéficier de nouvelles fonctionnalités comme la sauvegarde de machines virtuelles Resource Manager, la sécurité renforcée, la sauvegarde de machines virtuelles VMware et la sauvegarde de l’état du système pour les serveurs Windows
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Coffre de sauvegarde mis à niveau vers un coffre Recovery Services
 Cet article fournit une vue d’ensemble des prestations du coffre Recovery Services, répond aux questions fréquentes sur la mise à niveau d’un coffre de sauvegarde existant vers un coffre Recovery Services et indique les étapes postérieures à la mise à niveau. Un coffre Recovery Services est l’équivalent Azure Resource Manager d’un coffre de sauvegarde qui héberge vos données de sauvegarde. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des stations de travail ou des serveurs locaux ou dans Azure.
@@ -34,7 +34,7 @@ Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager 
 
 - **Surveillance centrale de votre environnement informatique hybride** : avec les coffres Recovery Services, vous pouvez surveiller non seulement vos [machines virtuelles IaaS Azure](backup-azure-manage-vms.md), mais aussi votre [ressources locales](backup-azure-manage-windows-server.md#manage-backup-items) à partir d’un portail centralisé. [En savoir plus](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Contrôle d’accès en fonction du rôle (RBAC)** : le RBAC offre un contrôle précis de la gestion des accès dans Azure. [Azure offre différents rôles intégrés](../active-directory/role-based-access-built-in-roles.md), et Sauvegarde Microsoft Azure comprend trois [rôles intégrés pour gérer les points de récupération](backup-rbac-rs-vault.md). Les coffres Recovery Services sont compatibles avec RBAC, ce qui limite les accès en sauvegarde et en restauration à l’ensemble défini des rôles d’utilisateur. [En savoir plus](backup-rbac-rs-vault.md)
+- **Contrôle d’accès en fonction du rôle (RBAC)** : le RBAC offre un contrôle précis de la gestion des accès dans Azure. [Azure offre différents rôles intégrés](../role-based-access-control/built-in-roles.md), et Sauvegarde Microsoft Azure comprend trois [rôles intégrés pour gérer les points de récupération](backup-rbac-rs-vault.md). Les coffres Recovery Services sont compatibles avec RBAC, ce qui limite les accès en sauvegarde et en restauration à l’ensemble défini des rôles d’utilisateur. [En savoir plus](backup-rbac-rs-vault.md)
 
 - **Protéger toutes les configurations des machines virtuelles Azure** : les coffres Recovery Services protègent les machines virtuelles basées sur Resource Manager, notamment les disques Premium, les disques gérés et les machines virtuelles chiffrées. La mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services vous donne la possibilité de mettre à niveau vos machines virtuelles basées sur Service Manager vers des machines virtuelles basées sur Resource Manager. Lors de la mise à niveau du coffre, vous pouvez conserver vos points de récupération de machines virtuelles basées sur Service Manager et configurer la protection pour de machines virtuelles (compatibles avec Resource Manager) mises à niveau. [En savoir plus](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
@@ -60,7 +60,7 @@ Le deuxième écran présente les liens d’aide disponibles pour vous aider à 
 Les coffres Recovery Services prennent en charge la spécification d’informations de fuseau horaire dans la stratégie de sauvegarde. Une fois le coffre mis à niveau, accédez à Stratégies de sauvegarde dans le menu de paramètres du coffre et mettez à jour les informations de fuseau horaire pour chacune des stratégies configurées dans le coffre. Cet écran montre déjà l’heure de planification de sauvegarde spécifiée en fonction du fuseau horaire local utilisé quand vous avez créé la stratégie. 
 
 ## <a name="enhanced-security"></a>Sécurité améliorée
-Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md). Quand la sécurité améliorée est activée, les données sont conservées jusqu’à 14 jours après que les informations relatives au point de récupération ont été supprimées du coffre. Les clients sont facturés pour le stockage de ces données de sécurité. La rétention des données de sécurité s’applique aux points de récupération définis pour l’agent de sauvegarde Azure, le serveur de sauvegarde Azure et System Center Data Protection Manager. 
+Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md). Quand la sécurité améliorée est activée, les données sont conservées jusqu’à 14 jours après que les informations relatives au point de récupération ont été supprimées du coffre. Les clients sont facturés pour le stockage de ces données de sécurité. La rétention des données de sécurité s’applique aux points de récupération définis pour l’agent de sauvegarde Azure, le serveur de sauvegarde Azure et System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Collecter des données sur votre coffre
 Une fois que vous avez effectué la mise à niveau vers un coffre Recovery Services, configurez des rapports pour la sauvegarde Azure (pour les machines virtuelles IaaS et l’agent Microsoft Azure Recovery Services) et utilisez Power BI pour accéder aux rapports. Pour plus d’informations sur la collecte de données, consultez l’article [Configurer les rapports de la Sauvegarde Azure](backup-azure-configure-reports.md).

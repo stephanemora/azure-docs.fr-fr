@@ -1,11 +1,11 @@
 ---
-title: "Configuration d’Azure Key Vault avec une rotation des clés et un audit de bout en bout | Microsoft Docs"
-description: "Utilisez cette procédure pour configurer la rotation des clés et la surveillance des journaux de Key Vault."
+title: Configuration d’Azure Key Vault avec une rotation des clés et un audit de bout en bout | Microsoft Docs
+description: Utilisez cette procédure pour configurer la rotation des clés et la surveillance des journaux de Key Vault.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
-ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: stgriffi
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit de bout en bout
 ## <a name="introduction"></a>Introduction
@@ -38,7 +38,7 @@ Cet article présente un exemple d’utilisation d’Azure Key Vault pour stocke
 Pour qu’une application puisse récupérer un secret dans Key Vault, vous devez tout d’abord créer le secret et le télécharger dans votre coffre. Procédez en démarrant une session Azure PowerShell et en vous connectant à votre compte Azure avec la commande suivante :
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. PowerShell obtient alors tous les abonnements associés à ce compte. PowerShell utilise le premier par défaut.
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

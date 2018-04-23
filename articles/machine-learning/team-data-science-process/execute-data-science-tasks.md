@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev
-ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0e0c04e48a551db6d7d7cd221a35e267dc0a63f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
 Les tâches courantes de science des données incluent l’exploration, la modélisation et le déploiement. Cet article explique comment recourir aux utilitaires **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** et **AMAR (Automated Modeling and Reporting)** pour effectuer plusieurs tâches courantes de science des données, telles que l’exploration des données, l’analyse des données et la création de rapports interactives, ainsi que la création de modèles. Il décrit également les options de déploiement d’un modèle sur un environnement de production à l’aide d’un éventail de kits de ressources et de plateformes de données, tels que les suivants :
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [SQL Server avec les services ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -32,7 +32,7 @@ Les tâches courantes de science des données incluent l’exploration, la modé
 
 Un scientifique des données peut effectuer les tâches d’exploration et de création de rapports de plusieurs façons : à l’aide de bibliothèques et de packages disponibles pour Python (matplotlib, par exemple) ou de R (ggplot ou lattice, par exemple). Il peut personnaliser ce code en fonction des besoins d’exploration de données pour des scénarios spécifiques. Les contraintes liées aux données structurées diffèrent de celles liées aux données non structurées, telles que le texte ou les images. 
 
-En outre, des produits tels qu’Azure Machine Learning Workbench fournissent une [préparation avancée des données](../preview/tutorial-bikeshare-dataprep.md) pour le tri et l’exploration des données, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
+En outre, des produits tels qu’Azure Machine Learning Workbench fournissent une [préparation avancée des données](../desktop-workbench/tutorial-bikeshare-dataprep.md) pour le tri et l’exploration des données, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
 
 Le livrable à la fin de cette phase est un rapport d’exploration de données. Ce rapport doit fournir une vue très complète des données à utiliser pour la modélisation et une évaluation indiquant si les données sont appropriées pour passer à l’étape de modélisation. Les utilitaires TDSP (Team Data Science Process) indiqués dans les sections suivantes pour l’exploration, la modélisation et la création de rapports semi-automatiques fournissent également des rapports de modélisation et d’exploration de données standard. 
 
@@ -75,7 +75,7 @@ Pour plus d’informations, consultez [Utilitaire de modélisation et de créati
 ### <a name="model-management"></a>Gestion des modèles
 Une fois que plusieurs modèles ont été générés, vous devez généralement vous doter d’un système qui vous permet de les inscrire et de les gérer. En règle générale, vous avez besoin d’une combinaison de scripts ou d’API et d’une base de données backend ou d’un système de gestion de versions. Voici quelques options que vous pouvez envisager pour ces tâches de gestion :
 
-1. [Azure Machine Learning - Service de gestion des modèles](../preview/index.yml)
+1. [Azure Machine Learning - Service de gestion des modèles](../service/index.yml)
 2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL Server comme système de gestion de modèle](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
@@ -88,7 +88,7 @@ Le déploiement de production permet à un modèle de jouer un rôle actif dans 
 Il existe différentes approches et plateformes pour mettre les modèles en production. Voici quelques options :
 
 
-- [Déploiement du modèle dans Azure Machine Learning](../preview/model-management-overview.md)
+- [Déploiement du modèle dans Azure Machine Learning](../desktop-workbench/model-management-overview.md)
 - [Déploiement d’un modèle dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

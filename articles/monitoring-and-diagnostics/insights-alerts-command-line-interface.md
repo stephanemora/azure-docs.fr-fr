@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Créer des alertes de métriques classiques dans Azure Monitor pour les services Azure - Interface de ligne de commande multiplateforme
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="overview"></a>Vue d'ensemble
 > [!NOTE]
-> Cet article décrit comment créer des alertes de métriques plus anciennes. Désormais, Azure Monitor prend en charge des [alertes de métriques plus récentes et plus performantes](monitoring-near-real-time-metric-alerts.md). Ces alertes peuvent surveiller plusieurs métriques, et permettent d’obtenir des alertes sur des métriques dimensionnelles. L’interface de ligne de commande sera bientôt prise en charge pour des alertes de métriques plus récentes.
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Désormais, Azure Monitor prend en charge des [alertes de métriques plus récentes et plus performantes](monitoring-near-real-time-metric-alerts.md). Ces alertes peuvent surveiller plusieurs métriques, et permettent d’obtenir des alertes sur des métriques dimensionnelles. L’interface de ligne de commande sera bientôt prise en charge pour des alertes de métriques plus récentes.
 >
 >
 
-Cet article montre comment configurer des alertes de métrique Azure avec l’interface de ligne de commande (CLI) multiplateforme.
+Cet article montre comment configurer des alertes de métriques classiques Azure avec l’interface de ligne de commande (CLI) multiplateforme.
 
 > [!NOTE]
 > Azure Monitor est le nouveau nom de ce qui était appelé « Azure Insights » jusqu’au 25 septembre 2016. Toutefois, les espaces de noms et, par conséquent, les commandes ci-dessous contiennent toujours « insights ».
@@ -46,14 +46,14 @@ Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour v
 * **Valeurs de métriques** : l’alerte se déclenche lorsque la valeur d’une métrique spécifiée dépasse un seuil que vous affectez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois lorsque la condition est remplie et par la suite une fois que la condition n’est plus remplie.    
 * **Événements du journal d’activité** : une alerte peut se déclencher sur *chaque* événement ou seulement quand un certain événement se produit. Pour plus d’informations sur les alertes du journal d’activité, [cliquez ici](monitoring-activity-log-alerts.md)
 
-Vous pouvez configurer une alerte de métrique pour effectuer les opérations suivantes lors de son déclenchement :
+Vous pouvez configurer une alerte de métrique classique pour effectuer les opérations suivantes lors de son déclenchement :
 
 * envoyer des notifications par courrier électronique à l’administrateur du service et aux coadministrateurs
 * envoyer un courrier électronique à d’autres adresses que vous spécifiez.
 * appeler un webhook
 * démarrer l’exécution d’un runbook Azure (uniquement à partir du Portail Azure pour l’instant)
 
-Vous pouvez configurer et obtenir des informations sur les règles d’alerte de métrique via
+Vous pouvez configurer et obtenir des informations sur les règles d’alerte de métrique classique via
 
 * [Portail Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -112,7 +112,7 @@ Vous pouvez toujours obtenir une aide sur les commandes en tapant une commande e
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. Pour créer un webhook ou envoyer un e-mail quand une alerte se déclenche, commencez par créer l’e-mail et/ou les webhooks. Puis créez la règle immédiatement après. Vous ne pouvez pas associer un webhook ou des messages électroniques à des règles déjà créées à l’aide de l’interface CLI.
+5. Pour créer un Webhook ou envoyer un e-mail quand une alerte de métrique classique se déclenche, commencez par créer l’e-mail et/ou les Webhooks. Puis créez la règle immédiatement après. Vous ne pouvez pas associer un webhook ou des messages électroniques à des règles déjà créées à l’aide de l’interface CLI.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com

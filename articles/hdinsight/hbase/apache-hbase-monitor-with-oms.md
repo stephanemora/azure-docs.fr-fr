@@ -1,6 +1,6 @@
 ---
-title: Surveiller HBase avec Microsoft Operations Management Suite (OMS) - Azure HDInsight | Microsoft Docs
-description: Utilisez OMS avec Azure Log Analytics pour surveiller les clusters HDInsight HBase.
+title: Surveiller HBase avec Azure Log Analytics - Azure HDInsight | Microsoft Docs
+description: Utilisez Azure Log Analytics pour surveiller les clusters HBase HDInsight.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -10,29 +10,27 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f78d570cfa8b040cd7673a5e14e6a992511f60bb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 78190576fb17409fac929b5afa50b71046f4d0e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="monitor-hbase-with-operations-management-suite-oms"></a>Surveiller HBase avec Microsoft Operations Management Suite (OMS)
+# <a name="monitor-hbase-with-log-analytics"></a>Surveiller HBase avec Log Analytics
 
 HDInsight HBase Monitoring utilise Azure Log Analytics pour collecter des mesures de performances HDInsight HBase à partir de vos nœuds de cluster HDInsight. Il fournit des visualisations et des tableaux de bord spécifiques à HBase, des outils pour rechercher les mesures, ainsi que la possibilité de créer des alertes et des règles de surveillance personnalisées. Vous pouvez surveiller les mesures de plusieurs clusters HDInsight HBase répartis sur des abonnements Azure différents.
 
-Log Analytics est un service d’[Operations Management Suite (OMS)](../../operations-management-suite/operations-management-suite-overview.md) qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Log Analytics collecte les données générées par les ressources dans vos environnements cloud et locaux, ainsi que celles d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+Log Analytics est un service [Azure](../../operations-management-suite/operations-management-suite-overview.md) qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Log Analytics collecte les données générées par les ressources dans vos environnements cloud et locaux, ainsi que celles d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
 
-Les [solutions de gestion Log Analytics](../../log-analytics/log-analytics-add-solutions.md) ajoutent des fonctionnalités à OMS en fournissant des données et des outils d’analyse supplémentaires. Les solutions de gestion Log Analytics représentent une collection de règles logiques, de visualisation et d’acquisition des données qui fournissent des mesures pour une zone particulière. Une solution peut également définir de nouveaux types d’enregistrements à collecter, et ces enregistrements peuvent être analysés avec des recherches dans les journaux ou de nouvelles fonctionnalités d’interface utilisateur.
+Les [solutions de gestion Log Analytics](../../log-analytics/log-analytics-add-solutions.md) étendent les fonctionnalités de Log Analytics en y ajoutant des données et des outils d’analyse supplémentaires. Les solutions de gestion Log Analytics représentent une collection de règles logiques, de visualisation et d’acquisition des données qui fournissent des mesures pour une zone particulière. Une solution peut également définir de nouveaux types d’enregistrements à collecter, et ces enregistrements peuvent être analysés avec des recherches dans les journaux ou de nouvelles fonctionnalités d’interface utilisateur.
 
 [Insight & Analytics](https://azure.microsoft.com/pricing/details/insight-analytics/) repose sur la plateforme Log Analytics. Vous pouvez choisir d’utiliser les fonctions de Log Analytics et de payer par Go ingéré par le service ou de faire basculer votre espace de travail vers le niveau Insight & Analytics et de payer par nœud géré par le service. Insight & Analytics offre un sur-ensemble de fonctionnalités proposées par Log Analytics. La solution HBase Monitoring est disponible avec Log Analytics ou Insight & Analytics.
 
-Lorsque vous approvisionnez une solution HDInsight HBase Monitoring, vous créez un espace de travail OMS. Chaque espace de travail est un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Vous pouvez créer plusieurs espaces de travail dans votre abonnement afin de prendre en charge différents environnements, par exemple de production et de test.
+Lorsque vous approvisionnez une solution HDInsight HBase Monitoring, vous créez un espace de travail Log Analytics. Chaque espace de travail est un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Vous pouvez créer plusieurs espaces de travail dans votre abonnement afin de prendre en charge différents environnements, par exemple de production et de test.
 
 ## <a name="provision-hdinsight-hbase-monitoring"></a>Approvisionner HDInsight HBase Monitoring
 
@@ -50,7 +48,7 @@ Lorsque vous approvisionnez une solution HDInsight HBase Monitoring, vous créez
 
     ![Volet Solutions de gestion](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. Dans le volet de la solution de gestion, passez en revue les informations la concernant, puis sélectionnez **Créer**. 
-7. Dans le volet de *nom de la solution de gestion*, sélectionnez un espace de travail existant à associer à la solution de gestion, ou créez un espace de travail OMS, puis sélectionnez-le.
+7. Dans le volet de *nom de la solution de gestion*, sélectionnez un espace de travail existant à associer à la solution de gestion, ou créez un espace de travail Log Analytics, puis sélectionnez-le.
 8. Modifiez les paramètres de l’espace de travail concernant l’abonnement Azure, le groupe de ressources et l’emplacement comme nécessaire. 
     ![espace de travail de la solution](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. Sélectionnez **Créer**.  
@@ -68,9 +66,9 @@ Lorsque vous approvisionnez une solution HDInsight HBase Monitoring, vous créez
 
 Pour utiliser les outils fournis par HDInsight HBase Monitoring, vous devez configurer votre cluster afin qu’il transmette les mesures issues de son serveur de région, de ses nœuds principaux et de ses nœuds ZooKeeper à Log Analytics. Cette configuration est effectuée en exécutant une action de script sur votre cluster HDInsight HBase.
 
-### <a name="get-oms-workspace-id-and-workspace-key"></a>Obtenir l’ID de l’espace de travail OMS et la clé de l’espace de travail
+### <a name="get-log-analytics-workspace-id-and-workspace-key"></a>Obtenir l’ID et la clé de l’espace de travail Log Analytics
 
-Vous avez besoin de l’ID de votre espace de travail OMS et de la clé de votre espace de travail pour activer les nœuds de votre cluster permettant de s’authentifier auprès de Log Analytics. Pour obtenir ces valeurs :
+Vous avez besoin de l’ID et de la clé de votre espace de travail Log Analytics pour activer les nœuds de votre cluster permettant de s’authentifier auprès de Log Analytics. Pour obtenir ces valeurs :
 
 1. À partir de votre volet HBase Monitoring dans le portail Azure, sélectionnez Vue d’ensemble.
 
@@ -144,7 +142,7 @@ Une fois l’action de script terminée, des données doivent s’afficher dans 
 
 6. En sélectionnant l’une de ces options, vous pourrez descendre dans la hiérarchie de la vue Recherche dans les journaux dans laquelle vous pourrez affiner votre requête et explorer les données plus en détail.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Utilisation des règles d’alerte dans Log Analytics](../../log-analytics/log-analytics-alerts-creating.md)
+* [Création d’alertes dans Log Analytics](../../log-analytics/log-analytics-alerts-creating.md)
 * [Trouver des données avec les recherches de journaux dans Log Analytics](../../log-analytics/log-analytics-log-searches.md).

@@ -1,11 +1,11 @@
 ---
-title: "Créer une application web PHP et MySQL dans Azure | Microsoft Docs"
-description: "Découvrez comment faire fonctionner une application PHP dans Azure en établissant une connexion à une base de données MySQL dans Azure."
+title: Créer une application web PHP et MySQL dans Azure | Microsoft Docs
+description: Découvrez comment faire fonctionner une application PHP dans Azure en établissant une connexion à une base de données MySQL dans Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ecf83dd21b0803a6ceb4139d117a8b989b070403
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Créer une application web PHP et MySQL dans Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutoriel : Créer une application web PHP et MySQL dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application web PHP et MySQL dans Azure App Service sur Linux](./containers/tutorial-php-mysql-app.md).
@@ -44,6 +44,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 
@@ -154,7 +155,7 @@ Pour arrêter le serveur PHP, tapez `Ctrl + C` dans le terminal.
 
 ## <a name="create-mysql-in-azure"></a>Création de MySQL dans Azure
 
-Dans cette étape, vous allez créer une base de données MySQL dans [Azure Database pour MySQL (Version préliminaire)](/azure/mysql). Ensuite, vous configurerez l’application PHP pour la connexion à cette base de données.
+Dans cette étape, vous allez créer une base de données MySQL dans [Azure Database pour MySQL](/azure/mysql). Ensuite, vous configurerez l’application PHP pour la connexion à cette base de données.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -162,7 +163,7 @@ Dans cette étape, vous allez créer une base de données MySQL dans [Azure Data
 
 ### <a name="create-a-mysql-server"></a>Création d’un serveur MySQL
 
-Dans Cloud Shell, créez un serveur dans Azure Database pour MySQL (préversion) avec la commande [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Dans Cloud Shell, créez un serveur dans Azure Database pour MySQL avec la commande [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé _&lt;mysql_server_name>_ (les caractères valides sont `a-z`, `0-9` et `-`). Ce nom fait partie du nom d’hôte du serveur MySQL (`<mysql_server_name>.database.windows.net`) et doit donc être globalement unique.
 
@@ -192,16 +193,11 @@ Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des inform
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
+Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
-
-> [!NOTE]
-> Pour le moment, Azure Database pour MySQL (version préliminaire) ne limite pas les connexions aux services Azure seulement. Étant donné que les adresses IP sont affectées dynamiquement dans Azure, il est préférable d’activer toutes les adresses IP. Le service est en version préliminaire. Les meilleures méthodes de sécurisation de votre base de données sont planifiées.
->
->
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Se connecter au serveur de production MySQL localement
 
@@ -236,7 +232,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Connexion de l’application à Azure MySQL
 
-Dans cette étape, vous allez connecter l’application PHP à la base de données MySQL que vous avez créée dans Azure Database pour MySQL (version préliminaire).
+Dans cette étape, vous allez connecter l’application PHP à la base de données MySQL que vous avez créée dans Azure Database pour MySQL.
 
 <a name="devconfig"></a>
 
@@ -260,7 +256,7 @@ MYSQL_SSL=true
 Enregistrez les modifications.
 
 > [!TIP]
-> Pour sécuriser vos informations de connexion MySQL, ce fichier est déjà exclu du référentiel Git (consultez _.gitignore_ dans la racine du référentiel). Vous apprendrez ultérieurement à configurer les variables d’environnement dans App Service pour vous connecter à votre base de données dans Azure Database pour MySQL (version préliminaire). Avec les variables d’environnement, vous n’avez pas besoin du fichier *.env* dans App Service.
+> Pour sécuriser vos informations de connexion MySQL, ce fichier est déjà exclu du référentiel Git (consultez _.gitignore_ dans la racine du référentiel). Vous apprendrez ultérieurement à configurer les variables d’environnement dans App Service pour vous connecter à votre base de données dans Azure Database pour MySQL. Avec les variables d’environnement, vous n’avez pas besoin du fichier *.env* dans App Service.
 >
 
 ### <a name="configure-ssl-certificate"></a>Configuration du certificat SSL
@@ -283,7 +279,7 @@ Le certificat `BaltimoreCyberTrustRoot.crt.pem` est fourni dans le référentiel
 
 ### <a name="test-the-application-locally"></a>Tester localement l’application
 
-Exécutez les migrations de base de données Laravel avec _.env.production_ comme fichier d’environnement pour créer les tables dans votre base de données MySQL dans Azure Database pour MySQL (version préliminaire). N’oubliez pas que _. env.production_ contient les informations de connexion à votre base de données MySQL dans Azure.
+Exécutez les migrations de base de données Laravel avec _.env.production_ comme fichier d’environnement pour créer les tables dans votre base de données MySQL dans Azure Database pour MySQL. N’oubliez pas que _. env.production_ contient les informations de connexion à votre base de données MySQL dans Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -305,7 +301,7 @@ Accédez à `http://localhost:8000`. Si la page se charge sans erreur, l’appli
 
 Ajoutez quelques tâches dans la page.
 
-![PHP se connecte correctement à Azure Database pour MySQL (version préliminaire)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP se connecte correctement à Azure Database pour MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
 Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 

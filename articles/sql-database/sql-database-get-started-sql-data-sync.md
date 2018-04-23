@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurer SQL Data Sync (Préversion)
 Dans ce didacticiel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation hybride contenant des instances SQL Database et SQL Server. Ce nouveau groupe de synchronisation est entièrement configuré et synchronise sur la planification définie.
@@ -38,6 +38,8 @@ Pour obtenir des exemples PowerShell complets qui montrent comment configurer SQ
     ![Liste des bases de données SQL Azure](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  Dans la page **Bases de données SQL**, sélectionnez la base de données SQL que vous souhaitez utiliser comme base de données Hub pour Data Sync. La page Base de données SQL s’ouvre.
+
+    La base de données Hub est le point de terminaison central de la topologie de synchronisation dans lequel un groupe de synchronisation a plusieurs points de terminaison de bases de données. Tous les autres points de terminaison de base de données du même groupe de synchronisation (toutes les bases de données membres) sont synchronisés avec la base de données Hub.
 
 4.  Dans la page Base de données SQL de la base de données choisie, sélectionnez **Synchroniser avec les autres bases de données**. La page Synchronisation des données s’ouvre.
 
@@ -67,6 +69,8 @@ Pour obtenir des exemples PowerShell complets qui montrent comment configurer SQ
         ![Spécifier la fréquence de synchronisation](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  Dans la section **Résolution des conflits**, sélectionnez « Priorité au hub » ou « Member wins (Priorité au membre ».
+
+        « Priorité au Hub » signifie qu’en cas de conflit, les données de la base de données Hub remplacent les données en conflit de la base de données membre. « Priorité au membre » signifie qu’en cas de conflit, les données de la base de données membre remplacent les données en conflit de la base de données Hub. 
 
         ![Spécifier le mode de résolution des conflits](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
@@ -271,7 +275,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Surveiller Azure SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

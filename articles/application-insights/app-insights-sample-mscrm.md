@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Procédure pas à pas : activation de télémétrie pour Microsoft Dynamics CRM Online à l’aide d’Application Insights
 Cet article décrit comment obtenir des données de télémétrie à partir de [Microsoft Dynamics CRM Online](https://www.dynamics.com/) à l’aide [d’Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Nous explorerons le processus complet d’ajout de script Application Insights à votre application, de capture de données et de visualisation des données.
@@ -60,7 +60,7 @@ Pour analyser votre application, vous devez y ajouter un Kit de développement l
     ![Ouvrez l’éditeur de texte](./media/app-insights-sample-mscrm/00004.png)
 2. Copiez le code à partir d’Application Insights. Lors de la copie, veillez à ignorer les balises de script. Reportez-vous à la capture d’écran ci-dessous :
 
-    ![Définissez votre clé d’instrumentation](./media/app-insights-sample-mscrm/00005.png)
+    ![Définissez votre clé d’instrumentation](./media/app-insights-sample-mscrm/000005.png)
 
     Le code contient la clé d’instrumentation qui identifie votre ressource Application Insights.
 3. Enregistrez et publiez.

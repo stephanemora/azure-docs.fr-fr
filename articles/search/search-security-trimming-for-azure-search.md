@@ -1,21 +1,18 @@
 ---
-title: "Filtres de sécurité pour le filtrage des résultats dans Recherche Azure | Microsoft Docs"
-description: "Contrôle d’accès au contenu Recherche Azure à l’aide de filtres de sécurité et d’identités d’utilisateur."
-ms.custom: 
-ms.date: 08/07/2017
+title: Filtres de sécurité pour le filtrage des résultats dans Recherche Azure | Microsoft Docs
+description: Contrôle d’accès au contenu Recherche Azure à l’aide de filtres de sécurité et d’identités d’utilisateur.
 ms.service: search
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-caps.latest.revision: 
+ms.topic: conceptual
+services: search
+ms.date: 08/07/2017
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche Azure
 
@@ -35,6 +32,7 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 > Le processus de récupération des identificateurs de principal n’est pas abordé dans ce document. Obtenez-le auprès de votre fournisseur de services d’identité.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 

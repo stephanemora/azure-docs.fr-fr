@@ -5,7 +5,7 @@ services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,33 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Plans et facturation dans Azure Scheduler
 ## <a name="job-collection-plans"></a>Plans de collections de travaux
-Dans Azure Scheduler, les collections de travaux constituent l'entité facturable. Les collections de travaux contiennent plusieurs travaux et se présentent en trois modes (Gratuit, Standard et Premium) décrits ci-dessous.
+Dans Azure Scheduler, les collections de travaux constituent l'entité facturable. Les collections de travaux contiennent plusieurs travaux et se présentent en trois modes (Standard, P10 Premium et P20 Premium) décrits ci-dessous.
 
 | **Plan de collection de travaux** | **Nombre maximal de travaux par Collection de travaux** | **Périodicité maximale** | **Collections de travail max. par abonnement** | **Limites** |
 |:--- |:--- |:--- |:--- |:--- |
-| **Gratuit** |5 travaux par collection |Une fois par heure. Ne peut pas exécuter des travaux plus souvent qu'une fois par heure |1 collection de travaux gratuite maximum est autorisée par abonnement |Impossible d'utiliser un [objet d'autorisation sortante HTTP](scheduler-outbound-authentication.md) |
 | **Standard** |50 travaux par collection |Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute |100 collections de travaux standard maximum sont autorisées par abonnement |Accès à l'ensemble complet des fonctionnalités de Scheduler |
 | **P10 Premium** |50 travaux par collection |Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute |10 000 collections de travaux P10 Premium maximum sont autorisées par abonnement. Pour augmenter cette limite, <a href="mailto:wapteams@microsoft.com">contactez-nous</a>. |Accès à l'ensemble complet des fonctionnalités de Scheduler |
 | **P20 Premium** |1000 travaux par collection |Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute |10 000 collections de travaux P20 Premium maximum sont autorisées par abonnement. Pour augmenter cette limite, <a href="mailto:wapteams@microsoft.com">contactez-nous</a>. |Accès à l'ensemble complet des fonctionnalités de Scheduler |
 
 ## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Mises à niveau et versions antérieures des Plans de collections de travaux
-Vous pouvez mettre à niveau ou rétrograder un plan de collection de travaux à tout moment en choisissant entre les plans Gratuit, Standard et Premium. Toutefois, lorsque vous passez à une collection de travaux gratuite, la rétrogradation peut échouer pour l'une des raisons suivantes :
-
-* Il existe déjà une collection de travaux gratuite dans l'abonnement
-* Un travail de la collection de travaux a une périodicité supérieure à celle autorisée pour les travaux dans les collections de travaux gratuites. La périodicité maximale autorisée dans une collection de travaux gratuite est une fois par heure.
-* La collection de travaux contient plus de 5 travaux.
-* Un travail de la collection de travaux a une action HTTP ou HTTPS qui utilise un [objet d'autorisation sortante HTTP](scheduler-outbound-authentication.md)
+Vous pouvez mettre à niveau ou rétrograder un plan de collection de travaux à tout moment en choisissant entre les plans Standard, P10 Premium et P20 Premium.
 
 ## <a name="billing-and-azure-plans"></a>Facturation et plans Azure
-Les abonnements ne sont pas facturés pour les collections de travaux gratuites. Si vous avez plus de 100 collections de travaux standard (10 unités de facturation standard), il est plus intéressant de regrouper toutes les collections de travaux dans le plan Premium.
+Si vous avez plus de 100 collections de travaux standard (10 unités de facturation standard), il est plus intéressant de regrouper toutes les collections de travaux dans le plan Premium.
 
 Si vous disposez d’une collection de travaux Standard et d’une collection de travaux Premium, une unité de facturation standard *et* une unité de facturation premium vous sont facturées. Le service de Scheduler facture en fonction du nombre de collections de travaux actives qui sont définies sur Standard ou Premium. Ceci est expliqué dans les deux sections suivantes.
 
@@ -66,7 +60,7 @@ Les collections de travaux sont toujours actives, sauf si votre abonnement entie
 
 Bien que vous puissiez désactiver tous les travaux d’une collection de travaux en une seule opération, cela ne modifie pas l’état de facturation de la collection de travaux : celle-ci sera *tout de même* facturée. De même, les collections de travaux vides sont considérées comme actives et seront facturées.
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 Pour plus d’informations sur la tarification, voir l’article [Tarification d’Azure Scheduler](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## <a name="see-also"></a>Voir aussi

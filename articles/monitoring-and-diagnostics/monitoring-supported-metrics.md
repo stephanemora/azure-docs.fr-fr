@@ -12,19 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: 285f4540c7f9be19cde0aafeff67ce2b39abe957
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c9dab276b39b1ceb55851e865f9166e3e9e7fee8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
-Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor.
+Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor. D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. La liste ci-dessous englobe uniquement les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher ces métriques et y accéder, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
 
 > [!NOTE]
-> D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. Cette liste ne comprend que les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher et accéder aux métriques avec des dimensions, veuillez utiliser [2017-05-01-preview api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+> L’envoi de métriques à plusieurs dimensions via les paramètres de diagnostic n’est actuellement pas pris en charge. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
+>
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
 >
 
@@ -811,11 +813,11 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Total|Nombre d’octets par seconde servis par Application Gateway|Aucune dimension|
-|UnhealthyHostCount|Nombre d’hôtes non intègres|Count|Moyenne|Nombre d’hôtes principaux non intègres|BackendSettingsPool|
-|HealthyHostCount|Nombre d’hôtes intègres|Count|Moyenne|Nombre d’hôtes principaux intègres|BackendSettingsPool|
+|UnhealthyHostCount|Nombre d’hôtes non intègres|Count|Moyenne|Nombre d’hôtes principaux non intègres. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.|BackendSettingsPool|
+|HealthyHostCount|Nombre d’hôtes intègres|Count|Moyenne|Nombre d’hôtes principaux intègres. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.|BackendSettingsPool. |
 |TotalRequests|Total de requêtes|Count|Total|Nombre de requêtes réussies servies par Application Gateway|BackendSettingsPool|
 |FailedRequests|Demandes ayant échoué|Count|Total|Nombre de requêtes en échec servies par Application Gateway|BackendSettingsPool|
-|ResponseStatus|État de la réponse|Count|Total|État de la réponse HTTP retourné par Application Gateway|HttpStatusGroup|
+|ResponseStatus|État de la réponse|Count|Total|État de la réponse HTTP retourné par Application Gateway. La distribution du code d’état de la réponse peut être ultérieurement classée par catégorie afin d’afficher les réponses dans les catégories 2xx, 3xx, 4xx et 5xx.|HttpStatusGroup|
 |CurrentConnections|Connexions courantes|Count|Total|Nombre de connexions courantes établies avec Application Gateway|Aucune dimension|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways

@@ -1,11 +1,11 @@
 ---
-title: "Regroupement de MySQL avec des jeux à charge équilibrée | Microsoft Docs"
-description: "Configuration d’un cluster MySQL Linux à haute disponibilité, à charge équilibrée créé avec le modèle de déploiement classique dans Azure"
+title: Regroupement de MySQL avec des jeux à charge équilibrée | Microsoft Docs
+description: Configuration d’un cluster MySQL Linux à haute disponibilité, à charge équilibrée créé avec le modèle de déploiement classique dans Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: bureado
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2671def47879e3d4eae000c9084cd458e29b933
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Utiliser des jeux d'équilibrage de la charge pour regrouper MySQL sur Linux
 > [!IMPORTANT]
@@ -330,7 +330,7 @@ Un exemple de code pour la ressource est disponible sur [GitHub](https://github.
 > [!NOTE]
 > Le script n’effectue pas de vérification en amont/en aval. La ressource SSH d’origine avait 15 vérifications ping, mais le temps de récupération d’une machine virtuelle Azure peut être variable.
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 Les limites suivantes s'appliquent :
 
 * Le script de ressource DRBD linbit qui gère DRBD comme ressource dans Pacemaker utilise `drbdadm down` lors de l’arrêt d’un nœud, même si celui-ci est seulement passé en veille. Cette situation n’est pas idéale, car l’esclave ne synchronisera pas la ressource DRBD lorsque le maître recevra des écritures. Si le maître n’échoue pas par commande, l’esclave peut prendre un état de système de fichiers antérieur. Cela peut être résolu de deux façons :

@@ -1,6 +1,6 @@
 ---
-title: "Vidéos Azure Database pour MySQL"
-description: "Cette page répertorie le contenu vidéo présentant Azure Database pour MySQL, l’offre MySQL gérée de Microsoft dans Azure."
+title: Vidéos Azure Database pour MySQL
+description: Cette page répertorie le contenu vidéo présentant Azure Database pour MySQL, l’offre MySQL gérée de Microsoft dans Azure.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

@@ -1,11 +1,11 @@
 ---
-title: "Créer et partager des tableaux de bord de données Log Analytics | Microsoft Docs"
-description: "Ce didacticiel vous aide à comprendre comment les tableaux de bord Log Analytics permettent de visualiser l’ensemble de vos recherches dans les journaux enregistrées en proposant une vue unique de votre environnement."
+title: Créer et partager des tableaux de bord de données Log Analytics | Microsoft Docs
+description: Ce didacticiel vous aide à comprendre comment les tableaux de bord Log Analytics permettent de visualiser l’ensemble de vos recherches dans les journaux enregistrées en proposant une vue unique de votre environnement.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
@@ -48,7 +48,7 @@ Cette action crée un nouveau tableau de bord privé vide, et vous fait passer e
 
 Par défaut, lorsque vous créez un tableau de bord, celui-ci est privé, ce qui signifie que vous êtes la seule personne à pouvoir le consulter. Pour que les autres utilisateurs puissent le voir, utilisez le bouton **Partager** , disponible avec les autres commandes de tableau de bord.<br> ![Partager un nouveau tableau de bord dans le portail Azure](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour plus de commodité, l’expérience de publication du portail vous guide vers un modèle dans lequel vous placez les tableaux de bord dans un groupe de ressources appelé **tableaux de bord**.  Vérifiez l’abonnement sélectionné, puis cliquez sur **Publier**.  L’accès aux informations figurant dans le tableau de bord est contrôlé par le [Contrôle d’accès en fonction des ressources Azure](../active-directory/role-based-access-control-configure.md).   
+Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour plus de commodité, l’expérience de publication du portail vous guide vers un modèle dans lequel vous placez les tableaux de bord dans un groupe de ressources appelé **tableaux de bord**.  Vérifiez l’abonnement sélectionné, puis cliquez sur **Publier**.  L’accès aux informations figurant dans le tableau de bord est contrôlé par le [Contrôle d’accès en fonction des ressources Azure](../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-search"></a>Visualiser une recherche dans les journaux
 

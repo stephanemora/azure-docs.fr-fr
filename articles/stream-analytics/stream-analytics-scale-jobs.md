@@ -1,31 +1,25 @@
 ---
-title: Mettre à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Docs
-description: Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail.
-keywords: diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse
+title: Montée en puissance et en charge lors des travaux Azure Stream Analytics
+description: Cet article décrit comment mettre à l’échelle un travail Stream Analytics en configurant des partitions d’entrée, en réglant la requête et en configurant les unités de streaming d’un travail.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
 Comme prérequis, vous devrez peut-être consulter les articles suivants :
 -   [Comprendre et ajuster les unités de diffusion en continu](stream-analytics-streaming-unit-consumption.md)
 -   [Créer des travaux parallélisables](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Cas 1 : Votre requête est par définition entièrement parallélisable sur plusieurs partitions d’entrée
 Si votre requête est par définition entièrement parallélisable sur plusieurs partitions d’entrée, vous pouvez suivre les étapes suivantes :
@@ -40,7 +34,6 @@ Si votre requête est par définition entièrement parallélisable sur plusieurs
 >[!Note]
 > Choisissez le nombre approprié d’unités de streaming : comme Stream Analytics crée un nœud de traitement pour chaque ensemble de 6 unités de streaming ajouté, il est préférable de faire du nombre de nœuds un diviseur du nombre de partitions d’entrée pour que les partitions puissent être réparties uniformément entre les nœuds.
 > Par exemple, vous avez mesuré que votre travail avec 6 unités de streaming peut atteindre une vitesse de traitement de 4 Mo/s et le nombre de partitions d’entrée est 4. Vous pouvez choisir d’exécuter votre travail avec 12 unités de streaming pour atteindre une vitesse de traitement d’environ 8 Mo/s, ou 24 unités de streaming pour atteindre 16 Mo/s. Vous pouvez alors décider quand augmenter le nombre d’unités de streaming du travail jusqu’à quelle valeur, en fonction de votre vitesse d’entrée.
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Cas 2 : Votre requête n’est pas massivement parallèle.
@@ -150,7 +143,7 @@ Et le graphique suivant présente une visualisation de la relation entre les uni
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

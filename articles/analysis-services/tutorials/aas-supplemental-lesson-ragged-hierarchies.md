@@ -1,25 +1,18 @@
 ---
-title: "Leçon supplémentaire du didacticiel Azure Analysis Services : Hiérarchies déséquilibrées | Microsoft Docs"
-description: "Décrit comment corriger les hiérarchies déséquilibrées dans le didacticiel Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Hiérarchies déséquilibrées | Microsoft Docs'
+description: Décrit comment corriger les hiérarchies déséquilibrées dans le didacticiel Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 955bc57bbf5f8bc3f0d91350f885d5dc77db93a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Leçon supplémentaire – Hiérarchies déséquilibrées
 
@@ -31,7 +24,8 @@ Les modèles tabulaires de niveau de compatibilité 1400 disposent d’une prop
   
 Durée estimée pour suivre cette leçon : **20 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 Cette rubrique de leçon supplémentaire fait partie d’un didacticiel de modélisation tabulaire. Avant d’effectuer les tâches de cette leçon supplémentaire, vous devez avoir effectué toutes les leçons précédentes ou disposer d’un exemple de projet de modèle de ventes sur Internet Adventure Works. 
 
 Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacticiel, votre modèle ne contient encore aucune donnée ou hiérarchie déséquilibrée. Pour suivre cette leçon supplémentaire, vous devez d’abord créer le problème en ajoutant des tables supplémentaires, puis créer des relations, des colonnes calculées, une mesure et une hiérarchie d’organisation. Cette partie prend environ 15 minutes. Ensuite, vous allez résoudre le problème en quelques minutes.  
@@ -50,11 +44,11 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
 
     | Table 1           | Colonne       | Direction du filtre   | Table 2     | Colonne      | Actif |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Default            | DimDate     | Date        | Oui    |
+    | FactResellerSales | OrderDateKey | Default            | DimDate     | Date        | OUI    |
     | FactResellerSales | DueDate      | Par défaut            | DimDate     | Date        | Non      |
     | FactResellerSales | ShipDateKey  | Default            | DimDate     | Date        | Non      |
-    | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | Oui    |
-    | FactResellerSales | EmployeeKey  | Vers les deux tables | DimEmployee | EmployeeKey | Oui    |
+    | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | OUI    |
+    | FactResellerSales | EmployeeKey  | Vers les deux tables | DimEmployee | EmployeeKey | OUI    |
 
 5. Dans la table **DimEmployee**, créez les [colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md) suivantes : 
 

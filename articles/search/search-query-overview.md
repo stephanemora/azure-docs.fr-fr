@@ -1,23 +1,18 @@
 ---
-title: "Requêtes dans Recherche Azure | Documents Microsoft"
-description: "Créez une requête de recherche dans Azure Search et utilisez des paramètres de recherche pour filtrer et trier les résultats de recherche."
+title: Requêtes dans Recherche Azure | Documents Microsoft
+description: Créez une requête de recherche dans Azure Search et utilisez des paramètres de recherche pour filtrer et trier les résultats de recherche.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 services: search
-manager: jhubbard
-documentationcenter: 
-author: ashmaka
-ms.assetid: 69205d7a-363f-4b92-a53f-6ca818a3d2c7
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/13/2017
-ms.author: ashmaka
-ms.openlocfilehash: b1a96c2299e415db89f881fa72b150d50bb3c69c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 50e27cbc485259ea5ce744ba71feee5e90293bcb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="queries-in-azure-search"></a>Requêtes dans Recherche Azure
 > [!div class="op_single_selector"]
@@ -42,7 +37,7 @@ La syntaxe des expressions de filtre est un sous-ensemble du [langage de filtre 
 ### <a name="simple-query-syntax"></a>Syntaxe de requête simple
 Le [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) est le langage de requête par défaut utilisé dans Azure Search. Elle prend en charge un certain nombre d’opérateurs de recherche courants, notamment les opérateurs AND, OR, NOT, les expressions, les suffixes et les opérateurs de priorité.
 
-### <a name="lucene-query-syntax"></a>syntaxe de requête Lucene
+### <a name="lucene-query-syntax"></a>Syntaxe de requête Lucene
 La [syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) vous permet d’utiliser le langage de requête expressif et largement adopté développé dans le cadre [d’Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
 L’utilisation de cette syntaxe de requête vous permet d’obtenir facilement les fonctionnalités suivantes : [requêtes portant sur un champ](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields), [recherche partielle](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy), [recherche de proximité](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity), [augmentation de la pertinence de termes](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost), [recherche d’expression régulière](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex), [recherche par caractères génériques](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard), [notions fondamentales de syntaxe](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax) et [requêtes utilisant des opérateurs booléens](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean).

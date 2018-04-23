@@ -1,13 +1,13 @@
 ---
-title: "Dépannage détaillé du Bureau à distance | Microsoft Docs"
-description: "Revoir les étapes de dépannage détaillées pour les erreurs liées au Bureau à distance, quand vous ne pouvez pas vous connecter aux machines virtuelles Windows dans Azure"
+title: Dépannage détaillé du Bureau à distance | Microsoft Docs
+description: Revoir les étapes de dépannage détaillées pour les erreurs liées au Bureau à distance, quand vous ne pouvez pas vous connecter aux machines virtuelles Windows dans Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "impossible de se connecter au bureau à distance, dépanner le bureau à distance, le bureau à distance ne peut pas se connecter, erreurs du bureau à distance, dépannage du bureau à distance, problèmes du bureau à distance"
+keywords: impossible de se connecter au bureau à distance, dépanner le bureau à distance, le bureau à distance ne peut pas se connecter, erreurs du bureau à distance, dépannage du bureau à distance, problèmes du bureau à distance
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Étapes de dépannage détaillées pour les problèmes de connexion du Bureau à distance aux machines virtuelles Windows dans Azure
 Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et résoudre les erreurs complexes du Bureau à distance pour les machines virtuelles basées Azure sur Windows.
@@ -39,7 +39,7 @@ Voici les composants impliqués dans une connexion Bureau à distance :
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Avant de poursuivre, nous vous recommandons de réfléchir à tout ce qui a changé depuis que vous avez créé avec succès une connexion Bureau à distance à la machine virtuelle. Par exemple :
+Avant de poursuivre, nous vous recommandons de réfléchir à tout ce qui a changé depuis que vous avez créé avec succès une connexion Bureau à distance à la machine virtuelle. Par exemple : 
 
 * Si l’adresse IP publique de la machine virtuelle ou du service cloud contenant la machine virtuelle (également appelée adresse IP virtuelle [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) a changé. L’erreur de Bureau à distance peut indiquer que le cache client DNS a toujours *l’ancienne adresse IP* enregistrée pour le nom DNS. Videz le cache client DNS et essayez de vous reconnecter à la machine virtuelle. Ou essayez de vous connecter directement avec la nouvelle adresse IP virtuelle.
 * Vous utilisez une application tierce pour gérer vos connexions Bureau à distance au lieu d’utiliser la connexion générée par le portail Azure. Vérifiez que la configuration de l’application inclut bien le port TCP approprié pour le trafic de Bureau à distance. Vous pouvez vérifier ce port pour une machine virtuelle classique dans le [portail Azure](https://portal.azure.com), en cliquant sur Paramètres de la machine virtuelle > Points de terminaison.

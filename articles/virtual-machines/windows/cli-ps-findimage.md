@@ -1,11 +1,11 @@
 ---
-title: "Sélectionner des images de machine virtuelle Windows dans Azure | Microsoft Docs"
-description: "Découvrez comment utiliser Azure PowerShell pour identifier l’éditeur, l’offre, la référence SKU et la version d’images de machine virtuelle de la Place de marché."
+title: Sélectionner des images de machine virtuelle Windows dans Azure | Microsoft Docs
+description: Découvrez comment utiliser Azure PowerShell pour identifier l’éditeur, l’offre, la référence SKU et la version d’images de machine virtuelle de la Place de marché.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 6d88eea96d95ac998575b9b034ac970eabc38913
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858b5976ef422ab410f42c44f94473aa4fd10970
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Comment rechercher des images de machine virtuelle Windows sur la Place de marché Microsoft Azure avec Azure PowerShell
 
@@ -80,7 +80,7 @@ Indiquez le nom de la référence SKU choisie et exécutez les commandes suivant
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Dans la sortie de la commande `Get-AzureRMVMImage`, vous pouvez sélectionner une image de version pour déployer une nouvelle machine virtuelle.
@@ -296,7 +296,7 @@ $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "imagePublishe
 ```
 Vous transmettez ensuite la configuration de machine virtuelle en même temps que les objets de configuration de réseau à la cmdlet `New-AzureRmVM`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour créer rapidement une machine virtuelle avec `New-AzureRmVM` en utilisant des informations d’image de base, consultez [Créer une machine virtuelle Windows avec PowerShell](quick-create-powershell.md).
 
 Consultez un exemple de script PowerShell pour [créer une machine virtuelle entièrement configurée](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).

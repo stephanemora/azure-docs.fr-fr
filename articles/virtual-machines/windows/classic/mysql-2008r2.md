@@ -1,10 +1,10 @@
 ---
-title: "Création d’une machine virtuelle Azure Classic exécutant MySQL | Microsoft Docs"
-description: "Créez une machine virtuelle Azure exécutant Windows Server 2012 R2, puis une base de données MySQL avec le modèle de déploiement classique."
+title: Création d’une machine virtuelle Azure Classic exécutant MySQL | Microsoft Docs
+description: Créez une machine virtuelle Azure exécutant Windows Server 2012 R2, puis une base de données MySQL avec le modèle de déploiement classique.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 98fa06d2-9b92-4d05-ac16-3f8e9fd4feaa
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be2a4232fdb59deb87d6d9340fd22909707294b8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Installation de MySQL sur une machine virtuelle créée avec le modèle de déploiement classique exécutant Windows Server 2016
 [MySQL](https://www.mysql.com) est une base de données SQL open source connue. Ce didacticiel vous montre comment installer et exécuter la **version de communauté de MySQL 5.7.18** comme serveur MySQL sur une machine virtuelle s’exécutant sous **Windows Server 2016**. Votre expérience peut être légèrement différente sur d’autres versions de MySQL ou Windows Server.
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/09/2017
 Pour obtenir des instructions sur l’installation de MySQL sur Linux, consultez [Installation de MySQL sur Azure](../../linux/mysql-install.md).
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>Création d’une machine virtuelle exécutant Windows Server 2016
@@ -51,7 +51,7 @@ Pour installer, configurer et exécuter la version Community de MySQL Server, pr
 
 1. Une fois connecté à la machine virtuelle à l’aide du Bureau à distance, cliquez sur **Internet Explorer** dans l’écran d’accueil.
 2. Sélectionnez le bouton **Outils** dans l’angle supérieur droit (icône en forme de roue dentée), puis cliquez sur **Options Internet**. Cliquez successivement sur l’onglet **Sécurité**, sur l’icône **Sites de confiance**, puis sur le bouton **Sites**. Ajoutez http://*.mysql.com à la liste des sites de confiance. Cliquez sur **Fermer**, puis sur **OK**.
-3. Dans la barre d’adresses d’Internet Explorer, saisissez https://dev.mysql.com/downloads/mysql/.
+3. Dans l’adresse de barre d’Internet Explorer, tapez https://dev.mysql.com/downloads/mysql/.
 4. Utilisez le site MySQL pour rechercher et télécharger la dernière version du programme d’installation de MySQL pour Windows. Lorsque vous choisissez le programme d’installation de MySQL, téléchargez la version qui comporte le jeu de fichiers complet (par exemple, le fichier mysql-installer-community-5.7.18.0.msi d’une taille de 352,8 Mo), puis enregistrez le fichier d’installation.
 5. Lorsque le programme d’installation est téléchargé, cliquez sur **Exécuter** pour le lancer.
 6. Sur la page **Contrat de licence**, acceptez le contrat de licence, puis cliquez sur **Suivant**.
@@ -109,7 +109,7 @@ Pour ajouter une règle de pare-feu Windows qui autorise le trafic MySQL à part
 Pour tester votre connexion à distance à la machine virtuelle Azure exécutant le service MySQL Server, vous devez fournir le nom DNS du service cloud contenant la machine virtuelle.
 
 1. Dans le portail Azure, cliquez sur **Machines virtuelles (classic)**, sur le nom de votre machine virtuelle MySQL Server, puis sur **Vue d’ensemble**.
-2. Dans le tableau de bord de la machine virtuelle, notez la valeur du champ **Nom DNS**. Voici un exemple :
+2. Dans le tableau de bord de la machine virtuelle, notez la valeur du champ **Nom DNS**. Voici un exemple : 
 
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. Sur un ordinateur local exécutant MySQL ou le client MySQL, exécutez la commande suivante pour vous connecter en tant qu’utilisateur MySQL :

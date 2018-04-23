@@ -1,12 +1,12 @@
 ---
-title: "Créer une application web Java et MySQL dans Azure"
-description: "Découvrez comment obtenir une application Java qui se connecte au service de base de données Azure MySQL dans Azure App Service."
+title: Créer une application web Java et MySQL dans Azure
+description: Découvrez comment obtenir une application Java qui se connecte au service de base de données Azure MySQL dans Azure App Service.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 31951b609f7d819b532e6fa8cb02c702e9457253
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Créer une application web Java et MySQL dans Azure
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Tutoriel : Créer une application web Java et MySQL dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour effectuer un déploiement sur App Service sous _Linux_, consultez la page [Déployer une application Spring Boot en conteneur sur Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
@@ -44,6 +44,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 1. [Téléchargement et installation de Git](https://git-scm.com/)
 1. [Téléchargement et installation du JDK Java 7 ou version ultérieure](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -137,7 +138,7 @@ Pour connaître les valeurs possibles que vous pouvez utiliser pour `--location`
 
 ### <a name="create-a-mysql-server"></a>Création d’un serveur MySQL
 
-Dans Cloud Shell, créez un serveur dans Azure Database pour MySQL (préversion) avec la commande [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé `<mysql_server_name>`. Ce nom fait partie du nom d’hôte de votre serveur MySQL, `<mysql_server_name>.mysql.database.azure.com`, et doit donc être globalement unique. Remplacez également `<admin_user>` et `<admin_password>` par vos propres valeurs.
+Dans Cloud Shell, créez un serveur dans Azure Database pour MySQL avec la commande [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé `<mysql_server_name>`. Ce nom fait partie du nom d’hôte de votre serveur MySQL, `<mysql_server_name>.mysql.database.azure.com`, et doit donc être globalement unique. Remplacez également `<admin_user>` et `<admin_password>` par vos propres valeurs.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -161,14 +162,11 @@ Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des inform
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). 
+Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
-
-> [!NOTE]
-> Azure Database pour MySQL (version préliminaire) ne permet pas encore les connexions automatiques à partir des services Azure. Étant donné que les adresses IP sont affectées dynamiquement dans Azure, il est préférable d’activer toutes les adresses IP pour le moment. Le service est pour le moment disponible en version préliminaire, mais de meilleures méthodes de sécurisation de votre base de données seront activées.
 
 ## <a name="configure-the-azure-mysql-database"></a>Configurer la base de données Azure MySQL
 

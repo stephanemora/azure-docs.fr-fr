@@ -1,22 +1,18 @@
 ---
 title: Index dans le service Recherche Azure | Microsoft Docs
-description: "En savoir plus sur les concepts d’index et leur utilisation dans Recherche Azure."
+description: En savoir plus sur les concepts d’index et leur utilisation dans Recherche Azure.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 services: search
-documentationcenter: 
-author: ashmaka
-ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: ashmaka
-ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cc2c56d4463203aa2561e820540acdfff651d80a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexes-in-azure-search"></a>Index dans Recherche Azure
 > [!div class="op_single_selector"]
@@ -35,7 +31,7 @@ Lorsque vous ajoutez/chargez des documents et soumettez des requêtes de recherc
 Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et les attributs de chaque champ de votre index. Le type de champ classifie les données stockées dans ce champ. Les attributs sont définis sur des champs individuels pour spécifier la façon dont le champ est utilisé. Les tableaux ci-après énumèrent les types et les attributs que vous pouvez spécifier.
 
 ### <a name="field-types"></a>Types de champ
-| Type | Description |
+| type | Description |
 | --- | --- |
 | *Edm.String* |Texte pouvant éventuellement être tokenisé pour la recherche en texte intégral (césure de mots, recherche de radical, etc). |
 | *Collection(Edm.String)* |Liste de chaînes pouvant être éventuellement tokenisées pour la recherche en texte intégral. En théorie, il n’existe pas de limite supérieure quant au nombre d’éléments d’une collection, mais la limite supérieure de 16 Mo sur la taille de charge utile s’applique aux collections. |

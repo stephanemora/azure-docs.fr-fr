@@ -1,26 +1,26 @@
 ---
-title: "Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI | Microsoft Docs"
-description: "Découvrez comment basculer entre le mode d’affichage et le mode d’édition de vos rapports dans les collections d’espaces de travail Power BI."
+title: Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI | Microsoft Docs
+description: Découvrez comment basculer entre le mode d’affichage et le mode d’édition de vos rapports dans les collections d’espaces de travail Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: e66778697f3f4f2f065d2757b3b60ac2699c0334
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 23a8c4f0dd626a623df56de9546258a23d549d1a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI
 
@@ -119,7 +119,7 @@ report.switchMode("edit");
 ## <a name="see-also"></a>Voir aussi
 
 [Prise en main de l’exemple](get-started-sample.md)  
-[Incorporer un rapport](embed-report.md)  
+[Embed a report](embed-report.md) (Intégrer un rapport)  
 [Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  

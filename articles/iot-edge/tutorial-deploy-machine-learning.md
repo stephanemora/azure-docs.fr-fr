@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0a508f6430bd97e7c76aee686f4837acf246ad3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Déployer Azure Machine Learning en tant que module IoT Edge - version préliminaire
 
@@ -34,8 +34,8 @@ Le module Azure Machine Learning que vous créez dans ce didacticiel lit les don
 
 * L’appareil Azure IoT Edge que vous avez créé dans le démarrage rapide ou le premier didacticiel.
 * La chaîne de connexion IoT Hub pour l’IoT Hub auquel votre appareil IoT Edge se connecte.
-* Un compte Azure Machine Learning. Pour créer un compte, suivez les instructions de la page [Créer des comptes Azure Machine Learning et installer Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Vous n’avez pas besoin d’installer l’application Workbench dans le cadre de ce didacticiel. 
-* Gestion des modules pour Azure ML sur votre ordinateur. Pour configurer votre environnement et créer un compte, suivez les instructions de la page [Configuration de la gestion des modèles](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+* Un compte Azure Machine Learning. Pour créer un compte, suivez les instructions de la page [Créer des comptes Azure Machine Learning et installer Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Vous n’avez pas besoin d’installer l’application Workbench dans le cadre de ce didacticiel. 
+* Gestion des modules pour Azure ML sur votre ordinateur. Pour configurer votre environnement et créer un compte, suivez les instructions de la page [Configuration de la gestion des modèles](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
 
 Le module Azure Machine Learning ne prend pas en charge les processeurs ARM. 
 

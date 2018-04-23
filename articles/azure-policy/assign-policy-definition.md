@@ -1,19 +1,19 @@
 ---
-title: "Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure | Microsoft Docs"
-description: "Cet article vous guide à travers les étapes de création d’une définition de stratégie pour identifier les ressources non conformes."
+title: Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure | Microsoft Docs
+description: Cet article vous guide à travers les étapes de création d’une définition de stratégie pour identifier les ressources non conformes.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2018
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e5b27bdc2aef15b619022d1c08fa3e6dccaa5736
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure
 La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Ce démarrage rapide vous guide pas à pas dans le processus de création d’une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques gérés.
@@ -71,15 +71,14 @@ Si des ressources existantes ne sont pas conformes à cette nouvelle affectation
 
 Si une condition est évaluée par rapport à vos ressources existantes et génère la valeur true, ces ressources sont marquées comme non conformes à la stratégie. L’image de l’exemple précédent affiche les ressources non conformes. Le tableau suivant montre comment différentes actions de stratégie fonctionnent avec l’évaluation des conditions pour l’état de conformité qui en résulte. Même si vous ne voyez pas la logique d’évaluation dans le portail Azure, les résultats d’état de conformité sont affichés. Le résultat d’état de conformité est soit conforme, soit non conforme.
 
-|Ressource  |Si la condition dans la stratégie a la valeur  |Action dans la stratégie   |État de conformité  |
-|-----------|---------|---------|---------|
-|Exists     |True     |Deny     |Non conforme |
-|Exists     |False    |Deny     |Conforme     |
-|Exists     |True     |Append   |Non conforme |
-|Exists     |False    |Append   |Conforme     |
-|Exists     |True     |Audit    |Non conforme |
-|Exists     |False    |Audit    |Non conforme |
+| **État de la ressource** | **Action** | **Évaluation de la stratégie** | **État de conformité** |
+| --- | --- | --- | --- |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
+| Nouveau | Audit, AuditIfNotExist\* | True | Non conforme |
+| Nouveau | Audit, AuditIfNotExist\* | False | Conforme |
 
+\* Les actions Append, DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait la valeur TRUE. Les actions nécessitent également la condition FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 D’autres guides de cette collection sont basés sur ce démarrage rapide. Si vous prévoyez de continuer avec les didacticiels suivants, ne nettoyez pas les ressources créées dans ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées au cours de ce démarrage rapide dans le portail Azure.

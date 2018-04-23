@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mappage de revendications dans Azure Active Directory (préversion publique)
 
@@ -234,7 +234,7 @@ Les revendications restreintes ne peuvent pas être modifiées à l’aide d’u
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Propriétés de stratégie de mappage de revendications
-Les propriétés d’une stratégie de mappage de revendications permettent de contrôler les revendications émises et l’origine des données. Si aucune stratégie n’est définie, le système émet des jetons contenant l’ensemble de revendications principal, l’ensemble de revendications de base et des revendications facultatives que l’application a choisi de recevoir.
+Les propriétés d’une stratégie de mappage de revendications permettent de contrôler les revendications émises et l’origine des données. Si aucune stratégie n’est définie, le système émet des jetons contenant l’ensemble de revendications principal, l’ensemble de revendications de base et les éventuelles [revendications facultatives](develop/active-directory-optional-claims.md) que l’application a choisi de recevoir.
 
 ### <a name="include-basic-claim-set"></a>Ensemble de revendications de base Include
 

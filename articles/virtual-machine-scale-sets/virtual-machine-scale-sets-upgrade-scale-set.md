@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 91eccd2b4587d7cb926ca506ae2f2e5b91ea1f3e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 Tout au long du cycle de vie de vos applications, vous pourrez avoir besoin de modifier ou de mettre à jour votre groupe de machines virtuelles identiques. Ces mises à jour peuvent être liées à la configuration du groupe de machines ou à la modification de la configuration de l’application. Cet article décrit comment modifier un groupe identique avec les API REST, Azure PowerShell ou Azure CLI 2.0.
@@ -35,7 +35,7 @@ Un groupe identique est associé à un modèle qui capture l’état *souhaité*
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Azure Powershell avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) :
+- Azure PowerShell avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) :
 
     ```powershell
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -79,7 +79,7 @@ Un groupe identique est également associé à une vue d’instance de groupe id
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
     ```
 
-- Azure Powershell avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) :
+- Azure PowerShell avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) :
 
     ```powershell
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
@@ -133,7 +133,7 @@ Comme le groupe identique, chaque machine virtuelle a sa propre vue de modèle. 
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
     ```
 
-- Azure Powershell avec [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm) :
+- Azure PowerShell avec [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm) :
 
     ```powershell
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
@@ -173,7 +173,7 @@ Comme le groupe identique, chaque machine virtuelle a sa propre vue d’instance
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
     ```
 
-- Azure Powershell avec [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm) :
+- Azure PowerShell avec [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm) :
 
     ```powershell
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
@@ -252,7 +252,7 @@ Pour mettre à jour une propriété globale d’un groupe identique, vous devez 
 
 - Vous pouvez déployer un modèle Resource Manager avec les propriétés de l’API REST pour mettre à jour les propriétés globales du groupe identique.
 
-- Azure Powershell avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) :
+- Azure PowerShell avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) :
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
@@ -299,7 +299,7 @@ Pour mettre à jour les machines virtuelles existantes, vous devez effectuer une
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- Azure Powershell avec [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance) :
+- Azure PowerShell avec [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance) :
     
     ```powershell
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
@@ -324,7 +324,7 @@ Il existe une méthode de modification des propriétés globales de groupe ident
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure Powershell avec [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm) :
+- Azure PowerShell avec [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm) :
 
     ```powershell
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
@@ -367,7 +367,7 @@ Certaines modifications peuvent être appliquées uniquement à certaines machin
 ## <a name="scenarios"></a>Scénarios
 
 ### <a name="application-updates"></a>Mises à jour d’application
-Si une application est déployée dans un groupe identique via des extensions, la mise à jour de la configuration de l’extension va entraîner la mise à jour de l’application conformément à la stratégie de mise à niveau. Par exemple, si vous avez une nouvelle version d’un script qui doit s’exécuter dans une extension de script personnalisé, vous pouvez mettre à jour la propriété *fileUris* pour qu’elle pointe vers le nouveau script. Dans certains cas, toutefois, il est nécessaire de forcer une mise à jour, même si cela ne modifie pas la configuration de l’extension (par exemple, si vous avez mis à jour le script sans modifier son URI). Dans ce cas, vous pouvez modifier le *forceUpdateTag* pour qu’il force la mise à jour. La plateforme Azure n’interprète pas cette propriété. Toute modification de cette valeur n’a aucun effet sur l’exécution de l’extension. Sa modification ne fait que forcer la réexécution de l’extension. Pour plus d’informations sur *forceUpdateTag*, consultez la [documentation API REST sur les extensions](/rest/api/compute/virtualmachineextensions/createorupdate).
+Si une application est déployée dans un groupe identique via des extensions, la mise à jour de la configuration de l’extension va entraîner la mise à jour de l’application conformément à la stratégie de mise à niveau. Par exemple, si vous avez une nouvelle version d’un script qui doit s’exécuter dans une extension de script personnalisé, vous pouvez mettre à jour la propriété *fileUris* pour qu’elle pointe vers le nouveau script. Dans certains cas, toutefois, il est nécessaire de forcer une mise à jour, même si cela ne modifie pas la configuration de l’extension (par exemple, si vous avez mis à jour le script sans modifier son URI). Dans ce cas, vous pouvez modifier le *forceUpdateTag* pour qu’il force la mise à jour. La plateforme Azure n’interprète pas cette propriété. Toute modification de cette valeur n’a aucun effet sur l’exécution de l’extension. Sa modification ne fait que forcer la réexécution de l’extension. Pour plus d’informations sur *forceUpdateTag*, consultez la [documentation API REST sur les extensions](/rest/api/compute/virtualmachineextensions/createorupdate). Notez que la balise *forceUpdateTag* peut être utilisée avec toutes les extensions et pas seulement avec celle de script personnalisé.
 
 Il est également courant de déployer des applications à l’aide d’une image personnalisée. Ce scénario est décrit dans la section suivante.
 
@@ -384,7 +384,7 @@ Si vous utilisez des images personnalisées, vous pouvez les mettre à jour en m
 ### <a name="update-the-os-image-for-your-scale-set"></a>Mettre à jour l’image du système d’exploitation pour un groupe identique
 Supposons que vous possédez un groupe identique qui exécute une ancienne version d’Ubuntu LTS 16.04. Vous souhaitez mettre à jour cette version avec une version plus récente d’Ubuntu LTS 16.04 (par exemple, la version *16.04.201801090*. La propriété de version de la référence d’image ne fait pas partie d’une liste. Vous pouvez donc la modifier directement avec l’une des commandes suivantes :
 
-- Azure Powershell avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) comme suit :
+- Azure PowerShell avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) comme suit :
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
@@ -403,16 +403,16 @@ Supposons que vous utilisiez un groupe identique avec Azure Load Balancer, et qu
 - Azure Powershell :
 
     ```powershell
-    # Get the current model of the scale set and store it in a local powershell object named $vmss
+    # Get the current model of the scale set and store it in a local PowerShell object named $vmss
     $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
-    # Create a local powershell object for the new desired IP configuration, which includes the referencerence to the application gateway
+    # Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
     $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
-    # Replace the existing IP configuration in the local powershell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+    # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
     
-    # Update the model of the scale set with the new configuration in the local powershell object
+    # Update the model of the scale set with the new configuration in the local PowerShell object
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 

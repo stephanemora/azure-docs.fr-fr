@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Prise en main d’Azure Monitor
 Azure Monitor est le service de plateforme qui fournit une source unique d’analyse des ressources Azure. Azure Monitor permet de visualiser, d’interroger, de router et d’archiver les métriques et journaux provenant de ressources Azure, ainsi que d’entreprendre des actions sur ceux-ci. Vous pouvez utiliser ces données à l’aide du portail Azure, des [applets de commande PowerShell Monitor](insights-powershell-samples.md), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md) ou des [API REST Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Dans cet article, nous étudions quelques composants clés d’Azure Monitor, en utilisant le portail pour une démonstration.
@@ -27,19 +27,19 @@ Azure Monitor est le service de plateforme qui fournit une source unique d’ana
 1. Dans le portail, accédez à **Tous les services** et recherchez l’option **Monitor**. Cliquez sur l’étoile pour ajouter cette option à votre liste de favoris afin qu’elle soit toujours facilement accessible à partir de la barre de navigation de gauche.
 
     ![Monitor dans la liste de services](./media/monitoring-get-started/monitor-more-services.png)
-2. Cliquez sur l’option **Monitor** pour ouvrir la page **Monitor**. Cette page rassemble tous vos paramètres et données de surveillance dans un affichage consolidé. Il ouvre d’abord la section **Journal d’activité** .
+2. Cliquez sur l’option **Monitor** pour ouvrir la page **Monitor**. Cette page rassemble tous vos paramètres et données de surveillance dans un affichage consolidé. Elle commence par s’ouvrir sur la section **Vue d’ensemble**. La vue d’ensemble affiche un récapitulatif de toutes les alertes de surveillance, les erreurs et les conseils concernant l’intégrité de service se rapportant aux ressources de votre abonnement.  
 
     ![Navigation dans Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
 
     Azure Monitor a trois catégories de base de données d’analyse de données : le **journal d’activité**, les **mesures** et les **journaux de diagnostic**.
 3. Cliquez sur le **Journal d’activité** pour vous assurer que la section du journal d’activité est affichée.
 
-    ![Journal d’activité](./media/monitoring-get-started/monitor-act-log-blade.png)
-
     Le [**journal d’activité**](monitoring-overview-activity-logs.md) décrit toutes les opérations effectuées sur les ressources dans votre abonnement. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations de création, de mise à jour ou de suppression sur des ressources dans votre abonnement. Par exemple, le journal d’activité vous indique lorsqu’une application web s’est arrêtée et qui l’a arrêtée. Les événements du journal d’activité sont stockés dans la plateforme et disponibles pour l’interrogation pendant 90 jours.
 
+    ![Journal d’activité](./media/monitoring-get-started/monitor-act-log-blade.png)
+
     Vous pouvez créer et enregistrer des requêtes pour les filtres courants, puis épingler les requêtes les plus importantes à un tableau de bord du portail pour que vous sachiez toujours si les événements qui répondent à vos critères se sont produits.
-4. Filtrez l’affichage sur un groupe de ressources particulier sur la semaine dernière, puis cliquez sur le bouton **Enregistrer** . Nommez votre requête. 
+4. Filtrez l’affichage sur un groupe de ressources particulier sur la semaine dernière, puis cliquez sur le bouton **Enregistrer** . Nommez votre requête.
 
     ![Enregistrer la requête de journal d’activité](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Maintenant, cliquez sur le **Épingler** .
@@ -60,9 +60,10 @@ Azure Monitor est le service de plateforme qui fournit une source unique d’ana
     ![Volet Metric](./media/monitoring-get-started/monitor-metric-blade.png)
 
    > [!NOTE]
-   > Certaines mesures sont uniquement disponibles en activant [Application Insights](../application-insights/app-insights-overview.md) et/ou Windows ou Linux Azure Diagnostics sur votre ressource.
+   > Certaines mesures sont uniquement disponibles en activant [Application Insights](../application-insights/app-insights-overview.md) et/ou l’extension Windows ou Linux Azure Diagnostics sur votre ressource.
    >
    >
+
 9. Lorsque votre tableau vous satisfait, vous pouvez utiliser le bouton **Épingler** pour l’épingler à votre tableau de bord.
 10. Revenez à **Monitor** et cliquez sur **Journaux de diagnostic**.
 
@@ -71,6 +72,13 @@ Azure Monitor est le service de plateforme qui fournit une source unique d’ana
     Les [**journaux de diagnostic**](monitoring-overview-of-diagnostic-logs.md) sont des journaux émis *par* une ressource qui fournissent des informations relatives à l’opération de cette ressource particulière. Par exemple, les compteurs de règle de groupe de sécurité réseau et les journaux de flux de travail d’application logique sont des types de journaux de diagnostic. Ces journaux peuvent être stockées dans un compte de stockage, diffusés sur un hub d’événements et/ou envoyés vers [Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics est le produit d’intelligence opérationnelle de Microsoft pour la recherche avancée et les alertes.
 
     Dans le portail, vous pouvez afficher et filtrer une liste de toutes les ressources dans votre abonnement pour déterminer si leurs journaux de diagnostic sont activés.
+    > [!NOTE]
+    > L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, et agrégées entre les valeurs de la dimension.
+    >
+    > *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic la métrique est représentée sous forme de tous les messages entrants dans toutes les files d’attente de l’Event Hub.
+    >
+    >
+
 11. Cliquez sur une ressource dans la page des journaux de diagnostic. Si les journaux de diagnostic sont stockés dans un compte de stockage, vous verrez une liste des journaux horaires que vous pouvez télécharger directement.
 
     ![Journaux de diagnostic pour une ressource](./media/monitoring-get-started/monitor-diaglogs-detail.png)
@@ -80,19 +88,20 @@ Azure Monitor est le service de plateforme qui fournit une source unique d’ana
     ![Activer la journalisation des diagnostics](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     Si vous avez configuré les journaux de diagnostic dans Log Analytics, vous pouvez les rechercher dans la section **Recherche dans les journaux** du portail.
-12. Accédez à la section **Alertes** de la page Monitor.
+12. Accédez à la section **Alertes (classiques)** de la page Monitor.
 
     ![panneau alertes pour public](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    Ici, vous pouvez gérer toutes les [**alertes**](monitoring-overview-alerts.md) sur vos ressources Azure. Cela inclut les alertes sur les mesures, les événements de journal d’activité, les tests web Application Insights (emplacements) et les diagnostics proactifs Application Insights. Les alertes peuvent déclencher un l’envoi d’un e-mail ou d’une requête HTTP POST vers une URL webhook.
+    Ici, vous pouvez gérer toutes les [**alertes classiques**](monitoring-overview-alerts.md) sur vos ressources Azure. Cela inclut les alertes sur les mesures, les événements de journal d’activité, les tests web Application Insights (emplacements) et les diagnostics proactifs Application Insights. Les alertes établissent une connexion avec les groupes d’actions. Les [groupes d’actions](monitoring-action-groups.md) permettent d’avertir les utilisateurs ou d’effectuer des actions spécifiques lorsqu’une alerte se déclenche.
+
 13. Cliquez sur **Ajouter une alerte de mesure** pour créer une alerte.
 
     ![Ajouter une alerte de mesure](./media/monitoring-get-started/monitor-alerts-add.png)
 
     Vous pouvez ensuite épingler une alerte à votre tableau de bord pour afficher facilement son état à tout moment.
 
-    Azure Monitor intègre désormais aussi des [ **alertes Métrique en temps presque réel**](https://aka.ms/azuremonitor/near-real-time-alerts)(préversion) qui peuvent être évaluées jusqu’à une fréquence d’une minute.
-    
+    Azure Monitor intègre désormais aussi des [ **alertes plus récentes**](https://aka.ms/azuremonitor/near-real-time-alerts) qui peuvent être évaluées jusqu’à une fréquence d’une minute.
+
 14. La section Monitor inclut également des liens vers les applications [Application Insights](../application-insights/app-insights-overview.md) et les solutions de gestion [Log Analytics](../log-analytics/log-analytics-overview.md). Ces autres produits Microsoft ont une intégration approfondie avec moniteur Azure Monitor.
 15. Si vous n’utilisez pas Application Insights ou Log Analytics, il est possible qu’Azure Monitor ait un partenariat avec vos produits actuels d’analyse, de journalisation et d’alerte. Consultez notre [page partenaires](monitoring-partners.md) pour obtenir la liste complète et des instructions pour l’intégration.
 
@@ -101,4 +110,4 @@ En suivant ces étapes et en épinglant toutes les mosaïques pertinentes à un 
 ![Tableau de bord Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Lisez la [Présentation d’Azure Monitor](monitoring-overview.md)
+* Lisez la [présentation de l’ensemble des outils de surveillance Azure](monitoring-overview.md) pour comprendre comment Azure Monitor les utilise.

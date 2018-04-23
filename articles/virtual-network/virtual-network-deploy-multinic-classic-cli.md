@@ -1,11 +1,11 @@
 ---
-title: "Création d’une machine virtuelle (Classic) avec plusieurs cartes réseau - Azure CLI 1.0 | Microsoft Docs"
-description: "Découvrez comment créer une machine virtuelle (Classic) avec plusieurs cartes réseau à l’aide de l’interface Azure CLI 1.0."
+title: Création d’une machine virtuelle (Classic) avec plusieurs cartes réseau - Azure CLI 1.0 | Microsoft Docs
+description: Découvrez comment créer une machine virtuelle (Classic) avec plusieurs cartes réseau à l’aide de l’interface Azure CLI 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5569209d3628003b3f3e169b227e069b920c03f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Créer une machine virtuelle (Classic) avec plusieurs cartes réseau en utilisant Azure CLI 1.0
 
@@ -35,7 +35,8 @@ Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs 
 
 Les étapes suivantes utilisent un groupe de ressources nommé *IaaSStory* pour les serveurs web et un groupe de ressources nommé *IaaSStory-BackEnd* pour les serveurs de base de données.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Avant de créer les serveurs de base de données, vous devez créer le groupe de ressources *IaaSStory* avec toutes les ressources nécessaires pour ce scénario. Pour créer ces ressources, exécutez les étapes suivantes. Pour créer un réseau virtuel, suivez les étapes de l’article [Créer un réseau virtuel](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]

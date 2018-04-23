@@ -1,24 +1,24 @@
 ---
-title: "Guide pratique pour migrer du contenu Collections d’espaces de travail Power BI vers Power BI Embedded | Microsoft Docs"
-description: "Découvrez comment migrer à partir de Collections d’espaces de travail Power BI vers Power BI Embedded et tirer parti des fonctionnalités d’incorporation dans les applications."
+title: Guide pratique pour migrer du contenu Collections d’espaces de travail Power BI vers Power BI Embedded | Microsoft Docs
+description: Découvrez comment migrer à partir de Collections d’espaces de travail Power BI vers Power BI Embedded et tirer parti des fonctionnalités d’incorporation dans les applications.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Guide pratique pour migrer du contenu Collections d’espaces de travail Power BI vers Power BI Embedded
 
@@ -117,13 +117,13 @@ Les jeux de données mis en cache font référence à des fichiers PBIX qui avai
 
 **Flux**
 
-1. Appelez https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources et enregistrez la chaîne de connexion reçue.
+1. Appelez GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources et enregistrez la chaîne de connexion reçue.
 2. Appelez l’API Télécharger PBIX à partir de votre espace de travail Collections d’espaces de travail Power BI.
 3. Enregistrez le fichier PBIX.
 4. Appelez l’API Importer PBIX pour votre espace de travail Power BI Embedded.
-5. Mettez à jour la chaîne de connexion en appelant POST  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections.
-6. Obtenez l’ID GW et l’ID de source de données en appelant GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources.
-7. Mettez à jour les informations d’identification de l’utilisateur en appelant PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}.
+5. Mettre à jour la chaîne de connexion en appelant - POST  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
+6. Obtenir l’ID GW et l’ID datasource en appelant - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
+7. Mettre à jour les informations d’identification de l’utilisateur en appelant - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
 
 #### <a name="old-dataset-and-reports"></a>Anciens rapports et jeux de données
 
@@ -193,4 +193,4 @@ Un nettoyage est nécessaire dans le service Collections d’espaces de travail 
 
 Félicitations ! Votre application a maintenant été migrée vers Power BI Embedded. Pour plus d’informations sur la façon d’incorporer vos tableaux de bord, rapports et jeux de données Power BI, consultez [Guide pratique pour incorporer vos tableaux de bord, rapports et vignettes Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
-Des questions ? [Essayer d’interroger la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer d’interroger la Communauté Power BI](http://community.powerbi.com/).

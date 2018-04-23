@@ -1,22 +1,22 @@
 ---
-title: "Documentation Azure Power BI Embedded - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Apprenez à incorporer des visualisations de données et des rapports interactifs Power BI dans des applications. Didacticiels, références d’API et autres documents."
+title: Documentation Azure Power BI Embedded - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Apprenez à incorporer des visualisations de données et des rapports interactifs Power BI dans des applications. Didacticiels, références d’API et autres documents.
 services: power-bi-embedded
-author: czeumault
-manager: carolz
+author: markingmyname
+manager: kfile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/28/2017
-ms.author: carolz
-ms.openlocfilehash: d8e1fafe9b3fecc9822ef6f25d8c527eebe586cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0ba30c72fd23526d4c4da964bcd3e37f3e507dea
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentation Power BI Embedded
 
@@ -99,7 +99,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -134,7 +134,8 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">Référence d’API REST</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/rest/api/power-bi-embedded/">Référence d’API REST Azure Resource Manager</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>

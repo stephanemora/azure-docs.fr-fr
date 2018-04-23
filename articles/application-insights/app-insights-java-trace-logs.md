@@ -1,5 +1,5 @@
 ---
-title: "Exploration des journaux de traçage Java dans Application Insights | Documents Microsoft"
+title: Exploration des journaux de traçage Java dans Application Insights | Documents Microsoft
 description: Recherche de suivi Log4J ou Logback dans Application Insights
 services: application-insights
 documentationcenter: java
@@ -160,7 +160,7 @@ Les exceptions envoyées via les enregistreurs d’événements s’afficheront 
 
 ![Dans Application Insights, ouvrez Recherche](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Recherche de diagnostic][diagnostic]
 
 <!--Link references-->

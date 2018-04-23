@@ -1,13 +1,13 @@
 ---
-title: "Charger un disque dur virtuel généralisé pour créer plusieurs machines virtuelles dans Azure | Microsoft Docs"
-description: "Chargez un disque dur virtuel généralisé sur un compte de stockage Azure pour créer une machine virtuelle Windows à utiliser avec le modèle de déploiement Resource Manager."
+title: Charger un disque dur virtuel généralisé pour créer plusieurs machines virtuelles dans Azure | Microsoft Docs
+description: Chargez un disque dur virtuel généralisé sur un compte de stockage Azure pour créer une machine virtuelle Windows à utiliser avec le modèle de déploiement Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: be2ec6df33f5756dc080195bfad32e0c9079453c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Charger un disque dur virtuel généralisé sur Azure pour créer une machine virtuelle
 
@@ -74,7 +74,7 @@ Si vous n’avez pas déjà installé PowerShell version 1.4 ou ultérieure, li
 1. Ouvrez Azure PowerShell et connectez-vous à votre compte Azure. Une fenêtre contextuelle s’ouvre pour vous permettre d’entrer les informations d’identification de votre compte Azure.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 2. Obtenez les ID d’abonnement de vos abonnements disponibles.
    

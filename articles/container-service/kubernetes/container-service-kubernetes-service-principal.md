@@ -1,6 +1,6 @@
 ---
 title: Principal de service de cluster Azure Kubernetes
-description: "Créer et gérer un principal de service Azure Active Directory pour un cluster Kubernetes dans Azure Container Service"
+description: Créer et gérer un principal de service Azure Active Directory pour un cluster Kubernetes dans Azure Container Service
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -164,7 +164,7 @@ Output:
 
 Ensuite, mettez `/etc/kubernetes/azure.json` à jour avec les nouvelles informations d’identification sur tous les nœuds de cluster et redémarrez les nœuds.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Prise en main de Kubernetes](container-service-kubernetes-walkthrough.md) dans votre cluster de service de conteneur.
 

@@ -1,24 +1,19 @@
 ---
-title: "Considérations sur les performances et l’optimisation de Recherche Azure | Microsoft Docs"
-description: "Réglage des performances d’Azure Search et configuration d’une mise à l’échelle optimale"
-services: search
-documentationcenter: 
+title: Considérations sur les performances et l’optimisation de Recherche Azure | Microsoft Docs
+description: Réglage des performances d’Azure Search et configuration d’une mise à l’échelle optimale
 author: LiamCavanagh
-manager: pablocas
-editor: 
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Considérations sur les performances et l’optimisation d’Azure Search
 Une expérience de recherche optimale est essentielle à la réussite de nombreuses applications mobiles et web. Du secteur de l’immobilier à celui des véhicules d’occasion en passant par les catalogues en ligne, une recherche rapide et des résultats pertinents affectent l’expérience du client. Ce document a pour but de vous présenter les meilleures pratiques permettant de tirer le meilleur parti d’Azure Search, en particulier dans des scénarios avancés avec des exigences plus complexes en matière d’évolutivité, de prise en charge multilingue ou de classement personnalisé.  En outre, ce document détaille les mécanismes internes et décrit les approches qui fonctionnent efficacement dans les applications clientes réelles.

@@ -1,25 +1,19 @@
 ---
-title: "Charger des données (API REST - Recherche Azure) | Microsoft Docs"
-description: "Découvrez comment charger des données sur un index dans Azure Search à l’aide de l’API REST."
+title: Charger des données (API REST - Recherche Azure) | Microsoft Docs
+description: Découvrez comment charger des données sur un index dans Azure Search à l’aide de l’API REST.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Charger des données dans Azure Search à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -55,7 +49,7 @@ Lorsque vous utilisez l’API REST, vous allez émettre des requêtes HTTP POST 
 
 Chaque objet JSON du tableau « value » représente un document à indexer. Chacun de ces objets contient les clés du document et spécifie l’action d’indexation souhaitée (téléchargement, fusion, suppression, etc.). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
 
-| @search.action | Description | Champs requis pour chaque document | Remarques |
+| @search.action | Description | Champs requis pour chaque document | Notes |
 | --- | --- | --- | --- |
 | `upload` |Une action `upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. |une clé, ainsi que tout autre champ que vous souhaitez définir |Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null. |
 | `merge` |Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. |une clé, ainsi que tout autre champ que vous souhaitez définir |N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`. |

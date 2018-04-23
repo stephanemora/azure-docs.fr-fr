@@ -1,24 +1,19 @@
 ---
-title: "Stream Analytics : inverser les informations d'identification de connexion pour les entrées et sorties | Microsoft Docs"
-description: Découvrez comment mettre à jour les informations d’identification pour les entrées et les sorties Stream Analytics.
-keywords: informations d’identification
+title: Rotation des informations d’identification dans les travaux Azure Stream Analytics
+description: Cet article décrit comment mettre à jour les informations d’identification des récepteurs d’entrée et de sortie dans les travaux Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: sngun
-ms.openlocfilehash: d01e5d9f0bbfe6ca3ef8511aeb813cead3809f04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotation des informations d'identification pour les entrées et les sorties dans un travail Stream Analytics
 

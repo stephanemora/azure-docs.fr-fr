@@ -1,12 +1,12 @@
 ---
-title: "Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Cet article indique comment protéger les déploiements d’applications SAP NetWeaver à l’aide du service Azure Site Recovery."
+title: Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Cet article indique comment protéger les déploiements d’applications SAP NetWeaver à l’aide du service Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
@@ -89,7 +89,7 @@ Le schéma suivant illustre le scénario de récupération d’urgence Azure ver
 
 ![Schéma d’un scénario de réplication Azure vers Azure](./media/site-recovery-sap/sap-replication-scenario.png)
 
-* Le centre de données principal est à Singapour (Azure en Asie du Sud-Est). Le centre de données de récupération d’urgence est à Hong Kong (Azure en Asie-Pacifique). Dans ce scénario, une haute disponibilité locale est fournie par la présence de deux machines virtuelles qui exécutent SQL Server AlwaysOn en mode synchrone à Singapour.
+* Le centre de données principal est à Singapour (Azure en Asie du Sud-Est). Le centre de données de récupération d’urgence est à Hong Kong (R.A.S.) (Azure en Asie-Pacifique). Dans ce scénario, une haute disponibilité locale est fournie par la présence de deux machines virtuelles qui exécutent SQL Server AlwaysOn en mode synchrone à Singapour.
 * Le partage de fichiers ASCS SAP fournit une haute disponibilité pour les points de défaillance uniques SAP. Le partage de fichiers ASCS ne nécessite pas de disque partagé en cluster. Les applications telles que SIOS ne sont pas nécessaires.
 * La protection de la récupération d’urgence pour la couche SGBD est obtenue au moyen de la réplication asynchrone.
 * Ce scénario montre une « récupération d’urgence symétrique ». Ce terme désigne une solution de récupération d’urgence qui est un réplica exact de production. La solution SQL Server de récupération d’urgence présente une haute disponibilité locale. La récupération d’urgence symétrique n’est pas obligatoire pour la couche de base de données. Beaucoup de clients tirent parti de la flexibilité des déploiements cloud pour créer rapidement un nœud local à haute disponibilité après un événement de récupération d’urgence.
@@ -115,6 +115,6 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur la création d’une solution de récupération d’urgence pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver : Création d’une solution de récupération d’urgence avec Azure Site Recovery](http://aka.ms/asr-sap). Ce livre blanc présente les recommandations émises pour les diverses architectures SAP, il répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de récupération d’urgence.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

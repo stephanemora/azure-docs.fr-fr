@@ -1,28 +1,28 @@
 ---
-title: "Montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB | Microsoft Docs"
-description: "Procédure de montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB avec Azure CLI 2.0"
+title: Montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB | Microsoft Docs
+description: Procédure de montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB avec Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
-manager: timlt
-editor: 
-ms.assetid: 
+author: iainfoulds
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
-ms.author: v-livech
-ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: iainfou
+ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
 
-Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI 2.0. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les conditions requises sont :
+Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI 2.0. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md). Les conditions requises sont :
 
 - [un compte Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [des fichiers de clés SSH publiques et privées](mac-create-ssh-keys.md)
@@ -49,14 +49,14 @@ mkdir -p /mnt/mymountpoint
 ### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>Montez le partage SMB de stockage de fichiers sur le point de montage.
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### <a name="persist-the-mount-after-a-reboot"></a>Conservez le montage après redémarrage.
 Pour ce faire, ajoutez la ligne suivante à l’élément `/etc/fstab` :
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ## <a name="detailed-walkthrough"></a>Procédure pas à pas
@@ -121,7 +121,7 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
     Créez un répertoire local sur le système de fichiers Linux pour monter le partage SMB. Tout ce qui est écrit ou lu à partir du répertoire de montage local est transféré au partage SMB hébergé sur le stockage de fichiers. Pour créer un répertoire local à l’emplacement /mnt/mymountdirectory, appliquez l’exemple suivant :
 
     ```bash
-    sudo mkdir -p /mnt/mymountdirectory
+    sudo mkdir -p /mnt/mymountpoint
     ```
 
 6. Montez le partage SMB sur le répertoire local.
@@ -129,7 +129,7 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
     Fournissez votre propre nom d’utilisateur de compte de stockage et la clé de compte de stockage pour les informations d’identification de montage comme suit :
 
     ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
     ```
 
 7. Conservez le montage SMB au cours des redémarrages.
@@ -137,11 +137,11 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
     Lorsque vous redémarrez la machine virtuelle Linux, le partage SMB monté est démonté lors de l’arrêt. Pour remonter le partage SMB au démarrage, ajoutez une ligne à /etc/fstab dans Linux. Linux utilise le fichier fstab pour lister les systèmes de fichiers à monter pendant le processus de démarrage. L’ajout du partage SMB garantit que le partage de stockage de fichiers est un système de fichiers monté définitivement pour la machine virtuelle Linux. Il est possible d’ajouter le partage SMB du Stockage Fichier sur une nouvelle machine virtuelle si vous utilisez cloud-init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Ajouter un disque à une machine virtuelle Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande (CLI) Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md)
+- [Ajouter un disque à une machine virtuelle Linux](add-disk.md)
+- [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande (CLI) Azure](encrypt-disks.md)

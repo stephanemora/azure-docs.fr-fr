@@ -1,6 +1,6 @@
 ---
-title: "Règles et groupes de règles CRS de pare-feu d’applications web Azure Application Gateway | Microsoft Docs"
-description: "Cette page fournit des informations sur les règles et groupes CRS de pare-feu d’applications web."
+title: Règles et groupes de règles CRS de pare-feu d’applications web Azure Application Gateway | Microsoft Docs
+description: Cette page fournit des informations sur les règles et groupes CRS de pare-feu d’applications web.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -11,7 +11,7 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: davidmu
@@ -39,10 +39,10 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |910100|L’adresse IP du client provient d’un pays présentant un risque ÉLEVÉ.|
 |910120|Règle 910120|
 |910130|Règle 910130|
-|910150|Correspondance avec la liste noire HTTP pour l’IP du moteur de recherche|
-|910160|Correspondance avec la liste noire HTTP pour l’IP du spammeur|
-|910170|Correspondance avec la liste noire HTTP pour l’IP suspecte|
-|910180|Correspondance avec la liste noire HTTP pour l’IP du système de récupération|
+|910150|Correspondance avec la liste rouge HTTP pour l’IP du moteur de recherche|
+|910160|Correspondance avec la liste rouge HTTP pour l’IP du spammeur|
+|910170|Correspondance avec la liste rouge HTTP pour l’IP suspecte|
+|910180|Correspondance avec la liste rouge HTTP pour l’IP du système de récupération|
 |910013|Règle 910013|
 |910014|Règle 910014|
 |910015|Règle 910015|
@@ -268,7 +268,7 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |941130|Filtre XSS - Catégorie 3 = vecteur d’attribut|
 |941140|Filtre XSS - Catégorie 4 = vecteur URI Javascript|
 |941150|Filtre XSS - Catégorie 5 = attributs HTML non autorisés|
-|941180|Mots clés de la liste noire du validateur de nœuds|
+|941180|Mots clés de la liste rouge du validateur de nœuds|
 |941190|Filtre XSS IE - Attaque détectée.|
 |941200|Filtre XSS IE - Attaque détectée.|
 |941210|Filtre XSS IE - Attaque détectée.|

@@ -1,11 +1,11 @@
 ---
-title: "Gérer les formules dans Azure DevTest Labs pour créer des machines virtuelles | Microsoft Docs"
-description: "Découvrez comment mettre à jour et supprimer des formules Azure DevTest Labs"
+title: Gérer les formules dans Azure DevTest Labs pour créer des machines virtuelles | Microsoft Docs
+description: Découvrez comment mettre à jour et supprimer des formules Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
 ms.service: devtest-lab
 ms.workload: na
@@ -16,10 +16,10 @@ ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gérer les formules Azure DevTest Labs
 
@@ -134,6 +134,6 @@ Pour supprimer une formule, procédez comme suit :
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 * [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Quand vous avez créé une formule à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm.md).
 

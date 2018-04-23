@@ -364,16 +364,24 @@
           href: create-azure-ssis-integration-runtime.md
     - name: "Exécuter des packages\_SSIS dans Azure"
       items:
+        - name: Configuration personnalisée du runtime d’intégration Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Configurer Enterprise Edition pour le runtime d’intégration Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Associer un runtime d’intégration Azure SSIS à un réseau virtuel
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: "Gérer le runtime d’intégration Azure\_SSIS"
           href: manage-azure-ssis-integration-runtime.md
         - name: Configurer les paramètres de performances du runtime d’intégration Azure-SSIS
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: "Appeler les packages\_SSIS à l’aide d’une activité de procédure stockée"
+        - name: Exécuter des packages SSIS à l’aide d’une activité SSIS
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: Exécuter des packages SSIS à l’aide d’une activité de procédure stockée
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Planifier le runtime d’intégration Azure-SSIS Integration Runtime
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Développer des composants sous licence pour le runtime d’intégration Azure-SSIS
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Créer des déclencheurs
       items:
         - name: Créer un déclencheur de planification

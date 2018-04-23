@@ -1,11 +1,11 @@
 ---
-title: "Groupes de volumes du Gestionnaire d’instantanés StorSimple | Microsoft Docs"
-description: "Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes."
+title: Groupes de volumes du Gestionnaire d’instantanés StorSimple | Microsoft Docs
+description: Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 ## <a name="overview"></a>Vue d'ensemble
@@ -49,7 +49,7 @@ Si vous cliquez sur le nœud **Groupes de volumes**, le volet **Résultats** ind
 
 | Colonne de résultats | Description |
 |:--- |:--- |
-| Nom |La colonne **Nom** comporte le nom du groupe de volumes. |
+| NOM |La colonne **Nom** comporte le nom du groupe de volumes. |
 | Application |La colonne **Applications** indique le nombre d’enregistreurs VSS actuellement installés et exécutés sur l’hôte Windows. |
 | Volumes sélectionnés |La colonne **Volumes sélectionnés** indique le nombre de volumes du groupe de volumes. Une valeur nulle (0) indique qu’aucune application n’est associée aux volumes du groupe de volumes. |
 | Volumes importés |La colonne **Volumes importés** représente le nombre de volumes importés. Lorsqu’elle est définie sur **Vrai**, cette colonne indique qu’un groupe de volumes a été importé du portail Azure, et n’a pas été créé dans le Gestionnaire d’instantanés StorSimple. |

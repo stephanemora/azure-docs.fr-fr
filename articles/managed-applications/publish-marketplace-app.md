@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
@@ -107,7 +107,7 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
 
 Vous pouvez ajouter plusieurs autorisations. Nous vous recommandons de créer un groupe d’utilisateurs AD et de spécifier son ID dans **PrincipalId**. De cette manière, vous pouvez ajouter plus d’utilisateurs au groupe d’utilisateurs sans avoir à mettre à jour la référence (SKU).
 
-Pour plus d’informations sur le sujet, consultez [Bien démarrer avec RBAC dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
+Pour plus d’informations sur le sujet, consultez [Bien démarrer avec RBAC dans le portail Azure](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Formulaire Marketplace
 
@@ -115,7 +115,7 @@ Le formulaire Marketplace (Place de marché) permet de définir les champs qui s
 
 ### <a name="preview-subscription-ids"></a>ID d’abonnement pour version préliminaire
 
-Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre après sa publication. Vous pouvez utiliser ces abonnements autorisés pour tester l’offre préliminaire avant sa publication. Vous pouvez compiler une liste blanche de jusqu'à 100 abonnements dans le portail partenaire.
+Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre après sa publication. Vous pouvez utiliser ces abonnements autorisés pour tester l’offre préliminaire avant sa publication. Vous pouvez compiler une liste verte de jusqu'à 100 abonnements dans le portail partenaire.
 
 ### <a name="suggested-categories"></a>Catégories suggérées
 

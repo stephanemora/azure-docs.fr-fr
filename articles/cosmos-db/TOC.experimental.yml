@@ -6,8 +6,6 @@ items:
     items:
       - name: À propos d’Azure Cosmos DB
         href: introduction.md
-      - name: Expérience de documentation
-        href: experiment.experimental.md
   - name: Démarrages rapides
     expanded: true
     items:
@@ -73,14 +71,12 @@ items:
     items:
       - name: Diffusion mondiale
         href: distribute-data-globally.md
-      - name: Cohérence
-        href: consistency-levels.md
       - name: Partitionnement
         href: partition-data.md
       - name: Throughput
         href: request-units.md
-      - name: Coût total de possession
-        href: 'https://aka.ms/documentdb-tco-paper'
+      - name: Cohérence
+        href: consistency-levels.md
       - name: Base de données sans serveur
         href: serverless-computing-database.md
       - name: Sécurité
@@ -88,10 +84,10 @@ items:
         items:
           - name: Chiffrement au repos
             href: database-encryption-at-rest.md
-          - name: Prise en charge de pare-feu
-            href: firewall-support.md
           - name: Sécurisation de l’accès aux données
             href: secure-access-to-data.md
+      - name: Coût total de possession
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Cas d'utilisation
         href: use-cases.md
         items:
@@ -182,7 +178,7 @@ items:
                     href: sql-api-sql-query-metrics.md
               - name: Index
                 href: indexing-policies.md
-              - name: Données de partition
+              - name: Partitionnement des données SQL
                 href: sql-api-partition-data.md
               - name: 'procédures stockées, déclencheurs et fonctions définies par l''utilisateur'
                 href: programming.md
@@ -200,6 +196,8 @@ items:
                 items:
                   - name: Test de performance
                     href: performance-testing.md
+                  - name: Conseils en matière de performances pour Java asynchrone
+                    href: performance-tips-async-java.md
                   - name: Conseils en matière de performances pour .NET
                     href: performance-tips.md
                   - name: Conseils en matière de performances pour Java
@@ -211,31 +209,33 @@ items:
                   - name: Se connecter à Spark
                     href: spark-connector.md
                   - name: Diffusion en continu avec Kafka et Spark sur HDInsight
-                    href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+                    href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Déployer un site web dans Azure App Service
                     href: create-website.md
                   - name: Journalisation des applications avec Logic Apps
-                    href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+                    href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
                   - name: Lier à Azure Functions
-                    href: ../azure-functions/functions-bindings-documentdb.md
+                    href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Intégrer avec Recherche Azure
-                    href: ../search/search-howto-index-documentdb.md
+                    href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
                   - name: Déplacer des données avec Azure Data Factory
-                    href: ../data-factory/connector-azure-cosmos-db.md
+                    href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
                   - name: Analyser des données en temps réel avec Azure Stream Analytics
-                    href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+                    href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
                   - name: Obtenir un dossier HL7 FHIR modifié à l’aide de Logic Apps
                     href: change-feed-hl7-fhir-logic-apps.md
                   - name: Traiter les données de capteur en temps réel
-                    href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+                    href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
                   - name: "Visualiser vos données avec Power\_BI"
                     href: powerbi-visualize.md
                   - name: "Tirer parti du pilote\_ODBC pour la visualisation des données"
                     href: odbc-driver.md
                   - name: UtiliserSpring Boot Starter avec les API SQL
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+                    href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
           - name: Informations de référence
             items:
+              - name: Java asynchrone
+                href: sql-api-sdk-async-java.md
               - name: Java
                 href: sql-api-sdk-java.md
               - name: .NET
@@ -249,21 +249,19 @@ items:
               - name: Python
                 href: sql-api-sdk-python.md
               - name: REST
-                href: /rest/api/documentdb/
+                href: /rest/api/cosmos-db/
               - name: Fournisseur de ressources REST
-                href: /rest/api/documentdbresourceprovider/
+                href: /rest/api/cosmos-db-resource-provider/
               - name: SQL
                 href: sql-api-sql-query-reference.md
           - name: Ressources
             items:
-              - name: Aide-mémoire sur la grammaire SQL
-                href: sql-api-sql-query-cheat-sheet.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Livre blanc sur l’indexation sans schéma
                 href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: Query Playground
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
       - name: Documents API MongoDB
         items:
           - name: Vue d'ensemble
@@ -306,10 +304,6 @@ items:
                     href: local-emulator.md
                   - name: Exporter les certificats
                     href: local-emulator-export-ssl-certificates.md
-          - name: Concepts
-            items:
-              - name: Concepts Azure Cosmos DB
-                href: distribute-data-globally.md
           - name: Procédures
             items:
               - name: Se connecter à votre compte MongoDB
@@ -348,12 +342,10 @@ items:
                 href: tutorial-query-graph.md
               - name: 3 - Distribuer mondialement
                 href: tutorial-global-distribution-graph.md
-          - name: Concepts
-            items:
-              - name: Concepts Azure Cosmos DB
-                href: distribute-data-globally.md
           - name: Procédures
             items:
+              - name: Partitionnement dans Graph
+                href: graph-partitioning.md
               - name: Integrate
                 items:
                   - name: Se connecter à Spark GraphX
@@ -389,7 +381,7 @@ items:
               - name: .NET
                 href: table-storage-how-to-use-dotnet.md
               - name: 'F#'
-                href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
               - name: Node.js
                 href: table-storage-cloud-service-nodejs.md
               - name: Java
@@ -442,6 +434,8 @@ items:
         href: manage-account.md
       - name: Throughput
         href: set-throughput.md
+      - name: Prise en charge de pare-feu
+        href: firewall-support.md
       - name: Mesures
         href: use-metrics.md
       - name: Analyser les contrats de niveau de service
@@ -458,6 +452,10 @@ items:
         href: time-to-live.md
   - name: Ressources
     items:
+      - name: Interroger un aide-mémoire
+        href: query-cheat-sheet.md
+      - name: "20\_jours de conseils"
+        href: 20-days-of-tips.md
       - name: vidéos
         href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
       - name: Feuille de route Azure
@@ -470,7 +468,3 @@ items:
         href: faq.md
       - name: Cohérence des données - Exemple du baseball
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: "20\_jours de conseils"
-        href: 20-days-of-tips.md
-      - name: Résoudre les problèmes liés à Azure Cosmos DB
-        href: troubleshoot-azure-cosmosdb.md

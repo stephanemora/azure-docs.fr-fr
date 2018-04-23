@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Azure Container Service - Préparer l’ACR"
-description: "Didacticiel Azure Container Service - Préparer l’ACR"
+title: Didacticiel Azure Container Service - Préparer l’ACR
+description: Didacticiel Azure Container Service - Préparer l’ACR
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -153,7 +153,7 @@ v1
 
 Au terme de ce didacticiel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, cette image est déployée à partir d’ACR vers un cluster Kubernetes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, un registre de conteneurs Azure a été préparé pour une utilisation dans un cluster ACS Kubernetes. Les étapes suivantes ont été effectuées :
 

@@ -1,8 +1,8 @@
 ---
-title: "Inscrire des données Data Lake Store dans Azure Data Catalog | Microsoft Docs"
-description: "Référencer des données de Data Lake Store dans Azure Data Catalog"
+title: Inscrire des données Data Lake Store dans Azure Data Catalog | Microsoft Docs
+description: Référencer des données de Data Lake Store dans Azure Data Catalog
 services: data-lake-store,data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun

@@ -1,25 +1,25 @@
 ---
-title: "Créer et gérer une machine virtuelle Azure à l’aide de Java | Microsoft Docs"
-description: "Utilisez Java et Azure Resource Manager pour déployer une machine virtuelle et toutes ses ressources de prise en charge."
+title: Créer et gérer une machine virtuelle Azure à l’aide de Java | Microsoft Docs
+description: Utilisez Java et Azure Resource Manager pour déployer une machine virtuelle et toutes ses ressources de prise en charge.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: cynthn
+ms.openlocfilehash: e4c77514bb38b6c3c5766bdb4af22e5271c9bffa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Java
 
@@ -233,7 +233,7 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
 
 ### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
 
-Une machine virtuelle doit être incluse dans un sous-réseau d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
+Un machine virtuelle doit figurer dans un sous-réseau d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
 
 Pour créer un sous-réseau et un réseau virtuel, ajoutez ce code au bloc try de la méthode main :
 

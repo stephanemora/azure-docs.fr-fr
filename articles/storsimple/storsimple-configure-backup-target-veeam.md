@@ -1,12 +1,12 @@
 ---
-title: "Gamme StorSimple 8000 en tant que cible de sauvegarde avec Veeam | Microsoft Docs"
-description: "Décrit la configuration de la cible de sauvegarde StorSimple avec Veeam."
+title: Gamme StorSimple 8000 en tant que cible de sauvegarde avec Veeam | Microsoft Docs
+description: Décrit la configuration de la cible de sauvegarde StorSimple avec Veeam.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple comme cible de sauvegarde avec Veeam
 
@@ -289,7 +289,7 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 
 5.  Dans la boîte de dialogue **Storage Compatibility Settings (Paramètres de compatibilité du stockage)**, cochez la case **Use per-VM backup files (Utiliser les fichiers de sauvegarde par machine virtuelle)**.
 
-    ![Console de gestion Veeam, paramètres de compatibilité de stockage](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
+    ![Console de gestion Veeam, paramètres de conformité de stockage](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
 6.  Dans la boîte de dialogue **New Backup Repository (Nouveau référentiel de sauvegarde)**, cochez la case **Enable vPower NFS service on the mount server (recommended) (Activer le service NFS vPower sur le serveur de montage (recommandé))**. Sélectionnez **Suivant**.
 
@@ -497,7 +497,7 @@ Avec Veeam, vous obtenez une récupération rapide granulaire au niveau fichier 
 
 Un sinistre peut être dû à plusieurs facteurs. Le tableau ci-après répertorie les scénarios de récupération d’urgence courants.
 
-| Scénario | Impact | Procédure de récupération | Remarques |
+| Scénario | Impact | Procédure de récupération | Notes |
 |---|---|---|---|
 | Défaillance d’appareil StorSimple | Les opérations de sauvegarde et de restauration sont interrompues. | Remplacez l’appareil défaillant et effectuez [un basculement et une récupération d’urgence StorSimple](storsimple-device-failover-disaster-recovery.md). | Si vous devez procéder à une restauration après la récupération de l’appareil, les jeux de données de travail complets sont récupérés sur le nouvel appareil à partir du cloud. Toutes les opérations sont exécutées à la vitesse du cloud. Le processus de nouvelle analyse des index et catalogues peut entraîner l’analyse et l’extraction de tous les jeux de données de sauvegarde du niveau cloud vers un niveau d’appareil local, ce qui peut prendre un certain temps. |
 | Défaillance du serveur Veeam | Les opérations de sauvegarde et de restauration sont interrompues. | Régénérez le serveur de sauvegarde et effectuez la restauration de base de données en suivant les instructions du [Centre d’aide Veeam (documentation technique)](https://www.veeam.com/documentation-guides-datasheets.html).  | Vous devez reconstruire ou restaurer le serveur Veeam sur le site de récupération d’urgence. Restaurez la base de données à partir du point de défaillance le plus récent. Si la base de données Veeam restaurée n’est pas synchronisée avec vos derniers travaux de sauvegarde, vous devez procéder à une indexation et à un catalogage. Cette nouvelle analyse des index et catalogues peut entraîner l’analyse et l’extraction de tous les jeux de données de sauvegarde du niveau cloud vers un niveau d’appareil local. Ce processus peut donc prendre un certain temps. |

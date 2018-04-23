@@ -1,11 +1,11 @@
 ---
-title: "Création d’un environnement Linux complet à l’aide de l’interface Azure CLI 1.0 | Microsoft Docs"
-description: "Créez un stockage, une machine virtuelle Linux, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un groupe de sécurité réseau à partir de zéro à l’aide de l’interface de ligne de commande Azure 1.0."
+title: Création d’un environnement Linux complet à l’aide de l’interface Azure CLI 1.0 | Microsoft Docs
+description: Créez un stockage, une machine virtuelle Linux, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un groupe de sécurité réseau à partir de zéro à l’aide de l’interface de ligne de commande Azure 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Créer un environnement Linux complet à l’aide de l’interface Azure CLI 1.0
 Dans cet article, nous créons un réseau simple avec un équilibreur de charge et deux machines virtuelles à des fins de développement et de calcul simple. Nous suivons ce processus, commande par commande, jusqu’à ce que vous disposiez de deux machines virtuelles Linux sécurisées opérationnelles, auxquelles vous pouvez vous connecter à partir de n’importe quel emplacement via Internet. Vous pourrez ensuite créer des réseaux et des environnements plus complexes.
@@ -182,7 +182,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-Créez le groupe de sécurité réseau. L’exemple suivant permet de créer un groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
+Créez le groupe de sécurité réseau. L’exemple suivant permet de créer un groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l westeurope \
@@ -1053,7 +1053,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>Créer un groupe de sécurité réseau et les règles associées
-Nous allons à présent créer un groupe de sécurité réseau et les règles de trafic entrant qui régissent l’accès à la carte d’interface réseau. Un groupe de sécurité réseau peut être appliqué à une carte d’interface réseau ou à un sous-réseau. Vous définissez des règles pour contrôler le flux de trafic vers et à partir de vos machines virtuelles. L’exemple suivant permet de créer un groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
+Nous allons à présent créer un groupe de sécurité réseau et les règles de trafic entrant qui régissent l’accès à la carte d’interface réseau. Un groupe de sécurité réseau peut être appliqué à une carte d’interface réseau ou à un sous-réseau. Vous définissez des règles pour contrôler le flux de trafic vers et à partir de vos machines virtuelles. L’exemple suivant permet de créer un groupe de sécurité réseau nommé `myNetworkSecurityGroup` :
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \

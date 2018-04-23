@@ -1,11 +1,11 @@
 ---
-title: "Comment utiliser une identité MSI affectée par l’utilisateur à partir de kits de développement logiciel Azure sur une machine virtuelle"
-description: "Exemples de code pour l’utilisation de kits de développement logiciel Azure avec une MSI affectée par un utilisateur sur une machine virtuelle."
+title: Comment utiliser une identité MSI affectée par l’utilisateur à partir de kits de développement logiciel Azure sur une machine virtuelle
+description: Exemples de code pour l’utilisation de kits de développement logiciel Azure avec une MSI affectée par un utilisateur sur une machine virtuelle.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -40,7 +40,7 @@ Cet article donne une liste d’exemples de Kits de développement logiciel (SDK
 | Python          | [Utiliser une identité du service administré pour s’authentifier simplement depuis l’intérieur d’une machine virtuelle](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby            | [Gérer des ressources à partir d’une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Consultez [Kits de développement logiciel Azure](https://azure.microsoft.com/downloads/) pour obtenir la liste complète des ressources des kits de développement Azure, y compris les téléchargements de bibliothèque, la documentation et bien plus encore.
 

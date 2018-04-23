@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: b20283e1189e4f1a3555e2dd8d25972c9a677cd6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-management---monitoring"></a>Gestion Azure | Surveillance
+# <a name="azure-management---monitoring"></a>Gestion et surveillance Azure
 
 La surveillance dans Azure est un aspect de la gestion Azure.  Cet article décrit en bref les différents domaines de gestion requis pour déployer et tenir à jour vos applications et ressources sur Azure, et fournit des liens vers de la documentation vous permettant de démarrer.
 
@@ -54,3 +54,14 @@ La protection consiste à s’assurer que vos applications et données sont touj
 
 ## <a name="migrate"></a>Migrer 
 La migration fait référence à la transition des charges de travail exécutées actuellement en local vers le cloud Azure.  [Azure Migrate](../migrate/migrate-overview.md) est un service qui vous aide à évaluer la pertinence d’une migration de machines virtuelles locales vers Azure, en fournissant notamment le dimensionnement en fonction des performances et l’estimation des coûts.  Azure Site Recovery peut vous aider à mettre en œuvre la migration de machines virtuelles [locales](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [depuis Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) vous aide lors de la migration de plusieurs sources de bases de données vers les plateformes de données Azure.
+
+
+## <a name="operations-management-suite"></a>Operations Management Suite
+La documentation technique précédente liée à la gestion d’Azure comprenait Operations Management Suite (OMS), qui est un regroupement des services de gestion Azure suivants :
+
+- Azure Automation
+- Sauvegarde Azure
+- Log Analytics
+- Site Recovery
+
+Nous ne décrivons plus ce regroupement dans notre documentation technique, car la gestion complète dans Azure s’est développée pour inclure d’autres services. Aucun des services faisant partie d’OMS n’a été modifié, et chacun joue toujours un rôle essentiel dans la gestion de vos applications et ressources Azure. Votre attention devrait porter sur les tâches de gestion que vous devez accomplir et sur les différents services Azure qui fonctionnent ensemble pour chaque tâche.

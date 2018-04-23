@@ -1,13 +1,13 @@
 ---
-title: "Information de référence pour les développeurs F# sur Azure Functions | Microsoft Docs"
-description: "Découvrez comment développer sur Azure Functions à l’aide de F#."
+title: Information de référence pour les développeurs F# sur Azure Functions | Microsoft Docs
+description: Découvrez comment développer sur Azure Functions à l’aide de F#.
 services: functions
 documentationcenter: fsharp
 author: sylvanc
 manager: jbronsk
-editor: 
-tags: 
-keywords: "azure functions, fonctions Azure, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, F#"
+editor: ''
+tags: ''
+keywords: azure functions, fonctions Azure, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, F#
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: functions
 ms.devlang: fsharp
@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2c84de3f38a49bc97fda04a7a4eb449a1f7d14bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# for Azure Functions est une solution conçue pour exécuter facilement de petits morceaux de code, ou « fonctions », dans le cloud. Les données circulent dans votre fonction F# par le biais d’arguments de fonction. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation.
 

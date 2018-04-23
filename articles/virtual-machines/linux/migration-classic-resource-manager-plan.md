@@ -1,11 +1,11 @@
 ---
-title: "Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager | Microsoft Docs"
-description: "Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager"
+title: Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager | Microsoft Docs
+description: Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier son parcours de migration pour que tout se passe sans heurts. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration. 
@@ -118,7 +118,7 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
     - Adresses IP publiques
     - Adresses IP publiques statiques
     - Cœurs
-    - Groupes de sécurité réseau
+    - Network Security Group
     - Tables de routage
 
     Vous pouvez vérifier vos quotas Azure Resource Manager actuels en utilisant les commandes suivantes avec la dernière version d’Azure CLI 2.0.

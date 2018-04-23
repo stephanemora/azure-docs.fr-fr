@@ -1,21 +1,21 @@
 ---
-title: "Utiliser le module Azure Database Migration Service dans Microsoft Azure PowerShell pour migrer l’instance SQL Server locale vers Azure SQL DB | Microsoft Docs"
-description: "Apprenez à migrer l’instance SQL Server vers SQL Azure à l’aide d’Azure PowerShell."
+title: Utiliser le module Azure Database Migration Service dans Microsoft Azure PowerShell pour migrer l’instance SQL Server locale vers Azure SQL DB | Microsoft Docs
+description: Apprenez à migrer l’instance SQL Server vers SQL Azure à l’aide d’Azure PowerShell.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 04/05/2018
+ms.openlocfilehash: d70d39f027df1fba7934c4b752b1dd2100f2e8b9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrer l’instance SQL Server locale vers la base de données SQL Azure à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.
@@ -28,6 +28,7 @@ Dans cet article, vous apprendrez comment :
 > * Exécuter la migration.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour effectuer cette procédure, vous avez besoin de :
 
 - [SQL Server 2016 ou version ultérieure](https://www.microsoft.com/sql-server/sql-server-downloads) (toute édition)
@@ -127,7 +128,7 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
   -TargetType SQLDB `
   -SourceConnection $sourceConnInfo `
   -TargetConnection $targetConnInfo `
-  -DatabaseInfos $dbList
+  -DatabaseInfo $dbList
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Créer et démarrer une tâche de migration

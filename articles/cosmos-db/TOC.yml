@@ -183,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: Query Playground
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: Partitionnement
+              - name: Partitionnement des données SQL
                 href: sql-api-partition-data.md
               - name: 'procédures stockées, déclencheurs et fonctions définies par l''utilisateur'
                 href: programming.md
@@ -286,6 +286,8 @@ items:
             items:
               - name: Support Gremlin
                 href: gremlin-support.md
+              - name: Partitionnement dans Graph
+                href: graph-partitioning.md
           - name: API de table
             items:
               - name: Développement de tables
@@ -305,7 +307,7 @@ items:
                       - name: .NET
                         href: table-storage-how-to-use-dotnet.md
                       - name: 'F#'
-                        href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                        href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
                       - name: Node.js
                         href: table-storage-cloud-service-nodejs.md
                       - name: Java
@@ -328,8 +330,6 @@ items:
             href: geospatial.md
           - name: Indexation
             href: indexing-policies.md
-          - name: Service connecté dans Visual Studio
-            href: connected-service.md
       - name: gérer
         items:
           - name: Écritures et lectures rentables
@@ -371,18 +371,17 @@ items:
           - name: Se connecter à Spark GraphX
             href: spark-connector-graph.md
           - name: Diffusion en continu avec Kafka et Spark sur HDInsight
-            href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
-            maintainContext: true
+            href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
           - name: Déployer un site web dans Azure App Service
             href: create-website.md
           - name: Journalisation des applications avec Logic Apps
-            href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+            href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
           - name: Lier à Azure Functions
-            href: ../azure-functions/functions-bindings-cosmosdb.md
+            href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
           - name: Intégrer avec Recherche Azure
-            href: ../search/search-howto-index-cosmosdb.md
+            href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
           - name: Déplacer des données avec Azure Data Factory
-            href: ../data-factory/connector-azure-cosmos-db.md
+            href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
           - name: Analyser des données en temps réel avec Azure Stream Analytics
             href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: Obtenir un dossier HL7 FHIR modifié à l’aide de Logic Apps
@@ -394,7 +393,7 @@ items:
           - name: "Tirer parti du pilote\_ODBC pour la visualisation des données"
             href: odbc-driver.md
           - name: UtiliserSpring Boot Starter avec les API SQL
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
   - name: Informations de référence
     items:
       - name: Exemples de code

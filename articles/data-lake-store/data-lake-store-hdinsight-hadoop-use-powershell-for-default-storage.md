@@ -1,8 +1,8 @@
 ---
-title: "Créer des clusters HDInsight avec Data Lake Store comme stockage par défaut à l’aide de PowerShell | Microsoft Docs"
-description: "Utiliser Azure PowerShell pour créer et utiliser les clusters HDInsight avec Azure Data Lake Store"
+title: Créer des clusters HDInsight avec Data Lake Store comme stockage par défaut à l’aide de PowerShell | Microsoft Docs
+description: Utiliser Azure PowerShell pour créer et utiliser les clusters HDInsight avec Azure Data Lake Store
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 2f1793c2de2b68a8b155ada73044c6bc36882612
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Créer des clusters HDInsight avec Data Lake Store comme stockage par défaut à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -37,7 +37,8 @@ Voici quelques considérations importantes pour l’utilisation de HDInsight ave
 
 Pour configurer HDInsight de façon à fonctionner avec Data Lake Store à l’aide de PowerShell, suivez les instructions des cinq prochaines sections.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer le didacticiel, veillez à ce que vos mots de passe répondent aux exigences suivantes :
 
 * **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -55,7 +56,7 @@ Pour créer un compte Data Lake Store, procédez comme suit :
 1. Sur votre bureau, ouvrez une fenêtre PowerShell et entrez l’extrait de code ci-dessous. Lorsque vous êtes invité à vous connecter, connectez-vous en tant qu’administrateur ou propriétaire de l’abonnement. 
 
         # Sign in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription
@@ -129,7 +130,7 @@ Assurez-vous que le [SDK Windows](https://dev.windows.com/en-us/downloads) est i
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     Vous devrez entrer le mot de passe de la clé privée. Une fois la commande exécutée avec succès, **CertFile.cer** et **mykey.pvk** apparaissent dans le répertoire du certificat que vous avez spécifié.
-2. Utilisez l’utilitaire [Pvk2Pfx][pvk2pfx] pour convertir en un fichier .pfx les fichiers .pvk et .cer créés par MakeCert. Exécutez la commande suivante :
+2. Utilisez l’utilitaire [Pvk2Pfx][pvk2pfx] pour convertir en un fichier .pfx les fichiers .pvk et .cer créés par MakeCert. Exécutez la commande suivante :
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 

@@ -1,10 +1,10 @@
 ---
-title: "Déplacer une machine virtuelle (Classic) ou une instance de rôle Services cloud vers un autre sous-réseau - Azure PowerShell | Microsoft Docs"
-description: "Découvrez comment déplacer des machines virtuelles (Classic) et des instances de rôle Services cloud vers un autre sous-réseau à l’aide de PowerShell."
+title: Déplacer une machine virtuelle (Classic) ou une instance de rôle Services cloud vers un autre sous-réseau - Azure PowerShell | Microsoft Docs
+description: Découvrez comment déplacer des machines virtuelles (Classic) et des instances de rôle Services cloud vers un autre sous-réseau à l’aide de PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b094f8338394ef2e84cad3070936d715411326a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1576b7b842537dbdc49e6b9d402ef47ad9fae9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Déplacer une machine virtuelle (Classic) ou une instance de rôle Services cloud vers un autre sous-réseau à l’aide de PowerShell
 Vous pouvez utiliser PowerShell pour déplacer vos machines virtuelles (Classic) d’un sous-réseau à un autre dans le même réseau virtuel. Les instances de rôle peuvent être déplacées en modifiant le fichier CSCFG au lieu d’utiliser PowerShell.

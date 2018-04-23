@@ -1,9 +1,9 @@
 ---
-title: "Utiliser PowerShell pour créer une machine virtuelle avec un serveur de rapports en mode natif | Microsoft Docs"
-description: "Cette rubrique explique comment déployer et configurer un serveur de rapports SQL Server Reporting Services en mode natif dans une machine virtuelle Azure. "
+title: Utiliser PowerShell pour créer une machine virtuelle avec un serveur de rapports en mode natif | Microsoft Docs
+description: 'Cette rubrique explique comment déployer et configurer un serveur de rapports SQL Server Reporting Services en mode natif dans une machine virtuelle Azure. '
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
-ms.author: asaxton
-ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: maghan
+ms.openlocfilehash: edfae3a56bc13e4c41a1676bfc0f4e8cf4cd9d30
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif
 > [!IMPORTANT] 
@@ -465,7 +465,7 @@ Pour utiliser Windows PowerShell afin de configurer le serveur de rapports, proc
      
        Le résultat ressemble à ce qui suit : Si le script renvoie une ligne vide, par exemple que la machine virtuelle n’a pas de certificat configuré, consultez la section [Utiliser le certificat auto-signé Virtual Machines](#to-use-the-virtual-machines-self-signed-certificate).
      
-     OU
+     Ou
    * Sur la machine virtuelle, exécutez mmc.exe, puis ajoutez le composant logiciel enfichable **Certificats** .
    * Sous le nœud **Autorités de certification racines de confiance** , double-cliquez sur le nom du certificat. Si vous utilisez le certificat auto-signé de la machine virtuelle, le certificat est nommé d’après le nom DNS de la machine virtuelle et se termine par **cloudapp.net**.
    * Cliquez sur l’onglet **Détails** .
@@ -563,7 +563,7 @@ Pour vérifier que les fonctions de base du serveur de rapports fonctionnent, ou
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Créer des utilisateurs et attribuer des rôles
-Une fois le serveur de rapports configuré et vérifié, il est courant d’effectuer la tâche administrative consistant à créer un ou plusieurs utilisateurs et à affecter des utilisateurs aux rôles Reporting Services. Pour plus d’informations, consultez les liens suivants :
+Une fois le serveur de rapports configuré et vérifié, il est courant d’effectuer la tâche administrative consistant à créer un ou plusieurs utilisateurs et à affecter des utilisateurs aux rôles Reporting Services. Pour plus d’informations, consultez les rubriques suivantes : 
 
 * [Créer un compte d’utilisateur local](https://technet.microsoft.com/library/cc770642.aspx)
 * [Accorder à un utilisateur l’accès à un serveur de rapports (Gestionnaire de rapports)](https://msdn.microsoft.com/library/ms156034.aspx)
@@ -581,7 +581,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
      Pour plus d’informations, consultez [Installation, désinstallation et prise en charge du Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools : machine virtuelle** : si vous avez créé la machine virtuelle à l’aide de SQL Server 2012, SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **Projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
   
-    Si vous avez créé la machine virtuelle à l’aide de SQL Server 2014, vous pouvez installer SQL Server Data Tools - Business Intelligence pour Visual Studio. Pour plus d’informations, consultez les liens suivants :
+    Si vous avez créé la machine virtuelle à l’aide de SQL Server 2014, vous pouvez installer SQL Server Data Tools - Business Intelligence pour Visual Studio. Pour plus d’informations, consultez les rubriques suivantes : 
   
   * [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)

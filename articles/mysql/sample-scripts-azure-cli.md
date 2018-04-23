@@ -1,6 +1,6 @@
 ---
 title: Exemples de CLI Azure pour Azure Database pour MySQL
-description: "Cet article répertorie les exemples de code de commande de la CLI Azure disponibles pour l’interaction avec Azure Database pour MySQL."
+description: Cet article répertorie les exemples de code de commande de la CLI Azure disponibles pour l’interaction avec Azure Database pour MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

@@ -1,11 +1,11 @@
 ---
-title: "Démarrage rapide Azure Security Center - Intégrer vos ordinateurs Linux à Security Center | Microsoft Docs"
-description: "Ce guide de démarrage rapide décrit comment intégrer vos ordinateurs Linux à Security Center."
+title: Démarrage rapide Azure Security Center - Intégrer vos ordinateurs Linux à Security Center | Microsoft Docs
+description: Ce guide de démarrage rapide décrit comment intégrer vos ordinateurs Linux à Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -81,7 +81,7 @@ Pour supprimer l’agent :
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de démarrage rapide, vous avez provisionné l’agent sur un ordinateur Linux. Pour en savoir plus sur l’utilisation de Security Center, passez au didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité de vos ressources.
 
 > [!div class="nextstepaction"]

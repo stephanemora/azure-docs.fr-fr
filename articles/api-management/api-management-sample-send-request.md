@@ -1,11 +1,11 @@
 ---
-title: "Utilisation du service de gestion des API pour générer des requêtes HTTP"
-description: "Apprenez à utiliser des stratégies de requête et de réponse dans le service de gestion des API pour appeler des services externes depuis votre API"
+title: Utilisation du service de gestion des API pour générer des requêtes HTTP
+description: Apprenez à utiliser des stratégies de requête et de réponse dans le service de gestion des API pour appeler des services externes depuis votre API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet

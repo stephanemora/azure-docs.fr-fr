@@ -1,10 +1,10 @@
 ---
-title: "Configuration logicielle de RAID sur une machine virtuelle exécutant Linux | Microsoft Docs"
-description: "Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure."
+title: Configuration logicielle de RAID sur une machine virtuelle exécutant Linux | Microsoft Docs
+description: Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-software-raid-on-linux"></a>Configuration d’un RAID logiciel sur Linux
 L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure est un scénario fréquent afin de regrouper plusieurs disques de données attachés sous la forme d'un périphérique RAID unique. En règle générale, ce scénario permet d'optimiser les performances et d'améliorer le débit par rapport à l'utilisation d'un disque unique.
@@ -61,7 +61,7 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
                     sectors (command 'u').
     ```
 
-2. Appuyez sur « n » à l’invite pour créer une **n**ouvelle partition :
+2. Appuyez sur « n » à l'invite pour créer une **n**ouvelle partition :
 
     ```bash
     Command (m for help): n

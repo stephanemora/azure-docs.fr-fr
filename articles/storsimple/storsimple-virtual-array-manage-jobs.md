@@ -1,11 +1,11 @@
 ---
-title: "Afficher et gérer les tâches StorSimple Virtual Array | Microsoft Docs"
-description: "Décrit la page Tâches du service StorSimple Device Manager et explique comment l’utiliser pour effectuer le suivi des tâches récentes et actuelles du StorSimple Virtual Array."
+title: Afficher et gérer les tâches StorSimple Virtual Array | Microsoft Docs
+description: Décrit la page Tâches du service StorSimple Device Manager et explique comment l’utiliser pour effectuer le suivi des tâches récentes et actuelles du StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour afficher les tâches du StorSimple Virtual Array
 ## <a name="overview"></a>Vue d'ensemble
@@ -34,7 +34,7 @@ Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant 
   * **Nom** : le nom des tâches peut présenter la valeur **Toutes**, **Sauvegarder**, **Cloner**, **Effectuer un basculement**, **Télécharger les mises à jour** ou **Installer les mises à jour**.
   * **État** : l’état des tâches peut présenter la valeur **Toutes**, **En cours**, **Réussite**, **Échec** ou **Annulé**.
   * **Entité** : les tâches peuvent être associées à un volume, un partage ou un appareil.
-  * **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.
+  * **Appareil** : nom de l’appareil sur lequel la tâche a été lancée.
   * **Démarré le** : heure à laquelle la tâche a été lancée.
   * **Durée**: durée d’exécution de la tâche.
 * **État** : vous pouvez rechercher la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.

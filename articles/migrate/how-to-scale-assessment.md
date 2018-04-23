@@ -1,22 +1,23 @@
 ---
-title: "Mettre à l’échelle la découverte et l’évaluation avec Azure Migrate | Microsoft Docs"
-description: "Décrit comment évaluer un grand nombre de machines locales avec le service Azure Migrate."
+title: Mettre à l’échelle la découverte et l’évaluation avec Azure Migrate | Microsoft Docs
+description: Décrit comment évaluer un grand nombre de machines locales avec le service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
 Cet article décrit comment évaluer un grand nombre de machines virtuelles locales avec [Azure Migrate](migrate-overview.md). Azure Migrate évalue les machines dans le but de vérifier qu’elles peuvent être migrées vers Azure. Le service fournit des estimations quant à la taille des machines et au coût de leur exécution dans Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - **VMware** : les machines virtuelles à migrer doivent être gérées par vCenter Server version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d’un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
 - **Compte vCenter** : vous avez besoin d’un compte en lecture seule pour accéder à vCenter Server. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
@@ -29,9 +30,9 @@ Planifiez vos découvertes et vos évaluations en fonction des contraintes suiva
 
 | **Entité** | **Limite de la machine** |
 | ---------- | ----------------- |
-| projet    | 1 500              | 
-| Découverte  | 1 500              |
-| Évaluation | 1 500               |
+| projet    | 1 500             |
+| Découverte  | 1 500             |
+| Évaluation | 1 500             |
 
 <!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
@@ -40,12 +41,12 @@ Planifiez vos découvertes et vos évaluations en fonction des contraintes suiva
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
--->
+      -->
 
 ## <a name="plan-multiple-discoveries"></a>Planifier plusieurs découvertes
 
 Vous pouvez utiliser la même instance d’Azure Migrate Collector pour effectuer plusieurs découvertes dans un ou plusieurs projets. Pour la planification, gardez à l’esprit les éléments suivants :
- 
+
 - Lorsque vous effectuez une découverte à l’aide d’Azure Migrate Collector, vous pouvez définir l’étendue de la découverte sur un dossier vCenter Server, un centre de données, un cluster ou un hôte.
 - Pour effectuer plusieurs découvertes, vérifiez dans vCenter Server que les machines virtuelles que vous souhaitez découvrir se trouvent dans des dossiers, des centres de données, des clusters ou des hôtes qui prennent en charge la limite de 1 500 machines.
 - À des fins d’évaluation, nous vous recommandons de conserver les machines ayant des interdépendances au sein d’un même projet et d’une même évaluation. Dans vCenter Server, vérifiez que les machines dépendantes se trouvent dans le même dossier, centre de données ou cluster, pour l’évaluation.
@@ -73,18 +74,28 @@ Si vous avez plusieurs projets, vous n’avez besoin de télécharger l’applia
 2. Dans **Découvrir des machines**, sélectionnez **Télécharger** pour télécharger le fichier .OVA.
 3. Dans **Copier les informations d’identification du projet**, copiez l’ID et la clé du projet. Vous en aurez besoin pour la configuration du collecteur.
 
-   
+
 ### <a name="verify-the-collector-appliance"></a>Vérifier l’appliance collecteur
 
 Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
 
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
+
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
    Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
 3. Vérifiez que le hachage généré correspond aux paramètres suivants.
+
+    Pour OVA version 1.0.9.7
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
     Pour OVA version 1.0.9.5
 
@@ -109,7 +120,7 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
     MD5 | 71139e24a532ca67669260b3062c3dad
     SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
     SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
- 
+
     Pour OVA version 1.0.8.49
 
     **Algorithme** | **Valeur de hachage**
@@ -136,11 +147,11 @@ Importez le fichier téléchargé dans vCenter Server :
 
 2. Dans l’Assistant de déploiement du modèle OVF > **Source**, spécifiez l’emplacement du fichier .OVA.
 3. Dans **Name** (Nom) et **Location** (Emplacement), spécifiez un nom convivial pour la machine virtuelle collector et l’objet d’inventaire destiné à héberger la machine virtuelle.
-5. Dans **Host/Cluster** (Hôte/Cluster), spécifiez l’hôte ou le cluster sur lequel s’exécute la machine virtuelle collector.
-7. Dans Storage (Stockage), spécifiez la destination de stockage pour la machine virtuelle collector.
-8. Dans **Disk Format** (Format de disque), spécifiez le type de disque et la taille.
-9. Dans **Network Mapping** (Mappage réseau), spécifiez le réseau auquel se connectera la machine virtuelle collector. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées vers Azure. 
-10. Validez les paramètres, puis sélectionnez **Finish (Terminer)**.
+4. Dans **Host/Cluster** (Hôte/Cluster), spécifiez l’hôte ou le cluster sur lequel s’exécute la machine virtuelle collector.
+5. Dans Storage (Stockage), spécifiez la destination de stockage pour la machine virtuelle collector.
+6. Dans **Disk Format** (Format de disque), spécifiez le type de disque et la taille.
+7. Dans **Network Mapping** (Mappage réseau), spécifiez le réseau auquel se connectera la machine virtuelle collector. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées vers Azure. 
+8. Validez les paramètres, puis sélectionnez **Finish (Terminer)**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identifier l’ID et la clé de chaque projet
 
@@ -157,16 +168,16 @@ Nous vous recommandons de définir le niveau commun le plus élevé (niveau 3) p
 
 Le tableau ci-dessous répertorie également les résultats d’évaluation qui sont impactés si les données d’un compteur particulier ne sont pas collectées.
 
-|Compteur                                  |Level    |Niveau par appareil  |Évaluation de l'impact                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |N/D                |Taille de machine virtuelle recommandée et coût                    |
-|mem.usage.average                        | 1       |N/D                |Taille de machine virtuelle recommandée et coût                    |
-|virtualDisk.read.average                 | 2       |2                 |Taille du disque, coût de stockage et taille de la machine virtuelle         |
-|virtualDisk.write.average                | 2       |2                 |Taille du disque, coût de stockage et taille de la machine virtuelle         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Taille du disque, coût de stockage et taille de la machine virtuelle         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Taille du disque, coût de stockage et taille de la machine virtuelle         |
-|net.received.average                     | 2       |3                 |Taille de la machine virtuelle et coût du réseau                        |
-|net.transmitted.average                  | 2       |3                 |Taille de la machine virtuelle et coût du réseau                        |
+| Compteur                                 | Level | Niveau par appareil | Évaluation de l'impact                    |
+| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
+| cpu.usage.average                       | 1     | N/D               | Taille de machine virtuelle recommandée et coût         |
+| mem.usage.average                       | 1     | N/D               | Taille de machine virtuelle recommandée et coût         |
+| virtualDisk.read.average                | 2     | 2                | Taille du disque, coût de stockage et taille de la machine virtuelle |
+| virtualDisk.write.average               | 2     | 2                | Taille du disque, coût de stockage et taille de la machine virtuelle |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | Taille du disque, coût de stockage et taille de la machine virtuelle |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | Taille du disque, coût de stockage et taille de la machine virtuelle |
+| net.received.average                    | 2     | 3                | Taille de la machine virtuelle et coût du réseau             |
+| net.transmitted.average                 | 2     | 3                | Taille de la machine virtuelle et coût du réseau             |
 
 > [!WARNING]
 > Si vous venez de définir un niveau de statistiques plus élevé, la génération des compteurs de performances peut prendre jusqu’à 24 heures. Par conséquent, il est recommandé d’attendre 24 heures avant d’exécuter la découverte.
@@ -175,28 +186,28 @@ Le tableau ci-dessous répertorie également les résultats d’évaluation qui 
 
 Pour chaque découverte à effectuer, vous devez exécuter le collecteur afin de découvrir les machines virtuelles de l’étendue spécifiée. Exécutez les découvertes les unes après les autres. Les découvertes simultanées ne sont pas prises en charge, et chaque découverte doit avoir une portée différente.
 
-1. Dans la console du client vSphere, cliquez avec le bouton droit sur la machine virtuelle, puis choisissez **Open Console** (Ouvrir la console).
-2. Indiquez les préférences de langue, de fuseau horaire et de mot de passe de l’appliance.
-3. Sur le Bureau, sélectionnez le raccourci **Run collector** (Exécuter le collecteur).
-4. Dans Azure Migrate Collector, ouvrez **Set Up Prerequisites** (Configurer les prérequis).
+1.  Dans la console du client vSphere, cliquez avec le bouton droit sur la machine virtuelle, puis choisissez **Open Console** (Ouvrir la console).
+2.  Indiquez les préférences de langue, de fuseau horaire et de mot de passe de l’appliance.
+3.  Sur le Bureau, sélectionnez le raccourci **Run collector** (Exécuter le collecteur).
+4.  Dans Azure Migrate Collector, ouvrez **Set Up Prerequisites** (Configurer les prérequis).
 
-   a. Acceptez les termes de licence et lisez les informations relatives aux tiers.
+    a. Acceptez les termes de licence et lisez les informations relatives aux tiers.
 
-   Le collecteur vérifie que la machine virtuelle a accès à Internet.
-   
-   b. Si la machine virtuelle accède à Internet via un proxy, sélectionnez **Proxy settings** (Paramètres du proxy), puis spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification.
+    Le collecteur vérifie que la machine virtuelle a accès à Internet.
 
-   Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
+    b. Si la machine virtuelle accède à Internet via un proxy, sélectionnez **Proxy settings** (Paramètres du proxy), puis spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification.
 
-   c. Téléchargez et installez VMware PowerCLI.
+    Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
 
-5. Dans **Specify vCenter Server details** (Spécifier les informations vCenter Server), procédez aux étapes suivantes :
+    c. Téléchargez et installez VMware PowerCLI.
+
+5.  Dans **Specify vCenter Server details** (Spécifier les informations vCenter Server), procédez aux étapes suivantes :
     - Spécifiez le nom (FQDN) ou l’adresse IP de l’instance vCenter Server.
     - Dans **User name** (Nom d’utilisateur) et **Password** (Mot de passe), spécifiez les informations d’identification du compte en lecture seule que le collecteur doit utiliser pour découvrir les machines virtuelles dans vCenter Server.
     - Dans **Select scope** (Sélectionner une étendue), sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. L’étendue ne doit pas contenir plus de 1 000 machines virtuelles. 
 
-6. Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collecteur. Dans la page **Vue d’ensemble** du projet, sélectionnez **Découvrir des machines**, puis copiez les valeurs.  
-7. Dans **View collection progress** (Afficher la progression de la collecte), surveillez le processus de découverte et vérifiez que les métadonnées collectées à partir des machines virtuelles appartiennent à l’étendue spécifiée. Le collecteur fournit une durée approximative de la découverte.
+6.  Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collecteur. Dans la page **Vue d’ensemble** du projet, sélectionnez **Découvrir des machines**, puis copiez les valeurs.  
+7.  Dans **View collection progress** (Afficher la progression de la collecte), surveillez le processus de découverte et vérifiez que les métadonnées collectées à partir des machines virtuelles appartiennent à l’étendue spécifiée. Le collecteur fournit une durée approximative de la découverte.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
@@ -207,7 +218,7 @@ La durée de la découverte varie selon le nombre de machines virtuelles découv
 2. Vérifiez que les machines virtuelles que vous souhaitez découvrir apparaissent dans le portail.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [créer un groupe](how-to-create-a-group.md) pour l'évaluation.
 - [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

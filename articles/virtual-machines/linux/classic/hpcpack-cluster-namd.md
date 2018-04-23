@@ -1,11 +1,11 @@
 ---
 title: NAMD avec Microsoft HPC Pack sur des machines virtuelles Linux | Microsoft Docs
-description: "Déployer un cluster Microsoft HPC Pack sur Azure et exécuter une simulation NAMD avec charmrun sur plusieurs nœuds de calcul Linux"
+description: Déployer un cluster Microsoft HPC Pack sur Azure et exécuter une simulation NAMD avec charmrun sur plusieurs nœuds de calcul Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 76072c6b-ac35-4729-ba67-0d16f9443bd7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61dd49d4bd3183b6b9a78036d6d7d01798e4dc89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure
 Cet article vous montre comment exécuter une charge de travail HPC (calcul haute performance) Linux sur des machines virtuelles Azure. Vous allez découvrir comment configurer un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) sur Azure avec des nœuds de calcul Linux et exécuter une simulation [NAMD](http://www.ks.uiuc.edu/Research/namd/) pour calculer et visualiser la structure d’un système biomoléculaire étendu.  
@@ -29,7 +29,8 @@ Cet article vous montre comment exécuter une charge de travail HPC (calcul haut
 * **NAMD** (programme Nanoscale Molecular Dynamics) est un package de dynamique moléculaire parallèle, conçu pour la simulation hautes performances des systèmes biomoléculaires étendus contenant jusqu’à plusieurs millions d’atomes. Ces systèmes sont par exemple les virus, les structures de cellule et les grandes protéines. NAMD s’adapte à des centaines de cœurs pour les simulations classiques et à plus de 500 000 cœurs pour les simulations les plus étendues.
 * **Microsoft HPC Pack** fournit des fonctionnalités permettant d’exécuter un éventail d’applications HPC à grande échelle et parallèles dans des clusters d’ordinateurs locaux ou de machines virtuelles Azure. Développée à l’origine comme solution pour les charges de travail Windows HPC, HPC Pack prend désormais en charge l’exécution d’applications HPC Linux sur les machines virtuelles de nœuds de calcul Linux déployées dans un cluster HPC Pack. Consultez la présentation [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](hpcpack-cluster.md) .
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * **Cluster HPC Pack avec nœuds de calcul Linux** : déployez un cluster HPC Pack avec des nœuds de calcul Linux dans Azure à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](hpcpack-cluster.md) . Si vous choisissez l’option de déploiement de script PowerShell, voir l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article. Ce fichier configure un cluster HPC Pack basé sur Azure comportant un nœud principal Windows Server 2012 R2 et quatre nœuds de calcul de grande taille CentOS 6.6. Personnalisez ce fichier comme il convient pour votre environnement.
 * **Logiciel NAMD et fichiers du didacticiel** : téléchargez le logiciel NAMD pour Linux à partir du site [NAMD](http://www.ks.uiuc.edu/Research/namd/) (inscription obligatoire). Cet article est basé sur la version 2.10 de NAMD et utilise l’archive [Linux-x86_64 (Intel/AMD 64 bits avec Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310). Téléchargez également les [fichiers du didacticiel NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Les fichiers ont l’extension .tar et vous devez utiliser un outil Windows pour les extraire sur le nœud principal du cluster. Pour extraire les fichiers, suivez les instructions données plus loin dans cet article. 
 * **VMD** (facultatif) : pour afficher les résultats de votre tâche NAMD, téléchargez et installez le programme de visualisation moléculaire [VMD](http://www.ks.uiuc.edu/Research/vmd/) sur un ordinateur de votre choix. La version actuelle est 1.9.2. Consultez le site de téléchargement de VMD pour commencer.  
@@ -41,7 +42,7 @@ L’exécution d’une tâche de nœuds croisés sur plusieurs nœuds Linux requ
 Générer une paire de clés RSA contenant une clé publique et une clé privée est facile : il vous suffit d’exécuter la commande Linux **ssh-keygen** .
 
 1. Ouvrez une session sur un ordinateur Linux.
-2. Exécutez la commande suivante :
+2. Exécutez la commande suivante :
    
    ```bash
    ssh-keygen -t rsa
@@ -208,7 +209,7 @@ host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-Par exemple :
+Par exemple : 
 
 ```
 group main
@@ -232,7 +233,7 @@ Vous êtes maintenant prêt à envoyer une tâche NAMD dans HPC Cluster Manager.
 6. Cliquez sur **Modifier des tâches** dans le volet de navigation gauche, puis sur **Ajouter** pour ajouter une tâche au travail.    
 7. Sur la page **Détails de la tâche et redirection d’E/S** , définissez les valeurs suivantes :
    
-   * **Ligne de commande**-
+   * **Ligne de commande** -
      `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
      
      > [!TIP]

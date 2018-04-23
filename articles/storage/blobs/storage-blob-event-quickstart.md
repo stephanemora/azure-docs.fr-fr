@@ -1,31 +1,29 @@
 ---
-title: "Acheminer des événements de stockage Blob Azure vers un point de terminaison web | Microsoft Docs"
-description: "Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob."
+title: Acheminer des événements de stockage Blob Azure vers un point de terminaison web | Microsoft Docs
+description: Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f0764ebc423cfb5323f2b634ce5a5ecbe075135c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Acheminer des événements de stockage Blob vers un point de terminaison web avec Azure CLI
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure CLI pour vous abonner à des événements de stockage Blob et déclencher l’événement pour afficher le résultat. 
 
-En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Pour simplifier l’exemple présenté dans cet article, nous envoyons les événements à une URL qui collecte seulement les messages. Vous créez cette URL à l’aide d’outils tiers à partir de [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
+En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Pour simplifier l’exemple présenté dans cet article, nous envoyons les événements à une URL qui collecte seulement les messages. Vous créez cet URL en utilisant l’outil tiers de [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** et **Hookbin** ne sont pas destinés à une utilisation avec débit élevé. L’utilisation de ces outils est uniquement à but démonstratif. Si vous envoyez plusieurs événements par push en simultané, vous pouvez ne pas voir tous les événements dans l’outil.
+> **Hookbin** n’est pas destiné à une utilisation avec débit élevé. L’utilisation de cet outil est uniquement à but démonstratif. Si vous envoyez plusieurs événements par push en simultané, vous pouvez ne pas voir tous les événements dans l’outil.
 
 En suivant les instructions de cet article, vous voyez que les données d’événement ont été envoyées à un point de terminaison.
-
-![Données d’événement](./media/storage-blob-event-quickstart/request-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,11 +66,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 
-Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. Au lieu d’écrire du code qui réponde à l’événement, nous allons créer un point de terminaison qui collecte les messages, afin que vous puissiez les consulter. RequestBin et Hookbin sont des outils tiers open source qui vous permettent de créer un point de terminaison et d’afficher les requêtes qui lui sont envoyées. Accédez à [RequestBin](https://requestb.in/), puis cliquez sur **Create a RequestBin** (Créer un RequestBin), ou accédez à [Hookbin](https://hookbin.com/) et cliquez sur **Create New Endpoint (Créer un point de terminaison)**.  Copiez l’URL du fichier bin, dont vous avez besoin pour vous abonner à la rubrique.
+Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. Au lieu d’écrire du code qui réponde à l’événement, nous allons créer un point de terminaison qui collecte les messages, afin que vous puissiez les consulter. HookBin est un outil tiers qui vous permet de créer un point de terminaison et d’afficher les requêtes qui lui sont envoyées. Accédez à [Hookbin](https://hookbin.com/) et cliquez sur **Créer un nouveau point de terminaison**.  Copiez l’URL du fichier bin, dont vous avez besoin pour vous abonner à la rubrique.
 
 ## <a name="subscribe-to-your-storage-account"></a>Vous abonner à votre compte de stockage
 
-Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent. L’exemple suivant s’abonne au compte de stockage que vous avez créé et transmet l’URL à partir de RequestBin ou Hookbin en tant que point de terminaison de la notification d’événement. Remplacez `<event_subscription_name>` par un nom unique pour votre abonnement à un événement, et `<endpoint_URL>` par la valeur de la section précédente. En spécifiant un point de terminaison lors de l’abonnement, Event Grid gère le routage d’événements vers ce point de terminaison. Pour `<resource_group_name>` et `<storage_account_name>`, utilisez les valeurs que vous avez créées précédemment.  
+Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent. L’exemple suivant s’abonne au compte de stockage que vous avez créé et transmet l’URL à partir de Hookbin en tant que point de terminaison de la notification d’événement. Remplacez `<event_subscription_name>` par un nom unique pour votre abonnement à un événement, et `<endpoint_URL>` par la valeur de la section précédente. En spécifiant un point de terminaison lors de l’abonnement, Event Grid gère le routage d’événements vers ce point de terminaison. Pour `<resource_group_name>` et `<storage_account_name>`, utilisez les valeurs que vous avez créées précédemment.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -97,7 +95,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Accédez à l’URL du point de terminaison que vous avez créée précédemment. Ou cliquez sur Actualiser dans le navigateur ouvert. L’événement que vous venez d’envoyer apparaît. 
+Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Accédez à l’URL du point de terminaison créée précédemment. Ou cliquez sur Actualiser dans le navigateur ouvert. L’événement que vous venez d’envoyer apparaît. 
 
 ```json
 [{

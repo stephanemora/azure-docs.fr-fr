@@ -1,13 +1,12 @@
 ---
-title: "Script Azure PowerShell : Créer une stratégie de basculement Azure Cosmos DB | Microsoft Docs"
-description: "Exemple de script Azure PowerShell : Créer une stratégie de basculement Azure Cosmos DB"
+title: 'Script Azure PowerShell : Créer une stratégie de basculement Azure Cosmos DB | Microsoft Docs'
+description: 'Exemple de script Azure PowerShell : Créer une stratégie de basculement Azure Cosmos DB'
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 94f1c958f6bb78d78d6b7da2416be06ff8d22065
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: 7434d2d3d0cfc1185c69adb9e6bf5e7af70d502d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>Créer une stratégie de basculement Azure Cosmos DB pour une haute disponibilité à l’aide de PowerShell
 
@@ -44,7 +43,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Crée un serveur logique qui héberge une base de données ou un pool élastique. |

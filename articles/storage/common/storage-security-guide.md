@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -85,16 +85,16 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 * Vous pouvez créer un rapport indiquant qui a accordé/révoqué tel type d’accès à telle personne sur telle étendue à l’aide de PowerShell ou de l’interface de ligne de commande Azure.
 
 #### <a name="resources"></a>Ressources
-* [Contrôle d’accès en fonction du rôle Azure Active Directory](../../active-directory/role-based-access-control-configure.md)
+* [Contrôle d’accès en fonction du rôle Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Cet article décrit le contrôle d’accès en fonction du rôle d’Active Directory Azure et en explique le fonctionnement.
-* [RBAC : rôles intégrés](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md)
 
   Cet article explique en détail tous les rôles intégrés disponibles dans RBAC.
 * [Présentation du déploiement de Resource Manager et du déploiement classique](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   Cet article décrit le modèle de déploiement Resource Manager et le modèle de déploiement classique et explique les avantages liés à l’utilisation de Resource Manager et des groupes de ressources. Il explique le fonctionnement des fournisseurs de solutions de calcul, de réseau et de stockage selon le modèle Resource Manager.
-* [Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST](../../role-based-access-control/role-assignments-rest.md)
 
   Cet article montre comment utiliser l’API REST pour gérer RBAC.
 * [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)

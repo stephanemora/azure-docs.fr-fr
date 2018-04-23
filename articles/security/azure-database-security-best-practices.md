@@ -1,12 +1,12 @@
 ---
-title: "Meilleures pratiques en matière de sécurité pour les bases de données Azure | Microsoft Docs"
-description: "Cet article fournit un ensemble de meilleures pratiques pour la sécurité des bases de données Azure."
+title: Meilleures pratiques en matière de sécurité pour les bases de données Azure | Microsoft Docs
+description: Cet article fournit un ensemble de meilleures pratiques pour la sécurité des bases de données Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
 
@@ -31,7 +31,7 @@ Pour chaque bonne pratique, nous détaillons les éléments suivants :
 -   Nature de la bonne pratique
 -   Raison pour laquelle activer cette bonne pratique
 -   Conséquence possible en cas de non-utilisation de la bonne pratique
--   Comment apprendre à utiliser la meilleure pratique
+-   Comment apprendre à utiliser la bonne pratique
 
 Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plateforme Azure disponibles au moment de la rédaction du présent document. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
 
@@ -112,7 +112,7 @@ Il est important de comprendre que les fichiers liés à [l’extension du pool 
 Comme un utilisateur autorisé (administrateur de sécurité ou de base de données, par exemple) peut accéder aux données même si la base de données est chiffrée via TDE, vous devez également suivre les recommandations ci-dessous :
 
 -   Activez l’authentification SQL au niveau de la base de données.
--   Utilisez Azure AD Authentication à l’aide des [rôles RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Utilisez Azure AD Authentication à l’aide des [rôles RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Les utilisateurs et les applications doivent utiliser des comptes distincts pour l’authentification. De cette façon, vous pouvez limiter les autorisations accordées aux utilisateurs et aux applications et réduire les risques d’activité malveillante.
 -   Implémentez la sécurité au niveau de la base de données en utilisant des rôles de base de données fixes (comme db_datareader ou db_datawriter). Vous pouvez aussi créer des rôles personnalisés pour votre application, afin d’accorder des autorisations explicites aux objets de base de données sélectionnés.
 

@@ -1,11 +1,11 @@
 ---
-title: "Configuration d'Apache Tomcat sur une machine virtuelle Linux | Microsoft Docs"
-description: "Apprenez à configurer Apache Tomcat7 avec une machine virtuelle Azure exécutant Linux."
+title: Configuration d'Apache Tomcat sur une machine virtuelle Linux | Microsoft Docs
+description: Apprenez à configurer Apache Tomcat7 avec une machine virtuelle Azure exécutant Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurer Tomcat7 sur une machine virtuelle Linux avec Azure
 Apache Tomcat (ou simplement Tomcat, également appelé Jakarta Tomcat précédemment) est un serveur web open source et un conteneur de servlet développé par Apache Software Foundation (ASF). Tomcat implémente le servlet Java et les spécifications Java Server Pages (JSP) de Sun Microsystems. Tomcat fournit un environnement de serveur web HTTP Java pur dans lequel exécuter le code Java. Dans la configuration la plus simple, Tomcat s’exécute dans un processus de système d’exploitation unique. Ce processus exécute une machine virtuelle Java (JVM). Chaque requête HTTP d’un navigateur vers Tomcat est traitée comme un thread séparé dans le processus de Tomcat.  
@@ -54,7 +54,7 @@ Un autre avantage de cette méthode est que vous n’avez pas besoin de mots de 
 
 Pour générer la clé d’authentification SSH, procédez comme suit.
 
-1. Téléchargez et installez PuTTYgen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Téléchargez et installez PuTTYgen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Exécutez Puttygen.exe.
 3. Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre.  
    ![Capture d’écran du générateur de clé puTTY montrant le bouton permettant de générer une nouvelle clé][1]
@@ -90,9 +90,9 @@ Le port TCP 8080 est le numéro de port par défaut sur lequel Tomcat écoute. 
 
    1. Entrez un nom pour le point de terminaison dans **Point de terminaison**, puis tapez 80 dans **Port public**.  
 
-      Si vous affectez le port 80, vous n’avez pas besoin d’inclure le numéro de port dans l’URL utilisée pour accéder à Tomcat. Par exemple, http://tomcatdemo.cloudapp.net.    
+      Si vous affectez le port 80, vous n’avez pas besoin d’inclure le numéro de port dans l’URL utilisée pour accéder à Tomcat. Par exemple : http://tomcatdemo.cloudapp.net.    
 
-      Si vous affectez une autre valeur pour le port, par exemple 81, vous devez ajouter le numéro de port à l’URL pour accéder à Tomcat. Par exemple, http://tomcatdemo.cloudapp.net:81/.
+      Si vous affectez une autre valeur pour le port, par exemple 81, vous devez ajouter le numéro de port à l’URL pour accéder à Tomcat. Par exemple : http://tomcatdemo.cloudapp.net:81/.
    2. Tapez 8080 dans **Port privé**. Par défaut, Tomcat écoute sur le port TCP 8080. Si vous avez modifié le port d’écoute par défaut de Tomcat, vous devez mettre à jour **Port privé** pour qu’il s’agisse du même que le port d’écoute Tomcat.  
       ![Capture d’écran de l’interface utilisateur montrant la commande Ajouter, Port public et Port privé][7]
 4. Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuelle.
@@ -184,7 +184,7 @@ Utilisez la commande suivante pour installer Tomcat7.
 Si vous n’utilisez pas Tomcat7, utilisez la variation appropriée de cette commande.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Confirmer que l’installation de Tomcat7 a réussi
-Pour vérifier que Tomcat7 est correctement installé, recherchez le nom DNS de votre serveur Tomcat. Dans cet article, l’exemple d'URL est http://tomcatexample.cloudapp.net/. Si vous voyez un message similaire à celui-ci, Tomcat7 est correctement installé.
+Pour vérifier que Tomcat7 est correctement installé, recherchez le nom DNS de votre serveur Tomcat. Dans cet article, l’exemple d’URL est http://tomcatexample.cloudapp.net/. Si vous voyez un message similaire à celui-ci, Tomcat7 est correctement installé.
 ![Message d’installation réussie de Tomcat7][16]
 
 ### <a name="install-other-tomcat7-components"></a>Installer d’autres composants de Tomcat7
@@ -231,7 +231,7 @@ Après avoir modifié ce fichier, vous devez redémarrer les services Tomcat7 a
 
     sudo /etc/init.d/tomcat7 restart  
 
-Ouvrez votre navigateur et entrez l’URL **http://<your tomcat server DNS name>/manager/html**. Pour l’exemple de cet article, l’URL est http://tomcatexample.cloudapp.net/manager/html.  
+Ouvrez votre navigateur et entrez l’URL **http://<your tomcat server DNS name>/manager/html**. Dans l’exemple de cet article, l’URL est http://tomcatexample.cloudapp.net/manager/html.  
 
 Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :   
 ![Capture d’écran de Tomcat Web Application Manager][18]

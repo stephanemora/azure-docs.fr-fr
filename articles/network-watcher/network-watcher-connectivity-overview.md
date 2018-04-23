@@ -1,11 +1,11 @@
 ---
-title: "Présentation de la résolution des problèmes de connexion d’Azure Network Watcher | Microsoft Docs"
-description: "Cette page fournit une vue d’ensemble de la fonctionnalité de résolution des problèmes de connexion de Network Watcher"
+title: Présentation de la résolution des problèmes de connexion d’Azure Network Watcher | Microsoft Docs
+description: Cette page fournit une vue d’ensemble de la fonctionnalité de résolution des problèmes de connexion de Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Présentation de la résolution des problèmes de connexion dans Azure Network Watcher
 
 La fonctionnalité de résolution des problèmes de connexion de Network Watcher permet de vérifier la connexion TCP directe entre deux machines virtuelles, le nom de domaine complet, l’URI ou l’adresse IPv4. Les scénarios de réseau sont complexes. Ils sont implémentés à l’aide de groupes de sécurité réseau, de pare-feu, d’itinéraires définis par l’utilisateur et de ressources fournies par Azure. Ces configurations complexes rendent difficile la résolution des problèmes de connectivité. Network Watcher permet de réduire le temps de détection des problèmes de connectivité. Les résultats obtenus peuvent indiquer si le problème de connectivité est dû à un problème de configuration de la plateforme ou à un problème de configuration utilisateur. La connectivité peut être vérifiée avec [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md) et l’[API REST](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> La résolution des problèmes de connexion requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux).
+> Pour résoudre les problèmes de connexion, la machine virtuelle à partir de laquelle vous procédez doit disposer de l’extension de machine virtuelle `AzureNetworkWatcherExtension` installée. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux). L’extension n’est pas nécessaire sur le point de terminaison de destination.
 
 ## <a name="response"></a>response
 

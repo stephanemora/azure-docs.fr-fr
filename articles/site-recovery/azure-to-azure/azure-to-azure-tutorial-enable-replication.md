@@ -1,6 +1,6 @@
 ---
-title: "Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery (préversion)"
-description: "Découvrez comment configurer la récupération d’urgence pour des machines virtuelles Azure vers une autre région Azure avec le service Azure Site Recovery."
+title: Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery (préversion)
+description: Découvrez comment configurer la récupération d’urgence pour des machines virtuelles Azure vers une autre région Azure avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -162,7 +162,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 
 3. Dans **Paramètres** > **Éléments répliqués**, vous pouvez afficher l’état des machines virtuelles et la progression de la réplication initiale. Cliquez sur la machine virtuelle pour explorer ses paramètres.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez configuré la récupération d’urgence pour une machine virtuelle Azure. L’étape suivante consiste à tester votre configuration.
 

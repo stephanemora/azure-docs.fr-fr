@@ -1,25 +1,20 @@
 ---
-title: "Surveillance de l’utilisation et des statistiques dans un service Recherche Azure | Microsoft Docs"
-description: "Suivez la consommation de ressource et la taille de l'index pour Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
-services: search
-documentationcenter: 
+title: Surveillance de l’utilisation et des statistiques dans un service Recherche Azure | Microsoft Docs
+description: Suivez la consommation de ressource et la taille de l'index pour Azure Search, un service de recherche cloud hébergé sur Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Surveillance d’un service Azure Search
 
@@ -96,38 +91,38 @@ Les objets blob de journaux contiennent les journaux du trafic de votre service 
 Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal.
 Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’opération qui s’est déroulée au cours de la même heure.
 
-| Nom | Type | Exemple | Remarques |
+| NOM | type | Exemples | Notes |
 | --- | --- | --- | --- |
-| time |datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| operationName |string |« Query.Search » |Nom de l’opération |
-| operationVersion |string |« 2015-02-28 » |Version d’API utilisée |
-| category |string |« OperationLogs » |constant |
-| resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
+| time |Datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
+| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| operationName |chaîne |« Query.Search » |Nom de l’opération |
+| operationVersion |chaîne |« 2015-02-28 » |Version d’API utilisée |
+| category |chaîne |« OperationLogs » |constant |
+| resultType |chaîne |« Success » |Valeurs possibles : Réussite ou Échec |
 | resultSignature |int |200 |Code de résultat HTTP |
 | durationMS |int |50 |Durée de l’opération en millisecondes |
 | properties |objet |consultez le tableau suivant |Objet contenant des données propres à l’opération |
 
 **Schéma de propriétés**
-| Nom | Type | Exemple | Remarques |
+| NOM | type | Exemples | Notes |
 | --- | --- | --- | --- |
-| Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Interroger |string |« ?search=AzureSearch&$count=true&api-version=2015-02-28 » |Paramètres de requête |
+| Description |chaîne |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
+| Interroger |chaîne |« ?search=AzureSearch&$count=true&api-version=2015-02-28 » |Paramètres de requête |
 | Documents |int |42 |Nombre de documents traités |
-| IndexName |string |« testindex » |Nom de l’index associé à l’opération |
+| IndexName |chaîne |« testindex » |Nom de l’index associé à l’opération |
 
 #### <a name="metrics-schema"></a>Schéma de mesures
-| Nom | Type | Exemple | Remarques |
+| NOM | type | Exemples | Notes |
 | --- | --- | --- | --- |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| metricName |string |« Latency » |Nom de la mesure |
-| time |datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
+| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| metricName |chaîne |« Latency » |Nom de la mesure |
+| time |Datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
 | minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
 | maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |
 | total |int |258 |Valeur totale des échantillons bruts dans l’intervalle de temps de la mesure |
 | count |int |4 |Nombre d’échantillons bruts utilisés pour générer la mesure |
-| timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
+| timegrain |chaîne |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
 
 Toutes les mesures sont consignées dans des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute.
 

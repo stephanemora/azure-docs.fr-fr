@@ -1,11 +1,11 @@
 ---
-title: "Configuration de l’acheminement (homologation) d’un circuit ExpressRoute - Azure Classic | Microsoft Docs"
-description: "Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des homologations pour votre circuit."
+title: Configuration de l’acheminement (homologation) d’un circuit ExpressRoute - Azure Classic | Microsoft Docs
+description: Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des homologations pour votre circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
 ms.service: expressroute
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Créer et modifier l’homologation pour un circuit ExpressRoute (Classic)
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [interface de ligne de commande Azure](howto-routing-cli.md)
 > * [Vidéo - Homologation privée](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -57,7 +57,7 @@ Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publ
 ### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Connectez-vous à votre compte Azure et sélectionnez un abonnement
 1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
 2. Vérifiez les abonnements associés au compte.
 
@@ -326,7 +326,7 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’app
 
     Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 * Pour plus d'informations sur les workflows, consultez [Workflows ExpressRoute](expressroute-workflows.md).

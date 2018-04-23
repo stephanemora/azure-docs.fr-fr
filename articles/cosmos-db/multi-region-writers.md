@@ -1,11 +1,10 @@
 ---
-title: "Architectures de base de données à multiples maîtres avec Azure Cosmos DB | Microsoft Docs"
-description: "En savoir plus sur la conception des architectures d’application avec les lectures et écritures locales dans plusieurs régions géographiques avec Azure Cosmos DB."
+title: Architectures de base de données à multiples maîtres avec Azure Cosmos DB | Microsoft Docs
+description: En savoir plus sur la conception des architectures d’application avec les lectures et écritures locales dans plusieurs régions géographiques avec Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
-author: arramac
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -13,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
-ms.author: arramac
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5e8853d521173a9a8d3c925361e43ce469471918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Architectures de base de données à multiples maîtres répliquées de façon globale avec Azure Cosmos DB
 Azure Cosmos DB prend en charge la [réplication globale](distribute-data-globally.md) clé en main, qui vous permet de distribuer les données dans plusieurs régions avec accès à faible latence n’importe où dans la charge de travail. Ce modèle est généralement utilisé pour les charges de travail éditeur/consommateur, où un enregistreur existe dans une région géographique unique et des lecteurs sont distribués mondialement dans d’autres régions (lecture). 
@@ -319,5 +318,5 @@ Dans cet article, nous avons décrit comment vous pouvez utiliser des modèles l
 * En savoir plus sur les [basculements manuels et automatiques dans Azure Cosmos DB](regional-failover.md)
 * Découvrez-en plus sur [la cohérence globale avec Azure Cosmos DB](consistency-levels.md)
 * Développer en mode multirégions à l’aide de [l’API SQL - Azure Cosmos DB](tutorial-global-distribution-sql-api.md)
-* Développer en mode multirégions à l’aide de [l’API MongoDB - Azure Cosmos DB](tutorial-global-distribution-MongoDB.md)
-* Développer en mode multirégions à l’aide de [l’API Table - Azure Cosmos DB](tutorial-global-distribution-table.md)
+* Développer en mode multirégions à l’aide de l’[API MongoDB - Azure Cosmos DB](tutorial-global-distribution-MongoDB.md)
+* Développer en mode multirégions à l’aide de l’[API Table - Azure Cosmos DB](tutorial-global-distribution-table.md)

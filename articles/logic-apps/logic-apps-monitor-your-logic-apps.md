@@ -1,11 +1,11 @@
 ---
-title: "Vérifier l’état, configurer la journalisation et recevoir des alertes - Azure Logic Apps | Microsoft Docs"
-description: "Surveiller l’état et les performances des applications logiques, journaliser les données de diagnostic et configurer les alertes"
+title: Vérifier l’état, configurer la journalisation et recevoir des alertes - Azure Logic Apps | Microsoft Docs
+description: Surveiller l’état et les performances des applications logiques, journaliser les données de diagnostic et configurer les alertes
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -76,9 +76,9 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Activer la journalisation des diagnostics pour votre application logique
 
-Pour un débogage enrichi avec des détails et événements d’exécution, vous pouvez configurer la journalisation des diagnostics avec [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics est un service d’[Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) qui surveille vos environnements cloud et locaux pour vous aider à maintenir leur disponibilité et leurs performances. 
+Pour un débogage enrichi avec des détails et événements d’exécution, vous pouvez configurer la journalisation des diagnostics avec [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics est un service d’Azure qui surveille vos environnements cloud et locaux pour vous aider à assurer leur disponibilité et leurs performances. 
 
-Avant de commencer, vous devez disposer d’un espace de travail OMS. Découvrez comment [créer un espace de travail OMS](../log-analytics/log-analytics-get-started.md).
+Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre application logique. 
 
@@ -90,16 +90,16 @@ Avant de commencer, vous devez disposer d’un espace de travail OMS. Découvrez
 
    ![Activer les journaux de diagnostic](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Sélectionnez à présent l’espace de travail OMS et la catégorie d'événement pour la journalisation comme illustré :
+4. Sélectionnez à présent l’espace de travail Log Analytics et la catégorie d’événement pour la journalisation, comme illustré :
 
    1. Sélectionnez **Envoyer à Log Analytics**. 
    2. Sous **Log Analytics**, choisissez **Configurer**. 
-   3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail OMS à utiliser pour la journalisation.
+   3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail Log Analytics à utiliser pour la journalisation.
    4. Sous **Journal**, sélectionnez la catégorie **WorkflowRuntime**.
    5. Choisissez l’intervalle de mesure.
    6. Une fois ces opérations effectuées, sélectionnez **Enregistrer**.
 
-   ![Sélectionner l’espace de travail OMS et les données à journaliser](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Sélectionner l’espace de travail Log Analytics et les données à journaliser](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 À présent, vous pouvez trouver des événements et d’autres données pour des événements déclencheurs, des événements d’exécution et des événements d’action.
 
@@ -113,23 +113,23 @@ Pour rechercher et afficher dans votre application logique des événements tels
 
    ![Choisir « Log Analytics »](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Sous **Log Analytics**, recherchez et sélectionnez votre espace de travail OMS. 
+2. Sous **Log Analytics**, recherchez et sélectionnez votre espace de travail Log Analytics. 
 
-   ![Sélectionner votre espace de travail OMS](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Sélectionnez votre espace de travail Log Analytics.](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. Sous **Gestion**, choisissez **Portail OMS**.
 
    ![Choisir « Portail OMS »](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. Dans votre page d’accueil d’OMS, choisissez **Recherche dans les journaux**.
+4. Dans votre page d’accueil, choisissez **Recherche dans les journaux**.
 
-   ![Dans votre page d’accueil d’OMS, choisissez « Recherche dans les journaux »](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![Dans la page d’accueil, choisir « Recherche dans les journaux »](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -ou-
 
-   ![Dans le menu OMS, choisir « Recherche dans les journaux »](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![Dans le menu, choisir « Recherche dans les journaux »](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. Dans la zone de recherche, spécifiez un champ que vous souhaitez trouver, puis appuyez sur **Entrée**. Lorsque vous commencez à taper, OMS affiche les correspondances possibles et les opérations que vous pouvez utiliser. 
+5. Dans la zone de recherche, spécifiez un champ que vous souhaitez trouver, puis appuyez sur **Entrée**. Lorsque vous commencez à taper, vous voyez les opérations et les correspondances possibles que vous pouvez utiliser. 
 
    Par exemple, pour rechercher les 10 principaux événements qui se sont produits, entrez et sélectionnez la requête de recherche suivante : **search Category == WorkflowRuntime | limit 10**
 

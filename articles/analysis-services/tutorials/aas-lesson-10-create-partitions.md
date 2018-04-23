@@ -1,25 +1,18 @@
 ---
-title: "Leçon 10 du didacticiel Azure Analysis Services : Créer des partitions | Microsoft Docs"
-description: "Explique comment créer des partitions dans le projet du didacticiel Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Leçon 10 du didacticiel Azure Analysis Services : Créer des partitions | Microsoft Docs'
+description: Explique comment créer des partitions dans le projet du didacticiel Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 743eff21154502fc4ff651177abb8df91edb7494
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-partitions"></a>Créer des partitions
 
@@ -27,7 +20,8 @@ Dans cette leçon, vous allez créer des partitions pour diviser la table FactIn
   
 Durée estimée pour suivre cette leçon : **15 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Créer des partitions  

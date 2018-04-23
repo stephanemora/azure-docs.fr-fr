@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
-Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L’article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
+Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L’article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants : 
 - Vous êtes en train d’évaluer la migration de vos applications vers Azure SQL DB – Modernisation de vos applications.
 - Vous êtes en train d’effectuer la migration de vos applications – Scénario de migration en cours.
 - Vous avez récemment terminé la migration vers Azure SQL DB – Nouvel administrateur de base de données dans le cloud.
@@ -218,7 +218,7 @@ Votre approche de la résolution des problèmes de performance peut considérabl
 
 Avec la résolution des problèmes de performance, il est important de déterminer si c’est uniquement l’application ou aussi la base de données qui l’accompagne, qui affectent les performances de votre application. Le problème de performance se trouve souvent dans la couche Application. Il peut être lié à l’architecture ou au modèle d’accès aux données. Supposez, par exemple, que vous avez une application bavarde sensible à la latence du réseau. Ainsi, votre application souffre, car de nombreuses requêtes courtes vont et viennent (dues à ce bavardage intense) entre l’application et le serveur et, sur un réseau encombré, ces allers-retours s’accumulent rapidement. Pour améliorer les performances dans cet exemple, vous pouvez utiliser un [traitement par lot des requêtes](sql-database-performance-guidance.md#batch-queries). L’utilisation de lots vous aide considérablement, car vos requêtes sont alors traitées dans un lot ; ainsi, vous réduisez la latence des allers-retours et vous améliorez les performances de votre application. 
 
-De plus, si vous constatez une détérioration des performances globales de votre base de données, vous pouvez surveiller les vues de gestion dynamique [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) et [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) pour comprendre comment sont consommées l’UC, les E/S (entrées/sorties) et la mémoire. Vos performances sont peut-être affectées parce que votre base de données est sous-alimentée en ressources. Vous devez peut-être changer le niveau de performance et/ou le niveau de service en fonction des demandes de charge de travail croissantes et décroissantes. 
+De plus, si vous constatez une dégradation des performances globales de votre base de données, vous pouvez surveiller les vues de gestion dynamique [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) et [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) pour comprendre comment sont consommées l’UC, les E/S et la mémoire. Vos performances sont peut-être affectées parce que votre base de données est sous-alimentée en ressources. Vous devez peut-être changer le niveau de performance et/ou le niveau de service en fonction des demandes de charge de travail croissantes et décroissantes. 
 
 Pour obtenir un ensemble complet de recommandations sur les problèmes d’optimisation du niveau de performance, consultez : [Optimiser votre base de données](sql-database-performance-guidance.md#tune-your-database).
 

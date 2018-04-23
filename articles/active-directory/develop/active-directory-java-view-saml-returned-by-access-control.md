@@ -1,25 +1,24 @@
 ---
-title: "Affichage des données SAML renvoyées par ACS (Java)"
-description: "Découvrez comment afficher SAML renvoyé par le service de contrôle d'accès dans les applications Java hébergées sur Azure."
+title: Affichage des données SAML renvoyées par ACS (Java)
+description: Découvrez comment afficher SAML renvoyé par le service de contrôle d'accès dans les applications Java hébergées sur Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: 
+manager: mbaldwin
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c43b27d58d78036dd832fb4f95f2bc9958441c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
 Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s’appuie sur la rubrique [Authentification des utilisateurs web auprès d’Azure Access Control Service à l’aide d’Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) en fournissant le code nécessaire à l’affichage des données SAML. L'application terminée sera semblable à ce qui suit.
@@ -33,7 +32,8 @@ Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour réaliser les tâches présentées dans ce guide, suivez l'exemple de la rubrique [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) et utilisez-le comme point de départ de ce didacticiel.
 
 ## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement

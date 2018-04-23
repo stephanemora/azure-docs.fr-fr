@@ -2,23 +2,19 @@
 title: Améliorer les performances de l’index columnstore - Azure SQL Data Warehouse | Microsoft Docs
 description: Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 3bbcf7b637a0f32751dc15664a1b7479e65503eb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
@@ -139,7 +135,7 @@ OPTION (MAXDOP 1);
 La taille de DWU et la classe de ressources utilisateur déterminent ensemble la quantité de mémoire disponible pour une requête utilisateur. Pour augmenter l’allocation de mémoire pour une requête de chargement, vous pouvez augmenter soit le nombre de DWU, soit la classe de ressources.
 
 - Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](quickstart-scale-compute-portal.md).
-- Pour modifier la classe de ressources pour une requête, voir [Exemple de modification d’une classe de ressources utilisateur](resource-classes-for-workload-management.md#assigning-resource-classes).
+- Pour modifier la classe de ressources pour une requête, voir [Exemple de modification d’une classe de ressources utilisateur](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 Par exemple, sur DWU 100, un utilisateur dans la classe de ressources smallrc peut utiliser 100 Mo de mémoire pour chaque distribution. Pour plus d’informations, voir [Gestion de la concurrence et des charges de travail dans SQL Data Warehouse](resource-classes-for-workload-management.md).
 
@@ -153,11 +149,3 @@ Supposons que vous déterminez que vous avez besoin de 700 Mo de mémoire pour 
 
 Pour découvrir d’autres façons d’améliorer les performances dans SQL Data Warehouse, voir [Vue d’ensemble des performances](sql-data-warehouse-overview-manage-user-queries.md).
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

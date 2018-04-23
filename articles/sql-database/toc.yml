@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1 - Concevoir une base de données avec .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migrer vers une base de données SQL Server
+    - name: 2 - Migrer vers une base de données SQL Server à l’aide de DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Sécuriser vos bases de données SQL
       href: sql-database-security-tutorial.md
     - name: "4\_- Mettre en œuvre une base de données géo-distribuée"
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - Créer une instance gérée
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - Restaurer une sauvegarde vers une instance gérée
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - Migrer vers une instance gérée à l’aide de DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: 'Extraction, transformation et chargement (ETL) pour analyse'
               href: saas-tenancy-tenant-analytics.md
+            - name: Récupération d’urgence à l’aide de la géo-restauration
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Récupération d’urgence à l’aide de la géo-réplication de base de données
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Base de données mutualisée
           items:
             - name: Déployer l’application fournie en exemple
@@ -430,6 +438,8 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
+        - name: Utiliser Spark Connector
+          href: sql-database-spark-connector.md
 - name: Informations de référence
   items:
     - name: "Azure\_PowerShell"

@@ -1,6 +1,6 @@
 ---
-title: "Créer des zones et des jeux d’enregistrements DNS dans Azure DNS à l’aide du Kit SDK .NET | Microsoft Docs"
-description: "Comment créer des zones et des jeux d’enregistrements DNS dans Azure DNS à l’aide du SDK .NET."
+title: Créer des zones et des jeux d’enregistrements DNS dans Azure DNS à l’aide du Kit SDK .NET | Microsoft Docs
+description: Comment créer des zones et des jeux d’enregistrements DNS dans Azure DNS à l’aide du SDK .NET.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
-ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6f10649670dac523289724603e2aecaf17fa67d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -29,7 +29,7 @@ En règle générale, l’accès par programme aux ressources Azure est accordé
 
 1. Suivez [ces instructions](../azure-resource-manager/resource-group-authenticate-service-principal.md) pour créer un compte de principal du service (l’exemple de projet de kit de développement logiciel Azure DNS part du principe qu’il s’agit d’une authentification par mot de passe).
 2. Créez un groupe de ressources ([procédure](../azure-resource-manager/resource-group-template-deploy-portal.md)).
-3. Utilisez Azure RBAC pour accorder une autorisation « Collaborateur de zone DNS » au groupe de ressources ([procédure](../active-directory/role-based-access-control-configure.md)).
+3. Utilisez Azure RBAC pour accorder une autorisation « Collaborateur de zone DNS » au groupe de ressources ([procédure](../role-based-access-control/role-assignments-portal.md)).
 4. Si vous utilisez l’exemple de projet de kit de développement logiciel Azure DNS, modifiez le fichier program.cs comme suit :
 
    * Insérez les valeurs correctes pour tenantId, clientId (également appelé ID de compte), secret (mot de passe du compte du principal du service) et subscriptionId tels qu’utilisés à l’étape 1.
