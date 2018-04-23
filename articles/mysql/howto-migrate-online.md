@@ -1,6 +1,6 @@
 ---
-title: "Migration avec temps d’arrêt minimal vers Azure Database pour MySQL"
-description: "Cet article explique comment effectuer une migration avec temps d’arrêt minimal d’une base de données MySQL vers Azure Database pour MySQL et comment configurer la charge initiale et la synchronisation des données en continu depuis la base de données source vers la base de données cible à l’aide d’Attunity Replicate pour Microsoft Migrations."
+title: Migration avec temps d’arrêt minimal vers Azure Database pour MySQL
+description: Cet article explique comment effectuer une migration avec temps d’arrêt minimal d’une base de données MySQL vers Azure Database pour MySQL et comment configurer la charge initiale et la synchronisation des données en continu depuis la base de données source vers la base de données cible à l’aide d’Attunity Replicate pour Microsoft Migrations.
 services: mysql
 author: HJToland3
 ms.author: jtoland

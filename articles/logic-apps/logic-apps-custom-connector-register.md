@@ -1,12 +1,12 @@
 ---
-title: "Inscrire des connecteurs personnalisés - Azure Logic Apps | Microsoft Docs"
-description: "Configurer des connecteurs personnalisés pour pouvoir les utiliser dans Azure Logic Apps"
+title: Inscrire des connecteurs personnalisés - Azure Logic Apps | Microsoft Docs
+description: Configurer des connecteurs personnalisés pour pouvoir les utiliser dans Azure Logic Apps
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -286,7 +286,7 @@ Pour partager votre connecteur avec des utilisateurs externes à l’extérieur 
 
 * Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Facultatif : Certifier un connecteur](../logic-apps/custom-connector-submit-certification.md)
 * [FAQ sur les connecteurs personnalisés](../logic-apps/custom-connector-faq.md)

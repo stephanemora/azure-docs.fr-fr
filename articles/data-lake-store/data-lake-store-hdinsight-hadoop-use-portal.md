@@ -1,8 +1,8 @@
 ---
-title: "Utiliser le portail Azure pour créer des clusters Azure HDInsight avec Data Lake Store | Microsoft Docs"
-description: "Utiliser le portail Azure pour créer et utiliser les clusters HDInsight avec Azure Data Lake Store"
+title: Utiliser le portail Azure pour créer des clusters Azure HDInsight avec Data Lake Store | Microsoft Docs
+description: Utiliser le portail Azure pour créer et utiliser les clusters HDInsight avec Azure Data Lake Store
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun

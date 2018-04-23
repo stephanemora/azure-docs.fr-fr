@@ -1156,7 +1156,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory pour les services de domaine</p>
+                                                <p>Azure Active Directory for Domain Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3371,7 +3371,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Active Directory pour les services de domaine</h3>
+                                                    <h3>Active Directory for Domain Services</h3>
                                                     <p>Joignez des machines virtuelles Azure à un domaine sans contrôleur de domaine</p>
                                                 </div>
                                             </div>

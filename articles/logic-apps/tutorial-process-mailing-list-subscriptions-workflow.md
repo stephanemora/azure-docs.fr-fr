@@ -1,12 +1,12 @@
 ---
-title: "Générer des flux de travail d’approbation pour traiter les requêtes de liste de diffusion - Azure Logic Apps | Microsoft Docs"
-description: "Ce didacticiel montre comment créer des flux de travail d’approbation automatisés pour le traitement des abonnements aux listes de diffusion avec Azure Logic Apps"
+title: Générer des flux de travail d’approbation pour traiter les requêtes de liste de diffusion - Azure Logic Apps | Microsoft Docs
+description: Ce didacticiel montre comment créer des flux de travail d’approbation automatisés pour le traitement des abonnements aux listes de diffusion avec Azure Logic Apps
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -323,7 +323,7 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez créé une application logique qui gère des approbations pour les requêtes de liste de diffusion. Maintenant, découvrez comment créer une application logique qui traite et stocke les pièces jointes des e-mails en intégrant des services Azure, tels que Stockage Azure et Azure Functions.
 

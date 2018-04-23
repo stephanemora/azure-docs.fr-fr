@@ -1,11 +1,11 @@
 ---
-title: "Stratégies dans Gestion des API Azure | Microsoft Docs"
-description: "Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API."
+title: Stratégies dans Gestion des API Azure | Microsoft Docs
+description: Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -113,7 +113,7 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 </ip-filter>
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 

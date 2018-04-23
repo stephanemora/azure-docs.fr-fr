@@ -1,7 +1,7 @@
 ---
-title: "Déployer la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Ce didacticiel montre comment approvisionner la solution préconfigurée de surveillance à distance à partir du site azureiotsuite.com."
-services: 
+title: Déployer la solution de surveillance à distance - Azure | Microsoft Docs
+description: Ce didacticiel montre comment approvisionner la solution préconfigurée de surveillance à distance à partir du site azureiotsuite.com.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -80,7 +80,7 @@ Lorsque le processus d’approvisionnement est terminé, vous pouvez vous connec
 
 1. Le tableau de bord des solutions de surveillance à distance s’affiche dans votre navigateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

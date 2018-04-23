@@ -1,11 +1,11 @@
 ---
-title: "Toutes les rubriques pour le service SQL Data Warehouse | Microsoft Docs"
-description: "Tableau de toutes les rubriques du service Azure nommé SQL Data Warehouse, qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
+title: Toutes les rubriques pour le service SQL Data Warehouse | Microsoft Docs
+description: Tableau de toutes les rubriques du service Azure nommé SQL Data Warehouse, qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse

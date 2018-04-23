@@ -3,16 +3,17 @@ title: Mise à niveau vers la version 2016-09-01 de l’API REST du service Rech
 description: Mise à niveau vers la version 2016-09-01 de l’API REST du service Recherche Azure
 author: brjohnstmsft
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.openlocfilehash: f2e8d5dd7f54e3435d1d94f34a5d4556690bfba8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ea901462677d42d90007a2130825bd3b382407f2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Mise à niveau vers la version 2016-09-01 de l’API REST du service Recherche Azure
 Si vous utilisez la version 2015-02-28 ou 2015-02-28-Preview de [l’API REST du service Recherche Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx), cet article vous aidera à mettre à niveau votre application pour utiliser la nouvelle version de l’API (2016-09-01).

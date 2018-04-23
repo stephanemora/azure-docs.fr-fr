@@ -1,9 +1,9 @@
 ---
 title: Prise en main de Notification Hubs pour les applications Xamarin.Android | Microsoft Docs
-description: "Ce didacticiel vous apprend à utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Xamarin Android."
+description: Ce didacticiel vous apprend à utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Xamarin Android.
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 1cb6fbc82c493e17815dc60ddcff183a47513bc6
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 7fee7813bbdcf902d5f5ae2d0af7540c8899ad25
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Prise en main de Notification Hubs pour les applications Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -34,6 +34,7 @@ Ce didacticiel présente un scénario de diffusion simple utilisant les Notifica
 Le code complet de ce didacticiel est disponible sur GitHub [ici][GitHub].
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce didacticiel requiert les éléments suivants :
 
 * [Visual Studio avec Xamarin] pour Windows ou [Visual Studio pour Mac] sur OS X.
@@ -95,6 +96,20 @@ Créez d’abord un projet.
 3. Recherchez **Xamarin.Firebase.Messaging** et ajoutez-le au projet.
 
 ### <a name="set-up-notification-hubs-in-your-project"></a>Configuration de hubs de notification dans votre projet
+
+#### <a name="registering-with-firebase-cloud-messaging"></a>Inscription auprès de Firebase Cloud Messaging
+
+Ouvrez le fichier **AndroidManifest.xml** et insérez les éléments `<receiver>` suivants dans l’élément `<application>` :
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
 1. Collectez les informations suivantes pour votre application Android et votre concentrateur de notifications :
    
    * **Chaîne de connexion d’écoute** : dans le tableau de bord du [portail Azure], sélectionnez **Afficher les chaînes de connexion**. Copiez la chaîne de connexion *DefaultListenSharedAccessSignature* pour cette valeur.

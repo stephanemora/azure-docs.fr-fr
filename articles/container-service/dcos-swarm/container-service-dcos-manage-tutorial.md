@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Azure Container Service - Gérer DC/OS"
-description: "Didacticiel Azure Container Service - Gérer DC/OS"
+title: Didacticiel Azure Container Service - Gérer DC/OS
+description: Didacticiel Azure Container Service - Gérer DC/OS
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -259,7 +259,7 @@ Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group d
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a permis de vous familiariser avec certaines tâches de gestion DC/OS de base, qui sont répertoriées ci-dessous. 
 

@@ -1,15 +1,15 @@
 ---
-title: "FAQ et problèmes connus liés à Managed Service Identity (MSI) pour Azure Active Directory"
-description: "Problèmes connus liés à l’identité du service administré pour Azure Active Directory."
+title: FAQ et problèmes connus liés à Managed Service Identity (MSI) pour Azure Active Directory
+description: Problèmes connus liés à l’identité du service administré pour Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba

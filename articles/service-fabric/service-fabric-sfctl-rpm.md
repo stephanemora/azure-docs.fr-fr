@@ -1,12 +1,12 @@
 ---
-title: "CLI Azure Service Fabric : sfctl rpm | Microsoft Docs"
-description: "Décrit les commandes sfctl rpm de l’interface de ligne de commande (CLI) Service Fabric."
+title: 'CLI Azure Service Fabric : sfctl rpm | Microsoft Docs'
+description: Décrit les commandes sfctl rpm de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference

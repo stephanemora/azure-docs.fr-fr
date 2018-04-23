@@ -1,12 +1,12 @@
 ---
-title: "Sécuriser des connecteurs personnalisés avec Azure AD - Azure Logic Apps | Microsoft Docs"
-description: "Ajoutez un dispositif de sécurité et d’authentification à une API et à un connecteur avec Azure Active Directory (Azure AD)"
+title: Sécuriser des connecteurs personnalisés avec Azure AD - Azure Logic Apps | Microsoft Docs
+description: Ajoutez un dispositif de sécurité et d’authentification à une API et à un connecteur avec Azure Active Directory (Azure AD)
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -233,7 +233,7 @@ Ouvrez le fichier OpenAPI de votre application API Web afin d’ajouter l’obje
 ```
 Vous pouvez maintenant créer et inscrire votre connecteur personnalisé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Inscrire votre connecteur](../logic-apps/logic-apps-custom-connector-register.md)
 * [FAQ sur les connecteurs personnalisés](../logic-apps/custom-connector-faq.md)

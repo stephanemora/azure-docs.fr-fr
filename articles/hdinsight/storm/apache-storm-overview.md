@@ -1,13 +1,13 @@
 ---
-title: "Présentation d’Apache Storm - Azure HDInsight | Microsoft Docs"
-description: "Apache Storm vous permet de traiter des flux de données en temps réel. Azure HDInsight vous permet de créer facilement des clusters Storm dans le cloud Azure. Avec Visual Studio, vous pouvez créer des solutions Storm en C#, puis les déployer sur vos clusters Storm HDInsight."
+title: Présentation d’Apache Storm - Azure HDInsight | Microsoft Docs
+description: Apache Storm vous permet de traiter des flux de données en temps réel. Azure HDInsight vous permet de créer facilement des clusters Storm dans le cloud Azure. Avec Visual Studio, vous pouvez créer des solutions Storm en C#, puis les déployer sur vos clusters Storm HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "cas d’utilisation d’apache storm,cluster storm,présentation d’apache storm"
+keywords: cas d’utilisation d’apache storm,cluster storm,présentation d’apache storm
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -180,7 +180,7 @@ Storm utilise Apache Log4j pour journaliser les informations. Par défaut, une g
 
 Pour découvrir un exemple de topologie indiquant comment configurer la journalisation, consultez l’exemple de [comptage du nombre de mots basé sur Java](apache-storm-develop-java-topology.md) pour Storm sur HDInsight.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En savoir plus sur les solutions d’analyse en temps réel avec Storm sur HDInsight :
 

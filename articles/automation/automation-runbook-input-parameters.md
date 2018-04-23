@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2ce87c300d3e9092794e6e437dc9919c7eb0f3c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19b0e17807adc0e7a4522fd13cd85779cdbcafd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
 
@@ -37,16 +37,16 @@ Windows PowerShell prend en charge d’autres attributs de paramètres d’entr�
 
 Une définition de paramètre dans des Runbooks PowerShell Workflow a la forme générale suivante, où plusieurs paramètres sont séparés par des virgules.
 
-   ```powershell
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     )
-   ```
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name2 = <Default value>
+)
+```
 
 > [!NOTE]
 > Lorsque vous définissez des paramètres, si vous ne spécifiez pas l’attribut **Mandatory** , par défaut, le paramètre est considéré comme facultatif. De même, si l’un des paramètres des runbooks PowerShell Workflow possède la valeur par défaut, il est traité par PowerShell comme un paramètre facultatif, indépendamment de la valeur de l’attribut **Mandatory**.
@@ -61,13 +61,16 @@ Dans cette définition de paramètre, les paramètres **$VMName** et **$resource
 
 Si votre runbook comporte un paramètre d’entrée de type d’objet, utilisez une table de hachage PowerShell contenant des paires (nom, valeur) pour transmettre une valeur. Par exemple, si vous avez le paramètre suivant dans un Runbook :
 
-     [Parameter (Mandatory = $true)]
-     [object] $FullName
+```powershell
+[Parameter (Mandatory = $true)]
+[object] $FullName
+```
 
 Vous pouvez transmettre la valeur suivante au paramètre :
 
-    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-
+```powershell
+@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+```
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configurer des paramètres d’entrée dans des Runbooks graphiques
 
@@ -146,7 +149,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
   
   **Exemple :**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
@@ -155,7 +158,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
   
   **Exemple :**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
   
   Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
@@ -170,7 +173,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 
 * **Méthode d’Azure Resource Manager :** vous pouvez démarrer un Runbook à l’aide du Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
-  ```
+  ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -189,7 +192,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
   ```
 * **Méthode du modèle de déploiement Azure Classic :** vous pouvez démarrer un runbook à l’aide du Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
-  ```      
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -209,7 +212,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
   
   Pour lancer cette méthode, créez un dictionnaire pour stocker les paramètres de Runbook **VMName** et **resourceGroupName** ainsi que leurs valeurs. Démarrez ensuite le Runbook. Voici l’extrait de code C# permettant d’appeler la méthode définie ci-dessus.
   
-  ```
+  ```csharp
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
   // Add parameters to the dictionary.
@@ -239,7 +242,7 @@ Pour transmettre des paramètres à la tâche du Runbook, utilisez le corps de l
 
 Si vous souhaitez démarrer le Runbook **Get-AzureVMTextual** créé précédemment avec **VMName** et **resourceGroupName** en tant que paramètres, utilisez le format JSON suivant pour le corps de la demande.
 
-   ```
+   ```json
     {
       "properties":{
         "runbook":{

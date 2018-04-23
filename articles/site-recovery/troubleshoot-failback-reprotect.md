@@ -1,12 +1,12 @@
 ---
-title: "Résoudre des problèmes durant une restauration automatique locale à partir d’Azure, puis reprotéger dans Azure | Microsoft Docs"
-description: "Cet article décrit comment résoudre des erreurs courantes survenant lors d’une restauration automatique locale à partir d’Azure et de la reprotection"
+title: Résoudre des problèmes durant une restauration automatique locale à partir d’Azure, puis reprotéger dans Azure | Microsoft Docs
+description: Cet article décrit comment résoudre des erreurs courantes survenant lors d’une restauration automatique locale à partir d’Azure et de la reprotection
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article

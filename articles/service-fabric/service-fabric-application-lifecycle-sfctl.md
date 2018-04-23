@@ -1,6 +1,6 @@
 ---
-title: "Gérer les applications Azure Service Fabric à l’aide d’Azure Service Fabric CLI"
-description: "Découvrez comment déployer et supprimer des applications à partir d’un cluster Azure Service Fabric à l’aide d’Azure Service Fabric CLI"
+title: Gérer les applications Azure Service Fabric à l’aide d’Azure Service Fabric CLI
+description: Découvrez comment déployer et supprimer des applications à partir d’un cluster Azure Service Fabric à l’aide d’Azure Service Fabric CLI
 services: service-fabric
 author: Christina-Kang
 manager: timlt
@@ -164,7 +164,7 @@ Lorsqu’une mise à niveau de l’application est en cours, l’état peut êtr
 
 Enfin, si une mise à niveau est en cours et doit être annulée, vous pouvez utiliser la commande `sfctl application upgrade-rollback` pour restaurer la mise à niveau.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Concepts de base Service Fabric CLI](service-fabric-cli.md)
 * [Prise en main de Service Fabric sur Linux](service-fabric-get-started-linux.md)

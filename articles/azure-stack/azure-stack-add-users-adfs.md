@@ -1,11 +1,11 @@
 ---
 title: Ajouter des utilisateurs pour Azure Stack ADFS | Microsoft Docs
-description: "Découvrez comment ajouter des utilisateurs pour les déploiements ADFS d’Azure Stack"
+description: Découvrez comment ajouter des utilisateurs pour les déploiements ADFS d’Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

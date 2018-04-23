@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Dans le cadre des meilleures pratiques en termes de chiffrement et de sécurité des données d’Azure, les recommandations que nous proposons s’articulent autour des états suivants des données :
@@ -50,13 +50,13 @@ Les meilleures pratiques en matière de chiffrement et de sécurité des donnée
 * Application du chiffrement des données au niveau fichier
 
 ## <a name="enforce-multi-factor-authentication"></a>Application de l’authentification multifacteur via Azure Multi-Factor Authentication
-Pour permettre le contrôle et l’octroi d’un accès aux données dans Microsoft Azure, il est avant tout nécessaire d’authentifier l’utilisateur. [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) est une méthode permettant de vérifier l’identité de l’utilisateur grâce à d’autres moyens que les seuls nom d’utilisateur et mot de passe. Cette méthode contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande de l’utilisateur, qui souhaite bénéficier d’un processus d’authentification simple.
+Pour permettre le contrôle et l’octroi d’un accès aux données dans Microsoft Azure, il est avant tout nécessaire d’authentifier l’utilisateur. [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) est une méthode permettant de vérifier l’identité de l’utilisateur grâce à d’autres moyens que les seuls nom d’utilisateur et mot de passe. Cette méthode contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande de l’utilisateur, qui souhaite bénéficier d’un processus d’authentification simple.
 
 En activant Azure MFA pour vos utilisateurs, vous ajoutez une deuxième couche de sécurité aux connexions et transactions des utilisateurs. Dans ce cas, une transaction peut accéder à un document situé sur un serveur de fichiers ou sur votre site SharePoint Online. Azure MFA permet également au département informatique de réduire le risque d’accès aux données de l’organisation par un compte compromis.
 
 Par exemple : si vous appliquez l’authentification multi-facteur d’Azure MFA pour vos utilisateurs et la configurez afin qu’elle utilise un appel téléphonique ou un message texte à titre de vérification, un pirate informatique ayant frauduleusement obtenu les informations d’identification de l’utilisateur ne peut pas accéder aux ressources, car il ne dispose pas du téléphone de cet utilisateur. Les organisations qui n’ajoutent pas cette couche supplémentaire de protection d’identité sont plus sensibles au vol d’informations d’identification, susceptible de compromettre des données.
 
-Les organisations souhaitant conserver le contrôle de l’authentification localement peuvent recourir au [serveur Microsoft Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), ou « MFA local ». Grâce à cette méthode, vous pourrez toujours appliquer l’authentification multi-facteur, tout en conservant le serveur MFA en local.
+Les organisations souhaitant conserver le contrôle de l’authentification localement peuvent recourir au [serveur Microsoft Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfaserver-deploy.md), ou « MFA local ». Grâce à cette méthode, vous pourrez toujours appliquer l’authentification multi-facteur, tout en conservant le serveur MFA en local.
 
 Pour en savoir plus sur Azure Multi-Factor Authentication, voir [Prise en main avec Azure Multi-Factor Authentication dans le cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 

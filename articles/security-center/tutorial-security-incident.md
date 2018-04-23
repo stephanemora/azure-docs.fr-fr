@@ -1,11 +1,11 @@
-﻿---
-title: "Didacticiel de Azure Security Center - Répondre aux incidents de sécurité | Microsoft Docs"
-description: "Didacticiel de Azure Security Center - Répondre aux incidents de sécurité"
+---
+title: Didacticiel de Azure Security Center - Répondre aux incidents de sécurité | Microsoft Docs
+description: Didacticiel de Azure Security Center - Répondre aux incidents de sécurité
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
