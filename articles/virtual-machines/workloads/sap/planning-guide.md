@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -677,7 +677,7 @@ Chaque machine virtuelle dans Azure doit être connectée à un réseau virtuel.
 Pour plus d’informations, consultez [cet article][resource-groups-networking] et [cette page](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 [comment]: <> (MShermannd TODO Couldn't find an article which includes the OpenLDAP topic + ARM; )
-[comment]: <> (MSSedusch &lt;https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL&gt;)
+[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [!NOTE]
 > Par défaut, une fois qu’une machine virtuelle est déployée, vous ne pouvez pas modifier la configuration du réseau virtuel. Les paramètres TCP/IP doivent être conservés sur le serveur DHCP d’Azure. Le comportement par défaut est l’attribution d’adresse IP dynamique.
@@ -798,8 +798,8 @@ Le portail Azure constitue l’une des trois interfaces destinées à la gestion
 
 ![Portail Microsoft Azure - vue d’ensemble de la machine virtuelle][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * &lt;https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/&gt;)
-[comment]: <> (MSSedusch * &lt;https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/&gt;)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Les tâches d’administration et de configuration de l’instance de la machine virtuelle sont possibles au sein du portail Azure.
 
@@ -979,7 +979,7 @@ Dans ce scénario, nous souhaitons charger un disque dur virtuel, avec ou sans s
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
 * Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli]
-* (Facultatif) Créez un disque managé à partir du VHD avec *az disk create*. Consultez https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (Facultatif) Créez un disque managé à partir du disque dur virtuel avec *az disk create* - consultez https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Créez une machine virtuelle et spécifiez le disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--attach-os-disk*
 * Ajoutez un disque de données à une nouvelle machine virtuelle en entrant *az vm disk attach* et le paramètre *--new*
 
@@ -1008,7 +1008,7 @@ Pour charger une machine virtuelle ou un VHD existants à partir du réseau loca
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
 * Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli]
-* (Facultatif) Créez une image de disque managé à partir du VHD avec *az image create*. Consultez https://docs.microsoft.com/cli/azure/image#az_image_create
+* (Facultatif) Créez une image de disque managé à partir du disque dur virtuel avec *az image create* - consultez https://docs.microsoft.com/cli/azure/image#az_image_create
 * Créez une machine virtuelle et spécifiez l’image de disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--image*
 
 **Modèle**

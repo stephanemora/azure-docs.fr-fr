@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3bbfb4e9725b51aa5435f143045c33cbc8f2d1c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-stack-1802-update"></a>Mise à jour 1802 d’Azure Stack
 
@@ -57,7 +57,9 @@ Le numéro de build de mise à jour d’Azure Stack 1802 est **20180302.1**.
 
 
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
-*Il n’existe aucune étape après la mise à jour pour la mise à jour 1802.*
+Après l’installation de la version 1802, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).  
+- [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348) (Le service API du contrôleur réseau se bloque quand vous essayez d’installer une mise à jour Azure Stack)
+
 
 
 ### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
@@ -131,6 +133,8 @@ Les éléments suivants sont des problèmes connus après l’installation pour 
 
   Pour résoudre ce problème, utilisez PowerShell pour exécuter le script **ResourceSynchronization.ps1** pour restaurer l’accès aux détails du compte de stockage. [Le script est disponible à partir de GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts) et doit s’exécuter avec des informations d’identification d’administrateur de service sur le point de terminaison privilégié. 
 
+- Le chargement du panneau **Service Health** a échoué. Si vous ouvrez le panneau Service Health dans le portail d’administration ou utilisateur, Azure Stack affiche une erreur et ne charge pas les informations. Ce comportement est normal. Même s’il est possible de sélectionner et d’ouvrir Service Health, cette fonctionnalité n’est pas encore disponible ; elle sera implémentée dans une prochaine version d’Azure Stack.
+
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 Il n’y a aucun problème connu après la mise à jour vers 1802.
@@ -140,6 +144,10 @@ Il n’y a aucun problème connu après la mise à jour vers 1802.
 
 #### <a name="compute"></a>Calcul
 - Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Ce problème est résolu dans la version 1803. Pour résoudre ce problème avec la version 1802, installez le correctif logiciel Azure Stack **1.0.180302.4**. Pour plus d’informations, consultez [KB 4131152: Existing Virtual Machine Scale Sets may become unusable]( https://support.microsoft.com/help/4131152) (Les groupes de machines virtuelles identiques existants peuvent devenir inutilisables). 
 
 - Azure Stack prend en charge l’utilisation de disques durs virtuels de type fixe uniquement. Certaines images proposées par le biais de la Place de Marché sur Azure Stack utilisent des disques durs virtuels dynamiques, mais elles ont été supprimées. Le redimensionnement d’une machine virtuelle à laquelle un disque dynamique est attaché laisse la machine virtuelle dans un état d’échec.
 
@@ -186,7 +194,7 @@ Il n’y a aucun problème connu après la mise à jour vers 1802.
     - *Autoriser :*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -216,7 +224,7 @@ Il n’y a aucun problème connu après la mise à jour vers 1802.
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

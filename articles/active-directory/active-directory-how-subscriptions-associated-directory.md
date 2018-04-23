@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Comment associer ou ajouter un abonnement Azure à Azure Active Directory
 
@@ -42,7 +42,7 @@ Tous les utilisateurs disposent d'un répertoire de base unique qui les authenti
 2. Cliquez sur **Modifier le répertoire**.
 
     ![Capture d’écran affichant le bouton Modifier le répertoire](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Passez en revue les avertissements. Tous les utilisateurs [RBAC (contrôle d’accès en fonction du rôle)](role-based-access-control-configure.md) disposant d’un accès et tous les administrateurs d’abonnement perdent leur accès si le répertoire d’abonnement est modifié.
+3. Passez en revue les avertissements. Tous les utilisateurs [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/role-assignments-portal.md) disposant d’un accès et tous les administrateurs d’abonnement perdent leur accès si le répertoire d’abonnement est modifié.
 4. Sélectionnez un répertoire.
 
     ![Capture d’écran affichant l’interface utilisateur Modifier le répertoire](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -60,7 +60,7 @@ La modification du répertoire d’abonnement est une opération qui s’effectu
 
 * Pour en savoir plus sur la création d’un annuaire Azure AD gratuit, consultez [Obtention d’un client Azure Active Directory](develop/active-directory-howto-tenant.md)
 * Pour en savoir plus sur le transfert de la propriété de facturation d’un abonnement Azure, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).
-* Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
+* Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Pour plus d’informations sur l’attribution des rôles dans Azure AD, voir [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

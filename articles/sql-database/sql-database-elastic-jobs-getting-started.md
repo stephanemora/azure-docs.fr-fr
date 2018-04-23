@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 Les tâches de base de données élastique (préversion) pour Azure SQL Database vous permettent d’exécuter, de manière efficace, des scripts T-SQL qui s’étendent sur plusieurs bases de données, tout en apportant automatiquement de nouvelles tentatives et des garanties d’achèvement final. Pour plus d’informations sur la fonctionnalité Tâches de base de données élastique, voir [Travaux élastiques](sql-database-elastic-jobs-overview.md).
@@ -461,9 +461,9 @@ Toutes les lignes de la table **Clients** , stockées dans des partitions diffé
 Vous pouvez maintenant utiliser les fonctions de données Excel. Utilisez la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour connecter vos outils d’intégration BI et de données à la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Traitez la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### <a name="cost"></a>Coût
-La fonction de requête de base de données élastique n’entraîne pas de frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données premium comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
+La fonction de requête de base de données élastique n’entraîne pas de frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données Premium et critiques pour l'entreprise (préversion) et les pools élastiques comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
 
-Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+Pour plus d’informations sur la tarification, consultez la page [Tarification - SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

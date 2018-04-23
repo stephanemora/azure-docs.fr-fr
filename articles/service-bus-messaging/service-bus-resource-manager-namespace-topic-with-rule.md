@@ -1,28 +1,28 @@
 ---
-title: "Créer un abonnement Azure Service Bus ainsi qu’une règle à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
-description: "Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager"
+title: Créer un abonnement Azure Service Bus ainsi qu’une règle à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
+description: Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9e0aaf58-0214-4bca-bd00-d29c08f9b1bc
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: 50fd07e4c979cfb415589ba721adb7998cfbe7bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager
 
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus avec une rubrique, un abonnement et une règle (filtre). L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus avec une rubrique, un abonnement et une règle (filtre). L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés durant l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
 Pour plus d’informations sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -56,7 +56,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 
 [![Déploiement sur Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>parameters
 
 Avec Azure Resource Manager, vous devez définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters` , qui contient toutes les valeurs des paramètres. Vous devez définir un paramètre pour les valeurs qui varient en fonction du projet que vous déployez ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent inchangées. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
 
@@ -118,7 +118,6 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubriq
         "location": "[variables('location')]",
         "sku": {
             "name": "Standard",
-            "tier": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
@@ -159,7 +158,7 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubriq
     }]
 ```
 
-## <a name="commands-to-run-deployment"></a>Commandes pour exécuter le déploiement
+## <a name="commands-to-run-deployment"></a>Commandes pour l’exécution du déploiement
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
@@ -167,7 +166,7 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubriq
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+## <a name="azure-cli"></a>Azure CLI
 ```azurecli
 azure config mode arm
 
@@ -178,7 +177,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Maintenant que vous avez créé et déployé des ressources à l’aide d’Azure Resource Manager, découvrez comment gérer ces ressources en consultant les articles suivants :
 
 * [Gérer Azure Service Bus](service-bus-management-libraries.md)
-* [Gestion de Service Bus avec PowerShell](service-bus-manage-with-ps.md)
+* [Gérer Service Bus avec PowerShell](service-bus-manage-with-ps.md)
 * [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

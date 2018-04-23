@@ -1,11 +1,11 @@
 ---
-title: "Guide pratique pour remplir les champs spécifiques d’une application personnalisée | Microsoft Docs"
-description: "Conseils sur la manière de remplir des champs spécifiques lorsque vous inscrivez une application personnalisée auprès d’Azure AD"
+title: Guide pratique pour remplir les champs spécifiques d’une application personnalisée | Microsoft Docs
+description: Conseils sur la manière de remplir des champs spécifiques lorsque vous inscrivez une application personnalisée auprès d’Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Guide pratique pour remplir les champs spécifiques d’une application personnalisée
 
@@ -38,7 +38,7 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 
 | Champ            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nom             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
+| NOM             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
 | Type d’application | **Application/API web** : une application qui représente une application web, une API web, ou les deux. 
 | |**Natif** : une application qui peut être installée sur l'appareil ou l'ordinateur d'un utilisateur           |
 | URL de connexion      | L’URL à laquelle les utilisateurs peuvent se connecter pour utiliser votre application.                                  |
@@ -55,7 +55,7 @@ Après avoir rempli les champs ci-dessus, l’application est inscrite dans le p
 | Mutualisé  | Ce paramètre spécifie si l’application peut être utilisée par plusieurs locataires. En règle générale, cela signifie que des organisations externes peuvent utiliser votre application en l’inscrivant dans leur locataire et en accordant l’accès aux données de leur organisation.                                                                   |
 | URL de réponse      | Les URL de réponse sont les points de terminaison auxquels Azure AD renvoie les jetons demandés par votre application.                                                                                                                                                                                                          |
 | URI de redirection   | Pour les applications natives, c’est l’emplacement vers lequel l’utilisateur est dirigé après avoir été authentifié. Azure AD vérifie que l’URI de redirection que votre application fournit dans la demande OAuth 2.0 correspond à l’une des valeurs inscrites dans le portail.                                                            |
-| de clés symétriques            | Vous pouvez créer des clés pour accéder par programme aux API web sécurisées par Azure AD sans aucune interaction de l’utilisateur. Depuis la page \*\*Clés\*\*, saisissez une description de clé et la date d’expiration,puis enregistrez pour générer la clé. Veillez à l’enregistrer dans un endroit sûr, car vous ne pourrez pas y accéder ultérieurement.             |
+| Clés            | Vous pouvez créer des clés pour accéder par programme aux API web sécurisées par Azure AD sans aucune interaction de l’utilisateur. Depuis la page \*\*Clés\*\*, saisissez une description de clé et la date d’expiration,puis enregistrez pour générer la clé. Veillez à l’enregistrer dans un endroit sûr, car vous ne pourrez pas y accéder ultérieurement.             |
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)

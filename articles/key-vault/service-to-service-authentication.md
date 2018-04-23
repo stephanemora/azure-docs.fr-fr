@@ -1,22 +1,22 @@
 ---
-title: "Authentification de service à service sur Azure Key Vault à l’aide de .NET"
-description: "Utilisez la bibliothèque de Microsoft.Azure.Services.AppAuthentication pour effectuer l’authentification auprès d’Azure Key Vault à l’aide de .NET."
-keywords: "informations d’identification locales pour l’authentification Auzre Key Vault"
+title: Authentification de service à service sur Azure Key Vault à l’aide de .NET
+description: Utilisez la bibliothèque de Microsoft.Azure.Services.AppAuthentication pour effectuer l’authentification auprès d’Azure Key Vault à l’aide de .NET.
+keywords: informations d’identification locales pour l’authentification Auzre Key Vault
 author: lleonard-msft
 manager: mbaldwin
 services: key-vault
 ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: 
-ms.service: microsoft-keyvault
-ms.technology: 
+ms.prod: ''
+ms.service: key-vault
+ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -195,7 +195,7 @@ Procédez comme suit pour vous connecter à Azure AD à l’aide d’un certific
 
     Le paramètre **CertificateStoreLocation** doit avoir la valeur _CurrentUser_ ou _LocalMachine_, en fonction de votre plan de déploiement.
 
-4. Exécutez l’application. 
+4. Exécutez l'application. 
 
 Pour vous connecter à l’aide d’une information d’identification de secret partagé Azure AD, procédez comme suit :
 
@@ -209,7 +209,7 @@ Pour vous connecter à l’aide d’une information d’identification de secret
 
     Remplacez _{AppId}_, _{TenantId}_ et _{ClientSecret}_ par les valeurs générées à l’étape 1.
 
-3. Exécutez l’application. 
+3. Exécutez l'application. 
 
 Une fois les systèmes correctement configurés, le code n’a pas besoin d’être modifié plus avant.  `AzureServiceTokenProvider` utilise la variable d’environnement et le certificat pour l’authentification auprès d’Azure AD. 
 

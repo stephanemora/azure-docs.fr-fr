@@ -1,11 +1,11 @@
 ---
-title: "Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions | Microsoft Docs"
-description: "Cet article décrit la création d’une capture de paquets déclenchée par des alertes avec Azure Network Watcher"
+title: Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions | Microsoft Docs
+description: Cet article décrit la création d’une capture de paquets déclenchée par des alertes avec Azure Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c96ca70b9b6a82dcccec443ac0b1e06f96a2396
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -33,6 +33,7 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 ![Scénario][scenario]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * La version la plus récente [d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).
@@ -289,7 +290,7 @@ L’exemple suivant correspond à du code PowerShell qui peut être utilisé dan
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert

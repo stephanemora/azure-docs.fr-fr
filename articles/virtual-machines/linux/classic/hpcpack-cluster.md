@@ -1,11 +1,11 @@
 ---
 title: Machines virtuelles de calcul Linux dans un cluster HPC Pack | Microsoft Docs
-description: "Apprenez à créer et à utiliser un cluster HPC Pack dans Azure pour des charges de travail de calcul haute performance (HPC) Linux"
+description: Apprenez à créer et à utiliser un cluster HPC Pack dans Azure pour des charges de travail de calcul haute performance (HPC) Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure
 Configurez un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) dans Azure, contenant un nœud principal qui exécute Windows Server et plusieurs nœuds de calcul qui exécutent une distribution Linux. Explorez les différentes options vous permettant de déplacer les données entre les nœuds Linux et le nœud principal Windows du cluster. Découvrez comment soumettre des travaux Linux HPC au cluster.
@@ -40,7 +40,8 @@ Cet article présente deux possibilités de déploiement d’un cluster HPC Pack
 
 Pour plus d’informations sur les options de déploiement d’un cluster HPC Pack dans Azure, voir les [Options pour créer et gérer un cluster HPC (High Performance Computing) dans Azure avec Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
+
 * **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour augmenter un quota, ouvrez une demande de service clientèle en ligne gratuitement.
 * **Distributions Linux** : actuellement, HPC Pack prend en charge les distributions Linux suivantes pour les nœuds de calcul. Vous pouvez utiliser les versions Marketplace de ces distributions dans la mesure où elles sont disponibles, ou fournissez la vôtre.
@@ -266,7 +267,7 @@ Il existe plusieurs façons de soumettre des travaux au cluster HPC Pack.
 
 * Gestionnaire de cluster HPC ou interface graphique utilisateur du Gestionnaire de travaux HPC
 * Portail web HPC
-* API REST
+* de l’API REST
 
 La soumission de travaux au cluster via les outils de l’interface graphique utilisateur HPC Pack et via le portail web HPC est la même que pour les nœuds de calcul Windows. Consultez [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) (Gestionnaire de travaux HPC Pack) et [Envoyer des travaux HPC à partir d’un ordinateur local vers un cluster HPC Pack déployé dans Azure](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

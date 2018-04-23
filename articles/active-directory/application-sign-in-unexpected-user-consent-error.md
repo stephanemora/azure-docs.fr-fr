@@ -1,11 +1,11 @@
 ---
-title: "Erreur inattendue lors du consentement à une application | Microsoft Docs"
-description: "Aborde les erreurs qui peuvent se produire durant le processus de consentement à une application et ce que vous pouvez faire"
+title: Erreur inattendue lors du consentement à une application | Microsoft Docs
+description: Aborde les erreurs qui peuvent se produire durant le processus de consentement à une application et ce que vous pouvez faire
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
@@ -27,7 +27,7 @@ Pour fonctionner, de nombreuses applications qui s’intègrent à Azure Active 
 
 Une invite de consentement est alors affichée à la première utilisation d’une application, ce qui se produit généralement la première fois qu’une application est utilisée. Toutefois, l’invite peut apparaître lors d’une utilisation ultérieure de l’application.
 
-Certaines conditions doivent être réunies pour qu’un utilisateur consente aux autorisations exigées par une application. Si ces conditions ne sont pas remplies, différentes erreurs peuvent se produire. Vous avez notamment vu les points suivants :
+Certaines conditions doivent être réunies pour qu’un utilisateur consente aux autorisations exigées par une application. Si ces conditions ne sont pas remplies, différentes erreurs peuvent se produire. Il s’agit des actions suivantes :
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Erreur : demande d’autorisations dont l’octroi n’est pas autorisé
 * **AADSTS90093 :**&lt;clientAppDisplayName&gt; demande une ou plusieurs autorisations que vous ne pouvez pas accorder. Contactez un administrateur qui peut donner son consentement à cette application en votre nom.

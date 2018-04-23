@@ -1,11 +1,11 @@
 ---
-title: "Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services de la sauvegarde Azure | Microsoft Docs"
-description: "Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services pour bénéficier de nouvelles fonctionnalités comme la sauvegarde de machines virtuelles Resource Manager, la sécurité renforcée, la sauvegarde de machines virtuelles VMware et la sauvegarde de l’état du système pour les serveurs Windows"
+title: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services de la sauvegarde Azure | Microsoft Docs
+description: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services pour bénéficier de nouvelles fonctionnalités comme la sauvegarde de machines virtuelles Resource Manager, la sécurité renforcée, la sauvegarde de machines virtuelles VMware et la sauvegarde de l’état du système pour les serveurs Windows
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Coffre de sauvegarde mis à niveau vers un coffre Recovery Services
 Cet article fournit une vue d’ensemble des prestations du coffre Recovery Services, répond aux questions fréquentes sur la mise à niveau d’un coffre de sauvegarde existant vers un coffre Recovery Services et indique les étapes postérieures à la mise à niveau. Un coffre Recovery Services est l’équivalent Azure Resource Manager d’un coffre de sauvegarde qui héberge vos données de sauvegarde. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des stations de travail ou des serveurs locaux ou dans Azure.
@@ -34,7 +34,7 @@ Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager 
 
 - **Surveillance centrale de votre environnement informatique hybride** : avec les coffres Recovery Services, vous pouvez surveiller non seulement vos [machines virtuelles IaaS Azure](backup-azure-manage-vms.md), mais aussi votre [ressources locales](backup-azure-manage-windows-server.md#manage-backup-items) à partir d’un portail centralisé. [En savoir plus](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Contrôle d’accès en fonction du rôle (RBAC)** : le RBAC offre un contrôle précis de la gestion des accès dans Azure. [Azure offre différents rôles intégrés](../active-directory/role-based-access-built-in-roles.md), et Sauvegarde Microsoft Azure comprend trois [rôles intégrés pour gérer les points de récupération](backup-rbac-rs-vault.md). Les coffres Recovery Services sont compatibles avec RBAC, ce qui limite les accès en sauvegarde et en restauration à l’ensemble défini des rôles d’utilisateur. [En savoir plus](backup-rbac-rs-vault.md)
+- **Contrôle d’accès en fonction du rôle (RBAC)** : le RBAC offre un contrôle précis de la gestion des accès dans Azure. [Azure offre différents rôles intégrés](../role-based-access-control/built-in-roles.md), et Sauvegarde Microsoft Azure comprend trois [rôles intégrés pour gérer les points de récupération](backup-rbac-rs-vault.md). Les coffres Recovery Services sont compatibles avec RBAC, ce qui limite les accès en sauvegarde et en restauration à l’ensemble défini des rôles d’utilisateur. [En savoir plus](backup-rbac-rs-vault.md)
 
 - **Protéger toutes les configurations des machines virtuelles Azure** : les coffres Recovery Services protègent les machines virtuelles basées sur Resource Manager, notamment les disques Premium, les disques gérés et les machines virtuelles chiffrées. La mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services vous donne la possibilité de mettre à niveau vos machines virtuelles basées sur Service Manager vers des machines virtuelles basées sur Resource Manager. Lors de la mise à niveau du coffre, vous pouvez conserver vos points de récupération de machines virtuelles basées sur Service Manager et configurer la protection pour de machines virtuelles (compatibles avec Resource Manager) mises à niveau. [En savoir plus](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

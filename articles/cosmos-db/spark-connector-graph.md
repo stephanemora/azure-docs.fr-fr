@@ -1,25 +1,24 @@
 ---
-title: "Azure Cosmos DB : Exécuter des analyses graphiques à l’aide de Spark et d’Apache TinkerPop Gremlin | Microsoft Docs"
-description: "Cet article présente les instructions de configuration et d’exécution des analyses graphiques et du calcul parallèle dans Azure Cosmos DB avec Spark et TinkerPop SparkGraphComputer."
+title: 'Azure Cosmos DB : Exécuter des analyses graphiques à l’aide de Spark et d’Apache TinkerPop Gremlin | Microsoft Docs'
+description: Cet article présente les instructions de configuration et d’exécution des analyses graphiques et du calcul parallèle dans Azure Cosmos DB avec Spark et TinkerPop SparkGraphComputer.
 services: cosmosdb
-documentationcenter: 
-author: khdang
-manager: shireest
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: khdang
-ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: f44c7d432ac9c07daf9b99dd922f1dcd5de5d58e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB : Exécuter des analyses graphiques à l’aide de Spark et d’Apache TinkerPop Gremlin
 
@@ -29,7 +28,8 @@ ms.lasthandoff: 12/11/2017
 
 En associant Azure Cosmos DB et Spark, vous pouvez exécuter des charges de travail OLTP et OLAP lorsque vous utilisez Gremlin. Cet article de démarrage rapide montre comment exécuter des requêtes Gremlin dans Azure Cosmos DB sur un cluster Azure HDInsight Spark.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
 * Cluster Azure HDInsight Spark 2.0

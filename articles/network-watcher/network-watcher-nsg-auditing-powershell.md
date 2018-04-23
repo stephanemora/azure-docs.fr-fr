@@ -1,11 +1,11 @@
 ---
-title: "Automatiser l’audit NSG avec la vue Groupe de sécurité réseau Network Watcher | Microsoft Docs"
-description: "Cette page fournit des instructions sur configuration de l’audit d’un groupe de sécurité réseau"
+title: Automatiser l’audit NSG avec la vue Groupe de sécurité réseau Network Watcher | Microsoft Docs
+description: Cette page fournit des instructions sur configuration de l’audit d’un groupe de sécurité réseau
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatiser l’audit NSG avec la vue de groupe de sécurité réseau Network Watcher
 
@@ -36,7 +36,7 @@ Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Cre
 
 Le scénario décrit dans cet article obtient la vue de groupe de sécurité pour une machine virtuelle.
 
-Dans ce scénario, vous allez :
+Dans ce scénario, vous allez :
 
 - Récupérer un ensemble de règles correct connu
 - Récupérer une machine virtuelle avec l’API REST
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si les paramètres ont été modifiés, consultez la page [Gérer les groupes de sécurité réseau](../virtual-network/virtual-network-manage-nsg-arm-portal.md) afin d’effectuer le suivi du groupe de sécurité réseau et des règles de sécurité concernés.
+Si les paramètres ont été modifiés, consultez la page [Gérer les groupes de sécurité réseau](../virtual-network/manage-network-security-group.md) afin d’effectuer le suivi du groupe de sécurité réseau et des règles de sécurité concernés.
 
 
 

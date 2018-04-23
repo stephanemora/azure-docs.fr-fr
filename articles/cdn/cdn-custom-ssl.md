@@ -4,7 +4,7 @@ description: Découvrez comment activer ou désactiver HTTPS sur votre point de 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: casoper
-ms.openlocfilehash: fea7121fc67944b20b8f39007edb0c0aad86aeaa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rli; v-deasim
+ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Configurer HTTPS sur un domaine personnalisé Microsoft Azure CDN (Content Delivery Network)
 
@@ -45,7 +45,7 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 
 ### <a name="step-1-enable-the-feature"></a>Étape 1 : Activation de la fonctionnalité 
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN Verizon Standard ou Premium.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN **Azure CDN Standard fourni par Verizon** ou **Azure CDN Premium fourni par Verizon**.
 
 2. Dans la liste des points de terminaison, cliquez sur celui contenant votre domaine personnalisé.
 
@@ -149,7 +149,7 @@ Après avoir activé le protocole HTTPS sur un domaine personnalisé, vous pouve
 
 ### <a name="step-1-disable-the-feature"></a>Étape 1 : Désactivation de la fonctionnalité 
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN Verizon Standard ou Premium.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN **Azure CDN Standard fourni par Verizon** ou **Azure CDN Premium fourni par Verizon**.
 
 2. Dans la liste des points de terminaison, cliquez sur celui contenant votre domaine personnalisé.
 

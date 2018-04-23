@@ -1,12 +1,12 @@
 ---
-title: "Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité | Microsoft Docs"
-description: "Les alertes pour les événements de gestion seront supprimées le 1er octobre. Préparez-vous en migrant les alertes existantes."
+title: Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité | Microsoft Docs
+description: Les alertes pour les événements de gestion seront supprimées le 1er octobre. Préparez-vous en migrant les alertes existantes.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.openlocfilehash: 08a457029d3721f5c38dbcd2d2aab7d09a241d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1cc02664a345da49c276a6876d5cdfaf5bdb8477
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité
 
@@ -38,7 +38,7 @@ Azure Monitor (anciennement Azure Insights) proposait une fonctionnalité permet
 Le script PowerShell suivant retourne une liste de toutes les alertes sur les événements de gestion figurant dans votre abonnement, ainsi que les conditions définies pour chaque alerte.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $alerts = $null
 foreach ($rg in Get-AzureRmResourceGroup ) {
   $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName

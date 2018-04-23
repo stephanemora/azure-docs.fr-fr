@@ -1,11 +1,11 @@
 ---
-title: "Création de filtres avec l’API REST Azure Media Services | Microsoft Docs"
-description: "Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d’un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
+title: Création de filtres avec l’API REST Azure Media Services | Microsoft Docs
+description: Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 98df3b6592ed865fc0eb4b942d298b26e930365f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ce234d23c30f08f2c98c855b148bc98e90d118cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Création de filtres avec l’API REST Media Services Azure
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 > 
 > 
 
-À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d’effectuer des opérations comme les suivantes : lecture d’une section d’une vidéo uniquement (au lieu de la vidéo entière), spécification d’un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l’appareil de votre client (au lieu de tous les rendus associés à l’élément multimédia). Ce filtrage de vos ressources est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
+À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d’effectuer des opérations comme les suivantes : lecture d’une section d’une vidéo uniquement (au lieu de la vidéo entière), spécification d’un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l’appareil de votre client (au lieu de tous les rendus associés à l’élément multimédia). Ce filtrage de vos ressources est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
 Pour plus d'informations sur les filtres et le manifeste dynamique, consultez [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md).
 
@@ -62,7 +62,7 @@ En-têtes de demande
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
@@ -115,7 +115,7 @@ En-têtes de demande
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
@@ -165,7 +165,7 @@ Pour répertorier les filtres, utilisez les requêtes HTTP suivantes :
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     Host: media.windows.net 
 
@@ -176,7 +176,7 @@ Pour répertorier les filtres, utilisez les requêtes HTTP suivantes :
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -188,7 +188,7 @@ Pour répertorier les filtres, utilisez les requêtes HTTP suivantes :
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000
 
@@ -210,7 +210,7 @@ En-têtes de requête :
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -250,7 +250,7 @@ En-têtes de requête :
     Content-Type: application/json 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
@@ -288,7 +288,7 @@ Pour supprimer un filtre global, utilisez les requêtes HTTP suivantes :
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN>  
     x-ms-version: 2.17 
     Host: media.windows.net 
 
@@ -302,7 +302,7 @@ Pour supprimer un AssetFilter local, utilisez les requêtes HTTP suivantes :
     MaxDataServiceVersion: 3.0 
     Accept: application/json 
     Accept-Charset: UTF-8 
-    Authorization: Bearer <token value> 
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17 
     Host: media.windows.net 
 

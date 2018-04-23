@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 81265dd61faee38d578a380ca392e7851662329c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     >
     >Nous recommandons d’augmenter la quantité de ressources allouées à Docker lorsque vous testez des applications volumineuses. Pour cela, sélectionnez **l’icône de Docker**, puis choisissez **Avancé** pour ajuster le nombre de cœurs et la mémoire.
 
-2. Dans le nouveau répertoire, créez un fichier nommé `.Dockerfile` pour créer votre image Service Fabric :
+2. Dans le nouveau répertoire, créez un fichier nommé `Dockerfile` pour créer votre image Service Fabric :
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -87,7 +87,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     >[!TIP]
     > Par défaut, cela extraira l’image avec la dernière version de Service Fabric. Pour des révisions particulières, visitez la page [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
-3. Pour créer votre image réutilisable à partir de `.Dockerfile`, ouvrez un terminal et `cd` vers le répertoire contenant votre `.Dockerfile`, puis exécutez :
+3. Pour créer votre image réutilisable à partir de `Dockerfile`, ouvrez un terminal et `cd` vers le répertoire contenant votre `Dockerfile`, puis exécutez :
 
     ```bash 
     docker build -t mysfcluster .
@@ -188,9 +188,9 @@ Lorsque vous avez créé et généré votre application Service Fabric, vous pou
 
 Installez le [Kit de développement logiciel (SDK) .NET Core 2.0 pour Mac](https://www.microsoft.com/net/core#macos) afin de démarrer [la création d’applications Service Fabric C#](service-fabric-create-your-first-linux-application-with-csharp.md). Les packages pour les applications .NET Core 2.0 Service Fabric sont hébergés sur NuGet.org, qui est actuellement en préversion.
 
-## <a name="install-the-service-fabric-plug-in-for-eclipse-neon-on-your-mac"></a>Installer le plug-in Service Fabric pour Eclipse Neon sur votre Mac
+## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Installer le plug-in Service Fabric pour Eclipse sur votre Mac
 
-Azure Service Fabric fournit un plug-in pour Eclipse Neon pour l’environnement de développement intégré Java. Le plug-in simplifie le processus de création, de génération et de déploiement des services Java. Pour installer ou mettre à jour le plug-in Service Fabric pour Eclipse vers la dernière version, procédez comme [suit](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon). Les autres étapes de la [documentation de Service Fabric pour Eclipse](service-fabric-get-started-eclipse.md) sont également applicables : générer une application, ajouter un service à une application, désinstaller une application, etc.
+Azure Service Fabric fournit un plug-in pour Eclipse Neon (ou une version ultérieure) pour l’environnement de développement intégré Java. Le plug-in simplifie le processus de création, de génération et de déploiement des services Java. Pour installer ou mettre à jour le plug-in Service Fabric pour Eclipse vers la dernière version, procédez comme [suit](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Les autres étapes de la [documentation de Service Fabric pour Eclipse](service-fabric-get-started-eclipse.md) sont également applicables : générer une application, ajouter un service à une application, désinstaller une application, etc.
 
 La dernière étape consiste à instancier le conteneur avec un chemin d’accès qui est partagé avec votre hôte. Le plug-in requiert ce type d’instanciation pour utiliser le conteneur Docker sur votre Mac. Par exemple : 
 

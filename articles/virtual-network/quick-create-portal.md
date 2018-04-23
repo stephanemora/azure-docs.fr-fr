@@ -1,36 +1,37 @@
 ---
-title: Créer un réseau virtuel Azure - Portail | Microsoft Docs
-description: Découvrez rapidement comment créer un réseau virtuel à l’aide du portail Azure. Un réseau virtuel permet à des ressources Azure, par exemple des machines virtuelles, de communiquer en privé entre elles et avec Internet.
+title: Créer un réseau virtuel - Guide de démarrage rapide - Portail Azure | Microsoft Docs
+description: Dans ce guide de démarrage rapide, vous découvrez comment créer un réseau virtuel à l’aide du portail Azure. Un réseau virtuel permet à des ressources Azure, par exemple des machines virtuelles, de communiquer en privé entre elles et avec Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: ''
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: c8f2cbe6b7377772e019a4ff90f91355ba0815ae
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: mvc
+ms.openlocfilehash: 7107dc72686004141d8bea0083089cba065a9f4c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-a-virtual-network-using-the-azure-portal"></a>Créer un réseau virtuel au moyen du portail Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Démarrage rapide : Créer un réseau virtuel à l’aide du portail Azure
 
-Un réseau virtuel permet à des ressources Azure, par exemple des machines virtuelles, de communiquer en privé entre elles et avec Internet. Dans cet article, vous allez apprendre à créer un réseau virtuel. Après avoir créé un réseau virtuel, déployez deux machines virtuelles dans le réseau virtuel. Vous vous connectez alors à une machine virtuelle à partir d’internet et vous communiquez en privé entre les deux machines virtuelles.
+Un réseau virtuel permet à des ressources Azure, par exemple des machines virtuelles, de communiquer en privé entre elles et avec Internet. Dans ce guide de démarrage rapide, vous allez apprendre à créer un réseau virtuel. Après avoir créé un réseau virtuel, déployez deux machines virtuelles dans le réseau virtuel. Vous vous connectez alors à une machine virtuelle à partir d’internet et vous communiquez en privé entre les deux machines virtuelles.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
-Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
@@ -90,7 +91,7 @@ Répétez les étapes 1 à 6, mais à l’étape 3, nommez la machine virtuel
 4. Sélectionnez **OK**.
 5. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez l’avertissement, sélectionnez **Oui** ou **Continuer** pour poursuivre le processus de connexion.
 
-## <a name="communicate-privately-between-vms"></a>Communiquer en privé entre les machines virtuelles
+## <a name="communicate-between-vms"></a>Établir une communication entre les machines virtuelles
 
 1. Dans PowerShell, entrez `ping myvm2`. Le test Ping échoue, étant donné qu’il utilise le protocole ICMP (Internet Control Message Protocol) et ICMP n’est pas autorisé via le pare-feu Windows, par défaut.
 2. Pour autoriser *myVm2* à effectuer un test ping *myVm1* par la suite, entrez la commande suivante à partir de PowerShell, qui permet ICMP entrant via le pare-feu Windows :
@@ -117,9 +118,6 @@ Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un réseau virtuel par défaut et deux machines virtuelles. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et communiqué en privé entre la machine virtuelle et une autre. Pour plus d’informations sur les paramètres des réseaux virtuels, consultez [Gérer un réseau virtuel](manage-virtual-network.md).
+Dans ce démarrage rapide, vous avez créé un réseau virtuel par défaut et deux machines virtuelles. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez établi une communication privée entre la machine virtuelle et une autre. Pour plus d’informations sur les paramètres des réseaux virtuels, consultez [Gérer un réseau virtuel](manage-virtual-network.md).
 
-Par défaut, Azure autorise une communication privée illimitée entre des machines virtuelles, mais permet uniquement les connexions Bureau à distance entrantes pour les machines virtuelles Windows à partir d’Internet. Pour découvrir comment autoriser ou limiter les différents types de communication réseau vers et depuis les machines virtuelles, passez au didacticiel suivant.
-
-> [!div class="nextstepaction"]
-> [Filtrer le trafic réseau](virtual-networks-create-nsg-arm-pportal.md)
+Par défaut, Azure autorise une communication privée illimitée entre des machines virtuelles, mais permet uniquement les connexions Bureau à distance entrantes pour les machines virtuelles Windows à partir d’Internet. Pour découvrir comment autoriser ou limiter les différents types de communication réseau vers et depuis les machines virtuelles, passez au tutoriel [Filtrer le trafic](tutorial-filter-network-traffic.md).

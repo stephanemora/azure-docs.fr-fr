@@ -3,8 +3,7 @@ title: Prise en charge de la fonctionnalité Azure Cosmos DB pour MongoDB | Micr
 description: En savoir plus sur la prise en charge de fonctionnalité fournie par l’API MongoDB d’Azure Cosmos DB pour MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
@@ -14,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Prise en charge de l’API MongoDB pour la syntaxe et les fonctionnalités de MongoDB
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l’API MongoDB de la base de données par le biais de l’un des [pilotes](https://docs.mongodb.org/ecosystem/drivers)du client MongoDB open source. L’API MongoDB permet d’utiliser les pilotes clients existants en adhérant au [protocole Wire](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
-À l’aide de l’API MongoDB d’Azure Cosmos DB, vous pouvez profiter des avantages des API MongoDB auxquels vous êtes habitué, avec toutes les fonctionnalités d’entreprise d’Azure Cosmos DB : [distribution globale](distribute-data-globally.md), [partitionnement automatique](partition-data.md), garanties de disponibilité et de latence, indexation automatique de chaque champ, chiffrement au repos, sauvegardes et bien plus encore.
+À l’aide de l’API Azure Cosmos DB MongoDB, vous pouvez profiter des avantages des API MongoDB que vous connaissez déjà, ainsi que de toutes les fonctionnalités d’entreprise fournit par la base de données Azure Cosmos : [distribution globale](distribute-data-globally.md), [partitionnement automatique](partition-data.md), garanties de disponibilité et latence, indexation automatique de tous les champs, chiffrement au repos, sauvegardes et bien plus encore.
 
 ## <a name="mongodb-query-language-support"></a>Prise en charge du langage de requêtes MongoDB
 

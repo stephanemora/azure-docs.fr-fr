@@ -1,12 +1,12 @@
 ---
-title: "Exemple de zone Azure DMZ – Créer une zone DMZ simple avec des groupes de sécurité réseau | Microsoft Docs"
-description: "Générer une zone DMZ avec des groupes de sécurité réseau (NSG)"
+title: Exemple de zone Azure DMZ – Créer une zone DMZ simple avec des groupes de sécurité réseau | Microsoft Docs
+description: Générer une zone DMZ avec des groupes de sécurité réseau (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemple 1 – Créer une zone DMZ simple à l’aide de groupes de sécurité réseau avec un modèle Azure Resource Manager
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -221,7 +221,7 @@ Chaque règle est décrite plus en détail comme suit :
 #### <a name="allowed-internet-to-web-server"></a>(*Autorisé*) Internet vers le serveur web
 1. Un utilisateur Internet demande une page HTTP à partir de l’adresse IP publique de la carte réseau associée à la carte réseau IIS01
 2. L’adresse IP publique transmet le trafic au réseau virtuel vers IIS01 (serveur web)
-3. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
+3. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
   2. La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
   3. La règle NSG 3 (Internet pour IIS01) s’applique, le trafic est autorisé, arrêter le traitement.
@@ -236,7 +236,7 @@ Chaque règle est décrite plus en détail comme suit :
   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles
 9. AppVM01 reçoit la requête SQL et répond
 10. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée
-11. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
+11. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
   1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
   2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
 12. Le serveur IIS reçoit la réponse SQL, complète la réponse HTTP et l’envoie au demandeur
@@ -245,11 +245,11 @@ Chaque règle est décrite plus en détail comme suit :
 #### <a name="allowed-rdp-to-iis-server"></a>(*Autorisé*) Connexion RDP vers le serveur IIS
 1. Un administrateur de serveur sur Internet demande une session RDP IIS01 sur l’adresse IP publique de la carte réseau associée à la carte réseau IIS01 (cette adresse IP publique est accessible via le portail ou PowerShell)
 2. L’adresse IP publique transmet le trafic au réseau virtuel vers IIS01 (serveur web)
-3. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
+3. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
   1. La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
   2. La règle NSG 2 (RDP) s’applique, le trafic est autorisé, arrêter le traitement des règles
 4. En l’absence de réseau sortant, les règles par défaut s’appliquent et le retour de trafic est autorisé
-5. La session RDP est activée
+5. La Session RDP est activée.
 6. IIS01 demande le nom et le mot de passe de l'utilisateur
 
 >[!NOTE]
@@ -284,7 +284,7 @@ Chaque règle est décrite plus en détail comme suit :
   4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles.
 4. AppVM01 reçoit la demande et répond avec un fichier (en supposant que l’accès est autorisé)
 5. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée
-6. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
+6. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
   1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
   2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
 7. Le serveur IIS reçoit la demande.

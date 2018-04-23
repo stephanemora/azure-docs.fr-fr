@@ -1,27 +1,27 @@
 ---
-title: "Inscrire des appareils X.509 auprès du service Azure Device Provisioning avec Python | Microsoft Docs"
-description: "Démarrage rapide d’Azure : Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) du service d’approvisionnement en Python"
+title: Inscrire des appareils X.509 auprès du service Azure Device Provisioning avec Python | Microsoft Docs
+description: 'Démarrage rapide d’Azure : Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) du service d’approvisionnement en Python'
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 01/25/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9cd16ddcd5dfbcd68be37e2988e57604082a338f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a5aef91b4af5668f1b34f029ccd443c9eed01e34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Inscrire des appareils X.509 auprès du service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) du service d’approvisionnement en Python
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Ces étapes indiquent comment inscrire un groupe d’appareils X.509 simulés auprès du service Azure IoT Hub Device Provisioning au moyen d’un programme et à l’aide du [Kit de développement logiciel (SDK) du service d’approvisionnement en Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) et d’un exemple d’application Python. Bien que le Java Service SDK fonctionne à la fois sous Linux et Windows, cet article utilise un ordinateur de développement sous Windows afin de présenter le processus d’inscription.
+Ces étapes indiquent comment inscrire un groupe d’appareils X.509 simulés auprès du service Azure IoT Hub Device Provisioning au moyen d’un programme et à l’aide du [Kit de développement logiciel (SDK) du service d’approvisionnement en Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) et d’un exemple d’application Python. Bien que le kit Java Service SDK fonctionne sur les machines Windows et Linux, cet article utilise une machine de développement Windows pour présenter le processus d’inscription.
 
 Veillez à [configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer.
 
@@ -120,14 +120,14 @@ Cette section montre comment ajouter les détails de l’approvisionnement de vo
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous prévoyez d’aller plus loin dans l’étude de l’exemple de service Java, ne supprimez pas les ressources créées dans ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
+Si vous prévoyez d’explorer davantage l’exemple de service pour Java, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 
 1. Fermez la fenêtre de sortie de l’exemple Java sur votre ordinateur.
 1. Fermez la fenêtre _Générateur de certificat X509_ sur votre machine.
 1. Accédez à votre service Device Provisioning dans le portail Azure, cliquez sur **Gérer les inscriptions**, puis sélectionnez l’onglet **Groupes d’inscription**. Sélectionnez *NOM DU GROUPE* des appareils X.509 inscrits à l’aide de ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure du panneau.  
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de démarrage rapide, vous avez inscrit un groupe simulé d’appareils X.509 auprès du service d’approvisionnement d’appareil. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
 
 > [!div class="nextstepaction"]

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Rôle d’administrateur différent dans Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -67,7 +67,7 @@ Si vous souhaitez autoriser un autre utilisateur à effectuer la gestion dans PI
 ## <a name="roles-not-managed-in-pim"></a>Rôles non gérés dans PIM
 Les rôles dans Exchange Online ou SharePoint Online, à l’exception de ceux mentionnés ci-dessus, ne sont pas représentés dans Azure AD et par conséquent, ne sont pas visibles dans PIM. Pour plus d’informations sur la modification des affectations de rôles affinées dans ces services Office 365, consultez [Autorisations dans Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Les groupes de ressources et les abonnements Azure ne sont pas représentés non plus dans Azure AD. Pour gérer les abonnements Azure, consultez [Guide pratique pour ajouter ou modifier des rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md) et, pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC) Azure, consultez [Contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-configure.md).
+Les groupes de ressources et les abonnements Azure ne sont pas représentés non plus dans Azure AD. Pour gérer les abonnements Azure, consultez [Guide pratique pour ajouter ou modifier des rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md) et, pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC) Azure, consultez [Contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

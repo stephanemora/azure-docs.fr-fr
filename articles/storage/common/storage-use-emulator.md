@@ -1,8 +1,8 @@
 ---
-title: "Utilisation de l’émulateur de stockage Azure pour le développement et le test | Microsoft Docs"
-description: "L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure. Apprenez-en plus sur l’authentification des demandes, la connexion à l’émulateur à partir de votre application et l’utilisation de l’outil en ligne de commande."
+title: Utilisation de l’émulateur de stockage Azure pour le développement et le test | Microsoft Docs
+description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure. Apprenez-en plus sur l’authentification des demandes, la connexion à l’émulateur à partir de votre application et l’utilisation de l’outil en ligne de commande.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -27,7 +27,7 @@ L'émulateur de stockage Microsoft Azure fournit un environnement local qui ému
 ## <a name="get-the-storage-emulator"></a>Obtenir l’émulateur de stockage
 L’émulateur de stockage fait partie du [Kit de développement logiciel (SDK) Microsoft Azure](https://azure.microsoft.com/downloads/). Vous pouvez également installer l’émulateur de stockage en tant que [programme d’installation autonome](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (téléchargement direct). Pour installer l’émulateur de stockage, vous devez disposer de privilèges administratifs sur votre ordinateur.
 
-Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. Pour ceux qui envisagent un émulateur de stockage pour Linux, il est possible d’utiliser l’émulateur de stockage open source [Azurite](https://github.com/arafato/azurite), géré par la communauté.
+Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. Pour ceux qui envisagent un émulateur de stockage pour Linux, il est possible d’utiliser l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite), géré par la communauté.
 
 > [!NOTE]
 > Il n’est pas garanti que vous puissiez accéder aux données créées dans une version de l’émulateur de stockage à partir d’une autre version. Si vous devez rendre vos données persistantes à long terme, nous vous recommandons de stocker ces données dans un compte de stockage Azure plutôt que dans l’émulateur de stockage.
@@ -176,7 +176,7 @@ Les points de terminaison de service de l’émulateur de stockage sont :
 ### <a name="options"></a>Options
 Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
-| Option | DESCRIPTION | Commande | Arguments |
+| Option | Description | Commande | Arguments |
 | --- | --- | --- | --- |
 | **Start** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
 | **Stop** |Permet d’arrêter l’émulateur de stockage. |`AzureStorageEmulator.exe stop` | |
@@ -268,7 +268,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 * L’interface graphique de l’émulateur de stockage est remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
 * La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Évaluez l’émulateur de stockage open source [Azurite](https://github.com/arafato/azurite) multiplateforme et géré par la communauté. 
 * L’article [Exemples de stockage Azure avec .NET](../storage-samples-dotnet.md) contient des liens vers plusieurs exemples de code que vous pouvez utiliser lorsque vous développez votre application.

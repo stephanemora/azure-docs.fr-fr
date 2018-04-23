@@ -1,26 +1,21 @@
 ---
-title: Test des requêtes dans Azure Stream Analytics | Microsoft Docs
-description: Identifiez les problèmes lors du dépannage des travaux Stream Analytics.
-keywords: résoudre les problèmes d’entrée, échantillonnage des entrées
-documentationcenter: ''
+title: Tester une requête à l’aide d’exemples de données dans Azure Stream Analytics
+description: Cet article décrit comment tester une requête à l’aide de quelques exemples de données d’entrée dans Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 305b767ee86de6c8b04fed17514a9092afc2d735
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/12/2018
 ---
-# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Test des requêtes et échantillonnage de flux d’entrée Azure Stream Analytics
+# <a name="test-a-query-and-sample-input-in-azure-stream-analytics"></a>Tester une requête et des exemples d’entrées dans Azure Stream Analytics 
 
 À l’aide d’Azure Stream Analytics, vous pouvez échantillonner des événements d’entrée qui proviennent d’un fichier et tester des requêtes dans le portail sans avoir à démarrer ou arrêter un travail.
 
@@ -56,7 +51,7 @@ Une fois que vous êtes satisfait des résultats, vous pouvez enregistrer votre 
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

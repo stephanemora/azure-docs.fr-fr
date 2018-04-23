@@ -1,25 +1,18 @@
 ---
-title: "Gérer les administrateurs de serveur dans Azure Analysis Services | Microsoft Docs"
-description: "Apprenez à gérer des administrateurs de serveur pour un serveur Analysis Services dans Azure."
-services: analysis-services
-documentationcenter: 
+title: Gérer les administrateurs de serveur dans Azure Analysis Services | Microsoft Docs
+description: Apprenez à gérer des administrateurs de serveur pour un serveur Analysis Services dans Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 Un administrateur de serveur doit être un utilisateur ou un groupe valide présent dans Azure Active Directory (Azure AD) pour le client disposant du serveur. Pour gérer les administrateurs de serveur, vous pouvez utiliser les **Administrateurs Analysis Services** pour votre serveur dans le portail Azure, ou Propriétés du serveur dans SQL Server Management Studio (SSMS). 
@@ -41,5 +34,5 @@ Un administrateur de serveur doit être un utilisateur ou un groupe valide prés
 ## <a name="next-steps"></a>Étapes suivantes 
 [Authentification et autorisations utilisateur](analysis-services-manage-users.md)  
 [Gérer les utilisateurs et rôles de base de données](analysis-services-database-users.md)  
-[Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)  
+[Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md)  
 

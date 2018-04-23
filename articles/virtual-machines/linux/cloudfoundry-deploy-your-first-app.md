@@ -1,13 +1,13 @@
 ---
-title: "Déployer votre première application dans Cloud Foundry sur Microsoft Azure | Microsoft Docs"
-description: "Déployer une application dans Cloud Foundry sur Azure"
+title: Déployer votre première application dans Cloud Foundry sur Microsoft Azure | Microsoft Docs
+description: Déployer une application dans Cloud Foundry sur Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Déployer votre première application dans Cloud Foundry sur Microsoft Azure
 
@@ -35,7 +35,7 @@ Il existe plusieurs façons de créer un environnement Cloud Foundry sur Azure 
 - [Déployez les packages open source Cloud Foundry directement][oss-cf-bosh] en configurant un directeur [BOSH](http://bosh.io) (une machine virtuelle qui coordonne le déploiement de l’environnement Cloud Foundry).
 
 > [!IMPORTANT] 
-> Si vous déployez PCF à partir de la Place de marché Microsoft Azure, notez l’URL SYSTEMDOMAINURL et les informations d’identification administrateur requises pour accéder à Pivotal Apps Manager. Elles sont décrites dans le guide de déploiement de la Place de marché. Elles sont nécessaires pour suivre ce didacticiel. Pour les déploiements de la Place de marché, l’URL SYSTEMDOMAINURL se présente sous la forme https://system.*adresse-ip*.cf.pcfazure.com.
+> Si vous déployez PCF à partir de la Place de marché Microsoft Azure, notez l’URL SYSTEMDOMAINURL et les informations d’identification administrateur requises pour accéder à Pivotal Apps Manager. Elles sont décrites dans le guide de déploiement de la Place de marché. Elles sont nécessaires pour suivre ce didacticiel. Pour les déploiements de la Place de marché, l’URL SYSTEMDOMAINURL se présente sous la forme https://system.*ip-address*.cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Connexion au Cloud Controller
 

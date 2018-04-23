@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
@@ -71,7 +71,7 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorisations d’analyse et rôles RBAC personnalisés
-Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre équipe, vous pouvez [créer un rôle RBAC personnalisé](../active-directory/role-based-access-control-custom-roles.md) avec des autorisations plus granulaires. Voici les opérations RBAC d’Azure Monitor courantes avec leurs descriptions.
+Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre équipe, vous pouvez [créer un rôle RBAC personnalisé](../role-based-access-control/custom-roles.md) avec des autorisations plus granulaires. Voici les opérations RBAC d’Azure Monitor courantes avec leurs descriptions.
 
 | Opération | Description |
 | --- | --- |
@@ -125,7 +125,7 @@ Ces trois types de données peuvent être stockés dans un compte de stockage ou
 
 * Utilisez un compte de stockage unique, dédié pour l’analyse des données. Si vous devez séparer les données d’analyse sur plusieurs comptes de stockage, ne partagez jamais l’utilisation d’un compte de stockage entre les données d’analyse et les données hors analyse, car cela peut donner par inadvertance l’accès aux données hors analyse à ceux qui doivent uniquement accéder aux données d’analyse (par ex. un SIEM (Security Information and Event Management) tiers).
 * Utilisez un espace de noms de hub d’événements ou Service Bus unique pour tous les paramètres de diagnostic pour la même raison que ci-dessus.
-* Limitez l’accès aux comptes de stockage liés à l’analyse et aux hubs d’événements en les conservant dans un groupe de ressources distinct et [utilisez les étendues](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) sur vos rôles d’analyse pour limiter l’accès à ce groupe de ressources uniquement.
+* Limitez l’accès aux comptes de stockage liés à l’analyse et aux hubs d’événements en les conservant dans un groupe de ressources distinct et [utilisez les étendues](../role-based-access-control/overview.md#basics-of-access-management-in-azure) sur vos rôles d’analyse pour limiter l’accès à ce groupe de ressources uniquement.
 * N’accordez jamais l’autorisation ListKeys aux comptes de stockage ou hubs d’événements dont la portée comprend l’abonnement lorsqu’un utilisateur doit uniquement accéder aux données d’analyse. Au lieu de cela, accordez ces autorisations à l’utilisateur sur une ressource ou un groupe de ressources (si vous avez un groupe de ressources d’analyse).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limiter l’accès aux comptes de stockage liés à l’analyse
@@ -178,6 +178,6 @@ Un modèle similaire peut être suivi avec les hubs d’événements, mais vous 
    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur RBAC et les autorisations dans Resource Manager](../active-directory/role-based-access-control-what-is.md)
+* [En savoir plus sur RBAC et les autorisations dans Resource Manager](../role-based-access-control/overview.md)
 * [Lire la vue d’ensemble de l’analyse dans Azure](monitoring-overview.md)
 

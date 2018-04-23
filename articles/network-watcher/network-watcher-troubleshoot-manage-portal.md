@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure - Portail | Microsoft Docs"
-description: "Cette page explique comment utiliser Azure Network Watcher pour résoudre des problèmes liés au portail"
+title: Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure - Portail | Microsoft Docs
+description: Cette page explique comment utiliser Azure Network Watcher pour résoudre des problèmes liés au portail
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: becc4f799e34aabba5c703f09e51a4b7d497c45a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Résoudre des problèmes liés à la passerelle de réseau virtuel et aux connexions à l’aide de Network Watcher depuis le portail Azure
 
@@ -37,7 +37,7 @@ Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Cre
 
 Vous trouverez la liste des types de passerelles pris en charge sur la page [Types de passerelles pris en charge](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 La résolution des problèmes liés aux ressources offre la possibilité de résoudre les problèmes qui surviennent avec les passerelles de réseau virtuel et les connexions. Lorsqu’une demande de résolution des problèmes liés aux ressources est faite, les journaux sont interrogés et inspectés. Lorsque l’inspection est terminée, les résultats sont renvoyés. Les demandes de résolution des problèmes liés aux ressources sont longues : vous devrez peut-être patienter plusieurs minutes avant d’obtenir un résultat. Les journaux de dépannage sont stockés dans un conteneur sur un compte de stockage spécifié.
 
@@ -74,7 +74,7 @@ L’onglet **Action** offre une aide générale sur la résolution du problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si les paramètres ont été modifiés et arrêtent la connectivité VPN, consultez la page [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/virtual-network-manage-nsg-arm-portal.md) afin d’effectuer le suivi du groupe de sécurité réseau et des règles de sécurité pouvant être concernés.
+Si les paramètres ont été modifiés et arrêtent la connectivité VPN, consultez la page [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/manage-network-security-group.md) afin d’effectuer le suivi du groupe de sécurité réseau et des règles de sécurité pouvant être concernés.
 
 
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png

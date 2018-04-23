@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b8da1f17b9e477caf9031cf94ee14f3a181e247e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualiser des données Interactive Query Hive avec Microsoft Power BI à l’aide de la requête directe dans Azure HDInsight
 
@@ -28,7 +26,7 @@ Découvrez comment connecter Microsoft Power BI aux clusters Azure HDInsight Int
 
 ![rapport cartographique Power BI HDInsight](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Vous pouvez tirer parti du [pilote ODBC Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) pour importer effectivement via le connecteur ODBC générique dans Power BI Desktop. Il n’est toutefois pas recommandé pour les charges de travail décisionnelles en raison de la nature non interactive du moteur de requête Hive. Le [connecteur de requêtes interactives HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) et le [connecteur HDInsight Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) sont les choix les plus judicieux en raison de leurs performances.
+Vous pouvez tirer parti du [pilote ODBC Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) pour importer effectivement via le connecteur ODBC générique dans Power BI Desktop. Il n’est toutefois pas recommandé pour les charges de travail décisionnelles en raison de la nature non interactive du moteur de requête Hive. Le [connecteur de requêtes interactives HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) et le [connecteur HDInsight Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) sont des choix plus judicieux du fait de leurs performances.
 
 ## <a name="prerequisites"></a>Prérequis
 

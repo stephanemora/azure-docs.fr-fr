@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 847213a5b8aab908d412ecc9aecec984aec1a9ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -48,6 +48,7 @@ NPM permet d’analyser la connectivité entre les réseaux et les applications 
 * Est des États-Unis
 * Asie du Sud-Est
 * Australie du Sud-Est
+* Sud du Royaume-Uni
 * Virginie du gouvernement des États-Unis
 
 La liste des régions prises en charge pour le Moniteur ExpressRoute est disponible dans la [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
@@ -250,7 +251,9 @@ La topologie affichée sur la carte est celle du calque 3 et elle ne contient p
 
 Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans une [recherche Log Analytics](log-analytics-log-search-new.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone  **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
 
- 
+##<a name="pricing"></a>Tarifs
+
+Les informations sur les tarifs sont disponibles [en ligne](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Fournir des commentaires 
 

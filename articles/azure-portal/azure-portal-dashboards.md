@@ -1,8 +1,8 @@
 ---
-title: "Créer et partager des tableaux de bord du portail Azure | Documents Microsoft"
-description: "Cet article vous explique comment créer et modifier des tableaux de bord dans le portail Azure."
+title: Créer et partager des tableaux de bord du portail Azure | Documents Microsoft
+description: Cet article vous explique comment créer et modifier des tableaux de bord dans le portail Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Créer et partager des tableaux de bord dans le portail Azure
 Vous pouvez créer plusieurs tableaux de bord et les partager avec d’autres personnes ayant accès à vos abonnements Azure.  Cet article présente les principes fondamentaux de création, de modification, de publication et de gestion de l’accès aux tableaux de bord.
@@ -75,7 +75,7 @@ Par défaut, lorsque vous créez un tableau de bord, celui-ci est privé, ce qui
 
 ![partager un tableau de bord](./media/azure-portal-dashboards/share-dashboard.png)
 
-Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour intégrer en toute transparence les tableaux de bord dans l’écosystème, nous avons mis en œuvre des tableaux de bord partagés en tant que ressources Azure (de sorte que vous ne pouvez pas les partager en tapant une adresse de messagerie).  L’accès aux informations affichées par la plupart des mosaïques dans le portail est régi par le [contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md)(RBAC) Azure. Du point de vue du contrôle d’accès, les tableaux de bord partagés sont traités de la même manière qu’une machine virtuelle ou un compte de stockage.  
+Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour intégrer en toute transparence les tableaux de bord dans l’écosystème, nous avons mis en œuvre des tableaux de bord partagés en tant que ressources Azure (de sorte que vous ne pouvez pas les partager en tapant une adresse de messagerie).  L’accès aux informations affichées par la plupart des mosaïques dans le portail est régi par le [contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md)(RBAC) Azure. Du point de vue du contrôle d’accès, les tableaux de bord partagés sont traités de la même manière qu’une machine virtuelle ou un compte de stockage.  
 
 Supposons que vous disposez d’un abonnement Azure et que les membres de votre équipe ont reçu les rôles de **propriétaire**, **contributeur** ou **lecteur** de l’abonnement.  Les utilisateurs associés au rôle de propriétaire ou de contributeur peuvent répertorier, afficher, créer, modifier ou supprimer des tableaux de bord dans cet abonnement.  Les utilisateurs ayant le rôle de lecteur peuvent répertorier et afficher des tableaux de bord, sans les modifier ou les supprimer.  Les utilisateurs ayant un accès en lecture peuvent apporter des modifications locales à un tableau de bord partagé, mais ne peuvent pas republier ces modifications sur le serveur.  Toutefois, ils peuvent effectuer une copie du tableau de bord pour leur usage personnel.  Comme toujours, les mosaïques individuelles du tableau de bord appliquent leurs propres règles en matière de contrôle d’accès, compte tenu des ressources auxquelles elles correspondent.  
 

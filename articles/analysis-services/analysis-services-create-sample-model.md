@@ -1,25 +1,18 @@
 ---
-title: "Ajouter un exemple de modèle tabulaire pour votre serveur Azure Analysis Services | Microsoft Docs"
-description: "Découvrez comment ajouter un exemple de modèle dans Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Ajouter un exemple de modèle tabulaire pour votre serveur Azure Analysis Services | Microsoft Docs
+description: Découvrez comment ajouter un exemple de modèle dans Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.reviewer: minewiskan
+ms.openlocfilehash: 27353ff8c05f44b76304279e09a8a8d817041d78
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-sample-model"></a>Didacticiel : Ajouter un exemple de modèle
 
@@ -67,7 +60,7 @@ Votre exemple de modèle utilise des ressources en mémoire cache. Si vous n’u
 
     ![Supprimer l’exemple de base de données](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 
 [Se connecter à Power BI Desktop](analysis-services-connect-pbi.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)

@@ -1,11 +1,11 @@
 ---
-title: "Envoyer des travaux à un cluster HPC Pack dans Azure | Microsoft Docs"
-description: "Apprendre à configurer un ordinateur local pour envoyer des travaux vers un cluster HPC Pack dans Azure"
+title: Envoyer des travaux à un cluster HPC Pack dans Azure | Microsoft Docs
+description: Apprendre à configurer un ordinateur local pour envoyer des travaux vers un cluster HPC Pack dans Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 78f6833c-4aa6-4b3e-be71-97201abb4721
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Envoyer des travaux HPC à partir d'un ordinateur local vers un cluster HPC Pack déployé dans Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -28,7 +28,8 @@ Configurez un ordinateur client local pour envoyer des travaux vers un cluster [
 
 ![Envoyer un travail vers un cluster dans Azure][jobsubmit]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : nous vous recommandons d’utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) ou un [script Azure PowerShell](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) pour déployer le nœud principal et le cluster. Vous avez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows ou Windows Server qui peut exécuter des utilitaires clients HPC Pack (voir [Configuration requise](https://technet.microsoft.com/library/dn535781.aspx)). Si vous souhaitez uniquement utiliser le portail web de HPC Pack ou l’API REST pour envoyer des travaux, vous pouvez utiliser l’ordinateur client de votre choix.
 * **Support d’installation du HPC Pack** : pour installer les utilitaires du client HPC Pack, le package d’installation gratuit de la dernière version du HPC Pack (HPC Pack 2012 R2) est disponible dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Veillez à télécharger la même version du HPC Pack qui est installée sur la machine virtuelle du nœud principal.
@@ -118,7 +119,7 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
     ```
    
-    ou
+    or
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
@@ -154,7 +155,7 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
     ```
    
-    ou
+    or
    
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal

@@ -1,11 +1,11 @@
 ---
-title: "Utilisation des rubriques Azure Service Bus avec Java | Microsoft Docs"
+title: Utilisation des rubriques Azure Service Bus avec Java | Microsoft Docs
 description: Utilisez les rubriques et abonnements Service Bus dans Azure.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: sethm
-ms.openlocfilehash: 632af7294a7e6766d791d1d9ab08f98308fb2c02
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 9c2501840b3c00a63b0344d48e3225fd2c9d1620
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Utilisation des rubriques et abonnements Service Bus avec Java
 
@@ -167,7 +167,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n’est pas limitée par le nombre de messages qu’elle peut contenir, elle l’est en revanche par la taille totale des messages qu’elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
+Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n’est pas limitée par le nombre de messages qu’elle peut contenir, elle l’est en revanche par la taille totale des messages qu’elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Réception des messages d'un abonnement
 Pour recevoir les messages d’un abonnement, utilisez un objet **ServiceBusContract**. Les messages reçus peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock** (mode par défaut).
@@ -257,8 +257,8 @@ Maintenant que vous connaissez les principes de base des files d’attente Servi
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

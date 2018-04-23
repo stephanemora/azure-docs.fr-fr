@@ -1,11 +1,11 @@
 ---
-title: "Gérer l’accès invité avec les révisions d’accès Azure AD | Documents Microsoft"
-description: "Gérer les utilisateurs invités en tant que membres d’un groupe ou affectés à une application avec les révisions d’accès Azure Active Directory"
+title: Gérer l’accès invité avec les révisions d’accès Azure AD | Documents Microsoft
+description: Gérer les utilisateurs invités en tant que membres d’un groupe ou affectés à une application avec les révisions d’accès Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 8d5cc8035d085ac9c8fc46077376836726afbb1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -31,7 +31,8 @@ Vous pouvez également facilement vous assurer que les utilisateurs invités dis
 >
 >
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>Prérequis
+ 
 
 Les révisions d’accès sont disponibles dans l’édition Premium P2 de Azure AD, incluse dans Microsoft Enterprise Mobility + Security, E5. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md). Chaque utilisateur interagissant avec cette fonctionnalité pour créer une révision, y accéder ou bien l’appliquer, doit disposer d’une licence.
 
@@ -58,7 +59,7 @@ Vous pouvez utiliser les révisions d’accès pour vous assurer que les utilisa
 
 1. Pour démarrer une révision d’accès pour le groupe, choisissez d’y inclure uniquement les utilisateurs invités et faites-leur faire la révision eux-mêmes. Pour plus d’informations, consultez [Créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md).
 
-2. Demandez à chaque invité de revoir leur propre appartenance. Par défaut, chaque invité ayant accepté une invitation recevra un message électronique de la part d’Azure AD comprenant un lien vers la révision d’accès. Azure AD dispose d’instructions destinées aux invités concernant [la vérification de leur accès](active-directory-azure-ad-controls-perform-access-review.md).
+2. Demandez à chaque invité de revoir sa propre appartenance. Par défaut, chaque invité ayant accepté une invitation recevra un message électronique de la part d’Azure AD comprenant un lien vers la révision d’accès. Azure AD dispose d’instructions destinées aux invités concernant [la vérification de leur accès](active-directory-azure-ad-controls-perform-access-review.md).
 
 3. Une fois que les réviseurs ont fait part de leur avis, arrêtez la révision d’accès et appliquez les modifications. Pour plus d’informations, consultez [Terminer une révision d’accès](active-directory-azure-ad-controls-complete-access-review.md).
 
@@ -90,7 +91,7 @@ Vous pouvez utiliser les révisions d’accès pour vous assurer que les utilisa
 
 ### <a name="ask-a-sponsor-to-review-a-guests-access-to-an-application"></a>Demander à un commanditaire de revoir l’accès d’un invité à une application
 
-Vous pouvez demander à un commanditaire, tel que le propriétaire d’une application, de revoir le besoin d’un invité à disposer d’un accès continu à l’application.
+Vous pouvez demander à un commanditaire, tel que le propriétaire d’une application, de revoir le besoin de l’invité à disposer d’un accès continu à l’application.
 
 1. Pour démarrer une révision d’accès pour l’application, choisissez d’y inclure uniquement les invités. Définissez ensuite un ou plusieurs utilisateurs comme réviseurs. Pour plus d’informations, consultez [Créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md).
 
@@ -105,15 +106,15 @@ Dans certaines organisations, les invités peuvent ne pas être conscients de le
 > [!NOTE]
 > Dans les versions antérieures du portail Azure, les utilisateurs de type Invité ne pouvaient pas disposer d’un accès administratif. Dans certains cas, il est possible qu’un administrateur de votre répertoire ait défini la valeur UserType d’un invité sur Membre à l’aide de PowerShell. Si cette modification avait auparavant été apportée dans votre répertoire, il est possible que la requête précédente n’inclue pas tous les utilisateurs invités qui disposaient auparavant de droits d’accès administratif. Dans ce cas, vous devez modifier le type d’utilisateur de l’invité ou inclure manuellement l’invité dans le groupe.
 
-1. Créez un groupe de sécurité dans Azure AD avec les invités comme membres, si un groupe approprié n’existe pas déjà. Par exemple, vous pouvez créer un groupe pour lequel l’appartenance des invités est gérée manuellement. Ou bien, vous pouvez créer un groupe dynamique doté d’un nom tel que « Invités de Contoso » pour les utilisateurs dans le client Contoso dont la valeur d’attribut UserType est configurée sur Invité.
+1. Créez un groupe de sécurité dans Azure AD avec les invités comme membres, si un groupe approprié n’existe pas déjà. Par exemple, vous pouvez créer un groupe pour lequel l’appartenance des invités est gérée manuellement. Ou bien, vous pouvez créer un groupe dynamique doté d’un nom tel que « Invités de Contoso » pour les utilisateurs dans le client Contoso dont la valeur d’attribut UserType est configurée sur Invité.  Pour plus d’efficacité, assurez-vous que le groupe est principalement formé d’invités. Ne sélectionnez pas un groupe dont les utilisateurs n’ont pas besoin d’être examinés.
 
 2. Pour démarrer une révision d’accès pour ce groupe, choisissez les membres comme réviseurs. Pour plus d’informations, consultez [Créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md).
 
-3. Demandez à chaque invité de revoir leur propre appartenance. Par défaut, chaque invité ayant accepté une invitation recevra un message électronique de la part d’Azure AD comprenant un lien vers la révision d’accès dans le panneau d’accès de votre organisation. Azure AD dispose d’instructions destinées aux invités concernant [la vérification de leur accès](active-directory-azure-ad-controls-perform-access-review.md).
+3. Demandez à chaque invité de revoir sa propre appartenance. Par défaut, chaque invité ayant accepté une invitation recevra un message électronique de la part d’Azure AD comprenant un lien vers la révision d’accès dans le panneau d’accès de votre organisation. Azure AD dispose d’instructions destinées aux invités concernant [la vérification de leur accès](active-directory-azure-ad-controls-perform-access-review.md).  Ces invités qui n’ont pas accepté leur invitation apparaîtront dans les résultats de la révision comme « Non averti ».
 
 4. Une fois que les réviseurs ont fait part de leur avis, arrêtez la révision d’accès. Pour plus d’informations, consultez [Terminer une révision d’accès](active-directory-azure-ad-controls-complete-access-review.md).
 
-5. Retirez l’accès invité aux invités ayant été refusés, n’ayant pas terminé la révision ou bien n’ayant pas accepté leur invitation. Si certains des invités sont des contacts sélectionnés pour participer à la révision car ils n’avaient précédemment pas accepté une invitation, vous pouvez désactiver leur compte à l’aide du portail Azure ou de PowerShell. Si l’invité n’a plus besoin d’un accès et n’est pas un contact, vous pouvez supprimer son objet utilisateur de votre répertoire à l’aide du portail Azure ou de PowerShell.
+5. Retirez l’accès invité aux invités ayant été refusés, n’ayant pas terminé la révision ou bien n’ayant pas accepté leur invitation. Si certains des invités sont des contacts sélectionnés pour participer à la révision ou s’ils n’avaient précédemment pas accepté une invitation, vous pouvez désactiver leur compte à l’aide du portail Azure ou de PowerShell. Si l’invité n’a plus besoin d’un accès et n’est pas un contact, vous pouvez supprimer son objet utilisateur de votre répertoire à l’aide du portail Azure ou de PowerShell pour supprimer l’objet utilisateur invité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

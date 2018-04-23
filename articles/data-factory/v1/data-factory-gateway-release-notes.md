@@ -40,14 +40,14 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 ## <a name="earlier-versions"></a>Versions antérieures
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Améliorations
-- Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
+- Vous pouvez ajouter des entrées DNS à la liste verte Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
 - Le connecteur HDFS prend désormais en charge le certificat public auto-signé en vous permettant d’ignorer la validation SSL.
 - Résolu : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Améliorations
--   Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
+-   Vous pouvez ajouter des entrées DNS à la liste verte Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
 -   Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
 -   Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
 -   Résolu : problème d’index hors plage lors de la copie depuis Document DB vers le système SQL Server local avec la fonctionnalité d’idempotence.

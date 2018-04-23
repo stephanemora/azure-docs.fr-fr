@@ -1,13 +1,13 @@
 ---
-title: "Utilisation de la configuration d’état souhaité avec des groupes de machines virtuelles identiques | Microsoft Docs"
-description: "Utilisation des groupes identiques de machines virtuelles avec l’extension DSC Azure"
+title: Utilisation de la configuration d’état souhaité avec des groupes de machines virtuelles identiques | Microsoft Docs
+description: Utilisation des groupes identiques de machines virtuelles avec l’extension DSC Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: zjalexander
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
 ms.service: virtual-machine-scale-sets
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: b61b0acf3072569ab733a13defb465c921d26187
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a68a5f31952d636c054b66dc0bb6ec0579cd7192
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Utilisation des groupes identiques de machines virtuelles avec l’extension DSC Azure
 Les [groupes identiques de machines virtuelles](virtual-machine-scale-sets-overview.md) peuvent être utilisés avec le gestionnaire d’extensions [Configuration d’état souhaité (DSC) Azure](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Les groupes identiques de machines virtuelles offrent un moyen de déployer et gérer un grand nombre de machines virtuelles ; vous pouvez réduire ou augmenter la taille des instances avec flexibilité pour faire face à la charge. La DSC est utilisée pour configurer les machines virtuelles à mesure de leur mise en ligne afin qu’elles exécutent le logiciel en production.

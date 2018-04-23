@@ -1,11 +1,11 @@
 ---
-title: "Exemple de script Azure PowerShell - Affecter un domaine personnalisé à une application web | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Affecter un domaine personnalisé à une application web"
+title: Exemple de script Azure PowerShell - Affecter un domaine personnalisé à une application web | Microsoft Docs
+description: Exemple de script Azure PowerShell - Affecter un domaine personnalisé à une application web
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d25fe8098848fc69470c77e3200bee554c1f875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f9412a40920c6887d85bbbbe2b9e9c23a242bdc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-custom-domain-to-a-web-app"></a>Affecter un domaine personnalisé à une application web
 
 Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis la mappe à `www.<yourdomain>`. 
 
-Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure. Vous devez également avoir accès à la page de configuration DNS du bureau d’enregistrement de votre domaine.
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure. Vous devez également avoir accès à la page de configuration DNS du bureau d’enregistrement de votre domaine.
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Crée un plan App Service. |

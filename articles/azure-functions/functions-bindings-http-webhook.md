@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
 
@@ -138,7 +138,6 @@ public static string Run(CustomObject req, TraceWriter log)
 
 public class CustomObject {
      public String name {get; set;}
-}
 }
 ```
 
@@ -393,7 +392,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 | **direction** | n/a| Obligatoire : doit être défini sur `in`. |
 | **name** | n/a| Obligatoire : nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Détermine, le cas échéant, les clés qui doivent être présentes dans la requête pour appeler la fonction. Le niveau d’autorisation peut être l’une des valeurs suivantes : <ul><li><code>anonymous</code>&mdash;Aucune clé API n’est obligatoire.</li><li><code>function</code>&mdash;Une clé API spécifique à la fonction est obligatoire. Il s’agit de la valeur par défaut si aucune valeur n’est fournie.</li><li><code>admin</code>&mdash;La clé principale est obligatoire.</li></ul> Pour plus d’informations, consultez la section sur les [clés d’autorisation](#authorization-keys). |
-| **methods** |**Méthodes** | Tableau des méthodes HTTP auxquelles la fonction répond. À défaut de spécification, la fonction répond à toutes les méthodes HTTP. Consultez [Personnaliser le point de terminaison HTTP](#trigger---customize-the-http-endpoint). |
+| **methods** |**Méthodes** | Tableau des méthodes HTTP auxquelles la fonction répond. À défaut de spécification, la fonction répond à toutes les méthodes HTTP. Consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
 | **route** | **Itinéraire** | Définit le modèle de routage, en contrôlant les URL de requête auxquelles votre fonction répond. La valeur par défaut est `<functionname>`. Pour plus d’informations, consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configure le déclencheur HTTP pour qu’il agisse en tant que récepteur de [Webhook](https://en.wikipedia.org/wiki/Webhook) pour le fournisseur spécifié. Ne définissez pas la propriété `methods` si vous définissez cette propriété. Le type de webhook peut être l’une des valeurs suivantes :<ul><li><code>genericJson</code>&mdash;Point de terminaison webhook à usage général sans logique pour un fournisseur spécifique. Ce paramètre limite les requêtes à celles utilisant HTTP POST et le type de contenu `application/json`.</li><li><code>github</code>&mdash;La fonction répond aux [Webhooks GitHub](https://developer.github.com/webhooks/). N’utilisez pas la propriété _authLevel_ avec des webhooks GitHub. Pour plus d’informations, consultez la section sur les webhooks GitHub plus loin dans cet article.</li><li><code>slack</code>&mdash;La fonction répond aux [Webhooks Slack](https://api.slack.com/outgoing-webhooks). N’utilisez pas la propriété _authLevel_ avec des webhooks Slack. Pour plus d’informations, consultez la section sur les webhooks Slack plus loin dans cet article.</li></ul>|
 

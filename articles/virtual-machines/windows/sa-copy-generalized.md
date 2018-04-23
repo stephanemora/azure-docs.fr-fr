@@ -1,13 +1,13 @@
 ---
-title: "Créer une image non managée d’une machine virtuelle généralisée dans Azure | Microsoft Docs"
-description: "Créez une image non managé d’une machine virtuelle Windows généralisée à utiliser pour créer plusieurs copies d’une machine virtuelle dans Azure."
+title: Créer une image non managée d’une machine virtuelle généralisée dans Azure | Microsoft Docs
+description: Créez une image non managé d’une machine virtuelle Windows généralisée à utiliser pour créer plusieurs copies d’une machine virtuelle dans Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure
 
@@ -28,7 +28,8 @@ Cet article traite de l’utilisation de comptes de stockage. Nous vous recomman
 
 Cet article vous montre comment utiliser Azure PowerShell pour créer une image d’une machine virtuelle Azure généralisée à l’aide d’un compte de stockage. Vous pouvez ensuite utiliser l’image pour créer une autre machine virtuelle. L’image comprend le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. L’image n’inclut pas les ressources du réseau virtuel. Vous devez donc configurer les ressources lorsque vous créez la nouvelle machine virtuelle. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Vous devez disposer d’une installation d’Azure PowerShell version 1.0.x ou ultérieure. Si vous n’avez pas déjà installé PowerShell, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 
 ## <a name="generalize-the-vm"></a>Généraliser la machine virtuelle 
@@ -62,7 +63,7 @@ Vous pouvez également généraliser une machine virtuelle Linux à l’aide de 
 1. Ouvrez Azure PowerShell et connectez-vous à votre compte Azure.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     Une fenêtre contextuelle s’ouvre pour vous permettre d’entrer les informations d’identification de votre compte Azure.

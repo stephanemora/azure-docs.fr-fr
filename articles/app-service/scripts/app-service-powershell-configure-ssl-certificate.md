@@ -1,11 +1,11 @@
 ---
-title: "Exemple de script Azure PowerShell - Lier un certificat SSL personnalisé à une application web | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Lier un certificat SSL personnalisé à une application web"
+title: Exemple de script Azure PowerShell - Lier un certificat SSL personnalisé à une application web | Microsoft Docs
+description: Exemple de script Azure PowerShell - Lier un certificat SSL personnalisé à une application web
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.service: app-service-web
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 851b172cd9218c9ade692e4c9e50a59b4b677ac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66ebb3f20616d82c28a6c6f51ec3050f01f59537
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Lier un certificat SSL personnalisé à une application web
 
 Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis lie le certificat SSL d’un nom de domaine personnalisé à celle-ci. 
 
-Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure. Vérifiez également les points suivants :
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure. Vérifiez également les points suivants :
 
 - Une connexion avec Azure a été créée à l’aide de la commande `az login`.
 - Vous avez accès à la page de configuration DNS du bureau d’enregistrement de votre domaine.
@@ -47,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Crée un plan App Service. |

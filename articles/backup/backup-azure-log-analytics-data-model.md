@@ -1,11 +1,11 @@
 ---
-title: "Modèle de données Log Analytics pour la sauvegarde Azure"
-description: "Cet article présente des informations détaillées sur le modèle de données Log Analytics pour les données de sauvegarde Azure."
+title: Modèle de données Log Analytics pour la sauvegarde Azure
+description: Cet article présente des informations détaillées sur le modèle de données Log Analytics pour les données de sauvegarde Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
-Cet article décrit le modèle de données utilisé pour transmettre des données de rapport à Log Analytics. À l’aide de ce modèle de données, vous pouvez créer des requêtes personnalisées, des tableaux de bord et les utiliser dans OMS. 
+Cet article décrit le modèle de données utilisé pour transmettre des données de rapport à Log Analytics. Ce modèle de données permet de créer des requêtes personnalisées et des tableaux de bord, et de les utiliser dans Log Analytics. 
 
 ## <a name="using-azure-backup-data-model"></a>Utilisation du modèle de données de sauvegarde Azure
 Vous pouvez utiliser les champs suivants fournis dans le cadre du modèle de données pour créer des éléments visuels, des requêtes personnalisées et des tableaux de bord, en fonction de vos besoins.
@@ -240,7 +240,7 @@ Ce tableau fournit des détails sur les associations de serveurs protégés avec
 | ResourceProvider |Texte |Ce champ représente le fournisseur de ressources pour lequel les données sont collectées - Microsoft.RecoveryServices |
 | ResourceType |Texte |Ce champ représente le type de la ressource pour laquelle les données sont collectées - Coffres |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Stockage
 Ce tableau fournit plus d’informations sur les champs liés au stockage.
 
 | Champ | Type de données | Description |
@@ -286,4 +286,4 @@ Ce tableau fournit plus d’informations sur les champs liés aux coffres.
 | ResourceType |Texte |Ce champ représente le type de la ressource pour laquelle les données sont collectées - Coffres |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous passez en revue le modèle de données de création de rapports de sauvegarde d’Azure, vous pouvez commencer à [créer des tableaux de bord](../log-analytics/log-analytics-dashboards.md) dans Log Analytics et OMS.
+Maintenant que vous avez examiné le modèle de données de création de rapports de la Sauvegarde Azure, vous pouvez commencer à [créer des tableaux de bord](../log-analytics/log-analytics-dashboards.md) dans Log Analytics.

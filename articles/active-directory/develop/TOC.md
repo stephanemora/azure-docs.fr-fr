@@ -7,9 +7,9 @@
 ### [Vue d’ensemble](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## les applications web
@@ -17,6 +17,7 @@
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
+### [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ## Applications à page unique
@@ -96,11 +97,16 @@
 ### Applications mobiles et de bureau
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
 ### les applications web
-#### [SPA JavaScript](guidedsetups/active-directory-javascriptspa.md)
-#### [Serveur web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
-#### [Application web NodeJS](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Applications à page unique
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### API Web
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Service à service
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guides
 ### [Inscription d’une application](active-directory-v2-app-registration.md)
 ## Informations de référence
@@ -109,11 +115,11 @@
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Octroi de code d’autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 #### [Octroi implicite OAuth 2.0](active-directory-v2-protocols-implicit.md)
-#### [Octroi d’informations d’identification client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Flux Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Référence sur le jeton](active-directory-v2-tokens.md)
+#### [Octroi des informations d’identification du client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Flux OAuth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Informations d’identification de certificat](active-directory-certificate-credentials.md)
-### [Étendues](active-directory-v2-scopes.md)
+### [Jetons](active-directory-v2-tokens.md)
+### [Étendues et consentement](active-directory-v2-scopes.md)
 # Ressources
 ## [Accès à l’aide](active-directory-develop-help-support.md)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

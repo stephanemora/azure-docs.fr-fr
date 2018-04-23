@@ -1,11 +1,11 @@
 ---
-title: "Exemple de script Azure PowerShell - Créer un cluster Service Fabric | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Créer un cluster Service Fabric"
+title: Exemple de script Azure PowerShell - Créer un cluster Service Fabric | Microsoft Docs
+description: Exemple de script Azure PowerShell - Créer un cluster Service Fabric
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 01/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b0d33b714092a826012677c95124d74bf2c72999
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric
 
 Cet exemple de script crée un cluster Service Fabric à cinq nœuds sécurisé avec un certificat X.509.  La commande crée un certificat auto-signé et le charge vers un nouveau coffre de clés. Le certificat est également copié dans un répertoire local.  Définissez le paramètre *-OS* pour choisir la version de Windows ou Linux qui s’exécute sur les nœuds de cluster.  Personnalisez les paramètres selon vos besoins.
 
-Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure. 
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure. 
 
 ## <a name="sample-script"></a>Exemple de script
 

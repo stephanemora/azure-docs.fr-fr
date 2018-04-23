@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Protection des données personnelles dans les documents avec les outils de rapport Azure
 
@@ -95,13 +95,13 @@ Les outils d’analyse de Log Analytics, tels que les recherches dans les journa
 
 #### <a name="how-do-i-use-log-analytics"></a>Comment utiliser Log Analytics ?
 
-Vous pouvez accéder à Log Analytics par le biais du portail OMS ou du portail Azure, à partir de n’importe quel navigateur web. Log Analytics inclut un langage de requête pour rapidement récupérer et consolider les données dans le référentiel. Vous pouvez créer et enregistrer des recherches dans les journaux pour analyser directement des données dans le portail.
+Vous pouvez accéder à Log Analytics par le biais du portail OMS ou du portail Azure, à partir de n’importe quel navigateur web. Log Analytics inclut un langage de requête pour rapidement récupérer et consolider des données dans l’espace de travail Log Analytics. Vous pouvez créer et enregistrer des recherches dans les journaux pour analyser directement des données dans le portail.
 
 Pour créer un espace de travail Log Analytics dans le portail Azure, procédez comme suit :
 
 1. Sélectionnez **Log Analytics** dans la liste des services de la Place de marché.
 
-2. Sélectionnez **Créer**, puis spécifiez le nom de votre espace de travail OMS, sélectionnez votre abonnement, le groupe de ressources, l’emplacement et le niveau tarifaire.
+2. Sélectionnez **Créer**, renseignez le nom de votre espace de travail Log Analytics, puis sélectionnez votre abonnement, le groupe de ressources, l’emplacement et le niveau tarifaire.
 
 3. Cliquez sur **OK** pour afficher la liste de vos espaces de travail.
 

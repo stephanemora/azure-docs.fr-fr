@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47a4e75699e024dae367524f16eb23fb72043ef5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Démarrage rapide : Déployer une application conteneur Windows Service Fabric sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -28,12 +28,12 @@ L’exécution d’une application existante dans un conteneur Windows sur un cl
 
 ![Page web IIS par défaut][iis-default]
 
-Dans ce guide de démarrage rapide, vous apprenez à :
-> [!div class="checklist"]
-> * Placer un conteneur d’images Docker dans un package
-> * Configurer la communication
-> * Créer et placer l’application Service Fabric dans un package
-> * Déployer l’application de conteneur dans Azure
+Dans ce guide de démarrage rapide, vous apprenez à :
+
+* Placer un conteneur d’images Docker dans un package
+* Configurer la communication
+* Créer et placer l’application Service Fabric dans un package
+* Déployer l’application de conteneur dans Azure
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -211,16 +211,16 @@ Voici les manifestes d’application et de service complets utilisés dans ce gu
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
-> [!div class="checklist"]
-> * Placer un conteneur d’images Docker dans un package
-> * Configurer la communication
-> * Créer et placer l’application Service Fabric dans un package
-> * Déployer l’application de conteneur dans Azure
 
-* En savoir plus sur l’exécution des [conteneurs sur Service Fabric](service-fabric-containers-overview.md).
-* Consultez le didacticiel [Déployer une application .NET dans un conteneur vers Azure Service Fabric](service-fabric-host-app-in-a-container.md).
-* En savoir plus sur le [cycle de vie des applications](service-fabric-application-lifecycle.md) Service Fabric.
-* Consulter les [exemples de code de conteneur Service Fabric](https://github.com/Azure-Samples/service-fabric-containers) sur GitHub.
+* Placer un conteneur d’images Docker dans un package
+* Configurer la communication
+* Créer et placer l’application Service Fabric dans un package
+* Déployer l’application de conteneur dans Azure
+
+Pour en savoir plus sur l’utilisation de conteneurs Windows dans Service Fabric, passez au tutoriel sur les applications de conteneur Windows.
+
+> [!div class="nextstepaction"]
+> [Créer une application de conteneur Windows](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

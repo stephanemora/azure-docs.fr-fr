@@ -12,9 +12,9 @@
    * Diffuser vers un hub d’événements
    * Envoyer à Log Analytics
 1. Choisissez les opérations à surveiller et activez les journaux de ces opérations. Les opérations sur lesquelles les paramètres de diagnostic peuvent établir des rapports sont :
-   * Connexions
+   * connexions
    * Télémétrie d’appareil
-   * Messages cloud-à-appareil
+   * Messages Cloud vers appareil
    * Opérations d’identité des appareils
    * Chargements de fichiers
    * Routage de messages
@@ -28,7 +28,7 @@
 Si vous voulez activer les paramètres de diagnostic avec PowerShell, utilisez le code suivant :
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```

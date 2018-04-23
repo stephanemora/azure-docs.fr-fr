@@ -1,8 +1,8 @@
 ---
-title: "Gérer des solutions Azure avec PowerShell | Microsoft Docs"
-description: "Utilisez Azure PowerShell et Resource Manager pour gérer vos ressources."
+title: Gérer des solutions Azure avec PowerShell | Microsoft Docs
+description: Utilisez Azure PowerShell et Resource Manager pour gérer vos ressources.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a3dcbfe09d47388b80cee15ff0e46f8b75b474a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gérer les ressources avec Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="understand-scope"></a>Comprendre l’étendue
 
@@ -51,9 +51,9 @@ Pour le moment, le groupe de ressources est vide.
 
 Dans cet article, vous allez déployer une machine virtuelle et son réseau virtuel. Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressource qui fournissent un accès souvent nécessaire :
 
-* [Collaborateur de machine virtuelle](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Collaborateur de compte de stockage](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Collaborateur de machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Collaborateur de réseau](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Collaborateur de compte de stockage](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
 

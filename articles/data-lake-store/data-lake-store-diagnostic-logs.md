@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accès aux journaux de diagnostic d’Azure Data Lake Store
 Découvrez comment activer la journalisation des diagnostics pour votre compte Data Lake Store et comment afficher les journaux collectés pour votre compte.
@@ -48,7 +48,7 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
         
         * Sélectionnez l’option **Stream to an event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
-        * Sélectionnez l’option **Send to Log Analytics (Envoyer à Log Analytics)** pour analyser les données de journal générées, à l’aide du service Azure Log Analytics. Si vous sélectionnez cette option, vous devez fournir les détails concernant l’espace de travail Operations Management Suite que vous allez utiliser pour analyser le journal. Pour plus d’informations sur l’utilisation de Log Analytics, consultez [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md).
+        * Sélectionnez l’option **Send to Log Analytics (Envoyer à Log Analytics)** pour analyser les données de journal générées, à l’aide du service Azure Log Analytics. Si vous sélectionnez cette option, vous devez fournir des informations détaillées concernant l’espace de travail Log Analytics que vous allez utiliser pour analyser le journal. Pour plus d’informations sur l’utilisation de Log Analytics, consultez [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md).
      
    * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.
    * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées. La rétention ne s’applique que si vous utilisez un compte de stockage Azure pour archiver les données du journal.

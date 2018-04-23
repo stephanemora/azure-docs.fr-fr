@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Vue d’ensemble de l’équilibreur de charge Azure
 
@@ -41,7 +41,7 @@ Azure Load Balancer peut être utilisé pour :
 
 
 >[!NOTE]
-> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios.  Si vous recherchez une terminaison TLS (« déchargement SSL ») ou un traitement de couche Application par requête HTTP/HTTPS, consultez [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/application-gateway-introduction.md).  Si vous recherchez un équilibrage de charge DNS global, consultez [Vue d’ensemble de Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions en fonction de vos besoins.
+> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios.  Si vous recherchez une terminaison TLS (« déchargement SSL ») ou un traitement de couche d’application par requête HTTP/HTTPS, consultez [Application Gateway](../application-gateway/application-gateway-introduction.md).  Si vous recherchez un équilibrage de charge DNS global, consultez [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions en fonction de vos besoins.
 
 ## <a name="what-is-load-balancer"></a>Qu’est-ce que l’équilibrage de charge ?
 
@@ -121,10 +121,10 @@ _Il est recommandé de spécifier les références SKU de manière explicite, m�
 | Taille de pool de serveur principal | Jusqu'à 1 000 instances | Jusqu'à 100 instances |
 | Points de terminaison du pool du serveur principal | Toute machine virtuelle dans un réseau virtuel, y compris la combinaison de machines virtuelles, de groupes à haute disponibilité et de groupes de machines virtuelles identiques | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique |
 | Zones de disponibilité | Serveurs frontaux redondants dans une zone et zonaux pour le trafic entrant et sortant, mappages de flux sortants protégés contre les défaillances de zone, équilibrage de charge interzones | / |
-| Diagnostics | Azure Monitor, métriques multidimensionnelles incluant les compteurs d’octets et de paquets, état des sondes d’intégrité, tentatives de connexion (TCP SYN), intégrité des connexions sortantes (flux SNAT ayant réussi et échoué), mesures du plan de données actif | Azure Log Analytics pour l’équilibreur de charge public uniquement, alerte d’épuisement des ports SNAT, mesure de l’intégrité du pool du serveur principal |
+| Diagnostics | Azure Monitor, métriques à plusieurs dimensions, notamment les compteurs d’octets et de paquets, état de la sonde d’intégrité, tentatives de connexion (TCP SYN), intégrité de la connexion sortante (flux SNAT réussies et échouées), mesures de plan de données actives | Azure Log Analytics pour l’équilibreur de charge public uniquement, alerte d’épuisement des ports SNAT, mesure de l’intégrité du pool du serveur principal |
 | Ports HA | Équilibreur de charge interne | / |
-| Sécurisé par défaut | Fermé par défaut pour les points de terminaison IP et Load Balancer publics. Un groupe de sécurité réseau doit être utilisé pour mettre explicitement sur liste verte les flux de trafic. | Ouvert par défaut, groupe de sécurité réseau facultatif |
-| Connexions sortantes | Plusieurs serveurs frontaux avec retrait par règle. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  Les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles en tant que points de terminaison de service du réseau virtuel, doivent être atteintes via la connectivité sortante et sont comptabilisées dans les données traitées. Quand seul un équilibreur de charge interne gère une machine virtuelle, les connexions sortantes via le mode SNAT par défaut ne sont pas disponibles. La programmation du SNAT pour les connexions sortantes est basée sur le protocole de transport de la règle d’équilibrage de charge du trafic entrant. | Serveur frontal unique, sélectionné de manière aléatoire quand plusieurs serveurs frontaux sont présents.  Quand seul un équilibreur de charge interne gère une machine virtuelle, le mode SNAT par défaut est utilisé. |
+| Sécurisé par défaut | par défaut fermé pour les points de terminaison IP et Load Balancer publics et un groupe de sécurité réseau doit être utilisé pour mettre explicitement sur liste verte le flux du trafic | Ouvert par défaut, groupe de sécurité réseau facultatif |
+| Connexions sortantes | Plusieurs serveurs frontaux avec retrait par règle. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  Les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles en tant que points de terminaison de service du réseau virtuel, doivent être atteintes via la connectivité sortante et sont comptabilisées dans les données traitées. Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, les connexions sortantes via la SNAT par défaut ne sont pas disponibles. La programmation de SNAT sortante est un protocole de transport spécifique basé sur le protocole de la règle d’équilibrage de charge entrant. | Serveur frontal unique, sélectionné de manière aléatoire quand plusieurs serveurs frontaux sont présents.  Quand seul un équilibreur de charge interne gère une machine virtuelle, le mode SNAT par défaut est utilisé. |
 | Plusieurs serveurs frontaux | Trafic entrant et sortant | Entrant uniquement |
 | Opérations de gestion | La plupart des opérations < 30 secondes | Généralement 60 à 90 secondes et plus |
 | Contrat SLA | 99,99 % pour le chemin de données avec deux machines virtuelles saines | Implicite dans le SLA de la machine virtuelle | 
@@ -142,7 +142,7 @@ La figure suivante présente un point de terminaison à charge équilibrée pour
 
 ![exemple d’équilibrage de charge public](./media/load-balancer-overview/IC727496.png)
 
-**Figure 1 : Équilibrage du trafic web à l’aide d’un équilibreur de charge public**
+*Figure : Équilibrage du trafic web à l’aide d’un équilibreur de charge public*
 
 Quand les clients Internet envoient des requêtes de pages web à l’adresse IP publique d’une application web sur le port TCP 80, Azure Load Balancer distribue les requêtes entre les trois machines virtuelles du groupe soumis à l’équilibrage de charge. Des informations supplémentaires sur l’algorithme de l’équilibreur de charge sont disponibles sur la [page de présentation de l’équilibreur de charge](load-balancer-overview.md#load-balancer-features).
 
@@ -161,10 +161,10 @@ Un équilibreur de charge interne permet d’effectuer les types d'équilibrage 
 
 ![Exemple d’équilibreur de charge interne](./media/load-balancer-overview/IC744147.png)
 
-**Figure 2 : Applications multiniveaux utilisant à la fois un équilibreur de charge public et un équilibreur de charge interne**
+*Figure : Applications multiniveaux utilisant à la fois un équilibreur de charge public et un équilibreur de charge interne*
 
 ## <a name="pricing"></a>Tarifs
-La référence SKU Standard est facturée en fonction du nombre de règles configurées et du volume total de données entrantes et sortantes traitées. Pour plus d’informations sur la tarification de la référence SKU Standard, consultez la page [Tarification Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+Load Balancer Standard est un produit facturé en fonction du nombre de règles d’équilibrage de charge configurées et du volume total de données entrantes et sortantes traitées. Pour plus d’informations sur la tarification de la référence SKU Standard, consultez la page [Tarification Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 La référence SKU De base de Load Balancer est proposée gratuitement.
 

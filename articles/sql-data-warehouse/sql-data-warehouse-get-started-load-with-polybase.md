@@ -1,11 +1,11 @@
 ---
-title: "Didacticiel PolyBase dans SQL Data Warehouse | Microsoft Docs"
-description: "Découvrez PolyBase et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données."
+title: Didacticiel PolyBase dans SQL Data Warehouse | Microsoft Docs
+description: Découvrez PolyBase et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/01/2017
 ms.author: barbkess
 ms.openlocfilehash: 47a2f48a1eef0c138875fbc079724b8d631abc54
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Télécharger des données avec PolyBase dans SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -40,7 +40,8 @@ Ce didacticiel explique comment charger des données dans SQL Data Warehouse ave
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants
 
 * Une base de données SQL Data Warehouse
@@ -52,7 +53,7 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Étape 1 : ajouter les données exemple au stockage d’objets blobs Azure
 Pour charger des données, nous devons placer des exemples de données dans un stockage d’objets blobs Azure. Lors de cette étape, nous allons remplir un objet blob Azure Storage avec des exemples de données. Plus tard, nous allons utiliser PolyBase pour charger ces exemples de données dans votre base de données SQL Data Warehouse.
 
-### <a name="a-prepare-a-sample-text-file"></a>A. Préparer un exemple de fichier texte
+### <a name="a-prepare-a-sample-text-file"></a>R. Préparer un exemple de fichier texte
 Pour préparer un exemple de fichier texte :
 
 1. Ouvrez le Bloc-notes et copiez les lignes de données suivantes dans un nouveau fichier. Enregistrez-les dans votre répertoire temporaire local %temp%\DimDate2.txt.

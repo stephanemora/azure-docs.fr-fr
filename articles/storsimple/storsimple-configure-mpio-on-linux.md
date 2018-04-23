@@ -1,6 +1,6 @@
 ---
-title: "Configuration de MPIO sur l’hôte Linux StorSimple| Microsoft Docs"
-description: "Configuration de MPIO sur StorSimple connecté à un hôte Linux exécutant CentOS 6.6"
+title: Configuration de MPIO sur l’hôte Linux StorSimple| Microsoft Docs
+description: Configuration de MPIO sur StorSimple connecté à un hôte Linux exécutant CentOS 6.6
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -56,8 +56,8 @@ Le fichier de configuration `/etc/multipath.conf` rend un grand nombre de foncti
 Le fichier multipath.conf comporte cinq sections :
 
 - **Valeurs par défaut au niveau système***(defaults)*: vous pouvez remplacer les valeurs par défaut au niveau système.
-- **Appareils sur liste noire***(blacklist)*: vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
-- **Exceptions de la liste noire***(blacklist_exceptions)* : vous pouvez identifier des appareils spécifiques à traiter en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
+- **Appareils sur liste rouge***(blacklist)*: vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
+- **Exceptions de la liste rouge***(blacklist_exceptions)* : vous pouvez identifier des appareils spécifiques à traiter en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste rouge.
 - **Paramètres spécifiques au contrôleur de stockage***(devices)*: vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
 - **Paramètres spécifiques aux appareils***(multipaths)*: vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
 
@@ -210,12 +210,12 @@ Les appareils pris en charge par la gestion multivoie peuvent être automatiquem
         }
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Étape 2 : Configurer la gestion multivoie pour les volumes StorSimple
-Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste noire pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
+Par défaut, tous les appareils sont sur liste rouge dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste rouge pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
 
 1. Modifiez le fichier `/etc/mulitpath.conf` . Tapez :
    
     `vi /etc/multipath.conf`
-2. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception de la liste noire dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
+2. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception de la liste rouge dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
    
         blacklist_exceptions {
             device {
@@ -440,7 +440,7 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 | &nbsp; |`mpathconf --enable` |Créer un exemple de fichier mulitpath.conf dans `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Étant donné que vous configurez MPIO sur un hôte Linux, vous pouvez avoir besoin de consulter les documents CentOS 6.6 suivants :
 
 * [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

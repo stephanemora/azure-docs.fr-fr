@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -79,14 +79,14 @@ L’architecture de base est constituée des éléments suivants :
 ## <a name="roles"></a>contrôleur
 
 
-Le plan définit deux rôles pour les utilisateurs administratifs (opérateurs) et trois rôles pour les utilisateurs membres de la direction et chargés du soin des patients. Un sixième rôle est défini afin de permettre à un auditeur d’évaluer la conformité avec les réglementations HIPAA ou autres. Le contrôle d’accès en fonction du rôle (RBAC) Azure autorise une gestion de l’accès très précise pour chaque utilisateur de la solution par le biais de rôles intégrés et personnalisés. Pour plus d’informations sur RBAC, les rôles et les autorisations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) et [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Le plan définit deux rôles pour les utilisateurs administratifs (opérateurs) et trois rôles pour les utilisateurs membres de la direction et chargés du soin des patients. Un sixième rôle est défini afin de permettre à un auditeur d’évaluer la conformité avec les réglementations HIPAA ou autres. Le contrôle d’accès en fonction du rôle (RBAC) Azure autorise une gestion de l’accès très précise pour chaque utilisateur de la solution par le biais de rôles intégrés et personnalisés. Pour plus d’informations sur RBAC, les rôles et les autorisations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) et [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 ### <a name="site-administrator"></a>Administrateur de site
 
 
 L’administrateur du site est responsable de l’abonnement Azure du client. Il contrôle le déploiement global, mais n’a pas accès aux dossiers des patients.
 
--   Attributions de rôles par défaut : [Propriétaire](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Attributions de rôles par défaut : [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Attributions de rôles personnalisées : N/A
 
@@ -97,7 +97,7 @@ L’administrateur du site est responsable de l’abonnement Azure du client. Il
 L’analyste de base de données gère la base de données et l’instance de SQL Server.
 Il n’a pas accès aux dossiers des patients.
 
--   Attributions de rôles intégrées : [Contributeur de SQL DB](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [Contributeur de SQL Server](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Attributions de rôles intégrées : [Contributeur de SQL DB](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contributeur de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Attributions de rôles personnalisées : N/A
 
@@ -108,7 +108,7 @@ Il n’a pas accès aux dossiers des patients.
 
 Le scientifique des données assure le fonctionnement du service Azure Machine Learning. Il peut importer, exporter et gérer les données, et exécuter des rapports. Il a accès aux données des patients, mais ne dispose pas des privilèges d’administrateur.
 
--   Attributions de rôles intégrées : [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Attributions de rôles intégrées : [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Attributions de rôles personnalisées : N/A
 
@@ -138,7 +138,7 @@ Ce rôle nécessite de surveiller l’état de santé de chaque patient, et de s
 
 L’auditeur évalue la conformité de la solution. Ils n’ont aucun accès direct au réseau.
 
--   Attributions de rôles intégrées : [Lecteur](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Attributions de rôles intégrées : [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Attributions de rôles personnalisées : N/A
 
@@ -222,7 +222,7 @@ Cette section détaille les mesures de sécurité et les configurations par déf
 
 -   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités pouvant affecter les identités de votre organisation, et configure les réponses automatiques aux actions suspectes détectées qui sont liées aux identités de votre organisation. Il examine aussi les incidents suspects et prend les mesures nécessaires pour les éliminer.
 
--   Le [contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/active-directory/role-based-access-control-configure) permet une gestion précise de l’accès pour Azure. L’accès à l’abonnement est limité à l’administrateur des abonnements, et l’accès à Azure Key Vault est limité à l’administrateur de site. Les mots de passe forts (12 caractères au minimum avec au moins une lettre en minuscule/majuscule, un chiffre et un caractère spécial) sont obligatoires.
+-   Le [contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/role-based-access-control/role-assignments-portal) permet une gestion précise de l’accès pour Azure. L’accès à l’abonnement est limité à l’administrateur des abonnements, et l’accès à Azure Key Vault est limité à l’administrateur de site. Les mots de passe forts (12 caractères au minimum avec au moins une lettre en minuscule/majuscule, un chiffre et un caractère spécial) sont obligatoires.
 
 -   L’authentification multifacteur est prise en charge quand le commutateur -enableMFA est activé pendant le déploiement.
 
@@ -230,7 +230,7 @@ Cette section détaille les mesures de sécurité et les configurations par déf
 
 **Rôles :**
 
--   La solution utilise des [rôles intégrés](/azure/active-directory/role-based-access-built-in-roles) pour gérer l’accès aux ressources.
+-   La solution utilise des [rôles intégrés](/azure/role-based-access-control/built-in-roles) pour gérer l’accès aux ressources.
 
 -   Par défaut, des rôles intégrés spécifiques sont attribués à tous les utilisateurs.
 
@@ -356,7 +356,7 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 
 
 -   [La journalisation est activée](/azure/machine-learning/studio/web-services-logging) pour les services web de Machine Learning.
-- L’utilisation de [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) Workbench nécessite le développement d’expériences, ce qui permet de réaliser des prédictions d’après un jeu de solution. L’[intégration de Workbench](/azure/machine-learning/preview/using-git-ml-project) peut aider à simplifier la gestion des expériences.
+- L’utilisation de [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench nécessite le développement d’expériences, ce qui permet de réaliser des prédictions d’après un jeu de solution. L’[intégration de Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) peut aider à simplifier la gestion des expériences.
 
 ## <a name="security"></a>SÉCURITÉ
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dc1f9cbc87e058d3c925763a9204392791429db8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b01ff98667523f498c06ba867e017f696059d120
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Didacticiel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI 2.0
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -39,6 +39,10 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Créer et configurer une machine virtuelle source
+
+>[!NOTE]
+> Ce tutoriel vous sert de guide pour créer et utiliser une image de machine virtuelle généralisée. La création d’un groupe identique depuis une image de machine virtuelle généralisée n’est pas prise en charge.
+
 Commencez par créer un groupe de ressource avec [az group create](/cli/azure/group#az_group_create), puis créez une machine virtuelle avec [az vm create](/cli/azure/vm#az_vm_create). Cette machine virtuelle est ensuite utilisée comme source d’une image de machine virtuelle personnalisée. L’exemple suivant crée une machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli-interactive

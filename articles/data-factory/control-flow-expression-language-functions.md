@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 |« parameters »|Les caractères « parameters » sont retournés.|  
 |« parameters[1] »|Les caractères « parameters[1] » sont retournés.|  
 |« @@ »|Une chaîne de 1 caractère contenant \«\@\» est retournée.|  
-|\« \@»|Une chaîne de 2 caractères contenant \« \@ \» est retournée.|  
+|\« \@»|Une chaîne de 2 caractères contenant  \«  \@  \» est retournée.|  
   
  Des expressions peuvent également apparaître dans des chaînes, qui utilisent une fonctionnalité appelée *interpolation de chaîne* où les expressions sont encapsulées dans `@{ ... }`. Par exemple : `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   

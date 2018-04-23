@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Activer des abonnements et des comptes Azure avec Azure Cost Management
 
@@ -29,7 +29,7 @@ Des autorisations spécifiques sont nécessaires pour effectuer les procédures 
 - Autorisation d’inscrire l’application CloudynCollector auprès de votre locataire Azure AD.
 - Possibilité d’affecter l’application à un rôle dans vos abonnements Azure.
 
-Dans vos abonnements Azure, vos comptes doivent avoir un accès `Microsoft.Authorization/*/Write` pour affecter l’application CloudynCollector. Cette action est accordée par le biais du rôle [Propriétaire](../active-directory/role-based-access-built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](../active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+Dans vos abonnements Azure, vos comptes doivent avoir un accès `Microsoft.Authorization/*/Write` pour affecter l’application CloudynCollector. Cette action est accordée par le biais du rôle [Propriétaire](../role-based-access-control/built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 Si le rôle **Collaborateur** est affecté à votre compte, vous ne disposez pas de l’autorisation appropriée pour affecter l’application. Vous recevez une erreur quand vous tentez d’affecter l’application CloudynCollector à votre abonnement Azure.
 

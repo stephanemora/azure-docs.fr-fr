@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -154,7 +154,7 @@ Azure Event Grid prend en charge les actions suivantes :
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-Les trois dernières opérations retournent des informations potentiellement confidentielles qui sont filtrées lors d’opérations de lecture normales. Nous vous recommandons de restreindre l’accès à ces opérations. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), de [l’interface CLI Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md) et de [l’API REST](../active-directory/role-based-access-control-manage-access-rest.md).
+Les trois dernières opérations retournent des informations potentiellement confidentielles qui sont filtrées lors d’opérations de lecture normales. Nous vous recommandons de restreindre l’accès à ces opérations. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), de [l’interface CLI Azure](../role-based-access-control/role-assignments-cli.md) et de [l’API REST](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Application de la vérification d’accès par rôle (RBAC)
 

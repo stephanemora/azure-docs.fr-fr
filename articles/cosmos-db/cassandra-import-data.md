@@ -1,10 +1,10 @@
 ---
-title: "Importer des données Cassandra dans Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment utiliser la commande CQL Copy pour copier des données Cassandra dans Azure Cosmos DB."
+title: Importer des données Cassandra dans Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment utiliser la commande CQL Copy pour copier des données Cassandra dans Azure Cosmos DB.
 services: cosmos-db
 author: govindk
-manager: jhubbard
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 21168d0862cfdaaaced60fa80a2dc04859f49550
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 64f60e6beb5451d8f5acd382ca8e5672a2d096f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB : Importer des données Cassandra
 
@@ -31,7 +31,8 @@ Ce didacticiel décrit les tâches suivantes :
 > * Importation de données à l’aide de la commande cqlsh COPY
 > * Importation à l’aide du connecteur Spark 
 
-# <a name="prerequisites"></a>Composants requis
+# <a name="prerequisites"></a>Prérequis
+
 
 * Installez [Apache Cassandra](http://cassandra.apache.org/download/) et vérifiez plus particulièrement que *cqlsh* est présent.
 * Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous configurez pour vos tables. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le [portail Azure](https://portal.azure.com), consultez [Définir le débit des conteneurs Azure Cosmos DB](set-throughput.md).

@@ -3,15 +3,15 @@ title: Demandes d’augmentation des quotas de processeurs virtuels pour Azure R
 description: Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
-ms.date: 3/15/2018
+ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: a42fa8e4e8dae140db4fcc8977bda335455b97a1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Demandes d’augmentation des quotas de processeurs virtuels pour Resource Manager
 
@@ -24,22 +24,21 @@ Pour demander une augmentation, créez un cas de support de quota pour les proce
 > [!NOTE]
 > Découvrez comment [créer une demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) dans le portail Azure.
 
-1. Sélectionnez **Abonnements**.
+1. Dans la nouvelle page de demande de support, sélectionnez le type de problème « Quota » et le type de quota « Cœurs ».
 
-   ![Abonnements](./media/resource-manager-core-quotas-request/subscriptions.png)
+    ![Panneau Informations de base du quota](./media/resource-manager-core-quotas-request/Basics-blade.png)
 
-2. Sélectionnez l’abonnement nécessitant une augmentation du quota.
+2. Sélectionnez le modèle de déploiement « Resource Manager » et sélectionnez un emplacement.
 
-   ![Sélectionnez un abonnement](./media/resource-manager-core-quotas-request/select-subscription.png)
+    ![Panneau Problème de quota](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Sélectionnez **Utilisation + quotas**.
+3. Sélectionnez les familles de références qui nécessitent une augmentation.
 
-   ![Sélectionnez Utilisation + quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+    ![Série de références sélectionnée](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. Dans l’angle supérieur droit, cliquez sur **Demander une augmentation**.
+4. Entrez les nouvelles limites que vous souhaitez appliquer à l’abonnement.
 
-   ![Demander une augmentation](./media/resource-manager-core-quotas-request/request-increase.png)
+    ![Nouvelle demande de quota de référence](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-5. Sélectionnez **Cœurs** comme type de guillemet. 
-
-   ![Renseignez le formulaire](./media/resource-manager-core-quotas-request/forms.png)
+- Pour supprimer une ligne, désactivez la case de la référence dans la liste déroulante de la famille de références ou cliquez sur l’icône de fermeture « x ».
+Après avoir entré le quota de votre choix pour chaque famille de références, cliquez sur « Suivant » sur la page de l’étape Problème pour poursuivre la création de demande de support.

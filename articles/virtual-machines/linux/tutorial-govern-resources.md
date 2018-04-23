@@ -4,7 +4,7 @@ description: 'Didacticiel : apprenez à gérer des machines virtuelles Azure en 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: ac6f7b0d32479e9e7e9945f83dc63a5847cba6a4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Gouvernance de machines virtuelles à l’aide d’Azure CLI
 
@@ -43,15 +43,15 @@ Pour le moment, le groupe de ressources est vide.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Vous devez vous assurer que les utilisateurs de votre organisation disposent du niveau d’accès approprié à ces ressources. Il n’est pas question de leur accorder un accès illimité, mais de faire en sorte qu’ils puissent accomplir leur travail. Le [contrôle d’accès en fonction du rôle](../../active-directory/role-based-access-control-what-is.md) vous permet de définir les utilisateurs autorisés à effectuer des actions spécifiques dans une étendue.
+Vous devez vous assurer que les utilisateurs de votre organisation disposent du niveau d’accès approprié à ces ressources. Il n’est pas question de leur accorder un accès illimité, mais de faire en sorte qu’ils puissent accomplir leur travail. Le [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) vous permet de définir les utilisateurs autorisés à effectuer des actions spécifiques dans une étendue.
 
 Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer d’un accès `Microsoft.Authorization/roleAssignments/*`. Cet accès est accordé par le biais du rôle Propriétaire ou Administrateur de l’accès utilisateur.
 
 Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressource qui fournissent un accès souvent nécessaire :
 
-* [Collaborateur de machine virtuelle](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Collaborateur de réseau](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Collaborateur de compte de stockage](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Collaborateur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Collaborateur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
 

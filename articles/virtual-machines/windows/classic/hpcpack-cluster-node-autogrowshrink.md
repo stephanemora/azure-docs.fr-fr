@@ -1,10 +1,10 @@
 ---
-title: "Mise à l’échelle automatique des nœuds de calcul de cluster HPC Pack | Microsoft Docs"
-description: "Augmenter ou diminuer automatiquement le nombre de nœuds de calcul de cluster HPC Pack dans Azure"
+title: Mise à l’échelle automatique des nœuds de calcul de cluster HPC Pack | Microsoft Docs
+description: Augmenter ou diminuer automatiquement le nombre de nœuds de calcul de cluster HPC Pack dans Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Augmenter ou diminuer automatiquement les ressources du cluster HPC Pack dans Azure en fonction de la charge de travail du cluster
 Si vous déployez des nœuds de rafale Azure dans votre cluster HPC Pack ou si vous créez un cluster HPC Pack dans des machines virtuelles Azure, un moyen d’augmenter ou de diminuer automatiquement les ressources du cluster, comme des nœuds ou des cœurs, en fonction de la charge de travail du cluster peut s’avérer utile. En mettant à l’échelle les ressources du cluster de cette façon, vous pouvez utiliser vos ressources Azure plus efficacement et contrôler leurs coûts.
@@ -35,7 +35,8 @@ Actuellement, vous ne pouvez qu’augmenter ou diminuer automatiquement les nœu
 
 
 ## <a name="set-the-autogrowshrink-cluster-property"></a>Définir la propriété de cluster AutoGrowShrink
-### <a name="prerequisites"></a>Configuration requise
+### <a name="prerequisites"></a>Prérequis
+
 
 * **Cluster HPC Pack 2012 R2 Update 2 ou version ultérieure** : le nœud principal du cluster peut être déployé localement ou dans une machine virtuelle Azure. Pour prendre en main un nœud principal local et des nœuds « d’extension » Azure, consultez [Configurer un cluster hybride avec HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) . Pour déployer rapidement un cluster HPC Pack sur des machines virtuelles Azure, consultez le [script de déploiement IaaS de HPC Pack](hpcpack-cluster-powershell-script.md) .
 
@@ -50,13 +51,13 @@ Actuellement, vous ne pouvez qu’augmenter ou diminuer automatiquement les nœu
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Si votre compte se trouve dans plus d’un client Azure Active Directory ou d’un abonnement Azure, vous pouvez exécuter la commande suivante pour sélectionner le client approprié et l’abonnement :
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Exécutez la commande suivante pour afficher le client actuellement sélectionné et l’abonnement :
@@ -71,7 +72,7 @@ Actuellement, vous ne pouvez qu’augmenter ou diminuer automatiquement les nœu
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
     ```
 
-    où
+    where
 
     **DisplayName** : nom d’affichage de l’application Azure Active. Si l’application n’existe pas, elle est créée dans Azure Active Directory.
 
@@ -181,17 +182,18 @@ Par défaut, HPC Pack augmente de 1 % les nœuds supplémentaires pour les trava
 Par défaut, **SoaJobGrowThreshold** est réglé sur 50000 et **SoaRequestsPerCore** sur 20000. Si vous envoyez un travail SOA avec 70 000 demandes, il y a une tâche en attente et les demandes entrantes sont au nombre de 70 000. Dans ce cas, HPC Pack agrandit un cœur pour la tâche en attente et, pour les demandes entrantes, agrandit (70 000 - 50 000) / 20 000 = 1 cœur, soit au total deux cœurs pour ce travail SOA.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Exécuter le script AzureAutoGrowShrink.ps1
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
+
 
 * **Cluster HPC Pack 2012 R2 Update 1 ou version ultérieure** - Le script **AzureAutoGrowShrink.ps1** est installé dans le dossier %CCP_HOME%bin. Le nœud principal du cluster peut être déployé localement ou dans une machine virtuelle Azure. Pour prendre en main un nœud principal local et des nœuds « d’extension » Azure, consultez [Configurer un cluster hybride avec HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) . Pour déployer rapidement un cluster HPC Pack dans des machines virtuelles Azure, consultez le [script de déploiement IaaS de HPC Pack](hpcpack-cluster-powershell-script.md) ou utilisez un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0** : le script dépend actuellement de cette version d’Azure PowerShell.
 * **Pour un cluster de nœuds d’extension Azure** : exécutez le script sur un ordinateur client où HPC Pack est installé ou sur le nœud principal. Si vous effectuez l’exécution sur un ordinateur client, définissez la variable $env:CCP_SCHEDULER de manière à ce qu’elle pointe vers le nœud principal. Les nœuds « d’extension » Azure doivent être ajoutés au cluster, mais ils peuvent être dans l’état Non déployé.
-* **Pour un cluster déployé sur des machines virtuelles Azure (modèle de déploiement Resource Manager)** - Pour un cluster de machines virtuelles Azure déployées selon le modèle de déploiement Resource Manager, le script prend en charge deux méthodes d’authentification Azure : connectez-vous à votre compte Azure pour exécuter le script à chaque fois (en exécutant `Login-AzureRmAccount`), ou configurez un principal du service pour vous authentifier avec un certificat. HPC Pack fournit le script **ConfigARMAutoGrowShrinkCert.ps** pour créer un principal du service avec certificat. Le script crée une application Azure Active Directory (Azure AD) et un principal du service, et attribue le rôle de contributeur au principal du service. Pour exécuter le script, lancez Azure PowerShell en tant qu’administrateur et exécutez les commandes suivantes :
+* **Pour un cluster déployé sur des machines virtuelles Azure (modèle de déploiement Resource Manager)** - Pour un cluster de machines virtuelles Azure déployées selon le modèle de déploiement Resource Manager, le script prend en charge deux méthodes d’authentification Azure : connectez-vous à votre compte Azure pour exécuter le script à chaque fois (en exécutant `Connect-AzureRmAccount`), ou configurez un principal du service pour vous authentifier avec un certificat. HPC Pack fournit le script **ConfigARMAutoGrowShrinkCert.ps** pour créer un principal du service avec certificat. Le script crée une application Azure Active Directory (Azure AD) et un principal du service, et attribue le rôle de contributeur au principal du service. Pour exécuter le script, lancez Azure PowerShell en tant qu’administrateur et exécutez les commandes suivantes :
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```

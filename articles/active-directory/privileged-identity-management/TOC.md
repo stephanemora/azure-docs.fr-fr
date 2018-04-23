@@ -5,7 +5,7 @@
 ## [PIM pour les ressources Azure](azure-pim-resource-rbac.md)
 ## [Flux de travail d’approbation PIM](azure-ad-pim-approval-workflow.md)
 ## [Rôles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Flux de travail d’approbation Privileged Identity Management (PIM)](azure-ad-pim-approval-workflow.md)
+
 
 
 # Prise en main
@@ -55,7 +55,7 @@
 
 # Rubriques connexes
 ## [Azure Active Directory](/azure/active-directory/)
-## [Contrôle d’accès en fonction du rôle](../role-based-access-control-what-is.md)
+## [Contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md)
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

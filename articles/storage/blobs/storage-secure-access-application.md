@@ -1,6 +1,6 @@
 ---
-title: "Sécuriser l’accès aux données d’une application dans le cloud avec le stockage Azure | Microsoft Docs"
-description: "Utiliser les jetons SAS, le chiffrement et HTTPS pour sécuriser les données de votre application dans le cloud"
+title: Sécuriser l’accès aux données d’une application dans le cloud avec le stockage Azure | Microsoft Docs
+description: Utiliser les jetons SAS, le chiffrement et HTTPS pour sécuriser les données de votre application dans le cloud
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Sécuriser l’accès aux données d’une application dans le cloud
 
@@ -43,7 +43,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 
@@ -146,7 +146,7 @@ Les classes, propriétés et méthodes suivantes sont utilisées dans la tâche 
 
 Le [chiffrement du service de stockage (SSE) Azure](../common/storage-service-encryption.md) vous permet de protéger vos données. SSE chiffre les données au repos et assure le chiffrement, le déchiffrement et la gestion de clés. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles.
 
-Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de stockage Azure (blob, file d’attente, table et fichier). 
+Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de Stockage Azure (blob, file d’attente, table et fichier). 
 
 ## <a name="enable-https-only"></a>Activer HTTPS uniquement
 

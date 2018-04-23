@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4f955a0880254cb67ccd3e46ad04b3685341263
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure
 
@@ -39,7 +39,7 @@ Voici une liste de vérification rapide pour optimiser les performances de SQL S
 
 | Domaine | Optimisations |
 | --- | --- |
-| [Taille de la machine virtuelle](#vm-size-guidance) |[Édition SQL Enterprise DS3](../sizes-memory.md) ou supérieure.<br/><br/>[DS2](../sizes-memory.md) ou supérieure pour SQL Server Standard Edition ou SQL Server Web Edition. |
+| [Taille de la machine virtuelle](#vm-size-guidance) |[Édition SQL Enterprise DS3](../sizes-general.md) ou supérieure.<br/><br/>[DS2](../sizes-general.md) ou supérieure pour SQL Server Standard Edition ou SQL Server Web Edition. |
 | [Stockage](#storage-guidance) |Utiliser [Premium Storage](../premium-storage.md). Le stockage standard n’est recommandé que pour le développement et le test.<br/><br/>Conservez le [compte de stockage](../../../storage/common/storage-create-storage-account.md) et la machine virtuelle SQL Server dans la même région.<br/><br/>Désactivez le [stockage géo-redondant](../../../storage/common/storage-redundancy.md) (géo-réplication) d’Azure sur le compte de stockage. |
 | [Disques](#disks-guidance) |Utilisez au moins 2 [disques P30](../premium-storage.md#scalability-and-performance-targets) (1 pour les fichiers journaux ; 1 pour les fichiers de données et TempDB).<br/><br/>Éviter d’utiliser des disques de système d’exploitation ou temporaires pour le stockage ou la journalisation des bases de données.<br/><br/>Activer la mise en cache de lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/>Ne pas activer la mise en cache sur le ou les disques hébergeant le fichier journal.<br/><br/>Important : arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache d’un disque de machine virtuelle Azure.<br/><br/>Entrelacer plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/>Formatez avec des tailles d’allocation documentées. |
 | [E/S](#io-guidance) |Activez la compression des pages de base de données.<br/><br/>Activer l’initialisation de fichiers instantanée pour les fichiers de données.<br/><br/>Limiter la croissance automatique sur la base de données.<br/><br/>Désactiver la réduction automatique sur la base de données.<br/><br/>Déplacer toutes les bases de données vers des disques de données, y compris les bases de données système.<br/><br/>Déplacer les répertoires des journaux d’erreurs et des fichiers de trace SQL Server vers des disques de données.<br/><br/>Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données.<br/><br/>Activer les pages verrouillées.<br/><br/>Appliquez les correctifs de performances de SQL Server. |

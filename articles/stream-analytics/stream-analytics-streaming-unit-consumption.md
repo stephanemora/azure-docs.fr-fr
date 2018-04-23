@@ -1,24 +1,19 @@
 ---
-title: 'Azure Stream Analytics : Comprendre et ajuster les unités de streaming | Microsoft Docs'
-description: Comprenez quels facteurs affectent les performances dans Azure Stream Analytics.
-keywords: unité de streaming, performance des requêtes
+title: Comprendre et ajuster les unités de streaming dans Azure Stream Analytics
+description: Cet article décrit le paramètre d’unités de diffusion en continu et d’autres facteurs qui affectent les performances dans Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 4312b5f5a64048ad697ae398697da1c59a75e75c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ede0c0aa7b0e795760123246366f947889224b2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -121,7 +116,7 @@ Quand vous ajoutez une fonction UDF, Azure Stream Analytics charge le runtime Ja
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer des requêtes parallélisables dans Azure Stream Analytics](stream-analytics-parallelization.md)

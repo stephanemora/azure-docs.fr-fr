@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -72,7 +72,7 @@ Pour les rôles RBAC Azure, seul un administrateur d’abonnement, un propriéta
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Vue d’ensemble de Privileged Identity Management (point d’entrée)
 
-Azure AD Privileged Identity Management prend en charge l’administration des rôles d’annuaire Azure AD et des rôles de ressources Azure (préversion). Le fonctionnement des rôles pour les ressources Azure diffère de celui des rôles d’administrateur dans Azure AD. Les rôles de ressources Azure fournissent des autorisations granulaires pour la ressource à laquelle ils sont affectés, ainsi que pour toutes les ressources subordonnées dans la hiérarchie des ressources (selon un principe appelé héritage). Vous trouverez plus d’informations sur RBAC, la hiérarchie des ressources et l’héritage [ici](role-based-access-control-configure.md). Pour les rôles d’annuaire Azure AD et les ressources Azure (préversion), PIM peut être géré en accédant au lien approprié sous la section Gérer du menu de navigation gauche du point d’entrée Vue d’ensemble de PIM.
+Azure AD Privileged Identity Management prend en charge l’administration des rôles d’annuaire Azure AD et des rôles de ressources Azure (préversion). Le fonctionnement des rôles pour les ressources Azure diffère de celui des rôles d’administrateur dans Azure AD. Les rôles de ressources Azure fournissent des autorisations granulaires pour la ressource à laquelle ils sont affectés, ainsi que pour toutes les ressources subordonnées dans la hiérarchie des ressources (selon un principe appelé héritage). Vous trouverez plus d’informations sur RBAC, la hiérarchie des ressources et l’héritage [ici](../role-based-access-control/role-assignments-portal.md). Pour les rôles d’annuaire Azure AD et les ressources Azure (préversion), PIM peut être géré en accédant au lien approprié sous la section Gérer du menu de navigation gauche du point d’entrée Vue d’ensemble de PIM.
 
 PIM permet d’activer des rôles et d’afficher les demandes/activations en attente, les approbations en attente (pour les rôles d’annuaire Azure AD), ainsi que les révisions attendant une réponse de votre part en toute simplicité à partir de la section Tâches du menu de navigation gauche.
 

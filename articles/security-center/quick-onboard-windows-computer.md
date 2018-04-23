@@ -1,11 +1,11 @@
 ---
-title: "Démarrage rapide Azure Security Center - Intégrer des ordinateurs Windows à Security Center | Microsoft Docs"
-description: "Ce guide de démarrage rapide explique comment approvisionner Microsoft Monitoring Agent sur un ordinateur Windows."
+title: Démarrage rapide Azure Security Center - Intégrer des ordinateurs Windows à Security Center | Microsoft Docs
+description: Ce guide de démarrage rapide explique comment approvisionner Microsoft Monitoring Agent sur un ordinateur Windows.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour des ressources qui s’exécutent en dehors d’Azure, par exemple, en local ou dans d’autres clouds, en approvisionnant Microsoft Monitoring Agent.
@@ -27,6 +27,7 @@ Après avoir intégré vos abonnements Azure, vous pouvez activer Security Cente
 Ce guide de démarrage rapide explique comment installer Microsoft Monitoring Agent sur un ordinateur Windows.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Vous devez utiliser le niveau tarifaire Standard de Security Center pour commencer ce guide de démarrage rapide. Vous trouverez des instructions sur la mise à niveau sur la page [Intégrer un abonnement Azure à Security Center Standard](security-center-get-started.md). Vous pouvez essayer le niveau Standard de Security Center gratuitement pendant 60 jours.
@@ -62,7 +63,7 @@ Vous devez maintenant installer le fichier téléchargé sur l’ordinateur cibl
 2. Sur la page d’**accueil**, sélectionnez **Suivant**.
 3. Sur la page **Termes du contrat de licence**, lisez la licence, puis sélectionnez **J’accepte**.
 4. Sur la page **Dossier de destination**, modifiez ou conservez le dossier d’installation par défaut, puis sélectionnez **Suivant**.
-5. Sur la page **Options d’installation de l’agent**, choisissez de connecter l’agent à Azure Log Analytics (OMS), puis sélectionnez **Suivant**.
+5. Sur la page **Options d’installation de l’agent**, choisissez de connecter l’agent à Azure Log Analytics, puis sélectionnez **Suivant**.
 6. Sur la page **Azure Log Analytics**, collez **l’ID de l’espace de travail** et la **Clé de l’espace de travail (clé primaire)** que vous avez copiés dans le Bloc-notes au cours de la procédure précédente.
 7. Si l’ordinateur doit communiquer avec un espace de travail Log Analytics dans le cloud Azure Government, sélectionnez **Azure - Gouvernement des États-Unis** dans la liste déroulante **Azure Cloud**.  Si l’ordinateur a besoin de communiquer avec le service Log Analytics par le biais d’un serveur proxy, sélectionnez **Avancé**, puis indiquez l’URL et le numéro de port du serveur proxy.
 8. Sélectionnez **Suivant** après avoir indiqué les paramètres de configuration nécessaires.

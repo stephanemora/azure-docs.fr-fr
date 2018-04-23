@@ -1,30 +1,30 @@
 ---
-title: Analyse des journaux pour Apache Kafka - Azure HDInsight | Microsoft Docs
-description: "Découvrez comment utiliser Operations Management Suite pour analyser les journaux du cluster Apache Kafka sur Azure HDInsight."
+title: Log Analytics pour Apache Kafka - Azure HDInsight | Microsoft Docs
+description: Découvrez comment utiliser Log Analytics pour analyser les journaux du cluster Apache Kafka sur Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a373ef5cc71d5ae69c83555dc71525aa2188233e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux pour Apache Kafka sur HDInsight
 
-Découvrez comment utiliser Microsoft Operations Management Suite pour analyser les journaux générés par Apache Kafka sur HDInsight.
+Découvrez comment utiliser Log Analytics pour analyser les journaux générés par Apache Kafka sur HDInsight.
 
-## <a name="enable-oms-for-kafka"></a>Activer OMS pour Kafka
+## <a name="enable-log-analytics-for-kafka"></a>Activer Log Analytics pour Kafka
 
 Les étapes permettant d’activer Log Analytics pour HDInsight sont les mêmes pour tous les clusters HDInsight. Utilisez les liens suivants pour apprendre à créer et à configurer les services requis :
 
@@ -38,12 +38,12 @@ Les étapes permettant d’activer Log Analytics pour HDInsight sont les mêmes 
     > Vous pouvez également configurer le cluster pour utiliser Log Analytics à l’aide de l’applet de commande `Enable-AzureRmHDInsightOperationsManagementSuite`. Cette applet de commande requiert les informations suivantes :
     >
     > * Le nom du cluster HDInsight.
-    > * L’ID de l’espace de travail pour Log Analytics. Vous trouverez l’ID de l’espace de travail dans l’espace de travail OMS de votre espace de travail Log Analytics.
-    > * La clé primaire de la connexion OMS. Pour trouver la clé primaire, sélectionnez votre instance Log Analytics, puis __Portail OMS__. Dans le portail OMS, sélectionnez __Paramètres__, __Sources connectées__, puis __Serveurs Linux__.
+    > * L’ID de l’espace de travail pour Log Analytics. Vous trouverez l’ID de l’espace de travail dans votre espace de travail Log Analytics.
+    > * La clé primaire de la connexion Log Analytics. Pour trouver la clé primaire, sélectionnez votre instance Log Analytics, puis __Portail OMS__. Dans le portail OMS, sélectionnez __Paramètres__, __Sources connectées__, puis __Serveurs Linux__.
 
 
 > [!IMPORTANT]
-> Un délai de 20 minutes peut s’écouler avant que les données soient disponibles pour l’analyse des journaux.
+> Un délai de 20 minutes peut s’écouler avant que les données soient disponibles pour Log Analytics.
 
 ## <a name="query-logs"></a>Journaux des requêtes
 

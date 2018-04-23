@@ -1,11 +1,11 @@
 ---
-title: "Authentification des identités sans mot de passe via Windows Hello Entreprise et Azure AD | Microsoft Docs"
-description: "Fournit une vue d’ensemble de Windows Hello Entreprise ainsi que des informations supplémentaires sur le déploiement de Windows Hello Entreprise."
+title: Authentification des identités sans mot de passe via Windows Hello Entreprise et Azure AD | Microsoft Docs
+description: Fournit une vue d’ensemble de Windows Hello Entreprise ainsi que des informations supplémentaires sur le déploiement de Windows Hello Entreprise.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: f907bb90-8776-46ca-9e12-279949af66ff
 ms.service: active-directory
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 ms.openlocfilehash: 22534cc5f7f2de235bc1f1212c63ea227083c5a4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>Authentification des identités sans mot de passe via Windows Hello Entreprise
 Les méthodes actuelles d’authentification avec un simple mot de passe ne sont pas suffisantes pour protéger les utilisateurs. Les utilisateurs réutilisent et oublient les mots de passe. Les mots de passe peuvent faire l’objet d’une violation, de tentatives de phishing, de piratage ou être faciles à deviner. Ils sont également difficiles à mémoriser et sujets aux attaques de type «[pass-the-hash](https://technet.microsoft.com/dn785092.aspx)».

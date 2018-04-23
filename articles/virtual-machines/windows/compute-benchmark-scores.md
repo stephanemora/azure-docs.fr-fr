@@ -1,11 +1,11 @@
 ---
-title: "Calcul des scores de test d’évaluation pour les machines virtuelles Windows | Microsoft Docs"
-description: "Comparer les scores de test d’évaluation de calcul SPECint pour les machines virtuelles Azure exécutant Windows Server"
+title: Calcul des scores de test d’évaluation pour les machines virtuelles Windows | Microsoft Docs
+description: Comparer les scores de test d’évaluation de calcul SPECint pour les machines virtuelles Azure exécutant Windows Server
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
@@ -15,21 +15,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 0b3e717ef9bf8af98650e78ce4a89eb9bf3eb83c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Windows
-Les scores de test d’évaluation SPECInt suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Windows Server. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Les scores de test d’évaluation SPECInt suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Windows Server. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+> [!NOTE]
+> Les numéros de Linux ont récemment été mis à jour et contiennent un ensemble plus complet de machines virtuelles.
 
 ## <a name="a-series---compute-intensive"></a>Série A - Calcul intensif
 | Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 |8 |1 |Intel Xeon CPU E5-2670 0 @ 2,6 GHz |10 |236.1 |1.1 |
 | Standard_A9 |16 |2 |Intel Xeon CPU E5-2670 0 @ 2,6 GHz |10 |450.3 |7.0 |
-| Standard_A10 |8 |1 |Intel Xeon CPU E5-2670 0 @ 2,6 GHz |5 |235.6 |0.9 |
+| Standard_A10 |8 |1 |Intel Xeon CPU E5-2670 0 @ 2,6 GHz |5. |235.6 |0.9 |
 | Standard_A11 |16 |2 |Intel Xeon CPU E5-2670 0 @ 2,6 GHz |7 |454.7 |4.8 |
 
 ## <a name="dv2-series"></a>Série Dv2
@@ -49,19 +51,19 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1, Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |31 |71.8 |6.5 |
-| Standard_G2, Standard_GS2 |4 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |5 |133.4 |13.0 |
-| Standard_G3, Standard_GS3 |8 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |6 |242.3 |6.0 |
+| Standard_G2, Standard_GS2 |4 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |5. |133.4 |13.0 |
+| Standard_G3, Standard_GS3 |8 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |6. |242.3 |6.0 |
 | Standard_G4, Standard_GS4 |16 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |15 |398.9 |6.0 |
 | Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |22 |762.8 |3.7 |
 
 ## <a name="h-series"></a>Série H
 | Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy.  | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |297,4 |0.9 |
-| Standard_H16 |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |575,8 |6,8 |
-| Standard_H8m |8 |1 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |297,0 |1.2 |
-| Standard_H16m |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |572,2 |3.9 |
-| Standard_H16r |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |573,2 |2,9 |
+| Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5. |297,4 |0.9 |
+| Standard_H16 |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5. |575,8 |6.8 |
+| Standard_H8m |8 |1 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5. |297,0 |1.2 |
+| Standard_H16m |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5. |572,2 |3.9 |
+| Standard_H16r |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5. |573,2 |2,9 |
 | Standard_H16mr |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |7 |569,6 |2.8 |
 
 ## <a name="about-specint"></a>À propos de SPECint

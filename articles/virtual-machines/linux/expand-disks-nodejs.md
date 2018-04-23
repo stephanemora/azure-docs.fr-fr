@@ -1,12 +1,12 @@
 ---
-title: "Développer le disque du système d’exploitation sur une machine virtuelle Linux avec Azure CLI 1.0 | Microsoft Docs"
-description: "Cet article explique comment développer le disque virtuel du système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface Azure CLI 1.0 et du modèle de déploiement Resource Manager."
+title: Développer le disque du système d’exploitation sur une machine virtuelle Linux avec Azure CLI 1.0 | Microsoft Docs
+description: Cet article explique comment développer le disque virtuel du système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface Azure CLI 1.0 et du modèle de déploiement Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Développer le disque de système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface Azure CLI 1.0
 La taille par défaut de disque virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, mais vous pouvez également développer le disque du système d’exploitation. Cet article vous explique comment développer le disque du système d’exploitation sur une machine virtuelle Linux à l’aide de disques non managés avec l’interface Azure CLI 1.0.
@@ -27,9 +27,10 @@ La taille par défaut de disque virtuel pour le système d’exploitation est g�
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](#prerequisites) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
-- [Azure CLI 2.0](expand-disks.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](expand-disks.md) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 La [dernière version de l’interface Azure CLI 1.0](../../cli-install-nodejs.md) doit être installée et connectée à un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) à l’aide du mode Resource Manager comme suit :
 
 ```azurecli

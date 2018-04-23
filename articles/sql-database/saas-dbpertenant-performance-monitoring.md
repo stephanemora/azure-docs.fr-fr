@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -54,7 +54,7 @@ Les pools et les bases de données qu’ils incluent doivent être surveillés p
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données et les pools. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios de volume important où vous travaillez avec de nombreuses ressources, [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) peut être utilisé. Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Log Analytics peut collecter des données de télémétrie à partir de nombreux services, et être utilisé pour interroger et définir des alertes.
+Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser [Log Analytics](saas-dbpertenant-log-analytics.md). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Log Analytics peut collecter des données de télémétrie à partir de nombreux services, et être utilisé pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 

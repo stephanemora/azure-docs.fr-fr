@@ -4,7 +4,7 @@ description: Vous pouvez utiliser les règles de mise en cache CDN pour définir
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 60693b919fad6808bfe60b504d2a70caf80fbe48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache
 
 > [!NOTE] 
-> Les règles de mise en cache sont disponibles uniquement pour **Azure CDN à partir de Verizon Standard** et **Azure CDN à partir d’Akamai Standard**. Pour **Azure CDN à partir de Verizon Premium**, vous pouvez utiliser le [moteur de règles d’Azure CDN](cdn-rules-engine.md) dans le portail de **gestion** pour une fonctionnalité similaire.
+> Les règles de mise en cache sont disponibles uniquement pour **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai**. Pour **CDN Azure Premium fourni par Verizon**, vous pouvez utiliser le [moteur de règles CDN Azure](cdn-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
  
 Azure Content Delivery Network (CDN) offre deux moyens de contrôler la façon dont les fichiers sont mis en cache : 
 

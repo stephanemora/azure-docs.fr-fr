@@ -16,6 +16,7 @@ Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT H
 | --- | --- |
 | Nombre maximal d’IoT Hubs payants par abonnement Azure |10 |
 | Nombre maximal d’IoT Hubs gratuits par abonnement Azure |1 |
+| Nombre maximal de caractères d’un ID d’appareil | 128 |
 | Nombre maximal d’identités de périphériques<br/> renvoyées dans un seul appel |1 000 |
 | Conservation maximale des messages IoT Hub pour les messages de l’appareil vers le cloud |7 jours |
 | Taille maximale du message appareil-à-cloud |256 KB |

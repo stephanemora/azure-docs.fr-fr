@@ -1,24 +1,24 @@
 ---
-title: "Enregistrement en toute sécurité des paramètres d’application de secret d’une application web | Microsoft Docs"
-description: "Procédure d’enregistrement en toute sécurité des paramètres d’application de secret tels que les informations d’identification Azure ou les clés API tierces à l’aide du fournisseur de Key Vault ASP.NET Core, du secret utilisateur ou des générateurs de configuration .NET 4.7.1"
+title: Enregistrement en toute sécurité des paramètres d’application de secret d’une application web | Microsoft Docs
+description: Procédure d’enregistrement en toute sécurité des paramètres d’application de secret tels que les informations d’identification Azure ou les clés API tierces à l’aide du fournisseur de Key Vault ASP.NET Core, du secret utilisateur ou des générateurs de configuration .NET 4.7.1
 services: visualstudio
-documentationcenter: 
+documentationcenter: ''
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
-ms.service: 
+editor: ''
+ms.assetid: ''
+ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eee882dc52ffc37067916dac29324efe0bc95b03
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
@@ -145,7 +145,7 @@ Suivez les instructions de la section ASP.NET Core pour configurer un Key Vault 
 
 1. Installer le package NuGet suivant dans votre projet
 ```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
 ```
 
 2. Définissez le générateur de configuration de Key Vault dans le fichier Web.config. Placez cette section avant la section *appSettings*. Remplacez *vaultName* par le nom de Key Vault si votre Key Vault se trouve dans Azure public, ou par l’URI complet si vous utilisez un cloud Sovereign.

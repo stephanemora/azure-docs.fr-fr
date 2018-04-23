@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -375,27 +375,13 @@ Pour créer l’équilibrage de charge :
 
 1. Revenez au groupe de ressources Azure contenant les machines virtuelles et recherchez le nouvel équilibrage de charge. Vous devrez peut-être actualiser l’affichage du groupe de ressources. Cliquez sur l’équilibreur de charge.
 
-1. Dans le panneau de l’équilibrage de charge, cliquez sur **Pools principaux**.
+1. Cliquez sur **Pools principaux**, puis sur **+ Ajouter** pour ajouter un pool principal.
 
-1. Cliquez sur **+ Ajouter** pour ajouter un pool principal.
+1. Associez le pool principal au groupe à haute disponibilité contenant les machines virtuelles.
 
-1. Entez un nom pour le pool principal.
+1. Sous **Configurations IP du réseau cible**, cochez **MACHINE VIRTUELLE** et choisissez les machines virtuelles qui participent en tant que nœuds de cluster. Veillez à inclure toutes les machines virtuelles qui hébergeront l’infrastructure ICF. 
 
-1. Cliquez sur **Ajouter une machine virtuelle**.
-
-1. Dans le panneau **Choisir des machines virtuelles**, cliquez sur **Choisir un groupe à haute disponibilité**.
-
-1. Choisissez le groupe à haute disponibilité dans lequel vous avez placé les machines virtuelles SQL Server.
-
-1. Dans le panneau **Choisir des machines virtuelles**, cliquez sur **Choisir les machines virtuelles**.
-
-   Votre portail Azure doit ressembler à l’image suivante :
-
-   ![CréerPoolPrincipalÉquilibrageCharge](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Cliquez sur **Sélectionner** dans le panneau **Choisir des machines virtuelles**.
-
-1. Cliquez sur **OK** deux fois.
+1. Cliquez sur **OK** pour créer le pool principal.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Configurer une sonde d’intégrité d’équilibrage de charge
 

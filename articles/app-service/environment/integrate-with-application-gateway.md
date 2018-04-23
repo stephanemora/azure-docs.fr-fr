@@ -1,5 +1,5 @@
 ---
-title: Intégrer votre environnement App Service ILB à l’aide d’une passerelle d’application
+title: Intégrer votre environnement App Service ILB à l’aide de la passerelle d’application Azure
 description: Procédure pas à pas d’intégration d’une application à votre environnement App Service ILB à l’aide d’une passerelle d’application
 services: app-service
 documentationcenter: na
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Intégrer votre environnement App Service ILB à l’aide d’une passerelle d’application #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Intégrer votre environnement App Service ILB à l’aide de la passerelle d’application Azure #
 
 L’[environnement Azure App Service](./intro.md) est un déploiement d’Azure App Service dans le sous-réseau du réseau virtuel Azure d’un client. Il peut être déployé avec un point de terminaison public ou privé pour accéder aux applications. Le déploiement de l’environnement App Service avec un point de terminaison privé (autrement dit, un équilibreur de charge interne) est appelé un environnement App Service ILB.  
 
-Azure Application Gateway est une appliance virtuelle qui fournit l’équilibrage de charge de couche 7, le déchargement SSL et la protection du pare-feu d’applications web (WAF). Elle peut écouter sur une adresse IP publique et acheminer le trafic jusqu’au point de terminaison de votre application. 
+Les pare-feu d’applications web permettent de sécuriser vos applications web en inspectant le trafic web entrant pour bloquer les injections SQL, les attaques XSS, les téléchargements de programmes malveillants, les attaques DDoS, ainsi que les autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). Vous pouvez obtenir un appareil WAF à partir d’Azure marketplace ou vous pouvez utiliser la [passerelle d’application Azure][appgw].
 
-Les informations suivantes expliquent comment intégrer une passerelle d’application configurée avec le WAF à une application dans un environnement App Service ILB.  
+Azure Application Gateway est une appliance virtuelle qui fournit l’équilibrage de charge de couche 7, le déchargement SSL et la protection du pare-feu d’applications web (WAF). Elle peut écouter sur une adresse IP publique et acheminer le trafic jusqu’au point de terminaison de votre application. Les informations suivantes expliquent comment intégrer une passerelle d’application configurée avec le WAF à une application dans un environnement App Service ILB.  
 
 L’intégration de la passerelle d’application à l’environnement App Service ILB se fait au niveau de l’application. Quand vous configurez la passerelle d’application avec votre environnement App Service ILB, vous le faites pour des applications spécifiques dans cet environnement. Cette technique permet d’héberger des applications mutualisées sécurisées dans un environnement App Service ILB unique.  
 
@@ -33,12 +33,13 @@ L’intégration de la passerelle d’application à l’environnement App Servi
 
 Lors de cette procédure pas à pas, vous allez :
 
-* Créer une passerelle d’application
-* Configurer la passerelle d’application pour pointer vers une application dans votre environnement App Service ILB
+* Créez une passerelle Azure Application Gateway.
+* Configurez la passerelle d’application pour pointer vers une application dans votre environnement App Service ILB.
 * Configurer votre application pour honorer le nom de domaine personnalisé
 * Modifier le nom d’hôte DNS public qui pointe vers votre passerelle d’application
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour intégrer votre passerelle d’application à votre environnement App Service ILB, les éléments suivants sont nécessaires :
 
@@ -109,7 +110,7 @@ Vous ne pouvez pas non plus placer la passerelle dans le sous-réseau que votre 
     
 8. Accédez à la section **Vue d’ensemble** de la passerelle d’application et copiez l’adresse IP publique utilisée par la passerelle d’application. Définissez cette adresse IP en tant qu’enregistrement A pour le nom de domaine de votre application, ou utilisez le nom DNS pour cette adresse dans un enregistrement CNAME. Il est plus facile de sélectionner l’adresse IP publique et de la copier à partir de l’interface utilisateur de l’adresse IP publique que de la copier à partir du lien présent dans la section **Vue d’ensemble** de la passerelle d’application. 
 
-   ![Portail de la passerelle d’application][7]
+   ![Portail Application Gateway][7]
 
 9. Définissez le nom de domaine personnalisé pour votre application dans l’environnement App Service ILB. Accédez à votre application dans le portail et, sous **Paramètres**, sélectionnez **Domaines personnalisés**.
 

@@ -1,10 +1,10 @@
 ---
-title: "Analyse d’une machine virtuelle Linux avec une extension de machine virtuelle | Microsoft Docs"
-description: "Découvrez comment utiliser l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic d’une machine virtuelle Linux dans Azure."
+title: Analyse d’une machine virtuelle Linux avec une extension de machine virtuelle | Microsoft Docs
+description: Découvrez comment utiliser l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic d’une machine virtuelle Linux dans Azure.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux
 
@@ -59,12 +59,13 @@ Cet article se concentre sur la procédure permettant d’activer et de configur
 
 Sachez que les méthodes de configuration décrites ici ne fonctionnent pas pour le portail Azure. Pour afficher et configurer les données sur les performances et système directement depuis le portail Azure, vous devez activer cette extension via le portail.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * **Agent Microsoft Azure Linux version 2.0.6 ou ultérieure**.
 
   Notez que la plupart des images de la galerie Linux de machines virtuelles Azure comprennent la version 2.0.6 ou ultérieure. Vous pouvez exécuter **WAAgent -version** pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure à 2.0.6, vous pouvez suivre [ces instructions sur GitHub](https://github.com/Azure/WALinuxAgent "instructions") pour la mettre à jour.
-* **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../../../cli-install-nodejs.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple :
+* **Interface de ligne de commande Azure**. Suivez [ce guide pour installer l’interface CLI](../../../cli-install-nodejs.md) afin de configurer l’environnement CLI Azure sur votre machine. Une fois que l’interface CLI Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de commande, Terminal ou Bash) pour accéder aux commandes CLI Azure. Par exemple : 
 
   * Exécutez **azure vm extension set --help** pour obtenir une aide détaillée.
   * Exécutez **azure login** pour vous connecter à Azure.

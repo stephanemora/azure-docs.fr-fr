@@ -7,13 +7,13 @@ author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 04/27/2016
+ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 76a8332b99639bacee994824b69624d7fd457a7f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6367418fb07b2ab5b425609540c653678a207ebc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (version préliminaire)
 La fonctionnalité de requête élastique, en version préliminaire, vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données dans Azure SQL Database. Elle vous permet d’effectuer des requêtes de bases de données croisées pour accéder aux tables distantes et à connecter des outils Microsoft et tiers (Excel, PowerBI, Tableau, etc.) pour lancer des requêtes parmi des couches de données avec plusieurs bases de données. Cette fonctionnalité permet de mettre à l’échelle des requêtes à des couches Données de grande taille dans la base de données SQL et de visualiser les résultats dans les rapports de business intelligence (BI).

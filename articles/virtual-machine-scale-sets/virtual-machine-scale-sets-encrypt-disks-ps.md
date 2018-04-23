@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Chiffrer des disques de données attachés et de systèmes d’exploitation dans un groupe de machines virtuelles identiques
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Chiffrer des disques de données joints et de systèmes d’exploitation dans un groupe de machines virtuelles identiques
 Conçue pour protéger les données au repos, Azure Disk Encryption (ADE) est une technologie de chiffrement standard prise en charge par les groupes de machines virtuelles identiques. Le chiffrement peut être activé pour les groupes de machines virtuelles identiques Windows et Linux. Pour plus d’informations, consultez [Azure Disk Encryption pour machines virtuelles Windows et Linux](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
@@ -42,7 +42,7 @@ Cet article nécessite l’utilisation du module Azure PowerShell version 5.3.0
 Inscrivez votre abonnement Azure pour la préversion du chiffrement de disque pour les groupes de machines virtuelles identiques à l’aide de la commande [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) : 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

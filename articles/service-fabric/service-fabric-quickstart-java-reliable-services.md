@@ -1,12 +1,12 @@
 ---
-title: "Créer une application Java Azure Service Fabric | Microsoft Docs"
-description: "Dans le cadre de ce démarrage rapide, vous créez une application Java pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric."
+title: Créer une application Java Azure Service Fabric | Microsoft Docs
+description: Dans le cadre de ce démarrage rapide, vous créez une application Java pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cc5f685efdf3ed680acf4d95185c58b4c43f5ac5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Démarrage rapide : Déployer une application de services fiables Service Fabric de Java sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
@@ -30,13 +30,13 @@ Ce démarrage rapide montre comment déployer votre première application Java d
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
-> [!div class="checklist"]
-> * Utiliser Eclipse comme outil pour vos applications Java Service Fabric
-> * Déployer l’application dans le cluster local 
-> * Déployer l’application sur un cluster dans Azure
-> * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
+* Utiliser Eclipse comme outil pour vos applications Java Service Fabric
+* Déployer l’application dans le cluster local 
+* Déployer l’application sur un cluster dans Azure
+* Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour effectuer ce démarrage rapide :
 1. [Installez le SDK Service Fabric et l’interface CLI Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installez Git](https://git-scm.com/)
@@ -55,7 +55,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer ici : **http://localhost:19080**. Les cinq nœuds sains indiquent que le cluster local est opérationnel. 
+    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080**. Les cinq nœuds sains indiquent que le cluster local est opérationnel. 
     
     ![Cluster local sain](./media/service-fabric-quickstart-java/localclusterup.png)
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![Boîte de dialogue Publier - Local](./media/service-fabric-quickstart-java/localjson.png)
     
-7. Ouvrez votre navigateur web par défaut, puis accédez à l’application ici : **http://localhost:8080**. 
+7. Ouvrez votre navigateur web préféré, puis accédez à l’application à l’adresse **http://localhost:8080**. 
 
     ![Frontend de l’application - Local](./media/service-fabric-quickstart-java/runninglocally.png)
     
@@ -81,21 +81,40 @@ Vous pouvez à présent ajouter un ensemble d’options de vote et commencer à 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurer un cluster Azure Service Fabric
 Pour déployer l’application sur un cluster dans Azure, créez votre propre cluster.
 
-Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric). 
+Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. En outre, ils sont exécutés par l’équipe Service Fabric. Vous pouvez utiliser des clusters tiers pour déployer des applications et en apprendre davantage sur la plateforme. Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud.
 
-Pour effectuer des opérations de gestion sur le cluster tiers sécurisé, vous pouvez utiliser Service Fabric Explorer, CLI ou Powershell. Pour utiliser Service Fabric Explorer, vous devez télécharger le fichier PFX sur le site du cluster tiers et importer le certificat dans votre magasin de certificats (Windows ou Mac) ou dans le navigateur lui-même (Ubuntu). Il n’existe aucun mot de passe pour les certificats auto-signés venant cluster tiers. 
-
-Pour effectuer des opérations de gestion avec Powershell ou CLI, vous avez besoin du fichier PFX (Powershell) ou PEM (CLI). Pour convertir le fichier PFX en un fichier PEM, exécutez la commande suivante :  
-
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
-```
-
-Pour plus d’informations sur la création de votre propre cluster, consultez [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Connectez-vous et rejoignez un [cluster Linux](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Cliquez sur le lien **Lisez-moi** pour obtenir le mot de passe du certificat et les instructions associées à la configuration de plusieurs environnements pour utiliser le certificat. Gardez les pages **d’accueil** et **Lisez-moi** ouvertes, car vous allez suivre certaines des instructions qui y sont affichées dans la procédure ci-après. 
 
 > [!Note]
+> Le nombre de clusters tiers disponibles par heure est limité. Si vous obtenez une erreur lors de votre inscription à un cluster tiers, attendez un peu et réessayez. Vous pouvez également suivre la procédure décrite dans [Didacticiel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) pour créer un cluster dans votre abonnement. 
+>
 > Le service Spring Boot est configuré pour écouter le trafic entrant sur le port 8080. Assurez-vous que ce port est ouvert dans votre cluster. Si vous utilisez le cluster tiers, ce port est ouvert.
 >
+
+Service Fabric propose plusieurs outils que vous pouvez utiliser pour gérer un cluster et ses applications :
+
+- Service Fabric Explorer, un outil reposant sur un navigateur.
+- CLI Service Fabric, qui s’exécute sur Azure CLI 2.0.
+- Commandes PowerShell. 
+
+Dans ce démarrage rapide, vous utilisez la CLI Service Fabric et Service Fabric Explorer. 
+
+Pour utiliser la CLI, vous devez créer un fichier PEM basé sur le fichier PFX que vous avez téléchargé. Pour convertir le fichier, utilisez la commande suivante. (Pour les clusters tiers, vous pouvez copier une commande spécifique à votre fichier PFX dans les instructions de la page **Lisez-moi**.)
+
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ``` 
+
+Pour utiliser Service Fabric Explorer, vous devez importer le fichier PFX du certificat que vous avez téléchargé depuis le site du cluster tiers dans votre magasin de certificats (Windows ou Mac) ou dans le navigateur lui-même (Ubuntu). Vous avez besoin du mot de passe de la clé privée PFX, que vous pouvez obtenir depuis la page **Lisez-moi**.
+
+Utilisez la méthode qui vous convient le mieux pour importer les certificats sur votre système. Par exemple : 
+
+- Sur Windows : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre magasin personnel, `Certificates - Current User\Personal\Certificates`. Vous pouvez également utiliser la commande PowerShell des instructions **Lisez-moi**.
+- Sur Mac : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre application Keychain.
+- Sur Ubuntu : Mozilla Firefox est le navigateur par défaut dans Ubuntu 16.04. Pour importer le certificat dans Firefox, cliquez sur le bouton de menu dans le coin supérieur droit de votre navigateur, puis cliquez sur **Options**. Sur la page **Préférences**, recherchez « certificats » via le champ de recherche. Cliquez sur **Afficher les certificats**, sélectionnez l’onglet **Your Certificates** (Vos certificats), cliquez sur **Importer** et suivez les invites pour importer le certificat.
+ 
+   ![Installer le certificat sur Firefox](./media/service-fabric-quickstart-java/install-cert-firefox.png) 
+
 
 ### <a name="add-certificate-information-to-your-application"></a>Ajout des informations de certificat à votre application
 
@@ -104,7 +123,7 @@ L’empreinte numérique du certificat doit être ajoutée à votre application,
 1. Vous aurez besoin de l’empreinte numérique du certificat dans le fichier ```Voting/VotingApplication/ApplicationManiest.xml``` lors de l’exécution sur un cluster sécurisé. Exécutez la commande suivante pour extraire l’empreinte numérique du certificat.
 
     ```bash
-    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
 2. Dans le ```Voting/VotingApplication/ApplicationManiest.xml```, ajoutez l’extrait de code suivant sous la balise **ApplicationManifest**. Le **X509FindValue** doit être l’empreinte numérique de l’étape précédente (aucun point-virgule). 
@@ -136,16 +155,16 @@ Maintenant que l’application et votre cluster sont prêts, vous pouvez déploy
 
     ![Boîte de dialogue Publier - Cloud](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. Ouvrez votre navigateur web par défaut, puis accédez à l’application ici : **http://\<ConnectionIPOrURL>:8080**. 
+3. Ouvrez votre navigateur web, puis accédez à l’application à l’adresse **http://\<ConnectionIPOrUrl>:8080**. 
 
     ![Frontend de l’application - Cloud](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Mettre à l’échelle les applications et services dans un cluster
-Les services peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Plusieurs méthodes sont disponibles pour mettre à l’échelle vos services. Vous pouvez utiliser des scripts ou des commandes de l’interface CLI de Service Fabric (sfctl). Dans cet exemple, nous utilisons Service Fabric Explorer.
+Les services peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Différentes méthodes sont disponibles pour mettre à l’échelle vos services. Par exemple, vous pouvez utiliser des scripts ou des commandes de la CLI Service Fabric (sfctl). Dans les étapes suivantes, utilisez Service Fabric Explorer.
 
-Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et est accessible à partir d’un navigateur, en accédant au port de gestion HTTP des clusters (19080), par exemple, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et est accessible à partir d’un navigateur, en accédant au port de gestion HTTP (19080) du cluster, par exemple, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 
-Pour mettre à l’échelle le service frontal web, procédez comme suit :
+Pour mettre à l’échelle le service web frontal, procédez comme suit :
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Cliquez sur le bouton de sélection (points de suspension) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis choisissez **Scale Service** (Mettre à l’échelle le service).
@@ -161,17 +180,17 @@ Pour mettre à l’échelle le service frontal web, procédez comme suit :
 
     Vous pouvez maintenant voir que le service a deux instances et, dans l’arborescence, vous voyez les nœuds sur lesquels les instances s’exécutent.
 
-Par cette tâche de gestion simple, nous avons doublé les ressources disponibles pour permettre à notre service frontal de traiter la charge utilisateur. Il est important de comprendre que vous n’avez pas besoin de plusieurs instances d’un service pour que celui-ci s’exécute de manière fiable. En cas de défaillance d’un service, Service Fabric veille à ce qu'une nouvelle instance du service s’exécute dans le cluster.
+Via cette tâche de gestion simple, vous avez doublé les ressources disponibles pour permettre au service frontal de traiter la charge utilisateur. Il est important de comprendre que vous n’avez pas besoin de plusieurs instances d’un service pour que celui-ci s’exécute de manière fiable. En cas de défaillance d’un service, Service Fabric veille à ce qu’une nouvelle instance du service s’exécute dans le cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 
-> [!div class="checklist"]
-> * Utiliser Eclipse comme outil pour vos applications Java Service Fabric
-> * Déployer des applications Java sur votre cluster local 
-> * Déployer des applications Java sur un cluster dans Azure
-> * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
+* Utiliser Eclipse comme outil pour vos applications Java Service Fabric
+* Déployer des applications Java sur votre cluster local 
+* Déployer des applications Java sur un cluster dans Azure
+* Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 
-* En savoir plus sur le [débogage des services dans Java à l’aide d’Eclipse](service-fabric-debugging-your-application-java.md)
-* En savoir plus sur la [configuration de l’intégration et du déploiement continus à l’aide de Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Consulter d’autres [exemples Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+Pour en savoir plus sur l’utilisation des applications Java dans Service Fabric, passez au tutoriel sur les applications Java.
+
+> [!div class="nextstepaction"]
+> [Didacticiel : créer et déployer une application avec un service frontal API Web Java et un service principal avec état](./service-fabric-tutorial-create-java-app.md)

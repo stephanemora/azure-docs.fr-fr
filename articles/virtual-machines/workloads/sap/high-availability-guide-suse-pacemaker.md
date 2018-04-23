@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -280,7 +280,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 1. **[A]** Configurer la résolution de nom d’hôte   
 
    Vous pouvez utiliser un serveur DNS ou modifier le fichier /etc/hosts sur tous les nœuds. Cet exemple montre comment utiliser le fichier /etc/hosts.
-   Remplacez l’adresse IP et le nom d’hôte dans les commandes suivantes
+   Remplacez l’adresse IP et le nom d’hôte dans les commandes suivantes. L’avantage d’utiliser/etc/hosts réside dans le fait que votre cluster devient indépendant du serveur DNS ce qui peut aussi être un point de défaillance unique.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -329,10 +329,16 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Ajoutez le contenu en gras ci-dessous au fichier.
+   Ajoutez le contenu ci-dessous en gras dans le fichier si les valeurs sont absentes ou différentes.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }
@@ -429,7 +435,7 @@ Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (
 
 Répétez les étapes ci-dessus pour le deuxième nœud de cluster.
 
-### <a name="1-create-the-stonith-devices"></a>**[1]**  Créer les appareils STONITH
+### <a name="1-create-the-stonith-devices"></a>**[1]** Créer les appareils STONITH
 
 Une fois que vous avez modifié les autorisations pour les machines virtuelles, vous pouvez configurer les appareils STONITH dans le cluster.
 
@@ -442,7 +448,7 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 
 </code></pre>
 
-### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]**  Créer la topologie d’isolation pour l’isolation SBD
+### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]** Créer la topologie d’isolation pour l’isolation SBD
 
 Si vous souhaitez utiliser un appareil SBD, nous vous recommandons d’utiliser un agent d’isolation Azure en tant que mécanisme de secours en cas d’indisponibilité du serveur cible iSCSI.
 
@@ -451,7 +457,7 @@ sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>
-### **[1] ** Activer l’utilisation d’un appareil STONITH
+### **[1]** Activer l’utilisation d’un appareil STONITH
 
 <pre><code>
 sudo crm configure property stonith-enabled=true 

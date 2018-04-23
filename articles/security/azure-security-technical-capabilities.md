@@ -1,12 +1,12 @@
 ---
-title: "Fonctionnalités techniques de la sécurité Azure | Microsoft Docs"
-description: "Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise."
+title: Fonctionnalités techniques de la sécurité Azure | Microsoft Docs
+description: Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
@@ -132,7 +132,7 @@ Auparavant, les développeurs d’applications qui souhaitaient [inscrire et con
 
 Lorsque vous utilisez Azure Active Directory B2C, vos consommateurs peuvent s’inscrire auprès de vos applications à l’aide de leurs comptes sociaux existants (Facebook, Google, Amazon, LinkedIn) ou en créant des informations d’identification (adresse de messagerie et mot de passe, ou nom d’utilisateur et mot de passe).
 
-#### <a name="device-registration"></a>Inscription d’appareil
+#### <a name="device-registration"></a>Enregistrement de l’appareil
 
 [L’inscription d’appareil Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) constitue la base des scénarios [d’accès conditionnel](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) basé sur les appareils. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour l’authentifier lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
 
@@ -160,13 +160,13 @@ Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 ## <a name="secured-resource-access-in-azure"></a>Accès des ressources sécurisées dans Azure
 
-Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d’un compte Azure accessible par le biais du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) est l’administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du portail Azure. L’administrateur de sécurité par défaut d’un nouvel abonnement est l’administrateur de compte, mais ce dernier peut changer l’administrateur de sécurité dans le Centre des comptes Azure.
+Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d’un compte Azure accessible par le biais du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) est l’administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du portail Azure. L'administrateur de sécurité par défaut d'un nouvel abonnement est l'administrateur de compte, mais ce dernier peut modifier l'administrateur de sécurité dans le Centre des comptes Azure.
 
 ![Accès des ressources sécurisées dans Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
 Les abonnements sont également associés à un annuaire. L’annuaire définit un ensemble d'utilisateurs. Ceux-ci peuvent être des utilisateurs professionnels ou scolaires qui ont créé l’annuaire, ou bien des utilisateurs externes (autrement dit, des comptes Microsoft). Les abonnements sont accessibles par une partie des utilisateurs de l’annuaire qui ont été affectés comme administrateur de service ou comme coadministrateur ; la seule exception est que, pour des raisons d'héritage, les comptes Microsoft (anciennement Windows Live ID) peuvent être affectés comme administrateur de service ou comme co-admistrateur sans être présents dans l’annuaire.
 
-Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le [contrôle d’accès en fonction du rôle (RBAC) dans Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure.
+Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le [contrôle d’accès en fonction du rôle (RBAC) dans Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure.
 
 ![Accès des ressources sécurisées ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -186,7 +186,7 @@ Pour assurer la protection des données dans le cloud, l’un des facteurs clés
 
 Pour appliquer le chiffrement au repos, vous devez effectuer ce qui suit :
 
-Prendre en charge au moins un des modèles de chiffrement recommandés qui sont répertoriés dans le tableau suivant pour chiffrer les données.
+Prend en charge au moins un des modèles de chiffrement recommandés qui sont répertoriés dans le tableau suivant pour chiffrer les données.
 
 | Modèles de chiffrement |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |

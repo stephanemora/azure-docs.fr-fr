@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble du modèle de sécurité et d’authentification Azure Event Hubs| Microsoft Docs"
-description: "Présentation du modèle de sécurité et de l'authentification Event Hubs."
+title: Vue d’ensemble du modèle de sécurité et d’authentification Azure Event Hubs| Microsoft Docs
+description: Présentation du modèle de sécurité et de l'authentification Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
 ms.devlang: na
@@ -94,9 +94,9 @@ Une fois les jetons créés, chaque client est configuré avec son propre jeton 
 
 Lorsque le client envoie des données dans un hub d’événements, il balise sa requête d’envoi avec le jeton. Pour empêcher un intrus de procéder à des écoutes clandestines et de voler le jeton, la communication entre le client et le hub d’événements doit avoir lieu sur un canal chiffré.
 
-### <a name="blacklisting-clients"></a>Inscription des clients sur liste noire
+### <a name="blacklisting-clients"></a>Inscription des clients sur liste rouge
 
-Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un client sur liste noire le rend inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un éditeur différent.
+Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un client sur liste rouge le rend inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un éditeur différent.
 
 ## <a name="authentication-of-back-end-applications"></a>Authentification des applications principales
 
@@ -106,7 +106,7 @@ La version actuelle de Service Bus ne prend pas en charge les règles SAS pour l
 
 En l'absence d'authentification SAS pour les groupes de consommateurs individuels, vous pouvez utiliser des clés SAS pour sécuriser tous les groupes de consommateurs avec une clé commune. Cette approche permet à une application de consommer des données à partir de n’importe quel groupe de consommateurs d’un hub d’événements.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 

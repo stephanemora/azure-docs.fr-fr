@@ -1,28 +1,23 @@
 ---
-title: "Exécuter Azure Functions avec des travaux Azure Stream Analytics | Microsoft Docs"
-description: "Apprenez à configurer Azure Functions comme récepteur de sortie pour les travaux Stream Analytics."
-keywords: "sortie de données, diffusion en continu de données, Azure Functions"
-documentationcenter: 
+title: Exécuter Azure Functions à partir des travaux Azure Stream Analytics
+description: Cet article décrit comment configurer Azure Functions comme récepteur de sortie dans les tâches de Stream Analytics pour les charges de travail générées par les événements.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Exécuter Azure Functions avec des travaux Azure Stream Analytics 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
 
-Vous pouvez exécuter Azure Functions avec Azure Stream Analytics en configurant Functions comme l’un des récepteurs de sortie du travail Stream Analytics. Functions offre une expérience de calcul à la demande basée sur des événements, qui vous permet d’implémenter le code qui est déclenché par les événements qui se produisent dans Azure ou dans des services tiers. Comme ce logiciel peut répondre à des déclencheurs, il constitue l’outil de sortie logique pour des travaux Stream Analytics.
+Vous pouvez exécuter Azure Functions à partir d’Azure Stream Analytics en configurant Functions comme l’un des récepteurs de sortie de la tâche Stream Analytics. Functions offre une expérience de calcul à la demande basée sur des événements, qui vous permet d’implémenter le code qui est déclenché par les événements qui se produisent dans Azure ou dans des services tiers. Comme ce logiciel peut répondre à des déclencheurs, il constitue l’outil de sortie logique pour des travaux Stream Analytics.
 
 Stream Analytics appelle Functions via des déclencheurs HTTP. L’adaptateur de sortie de Functions permet aux utilisateurs de connecter Functions à Stream Analytics, de telle sorte que les événements puissent être déclenchés en fonction des requêtes Stream Analytics. 
 

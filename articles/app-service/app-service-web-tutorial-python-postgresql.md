@@ -1,6 +1,6 @@
 ---
-title: "Créer une application web Python et PostgreSQL dans Azure | Microsoft Docs"
-description: "Découvrez comment faire fonctionner une application Python dans Azure en établissant une connexion à une base de données PostgreSQL."
+title: Créer une application web Python et PostgreSQL dans Azure | Microsoft Docs
+description: Découvrez comment faire fonctionner une application Python dans Azure en établissant une connexion à une base de données PostgreSQL.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f53ffdaa6c99d63bdab91f30ffa6b2b182c53848
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Créer une application web Python et PostgreSQL dans Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Tutoriel : Créer une application web Python et PostgreSQL dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application web Docker Python et PostgreSQL dans Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -42,6 +42,7 @@ Vous pouvez suivre les étapes de ce didacticiel sur macOS. Les instructions pou
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 
@@ -168,19 +169,19 @@ Lorsque le serveur de base de données Azure pour PostgreSQL est créé, l’int
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Exécutez la commande Azure CLI suivante pour autoriser l’accès à la base de données à partir de toutes les adresses IP.
+Exécutez la commande Azure CLI suivante pour autoriser l’accès à la base de données à partir de toutes les adresses IP. Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0 --name AllowAzureIPs
 ```
 
 L’interface Azure CLI confirme la création de la règle de pare-feu avec une sortie similaire à celle-ci :
 
 ```json
 {
-  "endIpAddress": "255.255.255.255",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
-  "name": "AllowAllIPs",
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
+  "name": "AllowAzureIPs",
   "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
@@ -226,7 +227,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Accédez à http://localhost:5000 dans un navigateur. Cliquez sur **S’inscrire** et créez une inscription de test. Vous écrivez maintenant des données dans la base de données dans Azure.
+Dans un navigateur, accédez à http://localhost:5000. Cliquez sur **S’inscrire** et créez une inscription de test. Vous écrivez maintenant des données dans la base de données dans Azure.
 
 ![Application Python Flask s’exécutant localement](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 

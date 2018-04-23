@@ -1,16 +1,31 @@
-
-
-
-**Dernière mise à jour du document** : 6 mars, 10h00 PST.
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/03/2018
+ms.author: cynthn;kareni
+ms.custom: include file
+ms.openlocfilehash: 81357bce92bb8bd2f77f7aaabc8e3b1d49047a1b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/05/2018
+---
+**Dernière mise à jour du document** : 3 avril, 15h00 PST.
 
 La divulgation récente d’une [nouvelle classe de vulnérabilités de processeur](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) appelées attaques par canal latéral de l’exécution spéculative a généré des questions de la part de clients recherchant plus d’explications.  
 
-L’infrastructure qui exécute Azure et isole les différentes charges de travail des clients est protégée.  Cela signifie que d’autres clients utilisant Azure ne peuvent pas attaquer votre application avec ces vulnérabilités.
+Microsoft a déployé des solutions d’atténuation des risques sur l’ensemble de ses services cloud. L’infrastructure qui exécute Azure et isole les différentes charges de travail des clients est protégée.  Cela signifie que d’autres clients utilisant Azure ne peuvent pas attaquer votre application avec ces vulnérabilités.
+
+En outre, Azure étend autant que possible l’utilisation des mécanismes de [maintenance avec préservation de la mémoire](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance), en interrompant la machine virtuelle jusqu’à 30 secondes pendant la mise à jour de l’hôte ou le déplacement de la machine virtuelle vers un hôte déjà mis à jour.  La maintenance avec préservation de la mémoire réduit l’impact sur le client et évite les redémarrages du système.  Azure utilisera ces méthodes lorsque des mises à jour de l’hôte à l’échelle du système.
 
 > [!NOTE] 
-> Fin février 2018, Intel Corporation a publié un [Guide de révision du microcode](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) mis à jour sur l’état de ses versions de microcode, qui permettent d’améliorer la stabilité et d’atténuer les vulnérabilités récentes communiquées par [l’équipe Project Zero de Google](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Les solutions d’atténuation des risques Azure présentées le [3 janvier 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) ne sont pas affectées par la mise à jour du microcode d’Intel. Microsoft a déjà mis en place des mesures d’atténuation solides pour protéger les clients Azure d’autres locataires Azure.  
+> Fin février 2018, Intel Corporation a publié un [Guide de révision du microcode](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) mis à jour sur l’état de ses versions de microcode, qui permettent d’améliorer la stabilité et d’atténuer les vulnérabilités récentes communiquées par [l’équipe Project Zero de Google](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Les solutions d’atténuation des risques Azure présentées le [3 janvier 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) ne sont pas affectées par la mise à jour du microcode d’Intel. Microsoft a déjà mis en place des mesures d’atténuation solides pour protéger les clients Azure d’autres machines virtuelles Azure.  
 >
-> Le microcode d’Intel cible la variante 2 de Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) pour vous protéger contre les attaques applicables uniquement à l’emplacement où vous exécutez des charges de travail partagées ou non approuvées dans vos machines virtuelles sur Azure. Nos ingénieurs testent la stabilité du microcode pour minimiser son impact sur les performances, avant de le mettre à la disposition des clients Azure.  Comme très peu de clients exécutent des charges de travail non approuvées dans leurs machines virtuelles, la plupart des clients n’ont pas besoin d’activer cette fonctionnalité une fois publiée. 
+> Le microcode d’Intel cible la variante 2 de Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) ou injection de cible de branche) pour vous protéger contre les attaques applicables uniquement à l’emplacement où vous exécutez des charges de travail partagées ou non approuvées dans vos machines virtuelles sur Azure. Nos ingénieurs testent la stabilité du microcode pour minimiser son impact sur les performances, avant de le mettre à la disposition des clients Azure.  Comme très peu de clients exécutent des charges de travail non approuvées dans leurs machines virtuelles, la plupart des clients n’ont pas besoin d’activer cette fonctionnalité une fois publiée. 
 >
 > Cette page sera mise à jour dès que d’autres informations seront disponibles.  
 
@@ -21,7 +36,7 @@ L’infrastructure qui exécute Azure et isole les différentes charges de trava
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Maintien à jour de vos systèmes d’exploitation
 
-Alors qu’une mise à jour du système d’exploitation n’est pas nécessaire pour isoler vos applications s’exécutant sur Azure des autres clients utilisant Azure, il est toujours judicieux de maintenir vos versions de système d’exploitation à jour. 
+Alors qu’une mise à jour du système d’exploitation n’est pas nécessaire pour isoler vos applications s’exécutant sur Azure des autres clients utilisant Azure, il est toujours judicieux de maintenir vos versions de système d’exploitation à jour. Les [correctifs cumulatifs de sécurité pour Windows](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) publiés depuis janvier 2018 contiennent des solutions d’atténuation des risques pour ces vulnérabilités.
 
 Vous trouverez ci-dessous nos actions recommandées pour mettre à jour votre système d’exploitation en fonction des offres suivantes : 
 
@@ -49,7 +64,7 @@ Aucune action supplémentaire n’est requise de la part du client, sauf si vous
 
 
 ### <a name="windows"></a>Windows 
-Si vous utilisez Windows et hébergez du code non approuvé, vous devez également activer une fonctionnalité Windows appelée Kernel Virtual Address (KVA) Shadowing (Copie shadow d’adresse virtuelle du noyau), qui fournit une protection supplémentaire contre les vulnérabilités par canal latéral de l’exécution spéculative. Par défaut, cette fonctionnalité est désactivée ; en cas d’activation, elle peut avoir des conséquences sur les performances. Suivez les instructions de [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour l’activation des protections sur le serveur. Si vous exécutez Azure Cloud Services, vérifiez que vous utilisez WA-GUEST-OS-5.15_201801-01 ou WA-GUEST-OS-4.50_201801-01 (disponible à partir du 10 janvier 2018) et activez la clé de Registre via une tâche de démarrage.
+Si vous utilisez Windows et hébergez du code non approuvé, vous devez également activer une fonctionnalité Windows appelée Kernel Virtual Address (KVA) Shadowing (Copie shadow d’adresse virtuelle du noyau), qui fournit une protection supplémentaire contre les vulnérabilités par canal latéral de l’exécution spéculative (en particulier pour la variante 3 Meltdown, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754) ou chargement du cache de données non fiables). Par défaut, cette fonctionnalité est désactivée ; en cas d’activation, elle peut avoir des conséquences sur les performances. Suivez les instructions de [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour l’activation des protections sur le serveur. Si vous exécutez Azure Cloud Services, vérifiez que vous utilisez WA-GUEST-OS-5.15_201801-01 ou WA-GUEST-OS-4.50_201801-01 (disponible à partir du 10 janvier 2018) et activez la clé de Registre via une tâche de démarrage.
 
 
 ### <a name="linux"></a>Linux

@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparaison des fonctionnalités d’Azure SQL Database comparées à celles de SQL Server 
 
@@ -45,7 +45,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Modifier la capture de données](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Non  | OUI |
 | [Suivi des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | OUI |OUI |
 | [Instructions de classement](https://docs.microsoft.com/sql/t-sql/statements/collations) | OUI | OUI |
-| [Index Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Oui : [niveaux Premium et Standard - S3 et versions supérieures](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |OUI |
+| [Index Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Oui - [niveau Premium, niveau Standard - S3 et supérieur, niveau Usage général et niveaux Critique pour l’entreprise](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |OUI |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Non  | Oui - voir [Différences CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de données à relation contenant-contenu](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | OUI | OUI |
 | [Utilisateurs contenus](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | OUI | OUI |
@@ -82,7 +82,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Géorestauration](sql-database-recovery-using-backups.md#geo-restore) | OUI | Non, vous pouvez restaurer les sauvegardes complètes COPY_ONLY que vous effectuez régulièrement - consultez [Différences entre sauvegardes](sql-database-managed-instance-transact-sql-information.md#backup) et [Restaurer les différences](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Géoréplication](sql-database-geo-replication-overview.md) | OUI | Non  |
 | [Traitement de graphe](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | OUI | OUI |
-| [Optimisation en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Oui - [Édition Premium uniquement](sql-database-in-memory.md) | Non  |
+| [Optimisation en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Oui - [niveaux Premium et Critique pour l’entreprise uniquement](sql-database-in-memory.md) | Non  |
 | [Prise en charge des données JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | OUI | OUI |
 | [Éléments de langage](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | La plupart - voir Éléments individuels |  Oui - voir [Différences de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Serveurs liés](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non - voir [Requête élastique](sql-database-elastic-query-horizontal-partitioning.md) | Uniquement sur SQL Server |
@@ -114,13 +114,13 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Instructions SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | La plupart - voir Instructions individuelles | Oui - voir [Différences de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | OUI | OUI |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | OUI | OUI |
-| [Synchronisation des données SQL](sql-database-get-started-sql-data-sync.md) | OUI | OUI |
+| [Synchronisation des données SQL](sql-database-get-started-sql-data-sync.md) | OUI | Non  |
 | [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | OUI | OUI |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Non. Voir [Tâches élastiques](sql-database-elastic-jobs-getting-started.md). | Oui - voir [Différences entre agents SQL Server](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Non - voir [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Non - voir [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Audit SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Non - voir [Audit de base de données SQL](sql-database-auditing.md) | Oui - voir [Vérification des différences](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | OUI | OUI |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Partielle – le développement de packages dans SQL Server Data Tools n’est pas pris en charge. | Non, pas dans la version préliminaire publique |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Oui, avec les services SSIS managés dans un environnement Azure Data Factory (ADF), dans lequel les packages sont stockés dans la base de données SSISDB hébergée par Azure SQL Database et exécutée sur [Azure SSIS Integration Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Oui, avec les services SSIS managés dans un environnement Azure Data Factory (ADF), dans lequel les packages sont stockés dans la base de données SSISDB hébergée par Managed Instance et exécutée sur [Azure SSIS Integration Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | OUI | OUI |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | OUI | OUI |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Non - voir [Événements étendus](sql-database-xevent-db-diff-from-svr.md) | OUI |

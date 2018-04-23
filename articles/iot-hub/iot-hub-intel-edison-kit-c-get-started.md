@@ -1,26 +1,26 @@
 ---
-title: "Intel Edison vers le cloud (C) - Connecter Intel Edison à Azure IoT Hub | Microsoft Docs"
-description: "Dans ce didacticiel, découvrez comment configurer et connecter Intel Edison à Azure IoT Hub pour lui permettre d’envoyer des données à la plateforme cloud Azure."
+title: Intel Edison vers le cloud (C) - Connecter Intel Edison à Azure IoT Hub | Microsoft Docs
+description: Dans ce didacticiel, découvrez comment configurer et connecter Intel Edison à Azure IoT Hub pour lui permettre d’envoyer des données à la plateforme cloud Azure.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "azure iot intel edison, intel edison iot hub, intel edison envoyer des données vers le cloud, intel edison vers le cloud"
+tags: ''
+keywords: azure iot intel edison, intel edison iot hub, intel edison envoyer des données vers le cloud, intel edison vers le cloud
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a1ed0a42fe323183b8985e1530ef102552ae7d6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Connecter Intel Edison à Azure IoT Hub (C)
 

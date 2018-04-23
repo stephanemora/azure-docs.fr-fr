@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f306eba91adf574f8bb20b2aa459f890b97bb732
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Utiliser PowerShell pour mettre à jour le schéma de synchronisation dans un groupe de synchronisation existant
 
@@ -35,7 +35,7 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 Cet exemple requiert le module Azure PowerShell version 4.2 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="examples"></a>Exemples
 
@@ -98,7 +98,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 -   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](../sql-database-sync-data.md)
 -   [Configurer Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
 -   [Bonnes pratiques pour Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Surveiller Azure SQL Data Sync avec Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

@@ -1,32 +1,29 @@
 ---
 title: Limites de service d’Azure Search | Microsoft Docs
 description: Limites de service permettant de planifier la capacité et limites maximales des requêtes et réponses de la Recherche Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
+manager: cgronlun
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: fb2234e79e8deb98a94068f31a40c8f0b415d7ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 23f67099bff7cdadcee44eed50e9944ecf7c5672
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
-Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent du niveau tarifaire (**Gratuit**, **De base** ou **Standard**) de la [Recherche Azure](search-create-service-portal.md).
+Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [provisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base** ou **Standard**.
 
-* **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. 
-* Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
-* Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard apparaît dans : S1, S2, S3 et S3 Haute densité (S3 HD).
++ **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure.
+
++ Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
+
++ Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard apparaît dans quatre catégories : S1, S2, S3 et S3 HD.
+
+  La catégorie S3 HD (S3 High Density) est conçue pour des charges de travail spécifiques : [une architecture multilocataire](search-modeling-multitenant-saas-applications.md) et de grandes quantités de petits index (un million de documents par index, trois mille index par service). Elle ne fournit pas la [fonctionnalité d’indexeur](search-indexer-overview.md). Dans S3 HD, l’ingestion des données doit tirer parti de l’approche push en appelant des API pour envoyer (push) les données de la source vers l’index. 
 
 > [!NOTE]
 > Un service est approvisionné à un niveau spécifique. Si vous avez besoin de passer au niveau supérieur pour obtenir plus de capacité, vous devez provisionner un nouveau service (la mise à niveau sur place n’est pas disponible). Pour en savoir plus, consultez [Choisir une référence (SKU) ou un niveau tarifaire](search-sku-tier.md). Pour en savoir plus sur le réglage de capacité dans un service que vous avez déjà approvisionné, consultez [Mettre à l’échelle des niveaux de ressources pour interroger et indexer les charges de travail](search-capacity-planning.md).
@@ -35,41 +32,76 @@ Les limites maximales de stockage, de charges de travail et de quantités d’in
 ## <a name="subscription-limits"></a>Limites d’abonnement
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="service-limits"></a>Limites du service
+## <a name="storage-limits"></a>Limites de stockage
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
+
+<a name="index-limits"></a>
 
 ## <a name="index-limits"></a>Limites d’index
 
-| Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Nombre maximal de champs par index |1 000 |100 <sup>1</sup> |1 000 |1 000 |1 000 |1 000 |
+| Ressource | Gratuit | De base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
+| -------- | ---- | ------------------- | --- | --- | --- | --- |
+| Nombre maximal d’index |3 |5 ou 15 |50 |200 |200 |1 000 par partition ou 3 000 par service |
+| Nombre maximal de champs par index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |
 | Nombre maximal de profils de score par index |100 |100 |100 |100 |100 |100 |
 | Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> Le niveau de base est la seule référence soumise à une limite inférieure de 100 champs par index.
+<sup>1</sup> La limite des services De base créés après fin 2017 a augmenté et atteint 15 index, sources de données et indexeurs. Celle des services créés avant est à 5. Le niveau De base est la seule référence soumise à une limite inférieure de 100 champs par index.
+
+## <a name="document-limits"></a>Limites du document 
+
+Dans la plupart des régions, les niveaux tarifaires du service Recherche Azure (De base, S1, S2, S3, S3 HD) proposent un nombre illimité de documents pour tous les services créés après novembre/décembre 2017. Cette section identifie les régions où les limites s’appliquent et explique comment déterminer si votre service est affecté. 
+
+Pour savoir si votre service a un nombre limité de documents, consultez la vignette Utilisation dans la page de présentation de votre service. Les nombres de documents sont illimités ou soumis à une limite établie en fonction du niveau.
+
+  ![Mosaïque Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+### <a name="regions-and-services-having-document-limits"></a>Régions et services ayant des limites de documents
+
+Les services avec des limites ont été créés avant fin 2017, ou s’exécutent dans des centres de données qui utilisent des clusters de plus faible capacité pour l’hébergement des services Recherche Azure. Les centres de données affectés se trouvent dans les régions suivantes :
+
++ Est de l’Australie
++ Est de l'Asie
++ Inde centrale
++ Ouest du Japon
++ Centre-Ouest des États-Unis
+
+Pour les services soumis aux limites de document, les limites maximales suivantes s’appliquent :
+
+|  Gratuit | De base | S1 | S2 | S3 | S3&nbsp;HD |
+|-------|-------|----|----|----|-------|
+|  10 000 |1 million |15 millions par partition ou 180 millions par service |60 millions par partition ou 720 millions par service |120 millions par partition ou 1,4 milliard par service |1 million par index ou 200 millions par partition |
+
+> [!Note] 
+> Pour les services haute densité S3 créés après fin 2017, la limite à 200 millions de documents par partition a été retirée, mais pas la limite à 1 million.
+
+
+### <a name="document-size-limits-per-api-call"></a>Limites de taille de document par appel d’API
+
+La taille maximale d’un document lors de l’appel d’une API d’index est d’environ 16 mégaoctets.
+
+La taille du document est en fait une limite de taille du corps de requête de l’API d’index. Étant donné que vous pouvez transmettre en une seule fois un lot de plusieurs documents à l’API d’index, la limite de taille dépend en réalité du nombre de documents présents dans le lot. Pour un lot comprenant un seul document, la taille maximale du document est de 16 Mo de JSON.
+
+Pour réduire la taille du document, pensez à exclure de la requête les données non requêtables. Les images et autres données binaires ne sont pas directement requêtables et ne doivent pas être stockées dans l’index. Pour intégrer les données non requêtables dans les résultats de la recherche, définissez un champ sans possibilité de recherche qui stocke une référence URL à la ressource.
 
 ## <a name="indexer-limits"></a>Limites de l’indexeur
 
-| Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A <sup>1</sup> |
-| Durée maximale d’exécution | 1-3 minutes <sup>2</sup> |24 heures |24 heures |24 heures |24 heures |N/A <sup>1</sup> |
-| Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A <sup>1</sup> |
-| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |N/A <sup>1</sup> |
+La limite des services De base créés après fin 2017 a augmenté à 15 index, sources de données et indexeurs.
 
-<sup>1</sup> S3 HD ne prend actuellement pas en charge les indexeurs. Contactez le support Azure si vous avez un besoin urgent de cette fonctionnalité.
+| Ressource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
+| Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |N/A |
+| Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |N/A |
+| Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A |
+| Durée maximale d’exécution | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |
+| Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |
+| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |N/A |
 
-<sup>2</sup> La durée d’exécution maximale de l’indexeur pour le niveau Gratuit est de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données.
+<sup>1</sup> Les services du niveau Gratuit bénéficient d’une durée d’exécution maximale de l’indexeur de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données.
 
+<sup>2</sup> La limite des services De base créés après fin 2017 a augmenté pour atteindre 15 index, sources de données et indexeurs. Celle des services créés avant est à 5.
 
-## <a name="document-size-limits"></a>Limites de taille des documents
-| Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Taille de chaque document par API d’index |< 16 Mo |< 16 Mo |< 16 Mo |< 16 Mo |< 16 Mo |< 16 Mo |
-
-Indique la taille maximum du document lors de l’appel d’une API d’index. La taille du document est en fait une limite de taille du corps de requête de l’API d’index. Étant donné que vous pouvez transmettre en une seule fois un lot de plusieurs documents à l’API d’index, la limite de taille dépend en fait du nombre de documents dans le lot. Pour un lot comprenant un seul document, la taille maximale du document est de 16 Mo de JSON.
-
-Pour réduire la taille du document, pensez à exclure de la requête les données non requêtables. Les images et autres données binaires ne sont pas directement requêtables et ne doivent pas être stockées dans l’index. Pour intégrer les données non requêtables dans les résultats de la recherche, définissez un champ sans possibilité de recherche qui stocke une référence URL à la ressource.
+<sup>3</sup> Les services S3 HD ne comprennent pas de prise en charge de l’indexeur.
 
 ## <a name="queries-per-second-qps"></a>Requêtes par seconde
 

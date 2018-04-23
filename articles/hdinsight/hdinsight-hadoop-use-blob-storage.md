@@ -1,9 +1,9 @@
 ---
-title: "Interroger des données depuis un stockage Azure compatible avec HDFS - Azure HDInsight | Microsoft Docs"
-description: "Apprenez à interroger des données depuis un stockage Azure et Azure Data Lake Store pour stocker les résultats de votre analyse."
-keywords: "stockage blob,hdfs,données structurées,données non structurées,data lake store,entrée Hadoop,sortie Hadoop,stockage hadoop,entrée hdfs,sortie hdfs,stockage hdfs, wasb azure"
+title: Interroger des données depuis un stockage Azure compatible avec HDFS - Azure HDInsight | Microsoft Docs
+description: Apprenez à interroger des données depuis un stockage Azure et Azure Data Lake Store pour stocker les résultats de votre analyse.
+keywords: stockage blob,hdfs,données structurées,données non structurées,data lake store,entrée Hadoop,sortie Hadoop,stockage hadoop,entrée hdfs,sortie hdfs,stockage hdfs, wasb azure
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 7e60e33330357d08d69e3372fd3eea1aadb4a141
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 60b9f7f7a60872bd7d151d7ec890ba3a77be9263
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -126,7 +126,7 @@ Si vous avez [installé et configuré Azure PowerShell][powershell-install], vou
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
 
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionID
 
     # Create resource group
@@ -220,7 +220,7 @@ Le script suivant télécharge un objet blob de blocs vers le dossier actuel. Av
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
     # Use Add-AzureAccount if you haven't connected to your Azure subscription
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
     Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
 
     Write-Host "Create a context object ... " -ForegroundColor Green

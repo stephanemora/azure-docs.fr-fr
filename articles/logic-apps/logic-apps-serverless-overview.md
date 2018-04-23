@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble d’une application sans serveur dans Azure | Documents Microsoft"
-description: "Créez des solutions puissantes dans le cloud sans avoir à penser à l’infrastructure."
-keywords: 
+title: Vue d’ensemble d’une application sans serveur dans Azure | Documents Microsoft
+description: Créez des solutions puissantes dans le cloud sans avoir à penser à l’infrastructure.
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Vue d’ensemble d’une application sans serveur dans Azure avec Functions et Logic Apps
 
@@ -45,7 +45,7 @@ Pour commencer avec Logic Apps, [créez votre première application logique](qui
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Comment puis-je créer et déployer des applications sans serveur dans Azure ?
 
-Azure fournit un ensemble complet d’outils pour le développement, le déploiement et la gestion des applications sans serveur.  Les applications peuvent être créées directement dans le portail Azure ou avec les [outils de Visual Studio](logic-apps-serverless-get-started-vs.md).  Une fois qu’une application a été développée, elle peut être [déployée immédiatement](logic-apps-create-deploy-template.md).  Azure fournit également une surveillance pour les applications sans serveur.  Vous pouvez accéder à cette surveillance à partir du portail Azure, via l’API ou les kits de développement logiciel, ou avec des outils intégrés à OMS et Application Insights.
+Azure fournit un ensemble complet d’outils pour le développement, le déploiement et la gestion des applications sans serveur.  Les applications peuvent être créées directement dans le portail Azure ou avec les [outils de Visual Studio](logic-apps-serverless-get-started-vs.md).  Une fois qu’une application a été développée, elle peut être [déployée immédiatement](logic-apps-create-deploy-template.md).  Azure fournit également une surveillance pour les applications sans serveur.  Vous pouvez accéder à cette surveillance à partir du portail Azure, par l’intermédiaire de l’API ou des kits SDK, ou avec des outils intégrés à Log Analytics et à Application Insights.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

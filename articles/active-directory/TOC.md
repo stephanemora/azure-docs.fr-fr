@@ -56,6 +56,7 @@
 #### [E-mail d’invitation](active-directory-b2b-invitation-email.md)
 #### [Échange d’invitation](active-directory-b2b-redemption-experience.md)
 #### [Ajouter des utilisateurs B2B sans invitation](active-directory-b2b-add-user-without-invite.md)
+#### [Autoriser ou bloquer des invitations](active-directory-b2b-allow-deny-list.md)
 #### [Accès conditionnel pour B2B](active-directory-b2b-mfa-instructions.md)
 #### [Stratégies de partage B2B](active-directory-b2b-delegate-invitations.md)
 #### [Ajouter un utilisateur B2B à un rôle](active-directory-b2b-add-guest-to-role.md)
@@ -133,24 +134,24 @@
 #### [Utilisation des certificats](active-directory-reporting-api-with-certificates.md)
 
 ## Gestion des mots de passe
-### [Vue d’ensemble des mots de passe](active-directory-passwords-overview.md)
+### [Vue d’ensemble des mots de passe](authentication/active-directory-passwords-overview.md)
 ### Documents utilisateur
 #### [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)
 #### [Meilleures pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
-### [Fonctionnement SSPR](active-directory-passwords-how-it-works.md)
-### [Guide de déploiement SSPR](active-directory-passwords-best-practices.md)
+### [Fonctionnement SSPR](authentication/concept-sspr-howitworks.md)
+### [Guide de déploiement SSPR](authentication/howto-sspr-deployment.md)
 ### [SSPR et Windows 10](active-directory-passwords-login.md)
-### [Stratégies SSPR](active-directory-passwords-policy.md)
-### [Personnalisation SSPR](active-directory-passwords-customize.md)
-### [Spécifications des données SSPR](active-directory-passwords-data.md)
-### [SSPR Reporting](active-directory-passwords-reporting.md)
+### [Stratégies SSPR](authentication/concept-sspr-policy.md)
+### [Personnalisation SSPR](authentication/concept-sspr-customization.md)
+### [Spécifications des données SSPR](authentication/howto-sspr-authenticationdata.md)
+### [SSPR Reporting](authentication/howto-sspr-reporting.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
 #### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
-### [Licence SSPR](active-directory-passwords-licensing.md)
+### [Licence SSPR](authentication/concept-sspr-licensing.md)
 ### [Réécriture du mot de passe](active-directory-passwords-writeback.md)
-### [Résolution des problèmes](active-directory-passwords-troubleshoot.md)
-### [FORUM AUX QUESTIONS](active-directory-passwords-faq.md)
+### [Résolution des problèmes](authentication/active-directory-passwords-troubleshoot.md)
+### [FORUM AUX QUESTIONS](authentication/active-directory-passwords-faq.md)
 
 
 ## Gérer des appareils
@@ -311,7 +312,7 @@
 #### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Condition d’emplacement](active-directory-conditional-access-locations.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Démarrer](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
@@ -327,13 +328,10 @@
 #### [Référence technique](active-directory-conditional-access-technical-reference.md)
 #### [FAQ](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [S’authentifier sans mots de passe](active-directory-azureadjoin-passport.md)
-#### [Activer Windows Hello Entreprise](active-directory-azureadjoin-passport-deployment.md)
 ### Authentification par certificat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Prise en main](active-directory-certificate-based-authentication-get-started.md)
+#### [Démarrer](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Activer](active-directory-identityprotection-enable.md)

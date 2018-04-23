@@ -3,9 +3,8 @@ title: Didacticiel Power BI pour le connecteur Azure Cosmos DB | Microsoft Docs
 description: Utilisez ce didacticiel Power BI pour importer JSON, créer des rapports et visualiser les données à l’aide du connecteur Power BI et Azure Cosmos DB.
 keywords: didacticiel power BI, visualiser les données, connecteur Power BI
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Didacticiel Power BI pour Azure Cosmos DB : visualiser les données à l’aide du connecteur Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) est un service en ligne qui vous permet de créer et partager des tableaux de bord et des rapports à partir de données véritablement significatives pour vous et votre organisation.  Power BI Desktop est un outil de création de rapports dédié qui vous permet de récupérer des données à partir de diverses sources, de les fusionner et de les transformer, de créer de puissants rapports et visualisations, puis de publier ces rapports sur Power BI.  Grâce à la dernière version de Power BI Desktop, vous pouvez maintenant vous connecter à votre compte Azure Cosmos DB via le connecteur Azure Cosmos DB pour Power BI.   

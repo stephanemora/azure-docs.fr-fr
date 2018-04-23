@@ -1,13 +1,13 @@
 ---
-title: "Créer une Function App à l’aide du Portail Azure | Microsoft Docs"
-description: "Créez une Function App dans Azure App Service à l’aide du portail."
+title: Créer une Function App à l’aide du Portail Azure | Microsoft Docs
+description: Créez une Function App dans Azure App Service à l’aide du portail.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 4716d29a7b8c0830e2311398f033f8358ef24529
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Créer une Function App à l’aide du Portail Azure
 
 Azure Function App utilise l’infrastructure Azure App Service. Cette rubrique vous montre comment créer une Function App dans le Portail Azure. Une Function App est un conteneur qui héberge l’exécution de fonctions individuelles. Lorsque vous créez une Function App dans le plan d’hébergement App Service, elle peut utiliser toutes les fonctionnalités d’App Service.
 
-## <a name="create-a-function-app"></a>Créer une Function App
+## <a name="create-a-function-app"></a>Créer une application de fonction
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -51,7 +51,7 @@ Lorsque vous créez une Function App dans App Service, vous devez créer ou éta
 >[!NOTE]
 >Lorsque vous utilisez le plan d’hébergement de la consommation, les fichiers de code de fonction et de configuration de liaison sont stockés sur le Stockage Fichier Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
 
-Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
+Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#azure-storage-services). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

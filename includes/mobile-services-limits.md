@@ -3,7 +3,7 @@
 | --- | --- | --- | --- |
 | Appels de l’API |500 K |1,5 M/unité |15 M/unité |
 | Appareils actifs |500 |Illimité |Illimité |
-| Mettre à l'échelle |N/A |Jusqu’à 6 unités |Nombre illimité d’unités |
+| Scale |N/A |Jusqu’à 6 unités |Nombre illimité d’unités |
 | Notifications Push |Niveau gratuit de notifications Hubs inclus, jusqu’à 1 million de pushes |Niveau de base de notifications Hubs inclus, jusqu’à 10 millions de pushes |Niveau Standard de notifications Hubs inclus, jusqu’à 10 millions de pushes |
 | Messagerie en temps réel/<br/>Web Sockets |Limité |350/service mobile |Illimité |
 | Synchronisations hors connexion |Limité |Inclus |Inclus |

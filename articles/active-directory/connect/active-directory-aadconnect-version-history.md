@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -49,6 +49,7 @@ Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?
 #### <a name="fixed-issues"></a>Problèmes résolus
 
 * Auparavant, la cmdlet Set-ADSyncAutoUpgrade bloquait la mise à niveau automatique lorsqu’elle était dans l’état Suspendu. Ce comportement a été modifié pour éviter de bloquer la mise à niveau automatique des versions futures.
+* Modification de l’option de la page **Connexion utilisateur** de « Synchronisation du mot de passe » à « Synchronisation du hachage du mot de passe ».  Azure AD Connect synchronise les hachages de mot de passe, et non les mots de passe, afin d’être en phase avec ce qui se produit réellement.  Pour plus d’informations, consultez [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 
 ## <a name="117490"></a>1.1.749.0
 État : version publiée à l’intention d’un panel de clients
@@ -558,7 +559,7 @@ Synchronisation d’Azure AD Connect
   * Ajout de **userType** au schéma Metaverse et au schéma du connecteur AAD. Les clients désireux de mettre à jour les attributs dans Azure AD peuvent implémenter des règles de synchronisation personnalisées à cette fin.
 
 * Azure AD Connect permet désormais l’utilisation de l’attribut ConsistencyGuid en tant qu’attribut sourceAnchor pour les objets Active Directory locaux. En outre, Azure AD Connect remplit l’attribut ConsistencyGuid avec la valeur de l’attribut objectGuid s’il est vide. Cette fonctionnalité s’applique uniquement au nouveau déploiement. Pour en savoir plus sur cette fonctionnalité, voir la section de l’article [Principes de conception Azure AD Connect - Utilisation de msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* Une nouvelle applet de commande de dépannage Invoke-ADSyncDiagnostics a été ajoutée pour faciliter le diagnostic des problèmes de synchronisation de hachage de mot de passe. Pour en savoir sur l’utilisation de la cmdlet, reportez-vous à l’article [Résolution des problèmes de synchronisation de mot de passe avec Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* Une nouvelle applet de commande de dépannage Invoke-ADSyncDiagnostics a été ajoutée pour faciliter le diagnostic des problèmes de synchronisation de hachage de mot de passe. Pour en savoir sur l’utilisation de la cmdlet, reportez-vous à l’article [Résolution des problèmes de synchronisation du hachage de mot de passe avec la synchronisation Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect prend désormais en charge la synchronisation d’objets Dossier public à extension messagerie à partir d’un AD local sur Azure AD. Vous pouvez activer la fonctionnalité à l’aide de l’Assistant Azure AD Connect accessible sous Fonctionnalités facultatives. Pour en savoir plus sur cette fonctionnalité, consultez l’article relatif à la [prise en charge du blocage du périmètre basé sur l’annuaire par Office 365 pour les dossiers publics activés par courrier en local](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect nécessite la synchronisation d’un compte AD DS à partir de l’instance AD locale. Auparavant, lorsque vous installiez Azure AD Connect à l’aide du mode Express, vous pouviez fournir les informations d’identification d’un compte d’administrateur d’entreprise, et Azure AD Connect créait le compte AD DS requis. Toutefois, vous deviez fournir le compte AD DS pour une installation personnalisée et pour l’ajout de forêts à un déploiement existant. Désormais, vous pouvez également fournir les informations d’identification d’un compte d’administrateur d’entreprise au cours d’une installation personnalisée et laisser Azure AD Connect créer le compte AD DS requis.
 * Azure AD Connect prend désormais en charge SQL AOA. Vous devez activer SQL AOA avant d’installer Azure AD Connect. Pendant l’installation, Azure AD Connect détecte si l’instance SQL spécifiée est ou non activée pour SQL AOA. Si SQL AOA est activé, Azure AD Connect détermine si SQL AOA est configuré pour utiliser une réplication synchrone ou asynchrone. Lorsque vous configurez l’écouteur de groupe de disponibilité, il est recommandé de définir la propriété RegisterAllProvidersIP sur 0. En effet, Azure AD Connect utilise actuellement SQL Native Client pour se connecter à SQL, et SQL Native Client ne prend pas en charge l’utilisation de la propriété MultiSubNetFailover.
@@ -748,7 +749,7 @@ Publication : juin 2016
 **Problèmes résolus et améliorations :**
 
 * Vous pouvez maintenant installer Azure AD Connect sur un serveur compatible FIPS.
-  * Pour la synchronisation du mot de passe, consultez [Synchronisation de mot de passe et FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * Pour la synchronisation du mot de passe, consultez [Synchronisation du hachage de mot de passe et FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Correction d’un problème à cause duquel un nom NetBIOS ne pouvait pas être résolu pour le nom de domaine complet dans le connecteur Active Directory.
 
 ## <a name="111800"></a>1.1.180.0

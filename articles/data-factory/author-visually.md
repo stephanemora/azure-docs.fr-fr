@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: 977fd59b746d13e9bf331edc32c63dd5a21c69f7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 L’expérience utilisateur Azure Data Factory vous permet de créer et de déployer visuellement des ressources dans votre fabrique de données sans avoir à écrire du code. Vous pouvez glisser-déposer des activités sur le canevas d’un pipeline, effectuer des séries de tests, déboguer de manière itérative, mais aussi déployer et surveiller les exécutions de votre pipeline. Vous pouvez utiliser l’expérience utilisateur pour la création visuelle de deux manières :

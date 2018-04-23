@@ -9,15 +9,15 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17c97c6f233c9861ac42abc0a1f11089bb938e7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent Edge et du hub Edge
 
-L’agent Edge et le hub Edge sont deux modules qui constituent le runtime IoT Edge. Pour plus d’informations sur les rôles de chaque module, consultez [Présentation du runtime Azure IoT Edge et de son architecture]](iot-edge-runtime.md). 
+L’agent Edge et le hub Edge sont deux modules qui constituent le runtime IoT Edge. Pour plus d’informations sur les rôles de chaque module, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md). 
 
 Cet article fournit les propriétés souhaitées et signalées des jumeaux de module du runtime. Consultez [Déploiement et surveillance][lnk-deploy] pour plus d’informations sur le déploiement de modules sur des appareils IoT Edge.
 

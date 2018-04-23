@@ -4,8 +4,7 @@ description: Recherchez des exemples C# .NET sur GitHub pour les tâches courant
 keywords: Exemple NoSQL
 services: cosmos-db
 author: rnagpal
-manager: jhubbard
-editor: monicar
+manager: kfile
 documentationcenter: .net
 ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: a461f2867346bce5faf232ce598c410364b78255
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b826c41f0f7e452d1be29a5c525fad7deac61b9b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB : exemples .NET pour l’API SQL
 > [!div class="op_single_selector"]

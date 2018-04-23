@@ -1,18 +1,18 @@
 ---
-title: "Réaction aux événements Stockage Blob Azure (préversion) | Microsoft Docs"
-description: "Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob."
+title: Réaction aux événements Stockage Blob Azure (préversion) | Microsoft Docs
+description: Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -131,7 +131,7 @@ Les applications qui gèrent des événements de stockage d’objets Blob doiven
 > * Ignorez les champs que vous ne comprenez pas.  Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur Event Grid et essayer les événements de stockage d’objets Blob :
 

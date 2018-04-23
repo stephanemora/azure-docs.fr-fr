@@ -10,10 +10,10 @@ ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Développer et déployer un module Python IoT Edge sur votre appareil simulé – Aperçu
 
@@ -64,7 +64,7 @@ Les étapes suivantes vous montrent comment créer un module IoT Edge Python à 
     pip install -U cookiecutter
     ```
 
-3. Créez un projet pour le nouveau module. La commande suivante crée le dossier du projet, **FilterModule**, avec le référentiel du conteneur. Le paramètre de `image_repository` doit être au format `<your container registry name>.azurecr.io/filtermodule` si vous utilisez le registre de conteneurs Azure. Dans le dossier de travail actif, entrez la commande suivante :
+3. Créez un projet pour le nouveau module. La commande suivante crée le dossier du projet, **FilterModule**, avec le référentiel du conteneur. Le paramètre de `image_repository` doit être au format `<your container registry name>.azurecr.io/filtermodule` si vous utilisez le registre de conteneurs Azure. Dans le dossier de travail actif, entrez la commande suivante :
 
     ```cmd/sh
     cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule

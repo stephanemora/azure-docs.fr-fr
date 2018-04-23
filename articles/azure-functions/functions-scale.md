@@ -1,13 +1,13 @@
 ---
-title: "Échelle et hébergement dans Azure Functions | Microsoft Docs"
-description: "Découvrez comment choisir entre le plan Consommation et le plan App Service d’Azure Functions."
+title: Échelle et hébergement dans Azure Functions | Microsoft Docs
+description: Découvrez comment choisir entre le plan Consommation et le plan App Service d’Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, fonctions, plan consommation, plan app service, traitement des événements, webhooks, calcul dynamique, architecture serverless"
+editor: ''
+tags: ''
+keywords: azure functions, fonctions, plan consommation, plan app service, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
-Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [serverless](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [sans serveur](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > Pour l’instant, [l’hébergement Linux](functions-create-first-azure-function-azure-cli-linux.md) est uniquement disponible dans un plan App Service.
@@ -86,7 +86,7 @@ Dans un plan Consommation ou un plan App Service, une application de fonction n�
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Fonctionnement du plan de consommation
 

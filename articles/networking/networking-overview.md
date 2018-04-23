@@ -1,13 +1,13 @@
 ---
-title: "Mise en réseau Azure | Microsoft Docs"
-description: "Découvrez les fonctionnalités et les services de mise en réseau Azure."
+title: Mise en réseau Azure | Microsoft Docs
+description: Découvrez les fonctionnalités et les services de mise en réseau Azure.
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Mise en réseau Azure
 
@@ -138,7 +138,7 @@ Azure fournit les outils suivants pour surveiller et gérer la mise en réseau 
 - **Journaux de diagnostic :** Les événements périodiques et spontanés sont créés par les ressources réseau et journalisés dans les comptes de stockage Azure, puis envoyés à une instance Azure Event Hub ou à Azure Log Analytics. Les journaux de diagnostic fournissent des informations sur l’intégrité d’une ressource. Les journaux de diagnostic sont fournis pour l’équilibrage de charge (sur Internet), les groupes de sécurité réseau, les itinéraires et Application Gateway. Pour en savoir plus sur les journaux de diagnostic, consultez l’article [Présentation des journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métriques** : Les métriques sont des mesures et des compteurs de performances collectés sur une période donnée. Elles peuvent être utilisées pour déclencher des alertes basées sur des seuils. Les métriques sont actuellement disponibles pour Application Gateway. Pour en savoir plus sur les métriques, consultez l’article [Présentation des métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Résolution de problèmes :** des informations de dépannage sont accessibles directement dans le portail Azure. Les informations vous aident à diagnostiquer les problèmes courants avec ExpressRoute, passerelle VPN, Application Gateway, journaux de sécurité réseau, itinéraires, DNS, équilibrage de charge et Traffic Manager.
-- **Contrôle d’accès en fonction du rôle (RBAC) :** contrôlez qui peut créer et gérer les ressources réseau avec le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez l’article [Prise en main du contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json). 
+- **Contrôle d’accès en fonction du rôle (RBAC) :** contrôlez qui peut créer et gérer les ressources réseau avec le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez l’article [Prise en main du contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 
 - **Capture de paquets :** le service Azure Network Watcher offre la possibilité d’exécuter une capture de paquets sur une machine virtuelle via une extension dans la machine virtuelle. Cette fonctionnalité est disponible pour les machines virtuelles Linux et Windows. Pour en savoir plus sur la capture de paquets, consultez l’article [Vue d’ensemble des captures de paquets](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Vérifier les flux IP :** Network Watcher vous permet de vérifier les flux IP entre une machine virtuelle Azure et une ressource distante pour déterminer si les paquets sont autorisés ou non. Cette fonctionnalité offre aux administrateurs la possibilité de diagnostiquer rapidement les problèmes de connectivité. Pour en savoir plus sur la vérification des flux IP, consultez l’article [Vue d’ensemble des flux IP](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Résoudre les problèmes de connectivité VPN :** la fonctionnalité de résolution des problèmes de VPN de Network Watcher offre la possibilité d’interroger une connexion ou passerelle et de vérifier l’intégrité des ressources. Pour en savoir plus sur le dépannage des connexions VPN, consultez l’article [Vue d’ensemble du dépannage de la connectivité VPN](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).

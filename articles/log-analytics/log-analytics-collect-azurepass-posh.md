@@ -1,12 +1,12 @@
 ---
-title: "Collecter des métriques de ressources PaaS Azure avec Log Analytics | Microsoft Docs"
-description: "Découvrez comment activer la collecte de métriques de ressources PaaS Azure à l’aide de PowerShell pour la rétention et l’analyse dans Log Analytics."
+title: Collecter des métriques de ressources PaaS Azure avec Log Analytics | Microsoft Docs
+description: Découvrez comment activer la collecte de métriques de ressources PaaS Azure à l’aide de PowerShell pour la rétention et l’analyse dans Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurer la collecte de métriques de ressources Azure PaaS avec Log Analytics
 
@@ -26,7 +26,8 @@ Les ressources PaaS (Platform as a Service) Azure, telles que SQL Azure et Sites
 
 À l’heure actuelle, il n’existe aucun moyen d’activer la journalisation des métriques pour les ressources PaaS par le biais du portail Azure. Vous devez donc utiliser un script PowerShell. Cette fonctionnalité de journalisation des métriques en mode natif, associée à la surveillance Log Analytics, vous permet de surveiller les ressources Azure à l’échelle. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Vérifiez que les modules Azure Resource Manager suivants sont installés sur votre ordinateur avant de continuer :
 
 - AzureRM.Insights
@@ -57,7 +58,7 @@ Pour télécharger et exécuter le script, effectuez les étapes suivantes.
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.   
+3. Exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure.   
 4. Exécutez le script suivant `.\Enable-AzureRmDiagnostics.ps1` sans aucun paramètre pour activer la collecte des données à partir d’une ressource spécifique dans votre abonnement, ou avec le paramètre `-ResourceGroup <myResourceGroup>` pour spécifier une ressource dans un groupe de ressources spécifique.   
 5. Sélectionnez l’abonnement approprié dans la liste, si vous en avez plusieurs, en entrant la valeur correcte.<br><br> ![Sélectionnez l’abonnement retourné par le script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Dans le cas contraire, le seul abonnement disponible est sélectionné automatiquement.
 6. Ensuite, le script retourne une liste d’espaces de travail Log Analytics inscrits dans l’abonnement.  Sélectionnez l’espace de travail approprié dans la liste.<br><br> ![Sélectionnez l’espace de travail retourné par le script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

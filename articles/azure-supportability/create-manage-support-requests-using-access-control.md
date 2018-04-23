@@ -1,21 +1,21 @@
 ---
-title: "Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support | Microsoft Docs"
-description: "Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support"
+title: Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support | Microsoft Docs
+description: Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support
 
-Le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) permet une gestion précise de l’accès pour Azure.
+Le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) permet une gestion précise de l’accès pour Azure.
 La création de demandes de support dans le portail Azure, [portal.azure.com](https://portal.azure.com), utilise le modèle RBAC d’Azure pour définir qui peut créer et gérer les demandes de support.
 L’accès est octroyé en attribuant le rôle RBAC approprié aux utilisateurs, groupes et applications, dans une étendue donnée, qui peut correspondre à un abonnement, un groupe de ressources ou une ressource.
 

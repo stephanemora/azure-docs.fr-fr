@@ -29,6 +29,10 @@
       href: ensure-tags-exists-on-new-virtual-machines.md
 - name: Exemples
   items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: "Azure\_PowerShell"
+      href: powershell-samples.md
     - name: Modèles Resource Manager
       href: template-samples.md
 - name: Concepts

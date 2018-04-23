@@ -1,12 +1,12 @@
 ---
-title: "Schéma de configuration Azure Diagnostics 1.2 | Microsoft Docs"
-description: "Applicable UNIQUEMENT si vous utilisez le Kit de développement logiciel (SDK) Azure 2.5 avec Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric ou Cloud Services."
+title: Schéma de configuration Azure Diagnostics 1.2 | Microsoft Docs
+description: Applicable UNIQUEMENT si vous utilisez le Kit de développement logiciel (SDK) Azure 2.5 avec Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric ou Cloud Services.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.2
 > [!NOTE]
@@ -102,7 +102,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**WadCfg**|Obligatoire. Paramètres de configuration pour les données de télémétrie à collecter.|  
+|**WadCfg**|Requis. Paramètres de configuration pour les données de télémétrie à collecter.|  
 |**StorageAccount**|Nom du compte de stockage Azure où stocker les données. Cela peut également être spécifié en tant que paramètre lors de l’exécution de l’applet de commande Set-AzureServiceDiagnosticsExtension.|  
 |**LocalResourceDirectory**|Répertoire se trouvant sur la machine virtuelle à utiliser par Monitoring Agent pour stocker les données d’événement. S’il n’est pas défini, le répertoire par défaut est utilisé :<br /><br /> Pour un rôle Worker/web : `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Pour une machine virtuelle : `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Les attributs requis sont :<br /><br /> -                      **path** - Répertoire sur le système à utiliser par Azure Diagnostics.<br /><br /> -                      **expandEnvironment** - Contrôle si les variables d’environnement sont développées dans le nom du chemin d’accès.|  
 
@@ -111,7 +111,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l'élément|Description|  
 |------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|Obligatoire. Les attributs facultatifs sont les suivants :<br /><br /> -                     **overallQuotaInMB** - Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 5 210 Mo.<br /><br /> -                     **useProxyServer** - Configurer Azure Diagnostics de manière à utiliser les paramètres du serveur proxy comme défini dans les paramètres d’Internet Explorer.|  
+|**DiagnosticMonitorConfiguration**|Requis. Les attributs facultatifs sont les suivants :<br /><br /> -                     **overallQuotaInMB** - Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 5 210 Mo.<br /><br /> -                     **useProxyServer** - Configurer Azure Diagnostics de manière à utiliser les paramètres du serveur proxy comme défini dans les paramètres d’Internet Explorer.|  
 |**CrashDumps**|Permet la collecte des vidages sur incident. Les attributs facultatifs sont les suivants :<br /><br /> -                     **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.<br /><br /> -                     **crashDumpType** - Configure Azure Diagnostics pour collecter les mini-vidages sur incident ou les vidages sur incident complets.<br /><br /> -                     **directoryQuotaPercentage** - Configure le pourcentage de **overallQuotaInMB** à réserver pour les vidages sur incident sur la machine virtuelle.|  
 |**DiagnosticInfrastructureLogs**|Permet la collecte des journaux générés par Azure Diagnostics. Les journaux d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**Directories**|Permet la collecte du contenu d’un répertoire, des journaux de demandes d’accès ayant échouées IIS et/ou des journaux IIS. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
@@ -125,7 +125,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**CrashDumpConfiguration**|Obligatoire. Attribut requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez qu’Azure Diagnostics collecte un vidage sur incident.|  
+|**CrashDumpConfiguration**|Requis. Attribut requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez qu’Azure Diagnostics collecte un vidage sur incident.|  
 |**crashDumpType**|Configure Azure Diagnostics pour collecter les mini-vidages sur incident ou les vidages sur incident complets.|  
 |**directoryQuotaPercentage**|Configure le pourcentage de **overallQuotaInMB** à réserver pour les vidages sur incident sur la machine virtuelle.|  
 
@@ -143,7 +143,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**DirectoryConfiguration**|Obligatoire. Attribut requis :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les fichiers journaux.|  
+|**DirectoryConfiguration**|Requis. Attribut requis :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les fichiers journaux.|  
 
 ## <a name="directoryconfiguration-element"></a>Élément DirectoryConfiguration  
  **DirectoryConfiguration** peut inclure l’élément **Absolute** ou **LocalResource**, mais pas les deux. Le tableau suivant décrit les éléments enfants :  
@@ -189,7 +189,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Les attributs suivants sont requis :<br /><br /> -                     **counterSpecifier** - Nom du compteur de performance. Par exemple, `\Processor(_Total)\% Processor Time`. Pour obtenir une liste des compteurs de performances se trouvant sur votre hôte, exécutez la commande `typeperf`.<br /><br /> -                     **sampleRate** - Fréquence à laquelle le compteur doit être échantillonné.<br /><br /> Attribut facultatif :<br /><br /> **unit** -Unité de mesure du compteur.|  
+|**PerformanceCounterConfiguration**|Les attributs suivants sont requis :<br /><br /> -                     **counterSpecifier** - Nom du compteur de performance. Par exemple : `\Processor(_Total)\% Processor Time`. Pour obtenir une liste des compteurs de performances se trouvant sur votre hôte, exécutez la commande `typeperf`.<br /><br /> -                     **sampleRate** - Fréquence à laquelle le compteur doit être échantillonné.<br /><br /> Attribut facultatif :<br /><br /> **unit** -Unité de mesure du compteur.|  
 
 ## <a name="performancecounterconfiguration-element"></a>Élément PerformanceCounterConfiguration  
  Le tableau suivant décrit les éléments enfants :  
@@ -203,4 +203,4 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**DataSource**|Journaux des événements Windows à collecter. Attribut requis :<br /><br /> **name** - Requête XPath décrivant les événements windows à collecter. Par exemple :<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Pour collecter tous les événements, spécifiez « * ».|
+|**DataSource**|Journaux des événements Windows à collecter. Attribut requis :<br /><br /> **name** - Requête XPath décrivant les événements windows à collecter. Par exemple : <br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Pour collecter tous les événements, spécifiez « * ».|

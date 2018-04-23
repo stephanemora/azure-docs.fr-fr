@@ -1,31 +1,30 @@
 ---
-title: "Consulter ou analyser les données Log Analytics collectées | Microsoft Docs"
-description: "Cet article contient un didacticiel qui explique comment créer des recherches dans les journaux et comment analyser les données stockées dans votre ressource Log Analytics à partir du portail Recherche dans les journaux.  Le didacticiel comprend des requêtes simples qui retournent différents types de données et une description des résultats des analyses."
+title: Consulter ou analyser les données Log Analytics collectées | Microsoft Docs
+description: Cet article contient un didacticiel qui explique comment créer des recherches dans les journaux et comment analyser les données stockées dans votre ressource Log Analytics à partir du portail Recherche dans les journaux.  Le didacticiel comprend des requêtes simples qui retournent différents types de données et une description des résultats des analyses.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2017
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics
 
 Dans Log Analytics, vous pouvez exploiter les recherches dans les journaux en créant des requêtes destinées à analyser les données collectées, à utiliser les tableaux de bord préexistants que vous pouvez personnaliser avec des vues graphiques des recherches les plus utiles.  Maintenant que vous avez défini la collecte des données opérationnelles à partir de vos machines virtuelles Azure et des journaux d’activité, ce didacticiel va vous apprendre à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Mettre à niveau votre ressource Azure Log Analytics avec le nouveau langage de requête 
 > * Effectuer une recherche simple dans les données d’événements et utiliser les fonctionnalités permettant de modifier et filtrer les résultats 
 > * Apprendre à exploiter les données de performances
 
@@ -42,15 +41,7 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 Commencez par ouvrir le portail Recherche dans les journaux.   
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
-2. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis la vignette **Recherche dans les journaux**.<br> ![Bouton Recherche dans les journaux](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
-
-Vous avez peut-être noté la présence de la bannière en haut de votre page de ressource Log Analytics du portail vous invitant à effectuer une mise à niveau.<br> ![Avis de mise à niveau Log Analytics dans le portail Azure](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
-
-Log Analytics a inauguré dernièrement un nouveau langage de requête destiné à faciliter la création de requêtes, à mettre en corrélation des données issues de différentes sources et à procéder à une analyse pour identifier rapidement les tendances ou les problèmes.
-
-La mise à niveau est simple.  Pour lancer le processus, cliquez sur la bannière intitulée **En savoir plus et mise à niveau**.  Prenez connaissance des informations complémentaires sur la mise à niveau dans la page d’informations sur la mise à niveau, puis cliquez sur **Mettre à niveau maintenant**.
-
-Ce processus prend quelques minutes. Pendant ce temps, vous pouvez suivre sa progression sous **Notifications** dans le menu. Pour plus d’informations, consultez [Avantages du nouveau langage de requête](log-analytics-log-search-upgrade.md#why-the-new-language).
+2. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis la vignette **Recherche dans les journaux**.<br><br> ![Bouton Recherche dans les journaux](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
 
 ## <a name="create-a-simple-search"></a>Créer une recherche simple
 Le moyen le plus rapide de récupérer des données à utiliser consiste à faire appel à une requête simple qui retourne tous les enregistrements d’une table.  Si vous avez des clients Windows ou Linux connectés à votre espace de travail, vous aurez des données dans la table Event (Windows) ou Syslog (Linux).

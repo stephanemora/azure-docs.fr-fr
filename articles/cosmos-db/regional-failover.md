@@ -3,9 +3,8 @@ title: Basculement régional dans Azure Cosmos DB | Microsoft Docs
 description: Découvrez le fonctionnement du basculement manuel et automatique avec Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: ''
-author: arramac
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -13,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: arramac
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 977027de0627a6eca5f9eb5d1ab83dea5347c6d4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Basculement régional automatique pour la continuité des activités dans Azure Cosmos DB
 Azure Cosmos DB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multirégions](distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes Cosmos DB offrent des capacités de haute disponibilité, des latences inférieures à 10 millisecondes, des [niveaux de cohérence bien définis](consistency-levels.md), un basculement régional transparent avec des API multihébergement et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
@@ -61,7 +60,7 @@ usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
 
 DocumentClient usClient = new DocumentClient(
     new Uri("https://contosodb.documents.azure.com"),
-    "memf7qfF89n6KL9vcb7rIQl6tfgZsRt5gY5dh3BIjesarJanYIcg2Edn9uPOUIVwgkAugOb2zUdCR2h0PTtMrA==",
+    "<Fill your Cosmos DB account's AuthorizationKey>",
     usConnectionPolicy);
 ```
 

@@ -1,61 +1,118 @@
 ---
-title: "Mise à l’échelle Azure IoT Hub | Microsoft Docs"
-description: "Mise à l’échelle de votre IoT hub pour prendre en charge votre débit de messages prévu. Inclut un résumé du débit pris en charge pour chaque niveau et des options pour le partitionnement."
+title: Mise à l’échelle Azure IoT Hub | Microsoft Docs
+description: Comment mettre à l’échelle votre IoT Hub pour gérer le débit de messages prévu et les fonctionnalités souhaitées. Inclut un résumé du débit pris en charge pour chaque niveau et des options pour le partitionnement.
 services: iot-hub
-documentationcenter: 
-author: fsautomata
+documentationcenter: ''
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e7bd4968-db46-46cf-865d-9c944f683832
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
-ms.author: elioda
+ms.date: 04/02/2018
+ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00043293eb57768f0117e912bb67f02d088934f3
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: f3237ee41f8596ed3ce508857adf7dc29cee1ada
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="scale-your-iot-hub-solution"></a>Mettre à l’échelle votre solution IoT Hub
-Azure IoT Hub peut prendre en charge jusqu’à un million d’appareils connectés simultanément. Pour plus d’informations, consultez la [tarification IoT Hub][lnk-pricing]. Chaque unité IoT Hub autorise un certain nombre de messages quotidiens.
+# <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
-Pour mettre correctement à l’échelle votre solution, étudiez votre utilisation particulière d’IoT Hub. Prenez plus particulièrement en compte le débit maximal requis pour les catégories d’opérations suivantes :
+Chaque solution IoT étant différente, Azure IoT Hub offre plusieurs options en fonction de la tarification et de la mise à l’échelle. Cet article vous aide à évaluer vos besoins IoT Hub. Pour plus d’informations sur les niveaux IoT Hub, consultez la [tarification IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub). 
 
-* Messages Appareil vers cloud
+Pour déterminer le niveau IoT Hub adapté à votre solution, vous devez vous poser deux questions :
+
+**Quelles sont les fonctionnalités que je prévois d’utiliser ?**
+Azure IoT Hub propose deux niveaux : de base et standard. Ils diffèrent quant au nombre de fonctionnalités qu’ils prennent en charge. Si votre solution IoT est basée sur la collecte de données à partir d’appareils et sur leur analyse de manière centralisée, le niveau de base est probablement adapté à vos besoins. Si vous souhaitez utiliser des configurations plus complexes pour le contrôle à distance des appareils IoT ou distribuer une partie de vos charges de travail sur les appareils eux-mêmes, envisagez plutôt le niveau standard. Pour une description détaillée des fonctionnalités incluses dans chaque niveau, consultez [Niveaux de base et standard](#basic-and-standard-tiers).
+
+**Quel volume de données vais-je déplacer au quotidien ?**
+Chaque niveau IoT Hub est disponible en trois tailles, en fonction du débit de données à traiter au quotidien. Ces tailles sont identifiées au moyen de chiffre : 1, 2 et 3. Par exemple, chaque unité d’un IoT Hub de niveau 1 peut gérer 400 000 messages par jour, alors qu’une unité de niveau 3 peut en gérer 300 000 000. Pour plus d’informations sur les règles de données, consultez [Débit de messages](#message-throughput).
+
+## <a name="basic-and-standard-tiers"></a>Niveaux de base et standard
+
+Le niveau standard de IoT Hub active toutes les fonctionnalités. Il est requis pour toutes les solutions IoT qui comptent utiliser les fonctionnalités de communication bidirectionnelle. Le niveau de base active un sous-ensemble de fonctionnalités. Il est destiné aux solutions IoT qui nécessitent uniquement une communication unidirectionnelle, des appareils vers le cloud. Ces deux niveaux offrent les mêmes fonctionnalités de sécurité et d’authentification.
+
+Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau de base au niveau standard sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).
+
+| Fonctionnalité | Niveau de base | Niveau standard |
+| ---------- | ---------- | ------------- |
+| [Télémétrie appareil-à-cloud](iot-hub-devguide-messaging.md) | OUI | OUI |
+| [Identité par appareil](iot-hub-devguide-identity-registry.md) | OUI | OUI |
+| [Routage de messages](iot-hub-devguide-messages-read-custom.md) et [intégration Event Grid](iot-hub-event-grid.md) | OUI | OUI |
+| [Protocoles HTTP, AMQP et MQTT](iot-hub-devguide-protocols.md) | OUI | OUI |
+| [Service Device Provisioning](../iot-dps/about-iot-dps.md) | OUI | OUI |
+| [Surveillance et diagnostics](iot-hub-monitor-resource-health.md) | OUI | OUI |
+| [Messages de cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) |   | OUI |
+| [Jumeaux d’appareil](iot-hub-devguide-device-twins.md) et [gestion des appareils](iot-hub-device-management-overview.md) |   | OUI |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | OUI |
+
+IoT Hub propose également un niveau gratuit à des fins de test et d’évaluation. Il possède toutes les fonctionnalités du niveau standard, mais ses allocations en termes de messages sont limitées. Vous ne pouvez pas faire évoluer le niveau gratuit vers le niveau de base ou standard. 
+
+### <a name="iot-hub-rest-apis"></a>API REST IoT Hub
+
+La différence de fonctionnalités prises en charge entre les niveaux de base et standard de IoT Hub réside dans le fait que certains appels d’API ne fonctionnent pas avec des hubs utilisant le niveau de base. Le tableau suivant présente les API disponibles : 
+
+| API | Niveau de base | Niveau standard |
+| --- | ---------- | ------------- |
+| [Supprimer un appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | OUI | OUI |
+| [Obtenir un appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | OUI | OUI |
+| [Obtenir les statistiques de Registre](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | OUI | OUI |
+| [Obtenir les statistiques de services](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | OUI | OUI |
+| [Placer l’appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | OUI | OUI |
+| [Interroger les appareils](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | OUI | OUI |
+| [Créer l’URI SAS de téléchargement des fichiers](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | OUI | OUI |
+| [Recevoir une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | OUI | OUI |
+| [Envoyer un événement d’appareil](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | OUI | OUI |
+| [Mettre à jour l’état de chargement des fichiers](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | OUI | OUI |
+| [Opération sur l’appareil en bloc](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Oui, à l’exception des fonctionnalités IoT Edge | OUI | 
+| [Purger la file d’attente de commandes](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | OUI |
+| [Obtenir un jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | OUI |
+| [Appeler une méthode d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | OUI |
+| [Mettre à jour le jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | OUI | 
+| [Abandonner une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | OUI |
+| [Terminer une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | OUI |
+| [Annuler un travail](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | OUI |
+| [Créer un travail](https://docs.microsoft.com/rest/api/iothub/jobapi/createjob) |   | OUI |
+| [Obtenir un travail](https://docs.microsoft.com/rest/api/iothub/jobapi/getjob) |   | OUI |
+| [Tâches de requête](https://docs.microsoft.com/rest/api/iothub/jobapi/queryjobs) |   | OUI |
+
+## <a name="message-throughput"></a>Débit de messages
+
+La meilleure façon de dimensionner une solution IoT Hub consiste à évaluer le trafic sur une base par unité. Prenez plus particulièrement en compte le débit maximal requis pour les catégories d’opérations suivantes :
+
+* Messages appareil-à-cloud
 * Messages Cloud vers appareil
 * Opérations du registre d’identité
 
-Outre ces informations sur le débit, consultez les [quotas et limitations IoT Hub][IoT Hub quotas and throttles] et concevez votre solution en conséquence.
+Le trafic se mesure en fonction du nombre d’unités et non du nombre de hubs. Une instance IoT Hub de niveau 1 ou 2 peut avoir jusqu’à 200 unités associées. Une instance IoT Hub de niveau 3 peut avoir jusqu’à 10 unités. Une fois que votre IoT Hub créé, vous pouvez modifier le nombre d’unités ou changer de niveau, sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).
 
-## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>Débit de message Appareil vers cloud et Cloud vers appareil.
-La meilleure façon de dimensionner une solution IoT Hub consiste à évaluer le trafic sur une base par unité.
-
-Les messages Appareil vers cloud respectent les recommandations de débit soutenu.
+Voici un exemple du trafic de chaque niveau. Les messages appareil-à-cloud suivent les règles de débit soutenu suivantes :
 
 | Niveau | Débit soutenu | Vitesse de transmission soutenue |
 | --- | --- | --- |
-| S1 |Jusqu’à 1 111 Ko/minute par unité<br/>(1,5 Go/jour/unité) |Moyenne de 278 messages/minute par unité<br/>(400 000 messages/jour par unité) |
-| S2 |Jusqu’à 16 Mo/minute par unité<br/>(22,8 Go/jour/unité) |Moyenne de 4167 messages/minute par unité<br/>(6 millions de messages/jour par unité) |
-| S3 |Jusqu’à 814 Mo/minute par unité<br/>(1144,4 Go/jour/unité) |Moyenne de 208 333 messages/minute par unité<br/>(300 millions de messages/jour par unité) |
+| B1, S1 |Jusqu’à 1 111 Ko/minute par unité<br/>(1,5 Go/jour/unité) |Moyenne de 278 messages/minute par unité<br/>(400 000 messages/jour par unité) |
+| B2, S2 |Jusqu’à 16 Mo/minute par unité<br/>(22,8 Go/jour/unité) |Moyenne de 4167 messages/minute par unité<br/>(6 millions de messages/jour par unité) |
+| B3, S3 |Jusqu’à 814 Mo/minute par unité<br/>(1144,4 Go/jour/unité) |Moyenne de 208 333 messages/minute par unité<br/>(300 millions de messages/jour par unité) |
 
-## <a name="identity-registry-operation-throughput"></a>Débit des opérations de registre d’identité
+Outre ces informations sur le débit, consultez les [quotas et limitations IoT Hub][IoT Hub quotas and throttles] et concevez votre solution en conséquence.
+
+### <a name="identity-registry-operation-throughput"></a>Débit des opérations de registre d’identité
 Les opérations de registre d’identité IoT Hub ne sont pas censées être des opérations d’exécution, car elles sont principalement liées à l’approvisionnement d’appareils.
 
 Pour obtenir les pics de performances spécifiques, consultez [Quotas et limitations IoT Hub][IoT Hub quotas and throttles].
 
 ## <a name="sharding"></a>Partitionnement
-Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution nécessite parfois des caractéristiques de performances spécifiques qu’un seul hub IoT ne peut pas assurer. Dans ce cas, il est recommandé de partitionner vos appareils en plusieurs IoT hubs. L’utilisation de plusieurs IoT Hubs permet de simplifier les pics de trafic et d’obtenir le débit requis ou les taux d’opération requis.
+Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution nécessite parfois des caractéristiques de performances spécifiques qu’un seul hub IoT ne peut pas assurer. Dans ce cas, vous pouvez partitionner vos appareils sur plusieurs IoT Hub. L’utilisation de plusieurs IoT Hubs permet de simplifier les pics de trafic et d’obtenir le débit requis ou les taux d’opération requis.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur IoT Hub][lnk-devguide]
-* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
+* Pour plus d’informations sur les fonctionnalités IoT Hub et des détails sur les performances, consultez [IoT Hub pricing][link-pricing] ou [Quotas et limitations IoT Hub][IoT Hub quotas and throttles].
+* Pour modifier votre niveau IoT Hub, suivez les étapes décrites dans [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md

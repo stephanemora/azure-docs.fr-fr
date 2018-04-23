@@ -1,12 +1,12 @@
 ---
-title: "Utiliser le contrôle d’accès en fonction du rôle pour gérer Azure Site Recovery | Microsoft Docs"
-description: "Cet article décrit comment appliquer et utiliser le contrôle d’accès basé sur les rôles (RBAC) pour gérer vos déploiements Azure Site Recovery"
+title: Utiliser le contrôle d’accès en fonction du rôle pour gérer Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment appliquer et utiliser le contrôle d’accès basé sur les rôles (RBAC) pour gérer vos déploiements Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d02ecc3293d0607dd3e19ade3c1d9087b544703b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery
 
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec RBAC, vous pouvez séparer les responsabilités au sein de votre équipe et accorder uniquement des autorisations d’accès spécifiques aux utilisateurs en fonction des besoins pour effectuer des tâches spécifiques.
 
-Azure Site Recovery fournit 3 rôles intégrés pour contrôler les opérations de gestion de Site Recovery. En savoir plus sur les [rôles intégrés Azure RBAC](../active-directory/role-based-access-built-in-roles.md)
+Azure Site Recovery fournit 3 rôles intégrés pour contrôler les opérations de gestion de Site Recovery. En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-control/built-in-roles.md)
 
-* [Site Recovery Contributor](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) - Ce rôle dispose de toutes les autorisations requises pour gérer les opérations d’Azure Site Recovery dans un coffre Recovery Services. Toutefois, un utilisateur disposant de ce rôle ne peut pas créer ou supprimer un coffre Recovery Services, ni affecter des droits d’accès à d’autres utilisateurs. Ce rôle est tout indiqué pour les administrateurs de récupération d’urgence, qui peuvent activer et gérer la récupération d’urgence pour des applications ou organisations, selon les cas.
-* [Site Recovery Operator](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - Ce rôle dispose des autorisations d’exécution et de gestion des opérations de basculement et de restauration automatique. Un utilisateur disposant de ce rôle ne peut pas activer ou désactiver la réplication, créer ou supprimer des coffres, enregistrer une nouvelle infrastructure ou affecter des droits d’accès à d’autres utilisateurs. Ce rôle est tout indiqué pour un opérateur de récupération d’urgence, qui peut basculer des machines virtuelles ou des applications lorsqu’il en reçoit la demande des propriétaires et administrateurs informatiques, dans une situation d’urgence réelle ou simulée telle qu’un test de récupération d’urgence. Une fois l’incident résolu, l’opérateur de récupération d’urgence peut à nouveau protéger et restaurer les machines virtuelles.
-* [Site Recovery Reader](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) : Ce rôle dispose des autorisations pour afficher toutes les opérations de gestion de Site Recovery. Ce rôle est tout indiqué pour un responsable de suivi informatique, qui peut surveiller l’état de protection actuel et envoyer des billets d’assistance, si nécessaire.
+* [Site Recovery Contributor](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - Ce rôle dispose de toutes les autorisations requises pour gérer les opérations d’Azure Site Recovery dans un coffre Recovery Services. Toutefois, un utilisateur disposant de ce rôle ne peut pas créer ou supprimer un coffre Recovery Services, ni affecter des droits d’accès à d’autres utilisateurs. Ce rôle est tout indiqué pour les administrateurs de récupération d’urgence, qui peuvent activer et gérer la récupération d’urgence pour des applications ou organisations, selon les cas.
+* [Site Recovery Operator](../role-based-access-control/built-in-roles.md#site-recovery-operator) - Ce rôle dispose des autorisations d’exécution et de gestion des opérations de basculement et de restauration automatique. Un utilisateur disposant de ce rôle ne peut pas activer ou désactiver la réplication, créer ou supprimer des coffres, enregistrer une nouvelle infrastructure ou affecter des droits d’accès à d’autres utilisateurs. Ce rôle est tout indiqué pour un opérateur de récupération d’urgence, qui peut basculer des machines virtuelles ou des applications lorsqu’il en reçoit la demande des propriétaires et administrateurs informatiques, dans une situation d’urgence réelle ou simulée telle qu’un test de récupération d’urgence. Une fois l’incident résolu, l’opérateur de récupération d’urgence peut à nouveau protéger et restaurer les machines virtuelles.
+* [Site Recovery Reader](../role-based-access-control/built-in-roles.md#site-recovery-reader) : Ce rôle dispose des autorisations pour afficher toutes les opérations de gestion de Site Recovery. Ce rôle est tout indiqué pour un responsable de suivi informatique, qui peut surveiller l’état de protection actuel et envoyer des billets d’assistance, si nécessaire.
 
-Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans Azure](../active-directory/role-based-access-control-custom-roles.md).
+Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Autorisations requises pour activer la réplication pour les nouvelles machines virtuelles
 Lorsqu’une nouvelle machine virtuelle est répliquée vers Azure à l’aide d’Azure Site Recovery, les niveaux d’accès de l’utilisateur associé sont validés pour garantir que l’utilisateur dispose des autorisations requises pour utiliser les ressources Azure fournies à Site Recovery.
@@ -73,12 +73,12 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 | Groupe de ressources | Gestionnaire de ressources | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
-Envisagez d’utiliser les [rôles intégrés](../active-directory/role-based-access-built-in-roles.md) « Collaborateur de machine virtuelle » et « Collaborateur de machine virtuelle classique » pour les modèles de déploiement Resource Manager et classiques, respectivement.
+Envisagez d’utiliser les [rôles intégrés](../role-based-access-control/built-in-roles.md) « Collaborateur de machine virtuelle » et « Collaborateur de machine virtuelle classique » pour les modèles de déploiement Resource Manager et classiques, respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md): découvrez le contrôle d’accès en fonction du rôle dans le portail Azure.
+* [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md): découvrez le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
-  * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [interface de ligne de commande Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [API REST](../active-directory/role-based-access-control-manage-access-rest.md)
-* [Résolution des problèmes de contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-troubleshooting.md): obtenez des suggestions pour résoudre les problèmes courants.
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+  * [interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md)
+  * [API REST](../role-based-access-control/role-assignments-rest.md)
+* [Résolution des problèmes de contrôle d’accès en fonction du rôle](../role-based-access-control/troubleshooting.md): obtenez des suggestions pour résoudre les problèmes courants.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestion des appareils avec le portail Azure
 
@@ -74,7 +74,7 @@ La page Paramètres de l’appareil vous permet de configurer les options suivan
 
 - **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre [l’inscription](device-management-introduction.md#azure-ad-registered-devices) des appareils dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits s’ils ne sont pas joints à Azure AD ou s’il ne s’agit pas d’appareils hybrides joints à Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Office 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
 
-- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez demander aux utilisateurs de fournir un second facteur d’authentification pour [joindre](device-management-introduction.md#azure-ad-joined-devices) leurs appareils à Azure AD. La valeur par défaut est **Non**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez demander aux utilisateurs de fournir un second facteur d’authentification pour [joindre](device-management-introduction.md#azure-ad-joined-devices) leurs appareils à Azure AD. La valeur par défaut est **Non**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](authentication/concept-mfa-whichversion.md). 
 
 - **Nombre maximal d’appareils par utilisateur** : ce paramètre permet de sélectionner le nombre maximal d’appareils qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. Le quota d’appareils comptabilise tous les appareils qui sont actuellement joints à Azure AD ou inscrits à Azure AD. La valeur par défaut est de **20** appareils.
 

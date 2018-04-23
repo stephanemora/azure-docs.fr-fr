@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 557c6a75140f399f74d77543de834af086871032
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -70,11 +70,12 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 
 * Power BI
 * Dynamics 365 for Finance and Operations (anciennement Dynamics AX Online)
-* La plupart des services Azure, avec quelques exceptions ci-dessous :
-  * CDN
-  * Test de charge Visual Studio Team Services
-  * Multi-Factor Authentication
-  * Traffic Manager
+* La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>
+  Les services suivants ne sont PAS pris en charge :
+    * CDN
+    * Test de charge Visual Studio Team Services
+    * Multi-Factor Authentication
+    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Homologation Microsoft
 
@@ -87,7 +88,8 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 * À l’aide de [filtres de routage](#route-filters-for-microsoft-peering), vous pouvez accéder aux mêmes services publics avec l’homologation Microsoft :
   * Power BI
   * Dynamics 365 pour la finance et les opérations
-  * La plupart des services Azure, avec quelques exceptions ci-dessous :
+  * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>
+  Les services suivants ne sont PAS pris en charge :
     * CDN
     * Test de charge Visual Studio Team Services
     * Multi-Factor Authentication
@@ -214,7 +216,7 @@ Oui. Vous devez créer une passerelle ExpressRoute dans votre réseau virtuel. L
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Pourquoi une adresse IP publique est-elle associée à la passerelle ExpressRoute sur un réseau virtuel ?
 
-L’adresse IP publique est utilisée pour la gestion interne uniquement. Cette adresse IP publique n’est pas exposée à Internet et ne constitue pas un risque pour la sécurité de votre réseau virtuel.
+L’adresse IP publique est utilisée uniquement pour la gestion interne, et ne constitue pas un risque pour la sécurité de votre réseau virtuel.
 
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>De quoi ai-je besoin pour me connecter au stockage Azure via ExpressRoute ?
 

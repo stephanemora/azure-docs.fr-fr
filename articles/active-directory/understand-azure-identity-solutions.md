@@ -1,23 +1,23 @@
 ---
-title: "Comprendre les identité Azure | Microsoft Docs"
-description: "Acquérez une compréhension élémentaire des conditions, concepts et recommandations liés aux identités Microsoft Azure afin de pouvoir prendre une décision optimale en matière de gouvernance des identités pour votre organisation."
-keywords: 
+title: Comprendre les identité Azure | Microsoft Docs
+description: Acquérez une compréhension élémentaire des conditions, concepts et recommandations liés aux identités Microsoft Azure afin de pouvoir prendre une décision optimale en matière de gouvernance des identités pour votre organisation.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Comprendre les solutions d’identité Azure
 Microsoft Azure Active Directory (Azure AD) est une solution cloud de gestion des identités et des accès qui associe des services d’annuaire, une gouvernance des identités et la gestion de l’accès aux applications. Azure AD [active rapidement l’authentification unique (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) sur des milliers d’applications commerciales et personnalisées dans la [galerie d’applications Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Vous utilisez probablement déjà bon nombre de ces applications : Office 365, Salesforce.com, Box, ServiceNow et Workday.
@@ -53,7 +53,7 @@ Maintenant que vous connaissez les termes de base sur les identités Azure, il e
 |-----|-----|
 |[Association des abonnements Azure avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Chaque abonnement Azure a une relation d’approbation avec un annuaire Azure AD pour authentifier les utilisateurs, les services et les appareils. *Plusieurs abonnements peuvent approuver le même annuaire Azure AD, mais un abonnement n’approuve qu’un seul annuaire Azure AD*. Cette relation de confiance diffère de la relation qu’un abonnement a avec d’autres ressources Azure (sites web, bases de données, etc.), qui se rapprochent davantage des ressources enfants d’un abonnement. Quand un abonnement expire, l’accès aux ressources autres qu’Azure AD qui y sont associées cesse également. Toutefois, l’annuaire Azure AD restant dans Azure, vous pouvez associer un autre abonnement à cet annuaire et continuer à gérer les ressources client.|
 |[Comment fonctionne la gestion des licences Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Lorsque vous achetez ou activez Enterprise Mobility Suite, Azure AD Premium ou Azure AD Standard, votre annuaire est mis à jour avec l’abonnement, y compris sa période de validité et les licences prépayées. Une fois l’abonnement actif, le service peut être géré par des administrateurs généraux Azure et utilisé par des utilisateurs sous licence. Les informations relatives à votre abonnement, dont le nombre de licences attribuées ou disponibles, sont accessibles via le portail Azure, dans le panneau **Azure Active Directory** > **Licences**. Cette vignette constitue également l’emplacement idéal pour gérer vos attributions de licence.|
-|[Contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|La fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) Azure permet de gérer avec précision l’accès aux ressources Azure. Un trop grand nombre d’autorisations peut exposer un compte à des attaques potentielles. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. La fonctionnalité RBAC vous permet d’octroyer précisément aux employés les autorisations dont ils ont besoin en fonction de trois rôles de base qui s’appliquent à tous les groupes de ressources : propriétaire, contributeur et lecteur. Vous pouvez également créer jusqu’à 2 000 [rôles RBAC personnalisés](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) pour répondre à vos besoins spécifiques. |
+|[Contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)|La fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) Azure permet de gérer avec précision l’accès aux ressources Azure. Un trop grand nombre d’autorisations peut exposer un compte à des attaques potentielles. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. La fonctionnalité RBAC vous permet d’octroyer précisément aux employés les autorisations dont ils ont besoin en fonction de trois rôles de base qui s’appliquent à tous les groupes de ressources : propriétaire, contributeur et lecteur. Vous pouvez également créer jusqu’à 2 000 [rôles RBAC personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) pour répondre à vos besoins spécifiques. |
 |[Identité hybride](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|Vous obtenez une identité hybride en intégrant votre Windows Server Active Directory (AD DS) local avec Azure AD à l’aide d’[Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure, ainsi que les applications locales ou SaaS intégrées avec Azure AD. Avec une identité hybride, vous étendez efficacement votre environnement local au cloud pour l’identité et l’accès.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Différence entre Windows Server AD DS et Azure AD

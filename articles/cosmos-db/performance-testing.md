@@ -3,8 +3,8 @@ title: Test des performances et de la mise à l’échelle Azure Cosmos DB | Mi
 description: Découvrez comment effectuer un test des performances et de la mise à l’échelle avec Azure Cosmos DB
 keywords: Tester les performances
 services: cosmos-db
-author: arramac
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
-ms.author: arramac
-ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 3b908f1df9228505b2f3bce18bd42d9b502844c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 

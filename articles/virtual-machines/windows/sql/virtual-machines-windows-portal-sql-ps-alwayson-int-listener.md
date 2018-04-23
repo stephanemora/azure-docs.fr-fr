@@ -1,6 +1,6 @@
 ---
-title: "Configurer des écouteurs de groupe de disponibilité Always On - Microsoft Azure | Microsoft Docs"
-description: "Configurez les écouteurs de groupe de disponibilité sur le modèle Azure Resource Manager, à l’aide d’un équilibreur de charge interne avec une ou plusieurs adresses IP."
+title: Configurer des écouteurs de groupe de disponibilité Always On - Microsoft Azure | Microsoft Docs
+description: Configurez les écouteurs de groupe de disponibilité sur le modèle Azure Resource Manager, à l’aide d’un équilibreur de charge interne avec une ou plusieurs adresses IP.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 Cette rubrique explique comment effectuer les opérations suivantes :
@@ -48,10 +48,10 @@ Configurez le Pare-feu Windows pour autoriser l’accès à SQL Server. Les règ
 > 
 > 
 
-Le script PowerShell suivant crée un équilibreur de charge interne, configure les règles d’équilibrage de charge et affecte une adresse IP pour l’équilibrage de charge. Pour exécuter le script, ouvrez Windows PowerShell ISE, puis collez le script dans le volet Script. Utilisez `Login-AzureRMAccount` pour vous connecter à PowerShell. Si vous possédez plusieurs abonnements Azure, utilisez `Select-AzureRmSubscription ` pour définir l’abonnement. 
+Le script PowerShell suivant crée un équilibreur de charge interne, configure les règles d’équilibrage de charge et affecte une adresse IP pour l’équilibrage de charge. Pour exécuter le script, ouvrez Windows PowerShell ISE, puis collez le script dans le volet Script. Utilisez `Connect-AzureRmAccount` pour vous connecter à PowerShell. Si vous possédez plusieurs abonnements Azure, utilisez `Select-AzureRmSubscription ` pour définir l’abonnement. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -112,7 +112,7 @@ Le port frontal est le port que les applications utilisent pour se connecter à 
 Le script suivant ajoute une nouvelle adresse IP à un équilibreur de charge existant. L’équilibreur de charge interne utilise le port d’écoute pour le port frontal de l’équilibrage de charge. Ce port peut être le port sur lequel SQL Server écoute le trafic. Pour les instances par défaut de SQL Server, il s’agit du port 1433. La règle d’équilibrage de charge d’un groupe de disponibilité nécessite une adresse IP flottante (retour direct du serveur) de sorte que le port de serveur principal est le même que le port frontal. Mettez à jour les variables de votre environnement. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name

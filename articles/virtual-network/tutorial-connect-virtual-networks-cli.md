@@ -1,42 +1,42 @@
 ---
 title: Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels - Azure CLI | Microsoft Docs
-description: Apprenez comment connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels.
+description: Dans cet article, vous apprendrez à connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29ab957e97c6aa57be6192e6ee4d86fe642ae95d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant Azure CLI
 
 Vous pouvez connecter des réseaux virtuels entre eux à l’aide de l’appairage de réseaux virtuels. Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer deux réseaux virtuels
-> * Connecter deux réseaux virtuels à l’aide de l’appairage de réseaux virtuels
-> * Déployer une machine virtuelle sur chaque réseau virtuel
-> * Établir une communication entre les machines virtuelles
+* Créer deux réseaux virtuels
+* Connecter deux réseaux virtuels à l’aide de l’homologation de réseaux virtuels
+* Déployer une machine virtuelle sur chaque réseau virtuel
+* Établir une communication entre les machines virtuelles
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.28 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Créer des réseaux virtuels
 
@@ -123,7 +123,7 @@ Les ressources dans un réseau virtuel ne peuvent pas communiquer avec les resso
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-Créez une machine virtuelle sur chaque réseau virtuel afin de les faire communiquer dans une étape ultérieure.
+Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir une communication entre elles dans une étape ultérieure.
 
 ### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
 
@@ -169,7 +169,7 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Une foi
 }
 ```
 
-Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder à la machine virtuelle à partir d’Internet lors d’une étape ultérieure.
+Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder à la machine virtuelle à partir d’Internet dans une prochaine étape.
 
 ## <a name="communicate-between-vms"></a>Établir une communication entre les machines virtuelles
 
@@ -197,30 +197,8 @@ Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group 
 az group delete --name myResourceGroup --yes
 ```
 
-**<a name="register"></a>Inscription à la préversion de l’appairage de réseaux virtuels mondiaux**
-
-L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels dans des régions différentes est actuellement en version préliminaire. Consultez [Virtual network updates](https://azure.microsoft.com/updates/?product=virtual-network) (Mises à jour du réseau virtuel) pour les régions disponibles. Pour appairer des réseaux virtuels dans différentes régions, vous devez d’abord vous inscrire à la préversion, en effectuant les étapes suivantes (dans l’abonnement dans lequel se trouve chaque réseau virtuel à appairer) :
-
-1. Inscrivez-vous à la préversion en entrant les commandes suivantes :
-
-  ```azurecli-interactive
-  az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  az provider register --name Microsoft.Network
-  ```
-
-2. Vérifiez que vous êtes inscrit à la préversion en saisissant la commande suivante :
-
-  ```azurecli-interactive
-  az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  ```
-
-  Si vous tentez d’appairer des réseaux virtuels dans des régions différentes avant que la valeur de **RegistrationState** (état d’inscription) de sortie reçue après la saisie de la commande précédente soit **Registered** (inscrit) pour les deux abonnements, l’appairage échoue.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à connecter deux réseaux avec l’appairage de réseaux virtuels. Dans cet article, vous avez appris à connecter deux réseaux situés au même emplacement Azure à l’aide de l’appairage de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](#register) ou des [abonnements Azure différents](create-peering-different-subscriptions.md#portal). Vous pouvez également créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’appairage. Avant d’appairer des réseaux virtuels en production, il est recommandé de bien se familiariser avec la [vue d’ensemble de l’appairage](virtual-network-peering-overview.md), la [gestion de l’appairage](virtual-network-manage-peering.md) et les [limites de réseau virtuel](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Dans cet article, vous avez appris à connecter deux réseaux situés dans la même région Azure à l’aide de l’appairage de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](virtual-network-manage-peering.md#cross-region) et dans des [abonnements Azure différents](create-peering-different-subscriptions.md#cli). Vous pouvez aussi créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’appairage. Pour en savoir plus sur l’appairage de réseaux virtuels, consultez [Aperçu de présentation de l’appairage de réseaux virtuels](virtual-network-peering-overview.md) et [Gérer les appairages de réseau virtuels](virtual-network-manage-peering.md).
 
-Vous pouvez [connecter votre propre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via un VPN et interagir avec les ressources dans un réseau virtuel, ou dans des réseaux virtuels appairés. Consultez les exemples de script pour obtenir des scripts réutilisables permettant d’accomplir un grand nombre des tâches présentées dans les articles sur les réseaux virtuels.
-
-> [!div class="nextstepaction"]
-> [Exemples de scripts de réseau virtuel](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Vous pouvez [connecter votre propre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via un VPN et interagir avec les ressources dans un réseau virtuel, ou dans des réseaux virtuels appairés. Consultez les [exemples de script](cli-samples.md) pour obtenir des scripts réutilisables permettant d’accomplir un grand nombre des tâches présentées dans les articles sur les réseaux virtuels.

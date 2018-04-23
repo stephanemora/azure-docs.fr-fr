@@ -1,12 +1,12 @@
 ---
-title: "Résolution de problèmes de connexion SSH à une machine virtuelle Azure | Microsoft Docs"
-description: "Dépannage d’erreurs SSH telles que l’échec de connexion SSH ou le refus de connexion SSH pour une machine virtuelle Azure exécutant Linux."
-keywords: "connexion ssh refusée, erreur ssh, ssh azure, échec de connexion SSH"
+title: Résolution de problèmes de connexion SSH à une machine virtuelle Azure | Microsoft Docs
+description: Dépannage d’erreurs SSH telles que l’échec de connexion SSH ou le refus de connexion SSH pour une machine virtuelle Azure exécutant Linux.
+keywords: connexion ssh refusée, erreur ssh, ssh azure, échec de connexion SSH
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
 Il existe différentes raisons pour lesquelles des erreurs SSH (Secure Shell) se produisent, la connexion SSH échoue ou cette connexion est refusée lorsque vous tentez de vous connecter à une machine virtuelle Linux. Cet article vous aide à identifier et à corriger ces problèmes. Vous pouvez utiliser le portail Azure, l’interface de ligne de commande Azure ou l’extension d’accès aux machines virtuelles pour Linux pour dépanner et résoudre des problèmes de connexion.
@@ -68,6 +68,14 @@ Dans un premier temps, sélectionnez `Reset configuration only` dans le menu dé
 Pour réinitialiser les informations d’identification d’un utilisateur existant, sélectionnez `Reset SSH public key` ou `Reset password` dans le menu de **Mode** comme dans la capture d’écran précédente. Spécifiez le nom d’utilisateur et une clé SSH ou un nouveau mot de passe, puis cliquez sur le bouton **Réinitialiser**.
 
 Vous pouvez également créer un utilisateur avec des privilèges sudo sur la machine virtuelle à partir de ce menu. Entrez un nouveau nom d’utilisateur et un mot de passe ou une clé SSH qui correspond, puis cliquez sur le bouton **Réinitialiser**.
+
+### <a name="check-security-rules"></a>Vérifier les règles de sécurité
+
+Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port SSH (par défaut, 22). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
+### <a name="check-routing"></a>Vérifier le routage
+
+Utilisez la fonction [Tronçon suivant](../../network-watcher/network-watcher-check-next-hop-portal.md) de Network Watcher pour confirmer qu’un itinéraire n’empêche pas le trafic d’être routé vers ou à partir d’une machine virtuelle. Vous pouvez également examiner les itinéraires effectifs pour voir tous les itinéraires effectifs pour une interface réseau. Pour en savoir plus, voir [Utilisation de routes effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="use-the-azure-cli-20"></a>Utiliser Azure CLI 2.0
 Si ce n’est déjà fait, installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à votre compte Azure avec [az login](/cli/azure/reference-index#az_login).

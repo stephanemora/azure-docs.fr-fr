@@ -12,17 +12,17 @@
 ## [Mesures et diagnostics de l’équilibreur de charge standard](load-balancer-standard-diagnostics.md)
 
 # Prise en main
-## [Créer un équilibrage de charge de base](load-balancer-get-started-internet-portal.md)
-### [Créer un équilibrage de charge de base (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Créer un équilibrage de charge de base (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Créer un équilibrage de charge standard](load-balancer-standard-public-portal.md)
-### [Créer un équilibrage de charge standard (CLI)](load-balancer-standard-public-cli.md)
+## [Créer un équilibrage de charge de base](quickstart-create-basic-load-balancer-portal.md)
+### [Créer un équilibrage de charge de base (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Créer un équilibrage de charge de base (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Créer un équilibrage de charge standard](quickstart-load-balancer-standard-public-portal.md)
+### [Créer un équilibrage de charge standard (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # Procédures
 
-## [Créer un équilibreur de charge standard public et redondant dans une zone](load-balancer-get-started-internet-az-portal.md)
-### [Créer un équilibreur de charge standard public et redondant dans une zone (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Créer un équilibreur de charge standard public et redondant dans une zone (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Créer un équilibrage de charge standard public et redondant dans une zone](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+### [Créer un équilibrage de charge standard public et redondant dans une zone (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Créer un équilibrage de charge standard public et redondant dans une zone (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Créer un équilibrage de charge standard public et zonal](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
 ### [Créer un équilibrage de charge standard public et zonal (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
 ### [Créer un équilibrage de charge standard public et redondant dans une zone (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)

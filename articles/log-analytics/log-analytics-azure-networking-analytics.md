@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Solutions d’analyse réseaux Azure dans Log Analytics
 
@@ -28,18 +28,19 @@ Log Analytics propose les solutions suivantes pour la surveillance de vos rése
 * Azure Application Gateway Analytics à passer en revue
  * Journaux Azure Application Gateway
  * Mesures Azure Application Gateway
-* Azure Network Security Group Analytics à passer en revue
- * Journaux Azure Network Security Group
+* Solutions de surveillance et d’audit de l’activité du réseau sur votre réseau Cloud
+* [Analyse du trafic](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Analyseur de performances réseau (NPM)
 
-La solution de gestion [Analyseur de performances réseau](log-analytics-network-performance-monitor.md) est une solution de surveillance du réseau, qui contrôle l’intégrité, la disponibilité et l’accessibilité des réseaux.  Elle est utilisée pour contrôler la connectivité entre :
+La solution de gestion [Analyseur de performances réseau](https://docs.microsoft.com/azure/networking/network-monitoring-overview) est une solution de surveillance du réseau, qui contrôle l’intégrité, la disponibilité et l’accessibilité des réseaux.  Elle est utilisée pour contrôler la connectivité entre :
 
 * le cloud public et le site local ;
 * les centres de données et les emplacements des utilisateurs (filiales) ;
 * les sous-réseaux hébergeant différents niveaux d’une application multiniveau.
 
-Pour plus d’informations, consultez l’[Analyseur de performances réseau](log-analytics-network-performance-monitor.md).
+Pour plus d’informations, consultez l’[Analyseur de performances réseau](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway et Network Security Group Analytics
 Pour utiliser les solutions :

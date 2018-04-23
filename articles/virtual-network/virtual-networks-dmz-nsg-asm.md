@@ -1,11 +1,11 @@
 ---
-title: "Exemple de zone Azure DMZ – Créer une zone DMZ simple avec des groupes de sécurité réseau | Microsoft Docs"
-description: "Générer une zone DMZ avec des groupes de sécurité réseau (NSG)"
+title: Exemple de zone Azure DMZ – Créer une zone DMZ simple avec des groupes de sécurité réseau | Microsoft Docs
+description: Générer une zone DMZ avec des groupes de sécurité réseau (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exemple 1 : Générer une zone DMZ simple en utilisant des groupes de sécurité réseau (NSG) avec Classic PowerShell
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -186,7 +186,7 @@ Chaque règle est abordée plus en détail par la suite (**Remarque**: tous les 
    4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles
 9. AppVM01 reçoit la requête SQL et répond
 10. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée
-11. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
+11. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
     1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
     2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
 12. Le serveur IIS reçoit la réponse SQL, complète la réponse HTTP et l’envoie au demandeur
@@ -228,7 +228,7 @@ Chaque règle est abordée plus en détail par la suite (**Remarque**: tous les 
    4. La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles.
 4. AppVM01 reçoit la demande et répond avec un fichier (en supposant que l’accès est autorisé)
 5. Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée
-6. Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
+6. Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
    1. Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
    2. La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
 7. Le serveur IIS reçoit le fichier

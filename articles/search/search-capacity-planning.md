@@ -1,25 +1,17 @@
 ---
-title: "Planification des capacités de Recherche Azure | Microsoft Docs"
-description: "Ajustez les ressources informatiques des partitions et des réplicas dans Recherche Azure, où chaque ressource est facturée en unités de recherche facturables."
-services: search
-documentationcenter: 
+title: Planification des capacités de Recherche Azure | Microsoft Docs
+description: Ajustez les ressources informatiques des partitions et des réplicas dans Recherche Azure, où chaque ressource est facturée en unités de recherche facturables.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: caca793b529d8025f3c6a994ea8598068ee1b053
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search
 Une fois que vous avez [choisi un niveau tarifaire](search-sku-tier.md) et [approvisionné un service de recherche](search-create-service-portal.md), l’étape suivante, facultative, consiste à augmenter le nombre de réplicas ou de partitions utilisés par votre service. Chaque niveau propose un nombre fixe d’unités de facturation. Cet article explique comment allouer ces unités pour obtenir une configuration optimale par rapport à vos exigences pour l’exécution des requêtes, l’indexation et le stockage.

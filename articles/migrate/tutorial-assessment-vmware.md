@@ -1,17 +1,17 @@
 ---
-title: "Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure avec Azure Migrate | Microsoft Docs"
-description: "Décrit comment découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure, à l’aide du service Azure Migrate."
+title: Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure avec Azure Migrate | Microsoft Docs
+description: Décrit comment découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure, à l’aide du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d70b4ea2d45c38fa53ab3c00f76c00ef6f3d7663
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -31,6 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 - **VMware** : les machines virtuelles à migrer doivent être gérées par un vCenter Server exécutant la version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d'un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur. 
  
 > [!NOTE]
@@ -49,7 +50,7 @@ Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiqueme
 - Détails : l’utilisateur est affecté au niveau du centre de données et a accès à tous les objets du centre de données.
 - Pour restreindre l’accès, attribuez le rôle Aucun accès avec l’autorisation Propager vers l’objet enfant aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -84,7 +85,15 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
+    
+    Pour OVA version 1.0.9.7
 
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+    
     Pour OVA version 1.0.9.5
 
     **Algorithme** | **Valeur de hachage**
@@ -151,7 +160,7 @@ Importez le fichier téléchargé sur le serveur vCenter.
     - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification.
 
     > [!NOTE]
-    > L’adresse proxy doit être entrée au format http://ProxyAdresseIP ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge.
+    > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge.
 
     - Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
     - Téléchargez et installez VMware PowerCLI.

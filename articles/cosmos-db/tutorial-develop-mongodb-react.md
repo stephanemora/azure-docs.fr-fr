@@ -1,25 +1,25 @@
 ---
 title: Didacticiels MongoDB, React et Node pour Azure | Microsoft Docs
-description: "Découvrez comment créer une application MongoDB avec React et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB en suivant cette série de didacticiels vidéo."
+description: Découvrez comment créer une application MongoDB avec React et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB en suivant cette série de didacticiels vidéo.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 96cd397a7f04fe579b9c6331423abe107ad1c6d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c2cb4b30cb056303c07d5e82861e4022489c7072
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Créer une application MongoDB avec React et Azure Cosmos DB  
 
@@ -39,7 +39,8 @@ Ce didacticiel en plusieurs parties décrit les tâches suivantes :
 
 Vous souhaitez générer cette même application avec Angular ? Consultez la [série de didacticiels vidéo pour Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * [Node.JS](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Projet terminé
@@ -95,7 +96,7 @@ Cette vidéo montre comment compléter l’application et terminer le raccordeme
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure. 
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

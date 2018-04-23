@@ -1,26 +1,26 @@
 ---
-title: "Créer des rôles de contrôle d’accès en fonction du rôle personnalisés et les attribuer à des utilisateurs internes et externes dans Azure | Microsoft Docs"
-description: "Attribuer des rôles RBAC personnalisés créés à l’aide de PowerShell et d’Azure CLI à des utilisateurs internes et externes"
+title: Créer des rôles de contrôle d’accès en fonction du rôle personnalisés et les attribuer à des utilisateurs internes et externes dans Azure | Microsoft Docs
+description: Attribuer des rôles RBAC personnalisés créés à l’aide de PowerShell et d’Azure CLI à des utilisateurs internes et externes
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: kgremban
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b60b30e3a5a4f5adec4fbef8c4e981ad034a7f6c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Azure
 
@@ -29,6 +29,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) est une fonctionnalité excl
 La fonctionnalité RBAC permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux domaines de la facturation. La fonctionnalité RBAC offre la flexibilité de pouvoir être propriétaire d’un seul abonnement Azure géré par le compte d’administrateur (rôle Administrateur du service au niveau d’un abonnement) et d’avoir plusieurs utilisateurs invités à travailler dans le cadre de cet abonnement, mais sans droits d’administration sur celui-ci. Du point de vue de la facturation et de la gestion, la fonctionnalité RBAC s’avère être une option efficace en termes de temps et de gestion pour l’utilisation d’Azure dans diverses circonstances.
 
 ## <a name="prerequisites"></a>Prérequis
+
 L’utilisation de la fonctionnalité RBAC dans l’environnement Windows Azure nécessite ce qui suit :
 
 * Avoir un abonnement Azure autonome attribué à l’utilisateur en tant que propriétaire (rôle d’abonnement)
@@ -53,9 +54,9 @@ Il existe notamment deux cas courants d’utilisation de la fonctionnalité RBAC
 * Collaboration avec des utilisateurs internes à l’organisation (faisant partie du locataire Azure Active Directory de l’utilisateur) qui appartiennent à différents groupes ou équipes et doivent avoir un accès granulaire à la totalité de l’abonnement ou seulement à certains groupes ou étendues de ressources dans l’environnement
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Octroyer l’accès au niveau d’un abonnement à un utilisateur extérieur à Azure Active Directory
-Les rôles RBAC peuvent être octroyés uniquement par des **propriétaires** d’abonnement. Par conséquent, l’utilisateur administrateur doit être connecté avec un nom d’utilisateur auquel ce rôle est pré-attribué ou qui a créé l’abonnement Azure.
+Les rôles RBAC peuvent être octroyés uniquement par les **propriétaires** de l’abonnement. Par conséquent, l’administrateur doit être connecté en tant qu’utilisateur ayant ce rôle préattribué ou ayant créé l’abonnement Azure.
 
-Dans le portail Azure, après vous être connecté en tant qu’administrateur, sélectionnez « Abonnements », puis choisissez l’abonnement souhaité.
+Dans le portail Azure, après vous être connecté en tant qu’administrateur, sélectionnez « abonnements », puis choisissez l’abonnement souhaité.
 ![Panneau d’abonnement dans le portail Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) Par défaut, si l’utilisateur administrateur a acheté l’abonnement Azure, il apparaît en tant que **Administrateur de compte**, ce qui correspond au rôle d’abonnement. Pour plus d’informations sur les rôles d’abonnement Azure, voir [Ajouter ou modifier des rôles Administrateur Azure qui gèrent l’abonnement ou les services](/billing/billing-add-change-azure-subscription-administrator.md).
 
 Dans cet exemple, l’utilisateur « alflanigan@outlook.com » est le **Propriétaire** de l’abonnement « Évaluation gratuite » dans le client AAD « Client Azure par défaut ». Étant donné que cet utilisateur est le créateur de l’abonnement Azure avec le compte Microsoft initial « Outlook » (compte Microsoft = Outlook, Live, etc.), le nom de domaine par défaut pour tous les autres utilisateurs ajoutés à ce client sera **« @alflaniganuoutlook.onmicrosoft.com »**. Par conception, la syntaxe du nouveau domaine est formée par assemblage du nom d’utilisateur et du nom domaine de l’utilisateur qui a créé le client, avec ajout de l’extension **« .onmicrosoft.com »**.
@@ -185,154 +186,154 @@ Pour les entreprises de grande taille, les rôles RBAC peuvent être appliqués 
 Il s’agit de groupes de sécurité provisionnés et gérés uniquement dans Azure Active Directory.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Créer un rôle RBAC personnalisé pour ouvrir les demandes de support à l’aide de PowerShell
-Les rôles RBAC intégrés disponibles dans Azure garantissent certains niveaux d’autorisation en fonction des ressources disponibles dans l’environnement. Toutefois, si aucun de ces rôles ne répond aux besoins de l’utilisateur administrateur, il est possible de limiter davantage l’accès en créant des rôles RBAC personnalisés.
+Les rôles intégrés disponibles dans Azure garantissent certains niveaux d’autorisation en fonction des ressources disponibles dans l’environnement. Cependant, si les rôles intégrés ne répondent pas à vos besoins, vous pouvez créer des rôles personnalisés.
 
-La création d’un rôle RBAC personnalisé requiert de prendre un rôle intégré, de le modifier, puis de le réimporter dans l’environnement. Le téléchargement et le chargement du rôle sont gérés à l’aide de PowerShell ou d’Azure CLI.
+Pour créer un rôle personnalisé, vous pouvez prendre un rôle prédéfini pour commencer, le modifier puis créer un nouveau rôle. Pour cet exemple, le rôle intégré **Lecteur** a été personnalisé pour permettre à l’utilisateur d’ouvrir des demandes de support.
 
-Vous devez comprendre les prérequis de la création d’un rôle personnalisé capable d’accorder un accès granulaire au niveau de l’abonnement et de donner à l’utilisateur invité la possibilité d’ouvrir des demandes de support.
+Dans PowerShell, utilisez la commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) pour exporter le rôle **Lecteur** au format JSON.
 
-Pour cet exemple, le rôle intégré **Lecteur**, qui permet à l’utilisateur d’afficher toutes les étendues de ressource, mais pas de les modifier ou d’en créer, a été personnalisé pour permettre à l’utilisateur d’ouvrir des demandes de support.
-
-La première action d’exportation du rôle **Lecteur** doit être accomplie dans PowerShell exécuté avec des autorisations élevées d’administrateur.
-
-```
-Login-AzureRMAccount
-
-Get-AzureRMRoleDefinition -Name "Reader"
-
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-
+```powershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
+Voici la sortie JSON pour le rôle Lecteur.
 
+```json
+{
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-
-
-![Capture d’écran de PowerShell pour le rôle RBAC Lecteur](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
-
-Vous devez extraire le modèle JSON du rôle.
-
-
-
-
-
-![Modèle JSON pour le rôle RBAC Lecteur personnalisé](./media/role-based-access-control-create-custom-roles-for-internal-external-users/16.png)
-
-Un rôle RBAC classique comprend trois sections principales, **Actions**, **NotActions** et **AssignableScopes**.
-
-La section **Action** répertorie toutes les opérations autorisées pour ce rôle. Il est important de comprendre que chaque action est affectée à partir d’un fournisseur de ressources. Dans ce cas, pour la création de tickets de support, le fournisseur de ressources **Microsoft.Support** doit être répertorié.
-
-Pour voir tous les fournisseurs de ressources disponibles et enregistrés dans votre abonnement, vous pouvez utiliser PowerShell.
-```
-Get-AzureRMResourceProvider
-
-```
-En outre, vous pouvez vérifier la disponibilité de toutes les applets de commande PowerShell pour gérer les fournisseurs de ressources.
-    ![Capture d’écran de PowerShell pour la gestion de fournisseur de ressources](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
-
-Pour restreindre toutes les actions pour un rôle RBAC particulier, les fournisseurs de ressources sont répertoriés sous la section **NotActions**.
-Enfin, le rôle RBAC doit obligatoirement contenir les ID d’abonnement explicites correspondant aux emplacements où il est utilisé. Les ID d’abonnement sont répertoriés sous la section **AssignableScopes**. Sans ceux-ci, vous ne serez pas autorisé à importer le rôle dans votre abonnement.
-
-Une fois créé et personnalisé, le rôle RBAC doit être réimporté dans l’environnement.
-
-```
-New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
-
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
+}
 ```
 
-Dans cet exemple, le nom de ce rôle RBAC personnalisé est « Niveau d’accès des tickets de support du Lecteur ». Il permet à l’utilisateur d’afficher tout le contenu de l’abonnement et d’ouvrir des demandes de support.
+Vous modifiez ensuite la sortie JSON pour créer votre rôle personnalisé.
+
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
+```
+
+Un rôle classique comprend trois sections principales, **Actions**, **NotActions** et **AssignableScopes**.
+
+Dans la section **Action**, toutes les opérations autorisées pour ce rôle sont répertoriées. Dans ce cas, pour créer des tickets de support, l’opération **Microsoft.Support/&ast;** doit être ajoutée. Il est important de comprendre que chaque action est mise à disposition à partir d’un fournisseur de ressources. Pour obtenir une liste des opérations pour un fournisseur de ressources, vous pouvez utiliser la commande [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) ou consulter [Opérations du fournisseur de ressources Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
+
+Pour restreindre toutes les actions pour un rôle particulier, les fournisseurs de ressources sont répertoriés sous la section **NotActions**.
+Enfin, le rôle doit obligatoirement contenir les ID d’abonnement explicites où il est utilisé. Les ID d’abonnement sont répertoriés sous la section **AssignableScopes**. Sans ceux-ci, vous ne serez pas autorisé à importer le rôle dans votre abonnement.
+
+Pour créer le rôle personnalisé, vous utilisez la commande [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) et fournissez le fichier de définition de rôle JSON mis à jour.
+
+```powershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+Dans cet exemple, le nom de ce rôle personnalisé est « Reader support tickets access level » (Lecteur niveau d’accès tickets de support). Il permet à l’utilisateur de consulter tous les éléments de l’abonnement, ainsi que d’ouvrir des demandes de support.
 
 > [!NOTE]
-> Les deux seuls rôles RBAC intégrés autorisant l’action d’ouverture de demandes de support sont **Propriétaire** et **Contributeur**. Pour pouvoir ouvrir des demandes de support, un utilisateur doit avoir un rôle RBAC uniquement au niveau de l’étendue de l’abonnement, car toutes les demandes de prise en charge sont créées sur la base d’un abonnement Azure.
+> Les deux seuls rôles intégrés qui autorisent un utilisateur à ouvrir des demandes de support sont **Propriétaire** et **Contributeur**. Pour pouvoir ouvrir des demandes de support, un utilisateur doit avoir un rôle au niveau de l’étendue de l’abonnement, car toutes les demandes de prise en charge sont créées sur la base d’un abonnement Azure.
 
-Ce nouveau rôle personnalisé a été attribué à un utilisateur du même annuaire.
+Le nouveau rôle personnalisé est maintenant disponible dans le portail Azure et peut être attribué aux utilisateurs.
 
+![capture d’écran d’un rôle personnalisé importé dans le portail Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
 
+![capture d’écran de l’attribution d’un rôle importé personnalisé à un utilisateur dans le même annuaire](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
+![capture d’écran d’autorisations pour un rôle importé personnalisé](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
+Les utilisateurs auxquels ce rôle personnalisé est attribué peuvent désormais créer de nouvelles demandes de support.
 
-![capture d’écran d’un rôle RBAC personnalisé importé dans le portail Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+![capture d’écran d’un rôle personnalisé créant des demandes de support](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
 
+Les utilisateurs auxquels ce rôle personnalisé est attribué ne peuvent pas effectuer d’autres actions, telles que créer des machines virtuelles ou créer des groupes de ressources.
 
+![capture d’écran d’un rôle personnalisé ne pouvant pas créer de machines virtuelles](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
-
-
-![capture d’écran de l’attribution d’un rôle RBAC importé personnalisé à un utilisateur dans le même annuaire](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
-
-
-
-
-
-![capture d’écran d’autorisations pour un rôle RBAC importé personnalisé](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
-
-L’exemple a été détaillé davantage pour mettre en évidence les limites de ce rôle RBAC personnalisé comme suit :
-* Peut créer des demandes de support
-* Ne peut pas créer d’étendues de ressource (par exemple, machine virtuelle)
-* Ne peut pas créer de groupes de ressources
-
-
-
-
-
-![capture d’écran d’un rôle RBAC personnalisé créant des demandes de support](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
-
-
-
-
-
-![capture d’écran d’un rôle RBAC personnalisé ne pouvant pas créer de machine virtuelle](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
-
-
-
-
-
-![capture d’écran d’un rôle RBAC personnalisé ne pouvant pas créer de groupe de ressources](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![capture d’écran d’un rôle personnalisé ne pouvant pas créer de nouveaux groupes de ressources](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Créer un rôle RBAC personnalisé pour ouvrir les demandes de support à l’aide d’Azure CLI
-S’exécutant sur un Mac et sans avoir accès à PowerShell, Azure CLI est le bon choix.
 
-Les étapes pour la création d’un rôle personnalisé sont les mêmes, à la seule exception que le rôle peut pas être téléchargé dans un modèle JSON à l’aide de l’interface de ligne de commande, mais uniquement affiché dans celle-ci.
+Les étapes pour créer un rôle personnalisé à l’aide d’Azure CLI sont similaires à celles de PowerShell, à l’exception la sortie JSON qui est différente.
 
-Pour cet exemple, j’ai choisi le rôle intégré **Lecteur de secours**.
+Pour cet exemple, vous pouvez prendre le rôle intégré **Lecteur** pour commencer. Pour répertorier les actions du rôle Lecteur, utilisez la commande [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
+```azurecli
+az role definition list --name "Reader" --output json
 ```
 
-azure role show "backup reader" --json
-
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": []
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
 ```
 
+Créez un fichier JSON au format suivant. L’opération **Microsoft.Support/&ast;**  a été ajoutée dans la section **Actions** afin que cet utilisateur puisse ouvrir des demandes de support tout en continuant à être un lecteur. Vous devez ajouter dans la section **AssignableScopes** l’ID de l’abonnement dans lequel ce rôle sera utilisé.
 
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-
-
-![Capture d’écran d’interface de ligne de commande pour l’affichage du rôle Lecteur de secours (Backup Reader)](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
-
-Après la modification du rôle dans Visual Studio et la copie des propriétés dans un modèle JSON, le fournisseur de ressources **Microsoft.Support** a été ajouté dans la section **Actions** de façon à ce que cet utilisateur puisse ouvrir des demandes de support tout en continuant d’être un lecteur pour les coffres de sauvegarde. Là encore, il est nécessaire d’ajouter dans la section **AssignableScopes** l’ID de l’abonnement dans lequel ce rôle sera utilisé.
-
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
 ```
 
-azure role create --inputfile <path>
+Pour créer le rôle personnalisé, utilisez la commande [az role definition create](/cli/azure/role/definition#az_role_definition_create).
 
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
 ```
 
+Le nouveau rôle personnalisé est désormais disponible dans le portail Azure, et le processus d’attribution est le même que dans la section PowerShell précédente.
 
-
-
-
-![Capture d’écran de l’Interface de ligne de commande pour l’importation de rôle RBAC personnalisé](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
-
-Le nouveau rôle est désormais disponible dans le portail Azure, et le processus d’attribution est le même que dans les exemples précédents.
-
-
-
-
-
-![Capture d’écran du portail Azure montrant le rôle RBAC personnalisé créé à l’aide d’Azure CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
-
-Depuis la dernière build 2017, Azure Cloud Shell est généralement disponible. Azure Cloud Shell est un complément de l’environnement de développement intégré (IDE) et du portail Azure. Avec ce service, vous bénéficiez d’un interpréteur de commandes basé sur un navigateur, qui est authentifié et hébergé dans Azure, et que vous pouvez utiliser à la place de l’interface de ligne de commande installée sur votre ordinateur.
-
-
-
-
-
-![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![Capture d’écran du portail Azure montrant le rôle personnalisé créé à l’aide d’Azure CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)

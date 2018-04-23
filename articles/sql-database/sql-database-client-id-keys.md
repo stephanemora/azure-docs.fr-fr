@@ -7,13 +7,13 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: e907edc98228ecab645e63f5e38094e3a04812de
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 31dd476244d578acf1ced3881fac94d5262bcb82
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtenir l’ID client et la clé pour la connexion à une base de données SQL à partir du code
 Pour créer et gérer une base de données SQL à partir du code, vous devez inscrire votre application dans le domaine Azure Active Directory (AAD) de l’abonnement où vos ressources Azure ont été créées.
@@ -24,7 +24,7 @@ La dernière version [d’Azure PowerShell](https://msdn.microsoft.com/library/m
 Le script PowerShell suivant crée l’application Active Directory (AD) et le principal du service dont nous avons besoin pour authentifier notre application C#. Le script génère les valeurs dont nous avons besoin pour l’exemple C# précédent. Pour plus de détails, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"

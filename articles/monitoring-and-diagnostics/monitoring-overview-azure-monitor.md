@@ -1,25 +1,25 @@
 ---
-title: "Vue d’ensemble d’Azure Monitor | Microsoft Docs"
-description: "Azure Monitor collecte des statistiques qui peuvent être utilisées dans les alertes, les webhooks, la mise à l’échelle automatique et l’automatisation. L’article liste également les autres options de surveillance de Microsoft."
+title: Vue d’ensemble d’Azure Monitor | Microsoft Docs
+description: Azure Monitor collecte des statistiques qui peuvent être utilisées dans les alertes, les webhooks, la mise à l’échelle automatique et l’automatisation. L’article liste également les autres options de surveillance de Microsoft.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Vue d’ensemble d’Azure Monitor
 Cet article fournit une vue d’ensemble du service Azure Monitor dans Microsoft Azure. Vous y trouverez ce qu’Azure Monitor fait et des pointeurs vers des informations supplémentaires sur l’utilisation d’Azure Monitor.  Si vous préférez une présentation vidéo, consultez les liens Étapes suivants en bas de cet article. 
@@ -35,15 +35,13 @@ Azure Monitor dispose d’une page d’accueil qui permet aux utilisateurs de :
 - Comprendre les fonctionnalités de surveillance proposées par Azure.
 - Découvrir, configurer et intégrer la plateforme et les fonctionnalités de surveillance premium d’Azure.
 
-Étant donné que le service Azure Monitor est en cours de publication, la page de présentation d’accueil est en préversion. 
-
 La page constitue le point de départ pour la navigation et l’intégration. Elle présente les problèmes importants relatifs à différents services et permet à l’utilisateur d’y accéder en contexte.
  
 ![Modèle pour l’analyse et le diagnostic pour les ressources non liées au calcul](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 Lorsque vous ouvrez la page, vous pouvez choisir parmi les abonnements auxquels vous avez un accès en lecture. Pour un abonnement sélectionné, vous pouvez voir :
 
-- **Alertes déclenchées et sources d’alerte** : ce tableau affiche un résumé des nombres, les sources d’alerte et le nombre de fois où des alertes ont été déclenchées pendant la durée sélectionnée. Cela s’applique aux alertes sur les métriques et aux alertes du journal d’activité. *<Modifier : alertes (version préliminaire) avec une expérience unifiée également affichée pour toutes les alertes - événements, mesures et journaux>*
+- **Alertes déclenchées et sources d’alerte** : ce tableau affiche un résumé des nombres, les sources d’alerte et le nombre de fois où des alertes ont été déclenchées pendant la durée sélectionnée. Il concerne autant les alertes anciennes que récentes. En savoir plus sur les [alertes Azure plus récentes](monitoring-overview-unified-alerts.md). 
 - **Erreurs du journal d’activité** : si l’une de vos ressources Azure journalise des événements avec une gravité de niveau erreur, vous pouvez afficher un nombre de niveau supérieur et cliquer sur la page du journal d’activité pour examiner chaque événement.
 - **Azure Service Health** : vous pouvez afficher le nombre des problèmes relatifs au service Azure Service Health, les événements de maintenance planifiée et des conseils sur le contrôle de l’intégrité. Azure Service Health fournit des informations personnalisées lorsque des problèmes touchant l’infrastructure Azure ont une incidence sur vos services.  Pour plus d’informations, consultez [Azure Service Health](../service-health/service-health-overview.md).  
 - **Application Insights** : consultez les indicateurs de performance clés pour chaque ressource AppInsights dans l’abonnement actuel. Les indicateurs de performance clés sont optimisés pour la surveillance d’application côté serveur pour les applications web ASP.NET, Java, de nœud et les types d’applications généraux. Les indicateurs de performance clés incluent les métriques du taux de demandes, de la durée de réponse, du taux d’échec et du pourcentage de disponibilité. 
@@ -143,12 +141,12 @@ Il existe quelques méthodes de visualisation, qui sont les suivantes :
 
 ### <a name="automate"></a>Automatisation
 > [!NOTE]
-> Dans le cadre de l’évolution constante des alertes sur Microsoft Azure, nous vous offrons désormais une expérience unifiée pour les alertes. Plus d’informations sur les [alertes Azure (version préliminaire)](monitoring-overview-unified-alerts.md)
+> Dans le cadre de l’évolution constante des alertes sur Microsoft Azure, nous vous offrons désormais une expérience unifiée pour les alertes. Plus de détails sur les [alertes Azure](monitoring-overview-unified-alerts.md)
 
-Avec les alertes Azure classiques, vous pouvez utiliser les données d’analyse pour déclencher des alertes ou encore des processus complets. Voici quelques exemples :
+Dans les alertes Azure, vous pouvez utiliser les données d’analyse pour déclencher des alertes, voire des processus complets. Voici quelques exemples :
 
 * Utilisation des données pour la mise à l’échelle automatique des instances de calcul, vers le haut ou vers le bas selon le chargement de l’application.
-* Envoi de messages électroniques lorsqu’une mesure dépasse un seuil prédéfini.
+* Envoyer des e-mails en fonction des conditions de métrique ou de journal. 
 * Appel d’une URL Web (webhook) afin d’exécuter une action dans un système hors Azure
 * Démarrage d’un runbook dans Azure Automation pour l’exécution de tout ensemble de tâches
 
@@ -170,4 +168,4 @@ En savoir plus sur
 - Configurez les [Extensions Azure Diagnostics](../azure-diagnostics.md) si vous tentez de diagnostiquer des problèmes dans votre service cloud, machine virtuelle, jeux de mise à l’échelle de machine virtuelle ou application Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) si vous essayez de diagnostiquer des problèmes dans votre application web App Service.
 - [Résolution des problèmes du stockage Azure](../storage/common/storage-e2e-troubleshooting.md) lorsque vous utilisez le stockage d’objets blob, de tables ou de files d’attente
-- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) et [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

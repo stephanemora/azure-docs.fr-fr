@@ -1,11 +1,11 @@
 ---
-title: "Lier un certificat SSL existant à des applications web Azure | Microsoft Docs"
-description: "Découvrez comment lier un certificat SSL personnalisé à votre application web, un backend d’application mobile ou une application API dans Azure App Service."
+title: Lier un certificat SSL existant à des applications web Azure | Microsoft Docs
+description: Découvrez comment lier un certificat SSL personnalisé à votre application web, un backend d’application mobile ou une application API dans Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5d5bf588-b0bb-4c6d-8840-1b609cfb5750
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Lier un certificat SSL existant à des applications web Azure
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutoriel : Lier un certificat SSL existant à des applications web Azure
 
 Azure Web Apps fournit un service d’hébergement hautement évolutif et appliquant des mises à jour correctives automatiquement. Ce didacticiel vous montre comment lier un certificat SSL personnalisé acheté auprès d’une autorité de certification approuvée pour [Azure Web Apps](app-service-web-overview.md). Lorsque vous aurez terminé, vous serez en mesure d’accéder à votre application web au niveau du point de terminaison HTTPS de votre domaine DNS personnalisé.
 
@@ -38,7 +38,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!NOTE]
 > Si vous avez besoin d’un certificat SSL personnalisé, vous pouvez en obtenir un directement dans le portail Azure et le lier à votre application web. Suivez le [didacticiel Certificats App Service](web-sites-purchase-ssl-web-site.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 
@@ -220,7 +221,7 @@ Dans le volet de navigation gauche de la page de votre application web, sélecti
 
 ![Appliquer le protocole HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Lorsque l’opération est terminée, accédez à une des URL HTTP pointant vers votre application. Par exemple :
+Lorsque l’opération est terminée, accédez à une des URL HTTP pointant vers votre application. Par exemple : 
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -230,7 +231,7 @@ Lorsque l’opération est terminée, accédez à une des URL HTTP pointant vers
 
 Vous pouvez automatiser les liaisons SSL de votre application web à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
 La commande suivante charge un fichier PFX exporté et obtient l’empreinte.
 
@@ -274,7 +275,7 @@ Vous pouvez charger les [certificats publics](https://blogs.msdn.microsoft.com/a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Mettre à jour le niveau de tarification de votre application

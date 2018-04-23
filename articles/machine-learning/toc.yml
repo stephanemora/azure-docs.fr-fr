@@ -1,5 +1,5 @@
 - name: "Services Microsoft\_Azure\_Machine\_Learning (préversion)"
-  href: preview/index.yml
+  href: service/index.yml
 - name: "Azure\_Machine\_Learning\_Studio"
   href: studio/index.yml
 - name: Machine virtuelle de science des données

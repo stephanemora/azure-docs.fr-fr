@@ -1,11 +1,11 @@
 ---
-title: "Gérer l’expiration de contenu web dans Azure Content Delivery Network | Microsoft Docs"
-description: "Découvrez comment gérer l’expiration des contenus d’Azure Web Apps/Services cloud, d’ASP.NET ou d’IIS dans le réseau de distribution de contenu (CDN) Azure."
+title: Gérer l’expiration de contenu web dans Azure Content Delivery Network | Microsoft Docs
+description: Découvrez comment gérer l’expiration des contenus d’Azure Web Apps/Services cloud, d’ASP.NET ou d’IIS dans le réseau de distribution de contenu (CDN) Azure.
 services: cdn
 documentationcenter: .NET
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1a12e0d5bd5852cf8de3d5fec93f2bfdd3ab257
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Gérer l’expiration de contenu web dans Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Vous pouvez également contrôler les paramètres de cache à partir du portail 
 La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serveur web consiste à utiliser des règles de mise en cache dans le portail Azure. Pour plus d’informations sur les règles de mise en cache CDN, consultez [Contrôler le comportement de mise en cache d’Azure Content Delivery Network au moyen de règles de mise en cache](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Les règles de mise en cache sont disponibles uniquement pour les profils **Azure CDN Verizon Standard** et **Azure CDN Akamai Standard**. Pour les profils **Azure CDN Verizon Premium**, vous devez utiliser le [moteur de règles d’Azure CDN](cdn-rules-engine.md) dans le portail de **gestion** pour une fonctionnalité similaire.
+> Les règles de mise en cache sont disponibles uniquement pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai**. Pour les profils **CDN Azure Premium fourni par Verizon**, vous devez utiliser le [moteur de règles du CDN Azure](cdn-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
 
 **Pour accéder à la page des règles de mise en cache CDN** :
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurer des ports haute disponibilité pour un équilibreur de charge interne
 
@@ -39,12 +39,6 @@ L’illustration montre la configuration suivante de l’exemple de déploiement
 ![Exemple de déploiement de ports haute disponibilité](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>S’inscrire à la préversion
-
-Pour découvrir la préversion des ports haute disponibilité dans Standard Azure Load Balancer, inscrivez votre abonnement et bénéficiez d’un accès par le biais d’Azure CLI 2.0 ou de PowerShell. Inscrivez votre abonnement à la [préversion de Standard Load Balancer](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->L’inscription à la préversion de Standard Load Balancer peut prendre jusqu’à une heure.
 
 ## <a name="configure-high-availability-ports"></a>Configurer les ports haute disponibilité
 

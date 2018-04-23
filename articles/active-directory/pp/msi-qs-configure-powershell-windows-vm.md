@@ -1,11 +1,11 @@
 ---
-title: "Comment configurer la MSI sur une machine virtuelle Azure à l’aide de PowerShell"
-description: "Instructions détaillées sur la configuration de l’identité du service administré (MSI) sur une machine virtuelle Azure, à l’aide de PowerShell."
+title: Comment configurer la MSI sur une machine virtuelle Azure à l’aide de PowerShell
+description: Instructions détaillées sur la configuration de l’identité du service administré (MSI) sur une machine virtuelle Azure, à l’aide de PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: cb87dd88c0425383243edcf12b946cb1821aabe5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9a466a5c695277a7b5833f997e2ad7281c962f3f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurer une identité du service administré (MSI) de machine virtuelle à l’aide de PowerShell
 
@@ -29,6 +29,7 @@ L’identité du service administré fournit des services Azure avec une identit
 Dans cet article, vous apprenez à activer et à supprimer la MSI pour une machine virtuelle Azure à l’aide de PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -61,10 +62,10 @@ Pour créer une machine virtuelle compatible avec l’identité du service admin
 
 Si vous devez activer l’identité du service administré sur une machine virtuelle existante :
 
-1. Connectez-vous au portail Azure à l’aide de `Login-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
+1. Connectez-vous au portail Azure à l’aide de `Connect-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Commencez par récupérer les propriétés de la machine virtuelle à l’aide de la cmdlet `Get-AzureRmVM`. Ensuite, pour activer la MSI, utilisez l’option `-IdentityType` de la cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) :
@@ -85,10 +86,10 @@ Si vous devez activer l’identité du service administré sur une machine virtu
 
 Si vous disposez d’une machine virtuelle pour laquelle la MSI n’est plus nécessaire, vous pouvez utiliser la cmdlet `RemoveAzureRmVMExtension` pour supprimer la MSI de la machine virtuelle :
 
-1. Connectez-vous au portail Azure à l’aide de `Login-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
+1. Connectez-vous au portail Azure à l’aide de `Connect-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles » :
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 2. Utilisez le commutateur `-Name` avec l’applet de commande [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension), en spécifiant le même nom que celui utilisé lorsque vous avez ajouté l’extension :

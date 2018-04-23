@@ -1,12 +1,12 @@
 ---
 title: Mesures de Stockage Azure dans Azure Monitor | Microsoft Docs
-description: "Découvrez les nouvelles mesures proposées par Azure Monitor."
+description: Découvrez les nouvelles mesures proposées par Azure Monitor.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Mesures de Stockage Azure dans Azure Monitor (version préliminaire)
 
@@ -28,7 +28,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder depuis le [portail Azure](https://portal.azure.com), les API d’Azure Monitor (REST et .Net) et les solutions d’analyse comme Operation Management Suite et Event Hub. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder avec le [Portail Azure](https://portal.azure.com), les API d’Azure Monitor (REST et .NET) et des solutions d’analyse comme Log Analytics et Event Hub. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Les mesures sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) dans Azure Monitor.
 
@@ -141,7 +141,7 @@ La réponse suivante contient des valeurs de mesures au format JSON :
 
 ## <a name="billing-for-metrics"></a>Facturation des mesures
 
-L’utilisation de mesures dans Azure Monitor est actuellement gratuite. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de mesures, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Operation Management Suite (OMS) si vous diffusez en continu des données de mesures vers OMS pour une analyse avancée.
+L’utilisation de mesures dans Azure Monitor est actuellement gratuite. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de mesures, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Sinon, Log Analytics vous est facturé si vous diffusez des données de métriques vers Log Analytics à des fins d’analyse avancée.
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Présentation des ID de ressources pour des services dans Stockage Azure
 
@@ -254,7 +254,7 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 | /BlobType | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob** et **PageBlob**. Append Blob est inclus dans BlockBlob. |
 | ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. (Pas encore pris en charge) </li> <li> ServerTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> ThrottlingError : somme des erreurs de limitation côté client et côté serveur (elle sera supprimée lorsque ServerBusyError et ClientThrottlingError seront pris en charge) </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>  ClientThrottlingError : erreur de limitation côté client (pas encore pris en charge) </li> <li> ClientTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Réussite : requête réussie|
 | GeoType | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent Principal et Secondaire. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
-| ApiName | Nom de l’opération. Par exemple : <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
+| ApiName | Nom de l’opération. Par exemple :  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
 Pour les mesures prenant en charge des dimensions, vous devez spécifier la valeur de la dimension pour afficher les valeurs de mesures correspondantes. Par exemple, si vous examinez la valeur **Transactions** pour des réponses réussies, vous devez filtrer la dimension **ResponseType** avec **Success**. Si vous examinez la valeur **BlobCount** pour BlockBlob, vous devez filtrer la dimension **BlobType** avec **BlockBlob**.
 

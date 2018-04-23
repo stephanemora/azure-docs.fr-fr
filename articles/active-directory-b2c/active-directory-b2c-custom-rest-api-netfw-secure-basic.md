@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 90bbcc865f13a1d048ea12fdccd3ca848cf362ba
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Dans un [article connexe sur Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), vous créez un service RESTful (API web) qui s’intègre sans authentification aux parcours utilisateur Azure Active Directory B2C (Azure AD B2C). 
 
 Dans cet article, vous ajoutez l’authentification HTTP de base à votre service RESTful, afin que seuls les utilisateurs validés, y compris B2C, puissent accéder à votre API. Grâce à l’authentification HTTP de base, définissez les informations d’identification de l’utilisateur (ID d’application et secret d’application) dans votre stratégie personnalisée. 

@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes associés aux connexions avec Azure Network Watcher - PowerShell | Microsoft Docs"
-description: "Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide de PowerShell."
+title: Résoudre les problèmes associés aux connexions avec Azure Network Watcher - PowerShell | Microsoft Docs
+description: Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide de PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: eecdd9f169b5b61262f4e3121337c730700f0757
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide de PowerShell
 
@@ -35,13 +35,13 @@ Découvrez comment utiliser la résolution des problèmes associés aux connexio
 * Les machines virtuelles avec lesquelles résoudre les problèmes associés aux connexions.
 
 > [!IMPORTANT]
-> La résolution des problèmes associés à une connexion requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux).
+> Pour résoudre les problèmes de connexion, la machine virtuelle à partir de laquelle vous procédez doit disposer de l’extension de machine virtuelle `AzureNetworkWatcherExtension` installée. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux). L’extension n’est pas nécessaire sur le point de terminaison de destination.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Vérifier la connectivité à une machine virtuelle
 
 Cet exemple vérifie la connexion à une machine virtuelle de destination sur le port 80. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 ```powershell
 $rgName = "ContosoRG"
@@ -136,7 +136,7 @@ Hops             : [
 
 Cet exemple vérifie la connectivité entre une machine virtuelle et un point de terminaison distant. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 ```powershell
 $rgName = "ContosoRG"
@@ -200,7 +200,7 @@ Hops             : [
 
 L’exemple suivant vérifie la connectivité à un site web. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 ```powershell
 $rgName = "ContosoRG"
@@ -253,7 +253,7 @@ Hops             : [
 
 L’exemple suivant vérifie la connectivité entre une machine virtuelle et un compte de stockage Blob. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 ```powershell
 $rgName = "ContosoRG"
@@ -306,4 +306,4 @@ Hops             : [
 
 Recherchez si certains types de trafic sont autorisés au sein ou en dehors de votre machine virtuelle en consultant [Check IP flow verify (Vérifier les flux IP)](network-watcher-check-ip-flow-verify-portal.md).
 
-Si le trafic est bloqué alors qu’il ne devrait pas l’être, consultez [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/virtual-network-manage-nsg-arm-portal.md) afin de surveiller le groupe de sécurité réseau et les règles de sécurité définis.
+Si le trafic est bloqué alors qu’il ne devrait pas l’être, consultez [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/manage-network-security-group.md) afin de surveiller le groupe de sécurité réseau et les règles de sécurité définis.

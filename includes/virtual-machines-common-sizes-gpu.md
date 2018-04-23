@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/05/2018
+ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 96826b2f8acd579cbfe30f2e524d94ce4867df30
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article fournit des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -27,7 +27,7 @@ Les machines virtuelles de série NC sont optimisées par la carte [NVIDIA Tesla
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Disques de données max. | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6. |56 | 380 | 1 | 24 | 1 |
+| Standard_NC6 |6. |56 | 340 | 1 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
 | Standard_NC24 |24 |224 | 1 440 | 4 | 64 | 4 |
 | Standard_NC24r* |24 |224 | 1 440 | 4 | 64 | 4 |
@@ -46,10 +46,10 @@ Les machines virtuelles de série NCv2 sont optimisées par les GPU [NVIDIA Tesl
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Disques de données max. | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | ---  |
-| Standard_NC6s_v2 |6. |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v2 |6. |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = une carte P100.
 
@@ -65,10 +65,10 @@ Les machines virtuelles de série NCv3 sont optimisées par les GPU [NVIDIA Tesl
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Disques de données max. | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6. |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 1344 | 4 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v3 |6. |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = une carte V100.
 
@@ -84,10 +84,10 @@ Les machines virtuelles de la série ND sont une nouveauté de la famille de GPU
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Disques de données max. | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6. |112 | 336 | 1 | 12 | 4 |
-| Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 | 8 |
+| Standard_ND6s |6. |112 | 736 | 1 | 12 | 4 |
+| Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = une carte P40.
 
@@ -101,7 +101,7 @@ Chaque GPU dans les instances NV est fourni avec une licence GRID. Cette licence
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Disques de données max. | Nombre max de cartes réseau | Stations de travail virtuelles | Applications virtuelles | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6. |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6. |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1 440 | 4 | 64 | 4 | 4 | 100 |
 

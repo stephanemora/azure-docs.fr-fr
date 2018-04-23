@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes relatifs aux groupes de sécurité réseau - PowerShell | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes liés aux groupes de sécurité réseau dans le modèle de déploiement Azure Resource Manager à l’aide d’Azure PowerShell."
+title: Résoudre les problèmes relatifs aux groupes de sécurité réseau - PowerShell | Microsoft Docs
+description: Découvrez comment résoudre les problèmes liés aux groupes de sécurité réseau dans le modèle de déploiement Azure Resource Manager à l’aide d’Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Résoudre les groupes de sécurité réseau à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Bien que cet exemple utilise le port TCP 3389, les étapes suivantes permettent
 ## <a name="detailed-troubleshooting-steps"></a>Étapes de dépannage détaillées
 Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, procédez comme suit :
 
-1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec l’utilisation d’Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . L’opération *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec l’utilisation d’Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . L’opération *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Entrez la commande suivante pour renvoyer toutes les règles du groupe de sécurité réseau appliquées à une carte d’interface réseau nommée *VM1-NIC1* dans le groupe de ressources *RG1* :
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

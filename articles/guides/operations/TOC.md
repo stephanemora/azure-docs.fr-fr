@@ -24,7 +24,7 @@
 ###[Déployer des modèles à l’aide de l’interface de ligne de commande Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sécurité (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Utiliser des attributions de rôle pour gérer les ressources](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Utiliser des attributions de rôle pour gérer les ressources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Machines virtuelles](azure-operations-guide.md#azure-virtual-machines)
 ### [Tailles de machine virtuelle pour Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 

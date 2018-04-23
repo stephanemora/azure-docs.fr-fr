@@ -1,28 +1,26 @@
 ---
-title: "Streaming à l’échelle dans Azure HDInsight |Microsoft Docs"
-description: "Guide pratique pour utiliser le streaming de données avec des clusters HDInsight scalables."
+title: Streaming à l’échelle dans Azure HDInsight |Microsoft Docs
+description: Guide pratique pour utiliser le streaming de données avec des clusters HDInsight scalables.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: raghavmohan
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: ramoha
-ms.openlocfilehash: 46b5723805ab5d8bc1cf5b5183d9501cd3e4e3a2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4f1a0873ccdffde7e3567d7e3c50336b20749116
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="streaming-at-scale-in-hdinsight"></a>Streaming à l’échelle dans HDInsight
+# <a name="streaming-at-scale-in-hdinsight"></a>Diffusion en continu à l’échelle dans HDInsight
 
 Les solutions Big Data en temps réel agissent sur des données qui sont en mouvement. En général, ces données sont le plus précieuses au moment de leur arrivée. Si le flux de données entrant devient plus grand que ce qui peut être traité à ce moment-là, vous devrez peut-être limiter les ressources. En guise d’alternative, un cluster HDInsight peut monter en puissance pour répondre aux besoins de votre solution de streaming en ajoutant des nœuds à la demande.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiver le journal d’activité Azure
 Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](monitoring-overview-activity-logs.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
@@ -44,29 +44,43 @@ Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-d
 5. Cliquez sur **Enregistrer**.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Archiver le journal d’activité avec PowerShell
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
-```
+
+   ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your storage account belongs to>"
+   $storageAccountName = "<your storage account name>"
+
+   # Build the storage account Id from the settings above
+   $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   ```
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
-| StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
-| Emplacements |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez afficher une liste de toutes les régions [en consultant cette page](https://azure.microsoft.com/en-us/regions) ou en utilisant [l’API REST de gestion Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |OUI |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
-| Catégories |OUI |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
+| StorageAccountId |OUI |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
+| Emplacements |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Non  |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
+| Catégories |Non  |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action.  Si elles ne sont pas fournies, toutes les valeurs possibles sont supposées. |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiver le journal d’activité avec l’interface de ligne de commande
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
-```
+
+   ```azurecli-interactive
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
+   ```
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | Nom |OUI |Nom de votre profil de journal. |
-| storageId |Non  |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
-| Emplacements |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez afficher une liste de toutes les régions [en consultant cette page](https://azure.microsoft.com/en-us/regions) ou en utilisant [l’API REST de gestion Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |OUI |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
-| Catégories |OUI |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
+| storage-account-id |OUI |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
+| Emplacements |OUI |Liste, séparée par des espaces, des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez afficher une liste de toutes les régions pour votre abonnement à l’aide de `az account list-locations --query [].name`. |
+| days |OUI |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours).  Si zéro est spécifié, le paramètre activé doit être défini sur true. |
+|Activé | OUI |True ou False.  Utilisée pour activer ou désactiver la stratégie de rétention.  Si la valeur est True, le paramètre days doit être une valeur supérieure à 0.
+| Catégories |OUI |Liste, séparée par des espaces, des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Schéma de stockage du journal d’activité
 Une fois que vous avez configuré l’archivage, un conteneur de stockage est créé dans le compte de stockage dès qu’un événement de journal d’activité se produit. Les objets blob au sein du conteneur suivent le même format dans le journal d’activité et les journaux de diagnostic. La structure de ces objets blob est la suivante :

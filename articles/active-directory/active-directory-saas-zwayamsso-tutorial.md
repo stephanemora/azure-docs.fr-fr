@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration de ZwayamSSO avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et ZwayamSSO."
+title: 'Didacticiel : Intégration de ZwayamSSO avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ZwayamSSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 62e3d3baa936b37a4d86c923d8ebcfc296f41f9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4d834cfb5bd6cff30b7e1dfebb3dfd6e651d315a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayamsso"></a>Didacticiel : Intégration de ZwayamSSO avec Azure Active Directory
 
@@ -33,6 +33,7 @@ L’intégration de ZwayamSSO avec Azure AD vous offre les avantages suivants 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l'intégration de ZwayamSSO avec Azure AD, vous avez besoin des éléments suivants :
 
@@ -111,11 +112,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     b. Dans la zone de texte **Identificateur**, tapez l’URL : `https://sso.zwayam.com/zwayam-saml/saml/metadata`
 
     > [!NOTE] 
-    > La valeur d’URL de connexion n’est pas réelle. La valeur d’**ID d’entité SAML** est expliquée plus loin dans le didacticiel.
+    > La valeur d’URL de connexion n’est pas réelle. La valeur **d’ID d’entité SAML** est expliquée plus loin dans le didacticiel.
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-zwayamsso-tutorial/tutorial_zwayamsso_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-zwayamsso-tutorial/tutorial_zwayamsso_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: e30f096a9f02214839550c2dc143ab665e1cd85c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 
@@ -73,16 +73,16 @@ L’application présente les lieux qui hébergent des événements.  Les lieux 
 
 1. Ouvrez la page d’événements pour chacun des trois clients dans des onglets de navigateur distincts :
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;Utilisateur&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;Utilisateur&gt;.trafficmanager.net
+    - http://events.contosoconcerthall. &lt;utilisateur&gt;.trafficmanager.net
+    - http://events.dogwooddojo. &lt;utilisateur&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub. &lt;utilisateur&gt;.trafficmanager.net
 
     (Dans chaque URL, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement.)
 
    ![Événements](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Pour contrôler la distribution des demandes entrantes, l’application utilise [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Chaque instance d’application propre au locataire comprend le nom du locataire en tant que partie du nom de domaine dans l’URL. Toutes les URL de locataire comprennent votre valeur **Utilisateur** spécifique. Les URL respectent le format suivant :
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt;nomsalle&gt;.&lt;utilisateur&gt;.trafficmanager.net
 
 **L’emplacement** de base de données de chaque locataire est inclus dans les paramètres d’application de l’application déployée correspondante.
 

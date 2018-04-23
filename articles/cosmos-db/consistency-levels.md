@@ -3,9 +3,8 @@ title: Niveaux de cohérence dans Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB offre cinq niveaux de cohérence qui permettent de faire des compromis avisés entre cohérence éventuelle, disponibilité et latence.
 keywords: cohérence éventuelle, azure cosmos db, azure, Microsoft Azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
@@ -14,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence des données paramétrables dans Azure Cosmos DB
 Azure Cosmos DB a été conçu dès le départ pour être distribué à l’échelle mondiale. Il offre des garanties de latence faible prévisible et plusieurs modèles de cohérence souples bien définis. Pour le moment, Azure Cosmos DB prend en charge cinq niveaux de cohérence : Fort, Obsolescence limitée, Session, Préfixe cohérent et Éventuel. Les termes « obsolescence limitée », « session », « préfixe cohérent » et « éventuelle » font référence à des modèles de « cohérence souple », qui fournissent un niveau de cohérence inférieur à celui de la cohérence forte (qui constitue le niveau de cohérence le plus élevé). 
 
 Outre les modèles de cohérence **forte** et **éventuelle** souvent proposés par les bases de données distribuées, Azure Cosmos DB propose trois modèles de cohérence supplémentaires soigneusement codifiés et mis en œuvre : **Obsolescence limitée**, **Session** et **Préfixe cohérent**. L’utilité de chacun de ces niveaux de cohérence a été vérifiée à l’aide de cas d’utilisation réels. Ensemble, ces cinq niveaux de cohérence vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence. 
 
-Dans la vidéo suivante, le Manager du programme Azure Cosmos DB Andrew Liu illustre les fonctionnalités de la distribution globale clés en main.
+Dans la vidéo suivante, le responsable du programme Azure Cosmos DB, Andrew Liu, illustre les fonctionnalités de la distribution globale clés en main.
 
 >[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 

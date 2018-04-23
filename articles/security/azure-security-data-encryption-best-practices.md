@@ -1,6 +1,6 @@
 ---
-title: "Bonnes pratiques en matière de chiffrement et de sécurité des données | Microsoft Docs"
-description: "Cet article détaille les meilleures pratiques en matière de chiffrement et de sécurité des données, à l’aide de capacités Azure intégrées."
+title: Bonnes pratiques en matière de chiffrement et de sécurité des données | Microsoft Docs
+description: Cet article détaille les meilleures pratiques en matière de chiffrement et de sécurité des données, à l’aide de capacités Azure intégrées.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: dae93a622bad3ddfb1d9492d17b700d82e9969c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Dans le cadre des meilleures pratiques en termes de chiffrement et de sécurité des données d’Azure, les recommandations que nous proposons s’articulent autour des états suivants des données :
@@ -30,11 +30,11 @@ Dans cet article, nous aborderons différentes meilleures pratiques d’Azure en
 
 Pour chaque meilleure pratique, nous allons détailler les éléments suivants :
 
-* Nature de la meilleure pratique
+* Nature de la bonne pratique
 * Raison pour laquelle activer cette bonne pratique
 * Conséquence possible en cas de non-utilisation de la meilleure pratique
 * Alternatives possibles à la meilleure pratique
-* Comment apprendre à utiliser la meilleure pratique
+* Comment apprendre à utiliser la bonne pratique
 
 Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plate-forme Azure disponibles lors de la rédaction. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
 
@@ -58,16 +58,16 @@ Par exemple : si vous appliquez l’authentification multi-facteur d’Azure MFA
 
 Les organisations souhaitant conserver le contrôle de l’authentification localement peuvent recourir au [serveur Microsoft Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), ou « MFA local ». Grâce à cette méthode, vous pourrez toujours appliquer l’authentification multi-facteur, tout en conservant le serveur MFA en local.
 
-Pour en savoir plus sur Azure Multi-Factor Authentication, voir [Prise en main avec Azure Multi-Factor Authentication dans le cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Pour en savoir plus sur Azure Multi-Factor Authentication, voir [Prise en main avec Azure Multi-Factor Authentication dans le cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Utilisation du contrôle d’accès en fonction du rôle (RBAC)
 Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Ces principes sont impératifs pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. La fonction de contrôle d’accès en fonction du rôle (RBAC) d’Azure peut être utilisée pour affecter des autorisations aux utilisateurs, groupes et des applications, à une certaine étendue. L’étendue d’une attribution de rôle peut être une seule ressource, un groupe de ressources ou un abonnement.
 
-Vous pouvez tirer parti des [rôles RBAC intégrés](../active-directory/role-based-access-built-in-roles.md) dans Azure pour affecter des privilèges aux utilisateurs. Envisagez l’utilisation du rôle *Contributeur de comptes de stockage* pour les opérateurs de cloud qui ont besoin de gérer des comptes de stockage, et du rôle *Contributeur de comptes de stockage classiques* pour ceux qui gèrent des comptes de stockage classiques. Pour les opérateurs de cloud qui doivent gérer des machines virtuelles et des comptes de stockage, vous pouvez recourir au rôle *Contributeur de machines virtuelles*.
+Vous pouvez tirer parti des [rôles RBAC intégrés](../role-based-access-control/built-in-roles.md) dans Azure pour affecter des privilèges aux utilisateurs. Envisagez l’utilisation du rôle *Contributeur de comptes de stockage* pour les opérateurs de cloud qui ont besoin de gérer des comptes de stockage, et du rôle *Contributeur de comptes de stockage classiques* pour ceux qui gèrent des comptes de stockage classiques. Pour les opérateurs de cloud qui doivent gérer des machines virtuelles et des comptes de stockage, vous pouvez recourir au rôle *Contributeur de machines virtuelles*.
 
 Les organisations qui n’appliquent aucun contrôle d’accès aux données via des fonctionnalités telles que RBAC risquent d’octroyer plus de privilèges que nécessaire à leurs utilisateurs. Cela risque d’entraîner la compromission des données, car les utilisateurs peuvent bénéficier d’un accès non justifié à certaines données.
 
-Vous pouvez en savoir plus sur la fonction RBAC d’Azure en lisant l’article [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
+Vous pouvez en savoir plus sur la fonction RBAC d’Azure en lisant l’article [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Chiffrement des machines virtuelles Azure
 Pour de nombreuses organisations, le [chiffrement des données au repos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Azure Disk Encryption permet aux administrateurs informatiques de chiffrer des disques de machines virtuelles Windows et Linux IaaS. Azure Disk Encryption s’appuie sur la fonctionnalité standard BitLocker Windows et la fonctionnalité DM-Crypt de Linux pour assurer le chiffrement de volume du système d’exploitation et des disques de données.

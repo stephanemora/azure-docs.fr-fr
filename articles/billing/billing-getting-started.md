@@ -1,11 +1,11 @@
 ---
-title: "Éviter les coûts imprévus, gérer la facturation - Azure | Microsoft Docs"
-description: "Découvrez comment éviter des frais inattendus sur votre facture Azure. Utilisez les fonctionnalités de gestion et de suivi des coûts pour un abonnement Microsoft Azure."
-services: 
-documentationcenter: 
+title: Éviter les coûts imprévus, gérer la facturation - Azure | Microsoft Docs
+description: Découvrez comment éviter des frais inattendus sur votre facture Azure. Utilisez les fonctionnalités de gestion et de suivi des coûts pour un abonnement Microsoft Azure.
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -172,7 +172,7 @@ Pour savoir si vous êtes l’administrateur de compte, accédez à l’[onglet 
 
 ![Capture d’écran de votre rôle dans la vue Abonnements du portail Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
-Si vous n’êtes pas l’administrateur de compte, quelqu’un vous a sans doute octroyé un accès partiel via le [contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md) (RBAC). Pour gérer les abonnements et modifier les informations de facturation, [identifiez l’administrateur de compte](billing-subscription-transfer.md#whoisaa) et demandez-lui d’effectuer les tâches souhaitées ou de [vous transférer l’abonnement](billing-subscription-transfer.md).
+Si vous n’êtes pas l’administrateur de compte, quelqu’un vous a sans doute octroyé un accès partiel via le [contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Pour gérer les abonnements et modifier les informations de facturation, [identifiez l’administrateur de compte](billing-subscription-transfer.md#whoisaa) et demandez-lui d’effectuer les tâches souhaitées ou de [vous transférer l’abonnement](billing-subscription-transfer.md).
 
 Si votre administrateur de compte ne fait plus partie de votre organisation et vous avez besoin de gérer la facturation, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique

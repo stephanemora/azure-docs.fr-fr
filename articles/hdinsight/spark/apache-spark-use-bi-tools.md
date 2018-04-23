@@ -1,9 +1,9 @@
 ---
-title: "BI Spark utilisant des outils de visualisation des données sur Azure HDInsight | Documents Microsoft"
-description: "Utiliser des outils de visualisation de données à des fins d’analyse à l’aide d’Apache Spark BI sur des clusters HDInsight"
-keywords: "apache spark bi,spark bi,visualisation de données spark,décisionnel spark"
+title: BI Spark utilisant des outils de visualisation des données sur Azure HDInsight | Documents Microsoft
+description: Utiliser des outils de visualisation de données à des fins d’analyse à l’aide d’Apache Spark BI sur des clusters HDInsight
+keywords: apache spark bi,spark bi,visualisation de données spark,décisionnel spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -11,23 +11,22 @@ tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI utilisant des outils de visualisation de données avec Azure HDInsight
 
 Découvrez comment utiliser [Microsoft Power BI](http://powerbi.microsoft.com) pour visualiser des données dans le cluster Apache Spark sur Azure HDInsight.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * **Terminez l’article [Exécuter des requêtes interactives sur des clusters Spark dans HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI** : [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) et [abonnement d’évaluation à Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facultatif).

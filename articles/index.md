@@ -6,11 +6,11 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 57dffdc1b1c75b0df0c789b67a952d27a1e827db
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 704305431ff8dff8dbed67bfacc395696c96a9bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -175,7 +175,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Fonctions sans serveur</a></li>
-                                                    <li><a class="barLink" href="/azure/containers/">Conteneurs</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices avec Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -408,7 +408,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Conteneurs</h3>
+                                    <h3>Containers</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/aks/">
@@ -2044,7 +2044,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#containers">Conteneurs</a>
+                        <a href="#containers">Containers</a>
                         <ul id="containers" class="cardsA">
                             <li>
                                 <a href="/azure/aks/">
@@ -2831,6 +2831,25 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>IoT Hub</h3>
                                                     <p>Connectez, surveillez et contrôlez des milliards de ressources IoT</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-central/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IoTCentralBlue.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Central</h3>
+                                                    <p>Faites l’expérience du SaaS pour l’IoT, même sans aucune connaissance du cloud</p>
                                                 </div>
                                             </div>
                                         </div>

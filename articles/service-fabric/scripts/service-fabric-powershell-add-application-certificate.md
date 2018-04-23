@@ -1,13 +1,13 @@
 ---
-title: "Exemple de script Azure PowerShell - Ajouter un certificat d’application à un cluster | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Ajouter un certificat d’application à un cluster Service Fabric"
+title: Exemple de script Azure PowerShell - Ajouter un certificat d’application à un cluster | Microsoft Docs
+description: Exemple de script Azure PowerShell - Ajouter un certificat d’application à un cluster Service Fabric
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c9cf6485c2621f839b93da162e5f4d82a8d287a4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: be097f88f774df9e4a6429af444c6c742737f4c9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Ajouter un certificat d’application à un cluster Service Fabric
 
 Cet exemple de script crée un certificat auto-signé dans le coffre de clés Azure spécifié et l’installe sur tous les nœuds du cluster Service Fabric. Le certificat est également téléchargé vers un dossier local. Le nom du certificat téléchargé est le même que celui du certificat placé dans le coffre de clés. Personnalisez les paramètres selon vos besoins.
 
-Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure. 
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure. 
 
 ## <a name="sample-script"></a>Exemple de script
 

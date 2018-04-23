@@ -1,6 +1,6 @@
 ---
-title: "Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux avec Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment configurer la récupération d’urgence vers Azure de serveurs Windows et Linux locaux avec le service Azure Site Recovery."
+title: Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment configurer la récupération d’urgence vers Azure de serveurs Windows et Linux locaux avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -55,7 +55,7 @@ Procurez-vous un [compte Microsoft Azure](http://azure.microsoft.com/).
 Assurez-vous que votre compte Azure dispose des autorisations nécessaires pour la réplication de machines virtuelles vers Azure.
 
 - Vérifiez les [autorisations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) nécessaires pour répliquer des machines vers Azure.
-- Vérifiez et modifiez les autorisations [d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md). 
+- Vérifiez et modifiez les autorisations [d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md). 
 
 
 

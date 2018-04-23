@@ -1,12 +1,12 @@
 ---
-title: "Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI"
-description: "Détails sur la sécurité au niveau des lignes avec Collections d’espaces de travail Power BI"
+title: Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
+description: Détails sur la sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 8c3ce8bc69a098d3133f27a2604f9d564693ea54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
 
@@ -28,7 +28,7 @@ La sécurité au niveau des lignes (RLS) peut être utilisée pour restreindre l
 ![Flux de sécurité au niveau des lignes dans Collections d’espaces de travail Power BI](media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
-> Le service Collections d’espaces de travail Power BI est déprécié et disponible jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la façon de migrer vos données vers Power BI Embedded, consultez [Comment migrer le contenu d’une collection d’espaces de travail Power BI Embedded vers Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Les collections d’espaces de travail Power BI sont déconseillées et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Pour tirer parti de la fonction RLS, il est important de comprendre trois concepts principaux : les utilisateurs, les rôles et les règles. Examinons-les de plus près :
 
@@ -38,7 +38,7 @@ Pour tirer parti de la fonction RLS, il est important de comprendre trois concep
 
 **Règles** : les rôles ont des règles, et ces règles sont les filtres réels qui seront appliqués aux données. Cela peut être aussi simple que « Pays = États-Unis » ou bien quelque chose de plus dynamique.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Pour le reste de cet article, nous fournissons un exemple de création RLS et d’utilisation au sein d’une application intégrée. Notre exemple utilise le fichier PBIX [Exemple d’analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
@@ -55,7 +55,7 @@ Voici quelques points à noter concernant ce schéma :
 * Toutes les mesures, comme **Total Sales**, sont stockées dans la table de faits **Sales**.
 * Il existe quatre tables de dimension connexes supplémentaires : **Item**, **Time**, **Store** et **District**.
 * Les flèches sur les lignes de relation indiquent de quelle façon les filtres peuvent circuler d’une table à l’autre. Par exemple, si un filtre est placé sur **Time[Date]**, dans le schéma actuel, il filtre uniquement sur les valeurs de la table **Sales**. Aucune autre table n’est affectée par ce filtre, car tous les flèches sur les lignes de relation pointent vers la table des ventes (et pas en direction opposée).
-* La table **District** indique qui est le directeur pour chaque région :
+* La table **Région** indique qui est le directeur pour chaque région :
   
   ![Lignes de la table District](media/row-level-security/district-table-4.png)
 
@@ -63,9 +63,9 @@ Selon ce schéma, si nous appliquons un filtre à la colonne **District Manager*
 
 Voici comment procéder :
 
-1. Sous l’onglet de modélisation, cliquez sur **Gérer les rôles**.  
+1. Dans l’onglet de modélisation, cliquez sur **Gérer les rôles**.  
    ![Gérer les rôles dans le ruban Modélisation](media/row-level-security/modeling-tab-5.png)
-2. Créez un rôle nommé **Manager**.  
+2. Créer un rôle nommé **Directeur**.  
    ![Création de rôles dans Power BI Desktop](media/row-level-security/manager-role-6.png)
 3. Dans la table **District**, entrez l’expression DAX suivante : **[District Manager] = USERNAME()**  
    ![Expression de filtre DAX pour la table dans le rôle](media/row-level-security/manager-role-7.png)
@@ -82,7 +82,7 @@ Cela n’est peut-être pas problématique dans le cadre de notre recherche actu
 
 ![Direction du filtre croisé pour la relation](media/row-level-security/edit-relationship-10.png)
 
-À présent, les filtres peuvent également circuler entre la table Sales et la table **Item** :
+À présent, les filtres peuvent également circuler entre la table Ventes et la table **Élément** :
 
 ![Icône de direction de filtre de relation dans la vue de diagramme](media/row-level-security/diagram-view-11.png)
 
@@ -105,7 +105,7 @@ Par exemple, vous pouvez modifier EmbedSample. La ligne 55 de DashboardControlle
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
-en
+to
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
@@ -120,7 +120,7 @@ Avec tous ces éléments, quand un utilisateur se connecte à notre application 
 ## <a name="see-also"></a>Voir aussi
 
 [Sécurité au niveau des lignes (RLS) avec Power BI](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
-[Authentification et autorisation dans le service Collections d’espaces de travail Power BI](app-token-flow.md)  
+[Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 

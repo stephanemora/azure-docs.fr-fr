@@ -1,12 +1,12 @@
 ---
-title: "Modification d’un groupe à haute disponibilité pour les machines virtuelles | Microsoft Docs"
-description: "Apprenez à modifier un groupe à haute disponibilité pour vos machines virtuelles à l’aide d’Azure PowerShell et du modèle de déploiement Resource Manager."
-keywords: 
+title: Modification d’un groupe à haute disponibilité pour les machines virtuelles | Microsoft Docs
+description: Apprenez à modifier un groupe à haute disponibilité pour vos machines virtuelles à l’aide d’Azure PowerShell et du modèle de déploiement Resource Manager.
+keywords: ''
 services: virtual-machines-windows
-documentationcenter: 
-author: Drewm3
-manager: timlt
-editor: 
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
-ms.author: drewm
-ms.openlocfilehash: c10c947b6fc0737a7b9fba6b7f3efcae1f96638b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cynthn
+ms.openlocfilehash: 4ce76c35082775dd3fdabfb23d312c7653cb4e73
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Modification du groupe à haute disponibilité pour une machine virtuelle Windows
 Les étapes suivantes décrivent comment modifier le groupe à haute disponibilité d’une machine virtuelle à l’aide d’Azure PowerShell. Une machine virtuelle ne peut être ajoutée à un groupe à haute disponibilité que lors de sa création. Pour modifier le groupe à haute disponibilité, vous devez supprimer et recréer la machine virtuelle. 

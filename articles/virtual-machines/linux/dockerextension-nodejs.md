@@ -1,12 +1,12 @@
 ---
-title: "Utiliser l’extension de machine virtuelle Azure Docker avec Azure CLI 1.0 | Microsoft Docs"
-description: "Découvrez comment utiliser l’extension Docker VM sur Azure pour déployer un environnement Docker rapidement et en toute sécurité dans Azure en utilisant des modèle Resource Manager."
+title: Utiliser l’extension de machine virtuelle Azure Docker avec Azure CLI 1.0 | Microsoft Docs
+description: Découvrez comment utiliser l’extension Docker VM sur Azure pour déployer un environnement Docker rapidement et en toute sécurité dans Azure en utilisant des modèle Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f981a50887138660d26a9d011870a05f1270c94
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Création d’un environnement Docker dans Azure à l’aide de l’extension de machine virtuelle Docker avec Azure CLI 1.0
 Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux (et Windows). Dans Azure, il existe différentes méthodes pour déployer Docker selon vos besoins. Cet article se concentre sur l’utilisation de l’extension Docker VM et des modèles Azure Resource Manager. 
@@ -33,7 +33,7 @@ Pour plus d’informations sur les différentes méthodes de déploiement, y com
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](#azure-docker-vm-extension-overview) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
-- [Azure CLI 2.0](dockerextension.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager 
+- [Azure CLI 2.0](dockerextension.md) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager 
 
 ## <a name="azure-docker-vm-extension-overview"></a>Présentation de l’extension Azure Docket VM
 L’extension de machine virtuelle Docker Azure installe et configure le démon Docker, le client Docker et Docker Compose dans votre machine virtuelle (VM) Linux. L’extension Azure Docker VM vous offre plus de contrôle et de fonctionnalités que la simple utilisation de Docker Machine ou la création de votre propre hôte Docker. Ces fonctionnalités supplémentaires, telles que [Docker Compose](https://docs.docker.com/compose/overview/), permettent d’adapter l’extension Azure Docker VM à des environnements de développement ou de production plus robustes.

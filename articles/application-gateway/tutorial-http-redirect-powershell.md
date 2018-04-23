@@ -1,6 +1,6 @@
 ---
-title: "Créer une passerelle d’application avec redirection de HTTP vers HTTPS - Azure PowerShell | Microsoft Docs"
-description: "Apprenez à créer une passerelle d’application avec redirection du trafic de HTTP vers HTTPS à l’aide d’Azure PowerShell."
+title: Créer une passerelle d’application avec redirection de HTTP vers HTTPS - Azure PowerShell | Microsoft Docs
+description: Apprenez à créer une passerelle d’application avec redirection du trafic de HTTP vers HTTPS à l’aide d’Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,17 +11,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: a831171b267cca1ffdbf8eef33baafa71dd9bd79
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d67ed204ee263c139b09232b63ad18a85af1e82e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide d’Azure PowerShell
 
 Vous pouvez utiliser Azure PowerShell pour créer une [passerelle d’application](application-gateway-introduction.md) avec un certificat pour la terminaison SSL. Une règle de routage est utilisée pour rediriger le trafic HTTP vers le port HTTPS dans votre passerelle d’application. Dans cet exemple, vous créez également un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour le pool backend de la passerelle d’application qui contient deux instances de machine virtuelle. 
 
-Dans cet article, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer un certificat auto-signé
@@ -32,7 +32,7 @@ Dans cet article, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Créer des ressources réseau
 
-Créez les configurations de sous-réseau pour *myBackendSubnet* et *myAGSubnet* à l’aide de [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Créez le réseau virtuel nommé *myVNet* à l’aide de [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) avec les configurations de sous-réseau. Enfin, créez l’adresse IP publique nommée *myAGPublicIPAddress* à l’aide de [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Ces ressources sont utilisées pour fournir la connectivité réseau à la passerelle d’application et à ses ressources associées.
+Créez les configurations de sous-réseau pour *myBackendSubnet* et *myAGSubnet* en utilisant l’applet de commande [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Créez le réseau virtuel nommé *myVNet* à l’aide de [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) avec les configurations de sous-réseau. Enfin, créez l’adresse IP publique nommée *myAGPublicIPAddress* à l’aide de [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Ces ressources sont utilisées pour fournir la connectivité réseau à la passerelle d’application et à ses ressources associées.
 
 ```powershell
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -320,7 +320,7 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Vous pouvez utiliser la commande [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) pour obtenir l’adresse IP publique de la passerelle d’application. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple : http://52.170.203.149.
+Vous pouvez utiliser la commande [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) pour obtenir l’adresse IP publique de la passerelle d’application. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http://52.170.203.149
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

@@ -5,7 +5,7 @@ keywords: Modèle hiérarchique, cosmosdb, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Concepts clés et modèle de ressource hiérarchiques Azure Cosmos DB
 
@@ -158,7 +158,7 @@ Dans le cadre de l'approvisionnement et de la gestion d'un compte de base de don
     </tbody>
 </table>
 
-En plus de provisionner, de configurer et de gérer votre compte de base de données à partir du portail Azure, vous pouvez créer et gérer des comptes de base de données Cosmos DB par programmation, en utilisant les [API REST Azure Cosmos DB](/rest/api/documentdb/), ainsi que des [SDK clients](sql-api-sdk-dotnet.md).  
+En plus de provisionner, de configurer et de gérer votre compte de base de données à partir du portail Azure, vous pouvez créer et gérer des comptes de base de données Cosmos DB par programmation, en utilisant les [API REST Azure Cosmos DB](/rest/api/cosmos-db/), ainsi que des [SDK clients](sql-api-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Bases de données
 Une base de données Cosmos DB est un conteneur logique d’une ou plusieurs collections et d’un ou plusieurs utilisateurs, comme l’illustre le schéma suivant. Vous pouvez créer n’importe quel nombre de bases de données sous un compte de base de données Cosmos DB, en fonction des limites de l’offre.  
@@ -177,7 +177,7 @@ Vous pouvez créer autant de collections que vous voulez dans une base de donné
 
 Une base de données Azure Cosmos DB est également un conteneur d’utilisateurs. De même, un utilisateur est un espace de noms logique pour un ensemble d’autorisations qui permet d’obtenir une autorisation et un accès affinés aux collections, documents et pièces jointes.  
 
-Comme pour les autres ressources du modèle de ressource Azure Cosmos DB, les bases de données peuvent être facilement créées, remplacées, supprimées, lues ou répertoriées avec des [API REST](/rest/api/documentdb/) ou l’un des [SDK clients](sql-api-sdk-dotnet.md). Azure Cosmos DB garantit une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une ressource de base de données. La suppression d'une base de données garantit automatiquement que vous ne pouvez pas accéder ni aux collections ni aux utilisateurs qui y sont inclus.   
+Comme pour les autres ressources du modèle de ressource Azure Cosmos DB, les bases de données peuvent être facilement créées, remplacées, supprimées, lues ou répertoriées avec des [API REST](/rest/api/cosmos-db/) ou l’un des [SDK clients](sql-api-sdk-dotnet.md). Azure Cosmos DB garantit une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une ressource de base de données. La suppression d'une base de données garantit automatiquement que vous ne pouvez pas accéder ni aux collections ni aux utilisateurs qui y sont inclus.   
 
 ## <a name="collections"></a>Collections
 Une collection Cosmos DB est un conteneur pour vos documents JSON. 
@@ -195,7 +195,7 @@ La stratégie d'indexation de chaque collection vous permet d'établir des compr
 * Sélectionnez l'inclusion ou l'exclusion de chemins d'accès ou de modèles spécifiques dans vos documents à partir de l'index. Pour ce faire, définissez les paramètres includedPaths et excludedPaths à partir du paramètre indexingPolicy d'une collection. Vous pouvez également configurer les compromis de performances et de stockage pour les requêtes de plage de données et de hachage pour certains formats de chemin d'accès. 
 * Choisissez entre des mises à jour d'index synchrones (cohérentes) ou asynchrones (différées). Par défaut, l'index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d'un document au niveau de la collection. Cela permet aux requêtes de fournir le même niveau de cohérence que celui des lectures de document. Tandis que Azure Cosmos DB est optimisé pour les écritures et qu’il prend en charge des volumes soutenus d’écriture de documents, la maintenance d’index synchrone et les requêtes cohérentes, vous pouvez configurer certaines collections afin que la mise à jour de l’index soit effectuée en différé. L'indexation en différé dynamise les performances en termes d'écriture. Cela est idéal pour les scénarios d'ingestion en bloc pour les collections comportant principalement beaucoup de lectures.
 
-La stratégie d'indexation peut être modifiée en exécutant une commande PUT dans la collection. Pour cela, vous pouvez utiliser le [SDK client](sql-api-sdk-dotnet.md), le [portail Azure](https://portal.azure.com) ou les [API REST](/rest/api/documentdb/).
+La stratégie d'indexation peut être modifiée en exécutant une commande PUT dans la collection. Pour cela, vous pouvez utiliser le [SDK client](sql-api-sdk-dotnet.md), le [portail Azure](https://portal.azure.com) ou les [API REST](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Interrogation d'une collection
 Les documents d'une collection peuvent suivre des schémas arbitraires et vous pouvez les interroger sans fournir de schéma ou d'index secondaires à l'avance. Vous pouvez interroger la collection en utilisant la [référence sur la syntaxe SQL Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx), qui fournit des opérateurs hiérarchiques, relationnels et spatiaux enrichis, ainsi qu’une extensibilité à l’aide des fonctions JavaScript définies par l’utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes, comme les nœuds d'arborescence. Cette capacité est exploitée par les techniques d’indexation automatique de l’API SQL et par le dialecte SQL d’Azure Cosmos DB. Le langage de requête SQL est caractérisé par trois aspects principaux :   
@@ -204,7 +204,7 @@ Les documents d'une collection peuvent suivre des schémas arbitraires et vous p
 2. Un sous-ensemble d’opérations relationnelles incluant la composition, le filtrage, les projections, les agrégations et les jointures réflexives. 
 3. Des fonctions définies par l'utilisateur JavaScript pures, qui fonctionnent avec (1) et (2).  
 
-Le modèle de requête Azure Cosmos DB tente de garantir un équilibre entre les fonctionnalités, l’efficacité et la simplicité. Le moteur de base de données d’Azure Cosmos DB compile et exécute de façon native les instructions de requête SQL. Vous pouvez interroger une collection en utilisant les [API REST](/rest/api/documentdb/) ou l’un des [kits SDK clients](sql-api-sdk-dotnet.md). Le Kit de développement logiciel (SDK) .NET comprend un fournisseur LINQ.
+Le modèle de requête Azure Cosmos DB tente de garantir un équilibre entre les fonctionnalités, l’efficacité et la simplicité. Le moteur de base de données d’Azure Cosmos DB compile et exécute de façon native les instructions de requête SQL. Vous pouvez interroger une collection en utilisant les [API REST](/rest/api/cosmos-db/) ou l’un des [kits SDK clients](sql-api-sdk-dotnet.md). Le Kit de développement logiciel (SDK) .NET comprend un fournisseur LINQ.
 
 > [!TIP]
 > Vous pouvez essayer l’API SQL et exécuter des requêtes SQL sur notre jeu de données dans [Query Playground](https://www.documentdb.com/sql/demo).
@@ -226,7 +226,7 @@ La logique JavaScript enregistrée au niveau d'une collection peut alors émettr
 
 La possibilité d'exécuter directement JavaScript dans le moteur de base de données au sein du même espace d'adressage que le pool de mémoires tampons permet une exécution performante et transactionnelle des opérations de base de données sur les documents d'une collection. De plus, l’engagement ferme du moteur de base de données Cosmos DB envers JSON et JavaScript élimine tout risque d’incohérence en matière d’impédance entre les systèmes de type d’application et la base de données.   
 
-Après avoir créé une collection, vous pouvez inscrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur auprès de cette collection en utilisant les [API REST](/rest/api/documentdb/) ou l’un des [SDK clients](sql-api-sdk-dotnet.md). Après l'enregistrement, vous pouvez les référencer et les exécuter. Prenons comme exemple la procédure stockée suivante écrite entièrement en JavaScript, le code ci-dessous prend deux arguments (un titre de livre et un nom d'auteur) et crée un document, interroge un document et le met à jour, le tout dans le cadre d'une transaction ACID implicite. Si le JavaScript lève une exception durant son exécution, l'intégralité de la transaction est annulée.
+Après avoir créé une collection, vous pouvez inscrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur auprès de cette collection en utilisant les [API REST](/rest/api/cosmos-db/) ou l’un des [SDK clients](sql-api-sdk-dotnet.md). Après l'enregistrement, vous pouvez les référencer et les exécuter. Prenons comme exemple la procédure stockée suivante écrite entièrement en JavaScript, le code ci-dessous prend deux arguments (un titre de livre et un nom d'auteur) et crée un document, interroge un document et le met à jour, le tout dans le cadre d'une transaction ACID implicite. Si le JavaScript lève une exception durant son exécution, l'intégralité de la transaction est annulée.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -279,10 +279,10 @@ Tenez compte du fait que, comme la base de données comprend de manière native 
 
 Les procédures stockées et les déclencheurs interagissent avec une collection et les documents d'une collection à travers un modèle d'objet bien défini qui expose le contexte de collection actuel.  
 
-Dans l’API SQL, les collections peuvent être facilement créées, supprimées, lues ou répertoriées avec les [API REST](/rest/api/documentdb/) ou l’un des [SDK clients](sql-api-sdk-dotnet.md). L’API SQL fournit toujours une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une collection. La suppression d'une collection garantit automatiquement que vous ne pouvez pas accéder aux documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l'utilisateur qu'elle contient.   
+Dans l’API SQL, les collections peuvent être facilement créées, supprimées, lues ou répertoriées avec les [API REST](/rest/api/cosmos-db/) ou l’un des [SDK clients](sql-api-sdk-dotnet.md). L’API SQL fournit toujours une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une collection. La suppression d'une collection garantit automatiquement que vous ne pouvez pas accéder aux documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l'utilisateur qu'elle contient.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
-Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d’application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction définie par l’utilisateur. Le code JavaScript d’une procédure stockée ou d’un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d’une collection. D'autre part, le code JavaScript dans une fonction définie par l'utilisateur ne peut pas insérer, remplacer ou supprimer des documents. Les fonctions définies par l'utilisateur énumèrent les documents du jeu de résultats d'une requête et produisent un autre jeu de résultats. Azure Cosmos DB applique aux architectures multilocataires une gouvernance des ressources stricte basée sur les réservations. Chaque procédure stockée, déclencheur ou fonction définie par l’utilisateur obtient un quantum fixe de ressources de systèmes d’exploitation pour effectuer ses tâches. De plus, les procédures stockées, les déclencheurs ou les fonctions définies par l’utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste rouge s’ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez inscrire ou désinscrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans une collection en utilisant les API REST.  Une fois inscrits, ils sont précompilés et stockés en tant que code d’octet et sont exécutés ultérieurement. La section suivante illustre l’utilisation du SDK JavaScript d’Azure Cosmos DB pour inscrire, désinscrire et exécuter une procédure stockée, un déclencheur ou une fonction définie par l’utilisateur. Le kit SDK JavaScript est un wrapper simple des [API REST](/rest/api/documentdb/). 
+Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d’application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction définie par l’utilisateur. Le code JavaScript d’une procédure stockée ou d’un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d’une collection. D'autre part, le code JavaScript dans une fonction définie par l'utilisateur ne peut pas insérer, remplacer ou supprimer des documents. Les fonctions définies par l'utilisateur énumèrent les documents du jeu de résultats d'une requête et produisent un autre jeu de résultats. Azure Cosmos DB applique aux architectures multilocataires une gouvernance des ressources stricte basée sur les réservations. Chaque procédure stockée, déclencheur ou fonction définie par l’utilisateur obtient un quantum fixe de ressources de systèmes d’exploitation pour effectuer ses tâches. De plus, les procédures stockées, les déclencheurs ou les fonctions définies par l’utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste rouge s’ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez inscrire ou désinscrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans une collection en utilisant les API REST.  Une fois inscrits, ils sont précompilés et stockés en tant que code d’octet et sont exécutés ultérieurement. La section suivante illustre l’utilisation du SDK JavaScript d’Azure Cosmos DB pour inscrire, désinscrire et exécuter une procédure stockée, un déclencheur ou une fonction définie par l’utilisateur. Le kit SDK JavaScript est un wrapper simple des [API REST](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Enregistrement d'une procédure stockée
 L'enregistrement d'une procédure stockée crée une ressource de procédure stockée dans une collection via HTTP POST.  
@@ -410,7 +410,7 @@ Pour annuler l’enregistrement d’une fonction définie par l’utilisateur, i
             console.log("Error");
         });
 
-Même si les extraits de code précédents ont montré l’inscription (POST), la désinscription (PUT), la lecture/l’énumération (GET) et l’exécution (POST) via le [SDK JavaScript](https://github.com/Azure/azure-documentdb-js), vous pouvez également utiliser les [API REST](/rest/api/documentdb/) ou d’autres [SDK clients](sql-api-sdk-dotnet.md). 
+Même si les extraits de code précédents ont montré l’inscription (POST), la désinscription (PUT), la lecture/l’énumération (GET) et l’exécution (POST) via le [SDK JavaScript](https://github.com/Azure/azure-documentdb-js), vous pouvez également utiliser les [API REST](/rest/api/cosmos-db/) ou d’autres [SDK clients](sql-api-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Documents
 Vous pouvez insérer, remplacer, supprimer, lire, énumérer et interroger arbitrairement des documents JSON dans une collection. Azure Cosmos DB n’impose aucun schéma et ne requiert pas d’index secondaire pour prendre en charge l’interrogation des documents dans une collection. La taille maximale d’un document est de 2 Mo.   

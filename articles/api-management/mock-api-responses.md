@@ -1,11 +1,11 @@
 ---
-title: "Simuler des réponses de l’API avec le portail Azure | Microsoft Docs"
-description: "Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour définir une stratégie sur une API afin qu’elle retourne une réponse simulée. Cette méthode permet aux développeurs de procéder à l’implémentation et au test de l’instance Gestion des API au cas où le backend ne serait pas en mesure d’envoyer des réponses réelles."
+title: Simuler des réponses de l’API avec le portail Azure | Microsoft Docs
+description: Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour définir une stratégie sur une API afin qu’elle retourne une réponse simulée. Cette méthode permet aux développeurs de procéder à l’implémentation et au test de l’instance Gestion des API au cas où le backend ne serait pas en mesure d’envoyer des réponses réelles.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: e485071b026c52eb23532639546ad475fc92cde3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="mock-api-responses"></a>Simuler des réponses de l’API
 
@@ -27,7 +27,7 @@ Les API backend peuvent être importées dans une API APIM ou créées et géré
 + Quand la façade de l’API est conçue avant que le backend ne soit implémenté. Ou bien, quand le backend est développé en parallèle.
 + Quand le backend est temporairement non opérationnel ou qu’il ne peut pas être mis à l’échelle.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une API de test 
@@ -37,11 +37,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ![Réponse simulée à l’opération](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-a-test-api"></a>Créer une API de test 
 
@@ -108,7 +107,7 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une API de test
@@ -119,4 +118,4 @@ Dans ce didacticiel, vous avez appris à :
 Passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
-> [Transformer et protéger une API publiée](transform-api.md)
+> [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)

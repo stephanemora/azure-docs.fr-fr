@@ -1,8 +1,8 @@
 ---
-title: "Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC) - Azure RBAC | Microsoft Docs"
-description: "Découvrez la gestion de l’accès avec le contrôle d’accès en fonction du rôle Azure dans le portail Azure. Utilisez des attributions de rôle pour attribuer des autorisations dans votre répertoire."
+title: Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC) - Azure RBAC | Microsoft Docs
+description: Découvrez la gestion de l’accès avec le contrôle d’accès en fonction du rôle Azure dans le portail Azure. Utilisez des attributions de rôle pour attribuer des autorisations dans votre répertoire.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/02/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d6911b8deb92fe6781bf79b4d5794101b266c63e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure
 Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le contrôle d’accès en fonction du rôle (RBAC) Azure permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure.

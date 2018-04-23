@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble des solutions de la gamme StorSimple 8000 | Microsoft Docs"
-description: "Décrit StorSimple, notamment le processus de hiérarchisation, l’appareil, l’appareil virtuel, les services et la gestion du stockage, et présente les termes clés utilisés dans StorSimple"
+title: Vue d’ensemble des solutions de la gamme StorSimple 8000 | Microsoft Docs
+description: Décrit StorSimple, notamment le processus de hiérarchisation, l’appareil, l’appareil virtuel, les services et la gestion du stockage, et présente les termes clés utilisés dans StorSimple
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple série 8000 : une solution de stockage de cloud hybride
 ## <a name="overview"></a>Vue d'ensemble
@@ -204,17 +204,17 @@ La déduplication réduit la quantité globale de données stockées en élimina
 ## <a name="storsimple-workload-summary"></a>Résumé des charges de travail StorSimple
 Voici un tableau résumant les charges de travail StorSimple prises en charge.
 
-| Scénario | Charge de travail | Pris en charge | Restrictions | Version |
+| Scénario | Charge de travail | Prise en charge | Restrictions | Version |
 | --- | --- | --- | --- | --- |
-| Collaboration |Partage de fichiers |Oui | |Toutes les versions |
-| Collaboration |Partage de fichiers distribués |Oui | |Toutes les versions |
+| Collaboration |Partage de fichiers |OUI | |Toutes les versions |
+| Collaboration |Partage de fichiers distribués |OUI | |Toutes les versions |
 | Collaboration |SharePoint |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
-| Archivage |Archivage de fichiers simple |Oui | |Toutes les versions |
+| Archivage |Archivage de fichiers simple |OUI | |Toutes les versions |
 | Virtualisation |Machines virtuelles |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Base de données |SQL |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Surveillance vidéo |Surveillance vidéo |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 2 et versions ultérieures |
-| Backup  |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
-| Backup  |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
+| Sauvegarde |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
+| Sauvegarde |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
 
 *Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
@@ -231,9 +231,9 @@ Les charges de travail suivantes ne sont pas prises en charge par les appareils 
 
 Voici une liste des composants d’infrastructure pris en charge par StorSimple.
 
-| Scénario | Charge de travail | Pris en charge | Restrictions | Version |
+| Scénario | Charge de travail | Prise en charge | Restrictions | Version |
 | --- | --- | --- | --- | --- |
-| Généralités |ExpressRoute |Oui | |Toutes les versions |
+| Généralités |ExpressRoute |OUI | |Toutes les versions |
 | Généralités |DataCore FC |Oui* |Prise en charge avec DataCore SANsymphony |Toutes les versions |
 | Généralités |DFSR |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Toutes les versions |
 | Généralités |Indexation |Oui* |Pour les volumes hiérarchisés, seule l’indexation des métadonnées est prise en charge (aucune donnée).<br>Pour les volumes épinglés localement, l’indexation complète est prise en charge. |Toutes les versions |
@@ -299,7 +299,7 @@ Avant de déployer votre solution Microsoft Azure StorSimple, nous vous recomman
 | compte de stockage |Ensemble d’informations d’identification d’accès liées à votre compte de stockage pour un fournisseur de services cloud donné. |
 | Adaptateur StorSimple pour SharePoint |Composant Microsoft Azure StorSimple qui étend de manière transparente la protection des données et le stockage StorSimple à des batteries de serveurs SharePoint. |
 | Service StorSimple Device Manager |Extension du portail Azure qui vous permet de gérer vos appareils Azure StorSimple locaux et virtuels. |
-| StorSimple Snapshot Manager |Composant logiciel enfichable Microsoft Management Console (MMC) pour la gestion des opérations de sauvegarde et de restauration dans Microsoft Azure StorSimple. |
+| Gestionnaire d’instantanés StorSimple |Composant logiciel enfichable Microsoft Management Console (MMC) pour la gestion des opérations de sauvegarde et de restauration dans Microsoft Azure StorSimple. |
 | exécuter une sauvegarde |Fonctionnalité qui permet à l’utilisateur d’exécuter une sauvegarde interactive d’un volume. Il s’agit d’une autre façon d’effectuer une sauvegarde manuelle d’un volume par opposition à une sauvegarde automatique via une stratégie définie. |
 | Allocation dynamique |Méthode qui permet d’optimiser l’efficacité avec laquelle l’espace de stockage disponible est utilisé dans les systèmes de stockage. Dans une allocation dynamique, le stockage est réparti entre plusieurs utilisateurs en fonction de l’espace minimal dont chaque utilisateur a besoin à un moment donné. Voir aussi *allocation fixe*. |
 | hiérarchisation |Organisation des données en regroupements logiques basés sur l’utilisation actuelle, l’âge et les relations aux autres données. StorSimple organise automatiquement les données en niveaux. |

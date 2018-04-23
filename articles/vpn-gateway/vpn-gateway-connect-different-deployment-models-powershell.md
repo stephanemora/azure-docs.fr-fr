@@ -1,11 +1,11 @@
 ---
-title: "Connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager : PowerShell | Microsoft Docs"
-description: "Créez une connexion VPN entre des réseaux virtuels classiques et des réseaux virtuels Resource Manager à l’aide d’une passerelle VPN et de PowerShell."
+title: 'Connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager : PowerShell | Microsoft Docs'
+description: Créez une connexion VPN entre des réseaux virtuels classiques et des réseaux virtuels Resource Manager à l’aide d’une passerelle VPN et de PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65faf1a4f78244d9fdd03b6415bf2cadac923504
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
 
@@ -176,7 +176,7 @@ Pour créer une passerelle VPN pour le réseau virtuel RM, suivez les instructio
 1. Dans la console PowerShell, connectez-vous à votre compte Azure. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, vos paramètres de compte sont téléchargés pour être reconnus par Azure PowerShell.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ``` 
    
   Obtenez la liste de vos abonnements Azure.

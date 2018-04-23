@@ -1,11 +1,11 @@
 ---
-title: "Utiliser une machine virtuelle de dépannage Linux avec Azure CLI 2.0 | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0."
+title: Utiliser une machine virtuelle de dépannage Linux avec Azure CLI 2.0 | Microsoft Docs
+description: Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0.
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure CLI 2.0 pour connecter votre disque dur virtuel à une autre machine virtuelle Linux afin de corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -59,7 +59,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-L’URI est de type **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
+L’URI se présente ainsi : **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
 
 ## <a name="delete-existing-vm"></a>Supprimer une machine virtuelle existante
 Les disques durs virtuels et les machines virtuelles sont deux ressources distinctes dans Azure. Le disque dur virtuel est l’emplacement de stockage du système d’exploitation, des applications et des configurations. La machine virtuelle correspond à des métadonnées définissant la taille ou l’emplacement ; elle référence des ressources comme un disque dur virtuel ou une carte d’interface réseau virtuelle (NIC). Chaque disque dur virtuel associé à une machine virtuelle se voit attribuer un bail. Bien que l’association et la dissociation des disques de données puisse s’effectuer pendant l’exécution de la machine virtuelle, le disque du système d’exploitation ne peut pas être dissocié, sauf si la ressource de machine virtuelle est supprimée. Le bail continue à associer le disque du système d’exploitation à une machine virtuelle, même lorsque cette machine virtuelle se trouve dans un état d’arrêt ou de libération.
@@ -151,7 +151,7 @@ Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtue
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    Notez le nom de votre disque dur virtuel existant. Par exemple, le nom d’un disque qui a pour URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** est **myVHD**. 
+    Notez le nom de votre disque dur virtuel existant. Par exemple, le nom d’un disque ayant comme URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** est **myVHD**. 
 
     Détachez le disque de données de votre machine virtuelle à l’aide de la commande [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). L’exemple suivant supprime la machine virtuelle nommée `myVHD` du groupe de ressources `myVMRecovery` dans le groupe de ressources `myResourceGroup` :
 

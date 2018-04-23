@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble du protocole Azure AD .NET | Documents Microsoft"
-description: "Comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure AD."
+title: Vue d’ensemble du protocole Azure AD .NET | Documents Microsoft
+description: Comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure AD.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Inscrire votre application avec votre client AD
 Tout d’abord, vous devez inscrire votre application avec votre client Azure Active Directory (Azure AD). Ceci vous fournira un ID d’application pour votre application et lui permettra de recevoir des jetons.
 
-* Connectez-vous au [portail Azure](https://portal.azure.com).
+* Connectez-vous au [Portail Azure](https://portal.azure.com).
 * Sélectionnez votre client Azure AD en cliquant sur votre compte dans le coin supérieur droit de la page.
 * Dans le volet de navigation gauche, cliquez sur **Azure Active Directory**.
 * Cliquez sur **Inscriptions des applications**, puis sur **Ajouter**.

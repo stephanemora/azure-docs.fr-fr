@@ -1,11 +1,11 @@
 ---
 title: Azure ExpressRoute pour les fournisseurs de solutions Cloud | Microsoft Docs
-description: "Cet article fournit des informations pour les fournisseurs de services Cloud qui souhaitent intégrer dans leurs offres des services Azure et ExpressRoute."
+description: Cet article fournit des informations pour les fournisseurs de services Cloud qui souhaitent intégrer dans leurs offres des services Azure et ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 
@@ -39,7 +39,7 @@ Microsoft fournit des API aux fournisseurs de solutions Cloud afin de gérer les
 Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : « *Connect-Through* » ou « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 Dans le modèle « Connect-through », le fournisseur de solutions Cloud crée une connexion directe entre votre centre de données et l’abonnement Azure de votre client. La connexion directe est établie à l’aide d’ExpressRoute et connecte votre réseau à Azure. Votre client se connecte ensuite à votre réseau. Ce scénario nécessite que le client traverse le réseau du fournisseur de solutions Cloud pour accéder aux services Azure. 
 
@@ -47,10 +47,10 @@ Si vos clients possèdent d’autres abonnements Azure non gérés par vous, ils
 
 Les fournisseurs de solutions Cloud qui gèrent des services Azure doivent disposer d’une banque d’identités client déjà établie qui est ensuite répliquée dans Azure Active Directory pour permettre la gestion de leur abonnement CSP par le biais de AOBO (Administrate-On-Behalf-Of). Les principaux facteurs motivant l’adoption de ce scénario sont les suivants : un partenaire ou un fournisseur de services donné a une relation bien établie avec le client, le client utilise actuellement les services d’un fournisseur ou bien le partenaire souhaite proposer une combinaison de solutions hébergées par le fournisseur et Azure afin d’apporter davantage de flexibilité et de répondre aux défis du client qui ne peuvent pas être résolus uniquement par le fournisseur de solutions Cloud. Ce modèle est présenté dans la **Figure**, ci-dessous.
 
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Modèle « Connect-to »
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 Dans le modèle « Connect-to », le fournisseur de services crée une connexion directe entre le centre de données de ses clients et l’abonnement Azure approvisionné par le fournisseur de solutions Cloud à l’aide d’ExpressRoute sur le réseau des clients.
 
@@ -61,11 +61,11 @@ Dans le modèle « Connect-to », le fournisseur de services crée une connexion
 
 Ce scénario de connectivité nécessite que le client se connecte directement via un réseau client pour accéder à l’abonnement Azure géré par le fournisseur de solutions Cloud, à l’aide d’une connexion réseau directe créée, détenue et gérée entièrement ou en partie par le client. Pour ces clients, cela suppose que le fournisseur ne dispose pas actuellement d’une banque d’identités client établie et que le fournisseur aide le client à répliquer sa banque d’identités en cours dans Azure Active Directory pour la gestion de leur abonnement via AOBO. Les principaux facteurs motivant l’adoption de ce scénario sont les suivants : un partenaire ou un fournisseur de services donné a une relation bien établie avec le client, le client utilise actuellement les services d’un fournisseur ou bien le partenaire souhaite proposer des services basés uniquement sur des solutions hébergées par Azure sans avoir besoin de disposer d’un centre de données ou d’une infrastructure fournisseur.
 
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 Le choix de l’une de ces deux options dépend des besoins de vos clients et de vos besoins actuels pour fournir les services Azure. Ces modèles et les modèles associés de conception d’identité, de mise en réseau et de contrôle d’accès basé sur les rôles sont présentés en détail aux liens suivants :
 
-* **Contrôle d’accès basé sur les rôles (RBAC)** : RBAC repose sur Azure Active Directory.  Pour plus d’informations concernant Azure RBAC, cliquez [ici](../active-directory/role-based-access-control-configure.md).
+* **Contrôle d’accès basé sur les rôles (RBAC)** : RBAC repose sur Azure Active Directory.  Pour plus d’informations concernant Azure RBAC, cliquez [ici](../role-based-access-control/role-assignments-portal.md).
 * **Mise en réseau** : couvre les différentes rubriques de mise en réseau dans Microsoft Azure.
 * **Azure Active Directory (Azure AD)** : Azure AD assure la gestion des identités pour Microsoft Azure et les applications SaaS tierces. Pour plus d’informations sur Azure AD, cliquez [ici](https://azure.microsoft.com/documentation/services/active-directory/).  
 
@@ -114,7 +114,7 @@ La table de routage par défaut inclut les itinéraires suivants :
 * Réseau virtuel vers réseau virtuel à l’aide de la passerelle VPN
 * Réseau virtuel vers réseau local à l’aide d’une passerelle VPN ou ExpressRoute
 
-![alt text](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![texte de remplacement](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Itinéraire défini par l’utilisateur (UDR)
 Les itinéraires définis par l’utilisateur permettent de contrôler le trafic sortant du sous-réseau attribué à d’autres sous-réseaux dans le réseau virtuel ou sur l’une des autres passerelles prédéfinies (ExpressRoute, Internet ou VPN). La table de routage système par défaut peut être remplacée par une table de routage définie par l’utilisateur qui remplace alors la table de routage par défaut par des itinéraires personnalisés. Avec le routage défini par l’utilisateur, les clients peuvent créer des itinéraires vers des appareils tels que des pare-feu ou des dispositifs de détection des intrusions, ou bloquer l’accès à des sous-réseaux depuis le sous-réseau qui héberge l’itinéraire défini par l’utilisateur. Pour avoir une vue d’ensemble des itinéraires définis par l’utilisateur, cliquez [ici](../virtual-network/virtual-networks-udr-overview.md). 
@@ -127,7 +127,7 @@ Selon le modèle en cours d’utilisation (Connect-To ou Connect-Through), votre
 3. **Tunneling forcé** : il s’agit d’une option permettant de rediriger le trafic Internet sortant provenant d’Azure vers la connexion ExpressRoute sur le centre de données local. Pour plus d’informations sur le tunneling forcé, cliquez [ici](expressroute-routing.md#advertising-default-routes).  
 4. **Cryptage** : même si les circuits ExpressRoute sont dédiés à un client spécifique, il est possible que le fournisseur réseau subisse une attaque, permettant ainsi à un intrus d’examiner le trafic de paquets. Pour éviter ce problème, un client ou un fournisseur de services Cloud peut chiffrer le trafic sur la connexion en définissant des stratégies IPSec en mode tunnel pour tout le trafic circulant entre les ressources locales et les ressources Azure (reportez-vous à l’IPSec en mode tunnel facultatif pour le client 1 dans la Figure 5 : Sécurité ExpressRoute, ci-dessus). La deuxième option consiste à utiliser un dispositif pare-feu sur chaque point de terminaison du circuit ExpressRoute. Cela nécessite l’installation de machines virtuelles/dispositifs de pare-feu tiers supplémentaires à chaque extrémité afin de chiffrer le trafic sur le circuit ExpressRoute.
 
-![alt text](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
+![texte de remplacement](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
 ## <a name="next-steps"></a>Étapes suivantes
 Le service du fournisseur de solutions Cloud vous permet d’augmenter la valeur ajoutée offerte à vos clients sans avoir à effectuer des investissements conséquents en matière d’infrastructure et de fonctionnalités, tout en conservant votre position de prestataire principal. L’intégration en toute transparence avec Microsoft Azure peut être effectuée via l’API du fournisseur de services Cloud, qui vous permet d’intégrer la gestion de Microsoft Azure au sein de vos infrastructures de gestion existantes.  

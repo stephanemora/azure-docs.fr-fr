@@ -1,12 +1,12 @@
 ---
-title: "Mettre à niveau un runtime Azure Service Fabric | Microsoft Docs"
-description: "Dans ce didacticiel, vous découvrez comment utiliser PowerShell pour mettre à niveau le runtime d’un cluster Service Fabric hébergé par Azure."
+title: Mettre à niveau un runtime Azure Service Fabric | Microsoft Docs
+description: Dans ce didacticiel, vous découvrez comment utiliser PowerShell pour mettre à niveau le runtime d’un cluster Service Fabric hébergé par Azure.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric
 
@@ -44,6 +44,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -55,7 +56,7 @@ Avant de commencer ce didacticiel :
 Connectez-vous à votre compte Azure, sélectionnez votre abonnement avant d’exécuter des commandes Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

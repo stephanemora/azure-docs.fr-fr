@@ -1,11 +1,11 @@
 ---
-title: "Guide des opérations et de planification du Centre de sécurité Azure | Microsoft Docs"
-description: "Ce document vous aide à planifier au préalable l’utilisation du Centre de sécurité Azure et les considérations concernant les opérations quotidiennes."
+title: Guide des opérations et de planification du Centre de sécurité Azure | Microsoft Docs
+description: Ce document vous aide à planifier au préalable l’utilisation du Centre de sécurité Azure et les considérations concernant les opérations quotidiennes.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: b9198f7621c74ae6cbe98fd526cc9bf8eadc9e70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
@@ -75,7 +75,7 @@ Le Centre de sécurité permet à ces personnes d’assumer ces différentes res
 * Analyse les attaques
 * Collabore avec le propriétaire de la charge de travail de cloud pour mettre en œuvre les solutions 
 
-Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) qui fournit des [rôles intégrés](../active-directory/role-based-access-built-in-roles.md) susceptibles d’être attribués à des utilisateurs, des groupes et des services dans Azure. Lorsqu’un utilisateur ouvre le Centre de sécurité, il voit uniquement les informations relatives aux ressources auxquelles il a accès. Autrement dit, l’utilisateur se voit attribuer le rôle de propriétaire, collaborateur ou lecteur, pour l’abonnement ou le groupe de ressources auquel appartiennent les ressources. Outre ces rôles, il existe deux rôles propres à Security Center :
+Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournit des [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être attribués à des utilisateurs, des groupes et des services dans Azure. Lorsqu’un utilisateur ouvre le Centre de sécurité, il voit uniquement les informations relatives aux ressources auxquelles il a accès. Autrement dit, l’utilisateur se voit attribuer le rôle de propriétaire, collaborateur ou lecteur, pour l’abonnement ou le groupe de ressources auquel appartiennent les ressources. Outre ces rôles, il existe deux rôles propres à Security Center :
 
 - **Lecteur de sécurité** : un utilisateur qui appartient à ce rôle est en mesure d’afficher uniquement les configurations de Security Center, ce qui inclut les recommandations, les alertes, la stratégie et l’intégrité, mais il ne peut pas apporter de modifications.
 - **Administrateur de la sécurité** : il a les mêmes droits que le lecteur de sécurité, mais il peut également mettre à jour la stratégie de sécurité, et rejeter des alertes et des recommandations.
@@ -138,7 +138,7 @@ Security Center crée automatiquement une stratégie de sécurité par défaut, 
 Avant de configurer des stratégies de sécurité, examinez chacune des [recommandations de sécurité](https://docs.microsoft.com/azure/security-center/security-center-recommendations)et déterminer si ces stratégies conviennent à vos différents abonnements et groupes de ressources. Il est également important de comprendre l’action à mener concernant les recommandations de sécurité et de connaître la personne de votre organisation chargée de surveiller les nouvelles recommandations et de prendre les mesures nécessaires.
 
 ## <a name="data-collection-and-storage"></a>Collecte et stockage des données
-Azure Security Center utilise Microsoft Monitoring Agent (le même agent que celui utilisé par Operations Management Suite et le service Log Analytics) pour collecter les données relatives à la sécurité sur vos machines virtuelles. [Les données collectées](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) à partir de cet agent seront stockées dans vos espaces de travail Log Analytics.
+Azure Security Center utilise Microsoft Monitoring Agent (le même agent que celui utilisé par le service Log Analytics) pour collecter les données relatives à la sécurité sur vos machines virtuelles. [Les données collectées](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) à partir de cet agent seront stockées dans vos espaces de travail Log Analytics.
 
 ### <a name="agent"></a>Agent
 

@@ -1,11 +1,11 @@
 ---
-title: "Utiliser Azure DevTest Labs à des fins de formation | Microsoft Docs"
-description: "Découvrez comment utiliser Azure DevTest Labs pour les scénarios de formation."
+title: Utiliser Azure DevTest Labs à des fins de formation | Microsoft Docs
+description: Découvrez comment utiliser Azure DevTest Labs pour les scénarios de formation.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
 ms.service: devtest-lab
 ms.workload: na
@@ -54,7 +54,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    
    | Tâche | Contenu |
    | --- | --- |
-   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste blanche des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables. |
+   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste verte des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables. |
    | [Créer une image personnalisée](devtest-lab-create-template.md) |Créez une image personnalisée en préinstallant les logiciels dont vous avez besoin pour la formation afin que les participants puissent créer rapidement une machine virtuelle à l’aide de cette image. |
 3. **Créer des modèles réutilisables pour les machines de formation** 
    

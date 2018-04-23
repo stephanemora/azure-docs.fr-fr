@@ -1,27 +1,47 @@
-**Pour créer un profil CDN**
+---
+title: Fichier Include
+description: Fichier Include
+services: cdn
+author: dksimpson
+ms.service: cdn
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: rli; v-deasim
+ms.custom: include file
+ms.openlocfilehash: 692364e9b2e78b3bd1f63137148dfbc680364737
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/05/2018
+---
+## <a name="create-a-new-cdn-profile"></a>Créer un profil CDN
 
-1. Dans le **portail Azure** en haut à gauche, sélectionnez [Créer une ressource](https://portal.azure.com).
-    
-2. Dans le panneau **Nouveau**, sélectionnez **Web + mobile**, puis **CDN**.
-   
-    Le panneau du **profil CDN** s’affiche.
-   
-    ![Nouveau profil CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
-3. Comme **Nom**, entrez un nom unique pour votre profil CDN.
-    
-4. Comme **Abonnement**, sélectionnez l’abonnement à utiliser pour ce profil CDN.
-   
-5. Comme **Groupe de ressources**, sélectionnez ou créez un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-6. Comme **Emplacement du groupe de ressources**, sélectionnez l’emplacement Azure pour stocker les informations de votre profil CDN. Cet emplacement n’a aucun impact sur les emplacements de point de terminaison CDN.
-    
-7. Comme **Niveau de tarification**, sélectionnez un niveau. Pour obtenir une comparaison des fonctionnalités disponibles avec chaque niveau de tarification, consultez [Fonctionnalités d’Azure CDN](../articles/cdn/cdn-overview.md#azure-cdn-features).
-   
-    ![Sélection du niveau de tarification CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
+Un profil CDN est un conteneur pour les points de terminaison CDN, qui spécifie un niveau tarifaire.
 
-8. Si vous le souhaitez, sélectionnez **Créer un nouveau point de terminaison CDN maintenant** pour afficher les options pour la création d’un point de terminaison pendant que vous créez le profil. Pour plus d’informations, consultez [Créer un nouveau point de terminaison CDN](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
-   
-9. Si vous souhaitez enregistrer le profil sur votre tableau de bord après l’avoir créé et pour le trouver plus facilement, sélectionnez **Épingler au tableau de bord**.
+1. Dans le portail Azure en haut à gauche, sélectionnez **Créer une ressource**.
     
-10. Cliquez sur **Créer** pour créer le profil. 
+    Le volet **Nouveau** s’affiche.
+   
+2. Sélectionnez **Web + mobile**, puis **CDN**.
+   
+    ![Sélectionnez une ressource CDN](./media/cdn-create-profile/cdn-new-resource.png)
+
+    Le volet du **profil CDN** s’affiche.
+
+    Utilisez les paramètres spécifiés dans le tableau à la suite de l’image.
+   
+    ![Nouveau profil CDN](./media/cdn-create-profile/cdn-new-profile.png)
+
+    | Paramètre  | Valeur |
+    | -------- | ----- |
+    | **Name** | Entrez *my-cdn-profile-123* comme nom de profil. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en entrer un autre. |
+    | **Abonnement** | Sélectionnez un abonnement Azure dans la liste déroulante.|
+    | **Groupe de ressources** | Sélectionnez **Créer** et entrez *my-resource-group-123* comme nom pour votre groupe de ressources. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en entrer un autre. | 
+    | **Emplacement du groupe de ressources** | Sélectionnez **Centre des États-Unis** dans la liste déroulante. |
+    | **Niveau tarifaire** | Sélectionnez **Standard Verizon** dans la liste déroulante. |
+    | **Créer un point de terminaison CDN maintenant** | Laissez non sélectionné. |  
+   
+3. Sélectionnez **Épingler au tableau de bord** pour enregistrer le profil sur votre tableau de bord après l’avoir créé.
+    
+4. Cliquez sur **Créer** pour créer le profil. 
 

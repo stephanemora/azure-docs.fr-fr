@@ -1,11 +1,11 @@
 ---
-title: "FAQ sur la gestion des API Azure | Microsoft Docs"
-description: "Découvrez les réponses aux questions fréquemment posées, les modèles et les bonnes pratiques pour la gestion des API Azure."
+title: FAQ sur la gestion des API Azure | Microsoft Docs
+description: Découvrez les réponses aux questions fréquemment posées, les modèles et les bonnes pratiques pour la gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -62,7 +62,7 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Importer et publier votre première API](import-and-publish.md).
 * Utiliser l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
-* Utiliser une liste blanche des adresses IP sur votre service principal. Dans tous les niveaux de gestion des API, l’adresse IP de la passerelle reste constante, avec quelques [mises en garde](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
+* Utiliser une liste verte des adresses IP sur votre service principal. Dans tous les niveaux de gestion des API, l’adresse IP de la passerelle reste constante, avec quelques [mises en garde](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Vous pouvez configurer votre liste verte pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
 * Connectez votre instance de gestion des API à un réseau virtuel Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Comment copier une instance de service Gestion des API vers une nouvelle instance ?
@@ -88,7 +88,7 @@ Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit 
 
 Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](https://msdn.microsoft.com/library/mt613507.aspx) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
 
-1. Utilisez l’applet de commande `Login-AzureRmAccount` pour vous connecter.
+1. Utilisez l’applet de commande `Connect-AzureRmAccount` pour vous connecter.
 2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Obtenez une URL d’authentification unique à l’aide de `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Utilisez l’URL pour accéder au portail d’administration.

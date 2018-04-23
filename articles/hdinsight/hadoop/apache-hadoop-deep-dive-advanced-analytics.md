@@ -1,26 +1,23 @@
 ---
-title: "Approfondissement - Analytique avancée - Azure HDInsight | Microsoft Docs"
-description: "Découvrez comment l’analytique avancée utilise des algorithmes pour traiter des données Big Data."
+title: Approfondissement - Analytique avancée - Azure HDInsight | Microsoft Docs
+description: Découvrez comment l’analytique avancée utilise des algorithmes pour traiter des données Big Data.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 61a00c902be5cd3e37dabba09c15f9226e5e88b4
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -69,13 +66,13 @@ HDInsight dispose de plusieurs options Machine Learning pour un flux de travail 
 
 ### <a name="machine-learning-and-spark"></a>Machine Learning et Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) est une offre hébergée sur Azure incluant [Spark](http://spark.apache.org/), une infrastructure de traitement des données parallèle open source qui utilise le traitement en mémoire pour améliorer les performances des analytiques Big Data. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul distribué en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans l’apprentissage automatique et les calculs de graphiques. 
+[HDInsight Spark](../spark/apache-spark-overview.md) est une offre hébergée sur Azure incluant [Spark](http://spark.apache.org/), une infrastructure de traitement des données parallèle open source qui utilise le traitement en mémoire pour améliorer les performances de l'analytique Big Data. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul distribué en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans l’apprentissage automatique et les calculs de graphiques. 
 
 Il existe trois bibliothèques Machine Learning scalables qui apportent des fonctionnalités de modélisation d’algorithme à cet environnement distribué :
 
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) -MLlib contient l’API d’origine reposant sur Spark RDDs.
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) -SparkML est un package plus récent qui fournit une API de niveau supérieur reposant sur les trames de données Spark pour construire des pipelines ML.
-* [**MMLSpark**](https://github.com/Azure/mmlspark) - La bibliothèque Machine Learning de Microsoft pour Apache Spark (MMLSpark) est conçue pour améliorer la productivité des chercheurs de données sur Spark, pour accroître le taux d’expérimentation et pour tirer parti de techniques Machine Learning de pointe, y compris l’apprentissage profond, sur les jeux de données très volumineux. La bibliothèque MMLSpark simplifie les tâches de modélisation courantes pour générer des modèles dans PySpark. 
+* [**MMLSpark**](https://github.com/Azure/mmlspark) - La bibliothèque Machine Learning de Microsoft pour Apache Spark (MMLSpark) est conçue pour améliorer la productivité des chercheurs de données sur Spark, pour accroître le taux d’expérimentation et pour tirer parti de techniques Machine Learning de pointe, notamment l’apprentissage profond, sur les jeux de données très volumineux. La bibliothèque MMLSpark simplifie les tâches de modélisation courantes pour générer des modèles dans PySpark. 
 
 ### <a name="r-and-r-server"></a>R et R Server
 
@@ -87,7 +84,7 @@ Au sein de HDInsight, vous pouvez créer un cluster HDInsight avec [R Server](..
 
 ### <a name="spark-and-deep-learning"></a>Spark et apprentissage profond
 
-L’[apprentissage profond](https://www.microsoft.com/research/group/dltc/) est une branche du Machine Learning qui utilise les *réseaux neuronaux profonds* (DNN), inspirés par les processus biologiques du cerveau humain. De nombreux chercheurs voient l’apprentissage profond comme une approche prometteuse de l’intelligence artificielle. Voici quelques exemples d’apprentissage profond : traducteurs de langue parlée, systèmes de reconnaissance d’image et raisonnement de l’ordinateur. Dans le cadre de son travail sur l’apprentissage profond, Microsoft a développé [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), open source, gratuit et facile à utiliser. Cette boîte à outils est largement utilisée par un grand nombre de produits Microsoft, par des entreprises du monde entier ayant besoin de déployer l’apprentissage profond à l’échelle et par des étudiants intéressés par les algorithmes et techniques les plus récents. 
+L’[apprentissage profond](https://www.microsoft.com/research/group/dltc/) est une branche du Machine Learning qui utilise les *réseaux neuronaux profonds* (DNN), inspirés par les processus biologiques du cerveau humain. De nombreux chercheurs voient l’apprentissage profond comme une approche prometteuse de l’intelligence artificielle. Voici quelques exemples d’apprentissage profond : traducteurs de langue parlée, systèmes de reconnaissance d’image et raisonnement de l’ordinateur. Dans le cadre de son travail sur l’apprentissage profond, Microsoft a développé [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), open source, gratuit et facile à utiliser. Ce Toolkit est largement utilisé par un grand nombre de produits Microsoft, par des entreprises du monde entier ayant besoin de déployer l’apprentissage profond à l’échelle et par des étudiants intéressés par les algorithmes et techniques les plus récents. 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>Scénario - Noter des images pour identifier les tendances en développement urbain
 
@@ -122,7 +119,7 @@ L’ensemble du processus de prétraitement/notation des 10 000 images prend m
 
 Suivez [ce didacticiel](../spark/apache-spark-microsoft-cognitive-toolkit.md) pour implémenter cette solution de bout en bout : configurez un cluster HDInsight Spark, installez Cognitive Toolkit et exécutez le Notebook Jupyter qui note 10 000 images CIFAR.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Hive et Azure Machine Learning
 

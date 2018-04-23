@@ -1,25 +1,18 @@
 ---
-title: "Exemples de requêtes Lucene pour la Recherche Azure | Microsoft Docs"
-description: "Syntaxe de requête Lucene pour la recherche partielle, la recherche de proximité, l’amélioration de termes, la recherche d’expressions régulières et la recherche par caractères génériques."
-services: search
-documentationcenter: 
+title: Exemples de requêtes Lucene pour la Recherche Azure | Microsoft Docs
+description: Syntaxe de requête Lucene pour la recherche partielle, la recherche de proximité, l’amélioration de termes, la recherche d’expressions régulières et la recherche par caractères génériques.
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf033d7549f3a1213d7a2b2c3694ae7415643eb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes dans Azure Search
 Lors de la construction de requêtes pour la Recherche Azure, vous pouvez utiliser la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) par défaut ou bien [l’analyseur de requêtes Lucene de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). L’analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que des requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.

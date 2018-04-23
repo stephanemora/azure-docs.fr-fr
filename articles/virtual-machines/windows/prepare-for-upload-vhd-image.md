@@ -1,11 +1,11 @@
 ---
-title: "Préparer un disque dur virtuel Windows à charger sur Azure | Microsoft Docs"
-description: "Préparer un disque dur virtuel Windows ou VHDX avant de charger sur Azure"
+title: Préparer un disque dur virtuel Windows à charger sur Azure | Microsoft Docs
+description: Préparer un disque dur virtuel Windows ou VHDX avant de charger sur Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: glimoli
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 67832fd20b758af6fd7a31c0099ce8019bb2442d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 74c47907698e3365d093f0e17dba87b690406443
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 Avant de charger une machine virtuelle Windows locale sur Microsoft Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend en charge uniquement les machines virtuelles de génération 1 au format de fichier de disque dur virtuel (VHD) avec une taille fixe. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go. Vous pouvez convertir une machine virtuelle génération 1, du système de fichiers VHDX vers un disque VHD, et d’un disque à expansion dynamique à un disque de taille fixe. En revanche, vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez la page [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
@@ -323,8 +323,8 @@ Pour une configuration idéale, **le niveau de correctif logiciel le plus récen
 
 |                       |                   |           |                                       Version de fichier minimale x64       |                                      |                                      |                            |
 |-------------------------|-------------------|------------------------------------|---------------------------------------------|--------------------------------------|--------------------------------------|----------------------------|
-| Composant               | Fichier binaire            | Windows 7 et Windows Server 2008 R2 | Windows 8 et Windows Server 2012             | Windows 8.1 et Windows Server 2012 R2 | Windows 10 et Windows Server 2016 RS1 | Windows 10 RS2             |
-| Storage                 | disk.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061           | -                                    | -                          |
+| Composant               | Binary            | Windows 7 et Windows Server 2008 R2 | Windows 8 et Windows Server 2012             | Windows 8.1 et Windows Server 2012 R2 | Windows 10 et Windows Server 2016 RS1 | Windows 10 RS2             |
+| Stockage                 | disk.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061           | -                                    | -                          |
 |                         | storport.sys      | 6.1.7601.23403 - KB3125574         | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.332             |
 |                         | ntfs.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726           | 10.0.14393.1198 - KB4022715          | 10.0.15063.447             |
 |                         | Iologmsg.dll      | 6.1.7601.23403 - KB3125574         | 6.2.9200.16384 - KB2995387                  | -                                    | -                                    | -                          |
@@ -392,7 +392,7 @@ Tous les rôles ou toutes les applications installés sur un ordinateur Windows 
 ## <a name="complete-recommended-configurations"></a>Remplir les configurations recommandées
 Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. Toutefois, nous vous recommandons vivement de les configurer.
 
-* Installez [l’agent de machine virtuelle Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous pouvez ensuite activer les extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques que vous pourriez vouloir utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, etc. Pour plus d’informations, consultez les pages suivantes :
+* Installez [l’agent de machine virtuelle Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous pouvez ensuite activer les extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques que vous pourriez vouloir utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, etc. Pour plus d'informations, consultez les pages suivantes :
 
     - Billet de blog en anglais [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - Billet de blog en anglais [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

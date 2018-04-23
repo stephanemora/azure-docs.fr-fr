@@ -1,25 +1,18 @@
 ---
-title: "Leçon 7 du didacticiel Azure Analysis Services : Créer des indicateurs de performance clés | Microsoft Docs"
-description: "Indique comment créer des indicateurs de performance clés dans le projet du didacticiel Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Leçon 7 du didacticiel Azure Analysis Services : Créer des indicateurs de performance clés | Microsoft Docs'
+description: Indique comment créer des indicateurs de performance clés dans le projet du didacticiel Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8f25773541deba2a94d3adc0c9b61c1b90a90aa6
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 8534640822030a7aa93c8eafe2a1b1a4a8bc5bc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-key-performance-indicators"></a>Créer des indicateurs de performance clés (KPI)
 
@@ -27,7 +20,8 @@ Dans cette leçon, vous allez créer des indicateurs de performance clés (KPI).
   
 Durée estimée pour suivre cette leçon : **15 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 6 : Créer des mesures](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Créer des indicateurs de performance clés (KPI)  

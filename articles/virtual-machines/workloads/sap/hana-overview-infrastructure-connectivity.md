@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure 
 
@@ -49,9 +49,9 @@ Une fois l’achat de SAP HANA sur Azure (grandes instances) finalisé entre vou
 - Données pour chaque système de grande instance HANA :
   - Nom d’hôte souhaité : idéalement, avec le nom de domaine complet.
   - Adresse IP souhaitée pour la grande unité d’instance HANA en dehors de la plage d’adresses IP du pool de serveur. N’oubliez pas que les 30 premières adresses IP de la plage d’adresses IP du pool de serveur sont réservées à une utilisation interne dans les grandes instances HANA
-  - Nom de SID SAP HANA pour l’instance HANA (requis pour créer les volumes de disque liés à SAP HANA nécessaires). Le SID HANA est requis pour la création des autorisations pour <sidadm> sur les volumes NFS, qui sont attachés à l’unité de grande instance HANA. Il est également utilisé comme l’un des composants de nom des volumes de disque qui sont montés. Si vous souhaitez exécuter plusieurs instances HANA sur l’unité, vous devez répertorier plusieurs SID HANA. Chacun d’eux obtient un ensemble distinct de volumes assignés.
-  - L’ID de groupe détenu par l’utilisateur hana-sidadm dans le système d’exploitation Linux est nécessaire pour créer des volumes de disque liés à SAP HANA. L’installation de SAP HANA crée généralement le groupe sapsys avec l’ID de groupe 1001. L’utilisateur hana-sidadm fait partie de ce groupe
-  - L’ID d’utilisateur détenu par l’utilisateur hana-sidadm dans le système d’exploitation Linux est nécessaire pour créer des volumes de disque liés à SAP HANA. Si vous exécutez plusieurs instances HANA sur l’unité, vous devez répertorier tous les <sid>utilisateurs adm 
+  - Nom de SID SAP HANA pour l’instance HANA (requis pour créer les volumes de disque liés à SAP HANA nécessaires). Le SID HANA est requis afin de créer des autorisations pour sidadm sur les volumes NFS, qui sont attachés à l’unité de grande instance HANA. Il est également utilisé comme l’un des composants de nom des volumes de disque qui sont montés. Si vous souhaitez exécuter plusieurs instances HANA sur l’unité, vous devez répertorier plusieurs SID HANA. Chacun d’eux obtient un ensemble distinct de volumes assignés.
+  - L’ID de groupe détenu par l’utilisateur sidadm dans le système d’exploitation Linux est nécessaire pour créer des volumes de disque liés à SAP HANA. L’installation de SAP HANA crée généralement le groupe sapsys avec l’ID de groupe 1001. L’utilisateur sidadm fait partie de ce groupe
+  - L’ID de l’utilisateur sidadm dans le système d’exploitation Linux est nécessaire pour créer des volumes de disque liés à SAP HANA. Si vous exécutez plusieurs instances HANA sur l’unité, vous devez répertorier tous les <sid>utilisateurs adm 
 - ID de l’abonnement Azure auquel les grandes instances HANA Azure vont être directement connectées. Cet ID d’abonnement désigne l’abonnement Azure qui va être facturé avec les unités de grande instance HANA.
 
 Après avoir renseigné ces informations, Microsoft configure SAP HANA sur Azure (grandes instances) et renvoie les informations nécessaires pour lier vos réseaux virtuels Azure aux grandes instances HANA et pour accéder aux unités de grande instance HANA.

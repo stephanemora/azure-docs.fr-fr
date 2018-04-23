@@ -1,12 +1,11 @@
 ---
-title: "Chaîne de connexion MongoDB pour un compte Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment connecter votre application MongoDB à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB."
-keywords: "chaîne de connexion mongodb"
+title: Chaîne de connexion MongoDB pour un compte Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment connecter votre application MongoDB à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB.
+keywords: chaîne de connexion mongodb
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: dfdcb458d0f81c0ddb9399ee8b89a52c4cbc6270
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connecter une application MongoDB à Azure Cosmos DB
 Découvrez comment connecter votre application MongoDB à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB. Vous pouvez ensuite utiliser une base de données Azure Cosmos DB en tant que magasin de données pour votre application MongoDB. 
@@ -30,6 +29,7 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 - [Méthode de la chaîne de connexion personnalisée](#GetCustomConnection), à utiliser avec d’autres pilotes.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Un compte Azure. Si vous ne possédez pas de compte Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) dès maintenant. 
 - Un compte Azure Cosmos DB. Pour des instructions, voir [Développer une application web API MongoDB avec .NET et le portail Azure](create-mongodb-dotnet.md).

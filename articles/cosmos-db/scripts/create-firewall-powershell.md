@@ -1,13 +1,12 @@
 ---
-title: "Script Azure PowerShell - Créer un pare-feu pour Azure Cosmos DB | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Créer un pare-feu pour Azure Cosmos DB"
+title: Script Azure PowerShell - Créer un pare-feu pour Azure Cosmos DB | Microsoft Docs
+description: Exemple de script Azure PowerShell - Créer un pare-feu pour Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: caad9212649dd3dc47ddb21555b5b8496c3d2da1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: d8ca8616b0b65d1e637c1f53a93be44cfd280ccb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB : Créer un pare-feu à l’aide de PowerShell
 
@@ -44,7 +43,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Crée un serveur logique qui héberge une base de données ou un pool élastique. |

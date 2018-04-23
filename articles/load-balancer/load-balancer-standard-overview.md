@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Présentation de Azure Load Balancer Standard
 
@@ -43,26 +43,26 @@ Les ressources Load Balancer sont des objets dans lesquels vous pouvez exprimer 
 
 ## <a name="why-use-standard-load-balancer"></a>Pourquoi utiliser Load Balancer Standard ?
 
-Utilisez Load Balancer Standard pour l’intégralité de la plage de centres de données virtuels, allant des déploiements à petite échelle à des architectures multizones étendues et complexes.
+Standard Load Balancer vous permet de faire évoluer vos applications et d’engendrer une haute disponibilité, des déploiements à petite échelle aux architectures multizones étendues et complexes.
 
 Consultez la table ci-dessous pour obtenir une vue d’ensemble des différences entre Load Balancer Standard et Load Balancer de base :
 
 >[!NOTE]
 > De nouvelles conceptions doivent être envisagées à l’aide de Load Balancer Standard. 
 
-| | Référence SKU standard | Référence SKU de base |
+| | Référence SKU standard | Référence SKU De base |
 | --- | --- | --- |
-| Taille de pool de serveur principal | jusqu'à 1 000 instances | jusqu'à 100 instances |
-| Points de terminaison de pool principal | toute machine virtuelle dans un seul réseau virtuel, y compris la fusion de machines virtuelles, les groupes à haute disponibilité, groupes de machines identiques. | machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique |
-| Zones de disponibilité | serveurs frontaux redondants dans une zone et zonaux pour trafic entrant et sortant, les mappages de flux sortants survivent aux échecs de zone, l’équilibrage de charge inter-zone | / |
-| Diagnostics | Azure Monitor, métriques à plusieurs dimensions, notamment les compteurs d’octets et de paquets, état de la sonde d’intégrité, tentatives de connexion (TCP SYN), intégrité de la connexion sortante (flux SNAT réussies et échouées), mesures de plan de données actives | Azure Log Analytics pour le Load Balancer public seulement, alerte d’insuffisance SNAT, compte d’intégrité du pool principal |
-| Ports HA | Load Balancer interne | / |
-| Sécuriser par défaut | par défaut fermé pour les points de terminaison IP et Load Balancer publics et un groupe de sécurité réseau doit être utilisé pour mettre explicitement sur liste verte le flux du trafic | ouvert par défaut, groupe de sécurité réseau facultatif |
-| Connexions sortantes | Plusieurs serveurs frontaux avec règle de retrait. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  [Les points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles comme les points de terminaison de service réseau virtuel doivent être atteints via la connectivité sortante et comptabilisés dans les données traitées. Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, les connexions sortantes via la SNAT par défaut ne sont pas disponibles. La programmation de SNAT sortante est un protocole de transport spécifique basé sur le protocole de la règle d’équilibrage de charge entrant. | Serveur frontal unique, sélectionné de manière aléatoire lorsque plusieurs serveurs frontaux sont présents.  Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, la valeur par défaut SNAT est utilisée. |
+| Taille de pool de serveur principal | Jusqu'à 1 000 instances | Jusqu'à 100 instances |
+| Points de terminaison du pool du serveur principal | Toute machine virtuelle dans un réseau virtuel, y compris la combinaison de machines virtuelles, de groupes à haute disponibilité et de groupes de machines virtuelles identiques | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique |
+| Zones de disponibilité | Serveurs frontaux redondants dans une zone et zonaux pour le trafic entrant et sortant, mappages de flux sortants protégés contre les défaillances de zone, équilibrage de charge interzones | / |
+| Diagnostics | Azure Monitor, métriques à plusieurs dimensions, notamment les compteurs d’octets et de paquets, état de la sonde d’intégrité, tentatives de connexion (TCP SYN), intégrité de la connexion sortante (flux SNAT réussies et échouées), mesures de plan de données actives | Azure Log Analytics pour l’équilibreur de charge public uniquement, alerte d’épuisement des ports SNAT, mesure de l’intégrité du pool du serveur principal |
+| Ports HA | Équilibreur de charge interne | / |
+| Sécurisé par défaut | par défaut fermé pour les points de terminaison IP et Load Balancer publics et un groupe de sécurité réseau doit être utilisé pour mettre explicitement sur liste verte le flux du trafic | Ouvert par défaut, groupe de sécurité réseau facultatif |
+| Connexions sortantes | Plusieurs serveurs frontaux avec retrait par règle. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  Les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles en tant que points de terminaison de service du réseau virtuel, doivent être atteintes via la connectivité sortante et sont comptabilisées dans les données traitées. Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, les connexions sortantes via la SNAT par défaut ne sont pas disponibles. La programmation de SNAT sortante est un protocole de transport spécifique basé sur le protocole de la règle d’équilibrage de charge entrant. | Serveur frontal unique, sélectionné de manière aléatoire quand plusieurs serveurs frontaux sont présents.  Quand seul un équilibreur de charge interne gère une machine virtuelle, le mode SNAT par défaut est utilisé. |
 | Plusieurs serveurs frontaux | Trafic entrant et sortant | Entrant uniquement |
-| Opérations de gestion | La plupart des opérations < 30 secondes | généralement 60 à 90 secondes et plus par défaut |
-| Contrat SLA | 99,99 % pour le chemin de données avec les deux machines virtuelles intègres | Implicite dans le contrat de niveau de service de la machine virtuelle | 
-| Tarifs | Facturé en fonction du nombre de règles, des données traitées entrantes ou sortantes associées aux ressources  | Aucun frais |
+| Opérations de gestion | La plupart des opérations < 30 secondes | Généralement 60 à 90 secondes et plus |
+| Contrat SLA | 99,99 % pour le chemin de données avec deux machines virtuelles saines | Implicite dans le SLA de la machine virtuelle | 
+| Tarifs | Facturation en fonction du nombre de règles configurées et des données associées aux ressources traitées en entrée ou en sortie  | Aucun frais |
 
 Consultez les [limites de service pour Load Balancer](https://aka.ms/lblimits), ainsi que la [tarification](https://aka.ms/lbpricing) et le [contrat de niveau de service](https://aka.ms/lbsla).
 
@@ -76,9 +76,6 @@ Le pool principal peut contenir des machines virtuelles autonomes, des groupes �
 Lorsque vous envisagez la conception de votre pool principal, vous pouvez concevoir le moins de ressources de pool principal individuelles pour optimiser davantage la durée des opérations de gestion.  Il n’existe aucune différence de performances ou de mise à l’échelle du plan de données.
 
 ## <a name="az"></a> Zones de disponibilité
-
->[!NOTE]
-> Pour utiliser [Préversion des Zones de disponibilité](https://aka.ms/availabilityzones) avec Load Balancer Standard une [inscription aux Zones de disponibilité](https://aka.ms/availabilityzones) est requise.
 
 Load Balancer Standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles.  Ces fonctionnalités sont incrémentielles pour tous les Load Balancer Standard fournis.  Les configurations de Zones de disponibilité sont disponibles pour Load Balancer Standard public et interne.
 
@@ -176,11 +173,14 @@ Vous pouvez modifier des ressources du Load Balancer Standard et déplacer une a
 
 Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cette section pour passer d’une référence SKU de ressource à une autre.
 
+>[!IMPORTANT]
+>Lisez ce document en entier pour comprendre les différences entre les références SKU et examinez avec soin votre scénario.  Il se peut que vous deviez y apporter des modifications supplémentaires pour aligner votre scénario.
+
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migration de la référence SKU De base à la référence SKU Standard
 
 1. Créez une ressource Standard (Load Balancer et adresses IP publiques si nécessaire). Recréez vos règles et définitions de sonde.
 
-2. Créez ou mettez à jour un groupe de sécurité réseau (NSG) sur la carte réseau ou le sous-réseau pour mettre en liste blanche le trafic à charge équilibrée, la sonde, ainsi que tout autre trafic que vous souhaitez autoriser.
+2. Créez ou mettez à jour un groupe de sécurité réseau (NSG) sur la carte réseau ou le sous-réseau pour mettre en liste verte le trafic à charge équilibrée, la sonde, ainsi que tout autre trafic que vous souhaitez autoriser.
 
 3. Supprimez les ressources de la référence SKU De base (Load Balancer et adresses IP publiques, le cas échéant) de toutes les instances de machine virtuelle. Veillez également à supprimer toutes les instances de machine virtuelle d’un groupe à haute disponibilité.
 

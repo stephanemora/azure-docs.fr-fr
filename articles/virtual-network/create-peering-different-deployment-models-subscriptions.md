@@ -4,7 +4,7 @@ description: Découvrez comment créer une homologation de réseaux virtuels ent
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 4c76083c7b1478ba865f047584ba313d029a1e35
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
@@ -33,7 +33,7 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 |[Tous deux Resource Manager](create-peering-different-subscriptions.md) |Différent|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models.md) |Identique|
 
-Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Ce didacticiel utilise des réseaux virtuels situés dans la même région. La capacité à homologuer des réseaux virtuels dans des régions différentes est disponible en préversion. Pour utiliser cette capacité, vous devez vous [inscrire](#register). 
+Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Ce didacticiel utilise des réseaux virtuels situés dans la même région. Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region).  
 
 Lors de la création d’une homologation de réseaux virtuels entre des réseaux virtuels dans différents abonnements, les abonnements doivent tous deux être associés au même locataire Active Directory. Si vous n’avez pas encore de locataire Azure Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Vous pouvez vous connecter à des réseaux virtuels dans différents abonnements et clients Azure Active Directory à l’aide d’une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 
@@ -43,7 +43,7 @@ Vous pouvez utiliser le [portail Azure](#portal), l’[interface de ligne de com
 
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion du portail et ignorer les étapes d’affectation d’autorisations d’accès aux réseaux virtuels à un autre utilisateur.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que UserA. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Consultez la section [Autorisations](#permissions) de cet article pour plus d’informations.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que UserA. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 2. Cliquez sur **+ Nouveau**, puis sur **Mise en réseau** et **Réseau virtuel**.
 3. Dans le panneau **Créer un réseau virtuel**, entrez ou sélectionnez les valeurs des paramètres suivants, puis cliquez sur **Créer** :
     - **Nom** : *myVnetA*
@@ -99,7 +99,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. 
 
 1. [Installez](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure CLI 1.0 pour créer le réseau virtuel (classique).
-2. Ouvrez une session CLI et connectez-vous à Azure en tant que UserB à l’aide de la commande `azure login`.
+2. Ouvrez une session CLI et connectez-vous à Azure en tant que UserB à l’aide de la commande `azure login`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 3. Exécutez l’interface CLI en mode Gestion des services en entrant la commande `azure config mode asm`.
 4. Entrez la commande suivante pour créer le réseau virtuel (classique) :
  
@@ -185,7 +185,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 1. Installez la dernière version des modules PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
-3. Dans PowerShell, connectez-vous à l’abonnement de UserB en tant que UserB en entrant la commande `Add-AzureAccount`.
+3. Dans PowerShell, connectez-vous à l’abonnement de UserB en tant que UserB en entrant la commande `Add-AzureAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 4. Pour créer un réseau virtuel (classique) avec PowerShell, vous devez créer un fichier de configuration réseau ou en modifier un existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Le fichier doit inclure l’élément **VirtualNetworkSite** suivant pour le réseau virtuel utilisé dans ce didacticiel :
 
     ```xml
@@ -204,7 +204,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     > [!WARNING]
     > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (Classic) figurant dans votre abonnement. Assurez-vous de n’ajouter que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
 
-5. Connectez-vous à l’abonnement de UserB en tant que UserB pour utiliser les commandes de Resource Manager en entrant la commande `login-azurermaccount`.
+5. Connectez-vous à l’abonnement de UserB en tant que UserB pour utiliser les commandes de Resource Manager en entrant la commande `Connect-AzureRmAccount`.
 6. Affectez à UserA des autorisations sur le réseau virtuel B. Copiez le script suivant dans un éditeur de texte sur votre PC et remplacez `<SubscriptionB-id>` par l’ID de l’abonnement B. Si vous ne connaissez pas l’ID d’abonnement, entrez la commande `Get-AzureRmSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Azure a créé le réseau virtuel (classique) que vous avez créé à l’étape 4 dans un groupe de ressources nommé *Default-Networking*. Pour exécuter le script, copiez le script modifié, collez-le dans PowerShell, puis appuyez sur `Enter`.
     
     ```powershell 
@@ -214,7 +214,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Déconnectez-vous d’Azure en tant que UserB et connectez-vous à l’abonnement de UserA en tant que UserA en entrant la commande `login-azurermaccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Consultez la section [Autorisations](#permissions) de cet article pour plus d’informations.
+7. Déconnectez-vous d’Azure en tant que UserB et connectez-vous à l’abonnement de UserA en tant que UserA en entrant la commande `Connect-AzureRmAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 8. Créez le réseau virtuel (Resource Manager) en copiant le script suivant, en le collant dans PowerShell, puis en appuyant sur `Enter` :
 
     ```powershell
@@ -268,19 +268,6 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 12. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 13. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-powershell) de cet article.
-
-## <a name="permissions"></a>Autorisations
-
-Les comptes que vous utilisez pour créer une homologation de réseaux virtuels doivent avoir les autorisations ou le rôle nécessaires. Par exemple, si vous homologuez deux réseaux virtuels nommés myVnetA et myVnetB, votre compte doit avoir le rôle ou les autorisations minimaux suivants pour chaque réseau virtuel :
-    
-|Réseau virtuel|Modèle de déploiement|Rôle|Autorisations|
-|---|---|---|---|
-|myVnetA|Gestionnaire de ressources|[Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classique|[Collaborateur de réseau classique](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|myVnetB|Gestionnaire de ressources|[Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Classique|[Collaborateur de réseau classique](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
-
-Apprenez-en davantage sur les [rôles intégrés](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) et l’assignation des autorisations spécifiques aux [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Resource Manager uniquement).
 
 ## <a name="delete"></a>Supprimer des ressources
 Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprimer les ressources que vous avez créées, afin que leur utilisation ne soit pas facturée. La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.

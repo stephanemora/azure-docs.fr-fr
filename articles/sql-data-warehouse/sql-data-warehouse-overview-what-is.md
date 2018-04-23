@@ -1,25 +1,20 @@
 ---
-title: "En quoi consiste Azure SQL Data Warehouse ? | Microsoft Docs"
-description: "Base de données distribuée dédiée aux entreprises qui prend en charge le traitement de pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes."
+title: En quoi consiste Azure SQL Data Warehouse ? | Microsoft Docs
+description: Base de données distribuée dédiée aux entreprises qui prend en charge le traitement de pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: 57b94a57ae0279a391cb4269f7b1625499748bae
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>En quoi consiste Azure SQL Data Warehouse ?
 
@@ -37,13 +32,6 @@ SQL Data Warehouse stocke les données dans des tables relationnelles avec stock
 
 Les résultats d’analyse peuvent s’étendre aux applications ou bases de données de rapports mondiales. Les analystes commerciaux peuvent alors obtenir des informations pour prendre des décisions éclairées pour l’activité.
 
-## <a name="optimization-choices"></a>Choix d’optimisation
-
-SQL Data Warehouse propose [des niveaux de performance](performance-tiers.md) conçus pour vous offrir de la flexibilité et répondre à vos besoins en termes de données, qu’elles soient volumineuses ou non. Vous pouvez choisir un entrepôt de données optimisé pour l’élasticité ou pour le calcul. 
-
-- Le **niveau de performance Optimisé pour l’élasticité** sépare les couches de calcul et de stockage dans l’architecture. Cette option convient parfaitement à des charges de travail qui peuvent exploiter au maximum la séparation entre le calcul et le stockage en effectuant des mises à l’échelle régulières pour prendre en charge de brèves périodes de pic d’activité. Ce niveau de calcul est proposé à un prix très attractif, et peut être mis à l’échelle pour prendre en charge la majorité des charges de travail des clients.
-
-- Le **niveau de performance Optimisé pour le calcul** utilise le matériel Azure le plus récent pour introduire un nouveau cache de disque SSD NVMe qui garde les données les plus fréquemment consultées à proximité des processeurs, précisément là où vous souhaitez qu’elles se trouvent. En hiérarchisant automatiquement le stockage, ce niveau de performance correspond parfaitement aux requêtes complexes, puisque toutes les E/S sont gardées en local au niveau de la couche de calcul. En outre, le columnstore a été amélioré pour stocker un nombre illimité de données dans votre SQL Data Warehouse. Le niveau de performance Optimisé pour le calcul fournit le plus haut niveau d’extensibilité pour vous permettre de mettre à l’échelle jusqu’à 30 000 cDWU. Choisissez ce niveau pour les charges de travail nécessitant des performances exceptionnelles en continu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][create a SQL Data Warehouse] et [charger des exemples de données][load sample data]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  

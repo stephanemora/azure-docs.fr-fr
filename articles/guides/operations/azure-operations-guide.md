@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
 
@@ -323,7 +323,7 @@ Voici quelques exemples de rôles intégrés à Azure :
 
 -   **Contributeur de compte de stockage** : un utilisateur disposant de ce rôle peut gérer les comptes de stockage, mais ne peut pas en gérer l’accès.
 
-Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../active-directory/role-based-access-control-configure.md).
+Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 

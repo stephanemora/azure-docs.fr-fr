@@ -1,25 +1,18 @@
 ---
-title: "Leçon 1 du didacticiel Azure Analysis Services : Créer un projet de modèle tabulaire | Microsoft Docs"
-description: "Explique comment créer un projet du didacticiel Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Leçon 1 du didacticiel Azure Analysis Services : Créer un projet de modèle tabulaire | Microsoft Docs'
+description: Explique comment créer un projet du didacticiel Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 73764e7595d5b0bbc55ee9242e86ba19d5f80254
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-tabular-model-project"></a>Créer un projet de modèle tabulaire
 
@@ -27,7 +20,8 @@ Dans cette leçon, vous utilisez Visual Studio avec SQL Server Data Tools (SSDT)
   
 Durée estimée pour suivre cette leçon : **10 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 Cette rubrique est la première leçon d’un didacticiel de création de modèle tabulaire. Pour suivre cette leçon, un certain nombre de conditions préalables doivent être satisfaites. Pour en savoir plus, consultez [Azure Analysis Services -Didacticiel Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Créer un projet de modèle tabulaire  

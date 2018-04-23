@@ -1,11 +1,11 @@
 ---
-title: "Utilisation d’Azure PowerShell pour activer les diagnostics sur une machine virtuelle Windows | Microsoft Docs"
+title: Utilisation d’Azure PowerShell pour activer les diagnostics sur une machine virtuelle Windows | Microsoft Docs
 services: virtual-machines-windows
-documentationcenter: 
-description: "Utilisation de PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows"
+documentationcenter: ''
+description: Utilisation de PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows
 author: sbtron
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: d0be4a712657edfc516c5f32e66519f5d9486728
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49c6fe69afdee6a075d9f888f8a2417455bc7e51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostics pour collecter des données de diagnostic telles que les journaux des applications ou les compteurs de performances à partir d'une machine virtuelle Azure exécutant Windows. Cet article décrit comment utiliser Windows PowerShell activer l’extension de diagnostics pour une machine virtuelle. Consultez [Installer et configurer Azure PowerShell Azure](/powershell/azure/overview) pour connaître les conditions requises pour cet article.
+Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostics pour collecter des données de diagnostic telles que les journaux des applications ou les compteurs de performances à partir d'une machine virtuelle Azure exécutant Windows. Cet article décrit comment utiliser Windows PowerShell activer l’extension de diagnostics pour une machine virtuelle. Voir [Installer et configurer Azure PowerShell](/powershell/azure/overview) pour connaître les conditions requises pour cet article.
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Activer l'extension de diagnostics si vous utilisez le modèle de déploiement Resource Manager
 Vous pouvez activer l'extension de diagnostics lors de la création d'une machine virtuelle Windows avec le modèle de déploiement Azure Resource Manager en ajoutant la configuration de l'extension au modèle Resource Manager. Consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

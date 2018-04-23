@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: ''
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d88e4a068841f68feffb094b2aa07faaf5a6a8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -125,7 +125,7 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 Propriété | Description | Obligatoire |
 -------- | ----------- | -------- |
 Nom | Nom du jeu de données Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  OUI |
-Type | Type du jeu de données. Spécifiez un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus de détails, voir [Types de jeux de données](#dataset-types). | OUI |
+Type | Type du jeu de données. Spécifiez un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus de détails, voir [Types de jeux de données](#dataset-type). | OUI |
 structure | Schéma du jeu de données. Pour plus d’informations, consultez [Structure d’un jeu de données](#dataset-structure). | Non  |
 typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : Blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#dataset-type). | OUI |
 

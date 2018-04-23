@@ -12,19 +12,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 835f433e0bf79e8bc4d9b30963196f65bc53cd0e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: facee9187528fa0c6a74f71ee73636dc23ca35ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---dataiku-dds"></a>Installer une application publiée - Dataiku DSS
 
-Cet article explique comment installer et exécuter l’application Hadoop publiée [Dataiku DSS](https://www.dataiku.com/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
+Cet article explique comment installer et exécuter l’application Hadoop publiée [Dataiku DSS](https://www.dataiku.com/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>À propos de Dataiku DSS
 
@@ -116,11 +114,11 @@ Vous pouvez à présent explorer DSS à l’aide des exemples de données. Vous 
 
 Pour accéder à des didacticiels complets, consultez [Learn Dataiku DSS](https://www.dataiku.com/learn/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Documentation sur Dataiku DSS](https://doc.dataiku.com/dss/latest/).
-* [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight non publiées sur HDInsight.
+* [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.
 * [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.
-* [Personnaliser des clusters HDInsight Linux à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md) : apprenez à utiliser l’action de script pour installer des applications supplémentaires.
-* [Utiliser les nœuds de périphérie vides dans HDInsight](hdinsight-apps-use-edge-node.md) : apprenez à utiliser un nœud de périphérie vide pour accéder aux clusters HDInsight, ainsi que pour tester et héberger des applications HDInsight.
+* [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) : apprenez à utiliser l’action de script pour installer des applications supplémentaires.
+* [Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight](hdinsight-apps-use-edge-node.md) : apprenez à utiliser un nœud de périphérie vide pour accéder aux clusters HDInsight, ainsi que pour tester et héberger des applications HDInsight.
