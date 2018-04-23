@@ -1,25 +1,20 @@
 ---
-title: "Migration de votre code SQL vers SQL Data Warehouse | Microsoft Docs"
-description: "Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+title: Migration de votre code SQL vers SQL Data Warehouse | Microsoft Docs
+description: Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/23/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migration de votre code SQL vers SQL Data Warehouse
 Cet article vous explique les éventuelles modifications de code que vous aurez à réaliser lors de la migration de votre code depuis une autre base de données vers SQL DATA Warehouse. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.

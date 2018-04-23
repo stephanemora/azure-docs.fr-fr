@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8fede07aea8410cfc2cee120102c9f8c3becd746
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 0d930cc200d8f8df30927ba7d2f942b2eb8a85a7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
 
-[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) est un environnement intégré qui gère les infrastructures SQL, de SQL Server à SQL Database pour Microsoft Windows. Ce didacticiel rapide montre comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis recourir à des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données. 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) est un environnement intégré qui gère les infrastructures SQL, de SQL Server à SQL Database pour Microsoft Windows. Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données. 
 
 ## <a name="prerequisites"></a>Prérequis
 

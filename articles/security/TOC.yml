@@ -65,6 +65,8 @@
     - name: Gestion des identités
       href: security-identity-management-overview.md
       items:
+        - name: Choisir l’authentification Azure AD
+          href: azure-ad-choose-authn.md
         - name: Meilleures pratiques
           href: azure-security-identity-management-best-practices.md
         - name: Appliquer l’authentification multifacteur sur les administrateurs de l’abonnement
@@ -74,6 +76,8 @@
       items:
         - name: Meilleures pratiques
           href: azure-security-network-security-best-practices.md
+        - name: Protection DDOS
+          href: azure-ddos-best-practices.md
         - name: Limites de sécurité
           href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Application

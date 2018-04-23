@@ -1,12 +1,12 @@
 ---
-title: "Présentation d’Azure Event Hubs et de ses avantages | Microsoft Docs"
-description: "Vue d’ensemble et présentation d’Azure Event Hubs, qui abordent l’ingestion de données de télémétrie à l’échelle du cloud à partir de sites web, d’applications et d’appareils"
+title: Présentation d’Azure Event Hubs et de ses avantages | Microsoft Docs
+description: Vue d’ensemble et présentation d’Azure Event Hubs, qui abordent l’ingestion de données de télémétrie à l’échelle du cloud à partir de sites web, d’applications et d’appareils
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -48,7 +48,7 @@ Les concentrateurs d’événements incluent les éléments clés suivants :
 
 Pour obtenir des détails techniques sur ces fonctionnalités et d’autres fonctionnalités encore des concentrateurs d’événements, consultez la [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](event-hubs-features.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 

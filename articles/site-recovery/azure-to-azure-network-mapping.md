@@ -1,11 +1,11 @@
 ---
-title: "Mappage de réseaux virtuels entre deux régions Azure dans Azure Site Recovery | Microsoft Docs"
-description: "Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Informez-vous sur le basculement dans Microsoft Azure ou un centre de données secondaire."
+title: Mappage de réseaux virtuels entre deux régions Azure dans Azure Site Recovery | Microsoft Docs
+description: Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Informez-vous sur le basculement dans Microsoft Azure ou un centre de données secondaire.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
@@ -97,6 +97,6 @@ Si les sous-réseaux source et cible ont un espace d’adressage différent, l�
 
 Pour modifier l’adresse IP cible sur chacune des interfaces réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Vérifiez [Aide à la mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).

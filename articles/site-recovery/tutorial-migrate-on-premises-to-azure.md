@@ -1,6 +1,6 @@
 ---
 title: Migrer des machines sur site vers Azure avec Azure Site Recovery | Microsoft Docs
-description: "Cet article explique comment migrer des machines sur site vers Azure à l’aide d’Azure Site Recovery."
+description: Cet article explique comment migrer des machines sur site vers Azure à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -121,7 +121,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 Dans certains scénarios, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. Vous constaterez peut-être des délais de basculement plus longs pour les serveurs physiques, les machines virtuelles VMware Linux, les machines virtuelles VMware pour lesquelles le service DHCP n’est pas activé, et les machines virtuelles VMware qui ne disposent pas des pilotes de démarrage suivants : storvsc, vmbus, storflt, intelide, atapi.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez migré des machines virtuelles locales vers des machines virtuelles Azure. Vous pouvez maintenant configurer la récupération d’urgence pour les machines virtuelles Azure.
 

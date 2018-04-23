@@ -1,9 +1,9 @@
 ---
-title: "Vérification en deux étapes pour résoudre les problèmes | Microsoft Docs"
-description: "Ce document fournit aux utilisateurs des informations sur la procédure à suivre en cas de problème avec l'Azure Multi-Factor Authentication."
+title: Vérification en deux étapes pour résoudre les problèmes | Microsoft Docs
+description: Ce document fournit aux utilisateurs des informations sur la procédure à suivre en cas de problème avec l'Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-keywords: "client de l'authentification multifacteur, problème d'authentification, ID de corrélation"
-documentationcenter: 
+keywords: client de l'authentification multifacteur, problème d'authentification, ID de corrélation
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 840f4f9e3616f5a60ebbbb0ad33cee9a67958989
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 995430a5c8a388358fcfb7c8c9bac978450df411
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtenir de l’aide pour la vérification en deux étapes
 Cet article répond aux questions les plus courantes sur la vérification en deux étapes.
@@ -87,7 +87,7 @@ Si vous n’avez pas configuré d’autres méthodes, contactez le support de vo
 Si vous subissez souvent des retards en raison d’un mauvais signal téléphonique, nous vous recommandons d’utiliser [l’application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sur votre smartphone. L’application peut générer des codes de sécurité aléatoires qui vous permettent de vous connecter et qui ne nécessitent pas de signal téléphonique ou de connexion Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Les mots de passe d’application ne fonctionnent pas
-Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. Le mot de passe d’application généré remplace votre mot de passe normal, mais uniquement pour les applications de bureau plus anciennes qui ne prennent pas en charge la vérification en deux étapes. Si cela ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md).  Si le problème persiste, contactez le support de votre entreprise et demandez-lui de [supprimer vos mots de passe d’application existants](../multi-factor-authentication-manage-users-and-devices.md). Vous pourrez alors créer un autre mot de passe.
+Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. Le mot de passe d’application généré remplace votre mot de passe normal, mais uniquement pour les applications de bureau plus anciennes qui ne prennent pas en charge la vérification en deux étapes. Si cela ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md).  Si le problème persiste, contactez le support de votre entreprise et demandez-lui de [supprimer vos mots de passe d’application existants](../../active-directory/authentication/howto-mfa-userdevicesettings.md). Vous pourrez alors créer un autre mot de passe.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Je n’ai pas trouvé de réponse à mon problème.
 Si malgré ces étapes de dépannage, vous rencontrez encore des problèmes, contactez le support de votre entreprise. Ils doivent être en mesure de vous aider.

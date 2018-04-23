@@ -1,5 +1,5 @@
 ---
-title: "Gérer le cluster Kubernetes Azure par l’intermédiaire de l’interface utilisateur web"
+title: Gérer le cluster Kubernetes Azure par l’intermédiaire de l’interface utilisateur web
 description: Utilisation du tableau de bord Kubernetes dans ACS
 services: container-service
 author: neilpeterson
@@ -71,7 +71,7 @@ Lorsque vous êtes prêt, sélectionnez **Mettre à jour**.
 
 ![Modification de Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur le tableau de bord Kubernetes, voir la documentation de Kubernetes.
 

@@ -1,8 +1,8 @@
 ---
 title: Tableaux de bord et navigation dans Azure Application Insights | Microsoft Docs
-description: "Créez des vues de votre principaux graphiques et requêtes APM."
+description: Créez des vues de votre principaux graphiques et requêtes APM.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
@@ -159,7 +159,7 @@ PARAMÈTRES
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 |  |  |
 | --- | --- |

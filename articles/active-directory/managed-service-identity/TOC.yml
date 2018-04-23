@@ -9,6 +9,34 @@
               href: tutorial-windows-vm-access-arm.md
             - name: Machine virtuelle Linux
               href: tutorial-linux-vm-access-arm.md
+    - name: Didacticiels
+      items:
+        - name: Machine virtuelle/groupe de machines virtuelles identiques Windows
+          items:
+            - name: Accéder à Azure Data Lake Store
+              href: tutorial-windows-vm-access-datalake.md
+            - name: Accéder à Stockage Azure à l’aide d’une clé d’accès
+              href: tutorial-windows-vm-access-storage.md
+            - name: Accéder à Stockage Azure à l’aide de SAP
+              href: tutorial-windows-vm-access-storage-sas.md
+            - name: Accéder à SQL Azure
+              href: tutorial-windows-vm-access-sql.md
+            - name: Accéder à Azure Key Vault
+              href: tutorial-windows-vm-access-nonaad.md
+            - name: Accéder à Azure Cosmos DB
+              href: tutorial-windows-vm-access-cosmos-db.md
+        - name: Machine virtuelle/groupe de machines virtuelles identiques Linux
+          items:
+            - name: Accéder à Azure Data Lake Store
+              href: tutorial-linux-vm-access-datalake.md
+            - name: Accéder à Stockage Azure à l’aide d’une clé d’accès
+              href: tutorial-linux-vm-access-storage-access-key.md
+            - name: Accéder à Stockage Azure à l’aide de SAP
+              href: tutorial-linux-vm-access-storage-sas.md
+            - name: Accéder à Azure Key Vault
+              href: tutorial-linux-vm-access-nonaad.md
+            - name: Accéder à Azure Cosmos DB
+              href: tutorial-linux-vm-access-cosmos-db.md
     - name: Configurer MSI pour une machine virtuelle Azure
       items:
         - name: En passant par le portail Azure
@@ -45,30 +73,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Utilisation avec les kits de développement logiciels (SDK) Azure
           href: how-to-use-vm-sdk.md
-    - name: Utiliser une identité gérée de machine virtuelle/groupe de machines virtuelles identiques Windows
-      items:
-        - name: Accéder à Azure Data Lake Store
-          href: tutorial-windows-vm-access-datalake.md
-        - name: Accéder à SQL Azure
-          href: tutorial-windows-vm-access-sql.md
-        - name: Accéder à Stockage Azure à l’aide d’une clé d’accès
-          href: tutorial-windows-vm-access-storage.md
-        - name: Accéder à Stockage Azure à l’aide de SAP
-          href: tutorial-windows-vm-access-storage-sas.md
-        - name: Accéder à Azure Key Vault
-          href: tutorial-windows-vm-access-nonaad.md
-    - name: Utiliser une identité gérée de machine virtuelle/groupe de machines virtuelles identiques Linux
-      items:
-        - name: Accéder à Azure Data Lake Store
-          href: tutorial-linux-vm-access-datalake.md
-        - name: Accéder à Stockage Azure à l’aide d’une clé d’accès
-          href: tutorial-linux-vm-access-storage.md
-        - name: Accéder à Stockage Azure à l’aide de SAP
-          href: tutorial-linux-vm-access-storage-sas.md
-        - name: Accéder à Azure Key Vault
-          href: tutorial-linux-vm-access-nonaad.md
-        - name: Accéder à Azure Cosmos DB
-          href: tutorial-linux-vm-access-cosmos-db.md
     - name: FAQ et problèmes connus
       href: known-issues.md
     - name: Informations de référence

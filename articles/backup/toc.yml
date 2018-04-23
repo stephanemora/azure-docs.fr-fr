@@ -100,7 +100,7 @@
         - name: Sauvegarder des machines virtuelles
           items:
             - name: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Sauvegarder des machines virtuelles chiffrées
               href: backup-azure-vms-encryption.md
             - name: Activer la sauvegarde de machines virtuelles lors de leur création
@@ -179,9 +179,9 @@
           href: backup-azure-delete-vault.md
     - name: Résolution des problèmes
       items:
-        - name: Messages d’erreur de sauvegarde de machines virtuelles IaaS
+        - name: Microsoft Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: L’agent d’Azure Backup (MARS) ou l’extension de machine virtuelle a expiré
+        - name: L’agent de Sauvegarde Azure ou l’extension de machine virtuelle a expiré
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: La sauvegarde des fichiers et dossiers est lente
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -189,16 +189,22 @@
           href: backup-azure-mabs-troubleshoot.md
         - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Agent Azure Backup (MARS)
+        - name: Agent Azure Backup
           href: backup-azure-mars-troubleshoot.md
-        - name: Sauvegarder des partages de fichiers Azure
+        - name: Partage de fichiers Azure
           href: troubleshoot-azure-files.md
 - name: Informations de référence
   items:
-    - name: "Azure\_PowerShell"
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: "Azure CLI\_2.0"
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST - Sauvegarde
+      href: /rest/api/backup/
+    - name: REST - Coffre Recovery Services
+      href: /rest/api/recoveryservices/
 - name: Ressources
   items:
     - name: Feuille de route Azure

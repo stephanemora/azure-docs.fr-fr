@@ -1,7 +1,7 @@
 ---
-title: "Détecter des problèmes d’appareils dans la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Ce didacticiel vous montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de surveillance à distance."
-services: 
+title: Détecter des problèmes d’appareils dans la solution de surveillance à distance - Azure | Microsoft Docs
+description: Ce didacticiel vous montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de surveillance à distance.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -98,7 +98,7 @@ Pour supprimer définitivement une règle, sélectionnez-la dans la liste des r�
 
 Vous pouvez supprimer plusieurs règles en même temps. Pour cela, vous devez sélectionner plusieurs règles dans la liste.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

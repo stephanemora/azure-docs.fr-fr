@@ -3,15 +3,16 @@ title: Connexion de machines virtuelles SQL à Recherche Azure | Microsoft Docs
 description: Activer les connexions chiffrées et configurer le pare-feu pour autoriser les connexions à SQL Server sur une machine virtuelle Azure à partir d’un indexeur sur Azure Search.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 6f9f429a8a18a6e0722e1cb5e190104665305e06
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion à partir d’un indexeur Azure Search à SQL Server sur une machine virtuelle Azure
 Comme indiqué dans [Connexion d’Azure SQL Database à Recherche Azure à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la création d’indexeurs dans **SQL Server sur des machines virtuelles Azure** (ou des **machines virtuelles SQL Azure** pour faire plus court) est prise en charge par le service Recherche Azure, mais il existe quelques conditions préalables liées à la sécurité qu’il faut résoudre en premier lieu. 

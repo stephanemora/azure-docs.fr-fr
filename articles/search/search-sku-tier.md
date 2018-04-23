@@ -1,6 +1,7 @@
 ---
 title: Choisir une référence (SKU) ou un niveau tarifaire pour la Recherche Azure | Microsoft Docs
 description: 'Azure Search peut être configuré sur ces niveaux de référence (SKU) : Gratuit, De base et Standard, où Standard est disponible dans différentes configurations de ressources et différents niveaux de capacité.'
+services: search
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -8,11 +9,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 498ceb4a5d9e0bb9c8c5b5711c8c2687df3a3409
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Choisir une référence (SKU) ou un niveau tarifaire pour Recherche Azure
 Dans Azure Search, un [service est configuré](search-create-service-portal.md) sur un niveau tarifaire ou une SKU spécifique. Vous avez le choix entre les options suivantes : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations et capacités.

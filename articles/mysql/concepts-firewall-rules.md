@@ -1,6 +1,6 @@
 ---
-title: "Règles de pare-feu d’un serveur de base de données Azure pour MySQL"
-description: "Décrit les règles de pare-feu d’un serveur de base de données Azure pour MySQL."
+title: Règles de pare-feu d’un serveur de base de données Azure pour MySQL
+description: Décrit les règles de pare-feu d’un serveur de base de données Azure pour MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -61,7 +61,7 @@ Tenez compte des points suivants quand l’accès au service de serveur Azure Da
 
 * Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP en tant que règles de pare-feu.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Créer et gérer les règles de pare-feu de la base de données Azure pour MySQL à l’aide du Portail Azure](./howto-manage-firewall-using-portal.md)
 [Créer et gérer les règles de pare-feu de la base de données Azure pour MySQL à l’aide d’Azure CLI](./howto-manage-firewall-using-cli.md)

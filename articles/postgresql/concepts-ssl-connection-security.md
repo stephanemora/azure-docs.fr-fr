@@ -1,13 +1,13 @@
 ---
-title: "Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL"
-description: "Instructions et informations de configuration de la base de données Azure pour PostgreSQL et des applications associées afin d’utiliser correctement les connexions SSL."
+title: Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL
+description: Instructions et informations de configuration de la base de données Azure pour PostgreSQL et des applications associées afin d’utiliser correctement les connexions SSL.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: kfile
 ms.service: postgresql
-ms.custom: 
+ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
@@ -136,5 +136,5 @@ Pour configurer pgAdmin 4 de façon à établir une connexion sécurisée via SS
 
 ![Capture d’écran de pgAdmin - connexion - conditions du mode SSL](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Passez en revue les différentes options de connectivité d’application de la page [Bibliothèques de connexions d’Azure Database pour PostgreSQL](concepts-connection-libraries.md).

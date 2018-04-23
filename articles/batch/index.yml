@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentation Batch
 metadata:
-  title: "Documentation Azure Batch - Didacticiels et informations de référence sur les API | Microsoft Docs"
-  description: "Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches nécessitant beaucoup de ressources système et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples."
+  title: Documentation Azure Batch - Didacticiels et informations de référence sur les API | Microsoft Docs
+  description: Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches nécessitant beaucoup de ressources système et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples.
   services: batch
   author: czeumault
   manager: carolz
@@ -19,12 +19,12 @@ metadata:
   ms.contentlocale: fr-FR
   ms.lasthandoff: 02/28/2018
 abstract:
-  description: "Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches nécessitant beaucoup de ressources système et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples."
+  description: Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches nécessitant beaucoup de ressources système et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples.
 sections:
-- title: "Démarrages en 5 minutes"
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: "Découvrez comment exécuter votre premier travail Batch dans Azure."
+    text: Découvrez comment exécuter votre premier travail Batch dans Azure.
   - type: list
     style: icon48
     items:
@@ -44,17 +44,17 @@ sections:
         src: https://docs.microsoft.com/en-us/media/logos/logo_python.svg
       text: Python
       href: quick-run-python
-- title: "Didacticiels pas à pas"
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: "Découvrez comment exécuter des charges de travail nécessitant beaucoup de ressources système sur Batch."
+    text: Découvrez comment exécuter des charges de travail nécessitant beaucoup de ressources système sur Batch.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-parallel-dotnet\">Traitement parallèle de fichiers avec le Kit de développement logiciel (SDK) .NET</a>"
-    - html: "<a href=\"tutorial-parallel-python\">Traitement parallèle de fichiers avec le Kit de développement logiciel (SDK) Python</a>"
-    - html: "<a href=\"tutorial-rendering-cli\">Rendu de scènes avec Arnold</a>"
-    - html: "<a href=\"tutorial-r-doazureparallel\">Simulation parallèle R</a>"
+    - html: <a href="tutorial-parallel-dotnet">Traitement parallèle de fichiers avec le Kit de développement logiciel (SDK) .NET</a>
+    - html: <a href="tutorial-parallel-python">Traitement parallèle de fichiers avec le Kit de développement logiciel (SDK) Python</a>
+    - html: <a href="tutorial-rendering-cli">Rendu de scènes avec Arnold</a>
+    - html: <a href="tutorial-r-doazureparallel">Simulation parallèle R</a>
 - title: Exemples
   items:
   - type: list
@@ -62,7 +62,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="cli-samples">interface de ligne de commande Azure</a>
-- title: "Informations de référence"
+- title: Informations de référence
   items:
   - type: list
     style: cards

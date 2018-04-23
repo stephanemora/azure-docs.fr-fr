@@ -421,6 +421,8 @@
           href: troubleshoot-activation-problems.md
         - name: Échecs d’allocation
           href: allocation-failure.md
+        - name: Échecs d’allocation de machine virtuelle classique
+          href: allocation-failure-classic.md
         - name: Redéploiement d’une machine virtuelle
           href: redeploy-to-new-node.md
         - name: Messages d’erreur courants

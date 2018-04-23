@@ -1,6 +1,6 @@
 ---
-title: "Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL"
-description: "Cet article explique comment effectuer une migration avec temps d’arrêt minimal en extrayant une base de données PostgreSQL dans un fichier de sauvegarde, en restaurant la base de données PostgreSQL à partir d’un fichier d’archive créé par pg_dump dans Azure Database pour PostgreSQL et en configurant la charge initiale et la synchronisation des données en continu depuis la base de données source vers la base de données cible à l’aide d’Attunity Replicate pour Microsoft Migrations."
+title: Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL
+description: Cet article explique comment effectuer une migration avec temps d’arrêt minimal en extrayant une base de données PostgreSQL dans un fichier de sauvegarde, en restaurant la base de données PostgreSQL à partir d’un fichier d’archive créé par pg_dump dans Azure Database pour PostgreSQL et en configurant la charge initiale et la synchronisation des données en continu depuis la base de données source vers la base de données cible à l’aide d’Attunity Replicate pour Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland

@@ -1,12 +1,12 @@
 ---
-title: "Sécurisation des déploiements PaaS | Microsoft Docs"
+title: Sécurisation des déploiements PaaS | Microsoft Docs
 description: " Comprenez les avantages d’une infrastructure PaaS pour la sécurité par rapport aux autres modèles de service cloud et découvrez les pratiques recommandées pour la sécurisation de votre déploiement PaaS Azure. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
 editor: techlake
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -46,7 +46,7 @@ Vous avez vos données et les identités pour tous les types de déploiement dan
 Les responsabilités qui sont toujours les vôtres quel que soit le type de déploiement sont les suivantes :
 
 - Données
-- Endpoints
+- Points de terminaison
 - Compte
 - gestion de l’accès
 
@@ -87,12 +87,12 @@ Voici un résumé des bonnes pratiques générales pour la gestion de votre pér
 
 - **Ne perdez pas vos clés ou vos informations d’identification** Les clés et les informations d’identification sont essentielles pour sécuriser les déploiements PaaS. La perte de clés ou d'informations d’identification est un problème courant. Une bonne solution consiste à utiliser une solution centralisée où les clés et les secrets peuvent être stockés dans des modules de sécurité matériels (HSM). Azure vous fournit un HSM dans le cloud avec [Azure Key Vault](../key-vault/key-vault-whatis.md).
 - **Ne placez les informations d’identification et d'autres secrets dans le code source ou dans GitHub** La seule chose pire que la perte de vos clés et des informations d’identification est qu'un tiers non autorisé y accède. Des pirates peuvent tirer parti de technologies de robot pour rechercher les clés et les secrets stockés dans des référentiels de code, notamment GitHub. Ne placez pas de clé et de secrets dans ces référentiels de code source publics.
-- **Protégez vos interfaces de gestion de machine virtuelle sur des services PaaS et IaaS hybrides** Les services IaaS et PaaS s’exécutent sur des machines virtuelles (VM). Selon le type de service, plusieurs interfaces de gestion sont disponibles pour la gestion à distance directe de ces machines virtuelles. Vous pouvez utiliser les protocoles de gestion à distance tels que [le protocole SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell), [le protocole RDP (Remote Desktop)](https://support.microsoft.com/kb/186607) et [PowerShell distant](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting). En règle générale, nous vous recommandons de ne pas activer l’accès à distance direct aux machines virtuelles à partir d’Internet. S’il est disponible, vous devez utiliser d'autres approches, telles que l’utilisation d’un réseau privé virtuel dans un réseau virtuel Azure. Si aucune autre approche n'est disponible, assurez-vous que vous utilisez des phrases secrètes complexes et, si d'autres options sont disponibles, l’authentification à deux facteurs (notamment [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)).
+- **Protégez vos interfaces de gestion de machine virtuelle sur des services PaaS et IaaS hybrides** Les services IaaS et PaaS s’exécutent sur des machines virtuelles (VM). Selon le type de service, plusieurs interfaces de gestion sont disponibles pour la gestion à distance directe de ces machines virtuelles. Vous pouvez utiliser les protocoles de gestion à distance tels que [le protocole SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell), [le protocole RDP (Remote Desktop)](https://support.microsoft.com/kb/186607) et [PowerShell distant](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting). En règle générale, nous vous recommandons de ne pas activer l’accès à distance direct aux machines virtuelles à partir d’Internet. S’il est disponible, vous devez utiliser d'autres approches, telles que l’utilisation d’un réseau privé virtuel dans un réseau virtuel Azure. Si aucune autre approche n'est disponible, assurez-vous que vous utilisez des phrases secrètes complexes et, si d'autres options sont disponibles, l’authentification à deux facteurs (notamment [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 - **Utilisez une authentification forte et des plateformes d’autorisation**
 
   - Utilisez des identités fédérées dans Azure AD au lieu des magasins d’utilisateurs personnalisés. Lorsque vous utilisez des identités fédérées, vous tirez parti d'une approche basée sur une plateforme et vous déléguez la gestion des identités autorisées à vos partenaires. Une approche d’identité fédérée est particulièrement importante dans des scénarios dans lesquels le contrat de certains employés prend fin et que des informations doivent être répercutées sur plusieurs systèmes d’identité et d’autorisation.
   - Utilisez des mécanismes d'authentification et d'autorisation basés sur des plateformes au lieu d'un code personnalisé. La raison est que le développement d'un code d’authentification personnalisé peut être sujet aux erreurs. La plupart de vos développeurs ne sont pas des experts en sécurité et ont peu de chance d’être conscients des subtilités et des derniers développements dans les domaines de l’authentification et l’autorisation. Le code commercial (par exemple par Microsoft) est souvent contrôlé en ce qui concerne la sécurité.
-  - Utilisez l'authentification multifacteur. L’authentification multifacteur est la norme actuelle pour l’authentification et l’autorisation, car elle évite les failles de sécurité inhérentes à certains types de nom d’utilisateur et de mots de passe d’authentification. L'accès aux interfaces de gestion Azure (portail / remote PowerShell) et aux services destinés aux clients doit être conçu et configuré pour utiliser [Azure multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Utilisez l'authentification multifacteur. L’authentification multifacteur est la norme actuelle pour l’authentification et l’autorisation, car elle évite les failles de sécurité inhérentes à certains types de nom d’utilisateur et de mots de passe d’authentification. L'accès aux interfaces de gestion Azure (portail / remote PowerShell) et aux services destinés aux clients doit être conçu et configuré pour utiliser [Azure multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
   - Utilisez des protocoles d’authentification standard, tels qu'OAuth2 et Kerberos. Ces protocoles ont été largement contrôlés et sont probablement implémentés dans le cadre de vos bibliothèques de plateforme pour l’authentification et l’autorisation.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -100,7 +100,7 @@ Dans cet article, nous avons vu les avantages d’un déploiement PaaS Azure en 
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database et Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
-- Azure Storage
+- Stockage Azure
 - Cache REDIS Azure
 - Azure Service Bus
 - Pare-feu d’applications web

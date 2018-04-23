@@ -25,6 +25,7 @@
 ## [Niveau de compatibilité](stream-analytics-compatibility-level.md)
 ## [Modèles de requête courants](stream-analytics-stream-analytics-query-patterns.md)
 ## [Considérations relatives à l’organisation des événements](stream-analytics-out-of-order-and-late-events.md)
+## [Point de contrôle et relecture](stream-analytics-concepts-checkpoint-replay.md)
 
 # Guides de procédures
 
@@ -94,16 +95,8 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [Tarification](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-## [Notes de publication](stream-analytics-release-notes.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Études de cas clients](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [Livre blanc - Traitement d’événements en temps réel](stream-analytics-real-time-event-processing-reference-architecture.md)
-## [Comparer Storm et Stream Analytics](stream-analytics-comparison-storm.md)
-
-
-
-
-
-

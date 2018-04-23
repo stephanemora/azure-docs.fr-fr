@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide de l’éditeur Place de marché Microsoft Azure et AppSource
 
@@ -121,8 +121,7 @@ Chaque vitrine prend en charge plusieurs options de publication et types d’off
 Utilisez l’option Me contacter lorsqu’une version d’évaluation ou une transaction ne sont pas envisageables. L’avantage de cette méthode est qu’elle permet aux éditeurs ayant commercialisé une solution de commencer immédiatement à générer des prospects qu’ils peuvent transformer en clients, et ainsi, développer rapidement leur activité. Toutefois, l’inconvénient de cette méthode est que, comparée aux autres types d’offres, l’engagement client est limité.
 
 >[!IMPORTANT]
-<<<<<<< HEAD Il est préférable d’engager le client avec des offres Version d’essai et Transaction. La valeur Me contacter correspond au prospect que vous générez. Par conséquent, si vous choisissez ce type de référencement, assurez-vous que votre destination de prospect est configuré et que vous êtes prêt à tirer le meilleur parti du prospect. ======= Nous vous déconseillons le type de référencement Me contacter. Vous devez l’utiliser uniquement dans les cas où vous n’avez pas la possibilité de proposer une version d’évaluation. Il est préférable d’engager le client avec des offres de type Version d’évaluation et Transaction. Si vous avez un type d’expérience d’essai, notre processus d’intégration vous guide vers l’une de ces options, en fonction de votre scénario.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>Il est préférable d’engager le client avec des offres Version d’essai et Transaction. La valeur Me contacter correspond au prospect que vous générez. Par conséquent, si vous choisissez ce type de référencement, assurez-vous que votre destination de prospect est configuré et que vous êtes prêt à tirer le meilleur parti du prospect. 
 
 Lorsque l’offre se compose principalement de services professionnels (par exemple, des évaluations, des implémentations ou des ateliers), utilisez le type d’offre Services de conseil. La portée, la durée et le prix d’une offre doivent être fixes, et associés à un seul client. En outre, les services doivent être fournis sur le site du client.
 
@@ -493,7 +492,6 @@ Voici la liste des options de support pour la Place de marché Microsoft Azure :
 
 |Canal de support  |Description  |
 |---------|---------|
-|Slack : [Rejoindre la Place de marché sur Slack](https://join.marketplace.azure.com)    |   Environnement Slack fournissant un support pour les problèmes techniques des partenaires. Plus de 350 partenaires utilisent actuellement cet environnement.        |
 |Forums MSDN : [Place de marché](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Forum Microsoft Developer Network.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Environnement Stack Overflow permettant d’obtenir des solutions et de poser des questions sur tout ce qui concerne Azure et la Place de Marché :<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

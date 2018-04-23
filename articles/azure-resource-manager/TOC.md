@@ -47,6 +47,7 @@
 ### [Portail Azure](resource-group-portal.md)
 ### [Utiliser des balises pour organiser les ressources](resource-group-using-tags.md)
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
+### [Créer par programmation des abonnements EA](programmatically-create-subscription.md)
 ### [Créer des groupes d’administration](management-groups-create.md)
 ### [Gérer vos groupes d’administration](management-groups-manage.md)
 ### [Exemples de gouvernance](resource-manager-subscription-examples.md)

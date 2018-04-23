@@ -1,11 +1,11 @@
 ---
-title: "Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité | Microsoft Docs"
-description: "Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité"
+title: 'Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité | Microsoft Docs'
+description: 'Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité'
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -89,7 +89,7 @@ Si vous voulez désactiver l’approvisionnement automatique :
 > La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez développé des connaissances à propos de la définition de stratégie de base et de l’évaluation de la sécurité de votre charge de travail avec Security Center, telles que :
 
 > [!div class="checklist"]

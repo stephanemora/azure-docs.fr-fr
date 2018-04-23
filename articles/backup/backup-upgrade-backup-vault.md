@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Coffre de sauvegarde mis à niveau vers un coffre Recovery Services
 Cet article fournit une vue d’ensemble des prestations du coffre Recovery Services, répond aux questions fréquentes sur la mise à niveau d’un coffre de sauvegarde existant vers un coffre Recovery Services et indique les étapes postérieures à la mise à niveau. Un coffre Recovery Services est l’équivalent Azure Resource Manager d’un coffre de sauvegarde qui héberge vos données de sauvegarde. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des stations de travail ou des serveurs locaux ou dans Azure.
@@ -60,7 +60,7 @@ Le deuxième écran présente les liens d’aide disponibles pour vous aider à 
 Les coffres Recovery Services prennent en charge la spécification d’informations de fuseau horaire dans la stratégie de sauvegarde. Une fois le coffre mis à niveau, accédez à Stratégies de sauvegarde dans le menu de paramètres du coffre et mettez à jour les informations de fuseau horaire pour chacune des stratégies configurées dans le coffre. Cet écran montre déjà l’heure de planification de sauvegarde spécifiée en fonction du fuseau horaire local utilisé quand vous avez créé la stratégie. 
 
 ## <a name="enhanced-security"></a>Sécurité améliorée
-Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md). Quand la sécurité améliorée est activée, les données sont conservées jusqu’à 14 jours après que les informations relatives au point de récupération ont été supprimées du coffre. Les clients sont facturés pour le stockage de ces données de sécurité. La rétention des données de sécurité s’applique aux points de récupération définis pour l’agent de sauvegarde Azure, le serveur de sauvegarde Azure et System Center Data Protection Manager. 
+Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md). Quand la sécurité améliorée est activée, les données sont conservées jusqu’à 14 jours après que les informations relatives au point de récupération ont été supprimées du coffre. Les clients sont facturés pour le stockage de ces données de sécurité. La rétention des données de sécurité s’applique aux points de récupération définis pour l’agent de sauvegarde Azure, le serveur de sauvegarde Azure et System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Collecter des données sur votre coffre
 Une fois que vous avez effectué la mise à niveau vers un coffre Recovery Services, configurez des rapports pour la sauvegarde Azure (pour les machines virtuelles IaaS et l’agent Microsoft Azure Recovery Services) et utilisez Power BI pour accéder aux rapports. Pour plus d’informations sur la collecte de données, consultez l’article [Configurer les rapports de la Sauvegarde Azure](backup-azure-configure-reports.md).

@@ -1,6 +1,6 @@
 ---
-title: "Vidéos Azure Database pour PostgreSQL"
-description: "Cette page répertorie le contenu vidéo pertinent pour découvrir la base de données Azure pour PostgreSQL."
+title: Vidéos Azure Database pour PostgreSQL
+description: Cette page répertorie le contenu vidéo pertinent pour découvrir la base de données Azure pour PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

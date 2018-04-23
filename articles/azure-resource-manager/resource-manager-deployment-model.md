@@ -1,6 +1,6 @@
 ---
-title: "Déploiement Resource Manager et déploiement classique | Microsoft Docs"
-description: "Décrit les différences entre le modèle de déploiement de Resource Manager et le modèle de déploiement classique (ou de gestion des services)."
+title: Déploiement Resource Manager et déploiement classique | Microsoft Docs
+description: Décrit les différences entre le modèle de déploiement de Resource Manager et le modèle de déploiement classique (ou de gestion des services).
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 06da24babd470e81bed9c45a32c59ad9cfd153fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources
 Dans cet article, vous découvrez les modèles de déploiement classique et Azure Resource Manager. Resource Manager et les modèles de déploiement classique représentent deux façons différentes de déployer et de gérer vos solutions Azure. Vous les utilisez avec deux ensembles différents d’API et les ressources déployées peuvent contenir des différences importantes. Les deux modèles ne sont pas compatibles entre eux. Cet article décrit ces différences.
@@ -108,7 +108,7 @@ Le tableau suivant décrit les modifications dans l’interaction des fournisseu
 | Comptes de stockage |La machine virtuelle nécessite un compte de stockage qui stocke les disques durs virtuels pour le système d’exploitation, les disques de données temporaires et supplémentaires. |La machine virtuelle nécessite un compte de stockage pour stocker ses disques dans le Stockage Blob. |
 | Groupes à haute disponibilité |La disponibilité de la plateforme était indiquée en configurant le même « AvailabilitySetName » sur les machines virtuelles. Le nombre maximal de domaines d’erreur était de 2. |Le groupe à haute disponibilité est une ressource exposée par le fournisseur Microsoft.Compute. Les machines virtuelles qui nécessitent une haute disponibilité doivent faire partie du groupe à haute disponibilité. Le nombre maximal de domaines d’erreur est maintenant de 3. |
 | Groupe d'affinités |Les groupes d’affinités étaient nécessaires pour créer des réseaux virtuels. Toutefois, avec l’introduction des réseaux virtuels régionaux, ils ne sont plus nécessaires. |Pour simplifier, le concept de groupe d’affinités n’existe pas dans les API exposées par le Gestionnaire de ressources Azure. |
-| Équilibrage de la charge. |La création d’un service cloud fournit un équilibrage de la charge implicite pour les machines virtuelles déployées. |L’équilibrage de la charge est une ressource exposée par le fournisseur Microsoft.Network. La principale interface réseau des machines virtuelles dont la charge doit être équilibrée doit faire référence à l’équilibrage de la charge. Ces éléments d’équilibrage de la charge peuvent être internes ou externes. Une instance d’équilibreur de charge fait référence au pool principal d’adresses IP qui comporte la carte d’interface réseau d’une machine virtuelle (facultatif) et fait référence à l’adresse IP publique ou privée d’un équilibreur de charge (facultative). [En savoir plus.](../virtual-network/resource-groups-networking.md) |
+| Équilibrage de la charge. |La création d’un service cloud fournit un équilibrage de la charge implicite pour les machines virtuelles déployées. |L’équilibrage de la charge est une ressource exposée par le fournisseur Microsoft.Network. La principale interface réseau des machines virtuelles dont la charge doit être équilibrée doit faire référence à l’équilibrage de la charge. Ces éléments d’équilibrage de la charge peuvent être internes ou externes. Une instance d’équilibreur de charge fait référence au pool principal d’adresses IP qui comporte la carte d’interface réseau d’une machine virtuelle (facultatif) et fait référence à l’adresse IP publique ou privée d’un équilibreur de charge (facultative). |
 | Adresse IP virtuelle |Cloud Services obtient une adresse IP virtuelle par défaut lorsqu’une machine virtuelle est ajoutée à un service cloud. L’adresse IP virtuelle est l’adresse associée à l’équilibrage de charge implicite. |L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. Les adresses IP publiques dynamiques peuvent être attribuées à un équilibreur de charge. Les adresses IP publiques peuvent être sécurisées à l’aide de groupes de sécurité. |
 | Adresses IP réservées |Vous pouvez réserver une adresse IP dans Azure et l’associer à un service cloud pour vous assurer que l’adresse IP est permanente. |L’adresse IP publique peut être créée en mode « Statique ». Elle offre les mêmes fonctionnalités qu’une « Adresse IP réservée ». |
 | Adresse IP publique par machine virtuelle |Les adresses IP publiques peuvent également être associées directement à une machine virtuelle. |L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. |
@@ -126,7 +126,7 @@ Si vous êtes prêt à migrer vos ressources d’un déploiement classique vers 
 3. [Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 **Puis-je créer une machine virtuelle à l’aide de Resource Manager et la déployer dans un réseau virtuel créé à l’aide d’un déploiement classique ?**
 
 Cette configuration n’est pas prise en charge. Vous ne pouvez pas utiliser Resource Manager pour déployer une machine virtuelle dans un réseau virtuel créé à l’aide du modèle de déploiement classique.

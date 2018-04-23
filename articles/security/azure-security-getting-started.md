@@ -1,6 +1,6 @@
 ---
-title: "Prise en main de la sécurité de Microsoft Azure | Microsoft Docs"
-description: "Cet article présente les fonctionnalités de sécurité de Microsoft Azure, ainsi que des considérations générales pour les organisations qui effectuent la migration de leurs ressources vers un fournisseur de cloud."
+title: Prise en main de la sécurité de Microsoft Azure | Microsoft Docs
+description: Cet article présente les fonctionnalités de sécurité de Microsoft Azure, ainsi que des considérations générales pour les organisations qui effectuent la migration de leurs ressources vers un fournisseur de cloud.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Prise en main de la sécurité de Microsoft Azure
 Lorsque vous générez ou faites migrer des ressources informatiques vers un fournisseur de cloud, vous comptez sur les capacités de cette organisation à protéger vos applications et données avec les services et les contrôles qu’elle vous fournit pour gérer la sécurité de vos ressources cloud.
@@ -45,7 +45,7 @@ Parmi les autres fonctionnalités pour la gestion de l’identité et de l’acc
 * Azure AD permet [l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) sur les applications SaaS, quel que soit l’endroit où elles sont hébergées. Certaines applications sont fédérées avec Azure AD, d’autres utilisent le mot de passe de l’authentification unique. Les applications fédérées peuvent également prendre en charge l’approvisionnement d’utilisateurs et la mise au coffre des mots de passe.
 * L’accès aux données dans [Azure Storage](https://azure.microsoft.com/services/storage/) est contrôlé via l’authentification. Chaque compte de stockage possède une clé primaire ([clé de compte de stockage](https://msdn.microsoft.com/library/azure/ee460785.aspx) ou SAK) et une clé secrète secondaire (signature d’accès partagé ou SAP).
 * Azure AD fournit l’identité en tant que service par le biais de la fédération en utilisant les [services de fédération Active Directory (AD FS)](../active-directory/fundamentals-identity.md), la synchronisation et la réplication avec les annuaires locaux.
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) est le service d’authentification multifacteur qui demande aux utilisateurs de vérifier les connexions à l’aide d’une application mobile, d’un appel téléphonique ou d’un message texte. Ce service est utilisable avec Azure AD afin de sécuriser les ressources locales avec le serveur Azure Multi-Factor Authentication, ainsi qu’avec des applications et annuaires personnalisés à l’aide du Kit de développement logiciel (SDK).
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) est le service d’authentification multifacteur qui demande aux utilisateurs de vérifier les connexions à l’aide d’une application mobile, d’un appel téléphonique ou d’un message texte. Ce service est utilisable avec Azure AD afin de sécuriser les ressources locales avec le serveur Azure Multi-Factor Authentication, ainsi qu’avec des applications et annuaires personnalisés à l’aide du Kit de développement logiciel (SDK).
 * Les [services de domaine Azure AD](https://azure.microsoft.com/services/active-directory-ds/) vous permettent de joindre des machines virtuelles Azure à un domaine sans déployer de contrôleurs de domaine. Vous pouvez vous connecter à ces machines virtuelles avec vos informations d’identification Active Directory d’entreprise, et administrer les machines virtuelles jointes au domaine en utilisant une stratégie de groupe pour appliquer des lignes de base de sécurité sur toutes vos machines virtuelles Azure.
 * Pour les applications accessibles aux consommateurs, [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) fournit un service de gestion des identités global et hautement disponible, qui s’adapte à des centaines de millions d’identités. Le service peut être intégré sur l’ensemble des plateformes web et mobiles. Vos consommateurs peuvent se connecter à toutes vos applications par le biais d’expériences personnalisables en utilisant leurs comptes de réseaux sociaux existants ou en créant des comptes avec de nouvelles informations d’identification.
 
