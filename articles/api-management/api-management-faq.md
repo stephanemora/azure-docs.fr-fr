@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -88,7 +88,7 @@ Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit 
 
 Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](https://msdn.microsoft.com/library/mt613507.aspx) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
 
-1. Utilisez l’applet de commande `Login-AzureRmAccount` pour vous connecter.
+1. Utilisez l’applet de commande `Connect-AzureRmAccount` pour vous connecter.
 2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Obtenez une URL d’authentification unique à l’aide de `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Utilisez l’URL pour accéder au portail d’administration.

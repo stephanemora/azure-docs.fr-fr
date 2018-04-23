@@ -1,22 +1,22 @@
 ---
-title: "Effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec le service Azure IoT Hub Device Provisioning | Microsoft Docs"
-description: "Découvrez comment vérifier les certificats d’autorité de certification X.509 avec votre service DPS."
+title: Effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec le service Azure IoT Hub Device Provisioning | Microsoft Docs
+description: Découvrez comment vérifier les certificats d’autorité de certification X.509 avec votre service DPS.
 services: iot-dps
-keywords: 
-author: JimacoMS
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 07fe5f975e59c10fcd716db6585e2ae0fefc90e4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec votre service Device Provisioning
 

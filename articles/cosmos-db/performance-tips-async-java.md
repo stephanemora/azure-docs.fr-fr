@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.openlocfilehash: 95f6e3d6d9db5a88b5b974daf6e36573b60878a5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java asynchrone](performance-tips-async-java.md)
@@ -75,7 +75,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 7. **Utilisation de l’adressage en fonction du nom**
 
-    Utilisez l’adressage en fonction du nom, où les liens ont le format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, au lieu de SelfLinks (\_self), qui ont le format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`, pour éviter la récupération ResourceIds de toutes les ressources utilisées pour construire le lien. En outre, ces ressources étant recréés (éventuellement avec le même nom), leur mise en cache peut s’avérer superflue.
+    Pour éviter de récupérer les ID de ressource de toutes les ressources utilisées pour construire le lien, utilisez l’adressage en fonction du nom dans lequel les liens ont pour format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, et non SelfLinks (\_self) dans lequel les liens ont pour format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>`. En outre, ces ressources étant recréés (éventuellement avec le même nom), leur mise en cache peut s’avérer superflue.
 
    <a id="tune-page-size"></a>
 8. **Réglage de la taille de la page des flux de lecture/requêtes pour de meilleures performances**

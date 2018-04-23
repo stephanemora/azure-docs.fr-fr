@@ -1,24 +1,24 @@
 ---
-title: "Comparer les autorisations utilisateur par défaut dans Azure Active Directory | Microsoft Docs"
-description: "Comparer les autorisations des membres, des invités, des propriétaires d’application et des propriétaires de groupe"
+title: Comparer les autorisations utilisateur par défaut dans Azure Active Directory | Microsoft Docs
+description: Comparer les autorisations des membres, des invités, des propriétaires d’application et des propriétaires de groupe
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Autorisations utilisateur par défaut dans Azure Active Directory
 
@@ -77,6 +77,6 @@ Quand un utilisateur crée un groupe, il est automatiquement ajouté en tant que
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
-* Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
+* Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Pour plus d’informations sur l’association entre Azure Active Directory et votre abonnement Azure, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gestion des utilisateurs](active-directory-create-users.md)

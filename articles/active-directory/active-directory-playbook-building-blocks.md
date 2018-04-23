@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d78b6934e276c53b65f3c171ed980f86458c3a93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -457,7 +457,7 @@ Temps approximatif d’accomplissement : 10 minutes
 
 ### <a name="considerations"></a>Considérations
 
-Si vous utilisez la fédération, vous pouvez vous servir du fournisseur d’identité local pour communiquer l’état interne/externe du réseau d’entreprise avec des revendications. Vous pouvez utiliser cette technique sans avoir à gérer la liste des adresses IP qui peuvent être difficiles à évaluer et à gérer dans les grandes organisations. Dans cette configuration, vous devez tenir compte du scénario d’itinérance de réseau (un utilisateur se connecte à partir du réseau interne et, pendant sa connexion, change de lieu pour aller dans un café, par exemple) et assurez-vous que vous comprenez bien toutes les implications. En savoir plus : [Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS : Adresses IP de confiance pour les utilisateurs fédérés](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Si vous utilisez la fédération, vous pouvez vous servir du fournisseur d’identité local pour communiquer l’état interne/externe du réseau d’entreprise avec des revendications. Vous pouvez utiliser cette technique sans avoir à gérer la liste des adresses IP qui peuvent être difficiles à évaluer et à gérer dans les grandes organisations. Dans cette configuration, vous devez tenir compte du scénario d’itinérance de réseau (un utilisateur se connecte à partir du réseau interne et, pendant sa connexion, change de lieu pour aller dans un café, par exemple) et assurez-vous que vous comprenez bien toutes les implications. En savoir plus : [Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS : Adresses IP de confiance pour les utilisateurs fédérés](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 

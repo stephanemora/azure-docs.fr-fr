@@ -1,27 +1,20 @@
 ---
-title: "Choisir une référence (SKU) ou un niveau tarifaire pour la Recherche Azure | Microsoft Docs"
-description: "Azure Search peut être configuré sur ces niveaux de référence (SKU) : Gratuit, De base et Standard, où Standard est disponible dans différentes configurations de ressources et différents niveaux de capacité."
-services: search
-documentationcenter: 
+title: Choisir une référence (SKU) ou un niveau tarifaire pour la Recherche Azure | Microsoft Docs
+description: 'Azure Search peut être configuré sur ces niveaux de référence (SKU) : Gratuit, De base et Standard, où Standard est disponible dans différentes configurations de ressources et différents niveaux de capacité.'
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 8d4b7bca-02a5-43ee-b3f8-03551dfb32fd
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 498ceb4a5d9e0bb9c8c5b5711c8c2687df3a3409
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Choisir une référence (SKU) ou un niveau tarifaire pour Azure Search
+# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Choisir une référence (SKU) ou un niveau tarifaire pour Recherche Azure
 Dans Azure Search, un [service est configuré](search-create-service-portal.md) sur un niveau tarifaire ou une SKU spécifique. Vous avez le choix entre les options suivantes : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations et capacités.
 
 Cet article vise à vous aider à choisir une option. Si la capacité d’un niveau tarifaire est trop basse, vous devrez configurer un nouveau service au niveau supérieur, puis recharger vos index. Il n’existe aucune mise à niveau sur place du même service d’une référence (SKU) à un autre.
@@ -75,8 +68,8 @@ Le tableau suivant est un sous-ensemble des [Limites de service dans Azure Searc
 
 | Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Contrat de Niveau de Service (SLA) |Nonn <sup>1</sup> |Oui |Oui |Oui |Oui |Oui |
-| Limites d’index |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
+| Contrat de Niveau de Service (SLA) |Nonn <sup>1</sup> |OUI |OUI |OUI |OUI |OUI |
+| Limites d’index |3 |5. |50 |200 |200 |1000 <sup>2</sup> |
 | Limites du document |10 000 au total |1 million par service |15 millions par partition |60 millions par partition |120 millions par partition |1 million par index |
 | Partitions maximales |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
 | Taille de partition |50 Mo au total |2 Go par service |25 Go par partition |100 Go par partition (jusqu’à 1,2 To par service) |200 Go par partition (jusqu’à 2,4 To par service) |200 Go (jusqu'à un maximum de 600 Go par service) |
@@ -107,7 +100,8 @@ Si le prix ou les exigences de stockage sont trop élevés, vous souhaiterez peu
 >
 >
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>Étapes suivantes
+
 Une fois que vous avez déterminé la référence (SKU) qui convient le mieux, poursuivez avec ces étapes :
 
 * [Créer un service de recherche dans le portail](search-create-service-portal.md)

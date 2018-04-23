@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e9e5ad496362bf958dfe39b73ecd209f7b8aa284
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e5c99552b74861db6018093dccf736d08374204f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
@@ -96,7 +96,7 @@ Si votre organisation gère un annuaire Windows Server Active Directory local pa
 | Vue d’ensemble des options d’authentification unique proposées dans Azure AD Connect, ainsi que des informations sur la gestion des environnements hybrides |[Options d’authentification de l’utilisateur dans Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Conseils généraux sur la gestion des environnements comportant à la fois Active Directory en local et Azure Active Directory |[Considérations relatives à la conception d'identités hybrides Azure AD](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md) |
 | Aide sur l’utilisation de la synchronisation de mot de passe pour activer l’authentification unique |[Implémenter la synchronisation de mot de passe avec Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Résoudre les problèmes de synchronisation de mot de passe](https://support.microsoft.com/en-us/kb/2855271) |
-| Aide sur l’utilisation de la réécriture du mot de passe pour activer l’authentification unique |[Prise en main de la gestion de mot de passe dans Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Résoudre les problèmes de réécriture du mot de passe](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Aide sur l’utilisation de la réécriture du mot de passe pour activer l’authentification unique |[Prise en main de la gestion de mot de passe dans Azure AD](authentication/quickstart-sspr.md)<br /><br />[Résoudre les problèmes de réécriture du mot de passe](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Aide sur l’utilisation de fournisseurs d’identité tiers pour activer l’authentification unique |[Liste des fournisseurs d’identité de tiers compatibles pouvant être utilisés pour activer l’authentification unique](https://aka.ms/ssoproviders) |
 | Comment les utilisateurs de Windows 10 peuvent profiter des avantages de l’authentification unique par le biais d’Azure AD Join |[Extension des fonctionnalités du cloud aux appareils Windows 10 par le biais d’Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 

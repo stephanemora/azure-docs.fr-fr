@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console série de machine virtuelle (préversion) 
 
@@ -33,7 +33,7 @@ La console série de machine virtuelle Azure permet aux machines virtuelles Linu
  
 
 * L’option [Diagnostics de démarrage](boot-diagnostics.md) doit être activée dans la machine virtuelle. 
-* Le compte qui utilise la console série doit disposer du [rôle Contributeur](../../active-directory/role-based-access-built-in-roles.md) pour la machine virtuelle et pour le compte de stockage avec [diagnostics de démarrage](boot-diagnostics.md). 
+* Le compte qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage avec [diagnostics de démarrage](boot-diagnostics.md). 
 * Pour découvrir les paramètres spécifiques à la distribution Linux, consultez la section [Accessing the serial console for Linux](#accessing-serial-console-for-linux) (Accès à la console série pour Linux).
 
 
@@ -57,7 +57,7 @@ La fonctionnalité Console série peut être désactivée pour certaines machine
 ## <a name="serial-console-security"></a>Sécurité de la console série 
 
 ### <a name="access-security"></a>Sécurité des accès 
-L’accès à la console série est limité aux utilisateurs qui disposent du rôle [Contributeur](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) (ou supérieur) pour la machine virtuelle. Si votre locataire AAD nécessite l’authentification MFA, l’accès à la console série nécessite également l’authentification MFA, puisque son accès s’effectue via le [portail Azure](https://portal.azure.com).
+L’accès à la console série est limité aux utilisateurs qui disposent du rôle [Contributeur](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) (ou supérieur) pour la machine virtuelle. Si votre locataire AAD nécessite l’authentification MFA, l’accès à la console série nécessite également l’authentification MFA, puisque son accès s’effectue via le [portail Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Sécurité des canaux
 Toutes les données envoyées sur les canaux sont chiffrées.

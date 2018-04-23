@@ -1,10 +1,10 @@
 ---
-title: "Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration - Azure | Microsoft Docs"
-description: "Découvrez comment tenir et mettre à jour votre hiérarchie de groupes d’administration."
+title: Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration - Azure | Microsoft Docs
+description: Découvrez comment tenir et mettre à jour votre hiérarchie de groupes d’administration.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration 
-Les groupes d’administration sont des conteneurs qui vous aident à gérer l’accès, la stratégie et la conformité dans plusieurs abonnements. Vous pouvez modifier, supprimer et gérer ces conteneurs pour pouvoir utiliser des hiérarchies avec [Azure Policy](../azure-policy/azure-policy-introduction.md) et les [contrôles d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md). Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md).
+Les groupes d’administration sont des conteneurs qui vous aident à gérer l’accès, la stratégie et la conformité dans plusieurs abonnements. Vous pouvez modifier, supprimer et gérer ces conteneurs pour pouvoir utiliser des hiérarchies avec [Azure Policy](../azure-policy/azure-policy-introduction.md) et les [contrôles d’accès en fonction du rôle Azure](../role-based-access-control/overview.md). Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md).
 
 La fonctionnalité de groupe d’administration est disponible dans une préversion publique. Pour commencer à utiliser des groupes d’administration, connectez-vous au [portail Azure](https://portal.azure.com) ou utilisez [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) ou l’[API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) pour gérer vos groupes d’administration.
 
-Pour apporter des modifications à un groupe d’administration, vous devez avoir un rôle de propriétaire ou contributeur sur le groupe d’administration. Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-what-is.md).
+Pour apporter des modifications à un groupe d’administration, vous devez avoir un rôle de propriétaire ou contributeur sur le groupe d’administration. Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md).
 
 ## <a name="change-the-name-of-a-management-group"></a>Modifier le nom d’un groupe d’administration 
 Vous pouvez modifier le nom du groupe d’administration en utilisant le portail, PowerShell ou Azure CLI.
@@ -64,7 +64,7 @@ Pour supprimer un groupe d’administration, les conditions suivantes doivent ê
 1. Le groupe d’administration ne contient pas de groupes d’administration enfants ni d’abonnements. 
     - Pour déplacer un abonnement en dehors d’un groupe d’administration, consultez [Déplacer un abonnement vers un autre groupe d’administration](#Move-subscriptions-in-the-hierarchy). 
     - Pour déplacer un groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration dans la hiérarchie](#Move-management-groups-in-the-hierarchy). 
-2. Vous avez des autorisations en écriture sur le rôle de propriétaire ou contributeur du groupe d’administration. Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-what-is.md).  
+2. Vous avez des autorisations en écriture sur le rôle de propriétaire ou contributeur du groupe d’administration. Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Supprimer dans le portail
 
@@ -139,7 +139,7 @@ Pour déplacer l’abonnement, vous devez avoir deux autorisations :
 - Rôle de « propriétaire » sur l’abonnement enfant.
 - Rôle de « propriétaire » ou « contributeur » sur le nouveau groupe d’administration parent. 
 - Rôle de « propriétaire » ou « contributeur » sur l’ancien groupe d’administration parent.
-Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). 
 
 ### <a name="move-subscriptions-in-the-portal"></a>Déplacer des abonnements dans le portail
 
@@ -225,7 +225,7 @@ C:/> az account management-group udpate --group-name Contoso --parent-id "Contos
 
 ---
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 Pour en savoir plus sur les groupes d’administration, consultez : 
 - [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md)
 - [Créer des groupes d’administration pour organiser les ressources Azure](management-groups-create.md)

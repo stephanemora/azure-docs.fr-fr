@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 810c585e104f6b7bc63222594375527c45c6082d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>La réinitialisation de mot de passe en libre-service Azure AD pour les professionnels de l’informatique
 
@@ -42,7 +42,7 @@ SSPR Azure AD vous aide à :
 * **Encouragement à la mobilité** : les utilisateurs peuvent réinitialiser leur mot de passe où qu’ils se trouvent.
 * **Maintien du contrôle** de la stratégie de sécurité. les administrateurs peuvent continuer à appliquer les stratégies en place.
 
-Si vous êtes prêt, vous pouvez commencer à utiliser SSPR Azure AD à l’aide de notre [guide de démarrage rapide](../active-directory-passwords-getting-started.md). Vous pouvez rapidement autoriser vos utilisateurs à réinitialiser leurs mots de passe.
+Si vous êtes prêt, vous pouvez commencer à utiliser SSPR Azure AD à l’aide de notre [guide de démarrage rapide](quickstart-sspr.md). Vous pouvez rapidement autoriser vos utilisateurs à réinitialiser leurs mots de passe.
 
 ## <a name="azure-ad-sspr-availability"></a>Disponibilité de SSPR Azure AD
 
@@ -65,7 +65,7 @@ Vous trouverez plus d’informations sur les licences, les prix et les plans fut
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Prêt à vous lancer avec SSPR ? [Configurez la réinitialisation de mot de passe en libre-service Azure AD](../active-directory-passwords-getting-started.md).
+* Prêt à vous lancer avec SSPR ? [Configurez la réinitialisation de mot de passe en libre-service Azure AD](quickstart-sspr.md).
 * Planifiez un déploiement SSPR réussi pour vos utilisateurs à l’aide des conseils de notre [guide de lancement](howto-sspr-deployment.md).
 * [Réinitialisez ou modifiez votre mot de passe](../active-directory-passwords-update-your-own-password.md).
 * [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](../active-directory-passwords-reset-register.md).

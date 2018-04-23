@@ -1,6 +1,6 @@
 ---
-title: "Créer des groupes de sécurité réseau - Portail Azure | Microsoft Docs"
-description: "Découvrez comment créer et déployer des groupes de sécurité réseau à l’aide du portail Azure."
+title: Créer des groupes de sécurité réseau - Portail Azure | Microsoft Docs
+description: Découvrez comment créer et déployer des groupes de sécurité réseau à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd05df542327f9d8dae924b7097d247980a0558b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>Créer des groupes de sécurité réseau à l’aide du portail Azure
 
@@ -92,6 +92,6 @@ Pour créer le groupe de sécurité réseau **NSG-BackEnd** et l’associer au s
 3. Répétez les étapes de la section [Associer le groupe de sécurité réseau au sous-réseau FrontEnd](#Associate-the-NSG-to-the-FrontEnd-subnet) pour associer le groupe de sécurité réseau **NSG-Backend** au sous-réseau **BackEnd**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment [gérer des groupes de sécurité réseau existants](virtual-network-manage-nsg-arm-portal.md)
+* Découvrez comment [gérer des groupes de sécurité réseau existants](manage-network-security-group.md)
 * [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 

@@ -1,11 +1,11 @@
 ---
-title: "Conception d’identités hybrides : exigences en matière d’authentification multifacteur Azure | Microsoft Docs"
-description: "Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
-documentationcenter: 
+title: 'Conception d’identités hybrides : exigences en matière d’authentification multifacteur Azure | Microsoft Docs'
+description: Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
+documentationcenter: ''
 services: active-directory
 author: femila
 manager: billmath
-editor: 
+editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d'authentification multifacteur (Multi-Factor Authentication) pour votre solution d'identités hybrides
 Dans un monde basé sur la mobilité, avec des utilisateurs qui accèdent à des données et à des applications dans le cloud et à partir de n'importe quel périphérique, la sécurisation de ces informations est devenue prééminente.  On entend parler chaque jour de nouvelles failles de sécurité.  Bien qu'il n'existe aucune garantie contre ces violations, l'authentification multifacteur (Multi-Factor Authentication), fournit une couche supplémentaire de sécurité afin de les empêcher.
 Commencez par évaluer les besoins des organisations pour en matière d'authentification multifacteur. Il s'agit de comprendre ce que l'organisation veut sécuriser.  Cette version d'évaluation est importante pour définir les exigences techniques pour la configuration et l'actualisation des utilisateurs de l'organisation pour l'authentification multifacteur.
 
 > [!NOTE]
-> Si vous n'êtes pas familiarisé avec l'authentification multifacteur (MFA) et ses fonctionnalités, il est fortement recommandé de lire l'article [Présentation d'Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) avant de poursuivre la lecture de cette section.
+> Si vous n'êtes pas familiarisé avec l'authentification multifacteur (MFA) et ses fonctionnalités, il est fortement recommandé de lire l'article [Présentation d'Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md) avant de poursuivre la lecture de cette section.
 > 
 > 
 
