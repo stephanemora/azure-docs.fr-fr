@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3ad8e9862a16efdab32aeb057045a0b5cee26ee
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fd28b7e1f7407b1d1ee08c2f5774d939852e57b5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et utilisez les disques avec un groupe de machines virtuelles identiques à l’aide de Azure PowerShell
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -36,15 +36,15 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.6.0 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.6.0 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure. 
 
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
-Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques sont automatiquement associés à chaque instance de machine virtuelle. 
+Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques sont automatiquement attachés à chaque instance de machine virtuelle. 
 
-**Disque de système d’exploitation** : la taille des disques de système d’exploitation peut atteindre 2 To ; ces disques hébergent le système d’exploitation des instances de machine virtuelle. Le disque de système d’exploitation est nommé */dev/sda* par défaut. La configuration de la mise en cache de disque de système d’exploitation est optimisée pour les performances du système d’exploitation. En raison de cette configuration, le disque de système d’exploitation **ne doit pas** héberger d’applications ou de données. Pour héberger ce type de contenu, utilisez plutôt des disques de données, qui sont décrits plus loin dans cet article. 
+**Disque de système d’exploitation** : la taille des disques de système d’exploitation peut atteindre 2 To. Ces disques hébergent le système d’exploitation de l’instance de machine virtuelle. Le disque de système d’exploitation est nommé */dev/sda* par défaut. La configuration de la mise en cache de disque de système d’exploitation est optimisée pour les performances du système d’exploitation. En raison de cette configuration, le disque de système d’exploitation **ne doit pas** héberger d’applications ou de données. Pour héberger ce type de contenu, utilisez plutôt des disques de données, qui sont décrits plus loin dans cet article. 
 
-**Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que l’instance de machine virtuelle. Ce sont des disques extrêmement performants qui peuvent être utilisés pour des opérations telles que le traitement de données temporaires. Toutefois, si l’instance de machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur un disque temporaire sont supprimées. La taille du disque temporaire est déterminée par la taille de l’instance de machine virtuelle. Les disques temporaires sont nommés */dev/sdb* et ont un point de montage */mnt*.
+**Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que l’instance de machine virtuelle. Ce sont des disques extrêmement performants qui peuvent être utilisés pour diverses opérations telles que le traitement de données temporaires. Toutefois, si l’instance de machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur le disque temporaire concerné sont supprimées. La taille du disque temporaire est déterminée par la taille de l’instance de machine virtuelle. Les disques temporaires sont nommés */dev/sdb* et ont un point de montage */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 | type | Tailles courantes | Taille maximale du disque temporaire (Gio) |
@@ -75,7 +75,7 @@ Des disques de données supplémentaires peuvent être ajoutés si vous avez bes
 Azure propose deux types de disque.
 
 ### <a name="standard-disk"></a>Disque Standard
-Le stockage Standard s’appuie sur des disques durs et offre un stockage économique et performant. Les disques Standard constituent la solution idéale pour une charge de travail de développement et de test économique.
+Le stockage Standard s’appuie sur des disques HDD et offre un stockage économique et performant. Les disques Standard constituent la solution idéale pour une charge de travail de développement et de test économique.
 
 ### <a name="premium-disk"></a>Disque Premium
 Les disques Premium reposent sur un disque SSD à faible latence et hautes performances. Ces disques sont recommandés pour les machines virtuelles qui exécutent des charges de travail de production. Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS et FS. Lorsque vous sélectionnez une taille de disque, la valeur est arrondie au type suivant. Par exemple, si la taille du disque est inférieure à 128 Go, le type de disque est P10. Si la taille du disque est entre 129 Go et 512 Go, le type de disque est P20. Au-dessus de 512 Go, le type de disque est P30.
@@ -317,7 +317,7 @@ Dans ce didacticiel, vous avez appris à créer et utiliser des disques avec des
 > * Performances des disques
 > * Attacher et préparer des disques de données
 
-Passez à l’étape suivante du didacticiel afin d’apprendre à utiliser une image personnalisée pour vos instances de machine virtuelle dans un groupe identique.
+Passez à l’étape suivante du didacticiel afin d’apprendre à utiliser une image personnalisée pour les instances de machine virtuelle de votre groupe identique.
 
 > [!div class="nextstepaction"]
 > [Utiliser une image personnalisée pour les instances de machine virtuelle d’un groupe identique](tutorial-use-custom-image-powershell.md)

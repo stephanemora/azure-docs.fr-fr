@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bc5644425aa11fb210d81095e4166baefc6432e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 26ba68be6d4932da77befaf7c968525393c0a033
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Activer un fournisseur de services cloud pour gérer votre abonnement Azure Stack
 
@@ -41,11 +41,11 @@ Si vous utilisez Azure Stack avec un fournisseur de services cloud, vous pouvez 
 Ajoutez le fournisseur de services cloud en tant que propriétaire dans votre abonnement. 
 
 1. Ajoutez votre fournisseur de services cloud en tant qu’utilisateur invité. avec le rôle de propriétaire dans votre répertoire d’abonné.  Pour savoir comment ajouter un utilisateur, voir [Ajouter de nouveaux utilisateurs dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
-2. Ajoutez le rôle Propriétaire à l’utilisateur invité du fournisseur de services cloud. Pour savoir comment ajouter l’utilisateur du fournisseur de services cloud à votre abonnement, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources de votre abonnement Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+2. Ajoutez le rôle Propriétaire à l’utilisateur invité du fournisseur de services cloud. Pour savoir comment ajouter l’utilisateur du fournisseur de services cloud à votre abonnement, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources de votre abonnement Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 3. Le fournisseur de services cloud crée ensuite un abonnement Azure Stack local pour vous.
 4. Vous êtes prêt à utiliser Azure Stack.
 5. Votre fournisseur de services cloud doit ensuite créer une ressource dans votre abonnement pour vérifier s’ils sont en mesure de gérer vos ressources. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-  - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources depuis Azure Stack, consultez [Utilisation et facturation dans Azure Stack](../azure-stack-billing-and-chargeback.md).
+  - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Usage and billing in Azure Stack](../azure-stack-billing-and-chargeback.md) (Utilisation et facturation dans Azure Stack).

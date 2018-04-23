@@ -28,6 +28,8 @@
       href: cli-samples.md
     - name: "Azure\_PowerShell"
       href: powershell-samples.md
+    - name: Modèles Resource Manager
+      href: template-samples.md
 - name: Concepts
   items:
     - name: Sécurité
@@ -70,16 +72,12 @@
               href: tutorial-filter-network-traffic-cli.md
             - name: Portail Azure
               href: virtual-networks-create-nsg-arm-pportal.md
-            - name: Modèle
-              href: virtual-networks-create-nsg-arm-template.md
         - name: Tables de routage
           items:
             - name: "Azure\_PowerShell"
               href: tutorial-create-route-table-powershell.md
             - name: Azure CLI
               href: tutorial-create-route-table-cli.md
-            - name: Modèle
-              href: virtual-network-create-udr-arm-template.md
         - name: Points de terminaison de service
           items:
             - name: "Azure\_PowerShell"
@@ -110,8 +108,6 @@
                   href: virtual-network-deploy-static-pip-arm-ps.md
                 - name: Azure CLI
                   href: virtual-network-deploy-static-pip-arm-cli.md
-                - name: Modèle
-                  href: virtual-network-deploy-static-pip-arm-template.md
             - name: 'Créer des machines virtuelles : adresse IP privée statique'
               items:
                 - name: Portail Azure
@@ -126,8 +122,6 @@
                   href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Azure CLI
                   href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-                - name: Modèle
-                  href: virtual-network-deploy-multinic-arm-template.md
             - name: 'Créer des machines virtuelles : plusieurs adresses IP'
               items:
                 - name: Portail Azure
@@ -136,8 +130,6 @@
                   href: virtual-network-multiple-ip-addresses-powershell.md
                 - name: Azure CLI
                   href: virtual-network-multiple-ip-addresses-cli.md
-                - name: Modèle
-                  href: virtual-network-multiple-ip-addresses-template.md
             - name: 'Créer des machines virtuelles : mise en réseau accélérée'
               items:
                 - name: "Azure\_PowerShell"
@@ -190,11 +182,7 @@
             - name: Homologations
               href: virtual-network-manage-peering.md
             - name: Protection DDoS
-              items:
-                - name: Portail Azure
-                  href: ddos-protection-manage-portal.md
-                - name: "Azure\_PowerShell"
-                  href: ddos-protection-manage-ps.md
+              href: manage-ddos-protection.md
         - name: Groupes de sécurité réseau
           href: manage-network-security-group.md
           items:

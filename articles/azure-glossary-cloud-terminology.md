@@ -1,12 +1,12 @@
 ---
 title: Glossaire Azure - dictionnaire Azure | Microsoft Docs
-description: "Utilisez le glossaire Azure pour comprendre la terminologie des technologies cloud sur la plateforme Azure Ce petit dictionnaire Azure fournit les définitions des termes les plus courants de la technologie cloud pour Azure."
-keywords: "Dictionnaire Azure, terminologie cloud, glossaire Azure, définitions de terminologie, termes de cloud"
+description: Utilisez le glossaire Azure pour comprendre la terminologie des technologies cloud sur la plateforme Azure Ce petit dictionnaire Azure fournit les définitions des termes les plus courants de la technologie cloud pour Azure.
+keywords: Dictionnaire Azure, terminologie cloud, glossaire Azure, définitions de terminologie, termes de cloud
 services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : un dictionnaire de la terminologie des technologies cloud sur la plateforme Azure
 
@@ -111,7 +111,7 @@ Voir [Présentation d’Azure Resource Manager](azure-resource-manager/resource-
 
 ## <a name="role"></a>role
 Un moyen de contrôler l’accès qui peut être affecté aux utilisateurs ainsi qu’aux groupes et services. Les rôles rendent possibles des actions telles que la création, la gestion et la lecture sur les ressources Azure.  
-Voir [RBAC : rôles intégrés](active-directory/role-based-access-built-in-roles.md)
+Voir [RBAC : rôles intégrés](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>Contrat de Niveau de Service (SLA)
 Les contrats SLA décrivent les engagements de Microsoft en matière de temps d’activité et de connectivité. Chaque service Azure dispose d’un contrat SLA spécifique.  

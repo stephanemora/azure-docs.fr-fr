@@ -1,30 +1,24 @@
 ---
-title: "Procéder à un déploiement sur Azure Analysis Services à l’aide de SSDT | Microsoft Docs"
-description: "Découvrez comment déployer un modèle tabulaire sur un serveur Azure Analysis Services à l’aide de SSDT."
-services: analysis-services
-documentationcenter: 
+title: Procéder à un déploiement sur Azure Analysis Services à l’aide de SSDT | Microsoft Docs
+description: Découvrez comment déployer un modèle tabulaire sur un serveur Azure Analysis Services à l’aide de SSDT.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: f356b5d8e2b047add41873ab2676bd46db8d1fd2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Déployer un modèle à partir de SSDT
 Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes prêt à déployer une base de données de modèle tabulaire sur celui-ci. Vous pouvez utiliser SQL Server Data Tools (SSDT) pour créer et déployer un projet de modèle tabulaire sur lequel vous travaillez. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour commencer, vous avez besoin des éléments suivants :
 
 * **Serveur Analysis Services** dans Azure. Pour plus d’informations, consultez l’article [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md).

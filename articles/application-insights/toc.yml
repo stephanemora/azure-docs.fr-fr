@@ -288,6 +288,8 @@
   items:
     - name: Langage de requête Analytics
       href: 'https://docs.loganalytics.io/'
+    - name: "Azure\_PowerShell"
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/?view=azurermps-5.7.0#monitor'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
     - name: Java
@@ -296,6 +298,8 @@
       href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
     - name: API d’accès aux données
       href: 'https://dev.applicationinsights.io/'
+    - name: de l’API REST
+      href: 'https://docs.microsoft.com/rest/api/application-insights/'
     - name: Modèle de données
       href: application-insights-data-model.md
       items:

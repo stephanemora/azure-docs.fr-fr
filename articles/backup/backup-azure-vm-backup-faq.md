@@ -1,12 +1,12 @@
 ---
 title: Sauvegarde de machine virtuelle Azure - Forum aux questions | Microsoft Docs
-description: "Réponses aux questions courantes sur : le fonctionnement de la sauvegarde de machine virtuelle Azure, ses limitations et ce qu’il se passe lors d’un changement de stratégie"
+description: 'Réponses aux questions courantes sur : le fonctionnement de la sauvegarde de machine virtuelle Azure, ses limitations et ce qu’il se passe lors d’un changement de stratégie'
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "sauvegarde de la machine virtuelle azure, restauration de la machine virtuelle azure, stratégie de sauvegarde"
+editor: ''
+keywords: sauvegarde de la machine virtuelle azure, restauration de la machine virtuelle azure, stratégie de sauvegarde
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Consultez [Systèmes d’exploitation pris en charge](backup-azure-arm-vms-prepa
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Pourquoi je ne peux pas voir ma machine virtuelle dans l’assistant de configuration de la sauvegarde ?
 Dans l’assistant de configuration de la sauvegarde, la sauvegarde Azure répertorie uniquement les machines virtuelles qui sont :
-  * Actuellement non protégées : vous pouvez vérifier le statut de la sauvegarde d’une machine virtuelle en accédant au panneau de la machine virtuelle et en vérifiant le Statut de la sauvegarde à partir du Menu Paramètres. En savoir plus sur comment [Vérifier l’état de la sauvegarde de machine virtuelle](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  * Actuellement non protégées : vous pouvez vérifier le statut de la sauvegarde d’une machine virtuelle en accédant au panneau de la machine virtuelle et en vérifiant le Statut de la sauvegarde à partir du Menu Paramètres. En savoir plus sur comment [Vérifier l’état de la sauvegarde de machine virtuelle](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * Appartient à la même région que la machine virtuelle
 
 ## <a name="backup"></a>Sauvegarde

@@ -1,6 +1,6 @@
 ---
-title: "Améliorer la sécurité de la gestion à distance dans Azure | Microsoft Docs"
-description: "Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées."
+title: Améliorer la sécurité de la gestion à distance dans Azure | Microsoft Docs
+description: Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -64,7 +64,7 @@ La consolidation des ressources d’accès et la suppression des points de termi
 ### <a name="providing-security-for-azure-remote-management"></a>Mesures de sécurité pour la gestion à distance Azure
 Azure propose divers mécanismes de sécurité aux administrateurs responsables de services cloud et de machines virtuelles Azure. Ces mécanismes sont les suivants :
 
-* Authentification et [contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md).
+* Authentification et [contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).
 * Surveillance, journalisation et audit.
 * Certificats et communications chiffrées.
 * Portail de gestion Web.

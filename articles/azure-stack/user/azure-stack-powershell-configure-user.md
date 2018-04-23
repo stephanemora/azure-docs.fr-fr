@@ -1,11 +1,11 @@
 ---
-title: "Configurer l’environnement PowerShell de l’utilisateur Azure Stack | Microsoft Docs"
-description: "Configurer l’environnement PowerShell de l’utilisateur Azure Stack"
+title: Configurer l’environnement PowerShell de l’utilisateur Azure Stack | Microsoft Docs
+description: Configurer l’environnement PowerShell de l’utilisateur Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 44a5030bd9dfb694968a6b0f64ff9198ecccd84a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurer l’environnement PowerShell de l’utilisateur Azure Stack
 
 En tant qu’utilisateur d’Azure Stack, vous pouvez configurer l’environnement PowerShell de votre Kit de développement Azure Stack. Une fois la configuration effectuée, vous pouvez utiliser PowerShell pour gérer les ressources Azure Stack, par exemple vous abonner à des offres, créer des machines virtuelles, déployer des modèles Azure Resource Manager, et ainsi de suite. Cette rubrique concerne uniquement les environnements utilisateur. Si vous souhaitez configurer PowerShell pour l’environnement d’opérateur cloud, consultez l’article [Configurer l’environnement PowerShell de l’opérateur Azure Stack](../azure-stack-powershell-configure-admin.md). 
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>Prérequis
+ 
 
 Effectuez les étapes prérequises suivantes à partir du [Kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou à partir d’un client externe Windows si vous êtes [connecté par le biais d’un VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) :
 
@@ -64,7 +65,7 @@ Selon le type de déploiement (Azure AD ou AD FS), exécutez un des scripts suiv
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
    ```
@@ -99,7 +100,7 @@ Selon le type de déploiement (Azure AD ou AD FS), exécutez un des scripts suiv
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
   ```

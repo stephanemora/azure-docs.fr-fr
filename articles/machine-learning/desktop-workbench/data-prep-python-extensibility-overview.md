@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de l’extensibilité Python avec Azure Machine Learning Data Preparations | Microsoft Docs"
-description: "Ce document fournit une vue d’ensemble et des exemples détaillés de l’utilisation du code Python pour étendre les fonctionnalités de préparation des données"
+title: Utilisation de l’extensibilité Python avec Azure Machine Learning Data Preparations | Microsoft Docs
+description: Ce document fournit une vue d’ensemble et des exemples détaillés de l’utilisation du code Python pour étendre les fonctionnalités de préparation des données
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensions Python Data Preparations
 Afin de combler les lacunes de fonctionnalité qui existent entre les fonctions intégrées, Azure Machine Learning Data Preparations offre des possibilités d’extension à plusieurs niveaux. Ce document décrit l’extensibilité via un script Python. 

@@ -1,22 +1,18 @@
 ---
 title: Architecture du moteur de recherche en texte intégral (Lucene) dans la recherche Azure | Microsoft Docs
 description: Explication des concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à la recherche Azure.
-services: search
-manager: jhubbard
+manager: jlembicz
 author: yahnoosh
-documentationcenter: ''
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7cc4e19fd23095982d59578f7393e17b7f003757
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 

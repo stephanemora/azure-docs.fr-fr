@@ -1,11 +1,11 @@
 ---
-title: "Meilleures pratiques de sécurité pour les machines virtuelles Azure"
-description: "Cet article propose plusieurs meilleures pratiques de sécurité à utiliser dans les machines virtuelles situées dans Azure."
+title: Meilleures pratiques de sécurité pour les machines virtuelles Azure
+description: Cet article propose plusieurs meilleures pratiques de sécurité à utiliser dans les machines virtuelles situées dans Azure.
 services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
 
@@ -49,14 +49,14 @@ Cet article examine les meilleures pratiques suivantes pour les machines virtuel
 
 La première étape dans la protection de votre machine virtuelle consiste à vous assurer que seuls les utilisateurs autorisés sont en mesure de créer des machines virtuelles. Vous pouvez utiliser les [stratégies Azure](../azure-policy/azure-policy-introduction.md) pour définir les conventions des ressources de votre organisation, créer des stratégies personnalisées et les appliquer aux ressources, comme un [groupe de ressources](../azure-resource-manager/resource-group-overview.md).
 
-Les machines virtuelles qui appartiennent à un groupe de ressources héritent naturellement ses stratégies. Si nous recommandons cette approche pour la gestion des machines virtuelles, vous pouvez également contrôler l’accès à chaque stratégie de machine virtuelle à l’aide du [contrôle d’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-configure.md).
+Les machines virtuelles qui appartiennent à un groupe de ressources héritent naturellement ses stratégies. Si nous recommandons cette approche pour la gestion des machines virtuelles, vous pouvez également contrôler l’accès à chaque stratégie de machine virtuelle à l’aide du [contrôle d’accès basé sur les rôles (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 Lorsque vous activez des stratégies Resource Manager et le contrôle RBAC pour contrôler l’accès aux machines virtuelles, vous renforcez la sécurité globale des machines virtuelles. Nous vous recommandons de consolider les machines virtuelles ayant le même cycle de vie, dans le même groupe de ressources. Les groupes de ressources vous aident à déployer et surveiller vos ressources, tout en compilant leur coût. Pour permettre aux utilisateurs de créer des machines virtuelles et d’y accéder, utilisez l’[approche du moindre privilège](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Et lorsque vous attribuez des privilèges aux utilisateurs, privilégiez les rôles Azure intégrés suivants :
 
-- [Collaborateur de machine virtuelle](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) : peut gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
-- [Collaborateur de machine virtuelle classique](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) : peut gérer les machines virtuelles créées avec le modèle de déploiement classique, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
-- [Gestionnaire de sécurité](../active-directory/role-based-access-built-in-roles.md#security-manager) : peut gérer les composants de sécurité, les stratégies de sécurité et les machines virtuelles.
-- [Utilisateur de DevTest Labs](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user) : peut tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.
+- [Collaborateur de machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) : peut gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
+- [Collaborateur de machine virtuelle classique](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor) : peut gérer les machines virtuelles créées avec le modèle de déploiement classique, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
+- [Gestionnaire de sécurité](../role-based-access-control/built-in-roles.md#security-manager) : peut gérer les composants de sécurité, les stratégies de sécurité et les machines virtuelles.
+- [Utilisateur de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user) : peut tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.
 
 Ne partagez pas les comptes ou les mots de passe entre plusieurs administrateurs, et ne réutilisez pas les mots de passe dans plusieurs comptes d’utilisateur ou services, notamment pour les médias sociaux ou d’autres activités non administratives. Dans l’idéal, utilisez les modèles [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer vos machines virtuelles en toute sécurité. Avec cette approche, vous renforcez vos choix de déploiement et appliquez les paramètres de sécurité tout au long du déploiement.
 

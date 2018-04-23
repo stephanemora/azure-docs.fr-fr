@@ -1,24 +1,24 @@
 ---
-title: "Créer une capacité Power BI Embedded dans le portail Azure | Microsoft Docs"
-description: "Cet article vous montre comment créer une capacité Power BI Embedded dans Microsoft Azure."
+title: Créer une capacité Power BI Embedded dans le portail Azure | Microsoft Docs
+description: Cet article vous montre comment créer une capacité Power BI Embedded dans Microsoft Azure.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Créer une capacité Power BI Embedded dans le portail Azure
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 * **Abonnement Azure :** visitez [version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/) pour créer un compte.
-* **Azure Active Directory :** votre abonnement doit être associé à un locataire Azure Active Directory (AAD). Vous devez également ***être connecté à Azure avec un compte dans ce locataire***. Les comptes Microsoft ne sont pas pris en charge. Pour en savoir plus, consultez Authentification et autorisations utilisateur.
+* **Azure Active Directory :** votre abonnement doit être associé à un locataire Azure Active Directory (AAD). Vous devez également ***être connecté à Azure avec un compte dans ce locataire***. Les comptes Microsoft ne sont pas pris en charge. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](../analysis-services/analysis-services-manage-users.md).
 * **Locataire Power BI :** au moins un compte dans votre locataire AAD doit avoir souscrit à Power BI.
 * **Groupe de ressources :** utilisez un groupe de ressources existant ou [créez-en un](../azure-resource-manager/resource-group-overview.md).
 

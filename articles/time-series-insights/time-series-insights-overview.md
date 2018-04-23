@@ -1,6 +1,6 @@
 ---
-title: "Qu’est-ce que Azure Time Series Insights ? | Microsoft Docs"
-description: "Présentation d’Azure Time Series Insights, un nouveau service d’analyse de données de série chronologique et de solutions IoT."
+title: Qu’est-ce que Azure Time Series Insights ? | Microsoft Docs
+description: Présentation d’Azure Time Series Insights, un nouveau service d’analyse de données de série chronologique et de solutions IoT.
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
@@ -12,10 +12,10 @@ ms.workload: big-data
 ms.topic: article
 ms.date: 01/26/2018
 ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Qu’est-ce que Azure Time Series Insights ?
 
@@ -40,7 +40,7 @@ Si vous ne savez pas si vos données sont de série chronologique, voici ce que 
   - À sa base, Time Series Insights a une base de données conçue avec les données de série chronologique à l’esprit.  Comme il est entièrement géré et évolutif, Time Series Insights gère les tâches de stockage et de gestion des événements.
 
 - Exploration de données en quasi temps réel.  
-  - Time Series Insights fournit un explorateur qui permet de visualiser toutes les données en streaming dans un environnement.  Peu après la connexion à une source d’événements, les données d’événement peuvent être affichées, explorées et interrogées dans Time Series Insights.  Les données sont utiles pour vérifier si un appareil émet des données comme prévu et pour surveiller une ressource IoT à des fins d’intégrité, de productivité et d’efficacité globale.  
+  - Time Series Insights fournit un explorateur qui permet de visualiser toutes les données dans un environnement de diffusion en continu.  Peu après la connexion à une source d’événements, les données d’événement peuvent être affichées, explorées et interrogées dans Time Series Insights.  Les données sont utiles pour vérifier si un appareil émet des données comme prévu et pour surveiller une ressource IoT à des fins d’intégrité, de productivité et d’efficacité globale.  
 
 - Analyse de la cause première et détection des anomalies.
   - Time Series Insights a des outils tels que les modèles et les vues de perspective pour effectuer et enregistrer des analyses des causes racine à plusieurs étapes.  En outre, Time Series Insights fonctionne conjointement avec des services de génération d’alertes tels qu’Azure Stream Analytics, ainsi les alertes et les anomalies détectées peuvent être affichées presque en temps réel dans l’Explorateur Time Series Insights.  
@@ -70,7 +70,7 @@ La prise en main prend moins de 5 minutes.
 ## <a name="time-series-insights-explorer"></a>Explorateur Time Series Insights
 Ce diagramme illustre un exemple de données de série chronologique Time Series Insights affichées au moyen de l’Explorateur : ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
  - [Découvrir l’Explorateur Time Series Insights dans un environnement de démonstration](./time-series-quickstart.md)
  - [Sélectionner votre environnement Time Series Insights](time-series-insights-environment-planning.md)
 

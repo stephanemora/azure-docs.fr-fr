@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: sutalasi
-ms.openlocfilehash: ea4c2ed287619b92dba1b9b966cc0d52e0eb89c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7c6af1b63d9e7904f5a397200c6950c62df08832
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Répliquer des machines virtuelles Hyper-V sur un site secondaire au moyen de PowerShell (Resource Manager)
 
@@ -59,7 +59,7 @@ Assurez-vous qu’Azure PowerShell est prêt à l’emploi :
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Login-AzureRmAccount #-Credential $Cred
+        Connect-AzureRmAccount #-Credential $Cred
 2. Récupérez la liste de vos abonnements, avec les ID d’abonnement. Notez l’ID de l’abonnement dans lequel vous voulez créer le coffre Recovery Services. 
 
         Get-AzureRmSubscription

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pim-for-azure-resources"></a>PIM pour les ressources Azure
 
@@ -43,7 +43,7 @@ Azure AD PIM peut gérer les rôles intégrés de Azure Resource, ainsi que les 
 - Gestionnaire de sécurité, et plus
 
 >[!NOTE]
-Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriétaire ou d’administrateur de l’accès utilisateur, de même que les administrateurs globaux qui permettent la gestion des abonnements dans Azure AD, sont des administrateurs de ressources. Ces administrateurs peuvent assigner des rôles, configurer des paramètres de rôle et revoir les accès à l’aide de PIM pour Azure Resources. Affichez la liste des [rôles intégrés pour les ressources Azure](../role-based-access-built-in-roles.md).
+Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriétaire ou d’administrateur de l’accès utilisateur, de même que les administrateurs globaux qui permettent la gestion des abonnements dans Azure AD, sont des administrateurs de ressources. Ces administrateurs peuvent assigner des rôles, configurer des paramètres de rôle et revoir les accès à l’aide de PIM pour Azure Resources. Affichez la liste des [rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="tasks"></a>Tâches
 
@@ -193,6 +193,6 @@ Sélectionnez Mes rôles à partir du menu de navigation de gauche et choisissez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rôles intégrés pour les ressources Azure](../role-based-access-built-in-roles.md)
+- [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md)
 - En savoir plus sur [l’activation de rôles de Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)
 - [Flux de travail d’approbation PIM](azure-ad-pim-approval-workflow.md)

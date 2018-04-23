@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fd5a8afe82bab5ca4e735a2483d90b84e234b8dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -58,7 +58,7 @@ Mettez à jour votre inscription avec l’abonnement du nouveau client. Azure si
 > Pour effectuer cette étape, [Azure Stack doit être inscrit](azure-stack-register.md).
 
 1. Ouvrez Windows PowerShell avec une invite élevée et exécutez :  
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Entrez vos informations d’identification Azure.
 3. Dans la session PowerShell, exécutez :
 

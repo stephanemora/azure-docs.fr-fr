@@ -1,11 +1,11 @@
 ---
 title: Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse | Documents Microsoft
-description: "Didacticiel sur l’utilisation de Microsoft Azure Machine Learning avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+description: Didacticiel sur l’utilisation de Microsoft Azure Machine Learning avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: ac6bc731-6add-47a9-b3fe-68996e656f4d
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse
 Azure Machine Learning est un service d’analyse prédictive entièrement géré qui vous permet de développer des modèles d’analyse prédictive de vos données dans SQL Data Warehouse et de les publier en tant que services Web prêts à l’emploi. Pour découvrir les principes de base de l’analyse prédictive et de Machine Learning, consultez l’[Introduction à Machine Learning sur Microsoft Azure][Introduction to Machine Learning on Azure].  Vous pouvez ensuite apprendre à créer, former, évaluer et tester un modèle Machine Learning à l’aide du [didacticiel consacré à la création d’une expérience][Create experiment tutorial].
@@ -32,14 +32,14 @@ Dans cet article, vous allez apprendre à effectuer les opérations suivantes en
 ## <a name="read-data-from-sql-data-warehouse"></a>Lire des données à partir de SQL Data Warehouse
 Nous lirons les données de la table Product dans la base de données AdventureWorksDW.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 Démarrez une nouvelle expérience en cliquant sur l’option + NOUVEAU située en bas de la fenêtre de Machine Learning Studio, sélectionnez EXPÉRIENCE, puis « Expérience vide ». Sélectionnez le nom d’expérience par défaut, situé en haut de la zone de dessin, et remplacez-le par un nom significatif, par exemple : Prédiction de prix d’un vélo.
 
-### <a name="step-2"></a>Étape 2 :
+### <a name="step-2"></a>Étape 2
 Recherchez le module Lecteur dans la palette d’ensemble de données et de modules située sur la gauche de la zone de dessin d’expérience. Faites glisser le module sur la zone de dessin d’expérience.
 ![][drag_reader]
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 Sélectionnez le module Lecteur et renseignez le panneau des propriétés.
 
 1. Sélectionnez la base de données SQL Azure en tant que source de données.
@@ -84,12 +84,12 @@ Pour en savoir plus sur la création, la formation, l’évaluation et le test d
 ## <a name="write-data-to-azure-sql-data-warehouse"></a>Écrire des données sur Microsoft Azure SQL Data Warehouse
 Nous écrirons l’ensemble de résultats sur la table ProductPriceForecast de la base de données AdventureWorksDW.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 Recherchez le module Lecteur dans la palette d’ensemble de données et de modules située sur la gauche de la zone de dessin d’expérience. Faites glisser le module sur la zone de dessin d’expérience.
 
 ![][drag_writer]
 
-### <a name="step-2"></a>Étape 2 :
+### <a name="step-2"></a>Étape 2
 Sélectionnez le module Lecteur et renseignez le volet des propriétés.
 
 1. Sélectionnez la base de données SQL Microsoft Azure en tant que Destination des données.
@@ -105,7 +105,7 @@ Sélectionnez le module Lecteur et renseignez le volet des propriétés.
 
 ![][writer_properties]
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 1. Démarrez l’expérience en cliquant sur l’option Démarrer sous la zone de dessin de l’expérience.
 2. Une fois l’expérience terminée, une coche verte s’affiche en regard de chaque module pour indiquer la réussite de leurs opérations.
 

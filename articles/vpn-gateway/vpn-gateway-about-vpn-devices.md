@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
 ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -179,11 +179,11 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 | 6. |3DES          |SHA256            |Aucun         |
 | 7 |DES           |SHA1              |Aucun         |
 | 8 |AES256        |SHA1              |1            |
-| 9. |AES256        |SHA1              |2            |
+| 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
 | 11|AES128        |SHA1              |1            |
 | 12|AES128        |SHA1              |2            |
-| 13.|AES128        |SHA1              |14           |
+| 13|AES128        |SHA1              |14           |
 | 14|3DES          |SHA1              |1            |
 | 15|3DES          |SHA1              |2            |
 | 16|3DES          |SHA256            |2            |

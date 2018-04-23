@@ -1,21 +1,21 @@
 ---
-title: "Intégrer les journaux d’Azure Key Vault à l’aide d’Event Hubs | Microsoft Docs"
-description: "Didacticiel décrivant la procédure requise pour rendre accessibles les journaux Key Vault à un système SIEM (Security Information and Event Management, système de gestion des événements et des informations de sécurité) grâce à la solution d’intégration des journaux Azure"
+title: Intégrer les journaux d’Azure Key Vault à l’aide d’Event Hubs | Microsoft Docs
+description: Didacticiel décrivant la procédure requise pour rendre accessibles les journaux Key Vault à un système SIEM (Security Information and Event Management, système de gestion des événements et des informations de sécurité) grâce à la solution d’intégration des journaux Azure
 services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Didacticiel sur l’intégration des journaux Azure : traiter les événements Azure Key Vault à l’aide d’Event Hubs
 
@@ -81,14 +81,14 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
 
    ![Liste des modules chargés](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Entrez la commande `Login-AzureRmAccount`. Dans la fenêtre de connexion, entrez les informations d’identification de l’abonnement que vous allez utiliser dans le cadre de ce didacticiel.
+3. Entrez la commande `Connect-AzureRmAccount`. Dans la fenêtre de connexion, entrez les informations d’identification de l’abonnement que vous allez utiliser dans le cadre de ce didacticiel.
 
    >[!NOTE]
    >S’il s’agit de votre première connexion à Azure à partir de cette machine, vous verrez un message destiné à autoriser Microsoft à collecter les données d’utilisation de PowerShell. Nous vous recommandons d’autoriser cette collecte de données, car elle nous permettra d’améliorer Azure PowerShell.
 
 4. Après vous être authentifié, vous êtes connecté et voyez apparaître les informations figurant dans la capture d’écran ci-après. Notez l’ID et le nom de l’abonnement, car vous aurez besoin de ces éléments dans la suite de cette procédure.
 
-   ![Fenêtre PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
+   ![Fenêtre PowerShell](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
 5. Créez des variables pour stocker les valeurs qui seront utilisées par la suite. Entrez chacune des lignes PowerShell suivantes. Vous devrez peut-être ajuster les valeurs pour les faire correspondre à votre environnement.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Votre nom d’abonnement peut être différent. Vous pouvez le voir apparaître dans la sortie de la commande précédente.)
     - ```$location = 'West US'``` (Cette variable est utilisée pour transmettre l’emplacement où les ressources doivent être créées. Vous pouvez redéfinir cette variable sur tout autre emplacement de votre choix.)

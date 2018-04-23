@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.openlocfilehash: f5d0579cbb5f787ce08e2a2cea58d3c39a967970
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Désinstallation des composants de Tâches de bases de données élastiques.
 Les **Tâches de base de données élastique** peuvent être désinstallées à l’aide du portail Azure ou de PowerShell.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 ## <a name="introduction"></a>Introduction
@@ -101,7 +101,7 @@ Scénarios d’intégration
 
 -   Exportez le journal d’activité avec les profils de journal dans [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-Vous pouvez utiliser un compte de stockage ou un [espace de noms Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) qui n’est pas dans le même abonnement que celui générant le journal. L’utilisateur qui configure le paramètre doit disposer d’un accès [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) approprié aux deux abonnements
+Vous pouvez utiliser un compte de stockage ou un [espace de noms Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) qui n’est pas dans le même abonnement que celui générant le journal. L’utilisateur qui configure le paramètre doit disposer d’un accès [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) approprié aux deux abonnements
 ### <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 Les journaux de diagnostic Azure sont générés par une ressource et fournissent des informations riches et fréquentes sur le fonctionnement de cette ressource. Le contenu de ces journaux varie selon le type de ressource (p. ex. les [journaux d’événements Windows du système](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) sont une catégorie de journaux de diagnostic pour les machines virtuelles et les [objets blob ; les journaux de files d’attente et de tables](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) sont des catégories de journaux de diagnostic pour les comptes de stockage) et diffère du journal d’activité, qui fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement.
 

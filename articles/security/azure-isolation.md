@@ -1,12 +1,12 @@
 ---
 title: Isolation dans le cloud public Azure | Microsoft Docs
-description: "Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise."
+description: Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
@@ -27,7 +27,7 @@ Pour aider les clients actuel et futurs d’Azure à comprendre et à utiliser l
 Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Ce document fait partie de cette série, comme décrit dans la section Résumé ci-après.
 
 ### <a name="azure-platform"></a>Plateforme Azure
-Azure est une plateforme de services cloud ouverte et flexible, qui prend en charge un large éventail de systèmes d’exploitation, de langages de programmation, d’infrastructures, d’outils, de bases de données et d’appareils. Vous pouvez par exemple afficher :
+Azure est une plateforme de services cloud ouverte et flexible, qui prend en charge un large éventail de systèmes d’exploitation, de langages de programmation, d’infrastructures, d’outils, de bases de données et d’appareils. Vous pouvez par exemple :
 - exécuter des conteneurs Linux avec l’intégration Docker ;
 - créer des applications avec JavaScript, Python, .NET, PHP, Java et Node.js ; et
 - créer des serveurs principaux pour les appareils iOS, Android et Windows.
@@ -52,7 +52,7 @@ Dans le contexte du cloud, un client peut être défini comme un client ou une o
 Chaque annuaire Azure AD est distinct et indépendant des autres annuaires Azure AD. De la même manière qu’un immeuble de bureaux d’entreprise est un élément d’actif sûr propre à votre organisation, un annuaire Azure AD est également conçu pour être un élément d’actif sûr pour les seuls besoins de votre organisation. Par son architecture, Azure AD isole les données et les informations d’identité des clients, ce qui évite tout risque de brassage. Autrement dit, les utilisateurs et les administrateurs d’un annuaire Azure AD ne peuvent pas accéder aux données d’un autre annuaire par accident ou malveillance.
 
 ### <a name="azure-tenancy"></a>Location Azure
-La location Azure (abonnement Azure) fait référence à une relation « client/facturation » et à un [client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) unique dans [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). L’isolation au niveau du client dans Microsoft Azure est obtenue à l’aide d’Azure Active Directory et des [contrôles basés sur les rôles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) qu’il propose. Chaque abonnement Azure est associé à un répertoire Azure Active Directory (AD).
+La location Azure (abonnement Azure) fait référence à une relation « client/facturation » et à un [client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) unique dans [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). L’isolation au niveau du client dans Microsoft Azure est obtenue à l’aide d’Azure Active Directory et des [contrôles basés sur les rôles](https://docs.microsoft.com/azure/role-based-access-control/overview) qu’il propose. Chaque abonnement Azure est associé à un répertoire Azure Active Directory (AD).
 
 Les utilisateurs, groupes et applications de ce répertoire peuvent gérer les ressources de l’abonnement Azure. Vous pouvez affecter ces droits d’accès à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure. Un client Azure AD est logiquement isolé à l’aide de limites de sécurité afin qu’aucun client ne puisse accéder aux autres clients, ni leur nuire intentionnellement ou accidentellement. Azure AD s’exécute sur les serveurs de « systèmes nus » isolés sur un segment réseau séparé, où le filtrage de paquets au niveau de l’hôte et le pare-feu Windows bloquent le trafic et les connexions indésirables.
 
@@ -80,7 +80,7 @@ Le concept de conteneurs client est profondément ancré dans le service de rép
 Même lorsque les métadonnées de plusieurs clients Azure Active Directory sont stockées sur le même disque physique, il n’existe aucune relation entre les conteneurs autres que celles définies par le service de répertoire, qui est régi par l’administrateur du client.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle Azure (RBAC)
-Le [contrôle d’accès en fonction du rôle Azure (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) vous permet de partager des composants disponibles dans un abonnement Azure en fournissant une gestion des accès affinée pour Azure. Azure RBAC vous permet de séparer les tâches au sein de votre organisation et d’accorder les accès en fonction de ce dont les utilisateurs ont besoin pour travailler. Plutôt que de donner à tous des autorisations illimitées au sein de l’abonnement ou des ressources Azure, vous pouvez autoriser uniquement certaines actions.
+Le [contrôle d’accès en fonction du rôle Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) vous permet de partager des composants disponibles dans un abonnement Azure en fournissant une gestion des accès affinée pour Azure. Azure RBAC vous permet de séparer les tâches au sein de votre organisation et d’accorder les accès en fonction de ce dont les utilisateurs ont besoin pour travailler. Plutôt que de donner à tous des autorisations illimitées au sein de l’abonnement ou des ressources Azure, vous pouvez autoriser uniquement certaines actions.
 
 Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base qui s’appliquent à tous les types de ressources :
 
@@ -94,7 +94,7 @@ Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base
 
 Les autres rôles RBAC dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de contributeur de machine virtuelle permet à l’utilisateur de créer et gérer des machines virtuelles. Il ne lui donne pas accès au réseau virtuel Azure, ni au sous-réseau auquel la machine virtuelle se connecte.
 
-Les [rôles RBAC intégrés](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) répertorient les rôles disponibles dans Azure. Elle indique les opérations et l’étendue que chaque rôle intégré accorde aux utilisateurs. Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans RBAC Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+Les [rôles RBAC intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) répertorient les rôles disponibles dans Azure. Elle indique les opérations et l’étendue que chaque rôle intégré accorde aux utilisateurs. Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans RBAC Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Certaines autres fonctionnalités pour Azure Active Directory incluent :
 - Azure AD permet l’authentification unique sur les applications SaaS, quel que soit l’endroit où elles sont hébergées. Certaines applications sont fédérées avec Azure AD, d’autres utilisent le mot de passe de l’authentification unique. Les applications fédérées peuvent également prendre en charge l’approvisionnement d’utilisateurs et la [mise au coffre des mots de passe](https://www.techopedia.com/definition/31415/password-vault).
@@ -218,7 +218,7 @@ Azure propose les types de chiffrement suivants pour protéger les données :
 #### <a name="encryption-in-transit"></a>Chiffrement en transit
 Le chiffrement en transit est un mécanisme de protection des données transmises sur des réseaux. Le stockage Azure vous permet de sécuriser les données à l’aide des éléments suivants :
 
--   Le [chiffrement au niveau du transport](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir d’Azure Storage.
+-   Le [chiffrement au niveau du transport](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir de Stockage Azure.
 
 -   Le [chiffrement câblé](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), par exemple le chiffrement SMB 3.0 pour les partages de fichiers Azure.
 

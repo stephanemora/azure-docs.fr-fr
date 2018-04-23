@@ -2,26 +2,24 @@
 title: Envoyer des travaux depuis Outils R pour Visual Studio - Azure HDInsight | Microsoft Docs
 description: Envoyez des travaux R de votre ordinateur Visual Studio local vers un cluster HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 1a82ba7790f739768156a8bee33a74d7130e24e1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Envoyer des travaux depuis Outils R pour Visual Studio
+# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
 [Outils R pour Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) est une extension gratuite et open source pour les éditions Community (gratuite), Professional et Enterprise de [Visual Studio 2017](https://www.visualstudio.com/downloads/) et [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129) ou version ultérieure.
 
@@ -131,7 +129,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
     3. Sélectionnez **Conteneurs** dans le menu de gauche du volet de votre compte de stockage.
 
-        ![Conteneurs](./media/r-server-submit-jobs-r-tools-vs/containers.png)
+        ![Containers](./media/r-server-submit-jobs-r-tools-vs/containers.png)
 
     4. Sélectionnez le nom du conteneur de votre cluster, accédez au dossier **user** (vous devrez peut-être cliquer sur *Charger plus* en bas de la liste), puis sélectionnez *RevoShare*, puis **newUser**. Le fichier `people.json` doit être affiché dans le dossier `newUser`.
 
@@ -145,6 +143,6 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Options de contexte de calcul pour R Server sur HDInsight (préversion)](r-server-compute-contexts.md)
+* [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](r-server-compute-contexts.md)
 * [Combinaison de ScaleR et SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) fournit un exemple de prédictions de retards de vols.
 <!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->

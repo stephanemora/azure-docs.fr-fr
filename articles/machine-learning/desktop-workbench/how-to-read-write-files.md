@@ -1,6 +1,6 @@
 ---
-title: "Lire et écrire des fichiers de données volumineux | Microsoft Docs"
-description: "Lisez et écrivez des fichiers volumineux dans des expériences Azure Machine Learning."
+title: Lire et écrire des fichiers de données volumineux | Microsoft Docs
+description: Lisez et écrivez des fichiers volumineux dans des expériences Azure Machine Learning.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
 ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Persistance des changements et utilisation de fichiers volumineux
 Le service Azure Machine Learning - Expérimentation vous permet de configurer des cibles d’exécution variées. Certaines cibles sont locales, comme un ordinateur local ou un conteneur Docker sur un ordinateur local. D’autres sont distantes, comme un conteneur Docker sur un ordinateur distant ou un cluster HDInsight. Pour plus d’informations, consultez [Présentation du service d’exécution d’expérience Azure Machine Learning](experimentation-service-configuration.md). 

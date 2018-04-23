@@ -1,11 +1,11 @@
 ---
-title: "Gérer l’accès à la facturation Azure à l’aide de rôles | Microsoft Docs"
-description: 
-services: 
-documentationcenter: 
+title: Gérer l’accès à la facturation Azure à l’aide de rôles | Microsoft Docs
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gérer l’accès aux informations de facturation pour Azure à l’aide du contrôle d’accès en fonction du rôle
 
-Vous pouvez accorder l’accès aux informations de facturation Azure aux membres de votre équipe en attribuant un des rôles d’utilisateur suivants à votre abonnement : Administrateur de compte, Administrateur de service, Coadministrateur, Propriétaire, Collaborateur, Lecteur et Lecteur de facturation. Ils accèdent ainsi aux informations de facturation dans le [portail Azure](https://portal.azure.com/) et peuvent utiliser les [API de facturation](billing-usage-rate-card-overview.md) pour obtenir par programmation des factures (une fois l’adhésion effectuée) et des détails sur l’utilisation. Pour plus d’informations sur les utilisateurs pouvant accorder des rôles, et sur ce que les rôles permettent de faire, consultez [Rôles dans Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+Vous pouvez accorder l’accès aux informations de facturation Azure aux membres de votre équipe en attribuant un des rôles d’utilisateur suivants à votre abonnement : Administrateur de compte, Administrateur de service, Coadministrateur, Propriétaire, Collaborateur, Lecteur et Lecteur de facturation. Ils accèdent ainsi aux informations de facturation dans le [portail Azure](https://portal.azure.com/) et peuvent utiliser les [API de facturation](billing-usage-rate-card-overview.md) pour obtenir par programmation des factures (une fois l’adhésion effectuée) et des détails sur l’utilisation. Pour plus d’informations sur les utilisateurs pouvant accorder des rôles, et sur ce que les rôles permettent de faire, consultez [Rôles dans Azure RBAC](../role-based-access-control/built-in-roles.md).
 
 ## <a name="opt-in"></a> Autoriser d’autres utilisateurs à accéder aux factures
 

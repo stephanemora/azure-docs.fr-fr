@@ -1,12 +1,12 @@
 ---
-title: "Qu’est-ce qu’une collection d’espaces de travail Power BI ?"
-description: "Power BI Embedded vous permet d’intégrer des rapports Power BI dans vos applications web ou mobiles. Vous n’avez donc pas besoin de créer des solutions personnalisées."
+title: Qu’est-ce qu’une collection d’espaces de travail Power BI ?
+description: Power BI Embedded vous permet d’intégrer des rapports Power BI dans vos applications web ou mobiles. Vous n’avez donc pas besoin de créer des solutions personnalisées.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 7df172895bb926f1715370b941964e2c29ab393d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Qu’est-ce qu’une collection d’espaces de travail Power BI ?
 
@@ -86,7 +86,7 @@ Vous pouvez maintenant modifier des rapports existants ou en créer directement 
 [Scénarios courants pour les collections d’espaces de travail Microsoft Power BI](scenarios.md)  
 [Prise en main des collections d’espaces de travail Power BI](get-started.md)  
 [Prise en main de l’exemple](get-started-sample.md)  
-[Incorporer un rapport](embed-report.md)  
+[Embed a report](embed-report.md) (Intégrer un rapport)  
 [Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Référentiel Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  

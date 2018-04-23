@@ -1,26 +1,24 @@
 ---
-title: "Exécuter des requêtes interactives sur un cluster Azure HDInsight Spark | Microsoft Docs"
-description: "Démarrage rapide Spark HDInsight pour créer un cluster Apache Spark dans HDInsight."
-keywords: "démarrage rapide spark,spark interactif,requête interactive,hdinsight spark,azure spark"
+title: Exécuter des requêtes interactives sur un cluster Azure HDInsight Spark | Microsoft Docs
+description: Démarrage rapide Spark HDInsight pour créer un cluster Apache Spark dans HDInsight.
+keywords: démarrage rapide spark,spark interactif,requête interactive,hdinsight spark,azure spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Exécuter des requêtes interactives sur des clusters Spark dans HDInsight
 
@@ -32,7 +30,8 @@ Les blocs-notes Jupyter des clusters HDInsight prennent également en charge tro
 
 Dans ce didacticiel, vous interrogez des données dans un fichier CSV. Vous devez d’abord charger ces données dans Spark comme une trame de données. Vous pouvez ensuite exécuter des requêtes sur la trame de données à l’aide du bloc-notes Jupyter. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * **Un cluster Azure HDInsight Spark**. Pour obtenir des instructions, consultez [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Un bloc-notes Jupyter à l’aide de PySpark**. Pour obtenir des instructions, consultez [Créer un bloc-notes Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
@@ -107,7 +106,8 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
 11. Si vous démarrez le [didacticiel suivant](apache-spark-use-bi-tools.md) maintenant, laissez le bloc-notes ouvert. Dans le cas contraire, arrêtez le bloc-notes pour libérer les ressources de cluster : à partir du menu **File** (Fichier) du bloc-notes, cliquez sur **Close and Halt** (Fermer et arrêter).
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>Étapes suivantes
+
 
 Dans cet article, vous avez appris comment exécuter des requêtes interactives dans Spark à l’aide du bloc-notes Jupyter. Passer à l’article suivant pour découvrir comment les données que vous avez enregistrées dans Spark peuvent être placées dans un outil analytique de BI tel que Power BI et Tableau. 
 

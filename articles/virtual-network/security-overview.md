@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>Sécurité du réseau
 
@@ -35,7 +35,7 @@ L’application des groupes de sécurité réseau lorsqu’ils sont associés à
 - **Trafic entrant** : le groupe de sécurité réseau associé au sous-réseau de l’interface réseau est évalué en premier. Tout trafic autorisé via le groupe de sécurité réseau associé au sous-réseau est ensuite évalué par le groupe de sécurité réseau associé à l’interface réseau. Par exemple, vous pouvez avoir besoin d’un accès entrant sur une machine virtuelle via le port 80 à partir d’Internet. Si vous associez un groupe de sécurité réseau à l’interface réseau et au sous-réseau hébergeant l’interface réseau, le groupe de sécurité réseau associé au sous-réseau et à l’interface réseau doit autoriser le port 80. Si vous avez uniquement autorisé le port 80 via le groupe de sécurité réseau associé au sous-réseau ou à l’interface réseau, la communication échoue en raison des règles de sécurité par défaut. Pour plus de détails, voir les [règles de sécurité par défaut](#default-security-rules). Si vous avez uniquement appliqué un groupe de sécurité réseau au sous-réseau ou à l’interface réseau, que le groupe de sécurité réseau contient une règle qui autorise le trafic entrant sur le port 80 par exemple, la communication réussit. 
 - **Trafic sortant** : le groupe de sécurité réseau associé à l’interface réseau est évalué en premier. Tout trafic autorisé via le groupe de sécurité réseau associé à l’interface réseau est ensuite évalué par le groupe de sécurité réseau associé au sous-réseau.
 
-Vous ne pouvez pas toujours savoir si les groupes de sécurité réseau sont appliquées à la fois à une interface réseau et à un sous-réseau. Vous pouvez facilement afficher des règles d’agrégation appliquées à une interface réseau en consultant les [règles de sécurité efficaces](virtual-network-nsg-troubleshoot-portal.md) relatives à une interface réseau. Vous pouvez également utiliser la fonctionnalité de [vérification du flux IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dans Azure Network Watcher pour déterminer si la communication est autorisée vers ou à partir d’une interface réseau. L’outil vous indique si la communication est autorisée, ainsi que la règle de sécurité réseau qui autorise ou refuse le trafic.
+Vous ne pouvez pas toujours savoir si les groupes de sécurité réseau sont appliquées à la fois à une interface réseau et à un sous-réseau. Vous pouvez facilement afficher des règles d’agrégation appliquées à une interface réseau en consultant les [règles de sécurité efficaces](virtual-network-network-interface.md#view-effective-security-rules) relatives à une interface réseau. Vous pouvez également utiliser la fonctionnalité de [vérification du flux IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dans Azure Network Watcher pour déterminer si la communication est autorisée vers ou à partir d’une interface réseau. L’outil vous indique si la communication est autorisée, ainsi que la règle de sécurité réseau qui autorise ou refuse le trafic.
  
 > [!NOTE]
 > Les groupes de sécurité réseau sont associés à des sous-réseaux ou à des machines virtuelles et services cloud déployés dans le modèle de déploiement classique, plutôt qu’à des interfaces réseau dans le modèle de déploiement du Gestionnaire de ressources. Pour en savoir plus sur les modèles de déploiement Azure, consultez l’article [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

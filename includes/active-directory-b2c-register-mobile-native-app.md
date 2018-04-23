@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory-b2c
+author: davidmu1
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: davidmu
+ms.custom: include file
+ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/18/2018
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Pour inscrire votre application mobile ou native, utilisez les paramètres spécifiés dans la table.
@@ -6,9 +22,9 @@ Pour inscrire votre application mobile ou native, utilisez les paramètres spéc
 
 | Paramètre      | Exemple de valeur  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Nom** | Application de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre application aux consommateurs. |
-| **Client natif** | Oui | Sélectionnez **Oui** pour une application mobile ou native. |
-| **Obtenir un URI de redirection personnalisé** | `com.onmicrosoft.contoso.appname://redirect/path` | Entrez un URI de redirection avec un schéma personnalisé. Prenez soin de choisir un [URI de redirection approprié](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) et de ne pas y inclure de caractères spéciaux tels que des traits de soulignement. |
+| **Name** | Application de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre application aux consommateurs. |
+| **Client natif** | OUI | Sélectionnez **Oui** pour une application mobile ou native. |
+| **Obtenir un URI de redirection personnalisé** | `com.onmicrosoft.contoso.appname://redirect/path` | Entrez un URI de redirection avec un schéma personnalisé. Prenez soin de choisir un [URI de redirection approprié](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) et de ne pas y inclure de caractères spéciaux tels que des traits de soulignement. |
 
 Cliquez sur **Créer** pour inscrire votre application.
 

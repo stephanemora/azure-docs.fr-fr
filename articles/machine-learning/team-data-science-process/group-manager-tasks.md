@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev
 ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="group-manager-tasks"></a>Tâches du responsable de groupe
 
@@ -121,7 +121,7 @@ Pour créer le dépôt **GroupUtilities** (R2) sous le serveur VSTS :
                 
 Maintenant vous devez voir deux dépôts Git (**GroupProjectTemplate** et **GroupUtilities**) dans la colonne de gauche de la page **Gestion de version** : 
 
-![9.](./media/group-manager-tasks/two-repo-under-groupCommon.PNG)
+![9](./media/group-manager-tasks/two-repo-under-groupCommon.PNG)
 
 
 ## <a name="4-create-the-groupprojecttemplate-r1-repository"></a>4. Créer le dépôt GroupProjectTemplate (R1)
@@ -152,7 +152,7 @@ Pour renommer le dépôt **GroupCommon** par défaut *GroupProjectTemplate* (app
         
 - Dans l’Assistant **Renommer le référentiel GroupCommon** qui s’affiche, entrez *GroupProjectTemplate* dans la zone **Nom du référentiel**, puis cliquez sur **Renommer**. 
 
-![13.](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
+![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
 
 

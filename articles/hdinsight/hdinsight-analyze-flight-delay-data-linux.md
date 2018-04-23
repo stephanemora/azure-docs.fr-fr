@@ -1,26 +1,24 @@
 ---
-title: "Analyse des données sur les retards de vol avec Hive dans HDInsight - Azure | Microsoft Docs"
-description: "Découvrez comment utiliser Hive pour analyser les données sur les retards de vol avec HDInsight basé sur Linux, et exporter les données vers SQL Database à l’aide de Sqoop."
+title: Analyse des données sur les retards de vol avec Hive dans HDInsight - Azure | Microsoft Docs
+description: Découvrez comment utiliser Hive pour analyser les données sur les retards de vol avec HDInsight basé sur Linux, et exporter les données vers SQL Database à l’aide de Sqoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight basé sur Linux
 
@@ -30,6 +28,7 @@ Découvrez comment analyser les données sur les retards de vol avec Hive sur HD
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur Azure HDInsight version 3.4 ou ultérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * **Un cluster HDInsight**. Consultez la rubrique [Bien démarrer avec Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) pour savoir comment créer un cluster HDInsight basé sur Linux.
 

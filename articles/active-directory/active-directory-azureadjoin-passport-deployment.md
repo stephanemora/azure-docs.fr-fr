@@ -1,9 +1,9 @@
 ---
 title: Activer Microsoft Windows Hello Entreprise dans votre organisation | Microsoft Docs
-description: "Instructions de déploiement pour activer Microsoft Passport dans votre organisation."
+description: Instructions de déploiement pour activer Microsoft Passport dans votre organisation.
 services: active-directory
-documentationcenter: 
-keywords: "configurer le déploiement Microsoft Passport, Microsoft Windows Hello Entreprise"
+documentationcenter: ''
+keywords: configurer le déploiement Microsoft Passport, Microsoft Windows Hello Entreprise
 author: MarkusVi
 manager: mtillman
 tags: azure-classic-portal
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Activer Microsoft Windows Hello Entreprise dans votre organisation
 Après avoir [connecté les appareils du domaine Windows 10 à Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), procédez comme suit pour activer Microsoft Windows Hello Entreprise dans votre organisation :
@@ -105,7 +105,7 @@ Si vous utilisez l’authentification basée sur un certificat pour l’authenti
 
 Sur la page **Enregistrement SCEP** du profil de certificat, vous devez choisir **Installer dans Passport for Work, sinon mettre en échec** en tant que **Fournisseur de stockage de clés**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [S’authentifier sans mots de passe](active-directory-azureadjoin-passport.md)

@@ -1,22 +1,17 @@
 ---
-title: "Didacticiel de version préliminaire des synonymes dans la Recherche Azure | Microsoft Docs"
-description: "Ajoutez la fonctionnalité de version préliminaire des synonymes à un index dans la Recherche Azure."
-services: search
-manager: jhubbard
-documentationcenter: 
+title: Didacticiel de version préliminaire des synonymes dans la Recherche Azure | Microsoft Docs
+description: Ajoutez la fonctionnalité de version préliminaire des synonymes à un index dans la Recherche Azure.
+manager: cgronlun
 author: HeidiSteen
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 03/31/2017
 ms.author: heidist
-ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5614b0253b43938b5079515899590c7c560d232c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="synonym-preview-c-tutorial-for-azure-search"></a>Didacticiel C# des synonymes (version préliminaire) pour la Recherche Azure
 
@@ -27,7 +22,8 @@ Dans la Recherche Azure, les synonymes sont définis dans une *carte de synonyme
 > [!NOTE]
 > La fonctionnalité de synonymes est actuellement en version préliminaire et prise en charge uniquement dans les dernières versions d’API et de Kit de développement logiciel (SDK) préliminaires (api-version=2016-09-01-Preview, SDK version 4.x-preview). Il n’existe aucune prise en charge sur le portail Azure pour l’instant. Les API de versions préliminaires ne sont pas soumises à un contrat SLA, et les fonctionnalités peuvent changer ; par conséquent, nous ne recommandons pas de les utiliser dans des applications de production.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 La configuration requise du didacticiel est la suivante :
 

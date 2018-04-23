@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide Azure - Créer un compte de stockage | Microsoft Docs"
-description: "Apprenez rapidement à créer un compte de stockage à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI."
+title: Démarrage rapide Azure - Créer un compte de stockage | Microsoft Docs
+description: Apprenez rapidement à créer un compte de stockage à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -66,10 +66,10 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Connectez-vous à votre abonnement Azure avec la commande `Login-AzureRmAccount` et suivez les instructions à l’écran pour l’authentification.
+Connectez-vous à votre abonnement Azure avec la commande `Connect-AzureRmAccount` et suivez les instructions à l’écran pour l’authentification.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 # <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)

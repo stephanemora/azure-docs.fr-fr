@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes relatifs aux itinéraires - Portail | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes liés aux itinéraires dans le modèle de déploiement Azure Resource Manager à l’aide du portail Azure."
+title: Résoudre les problèmes relatifs aux itinéraires - Portail | Microsoft Docs
+description: Découvrez comment résoudre les problèmes liés aux itinéraires dans le modèle de déploiement Azure Resource Manager à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 67da2eae5ea04962cd5adeff8edd070c1a3cf95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Résoudre des problèmes d’itinéraire à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Si l’exemple utilise uniquement les itinéraires système, les mêmes étapes 
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Afficher les itinéraires effectifs pour une machine virtuelle
 Pour afficher les itinéraires agrégés qui s’appliquent à une machine virtuelle, procédez comme suit :
 
-1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com. L’opération *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com. L’opération *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Cliquez sur **Tous les services**, puis sur **Machines virtuelles** dans la liste qui s’affiche.
 3. Sélectionnez une machine virtuelle à dépanner dans la liste qui s’affiche. Un panneau de machine virtuelle avec des options s’affiche.
 4. Cliquez sur **Diagnostiquer et résoudre les problèmes**, puis sélectionnez un problème courant. Pour cet exemple, le problème **Je ne peux pas me connecter à ma machine virtuelle Windows** est sélectionné.

@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble de l’API REST Media Services Operations | Microsoft Docs"
-description: "Vue d’ensemble de l’API REST Media Services"
+title: Vue d’ensemble de l’API REST Media Services Operations | Microsoft Docs
+description: Vue d’ensemble de l’API REST Media Services
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;johndeu
-ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 472408f1c367984d5f4e0e435366c4a0af2e5b34
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -42,7 +42,7 @@ Les considérations suivantes s'appliquent lors de l'utilisation de REST.
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {
@@ -54,9 +54,9 @@ Les considérations suivantes s'appliquent lors de l'utilisation de REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>En-têtes de requête HTTP standard pris en charge par Media Services
 Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requis, que vous devez inclure dans votre requête, et un ensemble d’en-têtes facultatifs que vous pouvez également inclure. Le tableau ci-dessous répertorie les en-têtes nécessaires :
 
-| En-tête | Type | Valeur |
+| En-tête | type | Valeur |
 | --- | --- | --- |
-| Autorisation |Support |Le support est le seul mécanisme d’autorisation accepté. La valeur doit également inclure le jeton d’accès fourni par Azure Active Directory. |
+| Authorization |Support |Le support est le seul mécanisme d’autorisation accepté. La valeur doit également inclure le jeton d’accès fourni par Azure Active Directory. |
 | x-ms-version |Décimal |2.17 (ou version plus récente)|
 | DataServiceVersion |Décimal |3.0 |
 | MaxDataServiceVersion |Décimal |3.0 |
@@ -68,7 +68,7 @@ Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requi
 
 Voici un ensemble d’en-têtes facultatifs :
 
-| En-tête | Type | Valeur |
+| En-tête | type | Valeur |
 | --- | --- | --- |
 | Date |Date RFC 1123 |Horodatage de la demande |
 | Acceptation |Type de contenu |Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contient le flux d’objets blob en tant que charge utile. |
@@ -77,15 +77,15 @@ Voici un ensemble d’en-têtes facultatifs :
 | Accept-Charset |Type de jeu de caractères comme « UTF-8 » |La valeur par défaut est UTF-8. |
 | X-HTTP-Method |Méthode HTTP |Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET. |
 | Content-Type |Type de contenu |Le type de contenu du corps de la requête dans les demandes PUT ou POST. |
-| client-request-id |String |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p>Les valeurs doivent être limitées à 2096 b (2k). |
+| client-request-id |Chaîne |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p>Les valeurs doivent être limitées à 2096 b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>En-têtes de réponse HTTP standard pris en charge par Media Services
 Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la ressource demandée et de l’action à entreprendre.
 
-| En-tête | Type | Valeur |
+| En-tête | type | Valeur |
 | --- | --- | --- |
-| request-id |String |Un identificateur unique pour l’opération actuelle, généré par le service. |
-| client-request-id |String |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
+| request-id |Chaîne |Un identificateur unique pour l’opération actuelle, généré par le service. |
+| client-request-id |Chaîne |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
 | Date |Date RFC 1123 |Les date et heure auxquelles la requête a été traitée. |
 | Content-Type |Varie |Le type de contenu du corps de la réponse. |
 | Content-Encoding |Varie |Gzip ou deflate, le cas échéant. |

@@ -1,26 +1,24 @@
 ---
-title: "Surveiller les clusters Hadoop dans HDInsight à l’aide de l’API Ambari - Azure | Microsoft Docs"
-description: "Utilisez les API Apache Ambari pour la création, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop."
+title: Surveiller les clusters Hadoop dans HDInsight à l’aide de l’API Ambari - Azure | Microsoft Docs
+description: Utilisez les API Apache Ambari pour la création, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 editor: cgronlun
 manager: jhubbard
 ms.assetid: 052135b3-d497-4acc-92ff-71cee49356ff
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 57b63490037760c9150fd4b8fdb66267739f20ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3c8b1af3ad151a7a901150352202ab0b85aa6ec8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
 Découvrez comment surveiller les clusters HDInsight à l’aide des API Ambari.
@@ -35,7 +33,7 @@ Découvrez comment surveiller les clusters HDInsight à l’aide des API Ambari.
 
 HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari uniquement. La version 1.0 de l’API Ambari est prise en charge par les clusters HDInsight versions 2.1 et 3.0. Cet article présente l’accès aux API Ambari sur les versions de clusters HDInsight 3.1 et 2.1. La différence principale entre les deux est que certains des composants ont changé avec l'introduction des nouvelles fonctionnalités (telles que le serveur d'historique des tâches). 
 
-**Configuration requise**
+**Composants requis**
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -60,7 +58,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 ## <a name="jump-start"></a>Lancer rapidement
 Il existe plusieurs façons d'utiliser Ambari pour surveiller les clusters HDInsight.
 
-**Utilisation d'Azure PowerShell**
+**Utilisation d’Azure PowerShell**
 
 Le script Azure PowerShell suivant permet d’obtenir les informations de suivi des tâches MapReduce *dans un cluster HDInsight 3.5.*  La différence principale réside dans le fait que nous allons extraire ces détails à partir du service YARN (plutôt que Map Reduce).
 

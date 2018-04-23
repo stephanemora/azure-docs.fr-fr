@@ -1,12 +1,12 @@
 ---
-title: "Exiger un transfert sécurisé dans le stockage Azure | Microsoft Docs"
-description: "Découvrez la fonctionnalité Transfert sécurisé requis pour Stockage Azure et apprenez à l’activer."
+title: Exiger un transfert sécurisé dans le stockage Azure | Microsoft Docs
+description: Découvrez la fonctionnalité Transfert sécurisé requis pour Stockage Azure et apprenez à l’activer.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Exiger un transfert sécurisé dans Stockage Azure
 
@@ -66,7 +66,7 @@ Pour exiger un transfert sécurisé par programme, utilisez le paramètre _suppo
 
 Cet exemple requiert le module Azure PowerShell version 4.1 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Exécutez `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
  Utilisez la ligne de commande ci-dessous pour vérifier le paramètre :
 

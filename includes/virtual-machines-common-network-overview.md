@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 14aa0002ff88678bb54a3abed8bf7eeed3b717f4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -48,7 +48,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une in
 | Portail Azure | Lorsque vous créez une machine virtuelle dans le portail Azure, une interface réseau est automatiquement créée pour vous (vous ne pouvez pas utiliser une carte d’interface réseau que vous créez séparément). Le portail crée une machine virtuelle avec une seule carte d’interface réseau. Si vous souhaitez créer une machine virtuelle avec plusieurs cartes d’interface réseau, vous devez la créer en suivant une autre méthode. |
 | [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Utilisez [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) avec le paramètre **-PublicIpAddressId** pour fournir l’identificateur de l’adresse IP publique que vous avez créée précédemment. |
 | [interface de ligne de commande Azure](../articles/virtual-machines/linux/multiple-nics.md) | Pour fournir l’identificateur de l’adresse IP publique que vous avez créée précédemment, utilisez [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) avec le paramètre **--public-ip-address**. |
-| [Modèle](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Utilisez [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) comme guide pour le déploiement d’une interface réseau à l’aide d’un modèle. |
+| [Modèle](../articles/virtual-network/template-samples.md) | Utilisez [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) comme guide pour le déploiement d’une interface réseau à l’aide d’un modèle. |
 
 ## <a name="ip-addresses"></a>Adresses IP 
 
@@ -70,7 +70,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une ad
 | [Portail Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Les adresses IP publiques étant par défaut dynamiques, elles sont susceptibles de changer quand la machine virtuelle est supprimée ou arrêtée. Pour vous assurer que la machine virtuelle utilise toujours la même adresse IP publique, créez une adresse IP publique statique. Par défaut, le portail attribue une adresse IP privée dynamique à une carte d’interface réseau lors de la création d’une machine virtuelle. Vous pouvez modifier cette adresse IP statique après la création de la machine virtuelle.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Vous utilisez [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) avec le paramètre **-AllocationMethod** défini sur la valeur Dynamic ou Static. |
 | [interface de ligne de commande Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Vous utilisez [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) avec le paramètre **--allocation-method** défini sur la valeur Dynamic ou Static. |
-| [Modèle](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Utilisez [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) comme guide pour le déploiement d’une adresse IP publique à l’aide d’un modèle. |
+| [Modèle](../articles/virtual-network/template-samples.md) | Utilisez [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) comme guide pour le déploiement d’une adresse IP publique à l’aide d’un modèle. |
 
 Après avoir créé une adresse IP publique, vous pouvez l’associer à une machine virtuelle en l’attribuant à une carte d’interface réseau.
 
@@ -112,7 +112,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un gro
 | [Portail Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Lorsque vous créez une machine virtuelle dans le portail Azure, un groupe de sécurité réseau est automatiquement créé et associé à la carte d’interface réseau créée par le portail. Le nom du groupe de sécurité réseau est une combinaison du nom de la machine virtuelle et de **-nsg**. Ce groupe de sécurité réseau contient une règle de trafic entrant avec une priorité de 1000, un service défini sur RDP, le protocole défini sur TCP, le port défini sur 3389 et l’action définie sur Allow. Si vous souhaitez autoriser tout autre trafic entrant vers la machine virtuelle, vous devez ajouter des règles supplémentaires pour le groupe de sécurité réseau. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Utilisez [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) et fournissez les informations de la règle requise. Utilisez [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) pour créer le groupe de sécurité réseau. Utilisez [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) pour configurer le groupe de sécurité réseau du sous-réseau. Utilisez [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) pour ajouter le groupe de sécurité réseau au réseau virtuel. |
 | [interface de ligne de commande Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Utilisez [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) pour créer initialement le groupe de sécurité réseau. Utilisez [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) pour ajouter des règles à un groupe de sécurité réseau. Utilisez [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) pour ajouter le groupe de sécurité réseau au sous-réseau. |
-| [Modèle](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Utilisez [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) comme guide pour le déploiement d’un groupe de sécurité réseau à l’aide d’un modèle. |
+| [Modèle](../articles/virtual-network/template-samples.md) | Utilisez [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) comme guide pour le déploiement d’un groupe de sécurité réseau à l’aide d’un modèle. |
 
 ## <a name="load-balancers"></a>Équilibreurs de charge
 

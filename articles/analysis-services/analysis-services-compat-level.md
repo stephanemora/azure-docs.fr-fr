@@ -1,25 +1,18 @@
 ---
-title: "Niveau de compatibilité des modèles de données dans Azure Analysis Services | Microsoft Docs"
-description: "Présentation du niveau de compatibilité des modèles de données tabulaires."
-services: analysis-services
-documentationcenter: 
+title: Niveau de compatibilité des modèles de données dans Azure Analysis Services | Microsoft Docs
+description: Présentation du niveau de compatibilité des modèles de données tabulaires.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: a07514c7734f3cd4be1e11a984151abb8ee3f23d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 231a7ea42560aac3fba0ccf27e27123320f219a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Niveau de compatibilité pour les modèles tabulaires Analysis Services
 

@@ -1,6 +1,6 @@
 ---
-title: "Exemples de transformations de flux de données possibles avec la préparation des données Azure Machine Learning | Microsoft Docs"
-description: "Ce document fournit un ensemble d’exemples de transformations de flux de données possibles avec la préparation des données Azure Machine Learning."
+title: Exemples de transformations de flux de données possibles avec la préparation des données Azure Machine Learning | Microsoft Docs
+description: Ce document fournit un ensemble d’exemples de transformations de flux de données possibles avec la préparation des données Azure Machine Learning.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Exemple de transformations de flux de données personnalisées (Python) 
 Le nom de la transformation dans le menu est **Transformation d’un flux de données (Script)**. Avant de lire cette annexe, lisez la [présentation de l’extensibilité de Python](data-prep-python-extensibility-overview.md).

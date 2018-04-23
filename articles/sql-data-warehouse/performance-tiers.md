@@ -1,11 +1,11 @@
 ---
-title: "Niveaux de performance d’Azure SQL Data Warehouse | Microsoft Docs"
-description: "Présentation de l’élasticité et des niveaux de performance de calcul optimisé disponibles dans Azure SQL Data Warehouse."
+title: Niveaux de performance d’Azure SQL Data Warehouse | Microsoft Docs
+description: Présentation de l’élasticité et des niveaux de performance de calcul optimisé disponibles dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Niveaux de performance d’Azure SQL Data Warehouse (préversion)
 SQL Data Warehouse offre deux niveaux de performance optimisés pour les charges de travail analytiques. Cet article explique les concepts des niveaux de performance pour vous aider à choisir celui qui est le plus approprié pour votre charge de travail. 
@@ -188,7 +188,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 
 Lorsque l’un de ces seuils est atteint, les nouvelles requêtes sont mises en file d’attente et exécutées sur la base du modèle premier entré, premier sorti.  À mesure que les requêtes se terminent et que le nombre de requêtes et d’emplacements chute sous les limites, SQL Data Warehouse libère des requêtes en file d’attente. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la façon de tirer parti des classes de ressources pour optimiser davantage votre charge de travail, voir les articles suivants :
 * [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md)

@@ -1,11 +1,11 @@
 ---
-title: "Concepts, termes et entités Scheduler | Microsoft Docs"
-description: "Concepts, terminologie et hiérarchie des entités d’Azure Scheduler, notamment les travaux et les collections de travaux.  Fournit un exemple complet d’un exemple de tâche planifiée."
+title: Concepts, termes et entités Scheduler | Microsoft Docs
+description: Concepts, terminologie et hiérarchie des entités d’Azure Scheduler, notamment les travaux et les collections de travaux.  Fournit un exemple complet d’un exemple de tâche planifiée.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Concepts, terminologie et hiérarchie d’entités de Scheduler
 ## <a name="scheduler-entity-hierarchy"></a>Hiérarchie d’entités de Scheduler
@@ -176,7 +176,7 @@ En cas d'échec d'un travail de Scheduler, il est possible de spécifier une str
 
 Pour définir une stratégie de nouvelle tentative, deux paramètres supplémentaires peuvent être spécifiés : un intervalle de nouvelle tentative (**retryInterval**) et le nombre de nouvelles tentatives (**retryCount**).
 
-L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval**, est l’intervalle entre les nouvelles tentatives. Sa valeur par défaut est de 30 secondes. Elle peut varier de 15 secondes à 18 mois. Les travaux des collections de tâches gratuites ont une valeur minimale configurable de 1 heure.  Il est défini dans le format ISO-8601. De même, la valeur du nombre de nouvelles tentatives est spécifiée avec l’objet **retryCount**. Il s’agit du nombre de nouvelles tentatives. Sa valeur par défaut est 4, et sa valeur maximale est 20. Les objets **retryInterval** et **retryCount** sont facultatifs. Ils reçoivent leur valeur par défaut si **retryType** est défini sur **fixed** et si aucune valeur n’est spécifiée explicitement.
+L’intervalle de nouvelle tentative, spécifié avec l’objet **retryInterval**, est l’intervalle entre les nouvelles tentatives. Sa valeur par défaut est de 30 secondes. Elle peut varier de 15 secondes à 18 mois. Il est défini dans le format ISO-8601. De même, la valeur du nombre de nouvelles tentatives est spécifiée avec l’objet **retryCount**. Il s’agit du nombre de nouvelles tentatives. Sa valeur par défaut est 4, et sa valeur maximale est 20. Les objets **retryInterval** et **retryCount** sont facultatifs. Ils reçoivent leur valeur par défaut si **retryType** est défini sur **fixed** et si aucune valeur n’est spécifiée explicitement.
 
 ## <a name="see-also"></a>Voir aussi
  [Présentation d'Azure Scheduler](scheduler-intro.md)

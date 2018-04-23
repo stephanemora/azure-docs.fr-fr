@@ -1,11 +1,11 @@
 ---
-title: "Créer un IoT Hub Azure à l’aide d’une cmdlet PowerShell | Microsoft Docs"
-description: "Comment utiliser une cmdlet PowerShell pour créer un IoT Hub."
+title: Créer un IoT Hub Azure à l’aide d’une cmdlet PowerShell | Microsoft Docs
+description: Comment utiliser une cmdlet PowerShell pour créer un IoT Hub.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1d22e1a20d18e06686f893b1f4ae22e6373633b3
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7dbfabadf72b8abece02907cd16644ef95e67a9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Créez un IoT Hub à l’aide de la cmdlet New-AzureRmIotHub
 
@@ -39,7 +39,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 Dans une invite de commandes PowerShell, entrez la commande suivante pour vous connecter à votre abonnement Azure :
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la commande suivante pour répertorier les abonnements Azure que vous pouvez utiliser :
@@ -115,7 +115,7 @@ Remove-AzureRmResourceGroup -Name MyIoTRG1
 Maintenant que vous avez déployé un IoT Hub à l’aide d’une cmdlet PowerShell, vous pouvez aller encore plus loin :
 
 * Découvrez d’autres [cmdlets PowerShell pour travailler avec votre IoT Hub][lnk-iothub-cmdlets].
-* Découvrez les capacités de [l’API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
+* Découvrez les capacités de l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les articles suivants :
 

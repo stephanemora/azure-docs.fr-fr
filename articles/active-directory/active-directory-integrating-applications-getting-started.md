@@ -1,11 +1,11 @@
 ---
-title: "Prise en main de l’intégration d’Azure AD avec les applications | Microsoft Docs"
-description: "Cet article est un guide de prise en main de l’intégration d’Azure Active Directory (AD) avec les applications locales et les applications cloud."
+title: Prise en main de l’intégration d’Azure AD avec les applications | Microsoft Docs
+description: Cet article est un guide de prise en main de l’intégration d’Azure Active Directory (AD) avec les applications locales et les applications cloud.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guide de prise en main de l’intégration d’Azure Active Directory avec les applications
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Cette rubrique est conçue pour vous donner une feuille de route pour l’intégration des applications avec Azure Active Directory (AD). Chacune des sections ci-dessous contient un résumé d’une rubrique plus détaillée. Ainsi, vous pouvez identifier les parties de ce guide de prise en main qui vous intéressent.  Suivez les liens pour obtenir de plus amples informations sur chaque sujet.
 
 ## <a name="before-you-begin-take-inventory"></a>Inventaire avant de commencer
@@ -51,12 +51,13 @@ Avant de vous lancer dans l’intégration des applications avec Azure AD, il es
 * Devrez-vous nettoyer les bases de données d’utilisateurs/de groupes avant l’intégration ?  (Cette question est très importante. Si les données sont inexactes, les résultats seront erronés.)
 
 ### <a name="access-management-inventory"></a>Inventaire de gestion de l’accès
-* Comment gérez-vous actuellement l’accès des utilisateurs aux applications ? Cette situation doit-elle être modifiée ?  Avez-vous envisagé d’autres méthodes de gestion de l’accès, par exemple [RBAC](role-based-access-control-configure.md) ?
+* Comment gérez-vous actuellement l’accès des utilisateurs aux applications ? Cette situation doit-elle être modifiée ?  Avez-vous envisagé d’autres méthodes de gestion de l’accès, par exemple [RBAC](../role-based-access-control/role-assignments-portal.md) ?
 * Qui doit accéder à quoi ?
 
 Vous n’avez peut-être pas les réponses à toutes ces questions à l’avance mais ce n’est pas grave.  Ce guide peut vous aider à répondre à certaines de ces questions et à prendre des décisions en connaissance de cause.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Un abonnement Azure et un répertoire Azure Active Directory.  Si vous ne disposez pas d’un abonnement Azure, vous pouvez essayer Azure gratuitement pendant 30 jours. [Faites un essai.](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Intégration des applications avec Azure AD

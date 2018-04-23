@@ -1,27 +1,20 @@
 ---
-title: Limites de service dans Recherche Azure | Microsoft Docs
+title: Limites de service d’Azure Search | Microsoft Docs
 description: Limites de service permettant de planifier la capacité et limites maximales des requêtes et réponses de la Recherche Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
+manager: cgronlun
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: 77ea75bf66f4b6ae6ec7d6ede4364db6b7fa82a0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 23f67099bff7cdadcee44eed50e9944ecf7c5672
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="service-limits-in-azure-search"></a>Limites de service dans Recherche Azure
+# <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [provisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base** ou **Standard**.
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure.
@@ -61,7 +54,7 @@ Dans la plupart des régions, les niveaux tarifaires du service Recherche Azure 
 
 Pour savoir si votre service a un nombre limité de documents, consultez la vignette Utilisation dans la page de présentation de votre service. Les nombres de documents sont illimités ou soumis à une limite établie en fonction du niveau.
 
-  ![Vignette Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
+  ![Mosaïque Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
 ### <a name="regions-and-services-having-document-limits"></a>Régions et services ayant des limites de documents
 

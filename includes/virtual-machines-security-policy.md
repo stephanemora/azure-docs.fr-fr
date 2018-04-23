@@ -28,7 +28,7 @@ Vous pouvez utiliser des [stratégies Azure](../articles/azure-policy/azure-poli
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Avec le [contrôle d’accès en fonction du rôle](../articles/active-directory/role-based-access-control-what-is.md), vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires sur votre machine virtuelle pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le [portail Azure](../articles/active-directory/role-based-access-control-configure.md), à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/role), ou d’[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Avec le [contrôle d’accès en fonction du rôle](../articles/role-based-access-control/overview.md), vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires sur votre machine virtuelle pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le [portail Azure](../articles/role-based-access-control/role-assignments-portal.md), à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/role), ou d’[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

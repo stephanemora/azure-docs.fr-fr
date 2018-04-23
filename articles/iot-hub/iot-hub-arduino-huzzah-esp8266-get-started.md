@@ -3,7 +3,7 @@ title: ESP8266 vers cloud - Connecter la carte Feather HUZZAH ESP8266 à Azure 
 description: Ce didacticiel explique comment configurer la carte Adafruit Feather HUZZAH ESP8266 et la connecter à Azure IoT Hub pour envoyer des données à la plateforme cloud Azure.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: ''
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
-ms.author: xshi
-ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: b850bb25d7a6d06a2d0f55ed915321badf76bb39
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Connecter l’Adafruit Feather HUZZAH ESP8266 à Azure IoT Hub dans le cloud
 
@@ -210,7 +210,7 @@ L’exemple d’application permet de simuler des données de température et d�
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Déployer l’exemple d’application sur la carte Feather HUZZAH ESP8266
 
-1. Dans Visual Studio Code, cliquez sur  **<Select Serial Port>**  dans la barre d’état, puis cliquez sur le port série de Feather HUZZAH ESP8266.
+1. Dans Visual Studio Code, cliquez sur **<Select Serial Port>** dans la barre d’état, puis cliquez sur le port série de Feather HUZZAH ESP8266.
 1. Cliquez sur `F1`, puis saisissez **Arduino** et sélectionnez **Arduino : télécharger** pour générer et déployer l’exemple d’application sur la carte Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Entrer vos informations d’identification

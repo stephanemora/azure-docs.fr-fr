@@ -1,28 +1,26 @@
 ---
-title: "Créer un pipeline d’apprentissage automatique Apache Spark - Azure HDInsight | Microsoft Docs"
-description: "Utilisez la bibliothèque d’apprentissage automatique Apache Spark pour créer des pipelines de données."
+title: Créer un pipeline d’apprentissage automatique Apache Spark - Azure HDInsight | Microsoft Docs
+description: Utilisez la bibliothèque d’apprentissage automatique Apache Spark pour créer des pipelines de données.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: maxluk
-ms.openlocfilehash: 238ab5f940fbea836b75e20b015ae16f22eef3e9
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 75fdc427be42ff8895cde8add7c7b0623da6a808
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Créer un pipeline d’apprentissage automatique Spark
+# <a name="create-a-spark-machine-learning-pipeline"></a>Créer un pipeline Machine Learning Spark
 
 La bibliothèque scalable d’apprentissage automatique (MLlib) Apache Spark apporte des fonctionnalités de modélisation à un environnement distribué. Le package Spark [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) est un ensemble d’API générales reposant sur des DataFrames. Ces API vous permettent de créer et de régler des pipelines d’apprentissage automatique pratiques.  *L’apprentissage automatique Spark* fait référence à cette API basée sur les DataFrames MLlib, et non à l’API de pipeline plus ancienne basée sur les RDD.
 

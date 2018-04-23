@@ -14,13 +14,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: a381697e27a2d85d99fcbb1eb54bd7c0ab7d743a
-  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+  ms.openlocfilehash: 7b18da63a74059e48d41f9e0a068a4f7618aa97a
+  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/16/2018
+  ms.lasthandoff: 04/18/2018
 abstract:
-  description: Azure Container Service (ACS) gère votre environnement Kubernetes hébergé, accélérant et facilitant ainsi le déploiement et la gestion des applications conteneurisées sans expertise d’orchestration de conteneur. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
+  description: Azure Container Service (ACS) gère votre environnement Kubernetes hébergé, accélérant et facilitant ainsi le déploiement et la gestion des applications conteneurisées sans expertise d’orchestration de conteneur. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.<div class="IMPORTANT alert"><p>Important</p><p>Azure Container Service (AKS) est actuellement en <strong>préversion</strong>. Les préversions sont à votre disposition, à condition que vous acceptiez les <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">conditions d’utilisation supplémentaires</a>. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.</p></div>
 sections:
 - title: Démarrages en 5 minutes
   items:
