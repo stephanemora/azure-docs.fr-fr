@@ -14,6 +14,8 @@
   items:
     - name: Ajouter un domaine personnalisé
       href: cdn-map-content-to-custom-domain.md
+    - name: Configurer le protocole HTTPS pour un domaine personnalisé
+      href: cdn-custom-ssl.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -38,10 +40,6 @@
               href: cdn-sas-storage-support.md
         - name: Partage de ressources cross-origin
           href: cdn-cors.md
-        - name: Ajouter un domaine personnalisé à votre point de terminaison CDN
-          href: cdn-map-content-to-custom-domain.md
-        - name: Configurer le protocole HTTPS pour un domaine personnalisé
-          href: cdn-custom-ssl.md
     - name: Optimiser le contenu
       items:
         - name: Vue d’ensemble de l’optimisation
@@ -137,6 +135,11 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Fonctionnalités du moteur de règles
           href: cdn-rules-engine-reference-features.md
+    - name: En-têtes HTTP propres à Verizon
+      href: cdn-verizon-http-headers.md
+      items:
+        - name: En-têtes X-EC-Debug
+          href: cdn-http-debug-headers.md
     - name: "Azure\_PowerShell"
       href: /powershell/module/azurerm.cdn
     - name: .NET
