@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Sécurité dans Azure Data Lake Store
 Un grand nombre d’entreprises tirent parti de l’analyse du Big Data pour bénéficier d’informations métier afin de prendre des décisions éclairées. Une organisation peut évoluer dans un environnement complexe et réglementé, avec un nombre croissant d’utilisateurs divers. Il est essentiel pour une entreprise de garantir que les données métier critiques sont stockées de manière plus sécurisée, avec le niveau d’accès adéquat pour chaque utilisateur. Azure Data Lake Store vous permet de respecter ces exigences de sécurité. Dans cet article, découvrez les fonctionnalités de sécurité de Data Lake Store, notamment :
@@ -42,7 +42,7 @@ Chaque abonnement Azure peut être associé à une instance d’Azure Active Dir
 ## <a name="authorization-and-access-control"></a>Autorisation et contrôle d’accès
 Une fois qu’un utilisateur est authentifié par Azure Active Directory pour accéder à Azure Data Lake Store, les contrôles d’autorisation accèdent aux autorisations pour Data Lake Store. Data Lake Store sépare l’autorisation pour les activités relatives aux comptes et aux données de la manière suivante :
 
-* [Le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md) (RBAC) fournit par Azure pour la gestion des comptes ;
+* [Le contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) (RBAC) fournit par Azure pour la gestion des comptes ;
 * ACL POSIX pour accéder aux données dans le magasin
 
 ### <a name="rbac-for-account-management"></a>RBAC pour la gestion des comptes

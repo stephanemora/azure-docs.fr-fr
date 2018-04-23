@@ -1,11 +1,11 @@
 ---
-title: "Créer votre première fabrique de données Azure (portail Azure) | Microsoft Docs"
-description: "Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure."
+title: Créer votre première fabrique de données Azure (portail Azure) | Microsoft Docs
+description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 75139e39c3391a7662e3d02ee8d56463ac9fcc7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -44,6 +44,7 @@ Le pipeline dans ce didacticiel comprend une activité : une activité Azure HDI
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Consultez la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et suivez les étapes de la section « Configuration requise ».
 
 Cet article ne fournit pas de vue d’ensemble conceptuelle du service Data Factory. Pour plus d’informations sur le service, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md).  
@@ -80,7 +81,7 @@ Pour créer une fabrique de données, procédez comme suit :
 8. Sélectionnez **Créer**.
 
    > [!IMPORTANT]
-   > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
+   > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../role-based-access-control/built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
    >
    >
 9. Sur le tableau de bord, vous voyez la vignette suivante avec l’état **Déploiement de Data Factory** :    

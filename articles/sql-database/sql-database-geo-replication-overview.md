@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fc3dca82bea17b44f66b433f59e5861da3bb0ca2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Vue d’ensemble : groupes de basculement et géo-réplication active
 La géo-réplication active vous permet de configurer jusqu'à quatre bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles pour l’interrogation et le basculement en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire. Le basculement doit être lancé manuellement par l’application de l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. 
@@ -131,7 +131,7 @@ En raison de la latence élevée des réseaux étendus, la copie continue utilis
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Gestion de la géo-réplication active et des groupes de basculement par programmation
 Comme indiqué précédemment, les groupes de basculement automatique (en préversion) et la géo-réplication active peuvent aussi être gérés par programmation à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles.
 
-**API Azure Resource Manager et sécurité basée sur les rôles** : la géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment l[’API REST Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) et les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md).
+**API Azure Resource Manager et sécurité basée sur les rôles** : la géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment l[’API REST Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) et les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gérer le basculement de base de données à l’aide de Transact-SQL
 

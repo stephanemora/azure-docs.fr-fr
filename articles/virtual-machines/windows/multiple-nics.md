@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Créer et gérer une machine virtuelle Windows équipée de plusieurs cartes d’interface réseau
 Les machines virtuelles (VM) dans Azure peuvent être équipées de plusieurs cartes d’interface réseau (NIC) virtuelles. Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article explique comment créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Il explique également comment ajouter ou supprimer des cartes d’interface réseau d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
@@ -123,7 +123,7 @@ Maintenant, commencez à élaborer la configuration de votre machine virtuelle. 
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
 
-6. Ajoutez des itinéraires pour les cartes réseau secondaires au système d’exploitation en suivant les étapes décrites dans [configurer le système d’exploitation pour plusieurs cartes réseau](#configure-guest-os-for-multiple-nics).
+6. Ajoutez des itinéraires pour les cartes réseau secondaires au système d’exploitation en suivant les étapes décrites dans [Configurer le système d’exploitation pour plusieurs cartes réseau](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Ajouter une carte réseau à une machine virtuelle existante
 Pour ajouter une carte d’interface réseau virtuelle à une machine virtuelle existante, désallouez la machine virtuelle, ajoutez la carte d’interface réseau virtuelle, puis démarrez la machine virtuelle. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence. Si nécessaire, vous pouvez [redimensionner une machine virtuelle](resize-vm.md).
@@ -159,7 +159,7 @@ Pour ajouter une carte d’interface réseau virtuelle à une machine virtuelle 
     ```
 
     ### <a name="primary-virtual-nics"></a>Cartes d’interface réseau virtuelles principales
-    L’une des cartes d’interface réseau sur une machine virtuelle dotée de plusieurs cartes doit être la carte principale. Si l’une des cartes d’interface réseau virtuelles existantes sur la machine virtuelle est déjà définie comme principale, vous pouvez ignorer cette étape. L’exemple suivant suppose que deux cartes d’interface réseau virtuelles sont désormais présentes sur une machine virtuelle, et que vous souhaitez ajouter la première carte d’interface réseau (`[0]`) en tant que carte principale :
+    L’une des cartes d’interface réseau sur une machine virtuelle dotées de plusieurs cartes doit être la carte principale. Si l’une des cartes d’interface réseau virtuelles existantes sur la machine virtuelle est déjà définie comme principale, vous pouvez ignorer cette étape. L’exemple suivant suppose que deux cartes d’interface réseau virtuelles sont désormais présentes sur une machine virtuelle, et que vous souhaitez ajouter la première carte d’interface réseau (`[0]`) en tant que carte principale :
         
     ```powershell
     # List existing NICs on the VM and find which one is primary
@@ -179,7 +179,7 @@ Pour ajouter une carte d’interface réseau virtuelle à une machine virtuelle 
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-5. Ajoutez des itinéraires pour les cartes réseau secondaires au système d’exploitation en suivant les étapes décrites dans [configurer le système d’exploitation pour plusieurs cartes réseau](#configure-guest-os-for-multiple-nics).
+5. Ajoutez des itinéraires pour les cartes réseau secondaires au système d’exploitation en suivant les étapes décrites dans [Configurer le système d’exploitation pour plusieurs cartes réseau](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Supprimer une carte réseau d’une machine virtuelle existante
 Pour supprimer une carte d’interface réseau virtuelle à partir d’une machine virtuelle existante, désallouez la machine virtuelle, supprimez la carte d’interface réseau virtuelle, puis démarrez la machine virtuelle.
@@ -236,7 +236,7 @@ Vous pouvez également utiliser la commande `copyIndex()` pour ajouter un numér
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Vous pouvez consulter un exemple complet de la [création de plusieurs cartes d’interface réseau à l’aide de modèles Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Vous pouvez consulter un exemple complet de la [création de plusieurs cartes d’interface réseau à l’aide de modèles Resource Manager](../../virtual-network/template-samples.md).
 
 Ajoutez des itinéraires pour les cartes réseau secondaires au système d’exploitation en suivant les étapes décrites dans [Configurer le système d’exploitation pour plusieurs cartes réseau](#configure-guest-os-for-multiple-nics).
 

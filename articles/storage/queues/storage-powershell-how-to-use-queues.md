@@ -1,12 +1,12 @@
 ---
-title: "Effectuer des opérations sur Stockage File d’attente Azure avec PowerShell | Microsoft Docs"
-description: "Guide pratique pour effectuer des opérations sur un Stockage File d’attente Azure avec PowerShell"
+title: Effectuer des opérations sur Stockage File d’attente Azure avec PowerShell | Microsoft Docs
+description: Guide pratique pour effectuer des opérations sur un Stockage File d’attente Azure avec PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
 Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Pour plus d’informations, consultez [Présentation des files d’attente Azure](storage-queues-introduction.md). Cet article sur les procédures décrit les opérations courantes liées au Stockage File d’attente. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Création d’une file d’attente
+> * Créer une file d’attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire un message
@@ -38,10 +38,10 @@ Il n’existe aucune applet de commande PowerShell pour le plan de données des 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à votre abonnement Azure avec la commande `Login-AzureRmAccount` et suivez les instructions à l’écran.
+Connectez-vous à votre abonnement Azure avec la commande `Connect-AzureRmAccount` et suivez les instructions à l’écran.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Récupérer la liste des régions
@@ -78,7 +78,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Création d’une file d’attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 
 L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) pour créer une file d’attente appelée « queuename ».
 
@@ -182,7 +182,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 Cet article sur les procédures vous a présenté les bases de la gestion de Stockage File d’attente avec PowerShell. Vous avez notamment appris à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Création d’une file d’attente
+> * Créer une file d’attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire le message suivant
@@ -192,5 +192,5 @@ Cet article sur les procédures vous a présenté les bases de la gestion de Sto
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Applets de commande Microsoft Azure PowerShell - Stockage
 * [Applets de commande PowerShell - Stockage](/powershell/module/azurerm.storage#storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Explorateur Microsoft Azure Storage
+### <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

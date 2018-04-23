@@ -1,8 +1,8 @@
 ---
-title: "Utilisation des workflows Hadoop Oozie dans Azure HDInsight basé sur Linux | Microsoft Docs"
-description: "Utilisation de Hadoop Oozie dans HDInsight basé sur Linux. Découvrez comment définir un workflow Oozie et envoyer un travail Oozie."
+title: Utilisation des workflows Hadoop Oozie dans Azure HDInsight basé sur Linux | Microsoft Docs
+description: Utilisation de Hadoop Oozie dans HDInsight basé sur Linux. Découvrez comment définir un workflow Oozie et envoyer un travail Oozie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 586879c949a2acf5e84c0947864910fe120052ff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux
 
@@ -42,6 +40,7 @@ Vous pouvez également utiliser Oozie pour planifier des travaux propres à un s
 > Oozie n’est pas activé sur HDInsight joint à un domaine.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 

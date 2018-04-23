@@ -1,25 +1,19 @@
 ---
-title: "Créer un index (API .NET - Recherche Azure) | Microsoft Docs"
-description: "Créer un index dans le code à l’aide du kit de développement logiciel (SDK) .NET d’Azure Search."
-services: search
-documentationcenter: 
+title: Créer un index (API .NET - Recherche Azure) | Microsoft Docs
+description: Créer un index dans le code à l’aide du kit de développement logiciel (SDK) .NET d’Azure Search.
 author: brjohnstmsft
-manager: jhubbard
-editor: 
+manager: jlembicz
 tags: azure-portal
-ms.assetid: 3a851647-fc7b-4fb6-8506-6aaa519e77cd
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: fac41903c3e5731d17f832ff58145fe74dfa29f1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 429613b7699ada732c56b642141ff8c4505cbc33
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Création d’un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
 > [!div class="op_single_selector"]
@@ -48,7 +42,7 @@ Maintenant que vous avez configuré un service Azure Search, vous être presque 
 Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
 * Les *clés d’administration* principales et secondaires vous accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
-* Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
+* Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
 
 Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’administration principale ou secondaire.
 

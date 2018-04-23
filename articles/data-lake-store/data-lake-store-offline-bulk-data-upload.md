@@ -1,8 +1,8 @@
 ---
-title: "Charger de grandes quantités de données sur Data Lake Store à l’aide de méthodes hors connexion | Microsoft Docs"
-description: "Utiliser l’outil AdlCopy pour copier les données d’objets blob Stockage Azure vers Data Lake Store"
+title: Charger de grandes quantités de données sur Data Lake Store à l’aide de méthodes hors connexion | Microsoft Docs
+description: Utiliser l’outil AdlCopy pour copier les données d’objets blob Stockage Azure vers Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee6f4ab1ac5892536d7f419c198158dc34d6f49e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Utiliser le service Azure Import/Export pour copier les données dans Data Lake Store hors connexion
 Dans cet article, vous allez découvrir comment copier de grands jeux de données (> 200 Go) dans un Azure Data Lake Store à l’aide de méthodes de copie hors connexion, comme le [service Azure Import/Export](../storage/common/storage-import-export-service.md). Plus précisément, la taille du fichier utilisé comme exemple dans cet article est de 339 420 860 416 octets ou environ 319 Go sur disque. Appelons ce fichier 319GB.tsv.
@@ -26,6 +26,7 @@ Dans cet article, vous allez découvrir comment copier de grands jeux de donnée
 Le service Azure Import/Export vous aide à transférer de façon plus sécurisée des volumes importants de données vers Stockage Blob Azure en expédiant des disques durs vers un centre de données Azure.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer la lecture cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -195,7 +196,7 @@ Nous avons commencé avec un fichier de 319 Go, que nous avons scindé en fichie
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

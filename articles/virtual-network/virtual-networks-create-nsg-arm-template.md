@@ -1,6 +1,6 @@
 ---
-title: "Créer des groupes de sécurité réseau - Modèle Azure Resource Manager | Microsoft Docs"
-description: "Découvrez comment créer et déployer des groupes de sécurité réseau à l’aide d’un modèle Azure Resource Manager."
+title: Créer des groupes de sécurité réseau - Modèle Azure Resource Manager | Microsoft Docs
+description: Découvrez comment créer et déployer des groupes de sécurité réseau à l’aide d’un modèle Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Créer des groupes de sécurité réseau à l’aide d’un modèle Azure Resource Manager
 
@@ -162,7 +162,7 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
         info:    New mode is arm
 
-3. Exécutez l’applet de commande **`azure group deployment create`** pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
+3. Exécutez l'applet de commande **`azure group deployment create`** pour déployer le nouveau réseau virtuel à l'aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
 
     ```azurecli
     azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'

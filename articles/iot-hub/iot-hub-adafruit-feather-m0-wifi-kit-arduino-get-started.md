@@ -1,25 +1,25 @@
 ---
-title: "M0 vers cloud : Connecter la carte Feather M0 WiFi à Azure IoT Hub | Microsoft Docs"
-description: "Ce didacticiel explique comment configurer la carte Adafruit Feather M0 WiFi et la connecter à Azure IoT Hub pour envoyer des données à la plateforme cloud Azure."
+title: 'M0 vers cloud : Connecter la carte Feather M0 WiFi à Azure IoT Hub | Microsoft Docs'
+description: Ce didacticiel explique comment configurer la carte Adafruit Feather M0 WiFi et la connecter à Azure IoT Hub pour envoyer des données à la plateforme cloud Azure.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 51befcdb-332b-416f-a6a1-8aabdb67f283
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/16/2017
-ms.author: xshi
-ms.openlocfilehash: 9b278735ce3af9e6e61a85c5e95ea218622361c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 2a6a65a3c4a69a49788ce9799ceed53d53edcd77
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Connecter Adafruit Feather M0 WiFi à Azure IoT Hub dans le cloud
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -141,7 +141,7 @@ L’exemple d’application est hébergé sur GitHub. Clonez l’exemple de réf
 1. Ouvrez une invite de commandes ou une fenêtre de terminal.
 
 2. Accédez au dossier à utiliser pour le stockage de l’exemple d’application.
-3. Exécutez la commande suivante :
+3. Exécutez la commande suivante :
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-Feather-M0-WiFi-client-app.git
@@ -191,7 +191,7 @@ L’exemple d’application est hébergé sur GitHub. Clonez l’exemple de réf
 
 ### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>Utiliser l’exemple d’application en l’absence de capteur BME280
 
-Si vous n’avez pas de capteur BME280, l’exemple d’application permet de simuler des données de température et d’humidité. Pour que l’exemple d’application utilise des données simulées, procédez comme suit :
+Si vous n’avez pas de capteur BME280, l’exemple d’application permet de simuler des données de température et d’humidité. Pour configurer l’utilisation de données simulées par l’exemple d’application, procédez comme suit :
 
 1. Ouvrez le fichier `config.h` dans le dossier `app`.
 

@@ -1,24 +1,24 @@
 ---
-title: "Créer un déclencheur HTTP avec une liaison d’entrée Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment utiliser Azure Functions avec des déclencheurs HTTP pour interroger Azure Cosmos DB."
+title: Créer un déclencheur HTTP avec une liaison d’entrée Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment utiliser Azure Functions avec des déclencheurs HTTP pour interroger Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB
 
@@ -34,7 +34,8 @@ Ce didacticiel décrit les tâches suivantes :
 > * Publier Azure Function
 > * Connecter Azure Function à la base de données Azure Cosmos DB
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), y compris la charge de travail de **développement Azure**.
 
@@ -262,7 +263,7 @@ Une fois que Azure Function est validée et semble fonctionner correctement, la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez effectué les tâches suivantes :
+Dans ce didacticiel, vous avez :
 
 > [!div class="checklist"]
 > * Créé un projet Azure Function 

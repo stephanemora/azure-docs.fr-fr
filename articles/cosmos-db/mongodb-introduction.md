@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 4baf691268fdb11f769a39144c2b5461ee9c2362
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introduction à Azure Cosmos DB : API MongoDB
 
@@ -73,5 +73,5 @@ Des informations sur l’API MongoDB d’Azure Cosmos DB sont intégrées dans l
 * Pour savoir comment créer une connexion entre votre base de données Azure Cosmos DB et l’application MongoDB dans Studio 3T, suivez le didacticiel [Utiliser Studio 3T (MongoChef) avec Azure Cosmos DB](mongodb-mongochef.md).
 * Suivez le didacticiel [Migrer des données vers Azure Cosmos DB à l’aide de mongoimport et mongorestore](mongodb-migrate.md) pour importer vos données dans une API de base de données MongoDB.
 * Établissez une connexion à une API de compte MongoDB à l’aide de [Robomongo](mongodb-robomongo.md).
-* Découvrez combien d’unités de requête sont utilisées par vos opérations avec la commande [GetLastRequestStatistics et des mesures du portail Azure](request-units.md#GetLastRequestStatistics).
+* Découvrez combien d’unités de requête sont utilisées par vos opérations avec la commande [GetLastRequestStatistics et des mesures du portail Azure](set-throughput.md#GetLastRequestStatistics).
 * Découvrez comment [configurer des préférences de lecture pour les applications distribuées dans le monde entier](../cosmos-db/tutorial-global-distribution-mongodb.md).

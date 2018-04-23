@@ -1,11 +1,11 @@
 ---
-title: "Fonctionnalités de Log Analytics pour les fournisseurs de services | Microsoft Docs"
-description: "Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client."
+title: Fonctionnalités de Log Analytics pour les fournisseurs de services | Microsoft Docs
+description: Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Fonctionnalités de Log Analytics pour les fournisseurs de services
 Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 
@@ -40,7 +40,7 @@ En tant que *fournisseur de solutions cloud*, vous pouvez :
 Pour vous connecter à l’abonnement d’un client, vous devez spécifier l’identificateur du client. L’identificateur du client est souvent constitué de la dernière partie de l’adresse e-mail utilisée pour la connexion.
 
 * Dans le portail OMS, ajoutez `?tenant=contoso.com` dans l’URL du portail. Par exemple, `mms.microsoft.com/?tenant=contoso.com`
-* Dans PowerShell, utilisez le paramètre `-Tenant contoso.com` quand vous utilisez l’applet de commande `Add-AzureRmAccount`.
+* Dans PowerShell, utilisez le paramètre `-Tenant contoso.com` quand vous utilisez l’applet de commande `Connect-AzureRmAccount`.
 * L’identificateur du client est ajouté automatiquement quand vous utilisez le lien `OMS portal` à partir du portail Azure pour ouvrir le portail OMS pour l’espace de travail sélectionné et vous y connecter.
 
 En tant que *client* d’un fournisseur de solutions cloud, vous pouvez :

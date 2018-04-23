@@ -1,25 +1,19 @@
 ---
-title: "Gérer Recherche Azure avec les scripts PowerShell | Microsoft Docs"
-description: "Gérez votre service Azure Search avec des scripts PowerShell. Créez ou mettez à jour un service Azure Search et gérez les clés d’administration Azure Search"
-services: search
-documentationcenter: 
-author: seansaleh
-manager: mblythe
-editor: 
+title: Gérer Recherche Azure avec les scripts PowerShell | Microsoft Docs
+description: Gérez votre service Azure Search avec des scripts PowerShell. Créez ou mettez à jour un service Azure Search et gérez les clés d’administration Azure Search
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: heidist
+ms.openlocfilehash: fc9d23b0c11484c7fec575c411f32522b6e46e28
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gérer votre service Azure Search avec PowerShell
 > [!div class="op_single_selector"]
@@ -31,13 +25,14 @@ ms.lasthandoff: 12/21/2017
 Cette rubrique décrit les commandes PowerShell permettant d’exécuter la plupart des tâches de gestion pour les services Azure Search. Nous allons étudier la création d’un service de recherche, sa mise à l’échelle et la gestion de ses clés d’API.
 Ces commandes reflètent les options de gestion disponibles dans l’ [API REST de gestion Azure Search](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * Vous devez disposer d’Azure PowerShell 1.0 ou versions ultérieures. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 * Vous devez être connecté à votre abonnement Azure dans PowerShell, comme décrit ci-dessous.
 
 Tout d’abord, vous devez vous connecter à Azure avec cette commande :
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Spécifiez l’adresse de messagerie électronique et le mot de passe de votre compte Azure dans la boîte de dialogue de connexion à Microsoft Azure.
 

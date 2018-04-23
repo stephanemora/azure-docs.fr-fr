@@ -1,25 +1,18 @@
 ---
 title: Authentification et autorisations utilisateur dans Azure Analysis Services | Documents Microsoft
-description: "En savoir plus sur l’authentification et les autorisations utilisateur dans Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+description: En savoir plus sur l’authentification et les autorisations utilisateur dans Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 Azure Analysis Services utilise Azure Active Directory (Azure AD) pour l’authentification utilisateur et de gestion d’identités. Tout utilisateur qui crée, gère ou se connecte à un serveur Azure Analysis Services doit avoir une identité d’utilisateur valide dans un [client Azure AD](../active-directory/active-directory-administer.md) dans le même abonnement.
@@ -69,7 +62,7 @@ Les utilisateurs Excel peuvent se connecter à un serveur en utilisant un compte
 
 ![Contrôle des accès dans le portail Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent effectuer des tâches dans le portail ou à l’aide de modèles Azure Resource Manager. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md). 
+Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent effectuer des tâches dans le portail ou à l’aide de modèles Azure Resource Manager. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Rôles de bases de données
@@ -85,4 +78,4 @@ Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent e
 [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
 [Gérer les administrateurs de serveurs](analysis-services-server-admins.md)  
-[Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)  
+[Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md)  

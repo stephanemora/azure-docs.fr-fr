@@ -1,11 +1,11 @@
 ---
-title: "Création d’un réseau virtuel à l'aide de l'interface de ligne de commande Azure | Microsoft Docs"
-description: "Découvrez comment créer un réseau virtuel à l'aide de l'interface de ligne de commande dans ARM | Resource Manager."
+title: Création d’un réseau virtuel à l'aide de l'interface de ligne de commande Azure | Microsoft Docs
+description: Découvrez comment créer un réseau virtuel à l'aide de l'interface de ligne de commande dans ARM | Resource Manager.
 services: virtual-network
-documentationcenter: 
-author: jimdial
-manager: carmonm
-editor: 
+documentationcenter: ''
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: 604d128b-88e1-42aa-87ec-49b2f6a54526
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 7c2f0fd8bb41661be5eba8cc4ad2dd30d3b6f8b0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: genli
+ms.openlocfilehash: a41e2de0e9def82510a6b5d28c8f5a2fcc333e6e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>Créer un réseau virtuel (classique) à l'aide de l'interface de ligne de commande Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuration de Cache Redis Azure
 Cette rubrique décrit les configurations disponibles pour vos instances de Cache Redis Azure. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de Cache Redis Azure.
@@ -79,7 +79,7 @@ Cliquez sur **Journaux d’activité** pour afficher les actions effectuées sur
 
 ### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
-La section **Contrôle d’accès (IAM)** fournit un support pour le contrôle d’accès basé sur un rôle (RBAC) dans le portail Azure. Cette configuration aide les organisations à satisfaire de manière simple et précise à leurs exigences en matière de gestion de l’accès. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
+La section **Contrôle d’accès (IAM)** fournit un support pour le contrôle d’accès basé sur un rôle (RBAC) dans le portail Azure. Cette configuration aide les organisations à satisfaire de manière simple et précise à leurs exigences en matière de gestion de l’accès. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Balises
 

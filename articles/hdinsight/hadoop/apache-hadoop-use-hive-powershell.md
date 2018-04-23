@@ -1,8 +1,8 @@
 ---
-title: "Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure | Documents Microsoft"
-description: "Utilisez PowerShell pour exécuter des requêtes Hive dans Hadoop sur HDInsight."
+title: Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure | Documents Microsoft
+description: Utilisez PowerShell pour exécuter des requêtes Hive dans Hadoop sur HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: fbd5ad2aedf0c3022e702a63f8e3d12735b41313
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20ae2c93a231051d3802e8b2329d218d207204e3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Exécution de requêtes Hive avec PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -31,6 +29,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 > Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la page [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
@@ -47,7 +46,7 @@ Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distan
 
 Les applets de commande suivants sont utilisés lors de l'exécution de requêtes Hive sur un cluster à distance HDInsight :
 
-* `Add-AzureRmAccount` : authentifie Azure PowerShell dans votre abonnement Azure.
+* `Connect-AzureRmAccount` : authentifie Azure PowerShell dans votre abonnement Azure.
 * `New-AzureRmHDInsightHiveJobDefinition` : crée une *définition de tâche* à l’aide des instructions HiveQL spécifiées.
 * `Start-AzureRmHDInsightJob` : envoie la définition de la tâche à HDInsight et démarre la tâche. Un objet *job* est retourné.
 * `Wait-AzureRmHDInsightJob` : utilise l’objet de la tâche pour vérifier l’état de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.

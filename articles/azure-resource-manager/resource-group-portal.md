@@ -1,8 +1,8 @@
 ---
-title: "Utiliser le portail Azure pour gérer des ressources Azure | Microsoft Docs"
-description: "Utilisez le Portail Azure et Azure Resource Manager pour gérer vos ressources. Montre comment utiliser des tableaux de bord pour surveiller les ressources."
+title: Utiliser le portail Azure pour gérer des ressources Azure | Microsoft Docs
+description: Utilisez le Portail Azure et Azure Resource Manager pour gérer vos ressources. Montre comment utiliser des tableaux de bord pour surveiller les ressources.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gérer les ressources Azure sur le portail
 
@@ -100,7 +100,7 @@ Vous pouvez verrouiller un abonnement, un groupe de ressources ou une ressource 
 ## <a name="view-your-subscription-and-costs"></a>Afficher votre abonnement et vos coûts
 Vous pouvez afficher des informations sur votre abonnement et les coûts cumulés de toutes vos ressources. Sélectionnez **Abonnements** , puis l’abonnement de votre choix. Il se peut que vous n’ayez qu’un seul abonnement à sélectionner.
 
-![abonnement](./media/resource-group-portal/select-subscription.png)
+![subscription](./media/resource-group-portal/select-subscription.png)
 
 Le taux d’avancement s’affiche.
 
@@ -127,6 +127,6 @@ La suppression d’un groupe de ressources supprime toutes les ressources qu’i
 * Pour visualiser les journaux d’activité, consultez la rubrique [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 * Pour plus d’informations sur le déploiement, consultez la page [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour déployer des ressources via le portail, voir [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](resource-group-template-deploy-portal.md).
-* Pour gérer l’accès aux ressources, voir [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../active-directory/role-based-access-control-configure.md).
+* Pour gérer l’accès aux ressources, voir [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
 

@@ -1,31 +1,32 @@
 ---
 title: Utiliser DataFu avec Pig dans HDInsight - Azure | Documents Microsoft
-description: "DataFu est une collection de bibliothèques à utiliser avec Hadoop. Découvrez comment vous pouvez utiliser DataFu avec Pig sur votre cluster HDInsight."
+description: DataFu est une collection de bibliothèques à utiliser avec Hadoop. Découvrez comment vous pouvez utiliser DataFu avec Pig sur votre cluster HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 0016721a-82be-4773-88ad-91e6b2c21cbb
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: d9aaef778f08500f45b6d1260f2a5d301fabeba8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 30243d0b7db41fbe19c60d6c11d56fb7e801797b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>Utilisation de DataFu avec Pig dans HDInsight
 
 Découvrez comment utiliser DataFu avec HDInsight. DataFu est un ensemble de bibliothèques Open Source à utiliser avec Pig sur Hadoop.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Un abonnement Azure.
 

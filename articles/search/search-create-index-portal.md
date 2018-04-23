@@ -1,23 +1,18 @@
 ---
-title: "Créer un index (portail - Recherche Azure) | Microsoft Docs"
-description: "Créez un index à l’aide du portail Azure."
-services: search
-manager: jhubbard
+title: Créer un index (portail - Recherche Azure) | Microsoft Docs
+description: Créez un index à l’aide du portail Azure.
+manager: cgronlun
 author: heidisteen
-documentationcenter: 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0352b8c830e875afc9b1d1b006ba4d2a512d7a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Créer un index Azure Search à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -30,7 +25,8 @@ ms.lasthandoff: 12/21/2017
 
 Utilisez le concepteur d’index intégré dans le portail Azure pour concevoir un prototype ou créer un [index de recherche](search-what-is-an-index.md) à exécuter sur votre service Recherche Azure. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Cet article repose sur le principe que vous disposez [d’un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et du [service Recherche Azure](search-create-service-portal.md).  
 

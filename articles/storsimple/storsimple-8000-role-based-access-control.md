@@ -1,12 +1,12 @@
 ---
-title: "Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour StorSimple | Microsoft Docs"
-description: "Décrit comment utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure dans le contexte de StorSimple."
+title: Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour StorSimple | Microsoft Docs
+description: Décrit comment utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure dans le contexte de StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: d040849360a47c611d44b3a5d7649c685dcc8068
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 412098ad6b8a6620b165b6cecaa0d0b3ee05f63e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Contrôle d’accès en fonction du rôle pour StorSimple
 
-Cet article fournit une brève description de l’utilisation du contrôle d’accès en fonction du rôle pour votre appareil StorSimple. RBAC offre une gestion fine des accès pour Azure. Utilisez RBAC pour accorder seulement les accès strictement nécessaires aux utilisateurs StorSimple pour effectuer leurs tâches, au lieu de donner à tout le monde un accès illimité. Pour plus d’informations sur les concepts de base de la gestion des accès dans Azure, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
+Cet article fournit une brève description de l’utilisation du contrôle d’accès en fonction du rôle pour votre appareil StorSimple. RBAC offre une gestion fine des accès pour Azure. Utilisez RBAC pour accorder seulement les accès strictement nécessaires aux utilisateurs StorSimple pour effectuer leurs tâches, au lieu de donner à tout le monde un accès illimité. Pour plus d’informations sur les concepts de base de la gestion des accès dans Azure, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 
 Cet article s’applique aux appareils de la série StorSimple 8000 exécutant Update 3.0 ou ultérieur dans le portail Azure.
 
@@ -30,9 +30,9 @@ Cet article s’applique aux appareils de la série StorSimple 8000 exécutant U
 
 RBAC peut être affecté en fonction des rôles. Les rôles garantissent certains niveaux d’autorisation en fonction des ressources disponibles dans l’environnement. Les utilisateurs StorSimple peuvent choisir entre deux types de rôles : intégrés ou personnalisés.
 
-* **Rôles intégrés** : les rôles intégrés sont propriétaire, contributeur, lecteur ou administrateur des accès utilisateurs. Pour plus d’informations, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md#built-in-roles).
+* **Rôles intégrés** : les rôles intégrés sont propriétaire, contributeur, lecteur ou administrateur des accès utilisateurs. Pour plus d’informations, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md#built-in-roles).
 
-* **Rôles personnalisés** : si les rôles intégrés ne répondent pas à vos besoins, vous pouvez créer des rôles RBAC personnalisés pour StorSimple. Pour créer un rôle RBAC personnalisé, commencez avec un rôle intégré, modifiez-le, puis réimportez-le dans l’environnement. Le téléchargement et le chargement du rôle sont gérés avec PowerShell ou Azure CLI. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-custom-roles.md).
+* **Rôles personnalisés** : si les rôles intégrés ne répondent pas à vos besoins, vous pouvez créer des rôles RBAC personnalisés pour StorSimple. Pour créer un rôle RBAC personnalisé, commencez avec un rôle intégré, modifiez-le, puis réimportez-le dans l’environnement. Le téléchargement et le chargement du rôle sont gérés avec PowerShell ou Azure CLI. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle](../role-based-access-control/custom-roles.md).
 
 Pour voir les différents rôles disponibles pour un utilisateur d’un appareil StorSimple dans le portail Azure, accédez à votre service StorSimple Device Manager, puis à **Contrôle d’accès (IAM) > Rôles**.
 
@@ -45,7 +45,7 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur**, 
 
 2. Connectez-vous à Azure.
 
-    `Login-AzureRMAccount`
+    `Connect-AzureRmAccount`
 
 3. Exportez le rôle Lecteur sous la forme d’un modèle JSON sur votre ordinateur.
 
@@ -108,12 +108,12 @@ Ce rôle doit maintenant apparaître dans la liste des rôles dans le panneau **
 
 ![Afficher les rôles RBAC](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-Pour plus d’informations, consultez [Créer un rôle RBAC personnalisé en utilisant PowerShell](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+Pour plus d’informations, consultez [Créer un rôle RBAC personnalisé en utilisant PowerShell](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Exemple de sortie pour la création d’un rôle personnalisé via PowerShell
 
 ```
-PS C:\WINDOWS\system32> Login-AzureRMAccount
+PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
 Environment           : AzureCloud
 Account               : john.doe@contoso.com
@@ -153,7 +153,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Ajouter des utilisateurs au rôle personnalisé
 
-Vous accordez l’accès à partir de la ressource, du groupe de ressources ou de l’abonnement qui correspond à l’étendue de l’attribution du rôle. Quand vous accordez un accès, gardez à l’esprit que l’enfant hérite de l’accès accordé au niveau du nœud parent. Pour plus d’informations, consultez [Hiérarchie des ressources et héritage des accès](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
+Vous accordez l’accès à partir de la ressource, du groupe de ressources ou de l’abonnement qui correspond à l’étendue de l’attribution du rôle. Quand vous accordez un accès, gardez à l’esprit que l’enfant hérite de l’accès accordé au niveau du nœud parent. Pour plus d’informations, consultez [Hiérarchie des ressources et héritage des accès](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
 
 1. Accédez à **Contrôle d’accès (IAM)**. Cliquez sur **+ Ajouter** dans le panneau Contrôle d’accès.
 
@@ -186,5 +186,5 @@ Une fois ce rôle créé, vous pouvez afficher les autorisations associées à c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [attribuer des rôles personnalisés à des utilisateurs internes et externes](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
+Découvrez comment [attribuer des rôles personnalisés à des utilisateurs internes et externes](../role-based-access-control/role-assignments-external-users.md).
 

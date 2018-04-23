@@ -1,6 +1,6 @@
 ---
-title: "Informations de référence sur l’API de journalisation d’Azure ML | Microsoft Docs"
-description: "Informations de référence sur l’API de journalisation."
+title: Informations de référence sur l’API de journalisation d’Azure ML | Microsoft Docs
+description: Informations de référence sur l’API de journalisation.
 services: machine-learning
 author: akshaya-a
 ms.author: akannava
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="logging-api-reference"></a>Informations de référence sur l’API de journalisation
 
@@ -39,7 +39,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-Par défaut, toutes les métriques sont envoyées de manière asynchrone afin que la soumission n’entrave pas l’exécution du programme. Cela peut entraîner des problèmes de classement lorsque plusieurs métriques sont envoyées à la périphérie. C’est par exemple le cas lorsque deux métriques sont consignées en même temps, mais que pour une raison quelconque, l’utilisateur préfère que leur classement exact soit conservé. C’est aussi le cas lorsqu’un suivi des métriques doit être effectué avant d’exécuter une partie du code dont on sait qu’elle risque d’échouer rapidement. Dans ces deux cas, la solution consiste à _attendre_ que la métrique soit entièrement consignée avant de poursuivre :
+Par défaut, toutes les métriques sont envoyées de manière asynchrone afin que la soumission n’entrave pas l’exécution du programme. Cela peut entraîner des problèmes de classement lorsque plusieurs métriques sont envoyées à la périphérie. C’est par exemple le cas lorsque deux métriques sont consignées en même temps, mais que pour une raison quelconque, l’utilisateur préfère que leur classement exact soit conservé. C’est aussi le cas lorsqu’un suivi des métriques doit être effectué avant d’exécuter une partie du code dont on sait qu’elle risque d’effectuer un Fail-fast. Dans ces deux cas, la solution consiste à _attendre_ que la métrique soit entièrement consignée avant de poursuivre :
 
 ```python
 # blocking call

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gérer l’inscription des locataires dans Azure Stack
 
@@ -47,7 +47,7 @@ Remarque : un seul abonnement Azure peut être associé à un locataire. Si vous
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez la cmdlet New-AzureRmResource pour mettre à jour la ressource de l’inscription. Connectez-vous à Azure (`Login-AzureRMAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
+Utilisez la cmdlet New-AzureRmResource pour mettre à jour la ressource de l’inscription. Connectez-vous à Azure (`Connect-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Obtenez une liste de tous les locataires qui ont été ajoutés à une inscripti
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez la cmdlet Get-AzureRmResource pour répertorier tous les locataires inscrits. Connectez-vous à Azure (`Login-AzureRMAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
+Utilisez la cmdlet Get-AzureRmResource pour répertorier tous les locataires inscrits. Connectez-vous à Azure (`Connect-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -146,4 +146,4 @@ Vous pouvez supprimer des mappages de locataires à l’aide de l’opération D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources depuis Azure Stack, consultez [Utilisation et facturation dans Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md) (Utilisation et facturation dans Azure Stack).

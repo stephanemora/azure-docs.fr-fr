@@ -26,7 +26,7 @@ Si vous ne possédez pas encore un abonnement Azure, vous pouvez activer vos [av
 
 Ouvrez une invite de commandes PowerShell Azure et connectez-vous à Azure avec cette commande.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Si vous avez plusieurs abonnements Azure, vous pouvez les répertorier avec cette commande.
 

@@ -1,12 +1,12 @@
 ---
-title: "Structurer des projets avec le modèle de processus TDSP (Team Data Science Process) | Microsoft Docs"
-description: "Guide pratique pour instancier des modèles de processus TDSP (Team Data Science Process) dans Azure Machine Learning qui structurent des projets à des fins de collaboration"
+title: Structurer des projets avec le modèle de processus TDSP (Team Data Science Process) | Microsoft Docs
+description: Guide pratique pour instancier des modèles de processus TDSP (Team Data Science Process) dans Azure Machine Learning qui structurent des projets à des fins de collaboration
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
 ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Structurer des projets avec le modèle de processus TDSP (Team Data Science Process)
 
@@ -110,7 +110,7 @@ Nous fournissons également un modèle [ProjectLearnings](https://aka.ms/tdspaml
 ### <a name="example-project-report"></a>Exemple de rapport de projet
 Un [exemple de rapport de projet](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md) est mis à votre disposition. Ce rapport concernant [l’exemple de projet de classification des revenus aux États-Unis](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) indique comment instancier et utiliser le modèle TDSP pour un projet de science des données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour vous aider à comprendre la procédure d’utilisation de la structure et des modèles TDSP dans des projets Machine Learning, nous fournissons plusieurs exemples de projets complets dans la documentation de Machine Learning :
 
 - Pour découvrir un exemple illustrant la création d’un projet TDSP dans Machine Learning, consultez [l’exemple de projet Team Data Science Process portant sur la classification des revenus à partir de données de recensement aux États-Unis dans Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).

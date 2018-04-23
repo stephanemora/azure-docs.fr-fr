@@ -1,6 +1,6 @@
 ---
-title: "Créer une passerelle d’application avec un arrêt SSL - Azure PowerShell | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide d’Azure PowerShell."
+title: Créer une passerelle d’application avec un arrêt SSL - Azure PowerShell | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide d’Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,15 +11,15 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 4972597e8e2db36be47c86b9aa1e592d94d4c2fe
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3a10cf99c34ea32168c04588777f75c7e18a7b45
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide d’Azure PowerShell
 
-Vous pouvez utiliser Azure PowerShell pour créer une [passerelle d’application](application-gateway-introduction.md) avec un certificat pour un [arrêt SSL](application-gateway-backend-ssl.md) qui utilise un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour des serveurs principaux. Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool principal par défaut de la passerelle d’application. 
+Vous pouvez utiliser Azure PowerShell pour créer une [passerelle d’application](application-gateway-introduction.md) avec un certificat pour un [arrêt SSL](application-gateway-backend-ssl.md) qui utilise un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour des serveurs principaux. Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool backend par défaut de la passerelle d’application. 
 
 Dans cet article, vous apprendrez comment :
 
@@ -27,11 +27,11 @@ Dans cet article, vous apprendrez comment :
 > * Créer un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
-> * Créer un groupe de machines virtuelles identiques avec le pool principal par défaut
+> * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
@@ -272,4 +272,4 @@ Dans ce didacticiel, vous avez appris à :
 > * Créer une passerelle d’application avec le certificat
 > * Créer un groupe de machines virtuelles identiques avec le pool principal par défaut
 
-Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
+Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de guide pratique.

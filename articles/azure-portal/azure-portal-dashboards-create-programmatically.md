@@ -1,8 +1,8 @@
 ---
-title: "Créer par programmation des tableaux de bord Azure | Microsoft Docs"
-description: "Cet article explique comment créer par programmation des tableaux de bord Azure."
+title: Créer par programmation des tableaux de bord Azure | Microsoft Docs
+description: Cet article explique comment créer par programmation des tableaux de bord Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3d72c8b026dd7c72be01aabcb47e76174d7afd6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -55,7 +55,7 @@ Une fois que vous avez configuré le tableau de bord selon vos besoins, les éta
 
 ![commande Partager](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Quand vous cliquez sur la commande Partager, une boîte de dialogue vous invite à choisir l’abonnement et le groupe de ressources dans lesquels publier. N’oubliez pas que [vous devez avoir accès en écriture](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) à l’abonnement et au groupe de ressources choisis.
+Quand vous cliquez sur la commande Partager, une boîte de dialogue vous invite à choisir l’abonnement et le groupe de ressources dans lesquels publier. N’oubliez pas que [vous devez avoir accès en écriture](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) à l’abonnement et au groupe de ressources choisis.
 
 ![partage et accès](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

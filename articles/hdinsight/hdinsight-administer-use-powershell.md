@@ -1,26 +1,24 @@
 ---
 title: Gestion des clusters Hadoop dans HDInsight avec PowerShell - Azure | Microsoft Docs
-description: "Découvrez comment effectuer des tâches d'administration pour les clusters Hadoop dans HDInsight au moyen d'Azure PowerShell."
+description: Découvrez comment effectuer des tâches d'administration pour les clusters Hadoop dans HDInsight au moyen d'Azure PowerShell.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 04bb16d4779741d71f686f53a8f325243ab8499e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7d2f68773c78eed001f14ca86a46fb9e18563d77
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -178,7 +176,7 @@ Il s’agit de la même procédure que [l’octroi et la révocation de l’acc�
 Le script PowerShell suivant montre comment obtenir le nom de compte de stockage par défaut et les informations connexes :
 
 ```powershell
-#Login-AzureRmAccount
+#Connect-AzureRmAccount
 $clusterName = "<HDInsight Cluster Name>"
 
 $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName

@@ -1,6 +1,6 @@
 ---
-title: "Scénarios et exemples de gouvernance d’abonnements | Microsoft Docs"
-description: "Fournit des exemples montrant comment implémenter la gestion des abonnements Azure pour des scénarios courants."
+title: Scénarios et exemples de gouvernance d’abonnements | Microsoft Docs
+description: Fournit des exemples montrant comment implémenter la gestion des abonnements Azure pour des scénarios courants.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemples d’implémentation d’une structure d’entreprise Azure
 Cette rubrique fournit des exemples montrant comment une entreprise peut implémenter les recommandations pour une [structure d’entreprise Azure](resource-manager-subscription-governance.md). Elle utilise une société fictive nommée Contoso pour illustrer les bonnes pratiques pour des scénarios courants.
@@ -43,7 +43,7 @@ Contoso crée un système de gestion du code source (BitBucket) à utiliser par 
 ### <a name="naming-standards--resource-groups"></a>Normes d’attribution de noms et groupes de ressources
 Dave crée un abonnement pour prendre en charge des outils de développement qui sont communs à toutes les divisions. Il doit pouvoir affecter des noms explicites pour l’abonnement et les groupes de ressources (pour l’application et les réseaux). Il crée l’abonnement et les groupes de ressources suivants :
 
-| Item | Nom | Description |
+| Item | NOM | Description |
 | --- | --- | --- |
 | Abonnement |Contoso ETS DeveloperTools Production |Prend en charge des outils de développement courants |
 | Groupe de ressources |bitbucket-prod-rg |Contient le serveur d’applications web et le serveur de base de données |
@@ -56,10 +56,10 @@ Dave attribue les rôles suivants pour l’abonnement :
 
 | Rôle | Affecté à | Description |
 | --- | --- | --- |
-| [Propriétaire](../active-directory/role-based-access-built-in-roles.md#owner) |ID géré à partir de l’AD Contoso |Cet ID est contrôlé avec un accès Just in Time (JIT) par le biais de l’outil de gestion des identités de Contoso et garantit que l’accès propriétaire à l’abonnement est entièrement audité |
-| [Gestionnaire de sécurité](../active-directory/role-based-access-built-in-roles.md#security-manager) |Service de gestion de la sécurité et des risques |Ce rôle permet aux utilisateurs de consulter l’Azure Security Center et l’état des ressources |
-| [Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Équipe réseau |Ce rôle permet à l’équipe réseau de Contoso de gérer la connexion VPN de site à site et les réseaux virtuels |
-| *Rôle personnalisé* |Propriétaire de l’application |Dave crée un rôle qui permet de modifier les ressources au sein du groupe de ressources. Pour en savoir plus, consultez la rubrique [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../active-directory/role-based-access-control-custom-roles.md) |
+| [Propriétaire](../role-based-access-control/built-in-roles.md#owner) |ID géré à partir de l’AD Contoso |Cet ID est contrôlé avec un accès Just in Time (JIT) par le biais de l’outil de gestion des identités de Contoso et garantit que l’accès propriétaire à l’abonnement est entièrement audité |
+| [Gestionnaire de sécurité](../role-based-access-control/built-in-roles.md#security-manager) |Service de gestion de la sécurité et des risques |Ce rôle permet aux utilisateurs de consulter l’Azure Security Center et l’état des ressources |
+| [Collaborateur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) |Équipe réseau |Ce rôle permet à l’équipe réseau de Contoso de gérer la connexion VPN de site à site et les réseaux virtuels |
+| *Rôle personnalisé* |Propriétaire de l’application |Dave crée un rôle qui permet de modifier les ressources au sein du groupe de ressources. Pour en savoir plus, consultez la rubrique [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/custom-roles.md) |
 
 ### <a name="policies"></a>Stratégies
 Dave a les exigences suivantes pour la gestion des ressources dans l’abonnement :
@@ -73,7 +73,7 @@ Il crée les [stratégies Azure](../azure-policy/azure-policy-introduction.md) s
 | Champ | Résultat | Description |
 | --- | --- | --- |
 | location |audit |Auditer la création de ressources dans n’importe quelle région |
-| type |deny |Refuser la création de machines virtuelles de série G |
+| Type |deny |Refuser la création de machines virtuelles de série G |
 | tags |deny |Exiger la balise de propriétaire de l’application |
 | tags |deny |Exiger la balise du centre de coût |
 | tags |append |Ajouter le nom de la balise **BusinessUnit** et la valeur de la balise **ETS** à toutes les ressources |
@@ -94,7 +94,7 @@ L’équipe Contoso ETS en charge de la gestion de la sécurité des information
 
 Il crée les ressources suivantes :
 
-| Type de ressource | Nom | Description |
+| Type de ressource | NOM | Description |
 | --- | --- | --- |
 | Réseau virtuel |internal-vnet |Utilisé avec l’application BitBucket et connecté au réseau d’entreprise de Contoso par le biais d’ExpressRoute.  Un sous-réseau (`bitbucket`) fournit l’application avec un espace d’adresses IP spécifique |
 | Réseau virtuel |external-vnet |Disponible pour des applications futures qui nécessitent des points de terminaison accessible au public |
@@ -112,7 +112,7 @@ Il crée le [verrou de ressources suivant](resource-group-lock-resources.md) :
 ### <a name="azure-automation"></a>Azure Automation
 Dave n’a rien à automatiser pour cette application. Même s’il a créé un compte Azure Automation, il ne l’utilisera pas au cours des étapes initiales.
 
-### <a name="azure-security-center"></a>Centre de sécurité Azure
+### <a name="azure-security-center"></a>Azure Security Center
 Le service de gestion des services informatiques Contoso doit rapidement identifier et gérer les menaces. Il doit également comprendre les problèmes éventuels.  
 
 Pour répondre à ces exigences, Dave active [l’Azure Security Center](../security-center/security-center-intro.md) et fournit l’accès au rôle Gestionnaire de sécurité.
@@ -123,7 +123,7 @@ La direction de l’entreprise dans la division Chaîne logistique a identifié 
 ### <a name="azure-subscriptions"></a>Abonnements Azure
 Dave se connecte à l’Azure Enterprise Portal et voit que le service Chaîne d’approvisionnement existe déjà.  Toutefois, comme ce projet est le premier projet de développement de l’équipe en charge de la chaîne d’approvisionnement dans Azure, Dave détecte le besoin d’un nouveau compte pour l’équipe de développement d’Alice.  Il crée le compte « R & D » pour son équipe et octroie l’accès à Alice. Alice se connecte au portail Azure et crée deux abonnements : l’un destiné aux serveurs de développement et l’autre dédié aux serveurs de production.  Elle suit les normes d’affectation de noms précédemment établies lors de la création des abonnements suivants :
 
-| Utilisation de l’abonnement | Nom |
+| Utilisation de l’abonnement | NOM |
 | --- | --- |
 | Développement |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
 | Production |Contoso SupplyChain Operations LoyaltyCard Production |
@@ -164,13 +164,13 @@ L’équipe Contoso ETS en charge de la gestion de la sécurité des information
 
 Pour **l’abonnement de développement**, ils créent :
 
-| Type de ressource | Nom | Description |
+| Type de ressource | NOM | Description |
 | --- | --- | --- |
 | Réseau virtuel |internal-vnet |Sert à l’environnement de développement de la carte de fidélité de Contoso et est connecté au réseau d’entreprise de Contoso par le biais d’ExpressRoute |
 
 Pour **l’abonnement de production**, ils créent :
 
-| Type de ressource | Nom | Description |
+| Type de ressource | NOM | Description |
 | --- | --- | --- |
 | Réseau virtuel |external-vnet |Héberge l’application de carte de fidélité et n’est pas connecté directement à la connexion ExpressRoute de Contoso. Un code est envoyé par le biais du système de code source directement aux services PaaS |
 | Groupe de sécurité réseau |loyaltycard-nsg |Garantit que la surface d’attaque de cette charge de travail est réduite en autorisant uniquement les communications entrantes sur le port TCP 443.  Contoso examine également une éventuelle protection supplémentaire par le biais d’un pare-feu d’applications web |
@@ -189,7 +189,7 @@ Alice et son équipe de développement disposent de runbooks complets complète 
 
 Pour utiliser ces runbooks, ils activent [Automation](../automation/automation-intro.md).
 
-### <a name="azure-security-center"></a>Centre de sécurité Azure
+### <a name="azure-security-center"></a>Azure Security Center
 Le service de gestion des services informatiques Contoso doit rapidement identifier et gérer les menaces. Il doit également comprendre les problèmes éventuels.  
 
 Pour répondre à ces exigences, Dave active l’Azure Security Center. Il garantit que l’Azure Security Center analyse les ressources et fournit un accès aux équipes de DevOps et de sécurité.

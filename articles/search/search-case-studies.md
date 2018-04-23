@@ -1,25 +1,19 @@
 ---
-title: "Qui utilise Recherche Azure : études de cas et témoignages de clients | Microsoft Docs"
-description: "Études de cas et témoignages sur Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
-services: search
-documentationcenter: 
+title: 'Qui utilise Recherche Azure : études de cas et témoignages de clients | Microsoft Docs'
+description: Études de cas et témoignages sur Azure Search, un service de recherche cloud hébergé sur Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: ad48e927-aaf9-48f5-8efd-48150cfe79b2
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6fddec08f23de8f310ad9e675409b80818b1c98d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Qui utilise Azure Search : études de cas et témoignages de clients
 Découvrez comment les entreprises suivantes ont évolué en intégrant une expérience Azure Search riche dans leurs applications en ligne.

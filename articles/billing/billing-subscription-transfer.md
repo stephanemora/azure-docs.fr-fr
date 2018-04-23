@@ -1,12 +1,12 @@
 ---
-title: "Transfert de la propriété de l’abonnement Azure à un autre compte | Microsoft Docs"
-description: "Décrit comment transférer un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure"
-keywords: "transférer abonnement azure, azure transfert abonnement, déplacer un abonnement azure vers un autre compte, changer abonnement azure, transférer abonnement azure à un autre compte"
-services: 
-documentationcenter: 
+title: Transfert de la propriété de l’abonnement Azure à un autre compte | Microsoft Docs
+description: Décrit comment transférer un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure
+keywords: transférer abonnement azure, azure transfert abonnement, déplacer un abonnement azure vers un autre compte, changer abonnement azure, transférer abonnement azure à un autre compte
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
 
@@ -29,7 +29,7 @@ Transférez votre abonnement à un autre utilisateur dans le Centre des comptes 
 
 > [!IMPORTANT]
 > 
-> Si vous transférez un abonnement à un nouveau locataire Azure AD, toutes les attributions de rôle dans [Contrôle de l’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-what-is.md) sont définitivement supprimées du locataire source et ne sont pas migrées vers le locataire cible.
+> Si vous transférez un abonnement à un nouveau locataire Azure AD, toutes les attributions de rôle dans [Contrôle de l’accès basé sur les rôles (RBAC)](../role-based-access-control/overview.md) sont définitivement supprimées du locataire source et ne sont pas migrées vers le locataire cible.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfert de la propriété d’un abonnement Azure
 
@@ -51,7 +51,7 @@ Transférez votre abonnement à un autre utilisateur dans le Centre des comptes 
 
    > [!IMPORTANT]
    > 
-   > Si vous transférez un abonnement à un nouveau locataire Azure AD, toutes les attributions de rôle dans [Contrôle de l’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-what-is.md) sont définitivement supprimées du locataire source et ne sont pas migrées vers le locataire cible.
+   > Si vous transférez un abonnement à un nouveau locataire Azure AD, toutes les attributions de rôle dans [Contrôle de l’accès basé sur les rôles (RBAC)](../role-based-access-control/overview.md) sont définitivement supprimées du locataire source et ne sont pas migrées vers le locataire cible.
 
    ![Boîte de dialogue Transférer un abonnement](./media/billing-subscription-transfer/image2.PNG)
 
@@ -75,7 +75,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 1. Vous êtes désormais l’administrateur de compte. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les autres rôles RBAC. Pour plus d’informations, consultez [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services](billing-add-change-azure-subscription-administrator.md).
 1. Mettez à jour les informations d’identification associées aux services de cet abonnement, notamment :
-   1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d’informations, consultez [Créer et télécharger un certificat de gestion pour Microsoft Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
    1. Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure. 
 1. [Mettez à jour les alertes de facturation pour cet abonnement](billing-set-up-alerts.md) dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions). 
@@ -115,7 +115,7 @@ L’administrateur de compte est la personne qui s’est inscrite ou a acheté l
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tous les éléments sont-ils transférés ? Notamment les groupes de ressources, les machines virtuelles, les disques et les autres services en cours d’exécution ?
 
-Toutes les ressources telles que les machines virtuelles, les disques, et les sites web sont transférées au nouveau propriétaire. Cependant, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) que vous avez configurés ne sont pas transférés dans les différents annuaires. Les [inscriptions des applications](../active-directory//develop/active-directory-integrating-applications.md) et autres services spécifiques du locataire ne sont pas non plus transférés.
+Toutes les ressources telles que les machines virtuelles, les disques, et les sites web sont transférées au nouveau propriétaire. Cependant, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) que vous avez configurés ne sont pas transférés dans les différents annuaires. Les [inscriptions des applications](../active-directory//develop/active-directory-integrating-applications.md) et autres services spécifiques du locataire ne sont pas non plus transférés.
 
 ### <a id="no-button"></a> Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?
 

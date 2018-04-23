@@ -1,11 +1,9 @@
 ---
-title: "Cas d’utilisation courants et scénarios pour Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez les cinq cas d’utilisation principaux pour Azure Cosmos DB : le contenu généré par l’utilisateur, la journalisation des événements, les données de catalogue, les données de préférences de l’utilisateur et l’Internet des objets (IoT)."
+title: Cas d’utilisation courants et scénarios pour Azure Cosmos DB | Microsoft Docs
+description: 'Découvrez les cinq cas d’utilisation principaux pour Azure Cosmos DB : le contenu généré par l’utilisateur, la journalisation des événements, les données de catalogue, les données de préférences de l’utilisateur et l’Internet des objets (IoT).'
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: c85aa1a010ea9ccac807d676fd69473de07abca9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Cas d’utilisation courants d’Azure Cosmos DB
 Cet article présente plusieurs cas d’utilisation courants pour Azure Cosmos DB.  Les recommandations de cet article constituent le point de départ du développement de votre application avec Cosmos DB.   
@@ -81,7 +79,7 @@ Azure Cosmos DB est utilisé par des jeux tels que [The Walking Dead: No Man’s
 * Azure Cosmos DB prend en charge les lectures et écritures en millisecondes afin d’éviter les retards dans le jeu.
 * L’indexation automatique d’Azure Cosmos DB permet le filtrage sur plusieurs propriétés différentes en temps réel, par exemple pour localiser les joueurs avec leur ID de joueur en interne, ou leur ID GameCenter, Facebook, Google, ou exécuter une requête basée sur l’appartenance du joueur à un groupe. Cela est possible sans générer d’indexation complexe, ni infrastructure de partitionnement.
 * Les fonctionnalités sociales, y compris les messages dans le jeu, l’appartenance des joueurs à des groupes, les défis terminés, les tableaux des meilleurs scores, et les graphiques sociaux sont plus faciles à implémenter avec un schéma flexible.
-* Azure Cosmos DB comme plateforme PaaS (Platform-as-a-service) managée demande peu de tâches de gestion et de configuration pour bénéficier d’une itération rapide et d’un délai de mise sur le marché plus court.
+* Azure Cosmos DB comme plateforme en tant que service (PaaS) gérée requiert une gestion et une configuration minimales pour offrir une itération rapide et réduire le délai de mise sur le marché.
 
 ![Architecture de référence de gaming Azure Cosmos DB](./media/use-cases/gaming.png)
 
@@ -105,7 +103,7 @@ Le format JSON, pris en charge par Cosmos DB, est un format efficace pour repré
 ![Architecture de référence des applications web Azure Cosmos DB](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour découvrir Azure Cosmos DB, suivez nos [guides de démarrage rapide](create-sql-api-dotnet.md) qui vous aident dans la création d’un compte et le démarrage de Cosmos DB. 
+Pour découvrir Azure Cosmos DB, suivez nos [démarrages rapides](create-sql-api-dotnet.md) qui vous guident dans la création d’un compte et la prise en main de Cosmos DB. 
 
 Si vous souhaitez en savoir plus sur les clients qui utilisent Cosmos DB, consultez les témoignages de clients suivants :
 

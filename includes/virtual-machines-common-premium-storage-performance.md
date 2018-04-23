@@ -26,7 +26,7 @@ Le nombre d’E/S par seconde représente le nombre de demandes que votre applic
 
 Lorsque vous attachez un disque de stockage Premium à votre machine virtuelle à grande échelle, Azure met à disposition un nombre garanti d’E/S par seconde, conformément à la spécification de disque. Par exemple, un disque P50 configure 7500 E/S par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique d’E/S par seconde qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a une limite de 80 000 E/S par seconde.
 
-## <a name="throughput"></a>Débit
+## <a name="throughput"></a>Throughput
 Le débit ou la bande passante est la quantité de données que votre application envoie aux disques de stockage dans un intervalle spécifié. Si votre application effectue des opérations d’entrée/sortie avec des tailles d’unité d’E/S importantes, elle aura besoin d’un débit élevé. Les applications d’entrepôt de données ont tendance à émettre des opérations d’analyse intensives qui accèdent simultanément à de grandes quantités de données et exécutent généralement des opérations en bloc. En d’autres termes, ces applications nécessitent un débit plus élevé. Si vous possédez une telle application, vous devez concevoir votre infrastructure de manière à en optimiser le débit. Dans la section suivante, nous décrirons en détail les facteurs que vous devrez ajuster pour y parvenir.
 
 Lorsque vous attachez un disque de stockage premium à une machine virtuelle à grande échelle, Azure met à disposition un débit conforme à la spécification de ce disque. Par exemple, un disque P50 configure un débit de disque de 250 Mo par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique de débit qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a un débit maximal de 2 000 Mo par seconde. 
@@ -37,7 +37,7 @@ La formule ci-dessous illustre la relation entre le débit et le nombre d’E/S 
 
 Par conséquent, il est important de déterminer les valeurs optimales de débit et d’E/S par seconde dont a besoin votre application. Lorsque vous essayez d’optimiser une de ces valeurs, l’autre est également affectée. Dans la section *Optimisation des performances applicatives*, nous aborderons plus en détail la question de l’optimisation des E/S par seconde et du débit.
 
-## <a name="latency"></a>Latence
+## <a name="latency"></a>Latency
 La latence est le temps nécessaire à une application pour recevoir une demande unique, l’envoyer aux disques de stockage et transmettre la réponse au client. Il s’agit d’une mesure critique des performances d’une application, qui s’ajoute à celle des E/S par seconde et du débit. La latence d’un disque de stockage premium correspond au temps nécessaire pour récupérer les informations d’une demande et les retourner à votre application. Premium Storage offre de faibles latences. Si vous activez une mise en cache de l’hôte en lecture seule sur des disques de stockage premium, vous pourrez obtenir une latence de lecture bien plus faible. Nous aborderons la mise en cache du disque plus en détail dans la section *Optimisation des performances applicatives*.
 
 Lorsque vous optimisez votre application pour augmenter le nombre d’E/S par seconde et le débit, la latence de votre application s’en trouve affectée. Après avoir ajusté les performances de votre application, pensez toujours à évaluer la latence de l’application afin d’éviter un comportement de latence élevée inattendu.
@@ -60,8 +60,8 @@ Ensuite, vous devrez mesurer les exigences de performances maximales de votre ap
 | % d’opérations séquentielles | | | |
 | Taille de la demande d’E/S | | | |
 | Débit moyen | | | |
-| Bande passante Débit | | | |
-| min. Latence | | | |
+| Bande passante Throughput | | | |
+| min. Latency | | | |
 | Latence moyenne | | | |
 | Bande passante UC | | | |
 | Utilisation moyenne de l’UC | | | |
@@ -91,10 +91,10 @@ Les compteurs PerfMon sont disponibles pour le processeur, pour la mémoire et p
 | **Latence** |Durée totale d’exécution d’une demande d’E/S sur le disque. |Temps de lecture moyen du disque/s  <br> Temps d’écriture moyen du disque/s |await  <br> svctm |
 | **Taille d’E/S** |La taille des demandes d’E/S émises sur les disques de stockage. |Nb moyen d’octets en lecture du disque  <br> Nb moyen d’octets en écriture du disque |avgrq-sz |
 | **Profondeur de file d’attente** |Nombre de demandes d’E/S en attente de lecture ou d’écriture sur le disque de stockage. |Longueur de file d’attente actuelle du disque |avgqu-sz |
-| **IOPS Mémoire** |Quantité de mémoire nécessaire pour une exécution fluide de l’application |% d’octets dédiés utilisés |Use vmstat |
+| **Bande passante Mémoire** |Quantité de mémoire nécessaire pour une exécution fluide de l’application |% d’octets dédiés utilisés |Use vmstat |
 | **Bande passante UC** |Quantité d’UC nécessaire pour une application fluide de l’application |% temps processeur |%util |
 
-En savoir plus sur [iostat](http://linuxcommand.org/man_pages/iostat1.html) et [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+En savoir plus sur [iostat](https://linux.die.net/man/1/iostat) et [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Optimisation des performances applicatives
 La nature des demandes d’E/S, la taille de machine virtuelle, la taille de disque, le nombre de disques, la mise en cache du disque, le traitement multithread et la profondeur de file d’attente représentent les principaux facteurs qui influencent les performances d’une application exécutée sur Premium Storage. Vous pouvez contrôler certains de ces facteurs avec les dispositifs fournis par le système. La plupart des applications ne vous permettront peut-être pas de modifier directement la taille d’E/S et la profondeur de file d’attente. Par exemple, si vous utilisez SQL Server, vous ne pouvez choisir ni la taille d’E/S ni la profondeur de file d’attente. SQL Server choisit les valeurs optimales de taille d’E/S et de profondeur de file d’attente profondeur de manière à obtenir les meilleures performances. Il est important de comprendre les effets de ces deux types de facteurs sur les performances de votre application, afin que vous puissiez configurer les ressources appropriées pour répondre à vos besoins de performances.
@@ -374,24 +374,24 @@ Procédez comme suit pour préparer le cache
 
 1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
 
-   | Nom | Taille de la demande | % aléatoire | % écriture |
+   | NOM | Taille de la demande | % aléatoire | % écriture |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 Mo |100 |0 |
    | RandomReads\_1MB |1 Mo |100 |100 |
 2. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
 
-   | Scénario | Volume cible | Nom | Durée |
+   | Scénario | Volume cible | NOM | Duration |
    | --- | --- | --- | --- |
    | Initialisation du disque de cache |CacheReads |RandomWrites\_1MB |2 heures |
 3. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
 
-   | Scénario | Volume cible | Nom | Durée |
+   | Scénario | Volume cible | NOM | Durée |
    | --- | --- | --- | --- |
    | Préchauffage du disque de cache |CacheReads |RandomReads\_1MB |2 heures |
 
 Une fois le disque de cache préchauffé, poursuivez avec les scénarios de test décrits ci-dessous. Pour exécuter le test Iometer, utilisez au moins trois threads de travail pour **chaque** volume cible. Pour chaque thread de travail, sélectionnez le volume cible, définissez une profondeur de file d’attente et sélectionnez l’une des spécifications de test enregistrées, comme illustré dans le tableau ci-dessous, pour exécuter le scénario de test correspondant. Le tableau indique également les résultats attendus pour les E/S par seconde et le débit lors de l’exécution de ces tests. Pour tous les scénarios, une petite taille d’E/S de 8 Ko et une profondeur de file d’attente élevée de 128 sont utilisées.
 
-| Scénario de test | Volume cible | Nom | Résultat |
+| Scénario de test | Volume cible | NOM | Résultat |
 | --- | --- | --- | --- |
 | Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde  |
 | Bande passante E/S par seconde en écriture |NoCacheWrites |RandomReads\_8K |64 000 E/S par seconde |
@@ -566,7 +566,7 @@ Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur Azure Premium Storage :
 
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../articles/virtual-machines/windows/premium-storage.md)  
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 

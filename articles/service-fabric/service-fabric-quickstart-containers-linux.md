@@ -12,14 +12,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 1b65f54547821654f35571c55f61074a0106a292
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 65f048d67ef5f250691700a382e781814c57e8a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Démarrage rapide : déployer une application conteneur Azure Service Fabric Linux sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -60,7 +60,7 @@ Connectez-vous et rejoignez un [cluster Linux](http://aka.ms/tryservicefabric). 
 Service Fabric propose plusieurs outils que vous pouvez utiliser pour gérer un cluster et ses applications :
 
 - Service Fabric Explorer, un outil reposant sur un navigateur.
-- CLI Service Fabric, qui s’exécute sur Azure CLI 2.0.
+- L’interface CLI Service Fabric, qui s’exécute sur Azure CLI 2.0.
 - Commandes PowerShell. 
 
 Dans ce démarrage rapide, vous utilisez la CLI Service Fabric dans Cloud Shell et Service Fabric Explorer. Les sections suivantes vous montrent comment installer le certificat nécessaire pour vous connecter à votre cluster sécurisé grâce à ces outils.
@@ -81,7 +81,7 @@ Pour utiliser Service Fabric Explorer, vous devez importer le fichier PFX du cer
 
 Utilisez la méthode qui vous convient le mieux pour importer les certificats sur votre système. Par exemple : 
 
-- Sur Windows : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre magasin personnel, `Certificates - Current User\Personal\Certificates`. Vous pouvez également utiliser la commande PowerShell des instructions **Lisez-moi**.
+- Sur Windows : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre magasin personnel, `Certificates - Current User\Personal\Certificates`. Vous pouvez également utiliser la commande PowerShell dans les instructions **Lisez-moi**.
 - Sur Mac : double-cliquez sur le fichier PFX et suivez les invites pour installer le certificat dans votre application Keychain.
 - Sur Ubuntu : Mozilla Firefox est le navigateur par défaut dans Ubuntu 16.04. Pour importer le certificat dans Firefox, cliquez sur le bouton de menu dans le coin supérieur droit de votre navigateur, puis cliquez sur **Options**. Sur la page **Préférences**, recherchez « certificats » via le champ de recherche. Cliquez sur **Afficher les certificats**, sélectionnez l’onglet **Your Certificates** (Vos certificats), cliquez sur **Importer** et suivez les invites pour importer le certificat.
  

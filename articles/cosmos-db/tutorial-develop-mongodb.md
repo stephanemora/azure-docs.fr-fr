@@ -1,12 +1,12 @@
 ---
-title: "Utiliser l’API d’Azure Cosmos DB pour MongoDB afin de créer une application web | Microsoft Docs"
-description: "Ce didacticiel Azure Cosmos DB permet de créer une application web de base de données en ligne à l’aide de l’API pour MongoDB."
+title: Utiliser l’API d’Azure Cosmos DB pour MongoDB afin de créer une application web | Microsoft Docs
+description: Ce didacticiel Azure Cosmos DB permet de créer une application web de base de données en ligne à l’aide de l’API pour MongoDB.
 keywords: exemples mongodb
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+editor: ''
+documentationcenter: ''
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,23 +16,23 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: f7aed1c69e930bdd5e5b451fa2726a75b78515eb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a8e19bacdbde938758bf41ed7f209521f513aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB : se connecter à une application MongoDB à l’aide de .NET
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
 Ce didacticiel montre comment créer un compte Azure Cosmos DB à l’aide du portail Azure, puis une base de données et une collection pour stocker des données avec [l’API MongoDB](mongodb-introduction.md). 
 
 Ce didacticiel décrit les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer un compte Azure Cosmos DB 
-> * Mettre à jour votre chaîne de connexion
+> * Création d’un compte Azure Cosmos DB 
+> * Mise à jour de votre chaîne de connexion
 > * Créer une application MongoDB sur une machine virtuelle 
 
 
@@ -51,7 +51,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="update-your-connection-string"></a>Mettre à jour votre chaîne de connexion
+## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
 1. Dans le portail Azure, dans la page **Azure Cosmos DB**, sélectionnez le compte API pour MongoDB. 
 2. Dans la barre de gauche du panneau Compte, cliquez sur **Démarrage rapide**. 
@@ -212,15 +212,15 @@ Vous pouvez utiliser le didacticiel [Création d’une application Web Azure se 
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure. 
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez :
 
 > [!div class="checklist"]
-> * Créer un compte Azure Cosmos DB 
-> * Mettre à jour votre chaîne de connexion
+> * Création d’un compte Azure Cosmos DB 
+> * Mise à jour de votre chaîne de connexion
 > * Créer une application MongoDB sur une machine virtuelle
 
 Vous pouvez passer à l’étape suivante du didacticiel et importer vos données MongoDB dans Azure Cosmos DB.  

@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a56ff1d70d56b742966c9980f01b4de03f7f30b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limites de modèle de ressources basées sur des unités DTU d’Azure SQL Database
 
@@ -39,7 +39,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 ### <a name="standard-service-tier"></a>Niveau de service Standard
 | **Niveau de performances** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Nombre maximal de DTU** | 10 | 20 | 50 | 100 |
+| DTU max | 10 | 20 | 50 | 100 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 |
 | Choix de l’espace de stockage maximal (Go)* | 250 | 250 | 250 | 250, 500, 750, 1 024 |
 | Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |
@@ -51,7 +51,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 ### <a name="standard-service-tier-continued"></a>Niveau de service Standard (suite)
 | **Niveau de performances** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Nombre maximal de DTU** | 200 | 400 | 800 | 1 600 | 3000 |
+| DTU max | 200 | 400 | 800 | 1 600 | 3000 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 | 250 |
 | Choix de l’espace de stockage maximal (Go)* | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 |
 | Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |N/A |
@@ -78,11 +78,9 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 >
 >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis – Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Le nombre maximal de DTU par base de données commençant à 200 DTU et plus en mode Standard est en préversion.
->
 
 
-## <a name="single-database-change-storage-size"></a>Base de données unique : modifier la taille de stockage
+## <a name="single-database-change-storage-size"></a>Base de données unique : modifier la taille de stockage
 
 - Le prix des DTU pour une base de données unique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, consultez [Base de données unique : tailles de stockage et niveaux de performance](#single-database-storage-sizes-and-performance-levels).
 - Vous pouvez configurer du stockage supplémentaire pour une base de données en augmentant sa taille maximale à l’aide du [portail Azure](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), de [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update).
@@ -126,7 +124,7 @@ Une taille maximale supérieure à 1 To pour les bases de données P11 et P15 es
    - Mise à niveau de la base de données primaire dans une relation de géoréplication : le fait de modifier la taille maximale de la base de données primaire pour plus de 1 To déclenche la même modification sur la base de données secondaire. Les deux mises à niveau doivent aboutir pour que la modification sur la base de données principale prenne effet. Des limitations de région pour les options de plus de 1 To s’appliquent. Si la base de données secondaire se situe dans une région qui ne prend pas en charge plus de 1 To, la base de données primaire n’est pas mise à niveau.
 - L’utilisation du service Import/Export pour le chargement des bases de données P11/P15 avec plus de 1 To n’est pas prise en charge. Utilisez SqlPackage.exe pour [importer](sql-database-import.md) et [exporter](sql-database-export.md) les données.
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool élastique : tailles de stockage et niveaux de performance
+## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool élastique : tailles de stockage et niveaux de performance
 
 Pour les pools élastiques SQL Database, les tableaux suivants indiquent les ressources disponibles à chaque niveau de performance et de service. Vous pouvez définir le niveau de service, le niveau de performance et la quantité de stockage à l’aide du [portail Azure](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), de [PowerShell](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-powershell), [d’Azure CLI](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-cli) ou de [l’API REST](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-rest-api).
 
@@ -232,7 +230,7 @@ Le tableau suivant décrit les propriétés des bases de données mises en pool.
 | Espace de stockage maximal par base de données |La taille de base de données maximale définie par l’utilisateur pour une base de données dans un pool. Les bases de données regroupées se partagent l’espace de stockage du pool alloué. Par conséquent, la taille qu’une base de données peut atteindre est limitée au stockage de pool minimal restant et à la taille de base de données. La taille de base de données maximale fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par les fichiers journaux. |
 |||
  
-## <a name="elastic-pool-change-storage-size"></a>Pool élastique : modifier la taille du stockage
+## <a name="elastic-pool-change-storage-size"></a>Pool élastique : modifier la taille du stockage
 
 - Le prix des eDTU pour un pool élastique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, consultez [Pool élastique : tailles de stockage et niveaux de performance](#elastic-pool-storage-sizes-and-performance-levels).
 - Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) ou de [l’API REST](/rest/api/sql/elasticpools/update).

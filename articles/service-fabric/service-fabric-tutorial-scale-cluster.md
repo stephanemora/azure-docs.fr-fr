@@ -1,12 +1,12 @@
 ---
-title: "Mettre à l’échelle un cluster Azure Service Fabric | Microsoft Docs"
-description: "Dans ce didacticiel, vous découvrez comment effectuer une mise à l’échelle rapide d’un cluster Service Fabric."
+title: Mettre à l’échelle un cluster Azure Service Fabric | Microsoft Docs
+description: Dans ce didacticiel, vous découvrez comment effectuer une mise à l’échelle rapide d’un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Didacticiel : mettre à l’échelle un cluster Service Fabric
 
@@ -40,6 +40,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -51,7 +52,7 @@ Avant de commencer ce didacticiel :
 Connectez-vous à votre compte Azure, sélectionnez votre abonnement avant d’exécuter des commandes Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

@@ -16,31 +16,31 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f3ca52d10b01c8ce5be337f29335606c2da25a63
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ab2cc7a0fa86becc00044cd24151822138e23a67
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Didacticiel : Installer des applications dans des groupes identiques de machines virtuelles avec Azure PowerShell
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Installer automatiquement des applications dans votre groupe identique
-> * Utilisez l’extension de script personnalisé Azure
+> * Utiliser l’extension de script personnalisé Azure
 > * Mettre à jour une application en cours d’exécution dans un groupe identique
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.6.0 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.6.0 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure. 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Qu’est-ce que l’extension de script personnalisé Azure ?
 L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de GitHub, ou fournis dans le portail Azure lors de l’exécution de l’extension.
 
-L’extension de script personnalisé s’intègre aux modèles Azure Resource Manager et peut être utilisée à l’aide de l’interface CLI 2.0, de Azure PowerShell, du portail Azure ou de l’API REST. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/windows/extensions-customscript.md).
+L’extension de script personnalisé s’intègre dans les modèles Azure Resource Manager et peut être utilisée avec Azure CLI 2.0, Azure PowerShell, le portail Azure ou l’API REST. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/windows/extensions-customscript.md).
 
 Pour voir l’extension de script personnalisé en action, créez un groupe identique qui installe le serveur web IIS et qui affiche le nom d’hôte de l’instance de machine virtuelle du groupe identique. La définition de l’extension de script personnalisé télécharge un exemple de script à partir de GitHub, installe les packages requis, puis écrit le nom d’hôte de l’instance de machine virtuelle sur une page HTML de base.
 
@@ -69,7 +69,7 @@ New-AzureRmVmss `
 La création et la configuration des l’ensemble des ressources et des machines virtuelles du groupe identique prennent quelques minutes.
 
 
-## <a name="create-custom-script-extension-definition"></a>Créer une définition de l’extension de script personnalisé
+## <a name="create-custom-script-extension-definition"></a>Créer une définition d’extension de script personnalisé
 Azure PowerShell utilise une table de hachage pour stocker le fichier à télécharger et la commande à exécuter. L’exemple suivant utilise un exemple de script tiré de GitHub. Commencez d’abord par créer cet objet de configuration comme suit :
 
 ```azurepowershell-interactive
@@ -103,7 +103,7 @@ Update-AzureRmVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-Chaque instance de machine virtuelle dans le groupe identique télécharge et exécute le script à partir de GitHub. Dans un exemple plus complexe, les composants et fichiers de plusieurs applications peuvent être installés. Si le groupe identique est mis à l’échelle, les nouvelles instances de machine virtuelle appliquent automatiquement la même définition de l’extension de script personnalisé et installent l’application requise.
+Chaque instance de machine virtuelle dans le groupe identique télécharge et exécute le script à partir de GitHub. Dans un exemple plus complexe, les composants et fichiers de plusieurs applications peuvent être installés. Si le groupe identique monte en puissance, les nouvelles instances de machine virtuelle appliquent automatiquement la même définition d’extension de script personnalisé et installent l’application requise.
 
 
 ## <a name="test-your-scale-set"></a>Tester votre groupe identique
@@ -120,7 +120,7 @@ Saisissez l’adresse IP publique de l’équilibreur de charge dans un navigate
 Laissez le navigateur web ouvert afin que vous puissiez voir une version mise à jour à l’étape suivante.
 
 
-## <a name="update-app-deployment"></a>Déploiement d’une mise à jour d’application
+## <a name="update-app-deployment"></a>Déployer une mise à jour d’application
 Tout au long du cycle de vie d’un groupe identique, vous devrez peut-être déployer une version mise à jour de votre application. Avec l’extension de script personnalisé, vous pouvez faire référence à un script de déploiement de mises à jour puis réappliquer l’extension pour votre groupe identique. Une fois le groupe identique créé à l’étape précédente, `-UpgradePolicyMode` a été défini sur *Automatique*. Ce paramètre permet aux instances de machine virtuelle dans le groupe identique de mettre automatiquement à jour et d’appliquer la dernière version de votre application.
 
 Créez une nouvelle définition de configuration nommée *customConfigv2*. Cette définition exécute une version *v2* mise à jour du script d’installation de l’application :
@@ -169,7 +169,7 @@ Dans ce didacticiel, vous avez appris comment installer et mettre à jour automa
 
 > [!div class="checklist"]
 > * Installer automatiquement des applications dans votre groupe identique
-> * Utilisez l’extension de script personnalisé Azure
+> * Utiliser l’extension de script personnalisé Azure
 > * Mettre à jour une application en cours d’exécution dans un groupe identique
 
 Passez au didacticiel suivant pour apprendre à mettre automatiquement à l’échelle votre groupe identique.

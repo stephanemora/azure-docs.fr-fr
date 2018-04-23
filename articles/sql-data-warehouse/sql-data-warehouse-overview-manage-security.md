@@ -1,25 +1,20 @@
 ---
-title: "Sécuriser une base de données dans SQL Data Warehouse | Microsoft Docs"
-description: "Conseils relatifs à la sécurisation d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+title: Sécuriser une base de données dans SQL Data Warehouse | Microsoft Docs
+description: Conseils relatifs à la sécurisation d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 8fa2f5ca-4cf5-4418-99a2-4dc745799850
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: security
-ms.date: 12/14/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: efc0ca9b156bd69a39197d40083830c6c7e77647
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: c42b065a307d5e10882c621191318a667e78795c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Sécuriser une base de données dans SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -65,7 +60,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 Pour autoriser un utilisateur à effectuer d’autres opérations telles que la création de connexions ou de bases de données, affectez-le aux rôles `Loginmanager` et `dbmanager` dans la base de données master. Pour en savoir plus sur ces rôles supplémentaires et sur l’authentification auprès d’une base de données SQL, consultez [Gestion des bases de données et connexions dans Azure SQL Database][Managing databases and logins in Azure SQL Database].  Pour plus d’informations, consultez [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication].
 
-## <a name="authorization"></a>Autorisation
+## <a name="authorization"></a>Authorization
 L’autorisation fait référence à ce que vous pouvez faire dans une base de données Azure SQL Data Warehouse. Les privilèges d’autorisation sont déterminés par les autorisations et les appartenances aux rôles. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible. Pour gérer les rôles, vous pouvez utiliser les procédures stockées suivantes :
 
 ```sql

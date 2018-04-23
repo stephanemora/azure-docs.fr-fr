@@ -1,6 +1,6 @@
 ---
-title: "Installation et configuration de la gestion des modèles Azure Machine Learning | Microsoft Docs"
-description: "Ce document décrit les procédures et les concepts relatifs à l’installation et à la configuration de la gestion des modèles dans Azure Machine Learning."
+title: Installation et configuration de la gestion des modèles Azure Machine Learning | Microsoft Docs
+description: Ce document décrit les procédures et les concepts relatifs à l’installation et à la configuration de la gestion des modèles dans Azure Machine Learning.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="model-management-setup"></a>Installation de la gestion des modèles
 
@@ -83,7 +83,7 @@ Partez d’un déploiement local, vérifiez que votre modèle et votre code fonc
 Dans un premier temps, vous devez configurer votre environnement de déploiement. La configuration de l’environnement est une tâche qui ne doit être effectuée qu’une seule fois. Une fois la configuration terminée, vous pouvez réutiliser l’environnement pour les déploiements ultérieurs. Pour plus d’informations, consultez la section suivante.
 
 Pendant la configuration de l’environnement :
-- Vous êtes invité à vous connecter à Azure. Pour vous connecter, ouvrez la page https://aka.ms/devicelogin dans un navigateur web et entrez le code fourni pour vous authentifier.
+- Vous êtes invité à vous connecter à Azure. Pour vous connecter, utilisez un navigateur web pour ouvrir la page https://aka.ms/devicelogin et entrez le code fourni pour vous authentifier.
 - Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : choisissez un compte qui est associé à un abonnement Azure valide et qui dispose d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à confirmer si vous souhaitez continuer avec le compte sélectionné.
 
 ### <a name="environment-setup"></a>Configuration de l’environnement

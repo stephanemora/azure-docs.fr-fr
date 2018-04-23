@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Prise en main des modèles privés sur le portail Azure
 Un modèle [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) est un modèle déclaratif utilisé pour définir votre déploiement. Vous pouvez définir les ressources à déployer pour une solution et spécifier les paramètres et variables qui permettent d’entrer des valeurs pour les différents environnements. Le modèle se compose de JSON et d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
@@ -103,7 +103,7 @@ Vous pouvez déployer tout **Modèle** pour lequel vous disposez d’autorisatio
 ![Déployer un modèle](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Partager une ressource de Modèle
-Une ressource de **Modèle** peut être partagée avec vos homologues. Le partage fonctionne d’une manière semblable à l’ [attribution de rôle pour n’importe quelle ressource dans Azure](../active-directory/role-based-access-control-configure.md). Le propriétaire du **Modèle** fournit des autorisations aux autres utilisateurs, qui peuvent interagir avec une ressource de Modèle. La personne ou le groupe de personnes avec lesquelles vous partagez le **Modèle** peuvent visualiser le modèle Ressource Manager et ses propriétés de galerie.
+Une ressource de **Modèle** peut être partagée avec vos homologues. Le partage fonctionne d’une manière semblable à l’ [attribution de rôle pour n’importe quelle ressource dans Azure](../role-based-access-control/role-assignments-portal.md). Le propriétaire du **Modèle** fournit des autorisations aux autres utilisateurs, qui peuvent interagir avec une ressource de Modèle. La personne ou le groupe de personnes avec lesquelles vous partagez le **Modèle** peuvent visualiser le modèle Ressource Manager et ses propriétés de galerie.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Contrôle d’accès pour les ressources Microsoft.Gallery
 | Rôle | Autorisations |

@@ -1,12 +1,11 @@
 ---
-title: "Didacticiel de diffusion mondiale d’Azure Cosmos DB pour l’API MongoDB | Documents Microsoft"
-description: "Découvrez comment configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB."
+title: Didacticiel de diffusion mondiale d’Azure Cosmos DB pour l’API MongoDB | Documents Microsoft
+description: Découvrez comment configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB.
 services: cosmos-db
 keywords: diffusion mondiale, MongoDB
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8bd86c5e66fdf2431e3db12a43e953b022a3770a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Comment configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB
 
@@ -97,10 +96,10 @@ C’est ici que s’achève ce didacticiel. Découvrez comment gérer la cohére
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez effectué les tâches suivantes :
+Dans ce didacticiel, vous avez :
 
 > [!div class="checklist"]
-> * Configurer la distribution mondiale à l’aide du portail Azure
+> * Configurer la diffusion mondiale à l’aide du portail Azure
 > * Configurer la distribution mondiale à l’aide des API SQL
 
 Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développer en local à l’aide de l’émulateur local Azure Cosmos DB.

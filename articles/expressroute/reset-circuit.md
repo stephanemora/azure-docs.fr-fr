@@ -1,13 +1,13 @@
 ---
-title: "Réinitialiser un circuit Azure ExpressRoute en échec : PowerShell | Microsoft Docs"
-description: "Cet article vous aide à réinitialiser un circuit ExpressRoute en état d’échec."
+title: 'Réinitialiser un circuit Azure ExpressRoute en échec : PowerShell | Microsoft Docs'
+description: Cet article vous aide à réinitialiser un circuit ExpressRoute en état d’échec.
 documentationcenter: na
 services: expressroute
 author: anzaman
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 0e017200193de3e4a02275cec3b09c32f1fa5c31
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 423bc1d6409e5b7fe02339a05d0775f4ff42de49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Réinitialiser un circuit ExpressRoute en échec
 
@@ -32,14 +32,14 @@ Quand une opération sur un circuit ExpressRoute ne se termine pas correctement,
 2. Ouvrez la console PowerShell avec des privilèges élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 3. Si vous disposez de plusieurs abonnements Azure, vérifiez les abonnements associés au compte.
 
   ```powershell
   Get-AzureRmSubscription
   ```
-4. Spécifiez l’abonnement que vous souhaitez utiliser.
+4. Spécifiez l’abonnement à utiliser.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"

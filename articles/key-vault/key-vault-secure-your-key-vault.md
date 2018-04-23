@@ -1,8 +1,8 @@
 ---
-title: "Sécuriser votre coffre de clés | Microsoft Docs"
-description: "Gérez les autorisations d’accès à un coffre de clés pour la gestion des clés et des secrets. Modèle d’authentification et d’autorisation d’un coffre de clés et procédure de sécurisation de votre coffre de clés"
+title: Sécuriser votre coffre de clés | Microsoft Docs
+description: Gérez les autorisations d’accès à un coffre de clés pour la gestion des clés et des secrets. Modèle d’authentification et d’autorisation d’un coffre de clés et procédure de sécurisation de votre coffre de clés
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications cloud. Comme il s’agit de données sensibles et stratégiques, il est préférable de sécuriser l’accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés puissent accéder à ces derniers. Cet article propose une vue d’ensemble du modèle d’accès à un coffre de clés, explique l’authentification et l’autorisation, et détaille la procédure de sécurisation de l’accès au coffre de clés pour vos applications cloud à l’aide d’un exemple.
@@ -76,7 +76,7 @@ Le plan de gestion se compose des opérations qui affectent le coffre de clés p
 
 Avec le modèle Azure Resource Manager, vous créez votre coffre de clés dans un groupe de ressources et contrôlez l’accès au plan de gestion de ce coffre de clés à l’aide d’Azure Active Directory. Par exemple, vous pouvez autoriser des utilisateurs ou un groupe à gérer les coffres de clés d’un groupe de ressources spécifique.
 
-Vous pouvez accorder l’accès aux utilisateurs, groupes et applications d’une étendue donnée en affectant les rôles RBAC appropriés. Par exemple, pour autoriser un utilisateur à gérer des coffres de clés, vous devez attribuer un rôle prédéfini « Collaborateur de coffre de clés » à cet utilisateur dans une étendue spécifique. L’étendue dans ce cas correspond à un abonnement, à un groupe de ressources ou simplement à un coffre de clés spécifique. Un rôle affecté au niveau d’un abonnement s’applique à tous les groupes de ressources et ressources au sein de cet abonnement. Un rôle affecté au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources. Un rôle affecté pour une ressource spécifique s’applique uniquement à cette ressource. Il existe plusieurs rôles prédéfinis (voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md)), et si ces rôles prédéfinis ne répondent pas à vos besoins, vous pouvez également définir vos propres rôles.
+Vous pouvez accorder l’accès aux utilisateurs, groupes et applications d’une étendue donnée en affectant les rôles RBAC appropriés. Par exemple, pour autoriser un utilisateur à gérer des coffres de clés, vous devez attribuer un rôle prédéfini « Collaborateur de coffre de clés » à cet utilisateur dans une étendue spécifique. L’étendue dans ce cas correspond à un abonnement, à un groupe de ressources ou simplement à un coffre de clés spécifique. Un rôle affecté au niveau d’un abonnement s’applique à tous les groupes de ressources et ressources au sein de cet abonnement. Un rôle affecté au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources. Un rôle affecté pour une ressource spécifique s’applique uniquement à cette ressource. Il existe plusieurs rôles prédéfinis (voir [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md)), et si ces rôles prédéfinis ne répondent pas à vos besoins, vous pouvez également définir vos propres rôles.
 
 > [!IMPORTANT]
 > Notez que si un utilisateur dispose d’autorisations de collaborateur (RBAC) pour le plan de gestion d’un coffre de clés, il peut s’accorder à lui-même l’accès au plan de données en définissant la stratégie d’accès au coffre de clés qui contrôle l’accès au plan de données. Par conséquent, il est recommandé de contrôler étroitement quels utilisateurs disposent d’un accès « Collaborateur » à vos coffres de clés afin de vous assurer que seules les personnes autorisées peuvent gérer vos coffres de clés, clés, secrets et certificats.
@@ -96,7 +96,7 @@ Les stratégies d’accès à un coffre de clés accordent des autorisations s�
 > 
 > 
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 Supposons que vous développiez une application qui utilise un certificat pour SSL, le stockage Azure pour stocker des données et une clé RSA 2 048 bits pour les opérations de signature. Supposons que cette application s’exécute dans une machine virtuelle (ou un groupe de machines virtuelles identiques). Vous pouvez utiliser un coffre de clés pour stocker tous les secrets de l’application et utiliser le coffre de clés pour stocker le certificat Bootstrap auquel l’application fait appel pour s’authentifier auprès d’Azure Active Directory.
 
 Voici un résumé de l’ensemble des clés et des secrets qui doivent être stockés dans un coffre de clés.
@@ -134,9 +134,9 @@ Voyons maintenant quelles autorisations d’accès au coffre de clés sont requi
 | Rôle d’utilisateur | Autorisations de plan de gestion | Autorisations de plan de données |
 | --- | --- | --- |
 | Équipe de sécurité |Collaborateur de coffre de clés |Clés : sauvegarde, création, suppression, obtention, importation, énumération, restauration <br> Secrets : toutes |
-| Développeurs/opérateurs |Autorisation de déploiement pour le coffre de clés de sorte que les machines virtuelles qu’ils déploient puissent récupérer les secrets dans le coffre de clés |Aucune |
-| Auditeurs |Aucune |Clés : énumération<br>Secrets : énumération |
-| Application |Aucune |Clés : énumération<br>Secrets : obtention |
+| Développeurs/opérateurs |Autorisation de déploiement pour le coffre de clés de sorte que les machines virtuelles qu’ils déploient puissent récupérer les secrets dans le coffre de clés |Aucun |
+| Auditeurs |Aucun |Clés : énumération<br>Secrets : énumération |
+| Application |Aucun |Clés : énumération<br>Secrets : obtention |
 
 > [!NOTE]
 > Les auditeurs ont besoins d’une autorisation d’énumération pour les clés et les secrets afin de pouvoir inspecter les attributs de clés et de secrets qui ne sont pas inclus dans les journaux, tels que les balises et les dates d’activation et d’expiration.
@@ -203,20 +203,20 @@ Cet exemple illustre un scénario simple. Les scénarios réels peuvent être pl
 > 
 > 
 
-## <a name="resources"></a>les ressources
-* [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+## <a name="resources"></a>Ressources
+* [Contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
   
   Cet article décrit le contrôle d’accès en fonction du rôle d’Active Directory Azure et en explique le fonctionnement.
-* [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md)
+* [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md)
   
   Cet article explique en détail tous les rôles intégrés disponibles dans RBAC.
 * [Présentation du déploiement de Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Cet article décrit le modèle de déploiement de Resource Manager et le modèle de déploiement classique et explique les avantages liés à l’utilisation de Resource Manager et des groupes de ressources.
-* [Gestion du contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Gestion du contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   
   Cet article explique comment gérer le contrôle d’accès en fonction du rôle avec Azure PowerShell
-* [Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md)
   
   Cet article montre comment utiliser l’API REST pour gérer RBAC.
 * [Role-Based Access Control for Microsoft Azure from Ignite (Contrôle d’accès en fonction du rôle pour Microsoft Azure)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

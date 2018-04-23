@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -220,5 +220,4 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![Pare-feu d’applications PT](media/azure-stack-marketplace-azure-items/pt.png) | [Pare-feu d’applications PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Le pare-feu d’applications PT détecte les vulnérabilités connues et inconnues et empêche les attaques sur les applications Web. <b>Téléchargez les deux éléments de la Place de marché PT.</b> | Technologies positives |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise vous permet d’automatiser tout le cycle de vie de votre infrastructure Azure Stack. <b>Téléchargez les deux éléments de la Place de marché Puppet.</b> | Puppet |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gestion d’infrastructure Open Source de haute qualité. | SUSE |
-| ![Sauvegarde et réplication Veeam](media/azure-stack-marketplace-azure-items/veeam.png) | [Sauvegarde et réplication Veeam](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Sauvegarde et réplication Veeam 9.5. | Veeam |
 | ![Outil logiciel ZeroDown](media/azure-stack-marketplace-azure-items/zerodown.png) | [Outil ZeroDown Software ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | Outil ZeroDown Software v7.1 - Migration + HA. | ZeroDown Software |
