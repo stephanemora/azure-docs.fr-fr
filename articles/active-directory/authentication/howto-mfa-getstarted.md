@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: joflore
-ms.openlocfilehash: e6210cf7ece0aa0cdeec8f95b74910893c22b1bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7ae9ad5429c9bdfe8fba2648f8b7a3390705b23
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Prise en main avec Azure Multi-Factor Authentication dans le cloud
 Cet article vous explique comment utiliser Azure Multi-Factor Authentication dans le cloud.
@@ -41,7 +41,7 @@ Si vous ne disposez pas de l’une de ces trois licences ou que vous n’avez pa
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Activer la vérification en deux étapes pour les utilisateurs
 
-Utilisez l’une des procédures répertoriées dans [How to require two-step verification for a user or group](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) (Exiger la vérification en deux étapes pour un utilisateur ou groupe) pour commencer à utiliser Azure Multi-Factor Authentication. Vous pouvez choisir d’appliquer la vérification en deux étapes pour toutes les connexions, ou de créer des règles d’accès conditionnel, ce qui permet d’exiger la vérification en deux étapes lorsque vous le souhaitez.
+Utilisez l’une des procédures répertoriées dans [How to require two-step verification for a user or group](howto-mfa-userstates.md) (Exiger la vérification en deux étapes pour un utilisateur ou groupe) pour commencer à utiliser Azure Multi-Factor Authentication. Vous pouvez choisir d’appliquer la vérification en deux étapes pour toutes les connexions, ou de créer des règles d’accès conditionnel, ce qui permet d’exiger la vérification en deux étapes lorsque vous le souhaitez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez configuré Azure Multi-Factor Authentication dans le cloud, vous pouvez configurer et installer votre déploiement. Pour plus d’informations, consultez [Configuration d’Azure Multi-Factor Authentication](howto-mfa-mfasettings.md).

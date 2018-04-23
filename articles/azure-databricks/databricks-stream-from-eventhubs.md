@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e4c424bb26a3b268ec893ca40dcdce7d7469217
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
 
@@ -54,7 +54,7 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
 Vous pouvez obtenir tous ces éléments en terminant les étapes de l’article [Créer un espace de noms et un concentrateur d’événements Azure Event Hubs](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -174,6 +174,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
 Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez les espaces réservés par les valeurs de votre espace de noms Event Hubs et de l’application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
 
+```scala
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
@@ -243,6 +244,7 @@ Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez 
 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+```
 
 Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez une sortie identique à l’extrait de code ci-dessous. Chaque événement de la sortie représente un tweet ingéré par Event Hubs contenant le terme « Azure ».
 
@@ -265,6 +267,7 @@ Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez une sortie i
 
 Dans le notebook **ReadTweetsFromEventHub**, collez le code suivant, et remplacez l’espace réservé par les valeurs du concentrateur d’événements Azure Event Hubs que vous avez créé précédemment. Ce notebook lit les tweets que vous avez diffusés précédemment dans Event Hubs à l’aide du notebook **SendTweetsToEventHub**.
 
+```scala
     import org.apache.spark.eventhubs._
 
     // Build connection string with the above information
@@ -283,6 +286,7 @@ Dans le notebook **ReadTweetsFromEventHub**, collez le code suivant, et remplace
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 Vous obtenez la sortie suivante :
 
@@ -313,6 +317,7 @@ Vous obtenez la sortie suivante :
 
 Étant donné que la sortie est en mode binaire, utilisez l’extrait de code suivant pour la convertir en chaîne.
 
+```scala
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
 
@@ -329,6 +334,7 @@ Vous obtenez la sortie suivante :
     messages.printSchema
 
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 La sortie ressemble maintenant à l’extrait de code suivant :
 

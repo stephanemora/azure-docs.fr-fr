@@ -1,10 +1,10 @@
 ---
-title: "Gestion des adresses IP réservées Azure (Classic) - PowerShell | Microsoft Docs"
-description: "Comprendre les adresses IP réservées (Classic) et la manière de les gérer à l’aide de PowerShell."
+title: Gestion des adresses IP réservées Azure (Classic) - PowerShell | Microsoft Docs
+description: Comprendre les adresses IP réservées (Classic) et la manière de les gérer à l’aide de PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -13,20 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli
+ms.openlocfilehash: fafb2566d1b58a37dd1d0e4bab129d7fb01a9f89
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Adresses IP réservées (Classic)
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Modèle](virtual-network-deploy-static-pip-arm-template.md)
+> * [interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
 
 Il existe deux catégories d’adresses IP dans Azure, les réservées et les dynamiques. Les adresses IP publiques gérées par Azure sont dynamiques par défaut. Cela signifie que l'adresse IP utilisée pour un service cloud donné (adresse IP virtuelle) ou pour accéder à une machine virtuelle ou à une instance de rôle directement (ILPIP) peut changer à tout moment, lorsque les ressources sont arrêtées ou désallouées.

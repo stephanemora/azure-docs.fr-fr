@@ -1,8 +1,8 @@
 ---
-title: "Authentification de service à service : Python avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment procéder à une authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory à l’aide de Python"
+title: 'Authentification de service à service : Python avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs'
+description: Découvrez comment procéder à une authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory à l’aide de Python
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: c04b870e72c5d29df95d16b96cc423441af6fd85
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4a60ce14b711f50dd6cca996438ba0405ba4abcb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Authentification de service à service auprès de Data Lake Store à l’aide de Python
 > [!div class="op_single_selector"]
@@ -31,7 +31,8 @@ ms.lasthandoff: 01/10/2018
 Dans cet article, vous allez apprendre à utiliser le Kit SDK Python pour effectuer une authentification de service à service auprès d’Azure Data Lake Store. Pour plus d’informations sur l’authentification des utilisateurs finaux auprès d’Azure Data Lake Store à l’aide de Python, consultez [Authentification des utilisateurs finaux auprès de Data Lake Store avec Python](data-lake-store-end-user-authenticate-python.md).
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
@@ -102,7 +103,15 @@ Utilisez cet extrait de code pour l’authentification auprès d’Azure AD pour
 
 Utilisez l’extrait de code suivant pour procéder à une authentification auprès d’Azure AD pour les opérations du système de fichiers sur Data Lake Store, telles que la création d’un dossier, le chargement d’un fichier, etc. Vous pouvez faire appel à l’extrait de code suivant pour authentifier votre application en mode non interactif, en utilisant la clé secrète client pour une application/un principal du service. Utilisez-le avec une « application web » Azure AD existante.
 
-    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
+    tenant = '<TENANT>'
+    RESOURCE = 'https://datalake.azure.net/'
+    client_id = '<CLIENT_ID>'
+    client_secret = '<CLIENT_SECRET>'
+    
+    adlCreds = lib.auth(tenant_id = tenant,
+                    client_secret = client_secret,
+                    client_id = client_id,
+                    resource = RESOURCE)
 
 <!-- ## Service-to-service authentication with certificate for account management
 

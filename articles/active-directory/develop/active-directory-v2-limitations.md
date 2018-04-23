@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory v2.0 : limites et restrictions du point de terminaison | Microsoft Docs"
-description: "Une liste des limitations et restrictions associées au point de terminaison v2.0 Azure AD."
+title: 'Azure Active Directory v2.0 : limites et restrictions du point de terminaison | Microsoft Docs'
+description: Une liste des limitations et restrictions associées au point de terminaison v2.0 Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Dois-je utiliser le point de terminaison v2.0 ?
 Quand vous créez des applications qui s’intègrent dans Azure Active Directory, vous devez déterminer si les protocoles d’authentification et le point de terminaison v2.0 répondent à vos besoins. Le point de terminaison d’origine d’Azure Active Directory est toujours intégralement pris en charge. À certains égards, il est plus riche en fonctionnalités que le point de terminaison v2.0. Toutefois, le point de terminaison v2.0 [présente des avantages significatifs](active-directory-v2-compare.md) pour les développeurs.
@@ -84,15 +84,6 @@ Vous pouvez ajouter les deux derniers car il s’agit de sous-domaines du premie
 Notez également qu’une même application ne peut avoir que 20 URL de réponse.
 
 Pour savoir comment inscrire une application dans le portail d’inscription des applications, consultez [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Restrictions concernant les services et API
-Actuellement, le point de terminaison v2.0 prend en charge la connexion de toute application inscrite dans le portail d’inscription des applications et figurant dans la liste des [flux d’authentification pris en charge](active-directory-v2-flows.md). Toutefois, ces applications peuvent obtenir des jetons d’accès OAuth 2.0 pour un ensemble très limité de ressources. Le point de terminaison v2.0 délivre des jetons d’accès uniquement pour :
-
-* L’application qui a demandé le jeton. Une application peut obtenir un jeton d’accès pour son propre compte, si l’application logique est composée de plusieurs composants ou niveaux. Pour voir ce scénario en action, consultez nos didacticiels [Prise en main](active-directory-appmodel-v2-overview.md#getting-started) .
-* La messagerie Outlook, le calendrier et les API REST de Contacts, qui se trouvent à l’adresse https://outlook.office.com. Pour savoir comment écrire une application qui accède à ces API, consultez les didacticiels de [Prise en main d’Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
-* Les API Microsoft Graph. Vous pouvez en savoir plus sur [Microsoft Graph](https://graph.microsoft.io) et les données qui vous sont accessibles.
-
-Aucun autre service n’est actuellement pris en charge. Davantage de services Microsoft Online seront ajoutés prochainement, en plus de la prise en charge de vos propres services et API web personnalisés.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrictions concernant les bibliothèques et les SDK
 Actuellement, la prise en charge des bibliothèques pour le point de terminaison v2.0 est limitée. Si vous souhaitez utiliser le point de terminaison v2.0 dans une application de production, vous disposez des options suivantes :

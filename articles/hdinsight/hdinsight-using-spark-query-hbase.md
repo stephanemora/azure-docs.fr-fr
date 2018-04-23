@@ -1,31 +1,30 @@
 ---
-title: "Utiliser Spark pour lire et écrire des données HBase - Azure HDInsight | Microsoft Docs"
-description: "Utilisez le connecteur HBase Spark pour lire et écrire des données d’un cluster Spark sur un cluster HBase."
+title: Utiliser Spark pour lire et écrire des données HBase - Azure HDInsight | Microsoft Docs
+description: Utilisez le connecteur HBase Spark pour lire et écrire des données d’un cluster Spark sur un cluster HBase.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: ccbcd1d9cb45da7076d73f71a2ed692e71816650
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Utiliser Spark pour lire et écrire des données HBase
 
 Apache HBase est généralement interrogé soit avec son API de bas niveau (analyses, obtentions et insertions), soit avec une syntaxe SQL à l’aide de Phoenix. Apache fournit également le connecteur HBase Spark, qui constitue une alternative pratique et performante pour interroger et modifier des données stockées par HBase.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Deux clusters HDInsight distincts, un HBase et un Spark avec Spark 2.1 (HDInsight 3.6).
 * Le cluster Spark doit communiquer directement avec le cluster HBase avec une latence minimale. La configuration recommandée consiste donc à déployer les deux clusters sur le même réseau virtuel. Pour plus d’informations, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
@@ -94,7 +93,7 @@ Lors de cette étape, vous allez créer et remplir un tableau simple dans HBase,
 
 9. Dans le panneau Propriétés de l’objet blob, sélectionnez Télécharger et enregistrez `hbase-site.xml` sur votre ordinateur local.
 
-    ![Télécharger](./media/hdinsight-using-spark-query-hbase/download.png)
+    ![Download](./media/hdinsight-using-spark-query-hbase/download.png)
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Placer hbase-site.xml sur votre cluster Spark
 
