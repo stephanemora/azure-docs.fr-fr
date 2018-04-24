@@ -223,7 +223,7 @@ Vous pouvez ajouter le stockage de système de fichiers local pour chaque instan
     ![Nouvelle entrée de stockage local](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab-new-local-storage.png)
 
     - **Nom** : entrez le nom que vous voulez utiliser pour le nouveau stockage local.
-    - **Taille (Mo)** : entrez la taille (en Mo) dont vous avez besoin pour le nouveau stockage local.
+    - **Taille (Mo)**  : entrez la taille (en Mo) dont vous avez besoin pour le nouveau stockage local.
     - **Nettoyer après le recyclage des rôles** : sélectionnez cette option pour supprimer les données dans le nouveau stockage local quand la machine virtuelle pour le rôle est recyclée.
 
 1. Pour supprimer une entrée de stockage local, sélectionnez l’entrée, puis **Remove Local Storage (Supprimer le stockage local)**.

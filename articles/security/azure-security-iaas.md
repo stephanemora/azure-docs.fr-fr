@@ -216,7 +216,7 @@ Vous pouvez utiliser les fonctionnalités de sécurité et de conformité dans O
 
 - **Domaines de sécurité** : explorez davantage les enregistrements de sécurité au fil du temps. Accédez aux évaluations des logiciels malveillants, mises à jour des évaluations, informations de sécurité réseau, informations d’identité et d’accès, et ordinateurs avec des événements de sécurité. Tirez parti d’un accès rapide au tableau Azure Security Center.
 - **Problèmes importants** : identifiez rapidement le nombre de problèmes actifs et leur gravité.
-- **Détections (version préliminaire)** : identifiez les modèles d’attaque en visualisant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
+- **Détections (version préliminaire)**  : identifiez les modèles d’attaque en visualisant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
 - **Informations sur les menaces** : identifiez les modèles d’attaques en visualisant le nombre total de serveurs présentant un trafic IP sortant malveillant, le type de menace malveillante et une carte indiquant l’origine de ces adresses IP.
 - **Requêtes de sécurité courantes** : consultez une liste des requêtes de sécurité les plus courantes que vous pouvez utiliser pour surveiller votre environnement. Cliquez sur l’une de ces requêtes pour ouvrir le panneau **Recherche** affichant les résultats de cette requête.
 
