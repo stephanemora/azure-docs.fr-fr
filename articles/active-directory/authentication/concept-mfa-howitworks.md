@@ -15,11 +15,11 @@ ms.date: 06/20/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: ec77d90b4544916242d572ef4f250752ac21f2d1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3df8d4af21fe37a44983da1aae330785b62323db
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Azure Multi-Factor Authentication : fonctionnement
 La sécurité de la vérification en deux étapes repose sur son approche en couche. Compromettre plusieurs facteurs d'authentification présente un défi de taille pour les attaquants. Même si un attaquant réussit à connaître le mot de passe de l'utilisateur, ce dernier est inutile sans posséder l'appareil de confiance. 
@@ -48,4 +48,4 @@ Azure Multi-Factor Authentication fournit des méthodes de vérification sélect
 
 - Choisissez de déployer Azure MFA [dans le cloud ou en local](concept-mfa-whichversion.md)
 
-- Obtenez des réponses aux [questions fréquemment posées](../../multi-factor-authentication/multi-factor-authentication-faq.md).
+- Obtenez des réponses aux [questions fréquemment posées](multi-factor-authentication-faq.md).

@@ -76,7 +76,7 @@ Vous pouvez accéder à l’Assistant Publication d’application Azure de deux�
 
 Le compte de stockage Azure stocke le package pour le déploiement de l'application. Une fois l'application déployée, le package est supprimé du compte de stockage.
 
-**Delete deployment on failure (Supprimer le déploiement en cas d’échec)** : sélectionnez cette option pour supprimer le déploiement si des erreurs sont détectées pendant la publication. Cette case doit être décochée si vous souhaitez conserver une adresse IP virtuelle constante pour votre service cloud.
+**Delete deployment on failure (Supprimer le déploiement en cas d’échec)**  : sélectionnez cette option pour supprimer le déploiement si des erreurs sont détectées pendant la publication. Cette case doit être décochée si vous souhaitez conserver une adresse IP virtuelle constante pour votre service cloud.
 
 **Mise à jour du déploiement** : sélectionnez cette option si vous souhaitez déployer uniquement des composants mis à jour. Ce type de déploiement peut être plus rapide qu'un déploiement complet. Cette case doit être cochée si vous souhaitez conserver une adresse IP virtuelle constante pour votre service cloud. 
 
@@ -88,7 +88,7 @@ Le compte de stockage Azure stocke le package pour le déploiement de l'applicat
 
 **Activer le profilage** : spécifiez si vous souhaitez activer le profilage des performances. Le profileur Visual Studio vous permet d’obtenir une analyse approfondie des ressources de calcul nécessaires à l’exécution de votre service cloud. Pour plus d’informations sur l’utilisation du profileur Visual Studio, consultez l’article [Test des performances d’un service cloud](./vs-azure-tools-performance-profiling-cloud-services.md).
 
-**Enable Remote Debugger for all roles (Activer le débogueur distant pour tous les rôles)** : spécifiez si vous souhaitez activer le débogage distant. Pour plus d’informations sur le débogage des services cloud à l’aide de Visual Studio, consultez l’article [Débogage d’un service cloud ou d’une machine virtuelle Azure dans Visual Studio](./vs-azure-tools-debug-cloud-services-virtual-machines.md).
+**Enable Remote Debugger for all roles (Activer le débogueur distant pour tous les rôles)**  : spécifiez si vous souhaitez activer le débogage distant. Pour plus d’informations sur le débogage des services cloud à l’aide de Visual Studio, consultez l’article [Débogage d’un service cloud ou d’une machine virtuelle Azure dans Visual Studio](./vs-azure-tools-debug-cloud-services-virtual-machines.md).
 
 ## <a name="diagnostics-settings-page"></a>Page Paramètres de diagnostic
 
