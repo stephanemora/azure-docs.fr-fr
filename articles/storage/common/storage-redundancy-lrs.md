@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.openlocfilehash: ae8bc3ac24d8c3012c9643c33e0a5fe5c7f11b07
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure
 
@@ -21,5 +21,5 @@ ms.lasthandoff: 04/03/2018
 ## <a name="see-also"></a>Voir aussi
 
 - [Réplication Azure Storage](storage-redundancy.md)
-- [Stockage redondant dans une zone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md)
+- [Stockage redondant dans une zone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md)
 - [Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure](storage-redundancy-grs.md)
