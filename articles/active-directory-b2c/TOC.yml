@@ -16,7 +16,7 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Didacticiels
   items:
-    - name: 1 - Inscrire des application
+    - name: 1 - Inscrire des applications
       href: tutorial-register-applications.md
     - name: 2 - Authentifier des comptes
       items:
@@ -195,6 +195,8 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Activer le maintien de la connexion
                   href: active-directory-b2c-reference-kmsi-custom.md
+            - name: Suivi du comportement des utilisateurs
+              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: Résolution de problèmes
               items:
                 - name: Collecter les journaux à l’aide d’Application Insights

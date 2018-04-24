@@ -31,6 +31,7 @@
 ### [Gérer les administrateurs de serveur](analysis-services-server-admins.md)
 ### [Surveiller les indicateurs de performances du serveur](analysis-services-monitor.md)
 ### [Configurer la journalisation de diagnostic](analysis-services-logging.md)
+### [Utiliser la passerelle pour les sources de données sur le réseau virtuel](analysis-services-vnet-gateway.md)
 ## Connecter
 ### [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)
 ### [Connexion avec Excel](analysis-services-connect-excel.md)

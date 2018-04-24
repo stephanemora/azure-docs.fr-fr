@@ -13,6 +13,7 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
+#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 
 ### [Utiliser un simulateur en ligne](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
@@ -92,6 +93,7 @@
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
+#### [iOS](iot-hub-ios-swift-c2d.md)
 ### Charger des fichiers à partir d’appareils
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)

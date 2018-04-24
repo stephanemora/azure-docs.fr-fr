@@ -43,6 +43,8 @@
       href: container-instances-environment-variables.md
     - name: Dépanner les déploiements
       href: container-instances-troubleshooting.md
+    - name: Agents de build Jenkins sur ACI
+      href: container-instances-jenkins.md
     - name: Configurer des volumes de données
       items:
         - name: Azure Files

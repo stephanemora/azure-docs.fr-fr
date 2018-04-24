@@ -12,4 +12,5 @@
 ## Ouvrir l’application Microsoft Authenticator
 ### [Prise en main de l’application](microsoft-authenticator-app-how-to.md)
 ### [Se connecter sur un téléphone](microsoft-authenticator-app-phone-signin-faq.md)
+### [Sauvegarder et récupérer les informations d’identification du compte](microsoft-authenticator-app-backup-and-recovery.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)

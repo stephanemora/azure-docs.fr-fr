@@ -50,7 +50,7 @@
 ### [Prise en charge de plusieurs domaines pour la fédération](active-directory-aadconnect-multiple-domains.md)
 ### [Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique](active-directory-aadconnect-federation-saml-idp.md)
-
+### [Synchronisation des comptes d’utilisateur des utilisateurs invités qui utilisent une adresse e-mail pour se connecter](active-directory-aadconnect-guest-sync.md)
 
 
 ## Gérer la synchronisation d’Azure AD Connect

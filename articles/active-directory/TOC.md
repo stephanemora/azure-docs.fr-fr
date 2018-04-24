@@ -17,7 +17,7 @@
 ## [Configurer la marque de la société](customize-branding.md)
 ## [Ajouter des utilisateurs dans Azure AD](add-users-azure-active-directory.md)
 ## [Attribuer des licences à des utilisateurs](license-users-groups.md)
-## [Configurer la réinitialisation du mot de passe libre-service](active-directory-passwords-getting-started.md)
+## [Configurer la réinitialisation du mot de passe libre-service](authentication/quickstart-sspr.md)
 
 
 # Procédures
@@ -63,6 +63,8 @@
 #### [Groupes dynamiques et utilisateurs B2B](active-directory-b2b-dynamic-groups.md)
 #### [Audit et création de rapports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B pour les organisations hybrides](active-directory-b2b-hybrid-organizations.md)
+##### [Accorder l’accès aux applications locales pour les utilisateurs B2B](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Accorder l’accès aux applications cloud pour les utilisateurs locaux](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [Partage externe d’Office 365 et de B2B](active-directory-b2b-o365-external-user.md)
 #### [Licences B2B](active-directory-b2b-licensing.md)
 #### [Limitations actuelles](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [Rétention](active-directory-reporting-retention.md)
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
+#### [Référence d’activité d’audit](active-directory-reporting-activity-audit-reference.md)
 #### [Codes d’erreur de l’activité de connexion](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Authentification multifacteur](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Résolution des problèmes
@@ -141,7 +144,7 @@
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
 ### [Fonctionnement SSPR](authentication/concept-sspr-howitworks.md)
 ### [Guide de déploiement SSPR](authentication/howto-sspr-deployment.md)
-### [SSPR et Windows 10](active-directory-passwords-login.md)
+### [SSPR et Windows 10](authentication/tutorial-sspr-windows.md)
 ### [Stratégies SSPR](authentication/concept-sspr-policy.md)
 ### [Personnalisation SSPR](authentication/concept-sspr-customization.md)
 ### [Spécifications des données SSPR](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### Administrateurs informatiques : réinitialiser les mots de passe
 #### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Licence SSPR](authentication/concept-sspr-licensing.md)
-### [Réécriture du mot de passe](active-directory-passwords-writeback.md)
+### [Réécriture du mot de passe](authentication/howto-sspr-writeback.md)
 ### [Résolution des problèmes](authentication/active-directory-passwords-troubleshoot.md)
 ### [FORUM AUX QUESTIONS](authentication/active-directory-passwords-faq.md)
 
@@ -312,7 +315,7 @@
 #### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Condition d’emplacement](active-directory-conditional-access-locations.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Démarrer](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
@@ -331,7 +334,7 @@
 ### Authentification par certificat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Démarrer](active-directory-certificate-based-authentication-get-started.md)
+#### [Prise en main](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Activer](active-directory-identityprotection-enable.md)
