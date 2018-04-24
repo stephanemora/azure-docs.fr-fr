@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d78b6934e276c53b65f3c171ed980f86458c3a93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -380,8 +380,8 @@ Temps approximatif d’accomplissement : 15 minutes
 | Conditions préalables | Ressources |
 | --- | --- |
 | Activez la gestion des mots de passe en libre-service dans votre locataire. | [Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques](active-directory-passwords-update-your-own-password.md) |
-| Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour la réécriture du mot de passe](active-directory-passwords-writeback.md) |
-| Identifiez les utilisateurs POC qui se serviront de cette fonctionnalité et vérifiez qu’ils sont bien membres d’un groupe de sécurité. Les utilisateurs doivent être des non-administrateurs pour présenter pleinement cette fonctionnalité | [Personnalisation : Gestion du mot de passe Azure AD : Limiter l’accès à la réinitialisation des mots de passe](active-directory-passwords-writeback.md) |
+| Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour la réécriture du mot de passe](authentication/howto-sspr-writeback.md) |
+| Identifiez les utilisateurs POC qui se serviront de cette fonctionnalité et vérifiez qu’ils sont bien membres d’un groupe de sécurité. Les utilisateurs doivent être des non-administrateurs pour présenter pleinement cette fonctionnalité | [Personnalisation : Gestion du mot de passe Azure AD : Limiter l’accès à la réinitialisation des mots de passe](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Étapes
@@ -412,7 +412,7 @@ Temps approximatif d’accomplissement : 10 minutes
 | Conditions préalables | Ressources |
 | --- | --- |
 | Identifiez les utilisateurs qui se serviront de l’authentification MFA  |  |
-| Utilisez un téléphone disposant d’une bonne réception pour la demande MFA  | [Présentation d'Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) |
+| Utilisez un téléphone disposant d’une bonne réception pour la demande MFA  | [Présentation d'Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Étapes
 
@@ -421,7 +421,7 @@ Temps approximatif d’accomplissement : 10 minutes
 | Accédez au panneau Utilisateurs et groupes dans le portail de gestion Azure AD | [Portail de gestion Azure AD : Utilisateurs et groupes](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Sélectionnez le panneau Tous les utilisateurs |  |
 | Dans la barre supérieure, sélectionnez le bouton Multi-Factor Authentication | URL directe du portail Azure MFA : https://aka.ms/mfaportal |
-| Dans les paramètres Utilisateur, sélectionnez les utilisateurs POC et activez-les pour l’authentification MFA | [États d’utilisateur dans Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| Dans les paramètres Utilisateur, sélectionnez les utilisateurs POC et activez-les pour l’authentification MFA | [États d’utilisateur dans Azure Multi-Factor Authentication](authentication/howto-mfa-userstates.md) |
 | Connectez-vous en tant qu’utilisateur POC et suivez le processus de vérification  |  |
 
 ### <a name="considerations"></a>Considérations
