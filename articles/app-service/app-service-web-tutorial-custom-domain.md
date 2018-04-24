@@ -1,4 +1,4 @@
----
+﻿---
 title: Mapper un nom DNS personnalisé existant à des applications web Azure | Microsoft Docs
 description: Découvrez comment ajouter un nom de domaine DNS (domaine personnel) à une application web, au serveur principal d’une application mobile ou à une application API dans Azure App Service.
 keywords: app service, azure app service, mappage de domaine, nom de domaine, domaine existant, nom d'hôte
