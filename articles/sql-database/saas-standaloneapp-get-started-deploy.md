@@ -73,9 +73,9 @@ L’application présente les lieux qui hébergent des événements.  Les lieux 
 
 1. Ouvrez la page d’événements pour chacun des trois clients dans des onglets de navigateur distincts :
 
-    - http://events.contosoconcerthall. &lt;utilisateur&gt;.trafficmanager.net
-    - http://events.dogwooddojo. &lt;utilisateur&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub. &lt;utilisateur&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt;utilisateur&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;utilisateur&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;utilisateur&gt;.trafficmanager.net
 
     (Dans chaque URL, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement.)
 
