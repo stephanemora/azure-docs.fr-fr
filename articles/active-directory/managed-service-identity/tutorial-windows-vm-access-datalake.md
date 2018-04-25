@@ -1,11 +1,11 @@
 ---
-title: "Comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store"
-description: "Un didacticiel qui vous montre comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store."
+title: Comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store
+description: Un didacticiel qui vous montre comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: be76fa089003a7e881bcddcfeeb628e4a704ce21
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f410b6c0c1f24a9f9d453c833074cbd515f46b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store
 
@@ -39,7 +39,7 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
@@ -56,7 +56,7 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pou
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle 
 
-Une MSI de machine virtuelle permet d’obtenir des jetons d’accès émanant d’Azure AD sans avoir à insérer d’informations d’identification dans votre code. À l’activation de la MSI, Azure crée une identité administrée pour votre machine virtuelle. En arrière plan, l’activation de la MSI effectue deux opérations : cela installe l’extension de machine virtuelle de la MSI sur votre machine virtuelle et cela active la MSI pour Azure Resource Manager.
+Une MSI de machine virtuelle permet d’obtenir des jetons d’accès émanant d’Azure AD sans avoir à insérer d’informations d’identification dans votre code. À l’activation de la MSI, Azure crée une identité administrée pour votre machine virtuelle. En arrière-plan, l’activation de MSI effectue deux opérations : elle enregistre votre machine virtuelle avec Azure Active Directory pour créer son identité managée et configure l’identité sur la machine virtuelle.
 
 1. Sélectionnez la **Machine virtuelle** sur laquelle vous souhaitez activer l’identité du service administré.  
 2. Dans la barre de navigation gauche, cliquez sur **Configuration**. 
@@ -100,10 +100,10 @@ Dans ce didacticiel, vous vous authentifiez sur l’API REST du système de fich
 1. Dans le portail, accédez à **Machines virtuelles** et accédez à votre machine virtuelle Windows puis, dans **Vue d’ensemble**, cliquez sur **Connecter**.
 2. Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la machine virtuelle Windows. 
 3. Maintenant que vous avez créé une **Connexion au Bureau à distance** avec la machine virtuelle, ouvrez **PowerShell** dans la session à distance. 
-4. À l’aide de l’applet de commande `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison de la MSI locale pour obtenir un jeton d’accès pour Azure Data Lake Store.  L’identificateur de ressource pour Data Lake Store est « https://datalake.azure.net/ ».  Data Lake effectue une correspondance exacte sur l’identificateur de ressource et la barre oblique est importante.
+4. À l’aide de l’applet de commande `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison de la MSI locale pour obtenir un jeton d’accès pour Azure Data Lake Store.  L’identificateur de ressources pour Data Lake Store est « https://datalake.azure.net/ ».  Data Lake effectue une correspondance exacte sur l’identificateur de ressource et la barre oblique est importante.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -Method GET -Headers @{Metadata="true"}
    ```
     
    Convertissez la réponse d’objet JSON en objet PowerShell. 

@@ -1,6 +1,6 @@
 ---
-title: Utiliser une MSI de machine virtuelle Linux pour accéder à Stockage Azure en utilisant des informations d’identification SAP
-description: Didacticiel montrant comment utiliser une MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
+title: Utiliser une MSI de machine virtuelle Linux pour accéder au stockage Azure
+description: Ce didacticiel vous guide tout au long de l’utilisation d’une identité MSI (Managed Service Identity) sur une machine virtuelle Linux pour accéder au stockage Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -13,25 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ed3b7b86f6170b9bfbae1194d189b3d258e24d45
+ms.openlocfilehash: 99c66c6f03b72e5894a47edcd12acb59c9482df3
 ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2018
 ---
-# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Utiliser une MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
+# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux pour accéder au stockage Azure via une clé d’accès
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel montre comment activer MSI pour une machine virtuelle Linux, puis utiliser la MSI pour obtenir des informations d’identification SAP (Signature d’Accès Partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
-
-Une SAP de service offre la possibilité d’accorder un accès limité à des objets dans un compte de stockage, pendant une durée limitée et pour un service spécifique (en l’occurrence, le service BLOB), sans exposer de clé d’accès de compte. Vous pouvez utiliser des informations d’identification SAP comme d’habitude lors de l’exécution d’opérations de stockage, par exemple, lors de l’utilisation du SDK Stockage Azure. Ce didacticiel montre le chargement et le téléchargement d’un objet blob à l’aide de l’interface de ligne de commande de Stockage Azure. Vous apprendrez à :
-
+Ce didacticiel vous montre comment activer une identité MSI (Managed Service Identity) sur une machine virtuelle Linux, puis utiliser cette identité pour accéder aux clés de stockage. Vous pouvez utiliser les clés d’accès de stockage comme d’habitude lors de l’exécution d’opérations de stockage, par exemple lors de l’utilisation du SDK Stockage. Pour ce didacticiel, nous chargeons et téléchargeons des objets blob à l’aide de Azure CLI. Vous apprendrez à :
 
 > [!div class="checklist"]
 > * Activer l’identité du service administré sur une machine virtuelle Linux 
-> * Autoriser votre machine virtuelle à accéder à la SAP d’un compte stockage dans le Gestionnaire des ressources 
-> * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer la SAP à partir du Gestionnaire des ressources 
+> * Autoriser votre machine virtuelle à accéder aux clés d’accès de stockage dans le Gestionnaire des ressources 
+> * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer les clés d’accès de stockage à partir du Gestionnaire des ressources  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -60,7 +57,7 @@ Pour ce didacticiel, nous créons une machine virtuelle Linux. Vous pouvez égal
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle
 
-L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. L’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle enregistre votre machine virtuelle avec Azure Active Directory pour créer son identité managée et configure l’identité sur la machine virtuelle. 
+L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. L’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle enregistre votre machine virtuelle avec Azure Active Directory pour créer son identité managée et configure l’identité sur la machine virtuelle.  
 
 1. Accédez au groupe de ressources de votre nouvelle machine virtuelle et sélectionnez la machine virtuelle que vous avez créée à l’étape précédente.
 2. Dans les paramètres de la machine virtuelle situés sur la gauche, cliquez sur **Configuration**.
@@ -87,25 +84,25 @@ Si vous n’en avez pas déjà un, vous allez maintenant créer un compte de sto
 Plus tard, nous chargerons et téléchargerons un fichier vers le nouveau compte de stockage. Étant donné que les fichiers nécessitent un stockage d’objets blob, nous devons créer un conteneur d’objets blob dans lequel stocker le fichier.
 
 1. Revenez à votre compte de stockage nouvellement créé.
-2. Cliquez sur le lien **Conteneurs** dans le panneau de gauche, sous « Service BLOB ».
+2. Cliquez sur le lien **Conteneurs** sur la gauche, sous « Service blob ».
 3. Cliquez sur **+ Conteneur** en haut de la page et un panneau « Nouveau conteneur » apparait.
 4. Nommez le conteneur, sélectionnez un niveau d’accès, puis cliquez sur **OK**. Le nom spécifié sera utilisé plus loin dans le didacticiel. 
 
     ![Créer un conteneur de stockage](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Accorder à la MSI de votre machine virtuelle l’accès pour utiliser une SAP de stockage 
+## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Autoriser l’identité MSI de votre machine virtuelle à accéder aux clés d’accès du compte de stockage
 
-Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode natif.  Toutefois, vous pouvez utiliser une MSI pour récupérer une SAP de stockage à partir du Gestionnaire de ressources, puis utiliser cette SAP pour accéder au stockage.  Dans cette étape, vous accordez à votre MSI de machine virtuelle l’accès à votre SAP de compte de stockage.   
+Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode natif.  Toutefois, vous pouvez utiliser une identité MSI pour récupérer les clés d’accès du compte de stockage à partir du Gestionnaire des ressources, puis utiliser ces clés pour accéder au stockage.  Dans cette étape, vous autorisez la MSI de votre machine virtuelle à accéder aux clés de votre compte de stockage.   
 
-1. Revenez au compte de stockage que vous venez de créer.   
+1. Revenez à votre compte de stockage nouvellement créé.
 2. Cliquez sur le lien **(IAM) de contrôle d’accès** dans le panneau de gauche.  
-3. Cliquez sur **+ Ajouter** en haut de la page pour ajouter une nouvelle attribution de rôle pour votre machine virtuelle.
-4. Définissez **Rôle** sur « Contributeur de comptes de stockage » sur le côté droit de la page. 
-5. Dans la liste déroulante suivante, définissez **Attribuer l’accès à** sur la ressource « Machine virtuelle ».  
+3. Cliquez sur **+ Ajouter** en haut de la page pour ajouter une nouvelle attribution de rôle à votre machine virtuelle.
+4. Définissez le **Rôle** sur « Rôle de service d’opérateur de clé de compte de stockage », sur le côté droit de la page. 
+5. Dans la liste déroulante suivante, définissez **Attribuer l’accès à** sur la ressource « Machine virtuelle ».  
 6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur « Tous les groupes de ressources ».  
-7. Enfin, sous **Sélectionner**, choisissez votre machine virtuelle Linux dans la liste déroulante, puis cliquez sur **Enregistrer**.  
+7. Enfin, sous **Sélectionner**, choisissez votre machine virtuelle Linux dans la liste déroulante, puis cliquez sur **Enregistrer**. 
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Azure Resource Manager
 
@@ -137,54 +134,34 @@ Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utili
     "resource":"https://management.azure.com",
     "token_type":"Bearer"} 
      ```
+    
+## <a name="get-storage-account-access-keys-from-azure-resource-manager-to-make-storage-calls"></a>Obtenir les clés d’accès du compte de stockage à partir d’Azure Resource Manager pour effectuer des appels de stockage  
 
-## <a name="get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls"></a>Obtenir des informations d’identification SAP d’Azure Resource Manager pour effectuer des appels de stockage
-
-À présent, utilisez CURL pour appeler le Gestionnaire des ressources à l’aide du jeton d’accès récupéré dans la section précédente, afin de créer des informations d’identification SAP. Une fois les informations d’identification SAP récupérées, nous pouvons appeler des opérations de chargement/téléchargement de stockage.
-
-Pour cette demande, nous allons utiliser les paramètres de requête HTTP suivants pour créer les informations d’identification SAP :
-
-```JSON
-{
-    "canonicalizedResource":"/blob/<STORAGE ACCOUNT NAME>/<CONTAINER NAME>",
-    "signedResource":"c",              // The kind of resource accessible with the SAS, in this case a container (c).
-    "signedPermission":"rcw",          // Permissions for this SAS, in this case (r)ead, (c)reate, and (w)rite.  Order is important.
-    "signedProtocol":"https",          // Require the SAS be used on https protocol.
-    "signedExpiry":"<EXPIRATION TIME>" // UTC expiration time for SAS in ISO 8601 format, for example 2017-09-22T00:06:00Z.
-}
-```
-
-Ces paramètres sont inclus dans le corps POST de la requête pour les informations d’identification SAP. Pour plus d’informations concernant les paramètres pour la création d’informations d’identification SAP, voir [Afficher la référence REST de SAP de service](/rest/api/storagerp/storageaccounts/listservicesas).
-
-Utilisez la demande CURL suivante pour obtenir les informations d’identification SAP. N’oubliez pas de remplacer les valeurs des paramètres `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, `<CONTAINER NAME>` et `<EXPIRATION TIME>` par vos propres valeurs. Remplacez la valeur de `<ACCESS TOKEN>` par le jeton d’accès que vous avez récupéré précédemment :
+Maintenant, utilisez CURL pour appeler le Gestionnaire des ressources à l’aide du jeton d’accès récupéré dans la section précédente, afin de récupérer la clé d’accès de stockage. Une fois la clé d’accès de stockage récupérée, nous pouvons appeler des opérations de chargement/téléchargement de stockage. N’oubliez pas de remplacer les paramètres `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` et `<STORAGE ACCOUNT NAME>` par vos propres valeurs. Remplacez la valeur `<ACCESS TOKEN>` par le jeton d’accès que vous avez récupéré précédemment :
 
 ```bash 
-curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listServiceSas/?api-version=2017-06-01 -X POST -d "{\"canonicalizedResource\":\"/blob/<STORAGE ACCOUNT NAME>/<CONTAINER NAME>\",\"signedResource\":\"c\",\"signedPermission\":\"rcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"<EXPIRATION TIME>\"}" -H "Authorization: Bearer <ACCESS TOKEN>"
+curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 --request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
 ```
 
 > [!NOTE]
-> Le texte de l’URL précédente respectant la casse, veillez à respecter les majuscules et les minuscules pour vos groupes de ressources. En outre, il est important de savoir qu’il s’agit d’une demande POST et non d’une demande GET.
+> Le texte de l’URL précédente respectant la casse, veillez à respecter les majuscules et les minuscules pour vos groupes de ressources. En outre, il est important de savoir qu’il s’agit d’une demande POST et non d’une demande GET. Assurez-vous donc que vous transmettez une valeur pour capturer une limite de longueur avec -d qui peut être zéro.  
 
-La réponse CURL retourne les informations d’identification SAP :  
+La réponse CURL vous donne la liste des clés :  
 
 ```bash 
-{"serviceSasToken":"sv=2015-04-05&sr=c&spr=https&st=2017-09-22T00%3A10%3A00Z&se=2017-09-22T02%3A00%3A00Z&sp=rcw&sig=QcVwljccgWcNMbe9roAJbD8J5oEkYoq%2F0cUPlgriBn0%3D"} 
+{"keys":[{"keyName":"key1","permissions":"Full","value":"iqDPNt..."},{"keyName":"key2","permissions":"Full","value":"U+uI0B..."}]} 
 ```
-
 Créez un exemple de fichier blob à charger dans votre conteneur de stockage d’objets blob. Ceci peut se faire sur une machine virtuelle Linux avec la commande suivante : 
 
 ```bash
 echo "This is a test file." > test.txt
 ```
 
-Ensuite, authentifiez-vous à l’aide de la commande `az storage` de l’interface de ligne de commande en utilisant les informations d’identification SAP, puis chargez le fichier dans le conteneur d’objets blob. Pour cette étape, vous devez [installer la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine virtuelle, si ce n’est déjà fait.
+Ensuite, authentifiez-vous à l’aide de la commande d’interface CLI `az storage` en utilisant la clé d’accès de stockage, puis chargez le fichier dans le conteneur d’objets blob. Pour cette étape, vous devez [installer la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine virtuelle, si ce n’est déjà fait.
+ 
 
 ```azurecli-interactive
- az storage blob upload --container-name 
-                        --file 
-                        --name
-                        --account-name 
-                        --sas-token
+az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
 Réponse : 
@@ -193,20 +170,16 @@ Réponse :
 Finished[#############################################################]  100.0000%
 {
   "etag": "\"0x8D4F9929765C139\"",
-  "lastModified": "2017-09-21T03:58:56+00:00"
+  "lastModified": "2017-09-12T03:58:56+00:00"
 }
 ```
 
-Vous pouvez également télécharger le fichier à l’aide d’Azure CLI et vous authentifier avec les informations d’identification SAP. 
+Vous pouvez également télécharger le fichier à l’aide d’Azure CLI et vous authentifier avec la clé d’accès de stockage. 
 
 Demande : 
 
 ```azurecli-interactive
-az storage blob download --container-name
-                         --file 
-                         --name 
-                         --account-name
-                         --sas-token
+az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
 Réponse : 
@@ -215,18 +188,18 @@ Réponse :
 {
   "content": null,
   "metadata": {},
-  "name": "testblob",
+  "name": "test.txt",
   "properties": {
     "appendBlobCommittedBlockCount": null,
     "blobType": "BlockBlob",
-    "contentLength": 16,
-    "contentRange": "bytes 0-15/16",
+    "contentLength": 21,
+    "contentRange": "bytes 0-20/21",
     "contentSettings": {
       "cacheControl": null,
       "contentDisposition": null,
       "contentEncoding": null,
       "contentLanguage": null,
-      "contentMd5": "Aryr///Rb+D8JQ8IytleDA==",
+      "contentMd5": "LSghAvpnElYyfUdn7CO8aw==",
       "contentType": "text/plain"
     },
     "copy": {
@@ -237,8 +210,8 @@ Réponse :
       "status": null,
       "statusDescription": null
     },
-    "etag": "\"0x8D4F9929765C139\"",
-    "lastModified": "2017-09-21T03:58:56+00:00",
+    "etag": "\"0x8D5067F30D0C283\"",
+    "lastModified": "2017-09-28T14:42:49+00:00",
     "lease": {
       "duration": null,
       "state": "available",
@@ -254,7 +227,7 @@ Réponse :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Pour savoir comment suivre ce didacticiel en utilisant une clé de compte de stockage, voir [Utiliser une MSI de machine virtuelle Linux pour accéder à Stockage Azure](tutorial-linux-vm-access-storage.md).
+- Pour savoir comment suivre ce didacticiel en utilisant des informations d’identification de stockage SAP, consultez [Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux pour accéder au stockage Azure à l’aide d’informations d’identification SAP](tutorial-linux-vm-access-storage-sas.md).
 - Pour plus d’informations sur la fonctionnalité de SAP de compte de Stockage Azure, voir :
   - [Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [Construction d’un service SAP](/rest/api/storageservices/Constructing-a-Service-SAS.md)

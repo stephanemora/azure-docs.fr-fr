@@ -1,8 +1,8 @@
 ---
-title: "Visite guidée d’Analytics dans Azure Application Insights | Microsoft Docs"
-description: "Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights."
+title: Visite guidée d’Analytics dans Azure Application Insights | Microsoft Docs
+description: Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9727e3b715334837b959f22dd526caba221be62c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Visite guidée d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
@@ -170,7 +170,7 @@ Autres exemples :
 
 ```
 
-[Référence sur les dates et les heures](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Référence sur les dates et les heures](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Projet](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) : sélectionnez, renommez et calculez des colonnes
@@ -541,7 +541,7 @@ Par exemple, si votre application inclut :
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +554,6 @@ Pour extraire ces valeurs dans Analytics :
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 Pour vérifier si une dimension personnalisée est d’un type particulier :
@@ -565,6 +564,18 @@ Pour vérifier si une dimension personnalisée est d’un type particulier :
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>Caractères spéciaux
+
+Pour les identificateurs dont le nom contient des caractères spéciaux ou des mots clés de langage, vous devez y accéder via `['` et `']` ou à l’aide de `["` et `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Référence sur les règles d’affectation des noms d’identificateur](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Tableaux de bord
 Vous pouvez épingler vos résultats à un tableau de bord afin de rassembler tous vos tableaux et graphiques les plus importants.

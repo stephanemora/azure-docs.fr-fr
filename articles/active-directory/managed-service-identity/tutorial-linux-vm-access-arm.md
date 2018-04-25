@@ -1,8 +1,8 @@
 ---
-title: "Utiliser l’identité du service administré d’une machine virtuelle Linux pour accéder à Azure Resource Manager"
-description: "Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Resource Manager."
+title: Utiliser l’identité du service administré d’une machine virtuelle Linux pour accéder à Azure Resource Manager
+description: Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 842e0b42dee7e03f0ddb3f3a2445007a812ceb7e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97c6fec26a79352a12eebff451eb294a87455ed6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Utiliser une identité du service administré (MSI) pour une machine virtuelle Linux pour accéder à Azure Resource Manager
 
@@ -39,7 +39,7 @@ Ce didacticiel vous montre comment activer l’identité du service administré 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Créer une machine virtuelle Linux dans un nouveau groupe de ressources
 
@@ -57,7 +57,7 @@ Pour ce didacticiel, nous créons une machine virtuelle Linux. Vous pouvez égal
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle
 
-L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. En arrière-plan, l’activation de l’identité du service administré entraîne deux actions : elle installe l’extension de l’identité du service administré de la machine virtuelle et active l’identité du service administré pour la machine virtuelle.  
+L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. L’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle enregistre votre machine virtuelle avec Azure Active Directory pour créer son identité managée et configure l’identité sur la machine virtuelle.
 
 1. Sélectionnez la **Machine virtuelle** sur laquelle vous souhaitez activer l’identité du service administré.
 2. Dans la barre de navigation gauche, cliquez sur **Configuration**.
@@ -65,10 +65,6 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.
 
     ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Si vous souhaitez vérifier les extensions présentes sur cette **Machine virtuelle Linux**, cliquez sur **Extensions**. Si l’identité MSI est activée, **ManagedIdentityExtensionforLinux** apparaît dans la liste.
-
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Accorder à votre machine virtuelle l’accès à un groupe de ressources dans Azure Resource Manager 
 
@@ -95,7 +91,7 @@ Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utili
     Vous trouverez la requête CURL pour le jeton d’accès ci-dessous.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true   
     ```
     
     > [!NOTE]

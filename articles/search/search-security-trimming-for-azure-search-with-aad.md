@@ -1,18 +1,17 @@
 ---
-title: "Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory | Microsoft Docs"
-description: "Contrôle d’accès sur le contenu Recherche Azure à l’aide de filtres de sécurité et d’identités Active Directory."
-services: search
+title: Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory | Microsoft Docs
+description: Contrôle d’accès sur le contenu Recherche Azure à l’aide de filtres de sécurité et d’identités Active Directory.
 author: revitalbarletz
 manager: jlembicz
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d7df9ede1851680fb6327cac7eed0a479928cea0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory
 
@@ -30,6 +29,7 @@ Cet article décrit les tâches suivantes :
 > Dans cet article, les exemples d’extraits de code sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Votre index dans Recherche Azure doit avoir un [champ de sécurité](search-security-trimming-for-azure-search.md) pour stocker la liste des identités de groupe disposant d’un accès en lecture pour le document. Ce cas d’usage implique une correspondance exacte entre un élément sécurisable (par exemple l’application d’un établissement scolaire) et un champ de sécurité spécifiant qui a accès à cet élément (personnel en charge des admissions).
 
@@ -97,7 +97,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Étape 4 : Mettre en cache les identificateurs de groupe
-Si vous le souhaitez, pour réduire la latence du réseau, vous pouvez mettre en cache les associations utilisateurs-groupes. Ainsi, lorsqu’une demande de recherche est émise, les groupes sont renvoyés à partir du cache, ce qui évite un aller-retour dans AAD. Vous pouvez utiliser (l’API AAD Batch) [https://developer.microsoft.com/graph/docs/concepts/json_batching] pour envoyer une requête HTTP unique avec plusieurs utilisateurs et générer le cache.
+Si vous le souhaitez, pour réduire la latence du réseau, vous pouvez mettre en cache les associations utilisateurs-groupes. Ainsi, lorsqu’une demande de recherche est émise, les groupes sont renvoyés à partir du cache, ce qui évite un aller-retour dans AAD. Vous pouvez utiliser (API de Batch AAD)[https://developer.microsoft.com/graph/docs/concepts/json_batching] pour envoyer une requête Http unique avec plusieurs utilisateurs et générer le cache.
 
 Microsoft Graph est conçu pour gérer un volume élevé de demandes. Si un trop grand nombre de demandes sont émises, Microsoft Graph génère une erreur avec le code d’état HTTP 429. Pour plus d’informations, consultez le document [Limitation dans Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

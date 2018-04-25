@@ -1,25 +1,20 @@
 ---
-title: "Migration de vos données vers SQL Data Warehouse | Microsoft Docs"
-description: "Conseils relatifs à la migration de vos données vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+title: Migration de vos données vers SQL Data Warehouse | Microsoft Docs
+description: Conseils relatifs à la migration de vos données vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/29/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 3839f02d8e083ed384f0d01fccee6ad951477f3b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-data"></a>Migration de vos données
 Les données peuvent être déplacées à partir de différentes sources dans SQL Data Warehouse avec divers outils.  Les solutions ADF Copy, SSIS et bcp peuvent toutes être utilisées à cette fin. Toutefois, à mesure de l’augmentation du volume des données, vous avez tout intérêt à réfléchir à un moyen de diviser le processus de migration des données en étapes. Ce faisant, vous vous donnez les moyens d’optimiser chacune des phases en matière de performance et de résilience afin de garantir une migration sans heurts des données.
@@ -106,7 +101,7 @@ PolyBase requiert un terminateur de ligne fixe \n ou un renvoi à la ligne. Vos 
 
 Vous devrez définir chacune des colonnes du fichier en tant que composante de table externe dans PolyBase. Vérifiez que l’ensemble des colonnes exportées sont requises et que les types définis sont conformes aux normes requises.
 
-Veuillez vous référer à l’article [Migration de votre schéma] pour en savoir plus sur les types de données pris en charge.
+Veuillez vous référer à l’article [Migrer votre schéma] pour en savoir plus sur les types de données pris en charge.
 
 ### <a name="location-of-data-files"></a>Définition de l’emplacement des fichiers de données
 SQL Data Warehouse utilise PolyBase pour charger des données exclusivement à partir d’objets Blob Microsoft Azure Storage. De fait, les données doivent avoir été préalablement transférées dans des objets Blob.
@@ -190,10 +185,11 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[Migrer votre schéma]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

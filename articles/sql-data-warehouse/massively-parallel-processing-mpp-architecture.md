@@ -1,30 +1,26 @@
 ---
-title: "Architecture MPP - Azure SQL Data Warehouse ? | Microsoft Docs"
-description: "Découvrez comment Azure SQL Data Warehouse combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec un stockage Azure pour obtenir des performances et une extensibilité élevées."
+title: Azure SQL Data Warehouse – architecture MPP | Microsoft Docs
+description: Découvrez comment Azure SQL Data Warehouse combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec un stockage Azure pour obtenir des performances et une extensibilité élevées.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: dd148b8fdf6a816233f7adc0a8a22f87c417a156
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - Architecture MPP (Massively Parallel Processing).
 Découvrez comment Azure SQL Data Warehouse combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec un stockage Azure pour obtenir des performances et une extensibilité élevées. 
 
-## <a name="mpp-architecture-components"></a>Composants de l’architecture de MPP
-SQL Data Warehouse tire parti d’une architecture permettant d’adapter l’échelle pour répartir le traitement informatique des données sur plusieurs nœuds. L’unité d’échelle est une abstraction de la puissance de calcul, qui est connue comme Data Warehouse Unit (unité d’entrepôt de données). SQL Data Warehouse sépare de calcul du stockage, ce qui vous permet, en tant qu’utilisateur, d’adapter l’échelle du calcul indépendamment des données présentes dans votre système.
+## <a name="mpp-architecture-components"></a>Composants de l’architecture MPP
+SQL Data Warehouse tire parti d’une architecture permettant d’adapter l’échelle pour répartir le traitement informatique des données sur plusieurs nœuds. L’unité d’échelle est une abstraction de la puissance de calcul, qui est connue comme Data Warehouse Unit (unité d’entrepôt de données). SQL Data Warehouse sépare le calcul du stockage, ce qui vous permet d’adapter l’échelle du calcul indépendamment des données présentes dans votre système.
 
 ![Architecture de SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

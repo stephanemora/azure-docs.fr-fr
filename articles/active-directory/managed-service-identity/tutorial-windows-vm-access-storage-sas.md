@@ -1,8 +1,8 @@
 ---
-title: "Utiliser une MSI de machine virtuelle Windows pour accéder à Stockage Azure en utilisant des informations d’identification SAP"
-description: "Didacticiel montrant comment utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage."
+title: Utiliser une MSI de machine virtuelle Windows pour accéder à Stockage Azure en utilisant des informations d’identification SAP
+description: Didacticiel montrant comment utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c12cf5e5c8f103434b973ccd7e50ea96b405d541
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f7fd733410ee59307d63de72c650c45d57b88575
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
 
@@ -42,7 +42,7 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
@@ -59,7 +59,7 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows. Vous pouv
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle
 
-L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. En arrière-plan, activer MSI effectue deux opérations : cela installe l’extension MSI VM sur votre machine virtuelle et cela active MSI pour la machine virtuelle.  
+L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. En arrière-plan, l’activation de MSI effectue deux opérations : elle enregistre votre machine virtuelle avec Azure Active Directory pour créer son identité managée et configure l’identité sur la machine virtuelle.
 
 1. Accédez au groupe de ressources de votre nouvelle machine virtuelle et sélectionnez la machine virtuelle que vous avez créée à l’étape précédente.
 2. Dans les paramètres de la machine virtuelle situés dans le panneau de gauche, cliquez sur **Configuration**.
@@ -67,10 +67,6 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.
 
     ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Si vous souhaitez vérifier les extensions présentes sur la machine virtuelle, cliquez sur **Extensions**. Si MSI est activée, l’extension **ManagedIdentityExtensionforWindows** s’affiche dans la liste.
-
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage. 
 
@@ -122,7 +118,7 @@ Dans cette partie, vous devez utiliser les applets de commande PowerShell d’Az
 4. À l’aide de Invoke-WebRequest de Powershell, envoyez une requête au point de terminaison MSI local pour obtenir un jeton d’accès pour Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
