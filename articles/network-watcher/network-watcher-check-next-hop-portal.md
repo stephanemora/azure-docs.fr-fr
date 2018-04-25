@@ -1,11 +1,11 @@
 ---
-title: "Rechercher le tronçon suivant avec la fonction Tronçon suivant d’Azure Network Watcher - Portail Azure | Microsoft Docs"
-description: "Cet article explique comment rechercher le type de tronçon suivant et l’adresse IP à l’aide de la fonction Tronçon suivant par le biais du Portail Azure."
+title: Rechercher le tronçon suivant avec la fonction Tronçon suivant d’Azure Network Watcher - Portail Azure | Microsoft Docs
+description: Cet article explique comment rechercher le type de tronçon suivant et l’adresse IP à l’aide de la fonction Tronçon suivant par le biais du Portail Azure.
 services: network-watcher
 documentationcenter: na
 author: georgewallace
 manager: jimdial
-editor: 
+editor: ''
 ms.assetid: 7b459dcf-4077-424e-a774-f7bfa34c5975
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 445ec8c7eeb8dd715d3778b44372d16666da7fb8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-the-portal"></a>Découvrez le type de tronçon suivant grâce à la fonction Tronçon suivant d’Azure Network Watcher dans le Portail Azure.
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/21/2017
 > - [Portail Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
+> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [API REST Azure](network-watcher-check-next-hop-rest.md)
 
 Tronçon suivant est une fonctionnalité de Network Watcher qui permet d’obtenir le type de tronçon suivant et l’adresse IP à partir d’une machine virtuelle spécifiée. Cette fonctionnalité est utile pour déterminer si le trafic sortant d’une machine virtuelle passe par une passerelle, Internet ou des réseaux virtuels pour atteindre sa destination.
@@ -45,7 +45,7 @@ Dans ce scénario, vous allez :
 
 ## <a name="get-next-hop"></a>Obtenir le tronçon suivant
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Accédez à votre ressource Network Watcher dans le Portail Azure.
 
@@ -58,7 +58,7 @@ Dans le volet de navigation, cliquez sur **Tronçon suivant**, sélectionnez la 
 
 ![Vue d’ensemble de l’écran d’obtention du tronçon suivant][1]
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Une fois la tâche exécutée, les résultats sont présentés. L’adresse IP et le type d’appareil sur lequel figure le saut suivant s’affichent. La section ci-après présente les valeurs pouvant être renvoyées dans le portail.
 

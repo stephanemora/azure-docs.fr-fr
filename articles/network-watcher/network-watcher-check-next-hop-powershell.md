@@ -1,11 +1,11 @@
 ---
-title: "Rechercher le tronçon suivant avec la fonction Tronçon suivant Azure Network Watcher - PowerShell | Microsoft Docs"
-description: "Cet article explique comment rechercher le type de tronçon suivant et l’adresse IP avec la fonction Tronçon suivant par le biais de PowerShell."
+title: Rechercher le tronçon suivant avec la fonction Tronçon suivant Azure Network Watcher - PowerShell | Microsoft Docs
+description: Cet article explique comment rechercher le type de tronçon suivant et l’adresse IP avec la fonction Tronçon suivant par le biais de PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6a656c55-17bd-40f1-905d-90659087639c
 ms.service: network-watcher
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Découvrez le type de tronçon suivant grâce à la fonction Tronçon suivant Azure Network Watcher par le biais de PowerShell
 
 > [!div class="op_single_selector"]
-> - [portail Azure](network-watcher-check-next-hop-portal.md)
+> - [Portail Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
+> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [API REST Azure](network-watcher-check-next-hop-rest.md)
 
 Tronçon suivant est une fonctionnalité de Network Watcher qui permet d’obtenir le type de tronçon suivant et l’adresse IP à partir d’une machine virtuelle spécifiée. Cette fonctionnalité est utile pour déterminer si le trafic sortant d’une machine virtuelle passe par une passerelle, Internet ou des réseaux virtuels pour atteindre sa destination.
@@ -43,7 +43,7 @@ Le scénario décrit dans cet article utilise Tronçon suivant, une fonctionnali
 
 ## <a name="retrieve-network-watcher"></a>Récupérer Network Watcher
 
-La première étape consiste à récupérer l’instance Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande de vérification du tronçon suivant.
+La première étape consiste à récupérer l’instance de Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande de vérification du tronçon suivant.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
