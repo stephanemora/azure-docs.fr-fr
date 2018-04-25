@@ -1,31 +1,26 @@
 ---
-title: "Concepts de requête élastique avec Azure SQL Data Warehouse | Microsoft Docs"
-description: "Concepts de requête élastique avec Azure SQL Data Warehouse"
+title: Requête élastique - Accéder aux données dans Azure SQL Data Warehouse Azure à partir d’Azure SQL Database | Microsoft Docs
+description: Découvrez les meilleures pratiques d’utilisation d’une requête élastique pour accéder aux données dans Azure SQL Data Warehouse Azure à partir d’Azure SQL Database.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: elbutter
-ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.reviewer: jrj
+ms.openlocfilehash: 909271792b73b5fdc517847db7cfd6c8cf2092bc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Guide pratique pour utiliser la fonctionnalité de requête élastique avec SQL Data Warehouse
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Meilleures pratiques d’utilisation d’une requête élastique dans Azure SQL Database pour accéder aux données dans Azure SQL Data Warehouse
+Découvrez les meilleures pratiques d’utilisation d’une requête élastique pour accéder aux données dans Azure SQL Data Warehouse Azure à partir d’Azure SQL Database. 
 
-
-
-Vous pouvez utiliser la fonctionnalité de requête élastique avec Azure SQL Data Warehouse pour écrire du code Transact-SQL dans une base de données SQL qui est envoyé à distance à une instance Azure SQL Data Warehouse par le biais de tables externes. Cette fonctionnalité permet de réaliser des économies et d’obtenir des architectures plus performantes en fonction du scénario.
+## <a name="what-is-an-elastic-query"></a>Présentation d’une requête élastique
+Une requête élastique vous permet d’utiliser T-SQL et des tables externes afin d’écrire une requête dans une base de données SQL Azure qui est envoyée à distance à un entrepôt de données SQL Azure. Cette fonctionnalité permet de réaliser des économies et d’obtenir des architectures plus performantes en fonction du scénario.
 
 Deux scénarios principaux se prêtent à l’utilisation de cette fonctionnalité :
 
@@ -46,10 +41,7 @@ Avec la fonctionnalité de requête élastique, vous pouvez facilement sélectio
 
 La fonctionnalité de requête élastique permet l’exécution de requête distante sur une instance de l’entrepôt de données SQL. Vous pouvez tirer le meilleur parti de la base de données SQL et de l’entrepôt de données SQL en répartissant vos données chaudes et froides entre les deux bases de données. Les utilisateurs peuvent conserver davantage de données récentes dans une base de données SQL, qui peut servir des rapports et un grand nombre d’utilisateurs ordinaires au sein des entreprises. Toutefois, quand davantage de données ou de calcul sont nécessaires, un utilisateur peut décharger une partie de la requête sur une instance de l’entrepôt de données SQL où les agrégats à grande échelle peuvent être traités beaucoup plus rapidement et plus efficacement.
 
-
-
-## <a name="elastic-query-overview"></a>Vue d’ensemble des requêtes élastiques
-
+## <a name="elastic-query-process"></a>Processus de requête élastique
 Une requête élastique peut être utilisée pour mettre les données situées dans un entrepôt de données SQL à la disposition d’instances de la base de données SQL. La requête élastique permet à des requêtes d’une base de données SQL de faire référence à des tables dans une instance de l’entrepôt de données SQL distante. 
 
 La première étape consiste à créer une définition de source de données externe faisant référence à l’instance de l’entrepôt de données SQL, qui utilise les informations d’identification utilisateur existantes au sein de l’entrepôt de données SQL. Aucune modification n’est nécessaire sur l’instance de l’entrepôt de données SQL distante. 
@@ -58,13 +50,12 @@ La première étape consiste à créer une définition de source de données ext
 > 
 > Vous devez posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE. Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence aux sources de données distantes.
 
-Ensuite, dans une instance de la base de données SQL, vous créez une définition de table externe distante qui pointe vers une table distante dans l’entrepôt de données SQL. Quand vous utilisez une requête qui utilise une table externe, la partie de la requête qui fait référence à la table externe est envoyée à l’instance de l’entrepôt de données SQL à traiter. Une fois la requête terminée, le jeu de résultats est renvoyé à l’instance de base de données SQL appelante. Pour obtenir un didacticiel sommaire de la configuration d’une requête élastique entre la base de données SQL et l’entrepôt de données SQL, consultez [Configurer la fonctionnalité de requête élastique SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+Ensuite, dans une instance de la base de données SQL, créez une définition de table externe distante qui pointe vers une table distante dans l’entrepôt de données SQL. Lorsqu’une requête utilise une table externe, la partie de la requête qui fait référence à la table externe est envoyée à l’instance de l’entrepôt de données SQL à traiter. Une fois la requête terminée, le jeu de résultats est renvoyé à l’instance de base de données SQL appelante. Pour obtenir un didacticiel sommaire de la configuration d’une requête élastique entre la base de données SQL et l’entrepôt de données SQL, consultez [Configurer la fonctionnalité de requête élastique SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
 Pour plus d’informations sur la fonctionnalité de requête élastique avec la base de données SQL, consultez [Vue d’ensemble de la fonctionnalité de requête élastique Azure SQL Database (préversion)][Azure SQL Database elastic query overview].
 
-
-
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
+Utilisez ces meilleures pratiques pour utiliser efficacement les requêtes élastiques.
 
 ### <a name="general"></a>Généralités
 
@@ -78,9 +69,9 @@ Pour plus d’informations sur la fonctionnalité de requête élastique avec la
 
 ### <a name="elastic-querying"></a>Interrogation élastique
 
-- Dans de nombreux cas, il peut être souhaitable de gérer un type de table étendue. Une partie de votre table se trouve au sein de la base de données SQL Database sous la forme de données mises en cache pour améliorer les performances, tandis que les données restantes sont stockées dans SQL Data Warehouse. Vous devez disposer de deux objets dans SQL Database : une table externe au sein de SQL Database qui fait référence à la table de base dans SQL Data Warehouse et la partie « mise en cache » de la table dans la base de données SQL Database. Au-dessus de la partie mise en cache de la table et de la table externe, envisagez de créer une vue qui joint les deux tables et applique des filtres qui séparent les données matérialisées au sein de SQL Database et les données SQL Data Warehouse exposées par le biais de tables externes.
+- Dans de nombreux cas, il peut être souhaitable de gérer un type de table étendue. Une partie de votre table se trouve au sein de la base de données SQL Database sous la forme de données mises en cache pour améliorer les performances, tandis que les données restantes sont stockées dans SQL Data Warehouse. Vous avez besoin de deux objets dans SQL Database : une table externe au sein de SQL Database qui fait référence à la table de base dans SQL Data Warehouse et la partie « mise en cache » de la table dans la base de données SQL Database. Au-dessus de la partie mise en cache de la table et de la table externe, envisagez de créer une vue qui joint les deux tables et applique des filtres qui séparent les données matérialisées au sein de SQL Database et les données SQL Data Warehouse exposées par le biais de tables externes.
 
-  Imaginez que nous souhaitions conserver l’année de données la plus récente dans une instance de la base de données SQL. Nous avons deux tables : **ext.Orders**, qui fait référence aux tables de commandes dans l’entrepôt de données, et **dbo.Orders**, qui représente les données des années les plus récentes au sein de l’instance de la base de données SQL. Au lieu de demander aux utilisateurs de décider s’il faut interroger une table ou une autre, nous créons une vue au-dessus des deux tables sur le point de la partition de l’année la plus récente.
+  Imaginez que vous souhaitiez conserver l’année de données la plus récente dans une instance de la base de données SQL. La table **ext.Orders** fait référence aux tables des commandes de l’entrepôt de données. La table **dbo.Orders** représente l’année de données la plus récente au sein de l’instance de la base de données SQL. Au lieu de demander aux utilisateurs de décider s’il faut interroger une table ou l’autre, créez une vue au-dessus des deux tables sur le point de la partition de l’année la plus récente.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -119,19 +110,17 @@ Pour plus d’informations sur la fonctionnalité de requête élastique avec la
 
 ### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>Choisir Azure Analysis Services ou SQL Database
 
-#### <a name="azure-analysis-services"></a>Azure Analysis Services
+Utilisez Azure Analysis Services lorsque :
 
 - Vous prévoyez d’utiliser votre cache avec un outil décisionnel qui soumet de grandes quantités de petites requêtes.
 - Vous avez besoin d’une latence de requête inférieure à la seconde.
 - Vous êtes expérimenté dans la gestion et le développement de modèles pour Analysis Services. 
 
-#### <a name="sql-database"></a>Base de données SQL
+Utilisez Azure SQL Database lorsque :
 
 - Vous souhaitez interroger vos données de cache avec SQL.
 - Vous avez besoin de l’exécution distante pour certaines requêtes.
 - Vous avez des exigences de cache plus grand.
-
-
 
 ## <a name="faq"></a>Forum Aux Questions
 
@@ -161,19 +150,11 @@ R : Vous pouvez stocker des types spatiaux dans SQL Data Warehouse en tant que v
 
 ![Types spatiaux](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
-
-
-
-
-<!--Image references-->
-
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
-<!--MSDN references-->
 
-<!--Other Web references-->

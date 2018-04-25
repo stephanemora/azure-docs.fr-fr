@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4df404bbf56efbc3bb68f006f8aa0c7cdf0e86ac
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ac23d0f9b8f6899df6941791b22ec384ea0f3977
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Utilisation d’une identité du service administré de machine virtuelle (MSI) Azure pour se connecter 
 
@@ -52,7 +52,7 @@ Le script suivant montre comment :
 2. Appelez Azure Resource Manager et obtenez l’ID principal du service de la machine virtuelle. CLI prend en charge automatiquement la gestion de l’acquisition/utilisation des jetons pour vous. Veillez à indiquer le nom de votre machine virtuelle pour `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
@@ -75,7 +75,7 @@ Le script suivant montre comment :
    echo "The MSI access token is $access_token"
 
    # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Connect-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
@@ -92,7 +92,7 @@ Consultez [Services Azure prenant en charge l’authentification de Azure AD](ov
 Des réponses telles que les suivantes peuvent indiquer que les MSI de la machine virtuelle n’ont pas été configurées correctement :
 
 - PowerShell : *Invoke-WebRequest : Impossible de se connecter au serveur distant*
-- CLI : *MSI : Impossible de récupérer un jeton à partir de « http://localhost:50342/oauth2/jeton » avec l’erreur « HTTPConnectionPool (host = 'localhost', port = 50342)* 
+- CLI : *MSI : Impossible de récupérer un jeton à partir de « http://localhost:50342/oauth2/token » avec l’erreur « HTTPConnectionPool (host = 'localhost', port = 50342)* 
 
 Si vous recevez l’une de ces erreurs, revenez à la machine virtuelle Azure dans le [portail Azure](https://portal.azure.com) et :
 

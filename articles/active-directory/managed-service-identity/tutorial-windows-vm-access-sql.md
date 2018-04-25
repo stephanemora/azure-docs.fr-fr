@@ -1,8 +1,8 @@
 ---
-title: "Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL"
-description: "Ce didacticiel vous guide tout au long du processus d’utilisation d’une MSI (Managed Service Identity, identité de service managé) de machine virtuelle Windows pour accéder à Azure SQL."
+title: Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL
+description: Ce didacticiel vous guide tout au long du processus d’utilisation d’une MSI (Managed Service Identity, identité de service managé) de machine virtuelle Windows pour accéder à Azure SQL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aaec2fe989c4b0ae1867e629f6b46ab29297cb41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL
 
@@ -39,7 +39,7 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
@@ -56,17 +56,13 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pou
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle 
 
-Une MSI de machine virtuelle permet d’obtenir des jetons d’accès émanant d’Azure AD sans avoir à insérer d’informations d’identification dans votre code. À l’activation de la MSI, Azure crée une identité administrée pour votre machine virtuelle. En arrière plan, l’activation de la MSI effectue deux opérations : cela installe l’extension de machine virtuelle de la MSI sur votre machine virtuelle et cela active la MSI pour Azure Resource Manager.
+Une MSI de machine virtuelle permet d’obtenir des jetons d’accès émanant d’Azure AD sans avoir à insérer d’informations d’identification dans votre code. À l’activation de la MSI, Azure crée une identité administrée pour votre machine virtuelle. En arrière-plan, l’activation de MSI effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité managée et configure l’identité sur la machine virtuelle.
 
 1.  Sélectionnez la **Machine virtuelle** sur laquelle vous souhaitez activer l’identité du service administré.  
 2.  Dans la barre de navigation gauche, cliquez sur **Configuration**. 
 3.  **Identité du service administré** s’affiche. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
 4.  Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.  
     ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Si vous souhaitez vérifier et confirmer les extensions sur cette machine virtuelle, cliquez sur **Extensions**. Si MSI est activée, l’extension **ManagedIdentityExtensionforWindows** s’affiche dans la liste.
-
-    ![Texte de remplacement d’image](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Accorder à votre machine virtuelle l’accès à une base de données sur un serveur Azure SQL
 
@@ -101,7 +97,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Ensuite, ajoutez la MSI de la machine virtuelle au groupe.  Vous avez besoin de l’**ObjectId** de la MSI, que vous pouvez obtenir à l’aide d’Azure PowerShell.  Commencez par télécharger [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Ensuite, connectez-vous à l’aide de l’applet de commande `Login-AzureRmAccount`, puis exécutez les commandes suivantes pour :
+Ensuite, ajoutez la MSI de la machine virtuelle au groupe.  Vous avez besoin de l’**ObjectId** de la MSI, que vous pouvez obtenir à l’aide d’Azure PowerShell.  Commencez par télécharger [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Ensuite, connectez-vous à l’aide de l’applet de commande `Connect-AzureRmAccount`, puis exécutez les commandes suivantes pour :
 - vérifier que votre contexte de session est défini sur l’abonnement Azure souhaité si vous en avez plusieurs ;
 - répertorier les ressources disponibles dans votre abonnement Azure, et vérifier que les noms de groupe de ressources et de machine virtuelle sont corrects ;
 - obtenir les propriétés de la MSI de la machine virtuelle, en utilisant les valeurs appropriées pour `<RESOURCE-GROUP>` et `<VM-NAME>`.
@@ -183,7 +179,7 @@ Le code qui s’exécute dans la machine virtuelle peut désormais obtenir un je
 
 Azure SQL prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide de la MSI.  Vous utilisez la méthode de **jeton d’accès** pour créer une connexion à SQL.  Cela fait partie de l’intégration d’Azure SQL avec Azure AD, et diffère de la fourniture d’informations d’identification sur la chaîne de connexion.
 
-Voici un exemple de code .Net pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès.  Pour permettre l’accès au point de terminaison de la MSI de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle.  Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure est requis.  Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence.  Notez que l’ID de ressource pour Azure SQL est « https://database.windows.net/ ».
+Voici un exemple de code .Net pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès.  Pour permettre l’accès au point de terminaison de la MSI de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle.  Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure est requis.  Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence.  Notez l’ID de ressource pour SQL Azure est « https://database.windows.net/ ».
 
 ```csharp
 using System.Net;
@@ -194,7 +190,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -235,7 +231,7 @@ Un autre moyen rapide de tester la configuration de bout en bout sans devoir éc
 4.  À l’aide de l’applet de commande `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison de la MSI locale pour obtenir un jeton d’accès pour Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F -Method GET -Headers @{Metadata="true"}
     ```
     
     Convertissez la réponse d’objet JSON en objet PowerShell. 

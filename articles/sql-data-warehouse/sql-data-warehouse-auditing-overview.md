@@ -1,28 +1,26 @@
 ---
-title: "Audit dans Azure SQL Data Warehouse | Microsoft Docs"
-description: "Prise en main de l’audit dans Azure SQL Data Warehouse"
+title: Audit dans Azure SQL Data Warehouse | Microsoft Docs
+description: En savoir plus sur l’audit et sa configuration dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: jrj
+ms.openlocfilehash: 7bce59114dcfef7f9faa7f112c62dbb88044f2ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Audit dans Azure SQL Data Warehouse
 
+En savoir plus sur l’audit et sa configuration dans Azure SQL Data Warehouse.
+
+## <a name="what-is-auditing"></a>Qu’est-ce que l’audit ?
 La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte Microsoft Azure Storage. L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données, et à découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité. L’audit de SQL Data Warehouse s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports.
 
 Les outils d’audit permettent et facilitent le respect des normes liées à la conformité, mais ne garantissent pas cette dernière. Pour plus d’informations sur les programmes Azure prenant en charge la conformité aux normes, voir le <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centre de confidentialité Azure</a>.

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -129,8 +129,8 @@ Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel prése
 
 - Les règles de réseau virtuel s’appliquent uniquement à des réseaux virtuels Azure Resource Manager, et non à des réseaux avec un [modèle de déploiement Classic][arm-deployment-model-568f].
 
-- Activer les points de terminaison de réseau virtuel pour Azure SQL Database active également les points de terminaison pour les services MySQL et PostGres Azure. Toutefois, avec les points de terminaison activés, les tentatives de connexion à partir des points de terminaison pour vos instances de MySQL ou Postgres échoueront.
-    - La raison sous-jacente est que MySQL et PostGres ne prennent pas actuellement en charge les ACL.
+- L’activation des points de terminaison de service de réseau virtuel pour Azure SQL Database active également les points de terminaison des services Azure MySQL et PostgreSQL. Toutefois, avec les points de terminaison activés, les tentatives de connexion à partir des points de terminaison pour vos instances de MySQL ou PostgreSQL échouent.
+    - La raison sous-jacente est que MySQL et PostgreSQL ne prennent pas actuellement en charge les ACL.
 
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
     - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
@@ -226,6 +226,10 @@ Une liste de plusieurs messages d’erreur de base de données SQL Database est 
 
 Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-portal-link-ref-477t] pour créer une *règle de réseau virtuel* sur votre serveur Azure SQL Database. La règle donne l’instruction à votre serveur SQL Database d’accepter les communications provenant d’un sous-réseau spécifique qui a été marqué comme étant un *point de terminaison de service de réseau virtuel*.
 
+> [!NOTE]
+> Vérifiez que les points de terminaison de service sont activés pour le réseau virtuel/sous-réseau que vous envisagez d’ajouter aux règles de pare-feu de réseau virtuel de votre serveur.
+> S’ils ne le sont pas pour le réseau virtuel/sous-réseau, vous êtes invité à les activer dans le portail, en cliquant sur Activer dans le panneau que vous utilisez pour ajouter la règle.
+
 #### <a name="powershell-alternative"></a>Alternative PowerShell
 
 Un script PowerShell peut également créer des règles de réseau virtuel avec l’applet de commande essentielle **New-AzureRmSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
@@ -316,7 +320,7 @@ La fonctionnalité de règle de réseau virtuel pour Azure SQL Database est disp
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

@@ -1,10 +1,10 @@
 ---
-title: "Configurer des adresses IP privées pour les machines virtuelles (Classic) - Azure CLI 1.0 | Microsoft Docs"
-description: "Apprenez à configurer des adresses IP privées pour les machines virtuelles (Classic) à l’aide de l’interface Azure CLI 1.0."
+title: Configurer des adresses IP privées pour les machines virtuelles (Classic) - Azure CLI 1.0 | Microsoft Docs
+description: Apprenez à configurer des adresses IP privées pour les machines virtuelles (Classic) à l’aide de l’interface Azure CLI 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c23419fdee7330d091d4699714f4ec08e72be2df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configurer des adresses IP privées pour une machine virtuelle (Classic) à l’aide de l’interface Azure CLI 1.0
 
@@ -76,7 +76,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans un nouveau service cloud 
    * **adminuser**. Administrateur local pour la machine virtuelle Windows.
    * **AdminP@ssw0rd**. Mot de passe administrateur local pour la machine virtuelle Windows.
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Récupération d’informations d’adresse IP privée statique pour une machine virtuelle
 Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande d’interface de ligne de commande Azure ci-après, et examinez la valeur *Network StaticIP*:
 
     azure vm static-ip show DNS01
@@ -114,6 +114,10 @@ Sortie attendue :
     info:    Reading network configuration
     info:    Updating network configuration
     info:    vm static-ip set command OK
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>Définir des adresses IP au sein du système d’exploitation
+
+Il est recommandé de ne pas statiquement assigner l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire. Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à la machine virtuelle Azure ou vous pouvez perdre la connectivité à la machine virtuelle. Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md) .

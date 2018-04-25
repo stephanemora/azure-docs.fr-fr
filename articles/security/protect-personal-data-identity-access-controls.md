@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory et Multi-Factor Authentication : protéger les données personnelles avec des contrôles d’accès et d’identité
 
@@ -39,7 +39,7 @@ La compagnie doit protéger la confidentialité des données personnelles de ses
 
 ## <a name="company-goal"></a>Objectif de l’entreprise
 
-L’objectif de la compagnie est de garantir que l’accès aux données personnelles est strictement contrôlé. Il est essentiel que les identités des utilisateurs ayant accès aux données personnelles soient protégées par une forte authentification. Une stratégie de [privilège minimum] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) doit s’appliquer afin que les utilisateurs légitimes aient uniquement le niveau d’accès dont ils ont besoin, et pas plus.
+L’objectif de la compagnie est de garantir que l’accès aux données personnelles est strictement contrôlé. Il est essentiel que les identités des utilisateurs ayant accès aux données personnelles soient protégées par une forte authentification. Une stratégie de [privilège minimum] (https://en.wikipedia.org/wiki/Principle_of_least_privilege)) doit s’appliquer afin que les utilisateurs légitimes aient uniquement le niveau d’accès dont ils ont besoin, et pas plus.
 
 ## <a name="solutions"></a>solutions
 
@@ -83,11 +83,11 @@ Pour plus d’informations et pour obtenir des instructions sur la mise en route
 
 ### <a name="azure-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Azure
 
-Le [contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) aide les administrateurs Azure à gérer l’accès aux ressources Azure en activant l’octroi d’accès en fonction du rôle attribué à l’utilisateur. Vous pouvez répartir les tâches au sein de votre équipe et accorder aux utilisateurs, groupes et applications uniquement les accès nécessaires pour accomplir leur travail.
+Le [contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) aide les administrateurs Azure à gérer l’accès aux ressources Azure en activant l’octroi d’accès en fonction du rôle attribué à l’utilisateur. Vous pouvez répartir les tâches au sein de votre équipe et accorder aux utilisateurs, groupes et applications uniquement les accès nécessaires pour accomplir leur travail.
 
 L’accès en fonction du rôle peut être accordé aux utilisateurs à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure.
 
-Pour plus d’informations sur Azure RBAC, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
+Pour plus d’informations sur Azure RBAC, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Comment gérer le contrôle d’accès en fonction du rôle Azure avec PowerShell ?
 
@@ -111,7 +111,7 @@ Vous pouvez utiliser les applets de commande PowerShell pour gérer Azure RBAC, 
 
 - Répertorier les rôles personnalisés
 
-Pour obtenir des instructions sur la gestion d’Azure RBAC avec PowerShell, consultez [Gérer l’accès en fonction du rôle avec Azure Powershell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Pour obtenir des instructions sur la gestion d’Azure RBAC avec PowerShell, consultez [Gérer l’accès en fonction du rôle avec Azure Powershell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -125,7 +125,7 @@ Si vos utilisateurs disposent de licences comprenant Azure Multi-Factor Authenti
 
 ![Utilisateurs prenant en charge MFA](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Si vous ne disposez pas de licences, vous devez effectuer une série d’étapes pour déterminer le type de déploiement le mieux adapté à votre scénario. Vous pouvez commencer par lire l’article intitulé [Choisir la solution Azure Multi-Factor Authentication adaptée à vos besoins](../multi-factor-authentication/multi-factor-authentication-get-started.md). Si vous décidez de poursuivre dans cette voie, vous devez créer un serveur Multi-Factor Authentication. Pour commencer, effectuez les étapes suivantes :
+Si vous ne disposez pas de licences, vous devez effectuer une série d’étapes pour déterminer le type de déploiement le mieux adapté à votre scénario. Vous pouvez commencer par lire l’article intitulé [Choisir la solution Azure Multi-Factor Authentication adaptée à vos besoins](../active-directory/authentication/concept-mfa-whichversion.md). Si vous décidez de poursuivre dans cette voie, vous devez créer un serveur Multi-Factor Authentication. Pour commencer, effectuez les étapes suivantes :
 
 1. Sélectionnez **Active Directory** dans le portail Azure (en étant connecté en tant qu’administrateur).
 
@@ -184,6 +184,6 @@ Pour plus d’informations sur la façon de configurer les paramètres Azure MFA
 
 - [Forum aux questions sur Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Résolution des problèmes de contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Résolution des problèmes de contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

@@ -2,24 +2,25 @@
 title: Analyser la charge de travail - Azure SQL Data Warehouse | Microsoft Docs
 description: Techniques d’analyse des priorités de requête de votre charge de travail dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: sqlmojo
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/28/2018
-ms.author: joeyong
-ms.reviewer: jrj
-ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: c2f6e1092b9375a90eb1909696a196c9ab4b5dad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="analyze-your-workload"></a>Analyser votre charge de travail
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyser la charge de travail dans Azure SQL Data Warehouse
 Techniques d’analyse des priorités de requête de votre charge de travail dans Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Groupes de charges de travail 
-SQL Data Warehouse implémente des classes de ressources à l’aide de groupes de charges de travail. Il existe en tout huit groupes de charges de travail qui contrôlent le comportement des classes de ressources dans les différentes tailles de DWU. Pour les DWU, SQL Data Warehouse n’utilise que quatre des huit groupes de charges de travail. Cela est logique car chaque groupe de charges de travail est affecté à une des quatre classes de ressources : smallrc, mediumrc, largerc ou xlargerc. Il est important de bien comprendre ces groupes de charges de travail, car certains sont définis comme ayant une *importance*plus élevée. L’importance est utilisée pour la planification du processeur. Les requêtes exécutées avec une importance élevée obtiennent trois fois plus de cycles processeur que celles exécutées avec une importance moyenne. Ainsi, les mappages d’emplacements de concurrence déterminent également la priorité du processeur. Quand une requête utilise 16 emplacements ou plus, elle s’exécute avec une importance élevée.
+SQL Data Warehouse implémente des classes de ressources à l’aide de groupes de charges de travail. Il existe en tout huit groupes de charges de travail qui contrôlent le comportement des classes de ressources dans les différentes tailles de DWU. Pour les DWU, SQL Data Warehouse n’utilise que quatre des huit groupes de charges de travail. Cette approche est logique car chaque groupe de charge de travail est affecté à une des quatre classes de ressources : smallrc, mediumrc, largerc ou xlargerc. Il est important de bien comprendre ces groupes de charges de travail, car certains sont définis comme ayant une *importance*plus élevée. L’importance est utilisée pour la planification du processeur. Les requêtes exécutées avec une importance élevée obtiennent trois fois plus de cycles processeur que celles exécutées avec une importance moyenne. Ainsi, les mappages d’emplacements de concurrence déterminent également la priorité du processeur. Quand une requête utilise 16 emplacements ou plus, elle s’exécute avec une importance élevée.
 
 Le tableau ci-dessous présente les mappages d’importance pour chaque groupe de charges de travail.
 
@@ -38,7 +39,7 @@ Le tableau ci-dessous présente les mappages d’importance pour chaque groupe d
 | SloDWGroupC08   | 256                      | 25 600                         | 64 000                      | Élevé               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-À partir du graphique **Allocation et consommation des emplacements de concurrence** , vous pouvez constater qu’une DW500 utilise 1, 4, 8 ou 16 emplacements de concurrence pour smallrc, mediumrc, largerc et xlargerc, respectivement. Vous pouvez rechercher ces valeurs dans le graphique précédent pour connaître l’importance de chaque classe de ressources.
+Le graphique **Allocation et consommation des emplacements de concurrence** montre qu’une DW500 utilise 1, 4, 8 ou 16 emplacements de concurrence pour smallrc, mediumrc, largerc et xlargerc, respectivement. Pour connaître l’importance de chaque classe de ressources, vous pouvez rechercher ces valeurs dans le graphique précédent.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mappage d’importance des DW500 aux classes de ressources
 | classe de ressources | Groupe de charges de travail | Emplacements de concurrence utilisés | Mo / Distribution | importance |
@@ -57,7 +58,7 @@ Le tableau ci-dessous présente les mappages d’importance pour chaque groupe d
 | staticrc80     | SloDWGroupC03  | 16                     | 1 600             | Élevé       |
 
 ## <a name="view-workload-groups"></a>Afficher les groupes de charges de travail
-Vous pouvez utiliser la requête DMV suivante pour examiner en détail les différences d’allocation des ressources mémoire du point de vue du gouverneur de ressources, ou analyser l’utilisation active et historique des groupes de charges de travail lors de la résolution des problèmes.
+La requête suivante montre les détails de l’allocation des ressources mémoire du point de vue du gouverneur de ressources. Ces détails s’avèrent utiles pour analyser l’utilisation active et historique des groupes de charges de travail lors de la résolution de problèmes.
 
 ```sql
 WITH rg
@@ -106,7 +107,7 @@ ORDER BY
 ```
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Détection des requêtes en file d’attente et autres vues de gestion dynamique
-Vous pouvez utiliser la DMV `sys.dm_pdw_exec_requests` pour identifier les requêtes en attente dans une file d’attente de concurrence. Les requêtes en attente pour un emplacement de concurrence auront le statut **suspendu**.
+Vous pouvez utiliser la DMV `sys.dm_pdw_exec_requests` pour identifier les requêtes en attente dans une file d’attente de concurrence. Les requêtes en attente d’emplacement de concurrence ont le statut **suspendu**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID

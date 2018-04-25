@@ -1,30 +1,26 @@
 ---
-title: Optimisation des transactions pour SQL Data Warehouse | Microsoft Docs
-description: Meilleures pratiques sur l’écriture de mises à jour efficaces de transactions dans Azure SQL Data Warehouse
+title: Optimisation des transactions pour Azure SQL Data Warehouse | Microsoft Docs
+description: Apprenez comment optimiser les performances de votre code transactionnel dans Azure SQL Data Warehouse tout en limitant les risques de restaurations de longue durée.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: 607c169e3d9e8aa741084392439da383f46cfe0c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 55fc317dc9e7a1401aef8c5431ba04d86822d333
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="optimizing-transactions-for-sql-data-warehouse"></a>Optimisation des transactions pour SQL Data Warehouse
-Cet article vous explique comment optimiser les performances de votre code transactionnel tout en limitant les risques de restaurations de longue durée.
+# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimisation des transactions pour Azure SQL Data Warehouse
+Apprenez comment optimiser les performances de votre code transactionnel dans Azure SQL Data Warehouse tout en limitant les risques de restaurations de longue durée.
 
 ## <a name="transactions-and-logging"></a>Transactions et journalisation
-Les transactions sont une composante importante d’un moteur de base de données relationnelle. SQL Data Warehouse utilise les transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques `INSERT`, `UPDATE` et `DELETE` sont toutes des exemples de transactions implicites. Les transactions explicites utilisent `BEGIN TRAN`, `COMMIT TRAN` ou `ROLLBACK TRAN`. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique. 
+Les transactions sont une composante importante d’un moteur de base de données relationnelle. SQL Data Warehouse utilise les transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique. 
 
 Azure SQL Data Warehouse valide les modifications apportées à la base de données à l’aide de fichiers journaux de transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
 
@@ -33,7 +29,7 @@ Azure SQL Data Warehouse valide les modifications apportées à la base de donn�
 * Adoptez un modèle de basculement de partitions en cas de modifications importantes apportées à une partition donnée.
 
 ## <a name="minimal-vs-full-logging"></a>Journalisation minimale et journalisation complète
-Contrairement aux opérations entièrement journalisées, qui utilisent le fichier journal de transactions pour effectuer le suivi de chaque modification de ligne, les journalisations minimales assurent le suivi des allocations d’étendue et des modifications de métadonnées uniquement. Par conséquent, la journalisation minimale implique la consignation exclusive des informations nécessaires à la restauration de la transaction en cas de défaillance ou pour une requête explicite (`ROLLBACK TRAN`). Dans la mesure où la journalisation minimale implique le suivi d’un volume de données moins important, cette opération est plus performante qu’une journalisation complète de taille similaire. En outre, un volume moins important d’écritures étant transmis vers le fichier journal de transactions, la quantité de données de journal générées est elle aussi réduite, et les performances E/S s’en trouvent accrues.
+Contrairement aux opérations entièrement journalisées, qui utilisent le fichier journal de transactions pour effectuer le suivi de chaque modification de ligne, les journalisations minimales assurent le suivi des allocations d’étendue et des modifications de métadonnées uniquement. Par conséquent, la journalisation minimale implique la consignation exclusive des informations nécessaires à la restauration de la transaction en cas de défaillance ou pour une requête explicite (ROLLBACK TRAN). Dans la mesure où la journalisation minimale implique le suivi d’un volume de données moins important, cette opération est plus performante qu’une journalisation complète de taille similaire. En outre, un volume moins important d’écritures étant transmis vers le fichier journal de transactions, la quantité de données de journal générées est elle aussi réduite, et les performances E/S s’en trouvent accrues.
 
 Les limites de sécurité des transactions s’appliquent uniquement aux opérations faisant l’objet d’une journalisation complète.
 
@@ -45,7 +41,7 @@ Les limites de sécurité des transactions s’appliquent uniquement aux opérat
 ## <a name="minimally-logged-operations"></a>Journalisations minimales
 Les opérations suivantes peuvent faire l’objet d’une journalisation minimale :
 
-* CREATE TABLE AS SELECT ([CTAS][CTAS])
+* CREATE TABLE AS SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -61,12 +57,12 @@ Les opérations suivantes peuvent faire l’objet d’une journalisation minimal
 -->
 
 > [!NOTE]
-> Les opérations de déplacement de données internes (telles que `BROADCAST` et `SHUFFLE`) ne sont pas affectées par la limite de sécurité des transactions.
+> Les opérations de déplacement de données internes (telles que BROADCAST et SHUFFLE) ne sont pas affectées par la limite de sécurité des transactions.
 > 
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Journalisation minimale avec chargement en bloc
-`CTAS` et `INSERT...SELECT` sont des opérations de chargement en bloc. Toutefois, ces deux éléments sont affectés par la définition de table cible et dépendent du scénario de chargement. Le tableau suivant décrit les situations de journalisations minimales ou complètes des opérations en bloc :  
+CTAS et INSERT...SELECT sont des opérations de chargement en bloc. Toutefois, ces deux éléments sont affectés par la définition de table cible et dépendent du scénario de chargement. Le tableau suivant décrit les situations de journalisations minimales ou complètes des opérations en bloc :  
 
 | Index primaire | Scénario de chargement | Mode de journalisation |
 | --- | --- | --- |
@@ -87,7 +83,7 @@ Il est important de noter que toute opération d’écriture effectuée dans le 
 Le chargement de données dans une table non vide avec un index cluster comporte bien souvent une combinaison de lignes ayant fait l’objet d’une journalisation minimale et complète. Un index cluster est un arbre équilibré (arbre b) de pages. Si la page cible de l’écriture comporte déjà des lignes d’une autre transaction, ces opérations d’écriture feront l’objet d’une journalisation complète. Toutefois, si la page est vide, l’opération d’écriture fera l’objet d’une journalisation minimale.
 
 ## <a name="optimizing-deletes"></a>Optimisation des suppressions
-`DELETE` est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une table avec [CTAS][CTAS].  Une fois la table créée, utilisez [RENAME][RENAME] pour permuter l’ancienne table et la table nouvellement créée.
+DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql) pour permuter l’ancienne table et la table nouvellement créée.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -118,9 +114,9 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optimisation des mises à jour
-`UPDATE` est une opération entièrement journalisée.  Si vous devez mettre à jour un nombre important de lignes d’une table ou d’une partition, il peut souvent s’avérer plus efficace de recourir à une opération avec une journalisation minimale, comme [CTAS][CTAS].
+UPDATE est une opération entièrement journalisée.  Si vous devez mettre à jour un nombre important de lignes d’une table ou d’une partition, il peut souvent s’avérer plus efficace de recourir à une opération avec une journalisation minimale, comme [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
-Dans l’exemple suivant, une mise à jour complète de table a été convertie en `CTAS` , ce qui rend possible la mise en place d’une journalisation minimale.
+Dans l’exemple suivant, une mise à jour complète de table a été convertie en CTAS, ce qui rend possible la mise en place d’une journalisation minimale.
 
 Dans ce cas, nous ajoutons a posteriori une valeur de remise aux ventes dans la table :
 
@@ -184,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Optimisation avec basculement de partitions
-Si vous devez procéder à des modifications à grande échelle au sein d’une [partition de table][table partition], il est plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
+Si vous devez procéder à des modifications à grande échelle au sein d’une [partition de table](sql-data-warehouse-tables-partition.md), il est plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
 
 Les étapes constitutives d’un basculement de partitions sont les suivantes :
 
@@ -416,23 +412,9 @@ Azure SQL Data Warehouse vous permet de [suspendre, de reprendre et de mettre à
 
 La configuration idéale consiste à laisser les modifications en cours de données se terminer avant la suspension ou la mise à l’échelle de SQL Data Warehouse. Toutefois, ce scénario n’est pas toujours pratique. Pour pallier le risque d’une longue restauration, envisagez l’une des options suivantes :
 
-* Réécrire les opérations de longue durée à l’aide de [CTAS][CTAS]
+* Réécrire les opérations de longue durée à l’aide de [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Décomposer l’opération en segments, en traitant un sous-ensemble des lignes
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez [Transactions dans SQL Data Warehouse][Transactions in SQL Data Warehouse] pour en savoir plus sur les niveaux d’isolement et les limites transactionnelles.  Pour une vue d’ensemble des autres bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices].
-
-<!--Image references-->
-
-<!--Article references-->
-[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[table partition]: ./sql-data-warehouse-tables-partition.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-
-<!-- Other web references -->
+Consultez [Transactions dans SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) pour en savoir plus sur les niveaux d’isolement et les limites transactionnelles.  Pour une vue d’ensemble des autres bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

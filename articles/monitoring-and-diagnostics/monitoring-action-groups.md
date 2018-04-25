@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/12/2018
 ms.author: dukek
-ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 ## <a name="overview"></a>Vue d'ensemble ##
@@ -26,10 +26,10 @@ Cet article vous montre comment créer et gérer des groupes d’actions dans le
 
 Vous pouvez configurer une liste d’actions avec des groupes d’actions. Ces groupes peuvent être réutilisés par chaque alerte que vous définissez, afin que les mêmes actions soient entreprises chaque fois qu’une alerte se déclenche.
 
-Un groupe d’actions peut contenir jusqu’à 10 actions de chaque type. Chaque action se compose des propriétés suivantes :
+Chaque action se compose des propriétés suivantes :
 
 * **Nom** : identificateur unique au sein du groupe d’actions.  
-* **Type d’action** : envoyer un appel vocal ou un SMS, envoyer un courrier électronique, appeler un webhook, envoyer des données à un outil ITSM, appeler une application Azure ou exécuter un runbook Automation.
+* **Type d’action** : envoyer un appel vocal ou un SMS, envoyer un courrier électronique, appeler un webhook, envoyer des données à un outil ITSM, appeler une application logique, envoyer une notification Push vers l’application Azure ou exécuter un runbook Automation.
 * **Détails** : numéro de téléphone, adresse e-mail ou URI de Webhook ou informations de connexion ITSM correspondants.
 
 Pour plus d’informations sur l’utilisation de modèles Azure Resource Manager pour configurer des groupes d’actions, consultez la page [Modèles Resource Manager de groupes d’actions](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,14 +56,45 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
     a. **Nom** : entrez un identificateur unique pour cette action.
 
-    b. **Type d’action** : sélectionnez E-mail, SMS, Push, Voix, Webhook, ITSM ou Runbook Automation.
+    b. **Type d’action** : sélectionnez E-mail, SMS, Push, Voix, application logique, Webhook, ITSM ou Runbook Automation.
 
     c. **Détails** : selon le type d’action, saisissez un numéro de téléphone, une adresse e-mail, un URI de webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM.
 
-   > [!NOTE]
-   > ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../log-analytics/log-analytics-itsmc-overview.md). 
-
 8. Sélectionnez **OK** pour créer le groupe d’actions.
+
+## <a name="action-specific-information"></a>Informations spécifiques sur l’action
+<dl>
+<dt>Envoi de l’application Azure</dt>
+<dd>Vous pouvez avoir jusqu’à 10 actions d’application Azure dans un groupe d’actions.</dd>
+<dd>À ce stade, l’action d’application Azure prend uniquement en charge des alertes ServiceHealth. Tout autre moment d’alerte sera ignoré. Consultez [Configuration d’alertes lorsqu’une notification d’intégrité de service est publiée](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
+
+<dt>E-mail</dt>
+<dd>Vous pouvez avoir jusqu’à 50 actions d’e-mail dans un groupe d’actions</dd>
+<dd>Consultez l’article [Informations de limitation du débit](./monitoring-alerts-rate-limiting.md)</dd>
+
+<dt>ITSM</dt>
+<dd>Vous pouvez avoir jusqu’à 10 actions ITSM dans un groupe d’actions</dd>
+<dd>ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../log-analytics/log-analytics-itsmc-overview.md).</dd>
+
+<dt>Application logique</dt>
+<dd>Vous pouvez avoir jusqu’à 10 actions d’application logique dans un groupe d’actions</dd>
+
+<dt>Runbook</dt>
+<dd>Vous pouvez avoir jusqu’à 10 actions de runbook dans un groupe d’actions</dd>
+
+<dt>SMS</dt>
+<dd>Vous pouvez avoir jusqu’à 10 actions de SMS dans un groupe d’actions</dd>
+<dd>Consultez l’article [Informations de limitation du débit](./monitoring-alerts-rate-limiting.md)</dd>
+<dd>Consultez l’article [Comportement des alertes SMS](monitoring-sms-alert-behavior.md)</dd>
+
+<dt>Voice</dt>
+<dd>Vous pouvez avoir jusqu’à 10 actions de Voice dans un groupe d’actions</dd>
+<dd>Consultez l’article [Informations de limitation du débit](./monitoring-alerts-rate-limiting.md)</dd>
+
+<dt>Webhook</dt>
+<dd>Vous pouvez avoir jusqu’à 10 actions de Webhook dans un groupe d’actions
+<dd>Logique de recommencement - l’appel de webhook sera retenté 3 fois au maximum lorsque les codes d’état HTTP suivants sont retournés : 408, 429, 503, 504</dd>
+</dl>
 
 ## <a name="manage-your-action-groups"></a>Gérer des groupes d’actions ##
 Après sa création, un groupe d’actions apparaît dans la section **Groupes d’actions** du panneau **Moniteur**. Sélectionnez le groupe d’actions que vous souhaitez gérer pour :

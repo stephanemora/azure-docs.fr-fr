@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - Configurer la surveillance avec OMS Log Analytics | Microsoft Docs
-description: Découvrez comment configurer Operations Management Suite pour visualiser et analyser des événements afin de surveiller vos clusters Azure Service Fabric.
+title: Azure Service Fabric - Configurer le monitoring avec Log Analytics | Microsoft Docs
+description: Découvrez comment configurer Log Analytics pour visualiser et analyser des événements afin de surveiller vos clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurer Operations Management Suite Log Analytics pour un cluster
+# <a name="set-up-log-analytics-for-a-cluster"></a>Configurer Log Analytics pour un cluster
 
-Vous pouvez configurer un espace de travail Operations Management Suite (OMS) avec Azure Resource Manager, PowerShell ou la Place de marché Azure. Si vous gérez un modèle Resource Manager mis à jour de votre déploiement, utilisez le même modèle pour configurer votre environnement OMS. Le déploiement via la Place de marché est plus facile si vous avez déjà déployé un cluster et activé les diagnostics. Si vous ne disposez pas d’un accès de niveau abonnement pour le compte sur lequel vous déployez OMS, effectuez le déploiement avec PowerShell ou le modèle Resource Manager.
+Vous pouvez configurer un espace de travail Log Analytics à partir d’Azure Resource Manager, de PowerShell ou de la Place de marché Azure. Si vous gérez un modèle Resource Manager mis à jour de votre déploiement, utilisez le même modèle pour configurer votre environnement OMS. Le déploiement via la Place de marché est plus facile si vous avez déjà déployé un cluster et activé les diagnostics. Si vous ne disposez pas d’un accès de niveau abonnement pour le compte sur lequel vous déployez OMS, effectuez le déploiement avec PowerShell ou le modèle Resource Manager.
 
 > [!NOTE]
-> Pour configurer OMS afin de surveiller votre cluster, vous avez besoin d’activer les diagnostics pour voir les événements au niveau du cluster ou de la plateforme.
+> Pour configurer Log Analytics afin de surveiller votre cluster, vous avez besoin d’activer les diagnostics pour voir les événements au niveau du cluster ou de la plateforme.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>Déployer OMS à l’aide de la Place de marché Azure
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -154,9 +154,9 @@ Si vous ne l’avez pas déjà fait, créez des comptes distincts pour les utili
 
 Assurez-vous que tous les utilisateurs se sont connectés à leur compte administrateur et modifié leur mot de passe au moins une fois au cours des 90 derniers jours. Vérifiez également les mots de passe de comptes partagés, pour lesquels plusieurs utilisateurs connaissent le mot de passe, ont été modifiés récemment.
 
-#### <a name="turn-on-password-synchronization"></a>Activer la synchronisation de mot de passe
+#### <a name="turn-on-password-hash-synchronization"></a>Activer la synchronisation de hachage de mot de passe
 
-La synchronisation de mot de passe est une fonctionnalité permettant de synchroniser les codes de hachage des mots de passe utilisateur à partir d’une instance Active Directory locale vers une instance Azure AD basée sur le cloud. Même que si vous décidez d’utiliser la fédération avec les services de fédération Active Directory (AD FS) ou d’autres fournisseurs d’identité, vous pouvez éventuellement configurer la synchronisation de mot de passe comme sauvegarde au cas où votre infrastructure locale, serveurs AD ou ADFS par exemple, échouerait ou deviendrait temporairement indisponible. Cela permet aux utilisateurs de se connecter au service à l’aide du mot de passe qu’ils utilisent pour se connecter à leur instance AD locale. Cela permet également à la protection d’identité de détecter les informations d’identification compromises en comparant ces codes de hachage de mot de passe avec des mots de passe connus pour être compromis, si un utilisateur a utilisé les mêmes adresse de messagerie et mot de passe sur d’autres services non connectés à Azure AD.  Pour plus d’informations, consultez [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+La synchronisation de hachage de mot de passe est une fonctionnalité permettant de synchroniser les codes de hachage des mots de passe utilisateur entre une instance Active Directory locale et une instance Azure AD basée sur le cloud. Même si vous décidez d’utiliser la fédération avec les services de fédération Active Directory (AD FS) ou d’autres fournisseurs d’identité, vous pouvez éventuellement configurer la synchronisation de hachage de mot de passe en tant que sauvegarde au cas où votre infrastructure locale, telle que des serveurs AD ou ADFS, connaîtrait une défaillance ou deviendrait temporairement non disponible. Cela permet aux utilisateurs de se connecter au service à l’aide du mot de passe qu’ils utilisent pour se connecter à leur instance AD locale. Cela permet également à la protection d’identité de détecter les informations d’identification compromises en comparant ces codes de hachage de mot de passe avec des mots de passe connus pour être compromis, si un utilisateur a utilisé les mêmes adresse de messagerie et mot de passe sur d’autres services non connectés à Azure AD.  Pour plus d’informations, consultez [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exiger l’authentification multifacteur (MFA) pour les utilisateurs dans tous les rôles privilégiés, ainsi que pour les utilisateurs exposés
 
@@ -282,11 +282,11 @@ Si votre Azure Active Directory est connecté à Active Directory local, suivez 
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Inventorier vos comptes privilégiés dans des machines virtuelles hébergées
 
-Dans la plupart des cas, vous n’avez pas besoin d’accorder aux utilisateurs des autorisations illimitées à tous vos abonnements ou ressources Azure. Vous pouvez utiliser des rôles d’administrateur Azure AD pour séparer les droits au sein de votre organisation et n’accorder que l’accès dont les utilisateurs ont besoin pour effectuer des tâches spécifiques. Par exemple, vous pouvez utiliser des rôles d’administrateur Azure AD pour permettre à un administrateur de ne gérer que les machines virtuelles dans un abonnement, tandis qu’un autre pourra gérer les bases de données SQL au sein du même abonnement. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](role-based-access-control-what-is.md).
+Dans la plupart des cas, vous n’avez pas besoin d’accorder aux utilisateurs des autorisations illimitées à tous vos abonnements ou ressources Azure. Vous pouvez utiliser des rôles d’administrateur Azure AD pour séparer les droits au sein de votre organisation et n’accorder que l’accès dont les utilisateurs ont besoin pour effectuer des tâches spécifiques. Par exemple, vous pouvez utiliser des rôles d’administrateur Azure AD pour permettre à un administrateur de ne gérer que les machines virtuelles dans un abonnement, tandis qu’un autre pourra gérer les bases de données SQL au sein du même abonnement. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implémenter PIM pour les rôles d’administrateur Azure AD
 
-Utilisez Privileged Identity Management avec des rôles d’administrateur Azure AD pour gérer, contrôler et surveiller l’accès aux ressources Azure. PIM protège les comptes privilégiés contre les cyber-attaques en réduisant le temps d’exposition des privilèges et en augmentant votre visibilité sur leur utilisation grâce à des rapports et des alertes. Pour plus d’informations, consultez [Gérer l’accès RBAC aux ressources Azure avec Privileged Identity Management](pim-azure-resource.md).
+Utilisez Privileged Identity Management avec des rôles d’administrateur Azure AD pour gérer, contrôler et surveiller l’accès aux ressources Azure. PIM protège les comptes privilégiés contre les cyber-attaques en réduisant le temps d’exposition des privilèges et en augmentant votre visibilité sur leur utilisation grâce à des rapports et des alertes. Pour plus d’informations, consultez [Gérer l’accès RBAC aux ressources Azure avec Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Utiliser des intégrations des journaux Azure pour envoyer les journaux Azure pertinents à vos systèmes SIEM 
 

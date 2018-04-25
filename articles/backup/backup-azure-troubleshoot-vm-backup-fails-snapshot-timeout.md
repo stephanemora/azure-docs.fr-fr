@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
 
@@ -29,7 +29,8 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>agent de machine virtuelle incapable de communiquer avec la sauvegarde Azure
 
-Message d’erreur : « L’agent de machine virtuelle ne parvient pas à communiquer avec la Sauvegarde Azure »
+Message d’erreur : « L’agent de machine virtuelle ne parvient pas à communiquer avec la Sauvegarde Azure »<br>
+Code d’erreur: « UserErrorGuestAgentStatusUnavailable »
 
 Dès que vous avez enregistré et planifié une machine virtuelle dans le service de sauvegarde, ce dernier lance la tâche en communiquant avec l’agent de la machine virtuelle pour prendre un instantané à la date et l’heure. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Lorsque un instantané n’est pas déclenché, la sauvegarde risque d’échouer. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :
 
@@ -41,7 +42,8 @@ Dès que vous avez enregistré et planifié une machine virtuelle dans le servic
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>L’opération de capture instantanée échoue parce que la machine virtuelle n’est pas connectée au réseau
 
-Message d’erreur : « L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau »
+Message d’erreur : « L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau »<br>
+Code d’erreur : « ExtensionSnapshotFailedNoNetwork »
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :    
 **Cause 1 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>L’opération d’extension VMSnapshot échoue
 
-Message d’erreur : « Échec de l’opération d’extension VMSnapshot »
+Message d’erreur : « Échec de l’opération d’extension VMSnapshot »<br>
+Code d’erreur : « ExtentionOperationFailed »
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
 **Cause 1 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,8 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>La sauvegarde échoue, car l’agent de machine virtuelle ne répond pas
 
-Message d’erreur : « Impossible d’effectuer l’opération, car l’agent de machine virtuelle ne répond pas »
+Message d’erreur : « Impossible d’effectuer l’opération, car l’agent de machine virtuelle ne répond pas » <br>
+Code d’erreur : « GuestAgentSnapshotTaskStatusError »
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
 **Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +73,8 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 
 ## <a name="backup-fails-with-an-internal-error"></a>La sauvegarde échoue, avec une erreur interne
 
-Message d’erreur : « La sauvegarde a échoué avec une erreur interne. Veuillez réessayer l’opération dans quelques minutes »
+Message d’erreur : « La sauvegarde a échoué avec une erreur interne. Veuillez réessayer l’opération dans quelques minutes » <br>
+Code d’erreur : « BackUpOperationFailed» / « BackUpOperationFailedV2 »
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
 **Cause 1 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**  
@@ -177,6 +182,8 @@ Pour désinstaller l’extension :
 3. Sélectionnez **Extensions**.
 4. Sélectionnez **Extension VMSnapshot**.
 5. Sélectionnez **Désinstaller**.
+
+Pour les machines virtuelles Linux, si l’extension VMSnapshot ne figure pas dans le portail Azure, [mettez à jour l’agent Linux Azure](../virtual-machines/linux/update-agent.md), puis exécutez la sauvegarde. 
 
 Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
 

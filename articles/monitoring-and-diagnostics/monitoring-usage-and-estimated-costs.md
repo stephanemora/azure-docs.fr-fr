@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
 
@@ -61,12 +61,16 @@ Ici, vous voyez un autre ensemble de compteurs : les compteurs qui correspondent
 3. Application Insights\Données de dépassement de base
 4. Application Insights\Données incluses
 
-sont combinés dans un nouveau compteur d’ingestion des données nommé **Services partagés\Ingestion des données** car le nouveau modèle de tarification ne comporte pas d’allocations de données incluses par nœud.
+sont combinés dans un nouveau compteur d’ingestion des données nommé **Services partagés\Ingestion des données**, car le nouveau modèle de tarification ne comporte pas de droits relatifs aux données incluses par nœud.
 
 Vous constaterez également que les données ingérées dans Log Analytics ou Application Insights dans des régions aux coûts plus élevés apparaissent avec les nouveaux compteurs régionaux pour refléter correctement cette information, par exemple **Ingestion des données (États-Unis Centre-Ouest)**.
 
 > [!NOTE]
-> Si vous avez un abonnement Operations Management Suite (OMS), vous recevez des allocations d’ingestion des données Log Analytics et Application Insights pour chaque nœud acheté. Dans la mesure où cela est appliqué au niveau du compte (pas de l’abonnement), cette estimation ne peut pas montrer l’impact de ces allocations. Pour une explication plus détaillée du nouveau modèle de tarification dans ce scénario, consultez votre responsable de compte.
+> L’estimation des coûts par abonnement ne tient pas compte des droits par nœud de niveau compte de l’abonnement à Operations Management Suite (OMS). Pour une explication plus détaillée du nouveau modèle de tarification dans ce scénario, consultez votre responsable de compte.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nouveau modèle de tarification et droits applicables à l’abonnement à Operations Management Suite
+
+Les clients ayant acheté Microsoft Operations Management Suite E1 et E2 peuvent bénéficier des droits d’ingestion des données par nœud pour [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) et [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Pour que ces droits applicables aux espaces de travail Log Analytics ou aux ressources Application Insights puissent être reçus dans un abonnement donné, le modèle de tarification de cet abonnement doit rester dans le modèle de tarification antérieur à avril 2018, dans lequel le niveau tarifaire « Par nœud (OMS) » de Log Analytics et le plan tarifaire « Entreprise » d’Application Insights sont disponibles. En fonction du nombre de nœuds de la suite que votre organisation a achetés, le déplacement de certains abonnements vers le nouveau modèle de tarification peut toujours se révéler avantageux, mais cette approche doit faire l’objet d’une étude approfondie. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>Modifications lors de la transition vers le nouveau modèle de tarification
 

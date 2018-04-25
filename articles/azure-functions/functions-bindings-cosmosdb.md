@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 47629350967026f6901441ff20d182cd7fd5be3a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Liaisons Azure Cosmos DB pour Azure Functions
 
@@ -38,7 +38,7 @@ Les liaisons Cosmos DB pour la version 1.x de Functions sont fournies dans le pa
 
 ## <a name="trigger"></a>Déclencheur
 
-Le déclencheur Azure Cosmos DB utilise le [flux de modification d’Azure Cosmos DB](../cosmos-db/change-feed.md) pour écouter les modifications sur plusieurs partitions. Le flux de modification publie les insertions et mises à jour, pas les suppressions. 
+Le déclencheur Azure Cosmos DB utilise le [flux de modification d’Azure Cosmos DB](../cosmos-db/change-feed.md) pour écouter les modifications sur plusieurs partitions. Le flux de modification publie les insertions et mises à jour, pas les suppressions. Le déclencheur est appelé à chaque insertion ou mise à jour effectuée dans la collection en cours de surveillance. 
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 

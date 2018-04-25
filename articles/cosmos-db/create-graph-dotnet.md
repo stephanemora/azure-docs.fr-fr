@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e70e3d7b4cfd37cb28bda7df6210ad45415d9673
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dd2ff95c23b149cd8d5becf086c021060b0ec5a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB : Créer une application .NET Framework ou Core à l’aide de l’API Graph
 
@@ -47,19 +47,29 @@ Si Visual Studio 2017 est déjà installé, assurez-vous de disposer de [Visual 
 
 À présent, nous allons cloner une application API Graph à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
-1. Ouvrez une fenêtre de terminal git, comme git bash, et accédez à votre répertoire de travail à l’aide de la commande `cd`.  
+1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
 
-2. Exécutez la commande suivante pour cloner l’exemple de référentiel : 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Ouvrez une fenêtre de terminal git comme Git Bash et utilisez la commande `cd` pour accéder au nouveau dossier d’installation pour l’exemple d’application.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
     ```
 
-3. Ouvrez ensuite Visual Studio et le fichier de solution.
+4. Ouvrez ensuite Visual Studio et le fichier de solution.
 
-4. Restaurez les packages NuGet dans le projet. Sont concernés ici le pilote Gremlin.Net et le package Newtonsoft.Json.
+5. Restaurez les packages NuGet dans le projet. Sont concernés ici le pilote Gremlin.Net et le package Newtonsoft.Json.
 
-5. Vous pouvez également installer le pilote Gremlin.Net manuellement, sous sa version 3.2.7, à l’aide du gestionnaire de package Nuget ou de l’[utilitaire de ligne de commande nuget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) : 
+6. Vous pouvez également installer le pilote Gremlin.Net manuellement, sous sa version 3.2.7, à l’aide du gestionnaire de package Nuget ou de l’[utilitaire de ligne de commande nuget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) : 
 
     ```bash
     nuget install Gremlin.Net -Version 3.2.7
@@ -67,7 +77,9 @@ Si Visual Studio 2017 est déjà installé, assurez-vous de disposer de [Visual 
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le fichier Program.cs ; vous pouvez constater que ces lignes de code créent les ressources Azure Cosmos DB. 
+Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
+
+Tous les extraits de code suivants proviennent du fichier Program.cs.
 
 * Définissez vos paramètres de connexion en fonction du compte créé ci-dessus (ligne 19) : 
 
@@ -197,10 +209,7 @@ Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante : 
-
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

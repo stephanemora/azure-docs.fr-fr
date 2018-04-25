@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
@@ -191,11 +191,11 @@ La manière la plus simple de configurer l’emplacement où les bases de donné
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Installer la solution SQL Analytics à partir de la galerie
 
-1. Une fois la ressource Log Analytics créée et vos données en circulation dans celle-ci, installez la solution SQL Analytics. Sur la page d’accueil d’Operations Management Suite, dans le menu latéral, sélectionnez **Galerie de solutions**. Dans la galerie, sélectionnez la solution **Azure SQL Analytics**, puis sélectionnez **Ajouter**.
+1. Une fois la ressource Log Analytics créée et vos données en circulation dans celle-ci, installez la solution SQL Analytics. Sur la page d’accueil, dans le menu latéral, sélectionnez **Galerie de solutions**. Dans la galerie, sélectionnez la solution **Azure SQL Analytics**, puis sélectionnez **Ajouter**.
 
    ![Solution de surveillance](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Sur votre page d’accueil Operations Management Suite, la vignette **Azure SQL Analytics** s’affiche. Sélectionnez cette vignette pour ouvrir le tableau de bord SQL Analytics.
+2. Sur votre page d’accueil, la vignette **Azure SQL Analytics** s’affiche. Sélectionnez cette vignette pour ouvrir le tableau de bord SQL Analytics.
 
 ### <a name="use-the-sql-analytics-solution"></a>Utiliser la solution SQL Analytics
 

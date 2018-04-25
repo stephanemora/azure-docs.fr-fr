@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c164406b3b988b5848f662d544ffa78bd6955d0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -966,7 +966,7 @@ Dans ce scénario, nous souhaitons charger un disque dur virtuel, avec ou sans s
 
 **PowerShell**
 
-* Connectez-vous à votre abonnement en entrant *Login-AzureRmAccount*
+* Connectez-vous à votre abonnement avec *Connect-AzureRmAccount*
 * Définissez l’abonnement de votre contexte en entrant *Set-AzureRmContext* et le paramètre SubscriptionId ou SubscriptionName - consultez <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Chargez le disque dur virtuel avec *Add-AzureRmVhd* sur un compte de stockage Azure - consultez <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Facultatif) Créez un disque géré à partir du disque dur virtuel avec *New-AzureRmDisk* - consultez <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -993,7 +993,7 @@ Dans ce scénario, nous souhaitons charger un disque dur virtuel, avec ou sans s
 Pour charger une machine virtuelle ou un VHD existants à partir du réseau local afin de les utiliser en tant qu’image de machine virtuelle Azure, cette machine ou VHDs doivent satisfaire aux exigences décrites dans le chapitre [Préparation du déploiement d’une machine virtuelle avec une image spécifique du client pour SAP][planning-guide-5.2.2] dans ce document.
 
 * Utilisez *sysprep* sur Windows ou *waagent -deprovision* sur Linux afin de généraliser votre machine virtuelle. Voir [Informations techniques de référence de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) pour Windows ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][capture-image-linux-step-2-create-vm-image] pour Linux
-* Connectez-vous à votre abonnement en entrant *Login-AzureRmAccount*
+* Connectez-vous à votre abonnement avec *Connect-AzureRmAccount*
 * Définissez l’abonnement de votre contexte en entrant *Set-AzureRmContext* et le paramètre SubscriptionId ou SubscriptionName - consultez <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Chargez le disque dur virtuel avec *Add-AzureRmVhd* sur un compte de stockage Azure - consultez <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Facultatif) Créez une image de disque géré à partir du disque dur virtuel avec *New-AzureRmImage* - consultez <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>

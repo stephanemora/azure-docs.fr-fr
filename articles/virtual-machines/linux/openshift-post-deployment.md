@@ -1,32 +1,32 @@
 ---
-title: "OpenShift sur des tâches de post-déploiement Azure | Microsoft Docs"
-description: "Tâches supplémentaires après le déploiement d’un cluster OpenShift."
+title: OpenShift sur des tâches de post-déploiement Azure | Microsoft Docs
+description: Tâches supplémentaires après le déploiement d’un cluster OpenShift.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1fe44f6d18199fe1a37db566f8b30eeaa4fbfab2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
 
 Une fois que vous avez déployé un cluster OpenShift, vous pouvez configurer d’autres éléments. Cet article aborde les thèmes suivants :
 
 - Configurer l’authentification unique à l’aide d’Azure Active Directory (Azure AD)
-- Configurer Operations Management Suite pour surveiller OpenShift
+- Comment configurer Log Analytics pour surveiller OpenShift
 - Configurer les métriques et la journalisation
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Configurer l’authentification unique à l’aide d’Azure Active Directory
@@ -38,9 +38,9 @@ Pour utiliser Azure Active Directory à des fins d’authentification, vous deve
 Ces étapes utilisent Azure CLI pour créer l’inscription d’application et l’interface graphique utilisateur (portail) pour définir les autorisations. Pour créer l’inscription d’application, cinq éléments d’information sont nécessaires :
 
 - Nom complet : nom d’inscription d’application (par exemple : OCPAzureAD)
-- Page d’accueil : URL de la console OpenShift (par exemple : https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URI de l’identificateur : URL de la console OpenShift (par exemple : https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URL de réponse : URL publique master et nom de l’inscription d’application (p. ex. : https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Page d’accueil : URL de la console OpenShift (par exemple, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URI de l’identificateur : URL de la console OpenShift (par exemple, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URL de réponse : URL publique maître et le nom d’inscription d’application (par exemple, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Mot de passe : mot de passe sécurisé (Utilisez un mot de passe fort.)
 
 L’exemple suivant crée une inscription d’application à l’aide des informations précédentes :
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 Dans la console OpenShift, vous voyez maintenant deux options pour l’authentification : htpasswd_auth et [Inscription d’application].
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Surveiller OpenShift avec Operations Management Suite
+## <a name="monitor-openshift-with-log-analytics"></a>Surveiller OpenShift avec Log Analytics
 
-Pour surveiller OpenShift avec Operations Management Suite (OMS), vous avez deux possibilités : installation de l’agent OMS sur un hôte de machines virtuelles ou un conteneur OMS. Cet article fournit des instructions sur le déploiement du conteneur OMS.
+Pour surveiller OpenShift avec Log Analytics, vous avez deux possibilités : installation de l’agent OMS sur un hôte de machines virtuelles ou un conteneur OMS. Cet article fournit des instructions sur le déploiement du conteneur OMS.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Créer un projet OpenShift pour Operations Management Suite et définir l’accès utilisateur
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Créer un projet OpenShift pour Log Analytics et définir l’accès utilisateur
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Créer un fichier yaml de secret
 
-Pour créer le fichier yaml de secret, deux éléments d’information sont nécessaires : l’ID d’espace de travail OMS et la clé partagée d’espace de travail OMS. 
+Pour créer le fichier yaml de secret, deux éléments d’information sont nécessaires : l’ID d’espace de travail Log Analytics et la clé partagée d’espace de travail Log Analytics. 
 
 Voici un exemple de fichier ocp-secret.yml : 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-Remplacez wsid_data par l’ID d’espace de travail OMS encodé en Base64. Ensuite, remplacez key_data par la clé partagée d’espace de travail OMS encodée en Base64.
+Remplacez wsid_data par l’ID d’espace de travail Log Analytics encodé en Base64. Ensuite, remplacez key_data par la clé partagée d’espace de travail Log Analytics encodée en Base64.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
