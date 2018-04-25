@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 9a19ac74cd8f7ed6ae680b2acb743101bbcaed44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5933448b40a590b39df5ae4cf07fd858bebcd28f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -207,7 +207,7 @@ Exemple : quatre administrateurs font partie d’un environnement. L’administ
 
 ## <a name="on-premises-integration"></a>Intégration locale
 
-Si vous installez, configurez et activez Azure AD Connect, vous disposez des options supplémentaires suivantes pour les intégrations locales. Si ces options sont grisées, la réécriture n’a pas été correctement configurée. Pour plus d’informations, consultez [Configuration de la réécriture du mot de passe](../active-directory-passwords-writeback.md#configure-password-writeback).
+Si vous installez, configurez et activez Azure AD Connect, vous disposez des options supplémentaires suivantes pour les intégrations locales. Si ces options sont grisées, la réécriture n’a pas été correctement configurée. Pour plus d’informations, consultez [Configuration de la réécriture du mot de passe](howto-sspr-writeback.md#configure-password-writeback).
 
 ![Écriture différée][Writeback]
 
@@ -217,7 +217,7 @@ Cette page fournit un état rapide du client d’écriture différée local. L�
 * Azure AD Connect est en ligne et connecté à votre client de réécriture local. Cependant, il semble que la version installée d’Azure AD Connect est obsolète. Pensez à [mettre à niveau Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) pour vous assurer que vous disposez des dernières fonctionnalités de connectivité et des correctifs de bogues importants.
 * Malheureusement, nous ne pouvons pas vérifier l’état de votre client de réécriture local, car la version installée d’Azure AD Connect est obsolète. [Mettez à niveau Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) pour être en mesure de vérifier l’état de votre connexion.
 * Malheureusement, nous ne sommes pas en mesure de nous connecter à votre client d’écriture différée local pour le moment. [Résolvez les problèmes avec Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) pour restaurer la connexion.
-* Malheureusement, nous ne pouvons pas nous connecter à votre client de réécriture local, car la réécriture du mot de passe n’a pas été configurée correctement. [Configurez la réécriture du mot de passe](../active-directory-passwords-writeback.md#configure-password-writeback) pour restaurer la connexion.
+* Malheureusement, nous ne pouvons pas nous connecter à votre client de réécriture local, car la réécriture du mot de passe n’a pas été configurée correctement. [Configurez la réécriture du mot de passe](howto-sspr-writeback.md#configure-password-writeback) pour restaurer la connexion.
 * Malheureusement, nous ne sommes pas en mesure de nous connecter à votre client d’écriture différée local pour le moment. Cela peut être dû à des problèmes temporaires de notre côté. Si le problème persiste, [résolvez les problèmes avec Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) pour restaurer la connexion.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Réécriture du mot de passe dans votre répertoire local
@@ -257,7 +257,7 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](../active-directory-passwords-writeback.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
 * [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)

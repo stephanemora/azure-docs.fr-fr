@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 34f014c98d9333598c10e85d100251e62685c476
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7500b456296dc69c70cd1b5500d40f7e007569b1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -249,7 +249,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 * **Q : Comment l’écriture différée du mot de passe fonctionne-t-elle en arrière-plan ?**
 
-  > **R :** Consultez l’article [Fonctionnement de la réécriture du mot de passe](../active-directory-passwords-writeback.md) pour obtenir une explication de ce qui se passe quand vous activez la réécriture du mot de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local.
+  > **R :** Consultez l’article [Fonctionnement de la réécriture du mot de passe](howto-sspr-writeback.md) pour obtenir une explication de ce qui se passe quand vous activez la réécriture du mot de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local.
   >
   >
 * **Q : Combien de temps faut-il pour que l’écriture différée du mot de passe fonctionne ? Y a-t-il un délai de synchronisation comme avec la synchronisation du hachage de mot de passe ?**
@@ -279,7 +279,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q : L’écriture différée du mot de passe est-elle sécurisée ?  Comment puis-je être sûr de ne pas être piraté ?**
 
-  > **R :** Oui, l’écriture différée du mot de passe est sécurisée. Pour en savoir plus sur les quatre couches de sécurité implémentées par le service de réécriture du mot de passe, consultez [Modèle de sécurité de l’écriture différée de mot de passe](../active-directory-passwords-writeback.md#password-writeback-security-model) dans l’article [Vue d’ensemble de la réécriture du mot de passe](../active-directory-passwords-writeback.md).
+  > **R :** Oui, l’écriture différée du mot de passe est sécurisée. Pour en savoir plus sur les quatre couches de sécurité implémentées par le service de réécriture du mot de passe, consultez [Modèle de sécurité de l’écriture différée de mot de passe](howto-sspr-writeback.md#password-writeback-security-model) dans l’article [Vue d’ensemble de la réécriture du mot de passe](howto-sspr-writeback.md).
   >
   >
 
@@ -292,7 +292,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](../active-directory-passwords-writeback.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
 * [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)

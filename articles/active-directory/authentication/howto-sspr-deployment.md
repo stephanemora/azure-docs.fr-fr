@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
 Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitialisation du mot de passe libre-service (SSPR) d’Azure Active Directory (Azure AD), les clients procèdent généralement comme suit :
 
-1. [Activez la réinitialisation du mot de passe dans votre répertoire](../active-directory-passwords-getting-started.md).
-2. [Configurez les autorisations Active Directory locales pour l’écriture différée du mot de passe](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configurez l’écriture différée du mot de passe](../active-directory-passwords-writeback.md#configure-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local.
+1. [Activez la réinitialisation du mot de passe dans votre répertoire](quickstart-sspr.md).
+2. [Configurez les autorisations Active Directory locales pour l’écriture différée du mot de passe](howto-sspr-writeback.md#active-directory-permissions).
+3. [Configurez l’écriture différée du mot de passe](howto-sspr-writeback.md#configure-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local.
 4. [Affectez et vérifiez les licences requises](concept-sspr-licensing.md).
 5. Décidez si vous souhaitez effectuer un déploiement progressif. Si vous souhaitez lancer progressivement la réinitialisation de mot de passe en libre-service, vous pouvez limiter l’accès à un groupe d’utilisateurs afin de piloter le programme avec un groupe spécifique. Pour effectuer le lancement pour un groupe spécifique, définissez le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Sélectionné** et sélectionnez le groupe de sécurité qui doit pouvoir utiliser la réinitialisation du mot de passe. 
 6. Remplissez les [Données d’authentification](howto-sspr-authenticationdata.md) nécessaires pour l’inscription de vos utilisateurs, telles que leur téléphone de bureau, téléphone mobile et adresse de messagerie.
@@ -41,7 +41,7 @@ Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitia
    > [!NOTE]
    > Modifier cette option de façon qu’elle passe d’un groupe sélectionné à tout le monde ne rend pas non valides les données d’authentification existantes qu’un utilisateur a enregistrées dans le cadre d’un groupe de test. Les utilisateurs qui sont configurés et qui possèdent des données d’authentification valides enregistrées continuent de fonctionner.
 
-12. [Permettez aux utilisateurs de Windows 10 de réinitialiser leur mot de passe sur l’écran de connexion](../active-directory-passwords-login.md).
+12. [Permettez aux utilisateurs de Windows 10 de réinitialiser leur mot de passe sur l’écran de connexion](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Testez la réinitialisation de mot de passe libre-service avec un utilisateur plutôt qu’un administrateur, car Microsoft applique des spécifications d’authentification forte pour les comptes d’administrateur Azure. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre article [Stratégie de mot de passe](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -90,7 +90,7 @@ Il est facile de désactiver la réinitialisation du mot de passe libre-service.
 * [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](../active-directory-passwords-writeback.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
 * [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)

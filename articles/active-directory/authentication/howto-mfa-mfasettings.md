@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 7efcdd89de56cb80781dc06ebe5f590573f23b5a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f587800d3b1d205107b6c8091ca424b01b9e67e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -147,7 +147,7 @@ Vous pouvez définir une période pendant laquelle autoriser les tentatives d’
 
 ## <a name="trusted-ips"></a>Adresses IP approuvées
 
-La fonctionnalité d’_adresses IP approuvées_ d’Azure Multi-Factor Authentication est utilisée par les administrateurs d’un locataire géré ou fédéré. Elle contourne la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet d’entreprise. Cette fonctionnalité est disponible dans la version complète d’Azure Multi-Factor Authentication, mais pas dans la version gratuite pour les administrateurs. Pour plus d’informations sur l’obtention de la version complète d’Azure Multi-Factor Authentication, consultez [Présentation d’Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication.md).
+La fonctionnalité d’_adresses IP approuvées_ d’Azure Multi-Factor Authentication est utilisée par les administrateurs d’un locataire géré ou fédéré. Elle contourne la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet d’entreprise. Cette fonctionnalité est disponible dans la version complète d’Azure Multi-Factor Authentication, mais pas dans la version gratuite pour les administrateurs. Pour plus d’informations sur l’obtention de la version complète d’Azure Multi-Factor Authentication, consultez [Présentation d’Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 Si votre organisation déploie l’extension de serveur NPS pour fournir l’authentification multifacteur aux applications locales, notez que l’adresse IP source apparaît toujours comme étant le serveur NPS qu’emprunte la tentative d’authentification.
 
@@ -302,7 +302,7 @@ Les utilisateurs peuvent aussi créer des mots de passe d’application après l
 La fonctionnalité _Mémoriser Multi-Factor Authentication_ pour les appareils et navigateurs approuvés par l’utilisateur est gratuite pour tous les utilisateurs de Multi-Factor Authentication. Les utilisateurs peuvent contourner les vérifications suivantes pendant un nombre spécifié de jours, une fois qu’ils se sont connectés à un appareil à l’aide de Multi-Factor Authentication. Cette fonctionnalité améliore le confort d’utilisation en réduisant le nombre d’exécutions de la vérification en deux étapes sur un même appareil.
 
 >[!IMPORTANT]
->Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [restaurer Multi-Factor Authentication sur tous les appareils](../../multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [restaurer Multi-Factor Authentication sur tous les appareils](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
 >L’action de restauration révoque le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >

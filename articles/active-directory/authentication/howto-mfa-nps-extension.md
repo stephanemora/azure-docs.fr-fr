@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: fd0f021d451dbf722fe23da7bc414ceb523af17a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -53,7 +53,7 @@ L’extension NPS est conçue pour fonctionner avec votre infrastructure existan
 
 ### <a name="licenses"></a>Licences
 
-L’extension NPS pour Azure MFA est disponible pour les clients disposant de [licences pour Azure MFA](../../multi-factor-authentication/multi-factor-authentication.md) (incluses dans Azure AD Premium, EMS ou une licence autonome MFA). Les licences basées sur la consommation pour Azure MFA, telles que les licences par utilisateur ou par authentification, ne sont pas compatibles avec l’extension de serveur NPS. 
+L’extension NPS pour Azure MFA est disponible pour les clients disposant de [licences pour Azure MFA](multi-factor-authentication.md) (incluses dans Azure AD Premium, EMS ou une licence autonome MFA). Les licences basées sur la consommation pour Azure MFA, telles que les licences par utilisateur ou par authentification, ne sont pas compatibles avec l’extension de serveur NPS. 
 
 ### <a name="software"></a>Logiciel
 
@@ -125,7 +125,7 @@ Avant de déployer l’extension NPS complète, vous devez activer l’authentif
 Pour créer un compte de test, suivez la procédure suivante :
 1. Connectez-vous à [https://aka.ms/mfasetup](https://aka.ms/mfasetup) avec un compte de test. 
 2. Suivez les instructions pour configurer une méthode de vérification.
-3. Créez une stratégie d’accès conditionnel ou [modifiez l’état utilisateur](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) pour exiger une vérification en deux étapes concernant le compte de test. 
+3. Créez une stratégie d’accès conditionnel ou [modifiez l’état utilisateur](howto-mfa-userstates.md) pour exiger une vérification en deux étapes concernant le compte de test. 
 
 Vos utilisateurs doivent également suivre ces étapes pour s’inscrire avant de pouvoir s’authentifier avec l’extension NPS.
 
@@ -177,7 +177,7 @@ Cette section comprend des considérations relatives à la conception ainsi que 
 ### <a name="configuration-limitations"></a>Limites de configuration
 
 - L’extension NPS pour Azure MFA n’inclut pas les outils permettant de migrer les utilisateurs et les paramètres du serveur MFA vers le cloud. De ce fait, nous vous conseillons d’utiliser l’extension pour les nouveaux déploiements, plutôt que pour les déploiements existants. Si vous utilisez l’extension sur un déploiement existant, vos utilisateurs doivent suivre de nouveau la procédure de vérification pour remplir leurs détails MFA dans le cloud.  
-- L’extension NPS utilise l’UPN de l’annuaire Active Directory local pour identifier l’utilisateur sur Azure MFA afin de procéder à l’authentification secondaire. L’extension peut être configurée pour utiliser un identificateur autre que l’UPN (un ID de connexion alternatif ou un champ Active Directory personnalisé, par exemple). Consultez [Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md) pour plus d’informations.
+- L’extension NPS utilise l’UPN de l’annuaire Active Directory local pour identifier l’utilisateur sur Azure MFA afin de procéder à l’authentification secondaire. L’extension peut être configurée pour utiliser un identificateur autre que l’UPN (un ID de connexion alternatif ou un champ Active Directory personnalisé, par exemple). Consultez [Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur](howto-mfaserver-nps-vpn.md) pour plus d’informations.
 - Tous les protocoles de chiffrement ne prennent pas en charge toutes les méthodes de vérification.
    - **PAP** prend en charge l’appel téléphonique, le message texte à sens unique, la notification de l’application mobile et le code de vérification de l’application mobile
    - **CHAPv2** et **EAP** prennent en charge l’appel téléphonique et la notification d’application mobile
@@ -248,6 +248,6 @@ Vérifiez que https://adnotifications.windowsazure.com est accessible depuis le 
 
 - Configurez d’autres ID de connexion, ou créez une liste d’exceptions pour les adresses IP qui ne nécessitent pas de vérification en deux étapes dans [Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur](howto-mfa-nps-extension-advanced.md)
 
-- Apprendre à intégrer la [passerelle des services Bureau à distance](../../multi-factor-authentication/nps-extension-remote-desktop-gateway.md) et des [serveurs VPN](../../multi-factor-authentication/nps-extension-vpn.md) à l’aide de l’extension NPS
+- Apprendre à intégrer la [passerelle des services Bureau à distance](howto-mfa-nps-extension-rdg.md) et des [serveurs VPN](howto-mfa-nps-extension-vpn.md) à l’aide de l’extension NPS
 
 - [Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

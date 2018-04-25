@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 2b77167992704bd342d67dc03b66af1e55955532
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 761013ad82fb8fa7d84e7929341d2e7d9e2d724c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 Beaucoup considèrent l’identité comme la nouvelle couche de sécurité assumant ce rôle du point classique du réseau. Les efforts en matière de gestion de la sécurité et les investissements ont changé de cible principale, car les périmètres réseau sont de plus en plus poreux et la défense du périmètre n’est plus aussi efficace qu’elle ne l’était avant l’explosion des appareils [BYOD](http://aka.ms/byodcg) et des applications cloud.
@@ -42,7 +42,7 @@ Dans cet article, nous allons étudier les points suivants :
 * Déploiement de la gestion des mots de passe
 * Application de l’authentification multifacteur (MFA) pour les utilisateurs
 * Utilisation du contrôle d’accès en fonction du rôle (RBAC)
-* Contrôle des emplacements de création des ressources à l’aide du Gestionnaire des ressources
+* Contrôle des emplacements de création des ressources à l’aide de Resource Manager
 * Aide aux développeurs pour tirer parti des fonctionnalités d’identité pour les applications SaaS
 * Surveillance active des activités suspectes
 
@@ -88,7 +88,7 @@ En activant Azure MFA pour vos utilisateurs, vous ajoutez une deuxième couche d
 
 Par exemple : mettre en œuvre Azure Multi-Factor Authentication pour vos utilisateurs et la configurer de manière à utiliser un appel téléphonique ou un SMS à des fins de vérification. Si les informations d’identification sont compromises, la personne malveillante ne peut accéder à aucune ressource, dans la mesure où elle n’a pas accès au téléphone de l’utilisateur. Les organisations qui n’ajoutent pas de couche supplémentaire de protection d’identité sont plus sensibles au vol d’informations d’identification, susceptible de compromettre des données.
 
-Les organisations souhaitant conserver le contrôle complet de l’authentification en local peuvent recourir au [serveur Microsoft Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), ou « MFA local ». Grâce à cette méthode, vous pourrez toujours appliquer l’authentification multi-facteur, tout en conservant le serveur MFA en local.
+Les organisations souhaitant conserver le contrôle complet de l’authentification en local peuvent recourir au [serveur Microsoft Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfaserver-deploy.md), ou « MFA local ». Grâce à cette méthode, vous pourrez toujours appliquer l’authentification multi-facteur, tout en conservant le serveur MFA en local.
 
 Pour en savoir plus sur Azure Multi-Factor Authentication, consultez l’article [Bien démarrer avec Azure Multi-Factor Authentication dans le cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 

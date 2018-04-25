@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 003ce2edda3e2069eb7e05f58ecc2e208c818946
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 Azure Active Directory (Azure AD) est le service mutualisé et reposant sur le cloud de gestion des identités et de répertoire Microsoft qui combine les principaux services d’annuaire, la gestion des accès aux applications et la protection des identités dans une seule solution. Azure AD offre également une riche plateforme reposant sur des standards, qui permet aux développeurs de contrôler l’accès à leurs applications, grâce à des stratégies et des règles centralisées.
@@ -55,7 +55,7 @@ Pour enrichir votre expérience Azure Active Directory, vous pouvez ajouter des 
 > Plusieurs fonctionnalités Azure Active Directory sont disponibles via les éditions de « paiement à l’utilisation » :
 >
 > * Active Directory B2C constitue la solution de gestion des identités et des accès pour vos applications grand public. Pour plus d’informations, consultez [Documentation Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).
-> * L'authentification multifacteur MFA (Multi-Factor Authentication) Azure peut être effectuée par utilisateur ou par le biais de fournisseurs d'authentification. Pour plus d’informations, consultez [Présentation d’Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+> * L'authentification multifacteur MFA (Multi-Factor Authentication) Azure peut être effectuée par utilisateur ou par le biais de fournisseurs d'authentification. Pour plus d’informations, consultez [Présentation d’Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md).
 >
 
 ## <a name="how-can-i-get-started"></a>Comment faire pour démarrer ?
