@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cf678eac16f8b13c5ffaa1d5673ca1cb47440cf9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -42,16 +42,17 @@ L’installation du runtime Service Fabric et du Kit de développement logiciel 
 
     * Ubuntu 16.04 (`Xenial Xerus`)
 
-* Vérifiez que le package `apt-transport-https` est installé :
-
-      ```bash
-      sudo apt-get install apt-transport-https
-      ```
+      * Vérifiez que le package `apt-transport-https` est installé :
+         
+         ```bash
+         sudo apt-get install apt-transport-https
+         ```
+    * Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
 
 
 ## <a name="installation-methods"></a>Méthodes d’installation
 
-### <a name="1-script-installation"></a>1. Installation de script
+### <a name="1-script-installation-ubuntu"></a>1. Installation de script (Ubuntu)
 
 Un script est fourni pour faciliter l’installation du runtime Service Fabric et du Kit de développement logiciel (SDK) Service Fabric courant avec l’interface de ligne de commande **sfctl**. Exécutez les étapes d’installation indiquées dans la section suivante afin de déterminer quels éléments sont en cours d’installation, et les licences qui sont acceptées. L’exécution du script suppose que vous acceptez les licences de tous les logiciels en cours d’installation. 
 
@@ -64,8 +65,10 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### <a name="2-manual-installation"></a>2. Installation manuelle
 Suivez le reste de ce guide pour l’installation manuelle du runtime Service Fabric et du Kit de développement logiciel (SDK) courant.
 
-## <a name="update-your-apt-sources"></a>Mise à jour des sources APT
+## <a name="update-your-apt-sourcesyum-repositories"></a>Mise à jour de vos sources APT/référentiels Yum
 Pour installer le Kit de développement logiciel (SDK) et le package runtime associé via l’outil apt-get command-line, vous devez d’abord mettre à jour les sources Advanced Packaging Tool (APT).
+
+### <a name="ubuntu"></a>Ubuntu
 
 1. Ouvrez un terminal.
 2. Ajoutez le référentiel Service Fabric à votre liste de sources.
@@ -106,9 +109,43 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
     sudo apt-get update
     ```
 
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
+
+1. Ouvrez un terminal.
+2. Téléchargez et installez Extra Packages for Enterprise Linux (EPEL).
+
+    ```bash
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    sudo yum install epel-release-latest-7.noarch.rpm
+    ```
+3. Ajoutez un référentiel de packages EfficiOS RHEL7 à votre système.
+
+    ```bash
+    sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    ```
+
+4. Importez la clé de signature du package EfficiOS dans le porte-clés GPG local.
+
+    ```bash
+    sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
+    ```
+5. Ajoutez un référentiel RHEL Microsoft à votre système.
+   ```bash
+      curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+      sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+   ```
+6. Installez le Kit de développement logiciel (SDK) dotnet.
+   ```bash
+      yum install rh-dotnet20 -y
+      scl enable rh-dotnet20 bash
+   ```
+
 ## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>Installer et configurer le Kit de développement logiciel (SDK) Service Fabric pour l’installation d’un cluster local
 
 Après avoir mis à jour vos sources, vous pouvez installer le Kit de développement logiciel (SDK). Installez le package SDK Service Fabric, confirmez l’installation et acceptez le contrat de licence.
+
+### <a name="ubuntu"></a>Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -121,11 +158,18 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
+
+```bash
+sudo yum install servicefabricsdkcommon
+```
+
 Le runtime Service Fabric qui est fourni avec l’installation ci-dessus inclut les packages dans le tableau ci-dessous. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicite à partir de npm | le plus récent |
+RHEL | - | OpenJDK 1.8 | Implicite à partir de npm | le plus récent |
 
 ## <a name="set-up-a-local-cluster"></a>Configurer un cluster local
   Une fois l’installation terminée, vous devez être en mesure de démarrer un cluster local.
@@ -136,7 +180,7 @@ Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicite à partir de npm | le plus récent |
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. Ouvrez un navigateur web et accédez à [Service Fabric Explorer](http://localhost:19080/Explorer). Si le cluster a démarré, vous devez voir le tableau de bord Service Fabric Explorer.
+  2. Ouvrez un navigateur web et accédez à [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Si le cluster a démarré, vous devez voir le tableau de bord Service Fabric Explorer. La configuration totale du cluster peut prendre plusieurs minutes. Si votre navigateur ne parvient pas à ouvrir l’URL, ou si Service Fabric Explorer n’affiche pas que le système est prêt, patientez quelques minutes, puis réessayez.
 
       ![Service Fabric Explorer sur Linux][sfx-linux]
 
@@ -168,6 +212,11 @@ Ubuntu
   sudo apt install nodejs-legacy
   ```
 
+Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
+  ```bash
+  sudo yum install nodejs
+  sudo yum install npm
+  ```
 2. Installer le générateur de modèles [Yeoman](http://yeoman.io/) sur votre machine à partir de NPM
 
   ```bash
@@ -190,21 +239,30 @@ Installez le [Kit de développement logiciel (SDK) .NET Core 2.0 pour Ubuntu](
 
 Installez JDK 1.8 et Gradle pour exécuter des tâches de build afin de générer des services Service Fabric à l’aide de Java. L’extrait de code suivant installe Open JDK 1.8, ainsi que Gradle. Les bibliothèques Java Service Fabric sont extraites à partir de Maven.
 
+
+Ubuntu 
  ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
+Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
+  ```bash
+  sudo yum install java-1.8.0-openjdk-devel
+  curl -s https://get.sdkman.io | bash
+  sdk install gradle
+  ```
+ 
 ## <a name="install-the-eclipse-plug-in-optional"></a>Installer le plug-in Eclipse (facultatif)
 
-Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’environnement IDE Eclipse pour les développeurs Java. Vous pouvez utiliser Eclipse pour créer des applications exécutables invités Service Fabric et des applications de conteneur en plus des applications Service Fabric Java.
+Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’environnement IDE Eclipse pour les développeurs Java ou Java EE. Vous pouvez utiliser Eclipse pour créer des applications exécutables invités Service Fabric et des applications de conteneur en plus des applications Service Fabric Java.
 
 > [!IMPORTANT]
 > Le plug-in Service Fabric nécessite Eclipse Neon ou une version ultérieure. Consultez les instructions qui suivent cette note pour savoir comment vérifier votre version d’Eclipse. Si vous avez installé une version antérieure d’Eclipse, vous pouvez télécharger des versions les plus récentes à partir du [site Eclipse](https://www.eclipse.org). Nous vous déconseillons de procéder à l’installation par dessus (par écrasement) une installation existante d’Eclipse. Vous pouvez soit la supprimer avant d’exécuter le programme d’installation ou installer la nouvelle version dans un répertoire différent. 
 > 
-> Sur Ubuntu, nous vous recommandons de procéder à l’installation directement depuis le site Eclipse au lieu d’utiliser le programme d’installation d’un package (`apt` ou `apt-get`). Ceci vous assure d’obtenir la version la plus récente d’Eclipse. 
+> Sur Ubuntu, nous vous recommandons de procéder à l’installation directement depuis le site Eclipse au lieu d’utiliser le programme d’installation d’un package (`apt` ou `apt-get`). Ceci vous assure d’obtenir la version la plus récente d’Eclipse. Vous pouvez installer l’environnement IDE pour les développeurs Java ou Java EE.
 
-1. Dans Eclipse, assurez-vous d’avoir installé Eclipse Neon ou une version ultérieure et la dernière version de Buildship (1.0.17 ou version ultérieure). Vous pouvez vérifier les versions des composants installés en sélectionnant **Aide** > **Détails de l’installation**. Vous pouvez mettre à jour Buildship en utilisant les instructions [Eclipse Buildship : plug-ins Eclipse pour Gradle][buildship-update].
+1. Dans Eclipse, assurez-vous d’avoir installé Eclipse Neon ou version ultérieure et Buildship version 2.2.1 ou version ultérieure. Vous pouvez vérifier les versions des composants installés en sélectionnant **Aide** > **About Eclipse**(Au sujet d’Eclipse) > **Détails de l’installation**. Vous pouvez mettre à jour Buildship en utilisant les instructions [Eclipse Buildship : plug-ins Eclipse pour Gradle][buildship-update].
 
 2. Pour installer le plug-in Service Fabric, sélectionnez **Aide** > **Installer un nouveau logiciel**.
 
@@ -218,7 +276,7 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’en
 
 6. Terminez les étapes d’installation, puis acceptez les termes du contrat de licence utilisateur final.
 
-Si le plug-in Eclipse Service Fabric est déjà installé, assurez-vous de disposer de la dernière version. Vous pouvez vérifier en sélectionnant **Aide** > **Détails d’installation** et en recherchant Service Fabric dans la liste des plug-ins installés. Si une version plus récente est disponible, sélectionnez **Mettre à jour**.
+Si le plug-in Eclipse Service Fabric est déjà installé, assurez-vous de disposer de la dernière version. Vous pouvez vérifier en sélectionnant **Aide** > **About Eclipse**(Au sujet d’Eclipse) > **Détails de l’installation** et en recherchant Service Fabric dans la liste des plug-ins installés. Si une version plus récente est disponible, sélectionnez **Mettre à jour**.
 
 Pour plus d’informations, consultez la section [Plug-in Service Fabric pour le développement d’applications Java sous Eclipse](service-fabric-get-started-eclipse.md).
 
@@ -238,11 +296,22 @@ Pour mettre à jour les fichiers binaires du kit de développement logiciel (SDK
 ## <a name="remove-the-sdk"></a>Supprimez le Kit de développement logiciel (SDK)
 Exécutez la commande suivante pour supprimer les Kits de développement logiciel (SDK) Service Fabric :
 
+### <a name="ubuntu"></a>Ubuntu
+
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
 sudo npm uninstall generator-azuresfcontainer
 sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
+```
+
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
+
+```bash
+sudo yum remote servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

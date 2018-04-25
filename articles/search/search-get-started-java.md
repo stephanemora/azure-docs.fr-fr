@@ -1,17 +1,18 @@
 ---
 title: Prise en main d’Azure Search dans Java | Microsoft Docs
 description: Comment créer une application de recherche hébergée dans le cloud sur Azure en utilisant le langage de programmation Java.
+services: search
 author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed
-ms.openlocfilehash: 73e18b91412fd93897f9596077948fd7ea459e71
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Prise en main d'Azure Search dans Java
 > [!div class="op_single_selector"]

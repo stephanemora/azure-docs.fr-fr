@@ -3,15 +3,16 @@ title: Utilisation de filtres de sécurité pour tronquer les résultats de Rech
 description: Contrôle d’accès sur le contenu Recherche Azure à l’aide de filtres de sécurité et d’identités Active Directory.
 author: revitalbarletz
 manager: jlembicz
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: d7df9ede1851680fb6327cac7eed0a479928cea0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory
 

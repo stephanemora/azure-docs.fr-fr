@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: f9dc1e87dee83aa3f10d5319ac3df3933b7d96a9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8b7e6cbd4bc7cfef349e9cebd9e4db537701a877
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Data Lake Store
 
@@ -103,7 +103,7 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
 3. Dans la fenêtre du terminal, à l’aide de cURL, envoyez une requête au point de terminaison de la MSI locale pour obtenir un jeton d’accès au système de fichiers de Data Lake Store. L’identificateur de ressources pour Data Lake Store est « https://datalake.azure.net/ ».  Il est important d’inclure la barre oblique finale dans l’identificateur de ressource.
     
    ```bash
-   curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -H Metadata:true   
+   curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
    ```
     
    Une réponse réussie retourne le jeton d’accès utilisé pour s’authentifier auprès de Data Lake Store :

@@ -1,25 +1,18 @@
 ---
-title: "Didacticiel pour l’indexation de bases de données SQL Azure dans Recherche Azure | Microsoft Docs"
-description: "Analysez une base de données Azure SQL pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Recherche Azure."
-services: search
-documentationcenter: 
+title: Didacticiel pour l’indexation de bases de données SQL Azure dans Recherche Azure | Microsoft Docs
+description: Analysez une base de données Azure SQL pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Recherche Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f123b4f5d0a51a4ab5015a2a0008a76fbfa0318e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Comment analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
 
@@ -39,6 +32,7 @@ Dans ce didacticiel, vous effectuez les tâches suivantes à l’aide des [ bibl
 > * Afficher la configuration de l’indexeur dans le portail
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free/). 
 
@@ -95,7 +89,7 @@ Vous trouverez la clé et le point de terminaison du service de recherche dans l
 4. Copiez et collez-le en tant que première entrée dans **appsettings.json** dans Visual Studio.
 
   > [!Note]
-  > Un nom de service fait partie du point de terminaison qui inclut search.windows.net. Si cela vous intéresse, vous pouvez afficher l’URL complète dans **Essentials** sur la page de présentation. L’URL ressemble à cet exemple : https://your-service-name.search.windows.net
+  > Un nom de service fait partie du point de terminaison qui inclut search.windows.net. Si cela vous intéresse, vous pouvez afficher l’URL complète dans **Essentials** sur la page de présentation. L’URL ressemble à ceci : https://your-service-name.search.windows.net
 
 5. Sur la gauche, dans **Paramètres** > **Clés**, copiez une des clés d’administration et collez-la comme deuxième entrée dans i**appsettings.json**. Les clés sont des chaînes alphanumériques générées pour votre service pendant l’approvisionnement et requises pour disposer d’un accès autorisé aux opérations de service. 
 

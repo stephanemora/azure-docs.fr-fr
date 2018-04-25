@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 660f75440d7d93562a3a17f646d5d284196e073d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -78,7 +78,7 @@ Le groupe identique et les ressources prises en charge, notamment l’équilibre
 
 ## <a name="use-the-azure-cli-20"></a>Utiliser Azure CLI 2.0
 
-Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](quick-create-cli.md). Pour utiliser Zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge et vous être [inscrit à la préversion de Zones de disponibilité](http://aka.ms/azenroll).
+Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](quick-create-cli.md). Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge.
 
 Ajoutez le paramètre `--zones` à la commande [az vmss create](/cli/azure/vmss#az_vmss_create), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*). L’exemple suivant crée un groupe identique dans une zone unique, nommé *myScaleSet* dans la zone *1* :
 

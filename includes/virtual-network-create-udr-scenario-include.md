@@ -2,17 +2,17 @@
 title: Fichier Include
 description: Fichier Include
 services: virtual-network
-author: genli
+author: genlin
 ms.service: virtual-network
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: aa513d63a2af0fe994b8ab1ed7335a30998ff8ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b91ae155761f6357e286f4742d57b97cf96d909a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 ## <a name="scenario"></a>Scénario
 Pour mieux illustrer la création d’itinéraires définis par l’utilisateur, ce document utilise le scénario suivant :

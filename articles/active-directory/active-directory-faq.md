@@ -1,11 +1,11 @@
 ---
 title: Forum Aux Questions sur Azure Active Directory | Microsoft Docs
-description: "Le Forum Aux Questions sur Azure Active Directory répond aux questions courantes concernant Azure et Azure Active Directory, la gestion des mots de passe et l’accès aux applications."
+description: Le Forum Aux Questions sur Azure Active Directory répond aux questions courantes concernant Azure et Azure Active Directory, la gestion des mots de passe et l’accès aux applications.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-faq"></a>Forum Aux Questions sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -119,11 +119,11 @@ Pour en savoir plus, voir [Prise en main de la gestion de mot de passe](active-d
 
 **R :** Oui, si cette fonction est activée, les opérations de mot de passe effectuées par un administrateur sont écrites de manière différée dans votre environnement local.  
 
-Si vous avez d’autres questions concernant les mots de passe, consultez [Forum aux questions - Gestion des mots de passe](active-directory-passwords-faq.md).
+Si vous avez d’autres questions concernant les mots de passe, consultez [Forum aux questions - Gestion des mots de passe](authentication/active-directory-passwords-faq.md).
 - - -
 **Q : Que faire si je ne me souviens pas de mon mot de passe Office 365/Azure AD actuel lorsque j’essaie de modifier mon mot de passe ?**
 
-**R :** Pour ce type de situation, plusieurs options s’offrent à vous.  Utilisez la réinitialisation de mot de passe en libre-service si elle est disponible.  Le fonctionnement de la réinitialisation de mot de passe en libre-service dépend de la façon dont elle est configurée.  Pour plus d’informations, consultez [Fonctionnement du portail de réinitialisation de mot de passe](active-directory-passwords-best-practices.md).
+**R :** Pour ce type de situation, plusieurs options s’offrent à vous.  Utilisez la réinitialisation de mot de passe en libre-service si elle est disponible.  Le fonctionnement de la réinitialisation de mot de passe en libre-service dépend de la façon dont elle est configurée.  Pour plus d’informations, consultez [Fonctionnement du portail de réinitialisation de mot de passe](authentication/howto-sspr-deployment.md).
 
 Pour les utilisateurs Office 365, l’administrateur peut réinitialiser le mot de passe à l’aide de la procédure décrite dans [Réinitialiser les mots de passe utilisateur](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
