@@ -1,8 +1,8 @@
 ---
 title: Effectuer la migration de HDInsight Windows vers HDInsight Linux - Azure | Microsoft Docs
-description: "Apprenez à effectuer la migration d’un cluster HDInsight Windows vers un cluster HDInsight Linux."
+description: Apprenez à effectuer la migration d’un cluster HDInsight Windows vers un cluster HDInsight Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6d4b537834b8a70f0015fc9c6316dae20af5dd5a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux
 
@@ -148,7 +146,7 @@ Pour plus d’informations sur la configuration, consultez le document [Étendre
 
 ## <a name="management-and-monitoring"></a>Gestion et surveillance
 
-La plupart des interfaces utilisateur web que vous avez peut-être utilisées avec HDInsight Windows, telles que l’historique de la tâche ou l’interface utilisateur Yarn, sont disponibles via Ambari. En outre, l’affichage Ambari Hive fournit un moyen d’exécuter des requêtes Hive à l’aide de votre navigateur web. L’interface utilisateur Web d’Ambari est disponible sur les clusters Linux à l’adresse https://CLUSTERNAME.azurehdinsight.net.
+La plupart des interfaces utilisateur web que vous avez peut-être utilisées avec HDInsight Windows, telles que l’historique de la tâche ou l’interface utilisateur Yarn, sont disponibles via Ambari. En outre, l’affichage Ambari Hive fournit un moyen d’exécuter des requêtes Hive à l’aide de votre navigateur web. L’interface utilisateur web Ambari est disponible sur les clusters Linux à l’adresse https://CLUSTERNAME.azurehdinsight.net.
 
 Pour plus d’informations sur l’utilisation d’Ambari, consultez les documents suivants :
 

@@ -1,23 +1,23 @@
 ---
-title: "Préparation du déploiement d’un cluster Azure Service Fabric autonome | Microsoft Docs"
-description: "Documentation relative à la préparation de l’environnement et la création de la configuration du cluster, à prendre en considération avant de déployer un cluster conçu pour gérer une charge de travail de production."
+title: Préparation du déploiement d’un cluster Azure Service Fabric autonome | Microsoft Docs
+description: Documentation relative à la préparation de l’environnement et la création de la configuration du cluster, à prendre en considération avant de déployer un cluster conçu pour gérer une charge de travail de production.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -49,11 +49,11 @@ Quand vous spécifiez des domaines de mise à niveau dans ClusterConfig.json, vo
 
 Pour plus d’informations sur les domaines d’erreur et les domaines de mise à niveau, consultez [Description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Un cluster en production doit s’étendre sur au moins trois domaines d’erreur afin d’être pris en charge dans un environnement de production si vous avez un contrôle total sur la maintenance et la gestion des nœuds, autrement dit si vous êtes responsable de la mise à jour et du remplacement des ordinateurs. Pour les clusters exécutés dans des environnements (en d’autres termes, les instances de machine virtuelle Amazon Web Services) où vous n’avez pas un contrôle total sur les ordinateurs, vous devez avoir un minimum de cinq domaines d’erreur dans votre cluster. Chaque domaine d’erreur peut avoir un ou plusieurs nœuds. Cela permet d’éviter les problèmes causés par des mises à niveau et mises à jour de l’ordinateur qui, en fonction du calendrier, peuvent interférer avec l’exécution d’applications et de services dans les clusters.
+Un cluster en production doit s’étendre sur au moins trois domaines d’erreur afin d’être pris en charge dans un environnement de production si vous avez un contrôle total sur la maintenance et la gestion des nœuds, à savoir, si vous êtes responsable de la mise à jour et du remplacement des machines. Pour les clusters exécutés dans des environnements (à savoir, les instances de machine virtuelle Amazon Web Services) où vous n’avez pas un contrôle total sur les machines, vous devez avoir un minimum de cinq domaines d’erreur dans votre cluster. Chaque domaine d’erreur peut avoir un ou plusieurs nœuds. Cela permet d’éviter les problèmes causés par des mises à niveau et mises à jour de la machine qui, en fonction du calendrier, peuvent interférer avec l’exécution d’applications et de services dans les clusters.
 
 ## <a name="determine-the-initial-cluster-size"></a>Déterminer la taille initiale du cluster
 
-En règle générale, le nombre de nœuds de votre cluster est déterminé par les besoins de votre entreprise, autrement dit le nombre de services et de conteneurs qui s’exécuteront sur le cluster et le nombre de ressources nécessaires pour gérer vos charges de travail. Pour les clusters de production, nous vous recommandons d’avoir au moins 5 nœuds dans votre cluster, qui s’étendent sur 5 domaines d’erreur. Toutefois, comme décrit ci-dessus, si vous avez un contrôle total sur les nœuds et que vous pouvez couvrir trois domaines d’erreur, trois nœuds doivent également s’avérer suffisants.
+En règle générale, le nombre de nœuds de votre cluster est déterminé par les besoins de votre entreprise, à savoir, le nombre de services et de conteneurs qui s’exécuteront sur le cluster et le nombre de ressources nécessaires pour gérer vos charges de travail. Pour les clusters de production, nous vous recommandons d’avoir au moins cinq nœuds dans votre cluster, qui s’étendent sur 5 domaines d’erreur. Toutefois, comme décrit ci-dessus, si vous avez un contrôle total sur les nœuds et que vous pouvez couvrir trois domaines d’erreur, trois nœuds doivent également s’avérer suffisants.
 
 Les clusters de test exécutant des charges de travail avec état doivent avoir trois nœuds, tandis que les clusters de test exécutant uniquement des charges de travail sans état n’ont besoin que d’un nœud. Notez également qu’à des fins de développement, vous pouvez avoir plusieurs nœuds sur un ordinateur donné. Toutefois, dans un environnement de production, Service Fabric ne prend en charge qu’un seul nœud par ordinateur physique ou virtuel.
 

@@ -1,6 +1,6 @@
 ---
 title: Charges de travail de conteneur sur Azure Batch | Microsoft Docs
-description: "Découvrez comment exécuter des applications à partir d’images conteneur sur Azure Batch."
+description: Découvrez comment exécuter des applications à partir d’images conteneur sur Azure Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -27,6 +27,7 @@ Cet article suppose une connaissance des concepts du conteneur Docker et de la m
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 * Versions du SDK : le SDK prend en charge des images conteneur dans les versions suivantes :
     * API REST (version : 6.0 du 01/09/2017)
     * Kit de développement logiciel Batch .NET SDK (version 8.0.0)
@@ -34,7 +35,7 @@ Cet article suppose une connaissance des concepts du conteneur Docker et de la m
     * Kit de développement logiciel Batch Java (version 3.0)
     * Kit de développement logiciel Batch Node.js (version 3.0)
 
-* Comptes : sur votre compte Azure, vous devez créer un compte Batch et, éventuellement, un compte de stockage à usage général.
+* Comptes : sur votre compte Azure, vous devez créer un compte Batch et, éventuellement, un compte de stockage Azure.
 
 * Une image de machine virtuelle prise en charge. Les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ».
 

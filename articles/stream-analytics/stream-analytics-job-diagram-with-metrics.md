@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Débogage piloté par les données à l’aide du diagramme de travail
 
@@ -76,11 +76,11 @@ Si l’étape de requête précédente est un processeur d’entrée, utilisez l
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Sommes-nous en retard en matière de lecture des données ?
 
-*   **InputEventsSourcesBackloggedTotal** indique le nombre de messages supplémentaires devant être lus pour les entrées Event Hub et IoT Hub.
+*   **Événements d’entrée en backlog (total)** indique le nombre de messages supplémentaires devant être lus pour les entrées Event Hub et Azure IoT Hub. Lorsque ce nombre est supérieur à 0, cela signifie que votre travail ne peut pas traiter les données aussi rapidement qu’elles arrivent. Dans ce cas, vous devrez peut-être augmenter le nombre d’unités de streaming et/ou de vous assurer que votre travail peut être parallélisée. Vous pouvez voir plus d’informations à ce sujet à la page de parallélisation des requêtes](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Stream Analytics](stream-analytics-introduction.md)

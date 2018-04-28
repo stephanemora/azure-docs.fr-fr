@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: caf2c54c986f8c4dd951628fd6908d42e7ddd281
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
-Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle déployée avec le modèle Azure Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure. Stockez les données de sauvegarde de la machine virtuelle dans un coffre Recovery Services. Le coffre conserve les données de sauvegarde des machines virtuelles classiques et déployées à l’aide du modèle Resource Manager.
+Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle déployée avec le modèle Azure Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure. Quand vous sauvegardez une machine virtuelle, les points de récupération ou les données de sauvegarde sont stockés dans un coffre Recovery Services. Les coffre Recovery Services stockent les données de sauvegarde des machines virtuelles classiques et déployées à l’aide du modèle Resource Manager.
 
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Avant de protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que les conditions préalables suivantes sont remplies :
 
-* Créez un coffre Recovery Services (ou identifiez un coffre Recovery Services existant) *dans la même région que votre machine virtuelle*.
+* Créez ou identifiez un coffre Recovery Services *dans la même région que votre machine virtuelle*.
 * Sélectionnez un scénario, définissez la stratégie de sauvegarde et définissez les éléments à protéger.
-* Vérifiez l’installation d’un agent de machine virtuelle sur la machine virtuelle.
+* Vérifiez l’installation d’un agent de machine virtuelle (extension) sur la machine virtuelle.
 * Vérifiez la connectivité réseau.
 * Pour les machines virtuelles Linux, si vous voulez personnaliser votre environnement de sauvegarde pour des sauvegardes cohérentes avec les applications, suivez les [étapes permettant de configurer des scripts avant et après les captures instantanées](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -51,11 +51,11 @@ Avant de préparer votre environnement, assurez-vous de noter les limitations su
 * La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 * La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 * La sauvegarde des machines virtuelles Linux chiffrées via le chiffrement LUKS (Linux Unified Key Setup) n’est pas prise en charge.
-* La sauvegarde des machines virtuelles contenant une configuration de volumes partagés de cluster (CSV) ou de serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. Cette sauvegarde exige d’impliquer toutes les machines virtuelles incluses dans la configuration du cluster pendant la tâche de capture instantanée. Sauvegarde Azure ne prend pas en charge la cohérence multimachine virtuelle. 
+* La sauvegarde des machines virtuelles contenant une configuration de volumes partagés de cluster (CSV) ou de serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, cela pourrait entraîner l’échec des enregistreurs CSV. Cette sauvegarde exige d’impliquer toutes les machines virtuelles incluses dans la configuration du cluster pendant la tâche de capture instantanée. Sauvegarde Azure ne prend pas en charge la cohérence multimachine virtuelle. 
 * Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à une machine virtuelle.
 * Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Si vous tentez de restaurer la machine virtuelle alors que celle-ci existe, l’opération de restauration échoue.
 * La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
-* La sauvegarde et la restauration de machines virtuelles à l’aide de disques non managés dans des comptes de stockage avec des règles de réseau ne sont pas prises en charge. 
+* La sauvegarde et la restauration de machines virtuelles à l’aide de disques non managés dans des comptes de stockage avec des règles de réseau ne sont pas prises en charge pour les clients sur l’ancienne pile de sauvegarde de machine virtuelle. 
 * Lors de la configuration de la sauvegarde, assurez-vous que les paramètres du compte de stockage **Pare-feux et réseaux virtuels** permettent l’accès à partir de « Tous les réseaux ».
 * Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure. (Consultez la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge.) Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de coffres.
 * La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. Pour en savoir plus, consultez [Restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
@@ -167,7 +167,7 @@ Avant d’inscrire une machine virtuelle auprès d’un coffre Recovery Services
 
    ![Bouton Activer la sauvegarde](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Après avoir activé la sauvegarde, votre stratégie de sauvegarde est exécutée selon la planification. Si vous voulez générer une tâche de sauvegarde à la demande pour sauvegarder les machines virtuelles, consultez la rubrique [Déclenchement du travail de sauvegarde](./backup-azure-arm-vms.md#triggering-the-backup-job).
+Après avoir activé la sauvegarde, votre stratégie de sauvegarde est exécutée selon la planification. Si vous voulez générer une tâche de sauvegarde à la demande pour sauvegarder les machines virtuelles, consultez la rubrique [Déclenchement du travail de sauvegarde](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 Si vous avez des problèmes lors de l’inscription de la machine virtuelle, consultez les informations suivantes sur l’installation de l’agent de machine virtuelle et la connectivité réseau. Vous n’avez probablement pas besoin des informations suivantes si vous protégez des machines virtuelles créées dans Azure. Toutefois, si vous avez migré vos machines virtuelles dans Azure, vérifiez que vous avez correctement installé l’agent de machine virtuelle et que votre machine virtuelle peut communiquer avec le réseau virtuel.
 
@@ -199,7 +199,7 @@ Lors du choix de l’option à utiliser, le compromis se situe entre la facilit�
 
 | Option | Avantages | Inconvénients |
 | --- | --- | --- |
-| Plages IP de liste verte |Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande **Set-AzureNetworkSecurityRule**. |Difficile à gérer, car les plages d’adresses IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage. |
+| Plages IP de liste blanche |Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande **Set-AzureNetworkSecurityRule**. |Difficile à gérer, car les plages d’adresses IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage. |
 | Utiliser un proxy HTTP |Le contrôle granulaire dans le proxy sur les URL de stockage est autorisé.<br><br>Un seul point d’accès Internet aux machines virtuelles.<br><br>Non soumis aux modifications d’adresse IP Azure. |Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Mettez sur liste approuvée les plages IP du centre de données Azure
@@ -208,6 +208,10 @@ Pour mettre sur liste approuvée les plages d’adresses IP des centres de donn�
 Vous pouvez autoriser les connexions au stockage de la région spécifique à l’aide de [balises de service](../virtual-network/security-overview.md#service-tags). Vérifiez que la règle qui autorise l’accès au compte de stockage a une priorité plus élevée que la règle bloquant l’accès à Internet. 
 
 ![Groupe de sécurité réseau avec des balises de stockage pour une région](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+La vidéo suivante vous guide tout au long de la procédure pas à pas de configuration des balises de service : 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > Les balises de service de stockage sont en préversion et disponibles uniquement dans certaines régions. Pour obtenir une liste de régions, consultez [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).

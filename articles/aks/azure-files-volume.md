@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="volumes-with-azure-files"></a>Volumes avec fichiers Azure
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>Monter le partage de fichiers en tant que volume
 
-Vous pouvez monter votre partage Azure Files dans votre pod en configurant le volume dans ses spécifications. Créez un fichier nommé `azure-files-pod.yaml` avec le contenu suivant. Mettez à jour la valeur `aksshare` avec le nom donné au partage Azure Files.
+Montez votre partage Azure Files dans votre pod en configurant le volume dans ses spécifications. Créez un fichier nommé `azure-files-pod.yaml` avec le contenu suivant. Mettez à jour la valeur `aksshare` avec le nom donné au partage Azure Files.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ Utilisez kubectl pour créer un pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Vous disposez maintenant d’un conteneur en cours d’exécution avec le partage Azure Files monté dans le répertoire `/mnt/azure`. Vous pouvez voir le volume monté en inspectant votre pod via `kubectl describe pod azure-files-pod`.
+Vous disposez maintenant d’un conteneur en cours d’exécution avec le partage Azure Files monté dans le répertoire `/mnt/azure`.  Vous pouvez voir le volume monté en inspectant votre pod via `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -24,7 +24,7 @@ Le code source de l’application et les scripts de gestion sont disponibles dan
 
 ## <a name="application-architecture"></a>Architecture de l'application
 
-L’application Wingtip SaaS utilise le modèle de base de données par locataire. Elle utilise les pools élastiques SQL pour optimiser l’efficacité. Pour l’approvisionnement et le mappage des clients à leurs données, une base de données catalogue est utilisée. L’application SaaS Wingtip centrale utilise un pool avec trois exemples de locataires, plus la base de données catalogue. Suivre de nombreux didacticiels SaaS Wingtip permet de générer des modules complémentaires pour le déploiement initial. Des modules complémentaires comme les bases de données d’analyse et la gestion de schémas entre les bases de données sont présentés.
+L’application Wingtip SaaS utilise le modèle de base de données par locataire. Elle utilise les pools élastiques SQL pour optimiser l’efficacité. Pour l’approvisionnement et le mappage des clients à leurs données, une base de données catalogue est utilisée. L’application SaaS Wingtip centrale utilise un pool avec trois exemples de locataires, plus la base de données catalogue. Les serveurs du catalogue et du locataire ont été provisionnés avec des alias DNS. Ces alias sont utilisés pour conserver une référence aux ressources actives utilisées par l’application Wingtip. Ces alias sont mis à jour pour pointer vers les ressources de récupération dans les didacticiels consacrés à la récupération d’urgence. Suivre de nombreux didacticiels SaaS Wingtip permet de générer des modules complémentaires pour le déploiement initial. Des modules complémentaires comme les bases de données d’analyse et la gestion de schémas entre les bases de données sont présentés.
 
 
 ![Architecture de SaaS Wingtip](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

@@ -19,8 +19,8 @@ Vous n’aurez pas besoin de cette chaîne de connexion iothubowner pour ce dida
 
 1. Dans le [portail Azure](https://portal.azure.com/), ouvrez votre instance IoT Hub.
 
-2. Cliquez sur **Explorateur d’appareils**.
-3. Dans le volet Explorateur d’appareils, cliquez sur **Ajouter** pour ajouter un appareil à votre IoT Hub. Faites ensuite ce qui suit :
+2. Cliquez sur **Appareils IoT**.
+3. Dans le volet Appareils IoT, cliquez sur **Ajouter** pour ajouter un appareil à votre hub IoT. Faites ensuite ce qui suit :
 
    **ID d’appareil** : entrez l’ID du nouvel appareil. Les ID d’appareil respectent la casse.
 
@@ -30,12 +30,15 @@ Vous n’aurez pas besoin de cette chaîne de connexion iothubowner pour ce dida
 
    **Connecter l’appareil à IoT Hub** : cliquez sur **Activer**.
 
-   ![Ajouter un appareil dans l’outil Device Explorer de votre IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Ajouter un appareil aux appareils IoT de votre hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Cliquez sur **Enregistrer**.
-5. Une fois que l’appareil est créé, ouvrez-le dans le volet **Explorateur d’appareils**.
+5. Une fois que l’appareil est créé, ouvrez-le dans le volet **Appareils IoT**.
+
+   ![Liste des appareils IoT dans IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Notez la clé primaire de la chaîne de connexion.
 
-   ![Obtention de la chaîne de connexion de l’appareil](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Obtention de la chaîne de connexion de l’appareil](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

@@ -1,44 +1,43 @@
 ---
-title: Tester des requêtes dans Azure Stream Analytics
-description: Cet article décrit comment tester des requêtes à l’aide d’exemples de fichiers de données dans des tâches Stream Analytics.
+title: Tester votre tâche Azure Stream Analytics avec des exemples de données | Microsoft Docs
+description: Test des requêtes dans les travaux Stream Analytics
+keywords: tester une tâche, échantillonnage des entrées, charger les exemples de données
+documentationcenter: ''
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: fb7d936dfdc543c208ce98c588f5ad83704ff5dc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.workload: data-services
+ms.date: 03/18/2018
+ms.author: sngun
+ms.openlocfilehash: c026a91fff5b8ef5774993b335f8d61877aa5d39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Tester les requêtes Azure Stream Analytics dans le portail Azure
+# <a name="test-your-stream-analytics-query-with-sample-data"></a>Tester votre requête Stream Analytics avec des exemples de données
 
-Avec Azure Stream Analytics, vous pouvez tester des requêtes dans le portail sans avoir à démarrer ou arrêter un travail.
+À l’aide d’Azure Stream Analytics, vous pouvez charger des exemples de données et tester des requêtes dans le portail sans démarrer ni arrêter une tâche.
 
-## <a name="test-the-input"></a>Tester l’entrée
+## <a name="upload-sample-data-and-test-the-query"></a>Charger des exemples de données et tester la requête
 
-1. Pour tester les exemples de données d’entrée, cliquez sur une de vos entrées, puis sélectionnez **Charger un exemple de données du fichier**. Actuellement, vous pouvez charger uniquement des données au format JSON. Si vos données sont dans un autre format tel que CSV, vous devez les convertir au format JSON avant de les charger. Vous pouvez utiliser n’importe quel outil de conversion Open Source comme le [convertisseur CSV à JSON](http://www.convertcsv.com/csv-to-json.htm) pour convertir vos données au format JSON.
+1. Accédez à l’une de vos tâches Stream Analytics > cliquez sur **Requête** afin d’ouvrir la fenêtre de l’éditeur de requête. 
+
+2. Pour tester votre requête avec des exemples de données d’entrée, cliquez avec le bouton droit sur l’une de vos entrées, puis sélectionnez **Upload sample data from file** (Charger les exemples de données à partir d’un fichier). Actuellement, vous pouvez charger uniquement des données au format JSON. Si vos données sont dans un autre format tel que CSV, vous devez les convertir au format JSON avant de les charger. Vous pouvez utiliser n’importe quel outil de conversion Open Source comme le [convertisseur CSV à JSON](http://www.convertcsv.com/csv-to-json.htm) pour convertir vos données au format JSON.
 
     ![Test des requêtes dans l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-2. Une fois que le téléchargement est terminé, cliquez sur **Tester** pour tester cette requête dans les exemples de données que vous avez fournis.
+3. Une fois que le téléchargement est terminé, cliquez sur **Tester** pour tester cette requête dans les exemples de données que vous avez fournis.
 
     ![Exemple de données de test des requêtes dans l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-Si vous souhaitez enregistrer la sortie de test pour une utilisation ultérieure, la sortie de votre requête s’affiche dans le navigateur avec le lien Télécharger les résultats. Vous pouvez maintenant facilement et de manière itérative modifier votre requête et la tester à plusieurs reprises pour voir comment la sortie change.
+4. Si vous souhaitez enregistrer la sortie test pour une utilisation ultérieure, la sortie de votre requête s’affiche dans le navigateur avec un lien vers les résultats du téléchargement. Vous pouvez maintenant facilement et de manière itérative modifier votre requête et la tester à plusieurs reprises pour voir comment la sortie change.
 
-![Exemple de sortie de l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+   ![Exemple de sortie de l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-Avec plusieurs sorties utilisées dans une requête, vous pouvez voir les résultats des deux sorties séparément et basculer facilement entre elles.
-
-Une fois que vous êtes satisfait des résultats affichés dans le navigateur, vous pouvez enregistrer votre requête, lancer votre travail et le regarder traiter les événements sans erreur.
-
-## <a name="get-help"></a>Obtenir de l’aide
-
+Lorsque vous utilisez plusieurs sorties dans une requête, vous pouvez voir les résultats pour chaque sortie séparément et basculer facilement entre eux. Une fois que vous avez vérifié les résultats affichés dans le navigateur, vous pouvez enregistrer votre requête, lancer votre tâche et le regarder traiter les événements sans erreur.
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes

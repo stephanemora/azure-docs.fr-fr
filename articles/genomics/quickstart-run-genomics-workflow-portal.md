@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide : Exécuter un workflow via le service Microsoft Genomics | Microsoft Docs"
-description: "Ce démarrage rapide vous montre comment charger des données d’entrée dans le service Stockage Blob Azure et exécuter un workflow via le service Microsoft Genomics."
+title: 'Démarrage rapide : Exécuter un workflow via le service Microsoft Genomics | Microsoft Docs'
+description: Ce démarrage rapide vous montre comment charger des données d’entrée dans le service Stockage Blob Azure et exécuter un workflow via le service Microsoft Genomics.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow via le service Microsoft Genomics
 
@@ -174,4 +174,4 @@ Une fois le workflow terminé, vous avez accès aux fichiers de sortie dans votr
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez chargé un exemple de données d’entrée dans Stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour en savoir plus sur les autres types de fichiers d’entrée pouvant être utilisés avec le service Microsoft Genomics, consultez les pages suivantes : [paired FASTQ (Paires de fichiers FASTQ)](quickstart-input-pair-FASTQ.md) | [BAM (Business Activity Monitoring)](quickstart-input-BAM.md) | [Multiple FASTQ or BAM (Fichiers BAM ou FASTQ multiples)](quickstart-input-multiple.md) 
+Dans cet article, vous avez chargé un exemple de données d’entrée dans Stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour en savoir plus sur les autres types de fichiers d’entrée pouvant être utilisés avec le service Microsoft Genomics, consultez les pages suivantes : [Soumettre un workflow à l’aide d’entrées de fichiers FASTQ](quickstart-input-pair-FASTQ.md) | [Soumettre un workflow à l’aide d’une entrée de fichier BAM](quickstart-input-BAM.md) | [Soumettre un workflow à l’aide d’entrées multiples d’un seul exemple](quickstart-input-multiple.md). Vous pouvez également explorer ce didacticiel en utilisant notre [didacticiel sur le bloc-notes Azure.](http://aka.ms/genomicsnotebook)

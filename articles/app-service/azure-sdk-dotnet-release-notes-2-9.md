@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 
@@ -41,7 +41,7 @@ Dans cette version, aucune modification importante n’a été apportée au Kit�
  
 ### <a name="windows-server-2016-virtual-machines"></a>Machines virtuelles Windows Server 2016
 
-- Visual Studio prend désormais en charge le déploiement de services Cloud sur les machines virtuelles de famille 5 du système d’exploitation (Windows Server 2016). Pour les services cloud existants, vous pouvez modifier vos paramètres de manière à cibler la nouvelle famille du système d’exploitation. Lors de la création de nouveaux services cloud, si vous décidez de créer le service à l’aide de .net 4.6 ou d’une version antérieure, le service utilisera par défaut la famille 5 du système d’exploitation.  Pour plus d’informations, passez en revue le [tableau de prise en charge de la famille de SE invité](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio prend désormais en charge le déploiement de services Cloud sur les machines virtuelles de famille 5 du système d’exploitation (Windows Server 2016). Pour les services cloud existants, vous pouvez modifier vos paramètres de manière à cibler la nouvelle famille du système d’exploitation. Lors de la création de nouveaux services cloud, si vous décidez de créer le service à l’aide de .net 4.6 ou d’une version antérieure, le service utilisera par défaut la famille 5 du système d’exploitation.  Pour plus d’informations, passez en revue le [tableau de prise en charge de la famille de SE invité](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### <a name="known-issues"></a>Problèmes connus
 
@@ -50,7 +50,7 @@ Dans cette version, aucune modification importante n’a été apportée au Kit�
  
 ### <a name="azure-in-role-cache"></a>In-Role Cache Azure 
 
-- La prise en charge d’Azure In-Role Cache prend fin le 30 novembre 2016. Pour plus de détails, cliquez [ici](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+- La prise en charge d’Azure In-Role Cache prend fin le 30 novembre 2016. Pour plus de détails, cliquez [ici](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 ### <a name="azure-resource-manager-templates-for-azure-stack"></a>Modèles Azure Resource Manager pour Azure Stack
 

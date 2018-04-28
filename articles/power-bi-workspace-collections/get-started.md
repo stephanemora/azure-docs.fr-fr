@@ -1,12 +1,12 @@
 ---
 title: Prise en main de Power BI Workspace Collections
-description: "Power BI Workspace Collections est un service Azure qui permet aux développeurs d’applications d’ajouter des rapports Power BI interactifs dans leurs propres applications."
+description: Power BI Workspace Collections est un service Azure qui permet aux développeurs d’applications d’ajouter des rapports Power BI interactifs dans leurs propres applications.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
@@ -15,19 +15,19 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 4ee113ed25142507f381d8c9d49b25ee6553c525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Prise en main de Power BI Workspace Collections
 
 **Power BI Workspace Collections** est un service Azure qui permet aux développeurs d’applications d’ajouter des rapports Power BI interactifs dans leurs propres applications. **Power BI Workspace Collections** fonctionne avec les applications existantes sans avoir besoin de repenser ou de modifier le mode de connexion des utilisateurs.
 
 > [!IMPORTANT]
-> Power BI Workspace Collections est déconseillée et disponible jusqu’en juin 2018, ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour en savoir plus sur la migration de vos données vers Power BI Embedded, voir [How to migrate Power BI Workspace Collections content to Power BI Embedded (Guide pratique pour migrer le contenu de Power BI Workspace Collections vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Les collections d’espaces de travail Power BI sont déconseillées et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Les ressources pour **Power BI Workspace Collections** sont approvisionnées via les [API Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). Dans ce cas, la ressource approvisionnée constitue une **collection d’espaces de travail Power BI**.
 
@@ -42,7 +42,7 @@ Une **collection d’espaces de travail** est la ressource Azure de premier nive
 
 Nous allons voir comment créer une **collection d’espaces de travail** à l’aide du portail Azure.
 
-1. Ouvrez le **portail Azure** à l’adresse [http://portal.azure.com](http://portal.azure.com)et connectez-vous.
+1. Ouvrez et connectez-vous au **portail Azure** : [http://portal.azure.com](http://portal.azure.com).
 2. Sélectionnez **+ Nouveau** dans le panneau supérieur.
    
    ![+ Nouveau dans le portail Azure](media/get-started/create-workspace-1.png)
@@ -106,7 +106,7 @@ Lorsque vous enregistrez votre travail dans **Power BI Desktop**, un fichier PBI
 
 ## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Création de rapports et de jeux de données Power BI avec des API
 
-### <a name="datasets"></a>JEUX DE DONNÉES
+### <a name="datasets"></a>Groupes de données
 
 Vous pouvez créer des jeux de données dans Power BI Workspace Collections avec l’API REST. Vous pouvez ensuite transmettre les données dans votre jeu de données. Cela vous permet d’utiliser des données sans avoir besoin de Power BI Desktop. Pour plus d’informations, consultez [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx) (Opération Post Datasets).
 
@@ -117,8 +117,8 @@ Vous pouvez créer un rapport directement à partir d’un jeu de données de vo
 ## <a name="see-also"></a>Voir aussi
 
 [Prise en main de l’exemple](get-started-sample.md)  
-[Authentification et autorisation dans Power BI Workspace Collections](app-token-flow.md)  
-[Incorporer un rapport](embed-report.md)  
+[Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
+[Embed a report](embed-report.md) (Intégrer un rapport)  
 [Créer un rapport à partir d’un jeu de données dans Power BI Workspace Collections](create-report-from-dataset.md)
 [Enregistrer les rapports](save-reports.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  

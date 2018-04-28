@@ -1,24 +1,24 @@
 ---
-title: "Créer votre première application de microservices Azure sur Linux à l’aide de C# | Microsoft Docs"
-description: "Créer et déployer une application Service Fabric à l’aide de C#"
+title: Créer votre première application de microservices Azure sur Linux à l’aide de C# | Microsoft Docs
+description: Créer et déployer une application Service Fabric à l’aide de C#
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9a97a560034b288823d662d83d6366383c9e1706
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 30ed7eb736b2012a0e9ed4c10d4bfd1aff35faac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/24/2018
 Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous apprenons à créer une application pour Linux et à générer un service à l’aide de C# sur .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement Linux](service-fabric-get-started-linux.md). Si vous utilisez Mac OS X, vous pouvez [configurer un environnement Linux à boîtier unique sur une machine virtuelle à l’aide de Vagrant](service-fabric-get-started-mac.md).
 
 Il vous sera également utile d’installer l’[interface de ligne de commande Service Fabric](service-fabric-cli.md)
@@ -57,13 +58,13 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
   ```bash
   sudo npm install -g yo
   ```
-3. Installer le générateur d’applications Service Fabric Yeo Java à partir de NPM
+3. Installer le générateur d’applications Service Fabric Yeoman C# à partir de NPM
 
   ```bash
   sudo npm install -g generator-azuresfcsharp
   ```
 
-## <a name="create-the-application"></a>Création de l’application
+## <a name="create-the-application"></a>Création de l'application
 Une application Service Fabric peut contenir un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Le générateur Service Fabric [Yeoman](http://yeoman.io/) pour C#, que vous avez installé lors de la dernière étape, facilite la création de votre premier service et vous aide à ajouter de nouveaux services ultérieurement. Nous utilisons Yeoman pour créer une application avec un seul service.
 
 1. Dans un terminal, tapez la commande suivante pour commencer la génération de modèles automatique : `yo azuresfcsharp`
@@ -105,7 +106,7 @@ L’application générée se déploie de la même manière qu’une autre appli
 
 Vous pourrez retrouver les paramètres de ces commandes dans les manifestes générés au sein du package d’application.
 
-Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer ](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
+Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Démarrer le client de test et effectuer un basculement
 Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont besoin d’un autre service ou client pour leur envoyer des messages. Le modèle d’acteur inclut un script de test simple que vous pouvez utiliser pour interagir avec le service d’acteur.

@@ -1,5 +1,5 @@
 ---
-title: "Plan de traitement des paiements Azure - Conditions relatives aux données de titulaires de carte"
+title: Plan de traitement des paiements Azure - Conditions relatives aux données de titulaires de carte
 description: Condition 3 de la norme PCI DSS
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Conditions relatives aux données de titulaires de carte pour les environnements conformes à la norme PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Condition 3 de la norme PCI DSS
@@ -39,12 +39,12 @@ Pour obtenir la définition d’un « chiffrement fort » et d’autres termes r
 - Des processus pour la suppression sécurisée des données devenues inutiles
 - Un processus trimestriel pour l’identification et la suppression sécurisée des données de titulaires de carte stockées excédant les conditions de conservation définies.
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Azure doit faire en sorte que les données des clients marquées pour suppression sont mises hors service en toute sécurité au moyen de protocoles conformes à la norme NIST 800-88 (spécifiés dans les stratégies relatives à la mise hors service sécurisée). |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore ne supprime pas et ne détruit pas les données CHD stockées. Toutefois, toutes les données sont chiffrées et les données associées au numéro de compte principal (PAN) ne sont pas stockées.<br /><br />|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore ne supprime pas et ne détruit pas les données CHD stockées. Toutefois, toutes les données sont chiffrées et les données associées au numéro de compte principal (PAN) ne sont pas stockées.<br /><br />|
 
 
 
@@ -56,12 +56,12 @@ Pour obtenir la définition d’un « chiffrement fort » et d’autres termes r
 Les données d’identification sensibles sont mentionnées dans les conditions 3.2.1 à 3.2.3 suivantes :
 
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore ne supprime pas et ne détruit pas les données CHD stockées ; les exemples de données sont stockées uniquement à des fins de démonstration. Toutefois, toutes les données sont chiffrées et les données associées au numéro de compte principal (PAN) ne sont pas stockées.<br /><br />|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore ne supprime pas et ne détruit pas les données CHD stockées ; les exemples de données sont stockées uniquement à des fins de démonstration. Toutefois, toutes les données sont chiffrées et les données associées au numéro de compte principal (PAN) ne sont pas stockées.<br /><br />|
 
 
 
@@ -78,12 +78,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 >
 > Pour minimiser le risque, stocker uniquement les éléments de données nécessaires à l’activité.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore ne stocke pas le contenu complet des données CHD.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore ne stocke pas le contenu complet des données CHD.|
 
 
 
@@ -91,12 +91,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.2.2** Ne pas stocker le code ou la valeur de vérification de carte (nombre à trois ou quatre chiffres figurant au recto ou au verso de la carte de paiement, utilisé pour vérifier les transactions carte absente) après l’autorisation.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore chiffre toutes les données, notamment les exemples de code CVV.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore chiffre toutes les données, notamment les exemples de code CVV.|
 
 
 
@@ -104,12 +104,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.2.3** Ne pas stocker le code PIN ou le bloc PIN chiffré après l’autorisation.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore ne stocke pas les informations des codes PIN.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore ne stocke pas les informations des codes PIN.|
 
 
 
@@ -120,12 +120,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 > [!NOTE]
 > Cette condition ne se substitue pas aux conditions plus strictes qui sont en place et qui régissent l’affichage des données de titulaires de carte, par exemple, pour les reçus des points de vente.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore fait appel à plusieurs technologies pour masquer le numéro de compte principal (PAN) : chiffrement TDE (Transparent Data Encryption), colonnes Always Encrypted et masquage DDM (Dynamic Data Masking). Pour plus d’informations, consultez [Aide PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore fait appel à plusieurs technologies pour masquer le numéro de compte principal (PAN) : chiffrement TDE (Transparent Data Encryption), colonnes Always Encrypted et masquage DDM (Dynamic Data Masking). Pour plus d’informations, consultez [Guide PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -140,12 +140,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 > [!NOTE]
 > Il s’agit d’un effort relativement peu important pour un individu malveillant de reconstruire les données du PAN d’origine, s’il a à la fois accès à la version tronquée et à la version hachée d’un PAN. Quand la version tronquée et la version hachée du même PAN sont présentes dans l’environnement d’une entité, des contrôles supplémentaires doivent être en place pour garantir qu’elle ne puissent pas être mises en corrélation pour reconstituer le PAN d’origine.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore chiffre toutes les données de carte de paiement et utilise Azure Key Vault pour gérer les clés, ce qui empêche la récupération des données de titulaires de carte.<br /><br />Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore chiffre toutes les données de carte de paiement et utilise Azure Key Vault pour gérer les clés, ce qui empêche la récupération des données de titulaires de carte.<br /><br />Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -156,12 +156,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 > [!NOTE]
 > En outre, cette condition s’applique à toutes les autres conditions de gestion des clés et de chiffrement PCI DSS.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore chiffre toutes les données stockées et isole le trafic pour éviter toute élévation de privilège des fonctions DevOps.<br /><br />Étant donné que l’environnement App Service est sécurisé et verrouillé, il est nécessaire d’avoir un mécanisme qui permet d’autoriser toutes les versions de DevOps et tout changement nécessaire, par exemple la capacité à surveiller une application web à l’aide de Kudu.<br /><br />Une machine virtuelle est établie en tant que serveur de rebond (hôte bastion) avec les configurations suivantes :<br /><br /><ul><li>[Extension Antimalware](/azure/security/azure-security-antimalware)</li><li>[Extension Monitoring OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extension VM Diagnostics](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disque chiffré BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>L’utilisation d’Azure Key Vault permet un alignement avec les conditions définies par Azure Government, PCI DSS et HIPAA.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore chiffre toutes les données stockées et isole le trafic pour éviter toute élévation de privilège des fonctions DevOps.<br /><br />Étant donné que l’environnement App Service est sécurisé et verrouillé, il est nécessaire d’avoir un mécanisme qui permet d’autoriser toutes les versions de DevOps et tout changement nécessaire, par exemple la capacité à surveiller une application web à l’aide de Kudu.<br /><br />Une machine virtuelle est établie en tant que serveur de rebond (hôte bastion) avec les configurations suivantes :<br /><br /><ul><li>[Extension Antimalware](/azure/security/azure-security-antimalware)</li><li>[Extension de la surveillance Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extension VM Diagnostics](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disque chiffré BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>L’utilisation d’Azure Key Vault permet un alignement avec les conditions définies par Azure Government, PCI DSS et HIPAA.|
 
 
 
@@ -172,12 +172,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 > [!NOTE]
 > Cette condition s’applique également aux clés utilisées pour chiffrer les données de titulaires de carte stockées, ainsi qu’aux clés de chiffrement de clé utilisées pour protéger les clés de chiffrement de données (ces clés de chiffrement de clé doivent offrir une protection aussi forte que la clé de chiffrement de données).
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Microsoft Azure garantit l’isolation logique des coffres de clés des clients : d’une part, les uns des autres et, d’autre part, par rapport au plan de gestion du service Key Vault. Key Vault est conçu de telle sorte que Microsoft ne dispose pas d’un accès permanent au coffre de clés du client. <br /><br />Les clés sont protégées par Microsoft Azure au moyen d’algorithmes standard, de longueurs de clé et de modules de sécurité matériels (HSM).<br /><br />Une clé stockée dans Microsoft Azure Key Vault peut être utilisée pour protéger une autre clé. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore fournit une documentation pour illustrer et faciliter le déploiement d’une solution de clés protégée afin de sécuriser les données CHD de démonstration.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore fournit une documentation pour illustrer et faciliter le déploiement d’une solution de clés protégée afin de sécuriser les données CHD de démonstration.|
 
 
 
@@ -189,14 +189,14 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 - Inventaire des HSM et autres SCD dans le cadre de la gestion des clés 
 
 > [!NOTE]
-> Cette condition est considérée comme une bonne pratique jusqu’au 31 janvier 2018, après quoi elle sera obligatoire.
+> Cette condition sera considérée comme une bonne pratique jusqu’au 31 janvier 2018, après quoi elle deviendra obligatoire.
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Microsoft Azure garantit l’isolation logique des coffres de clés des clients : d’une part, les uns des autres et, d’autre part, par rapport au plan de gestion du service Key Vault. Key Vault est conçu de telle sorte que Microsoft ne dispose pas d’un accès permanent au coffre de clés du client. <br /><br />Les clés sont protégées par Microsoft Azure au moyen d’algorithmes standard, de longueurs de clé et de modules de sécurité matériels (HSM).<br /><br />Une clé stockée dans Microsoft Azure Key Vault peut être utilisée pour protéger une autre clé. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore fournit une documentation pour illustrer et faciliter le déploiement d’une solution de clés protégée afin de sécuriser les données CHD de démonstration.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore fournit une documentation pour illustrer et faciliter le déploiement d’une solution de clés protégée afin de sécuriser les données CHD de démonstration.|
 
 
 
@@ -205,12 +205,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 **3.5.2** Restreindre l’accès aux clés de chiffrement au plus petit nombre d’opérateurs possible.
 
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Key Vault prend en charge des stratégies d’accès détaillées. Ainsi, un propriétaire Key Vault peut accorder l’accès à des fonctionnalités spécifiques pour réaliser des opérations spécifiques sur des entités spécifiques. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | La gestion des clés dans Contoso Webstore est isolée sur un compte d’utilisateur (admin##@contosowebstore.com).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | La gestion des clés dans Contoso Webstore est isolée sur un compte d’utilisateur (admin##@contosowebstore.com).|
 
 
 
@@ -229,7 +229,7 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Les clés sont stockées dans des coffres de clés spécifiques identifiés par le client.<br /><br />Key Vault est accessible globalement et simultanément par plusieurs applications, ce qui réduit la nécessité de copier une clé et de la stocker à plusieurs emplacements. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -238,12 +238,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 **3.5.4** Stocker les clés de chiffrement dans aussi peu d’emplacements que possible.
 
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Les clés sont stockées dans des coffres de clés spécifiques identifiés par le client. <br /><br />Key Vault est accessible globalement et simultanément par plusieurs applications, ce qui réduit la nécessité de copier une clé et de la stocker à plusieurs emplacements. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -254,12 +254,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 > [!NOTE]
 > Diverses ressources du secteur proposent des normes pour la gestion des clés, notamment NIST, que vous pouvez trouver à l’adresse suivante : http://csrc.nist.gov.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -267,12 +267,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.6.1** Génération de clés de chiffrement fort
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :** <br /><br />Azure vérifie que les clés générées dans Key Vault respectent les spécifications du client. Les clés sont générées à l’aide d’un HSM. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -280,12 +280,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.6.2** Sécuriser la distribution des clés de chiffrement
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />L’outil BYOK (Bring Your Own Key) encapsule la clé du client et cible un coffre de sécurité spécifique lié à un abonnement Azure spécifique. La clé peut uniquement être importée dans le coffre de clés de l’abonnement défini, dans la région spécifiée. Ce processus utilise les procédures de chiffrement fournies par le fabricant de matériel. Les clients sont notifiés de la réussite du transfert. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -293,12 +293,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.6.3** Sécuriser le stockage des clés de chiffrement
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Les clés sont stockées dans les HSM et sont sécurisées à l’aide du chiffrement du fabricant de matériel. Les métadonnées sur les clés sont stockées dans Stockage Azure dans un état chiffré qui est unique à chaque coffre de clés. <br /><br /> |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -306,12 +306,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.6.4** Changements de clé de chiffrement pour les clés ayant atteint la fin de leur période de chiffrement (par exemple, après la fin d’une période définie et/ou après la production d’une certaine quantité de textes de chiffrement par une clé donnée), comme l’a défini le fournisseur de l’application associée ou le propriétaire de la clé, et selon les bonnes pratiques et directives du secteur (par exemple, la publication spéciale NIST 800-57).
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Key Vault prend en charge la mise à jour ou la régénération des clés, ces fonctionnalités étant définies par le client. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -322,12 +322,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 > [!NOTE]
 > Si les clés de chiffrement mises hors service ou remplacées doivent être conservées, ces clés doivent être archivées de manière sécurisée (par exemple, en utilisant une clé de chiffrement de clé). Les clés de chiffrement archivées doivent être utilisées uniquement à des fins de déchiffrement ou de vérification.
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Key Vault prend en charge la mise hors service ou le remplacement des clés, ces fonctionnalités étant définies par le client. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -338,12 +338,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 > [!NOTE]
 > La génération, la transmission, le chargement, le stockage et la destruction de clés sont quelques-uns des exemples d’interventions de gestion manuelle des clés.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -351,12 +351,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.6.7** Prévention de la substitution non autorisée des clés de chiffrement.
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | **Pour les clients utilisant Key Vault :**<br /><br />Les coffres de clé sont séparés de manière logique et ne prennent pas en charge les autorisations entre annuaires. Ceci permet d’éviter les substitutions non autorisées. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -364,12 +364,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.6.8** Condition selon laquelle les opérateurs chargés de la gestion de clés de chiffrement reconnaissent formellement qu’ils comprennent et acceptent leurs responsabilités en tant que telles.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | La gestion des clés dans Contoso Webstore est isolée sur un compte d’utilisateur (admin##@contosowebstore.com).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | La gestion des clés dans Contoso Webstore est isolée sur un compte d’utilisateur (admin##@contosowebstore.com).|
 
 
 
@@ -377,12 +377,12 @@ Les données d’identification sensibles sont mentionnées dans les conditions 
 
 **3.7** Assurer que les stratégies de sécurité et les procédures opérationnelles pour la protection des données de titulaires de carte sont documentées, utilisées et connues de toutes les parties concernées.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilise Azure Key Vault pour l’ensemble des opérations de gestion des clés. Pour plus d’informations, consultez [Aide PCI - Chiffrement](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 

@@ -1,28 +1,28 @@
 ---
-title: "Démarrer et arrêter Azure Stack | Microsoft Docs"
-description: "Découvrez comment démarrer et arrêter Azure Stack."
+title: Démarrer et arrêter Azure Stack | Microsoft Docs
+description: Découvrez comment démarrer et arrêter Azure Stack.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: mabrigg
-ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 04/09/2018
+ms.author: jeffgilb
+ms.reviewer: misainat
+ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Démarrer et arrêter Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack (version 1712 et versions ultérieures)*
+Suivez les procédures décrites dans cet article pour arrêter et redémarrer correctement les services Azure Stack. 
 
 ## <a name="stop-azure-stack"></a>Arrêter Azure Stack 
 
@@ -86,4 +86,4 @@ Si les services d’infrastructure et de locataire ne démarrent pas dans les 2 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-Pour plus d’informations sur les outils de diagnostic Azure Stack et l’enregistrement des problèmes, voir Outils de diagnostic Azure Stack. Outils de diagnostic Azure Stack. Outils de diagnostic Azure Stack. Outils de diagnostic Azure Stack.
+Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](azure-stack-diagnostics.md).

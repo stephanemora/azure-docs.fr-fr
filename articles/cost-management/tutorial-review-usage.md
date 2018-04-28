@@ -1,20 +1,20 @@
 ---
-title: "Didacticiel : Vérifier l’utilisation et les coûts dans Azure Cost Management | Microsoft Docs"
-description: "Dans ce didacticiel, vous vérifiez l’utilisation et les coûts pour effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes."
+title: 'Didacticiel : Vérifier l’utilisation et les coûts dans Azure Cost Management | Microsoft Docs'
+description: Dans ce didacticiel, vous vérifiez l’utilisation et les coûts pour effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 820fea1aa2eb93fb383dca4def9ed607515c29b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -38,11 +38,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="open-the-cloudyn-portal"></a>Ouvrir le portail Cloudyn
 
-Vous révisez toutes les données d’utilisation et de coût dans le portail Cloudyn. Ouvrez le portail Cloudyn à partir du Portail Azure ou accédez à la page https://azure.cloudyn.com et connectez-vous.
+Vous révisez toutes les données d’utilisation et de coût dans le portail Cloudyn. Ouvrez le portail Cloudyn à partir du portail Azure, ou accédez à https://azure.cloudyn.com et connectez-vous.
 
 ## <a name="track-usage-and-cost-trends"></a>Suivre les tendances d’utilisation et de coût
 
-Vous suivez l’argent dépensé au niveau de l’utilisation et des coûts à travers des rapports dans le temps pour identifier les tendances. Pour commencer à analyser les tendances, utilisez le rapport des coûts réels dans le temps. Dans le menu des rapports en haut du portail, cliquez sur **Cost (Coût)**  > **Cost Analysis (Analyse des coûts)** > **Actual Cost Over Time (Rapport des coûts réels dans le temps)**. Lorsque vous ouvrez le rapport pour la première fois, aucun groupe ou filtre n’est appliqué à ce dernier.
+Vous suivez l’argent dépensé au niveau de l’utilisation et des coûts à travers des rapports dans le temps pour identifier les tendances. Pour commencer à analyser les tendances, utilisez le rapport des coûts réels dans le temps. Dans le menu en haut du portail, cliquez sur **Coûts** > **Analyse des coûts** > **Actual Cost Over Time** (Rapport des coûts réels dans le temps). Lorsque vous ouvrez le rapport pour la première fois, aucun groupe ou filtre n’est appliqué à ce dernier.
 
 Voici un exemple de rapport :
 
@@ -70,7 +70,7 @@ Le problème est que leur infrastructure existante a été déjà payée. Les ut
 
 Le rapport de recommandations de dimensionnement économique identifie les économies annuelles potentielles en comparant la capacité des types d’instance de machine virtuelle à leurs données d’historique d’utilisation de la mémoire et de l’UC.  
 
-Dans le menu des rapports en haut du portail, cliquez sur **Optimizer (Optimiseur)** > **Pricing Optimization (Optimisation des prix)** > **Cost Effective Sizing Recommendations (Recommandations de dimensionnement économique)**. Filtrez le fournisseur sur Azure pour analyser uniquement des machines virtuelles Azure. Voici un exemple :
+Dans le menu en haut du portail, cliquez sur **Optimizer**(Optimiseur) > **Sizing Optimization**(Optimisation du dimensionnement) > **Cost Effective Sizing Recommendations**(Recommandations de dimensionnement économique). Filtrez le fournisseur sur Azure pour analyser uniquement des machines virtuelles Azure. Voici un exemple :
 
 ![Machines virtuelles Azure](./media/tutorial-review-usage/sizing01.png)
 
@@ -88,9 +88,9 @@ Pour visionner un didacticiel vidéo sur la détection des inefficacités d’ut
 
 Vous pouvez alerter automatiquement d’autres parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Vous pouvez créer rapidement et facilement des alertes à l’aide de rapports prenant en charge les alertes basées sur des seuils budgétaires et des seuils de coût.
 
-Vous pouvez créer une alerte pour une dépense quelconque avec tout rapport de coût. Dans cet exemple, utilisez le rapport des coûts réels dans le temps pour vous avertir quand les dépenses de la machine virtuelle Azure s’approchent de votre budget total. Dans le menu des rapports en haut du portail, cliquez sur **Cost (Coût)**  > **Cost Analysis (Analyse des coûts)** > **Actual Cost Over Time (Rapport des coûts réels dans le temps)**. Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**. Dans le coin supérieur droit du rapport, cliquez sur **Actions**, puis sélectionnez **Schedule report (Planifier le rapport)**.
+Vous pouvez créer une alerte pour une dépense quelconque avec tout rapport de coût. Dans cet exemple, utilisez le rapport des coûts réels dans le temps pour vous avertir quand les dépenses de la machine virtuelle Azure s’approchent de votre budget total. Toutes les étapes suivantes sont nécessaires pour créer l’alerte. Dans le menu en haut du portail, cliquez sur **Coûts** > **Analyse des coûts** > **Actual Cost Over Time** (Rapport des coûts réels dans le temps). Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**. Dans le coin supérieur droit du rapport, cliquez sur **Actions**, puis sélectionnez **Schedule report (Planifier le rapport)**.
 
-Utilisez l’onglet **Scheduling (Planification)** pour recevoir un e-mail du rapport à la fréquence que vous souhaitez. Tous les regroupements, filtrages et balises que vous avez utilisés sont inclus dans le rapport envoyé par e-mail. Cliquez sur l’onglet **Threshold (Seuil)** et sélectionnez **Actual Cost vs. Threshold** (Coût réel vs seuil). Si vous avez un budget total de 500 000 $ et souhaitez recevoir une notification dès que les coûts s’approchent de la moitié environ, créez une **alerte rouge** sur 250 000 $ et une **alerte jaune** sur 240 000 $. Sélectionnez ensuite le nombre d’alertes consécutives. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’alertes. Enregistrez le rapport planifié.
+Utilisez l’onglet **Scheduling (Planification)** pour recevoir un e-mail du rapport à la fréquence que vous souhaitez. Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous avez utilisés sont inclus dans le rapport envoyé par e-mail. Cliquez sur l’onglet **Threshold (Seuil)** et sélectionnez **Actual Cost vs. Threshold** (Coût réel vs seuil). Si vous avez un budget total de 500 000 $ et souhaitez recevoir une notification dès que les coûts s’approchent de la moitié environ, créez une **alerte rouge** sur 250 000 $ et une **alerte jaune** sur 240 000 $. N’incluez pas de virgules dans les valeurs que vous entrez. Sélectionnez ensuite le nombre d’alertes consécutives. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes. Enregistrez le rapport planifié.
 
 ![exemple de rapport](./media/tutorial-review-usage/schedule-alert01.png)
 

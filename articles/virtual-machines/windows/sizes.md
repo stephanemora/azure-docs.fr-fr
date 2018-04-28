@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: ca1c3950c4135f4120c1d361d23746f9bfe95d65
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tailles des machines virtuelles Windows dans Azure
 
@@ -44,7 +44,7 @@ Cet article décrit les tailles et options disponibles pour les machines virtuel
 
 
 
-## <a name="rest-api"></a>API REST
+## <a name="rest-api"></a>de l’API REST
 
 Pour plus d’informations sur l’utilisation de l’API REST pour demander la taille des machines virtuelles, consultez les rubriques suivantes :
 
@@ -57,6 +57,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
 
+## <a name="benchmark-scores"></a>Scores de test d’évaluation
+
+En savoir plus sur les performances de calcul pour les machines virtuelles Windows à l’aide des [scores de test d’évaluation CoreMark](compute-benchmark-scores.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les différentes tailles de machines virtuelles qui sont disponibles :
@@ -66,6 +70,7 @@ En savoir plus sur les différentes tailles de machines virtuelles qui sont disp
 - [Optimisé pour le stockage](../virtual-machines-windows-sizes-storage.md)
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
+
 
 
 

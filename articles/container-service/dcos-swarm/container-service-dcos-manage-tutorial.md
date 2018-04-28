@@ -3,17 +3,17 @@ title: Didacticiel Azure Container Service - Gérer DC/OS
 description: Didacticiel Azure Container Service - Gérer DC/OS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ea5cbcc115e3da08b54d34da8b9d240c6d6a869c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 1c06605db3044234f6171d8b784bafb7e7ce759e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Didacticiel Azure Container Service - Gérer DC/OS
 
@@ -259,7 +259,7 @@ Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group d
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a permis de vous familiariser avec certaines tâches de gestion DC/OS de base, qui sont répertoriées ci-dessous. 
 

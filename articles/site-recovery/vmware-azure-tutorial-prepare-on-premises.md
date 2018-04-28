@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs VMware locaux à la récupération d’urgence vers Azure
 
@@ -25,9 +25,12 @@ Ce didacticiel vous montre comment préparer votre infrastructure VMware locale 
 > * Vérifier les exigences des serveurs VMware
 > * Vérifier les exigences des machines virtuelles VMware
 
-Dans cette série de didacticiels, nous expliquons comment sauvegarder une seule machine virtuelle avec Azure Site Recovery. Si vous envisagez de protéger plusieurs machines virtuelles VMware, vous devez télécharger [l’outil Planificateur de déploiement](https://aka.ms/asr-deployment-planner) pour la réplication de VMware. Cet outil donne des informations sur la compatibilité des machines virtuelles, le nombre de disques par machine virtuelle et l’activité des données par disque. L’outil couvre également les exigences en bande passante du réseau et l’infrastructure Azure requise pour la réussite de la réplication et du test de basculement. [En savoir plus](site-recovery-deployment-planner.md) sur l’exécution de cet outil.
+Dans cette série de didacticiels, nous expliquons comment répliquer une seule machine virtuelle avec Azure Site Recovery. 
 
 Ce didacticiel est le deuxième de la série. Assurez-vous d’avoir[configuré les composants Azure](tutorial-prepare-azure.md) comme décrit dans le didacticiel précédent.
+
+Si vous répliquez plusieurs machines virtuelles, téléchargez l’[outil Planificateur de déploiement](https://aka.ms/asr-deployment-planner) pour la réplication de VMware. [Plus d’informations](site-recovery-deployment-planner.md)
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Préparer un compte pour la découverte automatique
 
@@ -67,7 +70,7 @@ Vérifiez que les machines virtuelles et serveurs VMware respectent les conditio
 2. Pour Linux, [vérifiez](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) les conditions requises en matière de système de fichiers et stockage. 
 3. Vérifiez la prise en charge du [réseau](vmware-physical-azure-support-matrix.md#network) et du [stockage](vmware-physical-azure-support-matrix.md#storage) locaux. 
 4. Vérifiez ce qui est pris en charge pour la [mise en réseau Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), le [stockage](vmware-physical-azure-support-matrix.md#azure-storage) et le [calcul](vmware-physical-azure-support-matrix.md#azure-compute) après le basculement.
-5. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [conditions requises pour les machines virtuelles Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+5. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [exigences relatives aux machines virtuelles Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement

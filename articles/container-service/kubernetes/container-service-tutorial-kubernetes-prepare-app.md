@@ -3,17 +3,17 @@ title: Didacticiel Azure Container Service - Préparer l’application
 description: Didacticiel Azure Container Service - Préparer l’application
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 696ba0d19aef0c550b00616d00438d081081027c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Créer des images de conteneur à utiliser avec Azure Container Service
 
@@ -99,7 +99,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Tester l’application localement
 
-Accédez à http://localhost:8080 pour afficher le conteneur en cours d’exécution.
+Accédez à http://localhost:8080 pour afficher l’application en cours d’exécution.
 
 ![Image du cluster Kubernetes sur Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
@@ -121,7 +121,7 @@ docker-compose down
 
 Une fois terminé, vous disposez de deux images conteneur contenant l’application Azure Vote.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
 

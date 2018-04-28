@@ -1,25 +1,18 @@
 ---
-title: "Gérer Azure Analysis Services | Microsoft Docs"
-description: "Apprenez à gérer un serveur Analysis Services dans Azure."
-services: analysis-services
-documentationcenter: 
+title: Gérer Azure Analysis Services | Microsoft Docs
+description: Apprenez à gérer un serveur Analysis Services dans Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-analysis-services"></a>Gérer Analysis Services
 Une fois que vous avez créé un serveur Analysis Services dans Azure, vous devrez peut-être effectuer certaines tâches d’administration et de gestion immédiatement ou un peu plus tard. Par exemple, exécuter le traitement d’actualisation des données, contrôler qui peut accéder aux modèles sur votre serveur ou surveiller l’intégrité de votre serveur. Certaines tâches de gestion ne peuvent être effectuées que dans le portail Azure, d’autres dans SQL Server Management Studio (SSMS), et certaines tâches encore peuvent être effectuées dans les deux.
@@ -47,13 +40,18 @@ Pour obtenir toutes les dernières fonctionnalités et bénéficier d’une exp�
    
     ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. Dans SSMS > **Explorateur d’objets**, cliquez sur **Se connecter** > **Analysis Services**.
-3. Dans la boîte de dialogue **Se connecter au serveur**, copiez le nom du serveur puis, dans **Authentification**, choisissez l’un des types d’authentification suivants :
-   
+3. Dans la boîte de dialogue **Se connecter au serveur**, copiez le nom du serveur puis, dans **Authentification**, choisissez l’un des types d’authentification suivants :   
+    > [!NOTE]
+    > Pour le type d’authentification, **Active Directory - Authentification universelle avec prise en charge de MFA** est recommandé.
+
+    > [!NOTE]
+    > Si vous vous connectez avec un compte Microsoft, Live ID, Yahoo, Gmail, etc., laissez le champ de mot de passe vide. Vous êtes invité à saisir un mot de passe après avoir cliqué sur Se connecter.
+
     **Authentification Windows** pour utiliser vos informations de domaine, nom d’utilisateur et mot de passe Windows.
 
     **Authentification par mot de passe Active Directory** pour utiliser un compte professionnel. Par exemple, lors d’une connexion à partir d’un ordinateur non joint à un domaine.
 
-    **Authentification universelle Active Directory** pour utiliser une [authentification non interactive ou de type Multi-Factor Authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Authentification universelle avec prise en charge de MFA** pour utiliser une [authentification non interactive ou multifacteur](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Se connecter dans SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

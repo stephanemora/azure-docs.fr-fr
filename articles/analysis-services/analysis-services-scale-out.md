@@ -1,24 +1,18 @@
 ---
-title: "Montée en charge d’Azure Analysis Services | Microsoft Docs"
-description: "Répliquer les serveurs Azure Analysis Services avec montée en charge"
-services: analysis-services
-documentationcenter: 
+title: Montée en charge d’Azure Analysis Services | Microsoft Docs
+description: Répliquer les serveurs Azure Analysis Services avec montée en charge
 author: minewiskan
-manager: erikre
-editor: 
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/16/2018
 ms.author: owend
-ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -28,7 +22,7 @@ Avec la montée en charge, les requêtes des clients peuvent être distribuées 
 
 Dans un déploiement de serveur classique, un même serveur est utilisé comme serveur de traitement et comme serveur de requêtes. Si le nombre de requêtes de clients sur des modèles présents sur votre serveur dépasse les unités de traitement des requêtes du plan de votre serveur, ou que le traitement du modèle est effectué en même temps que des charges de travail de requêtes importantes, les performances peuvent diminuer. 
 
-Avec la montée en charge, vous pouvez créer un pool de requêtes comportant jusqu’à sept réplicas de requête supplémentaires (pour un total de huit, en y incluant votre serveur). Vous pouvez faire évoluer le nombre de réplicas de requête pour répondre aux demandes en unités de traitement des requêtes aux moments critiques et séparer à tout moment un serveur de traitement du pool de requêtes. 
+Avec la montée en charge, vous pouvez créer un pool de requêtes comportant jusqu’à sept réplicas de requête supplémentaires (pour un total de huit, en y incluant votre serveur). Vous pouvez faire évoluer le nombre de réplicas de requête pour répondre aux demandes en unités de traitement des requêtes aux moments critiques et séparer à tout moment un serveur de traitement du pool de requêtes. Tous les réplicas de la requête sont créés dans la même région que votre serveur.
 
 Quel que soit le nombre de réplicas de requête dont vous disposez dans un pool de requêtes, le traitement des charges de travail n’est pas distribué entre les réplicas de requête. Un seul serveur est utilisé comme serveur de traitement. Les réplicas de requête servent uniquement les requêtes sur les modèles synchronisés entre chaque réplica dans le pool de requêtes. 
 
@@ -79,11 +73,17 @@ Utilisez l’opération de **synchronisation**.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Pour exécuter la synchronisation à partir de PowerShell, [effectuez une mise à jour vers le tout dernier](https://github.com/Azure/azure-powershell/releases) module AzureRM 5.01 ou version ultérieure. Utilisez [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Avant d’utiliser PowerShell, [installez ou mettez à jour le dernier module AzureRM](https://github.com/Azure/azure-powershell/releases). 
+
+Pour définir le nombre de réplicas de la requête, utilisez [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Spécifiez le paramètre `-ReadonlyReplicaCount` facultatif.
+
+Pour exécuter la synchronisation, utilisez [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>connexions
 
-Dans la page Vue d’ensemble de votre serveur, vous voyez deux noms de serveur. Si vous n’avez pas encore configuré la montée en charge pour un serveur, les deux noms de serveur fonctionnent de la même façon. Une fois que vous configurez la montée en charge pour un serveur, vous devez spécifier le nom du serveur approprié en fonction du type de connexion. 
+Dans la page Vue d’ensemble de votre serveur, vous voyez deux noms de serveur. Si vous n’avez pas encore configuré la montée en charge pour un serveur, les deux noms de serveur fonctionnent de la même façon. Une fois le scale-out configuré pour un serveur, vous devez spécifier le nom du serveur approprié en fonction du type de connexion. 
 
 Pour les connexions de clients d’utilisateur finaux, comme Power BI Desktop, Excel et des applications personnalisées, utilisez **Nom du serveur**. 
 

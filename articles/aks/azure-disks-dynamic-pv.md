@@ -1,4 +1,4 @@
-﻿---
+---
 title: Utiliser un disque Azure avec AKS
 description: Utiliser des disques Azure avec AKS
 services: container-service
@@ -8,17 +8,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 36e25d7e5f1e5c6e1cf72442b73ac081810d216a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volumes persistants avec les disques Azure
 
-Un volume persistant représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods, et être provisionné de façon statique ou dynamique. Pour plus d’informations sur les volumes persistants Kubernetes, consultez [Volumes persistants Kubernetes][kubernetes-volumes].
+Un volume persistant représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods et être provisionné de façon statique ou dynamique. Pour plus d’informations sur les volumes persistants Kubernetes, consultez [Volumes persistants Kubernetes][kubernetes-volumes].
 
 Ce document explique comment utiliser les volumes persistants avec des disques Azure dans un cluster Azure Container Service (AKS).
+
+> [!NOTE]
+> Un disque Azure peut être monté uniquement avec le type de mode d’accès ReadWriteOnce, qui le rend disponible à uniquement un seul nœud AKS. Si vous avez besoin de partager une volume persistent entre plusieurs nœuds, envisagez d’utiliser [Azure Files][azure-files-pvc].
 
 ## <a name="built-in-storage-classes"></a>Classes de stockage intégrées
 
@@ -40,7 +43,7 @@ Une revendication de volume persistant (PVC) est utilisée pour configurer autom
 
 Créez un fichier nommé `azure-premimum.yaml` et copiez-y le manifeste suivant.
 
-Notez que la classe de stockage `managed-premium` est spécifiée dans l’annotation et que la revendication demande un disque de taille `5GB` avec l’accès `ReadWriteOnce`. 
+Notez que la classe de stockage `managed-premium` est spécifiée dans l’annotation et que la revendication demande un disque de taille `5GB` avec l’accès `ReadWriteOnce`.
 
 ```yaml
 apiVersion: v1
@@ -63,12 +66,9 @@ Créez la revendication de volume persistant avec la commande [kubectl create][k
 kubectl create -f azure-premimum.yaml
 ```
 
-> [!NOTE]
-> Un disque Azure peut être monté uniquement avec le type de mode d’accès ReadWriteOnce, qui le rend disponible à uniquement un seul nœud AKS. Si vous avez besoin de partager une volume persistent entre plusieurs nœuds, envisagez d’utiliser [Azure Files][azure-files-pvc].
-
 ## <a name="using-the-persistent-volume"></a>Utilisation du volume persistant
 
-Une fois la revendication de volume persistant créée et le disque approvisionné convenablement, un pod peut être créé avec un accès au disque. Le manifeste suivant crée un pod qui utilise la revendication de volume persistant `azure-managed-disk` pour monter le disque Azure sur le chemin d’accès `/mnt/azure`. 
+Une fois la revendication de volume persistant créée et le disque approvisionné convenablement, un pod peut être créé avec un accès au disque. Le manifeste suivant crée un pod qui utilise la revendication de volume persistant `azure-managed-disk` pour monter le disque Azure sur le chemin d’accès `/mnt/azure`.
 
 Créez un fichier nommé `azure-pvc-disk.yaml` et copiez-y le manifeste suivant.
 
@@ -96,7 +96,7 @@ Créez le pod avec la commande [kubectl create][kubectl-create].
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-Vous disposez maintenant d’un pod en cours d’exécution avec le disque Azure monté dans le répertoire `/mnt/azure`. Vous pouvez voir le volume monté en inspectant votre pod via `kubectl describe pod mypod`.
+Vous disposez maintenant d’un pod en cours d’exécution avec le disque Azure monté dans le répertoire `/mnt/azure`. Cette configuration peut s’afficher lors de l’inspection de votre pod par le biais de `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

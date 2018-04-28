@@ -84,13 +84,23 @@ Vous pouvez retrouver la chaîne de connexion dans le portail Azure ou à l’ai
 
 4. Dans la page **Résumé**, sous **Sorties**, plusieurs liens de cluster s’affichent. **SSHMaster0** fournit une chaîne de connexion SSH au premier maître dans votre cluster de service du conteneur. 
 
-Comme indiqué précédemment, vous pouvez également utiliser des outils Azure pour rechercher le nom de domaine complet (FQDN) du maître. Établissez une connexion SSH au maître à l’aide du nom de domaine complet (FQDN) du maître et du nom d’utilisateur que vous avez spécifié lors de la création du cluster. Par exemple :
+Comme indiqué précédemment, vous pouvez également utiliser des outils Azure pour rechercher le nom de domaine complet (FQDN) du maître. Établissez une connexion SSH au maître à l’aide du nom de domaine complet (FQDN) du maître et du nom d’utilisateur que vous avez spécifié lors de la création du cluster. Par exemple : 
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
 ```
 
 Pour plus d’informations, consultez [Connexion à un cluster Azure Container Service](../articles/container-service/kubernetes/container-service-connect.md).
+
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>La résolution de mon nom DNS ne fonctionne pas sur Windows. Que dois-je faire ?
+
+Il existe certains problèmes DNS connus sur Windows dont les correctifs sont toujours en cours d’abandon progressif. Veuillez vous assurer que vous utilisez l’acs-engine et la version de Windows les plus à jour (avec [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) et [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installé) afin que votre environnement puisse en bénéficier. Sinon, consultez le tableau ci-dessous pour connaître les mesures d’atténuation :
+
+| Symptôme DNS | Solution de contournement  |
+|-------------|-------------|
+|Lorsque le conteneur de la charge de travail est instable et plante, l’espace de noms du réseau est nettoyé | Redéployer les services affectés |
+| L’accès à l’adresse IP virtuelle du service est interrompu | Configurer un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) afin de toujours conserver un pod normal (sans privilège) en cours d’exécution |
+|Lorsque le nœud sur lequel le conteneur est en cours d’exécution devient indisponible, les requêtes DNS peuvent échouer et occasionner une « entrée de cache négative » | Exécutez la commande suivante à l’intérieur des conteneurs affectés : <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Si cela ne résout toujours pas le problème, essayez de désactiver complètement la mise en cache DNS : <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

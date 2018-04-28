@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gérer les coûts en contrôlant le volume et la conservation des données dans Log Analytics
 Log Analytics est conçu pour la mise à l’échelle et la prise en charge de la collecte, de l’indexation et du stockage de quantités importantes de données quotidiennes provenant de toute source de votre entreprise ou déployées dans Azure.  Si ce peut être un élément moteur pour votre organisation, la rentabilité est au final ce qui importe le plus. À cette fin, il est important de comprendre que le coût d’un espace de travail Log Analytics n’est pas simplement fonction du volume des données collectées, mais qu’il dépend aussi du plan sélectionné et de la durée de stockage des données générées à partir de vos sources connectées.  
@@ -33,15 +33,14 @@ Le coût des données peut être considérable en fonction des facteurs suivants
 - Données de la période conservées dans l’espace de travail  
 - Nombre de solutions de gestion activées, source de données et fréquence des collectes 
 
+Consultez la documentation de chaque solution, car elle fournit une estimation de la quantité de données collectée.   
+
+Si vous avez opté pour le niveau tarifaire Gratuit, la conservation des données est limitée à 7 jours. Pour les niveaux « Par Go (autonome) » ou « Par nœud (OMS) », les données collectées demeurent disponibles pour les 31 derniers jours et la conservation peut être portée à 2 ans. Des frais s’appliquent si vous sélectionnez une période de conservation plus longue. Le plan Gratuit est défini sur une limite d’ingestion des données quotidienne de 500 Mo. Si vous constatez que vous dépassez constamment le volume autorisé, vous pouvez définir votre espace de travail sur les niveaux de paiement par Go ou par nœud pour collecter des données au-delà de cette limite. Vous pouvez changer de type de plan à tout moment ; pour plus d’informations sur les tarifs, consultez les [détails des tarifs](https://azure.microsoft.com/pricing/details/log-analytics/). 
+
 > [!NOTE]
-> Consultez la documentation de chaque solution, car elle fournit une estimation de la quantité de données collectée.   
+> En avril 2018, nous [introduisons](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nouveau modèle tarifaire pour la surveillance Azure. Ce modèle adopte un modèle de « paiement à l’utilisation » simple sur le portefeuille complet de services de surveillance. Découvrez-en plus sur le [nouveau modèle tarifaire](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), sur [l’évaluation de l’impact du passage à ce modèle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en fonction de vos modèles d’utilisation et sur [l’adoption du nouveau modèle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
 
-Si vous avez opté pour le plan *Gratuit*, la conservation des données est limitée à 7 jours. Pour les niveaux *Autonome* ou *Payant*, les données collectées sont disponibles pendant les 31 derniers jours. Le plan *Gratuit* est défini sur une limite d’ingestion des données quotidienne de 500 Mo. Si vous constatez que vous dépassez constamment le volume autorisé, vous pouvez définir votre espace de travail sur un plan payant pour collecter des données au-delà de cette limite. 
-
-> [!NOTE]
-> Des frais s’appliquent si vous choisissez de sélectionner une période de rétention plus longue pour le niveau payant. Vous pouvez changer de type de plan à tout moment ; pour plus d’informations sur les tarifs, consultez les [détails des tarifs](https://azure.microsoft.com/pricing/details/log-analytics/). 
-
-Deux méthodes permettent de limiter le volume de données et de contrôler le coût : la conservation des données et la limite quotidienne.  
+Indépendamment du modèle ou du niveau tarifaire, la gestion du volume de données est essentielle pour un contrôle optimal des coûts. Outre le choix et la configuration d’une solution spécifique, il existe deux moyens de limiter le volume des données et de contrôler les coûts dans Log Analytics : la limite quotidienne et la conservation des données.  
 
 ## <a name="review-estimated-cost"></a>Vérifier l’estimation du coût
 Log Analytics permet d’estimer facilement les coûts en fonction des modèles d’utilisation récente.  Pour ce faire, procédez comme suit.  

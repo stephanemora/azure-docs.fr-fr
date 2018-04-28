@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -42,8 +42,6 @@ Le tableau suivant indique les principales différences entre SQL IaaS, Azure SQ
 |Azure SQL Database (unique ou pool) |**Pools élastiques** : aux clients qui développent de nouvelles applications multilocataires SaaS ou qui transforment intentionnellement leurs applications locales existantes en applications multilocataires SaaS, proposez des pools élastiques. Les avantages de ce modèle sont : <br><ul><li>Conversion du modèle d’entreprise de la vente de licences à la vente d’abonnements à des services (pour les éditeurs de logiciels indépendants)</li></ul><ul><li>Isolation simple et renforcée des locataires</li></ul><ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul><ul><li>Possibilité d’augmenter la taille des instances sans limite maximale</li></ul>**Bases de données uniques** : aux clients qui développent de nouvelles applications autres que des applications multilocataires SaaS, dont la charge de travail est stable et prévisible, proposez des bases de données uniques. Les avantages de ce modèle sont :<ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul>  <ul><li>Performances prévisibles pour chaque base de données</li></ul>|
 |Machine virtuelle IaaS SQL|Aux clients qui ont besoin de personnaliser le système d’exploitation ou le serveur de base de données, ainsi qu’aux clients qui ont des exigences spécifiques liées à l’exécution d’applications tierces à côté de SQL Server (sur la même machine virtuelle), proposez des machines virtuelles/IaaS SQL en tant que solution optimale.|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Comment identifier par programmation une option Managed Instance
 
@@ -131,7 +129,7 @@ Voici les principales fonctionnalités du niveau de service Usage général :
 
 Managed Instance offre une isolation de la sécurité supplémentaire par rapport aux autres locataires dans le cloud Azure. L’isolation de la sécurité inclut : 
 
-- Implémentation d’un réseau virtuel natif et sa connexion à votre environnement local à l’aide d’Azure ExpressRoute ou d’une passerelle VPN 
+- [Implémentation d’un réseau virtuel natif](sql-database-managed-instance-vnet-configuration.md) et sa connexion à votre environnement local à l’aide d’Azure Express Route ou d’une passerelle VPN 
 - Exposition du point de terminaison SQL uniquement par le biais d’une adresse IP privée, ce qui permet de sécuriser la connexion à partir de réseaux Azure privés ou hybrides
 - Locataire unique avec infrastructure sous-jacente dédiée (calcul, stockage)
 
@@ -185,7 +183,13 @@ Azure Database Migration Service est un service entièrement géré conçu pour 
 
 ### <a name="backup-and-restore"></a>Sauvegarde et restauration  
 
-L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Blob Azure. Les sauvegardes stockées dans Azure Storage Blob peuvent être directement restaurées dans Managed Instance. 
+L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Blob Azure. Les sauvegardes stockées dans Azure Storage Blob peuvent être directement restaurées dans Managed Instance. Pour restaurer une base de données SQL existante dans une instance gérée, vous pouvez :
+
+- Utiliser [Database Migration Service (DMS)](/sql/dma/dma-overview). Pour suivre un tutoriel, consultez [Effectuer une migration vers une instance gérée à l’aide d’Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) pour effectuer une restauration à partir d’un fichier de sauvegarde de base de données.
+- Utiliser la [commande T-SQL RESTORE](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Pour suivre un tutoriel montrant comment restaurer le fichier de sauvegarde de base de données Wide World Importers - Standard, consultez [Restaurer un fichier de sauvegarde dans une instance gérée](sql-database-managed-instance-restore-from-backup-tutorial.md). Ce tutoriel vous montre que vous devez charger un fichier de sauvegarde dans Stockage Blob Azure et le sécuriser à l’aide d’une clé de signature d’accès partagé (SAP).
+  - Pour plus d’informations sur la restauration à partir d’une URL, consultez [Restauration native à partir d’une URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Importer depuis un fichier BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Fonctionnalités SQL prises en charge 
 
@@ -217,5 +221,6 @@ Managed Instance permet aux administrateurs système de se concentrer sur ce qui
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
-- Pour un tutoriel qui crée une option Managed Instance et restaure une base de données à partir d’un fichier de sauvegarde, consultez [Créer une option Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- Pour plus d’informations sur la configuration du réseau virtuel, consultez [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) (Configurer un réseau virtuel pour une option Azure SQL Database Managed Instance).
+- Pour un tutoriel qui crée une option Managed Instance et restaure une base de données à partir d’un fichier de sauvegarde, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - Pour un tutoriel utilisant le service Azure Database Migration Service (DMS) pour la migration, consultez [Migrer SQL vers Azure SQL Database Managed Instance](../dms/tutorial-sql-server-to-managed-instance.md).

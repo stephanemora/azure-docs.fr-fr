@@ -1,11 +1,11 @@
 ---
-title: "Prise en main d’Azure Scheduler dans le portail Azure | Microsoft Docs"
-description: "Prise en main d’Azure Scheduler dans le portail Azure"
+title: Prise en main d’Azure Scheduler dans le portail Azure | Microsoft Docs
+description: Prise en main d’Azure Scheduler dans le portail Azure
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Prise en main d’Azure Scheduler dans le portail Azure
 Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce didacticiel vous guide dans la création d’un travail. Vous y découvrirez également les fonctionnalités de gestion et de surveillance de Scheduler.
@@ -28,7 +28,7 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 2. Cliquez sur **+Nouveau**, entrez *Scheduler* dans la zone de recherche, sélectionnez **Scheduler** dans la liste de résultats, puis cliquez sur **Créer**.
    
     ![][marketplace-create]
-3. Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une demande GET. Dans l’écran **Tâche du planificateur** , entrez les informations suivantes :
+3. Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une requête GET. Dans l’écran **Tâche du planificateur** , entrez les informations suivantes :
    
    1. **Nom :**`getmicrosoft`  
    2. **Abonnement :** votre abonnement Azure.   
@@ -53,7 +53,7 @@ Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce d
 ## <a name="manage-and-monitor-jobs"></a>Gestion et surveillance des travaux
 Une fois créé, le travail apparaît dans le tableau de bord principal d’Azure. Cliquez sur le travail pour ouvrir une nouvelle fenêtre avec les onglets suivants :
 
-1. Propriétés  
+1. properties  
 2. Paramètres d’action  
 3. Planification  
 4. Historique
@@ -61,7 +61,7 @@ Une fois créé, le travail apparaît dans le tableau de bord principal d’Azur
    
    ![][job-overview]
 
-### <a name="properties"></a>Propriétés
+### <a name="properties"></a>properties
 Ces propriétés en lecture seule décrivent les métadonnées de gestion du travail Scheduler.
 
    ![][job-properties]
@@ -91,7 +91,7 @@ Vous pouvez modifier la date et l'heure de début, la planification de périodic
 ### <a name="history"></a>Historique
 L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution de la tâche dans le système pour la tâche sélectionnée. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
 
-1. État  
+1. Statut  
 2. Détails  
 3. Nouvelles tentatives
 4. Occurrence : 1er, 2e, 3e, etc.
@@ -105,7 +105,7 @@ Vous pouvez cliquer sur une exécution pour afficher les **détails de l’histo
    ![][job-history-details]
 
 ### <a name="users"></a>Utilisateurs
-Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure Scheduler. Pour savoir comment utiliser l’onglet Utilisateurs, reportez-vous à [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md)
+Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure Scheduler. Pour savoir comment utiliser l’onglet Utilisateurs, reportez-vous à [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="see-also"></a>Voir aussi
  [Présentation d'Azure Scheduler](scheduler-intro.md)

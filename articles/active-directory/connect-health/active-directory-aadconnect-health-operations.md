@@ -1,8 +1,8 @@
 ---
-title: "Opérations Azure Active Directory Connect Health"
-description: "Cet article décrit les opérations supplémentaires pouvant être effectuées après le déploiement d’Azure AD Connect Health."
+title: Opérations Azure Active Directory Connect Health
+description: Cet article décrit les opérations supplémentaires pouvant être effectuées après le déploiement d’Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.
@@ -91,9 +91,9 @@ Quand vous supprimez une instance de service, tenez compte des points suivants 
 4. Cliquez sur **Supprimer**.
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (Début de la section RBAC)
 ## <a name="manage-access-with-role-based-access-control"></a>Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle
-Le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control-configure.md) pour Azure AD Connect Health fournit l’accès aux utilisateurs et aux groupes autres que les administrateurs généraux. Le contrôle d’accès en fonction du rôle affecte des rôles aux groupes et aux utilisateurs concernés, et un mécanisme permet de limiter les administrateurs généraux dans votre annuaire.
+Le [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) pour Azure AD Connect Health fournit l’accès aux utilisateurs et aux groupes autres que les administrateurs généraux. Le contrôle d’accès en fonction du rôle affecte des rôles aux groupes et aux utilisateurs concernés, et un mécanisme permet de limiter les administrateurs généraux dans votre annuaire.
 
 ### <a name="roles"></a>contrôleur
 Azure AD Connect Health prend en charge les rôles intégrés suivants :
@@ -153,7 +153,7 @@ Les utilisateurs et les groupes répertoriés ont désormais accès, en fonction
 Vous pouvez supprimer un utilisateur ou un groupe ajouté au contrôle d’accès en fonction du rôle Azure AD Connect Health. Il suffit de cliquer avec le bouton droit sur l’utilisateur ou le groupe et de sélectionner **Supprimer**.<br>
 ![Capture d’écran de la fenêtre Utilisateurs de contrôle d’accès en fonction du rôle d’Azure AD Connect Health, avec Supprimer mis en surbrillance](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (Fin de la section RBAC)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

@@ -1,43 +1,48 @@
 ---
 title: Guide pratique pour déprovisionner des appareils inscrits auprès du service Azure IoT Hub Device Provisioning | Microsoft Docs
-description: Guide pratique pour déprovisionner des appareils inscrits par votre service Device Provisioning dans le portail Azure
+description: Guide pratique pour déprovisionner des appareils inscrits auprès du service Azure IoT Hub Device Provisioning
 services: iot-dps
 keywords: ''
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 01/08/2018
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/06/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 1d057a4df43cf25e6817672d198207d9a50e462e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-unprovision-devices-enrolled-by-your-provisioning-service"></a>Guide pratique pour déprovisionner des appareils inscrits par votre service de provisionnement
+# <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement 
 
-Il peut être nécessaire de déprovisionner des appareils qui ont été provisionnés par le biais du service Device Provisioning. Par exemple, un appareil peut avoir été vendu ou déplacé vers un autre hub IoT, ou encore perdu, volé ou compromis. 
+Il peut être nécessaire de déprovisionner des appareils qui ont été provisionnés automatiquement par le biais du service Device Provisioning. Par exemple, un appareil peut avoir été vendu ou déplacé vers un autre hub IoT, ou encore perdu, volé ou compromis. 
 
 En règle générale, le déprovisionnement d’un appareil implique deux étapes :
 
-1. Révoquer l’accès de l’appareil à votre service de provisionnement. Selon que vous souhaitez révoquer l’accès temporairement ou définitivement ou, dans le cas du mécanisme d’attestation X.509, sur la hiérarchie de vos groupes d’inscription existants, vous souhaiterez peut-être désactiver ou supprimer une entrée d’inscription. 
+1. Désinscrivez l’appareil de votre service d’approvisionnement, afin de prévenir tout approvisionnement automatique futur. Selon que vous souhaitiez révoquer l’accès temporairement ou de manière permanente, vous pouvez avoir intérêt à désactiver ou supprimer une entrée d’inscription. Pour les appareils qui utilisent une attestation X.509, il vous faut désactiver/supprimer une entrée dans la hiérarchie de vos groupes d’inscription existants.  
  
-   - Pour découvrir comment révoquer l’accès de l’appareil à l’aide du portail, consultez [Révoquer l’accès des appareils](how-to-revoke-device-access-portal.md).
-   - Pour découvrir comment révoquer l’accès des appareils par programmation à l’aide de l’un des SDK de service de provisionnement, consultez [Gérer les inscriptions d’appareils avec les SDK du service](how-to-manage-enrollments-sdks.md).
+   - Pour découvrir comment désinscrire un appareil, consultez la section [Révoquer l’accès des appareils à votre service de provisionnement dans le portail Azure](how-to-revoke-device-access-portal.md).
+   - Pour découvrir comment révoquer l’accès des appareils par programmation à l’aide de l’un des SDK de service de provisionnement, consultez la page [Manage device enrollments with service SDKs](how-to-manage-enrollments-sdks.md) (Gérer les inscriptions d’appareils avec les SDK du service).
 
-2. Désactiver ou supprimer l’entrée de l’appareil dans le registre des identités pour le hub IoT où il a été provisionné. Pour plus d’informations, consultez [Gérer les identités d’appareils](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) dans la documentation Azure IoT Hub. 
+2. Annulez l’inscription de l’appareil à votre instance IoT Hub, afin de prévenir les communications et les transferts de données à l’avenir. Là encore, vous pouvez désactiver temporairement ou supprimer définitivement l’entrée de l’appareil dans le registre des identités pour l’instance IoT Hub où il a été provisionné. Pour en savoir plus sur la désactivation, consultez la section [Disable devices](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) (Désactiver les appareils). Consultez la section relative à la gestion des appareils IoT pour votre ressource IoT Hub, dans le [portail Azure](https://portal.azure.com).
 
-Les étapes précises à suivre pour déprovisionner un appareil dépendent de son mécanisme d’attestation et de son entrée d’inscription au service d’approvisionnement.
+Les étapes précises à suivre pour déprovisionner un appareil dépendent de son mécanisme d’attestation et de son entrée d’inscription au service d’approvisionnement. Les sections suivantes fournissent une vue d’ensemble du processus, en fonction du type d’inscription et d’attestation.
 
 ## <a name="individual-enrollments"></a>Inscriptions individuelles
 Les appareils qui utilisent l’attestation TPM ou l’attestation X.509 avec un certificat feuille sont approvisionnés par le biais d’une entrée d’inscription individuelle. 
 
-Pour déprovisionner un appareil inscrit individuellement : 
-1. Pour un appareil qui utilise l’attestation TPM, supprimez l’entrée d’inscription individuelle pour révoquer définitivement l’accès de l’appareil au service d’approvisionnement, ou désactivez-la pour révoquer l’accès de façon temporaire. Dans le cas des appareils qui utilisent l’attestation X.509, vous pouvez soit supprimer, soit désactiver l’entrée. Sachez toutefois que, si vous supprimez l’inscription individuelle d’un appareil qui utilise l’attestation X.509 alors qu’il existe un groupe d’inscription activé pour un certificat de signature de la chaîne de certificats de l’appareil, celui-ci pourra se réinscrire. Il est peut-être plus sûr dans ce cas de désactiver l’entrée d’inscription, ce qui empêche l’appareil de se réinscrire, qu’il existe ou non un groupe d’inscription activé pour l’un de ses certificats de signature.
+Pour déprovisionner un appareil inscrit individuellement : 
+
+1. Désinscrivez l’appareil de votre service d’approvisionnement :
+
+   - Pour un appareil qui utilise l’attestation TPM, supprimez l’entrée d’inscription individuelle pour révoquer définitivement l’accès de l’appareil au service d’approvisionnement, ou désactivez-la pour révoquer l’accès de façon temporaire. 
+   - Dans le cas des appareils qui utilisent l’attestation X.509, vous pouvez soit supprimer, soit désactiver l’entrée. Sachez toutefois que, si vous supprimez l’inscription individuelle d’un appareil qui utilise l’attestation X.509 alors qu’il existe un groupe d’inscription activé pour un certificat de signature de la chaîne de certificats de l’appareil, celui-ci pourra se réinscrire. Il est peut-être plus sûr dans ce cas de désactiver l’entrée d’inscription, ce qui empêche l’appareil de se réinscrire, qu’il existe ou non un groupe d’inscription activé pour l’un de ses certificats de signature.
+
 2. Désactivez ou supprimez l’appareil dans le registre des identités du hub IoT dans lequel il était approvisionné. 
 
 
@@ -55,11 +60,12 @@ Pour voir la liste des appareils qui ont été provisionnés par le biais d’un
 
 Avec les groupes d’inscriptions, il existe deux scénarios à prendre en compte :
 
-- Pour déprovisionner tous les appareils qui ont été approvisionnés par le biais d’un groupe d’inscription :
+- Pour déprovisionner tous les appareils qui ont été approvisionnés par le biais d’un groupe d’inscription :
   1. Désactivez le groupe d’inscription pour mettre son certificat de signature sur liste rouge. 
   2. Utilisez la liste des appareils approvisionnés pour ce groupe d’inscription afin de désactiver ou de supprimer de son hub IoT chacun des appareils du registre des identités. 
   3. Après avoir désactivé ou supprimé tous les appareils de leurs hubs IoT respectifs, vous pouvez éventuellement supprimer le groupe d’inscription. Sachez toutefois que, si vous supprimez le groupe d’inscription et qu’il existe un groupe d’inscription activé pour un certificat de signature plus haut dans la chaîne de certificats de l’un ou plusieurs des appareils, ces appareils peuvent être réinscrits. 
-- Pour déprovisionner un seul appareil d’un groupe d’inscription :
+
+- Pour déprovisionner un seul appareil d’un groupe d’inscription :
   1. Créez une inscription individuelle désactivée pour son certificat feuille (appareil). Cela révoque l’accès au service de provisionnement pour cet appareil tout en autorisant l’accès pour d’autres appareils dont la chaîne contient le certificat de signature du groupe d’inscription. Ne supprimez pas l’inscription individuelle désactivée pour l’appareil, car cela permettrait à l’appareil d’être réinscrit par le biais du groupe d’inscription. 
   2. Utilisez la liste des appareils approvisionnés de ce groupe d’inscription pour trouver le hub IoT dans lequel l’appareil était approvisionné, et désactivez-le ou supprimez-le du registre des identités de ce hub. 
   

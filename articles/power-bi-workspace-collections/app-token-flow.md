@@ -1,12 +1,12 @@
 ---
-title: "Authentification et autorisation avec Collections d’espaces de travail Power BI | Microsoft Docs"
-description: "Authentification et autorisation avec Collections d’espaces de travail Power BI."
+title: Authentification et autorisation avec Collections d’espaces de travail Power BI | Microsoft Docs
+description: Authentification et autorisation avec Collections d’espaces de travail Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
@@ -15,19 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: ae9627c6bb5e7bb099598acaa2eb29375c35593e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Authentification et autorisation avec Collections d’espaces de travail Power BI
 
 Le service Collections d’espaces de travail Power BI utilise des **clés** et des **jetons d’application** pour l’authentification et l’autorisation. Il n’utilise pas l’authentification explicite des utilisateurs finaux. Dans ce modèle, votre application gère l’authentification et l’autorisation de vos utilisateurs finaux. Quand cela est nécessaire, votre application crée et envoie les jetons d’application à notre service pour lui indiquer d’afficher le rapport demandé. Avec cette conception, votre application peut gérer l’authentification et l’autorisation des utilisateurs sans passer par Azure Active Directory. Cette option est toutefois possible.
 
 > [!IMPORTANT]
-> Le service Collections d’espaces de travail Power BI est déprécié et disponible jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la façon de migrer vos données vers Power BI Embedded, consultez [Comment migrer le contenu d’une collection d’espaces de travail Power BI Embedded vers Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Les collections d’espaces de travail Power BI sont déconseillées et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="two-ways-to-authenticate"></a>Deux méthodes d’authentification
 
@@ -46,7 +46,7 @@ Votre jeton d’application peut contenir les revendications suivantes :
 | Revendication | Description |
 | --- | --- |
 | **ver** |Version de jeton d’application. La version actuelle est 0.2.0. |
-| **aud** |Destinataire du jeton. Pour Collections d’espaces de travail Power BI, utilisez : « https://analysis.windows.net/powerbi/api ». |
+| **aud** |Destinataire du jeton. Pour les collections d’espaces de travail Power BI, utilisez : «https://analysis.windows.net/powerbi/api.» |
 | **iss** |Chaîne indiquant l’application qui a émis le jeton. |
 | **type** |Type de jeton d’application en cours de création. Le seul type pris en charge pour l’instant est **embed**. |
 | **wcn** |Nom de collection d’espace de travail pour lequel le jeton est émis. |
@@ -99,7 +99,7 @@ Si vous utilisez des jetons d’incorporation, vous souhaiterez peut-être limit
 
 Voici les étendues disponibles pour Collections d’espaces de travail Power BI.
 
-|Scope|Description|
+|Étendue|Description|
 |---|---|
 |Dataset.Read|Fournit l’autorisation de lire un jeu de données spécifié.|
 |Dataset.Write|Fournit l’autorisation d’écrire sur un jeu de données spécifié.|
@@ -151,7 +151,7 @@ Body
 |---|---|---|
 |Créer (en mémoire) un rapport basé sur un jeu de données.|Jeu de données|Dataset.Read|
 |Créer (en mémoire) un rapport basé sur un jeu de données et enregistrez le rapport.|Jeu de données|* Dataset.Read<br>* Workspace.Report.Create|
-|Afficher et explorer/modifier (en mémoire) un rapport existant. Report.Read implique Dataset.Read. Report.Read n’autorise pas l’enregistrement des modifications.|Rapport|Report.Read|
+|Afficher et explorer/modifier (en mémoire) un rapport existant. Report.Read implies Dataset.Read. Report.Read n’autorise pas l’enregistrement des modifications.|Rapport|Report.Read|
 |Modifier et enregistrer un rapport existant.|Rapport|Report.ReadWrite|
 |Enregistrer la copie d’un rapport (Enregistrer sous).|Rapport|* Report.Read<br>* Workspace.Report.Copy|
 
@@ -184,7 +184,7 @@ Une fois que **Collections d’espaces de travail Power BI** a envoyé un rappor
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [Bien démarrer avec les exemples Collections d’espaces de travail Microsoft Power BI](get-started-sample.md)  
 [Scénarios courants pour Collections d’espaces de travail Microsoft Power BI](scenarios.md)  
-[Bien démarrer avec Collections d’espaces de travail Microsoft Power BI](get-started.md)  
+[Prise en main des collections d’espaces de travail Power BI](get-started.md)  
 [Référentiel Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)
 
 Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)

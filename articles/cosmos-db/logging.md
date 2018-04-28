@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Après avoir commencé à utiliser une ou plusieurs bases de données Azure Cosm
 
 ## <a name="logs-available-in-azure"></a>Journaux disponibles dans Azure
 
-Avant de passer à la surveillance de votre compte Azure Cosmos DB, il est important de clarifier certains points concernant la journalisation et la surveillance. Il existe plusieurs types de journaux sur la plateforme Azure. Vous avez les [journaux d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), les [journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), les [métriques Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), les événements, le monitoring des pulsations, les journaux des opérations, etc. Il existe une multitude de journaux. La liste complète des journaux est disponible dans [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) sur le portail Azure. 
+Avant de passer à la surveillance de votre compte Azure Cosmos DB, il est important de clarifier certains points concernant la journalisation et la surveillance. Il existe plusieurs types de journaux sur la plateforme Azure. Vous avez les [journaux d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), les [journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), les [métriques Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), les événements, le monitoring des pulsations, les journaux des opérations, etc. Il existe une multitude de journaux. La liste complète des journaux est disponible dans [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) sur le portail Azure. 
 
 L’illustration suivante montre les différents types de journaux Azure disponibles :
 
@@ -51,7 +51,7 @@ Les journaux d’activité (opérations de plan de contrôle) peuvent être beau
 
 ### <a name="azure-metrics"></a>Métriques Azure
 
-Les [métriques Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) comprennent le type le plus important de données de télémétrie Azure (aussi appelées _compteurs de performances_), qui sont émises par la plupart des ressources Azure. Les métriques permettent d’afficher des informations sur le débit, le stockage, la cohérence, la disponibilité et la latence de vos ressources Azure Cosmos DB. Pour plus d’informations, consultez la section [Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB](use-metrics.md).
+Les [métriques Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) comprennent le type le plus important de données de télémétrie Azure (aussi appelées _compteurs de performances_), qui sont émises par la plupart des ressources Azure. Les métriques permettent d’afficher des informations sur le débit, le stockage, la cohérence, la disponibilité et la latence de vos ressources Azure Cosmos DB. Pour plus d’informations, consultez la section [Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB](use-metrics.md).
 
 ### <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 

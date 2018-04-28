@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurer SQL Data Sync (Préversion)
 Dans ce didacticiel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation hybride contenant des instances SQL Database et SQL Server. Ce nouveau groupe de synchronisation est entièrement configuré et synchronise sur la planification définie.
@@ -151,7 +151,7 @@ Dans la page **Configurer localement**, effectuez les étapes suivantes :
         ![Entrer la clé de l’agent et les informations d’identification du serveur](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Si vous recevez une erreur de pare-feu à ce stade, vous devez créer une règle de pare-feu sur Windows Azure pour autoriser le trafic entrant en provenance de l’ordinateur qui héberge le serveur SQL Server. Vous pouvez créer cette règle manuellement dans le portail, mais il peut être plus facile de la créer dans SQL Server Management Studio (SSMS). Dans SSMS, essayez de vous connecter à la base de données Hub sur Azure. Entrez son nom sous la forme \<nom_base_données_hub\>.database.windows.net. Pour configurer la règle de pare-feu Azure, suivez les étapes décrites dans la boîte de dialogue. Revenez ensuite dans l’application de l’agent de synchronisation du client.
+        >   Si vous recevez une erreur de pare-feu à ce stade, vous devez créer une règle de pare-feu sur Windows Azure pour autoriser le trafic entrant en provenance de l’ordinateur qui héberge le serveur SQL Server. Vous pouvez créer cette règle manuellement dans le portail, mais il peut être plus facile de la créer dans SQL Server Management Studio (SSMS). Dans SSMS, essayez de vous connecter à la base de données Hub sur Azure. Entrez son nom sous la forme <nom_base_données_hub>.database.windows.net. Pour configurer la règle de pare-feu Azure, suivez les étapes décrites dans la boîte de dialogue. Revenez ensuite dans l’application de l’agent de synchronisation du client.
 
     9.  Dans l’application de l’agent de synchronisation du client, cliquez sur **Inscrire** pour inscrire une base de données SQL Server dans l’agent. La boîte de dialogue **Configuration de SQL Server** s’ouvre.
 
@@ -225,7 +225,16 @@ Pas nécessairement. Dans un groupe de synchronisation comprenant un concentrate
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Comment obtenir des modifications de schéma dans un groupe de synchronisation ?
 
-Vous devez effectuer les modifications de schéma manuellement.
+Vous devez apporter et propager toutes les modifications du schéma manuellement.
+1. Répliquez les modifications du schéma manuellement vers le hub et tous les membres de synchronisation.
+2. Mettez à jour le schéma de synchronisation.
+
+**Ajout de nouvelles tables et colonnes**. Les nouvelles tables et colonnes n’ont aucun impact sur la synchronisation en cours. Data Sync ignore les nouvelles tables et les colonnes tant que vous ne les ajoutez pas au schéma de synchronisation. Lorsque vous ajoutez de nouveaux objets de base de données, voici la meilleure procédure à suivre :
+1. Ajoutez les nouvelles tables ou les colonnes au hub et à tous les membres de synchronisation.
+2. Ajoutez les nouvelles tables ou colonnes au schéma de synchronisation.
+3. Commencez par insérer des valeurs dans les nouvelles tables et colonnes.
+
+**Modification du type de données d’une colonne**. Lorsque vous modifiez le type de données d’une colonne existante, Data Sync continue à fonctionner tant que les nouvelles valeurs correspondent au type de données d’origine défini dans le schéma de synchronisation. Par exemple, si vous modifiez le type dans la base de données source de **int** en **bigint**, Data Sync continue de fonctionner jusqu’à ce que vous insériez une valeur qui est trop grande pour le type de données **int**. Pour terminer la modification, répliquez la modification du schéma manuellement vers le hub et tous les membres de synchronisation, puis mettez à jour le schéma de synchronisation.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Comment puis-je exporter et importer une base de données avec Data Sync ?
 Après avoir exporté une base de données sous forme de fichier `.bacpac` et avoir importé le fichier pour créer une base de données, vous devez effectuer les deux tâches suivantes pour utiliser Data Sync dans la nouvelle base de données :

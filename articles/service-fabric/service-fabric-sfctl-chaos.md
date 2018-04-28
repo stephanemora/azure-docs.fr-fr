@@ -1,12 +1,12 @@
 ---
-title: "Interface de ligne de commande CLI Azure Service Fabric - sfctl choas | Microsoft Docs"
-description: "Décrit les commandes sfctl chaos de l’interface de ligne de commande CLI Service Fabric."
+title: Interface de ligne de commande CLI Azure Service Fabric - sfctl choas | Microsoft Docs
+description: Décrit les commandes sfctl chaos de l’interface de ligne de commande CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e4d47b1de509c2053996d9d1078733d7055447
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Permet de démarrer, d’arrêter et de créer des rapports sur le service de test chaos.
@@ -53,7 +53,7 @@ Vous pouvez soit spécifier le ContinuationToken pour obtenir le segment suivant
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
 | --output -o      | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query          | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query          | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose        | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
@@ -86,7 +86,7 @@ Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec 
 | --debug                    | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                  | Affiche ce message d’aide et quitte.|
 | --output -o                | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.           Valeur par défaut : json.|
-| --query                    | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                    | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                  | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stop
@@ -107,9 +107,9 @@ Empêche Chaos de planifier d’autres erreurs. Toutefois, les erreurs en cours 
 | --debug  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h| Affiche ce message d’aide et quitte.|
 | --output -o | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query  | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query  | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose| Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

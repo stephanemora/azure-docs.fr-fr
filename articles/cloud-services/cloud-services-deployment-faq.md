@@ -1,11 +1,11 @@
 ---
-title: "Questions fréquentes (FAQ) concernant les problèmes de déploiement pour Microsoft Azure Cloud Services | Microsoft Docs"
-description: "Cet article répertorie les questions fréquentes sur le déploiement pour Microsoft Azure Cloud Services."
+title: Questions fréquentes (FAQ) concernant les problèmes de déploiement pour Microsoft Azure Cloud Services | Microsoft Docs
+description: Cet article répertorie les questions fréquentes sur le déploiement pour Microsoft Azure Cloud Services.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -79,4 +79,4 @@ Pour plus d’informations, consultez [Comment mettre à jour un service clou](c
 
 Dans le portail classique, le package a été chargé directement sur la couche API de gestion, après quoi la couche API place temporairement le package dans un compte de stockage interne.  Ce processus entraîne des problèmes de performances et d’extensibilité, car la couche API n’a pas été conçue pour être utilisée comme un service de téléchargement de fichiers.  Dans le portail Azure (modèle de déploiement Resource Manager), nous avons contourné l’étape intermédiaire de téléchargement préalable sur la couche API, ce qui permet des déploiements plus rapides et plus fiables. 
 
-En ce qui concerne le coût, celui-ci est très faible et vous pouvez réutiliser le même compte de stockage pour tous les déploiements. Vous pouvez utiliser la [calculatrice de prix pour le stockage](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) pour déterminer le coût pour charger le package de services (CSPKG), le télécharger, puis le supprimer. 
+En ce qui concerne le coût, celui-ci est très faible et vous pouvez réutiliser le même compte de stockage pour tous les déploiements. Vous pouvez utiliser la [calculatrice de prix pour le stockage](https://azure.microsoft.com/pricing/calculator/#storage1) pour déterminer le coût pour charger le package de services (CSPKG), le télécharger, puis le supprimer. 

@@ -1,11 +1,11 @@
 ---
-title: "Description d’un cluster Cluster Resource Manager | Microsoft Docs"
-description: "Description d’un cluster Service Fabric en spécifiant des domaines d’erreur, des domaines de mise à niveau, les propriétés des nœuds et les capacités des nœuds pour Cluster Resource Manager."
+title: Description d’un cluster Cluster Resource Manager | Microsoft Docs
+description: Description d’un cluster Service Fabric en spécifiant des domaines d’erreur, des domaines de mise à niveau, les propriétés des nœuds et les capacités des nœuds pour Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Description d’un cluster Service Fabric
 Le Gestionnaire de ressources de cluster Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster. Pendant l’exécution, Cluster Resource Manager utilise ces informations pour garantir une haute disponibilité des services en cours d’exécution dans le cluster. Tout en appliquant ces règles importantes, il essaie aussi d’optimiser la consommation de ressources au sein du cluster.
@@ -31,7 +31,7 @@ Le Gestionnaire de ressources de cluster prend en charge plusieurs fonctionnalit
 * Propriétés du nœud
 * Capacités du nœud
 
-## <a name="fault-domains"></a>Domaines d'erreur
+## <a name="fault-domains"></a>Domaines d’erreur
 Un domaine d’erreur est une zone d’échec coordonné. Une machine unique constitue un domaine d’erreur (puisqu’elle peut cesser de fonctionner de manière indépendante pour de nombreuses raisons : coupure électrique, défaillance de disque ou erreur de microprogramme de carte d’interface réseau). Les machines connectées à un même commutateur Ethernet se trouvent dans le même domaine d’erreur, tout comme les machines qui partagent une même source d’alimentation ou qui se trouvent à un même emplacement. Dans la mesure où le chevauchement des défaillances matérielles est naturel, les domaines d’erreur sont hiérarchiques par nature et sont représentés en tant qu’URI dans Service Fabric.
 
 Il est important que les domaines d’erreur soient configurés correctement, car Service Fabric utilise ces informations pour placer des services en toute sécurité. Service Fabric ne souhaite pas placer des services si la perte d’un domaine d’erreur (provoquée par la défaillance d’un composant) doit entraîner l’arrêt d’un service. Dans l’environnement Azure, Service Fabric utilise les informations de domaine d’erreur fournies par l’environnement pour configurer correctement les nœuds du cluster en votre nom. Pour Service Fabric autonome, les domaines d’erreur sont définis au moment où le cluster est configuré. 
@@ -95,7 +95,8 @@ Il n’existe pas de disposition idéale, chacune ayant des avantages et des inc
 Le modèle le plus courant est la matrice Domaine d’erreur/Domaine de mise à niveau, où les domaines d’erreur et les domaines de mise à niveau forment une table et où les nœuds sont placés le long de la diagonale. Il s’agit du modèle utilisé par défaut dans les clusters Service Fabric dans Azure. Les clusters constitués d’un grand nombre de nœuds finissent par ressembler au modèle de matrice dense présenté ci-dessus.
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Contraintes des domaines d’erreur et de mise à niveau, et comportement résultant
-Cluster Resource Manager traite le souhait de conserver un service équilibré entre les domaines d’erreur et de mise à niveau en tant que contrainte. Vous trouverez plus d’informations sur les contraintes dans [cet article](service-fabric-cluster-resource-manager-management-integration.md). Les contraintes des domaines d’erreur et de mise à niveau indiquent : « pour une partition de service donnée, il ne doit jamais y avoir une différence *supérieure à un* dans le nombre d’objets de service (instances de service sans état ou réplicas de service avec état) entre deux domaines. » Cela empêche certains déplacements ou organisations qui enfreignent cette contrainte.
+### <a name="default-approach"></a>*Approche par défaut*
+Par défaut, Cluster Resource Manager assure la répartition des services entre les domaines d’erreur et de mise à niveau. Cette opération est modélisée comme une [contrainte](service-fabric-cluster-resource-manager-management-integration.md). La contrainte des domaines d’erreur et de mise à niveau indique : « Pour une partition de service donnée, il ne doit jamais y avoir une différence supérieure à un dans le nombre d’objets de service (instances de service sans état ou réplicas de service avec état) entre deux domaines à un même niveau de hiérarchie. ». Disons que cette contrainte représente une garantie de « différence maximale ». La contrainte des domaines d’erreur et de mise à niveau empêche certains déplacements ou organisations qui enfreignent la règle mentionnée ci-dessus. 
 
 Examinons un exemple. Supposons que nous avons un cluster avec six nœuds, configuré avec cinq domaines d’erreur et cinq de mise à niveau.
 
@@ -106,6 +107,8 @@ Examinons un exemple. Supposons que nous avons un cluster avec six nœuds, confi
 | **UD2** | | |N3 | | |
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
+
+*Configuration 1*
 
 Maintenant, supposons que nous créons un service en attribuant à TargetReplicaSetSize (ou, pour un service sans état, à InstanceCount) la valeur 5. Les réplicas se trouvent sur N1-N5. En fait, N6 n’est jamais utilisé, quel que soit le nombre de services équivalents que vous créez. Mais pourquoi ? Examinons la différence entre la disposition actuelle et ce qui se passerait si N6 était choisi.
 
@@ -120,6 +123,9 @@ Voici la disposition que nous obtenons et le nombre total de réplicas par domai
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
+*Disposition 1*
+
+
 Cette disposition est équilibrée en termes de nœuds par domaine d’erreur et domaine de mise à niveau. Elle est également équilibrée en termes de nombre de réplicas par domaine d’erreur et domaine de mise à niveau. Chaque domaine possède le même nombre de nœuds et le même nombre de réplicas.
 
 À présent, jetons un œil à ce qui se passerait si au lieu de N2, nous avions utilisé N6. Comment les réplicas auraient-ils été réparties ?
@@ -133,7 +139,10 @@ Cette disposition est équilibrée en termes de nœuds par domaine d’erreur et
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-Cette disposition ne respecte pas notre définition de la contrainte du domaine d’erreur. FD0 a deux réplicas, alors que FD1 en a zéro. La différence entre FD0 et FD1 est donc égale à deux. Cluster Resource Manager n’autorise pas cette organisation. De même, si nous avions choisi N2 et N6 (au lieu de N1 et N2) nous aurions obtenu :
+*Disposition 2*
+
+
+Cette disposition ne respecte pas notre définition de la garantie de « différence maximale » pour la contrainte du domaine d’erreur. FD0 a deux réplicas, alors que FD1 en a zéro. La différence entre FD0 et FD1 est donc égale à deux et supérieure à la différence maximale (un). Comme la contrainte est enfreinte, Cluster Resource Manager n’autorise pas cette organisation. De même, si nous avions choisi N2 et N6 (au lieu de N1 et N2) nous aurions obtenu :
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -144,7 +153,85 @@ Cette disposition ne respecte pas notre définition de la contrainte du domaine 
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Cette disposition est équilibrée du point de vue des domaines d’erreur. En revanche, elle enfreint à présent la contrainte de domaine de mise à niveau. Cela est dû au fait que UD0 n’a aucun réplica, alors que UD1 en a deux. Par conséquent, cette disposition n’est pas non plus valide et ne sera pas choisie par Cluster Resource Manager. 
+*Disposition 3*
+
+
+Cette disposition est équilibrée du point de vue des domaines d’erreur. En revanche, elle enfreint à présent la contrainte de domaine de mise à niveau, car UD0 n’a aucun réplica, alors que UD1 en a deux. Par conséquent, cette disposition n’est pas non plus valide et ne sera pas choisie par Cluster Resource Manager.
+
+Cette approche de la répartition des réplicas avec état ou des instances sans état assure la meilleure tolérance de panne possible. En cas de panne d’un domaine, le nombre minimal de réplicas/d’instances est perdu. 
+
+En revanche, cette approche peut être trop stricte et ne pas autoriser le cluster à utiliser toutes les ressources. Pour quelques configurations de cluster, certains nœuds ne peuvent pas être utilisés. Cela peut empêcher Service Fabric de placer vos services et générer des messages d’avertissement. Dans l’exemple précédent, certains nœuds de cluster ne peuvent pas être utilisés (N6 dans l’exemple donné). Même si vous ajoutez des nœuds à ce cluster (N7 – N10), les réplicas/instances ne sont placés que sur N1 – N5 en raison des contraintes des domaines d’erreur et de mise à niveau. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | |N10 |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | |N9 |N5 |
+
+*Configuration 2*
+
+
+### <a name="alternative-approach"></a>*Autre approche*
+
+Cluster Resource Manager prend en charge une autre version de la contrainte des domaines d’erreur et de mise à niveau qui permet le placement tout en garantissant toujours un niveau minimal de sécurité. L’autre contrainte des domaines d’erreur et de mise à niveau peut être énoncée comme suit : « Pour une partition de service donnée, la distribution des réplicas entre les domaines doit garantir que la partition ne subit pas une perte de quorum. ». Disons que cette contrainte représente une garantie de « sécurité de quorum ». 
+
+> [!NOTE]
+>Pour un service avec état, il est question de *perte de quorum* quand une majorité des réplicas de partition est arrêtée en même temps. Par exemple, si TargetReplicaSetSize a la valeur cinq, un ensemble de trois réplicas représente le quorum. De même, si TargetReplicaSetSize a la valeur 6, quatre réplicas sont nécessaires pour le quorum. Dans les deux cas, pas plus de deux réplicas ne peuvent être arrêtés en même temps si la partition doit continuer à fonctionner normalement. Pour un service sans état, il n’existe pas de *perte de quorum*, car ce service continue de fonctionner normalement même si une majorité des instances est arrêtée en même temps. Par conséquent, nous allons nous concentrer sur les services avec état dans le reste du texte.
+>
+
+Revenons à l’exemple précédent. Avec la version « sécurité de quorum » de la contrainte, les trois dispositions données sont toutes valides. En effet, même en cas d’échec de FD0 dans la deuxième disposition ou d’UD1 dans la troisième, la partition conserve néanmoins le quorum (une majorité de ses réplicas est toujours opérationnelle). Avec cette version de la contrainte, N6 peut presque toujours être utilisé.
+
+L’approche « sécurité de quorum » offre plus de souplesse que l’approche « différence maximale », car il est plus facile de trouver des distributions de réplicas qui sont valides dans presque n’importe quelle topologie de cluster. Toutefois, cette approche ne permet pas de garantir les caractéristiques d’une tolérance de panne optimale, car certains échecs sont pires que d’autres. Dans le pire des cas, la majorité des réplicas pourrait être perdue suite à l’échec d’un domaine et d’un réplica supplémentaire. Par exemple, au lieu de 3 échecs nécessaires pour perdre le quorum avec 5 réplicas ou instances, vous risquez désormais de perdre une majorité avec deux échecs uniquement. 
+
+### <a name="adaptive-approach"></a>*Approche adaptative*
+Dans la mesure où les deux approches présentent des avantages et des inconvénients, nous avons introduit une approche adaptative qui combine ces deux stratégies.
+
+> [!NOTE]
+>Il s’agit du comportement par défaut à compter de Service Fabric version 6.2. 
+>
+L’approche adaptative utilise la logique de « différence maximale » par défaut et ne bascule vers la logique de « sécurité de quorum » que si nécessaire. Cluster Resource Manager détermine automatiquement quelle stratégie est nécessaire en examinant la façon dont le cluster et les services sont configurés. Pour un service donné : *si TargetReplicaSetSize est divisible uniformément par le nombre de domaines d’erreur et le nombre de domaines de mise à niveau **et** le nombre de nœuds est inférieur ou égal au (nombre de domaines d’erreur) * (nombre de domaines de mise à niveau), Cluster Resource Manager doit utiliser la logique « basée sur le quorum » pour ce service.* Gardez à l’esprit que Cluster Resource Manager utilise cette approche à la fois pour les services avec et sans état, même si la perte de quorum n’est pas pertinente pour les services sans état.
+
+Revenons à l’exemple précédent et supposons qu’un cluster a maintenant 8 nœuds (le cluster est encore configuré avec cinq domaines d’erreur et cinq domaines de mise à niveau, et la valeur TargetReplicaSetSize d’un service hébergé sur ce cluster reste cinq). 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | | |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | | |N5 |
+
+*Configuration 3*
+
+Comme toutes les conditions requises sont satisfaites, Cluster Resource Manager utilise la logique « basée sur le quorum » dans la distribution du service. Cela permet l’utilisation de N6 – N8. Dans ce cas, une distribution de service possible peut se présenter comme suit :
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |R1 | | | | |1 |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | | | |0 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |2 |1 |1 |0 |1 |- |
+
+*Disposition 4*
+
+Si la valeur de TargetReplicaSetSize de votre service est réduite à quatre (par exemple), Cluster Resource Manager note cette modification et reprend l’utilisation de la logique de « différence maximale », car TargetReplicaSetSize n’est plus divisible par le nombre de domaines d’erreur et domaines de mise à niveau. Par conséquent, certains mouvements de réplicas se produisent pour distribuer les quatre réplicas restants sur les nœuds N1-N5 afin de ne pas enfreindre la version de « différence maximale » de la logique de domaine d’erreur et domaine de mise à niveau. 
+
+Revenons à la quatrième disposition et à TargetReplicaSetSize avec la valeur cinq. Si N1 est supprimé du cluster, le nombre de domaines de mise à niveau devient égal à quatre. Là encore, Cluster Resource Manager commence à utiliser la logique de « différence maximale », car le nombre de domaines de mise à niveau ne divise plus uniformément la valeur TargetReplicaSetSize du service. Par conséquent, le réplica R1, quand il est de nouveau généré, doit se placer sur N4 afin de ne pas enfreindre la contrainte des domaines d’erreur et de mise à niveau.
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N/A |N/A |N/A |N/A |N/A |N/A |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | |R1 | |1 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |1 |1 |1 |1 |1 |- |
+
+*Disposition 5*
 
 ## <a name="configuring-fault-and-upgrade-domains"></a>Configuration des domaines d’erreur et de mise à niveau
 La définition des domaines d’erreur et de mise à niveau s’effectue automatiquement dans les déploiements Service Fabric hébergés sur Azure. Service Fabric récupère et utilise les informations d’environnement d’Azure.
@@ -247,7 +334,7 @@ via ClusterConfig.json pour les déploiements autonomes
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Propriétés de nœud et contraintes de placement
-Parfois (en réalité, la plupart du temps), vous voudrez faire en sorte que certaines charges de travail s’exécutent uniquement sur certains types de nœud du cluster. Par exemple, certaines charges de travail peuvent nécessiter des GPU ou des SSD, tandis que d’autres n’en ont pas besoin. Presque toutes les architectures multiniveau sont un bon exemple de ciblage du matériel sur des charges de travail spécifiques. Certaines machines font office de système frontal ou remplissent le rôle de service d’API de l’application et sont exposées aux clients ou à Internet. D’autres machines, souvent dotées d’autres ressources matérielles, gèrent le travail des couches de calcul ou de stockage. Celles-ci ne sont généralement _pas_ directement exposées aux clients ou à Internet. Service Fabric s’attend dans certains cas à ce que des charges de travail particulières aient besoin de s’exécuter sur des configurations matérielles particulières. Par exemple :
+Parfois (en réalité, la plupart du temps), vous voudrez faire en sorte que certaines charges de travail s’exécutent uniquement sur certains types de nœud du cluster. Par exemple, certaines charges de travail peuvent nécessiter des GPU ou des SSD, tandis que d’autres n’en ont pas besoin. Presque toutes les architectures multiniveau sont un bon exemple de ciblage du matériel sur des charges de travail spécifiques. Certaines machines font office de système frontal ou remplissent le rôle de service d’API de l’application et sont exposées aux clients ou à Internet. D’autres machines, souvent dotées d’autres ressources matérielles, gèrent le travail des couches de calcul ou de stockage. Celles-ci ne sont généralement _pas_ directement exposées aux clients ou à Internet. Service Fabric s’attend dans certains cas à ce que des charges de travail particulières aient besoin de s’exécuter sur des configurations matérielles particulières. Par exemple : 
 
 * une application multiniveau existante a été « augmentée et déplacée » dans un environnement Service Fabric
 * une charge de travail veut s’exécuter sur un matériel spécifique pour des raisons d’isolation de sécurité, de performance ou de mise à l’échelle

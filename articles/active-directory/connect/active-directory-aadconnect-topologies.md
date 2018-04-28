@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect : topologies prises en charge | Microsoft Docs"
-description: "Cette rubrique détaille les topologies prises en charge et celles qui ne le sont pas pour Azure AD Connect"
+title: 'Azure AD Connect : topologies prises en charge | Microsoft Docs'
+description: Cette rubrique détaille les topologies prises en charge et celles qui ne le sont pas pour Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -35,6 +35,11 @@ Voici la légende des images de l’article :
 | Serveur Azure AD Connect Sync, détaillé |![Serveur Azure AD Connect Sync, détaillé](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Scénario non pris en charge |![Scénario non pris en charge](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> Microsoft ne prend pas en charge la modification ou l’utilisation de la synchronisation Azure AD Connect en dehors des configurations ou des actions documentées de façon formelle. Ces configurations ou actions peuvent entraîner un état de synchronisation Azure AD Connect incohérent ou non pris en charge. Par conséquent, Microsoft ne peut pas fournir de support technique pour ces déploiements.
+
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Une seule forêt, un seul client Azure AD
 ![Topologie pour une forêt unique et un locataire unique](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL
 La base de données Azure pour PostgreSQL préfère connecter vos applications clientes au service PostgreSQL via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -98,7 +98,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>Pour Windows
 L’installation d’OpenSSL sur un PC Windows peut s’effectuer ainsi :
-1. **(Recommandé)** : en utilisant la fonctionnalité Bash pour Windows intégrée à Windows 10 et versions ultérieures, OpenSSL est installé par défaut. Vous trouverez [ici](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) des instructions sur l’activation de la fonctionnalité Bash pour Windows dans Windows 10.
+1. **(Recommandé)** : en utilisant la fonctionnalité Bash pour Windows intégrée à Windows 10 et versions ultérieures, OpenSSL est installé par défaut. Vous trouverez [ici](https://msdn.microsoft.com/commandline/wsl/install_guide) des instructions sur l’activation de la fonctionnalité Bash pour Windows dans Windows 10.
 2. En téléchargeant une application Win32/64 fournie par la communauté. Même si OpenSSL Software Foundation ne fournit ni n’approuve aucun programme d’installation Windows spécifique, cet organisme propose une liste des programmes d’installation disponibles [ici](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Décoder le fichier de certificat
@@ -136,5 +136,5 @@ Pour configurer pgAdmin 4 de façon à établir une connexion sécurisée via SS
 
 ![Capture d’écran de pgAdmin - connexion - conditions du mode SSL](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Passez en revue les différentes options de connectivité d’application de la page [Bibliothèques de connexions d’Azure Database pour PostgreSQL](concepts-connection-libraries.md).

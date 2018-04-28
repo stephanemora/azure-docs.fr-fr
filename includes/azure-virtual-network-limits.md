@@ -26,12 +26,12 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Nombre de sous-réseaux par réseau virtuel |1 000 |10000 |
 | Homologations VNet par réseau virtuel |10 |50 |
 | Serveurs DNS par réseau virtuel |9 |25 |
-| Adresses IP privées par réseau virtuel |4096 |8 192 |
+| Adresses IP privées par réseau virtuel |16 384** |16 384 |
 | Adresses IP privées par interface réseau |256 |1 024 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |500K |
-| Interfaces réseau (NIC) |350 |20000 |
+| Interfaces réseau (NIC) |24 000** |24 000 |
 | Groupes de sécurité réseau (NSG) |100 |5 000 |
-| Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |1 000 |
+| Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000** |1 000 |
 | Adresses IP et plages spécifiées pour la source et la destination dans un groupe de sécurité |2000 |4000 |
 | Groupes de sécurité d’application |200 |500 |
 | Groupes de sécurité d’application par configuration IP, par carte réseau |10 |20 |
@@ -43,6 +43,8 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresses IP publiques (statiques) |(Basic) 20 |contacter le support |
 | Adresses IP publiques (statiques) |(Standard) 20 |contacter le support |
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |
+
+**Ces limites par défaut s’appliquent aux abonnements dont ces limites n’ont pas été précédemment augmentées par le biais du support
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 

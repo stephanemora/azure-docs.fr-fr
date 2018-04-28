@@ -1,8 +1,8 @@
 ---
-title: "Authentification des utilisateurs finaux : Kit SDK .NET avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment authentifier les utilisateurs finaux auprès de Data Lake Store à l’aide d’Azure Active Directory avec le Kit SDK .NET"
+title: 'Authentification des utilisateurs finaux : Kit SDK .NET avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs'
+description: Découvrez comment authentifier les utilisateurs finaux auprès de Data Lake Store à l’aide d’Azure Active Directory avec le Kit SDK .NET
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Authentification des utilisateurs finaux auprès de Data Lake Store avec le Kit SDK .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,8 @@ ms.lasthandoff: 01/12/2018
 
 Dans cet article, vous allez apprendre à utiliser le Kit SDK .NET pour authentifier les utilisateurs finaux auprès d’’Azure Data Lake Store. Pour plus d’informations sur l’authentification de service à service auprès de Data Lake Store à l’aide du Kit SDK .NET, consultez l’article [Authentification de service à service auprès de Data Lake Store à l’aide du Kit SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -63,7 +64,7 @@ Dans cet article, vous allez apprendre à utiliser le Kit SDK .NET pour authenti
    4. Fermez le **Gestionnaire de package NuGet**.
 
 6. Ouvrez **Program.cs**.
-7. Remplacez les instructions using par les lignes suivantes :
+7. Remplacez les instructions using par les lignes suivantes :
 
     ```csharp
     using System;

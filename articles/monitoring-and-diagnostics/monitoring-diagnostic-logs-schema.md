@@ -1,9 +1,9 @@
 ---
-title: "Services et schémas pris en charge par les journaux de diagnostic Azure | Microsoft Docs"
-description: "Découvrez les services pris en charge et le schéma d’événement pour les journaux de diagnostic Azure."
+title: Services et schémas pris en charge par les journaux de diagnostic Azure | Microsoft Docs
+description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de diagnostic Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -73,6 +73,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeStore/accounts|Requests|Journaux de requête|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Journaux de serveur PostgreSQL|
 |Microsoft.Devices/IotHubs|connexions|connexions|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Télémétrie d’appareil|
 |Microsoft.Devices/IotHubs|C2DCommands|Commandes C2D|
@@ -84,6 +85,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Devices/IotHubs|TwinQueries|Requêtes de jumeaux|
 |Microsoft.Devices/IotHubs|JobsOperations|Opérations de travaux|
 |Microsoft.Devices/IotHubs|DirectMethods|Méthodes directes|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|Diagnostics E2E (version préliminaire)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Opérations sur les appareils|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Opérations de service|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -96,7 +98,6 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Suivi des événements de compte d’intégration|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Événement de groupe de sécurité réseau|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Compteur de règle de groupe de sécurité réseau|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Événement de flux de règle de groupe de sécurité réseau|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notifications de protection DDoS|
@@ -107,6 +108,8 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Journaux de diagnostic de passerelle|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Journaux de diagnostic de tunnel|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Journaux de diagnostic d’itinéraires|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Journaux de diagnostics IKE|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Journaux de diagnostics PS2|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Événement de résultats d’intégrité de sondage Traffic Manager|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table des compteurs GWM|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Données de rapport de sauvegarde Azure|
@@ -127,6 +130,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Sql/servers/databases|Blocs|Blocs|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|Audit|Journaux d’audit|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Événement d’audit de sécurité SQL|
 |Microsoft.StreamAnalytics/streamingjobs|Exécution|Exécution|
 |Microsoft.StreamAnalytics/streamingjobs|Création|Création|
 

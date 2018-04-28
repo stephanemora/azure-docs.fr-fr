@@ -1,11 +1,11 @@
 ---
 title: Supprimer un cluster Azure et ses ressources | Microsoft Docs
-description: "Découvrez comment supprimer complètement un cluster Service Fabric en supprimant le groupe de ressources dans lequel il se trouve ou en supprimant les ressources individuellement."
+description: Découvrez comment supprimer complètement un cluster Service Fabric en supprimant le groupe de ressources dans lequel il se trouve ou en supprimant les ressources individuellement.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Supprimer un cluster Service Fabric sur Azure et les ressources qu’il utilise
 Un cluster Service Fabric est composé de nombreuses ressources Azure en plus de la ressource de cluster elle-même. Pour supprimer complètement un cluster Service Fabric, vous devez également supprimer toutes les ressources qui le composent.
@@ -38,7 +38,7 @@ Vous pouvez également supprimer le groupe de ressources en exécutant les apple
 Ouvrez une fenêtre PowerShell et exécutez les applets de commande PS suivantes :
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -82,15 +82,15 @@ Vous pouvez supprimer les ressources individuellement en exécutant les applets 
 Ouvrez une fenêtre PowerShell et exécutez les applets de commande PS suivantes :
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
-Pour chacune des ressources à supprimer, exécutez la commande suivante :
+Pour chacune des ressources à supprimer, exécutez le script suivant :
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-Pour supprimer la ressource de cluster, exécutez la commande suivante :
+Pour supprimer la ressource de cluster, exécutez le script suivant :
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

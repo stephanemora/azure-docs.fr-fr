@@ -12,31 +12,32 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure à l’aide de la virtualisation imbriquée dans Azure
 
-Cet article explique comment créer un environnement de virtualisation imbriquée dans Microsoft Azure pour pouvoir ensuite monter le disque de la machine virtuelle à dépanner sur l’hôte Hyper-V (machine virtuelle de récupération).
+Cet article explique comment créer un environnement de virtualisation imbriquée dans Microsoft Azure pour pouvoir ensuite monter le disque de la machine virtuelle à dépanner sur l’hôte Hyper-V (machine virtuelle de secours).
 
-## <a name="prerequisite"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
-Pour monter la machine virtuelle posant problème, la machine virtuelle de récupération doit remplir les prérequis suivants :
 
--   La machine virtuelle de récupération doit se trouver au même emplacement que la machine virtuelle posant problème.
+Pour monter la machine virtuelle posant problème, la machine virtuelle de secours doit remplir les prérequis suivants :
 
--   La machine virtuelle de récupération doit se trouver dans le même groupe de ressources que la machine virtuelle posant problème.
+-   La machine virtuelle de secours doit se trouver au même emplacement que la machine virtuelle posant problème.
 
--   La machine virtuelle de récupération doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle posant problème.
+-   La machine virtuelle de secours doit se trouver dans le même groupe de ressources que la machine virtuelle posant problème.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>Étape 1 : Créer une machine virtuelle de récupération et installer le rôle Hyper-V
+-   La machine virtuelle de secours doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle posant problème.
 
-1.  Créez une machine virtuelle de récupération :
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Étape 1 : Créer une machine virtuelle de secours et installer le rôle Hyper-V
+
+1.  Créez une machine virtuelle de secours :
 
     -  Système d’exploitation : Windows Server 2016 Datacenter
 
@@ -46,13 +47,13 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de récu
 
     -  Même type de stockage (Standard ou Premium) que la machine virtuelle posant problème.
 
-2.  Après avoir créé la machine virtuelle de récupération, établissez une connexion Bureau à distance à cette machine virtuelle.
+2.  Après avoir créé la machine virtuelle de secours, établissez une connexion Bureau à distance à cette machine virtuelle.
 
 3.  Dans le Gestionnaire de serveur, sélectionnez **Gérer** > **Ajouter des rôles et des fonctionnalités**.
 
 4.  Dans la section **Type d’installation**, sélectionnez **Installation basée sur un rôle ou une fonctionnalité**.
 
-5.  Dans la section **Sélectionner le serveur de destination**, vérifiez que la machine virtuelle de récupération est sélectionnée.
+5.  Dans la section **Sélectionner le serveur de destination**, vérifiez que la machine virtuelle de secours est sélectionnée.
 
 6.  Sélectionnez le **rôle Hyper-V** > **Ajouter des fonctionnalités**.
 
@@ -70,25 +71,25 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de récu
 
 13. Autorisez le serveur à installer le rôle Hyper-V. Cette opération prend quelques minutes. Le serveur redémarre ensuite automatiquement.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>Étape 2 : Créer la machine virtuelle posant problème sur le serveur Hyper-V de la machine virtuelle de récupération
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Étape 2 : Créer la machine virtuelle posant problème sur le serveur Hyper-V de la machine virtuelle de secours
 
 1.  Enregistrez le nom du disque sur la machine virtuelle posant problème, puis supprimez cette machine virtuelle. Veillez à conserver tous les disques attachés. 
 
-2.  Attachez le disque du système d’exploitation de la machine virtuelle posant problème comme disque de données de la machine virtuelle de récupération.
+2.  Attachez le disque du système d’exploitation de la machine virtuelle posant problème comme disque de données de la machine virtuelle de secours.
 
-    1.  Après avoir supprimé la machine virtuelle posant problème, accédez à la machine virtuelle de récupération.
+    1.  Après avoir supprimé la machine virtuelle posant problème, accédez à la machine virtuelle de secours.
 
     2.  Sélectionnez **Disques**, puis **Ajouter un disque de données**.
 
     3.  Sélectionnez le disque de la machine virtuelle posant problème, puis sélectionnez **Enregistrer**.
 
-3.  Une fois que vous avez attaché le disque, établissez une connexion Bureau à distance à la machine virtuelle de récupération.
+3.  Une fois que vous avez attaché le disque, établissez une connexion Bureau à distance à la machine virtuelle de secours.
 
 4.  Ouvrez Gestion des disques (diskmgmt.msc). Vérifiez que le disque de la machine virtuelle posant problème est défini sur **Hors connexion**.
 
 5.  Ouvrez le Gestionnaire Hyper-V : dans **Gestionnaire de serveur**, sélectionnez le **rôle Hyper-V**. Cliquez avec le bouton droit sur le serveur, puis sélectionnez **Gestionnaire Hyper-V**.
 
-6.  Dans le Gestionnaire Hyper-V, cliquez avec le bouton droit sur la machine virtuelle de récupération, puis sélectionnez **Nouvelle** > **Machine virtuelle** > **Suivant**.
+6.  Dans le Gestionnaire Hyper-V, cliquez avec le bouton droit sur la machine virtuelle de secours, puis sélectionnez **Nouvelle** > **Machine virtuelle** > **Suivant**.
 
 7.  Tapez un nom pour la machine virtuelle, puis sélectionnez **Suivant**.
 
@@ -125,7 +126,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de récu
 
 1.  Après avoir remis en ligne la machine virtuelle, arrêtez la machine virtuelle dans le Gestionnaire Hyper-V.
 
-2.  Accédez au [portail Azure](https://portal.azure.com) et sélectionnez Machine virtuelle de récupération > Disques, puis copiez le nom du disque. Vous aurez besoin de ce nom à l’étape suivante. Détachez le disque monté de la machine virtuelle de récupération.
+2.  Accédez au [portail Azure](https://portal.azure.com) et sélectionnez Rescue VM (Machine virtuelle de secours) > Disques, puis copiez le nom du disque. Vous aurez besoin de ce nom à l’étape suivante. Détachez le disque monté de la machine virtuelle de secours.
 
 3.  Accédez à **Toutes les ressources**, recherchez le nom du disque, puis sélectionnez le disque.
 

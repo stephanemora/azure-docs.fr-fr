@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Résoudre les problèmes de sauvegarde des fichiers Azure
 Vous pouvez résoudre les problèmes et les erreurs rencontrés pendant l’utilisation d’une sauvegarde de fichiers Azure à l’aide des informations figurant dans les tables suivantes.
@@ -59,6 +59,7 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 | Échec de la restauration, car l’un des fichiers de la source n’existe pas. | <ul><li> Les éléments sélectionnés ne sont pas présents dans les données du point de récupération. Pour restaurer les fichiers, fournissez la liste de fichiers correcte. <li> L’instantané du partage de fichiers qui correspond au point de récupération est supprimé manuellement. Sélectionnez un autre point de récupération et recommencez l’opération de restauration. |
 | Un travail de récupération est en cours à la même destination. | <ul><li>La sauvegarde de partage de fichiers ne prend pas en charge la récupération parallèle au même partage de fichiers cible. <li>Attendez que la récupération en cours se termine, puis réessayez. Si vous ne trouvez pas un travail de récupération dans le coffre Recovery Services, vérifiez les autres coffres Recovery Services de l’abonnement. |
 | Échec de l’opération de restauration, car le partage de fichiers cible est plein. | Augmentez le quota de taille du partage de fichiers cible pour prendre en charge les données de restauration, puis recommencez l’opération. |
+| L’opération de restauration a échoué car une erreur s’est produite lors de l’exécution d’opérations de pré-restauration sur les ressources du service de synchronisation de fichiers associées au partage de fichiers cible. | Réessayez après quelques instants et, si le problème persiste, contactez le support technique Microsoft. |
 | Un ou plusieurs fichiers n’ont pas pu être récupérés avec succès. Pour plus d’informations, vérifiez la liste des fichiers ayant échoué dans le chemin d’accès indiqué ci-dessus. | <ul> <li> Les raisons d’un échec de récupération sont répertoriées dans le fichier (chemin d’accès fourni dans les détails du travail), traitez les raisons et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Les causes courantes des échecs d’une restauration de fichiers sont : <br/> -vérifiez que les fichiers ayant échoué ne sont pas en cours d’utilisation. <br/> -un répertoire portant le même nom que les fichiers ayant échoué existe dans le répertoire parent. |
 
 ## <a name="see-also"></a>Voir aussi

@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
@@ -68,7 +68,7 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
   ![][2]
   *Figure 3 : configuration de l’approvisionnement dans le portail Azure*
     
-6. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Par exemple : https://api.contoso.com/scim/v2/
+6. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : https://api.contoso.com/scim/v2/
 7. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclut un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d’identité peuvent valider ce jeton émis par Azure AD.
 8. Cliquez sur le bouton **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, des informations d’erreur s’affichent.  
 9. Si la tentative de connexion à l’application réussit, cliquez sur **Enregistrer** pour enregistrer les informations d’identification d’administrateur.
@@ -114,7 +114,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 
 **Pour créer un exemple de point de terminaison SCIM :**
 
-1. Téléchargez le package d'exemple de code à l’adresse [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. Télécharger le package d’exemples de code à l’emplacement [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Décompressez le package et placez-le sur votre machine Windows à un emplacement tel que C:\AzureAD-BYOA-Provisioning-Samples\.
 3. Dans ce dossier, lancez la solution FileProvisioningAgent dans Visual Studio.
 4. Sélectionnez **Outils > Gestionnaire de Package de bibliothèque > Console du Gestionnaire de Package**, puis exécutez les commandes suivantes afin que le projet FileProvisioningAgent résolve les références de la solution :
@@ -144,7 +144,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
   ![][2]
   *Figure 4 : configuration de l’approvisionnement dans le portail Azure*
     
-6. Dans le champ **URL du locataire**, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. Le résultat pourrait être http://testmachine.contoso.com:9000 ou http://<adresse-ip>:9000/, où <adresse-ip> est l’adresse IP Internet exposée.  
+6. Dans le champ **URL du locataire**, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. Le résultat pourrait être http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, où <ip-address> est l’adresse IP Internet exposée.  
 7. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclura un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d’identité peuvent valider ce jeton émis par Azure AD.
 8. Cliquez sur le bouton **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, des informations d’erreur s’affichent.  
 9. Si la tentative de connexion à l’application réussit, cliquez sur **Enregistrer** pour enregistrer les informations d’identification d’administrateur.
@@ -168,7 +168,7 @@ Pour développer un service web conforme à la spécification SCIM, commencez pa
 2. [Des gestionnaires de routeur Express](http://expressjs.com/guide/routing.html) sont disponibles pour les objets de requête node.js d’analyse représentant des appels (comme défini par la spécification SCIM) envoyés à un service web node.js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Création d’un point de terminaison SCIM personnalisé
-Grâce aux bibliothèques CLI, les développeurs utilisant ces bibliothèques peuvent héberger leurs services dans un assembly Common Language Infrastructure exécutable ou au sein des services Internet (IIS). Voici un exemple de code pour l'hébergement d'un service dans un assembly exécutable, à l'adresse http://localhost:9000 : 
+Grâce aux bibliothèques CLI, les développeurs utilisant ces bibliothèques peuvent héberger leurs services dans un assembly Common Language Infrastructure exécutable ou au sein des services Internet (IIS). Voici un exemple de code pour l’hébergement d’un service dans un assembly exécutable, à l’adresse http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Pour héberger le service dans Internet Information Services, un développeur cr
     }
 
 ### <a name="handling-endpoint-authentication"></a>Gestion de l’authentification du point de terminaison
-Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Dans cet exemple, l'adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu'émetteur, tandis que le segment d'adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis.  Si le jeton a été émis pour accéder au service web du graphique Azure Active Directory, l’identificateur de ce service, 00000002-0000-0000-c000-000000000000, doit être dans la valeur de revendication du jeton AD.  
+Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» : « https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ».  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis.  Si le jeton a été émis pour accéder au service web du graphique Azure Active Directory, l’identificateur de ce service, 00000002-0000-0000-c000-000000000000, doit être dans la valeur de revendication du jeton AD.  
 
 Les développeurs qui utilisent les bibliothèques CLI fournies par Microsoft pour la création d’un service SCIM peuvent authentifier les demandes d’Azure Active Directory à l’aide du package Microsoft.Owin.Security.ActiveDirectory en exécutant les opérations suivantes : 
 
@@ -347,7 +347,7 @@ Les développeurs qui utilisent les bibliothèques CLI fournies par Microsoft po
 ## <a name="user-and-group-schema"></a>Schéma des utilisateurs et des groupes
 Azure Active Directory peut configurer deux types de ressources pour les services web SCIM.  Ces types de ressources sont des utilisateurs et des groupes.  
 
-Les ressources de l'utilisateur sont identifiées par l'identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http://tools.ietf.org/html/draft-ietf-scim-core-schema .  Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.  
+Les ressources de l’utilisateur sont identifiées par l’identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.  
 
 Les ressources du groupe sont identifiées par l’identificateur de schéma, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Le tableau 2 ci-dessous montre le mappage par défaut des attributs de groupes dans Azure Active Directory sur les attributs de ressources http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 

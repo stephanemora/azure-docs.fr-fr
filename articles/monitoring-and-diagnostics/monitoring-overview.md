@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 404ede664f13900137c730034798fbb4b8307852
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Surveillance des applications et des ressources Azure
 
@@ -161,6 +161,6 @@ Après un signalement de panne, vous utilisez Service Map pour identifier les ma
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus :
 
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) pour une prise en main de l’analyse principale des mesures et des alertes.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) pour une prise en main de l’analyse principale des mesures et des alertes.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) si vous essayez de diagnostiquer des problèmes dans votre application web App Service.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) pour l’analyse des données et des journaux de surveillance collectés.

@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Gérer les ressources Azure Data Lake Store avec l’Explorateur Stockage
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) est un service destiné à stocker de grandes quantités de données non structurées, telles que des données de texte ou binaires. Vous pouvez accéder aux données en tout lieu via HTTP ou HTTPS. Dans l’Explorateur Stockage Azure, Data Lake Store vous permet d’accéder aux ressources et aux données Data Lake Store et de les gérer. Il en va de même avec d’autres entités Azure telles que les objets blob et les files d’attente. À présent, vous pouvez utiliser le même outil pour gérer vos différentes entités Azure au même endroit.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) est un service destiné à stocker de grandes quantités de données non structurées, telles que des données de texte ou binaires. Vous pouvez accéder aux données en tout lieu via HTTP ou HTTPS. Dans l’Explorateur Stockage Azure, Data Lake Store vous permet d’accéder aux ressources et aux données Data Lake Store et de les gérer. Il en va de même avec d’autres entités Azure telles que les objets blob et les files d’attente. À présent, vous pouvez utiliser le même outil pour gérer vos différentes entités Azure au même endroit.
 
 L’un des autres avantages est que vous n’avez pas besoin de posséder une autorisation d’abonnement pour gérer les données Data Lake Store. Dans l’Explorateur Stockage, vous pouvez joindre le chemin d’accès Data Lake Store au nœud **Local and Attached** (Local et attaché) tant qu’un utilisateur l’autorise.
 
@@ -33,7 +33,7 @@ L’un des autres avantages est que vous n’avez pas besoin de posséder une au
 Pour effectuer les étapes indiquées dans cet article, vous avez besoin des éléments requis suivants :
 
 *   Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Un compte Azure Data Lake Store. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Un compte Azure Data Lake Store. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Installer l’Explorateur Stockage
 
@@ -198,7 +198,7 @@ Si vous disposez d’une URL, vous pouvez l’entrer dans le chemin d’adresse 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez les [dernières notes de publication et vidéos de l’Explorateur Stockage](http://www.storageexplorer.com).
-* Découvrez comment [gérer Azure Cosmos DB dans l’Explorateur Stockage Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Prise en main de l’Explorateur Stockage](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Prise en main d’Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Découvrez comment [gérer Azure Cosmos DB dans l’Explorateur Stockage Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Prise en main de l’Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Prise en main d’Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Visionnez une [vidéo YouTube pour découvrir comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

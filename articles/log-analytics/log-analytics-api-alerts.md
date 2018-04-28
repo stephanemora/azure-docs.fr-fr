@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 04/10/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0ac6e2041ef503470f7317a5736deecd1d2b8f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST
 L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Operations Management Suite (OMS).  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
@@ -102,7 +102,7 @@ Toutes les actions des planifications sont décrites dans le tableau suivant.  D
 ### <a name="retrieving-actions"></a>Récupération des actions
 
 > [!NOTE]
-> À compter du 23 avril 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 23 avril 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> À compter du 14 mai 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilisez la méthode Get pour récupérer toutes les actions d’une planification.
 
@@ -125,7 +125,7 @@ Le format de demande pour la création d’une action variant selon le type d’
 ### <a name="deleting-actions"></a>Suppression des actions
 
 > [!NOTE]
-> À compter du 23 avril 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 23 avril 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> À compter du 14 mai 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilisez la méthode Delete avec l’ID d’action pour supprimer une action.
 
@@ -145,7 +145,7 @@ Une planification doit avoir une, et une seule, action d’alerte.  Les actions 
 | Actions Webhook | Envoyer (push) des données à partir d’alertes au service voulu au format JSON |Non obligatoire si les alertes sont étendues à Azure|
 
 > [!NOTE]
-> À compter du 23 avril 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 23 avril 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure).
+> À compter du 14 mai 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure).
 
 #### <a name="thresholds"></a>Seuils
 Une action d’alerte ne doit avoir qu’un seul seuil.  Quand les résultats d’une recherche enregistrée correspondent au seuil dans une action associée à cette recherche, tous les autres processus dans cette action sont exécutés.  En outre, une action peut ne contenir qu’un seuil et être ainsi utilisable avec d’autres types d’actions ne comportant pas de seuils.
@@ -217,7 +217,7 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier une action
 #### <a name="action-groups"></a>Groupes d’actions
 Toutes les alertes dans Azure, utilisez le groupe d’actions en tant que mécanisme par défaut pour la gestion des actions. Avec le groupe d’actions, vous pouvez spécifier vos actions une seule fois, puis associer le groupe d’actions à plusieurs alertes sur Azure. Vous n’avez plus besoin de déclarer sans cesse les mêmes actions. Les groupes d’actions prennent en charge plusieurs actions, y compris, les e-mails, les SMS, les appels vocaux, les connexions ITSM, les Runbooks Automation, les URI Webhook et bien plus encore. 
 
-Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planification doit maintenant avoir des informations sur le groupe d’actions transmises avec le seuil, afin de pouvoir créer une alerte. Les informations sur les e-mails, les URLS Webhook, les Runbooks Automation et sur d’autres actions doivent être définies dans un groupe d’actions avant de créer une alerte ; vous pouvez créer un [groupe d’actions à partir d’Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) dans le portail ou utiliser [l’API Groupes d’action](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planification doit maintenant avoir des informations sur le groupe d’actions transmises avec le seuil, afin de pouvoir créer une alerte. Les informations sur les e-mails, les URLS Webhook, les Runbooks Automation et sur d’autres actions doivent être définies dans un groupe d’actions avant de créer une alerte ; vous pouvez créer un [groupe d’actions à partir d’Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) dans le portail ou utiliser [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Pour ajouter l’association du groupe d’actions à une alerte, spécifiez l’ID Azure Resource Manager du groupe d’actions dans la définition de l’alerte. Un exemple est donné ci-dessous :
 
@@ -323,7 +323,7 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier un groupe 
 Les notifications par courrier électronique envoient un e-mail à un ou plusieurs destinataires.  Leurs propriétés sont décrites dans le tableau suivant.
 
 > [!NOTE]
-> À compter du 23 avril 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 23 avril 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les notifications par e-mail sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> À compter du 14 mai 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les notifications par e-mail sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Propriété | Description |
@@ -367,7 +367,7 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier une action
 Les corrections démarrent un runbook dans Azure Automation qui essaie de corriger le problème identifié par l’alerte.  Vous devez créer un webhook pour le runbook utilisé dans une action de correction, puis spécifier l’URI dans la propriété WebhookUri.  Quand vous créez cette action à l’aide de la console OMS, un webhook est automatiquement créé pour le runbook.
 
 > [!NOTE]
-> À compter du 23 avril 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 23 avril 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les corrections sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> À compter du 14 mai 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les corrections sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Les propriétés des corrections sont décrites dans le tableau suivant.
 
@@ -426,7 +426,7 @@ Voici un exemple complet pour créer une alerte par courrier électronique.  Cet
 Les actions de webhook démarrent un processus en appelant une URL et, éventuellement, en fournissant une charge utile à envoyer.  Elles sont similaires aux actions correctives, à la différence qu’elles sont destinées à des webhooks qui peuvent appeler des processus autres que des runbooks Azure Automation.  En outre, elles permettent de fournir une charge utile à remettre au processus distant.
 
 > [!NOTE]
-> À compter du 23 avril 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 23 avril 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les Webhooks sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> À compter du 14 mai 2018, toutes les alertes dans un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les Webhooks sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Les actions de webhook n’ont pas de seuil ; en revanche, elles doivent être ajoutées à une planification qui a une action d’alerte comportant un seuil.  

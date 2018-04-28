@@ -1,8 +1,8 @@
 ---
 title: Qu’est-ce qu’une notification Azure Service Health ? | Microsoft Docs
 description: Les notifications Service Health vous permettent de voir les messages relatifs à l’intégrité du service publiés par Microsoft Azure.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 4/12/2017
+ms.author: dukek
+ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Afficher les notifications Service Health dans le portail Azure
 
@@ -41,7 +41,7 @@ channels | L’une des valeurs suivantes : **Admin** ou **Operation**.
 correlationId | Généralement un GUID au format chaîne. Les événements qui appartiennent à la même action partagent généralement le même correlationId.
 eventDataId | L’identificateur unique d’un événement.
 eventName | Titre de l’événement.
-level | Niveau de l’événement. L’une des valeurs suivantes : **Critical** (Critique), **Error** (Erreur), **Warning** (Avertissement) ou **Informational** (Information).
+level | Niveau de l’événement
 resourceProviderName | Nom du fournisseur de ressources de la ressource impactée.
 resourceType| Le type de ressource de la ressource affectée.
 subStatus | En général, le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état. Par exemple : OK (code d’état HTTP : 200), Created (code d’état HTTP : 201), Accepted (code d’état HTTP : 202), No Content (code d’état HTTP : 204), Bad Request (code d’état HTTP : 400), Not Found (code d’état HTTP : 404), Conflict (code d’état HTTP : 409), Internal Server Error (code d’état HTTP : 500), Service Unavailable (code d’état HTTP : 503) et Gateway Timeout (code d’état HTTP : 504).
@@ -54,14 +54,52 @@ category | Cette propriété est toujours **ServiceHealth**.
 ResourceId | ID de ressource de la ressource impactée.
 Properties.title | Le titre localisé pour cette communication. L’anglais est la langue par défaut.
 Properties.communication | Les détails localisés de la communication avec le balisage HTML. L’anglais est la langue par défaut.
-Properties.incidentType | L’une des valeurs suivantes : **AssistedRecovery** (Récupération assistée), **ActionRequired** (Action nécessaire), **Information**, **Incident**, **Maintenance** ou **Security** (Sécurité).
+Properties.incidentType | L’une des valeurs suivantes : **ActionRequired**, **Information**, **Incident**, **Maintenance** ou **Security**.
 Properties.trackingId | Incident associé à cet événement. Cela permet de mettre en corrélation les événements liés à un incident.
 Properties.impactedServices | Objet blob JSON placé dans une séquence d’échappement, qui décrit les services et régions impactés par l’incident. La propriété inclut une liste de services, ayant chacun un **ServiceName** et une liste de régions impactées, ayant chacune un **RegionName**.
 Properties.defaultLanguageTitle | Communication dans la langue par défaut.
 Properties.defaultLanguageContent | Communication dans la langue par défaut, au format HTML ou texte brut.
-Properties.stage | Les valeurs possibles pour **AssistedRecovery**, **ActionRequired**, **Information**, **Incident** et **Security** sont **Active** (Actif) ou **Resolved** (Résolu). Pour **Maintenance**, les valeurs possibles sont **Active**, **Planned** (Planifiée), **InProgress** (En cours), **Canceled** (Annulée), **Rescheduled** (Reportée), **Resolved** (Résolue) et **Complete** (Terminée).
+Properties.stage | Les valeurs possibles pour **Incident** et **Security** sont **Active**, **Resolved** ou **RCA**. Pour **ActionRequired** ou **Informations**, **Active** est la seule valeur possible. Pour **Maintenance**, les valeurs possibles sont **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** et **Complete**.
 Properties.communicationId | Communication associée à cet événement.
 
+### <a name="details-on-service-health-level-information"></a>Détails sur les informations au niveau de l’intégrité du service
+  <ul>
+    <li><b>Action Required</b> (properties.incidentType == ActionRequired) <dl>
+            <dt>Informational</dt>
+            <dd>Action de l’administrateur nécessaire pour éviter un impact sur les services existants</dd>
+        </dl>
+    </li>
+    <li><b>Maintenance</b> (properties.incidentType == Maintenance) <dl>
+            <dt>Warning</dt>
+            <dd>Maintenance d’urgence<dd>
+            <dt>Informational</dt>
+            <dd>Maintenance planifiée de façon standard</dd>
+        </dl>
+    </li>
+    <li><b>Information</b> (properties.incidentType == Information) <dl>
+            <dt>Informational</dt>
+            <dd>L’administrateur peut être nécessaire pour éviter un impact sur les services existants</dd>
+        </dl>
+    </li>
+    <li><b>Sécurité</b> (properties.incidentType == Security) <dl>
+            <dt>Error</dt>
+            <dd>Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.</dd>
+            <dt>Warning</dt>
+            <dd>Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.</dd>
+            <dt>Informational</dt>
+            <dd>Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.</dd>
+        </dl>
+    </li>
+    <li><b>Problèmes liés aux services</b> (properties.incidentType == Incident) <dl>
+            <dt>Error</dt>
+            <dd>Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.</dd>
+            <dt>Warning</dt>
+            <dd>Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.</dd>
+            <dt>Informational</dt>
+            <dd>Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Afficher vos notifications Service Health dans le portail Azure
 1.  Dans le [portail Azure](https://portal.azure.com), sélectionnez **Moniteur**.

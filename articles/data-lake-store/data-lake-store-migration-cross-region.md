@@ -1,8 +1,8 @@
 ---
-title: "Migration entre les régions Azure Data Lake Store | Microsoft Docs"
-description: "Découvrez la migration entre les régions pour Azure Data Lake Store."
+title: Migration entre les régions Azure Data Lake Store | Microsoft Docs
+description: Découvrez la migration entre les régions pour Azure Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: swums
 manager: amitkul
 editor: swums
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Migration Data Lake Store entre les régions
 
 La disponibilité d’Azure Data Lake Store s’étendant à davantage de régions, vous pouvez décider d’effectuer une migration à usage unique pour tirer parti d’une nouvelle région. Découvrez ce que vous devez prendre en compte lorsque vous planifiez et effectuez la migration.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * **Un abonnement Azure**. Pour plus d’informations, consultez [Créer votre compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Data Lake Store dans deux régions différentes**. Pour plus d’informations, consultez [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md).
@@ -45,11 +46,11 @@ D’autres informations importantes à prendre en compte lorsque vous planifiez 
 
 * **Outils**. Nous vous recommandons d’utiliser l’[activité de copie Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) pour copier les fichiers Data Lake Store. Data Factory prend en charge le déplacement de données avec une fiabilité optimale et de hautes performances. N’oubliez pas que Data Factory copie uniquement l’arborescence de dossiers et le contenu des fichiers. Vous devez appliquer manuellement les listes de contrôle d’accès que vous avez utilisées dans l’ancien compte vers le nouveau compte. Pour plus d’informations, y compris sur les objectifs de performance pour les scénarios optimistes, consultez le [Guide sur les performances et le réglage de l’activité de copie](../data-factory/copy-activity-performance.md). Si vous souhaitez copier les données plus rapidement, vous devrez peut-être utiliser des unités de déplacement des données dans le cloud supplémentaires. D’autres outils, tels que AdlCopy, ne permettent pas de copier de données entre différentes régions.  
 
-* **Frais liés à la bande passante**. Des [frais liés à la bande passante](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) s’appliquent, car les données sont transférées en dehors d’une région Azure.
+* **Frais liés à la bande passante**. Des [frais liés à la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) s’appliquent, car les données sont transférées en dehors d’une région Azure.
 
 * **Listes de contrôle d’accès sur vos données**. Sécurisez vos données dans la nouvelle région en appliquant des listes de contrôle d’accès aux fichiers et dossiers. Pour plus d’informations, consultez [Sécurisation des données stockées dans Azure Data Lake Store](data-lake-store-secure-data.md). Nous vous recommandons de profiter de la migration pour mettre à jour et ajuster vos listes de contrôle d’accès. Vous pouvez utiliser des paramètres similaires à vos paramètres actuels. Vous pouvez afficher les listes de contrôle d’accès dans n’importe quel fichier à l’aide du portail Azure, des [applets de commande PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) ou des Kits de développement logiciel (SDK).  
 
 * **Emplacement des services d’analyse**. Pour des performances optimales, vos services d’analyse, tels qu’Azure Data Lake Analytics ou Azure HDInsight, doivent se situer dans la même région que vos données.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
+* [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)

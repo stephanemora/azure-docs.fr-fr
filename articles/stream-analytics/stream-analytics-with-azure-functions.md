@@ -1,19 +1,21 @@
 ---
-title: Exécuter Azure Functions à partir des travaux Azure Stream Analytics
-description: Cet article décrit comment configurer Azure Functions comme récepteur de sortie dans les tâches de Stream Analytics pour les charges de travail générées par les événements.
+title: 'Didacticiel : exécuter Azure Functions avec des travaux Azure Stream Analytics | Microsoft Docs'
+description: Dans ce didacticiel, vous apprenez à configurer Azure Functions comme récepteur de sortie pour les travaux Stream Analytics.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
-ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/19/2017
-ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.custom: mvc
+ms.workload: data-services
+ms.date: 04/09/2018
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
 
@@ -21,7 +23,14 @@ Vous pouvez exécuter Azure Functions à partir d’Azure Stream Analytics en co
 
 Stream Analytics appelle Functions via des déclencheurs HTTP. L’adaptateur de sortie de Functions permet aux utilisateurs de connecter Functions à Stream Analytics, de telle sorte que les événements puissent être déclenchés en fonction des requêtes Stream Analytics. 
 
-Ce didacticiel montre comment connecter Stream Analytics au [cache Redis Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) à l’aide de [Azure Functions](../azure-functions/functions-overview.md). 
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Création d’un travail Stream Analytics
+> * Création d’une fonction Azure
+> * Configuration d’une fonction Azure en tant que sortie vers votre travail
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurer un travail Stream Analytics pour exécuter une fonction 
 
@@ -191,3 +200,16 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
 
 Dans le portail Azure, lorsque vous essayez de rétablir les valeurs maximales de taille et de nombre de lots à des valeurs vides (par défaut), la valeur bascule sur la valeur précédemment saisie au moment de la sauvegarde. Dans ce cas, entrez manuellement les valeurs par défaut pour ces champs.
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de diffusion en continu et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
+
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée.  
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce didacticiel, vous avez créé un travail Stream Analytics simple, qui exécute une fonction Azure. Pour en savoir plus sur les travaux Stream Analytics, passez au didacticiel suivant :
+
+> [!div class="nextstepaction"]
+> [Exécuter des fonctions JavaScript définies par l’utilisateur dans des travaux Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

@@ -1,9 +1,9 @@
 ---
-title: "Business Intelligence de SQL Server | Microsoft Docs"
-description: "Cette rubrique utilise des ressources créées avec le modèle de déploiement Classic et décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server exécutées dans les machines virtuelles Azure."
+title: Business Intelligence de SQL Server | Microsoft Docs
+description: Cette rubrique utilise des ressources créées avec le modèle de déploiement Classic et décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server exécutées dans les machines virtuelles Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server dans les machines virtuelles Azure
 > [!IMPORTANT] 
@@ -216,7 +216,7 @@ Pour plus d’informations sur les autorisations du serveur de rapports, consult
 Pour vérifier la configuration, accédez au Gestionnaire de rapports sur la machine virtuelle.
 
 1. Sur la machine virtuelle, démarrez Internet Explorer avec des privilèges d’administrateur.
-2. Accédez à http://localhost/reports sur la machine virtuelle.
+2. Sur la machine virtuelle, accédez à http://localhost/reports.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Se connecter au portail web distant ou au Gestionnaire de rapports pour 2014 et 2012
 Si vous souhaitez vous connecter au portail web ou au Gestionnaire de rapports pour 2014 et 2012, sur la machine virtuelle d’un ordinateur distant, créez un point de terminaison TCP de machine virtuelle. Par défaut, le serveur de rapports écoute les requêtes HTTP sur le **port 80**. Si vous configurez les URL du serveur de rapports pour utiliser un autre port, vous devez spécifier ce numéro de port dans les instructions ci-après.

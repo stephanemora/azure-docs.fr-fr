@@ -1,8 +1,8 @@
 ---
-title: "Inscrire votre Accord Entreprise Azure auprès du service Gestion des coûts Azure | Microsoft Docs"
-description: "Utilisez votre Accord Entreprise pour vous inscrire auprès du service Azure Cost Management."
+title: Inscrire votre Accord Entreprise Azure auprès du service Gestion des coûts Azure | Microsoft Docs
+description: Utilisez votre Accord Entreprise pour vous inscrire auprès du service Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f0769340ca15f2b60cbcb2669e1a5cf9beef6b8e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Inscrire un Accord Entreprise Azure et afficher les données de coût
 
@@ -22,9 +22,9 @@ Vous utilisez votre Accord Entreprise Azure pour vous inscrire auprès du servic
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-- Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
+- Connectez-vous au portail Azure sur http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Créer une inscription d’évaluation
+## <a name="register-with-azure-cost-management"></a>S’inscrire à Azure Cost Management
 
 1. Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services.
 2. Sous **Vue d’ensemble**, cliquez sur **Gestion des coûts**.  

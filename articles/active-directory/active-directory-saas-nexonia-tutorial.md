@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Nexonia | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Nexonia."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Nexonia | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Nexonia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Didacticiel : Intégration d’Azure Active Directory à Nexonia
 
@@ -33,6 +33,7 @@ L’intégration de Nexonia dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Nexonia, vous avez besoin des éléments suivants :
 
@@ -95,7 +96,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Nexonia, vo
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Nexonia.
 
   > [!Note]
-   > Si vous rencontrez des problèmes d’intégration, consultez ce [lien](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) pour trouver une solution de dépannage. Si vous ne trouvez toujours pas de solution, soumettez une demande de support à partir du portail Azure.
+   > Si vous rencontrez des problèmes d’intégration, consultez ce [lien](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) pour trouver une solution de dépannage. Si vous ne trouvez toujours pas de solution, soumettez une demande de support à partir du portail Azure.
 
 **Pour configurer l’authentification unique Azure AD avec Nexonia, procédez comme suit :**
 
@@ -120,7 +121,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 

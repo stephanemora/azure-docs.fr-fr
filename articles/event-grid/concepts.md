@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -20,7 +20,7 @@ Voici les principaux concepts utilisés dans Azure Event Grid :
 
 ## <a name="events"></a>Événements
 
-Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système.  Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique.  Chaque événement comporte également des informations spécifiques qui se rapportent uniquement au type d’événement en question. Par exemple, un événement concernant un nouveau fichier en cours de création dans le Stockage Azure contient des informations détaillées sur le fichier, et notamment la valeur `lastTimeModified`. Ou bien, un événement concernant une machine virtuelle en cours de redémarrage contient le nom de la machine virtuelle et le motif du redémarrage. Chaque événement est limité à 64 Ko de données.
+Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système. Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique. Chaque événement comporte également des informations spécifiques qui se rapportent uniquement au type d’événement en question. Par exemple, un événement concernant un nouveau fichier en cours de création dans le Stockage Azure contient des informations détaillées sur le fichier, et notamment la valeur `lastTimeModified`. Ou bien, un événement concernant une machine virtuelle en cours de redémarrage contient le nom de la machine virtuelle et le motif du redémarrage. Chaque événement est limité à 64 Ko de données.
 
 ## <a name="event-sourcespublishers"></a>Sources d’événement/éditeurs
 
@@ -32,7 +32,7 @@ Les éditeurs catégorisent les événements en rubriques. La rubrique inclut un
 
 Les rubriques système sont des rubriques intégrées fournies par les services Azure. Les rubriques personnalisées sont des rubriques tierces et applicatives.
 
-Lorsque vous concevez votre application, créez une rubrique personnalisée pour chaque catégorie d’événements associés. Par exemple, envisagez une application qui envoie des événements liés à la modification de comptes d’utilisateur et au traitement de commandes. Il est peu probable qu’un gestionnaire d’événements accepte les deux catégories d’événements. Créez deux rubriques personnalisées et laissez les gestionnaires d’événements s’abonner à celle qui les intéresse. Lors de l’abonnement à la rubrique personnalisée, le gestionnaire d’événements peut filtrer par type d’événement.
+Lorsque vous concevez votre application, vous pouvez choisir le nombre de rubriques à créer. Pour les solutions volumineuses, créez une rubrique personnalisée pour chaque catégorie d’événements associés. Par exemple, envisagez une application qui envoie des événements liés à la modification de comptes d’utilisateur et au traitement de commandes. Il est peu probable qu’un gestionnaire d’événements accepte les deux catégories d’événements. Créez deux rubriques personnalisées et laissez les gestionnaires d’événements s’abonner à celle qui les intéresse. Pour les solutions de petite taille, vous pouvez à la place envoyer tous les événements à une seule rubrique. Les abonnés à des événements peuvent filtrer les types d’événements qu’ils souhaitent.
 
 ## <a name="event-subscriptions"></a>Abonnements à des événements
 
@@ -40,7 +40,7 @@ Un abonnement indique à Event Grid quels événements d’une rubrique un abonn
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 
-Pour Event Grid, un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement.  Event Grid prend en charge plusieurs types d’abonnés. Selon le type d’abonné, Event Grid suit différents mécanismes pour garantir la distribution de l’événement.  Pour les gestionnaires d’événements HTTP Webhook, l’exécution de l’événement est retentée jusqu'à ce que le gestionnaire renvoie un code d’état de `200 – OK`. Pour la file d’attente de stockage Azure, l’exécution des événements est retentée jusqu'à ce que le service de file d’attente soit en mesure de traiter correctement la transmission de type push du message dans la file d’attente.
+Pour Event Grid, un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Event Grid prend en charge plusieurs types d’abonnés. Selon le type d’abonné, Event Grid suit différents mécanismes pour garantir la distribution de l’événement. Pour les gestionnaires d’événements HTTP Webhook, l’exécution de l’événement est retentée jusqu'à ce que le gestionnaire renvoie un code d’état de `200 – OK`. Pour la file d’attente de stockage Azure, l’exécution des événements est retentée jusqu'à ce que le service de file d’attente soit en mesure de traiter correctement la transmission de type push du message dans la file d’attente.
 
 ## <a name="filters"></a>Filtres
 

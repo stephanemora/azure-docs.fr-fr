@@ -1,11 +1,11 @@
 ---
-title: "Prise en main de l’Explorateur de stockage (version préliminaire) | Microsoft Docs"
-description: "Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)"
+title: Prise en main Prise en main de l’Explorateur de stockage | Microsoft Docs
+description: Gérez les ressources Stockage Azure avec l’Explorateur Stockage
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
@@ -14,33 +14,61 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e8ebbd1a0ac2153913a2e5f506505ffb481b3822
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="get-started-with-storage-explorer-preview"></a>Prise en main de l’Explorateur de stockage (version préliminaire)
+# <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 ## <a name="overview"></a>Vue d'ensemble
-L’Explorateur de stockage Azure (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux. Dans cet article, vous découvrez différentes façons de vous connecter à vos comptes de stockage Azure et de les gérer.
+L’Explorateur Stockage Azure est une application autonome qui vous permet d’utiliser facilement les données de stockage Azure sur Windows, macOS et Linux. Dans cet article, vous découvrez différentes façons de vous connecter à vos comptes de stockage Azure et de les gérer.
 
-![Explorateur de stockage Microsoft Azure (version préliminaire)][0]
+![Explorateur Stockage Microsoft Azure][0]
 
 ## <a name="prerequisites"></a>Prérequis
-* [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
 
-> [!NOTE]
-> Pour les distributions Linux autres que Ubuntu 16.04, vous devrez peut-être installer manuellement quelques dépendances. En général, les packages suivants sont nécessaires :
-> * libgconf-2-4
-> * libsecret
-> * GCC à jour
->
-> En fonction de votre distribution, vous devrez peut-être installer d’autres packages. Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage contiennent des étapes propres à certaines distributions.
->
->
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+L’Explorateur de stockage Azure est pris en charge sur les versions suivantes de Windows :
+
+* Windows 10 (recommandé)
+* Windows 8
+* Windows 7
+
+[Télécharger et installer l’Explorateur Stockage](http://www.storageexplorer.com)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+L’Explorateur Stockage Azure est pris en charge sur les versions suivantes de macOS :
+
+* macOS 10.12 « Sierra » et versions ultérieures
+
+[Télécharger et installer l’Explorateur Stockage](http://www.storageexplorer.com)
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+L’Explorateur Stockage Azure est pris en charge sur les distributions suivantes de Linux :
+
+* Ubuntu 16.04 x64 (recommandé)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+L’Explorateur Stockage Azure peut fonctionner d’autres distributions, mais seules celles répertoriés ci-dessus sont officiellement prises en charge.
+
+Vous devez également avoir installé les dépendances/bibliothèques suivantes pour exécuter l’Explorateur Stockage Azure sur Linux :
+
+* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* libsecret (remarque : libsecret-1.so.0 doit être disponible sur votre ordinateur. Si vous avez installé une version différente de libsecret, vous pouvez essayer de lier son fichier .so à libsecret-1.so.0 de manière symbolique)
+* libgconf-2-4
+* GCC à jour
+
+Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage Azure contiennent des étapes propres à certaines distributions.
+
+[Télécharger et installer l’Explorateur Stockage](http://www.storageexplorer.com)
+
+---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Connexion à un service ou un compte de stockage
-L’Explorateur de stockage (version préliminaire) offre de nombreuses façons de se connecter à des comptes de stockage. Vous pouvez par exemple :
+L’Explorateur Stockage offre de nombreuses façons de se connecter à des comptes de stockage. Vous pouvez par exemple :
 * Vous connecter à des comptes de stockage associés à vos abonnements Azure.
 * Vous connecter à des comptes de stockage et à des services partagés à partir d’autres abonnements Azure.
 * Vous connecter au stockage local et le gérer à l’aide de l’émulateur de stockage Azure. 
@@ -60,7 +88,7 @@ En outre, vous pouvez utiliser des comptes de stockage Azure à l’échelle int
 >
 >
 
-1. Dans l’Explorateur Stockage (préversion), sélectionnez **Gérer les comptes** pour accéder au **panneau de gestion des comptes**.
+1. Dans l’Explorateur Stockage, sélectionnez **Gérer les comptes** pour accéder au **Panneau de gestion des comptes**.
 
     ![Gérer les comptes][1]
 
@@ -79,7 +107,7 @@ En outre, vous pouvez utiliser des comptes de stockage Azure à l’échelle int
     ![Abonnements Azure sélectionnés][4]
 
 ## <a name="work-with-local-development-storage"></a>Utilisation du stockage de développement local
-Avec l’Explorateur de stockage (version préliminaire), vous pouvez travailler sur le stockage local à l’aide de l’émulateur de stockage Azure. Cette approche vous permet de simuler l’utilisation du Stockage Azure sans nécessairement disposer d’un compte de stockage déployé sur Azure, étant donné que le compte de stockage est émulé par l’émulateur de stockage Azure.
+Avec l’Explorateur Stockage, vous pouvez travailler sur le stockage local à l’aide de l’émulateur Stockage Azure. Cette approche vous permet de simuler l’utilisation du Stockage Azure sans nécessairement disposer d’un compte de stockage déployé sur Azure, étant donné que le compte de stockage est émulé par l’émulateur de stockage Azure.
 
 > [!NOTE]
 > Actuellement, l’émulateur de stockage Azure est pris en charge uniquement pour Windows.
@@ -91,7 +119,7 @@ Avec l’Explorateur de stockage (version préliminaire), vous pouvez travailler
 >
 >
 
-1. Dans le volet de gauche de l’Explorateur Stockage (préversion), développez le nœud **(Local et attaché)** > **Comptes de stockage** > **(Développement)**  >  **Conteneurs d’objets blob**.
+1. Dans le volet de gauche de l’Explorateur Stockage, développez le nœud **(Local et attaché)** > **Comptes de stockage** > **(Développement)**  >  **Conteneurs d’objets blob**.
 
     ![Nœud de développement local][5]
 
@@ -102,12 +130,9 @@ Avec l’Explorateur de stockage (version préliminaire), vous pouvez travailler
 3. Une fois que l’émulateur est installé, vous pouvez créer et utiliser des tables, des files d’attente et des blobs locaux. Pour apprendre à utiliser chaque type de compte de stockage, consultez les guides suivants :
 
     * [Manage Azure blob storage resources (Gérer les ressources Azure Blob Storage)](vs-azure-tools-storage-explorer-blobs.md)
-    * Manage Azure file share storage resources (Gérer les ressources de stockage de partage de fichiers Azure) - *Bientôt disponible*
-    * Manage Azure queue storage resources (Gérer les ressources de stockage File d’attente Azure) - *Bientôt disponible*
-    * Manage Azure table storage resources (Gérer les ressources de stockage Table Azure) - *Bientôt disponible*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Attacher ou détacher un compte de stockage externe
-L’Explorateur de stockage (version préliminaire) vous permet d’effectuer un attachement à des comptes de stockage externes, pour un partage simplifié des comptes de stockage. Cette section explique la procédure d’attachement à des comptes de stockage externes (et la procédure de détachement).
+L’Explorateur de stockage vous permet d’effectuer un attachement à des comptes de stockage externes, pour un partage simplifié des comptes de stockage. Cette section explique la procédure d’attachement à des comptes de stockage externes (et la procédure de détachement).
 
 ### <a name="get-the-storage-account-credentials"></a>Obtention des informations d’identification du compte de stockage
 Pour partager un compte de stockage externe, le propriétaire du compte doit d’abord obtenir les informations d’identification du compte (nom et clé du compte), puis les partager avec les personnes souhaitant effectuer un attachement à ce compte. Vous pouvez obtenir les informations d’identification du compte de stockage via le portail Azure en suivant ces étapes :
@@ -129,9 +154,9 @@ Pour partager un compte de stockage externe, le propriétaire du compte doit d�
     ![Clés d’accès][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>Attachement à un compte de stockage externe
-Pour attacher à un compte de stockage externe, vous avez besoin du nom et de la clé du compte. La section « Obtention des informations d’identification du compte de stockage » explique comment obtenir ces valeurs à partir du portail Azure. Toutefois, dans le portail, la clé du compte est appelée **key1**. Par conséquent, lorsque l’Explorateur Stockage (préversion) demande une clé de compte, vous entrez la valeur **key1**.
+Pour attacher à un compte de stockage externe, vous avez besoin du nom et de la clé du compte. La section « Obtention des informations d’identification du compte de stockage » explique comment obtenir ces valeurs à partir du portail Azure. Toutefois, dans le portail, la clé du compte est appelée **key1**. Par conséquent, lorsque l’Explorateur Stockage demande une clé de compte, vous entrez la valeur **key1**.
 
-1. Dans l’Explorateur Stockage (préversion), ouvrez la **boîte de dialogue de connexion**.
+1. Dans l’Explorateur Stockage, ouvrez la **boîte de dialogue de connexion**.
 
     ![Option Se connecter à Azure Storage][9]
 
@@ -172,10 +197,10 @@ Pour illustrer ce scénario, supposons que l’utilisateur A est l’administra
 
 2. L’utilisateur A partage la SAP avec la personne souhaitant accéder au compte de stockage, en l’occurrence l’utilisateur B.  
 
-3. L’utilisateur B utilise l’Explorateur de stockage (version préliminaire) pour effectuer l’attachement au compte appartenant à l’utilisateur A à l’aide de la SAP fournie.
+3. L’utilisateur B utilise l’Explorateur de stockage pour effectuer l’attachement au compte appartenant à l’utilisateur A à l’aide de la SAP fournie.
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Générer une chaîne de connexion SAP pour le compte à partager
-1. Dans l’Explorateur Stockage (préversion), cliquez avec le bouton droit sur le compte de stockage que vous souhaitez partager, puis sélectionnez **Obtenir une signature d’accès partagé...**.
+1. Dans l’Explorateur Stockage, cliquez avec le bouton droit sur le compte de stockage que vous souhaitez partager, puis sélectionnez **Obtenir une signature d’accès partagé...**.
 
     ![Option de menu contextuel Obtenir une signature d’accès partagé][14]
 
@@ -186,7 +211,7 @@ Pour illustrer ce scénario, supposons que l’utilisateur A est l’administra
 3. Sélectionnez **Copier** en regard de la zone de texte **Chaîne de connexion** pour la copier dans le Presse-papiers, puis cliquez sur **Fermer**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Attacher à un compte de stockage à l’aide d’une chaîne de connexion SAP
-1. Dans l’Explorateur Stockage (préversion), ouvrez la **boîte de dialogue de connexion**.
+1. Dans l’Explorateur Stockage, ouvrez la **boîte de dialogue de connexion**.
 
     ![Option Se connecter à Azure Storage][9]
 
@@ -213,12 +238,9 @@ La section « Attachement d’un compte de stockage à l’aide d’une SAP »
 Dans ce contexte, un service peut être un conteneur d’objets blob, une file d’attente, une table ou un partage de fichier. Pour générer la SAP d’un service répertorié, consultez :
 
 * [Obtenir la signature d’accès partagé pour un conteneur d’objets blob](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Get the SAS for a file share (Obtenir la signature d’accès partagé pour un partage de fichiers) - *Bientôt disponible*
-* Get the SAS for a queue (Obtenir la signature d’accès partagé pour une file d’attente) - *Bientôt disponible*
-* Get the SAS for a table (Obtenir la signature d’accès partagé pour une table) - *Bientôt disponible*
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Attachement au service de compte partagé à l’aide d’un URI SAP
-1. Dans l’Explorateur Stockage (préversion), ouvrez la **boîte de dialogue de connexion**.
+1. Dans l’Explorateur Stockage, ouvrez la **boîte de dialogue de connexion**.
 
     ![Option Se connecter à Azure Storage][9]
 
@@ -251,7 +273,7 @@ En plus de gérer des comptes Azure Cosmos DB par le biais d’un abonnement Azu
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Se connecter à Azure Data Lake Store par URI
 Vous souhaitez accéder à des ressources, qui n’existent pas dans votre abonnement, mais d’autres personnes vous permettent d’accéder à l’URI de ces ressources. Le cas échéant, vous pouvez vous connecter à Data Lake Store à l’aide de l’URI une fois que vous êtes connecté. Procédez comme suit.
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 2. Dans le volet gauche, développez **Local and Attached** (Local et attaché).
 3. Cliquez avec le bouton droit sur **Data Lake Store**, puis, dans le menu contextuel, sélectionnez **Connect to Data Lake Store...** (Se connecter à Data Lake Store...).
 
@@ -276,9 +298,9 @@ Si vous avez besoin de rechercher une ressource de stockage et ne savez pas où 
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Gérer les ressources de Stockage Blob Azure avec l’Explorateur de stockage (version préliminaire)](vs-azure-tools-storage-explorer-blobs.md)
+* [Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage](vs-azure-tools-storage-explorer-blobs.md)
 * [Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure (préversion)](./cosmos-db/storage-explorer.md)
-* [Gérer les ressources Azure Data Lake Store avec l’Explorateur Stockage (préversion)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Gérer les ressources Azure Data Lake Store avec l’Explorateur Stockage](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

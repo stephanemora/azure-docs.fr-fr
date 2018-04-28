@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server 
 
@@ -239,7 +239,7 @@ Pour plus d’informations, consultez [FILESTREAM](https://docs.microsoft.com/sq
 ### <a name="linked-servers"></a>Services liés
  
 Les serveurs liés dans Managed Instance prennent en charge un nombre limité de cibles : 
-- Cibles prises en charge : SQL Server, SQL Database, Managed Instance et SQL Server sur une machine virtuelle.
+- Cibles prises en charge : SQL Server et SQL Database
 - Cibles non prises en charge : fichiers, Analysis Services et autres SGBDR.
 
 Opérations
@@ -393,7 +393,7 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
-Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite de 35 To Azure sur la taille de stockage, en raison d’une fragmentation interne. 
+Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne. 
 
 Par exemple, une instance gérée peut avoir un seul fichier de 1,2 To qui utilise un disque de 4 To et 248 fichiers de 1 Go chacun placé sur 248 disques de 128 Go. Dans cet exemple, la taille du stockage total du disque est 1 x 4 To + 248 x 128 Go = 35 To. Toutefois, la taille totale des instances réservées pour les bases de données est 1 x 1,2 To + 248 x 1 Go = 1,4 To. Cet exemple illustre que dans certaines circonstances, en raison d’une distribution très spécifique des fichiers, une Instance gérée peut atteindre la limite de stockage des disques Premium Azure lorsque vous vous y attendez le moins. 
 
@@ -419,4 +419,4 @@ Il ne peut y avoir qu’un seul profil de messagerie de base de données et il d
 
 - Pour plus d’informations sur Managed Instance, consultez [What is a Managed Instance?](sql-database-managed-instance.md) (Présentation de l’option Managed Instance)
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
-- Pour suivre un didacticiel, consultez [Créer une option Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- Pour suivre un tutoriel qui vous montre comment créer une instance gérée, consultez [Création d’une instance gérée](sql-database-managed-instance-create-tutorial-portal.md).

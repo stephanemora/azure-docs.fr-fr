@@ -1,24 +1,26 @@
 ---
 title: Mettre à niveau vers la dernière génération d’Azure SQL Data Warehouse | Microsoft Docs
-description: Étapes de la mise à niveau d’Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
+description: Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimiser les performances en mettant à niveau SQL Data Warehouse
+Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
 
-Vous pouvez maintenant mettre à niveau en toute transparence vers un niveau de performance optimisé pour le calcul dans le portail Azure. Si vous avez un entrepôt de données optimisé pour l’élasticité, nous vous recommandons de mettre à niveau vers la dernière génération de matériel Azure et une architecture de stockage améliorée. Vous pourrez ainsi bénéficier de meilleures performances, d’une extensibilité supérieure et d’un stockage en colonnes illimité. 
+## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
+Vous pouvez maintenant mettre à niveau en toute transparence vers un niveau de performance optimisé pour le calcul dans le portail Azure. Si vous avez un entrepôt de données optimisé pour l’élasticité, la mise à niveau est recommandée. En effectuant la mise à niveau, vous pouvez utiliser la dernière génération de matériel et d’architecture de stockage améliorée Azure. Vous pouvez ainsi bénéficier de meilleures performances, d’une scalabilité supérieure et d’un stockage en colonnes illimité. 
 
 ## <a name="applies-to"></a>S’applique à
 Cette mise à niveau s’applique aux entrepôts de données du niveau de performances Optimisé pour l’élasticité.
@@ -28,12 +30,6 @@ Cette mise à niveau s’applique aux entrepôts de données du niveau de perfor
 Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
-
-> [!NOTE]
-> Depuis le 30/03, l’[audit au niveau serveur](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) doit être désactivé avant de commencer la mise à niveau.
-> 
->
-
 > [!NOTE]
 > Si votre entrepôt de données optimisé pour l’élasticité existant ne se trouve pas dans une région où Optimisé pour le calcul est disponible, vous pouvez [géo-restaurer pour Optimisé pour le calcul](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell vers une région prise en charge.
 > 
@@ -70,9 +66,9 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
    
    La première étape du processus de mise à niveau passe par l’opération de mise à l’échelle (« Mise à niveau - Hors connexion ») pendant laquelle toutes les sessions seront supprimées et les connexions fermées. 
    
-   La deuxième étape du processus de mise à niveau est la migration des données (« Mise à niveau - En ligne »). La migration des données est un processus en arrière-plan progressif en ligne qui déplace lentement les données en colonnes de l’ancienne architecture de stockage de génération 1 vers la nouvelle architecture de stockage de génération 2 pour tirer parti du cache de disque SSD local de génération 2. Pendant ce temps, votre entrepôt de données sera en ligne à des fins d’interrogation et de chargement. Toutes vos données pourront être interrogées, qu’elles aient été migrées ou non. La migration des données se produit à un taux variable selon la taille de vos données, de votre niveau de performance et du nombre de vos segments de columnstore. 
+   La deuxième étape du processus de mise à niveau est la migration des données (« Mise à niveau - En ligne »). La migration des données est un processus en arrière-plan progressif en ligne qui déplace lentement les données en colonnes de l’ancienne architecture de stockage vers la nouvelle architecture de stockage, en tirant parti du cache de disque SSD local. Pendant ce temps, votre entrepôt de données sera en ligne à des fins d’interrogation et de chargement. Toutes vos données pourront être interrogées, qu’elles aient été migrées ou non. La migration des données se produit à un taux variable selon la taille de vos données, de votre niveau de performance et du nombre de vos segments de columnstore. 
 
-5. **Recommandation facultative :** pour accélérer le processus de migration en arrière-plan, il est recommandé de forcer immédiatement le déplacement des données en exécutant la commande [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) sur toutes les tables de columnstore sur une plus large classe de SLO et ressources. Cette opération, par rapport au processus en arrière-plan progressif, est en mode hors connexion. Toutefois, la migration des données sera beaucoup plus rapide et, une fois terminée, vous pourrez tirer pleinement parti de l’architecture de stockage de génération 2 avec des groupes de lignes de haute qualité. 
+5. **Recommandation facultative :** pour accélérer le processus de migration en arrière-plan, il est recommandé de forcer immédiatement le déplacement des données en exécutant la commande [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) sur toutes les tables de columnstore sur une plus large classe de SLO et ressources. Cette opération, par rapport au processus en arrière-plan progressif, est en mode hors connexion. Toutefois, la migration des données sera beaucoup plus rapide et, une fois terminée, vous pourrez tirer pleinement parti de la nouvelle architecture de stockage améliorée avec des groupes de lignes de haute qualité. 
 
 La requête suivante génère les commandes Alter Index Rebuild requises pour accélérer le processus de migration des données :
 

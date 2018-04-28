@@ -1,25 +1,18 @@
 ---
-title: "Leçon 12 du didacticiel Azure Analysis Services : Analyser dans Excel | Microsoft Docs"
-description: "Explique comment utiliser la fonctionnalité Analyser dans Excel dans le projet du didacticiel Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Leçon 12 du didacticiel Azure Analysis Services : Analyser dans Excel | Microsoft Docs'
+description: Explique comment utiliser la fonctionnalité Analyser dans Excel dans le projet du didacticiel Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 17dba7be2acab18108dc50a5c16d55e0e720cbcc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-in-excel"></a>Analyser dans Excel
 
@@ -29,7 +22,8 @@ Pour que vous puissiez suivre cette leçon, Excel doit être installé sur le m�
   
 Durée estimée pour suivre cette leçon : **5 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Parcourir des données à l’aide des perspectives par défaut et Internet Sales  

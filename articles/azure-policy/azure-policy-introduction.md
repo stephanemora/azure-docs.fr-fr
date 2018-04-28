@@ -3,19 +3,19 @@ title: Vue d’ensemble d’Azure Policy | Microsoft Docs
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 886026f8548cf3d7416b5034995399368de8c419
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -53,13 +53,17 @@ Dans Azure Policy, nous offrons quelques stratégies intégrées qui sont dispon
 - **Imposer une balise et sa valeur** : cette stratégie applique une balise requise et sa valeur à une ressource.
 - **Types de ressource non autorisés** : cette stratégie permet de spécifier les types de ressource que votre organisation ne peut pas déployer.
 
-Vous pouvez affecter l’une de ces stratégies par le biais du portail Azure, de PowerShell ou d’Azure CLI.
+Vous pouvez affecter l’une de ces stratégies par le biais du portail Azure, de PowerShell ou d’Azure CLI. Une fois que vous avez modifié une définition de stratégie, la réévaluation de la stratégie a lieu toutes les heures.
 
 Pour plus d’informations sur les structures des définitions de stratégie, consultez l’article [Structure des définitions de stratégie](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Affectation de rôle
 
-Une affectation de stratégie est une définition de stratégie qui a été affectée avec une étendue spécifique. Cette étendue peut aller d’un groupe d’administration à un groupe de ressources. Le terme *étendue* désigne l’ensemble des groupes de ressources, abonnements ou groupes d’administration auxquels la définition de stratégie est affectée. Toutes les ressources enfants héritent des affectations de stratégie. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle l’est à toutes les ressources de ce groupe de ressources. Toutefois, vous pouvez exclure une sous-étendue de l’affectation de stratégie. Par exemple, dans l’étendue de l’abonnement, vous pouvez affecter une stratégie qui empêche la création de ressources réseau. Toutefois, vous excluez un groupe de ressources au sein de l’abonnement qui est destiné à l’infrastructure réseau. Vous accordez l’accès à ce groupe de ressources réseau aux utilisateurs auxquels vous faites confiance avec la création des ressources réseau.
+Une affectation de stratégie est une définition de stratégie qui a été affectée avec une étendue spécifique. Cette étendue peut aller d’un groupe d’administration à un groupe de ressources. Le terme *étendue* désigne l’ensemble des groupes de ressources, abonnements ou groupes d’administration auxquels la définition de stratégie est affectée. Toutes les ressources enfants héritent des affectations de stratégie. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle l’est à toutes les ressources de ce groupe de ressources. Toutefois, vous pouvez exclure une sous-étendue de l’affectation de stratégie.
+
+Par exemple, dans l’étendue de l’abonnement, vous pouvez affecter une stratégie qui empêche la création de ressources réseau. Toutefois, vous excluez un groupe de ressources au sein de l’abonnement qui est destiné à l’infrastructure réseau. Vous accordez l’accès à ce groupe de ressources réseau aux utilisateurs auxquels vous faites confiance avec la création des ressources réseau.
+
+Dans un autre exemple, vous souhaiterez peut-être affecter une stratégie de liste verte de type de ressource au niveau du groupe d’administration. Affectez ensuite une stratégie plus permissive (autorisant plus de types de ressources) à un groupe d’administration enfant ou même directement aux abonnements. Toutefois, cet exemple ne fonctionnera pas, car la stratégie est un système de refus explicite. Au lieu de cela, vous devez exclure le groupe d’administration enfant ou l’abonnement de l’attribution de stratégie au niveau du groupe d’administration. Affectez ensuite la stratégie plus permissive au niveau du groupe d’administration enfant ou de l’abonnement. Pour résumer, si une stratégie se traduit par le refus d’une ressource, alors la seule façon d’autoriser la ressource est de modifier la stratégie de refus.
 
 Pour plus d’informations sur les définitions de stratégie et la définition d’affectations, consultez [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure](assign-policy-definition.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Créer une passerelle Azure Application Gateway - modèles | Microsoft Docs"
-description: "Cette page fournit des instructions pour la création d’une passerelle Azure Application Gateway à l’aide du modèle Azure Resource Manager"
+title: Créer une passerelle Azure Application Gateway - modèles | Microsoft Docs
+description: Cette page fournit des instructions pour la création d’une passerelle Azure Application Gateway à l’aide du modèle Azure Resource Manager
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ba100189cec2060efa97914a2c90f7b0cccbc33f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [portail Azure](application-gateway-create-gateway-portal.md)
+> * [Portail Azure](application-gateway-create-gateway-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre des serveurs locaux ou dans le cloud. Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, voir [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre des serveurs locaux ou dans le cloud. Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, voir [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
 
 Cet article vous guidera dans le téléchargement et la modification d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) existant à partir de GitHub, et dans son déploiement à partir de GitHub, de PowerShell et de l’interface Azure CLI.
 
@@ -76,7 +76,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
    * **name**. Nom de la ressource. Remarquez l’utilisation de `[parameters('applicationGatewayName')]`, qui signifie que le nom est fourni par vous ou un fichier de paramètres lors du déploiement.
    * **properties**. Liste des propriétés de la ressource. Ce modèle utilise le réseau virtuel et une adresse IP publique lors de la création de la passerelle Application Gateway.
 
-1. Revenez à [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. Revenir à [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Cliquez sur **azuredeploy-parameters.json**, puis sur **RAW**.
 1. Enregistrez le fichier dans un dossier local sur votre ordinateur.
 1. Ouvrez le fichier que vous avez enregistré et modifiez les valeurs des paramètres. Utilisez les valeurs suivantes pour déployer la passerelle Application Gateway décrite dans notre scénario.
@@ -129,7 +129,7 @@ Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et co
 1. Connexion à PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Vérifiez les abonnements associés au compte.
@@ -193,7 +193,7 @@ La fonctionnalité « cliquer pour déployer » offre une autre manière d’u
     
 1. Renseignez les paramètres du modèle de déploiement sur le portail, puis cliquez sur **OK**.
 
-    ![Paramètres](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+    ![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
 1. Sélectionnez **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur **Acheter**.
 
@@ -224,7 +224,7 @@ Pour supprimer toutes les ressources créées dans cet article, effectuez l’un
 Remove-AzureRmResourceGroup -Name appgatewayRG
 ```
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az group delete --name appgatewayRG
@@ -238,6 +238,6 @@ Si vous voulez configurer une passerelle Application Gateway à utiliser avec l�
 
 Si vous souhaitez plus d’informations sur les options d’équilibrage de charge en général, visitez :
 
-* [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

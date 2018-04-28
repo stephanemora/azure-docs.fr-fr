@@ -1,31 +1,29 @@
 ---
 title: Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store - Azure | Microsoft Docs
-description: "Découvrez comment utiliser plusieurs clusters HDInsight avec un seul compte Data Lake Store"
-keywords: "stockage hdinsight, hdfs, données structurées, données non structurées, data lake store"
+description: Découvrez comment utiliser plusieurs clusters HDInsight avec un seul compte Data Lake Store
+keywords: stockage hdinsight, hdfs, données structurées, données non structurées, data lake store
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store
 
 À partir de HDInsight version 3.5, vous pouvez créer des clusters HDInsight avec des comptes Azure Data Lake Store en tant que système de fichiers par défaut.
-Data Lake Store prend en charge le stockage illimité qui le rend idéal non seulement pour héberger de grandes quantités de données, mais également pour héberger plusieurs clusters HDInsight qui partagent un même compte Data Lake Store. Pour obtenir des instructions sur la création d’un cluster HDInsight avec Data Lake Store en tant que stockage, consultez [Créer des clusters HDInsight avec Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store prend en charge le stockage illimité qui le rend idéal non seulement pour héberger de grandes quantités de données, mais également pour héberger plusieurs clusters HDInsight qui partagent un même compte Data Lake Store. Pour obtenir des instructions sur la création d’un cluster HDInsight avec Data Lake Store en tant que stockage, consultez [Créer des clusters HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Cet article fournit des recommandations à l’administrateur Data Lake Store pour configurer un compte Data Lake Store unique et partagé qui peut être utilisé sur plusieurs clusters HDInsight **actifs**. Ces recommandations s’appliquent à l’hébergement de plusieurs clusters Hadoop sécurisés ou non sécurisés sur un compte Data Lake Store partagé.
 
@@ -94,7 +92,7 @@ Ces paramètres sont connus pour affecter un cas d’usage HDInsight particulier
 Comme indiqué dans le YARN JIRA associé précédemment, lors de la localisation des ressources publiques, le localisateur valide le fait que toutes les ressources demandées sont bien publiques en vérifiant leurs autorisations sur le système de fichiers distant. Les éléments LocalResource qui ne correspondent pas à cette condition sont rejetés pour la localisation. La vérification des autorisations inclut l’accès en lecture au fichier pour les « autres ». Ce scénario ne marche pas instantanément lors de l’hébergement des clusters HDInsight sur Azure Data Lake, car Azure Data Lake refuse tout accès aux « autres » au niveau du dossier racine.
 
 #### <a name="workaround"></a>Solution de contournement
-Définissez les autorisations d’exécution en lecture pour les **autres** dans la hiérarchie, par exemple, au niveau  **/** , **/clusters** et **/clusters/finance** comme indiqué dans le tableau ci-dessus.
+Définissez les autorisations d’exécution en lecture pour les **autres** dans la hiérarchie, par exemple, au niveau **/**, **/clusters** et **/clusters/finance** comme indiqué dans le tableau ci-dessus.
 
 ## <a name="see-also"></a>Voir aussi
 

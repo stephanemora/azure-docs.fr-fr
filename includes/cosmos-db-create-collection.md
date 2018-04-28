@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: cf77eaa07d45222cecf0450fb33fe62e556bcd9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/16/2018
+---
 Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données et une collection. 
 
 1. Cliquez sur **Explorateur de données** > **Nouvelle collection**. 
@@ -12,7 +28,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     ---|---|---
     ID de base de données|Tâches|Entrez *Tasks* comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères /, \\, # ou ?, ni d’espace de fin.
     ID de la collection|Éléments|Entrez *Items* comme nom pour votre nouvelle collection. Les ID de collection sont soumis aux mêmes spécifications de caractères que les noms de base de données.
-    Capacité de stockage| Fixe (10 Go)|Modifiez la valeur en sélectionnant **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
+    Capacité de stockage| Fixe (10 Go)|Utilisez la valeur par défaut **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
     Throughput|400 RU|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). La capacité de stockage doit être définie sur **Fixe (10 Go)** afin de définir le débit sur 400 RU/s. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. 
     
     Outre les paramètres précédents, vous pouvez ajouter des **clés uniques** pour la collection. Laissez le champ vide dans cet exemple. Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à la base de données. En créant une stratégie de clé unique durant la création d’une collection, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition. Pour en savoir plus, référez-vous à l’article [Clés uniques dans Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).

@@ -1,12 +1,12 @@
 ---
-title: "Connexion aux sources de données | Microsoft Docs"
-description: "Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog."
+title: Connexion aux sources de données | Microsoft Docs
+description: Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
 ## <a name="introduction"></a>Introduction
@@ -48,7 +48,7 @@ Lorsque vous utilisez le menu « Ouvrir dans... » pour les sources de données 
 | Power Query |.xlsx |Excel 2016 ou Excel 2010 ou Excel 2013 avec la macro complémentaire Power Query pour Excel installée |
 | Power BI Desktop |.pbix |Power BI Desktop juillet 2016 ou version ultérieure |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 ou version ultérieure avec les outils SQL Server installés |
-| Gestionnaire de rapports |http:// |Voir la [configuration de navigateur requise pour SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
+| Gestionnaire de rapports |http:// |Voir la [configuration de navigateur requise pour SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Vos données, vos outils
 Les options disponibles dans le menu dépendent du type de ressource de données actuellement sélectionné. Bien entendu, tous les outils possibles ne sont pas inclus dans le menu Ouvrir dans..., mais il est toujours simple de se connecter à la source de données à l’aide de n’importe quel outil client. Lorsqu’une ressource de données est sélectionnée dans le portail **Azure Data Catalog**, l’emplacement complet s’affiche dans le volet des propriétés.

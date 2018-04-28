@@ -3,18 +3,18 @@ title: Créer des stratégies et afficher les données de conformité par progra
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 03/28/2018
 ms.topic: article
 ms.service: azure-policy
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 1809f0b7ef386bb9eeaa55982178e4cd5e1dd2e2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
 
@@ -29,12 +29,11 @@ Avant de commencer, vérifiez que les conditions préalables suivantes sont remp
 2. Mettez à jour votre module AzureRM PowerShell vers la dernière version. Pour plus d’informations sur la version la plus récente, voir Azure PowerShell https://github.com/Azure/azure-powershell/releases.
 3. Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure PowerShell pour vous assurer que votre abonnement fonctionne avec ce fournisseur de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer l’opération d’inscription pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
-    ```
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
-    ```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  ```
 
-    Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez la page [Fournisseurs et types de ressources](../azure-resource-manager/resource-manager-supported-services.md).
-
+  Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez la page [Fournisseurs et types de ressources](../azure-resource-manager/resource-manager-supported-services.md).
 4. Si ce n’est déjà fait, installez Azure CLI. Vous pouvez obtenir la dernière version d’Azure CLI sur la page [Installation d’Azure CLI 2.0 sur Windows](/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Créer et attribuer une définition de stratégie
@@ -47,54 +46,46 @@ Les commandes suivantes créent des définitions de stratégie pour le niveau St
 
 1. L’extrait de code JSON suivant permet de créer un fichier JSON nommé AuditStorageAccounts.json.
 
-    ```
-    {
-    "if": {
-      "allOf": [
-        {
-          "field": "type",
-          "equals": "Microsoft.Storage/storageAccounts"
-        },
-        {
-          "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-          "equals": "Allow"
-        }
-      ]
-    },
-    "then": {
-      "effect": "audit"
-    }
+  ```json
+  {
+      "if": {
+          "allOf": [{
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                  "equals": "Allow"
+              }
+          ]
+      },
+      "then": {
+          "effect": "audit"
+      }
   }
+  ```
 
-    ```
-
-    Pour plus d’informations sur la création d’une définition de stratégie, consultez la page [Structure de définition Azure Policy](policy-definition.md).
-
+  Pour plus d’informations sur la création d’une définition de stratégie, consultez la page [Structure de définition Azure Policy](policy-definition.md).
 2. Exécutez la commande suivante pour créer une définition de stratégie en utilisant le fichier AuditStorageAccounts.json.
 
-    ```
-    PS C:\>New-AzureRmPolicyDefinition -Name "AuditStorageAccounts" -DisplayName "Audit Storage Accounts Open to Public Networks" -Policy C:\AuditStorageAccounts.json
-    ```
+  ```azurepowershell-interactive
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  ```
 
-    La commande crée une définition de stratégie nommée _Audit Storage Accounts Open to Public Networks_. Pour plus d’informations sur les autres paramètres que vous pouvez utiliser, consultez la page [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition?view=azurermps-4.4.1).
-
+  La commande crée une définition de stratégie nommée _Audit Storage Accounts Open to Public Networks_. Pour plus d’informations sur les autres paramètres que vous pouvez utiliser, consultez la page [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
 3. Après avoir créé votre définition de stratégie, vous pouvez créer une attribution de stratégie en exécutant les commandes suivantes :
 
-    ```
-$rg = Get-AzureRmResourceGroup -Name "ContosoRG"
-```
+  ```azurepowershell-interactive
+  $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
 
-    ```
-$Policy = Get-AzureRmPolicyDefinition -Name "AuditStorageAccounts"
-    ```
+  $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
 
-    ```
-New-AzureRmPolicyAssignment -Name "AuditStorageAccounts" -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
-    ```
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  ```
 
-    Remplacez _ContosoRG_ par le nom de votre groupe de ressources prévu.
+  Remplacez _ContosoRG_ par le nom de votre groupe de ressources prévu.
 
-Pour plus d’informations sur la gestion des stratégies de ressources à l’aide du module Azure Resource Manager PowerShell, consultez [AzureRM.Resources](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies).
+Pour plus d’informations sur la gestion des stratégies de ressources à l’aide du module Azure Resource Manager PowerShell, consultez [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Créer et assigner une définition de stratégie avec ARMClient
 
@@ -102,75 +93,71 @@ Pour créer une définition de stratégie, procédez comme suit.
 
 1. Copiez l’extrait de code JSON suivant pour créer un fichier JSON. Vous appellerez le fichier à l’étape suivante.
 
-    ```
-    {
-    "properties": {
-        "displayName": "Audit Storage Accounts Open to Public Networks",
-        "policyType": "Custom",
-        "mode": "Indexed",
-        "description": "This policy ensures that storage accounts with exposure to Public Networks are audited.",
-        "parameters": {},
-        "policyRule": {
-              "if": {
-                "allOf": [
-                  {
-                    "field": "type",
-                    "equals": "Microsoft.Storage/storageAccounts"
+  ```json
+  "properties": {
+      "displayName": "Audit Storage Accounts Open to Public Networks",
+      "policyType": "Custom",
+      "mode": "Indexed",
+      "description": "This policy ensures that storage accounts with exposure to Public Networks are audited.",
+      "parameters": {},
+      "policyRule": {
+          "if": {
+              "allOf": [{
+                      "field": "type",
+                      "equals": "Microsoft.Storage/storageAccounts"
                   },
                   {
-                    "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                    "equals": "Allow"
+                      "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                      "equals": "Allow"
                   }
-                ]
-              },
-              "then": {
-                "effect": "audit"
-              }
-            }
-    }
-}
-```
+              ]
+          },
+          "then": {
+              "effect": "audit"
+          }
+      }
+  }
+  ```
 
 2. Créez la définition de stratégie à l’aide de l’appel suivant :
 
-    ```
-    armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01 @<path to policy definition JSON file>"
-    ```
+  ```
+  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  ```
 
-    Remplacez preceding_ &lt;subscriptionId&gt; par l’ID de votre abonnement prévu.
+  Remplacez preceding_ &lt;subscriptionId&gt; par l’ID de votre abonnement prévu.
 
 Pour plus d’informations sur la structure de la requête, consultez [Définitions de stratégie – Créer ou mettre à jour](/rest/api/resources/policydefinitions/createorupdate).
-
 
 Utilisez la procédure suivante pour créer une attribution de stratégie et assigner la définition de stratégie au niveau du groupe de ressources.
 
 1. Copiez l’extrait de code JSON suivant pour créer un fichier d’attribution de stratégie JSON. Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
 
-    ```
-    {
-  "properties": {
-"description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
-"displayName": "Audit Storage Accounts Open to Public Networks Assignment",
-"parameters": {},
-"policyDefinitionId":"/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
-"scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-},
-"sku": {
-    "name": "A1",
-    "tier": "Standard"
-    }
-}
-    ```
+  ```json
+  {
+      "properties": {
+          "description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
+          "displayName": "Audit Storage Accounts Open to Public Networks Assignment",
+          "parameters": {},
+          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
+          "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
+      },
+      "sku": {
+          "name": "A1",
+          "tier": "Standard"
+      }
+  }
+  ```
 
 2. Créez l’attribution de stratégie à l’aide de l’appel suivant :
 
-    ```
-    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
-    ```
+  ```
+  armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+  ```
 
-    Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
+  Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
 
- Pour plus d’informations sur les appels HTTP à l’API REST, consultez la page [Ressources API REST Azure](/rest/api/resources/).
+  Pour plus d’informations sur les appels HTTP à l’API REST, consultez la page [Ressources API REST Azure](/rest/api/resources/).
 
 ### <a name="create-and-assign-a-policy-definition-with-azure-cli"></a>Créer et attribuer une définition de stratégie avec Azure CLI
 
@@ -178,41 +165,40 @@ Pour créer une définition de stratégie, procédez comme suit :
 
 1. Copiez l’extrait de code JSON suivant pour créer un fichier d’attribution de stratégie JSON.
 
-    ```
-    {
-                  "if": {
-                    "allOf": [
-                      {
-                        "field": "type",
-                        "equals": "Microsoft.Storage/storageAccounts"
-                      },
-                      {
-                        "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                        "equals": "Allow"
-                      }
-                    ]
-                  },
-                  "then": {
-                    "effect": "audit"
-                  }
-    }
-    ```
+  ```json
+  {
+      "if": {
+          "allOf": [{
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+              },
+              {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                  "equals": "Allow"
+              }
+          ]
+      },
+      "then": {
+          "effect": "audit"
+      }
+  }
+  ```
 
 2. Pour créer une définition de stratégie, exécutez la commande suivante :
 
-    ```
+  ```azurecli-interactive
 az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
-    ```
+  ```
 
-Pour créer une attribution de stratégie, utilisez la commande suivante. Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
+3. Pour créer une attribution de stratégie, utilisez la commande suivante. Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
 
-```
-az policy assignment create --name '<Audit Storage Accounts Open to Public Networks in Contoso RG' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
-```
+  ```azurecli-interactive
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  ```
 
 Vous pouvez obtenir l’ID de définition de stratégie à l’aide de PowerShell avec la commande suivante :
 
-```
+```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
 ```
 
@@ -251,45 +237,42 @@ Procédez comme suit pour identifier les ressources d’un groupe de ressources 
 
 1. Récupérez l’ID d’attribution de stratégie en exécutant la commande suivante :
 
-    ```
-    $policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Storage Accounts with Open Public Networks"}
-    ```
+  ```azurepowershell-interactive
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
 
-    ```
-    $policyAssignment.PolicyAssignmentId
-    ```
+  $policyAssignment.PolicyAssignmentId
+  ```
 
-    Pour savoir comment obtenir un ID d’attribution de stratégie, consultez la page [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment?view=azurermps-4.4.1).
+  Pour savoir comment obtenir un ID d’attribution de stratégie, consultez la page [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Exécutez la commande suivante pour que les ID des ressources non conformes soient copiés dans un fichier JSON :
 
-    ```
-    armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-    ```
+  ```
+  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+  ```
 
 3. Les résultats doivent ressembler à ce qui suit :
 
-  ```
-      {
-  "@odata.context":"https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-  "@odata.count": 3,
-  "value": [
+  ```json
   {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-      },
-      {
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-             },
-  {
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-        "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-             }
-  ]
+      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+      "@odata.count": 3,
+      "value": [{
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
+          },
+          {
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
+          },
+          {
+              "@odata.id": null,
+              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
+          }
+      ]
   }
   ```
 
@@ -307,19 +290,16 @@ armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorizatio
 
 Vos résultats doivent ressembler à l’exemple suivant :
 
-```
+```json
 {
-  "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-  "@odata.count": 1,
-  "value": [
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-      "NumAuditEvents": 3
-    }
-  ]
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
+    "@odata.count": 1,
+    "value": [{
+        "@odata.id": null,
+        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
+        "NumAuditEvents": 3
+    }]
 }
-
 ```
 
 Comme pour les états de stratégie, vous pouvez uniquement afficher les événements de stratégie avec des requêtes HTTP. Pour plus d’informations sur l’interrogation des événements de stratégie, consultez l’article de référence intitulé [Événements de stratégie](/rest/api/policy-insights/policyevents).
@@ -328,17 +308,17 @@ Comme pour les états de stratégie, vous pouvez uniquement afficher les événe
 
 Vous pouvez utiliser la cmdlet PowerShell *Set-AzureRmPolicyAssignment* afin de passer au niveau de tarification Standard ou Gratuit pour une attribution de stratégie existante. Par exemple : 
 
-```
-Set-AzureRmPolicyAssignment -Id /subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID> -Sku @{Name='A1';Tier='Standard'}
+```azurepowershell-interactive
+Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
 ```
 
-Pour plus d’informations sur la cmdlet, consultez la page [Set-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment?view=azurermps-4.4.1).
+Pour plus d’informations sur la cmdlet, consultez la page [Set-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les commandes et les requêtes de cet article, consultez les articles suivants.
 
 - [Ressources API REST Azure](/rest/api/resources/)
-- [Modules Azure RM PowerShell](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies)
+- [Modules Azure RM PowerShell](/powershell/module/azurerm.resources/#policies)
 - [Commandes de stratégie Azure CLI](/cli/azure/policy?view=azure-cli-latest)
 - [Informations de référence sur l’API REST du fournisseur de ressources Policy Insights](/rest/api/policy-insights)

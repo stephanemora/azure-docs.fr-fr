@@ -1,19 +1,19 @@
 ---
-title: "Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales avec Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware locales vers Azure avec Azure Site Recovery."
+title: Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware locales vers Azure avec Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -27,10 +27,10 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence sur 
 
 Il s’agit du troisième didacticiel d’une série. Pour suivre ce didacticiel, vous êtes censé avoir effectué les tâches des didacticiels précédents :
 
-* [Préparer Azure](tutorial-prepare-azure.md)
-* [Préparer des machines virtuelles VMware locales](vmware-azure-tutorial-prepare-on-premises.md)
+* [Préparer Azure](tutorial-prepare-azure.md). Ce didacticiel explique comment configurer un compte de stockage Azure et le réseau, vérifier que votre compte Azure dispose des autorisations appropriées et créer un coffre Recovery Services.
+* [Préparer des machines virtuelles VMware locales](vmware-azure-tutorial-prepare-on-premises.md). Dans ce didacticiel, vous préparez des comptes afin que Site Recovery puisse accéder aux serveurs VMware pour découvrir les machines virtuelles et éventuellement effectuer une installation push du composant de service de mobilité Site Recovery lorsque vous activez la réplication pour une machine virtuelle. Vous vous assurez également que vos serveurs VMware et machines virtuelles sont conformes aux exigences de Site Recovery.
 
-Avant de commencer, il est utile [d’examiner l’architecture](vmware-azure-architecture.md) pour les scénarios de récupération d’urgence.
+Avant de commencer, il est utile [d’examiner l’architecture](vmware-azure-architecture.md) pour le scénario de récupération d’urgence.
 
 
 ## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
@@ -43,10 +43,8 @@ Avant de commencer, il est utile [d’examiner l’architecture](vmware-azure-ar
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
 
-> [!TIP]
-> La méthode recommandée pour déployer un serveur de configuration afin de protéger une machine virtuelle VMware consiste à utiliser le modèle de déploiement basé sur OVF tel que le suggère cet article. Si votre organisation a mis en place des restrictions qui vous empêchent de déployer un modèle OVF, vous pouvez utiliser le fichier [UnifiedSetup.exe pour installer un serveur de configuration](physical-manage-configuration-server.md).
 
-Pour configurer l’environnement source, vous avez besoin d’une seule machine locale à haut niveau de disponibilité pour héberger les composants Site Recovery locaux. Ces composants englobent le serveur de configuration, le serveur de processus et le serveur cible maître :
+Pour configurer un environnement source, vous avez besoin d’une seule machine locale à haut niveau de disponibilité pour héberger les composants Site Recovery locaux. Ces composants englobent le serveur de configuration, le serveur de processus et le serveur cible maître :
 
 - Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure, et gère la réplication des données.
 - Le serveur de processus fait office de passerelle de réplication. Il reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure. De plus, le serveur de processus installe le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la détection automatique sur les machines virtuelles VMware locales.
@@ -54,10 +52,14 @@ Pour configurer l’environnement source, vous avez besoin d’une seule machine
 
 Pour configurer le serveur de configuration comme une machine virtuelle VMware hautement disponible, téléchargez un modèle OVF (Open Virtualization Format) préparé et importez-le dans VMware pour créer la machine virtuelle. Après avoir configuré le serveur de configuration, inscrivez-le dans le coffre. Après l’inscription, Site Recovery détecte les machines virtuelles VMware locales.
 
+> [!TIP]
+> Ce didacticiel utilise un modèle OVF pour créer le serveur de configuration de machine virtuelle VMware. Si vous n’y parvenez pas, vous pouvez exécuter le [programme d’installation manuelle](physical-manage-configuration-server.md) pour le faire. 
+
+
 ### <a name="download-the-vm-template"></a>Télécharger le modèle de machine virtuelle
 
 1. Dans le coffre, allez dans **Préparer l’infrastructure** > **Source**.
-2. Dans **Préparer la source**, sélectionnez **+serveur de configuration**.
+2. Dans **Préparer la source**, sélectionnez **+Serveur de configuration**.
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration pour VMware** s’affiche dans **Type de serveur**.
 4. Téléchargez le modèle OVF pour le serveur de configuration.
 
@@ -98,12 +100,12 @@ Le cas échéant, ajoutez une carte d’interface réseau supplémentaire au ser
 2. La machine virtuelle démarre sur une expérience d’installation de Windows Server 2016. Acceptez le contrat de licence et entrez un mot de passe administrateur.
 3. Une fois l’installation terminée, connectez-vous à la machine virtuelle en tant qu’administrateur.
 4. L’outil de configuration d’Azure Site Recovery démarre la première fois que vous vous connectez.
-5. Entrez un nom utilisé pour inscrire le serveur de configuration avec Site Recovery. Sélectionnez ensuite **Suivant**.
+5. Saisissez un nom utilisé pour inscrire le serveur de configuration sur Site Recovery. Sélectionnez ensuite **Suivant**.
 6. L’outil vérifie que la machine virtuelle peut se connecter à Azure. Une fois la connexion établie, sélectionnez **Connecter** pour vous connecter à votre abonnement Azure. Les informations d’identification doivent avoir accès au coffre dans lequel vous souhaitez inscrire le serveur de configuration.
 7. L’outil effectue des tâches de configuration, puis redémarre.
 8. Reconnectez-vous à la machine. L’Assistant Gestion de serveur de configuration démarre automatiquement.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>Configurer les paramètres et se connecter à VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>Configurer les paramètres et ajouter le serveur VMware
 
 1. Dans l’Assistant Gestion de serveur de configuration, sélectionnez **Configurer la connectivité**, puis la carte d’interface réseau qui recevra le trafic de réplication. Ensuite, sélectionnez **Enregistrer**. Vous ne pouvez pas modifier ce paramètre une fois qu’il a été configuré.
 2. Dans **Sélectionner le coffre Recovery Services**, sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre appropriés.

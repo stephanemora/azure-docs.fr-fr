@@ -1,6 +1,6 @@
 ---
-title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Protection du système et des communications"
-description: "Automatisation d’applications web FedRAMP - Protection du système et des communications"
+title: Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Protection du système et des communications
+description: Automatisation d’applications web FedRAMP - Protection du système et des communications
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Protection du système et des communications (SC)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de protection du système et des communications qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de protection du système et des communications et des contrôles de protection du système et des communications associés ; et révise et met à jour la stratégie actuelle de protection du système et des communications [Affectation : fréquence définie par l’organisation] ; et les procédures de protection du système et des communications [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-3** Le système informatique isole les fonctions de sécurité des fonctions non liées à la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie une et un équilibreur de charge, et configure des règles de groupe de sécurité réseau pour contrôler les commutations aux limites externes et entre les sous-réseaux internes. OMS Log Analytics collecte les journaux de diagnostic et des événements pour la passerelle Application Gateway, l’équilibreur de charge et le groupe de sécurité réseau, pour permettre le monitoring par le client. |
+| **Client** | Cette solution Blueprint déploie une et un équilibreur de charge, et configure des règles de groupe de sécurité réseau pour contrôler les commutations aux limites externes et entre les sous-réseaux internes. Log Analytics collecte les journaux de diagnostic et des événements pour la passerelle Application Gateway, l’équilibreur de charge et le groupe de sécurité réseau, pour permettre la surveillance par le client. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7.b** Le système informatique implémente des sous-réseaux pour les composants système accessibles publiquement qui sont [Sélection : physiquement ; logiquement] séparés des réseaux internes à l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (3)** L’organisation limite le nombre de connexions réseau externes au système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4).a** L’organisation implémente une interface de gestion pour chaque service de télécommunication externe.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4).c** L’organisation protège la confidentialité et l’intégrité des informations transmises via chaque interface.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4).d** L’organisation documente chaque exception à la stratégie de flux du trafic à l’aide d’une requête de mission/métier connexe et la durée de cette requête.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4).e** L’organisation passe en revue les exceptions à la stratégie de flux du trafic [Affectation : fréquence définie par l’organisation] et supprime les exceptions qui ne sont plus liées à une requête de mission/métier explicite.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (10)** L’organisation empêche l’exfiltration non autorisée d’informations via les interfaces gérées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (13)** L’organisation isole [Affectation : outils de sécurité, mécanismes et composants de support définis par l’organisation] des autres composants du système informatique interne en implémentant des sous-réseaux avec des interfaces gérées séparés physiquement des autres composants du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (18)** Le système informatique échoue en toute sécurité en cas d’échec opérationnel d’un appareil de protection de la limite.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (21)** L’organisation utilise des mécanismes de protection pour séparer [Affectation : composants du système informatique définis par l’organisation] prenant en charge [Affectation : missions et/ou fonctions métier définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-8 (1)** Le système informatique met en œuvre des mécanismes de chiffrement pour [Sélection (un ou plusieurs choix) : empêcher la divulgation non autorisée d’informations ; détecter les modifications apportées aux informations] durant la transmission sauf en cas de protection autre à l’aide de [Affectation : dispositifs de sécurité physiques différents définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12** L’organisation établit et gère des clés de chiffrement pour le chiffrement requis utilisé dans le système informatique conformément aux [Affectation : exigences définies par l’organisation pour la création, la distribution, le stockage, l’accès et la destruction des clés].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (1)** L’organisation fait en sorte que les informations restent disponibles en cas de perte par les utilisateurs des clés de chiffrement.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (2)** L’organisation produit, contrôle et distribue des clés de chiffrement symétriques à l’aide de processus et d’une technologie de gestion des clés [Sélection : conformes à NIST FIPS ; approuvés par NSA].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (3)** L’organisation produit, contrôle et distribue des clés de chiffrement asymétriques à l’aide de [Sélection : processus et technologie de gestion des clés approuvés par NSA ; matériel de saisie prépositionné ou certificats de Classe 3 PKI approuvés ; jetons de sécurité du matériel et certificats de Classe 3 ou de Classe 4 PKI approuvés pour protéger la clé privée de l’utilisateur].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-15.a** Le système informatique interdit l’activation à distance d’appareils informatiques collaboratifs avec les exceptions suivantes : [Affectation : exceptions définies par l’organisation où l’activation à distance est autorisée].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-17** L’organisation émet des certificats de clé publique dans le cadre d’une [Affectation : stratégie de certificat définie par l’organisation] ou obtient des certificats de clé publique auprès d’un fournisseur de servies agréé.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-18.a** L’organisation définit un code mobile et des technologies de code mobile acceptables et inacceptables.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -581,7 +581,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| Client | Cette solution Blueprint n’entraîne aucun déploiement de technologie de protocole VoIP. |
+| **Client** | Cette solution Blueprint n’entraîne aucun déploiement de technologie de protocole VoIP. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-21** Le système informatique demande et effectue l’authentification de l’origine des données et la vérification de l’intégrité des données sur les réponses de résolution de nom/d’adresse que le système reçoit de sources faisant autorité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-22** Les systèmes informatiques qui fournissent collectivement un service de résolution de nom/d’adresse pour une organisation sont tolérants aux pannes et mettent en œuvre une séparation de rôle interne/externe.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -661,11 +661,11 @@ ms.lasthandoff: 02/11/2018
 
 **SC-23 (1)** Le système informatique invalide les identificateurs de session lors de la déconnexion de l’utilisateur ou autre mode de fin de session.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| Client | L’accès à distance aux ressources déployées par cette solution Blueprint, y compris le portail Azure, la connexion Bureau à distance et la passerelle d’application web, est sécurisé par TLS. Le portail Azure et les sessions Bureau à distance invalident les identificateurs de session lors de la déconnexion. L’invalidation de session web est appliquée via les règles Azure Application Gateway - Pare-feu d’applications web (WAF). Le pare-feu d’applications web (WAF) applique l’affinité de cookie par session et exécute une expiration de la session après 30 minutes (configurable après le déploiement sur des règles spécifiques à l’organisation) d’inactivité du client. |
+| **Client** | L’accès à distance aux ressources déployées par cette solution Blueprint, y compris le portail Azure, la connexion Bureau à distance et la passerelle d’application web, est sécurisé par TLS. Le portail Azure et les sessions Bureau à distance invalident les identificateurs de session lors de la déconnexion. L’invalidation de session web est appliquée via les règles Azure Application Gateway - Pare-feu d’applications web (WAF). Le pare-feu d’applications web (WAF) applique l’affinité de cookie par session et exécute une expiration de la session après 30 minutes (configurable après le déploiement sur des règles spécifiques à l’organisation) d’inactivité du client. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-24** Le système informatique échoue en un [Affectation : état connu défini par l’organisation] pour [Affectation : types d’échec définis par l’organisation] préservant [Affectation : informations sur l’état du système définies par l’organisation] en cas d’échec.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-28** Le système informatique protège [Sélection (un ou plusieurs choix) : la confidentialité ; l’intégrité] des [Affectation : informations au repos définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-28 (1)** Le système informatique met en œuvre des mécanismes de chiffrement pour empêcher la divulgation et la modification non autorisées des [Affectation : informations définies par l’organisation] sur [Affectation : composants du système informatique définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

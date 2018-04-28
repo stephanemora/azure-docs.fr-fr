@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
 
+
 Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
 
 Voici la liste des rubriques connexes :
-
-
 
 Rubrique |  Détails
 --------- | --------- |
@@ -35,6 +34,21 @@ Rubrique |  Détails
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117510"></a>1.1.751.0
+État 4/12/2018 : publié pour le téléchargement uniquement
+
+>[!NOTE]
+>Il s’agit d’un correctif logiciel pour Azure AD Connect
+
+### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
+#### <a name="fixed-issues"></a>Problèmes résolus
+Correction d’un problème où la découverte d’instance Azure automatique pour les locataires en Chine échouait occasionnellement.  
+
+### <a name="ad-fs-management"></a>Gestion AD FS
+#### <a name="fixed-issues"></a>Problèmes résolus
+
+Il existait un problème dans la logique de nouvelle tentative de configuration qui entraînait la déclaration « un élément avec la même clé a déjà été ajouté » par ArgumentException.  Pour cette raison, toutes les opérations de nouvelle tentative échouaient.
 
 ## <a name="117500"></a>1.1.750.0
 État 22/3/2018 : publié pour la mise à niveau automatique et le téléchargement.
@@ -99,8 +113,7 @@ Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?
 Les modifications prendront en charge les éléments suivants :
 1. Installations rapides
 2. Installations personnalisées avec création automatique de compte
-
-* Modification du programme d’installation afin qu’il ne nécessite plus de privilège d’administrateur système pour une nouvelle installation d’Azure AD Connect.
+3. Modification du programme d’installation afin qu’il ne nécessite plus de privilège d’administrateur système pour une nouvelle installation d’Azure AD Connect.
 
 * Ajout d’un nouvel utilitaire destiné à résoudre les problèmes de synchronisation pour un objet spécifique. Cet utilitaire est accessible sous l’option « Troubleshoot Object Synchronization » (Résoudre les problèmes de synchronisation d’objets) de la tâche supplémentaire de résolution des problèmes disponible dans l’Assistant Azure AD Connect. Actuellement, cet utilitaire procède aux vérifications suivantes :
 

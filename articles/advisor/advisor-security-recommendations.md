@@ -1,12 +1,12 @@
 ---
-title: "Recommandations de sécurité du conseiller Azure | Microsoft Docs"
-description: "Utilisez le conseiller Azure pour améliorer la sécurité de vos déploiements Azure."
+title: Recommandations de sécurité du conseiller Azure | Microsoft Docs
+description: Utilisez le conseiller Azure pour améliorer la sécurité de vos déploiements Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: ea6fc67a0f5bdfe09435a00c4d2651f312695d25
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: e8a2350744e7b967cc19d0e73686f32edf980eac
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-security-recommendations"></a>Recommandations de sécurité du conseiller
 
@@ -26,7 +26,7 @@ Azure Advisor vous offre une vue cohérente et consolidée des recommandations p
 
 Le Centre de sécurité vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Lorsqu’il identifie des failles de sécurité potentielles, il crée des recommandations. Ces recommandations vous guident tout au long du processus de configuration des contrôles nécessaires. 
 
-Pour plus d’informations sur les recommandations de sécurité, consultez [Gestion des recommandations de sécurité dans Azure Security Center](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/).
+Pour plus d’informations sur les recommandations de sécurité, consultez [Gestion des recommandations de sécurité dans Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Accès aux recommandations de sécurité dans Azure Advisor
 
@@ -37,8 +37,8 @@ Pour plus d’informations sur les recommandations de sécurité, consultez [Ges
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
-* [Présentation d’Azure](advisor-overview.md)
-* [Prise en main du conseiller](advisor-get-started.md)
+* [Présentation du conseiller](advisor-overview.md)
+* [Prise en main d’Advisor](advisor-get-started.md)
 * [Recommandations du conseiller en matière de coûts](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)

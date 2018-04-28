@@ -1,6 +1,6 @@
 ---
-title: "Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment exécuter un test de récupération d’urgence pour les machines virtuelles Hyper-V de clouds VMM sur un centre de données secondaire à l’aide d’Azure Site Recovery."
+title: Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Découvrez comment exécuter un test de récupération d’urgence pour les machines virtuelles Hyper-V de clouds VMM sur un centre de données secondaire à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: ponatara
 manager: abhemraj
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire
 
@@ -52,10 +52,17 @@ Lorsque vous exécutez un test de basculement, vous êtes invité à sélectionn
 ### <a name="best-practices"></a>Meilleures pratiques
 
 - Tester un réseau de production entraîne une interruption des charges de travail de production. Demandez aux utilisateurs de ne pas utiliser d’applications associées lorsque la simulation de récupération d’urgence est en cours.
-- Il n’est pas nécessaire que le réseau de test corresponde au type de réseau logique VMM utilisé pour le test de basculement. Par contre, certaines combinaisons ne fonctionnent pas : si le réplica utilise l’isolation basée sur le VLAN ou sur DHCP, le réseau de machines virtuelles associé au réplica n’a pas besoin d’un pool d’adresses IP statiques. Ainsi, l’utilisation de la fonction de virtualisation de réseau Windows pour un test de basculement ne peut pas aboutir, car aucun pool d’adresses n’est disponible. 
-        - Le test de basculement ne fonctionne pas si le réseau de réplication n’est associé à aucune isolation, et si le réseau de test utilise la fonction de virtualisation de réseau Windows. En effet, un réseau ne présentant aucune isolation n’inclut aucun sous-réseau requis pour créer un réseau utilisant la fonction de virtualisation de réseau Windows.
+
+- Il n’est pas nécessaire que le réseau de test corresponde au type de réseau logique VMM utilisé pour le test de basculement. Toutefois, certaines combinaisons ne fonctionnent pas :
+
+     - Si le réplica utilise l’isolement basé sur VLAN ou DHCP, le réseau de machines virtuelles associé au réplica n’a pas besoin d’un pool d’adresses IP statiques. Ainsi, l’utilisation de la fonction de virtualisation de réseau Windows pour un test de basculement ne peut pas aboutir, car aucun pool d’adresses n’est disponible. 
+        
+     - Le test de basculement ne fonctionne pas si le réseau de réplication n’est associé à aucune isolation, et si le réseau de test utilise la fonction de virtualisation de réseau Windows. En effet, un réseau ne présentant aucune isolation n’inclut aucun sous-réseau requis pour créer un réseau utilisant la fonction de virtualisation de réseau Windows.
+        
 - Nous vous recommandons de ne pas utiliser pour test de basculement le réseau que vous avez sélectionné pour le mappage réseau.
+
 - Le mode de connexion des ordinateurs virtuels de réplication aux réseaux de machines virtuelles mappés après le basculement dépend de la configuration choisie pour le réseau de machines virtuelles dans la console VMM.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>Réseau de machines virtuelles configuré sans isolation ou avec isolation du VLAN
 

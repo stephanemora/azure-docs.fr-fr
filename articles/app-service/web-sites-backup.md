@@ -1,8 +1,8 @@
 ---
 title: Sauvegarde de votre application dans Azure
-description: "Apprenez à créer des sauvegardes de vos applications Web dans Azure App Service."
+description: Apprenez à créer des sauvegardes de vos applications Web dans Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](app-service-web-overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
@@ -35,9 +35,9 @@ App Service peut sauvegarder les informations suivantes dans un compte de stocka
 * la base de données connectée à votre application.
 
 Les solutions de base de données suivantes sont prises en charge par la fonctionnalité de sauvegarde : 
-   - [Base de données SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Azure Database pour MySQL (Version préliminaire)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Azure Database pour PostgreSQL (Version préliminaire)](https://azure.microsoft.com/en-us/services/postgres)
+   - [Base de données SQL](https://azure.microsoft.com/services/sql-database/)
+   - [Azure Database pour MySQL (Version préliminaire)](https://azure.microsoft.com/services/mysql)
+   - [Azure Database pour PostgreSQL (Version préliminaire)](https://azure.microsoft.com/services/postgres)
    - [MySQL dans l’application](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

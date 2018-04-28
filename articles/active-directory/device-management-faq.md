@@ -2,7 +2,7 @@
 title: FAQ sur la gestion des appareils Azure Active Directory | Documents Microsoft
 description: FAQ sur la gestion des appareils Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ef5b84820cfcaf86f526ddd0565463e12b96331
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -41,47 +41,44 @@ ms.lasthandoff: 01/16/2018
 
 **Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ?**
 
-**R :** Les appareils Windows 10 qui sont joints à un domaine avec l’inscription d’appareils automatique ne s’affichent pas sous les informations UTILISATEUR.
+**R :** Les appareils Windows 10 qui sont joints à Azure AD hybride ne s’affichent pas en tant qu’appareils UTILISATEUR.
 Vous devez utiliser PowerShell pour afficher tous les appareils. 
 
-Seuls les appareils suivants sont répertoriés sous les informations UTILISATEUR :
+Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATEUR :
 
-- Tous les appareils personnels qui ne sont pas joints à une entreprise 
-- Tous les appareils non Windows 10 / Windows Server 2016 
+- Tous les appareils personnels qui ne sont pas joints à Azure AD hybride. 
+- Tous les appareils non Windows 10 / Windows Server 2016.
 - Tous les appareils non Windows 
 
 ---
 
 **Q : Pourquoi ne puis-je pas voir tous les appareils inscrits auprès d’Azure Active Directory dans le portail Azure ?** 
 
-**R :** Actuellement, il n’existe aucun moyen d’afficher tous les appareils inscrits dans le portail Azure. Vous pouvez utiliser Azure PowerShell pour rechercher tous les appareils. Pour plus d’informations, consultez l’applet de commande [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
+**R :** Vous pouvez maintenant les voir dans le menu Azure AD Directory -> tous les appareils. Vous pouvez aussi utiliser Azure PowerShell pour rechercher tous les appareils. Pour plus d’informations, consultez l’applet de commande [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 --- 
 
 **Q : Comment puis-je connaître l’état de l’inscription d’appareils du client ?**
 
-**R :** L’état de l’inscription d’appareils dépend des facteurs suivants :
+**R :** Pour les appareils Windows 10 et Windows Server 2016 ou versions ultérieures, exécutez dsregcmd.exe /status.
 
-- du type d’appareil concerné ;
-- de la manière dont il a été inscrit ; 
-- de tous les détails qui lui sont associés. 
- 
+Pour les versions de système d’exploitation de niveau inférieur, exécutez « %programFiles%\Microsoft Workplace Join\autoworkplace.exe »
 
 ---
 
 **Q : Pourquoi un appareil que j’ai supprimé dans le portail Azure ou à l’aide de Windows PowerShell est-il toujours répertorié comme inscrit ?**
 
-**R :** Il s’agit du comportement par défaut. L’appareil n’aura pas accès aux ressources dans le cloud. Si vous souhaitez supprimer l’appareil et l’inscrire à nouveau, vous devez effectuer une action manuelle sur celui-ci. 
+**R :** Il s’agit du comportement par défaut. L’appareil n’aura pas accès aux ressources dans le cloud. Si vous souhaitez inscrire à nouveau l’appareil, vous devez effectuer une action manuelle sur celui-ci. 
 
-Pour Windows 10 et Windows Server 2016 sur site AD et joints à un domaine :
+Pour effacer l’état de jointure des appareils Windows 10 et Windows Server 2016 sur site et joints à un domaine AD :
 
 1.  Ouvrez une invite de commandes en tant qu’administrateur.
 
 2.  Saisissez `dsregcmd.exe /debug /leave`
 
-3.  Déconnectez puis reconnectez-vous pour déclencher la tâche planifiée qui inscrit à nouveau l’appareil. 
+3.  Déconnectez-vous, puis reconnectez-vous pour déclencher la tâche planifiée qui inscrit à nouveau l’appareil auprès d’Azure AD. 
 
-Pour les autres plateformes Windows sur site AD et jointes à un domaine :
+Pour les versions de système d’exploitation Windows de niveau inférieur des appareils sur site et joints à un domaine AD :
 
 1.  Ouvrez une invite de commandes en tant qu’administrateur.
 2.  Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
@@ -97,9 +94,9 @@ Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 
 -   Si vous avez utilisé « Ajouter un compte professionnel ou scolaire », chaque utilisateur Windows qui utilise « Ajouter un compte professionnel ou scolaire » créera un nouvel enregistrement d’appareil avec le même nom d’appareil.
 
--   Les autres plateformes Windows sur site AD jointes à un domaine à l’aide de l’inscription automatique créeront un nouvel enregistrement d’appareil avec le même nom d’appareil pour chaque utilisateur du domaine qui se connecte à l’appareil. 
+-   Pour les versions de système d’exploitation Windows de niveau inférieur des appareils sur site et joints à un domaine AD, l’inscription automatique permettra de créer un nouvel enregistrement d’appareil avec le même nom d’appareil pour chaque utilisateur du domaine qui se connecte à l’appareil. 
 
--   Une machine AADJ qui a été réinitialisée, réinstallée et jointe à nouveau avec le même nom s’affichera en tant que nouvel enregistrement avec le même nom d’appareil.
+-   Une machine jointe Azure AD qui a été réinitialisée, réinstallée et jointe à nouveau avec le même nom s’affichera en tant que nouvel enregistrement avec le même nom d’appareil.
 
 ---
 
@@ -108,21 +105,21 @@ Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 **R :** Une opération de révocation peut prendre jusqu’à une heure pour être entièrement appliquée.
 
 >[!Note] 
->Pour les appareils perdus, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas y accéder. Pour plus d’informations, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Pour les appareils inscrits, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas accéder aux ressources. Pour plus d’informations, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **Q : Pourquoi mes utilisateurs voient-ils s’afficher « Vous ne pouvez pas accéder à cet emplacement à partir d’ici » ?**
 
-**R :** Si vous avez configuré certaines règles d’accès conditionnel pour exiger un état d’appareil spécifique et que l’appareil ne respecte pas les critères, les utilisateurs sont bloqués et ce message s’affiche. Veuillez évaluer les règles et vous assurer que l’appareil est en mesure de respecter les critères pour éviter l’affichage de ce message.
+**R :** Si vous avez configuré certaines règles d’accès conditionnel pour exiger un état d’appareil spécifique et que l’appareil ne respecte pas les critères, les utilisateurs sont bloqués et ce message s’affiche. Veuillez évaluer les règles de la stratégie d’accès conditionnel et vous assurer que l’appareil est en mesure de respecter les critères pour éviter l’affichage de ce message.
 
 ---
 
 
 **Q : Je vois l’enregistrement d’appareil sous les informations UTILISATEUR dans le portail Azure, ainsi que l’état en tant qu’inscrit sur le client. Ma configuration est-elle correcte pour l’utilisation de l’accès conditionnel ?**
 
-**R :** L’enregistrement d’appareil (deviceID) et l’état sur le portail Azure doivent correspondre au client et respecter les critères d’évaluation de l’accès conditionnel. Pour plus d’informations, consultez [Bien démarrer avec le service Azure Active Directory Device Registration](active-directory-device-registration.md).
+**R :** L’état de jointure de l’appareil, reflété par l’ID d’appareil, doit correspondre à celui d’Azure AD et répondre à tous les critères d’évaluation pour l’accès conditionnel. Pour plus d’informations, consultez [Bien démarrer avec le service Azure Active Directory Device Registration](active-directory-device-registration.md).
 
 ---
 
@@ -140,9 +137,9 @@ Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 
 ---
 
-**Q : Pourquoi la boîte de dialogue « Désolé... une erreur s’est produite ! » s’affiche-t-elle lorsque j’essaye d’inscrire mon ordinateur ?**
+**Q : Pourquoi la boîte de dialogue « Désolé... une erreur s’est produite ! » s’affiche-t-elle lorsque j’essaye de joindre mon ordinateur à Azure AD ?**
 
-**R :** Cela résulte de la configuration de l’inscription Azure Active Directory avec Intune. Pour plus d’informations, consultez [Configurer la gestion des appareils Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R :** Cela résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer la gestion des appareils Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 

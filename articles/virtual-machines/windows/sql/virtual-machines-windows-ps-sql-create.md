@@ -1,11 +1,11 @@
 ---
 title: Guide de provisionnement des machines virtuelles SQL Server avec Azure PowerShell | Microsoft Docs
-description: "Fournit une procédure et des commandes PowerShell permettant de créer une machine virtuelle Azure à l’aide des images de la galerie de machines virtuelles SQL Server."
+description: Fournit une procédure et des commandes PowerShell permettant de créer une machine virtuelle Azure à l’aide des images de la galerie de machines virtuelles SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Guide pratique pour provisionner des machines virtuelles SQL Server avec Azure PowerShell
 
@@ -31,10 +31,10 @@ Cet article nécessite le module Azure PowerShell version 3.6 ou ultérieure. E
 
 ## <a name="configure-your-subscription"></a>Configurer votre abonnement
 
-1. Ouvrez PowerShell et accédez à votre compte Azure en exécutant la commande **Add-AzureRmAccount**.
+1. Ouvrez PowerShell et accédez à votre compte Azure en exécutant la commande **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Un écran de connexion vous invitant à entrer vos informations d’identification devrait s’afficher. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
@@ -327,7 +327,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 Vous pouvez aussi supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzureRmResourceGroup**. Cette commande supprime la machine virtuelle de façon définitive, donc utilisez-la avec précaution.
 
 ## <a name="example-script"></a>Exemple de script
-Le script suivant contient le script PowerShell complet pour ce didacticiel. Nous considérons que vous avez déjà configuré l’abonnement Azure à utiliser avec les commandes **Add-AzureRmAccount** et **Select-AzureRmSubscription**.
+Le script suivant contient le script PowerShell complet pour ce didacticiel. Nous supposons que vous avez déjà configuré l’abonnement Azure à utiliser avec les commandes **Connect-AzureRmAccount** et **Select-AzureRmSubscription**.
 
 ```PowerShell
 # Variables

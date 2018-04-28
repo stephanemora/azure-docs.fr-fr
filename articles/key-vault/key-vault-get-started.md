@@ -1,8 +1,8 @@
 ---
-title: "Prise en main d’Azure Key Vault | Microsoft Docs"
-description: "Ce didacticiel va vous aider à démarrer avec Azure Key Vault pour créer un conteneur renforcé dans Azure afin de stocker et gérer des clés de chiffrement et les secrets dans Azure."
+title: Prise en main d’Azure Key Vault | Microsoft Docs
+description: Ce didacticiel va vous aider à démarrer avec Azure Key Vault pour créer un conteneur renforcé dans Azure afin de stocker et gérer des clés de chiffrement et les secrets dans Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Prise en main du coffre de clés Azure
 Cet article vous aide à prendre en main Azure Key Vault avec PowerShell et vous explique en détail :
@@ -49,10 +49,10 @@ Pour accéder à l'aide détaillée de toute applet de commande présentée dans
 Get-Help <cmdlet-name> -Detailed
 ```
     
-Par exemple, pour obtenir de l’aide pour l’applet de commande **Login-AzureRmAccount** , tapez :
+Par exemple, pour obtenir de l’aide sur la cmdlet **Connect-AzureRmAccount**, tapez :
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 Vous pouvez également consulter les articles suivants afin de vous familiariser avec le modèle de déploiement Azure Resource Manager dans Azure PowerShell :
@@ -64,13 +64,13 @@ Vous pouvez également consulter les articles suivants afin de vous familiariser
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
- Si vous utilisez une instance spécifique d’Azure, utilisez le paramètre -Environment. Par exemple : 
+ Si vous utilisez une instance spécifique d’Azure, utilisez le paramètre -Environment. Par exemple :  
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Azure PowerShell obtient alors tous les abonnements associés à ce compte et utilise par défaut le premier.
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 La sortie de cette applet de commande affiche les propriétés du coffre de clés que vous avez créé. Les deux propriétés les plus importantes sont :
 
 * **Nom du coffre** : dans l’exemple, il s’agit de **ContosoKeyVault**. Vous allez utiliser ce nom pour les autres applets de commande Key Vault.
-* **URI du coffre** : dans l’exemple, il s’agit de https://contosokeyvault.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+* **URI du coffre** : dans l’exemple, il s’agit de https://contosokeyvault.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce coffre de clés.
 
@@ -138,11 +138,11 @@ Pour afficher l’URI de cette clé, tapez :
 $key.id
 ```
 
-Vous pouvez utiliser l’URI d’une clé que vous avez créée ou chargée dans Azure Key Vault pour la référencer. Vous pouvez utiliser **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour obtenir la version actuelle et **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.  
+Vous pouvez utiliser l’URI d’une clé que vous avez créée ou chargée dans Azure Key Vault pour la référencer. Pour obtenir la version actuelle, vous pouvez utiliser **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** et utiliser **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importation d’un fichier PFX existant dans Azure Key Vault
 
-Si vous souhaitez charger un fichier PFX qui contient des clés existantes dans Azure Key Vault, la procédure à suivre est différente. Par exemple :
+Si vous souhaitez charger un fichier PFX qui contient des clés existantes dans Azure Key Vault, la procédure à suivre est différente. Par exemple : 
 - Vous disposez d’une clé protégée par un logiciel dans un fichier PFX.
 - Le fichier PFC est nommé softkey.pfx. 
 - Le fichier est stocké sur le lecteur C.
@@ -187,7 +187,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```
 
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle, et **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle, et utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
 
 Pour afficher l’URI de ce secret, tapez :
 
@@ -216,17 +216,17 @@ Les applications qui utilisent un coffre de clés doivent s’authentifier à l�
 - Un **ID d’application**. 
 - Une **clé d’authentification** (également appelée secret partagé). 
 
-L’application doit présenter ces deux valeurs à Azure Active Directory afin d’obtenir un jeton. La manière dont l’application est configurée pour cela dépend de l’application en question. Pour l’[exemple d’application Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), le propriétaire de l’application définit ces valeurs dans le fichier app.config.
+L’application doit présenter ces deux valeurs à Azure Active Directory afin d’obtenir un jeton. La manière dont l’application est configurée pour cela dépend de l’application en question. Pour [l’exemple d’application Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), le propriétaire de l’application définit ces valeurs dans le fichier app.config.
 
 
 Pour inscrire votre application auprès d’Azure Active Directory :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. À gauche de l’écran, cliquez sur **Inscriptions d’applications**. Si vous ne trouvez pas l’option Inscriptions d’applications, cliquez sur **Autres services** pour l’afficher.  
 >[!NOTE]
 Vous devez sélectionner le répertoire qui contient l’abonnement Azure avec lequel vous avez créé votre coffre de clés. 
 3. Cliquez sur **Nouvelle inscription d’application**.
-4. Dans le panneau **Créez**, renseignez un nom pour votre application, sélectionnez **APPLICATION WEB ET/OU API WEB** (option par défaut), puis spécifiez l’**URL DE CONNEXION** de votre application web. Si vous ne disposez pas de cette information, vous pouvez utiliser une URL factice pour cette étape (par exemple, vous pouvez spécifier http://test1.contoso.com). Peu importe si ces sites existent. 
+4. Dans le panneau **Créez**, renseignez un nom pour votre application, sélectionnez **APPLICATION WEB ET/OU API WEB** (option par défaut), puis spécifiez **l’URL DE CONNEXION** de votre application web. Si vous ne disposez pas de cette information, vous pouvez utiliser une URL factice pour cette étape (par exemple, vous pouvez spécifier http://test1.contoso.com). Peu importe si ces sites existent. 
 
     ![Nouvelle inscription d’application](./media/key-vault-get-started/new-application-registration.png)
     >[!WARNING]
@@ -234,14 +234,17 @@ Vous devez sélectionner le répertoire qui contient l’abonnement Azure avec l
 
 5. Cliquez sur le bouton **Créer** .
 6. Une fois l’inscription de l’application terminée, la liste des applications inscrites s’affiche. Recherchez l’application que vous venez d’inscrire et cliquez dessus.
-7. Cliquez sur le panneau **Application inscrite** et copiez l’**ID de l’application**
+7. Cliquez sur le panneau **Application inscrite** et copiez **l’ID de l’application**
 8. Cliquez sur **Tous les paramètres**.
 9. Dans le panneau **Paramètres**, cliquez sur **Clés**.
 9. Saisissez une description dans la zone **Description de la clé**, sélectionnez une durée, puis cliquez sur **Enregistrer**. La page est actualisée et affiche à présent une valeur de clé. 
 10. Vous utiliserez les informations **ID de l’application** et **Clé** à l’étape suivante pour définir les autorisations de votre coffre.
 
 ## <a id="authorize"></a>Autorisation de l’application à utiliser la clé ou le secret
-Pour autoriser l’application à accéder à la clé ou au secret dans le coffre, utilisez l’applet de commande [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+Deux méthodes permettent d’autoriser l’application à accéder à la clé ou au secret dans le coffre.
+
+### <a name="using-powershell"></a>Utiliser PowerShell
+Pour utiliser PowerShell, utilisez la cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Par exemple, si le nom de votre coffre est **ContosoKeyVault** , que l'application que vous souhaitez autoriser a l'ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed et que vous souhaitez autoriser l'application à déchiffrer et à signer avec des clés dans le coffre, exécutez la commande suivante :
 
@@ -254,6 +257,13 @@ Si vous souhaitez autoriser cette même application à lire les éléments secre
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+Pour modifier l’autorisation d’une application à utiliser des clés ou des secrets :
+1. Sélectionnez **Stratégies d’accès** dans le panneau de ressource du coffre de clés
+2. Cliquez sur le bouton [+ Ajouter nouveau] en haut du panneau
+3. Cliquez sur **Sélectionner le principal** pour sélectionner l’application que vous avez créée précédemment
+4. Dans la liste déroulante **Autorisations de clé**, sélectionnez « Déchiffrer » et « Signer » pour autoriser l’application à déchiffrer et à se connecter avec des clés dans votre coffre
+5. Dans la liste déroulante **Autorisations du secret**, sélectionnez « Get » pour autoriser l’application à lire les secrets dans le coffre
 
 ## <a id="HSM"></a>Utilisation d’un module de sécurité matériel (HSM)
 Pour une meilleure garantie, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Les modules HSM bénéficient d’une validation FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete).

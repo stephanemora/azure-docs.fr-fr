@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory]()
@@ -83,14 +83,12 @@ Quand vous confirmez la propriété du nom de domaine, Azure AD supprime le nom 
 - Utilisateurs
 - Abonnements
 - Affectations de licences
- 
-L’option [ **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour la prise de contrôle par administrateur externe de nom de domaine est prise en charge pour deux services seulement, Power BI et Azure RMS.
 
 ### <a name="support-for-external-admin-takeover"></a>Prise en charge de la prise de contrôle par administrateur externe
 La prise de contrôle par administrateur externe est prise en charge par les services en ligne suivants :
 
 - Power BI
-- Azure Rights Management Service (RMS)
+- Azure Rights Management
 - Exchange Online
 
 Les plans de service pris en charge sont les suivants :
@@ -99,12 +97,19 @@ Les plans de service pris en charge sont les suivants :
 - Power BI Pro
 - PowerApps Gratuit
 - PowerFlow Gratuit
-- Azure Rights Management Service De base (RMS)
-- Azure Rights Management Service Entreprise (RMS)
+- RMS pour les particuliers
 - Microsoft Stream
 - Version d’évaluation gratuite de Dynamics 365
 
-La prise de contrôle par administrateur externe n’est prise en charge par aucun service dont les plans de service incluent SharePoint, OneDrive ou Skype Entreprise, par exemple, via un abonnement gratuit Office ou la référence (SKU) de base Office.
+La prise de contrôle par administrateur externe n’est prise en charge par aucun service dont les plans de service incluent SharePoint, OneDrive ou Skype Entreprise, par exemple, via un abonnement gratuit Office ou la référence (SKU) de base Office. Sinon, vous pouvez recourir à l’option [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine du client non géré et le vérifier sur le client souhaité. L’option ForceTakeover ne déplace pas les utilisateurs ; elle ne conserve pas non plus l’accès à l’abonnement. Au lieu de cela, cette option déplace simplement le nom de domaine. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>En savoir plus sur RMS pour les particuliers
+
+Pour [RMS pour les particuliers](/information-protection/understand-explore/rms-for-individuals), où le client non géré se trouve dans la même région que le client que vous détenez, la [clé de locataire Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) et les [modèles de protection par défaut](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) sont également déplacés avec le nom de domaine. 
+
+La clé et les modèles ne sont pas déplacés lorsque le client non géré se trouve dans une région différente. Par exemple, le client non géré est en Europe et le client que vous détenez se trouve en Amérique du Nord. 
+
+Bien que RMS pour les particuliers soit conçu pour prendre en charge l’authentification Azure AD sur le contenu protégé ouvert, cette solution n’empêche pas les utilisateurs de protéger également le contenu. Si les utilisateurs protègent le contenu avec l’abonnement RMS pour les particuliers et que la clé et les modèles n’ont pas été déplacés, le contenu ne sera plus accessible une fois le domaine pris en charge.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Applets de commande Azure AD PowerShell pour l’option ForceTakeover
 Vous pouvez voir ces applets de commande utilisées dans un [exemple PowerShell](#powershell-example).

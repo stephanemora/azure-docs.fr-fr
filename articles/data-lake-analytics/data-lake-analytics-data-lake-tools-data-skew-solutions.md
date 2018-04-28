@@ -1,12 +1,12 @@
 ---
-title: "Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio | Microsoft Docs"
-description: "Solutions de dépannage potentielles pour les problèmes d'asymétrie des données à l’aide d’Azure Data Lake Tools pour Visual Studio."
+title: Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio | Microsoft Docs
+description: Solutions de dépannage potentielles pour les problèmes d'asymétrie des données à l’aide d’Azure Data Lake Tools pour Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1d33b5d2392832899fd30636e9d40231fc74ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio
 
@@ -49,13 +49,13 @@ Au lieu d’utiliser uniquement _l'état_ comme clé de partition, vous pouvez u
 
 ### <a name="option-4-use-round-robin-distribution"></a>Option 4 : Utiliser la distribution par tourniquet (round robin)
 
-Si vous ne trouvez pas de clé appropriée pour la partition et la distribution, vous pouvez essayer d’utiliser la distribution par tourniquet (round robin). La distribution par tourniquet (round robin) traite toutes les lignes de manière égale et les place au hasard dans des compartiments correspondants. Les données sont distribuées de façon égale, mais perdent les informations relatives à la localité, ce qui peut aussi réduire les performances de travail pour certaines opérations. De plus, si vous effectuez malgré tout une agrégation pour la clé décalée, le problème d'asymétrie des données persistera. Pour en savoir plus sur la distribution par tourniquet (round robin), consultez la section Distribution de table U-SQL dans [CREATE TABLE (SQL-U) : création d’une table avec un schéma](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
+Si vous ne trouvez pas de clé appropriée pour la partition et la distribution, vous pouvez essayer d’utiliser la distribution par tourniquet (round robin). La distribution par tourniquet (round robin) traite toutes les lignes de manière égale et les place au hasard dans des compartiments correspondants. Les données sont distribuées de façon égale, mais perdent les informations relatives à la localité, ce qui peut aussi réduire les performances de travail pour certaines opérations. De plus, si vous effectuez malgré tout une agrégation pour la clé décalée, le problème d'asymétrie des données persistera. Pour en savoir plus sur la distribution par tourniquet (round robin), consultez la section Distribution de table U-SQL dans [CREATE TABLE (SQL-U) : création d’une table avec un schéma](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Solution 2 : Améliorer le plan de requête
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Option 1 : Utiliser l’instruction CREATE STATISTICS
 
-U-SQL fournit l’instruction CREATE STATISTICS dans des tables. Cette instruction donne plus d’informations à l’optimiseur de requête sur les caractéristiques des données, notamment la distribution de la valeur, qui sont stockées dans une table. Pour la plupart des requêtes, l’optimiseur de requête génère déjà les statistiques nécessaires pour un plan de requête de haute qualité. Parfois, vous devrez peut-être améliorer les performances des requêtes en créant des statistiques supplémentaires avec CREATE STATISTICS ou en modifiant la conception des requêtes. Pour plus d’informations, consultez la page [CREATE STATISTICS (SQL-U)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx).
+U-SQL fournit l’instruction CREATE STATISTICS dans des tables. Cette instruction donne plus d’informations à l’optimiseur de requête sur les caractéristiques des données, notamment la distribution de la valeur, qui sont stockées dans une table. Pour la plupart des requêtes, l’optimiseur de requête génère déjà les statistiques nécessaires pour un plan de requête de haute qualité. Parfois, vous devrez peut-être améliorer les performances des requêtes en créant des statistiques supplémentaires avec CREATE STATISTICS ou en modifiant la conception des requêtes. Pour plus d’informations, consultez la page [CREATE STATISTICS (SQL-U)](https://msdn.microsoft.com/library/azure/mt771898.aspx).
 
 Exemple de code :
 

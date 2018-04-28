@@ -1,18 +1,18 @@
 ---
-title: "Exécuter des tâches en conteneur dans Azure Container Instances"
-description: "Découvrez comment utiliser Azure Container Instances pour exécuter des tâches jusqu’à complétion, telles que des tâches de génération, de test ou de rendu d’image."
+title: Exécuter des tâches en conteneur dans Azure Container Instances
+description: Découvrez comment utiliser Azure Container Instances pour exécuter des tâches jusqu’à complétion, telles que des tâches de génération, de test ou de rendu d’image.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Exécuter une tâche en conteneur dans Azure Container Instances
 
@@ -76,7 +76,7 @@ Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir l
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Sortie :
+Output:
 
 ```bash
 [('the', 990),
@@ -122,7 +122,7 @@ Si vous spécifiez `NumWords=5` et `MinLength=8` pour les variables d’environn
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Sortie :
+Output:
 
 ```bash
 [('CLAUDIUS', 120),
@@ -156,7 +156,7 @@ Là encore, lorsque l’état du conteneur est *Terminé*, affichez les journaux
 az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
-Sortie :
+Output:
 
 ```bash
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

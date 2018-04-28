@@ -1,11 +1,11 @@
 ---
-title: "Créer une machine virtuelle avec une adresse IP publique statique - Azure CLI | Microsoft Docs"
-description: "Apprenez à créer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure (CLI)."
+title: Créer une machine virtuelle avec une adresse IP publique statique - Azure CLI | Microsoft Docs
+description: Apprenez à créer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide d’Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Modèle](virtual-network-deploy-static-pip-arm-template.md)
+> * [interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -145,7 +144,11 @@ Nous vous recommandons de supprimer les ressources créées durant cet exercice 
 1. Exécutez la commande `az resource list --resource-group IaaSStory` pour afficher les ressources du groupe de ressources.
 2. Vérifiez qu’il n’existe aucune autre ressource dans le groupe de ressources que celles créées par le script dans cet article. 
 3. Pour supprimer toutes les ressources créées durant cet exercice, exécutez la commande `az group delete -n IaaSStory`. La commande supprime le groupe de ressources et les ressources qu’il contient.
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Définir des adresses IP au sein du système d’exploitation
+
+Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Il est recommandé de ne pas statiquement assigner l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-cli.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [adresse IP privée](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Tout le trafic réseau peut circuler vers et en provenance de la machine virtuelle créée dans le cadre de cet article. Vous pouvez définir des règles entrantes et sortantes au sein d’un groupe de sécurité réseau afin de limiter le trafic susceptible de circuler vers et en provenance de l’ interface réseau, du sous-réseau ou des deux. Pour en savoir plus sur les groupes de sécurité réseau, consultez l’article [Vue d’ensemble d’un groupe de sécurité réseau](virtual-networks-nsg.md).
+Tout le trafic réseau peut circuler vers et en provenance de la machine virtuelle créée dans le cadre de cet article. Vous pouvez définir des règles de sécurité entrantes et sortantes au sein d’un groupe de sécurité réseau qui limite le trafic vers et en provenance de l’interface réseau, du sous-réseau ou des deux. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Vue d’ensemble du groupe de sécurité réseau](security-overview.md).

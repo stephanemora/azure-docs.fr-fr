@@ -1,18 +1,18 @@
 ---
-title: "Créer des ressources pour une utilisation avec Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment préparer Azure pour la réplication de machines locales à l’aide d’Azure Site Recovery."
+title: Créer des ressources pour une utilisation avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment préparer Azure pour la réplication de machines locales à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 Ce didacticiel décrit comment préparer les composants Azure pour répliquer des machines virtuelles (Hyper-V ou VMware) ou des serveurs physiques Windows/Linux locaux sur Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Vérifiez que votre compte dispose des autorisations de réplication.
-> * Créez un compte de stockage Azure.
+> * Vérifiez que votre compte Azure dispose des autorisations de réplication.
+> * Créez un compte de stockage Azure. Les données répliquées y sont stockées.
+> * Créez un coffre Recovery Services.
 > * Définissez un réseau Azure. Quand les machines virtuelles Azure sont créées après le basculement, elles sont jointes à ce réseau Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
@@ -39,7 +40,7 @@ Si vous venez de créer votre compte Azure gratuit, vous êtes l’administrateu
 - Créer une machine virtuelle dans le réseau virtuel sélectionné
 - Écrire dans le compte de stockage sélectionné
 
-Le rôle intégré Contributeur de machines virtuelles a ces autorisations. Vous devez également avoir l’autorisation de gérer les opérations Site Recovery. Le rôle Contributeur Site Recovery a toutes les autorisations nécessaires pour gérer les opérations Site Recovery dans un coffre Recovery Services.
+Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines virtuelles doit être assigné à votre compte. De plus, pour gérer les opérations Site Recovery dans un coffre, le rôle prédéfini de contributeur Site Recovery doit être assigné à votre compte.
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 

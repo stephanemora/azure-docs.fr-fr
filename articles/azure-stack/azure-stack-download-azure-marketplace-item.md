@@ -1,12 +1,12 @@
 ---
-title: "Télécharger des éléments de la Place de marché à partir d’Azure | Microsoft Docs"
-description: "Je peux télécharger des éléments de la Place de marché à partir d’Azure dans mon déploiement Azure Stack."
+title: Télécharger des éléments de la Place de marché à partir d’Azure | Microsoft Docs
+description: Je peux télécharger des éléments de la Place de marché à partir d’Azure dans mon déploiement Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -31,7 +31,7 @@ Quand vous décidez du contenu à inclure dans votre Place de marché Azure Stac
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Télécharger des éléments de la Place de marché dans un scénario connecté (avec connectivité Internet)
 
 1. Pour télécharger des éléments de la Place de marché, vous devez d’abord [inscrire Azure Stack auprès d’Azure](azure-stack-register.md).
-2. Connectez-vous au portail d’administration d’Azure Stack (https://portal.local.azurestack.external).
+2. Connectez-vous au portail d’administration d’Azure Stack (https://portal.local.azurestack.external)).
 3. Certains éléments de la Place de marché peuvent être volumineux. Vérifiez que vous avez suffisamment d’espace sur votre système en cliquant sur **Fournisseurs de ressources** > **Stockage**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -63,7 +63,7 @@ Avant de pouvoir utiliser l’outil de syndication de la Place de marché, véri
 
 1. Ouvrez une console PowerShell en tant qu’administrateur et [installez les modules PowerShell spécifiques à Azure Stack](azure-stack-powershell-install.md). Assurez-vous d’installer **PowerShell version 1.2.11 ou ultérieure**.  
 
-2. Ajoutez le compte Azure que vous avez utilisé pour inscrire Azure Stack. Pour ce faire, exécutez la cmdlet **Add-AzureRmAccount** sans aucun paramètre. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.  
+2. Ajoutez le compte Azure que vous avez utilisé pour inscrire Azure Stack. Pour ajouter le compte, exécutez la cmdlet **Connect-AzureRmAccount** sans aucun paramètre. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.  
 
 3. Si vous avez plusieurs abonnements, exécutez la commande suivante pour sélectionner celui que vous avez utilisé pour l’inscription :  
 

@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guide de publication technique de l’application SaaS
 
 Bienvenue dans le guide de publication technique de l’application SaaS Place de marché Microsoft Azure. Ce guide est conçu pour aider les éditeurs candidats et existants à répertorier leurs applications et services dans la Place de marché Azure en utilisant l’offre des applications SaaS.  
-Vous pouvez utiliser l’offre des applications SaaS quand votre solution est déployée dans votre propre abonnement Azure et que les clients se connectent via une interface que vous concevez et gérez pour tester l’application. Pour cela, elle utilise [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) pour tirer parti de votre environnement d’essai existant. En d’autres termes, il s’agit d’une version d’évaluation gratuite menée par le client et hébergée par un partenaire. Il est essentiel d’exposer votre solution d’une façon qui permette aux acheteurs du cloud de l’essayer de manière indépendante et gratuitement, et c’est pourquoi ce type d’offre propose une expérience d’évaluation correspondant à la manière dont les clients recherchent des solutions cloud.  
+Vous pouvez utiliser l’offre des applications SaaS quand votre solution est déployée dans votre propre abonnement Azure et que les clients se connectent via une interface que vous concevez et gérez pour tester l’application. Pour cela, elle utilise [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) pour tirer parti de votre environnement d’essai existant. En d’autres termes, il s’agit d’une version d’évaluation gratuite menée par le client et hébergée par un partenaire. Il est essentiel d’exposer votre solution d’une façon qui permette aux acheteurs du cloud de l’essayer de manière indépendante et gratuitement, et c’est pourquoi ce type d’offre propose une expérience d’évaluation correspondant à la manière dont les clients recherchent des solutions cloud.  
 
 Pour obtenir une vue d’ensemble de toutes les autres offres de la Place de marché, reportez-vous au [Guide de publication relatif à la Place de marché](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ Pour obtenir une vue d’ensemble de toutes les autres offres de la Place de mar
 Les exigences techniques pour les applications SaaS sont simples. Les éditeurs doivent uniquement être intégrés à Azure AD pour être publiés.  L’intégration d’Azure AD aux applications est bien documentée et Microsoft fournit plusieurs kits SDK et ressources pour effectuer cette opération.  
 
 Pour démarrer, nous vous recommandons d’avoir un abonnement dédié pour la publication sur la Place de marché Azure, ce qui vous permet d’isoler la tâche des autres initiatives. En outre, s’ils ne sont pas déjà installés, nous vous recommandons d’avoir les outils suivants dans le cadre de votre environnement de développement : 
-- [interface de ligne de commande Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Outils de développement Azure (voir les outils disponibles)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ Les listes suivantes fournissent des liens vers les meilleures ressources Azure 
 
 **Documentation**
 
-- [Guide du développeur Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Intégration à Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Intégration à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Feuille de route Azure - Sécurité et identité](https://azure.microsoft.com/roadmap/?category=security-identity)
 

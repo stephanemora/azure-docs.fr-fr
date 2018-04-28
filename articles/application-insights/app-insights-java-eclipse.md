@@ -1,6 +1,6 @@
 ---
-title: "Prise en main d’Azure Application Insights avec Java dans Eclipse | Microsoft Docs"
-description: "Le plug-in Eclipse permet d’ajouter la surveillance des performances et de l’utilisation de votre site web Java avec Application Insights"
+title: Prise en main d’Azure Application Insights avec Java dans Eclipse | Microsoft Docs
+description: Le plug-in Eclipse permet d’ajouter la surveillance des performances et de l’utilisation de votre site web Java avec Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Prise en main d’Application Insights avec Java dans Eclipse
 Le Kit de développement logiciel (SDK) Application Insights envoie la télémétrie de votre application web Java afin que vous puissiez en analyser les performances et l’utilisation. Le plug-in Eclipse pour Application Insights installe automatiquement le Kit de développement logiciel (SDK) dans votre projet pour pouvoir bénéficier de la télémétrie de base, plus une API avec laquelle vous pouvez écrire des éléments de télémétrie personnalisés.   
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Actuellement, le plug-in fonctionne pour les projets Web dynamiques dans Eclipse.
 ([Ajout d’Application Insights à d’autres types de projets Java][java].)
 
 Vous devez disposer des éléments suivants :
 
-* Oracle JRE 1.6 ou version ultérieure
+* JRE 1.7 ou 1.8
 * Un abonnement à [Microsoft Azure](https://azure.microsoft.com/).
 * [IDE Eclipse pour développeurs Java EE](http://www.eclipse.org/downloads/), Indigo ou version ultérieure.
 * Windows 7 ou version ultérieure ou Windows Server 2008 ou version ultérieure
@@ -39,7 +40,7 @@ Vous ne devez effectuer cette opération qu’une seule fois par machine. Cette 
 1. Dans Eclipse, cliquez sur Aide, Installer un nouveau logiciel.
 
     ![Aide, installation de nouveaux logiciels](./media/app-insights-java-eclipse/0-plugin.png)
-2. Le Kit de développement logiciel (SDK) est disponible à l'adresse http://dl.microsoft.com/eclipse, sous Azure Toolkit.
+2. Le Kit de développement logiciel (SDK) se trouve à cet emplacement http://dl.microsoft.com/eclipse, sous le kit de ressources Azure.
 3. Désactivez l’option **Contacter tous les sites de mise à jour...**
 
     ![Pour le Kit de développement logiciel (SDK) Application Insights, désactivez Contacter tous les sites de mise à jour.](./media/app-insights-java-eclipse/1-plugin.png)
@@ -47,7 +48,7 @@ Vous ne devez effectuer cette opération qu’une seule fois par machine. Cette 
 Suivez les étapes restantes pour chaque projet Java.
 
 ## <a name="create-an-application-insights-resource-in-azure"></a>Créer une ressource Application Insights dans Azure
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Créez une ressource Application Insights. Définissez le type d’application sur Application web Java.  
 
     ![Cliquez sur + et choisissez Ajouter Application Insights.](./media/app-insights-java-eclipse/01-create.png)  
@@ -59,10 +60,10 @@ Suivez les étapes restantes pour chaque projet Java.
 ## <a name="add-application-insights-to-your-project"></a>Ajout de Application Insights à votre projet
 1. Ajoutez Application Insights à partir du menu contextuel de votre projet Web Java.
 
-    ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/02-context-menu.png)
+    ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-eclipse/02-context-menu.png)
 2. Collez la clé d’instrumentation que vous avez obtenue sur le portail Azure.
 
-    ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/03-ikey.png)
+    ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-eclipse/03-ikey.png)
 
 La clé est envoyée avec chaque élément de télémétrie et indique à Application Insights de l’afficher dans votre ressource.
 

@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: erreur, dépannage, problème d’automation
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Dépannage des problèmes courants dans Azure Automation 
 Cet article aide à dépanner les problèmes courants que vous pourriez rencontrer dans Azure Automation et suggère des solutions possibles pour les résoudre.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Erreurs d’authentification avec des runbooks Azure Automation
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Scénario : la connexion à un compte Azure a échoué
-**Erreur :** vous recevez l’erreur « Unknown_user_type : Type d’utilisateur inconnu » lorsque vous travaillez avec les applets de commande Add-AzureAccount ou AzureRmAccount de connexion.
+**Erreur :** vous recevez l’erreur « Unknown_user_type : Type d’utilisateur inconnu » quand vous utilisez les applets de commande Add-AzureAccount ou Connect-AzureRmAccount.
 
 **Raison de l'erreur :** cette erreur se produit si le nom de la ressource d’informations d’identification n'est pas valide ou si le nom d'utilisateur et le mot de passe que vous avez utilisés pour configurer la ressource d’informations d’identification Automation (Automatisation) ne sont pas valides.
 
@@ -34,7 +34,7 @@ Cet article aide à dépanner les problèmes courants que vous pourriez rencontr
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Si l’authentification échoue localement, cela signifie que vous n’avez pas correctement configuré vos informations d’identification Azure Active Directory. Reportez-vous au billet de blog [Authenticating to Azure using Azure Active Directory (Authentification auprès d’Azure à l’aide d’Azure Active Directory)](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) pour configurer correctement le compte Azure Active Directory.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Scénario : Impossible de trouver l’abonnement Azure
