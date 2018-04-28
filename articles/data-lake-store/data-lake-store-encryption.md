@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Chiffrement des données dans Azure Data Lake Store
 
@@ -139,3 +139,6 @@ Notez que si vous utilisez les options par défaut pour le chiffrement, vos donn
     ![Capture d’écran de la fenêtre Data Lake Store avec le message et Rotation de clé en surbrillance](./media/data-lake-store-encryption/rotatekey.png)
 
 Cette opération doit prendre moins de deux minutes et aucune interruption de service due à la rotation des clés n’est attendue. Une fois l’opération terminée, la nouvelle version de la clé est utilisée.
+
+> [!IMPORTANT]
+> Une fois l’opération de rotation des clés terminée, l’ancienne version de la clé n’est plus utilisée activement pour chiffrer vos données.  Toutefois, dans de rares cas d’échec inattendu dans lesquels des copies redondantes de vos données sont affectées, les données peuvent être restaurées à partir d’une sauvegarde qui utilise toujours l’ancienne clé. Pour garantir que vos données sont accessibles dans ces rares cas, conservez une copie de la version précédente de votre clé de chiffrement. Consultez [Conseils sur la récupération d’urgence des données dans Azure Data Lake Store](data-lake-store-disaster-recovery-guidance.md) pour obtenir les meilleures pratiques pour la planification de votre récupération d’urgence. 

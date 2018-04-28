@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publier dans une rubrique personnalisée pour Azure Event Grid
 
@@ -73,7 +73,7 @@ Pour les rubriques personnalisées, les données de premier niveau contiennent l
 ]
 ```
 
-Pour obtenir une description de ces propriétés, consultez [Schéma d’événement Azure Event Grid](event-schema.md).
+Pour obtenir une description de ces propriétés, consultez [Schéma d’événement Azure Event Grid](event-schema.md). Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 64 Ko.
 
 Par exemple, un schéma de données d’événement valide est :
 
@@ -98,9 +98,10 @@ Après la validation pour le point de terminaison de la rubrique, vous recevez u
 |Résultat  |response  |
 |---------|---------|
 |Succès  | 200 OK  |
-|Point de terminaison incorrecte | 404 Introuvable |
-|Clé d’accès non valide | 401 Non autorisé |
 |Les données d’événement ont un format incorrect | 400 Demande incorrecte |
+|Clé d’accès non valide | 401 Non autorisé |
+|Point de terminaison incorrecte | 404 Introuvable |
+|La taille du tableau ou de l’événement dépasse la limite autorisée | 413 charge utile maximale dépassée |
 
 Pour les erreurs, le corps du message a le format suivant :
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 1963c4d7b2e895032862fae896c6d9ff7cf80806
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 090629874e75d75223e018b002cf04a02b1d1bb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager
 Dans cet article, nous vous expliquons comment utiliser un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les paramètres de diagnostic d’une ressource lors de sa création. Cela vous permet de démarrer automatiquement la diffusion en continu de vos journaux de diagnostic et des mesures vers Event Hubs, leur archivage dans un compte de stockage ou leur envoi à Log Analytics lorsqu’une ressource est créée.
@@ -116,7 +116,7 @@ Pour les ressources non liées au calcul, vous devrez effectuer les deux opérat
     ]
     ```
 
-L’objet blob de propriétés pour le paramètre de diagnostic suit [le format décrit dans cet article](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate). Ajouter la propriété `metrics` vous permettra d’envoyer également des mesures sur la ressource à ces mêmes sorties, à condition que [la ressource prenne en charge les mesures Azure Monitor](monitoring-supported-metrics.md).
+L’objet blob de propriétés pour le paramètre de diagnostic suit [le format décrit dans cet article](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ajouter la propriété `metrics` vous permettra d’envoyer également des mesures sur la ressource à ces mêmes sorties, à condition que [la ressource prenne en charge les mesures Azure Monitor](monitoring-supported-metrics.md).
 
 Voici un exemple complet qui crée une application logique et active la diffusion en continu vers Event Hubs et le stockage dans un compte de stockage.
 
@@ -134,7 +134,7 @@ Voici un exemple complet qui crée une application logique et active la diffusio
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
+      "defaultValue": "http://azure.microsoft.com/status/feed/"
     },
     "settingName": {
       "type": "string",

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
@@ -183,7 +183,7 @@ END
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
    ![Page d'accueil Data Factory](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
+10. Cliquez sur le titre **Créer et surveiller** pour lancer l’interface utilisateur de Azure Data Factory dans un onglet séparé.
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 Dans ce didacticiel, vous allez créer un pipeline avec deux activités de recherche, une activité de copie et une activité StoredProcedure chaînées dans le même pipeline. 
@@ -300,7 +300,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 29. Dans la boîte à outils **Activités**, développez **Général**, et faites glisser et déposez l’activité **Procédure stockée** de la boîte à outils **Activités** sur la surface du concepteur de pipeline. **Connectez** le résultat vert (succès) de l’activité de **copie** à l’activité **Procédure stockée**. 
     
     ![Activité de copie - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Sélectionnez **Activité de procédure de stockage** dans le concepteur de pipeline, remplacez son nom par **StoredProceduretoWriteWatermarkActivity**. 
+24. Sélectionnez **Activité de procédure stockée** dans le concepteur de pipeline, remplacez son nom par **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Activité de procédure stockée - nom](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Basculez vers l’onglet **Compte SQL** et sélectionnez *AzureSqlDatabaseLinkedService** pour **Service lié**. 

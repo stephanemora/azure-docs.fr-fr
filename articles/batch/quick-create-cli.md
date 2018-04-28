@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide Azure - Exécution d’un travail Batch - CLI"
-description: "Apprenez rapidement à exécuter un travail Batch avec l’interface de ligne de commande Azure."
+title: Démarrage rapide Azure - Exécution d’un travail Batch - CLI
+description: Apprenez rapidement à exécuter un travail Batch avec l’interface de ligne de commande Azure.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : exécution de votre premier travail Batch avec l’interface de ligne de commande Azure
 
@@ -40,7 +40,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Vous pouvez lier un compte de stockage à usage général Azure avec votre compte Batch. Bien que ce ne soit pas obligatoire pour ce démarrage rapide, le compte de stockage est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Créez un compte de stockage dans votre groupe de ressources avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Vous pouvez lier un compte Stockage Azure à votre compte Batch. Bien que ce ne soit pas obligatoire pour ce démarrage rapide, le compte de stockage est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Créez un compte de stockage dans votre groupe de ressources avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \

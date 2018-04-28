@@ -1,10 +1,10 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Bpm’online | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bpm’online."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Bpm’online | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bpm’online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0214fcbdde886bd14d84917e496568027d417096
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9359fc76d2198cab8e61b151fcd8672cb6b65b6e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Didacticiel : Intégration d’Azure Active Directory à Bpm’online
 
@@ -28,11 +28,12 @@ L’intégration de Bpm’online à Azure AD vous offre les avantages suivants 
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Bpm’online.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Bpm’online (authentification unique) avec leurs comptes Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Bpm’online, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Bpm’online à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +85,10 @@ Dans Bpm’online, affectez la valeur du **nom d’utilisateur** indiquée dans 
 
 Pour configurer et tester l’authentification unique Azure AD avec Bpm’online, vous devez suivre les instructions des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test Bpm’online](#create-a-bpmonline-test-user)** pour avoir dans Bpm’online un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -101,7 +102,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
 
 3. Dans la section **Domaines et URL Bpm’online**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
@@ -118,37 +119,18 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<client site name>.bpmonline.com/`
      
-    > [!NOTE] 
+    > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Bpm’online](mailto:support@bpmonline.com). 
 
-5. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
-
-    a. Cliquez sur **Inscriptions des applications**.
+5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
-   
-    b. Cliquez sur **Points de terminaison** pour ouvrir la boîte de dialogue **Points de terminaison**.  
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
-
-    c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_metadataurl.png)
      
-    d. Accédez maintenant à la page de propriétés de **Bpm’online**, puis copiez l’**ID d’application** à l’aide du bouton **Copier** et collez-le dans le Bloc-notes.
- 
-    ![Configurer l’authentification unique](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
-
-     e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
-
 6. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
     
-8. Pour configurer l’authentification unique côté **Bpm’online**, vous devez envoyer l’**URL des métadonnées** à l’[équipe de support Bpm’online](mailto:support@bpmonline.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Pour configurer l’authentification unique côté **Bpm’online**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe de support Bpm’online](mailto:support@bpmonline.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

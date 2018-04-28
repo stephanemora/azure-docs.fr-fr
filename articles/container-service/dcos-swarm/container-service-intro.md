@@ -1,19 +1,19 @@
 ---
-title: "Hébergement du conteneur Docker dans Azure Cloud"
-description: "Azure Container Service offre un moyen de simplifier la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur."
+title: Hébergement du conteneur Docker dans Azure Cloud
+description: Azure Container Service offre un moyen de simplifier la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur.
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 94ae759803bc3a65ec7dc9a8e01486625a638368
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduction aux solutions d’hébergement de conteneur Docker solutions avec Azure Container Service 
 
@@ -86,7 +86,7 @@ Il possède un jeu complet de fonctionnalités, notamment :
 * API basée sur les déploiements et restaurations automatisés
 * Réparation spontanée
 
-## <a name="videos"></a>Vidéos
+## <a name="videos"></a>vidéos
 Prise en main d’Azure Container Service (101) :  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]

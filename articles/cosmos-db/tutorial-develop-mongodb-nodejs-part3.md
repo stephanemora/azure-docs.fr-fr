@@ -1,25 +1,25 @@
 ---
-title: "Didacticiels MongoDB, Angular et Node pour Azure - Partie 3 | Microsoft Docs"
-description: "Il s’agit de la partie 3 de cette série de didacticiels sur la création d’une application MongoDB avec Angular et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB."
+title: Didacticiels MongoDB, Angular et Node pour Azure - Partie 3 | Microsoft Docs
+description: Il s’agit de la partie 3 de cette série de didacticiels sur la création d’une application MongoDB avec Angular et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: ff75b4546a85c1c0bbf5c256977a3d33016c8c44
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 3 : générer l’interface utilisateur avec Angular
 
@@ -36,7 +36,8 @@ La partie 3 de ce didacticiel est basée sur la [partie 2](tutorial-develop-mo
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué les étapes de la [partie 2](tutorial-develop-mongodb-nodejs-part2.md) du didacticiel.
 
@@ -101,7 +102,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
     > 2. Entrez *angular essentials* dans la zone de recherche.
     > 3. Cliquez sur **Installer**. 
     > 4. Cliquez sur le bouton **Recharger** pour utiliser les nouvelles extensions.
-    > ou téléchargez-les à partir de [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
+    > Ou téléchargez à partir de [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
     > ![Extension Angular Essentials](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
 7. Revenez au fichier **heroes.component.html** et copiez dans ce code. Le `<div>` est le conteneur pour toute la page. Dans le conteneur, il y a une liste de héros à créer de telle manière que lorsque vous cliquez sur l’un d’eux, vous pouvez le sélectionner pour le modifier ou le supprimer de l’interface utilisateur. L’HTML a été optimisé pour que vous sachiez lequel est sélectionné. Vous pouvez également ajouter un nouveau héros ou modifier un héros existant dans la zone d’édition. 

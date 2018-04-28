@@ -1,11 +1,11 @@
 ---
-title: "Modifier les paramètres de cluster Azure Service Fabric | Microsoft Docs"
-description: "Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser."
+title: Modifier les paramètres de cluster Azure Service Fabric | Microsoft Docs
+description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -30,7 +30,7 @@ Ce document vous explique comment personnaliser les différents paramètres et l
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager
 Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics*.
 
-1. Accédez à https://resources.azure.com.
+1. Accédez à https://resources.azure.com
 2. Accédez à votre abonnement en développant **subscriptions** -> **\<Votre abonnement >** -> **resourceGroups** -> **\<Votre groupe de ressources >** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Nom de votre cluster >**
 3. Dans l’angle supérieur droit, sélectionnez **Lecture/écriture**.
 4. Sélectionnez **Modifier**, mettez à jour l’élément JSON `fabricSettings` et ajoutez un nouvel élément :
@@ -797,7 +797,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ResolveOption|chaîne, valeur par défaut : L"unspecified"|statique|Détermine la façon dont le nom de domaine complet est résolu.  Les valeurs valides sont "unspecified/ipv4/ipv6". |
 |ConnectionOpenTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60)|statique|Spécifiez la durée en secondes. Délai d’expiration pour la configuration de la connexion côté entrant et acceptant (y compris la négociation de sécurité en mode sécurisé) |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Lisez les articles suivants pour plus d’informations sur la gestion des clusters :
 
 [Ajouter, restaurer, supprimer des certificats de votre cluster Azure ](service-fabric-cluster-security-update-certs-azure.md) 

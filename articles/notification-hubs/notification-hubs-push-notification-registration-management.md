@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 969f6b9654200b7f742b6405faa2cff2b13ba537
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
 ## <a name="overview"></a>Vue d'ensemble
@@ -42,7 +42,7 @@ Voici certains avantages essentiels que présente l’utilisation d’installati
 Une installation peut contenir les propriétés suivantes :  Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriétés d’installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
-    {
+    {,
         installationId: "",
         expirationTime: "",
         tags: [],

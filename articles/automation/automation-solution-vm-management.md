@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solution Start/Stop VMs during off-hours (préversion) dans Azure Automation
 
@@ -55,16 +55,15 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
    ![Portail Azure](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. La page **Ajouter une solution** s’affiche. Vous êtes invité à configurer la solution pour pouvoir l’importer dans votre abonnement Automation.
+
    ![Page Ajouter une solution de VM Management (Gestion de machines virtuelles)](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. Sur la page **Ajouter une solution**, sélectionnez **Espace de travail**. Sélectionnez un espace de travail Log Analytics lié au même abonnement Azure que celui dans lequel le compte Automation se trouve. Si vous ne disposez pas d’espace de travail, sélectionnez **Créer un espace de travail**. Sur la page **Espace de travail OMS**, procédez comme suit :
    * Spécifiez un nom pour le nouvel **espace de travail OMS**.
    * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    * Sous **Groupe de ressources**, vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà.
    * Sélectionnez un **emplacement**. Actuellement, les seuls emplacements disponibles sont **Sud-Est de l’Australie**, **Centre du Canada**, **Centre de l’Inde**, **Est des États-Unis**, **Est du Japon**, **Sud-Est Asiatique**, **Royaume-Uni Sud** et **Europe de l’Ouest**.
-   * Sélectionner un **niveau de tarification**. Deux niveaux sont proposés pour la solution : **Gratuit** et **Par nœud (OMS)**. La quantité de données collectées quotidiennement, la période de rétention et la durée d’exécution (en minutes) des tâches de runbook sont limitées pour le niveau Gratuit. Le niveau Par nœud permet de collecter une quantité illimitée de données quotidiennement.
-
-        > [!NOTE]
-        > Bien que le niveau payant par Go (autonome) s’affiche comme une option, il n’est pas applicable. Si vous la sélectionnez et poursuivez la création de cette solution dans votre abonnement, elle échouera. Ce problème sera résolu lors de la sortie officielle de cette solution. Cette solution utilise uniquement les minutes du travail d’automatisation et l’ingestion du journal. Elle n’ajoute pas de nœuds à votre environnement.
+   * Sélectionner un **niveau de tarification**. Choisissez l’option **Par Go (autonome)**. Log Analytics a mis à jour les [tarifs](https://azure.microsoft.com/pricing/details/log-analytics/) ; le niveau Par Go est la seule option disponible.
 
 1. Après avoir entré les informations requises sur la page **Espace de travail OMS**, cliquez sur **Créer**. Vous pouvez suivre sa progression sous **Notifications** dans le menu, qui vous renvoie à la page **Ajouter une solution** une fois terminé.
 1. Sur la page **Ajouter une solution**, sélectionnez **Compte Automation**. Si vous créez un espace de travail Log Analytics, vous devez également créer un compte Automation à lui associer. Sélectionnez **Créer un compte Automation**, puis sur la page **Ajouter un compte Automation**, fournissez les informations suivantes :
@@ -81,6 +80,9 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
    * Spécifier la **liste d’exclusion de machines virtuelles (chaîne)**. Il s’agit du nom d’une ou de plusieurs machines virtuelles appartenant au groupe de ressources cible. Vous pouvez entrer plusieurs noms en les séparant par des virgules (les valeurs ne respectent pas la casse). Les caractères génériques sont pris en charge. Cette valeur est stockée dans la variable **External_ExcludeVMNames**.
    * Sélectionner une **planification**. Il s’agit d’une date et d’une heure récurrentes pour le démarrage et l’arrêt des machines virtuelles des groupes de ressources cibles. Par défaut, la planification est configurée pour le fuseau horaire UTC. La sélection d’une autre région n’est pas possible. Pour configurer la planification sur votre propre fuseau horaire après la configuration de la solution, consultez [Modification de la planification de démarrage et d’arrêt](#modify-the-startup-and-shutdown-schedule).
    * Pour recevoir des **notifications par e-mail** de SendGrid, acceptez la valeur par défaut **Oui** et fournissez une adresse e-mail valide. Si vous sélectionnez **Non**, mais souhaitez par la suite recevoir des notifications par e-mail, vous pouvez mettre à jour la variable **External_EmailToAddress** en indiquant des adresses e-mail valides séparées par une virgule, puis définir la variable **External_IsSendEmail** sur la valeur **Oui**.
+
+> [!IMPORTANT]
+> La valeur par défaut pour les **noms des groupes de ressources cibles** est un **&ast;**. Elle cible toutes les machines virtuelles dans un abonnement. Si vous ne souhaitez pas que la solution cible toutes les machines virtuelles dans votre abonnement, vous devez définir cette valeur sur une liste de noms de groupes de ressources avant d’activer les planifications.
 
 1. Après avoir configuré les paramètres initiaux requis pour la solution, cliquez sur **OK** pour fermer la page **Paramètres** et sélectionnez **Créer**. Quand tous les paramètres sont validés, la solution est déployée dans votre abonnement. Ce processus peut prendre plusieurs secondes. Vous pouvez suivre la progression sous **Notifications** dans le menu.
 

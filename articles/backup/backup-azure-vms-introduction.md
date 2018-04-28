@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
 Cet article formule des suggestions de performances et de ressources pour vous aider à planifier votre infrastructure de sauvegarde de machines virtuelles. Il définit également les principaux aspects du service Backup, qui peuvent être essentiels afin de vous aider à déterminer votre architecture, à planifier sa capacité et à définir des planifications. Si vous avez [préparé votre environnement](backup-azure-arm-vms-prepare.md), la planification est l’étape à suivre avant de passer à la [sauvegarde des machines virtuelles](backup-azure-arm-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -99,7 +99,8 @@ La majeure partie du temps de sauvegarde est consacrée à la lecture et la copi
 
 * Délai nécessaire à l’ [installation ou à la mise à jour de l’extension de sauvegarde](backup-azure-arm-vms.md).
 * Heure de l'instantané, qui est la durée nécessaire au déclenchement d’un instantané. Les instantanés sont déclenchés peu avant l’heure de sauvegarde planifiée.
-* Délai d’attente de file d’attente. Comme le service Backup traite les sauvegardes de plusieurs clients, il se peut que la copie de données de sauvegarde de l’instantané vers l’archivage Backup ou Recovery Services ne démarre pas immédiatement. Lors des pics de charge, les temps d’attente peuvent durer jusqu’à huit heures en raison du nombre de sauvegardes à traiter. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes.
+* Délai d’attente de file d’attente. Comme le service Backup traite les sauvegardes de plusieurs clients, il se peut que la copie de données de sauvegarde de l’instantané vers l’archivage Backup ou Recovery Services ne démarre pas immédiatement. Lors des pics de charge, les temps d’attente peuvent durer jusqu’à huit heures en raison du nombre de sauvegardes à traiter. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes. <br>
+**Cela est valide uniquement pour les sauvegardes incrémentielles et pas pour la première sauvegarde. L’heure de la première sauvegarde est proportionnelle et peut être supérieure à 24 heures selon la taille des données et l’heure à laquelle la sauvegarde est effectuée.**
 * Le temps de transfert de données, le temps nécessaire pour que le service de sauvegarde calcule les modifications incrémentielles à partir d’une sauvegarde précédente de calcul et de transfère ces modifications dans l’archivage.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Pourquoi les temps de sauvegarde semblent-ils plus longs (>12 heures) ?

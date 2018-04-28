@@ -1,11 +1,11 @@
 ---
-title: "Préchargement d’éléments multimédias sur un point de terminaison CDN Azure | Microsoft Docs"
-description: "Découvrez comment précharger du contenu mis en cache sur un point de terminaison CDN Azure."
+title: Préchargement d’éléments multimédias sur un point de terminaison CDN Azure | Microsoft Docs
+description: Découvrez comment précharger du contenu mis en cache sur un point de terminaison CDN Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: mazha
-ms.openlocfilehash: e00205ddcaab277029d7185d0158a64818d0d49b
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: bf3161d756759e4b278e48ad7a49615e4a73d17f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Préchargement d’éléments multimédias sur un point de terminaison CDN Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -67,6 +67,6 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
 
 ## <a name="see-also"></a>Voir aussi
 * [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
-* [Référence API REST du CDN Azure : précharger le contenu d’un point de terminaison](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/loadcontent)
-* [Référence API REST du CDN Azure : vider le contenu d’un point de terminaison](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/purgecontent)
+* [Référence API REST du CDN Azure : précharger le contenu d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Référence API REST du CDN Azure : vider le contenu d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

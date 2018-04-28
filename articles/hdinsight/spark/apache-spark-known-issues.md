@@ -1,8 +1,8 @@
 ---
-title: "Résolution des problèmes liés au cluster Apache Spark dans Azure HDInsight | Microsoft Docs"
-description: "En savoir plus sur les problèmes liés aux clusters Apache Spark dans Azure HDInsight et comment les résoudre."
+title: Résolution des problèmes liés au cluster Apache Spark dans Azure HDInsight | Microsoft Docs
+description: En savoir plus sur les problèmes liés aux clusters Apache Spark dans Azure HDInsight et comment les résoudre.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problèmes connus du cluster Apache Spark sur Azure HDInsight
 
 Ce document fait le suivi de tous les problèmes connus pour la version Preview publique de HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy divulgue une session interactive
-Lorsque Livy est redémarré (à partir d’Ambari ou à cause d’un redémarrage de la machine virtuelle du nœud principal 0) avec une session interactive encore active, une session de travail interactive est divulguée. Pour cette raison, de nouvelles tâches peuvent rester bloquées à l’état Accepté sans pouvoir être démarrées.
+Lorsque Livy est redémarré (à partir d’Ambari ou à cause d’un redémarrage de la machine virtuelle du nœud principal 0) avec une session interactive encore active, une session de travail interactive est divulguée. Par conséquent, les nouveaux travaux peuvent être bloqués dans l’état Accepté.
 
 **Atténuation :**
 
@@ -54,7 +52,12 @@ Le serveur d’historique Spark ne démarre pas automatiquement après la créat
 Démarrez manuellement le serveur d’historique à partir d’Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problème d’autorisation dans le répertoire des journaux Spark
-Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Autorisation refusée) et le journal du pilote n’est pas écrit. 
+hdiuser obtient l’erreur suivante lors de l’envoi d’un travail à l’aide de spark-submit :
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+Et aucun journal de pilotes n’est écrit. 
 
 **Atténuation :**
 
@@ -65,7 +68,7 @@ Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.i
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Le connecteur Spark-Phoenix n’est pas pris en charge.
 
-Actuellement, le connecteur Spark-Phoenix n’est pas pris en charge avec un cluster HDInsight Spark.
+Les clusters HDInsight Spark ne prennent pas en charge le connecteur Spark-Phoenix.
 
 **Atténuation :**
 
@@ -75,7 +78,7 @@ Vous devez plutôt utiliser le connecteur Spark-HBase. Pour savoir comment proc
 Voici certains problèmes connus liés aux notebooks Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notebooks avec des caractères non-ASCII dans les noms de fichiers
-Les notebooks Jupyter qui peuvent être utilisés dans les clusters Spark HDInsight ne doivent pas contenir de caractères non-ASCII dans les noms de fichiers. Si vous essayez de charger un fichier (par le biais de l’interface utilisateur Jupyter) dont le nom n’est pas au format ASCII, l’opération échoue silencieusement (c’est-à-dire que Jupyter ne vous permet pas de charger le fichier, mais il n’affiche pas d’erreur visible). 
+N’utilisez pas de caractères non-ASCII dans les noms de fichiers des bloc-notes Jupyter. Si vous essayez de charger un fichier via l’IU Jupyter, qui a un nom de fichier non-ASCII, le téléchargement échoue sans message d’erreur. Jupyter ne vous permet pas de charger le fichier, mais il ne lance pas d’erreur visible non plus.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erreur lors du chargement de notebooks de taille supérieure
 Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez de charger un bloc-notes de taille supérieure.  

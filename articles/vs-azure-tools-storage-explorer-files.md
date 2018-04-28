@@ -1,12 +1,12 @@
 ---
-title: "Utilisation de l’Explorateur de stockage (version préliminaire) avec Azure Stockage Fichier | Microsoft Docs"
-description: "Apprenez à utiliser l’Explorateur de stockage (version préliminaire) pour travailler avec des fichiers et des partages de fichiers."
+title: Utilisation de l’Explorateur Stockage avec le Stockage Fichier Azure | Microsoft Docs
+description: Apprenez à utiliser l’Explorateur Stockage pour travailler avec des fichiers et des partages de fichiers.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Utilisation de l’Explorateur de stockage (version préliminaire) avec Azure Stockage Fichier
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Utilisation de l’Explorateur de stockage avec le Stockage Fichier Azure
 
-Azure Stockage Fichier est un service qui propose des partages de fichiers dans le cloud en utilisant le protocole SMB standard. Les protocoles SMB 2.1 et SMB 3.0 sont pris en charge. Avec le stockage de fichiers Azure, vous pouvez migrer vers Azure des applications héritées qui s’appuient sur des partages de fichiers, rapidement et sans réécritures onéreuses. Vous pouvez utiliser Stockage Fichier pour exposer les données publiquement au monde ou pour le stockage privé de données d’applications. Dans cet article, vous allez apprendre à utiliser l’Explorateur de stockage (version préliminaire) pour travailler avec des fichiers et des partages de fichiers.
+Azure Stockage Fichier est un service qui propose des partages de fichiers dans le cloud en utilisant le protocole SMB standard. Les protocoles SMB 2.1 et SMB 3.0 sont pris en charge. Avec le stockage de fichiers Azure, vous pouvez migrer vers Azure des applications héritées qui s’appuient sur des partages de fichiers, rapidement et sans réécritures onéreuses. Vous pouvez utiliser Stockage Fichier pour exposer les données publiquement au monde ou pour le stockage privé de données d’applications. Dans cet article, vous allez apprendre à utiliser l’Explorateur Stockage pour travailler avec des fichiers et des partages de fichiers.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour pouvoir suivre les étapes de cet article, vous devrez :
 
-- [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com/)
+- [Télécharger et installer l’Explorateur Stockage](http://www.storageexplorer.com/)
 
 - [Vous connecter à un service ou un compte de stockage Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +37,9 @@ Pour pouvoir suivre les étapes de cet article, vous devrez :
 
 Tous les fichiers doivent résider dans un partage de fichiers, c’est-à-dire un simple regroupement logique de fichiers. Un compte peut contenir un nombre illimité de partages de fichiers, et chaque partage de fichiers peut stocker un nombre illimité de fichiers.
 
-Les étapes suivantes expliquent comment créer un partage de fichiers dans l’Explorateur de stockage (version préliminaire).
+Les étapes suivantes expliquent comment créer un partage de fichiers dans l’Explorateur Stockage.
 
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 
 2. Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le partage de fichiers.
 
@@ -58,9 +59,9 @@ Les étapes suivantes expliquent comment créer un partage de fichiers dans l’
 
 Les partages de fichiers contiennent des fichiers et des dossiers (qui peuvent également contenir des fichiers).
 
-Les étapes suivantes expliquent comment afficher le contenu d’un partage de fichiers dans l’Explorateur de stockage (version préliminaire) :
+Les étapes suivantes expliquent comment afficher le contenu d’un partage de fichiers dans l’Explorateur Stockage :
 
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 
 2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez afficher.
 
@@ -78,9 +79,9 @@ Les étapes suivantes expliquent comment afficher le contenu d’un partage de f
 
 Vous pouvez facilement créer et supprimer des partages de fichiers selon vos besoins. (pour savoir comment supprimer des fichiers, reportez-vous à la section [Gestion des fichiers dans un partage de fichiers](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
 
-Les étapes suivantes expliquent comment supprimer un partage de fichiers dans l’Explorateur de stockage (version préliminaire) :
+Les étapes suivantes expliquent comment supprimer un partage de fichiers dans l’Explorateur Stockage :
 
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 
 2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez afficher.
 
@@ -96,11 +97,11 @@ Les étapes suivantes expliquent comment supprimer un partage de fichiers dans l
 
 ## <a name="copy-a-file-share"></a>Copier un partage de fichiers
 
-L’Explorateur de stockage (version préliminaire) vous permet de copier un partage de fichiers dans le Presse-papiers, puis de coller ce partage de fichiers dans un autre compte de stockage. (pour savoir comment copier des fichiers, reportez-vous à la section [Gestion des fichiers dans un partage de fichiers](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
+L’Explorateur Stockage vous permet de copier un partage de fichiers dans le Presse-papiers, puis de coller ce partage de fichiers dans un autre compte de stockage. (pour savoir comment copier des fichiers, reportez-vous à la section [Gestion des fichiers dans un partage de fichiers](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
 
 Les étapes suivantes expliquent comment copier un partage de fichiers d’un compte de stockage à un autre.
 
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 
 2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez copier.
 
@@ -120,7 +121,7 @@ Une [signature d’accès partagé (SAP)](https://docs.microsoft.com//azure/stor
 
 Les étapes suivantes expliquent comment créer une signature d’accès partagé pour un partage de fichiers :
 
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 
 2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers pour lequel vous souhaitez obtenir une SAP.
 
@@ -146,7 +147,7 @@ Les étapes suivantes expliquent comment créer une signature d’accès partag�
 
 Les étapes suivantes montrent comment gérer (ajouter et supprimer) les stratégies d’accès d’un partage de fichiers : Les stratégies d’accès sont utilisées pour créer des URL SAP permettant d’accéder à la ressource du fichier de stockage pendant une période définie.
 
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 
 2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers pour lequel vous souhaitez gérer les stratégies d’accès.
 
@@ -180,7 +181,7 @@ Une fois que vous avez créé un partage de fichiers, vous pouvez effectuer de n
 
 Les étapes suivantes expliquent comment gérer les fichiers (et les dossiers) dans un partage de fichiers.
 
-1.  Ouvrez l’Explorateur de stockage (version préliminaire).
+1.  Ouvrez l’Explorateur de stockage.
 
 2.  Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez gérer.
 
@@ -258,6 +259,6 @@ Les étapes suivantes expliquent comment gérer les fichiers (et les dossiers) d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les [dernières notes de publication et vidéos de l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com/).
+- Consultez les [dernières notes de publication et vidéos de l’Explorateur Stockage](http://www.storageexplorer.com/).
 
 - Découvrez comment [créer des applications à l’aide d'objets blob, de tables, de files d’attente et de fichiers Azure](https://azure.microsoft.com/documentation/services/storage/).

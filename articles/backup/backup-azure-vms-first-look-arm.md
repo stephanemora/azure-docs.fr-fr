@@ -12,19 +12,19 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 01/05/2018
+ms.topic: article
+ms.date: 04/18/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51ae5c9d5e4f363f3762389347de865212b45b9b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Sauvegarde de machines virtuelles Azure dans des coffres Recovery Services
+# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
-Ce didacticiel détaille les procédures de création d’un coffre Recovery Services et de sauvegarde d’une machine virtuelle Azure. Les coffres Recovery Services protègent :
+Cet article explique comment configurer la protection d’une machine virtuelle à partir du menu des opérations sur les machines virtuelles ou du coffre Recovery Services. Les coffres Recovery Services protègent :
 
 * Machines virtuelles déployées à l’aide de Resource Manager
 * les machines virtuelles Classic,
@@ -34,20 +34,20 @@ Ce didacticiel détaille les procédures de création d’un coffre Recovery Ser
 * Les machines virtuelles chiffrées à l’aide d’Azure Disk Encryption
 * Sauvegarde cohérente des applications des machines virtuelles Windows à l’aide de machines virtuelles VSS et Linux avec des scripts pré et post-instantané personnalisés
 
-Pour plus d’informations sur la protection des machines virtuelles Stockage Premium, consultez la section [Sauvegarder et restaurer des machines virtuelles Stockage Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques gérés, consultez la section [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Sauvegarder et restaurer des machines virtuelles sur des disques gérés). Pour plus d’informations sur l’infrastructure pré et post-script pour la sauvegarde de machine virtuelle Linux, consultez l’article [Sauvegarde de machine virtuelle Linux cohérente dans l’application à l’aide de pré/post-scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Pour plus d’informations sur la protection des machines virtuelles Stockage Premium, consultez la section [Sauvegarder et restaurer des machines virtuelles Stockage Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques gérés, consultez la section [Sauvegarder et restaurer des machines virtuelles sur des disques managés](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Pour plus d’informations sur l’infrastructure pré et post-script pour la sauvegarde de machine virtuelle Linux, consultez l’article [Sauvegarde de machine virtuelle Linux cohérente dans l’application à l’aide de pré/post-scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Pour plus d’informations sur ce que vous pouvez ou non sauvegarder, consultez [cette section](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Pour en savoir plus sur ce que vous pouvez et ne pouvez pas sauvegarder, consultez [Préparation de votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
 > Dans ce didacticiel, nous partons du principe que vous disposez déjà d’une machine virtuelle dans votre abonnement Azure et que vous avez autorisé le service de sauvegarde à accéder à la machine virtuelle.
 >
 >
 
-Votre point de départ varie selon le nombre de machines virtuelles que vous souhaitez protéger. Si vous voulez sauvegarder plusieurs machines virtuelles en une seule opération, accédez au coffre Recovery Services et [lancez la sauvegarde à partir du tableau de bord du coffre](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Si vous ne voulez sauvegarder qu’une seule machine virtuelle, vous pouvez effectuer la sauvegarde directement dans le panneau de gestion de la machine virtuelle.
+Votre point de départ varie selon le nombre de machines virtuelles que vous souhaitez protéger. Si vous voulez sauvegarder plusieurs machines virtuelles en une seule opération, accédez au coffre Recovery Services et [lancez la sauvegarde à partir du tableau de bord du coffre](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Si vous ne voulez sauvegarder qu’une seule machine virtuelle, [effectuez la sauvegarde directement dans le menu des opérations sur les machines virtuelles](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu).
 
-## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Configurer la sauvegarde à partir du panneau de gestion de la machine virtuelle
+## <a name="configure-the-backup-job-from-the-vm-operations-menu"></a>Configurer la sauvegarde à partir du menu des opérations sur les machines virtuelles
 
-La procédure ci-après vous guide dans la configuration du travail de sauvegarde à partir du panneau de gestion des machines virtuelles du portail Azure. Les étapes suivantes s’appliquent uniquement aux machines virtuelles dans le portail Azure.
+La procédure ci-après vous guide dans la configuration du travail de sauvegarde à partir du menu des opérations sur les machines virtuelles. Les étapes s’appliquent uniquement aux machines virtuelles dans le portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le Menu hub, cliquez sur **Tous les services** et, dans la boîte de dialogue Filtrer, tapez **Machines virtuelles**. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Dès que vous voyez apparaître le service Machines virtuelles, sélectionnez-le.
@@ -62,59 +62,58 @@ La procédure ci-après vous guide dans la configuration du travail de sauvegard
 
   ![Affichage de la liste des machines virtuelles de l’abonnement](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
 
-  Lorsque vous sélectionnez la machine virtuelle, la liste des machines virtuelles se déplace vers la gauche, tandis que le panneau de gestion et le tableau de bord de la machine virtuelle s’affichent. </br>
- ![Panneau de gestion de la machine virtuelle](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+  Quand vous sélectionnez la machine virtuelle, la liste des machines virtuelles se déplace vers la gauche, tandis que le menu de gestion et le tableau de bord de la machine virtuelle s’affichent.
 
-4. Dans le panneau de gestion de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. </br>
+4. Dans le menu de gestion de la machine virtuelle, dans la section **Opérations**, cliquez sur **Sauvegarde**. </br>
 
-  ![Option Sauvegarde du panneau de gestion de la machine virtuelle](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+  ![Option de sauvegarde dans le menu de gestion de la machine virtuelle](./media/backup-azure-vms-first-look-arm/vm-management-menu.png)
 
-  Le panneau Activer la sauvegarde s’ouvre.
+  Le menu Activer la sauvegarde s’ouvre.
 
-  ![Option Sauvegarde du panneau de gestion de la machine virtuelle](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+  ![Option de sauvegarde dans le menu de gestion de la machine virtuelle](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup.png)
 
-5. Pour le coffre Recovery Services, cliquez sur **Sélectionner**, puis choisissez le coffre dans la liste déroulante.
+5. Dans la zone Coffre Recovery Services, cliquez sur **Sélectionner**, puis choisissez un coffre dans la liste déroulante.
 
-  ![Assistant Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+  ![Assistant Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
   S’il n’existe aucun coffre Recovery Services ou que vous souhaitez utiliser un nouveau coffre, cliquez sur **Créer** et fournissez le nom du nouveau coffre. Un coffre est créé dans le même groupe de ressources et dans la même région que la machine virtuelle. Si vous souhaitez créer un coffre Recovery Services avec d’autres valeurs, consultez la section décrivant comment [créer un coffre Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
-6. Pour visualiser les détails de la stratégie de sauvegarde, cliquez sur **Stratégie de sauvegarde**.
+6. Dans le menu Choisir une stratégie de sauvegarde, sélectionnez une stratégie. Les détails de la stratégie sélectionnée s’affichent sous le menu déroulant.
 
-  Le panneau **Stratégie de sauvegarde** s’affiche en présentant les détails de la stratégie sélectionnée. Si d’autres stratégies de sauvegarde existent, utilisez le menu déroulant pour choisir une autre stratégie. Pour créer une stratégie, sélectionnez **Créer** dans le menu déroulant. Pour savoir comment définir une stratégie de sauvegarde, consultez la section [Définition d’une stratégie de sauvegarde](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Pour enregistrer les modifications de la stratégie de sauvegarde et revenir au panneau Activer la sauvegarde, cliquez sur **OK**.
+  Si vous souhaitez créer une stratégie ou modifier la stratégie existante, cliquez sur **Créer (ou modifier) une stratégie** pour ouvrir l’éditeur de stratégie de sauvegarde. Pour savoir comment définir une stratégie de sauvegarde, consultez la section [Définition d’une stratégie de sauvegarde](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Pour enregistrer les modifications de la stratégie de sauvegarde et revenir au menu Activer la sauvegarde, cliquez sur **OK**.
 
-  ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
+  ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Dans le panneau Activer la sauvegarde, cliquez sur **Activer la sauvegarde** pour déployer la stratégie. En déployant la stratégie, vous l’associez au coffre et aux machines virtuelles.
+7. Pour appliquer le coffre Recovery Services et la stratégie de sauvegarde à la machine virtuelle, cliquez sur **Activer la sauvegarde** pour déployer la stratégie. En déployant la stratégie, vous l’associez au coffre et aux machines virtuelles.
 
-  ![Bouton Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+  ![Bouton Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
 8. Vous pouvez suivre la progression de la configuration par le biais des notifications qui apparaissent dans le portail. L’exemple ci-après indique que le déploiement a démarré.
 
   ![Notification Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
-9. Une fois la configuration terminée, cliquez sur **Sauvegarde** dans le panneau de gestion de la machine virtuelle pour ouvrir le panneau Éléments de sauvegarde et en visualiser les détails.
+9. Une fois la configuration terminée, cliquez sur **Sauvegarde** dans le menu de gestion de la machine virtuelle pour ouvrir le menu Sauvegarde et visualiser les détails disponibles.
 
-  ![Affichage des éléments de sauvegarde de la machine virtuelle](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+  ![Affichage des éléments de sauvegarde de la machine virtuelle](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-  Jusqu’à la fin de la sauvegarde initiale, la zone **État de la dernière sauvegarde** présente la valeur **Avertissement (Sauvegarde initiale en attente)**. Pour connaître l’heure du prochain travail de sauvegarde planifié, sous **Stratégie de sauvegarde**, cliquez sur le nom de la stratégie. Le panneau Stratégie de sauvegarde s’affiche et indique l’heure de la sauvegarde planifiée.
+  Jusqu’à la fin de la sauvegarde initiale, la zone **État de la dernière sauvegarde** présente la valeur **Avertissement (Sauvegarde initiale en attente)**. Pour connaître l’heure du prochain travail de sauvegarde planifié, sous **Récapitulatif**, cliquez sur le nom de la stratégie. Le menu Stratégie de sauvegarde s’affiche et indique l’heure de la sauvegarde planifiée.
 
-10. Pour exécuter un travail de sauvegarde et créer le point de récupération initial, dans le panneau Archivage de sauvegarde, cliquez sur **Sauvegarder maintenant**.
+10. Pour protéger la machine virtuelle, cliquez sur **Sauvegarder maintenant**. 
 
-  ![Clic sur l’option Sauvegarder maintenant pour exécuter la sauvegarde initiale](./media/backup-azure-vms-first-look-arm/backup-now.png)
+  ![Clic sur l’option Sauvegarder maintenant pour exécuter la sauvegarde initiale](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Le panneau Sauvegarder maintenant s’affiche.
+  Le menu Sauvegarder maintenant s’ouvre. 
 
   ![Affichage du panneau Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-11. Dans le panneau Sauvegarder maintenant, cliquez sur l’icône de calendrier. Utilisez le contrôle de calendrier pour sélectionner le dernier jour de conservation de ce point de récupération, puis cliquez sur **Sauvegarder**.
+11. Dans le menu Sauvegarder maintenant, cliquez sur l’icône de calendrier. Utilisez le contrôle de calendrier pour sélectionner le dernier jour de conservation de ce point de récupération, puis cliquez sur **OK**.
 
   ![Définition du dernier jour de conservation du point de récupération dans le panneau Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Les notifications de déploiement vous informent que la sauvegarde a été déclenchée et que vous pouvez surveiller la progression du travail sur la page Travaux de sauvegarde.
 
 ## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>Configurer le travail de sauvegarde à partir du coffre Recovery Services
-Pour configurer la tâche de sauvegarde, vous procédez comme suit.  
+Pour configurer la tâche de sauvegarde, vous procédez comme suit.
 
 1. Vous créez un coffre Recovery Services pour une machine virtuelle.
 2. Utilisez le portail Azure pour sélectionner un scénario, définir une stratégie de sauvegarde, puis identifier les éléments à protéger.
@@ -142,7 +141,7 @@ Pour créer un archivage de Recovery Services :
 
     ![Créer un coffre Recovery Services - Étape 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Le panneau du coffre Recovery Services s’affiche et vous invite à renseigner les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
+    Le menu du coffre Recovery Services s’affiche et vous invite à renseigner les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
 
     ![Créer un coffre Recovery Services - Étape 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
@@ -164,7 +163,7 @@ Pour créer un archivage de Recovery Services :
   > Si vous ne savez pas où se trouve votre machine virtuelle, fermez la boîte de dialogue de création d’archivage et accédez à la liste des machines virtuelles dans le portail. Si vous possédez des machines virtuelles dans plusieurs régions, créez un coffre Recovery Services dans chacune d’entre elles. Créez l’archivage dans la première région avant de passer à la région suivante. Il est inutile de spécifier les comptes de stockage dans lesquels stocker les données de sauvegarde : le coffre Recovery Services et le service de sauvegarde Azure gèrent cela automatiquement.
   >
 
-8. En bas du panneau du coffre Recovery Services, cliquez sur **créer**.
+8. En bas du menu Coffre Recovery Services, cliquez sur **Créer**.
 
     La création du coffre Recovery Services peut prendre plusieurs minutes. Surveillez les notifications d'état dans l'angle supérieur droit du portail. Une fois votre archivage créé, il apparaît dans la liste des archivages de Recovery Services. Si vous ne voyez pas votre coffre après quelques minutes, cliquez sur **Actualiser**.
 
@@ -179,19 +178,21 @@ L’option de réplication du stockage vous permet de choisir entre stockage gé
 
 Pour modifier le paramètre de réplication du stockage :
 
-1. Dans le panneau **Archivages de Recovery Services**, sélectionnez le nouveau coffre.
+1. Dans le menu **Archivages de Recovery Services**, sélectionnez le nouveau coffre.
 
   ![Sélectionnez le nouveau coffre dans la liste des coffres Recovery Services.](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-  Lorsque vous cliquez sur le coffre, le panneau Paramètres (*dont la partie supérieure porte le nom du coffre*) et le panneau des détails du coffre s’ouvrent.
+  Quand vous cliquez sur le coffre, le menu Paramètres (*dont la partie supérieure porte le nom du coffre*) et le tableau de bord du coffre s’ouvrent.
 
-  ![Afficher la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+  ![Afficher la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
-2. Dans le panneau Paramètres du nouveau coffre, utilisez le curseur vertical pour faire défiler l’écran jusqu'à la section Gestion, puis cliquez sur **Infrastructure de sauvegarde**.
-    Le panneau Infrastructure de sauvegarde s’ouvre.
-3. Dans le panneau Infrastructure de sauvegarde, cliquez sur **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**.
+2. Dans le menu Gestion du nouveau coffre, utilisez le curseur vertical pour faire défiler l’écran jusqu’à la section Gestion, puis cliquez sur **Infrastructure de sauvegarde** pour ouvrir le menu Infrastructure de sauvegarde.
+ 
+   ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
-    ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+3. Dans le menu Infrastructure de sauvegarde, cliquez sur **Configuration de la sauvegarde** pour ouvrir le menu **Configuration de la sauvegarde**.
+
+    ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-open-infra.png)
 4. Choisissez l’option de réplication de stockage à appliquer à votre archivage.
 
     ![Options de configuration du stockage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
@@ -212,43 +213,43 @@ Avant d’enregistrer une machine virtuelle dans un coffre, lancez le processus 
 
     Dans la liste des coffres Recovery Services, sélectionnez un coffre pour ouvrir son tableau de bord.
 
-     ![Ouvrir le panneau de l’archivage](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+     ![Ouvrir le menu du coffre](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. Dans le menu du tableau de bord du coffre, cliquez sur **Sauvegarder** pour ouvrir le panneau Sauvegarde.
+2. Dans le menu du tableau de bord du coffre, cliquez sur **Sauvegarder** pour ouvrir le panneau Sauvegarder.
 
-    ![Ouvrir le panneau Sauvegarde](./media/backup-azure-arm-vms-prepare/backup-button.png)
+    ![Ouvrir le menu Sauvegarde](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    Les panneaux Sauvegarde et Objectif de sauvegarde s’ouvrent.
+    Les menus Sauvegarde et Objectif de sauvegarde s’ouvrent.
 
-    ![Ouvrir le panneau Scénario](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-3. Dans le panneau Objectif de sauvegarde, au niveau du menu déroulant **Où s’exécute votre charge de travail ?**, sélectionnez Azure. Au niveau du menu déroulant **Que voulez-vous sauvegarder ?**, sélectionnez Machine virtuelle, puis cliquez sur **OK**.
+    ![Ouvrir le menu Scénario](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+3. Dans le menu Objectif de sauvegarde, dans le menu déroulant **Où s’exécute votre charge de travail ?**, choisissez Azure. Au niveau du menu déroulant **Que voulez-vous sauvegarder ?**, sélectionnez Machine virtuelle, puis cliquez sur **OK**.
 
-    Ces actions ont pour conséquence d’inscrire l’extension de machine virtuelle avec le coffre. Le panneau Objectif de sauvegarde se ferme et le panneau **Stratégie de sauvegarde** s’ouvre.
+    Ces actions ont pour conséquence d’inscrire l’extension de machine virtuelle avec le coffre. Le menu Objectif de sauvegarde se ferme et le menu **Stratégie de sauvegarde** s’ouvre.
 
-    ![Ouvrir le panneau Scénario](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+    ![Ouvrir le menu Scénario](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
-4. Dans le panneau Stratégie de sauvegarde, sélectionnez la stratégie de sauvegarde à appliquer au coffre.
+4. Dans le menu Stratégie de sauvegarde, sélectionnez la stratégie de sauvegarde à appliquer au coffre.
 
     ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
     Les détails de la stratégie par défaut sont répertoriés dans le menu déroulant à l’écran. Pour créer une stratégie, sélectionnez **Créer** dans le menu déroulant. Pour savoir comment définir une stratégie de sauvegarde, consultez la section [Définition d’une stratégie de sauvegarde](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
     Cliquez sur **OK** pour associer la stratégie de sauvegarde au coffre.
 
-    Le panneau Stratégie de sauvegarde se ferme et le panneau **Sélectionner les machines virtuelles** s’ouvre.
-5. Dans le panneau **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles à associer à la stratégie spécifiée, puis cliquez sur **OK**.
+    Le menu Stratégie de sauvegarde se ferme et le menu **Sélectionner les machines virtuelles** s’ouvre.
+5. Dans le menu **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles à associer à la stratégie spécifiée, puis cliquez sur **OK**.
 
     ![Sélectionner la charge de travail](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     La machine virtuelle sélectionnée est validée. Si vous ne voyez pas les machines virtuelles que vous espériez voir, vérifiez qu’elles existent dans le même emplacement Azure que le coffre Recovery Services et qu’elles ne sont pas déjà protégées. L’emplacement du coffre Recovery Services est indiqué dans le tableau de bord associé.
 
-6. Maintenant que vous avez défini tous les paramètres du coffre, cliquez sur **Activer la sauvegarde** dans le panneau Sauvegarde pour déployer la stratégie au coffre et aux machines virtuelles. Le déploiement de la stratégie de sauvegarde ne crée pas le point de récupération initial pour la machine virtuelle.
+6. Tous les paramètres du coffre étant définis, cliquez sur **Activer la sauvegarde** dans le menu Sauvegarde pour déployer la stratégie sur le coffre et les machines virtuelles. Le déploiement de la stratégie de sauvegarde ne crée pas le point de récupération initial pour la machine virtuelle.
 
     ![Activer la sauvegarde](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 Après l’activation de la sauvegarde, votre stratégie de sauvegarde s’exécutera selon la planification. Toutefois, procédez au lancement du premier travail de sauvegarde.
 
 ## <a name="initial-backup"></a>Sauvegarde initiale
-Le déploiement d’une stratégie de sauvegarde sur la machine virtuelle ne signifie pas que les données ont été sauvegardées. Par défaut, la première sauvegarde planifiée (définie dans la stratégie de sauvegarde) est la sauvegarde initiale. Jusqu’à celle-ci, l’état de la dernière sauvegarde dans le panneau **Travaux de sauvegarde** est défini sur **Avertissement (sauvegarde initiale en attente)**.
+Le déploiement d’une stratégie de sauvegarde sur la machine virtuelle ne signifie pas que les données ont été sauvegardées. Par défaut, la première sauvegarde planifiée (définie dans la stratégie de sauvegarde) est la sauvegarde initiale. Jusqu’à celle-ci, l’état de la dernière sauvegarde dans le menu **Travaux de sauvegarde** est défini sur **Avertissement (sauvegarde initiale en attente)**.
 
 ![Sauvegarde en attente](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
@@ -259,11 +260,11 @@ Pour exécuter le travail de sauvegarde initial :
 1. Dans le tableau de bord du coffre, cliquez sur le numéro sous **Éléments de sauvegarde** ou cliquez sur la vignette **Éléments de sauvegarde**. <br/>
   ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  Le panneau **Éléments de sauvegarde** s’ouvre.
+  Le menu **Éléments de sauvegarde** s’ouvre.
 
   ![Éléments de sauvegarde](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-2. Dans le panneau **Éléments de sauvegarde**, sélectionnez l’élément.
+2. Dans le menu **Éléments de sauvegarde**, sélectionnez l’élément.
 
   ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
@@ -283,11 +284,11 @@ Pour exécuter le travail de sauvegarde initial :
 
   ![Menu contextuel](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  Le panneau Sauvegarder maintenant s’affiche.
+  Le menu Sauvegarder maintenant s’ouvre.
 
-  ![Affichage du panneau Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![Affichage du menu Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-5. Dans le panneau Sauvegarder maintenant, cliquez sur l’icône de calendrier. Utilisez le contrôle de calendrier pour sélectionner le dernier jour de conservation de ce point de récupération, puis cliquez sur **Sauvegarder**.
+5. Dans le menu Sauvegarder maintenant, cliquez sur l’icône de calendrier. Utilisez le contrôle de calendrier pour sélectionner le dernier jour de conservation de ce point de récupération, puis cliquez sur **Sauvegarde**.
 
   ![Définition du dernier jour de conservation du point de récupération dans le panneau Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
@@ -297,11 +298,11 @@ Pour exécuter le travail de sauvegarde initial :
 
   ![Vignette Travaux de sauvegarde](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 
-  Le panneau Travaux de sauvegarde s’ouvre.
+  Le menu Travaux de sauvegarde s’ouvre.
 
   ![Vignette Travaux de sauvegarde](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  Le panneau **Travaux de sauvegarde** indique l’état de tous les travaux. Vérifiez si le travail de sauvegarde de votre machine virtuelle est en cours d’exécution ou s’il est terminé. Lorsqu’un travail de sauvegarde est achevé, il présente l’état *Terminé*.
+  Le menu **Travaux de sauvegarde** indique l’état de tous les travaux. Vérifiez si le travail de sauvegarde de votre machine virtuelle est en cours d’exécution ou s’il est terminé. Lorsqu’un travail de sauvegarde est achevé, il présente l’état *Terminé*.
 
   > [!NOTE]
   > Dans le cadre de l’opération de sauvegarde, le service Azure Backup émet une commande vers l’extension de sauvegarde de chaque machine virtuelle pour vider toutes les écritures et prendre un instantané cohérent.

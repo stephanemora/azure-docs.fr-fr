@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 884acc4885da3a321477c51f6d7b76748d797d9b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
@@ -41,7 +41,7 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic des ressources :
 
 * Enregistrez-les dans un [**compte de stockage**](monitoring-archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **paramètres de diagnostic des ressources**.
 * [Diffusez-les en streaming sur **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
-* Analysez-les avec [Log Analytics](../log-analytics/log-analytics-azure-storage.md).
+* Analysez-les avec [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
 
@@ -59,14 +59,14 @@ Les journaux de diagnostic des ressources non liées au calcul sont configurés 
 Ces paramètres peuvent être facilement configurés via les paramètres de diagnostics pour une ressource dans le portail Azure, via les commandes Azure PowerShell et de l’interface CLI ou via [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!NOTE]
-> L’envoi de métriques multidimensionnels par le biais des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportés en tant que métriques dimensionnels uniques aplatis, et agrégés entre les valeurs de la dimension.
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
 >
-> *Par exemple* : le métrique « Messages entrants » sur un hub d’événements peut être examiné et représenté sur un niveau par file d’attente. Toutefois, lors de son exportation par le biais des paramètres de diagnostic, le métrique est représenté sous forme de tous les messages entrants dans toutes les files d’attente du hub d’événements.
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
 >
 
 > [!WARNING]
-> Mesures et journaux de diagnostic depuis la couche de système d’exploitation invité des ressources Compute (comme les machines virtuelles ou Service Fabric) utilisent [un mécanisme distinct pour la configuration et la sélection des sorties](../azure-diagnostics.md).
+> Les métriques et les journaux de diagnostic concernant la couche Système d’exploitation invité des ressources Compute (comme les machines virtuelles ou Service Fabric) utilisent [un mécanisme distinct pour la configuration et la sélection des sorties](../azure-diagnostics.md).
 
 ## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Comment activer la collecte des journaux de diagnostic des ressources
 

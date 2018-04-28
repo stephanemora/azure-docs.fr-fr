@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 13c3c948fbe24d5536b32967c8394060ee898377
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Ajout d'une entrée de données de diffusion en continu ou de données de référence à une tâche Stream Analytics
 Découvrez comment connecter une source de données à votre tâche Stream Analytics en tant qu’entrée de données de diffusion en continu à partir de Event Hubs ou référencer des données à partir du stockage d’objets blob.
@@ -49,12 +49,12 @@ Pour ajouter une entrée à votre tâche Stream Analytics :
     ![Ajouter une entrée de données de diffusion en continu](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
 4. Attribuez un nom convivial à cette entrée dans la zone Alias d'entrée.  Ce nom sera utilisé dans la requête de votre tâche plus tard pour faire référence à l'entrée.
    
-    Renseignez le reste des propriétés de connexion requises pour vous connecter à votre source de données. Ces champs varient selon le type d'entrée et le type de source, et sont définis en détail [ici](stream-analytics-create-a-job.md).  
+    Renseignez le reste des propriétés de connexion requises pour vous connecter à votre source de données. 
    
     ![Ajouter une entrée de données de hub d’événements](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. Spécifiez les paramètres de sérialisation pour les données d'entrée :
    
-   * Pour vous assurer que vos requêtes fonctionnent comme vous le souhaitez, spécifiez le **Format de sérialisation d'événements** des données entrantes.  Les formats de sérialisation pris en charge sont JSON, CSV et Avro.
+   * Pour vous assurer que vos requêtes fonctionnent comme vous le souhaitez, spécifiez le **Format de sérialisation d'événements** des données entrantes.  Les formats de sérialisation pris en charge sont JSON, CSV et Avro. Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux.
    * Vérifiez le **codage** des données.  UTF-8 est le seul format de codage actuellement pris en charge.
      
      ![Paramètres de sérialisation des données pour l’entrée de données](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  

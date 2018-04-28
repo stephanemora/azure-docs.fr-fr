@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e47141d31d3876264eaf2bcb7dc562a4711048cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de surveillance externe à Azure Stack
 
@@ -92,14 +92,14 @@ Configurez le fichier du plug-in « Azurestack_plugin.py » avec les paramètr
 
 Si vous n’utilisez pas Operations Manager, Nagios ou une solution s’appuyant sur Nagios, vous pouvez utiliser PowerShell pour activer un large éventail de solutions de surveillance à intégrer à Azure Stack.
  
-1. Si vous voulez utiliser PowerShell, assurez-vous que [PowerShell est installé et configuré](azure-stack-powershell-configure-quickstart.md) pour un environnement d’opérateur Azure Stack. Installez PowerShell sur un ordinateur local qui peut atteindre le point de terminaison du Gestionnaire des ressources (administrateur) (https://adminmanagement.[région].[Nom_de_domaine_complet_externe]).
+1. Si vous voulez utiliser PowerShell, assurez-vous que [PowerShell est installé et configuré](azure-stack-powershell-configure-quickstart.md) pour un environnement d’opérateur Azure Stack. Installez PowerShell sur un ordinateur local qui peut atteindre le point de terminaison Resource Manager (administrateur) (https://adminmanagement.[région].[FQDN_externe]).
 
 2. Exécutez les commandes suivantes pour vous connecter à l’environnement Azure Stack en tant qu’opérateur Azure Stack :
 
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. Accédez au répertoire où vous avez installé les [outils Azure Stack](https://github.com/Azure/AzureStack-Tools) dans le cadre de l’installation de PowerShell, par exemple c:\azurestack-tools-master. Ensuite, accédez au répertoire Infrastructure et exécutez la commande suivante pour importer le module Infrastructure :
 
@@ -145,7 +145,7 @@ La requête obtient toutes les alertes actives et fermées pour l’abonnement d
 
 |Argument  |Description  |
 |---------|---------|
-|armendpoint     |  Point de terminaison Azure Resource Manager de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  Point de terminaison Azure Resource Manager de votre environnement Azure Stack, au format https://adminmanagement.{RegionName}.{External FQDN}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.       |
 |subid     |   ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.      |
 |RegionName     |    Nom de la région du déploiement Azure Stack.     |
 |api-version     |  Version du protocole utilisé pour effectuer cette requête. Vous devez utiliser 2016-05-01.      |
@@ -248,7 +248,7 @@ La requête ferme une alerte par son ID unique.
 
 |Argument  |Description  |
 |---------|---------|
-|*armendpoint*     |   Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.      |
+|*armendpoint*     |   Point de terminaison Resource Manager de votre environnement Azure Stack, au format https://adminmanagement.{RegionName}.{External FQDN}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.     |
 |*RegionName*     |   Nom de la région du déploiement Azure Stack.      |
 |*api-version*     |    Version du protocole utilisé pour effectuer cette requête. Vous devez utiliser 2016-05-01.     |
@@ -393,7 +393,7 @@ La requête obtient l’état d’intégrité de tous les fournisseurs de ressou
 
 |Arguments  |Description  |
 |---------|---------|
-|*armendpoint*     |    Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Point de terminaison Resource Manager de votre environnement Azure Stack, au format https://adminmanagement.{RegionName}.{External FQDN}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.    |
 |*RegionName*     |     Nom de la région du déploiement Azure Stack.    |
 |*api-version*     |   Version du protocole utilisé pour effectuer cette requête. Vous devez utiliser 2016-05-01.      |
@@ -462,7 +462,7 @@ La requête obtient l’état d’intégrité d’un fournisseur de ressources i
 
 |Arguments  |Description  |
 |---------|---------|
-|*armendpoint*     |    Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Point de terminaison Resource Manager de votre environnement Azure Stack, au format https://adminmanagement.{RegionName}.{External FQDN}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.         |
 |*RegionName*     |  Nom de la région du déploiement Azure Stack.       |
 |*api-version*     |  Version du protocole utilisé pour effectuer cette requête. Vous devez utiliser 2016-05-01.       |

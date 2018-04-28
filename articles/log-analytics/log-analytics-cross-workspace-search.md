@@ -1,24 +1,24 @@
 ---
 title: Effectuer des recherches dans les ressources avec Azure Log Analytics | Microsoft Docs
-description: "Cet article explique comment interroger les ressources à partir de plusieurs espaces de travail et d’une application App Insights incluse dans votre abonnement."
+description: Cet article explique comment interroger les ressources à partir de plusieurs espaces de travail et d’une application App Insights incluse dans votre abonnement.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 5485b1634013c73b58932aafa6e17d636558715d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Effectuer des recherches dans des journaux inter-ressources dans Log Analytics  
 
@@ -30,7 +30,7 @@ Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Lo
 Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()). Pour une application Application Insights, utilisez l’identificateur [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
 
 ### <a name="identifying-workspace-resources"></a>Identification des ressources d’espace de travail
-Dans les exemples suivants, des requêtes sont exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des mises à jour nécessaires d’après leur classement dans la table Update de l’espace de travail actif et d’un autre espace de travail nommé *contosoretail-it*. 
+Dans les exemples suivants, des requêtes sont exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des mises à jour à partir de la table Update d’un espace de travail nommé *contosoretail-it*. 
 
 Il est possible d’identifier un espace de travail de plusieurs manières :
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6926ae6c67e3397006e95595a8dc28bab67256da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29fb74e49ad3fdca0bc54a431da40b02ef24882b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 
@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié ServiceNow sont les suiva
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur : **ServiceNow** | OUI |
-| endpoint | Point de terminaison du serveur ServiceNow (`http://ServiceNowData.com`).  | OUI |
+| endpoint | Point de terminaison du serveur ServiceNow (`http://<instance>.service-now.com`).  | OUI |
 | authenticationType | Type d’authentification à utiliser. <br/>Valeurs autorisées : **De base**, **OAuth2** | OUI |
 | username | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | Non  |
 | password | Mot de passe correspondant au nom d’utilisateur pour l’authentification De base et OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
@@ -63,7 +63,7 @@ Les propriétés prises en charge pour le service lié ServiceNow sont les suiva
     "properties": {
         "type": "ServiceNow",
         "typeProperties": {
-            "endpoint" : "http://ServiceNowData.com",
+            "endpoint" : "http://<instance>.service-now.com",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

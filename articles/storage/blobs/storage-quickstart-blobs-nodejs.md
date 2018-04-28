@@ -1,19 +1,19 @@
 ---
-title: Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Node.js | Microsoft Docs
-description: Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Node.js, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
+title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de Node.js | Microsoft Docs
+description: Dans le cadre de ce Démarrage rapide, vous créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Node.js, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Node.js
 
@@ -82,7 +82,7 @@ L’objectif de ce module est le suivant :
 - *dotenv* charge les variables d’environnement définies dans un fichier nommé *.env* dans le contexte d’exécution actuel
 - *path* est requis pour déterminer le chemin d’accès absolu du fichier à charger dans le stockage d’objets blob
 - *yargs* offre une interface simple pour accéder aux arguments de ligne de commande
-- *azure-storage* est le module du [kit de développement logiciel Stockage Azure](/nodejs/api/azure-storage) pour Node.js
+- *azure-storage* est le module du [kit de développement logiciel Stockage Azure](https://docs.microsoft.com/javascript/api/azure-storage) pour Node.js
 
 Une série de variables est ensuite initialisée :
 
@@ -294,4 +294,4 @@ Ce guide de démarrage rapide explique comment charger un fichier entre un disqu
 > [!div class="nextstepaction"]
 > [Guide pratique des opérations Stockage Blob](storage-nodejs-how-to-use-blob-storage.md)
 
-Pour la référence Node.js pour le stockage Azure, consultez [Package azure-stockage](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
+Pour la référence Node.js pour le stockage Azure, consultez [Package azure-stockage](https://docs.microsoft.com/javascript/api/azure-storage).

@@ -1,11 +1,11 @@
 ---
 title: Plusieurs adresses IP pour les machines virtuelles Azure - PowerShell | Microsoft Docs
-description: "Découvrez comment affecter plusieurs adresses IP à une machine virtuelle avec PowerShell | Gestionnaire des ressources."
+description: Découvrez comment affecter plusieurs adresses IP à une machine virtuelle avec PowerShell | Gestionnaire des ressources.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 10/13/2017
 
 Cet article explique comment créer une machine virtuelle dans le modèle de déploiement Azure Resource Manager à l’aide de PowerShell. Il n’est pas possible d’affecter plusieurs adresses IP à des ressources créées à l’aide du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, voir [Comprendre les modèles de déploiement](../resource-manager-deployment-model.md).
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
 
 Les étapes qui suivent expliquent comment créer un exemple de machine virtuelle avec plusieurs adresses IP, comme décrit dans le scénario. Modifiez les valeurs des variables en fonction des besoins de votre implémentation.
 
 1. Ouvrez une invite de commandes PowerShell et effectuez les étapes restantes de cette section dans une même session PowerShell. Si vous n’avez pas installé, ni configuré PowerShell, effectuez les étapes de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
-2. Connectez-vous à votre compte avec la commande `login-azurermaccount`.
+2. Connectez-vous à votre compte avec la commande `Connect-AzureRmAccount`.
 3. Remplacez *myResourceGroup* et *westus* par le nom et l’emplacement de votre choix. Créez un groupe de ressources. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
     ```powershell
@@ -159,7 +159,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
     ```
 
     >[!NOTE]
-    >Bien que toutes les configurations soient attribuées à une carte réseau dans cet article, vous pouvez attribuer plusieurs configurations IP à chaque carte réseau connectée à la machine virtuelle. Pour découvrir comment créer une machine virtuelle avec plusieurs cartes réseau, voir [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](../virtual-machines/windows/multiple-nics.md).
+    >Bien que toutes les configurations soient attribuées à une carte réseau dans cet article, vous pouvez attribuer plusieurs configurations IP à chaque carte réseau connectée à la machine virtuelle. Pour apprendre à créer une machine virtuelle avec plusieurs cartes réseau, consultez l’article [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](../virtual-machines/windows/multiple-nics.md).
 
 9. Créez la machine virtuelle en entrant les commandes suivantes :
 
@@ -194,7 +194,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
 
 ## <a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 
-Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#Scenario) de cet article, mais ce n’est pas une condition obligatoire.
+Vous pouvez ajouter des adresses IP privées et publiques à l’interface réseau Azure en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#Scenario) de cet article, mais ce n’est pas une condition obligatoire.
 
 1. Ouvrez une invite de commandes PowerShell et effectuez les étapes restantes de cette section dans une même session PowerShell. Si vous n’avez pas installé, ni configuré PowerShell, effectuez les étapes de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 2. Remplacez les « valeurs » des $Variables suivantes par le nom de l’interface réseau à laquelle vous voulez ajouter une adresse IP, et par le groupe de ressources et l’emplacement dans lesquels réside l’interface réseau :
@@ -320,7 +320,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau 
     Set-AzureRmNetworkInterface -NetworkInterface $MyNIC
     ```
 
-7. Affichez les ressources d’adresses IP privées et d’adresse IP publique affectées à la carte réseau en entrant la commande suivante :
+7. Affichez les ressources d’adresses IP privées et l’adresse IP publique affectées à la carte d’interface réseau en saisissant la commande suivante :
 
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary

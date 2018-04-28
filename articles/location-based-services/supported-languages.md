@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c284bb3637415186a12c63d4eeb088ab5f23e2e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f85a7b018085ce30550bec21fe41ca3f9253da80
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-location-based-services---supported-languages"></a>Azure Location Based Services - Langues prises en charge
 Les services Azure Location Based Services ont été localisés en différentes langues.  Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
@@ -38,7 +38,7 @@ Les services Azure Location Based Services ont été localisés en différentes 
 | hr-HR      | Croate               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Tchèque                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Danois                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| NL -NL     | Néerlandais                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| nl-NL      | Néerlandais                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Néerlandais (Belgique)        |       |    ✓   |         |                   |                |     ✓     |
 | en         | Français                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | Et-EE      | Estonien               |       |    ✓   |         |         ✓         |                |     ✓     |

@@ -1,33 +1,33 @@
 ---
-title: "Incorporer un rapport dans Collections d’espaces de travail Azure Power BI | Microsoft Docs"
-description: "Découvrez comment incorporer un rapport qui se trouve dans Collections d’espaces de travail Power BI dans votre application."
+title: Incorporer un rapport dans Collections d’espaces de travail Azure Power BI | Microsoft Docs
+description: Découvrez comment incorporer un rapport qui se trouve dans Collections d’espaces de travail Power BI dans votre application.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 56e7ca90132527c0ef9d4bd478e99b75ca055272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: b6fa46b1cf3a251d6116e7de6ef41a9e6d265c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Incorporer un rapport dans Collections d’espaces de travail Power BI
 
 Découvrez comment incorporer un rapport qui se trouve dans Collections d’espaces de travail Power BI dans votre application.
 
 > [!IMPORTANT]
-> Le service Collections d’espaces de travail Power BI est déprécié et disponible jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la façon de migrer vos données vers Power BI Embedded, consultez [Comment migrer le contenu d’une collection d’espaces de travail Power BI Embedded vers Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Le service Collections d’espaces de travail Power BI est déprécié et disponible jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Nous allons étudier comment incorporer réellement un rapport dans votre application. Cela suppose que vous disposiez déjà d’un rapport dans l’un des espaces de travail de votre collection. Si vous n’avez pas encore effectué cette étape, consultez [Bien démarrer avec Collections d’espaces de travail Power BI](get-started.md).
 
@@ -35,7 +35,7 @@ Vous pouvez utiliser le SDK .NET (C#) ou Node.js, ainsi que JavaScript, pour cr�
 
 ## <a name="using-the-access-keys-to-use-rest-apis"></a>Utiliser les clés d’accès pour utiliser les API REST
 
-Pour appeler l’API REST, vous pouvez transmettre la clé d’accès qui peut être récupérée sur le portail Azure pour une collection d’espaces de travail donnée. Pour plus d’informations, consultez [Bien démarrer avec Collections d’espaces de travail Power BI](get-started.md).
+Pour appeler l’API REST, vous pouvez transmettre la clé d’accès qui peut être récupérée sur le Portail Azure pour une collection d’espaces de travail donnée. Pour plus d’informations, consultez [Bien démarrer avec Collections d’espaces de travail Power BI](get-started.md).
 
 ## <a name="get-a-report-id"></a>Obtenir un ID de rapport
 
@@ -89,7 +89,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 Le service Collections d’espaces de travail BI Power utilise des jetons d’incorporation, qui sont des jetons web JSON signés HMAC. Les jetons sont signés avec la clé d’accès issue de votre collection d’espaces de travail Power BI. Par défaut, les jetons d’incorporation sont utilisés pour fournir un accès en lecture seule à un rapport à incorporer dans une application. Les jetons d’incorporation sont émis pour un rapport donné et doivent être associés à une URL d’incorporation.
 
-Les jetons d’accès doivent être créés sur le serveur, car les clés d’accès sont utilisées pour signer / chiffrer les jetons. Pour plus d’informations sur la façon de créer des jetons d’accès, consultez [Authentification et autorisation avec le service Collections d’espaces de travail Power BI](app-token-flow.md). Vous pouvez également consulter la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Voici un exemple de ce à quoi cela ressemblerait avec le kit .NET SDK pour Power BI.
+Les jetons d’accès doivent être créés sur le serveur, car les clés d’accès sont utilisées pour signer / chiffrer les jetons. Pour plus d’informations sur la façon de créer des jetons d’accès, consultez [Authentification et autorisation avec le service Collections d’espaces de travail Power BI](app-token-flow.md). Vous pouvez également consulter la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Voici un exemple de ce à quoi cela ressemblerait avec le Kit de développement logiciel (SDK) .NET pour Power BI.
 
 Vous utilisez l’ID de rapport que vous avez récupéré précédemment. Une fois le jeton d’incorporation créé, vous utiliserez la clé d’accès pour générer le jeton, que vous pourrez utiliser dans une perspective JavaScript. La *classe PowerBIToken* requiert l’installation du [package NuGet Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -116,7 +116,7 @@ Si vous utilisez des jetons d’incorporation, vous souhaiterez peut-être limit
 
 ## <a name="embed-using-javascript"></a>Incorporer avec JavaScript
 
-Une fois que nous disposons du jeton d’accès et de l’ID du rapport, nous pouvons incorporer le rapport avec JavaScript. Cela nécessite l’installation du [package NuGet Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). L’URL d’incorporation est simplement https://embedded.powerbi.com/appTokenReportEmbed.
+Une fois que nous disposons du jeton d’accès et de l’ID du rapport, nous pouvons incorporer le rapport avec JavaScript. Cela nécessite l’installation du [package NuGet Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). L’embedUrl sera simplement https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
 > Vous pouvez utiliser [l’exemple d’incorporation de rapport JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) pour tester les fonctionnalités. Il donne également des exemples de code pour les différentes opérations disponibles.
@@ -151,7 +151,7 @@ Le rapport sera incorporé automatiquement en fonction de la taille de son conte
 ## <a name="see-also"></a>Voir aussi
 
 [Prise en main de l’exemple](get-started-sample.md)  
-[Authentification et autorisation dans le service Collections d’espaces de travail Power BI](app-token-flow.md)  
+[Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Package JavaScript Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  

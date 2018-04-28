@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 58656e2aa3b052d9bd9aa14edeb6215858d55ea4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configuration des revendications de rôle émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 
@@ -61,82 +61,86 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
 
     a. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur/Co-admin générales de votre abonné.
 
-    b. Modifiez la version sur **bêta** et extrayez la liste des principaux du service de votre abonné à l’aide de la requête suivante :
+    b. Vous devez disposer des autorisations suffisantes pour créer les rôles. Cliquez sur **modifier les autorisations** pour obtenir les autorisations requises. 
+
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+
+    c. Sélectionnez les autorisations suivantes dans la liste (si vous ne l’avez pas déjà fait) et cliquez sur « Modifier les autorisations » 
+
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    d. Vous serez alors invité à vous connecter à nouveau et à accepter le consentement. Après avoir accepté le consentement, vous êtes connecté au système à nouveau.
+
+    e. Modifiez la version sur **bêta** et extrayez la liste des principaux du service à partir de votre abonné à l’aide de la requête suivante :
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
-    Si vous utilisez plusieurs répertoires, suivez alors le modèle suivant `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Si vous utilisez plusieurs répertoires, suivez alors le modèle suivant `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    c. Dans la liste des principaux du service extraits, obtenez celui que vous devez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste des principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
+    f. Dans la liste des principaux du service extraits, obtenez celui que vous souhaitez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    d. Extrayez la propriété appRoles à partir de l’objet du principal du service.
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    g. Extrayez la propriété appRoles à partir de l’objet du principal du service. 
 
-    e. À présent, vous devez générer de nouveaux rôles pour votre application. Vous pouvez télécharger le Générateur de rôles d’Azure AD à partir [d’ici](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y).
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-    f. Ouvrez le Générateur d’Azure AD, puis procédez comme suit :
+    > [!Note]
+    > Si vous utilisez l’application (non galerie) personnalisée, les deux rôles par défaut s’affichent : msiam_access et utilisateur. En cas d’application de la galerie, msiam_access est le seul rôle par défaut. Vous n’avez pas besoin d’apporter des modifications aux rôles par défaut.
 
-    ![Générateur d’Azure AD](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
-    
-    Entrez le **Nom de rôle**, la **Description du rôle** et la **Valeur du rôle**. Cliquez sur **Ajouter** pour ajouter le rôle.
-    
-    Après avoir ajouté tous les rôles requis, cliquez sur **Générer**.
-    
-    Copiez le contenu en cliquant sur **Copier le contenu**.
+    h. À présent, vous devez générer de nouveaux rôles pour votre application. 
 
-    > [!NOTE] 
-    > Assurez-vous que vous disposez du rôle d’utilisateur **msiam_access** et que l’ID correspond au rôle généré.
+    i. Vous trouverez en-dessous de JSON un exemple d’objet appRoles. Créez un objet similaire pour ajouter les rôles que vous voulez pour votre application. 
 
-    g. Revenez à votre Explorateur graphique. Modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les appRoles souhaités en mettant à jour la propriété appRoles avec les valeurs copiées. Cliquez sur **Exécuter la requête**.
-
-    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
-
-    > [!NOTE]
-    > Vous trouverez ci-dessous un exemple d’objet appRoles. 
     ```
     {
        "appRoles": [
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "msiam_access",
-        "displayName": "msiam_access",
-        "id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
-        "isEnabled": true,
-        "origin": "Application",
-        "value": null
-    },
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "teacher",
-        "displayName": "teacher",
-        "id": "6478ffd2-5dbd-4584-b2ce-137390b09b60",
-        "isEnabled": ,
-        "origin": "ServicePrincipal",
-        "value": "teacher"
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "msiam_access",
+            "displayName": "msiam_access",
+            "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+            "isEnabled": true,
+            "origin": "Application",
+            "value": null
+        },
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "Administrators Only",
+            "displayName": "Admin",
+            "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+            "isEnabled": true,
+            "origin": "ServicePrincipal",
+            "value": "Administrator"
+        }
+    ],
     }
-    ] 
-    }   
     ```
-7. Une fois le principal du service corrigé avec plusieurs rôles, nous pouvons assigner des utilisateurs aux rôles respectifs. Pour ce faire, accédez au portail et à l’application respective. Cliquez ensuite sur l’onglet **Utilisateurs et groupes** dans la partie supérieure. Ce processus répertorie tous les utilisateurs ou groupes.
+    > [!Note]
+    > Vous pouvez uniquement ajouter de nouveaux rôles après le **msiam_access** de l’opération de correction. En outre, vous pouvez ajouter autant de rôles que vous le souhaitez selon les besoins de votre organisation. Azure AD envoie la **valeur** de ces rôles conformément à la valeur de revendication dans la réponse SAML.
+    
+    j. Revenez à l’Afficheur Graph et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle.
 
-    ![Configurer l’authentification unique Add](./media/active-directory-enterprise-app-role-management/userrole.png)
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-    a. Pour assigner un rôle à n’importe quel utilisateur, sélectionnez simplement l’utilisateur/groupe en particulier et cliquez sur le bouton **Assigner** dans la partie inférieure de la page.
+7. Une fois le principal du service corrigé avec d’autres rôles, vous pouvez assigner des utilisateurs aux rôles respectifs. Pour ce faire, accédez au portail et à l’application respective. Cliquez sur l’onglet **Utilisateurs et groupes** dans la partie supérieure. Celui-ci répertorie tous les utilisateurs et groupes déjà assignés à l’application. Vous pouvez ajouter de nouveaux utilisateurs sur le nouveau rôle et sélectionner l’utilisateur existant, puis cliquez sur **Modifier** pour modifier le rôle.
 
-    ![Configurer l’authentification unique Add](./media/active-directory-enterprise-app-role-management/userandgroups.png)
+    ![Configurer l’authentification unique Add](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
-    b. Le fait de cliquer permet d’afficher une fenêtre contextuelle afin de sélectionner un rôle parmi différents rôles définis pour le principal du service respectif.
+     Pour assigner le rôle à n’importe quel utilisateur, sélectionnez le nouveau rôle, puis cliquez sur le bouton **Assigner** dans la partie inférieure de la page.
 
-    c. Choisissez le rôle requis et cliquez sur Envoyer.
+    ![Configurer l’authentification unique Add](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
+
+    > [!Note]
+    > Notez que vous devez actualiser votre session dans le Portail Azure pour afficher les nouveaux rôles.
 
 8. Après l’assignation des rôles aux utilisateurs, nous devons mettre à jour la table **Attributs** pour définir un mappage personnalisé de revendication de **rôle**.
 
@@ -152,7 +156,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
 
     ![Configuration d’attribut de l’authentification unique](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
+    b. Dans la zone de texte **Nom**, saisissez le nom de l’attribut, si nécessaire. Dans cet exemple, nous avons utilisé **Nom de rôle** comme nom de la revendication.
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
 
@@ -164,87 +168,89 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
 
 ## <a name="update-existing-role"></a>Mettre à jour un rôle existant
 
-1. Pour mettre à jour un rôle existant, procédez comme suit :
+Pour mettre à jour un rôle existant, procédez comme suit :
 
-    a. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
+1. Ouvrez [Afficheur de Graph Azure AD](https://developer.microsoft.com/graph/graph-explorer).
 
-    b. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur/Co-admin générales de votre abonné.
+2. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur/Co-admin générales de votre abonné.
     
-    c. Modifiez la version sur **bêta** et extrayez la liste des principaux du service de votre abonné à l’aide de la requête suivante :
+3. Modifiez la version sur **bêta** et extrayez la liste des principaux du service à partir de votre abonné à l’aide de la requête suivante :
     
     `https://graph.microsoft.com/beta/servicePrincipals`
-        
-    Si vous utilisez plusieurs répertoires, suivez alors le modèle suivant `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    Si vous utilisez plusieurs répertoires, suivez alors le modèle suivant `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    d. Dans la liste des principaux du service extraits, obtenez celui que vous devez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste des principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
+4. Dans la liste des principaux du service extraits, obtenez celui que vous devez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-    e. Extrayez la propriété appRoles à partir de l’objet du principal du service.
+5. Extrayez la propriété appRoles à partir de l’objet du principal du service.
     
-    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
     
-    f. Pour mettre à jour le rôle existant, procédez comme suit :
+6. Pour mettre à jour le rôle existant, procédez comme suit :
 
     ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
     * Modifiez la méthode de **GET** à **PATCH**.
 
-    * Copiez les rôles existants à partir de l’application et collez-les dans le **Corps de la demande**.
-    
-    * Mettez à jour la valeur du rôle en remplaçant la **Description du rôle**, la **Valeur rôle** et le **Nom d’affichage du rôle** conformément aux exigences de votre organisation.
-    
+    * Copiez les rôles existants et collez-les dans le **Corps de la demande**.
+
+    * Mettez à jour la valeur de rôle en mettant à jour **Description du rôle**, **Valeur du rôle** ou **Nom complet du rôle** en fonction des besoins.
+
     * Après avoir mis à jour tous les rôles requis, cliquez sur **Exécuter la requête**.
         
 ## <a name="delete-existing-role"></a>Supprimer un rôle existant
 
 Pour supprimer un rôle existant, procédez comme suit :
 
-a. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
+1. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
 
-b. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur/Co-admin générales de votre abonné.
+2. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur/Co-admin générales de votre abonné.
 
-c. Modifiez la version sur **bêta** et extrayez la liste des principaux du service de votre abonné à l’aide de la requête suivante :
+3. Modifiez la version sur **bêta** et extrayez la liste des principaux du service à partir de votre abonné à l’aide de la requête suivante :
     
-`https://graph.microsoft.com/beta/servicePrincipals`
+    `https://graph.microsoft.com/beta/servicePrincipals`
     
-Si vous utilisez plusieurs répertoires, suivez alors le modèle suivant `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Si vous utilisez plusieurs répertoires, suivez alors le modèle suivant `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-d. Dans la liste des principaux du service extraits, obtenez celui que vous devez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste des principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
+4. Dans la liste des principaux du service extraits, obtenez celui que vous souhaitez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
      
-`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
-    
-e. Extrayez la propriété appRoles à partir de l’objet du principal du service.
-    
-![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-f. Pour mettre à jour le rôle existant, procédez comme suit :
-
-![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
-
-Modifiez la méthode de **GET** à **PATCH**.
-
-Copiez les rôles existants à partir de l’application et collez-les dans le **Corps de la demande**.
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-Définissez la valeur **IsEnabled** sur **false** pour le rôle que vous souhaitez supprimer.
+5. Extrayez la propriété appRoles à partir de l’objet du principal du service.
+    
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-Cliquez sur **Exécuter la requête**.
-    
-> [!NOTE] 
-> Assurez-vous que vous disposez du rôle d’utilisateur **msiam_access** et que l’ID correspond au rôle généré.
-    
-g. Après avoir suivi la procédure ci-dessus, conservez la méthode en tant que **PATCH** et collez le rôle restant contenu dans le **Corps de la demande**, puis cliquez sur **Exécuter la requête**.
-    
-![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
+6. Pour supprimer le rôle existant, procédez comme suit :
 
-h. Le rôle sera supprimé après l’exécution de la requête.
+    ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+
+    * Modifiez la méthode de **GET** à **PATCH**.
+
+    * Copiez les rôles existants à partir de l’application et collez-les dans le **Corps de la demande**.
+        
+    * Définissez la valeur **IsEnabled** sur **false** pour le rôle que vous souhaitez supprimer.
+
+    * Cliquez sur **Exécuter la requête**.
     
-> [!NOTE]
-> Le rôle doit d’abord être désactivé avant de pouvoir être supprimé. 
+    > [!NOTE] 
+    > Assurez-vous que vous avez le rôle d’utilisateur **msiam_access** et que l’ID correspond au rôle généré.
+    
+7. Une fois le rôle désactivé, supprimez ce bloc de rôles à partir de la section appRoles, conservez la méthode en tant que **PATCH** et cliquez sur **Exécuter la requête**.
+    
+8. Le rôle sera supprimé après l’exécution de la requête.
+    
+    > [!NOTE]
+    > Le rôle doit d’abord être désactivé avant de pouvoir être supprimé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

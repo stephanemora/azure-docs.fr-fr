@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire (préversion)
 
@@ -78,7 +75,7 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
-Quand vous utilisez des règles de groupe de sécurité réseau, de proxy ou de pare-feu basées sur une adresse IP pour contrôler la connectivité sortante, les plages d’adresses IP suivantes doivent se trouver dans la liste verte. Téléchargez une liste de plages à partir des liens suivants :
+Si vous souhaitez contrôler la connectivité sortante à l’aide d’adresses IP au lieu d’URL, mettez sur liste blanche les plages de centres de données appropriées, les adresses Office 365 et les adresses de point de terminaison de service, pour les règles de pare-feu, proxy ou NSG basées sur IP.
 
   - [Plages IP de centres de données Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Plages IP de centres de données Microsoft Azure en Allemagne](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -86,7 +83,7 @@ Quand vous utilisez des règles de groupe de sécurité réseau, de proxy ou de 
   - [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Adresses IP de points de terminaison du service Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Utilisez ces listes pour configurer les contrôles d’accès réseau dans votre réseau. Vous pouvez utiliser ce [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) pour créer des règles de groupe de sécurité réseau requises.
+Vous pouvez utiliser ce [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) pour créer des règles de groupe de sécurité réseau requises.
 
 ## <a name="verify-azure-vm-certificates"></a>Vérifier les certificats des machines virtuelles Azure
 
@@ -106,7 +103,7 @@ Azure Site Recovery fournit trois rôles intégrés pour contrôler les opérati
 
 - **Site Recovery Reader** : Ce rôle dispose des autorisations pour afficher toutes les opérations de gestion de Site Recovery. Ce rôle est tout indiqué pour un responsable de suivi informatique, qui peut surveiller l’état de protection actuel et envoyer des billets d’assistance.
 
-En savoir plus sur les [rôles intégrés Azure RBAC](../active-directory/role-based-access-built-in-roles.md)
+En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Activer la réplication
 

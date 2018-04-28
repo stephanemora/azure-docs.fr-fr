@@ -1,8 +1,8 @@
 ---
 title: Guide de programmation SCP.NET | Microsoft Docs
-description: "Découvrez comment utiliser SCP.NET pour créer des topologies Storm basées sur .NET en vue d’une utilisation avec Storm sur HDInsight."
+description: Découvrez comment utiliser SCP.NET pour créer des topologies Storm basées sur .NET en vue d’une utilisation avec Storm sur HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: raviperi
 manager: jhubbard
 editor: cgronlun
@@ -11,15 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: a0ce92ba58fbcda812a3d4e5e275178b73400d6c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0f4c021bc209c99e1b3f34b34bf5ba0549eb48f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scp-programming-guide"></a>Guide de programmation SCP
 SCP est une plateforme permettant de développer des applications de traitement de données en temps réel, fiables, cohérentes et aux performances élevées. Elle est basée sur [Apache Storm](http://storm.incubator.apache.org/) , système de traitement par flux conçu par la communauté OSS. Storm est conçu par Nathan Marz et a été diffusé en open source par Twitter. Il exploite [Apache ZooKeeper](http://zookeeper.apache.org/), un autre projet Apache pour fournir une coordination et une gestion d’état très fiables. 
@@ -155,7 +153,7 @@ L'objet Context fournit un environnement d'exécution pour l'application. Chaque
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` correspond aux paramètres définis par Storm, tandis que `pluginConf` correspond aux paramètres définis par SCP. Par exemple :
+`stormConf` correspond aux paramètres définis par Storm, tandis que `pluginConf` correspond aux paramètres définis par SCP. Par exemple : 
 
     public class Constants
     {
@@ -169,7 +167,7 @@ L'objet Context fournit un environnement d'exécution pour l'application. Chaque
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext` est fourni pour obtenir le contexte de topologie et est plus utile pour les composants dotés de plusieurs parallélismes. Voici un exemple :
+`TopologyContext` est fourni pour obtenir le contexte de topologie et est plus utile pour les composants dotés de plusieurs parallélismes. Voici un exemple : 
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -364,7 +362,7 @@ SCP.NET a ajouté les fonctions suivantes pour définir les topologies transacti
 | **scp-tx-batch-bolt** |exec-name<br />args<br />fields |Permet de définir un lot bolt transactionnel. Exécute l’application avec ***exec-name*** en utilisant ***args***.<br /><br />Le paramètre Fields correspond aux champs de sortie du bolt. |
 | **scp-tx-commit-bolt** |exec-name<br />args<br />fields |Permet de définir un bolt de validation transactionnel. Exécute l’application avec ***exec-name*** en utilisant ***args***.<br /><br />***fields*** correspond aux champs de sortie du bolt. |
 | **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |Permet de définir une topologie non transactionnelle avec un nom de topologie,&nbsp; une carte de définition de spouts et une carte de définition de bolts. |
-| **scp-spout** |exec-name<br />args<br />fields<br />Paramètres |Permet de définir un spout non transactionnel. Exécute l’application avec ***exec-name*** en utilisant ***args***.<br /><br />***fields*** correspond aux champs de sortie du spout.<br /><br />Les ***parameters*** (paramètres) sont facultatifs ; ils permettent de spécifier certains paramètres tels que « nontransactional.ack.enabled ». |
+| **scp-spout** |exec-name<br />args<br />fields<br />parameters |Permet de définir un spout non transactionnel. Exécute l’application avec ***exec-name*** en utilisant ***args***.<br /><br />***fields*** correspond aux champs de sortie du spout.<br /><br />Les ***parameters*** (paramètres) sont facultatifs ; ils permettent de spécifier certains paramètres tels que « nontransactional.ack.enabled ». |
 | **scp-bolt** |exec-name<br />args<br />fields<br />Paramètres |Permet de définir un bolt non transactionnel. Exécute l’application avec ***exec-name*** en utilisant ***args***.<br /><br />***fields*** correspond aux champs de sortie du bolt.<br /><br />Les ***parameters*** (paramètres) sont facultatifs ; ils permettent de spécifier certains paramètres tels que « nontransactional.ack.enabled ». |
 
 SCP.NET a défini par mots-clés suivants :
@@ -467,7 +465,7 @@ Vous pouvez également utiliser « scp-spout » et « scp-bolt » dans le fi
 Ici `microsoft.scp.example.HybridTopology.Generator` est le nom de la classe Spout Java.
 
 ### <a name="specify-java-classpath-in-runspec-command"></a>Spécifier le chemin d’accès des classes Java dans une commande runSpec
-Si vous voulez envoyer une topologie contenant des spouts ou des bolts Java, vous devez d’abord compiler les spouts ou bolts Java et récupérer les fichiers Jar. Puis, vous devez spécifier le chemin d’accès des classes Java contenant les fichiers Jar au moment de l’envoi de la topologie. Voici un exemple :
+Si vous voulez envoyer une topologie contenant des spouts ou des bolts Java, vous devez d’abord compiler les spouts ou bolts Java et récupérer les fichiers Jar. Puis, vous devez spécifier le chemin d’accès des classes Java contenant les fichiers Jar au moment de l’envoi de la topologie. Voici un exemple : 
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 

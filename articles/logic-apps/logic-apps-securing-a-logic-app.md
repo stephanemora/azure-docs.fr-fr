@@ -1,11 +1,11 @@
 ---
-title: "Sécuriser l’accès à Azure Logic Apps | Microsoft Docs"
-description: "Renforcez la sécurité pour protéger l’accès aux déclencheurs, aux entrées et sorties, aux paramètres d’action et aux services utilisés avec des workflows dans Azure Logic Apps."
+title: Sécuriser l’accès à Azure Logic Apps | Microsoft Docs
+description: Renforcez la sécurité pour protéger l’accès aux déclencheurs, aux entrées et sorties, aux paramètres d’action et aux services utilisés avec des workflows dans Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Sécurisation de l’accès à vos applications logiques
 
@@ -77,7 +77,7 @@ En plus de la signature d’accès partagé, vous pouvez souhaiter limiter l’a
 Ce paramètre peut être configuré dans les paramètres d’application logique :
 
 1. Dans le portail Azure, ouvrez l’application logique à laquelle vous souhaitez ajouter des restrictions d’adresse IP
-1. Cliquez sur l’élément de menu **Configuration du contrôle d’accès** sous **Paramètres**
+1. Cliquez sur l’élément de menu **Paramètres de flux de travail** sous **Paramètres**
 1. Spécifier la liste des plages d’adresses IP acceptées par le déclencheur
 
 Une plage d’adresses IP valide se présente au format `192.168.1.1/255`. Si vous souhaitez que l’application logique ne soit déclenchée que comme une application logique imbriquée, sélectionnez l’option **Autres applications logiques uniquement**. Cette option écrit un tableau vide est écrit sur la ressource, ce qui signifie que seuls les appels du service lui-même (applications logiques parentes) entraînent un déclenchement.
@@ -119,7 +119,7 @@ Pour ajouter davantage de protocoles d’autorisation sur une application logiqu
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Sécuriser l’accès pour gérer ou modifier des applications logiques
 
-Vous pouvez limiter l’accès aux opérations de gestion sur une application logique de sorte que seuls des utilisateurs ou groupes spécifiques soient en mesure d’effectuer des opérations sur la ressource. Les applications logiques utilisent la fonctionnalité [Contrôle d’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-configure.md), et peuvent être personnalisées avec les mêmes outils.  Vous pouvez également affecter des rôles intégrés aux membres de votre abonnement :
+Vous pouvez limiter l’accès aux opérations de gestion sur une application logique de sorte que seuls des utilisateurs ou groupes spécifiques soient en mesure d’effectuer des opérations sur la ressource. Les applications logiques utilisent la fonctionnalité [Contrôle d’accès basé sur les rôles (RBAC)](../role-based-access-control/role-assignments-portal.md), et peuvent être personnalisées avec les mêmes outils.  Vous pouvez également affecter des rôles intégrés aux membres de votre abonnement :
 
 * **Collaborateur d’application logique** : accorde un accès pour afficher, modifier et mettre à jour une application logique.  Il ne peut pas supprimer la ressource ou effectuer des opérations d’administration.
 * **Opérateur d’application logique** : peut afficher l’application logique et l’historique d’exécution, et activer/désactiver.  Il ne peut pas modifier ou mettre à jour la définition.

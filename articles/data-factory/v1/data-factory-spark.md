@@ -1,11 +1,11 @@
 ---
-title: "Appeler des programmes Spark à partir d’Azure Data Factory | Microsoft Docs"
-description: "Apprenez à appeler des programmes Spark à partir d’une fabrique de données Azure à l’aide de l’activité MapReduce."
+title: Appeler des programmes Spark à partir d’Azure Data Factory | Microsoft Docs
+description: Apprenez à appeler des programmes Spark à partir d’une fabrique de données Azure à l’aide de l’activité MapReduce.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -55,11 +55,12 @@ Voici les étapes classiques pour créer un pipeline de fabrique de données ave
 * Créez un pipeline avec une activité Spark faisant référence au service lié HDInsight que vous avez créé. L’activité est configurée avec le jeu de données que vous avez créé à l’étape précédente comme un jeu de données de sortie. Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par conséquent, vous devez spécifier le jeu de données de sortie même si l’activité ne produit pas vraiment de sortie.
 
 ### <a name="prerequisites"></a>Prérequis
+
 1. Créez un compte de stockage à usage général en suivant les instructions fournies dans [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 2. Créez un cluster Spark dans HDInsight en suivant les instructions fournies dans le didacticiel [Créer un cluster Spark dans HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associez le compte de stockage que vous avez créé à l’étape 1 à ce cluster.
 
-3. Téléchargez et consultez le fichier de script Python **test.py** situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Téléchargez et passez en revue le fichier de script Python **test.py** se trouvant à l’emplacement [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Chargez le fichier **test.py** dans le dossier **pyFiles** du conteneur **adfspark** figurant dans votre stockage Blob. Créez le conteneur et le dossier s’ils n’existent pas.
 
@@ -84,7 +85,7 @@ Pour créer une fabrique de données, procédez comme suit :
 7. Sélectionnez **Créer**.
 
    > [!IMPORTANT]
-   > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
+   > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../role-based-access-control/built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
 
 8. La fabrique de données apparaît comme en cours de création dans le tableau de bord du portail Azure.
 

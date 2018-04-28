@@ -1,42 +1,37 @@
 ---
-title: "Partenaires de SQL Data Warehouse en matière d’intégration de données | Microsoft Docs"
-description: "Répertorie les partenaires tiers proposant des solutions d’intégration de données prenant en charge SQL Data Warehouse."
+title: Partenaires de SQL Data Warehouse en matière d’intégration de données | Microsoft Docs
+description: Répertorie les partenaires tiers proposant des solutions d’intégration de données prenant en charge SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 450730a8-87df-4b8f-917b-debe3c906283
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 01/30/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a7102474875517a7454f778a0030fa514075a021
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 6a1604dbca09e65d8d6d5b45b31b0d3c7f053ccd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partenaires de SQL Data Warehouse en matière d’intégration de données
-Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’intégration de données prenant en charge Azure SQL Data Warehouse.
+Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’intégration de données prenant en charge Azure SQL Data Warehouse.
 
-## <a name="our-data-integration-partners"></a>Nos partenaires d’intégration de données
-| Partenaire | Description | Liens | Vidéos |
+## <a name="data-integration-partners"></a>Partenaires d’intégration de données
+| Partenaire | Description | Liens | vidéos |
 | --- | --- | --- | --- |
-| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer fournit un flux de travail répétitif pour l’analyse de données en libre-service qui offre de nouvelles perspectives en quelques heures, contrairement à quelques semaines pour les approches traditionnelles ! Alteryx Designer aide les analystes de données en combinant la préparation des données, le mélange des données et l’analyse (prédictive, statistique et spatiale) à l’aide de la même interface utilisateur intuitive. |[Marketplace][alteryx_marketplace]<br>[Site Web][alteryx_designer_website]<br>[Livre blanc][alteryx_whitepaper]<br>[Feuille de données][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Vidéo Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
+| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer fournit un flux de travail répétitif pour l’analyse de données en libre-service qui offre de nouvelles perspectives en quelques heures, contrairement à quelques semaines pour les approches traditionnelles ! Alteryx Designer aide les analystes de données en combinant la préparation des données, le mélange des données et l’analyse (prédictive, statistique et spatiale) à l’aide de la même interface utilisateur intuitive. |[Marketplace][alteryx_marketplace]<br>[Site web][alteryx_designer_website]<br>[Livre blanc][alteryx_whitepaper]<br>[Feuille de données][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Vidéo Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
 | ![Attunity][2] |**Attunity**<br>Attunity CloudBeam offre une solution automatisée et optimisée de chargement de données dans SQL Data Warehouse. Dotée d’une conception de type « cliquer pour charger », elle simplifie et accélère à la fois le chargement par lot et la réplication incrémentielle à partir de nombreuses bases de données hétérogènes, notamment SQL Server, Oracle, DB2, Sybase et mySQL. |[Marketplace][attunity_marketplace]<br>[Démarrage rapide][attunity_quickstart]<br>[Site web][attunity_cloudbeam_website]<br>[Feuille de données][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] |[![Vidéo Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
 | ![Bryte Systems][3] |**Bryte Systems**<br>Bryte Systems automatise le transfert de données vers SQL Data Warehouse à partir de diverses bases de données et sources. Bryte Systems est spécialisé dans les technologies d’intégration et de déplacement de données. Cette entreprise crée des entrepôts de données et des lacs de données cloud destinés à découvrir les perspectives. |[Marketplace][bryte_systems_marketplace]<br>[Site web][bryte_systems_azure_website] | |
-| ![Informatica][4] |**Services Informatica Cloud pour Azure – Paiement à l’utilisation**<br> Optimisez la valeur de vos services Azure et obtenez des informations exploitables à partir de tous vos jeux de données hybrides avec les services Informatica Cloud pour Azure – Paiement à l’utilisation. Informatica Cloud offre une solution de pointe pour l’intégration des données, les analyses cloud, l’intégration d’application et la gestion des données. Grâce aux fonctionnalités libre-service de migration, d’intégration et de gestion des données, les clients peuvent importer, exporter, synchroniser et planifier (rapidement et de manière fiable) des pétaoctets de données vers Azure à partir de diverses sources telles que les applications SaaS, les lacs de données basés sur Hadoop et d’autres sources de données locales (Oracle, SAP).  Les services Informatica Cloud pour Azure offrent une connectivité native, à volume élevé et haute performance, à Azure SQL Data Warehouse, la base de données Sgl, Stockage Blob, Data Lake Store et Azure Cosmos DB. |[Marketplace][informatica_Cloud_Services_marketplace]<br>[Version d’évaluation gratuite][informatica_cloud_free_trial]<br>[Guide de configuration][informatica_cloud_services_config]<br>[Site web][informatica_Cloud_Services_website]<br>[Feuille de données][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
+| ![Informatica][4] |**Services Informatica Cloud pour Azure – Paiement à l’utilisation**<br> Optimisez la valeur de vos services Azure et obtenez des informations exploitables à partir de tous vos jeux de données hybrides avec les services Informatica Cloud pour Azure – Paiement à l’utilisation. Informatica Cloud offre une solution de pointe pour l’intégration des données, les analyses cloud, l’intégration d’application et la gestion des données. Grâce aux fonctionnalités libre-service de migration, d’intégration et de gestion des données, les clients peuvent importer, exporter, synchroniser et planifier (rapidement et de manière fiable) des pétaoctets de données vers Azure à partir de diverses sources telles que les applications SaaS, les lacs de données basés sur Hadoop et d’autres sources de données locales (Oracle, SAP). Les services Informatica Cloud pour Azure offrent une connectivité native, à volume élevé et haute performance, à Azure SQL Data Warehouse, SQL Database, Stockage Blob, Data Lake Store et Azure Cosmos DB. |[Marketplace][informatica_Cloud_Services_marketplace]<br>[Version d’évaluation gratuite][informatica_cloud_free_trial]<br>[Guide de configuration][informatica_cloud_services_config]<br>[Site web][informatica_Cloud_Services_website]<br>[Feuille de données][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
 | ![Informatica][4] |**Informatica PowerCenter**<br>Informatica est l’un des fournisseurs indépendants de logiciels d’intégration de données les plus connus au monde. PowerCenter constitue le fondement de toutes vos initiatives d’intégration de données. Utilisez PowerCenter pour l’analyse, l’entreposage de données, la migration d’application, la consolidation ou la gouvernance des données. |[Marketplace (Standard)][informatica_PowerCenter_std_marketplace]<br>[Marketplace (Avancé)][informatica_PowerCenter_adv_marketplace]<br>[Site web][informatica_PowerCenter_website]<br>[Feuille de données][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
 | ![Redgate][5] |**Redgate Data Platform Studio (Preview)**<br>Data Platform Studio de Redgate offre un moyen simple et fiable de migrer des bases de données SQL locales vers Azure SQL Data Warehouse. Il est conçu pour prendre des décisions intelligentes pour une migration entièrement automatisée et est disponible gratuitement pour les migrations à occurrence unique. |[Site web][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Vidéo Redgate](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
-| ![SnapLogic][6] |**SnapLogic**<br>La solution iPaaS (Integration Platform as a Service) de SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance de Microsoft Azure SQL Data Warehouse.  SnapLogic offre la possibilité d’intégrer des centaines d’applications, services et scénarios IoT en une seule solution. Diffusez des perspectives rapides et efficaces dans le cloud, en local ou en mode hybride avec SnapLogic ! |[Marketplace][snaplogic_marketplace]<br>[Site Web][snaplogic_website]<br>[Feuille de données][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Vidéo Snaplogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
+| ![SnapLogic][6] |**SnapLogic**<br>La solution iPaaS (Integration Platform as a Service) de SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance de Microsoft Azure SQL Data Warehouse. SnapLogic offre la possibilité d’intégrer des centaines d’applications, services et scénarios IoT en une seule solution. Diffusez des perspectives rapides et efficaces dans le cloud, en local ou en mode hybride avec SnapLogic ! |[Marketplace][snaplogic_marketplace]<br>[Site web][snaplogic_website]<br>[Feuille de données][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Vidéo Snaplogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur certains de nos autres partenaires, consultez [Partenaires décisionnels][bi_partners] et [Partenaires de gestion des données][dm_partners].
+Pour plus d’informations sur d’autres partenaires, consultez [Partenaires décisionnels][bi_partners] et [Partenaires de gestion des données][dm_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png

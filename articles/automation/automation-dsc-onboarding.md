@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Gestion de machines avec Azure Automation DSC
 
@@ -53,7 +53,7 @@ Pour trouver l’URL d’inscription et la clé du compte Automation à intégre
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ Pour intégrer de manière générique n’importe quelle machine à Azure Autom
 Si les valeurs par défaut du gestionnaire de configuration locale DSC PowerShell correspondent à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles procèdent à la fois à une extraction auprès d’Azure Automation DSC et qu’elles lui adressent des rapports, les applets de commande Azure Automation constituent une méthode qui simplifie la génération des métaconfigurations nécessaires :
 
 1. Ouvrez la console PowerShell ou PowerShell ISE en tant qu’administrateur sur un ordinateur de votre environnement local.
-2. Connectez-vous à Azure Resource Manager en utilisant **Add-AzureRmAccount**
+2. Connectez-vous à Azure Resource Manager en utilisant **Connect-AzureRmAccount**.
 3. Téléchargez les métaconfigurations DSC PowerShell pour les machines à intégrer du compte Automation vers l’emplacement où vous voulez intégrer des nœuds :
 
     ```powershell

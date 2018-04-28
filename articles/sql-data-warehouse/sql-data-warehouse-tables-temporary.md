@@ -1,44 +1,29 @@
 ---
-title: "Tables temporaires dans SQL Data Warehouse | Microsoft Docs"
-description: Prise en main des tables temporaires dans Azure SQL Data Warehouse.
+title: Tables temporaires dans SQL Data Warehouse | Microsoft Docs
+description: Conseils de base pour l’utilisation des tables temporaires et mise en évidence des principes des tables temporaires au niveau de la session.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a3e06a4074bc7b5cd8612162a624718107a50656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tables temporaires dans SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Vue d’ensemble][Overview]
-> * [Types de données][Data Types]
-> * [Distribuer][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistiques][Statistics]
-> * [Temporaire][Temporary]
-> 
-> 
-
-Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse.  Elles sont uniquement visibles dans la session dans laquelle elles ont été créées et sont automatiquement supprimées lorsque cette session se déconnecte.  Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.  Dans Azure SQL Data Warehouse, les tables temporaires diffèrent légèrement par rapport à la base de données SQL Azure, car elles sont accessibles à partir de tout point à l’intérieur de la session, notamment à l’intérieur et à l’extérieur d’une procédure stockée.
-
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session. L’utilisation des informations de cet article peut vous aider à modulariser votre code, et à améliorer sa réutilisabilité et sa facilité de maintenance.
 
+## <a name="what-are-temporary-tables"></a>Qu’est-ce que les tables temporaires ?
+Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse.  Elles sont uniquement visibles dans la session dans laquelle elles ont été créées et sont automatiquement supprimées lorsque cette session se déconnecte.  Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.  Dans Azure SQL Data Warehouse, les tables temporaires diffèrent légèrement par rapport à la base de données SQL Azure, car elles sont accessibles à partir de tout point à l’intérieur de la session, notamment à l’intérieur et à l’extérieur d’une procédure stockée.
+
 ## <a name="create-a-temporary-table"></a>Créer une table temporaire
-Les tables temporaires sont créées en faisant simplement précéder le nom de votre table de `#`.  Par exemple :
+Les tables temporaires sont créées en faisant simplement précéder le nom de votre table de `#`.  Par exemple : 
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -232,20 +217,5 @@ DROP TABLE #stats_ddl;
 SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.  Actuellement, seules les tables temporaires de la session sont prises en charge.  Les tables temporaires globales ne sont pas prises en charge.  En outre, vous ne pouvez pas créer de vues sur des tables temporaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez les articles [Vue d’ensemble des tables][Overview], [Types de données de table][Data Types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition] et [Maintenance des statistiques de table][Statistics].  Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices].
+Pour en savoir plus sur le développement des tables, consultez la [Vue d’ensemble de la Table](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

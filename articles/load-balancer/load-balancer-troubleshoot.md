@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
@@ -103,9 +103,7 @@ Si une machine virtuelle ne répond pas au trafic de données, il se peut que le
 
 Si un ou plusieurs groupes de sécurité réseau configurés sur le sous-réseau ou sur la machine virtuelle bloquent l’adresse IP source ou le port, alors la machine virtuelle ne peut pas répondre.
 
-* Répertoriez les groupes de sécurité réseau configurés sur la machine virtuelle du pool principal. Pour plus d'informations, consultez les pages suivantes :
-    -  [Gérer les groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Gérer des groupes de sécurité réseau à l’aide de PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* Répertoriez les groupes de sécurité réseau configurés sur la machine virtuelle du pool principal. Pour plus d’informations, consultez [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md) (Créer, modifier ou supprimer un groupe de sécurité réseau).
 * Dans la liste des groupes de sécurité réseau, vérifiez si :
     - le trafic entrant ou sortant sur le port de données subit des interférences ; 
     - une règle **Refuser tout** des groupes de sécurité réseau sur la carte d’interface réseau de la machine virtuelle ou du sous-réseau a une priorité supérieure à celle de la règle par défaut qui autorise les sondes et le trafic de l’équilibreur de charge (les groupes de sécurité réseau doivent autoriser l’adresse IP 168.63.129.16 de l’équilibreur de charge qui correspond au port de la sonde). 

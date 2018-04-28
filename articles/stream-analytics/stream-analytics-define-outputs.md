@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/18/2017
-ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Sorties Stream Analytics : options de stockage et d’analyse
 Lorsque vous créez une tâche Stream Analytics, songez à la façon dont les données obtenues devront être consommées. Comment allez-vous afficher les résultats du travail Stream Analytics et où allez-vous les stocker ?
@@ -21,18 +21,19 @@ Lorsque vous créez une tâche Stream Analytics, songez à la façon dont les do
 Pour permettre un éventail de modèles d’application, Azure Stream Analytics propose différentes options pour stocker et afficher les résultats de l’analyse. Cela vous permet d’afficher plus facilement la sortie des tâches et de rendre plus flexibles leur consommation et leur stockage pour l’entreposage de données et d’autres utilisations. Toute sortie configurée dans la tâche doit exister avant le démarrage de la tâche et avant le début du transit des événements. Par exemple, si vous utilisez le stockage d’objets blob en tant que sortie, le travail ne crée aucun compte de stockage automatiquement. Créez un compte de stockage avant le début du travail Stream Analytics.
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
-Stream Analytics prend en charge [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Ce type de stockage vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire. De plus, Stream Analytics doit être autorisé à accéder à Data Lake Store. Des informations détaillées sur les autorisations et l’inscription à Data Lake Store (si nécessaire) sont fournies l’article sur les [sorties Data Lake](stream-analytics-data-lake-output.md).
+Stream Analytics prend en charge [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Data Lake Store vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire. De plus, Stream Analytics doit être autorisé à accéder à Data Lake Store.
 
-### <a name="authorize-an-azure-data-lake-store"></a>Autoriser un Azure Data Lake Store
-Lorsque Data Lake Storage est sélectionné en tant que sortie dans le portail Azure, vous êtes invité à autoriser une connexion à un Data Lake Store existant.  
+### <a name="authorize-an-azure-data-lake-store-account"></a>Autoriser un compte Azure Data Lake Store
 
-![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+1. Lorsque Data Lake Storage est sélectionné en tant que sortie dans le portail Azure, vous êtes invité à autoriser une connexion à un Data Lake Store existant.  
 
-Remplissez ensuite les propriétés de la sortie Data Lake Store comme indiqué ci-dessous :
+   ![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+2. Si vous avez déjà accès à Data Lake Store, cliquez sur « Autoriser maintenant ». Une page s’affiche avec le message suivant : « Redirection de l’autorisation ». Une fois l’autorisation accordée, une page s’affiche pour vous permettre de configurer la sortie Data Lake Store.  
 
-Le tableau ci-dessous répertorie les noms et les descriptions des propriétés nécessaires à la création d’une sortie Data Lake Store.
+3. Une fois le compte Data Lake Store authentifié, vous pouvez configurer les propriétés de votre sortie Data Lake Store. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour configurer votre sortie Data Lake Store.
+
+   ![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 <table>
 <tbody>
@@ -46,11 +47,11 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 </tr>
 <tr>
 <td>Nom du compte</td>
-<td>Nom du compte de stockage Data Lake Storage où vous envoyez votre sortie. Vous voyez s’afficher la liste déroulante des comptes Data Lake Store auxquels ont accès les utilisateurs connectés au portail.</td>
+<td>Nom du compte de stockage Data Lake Storage où vous envoyez votre sortie. Vous accédez à la liste déroulante des comptes Data Lake Store disponibles dans votre abonnement.</td>
 </tr>
 <tr>
 <td>Modèle de préfixe de chemin d’accès</td>
-<td>La procédure d’affection de noms respecte la convention suivante : <BR>{Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension <BR> <BR>Exemples de fichier de sortie :<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>En outre, voici les situations dans lesquelles un fichier est créé :<BR>1. Modification du schéma de sortie <BR>2. Redémarrage externe ou interne d’un travail<BR><BR>En outre, si le modèle de chemin d’accès au fichier ne contient aucun caractère « / » de fin, le dernier modèle du chemin d’accès est traité en tant que préfixe de nom de fichier.<BR><BR>Exemple :<BR>Pour le modèle de chemin d’accès « folder1/logs/HH », le fichier généré ressemblerait à ce qui suit : folder1/logs/02_134343_gguid_1.csv.</td>
+<td>Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. Vous pouvez spécifier une ou plusieurs instances des variables {date} et {time}.<BR> Exemple 1 : dossier1/journaux/{date}/{heure}<BR>Exemple 2 : dossier1/journaux/{date}<BR>En outre, voici les situations dans lesquelles un fichier est créé :<BR>1. Modification du schéma de sortie <BR>2. Redémarrage externe ou interne d’un travail<BR><BR>En outre, si le modèle de chemin d’accès au fichier ne contient aucun caractère « / » de fin, le dernier modèle du chemin d’accès est traité en tant que préfixe de nom de fichier.<BR></td>
 </tr>
 <tr>
 <td>Format de la date [<I>facultatif</I>]</td>
@@ -80,12 +81,14 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 </table>
 
 ### <a name="renew-data-lake-store-authorization"></a>Renouveler une autorisation Data Lake Store
-Vous devez authentifier de nouveau votre compte Data Lake Store si son mot de passe a été modifié depuis la création ou la dernière authentification de votre travail.
+Vous devez authentifier de nouveau votre compte Data Lake Store si son mot de passe a été modifié depuis la création ou la dernière authentification de votre travail. Si vous ne réauthentifiez pas votre compte, votre travail ne produit pas de résultats et une erreur indiquant la nécessité d’une nouvelle autorisation est enregistrée dans les journaux des opérations. Il existe actuellement une limitation selon laquelle le jeton d’authentification doit être actualisé manuellement tous les 90 jours pour tous les travaux impliquant une sortie Data Lake Store. 
+
+Pour renouveler l’opération, **Arrêtez** votre travail > accédez à votre sortie Data Lake Store > cliquez sur le lien **Renouveler l’autorisation**. Pendant un bref instant, une page indiquant « Redirection de l’autorisation... » s’affiche. La page se ferme automatiquement et si l’opération réussit, vous voyez le message suivant : « L’autorisation a été correctement renouvelée ». Vous devez ensuite cliquer sur **Enregistrer** en bas de la page, puis redémarrer votre travail à partir de **l’heure du dernier arrêt** pour éviter une perte de données.
 
 ![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>Base de données SQL
-[base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Stream Analytics écrivent les données dans une table existante d’une base de données Azure SQL Database.  Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre travail. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) peut également être spécifié en tant que sortie via l’option de sortie SQL Database (il s’agit d’une fonctionnalité d’évaluation). Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
+[base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Stream Analytics écrivent les données dans une table existante d’une base de données Azure SQL Database.  Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre travail. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) peut également être spécifié en tant que sortie via l’option de sortie SQL Database. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
 
 | Nom de la propriété | DESCRIPTION |
 | --- | --- |
@@ -287,6 +290,8 @@ La table ci-dessous répertorie les noms de propriétés et leur description pou
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format |Applicable uniquement pour le type JSON. L’expression « Séparé par une ligne » indique que la sortie sera mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme « Tableau » indique que la sortie sera mise en forme en tant que tableau d’objets JSON. |
 
+Le nombre de partitions est [basé sur la référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.
+
 ## <a name="service-bus-topics"></a>Rubriques de Service Bus
 Les files d'attente Service Bus offrent une communication de type un-à-un entre l'expéditeur et le destinataire, alors que les [rubriques Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrent une communication de type un-à-plusieurs.
 
@@ -303,22 +308,29 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
  | Encodage |Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format d’encodage actuellement pris en charge |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 
+Le nombre de partitions est [basé sur la référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.
+
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) est un service de base de données multimodèle distribué à l’échelle mondiale, qui offre une mise à l’échelle élastique et sans limite dans le monde entier, des requêtes enrichies et une indexation automatique sur les modèles de données indépendants des schémas, la garantie d’une latence faible et des contrats de niveau de service complets de haut niveau.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) est un service de base de données multimodèle distribué à l’échelle mondiale, qui offre une mise à l’échelle élastique et sans limite dans le monde entier, des requêtes enrichies et une indexation automatique sur les modèles de données indépendants des schémas, la garantie d’une latence faible et des contrats de niveau de service complets de haut niveau. Pour en savoir plus sur les options de collection Cosmos DB pour Stream Analytics, consultez l’article [Stream Analytics avec une sortie Cosmos DB](stream-analytics-documentdb-output.md).
 
-La liste ci-dessous présente les noms et les descriptions des propriétés pour la création d’une sortie Azure Cosmos DB.
+> [!Note]
+> Pour le moment, Azure Stream Analytics prend uniquement en charge la connexion à CosmosDB à l’aide de **l’API SQL**.
+> Les autres API Azure Cosmos DB ne sont pas encore prises en charge. Si vous pointez Azure Stream Analytics vers les comptes Azure Cosmos DB créés avec d'autres API, les données risquent de ne pas être correctement stockées. 
 
-* **Alias de sortie** : alias faisant référence à cette sortie dans votre requête Stream Analytics.  
-* **Nom du compte** : nom ou URI du point de terminaison du compte Cosmos DB.  
-* **Clé du compte** : clé d’accès partagé du compte Cosmos DB.  
-* **Base de données** : nom de la base de données Cosmos DB.  
-* **Modèle de nom de collection** : modèle ou nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0. Voici des exemples d’entrées valides :  
-  1\) MyCollection : il doit exister une collection nommée « MyCollection ».  
-  2\) MyCollection{partition} : vous devez créer les collections « MyCollection0 », « MyCollection1 », « MyCollection2 », etc.  
-* **Clé de partition** : facultative. Nécessaire uniquement si vous utilisez un jeton de partition dans votre modèle de nom de collection. Nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
-* **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
+Le tableau suivant décrit les propriétés de création d’une sortie Azure Cosmos DB.
+| Nom de la propriété | Description |
+| --- | --- |
+| Alias de sortie | Alias référençant cette sortie dans votre requête Stream Analytics. |
+| Récepteur | Cosmos DB |
+| Option d’importation | Choisissez « Sélectionner Cosmos DB dans votre abonnement » ou « Fournir manuellement les paramètres Cosmos DB ».
+| ID de compte | Nom ou URI de point de terminaison du compte Cosmos DB. |
+| Clé de compte | Clé d’accès partagé du compte Cosmos DB. |
+| Base de données | Nom de la base de données Cosmos DB. |
+| Modèle de nom de collection | Nom ou modèle des collections à utiliser. <br/>Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0. Deux exemples :  <br/>1. _MyCollection_ : Une collection nommée « MyCollection » doit exister.  <br/>2. _MyCollection{partition}_ : Basé sur la colonne de partitionnement. <br/>Les collections de colonne de partitionnement doivent exister, par exemple, « MyCollection0 », « MyCollection1 », « MyCollection2 », etc. |
+| Partition Key | facultatif. Nécessaire uniquement si vous utilisez un jeton {partition} dans votre modèle de nom de collection.<br/> La clé de partition est le nom de champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections.<br/> Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId). |
+| ID du document |facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
-## <a name="azure-functions-in-preview"></a>Azure Functions (préversion)
+## <a name="azure-functions"></a>Azure Functions
 Azure Functions est un service de calcul sans serveur qui vous permet d’exécuter du code à la demande sans explicitement configurer ou gérer l’infrastructure. Grâce à ce service, vous pouvez implémenter le code qui est déclenché par les événements qui se produisent dans Azure ou des services tiers.  Comme Azure Functions peut répondre à des déclencheurs, il constitue l’outil de sortie logique pour Azure Stream Analytics. Cet adaptateur de sortie permet aux utilisateurs de connecter Stream Analytics à Azure Functions et d’exécuter un script ou un fragment de code en réaction à différents événements.
 
 Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. Le nouvel adaptateur de sortie Azure Stream Analytics est disponible, avec les propriétés configurables suivantes :
@@ -334,6 +346,23 @@ Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. Le no
 Lorsque le logiciel Azure Stream Analytics reçoit une erreur 413 (qui indique que l’entité de demande HTTP est trop volumineuse) de la part d’une fonction Azure, il réduit la taille des lots envoyés à Azure Functions. Dans le code de votre fonction Azure, utilisez cette exception pour vous assurer qu’Azure Stream Analytics n’envoie pas de lots trop volumineux. Vérifiez également que les valeurs de taille et de nombre de lots maximum utilisées dans la fonction correspondent à celles qui ont été saisies dans le portail Stream Analytics. 
 
 De plus, si aucun événement n’est signalé dans le temps imparti, aucune sortie n’est générée. De ce fait, la fonction computeResult n’est pas appelée. Ce comportement est cohérent avec les fonctions d’agrégation fenêtrées intégrées.
+
+## <a name="partitioning"></a>Partitionnement
+
+Le tableau suivant récapitule la prise en charge de la partition et le nombre de générateurs de sortie pour chaque type de sortie :
+
+| Type de sortie | Prise en charge du partitionnement | Clé de partition  | Nombre de générateurs de sortie | 
+| --- | --- | --- | --- |
+| Azure Data Lake Store | OUI | Utilisez les jetons {date} et {time} dans le modèle de préfixe du chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. | Identique à l’entrée. | 
+| Azure SQL Database | Non  | Aucun | Non applicable. | 
+| Stockage d'objets blob Azure | OUI | Utilisez les jetons {date} et {time} dans le modèle de chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. | Identique à l’entrée. | 
+| Azure Event Hub | OUI | OUI | Identique à la sortie des partitions de hub d’événements. |
+| Power BI | Non  | Aucun | Non applicable. | 
+| Stockage de tables Azure | OUI | N’importe quelle colonne de sortie.  | Identique à l’entrée ou à l’étape précédente. | 
+| Rubrique Azure Service Bus | OUI | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Identique à la sortie.  |
+| File d’attente Azure Service Bus | OUI | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Identique à la sortie. |
+| Azure Cosmos DB | OUI | Utilisez le jeton {partition} dans le modèle de nom de collection. La valeur de {partition} est basée sur la clause PARTITION BY dans la requête. | Identique à l’entrée. |
+| Azure Functions | Non  | Aucun | Non applicable. | 
 
 
 ## <a name="get-help"></a>Obtenir de l’aide

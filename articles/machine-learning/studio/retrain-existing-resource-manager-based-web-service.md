@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reformer un service web prédictif existant
 Ce document décrit le processus de reformation pour le scénario suivant :
@@ -26,8 +26,8 @@ Ce document décrit le processus de reformation pour le scénario suivant :
 * Vous avez une expérience de formation et une expérience de prévision que vous avez déployées en tant que service web mis en œuvre.
 * Vous disposez de nouvelles données et souhaitez que votre service web prédictif les utilise pour produire des scores.
 
-> [!NOTE] 
-> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md).
 
 En partant de vos expériences et de votre service web existants, vous devez procédez comme suit :
 
@@ -54,7 +54,7 @@ Pour mettre à jour votre expérience de formation :
 
 Exécutez votre expérience.
 
-Ensuite, vous devez déployer l’expérience de formation en tant que service web qui produit un modèle formé et les résultats d’évaluation du modèle.  
+Ensuite, vous devez déployer l’expérience de formation en tant que service web qui produit un modèle formé et les résultats d’évaluation du modèle.
 
 En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Déployer le service web [nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**. Tapez un nom pour votre service web, choisissez un plan de paiement, puis cliquez sur **Déployer**. Vous pouvez utiliser la méthode Exécution par lot uniquement pour créer des modèles formés.
 
@@ -84,7 +84,7 @@ Localisez la déclaration **apikey**:
 Dans la section des **informations de base sur la consommation** de la page **Utiliser**, recherchez la clé primaire et copiez-la dans la déclaration **apiKey**.
 
 ### <a name="update-the-azure-storage-information"></a>Mettre à jour les informations Azure Storage
-L’exemple de code BES charge un fichier à partir d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers le Stockage Azure, le traite, réécrit les résultats dans le Stockage Azure.  
+L’exemple de code BES charge un fichier à partir d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers le Stockage Azure, le traite, réécrit les résultats dans le Stockage Azure.
 
 Après que vous avez exécuté cette procédure, le flux de travail obtenu doit être semblable à ce qui suit :
 
@@ -126,7 +126,7 @@ Voici un exemple de sortie de reformation :
 ## <a name="evaluate-the-retraining-results"></a>Évaluer les résultats de la reformation
 Lorsque vous exécutez l’application, la sortie inclut l’URL et le jeton de signature d’accès partagé (SAP) nécessaires pour accéder aux résultats de l’évaluation.
 
-Vous pouvez consulter les résultats des performances du modèle reformé en combinant les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* (comme le montre l’image de sortie de reformation précédente), puis en collant l’URL complète dans la barre d’adresses du navigateur.  
+Vous pouvez consulter les résultats des performances du modèle reformé en combinant les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* (comme le montre l’image de sortie de reformation précédente), puis en collant l’URL complète dans la barre d’adresses du navigateur.
 
 Examinez les résultats pour déterminer si le modèle de nouveau entraîné est suffisamment performant pour remplacer le modèle existant.
 
@@ -136,7 +136,7 @@ Copiez les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* des r
 Lorsque vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé. La définition du service web est une représentation interne du modèle formé du service web, qui n’est pas directement modifiable. Vérifiez que vous récupérez la définition du service web pour votre expérience prédictive et non pour votre expérience de formation.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Se connecter à Azure Resource Manager
-Vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx).
+Vous devez d’abord vous connecter à votre compte Azure dans l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 ## <a name="get-the-web-service-definition-object"></a>Obtenir l’objet Définition du service web
 Ensuite, obtenez l’objet Définition du service web en appelant l’applet de commande [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx).

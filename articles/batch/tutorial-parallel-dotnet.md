@@ -1,21 +1,21 @@
 ---
-title: "Exécuter une charge de travail parallèle - Azure Batch .NET"
-description: "Didacticiel - Transcoder des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Batch .NET"
+title: Exécuter une charge de travail parallèle - Azure Batch .NET
+description: Didacticiel - Transcoder des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Batch .NET
 services: batch
 author: dlepow
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1100f8fddcd2f802b5f38e0b9789bc9ec359e03a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Didacticiel : exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
@@ -38,13 +38,13 @@ Dans ce didacticiel, vous convertissez des fichiers de multimédia MP4 en parall
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 ou une version plus récente). 
 
-* Un compte Batch et un compte Stockage lié à usage général. Pour créer ces comptes, consultez les démarrages rapides Azure Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
+* Un compte Batch et un compte Stockage Azure lié. Pour créer ces comptes, consultez les démarrages rapides Azure Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
 
 * [Windows version 64 bits de ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Téléchargez le fichier zip sur votre ordinateur local. Pour ce didacticiel, seul le fichier zip est nécessaire. Vous n’avez pas besoin de décompresser le fichier ou de l’installer localement. 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="add-an-application-package"></a>Ajouter un package d’application

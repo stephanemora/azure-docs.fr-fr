@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Nouvelle expérience Alertes dans Azure Monitor
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 Azure Monitor offre une nouvelle expérience pour les alertes. L’ancienne expérience d’alertes se trouve désormais dans l’onglet Alertes (classiques). La nouvelle expérience Alertes présente les avantages suivants par rapport à l’expérience Alertes (classiques) :
 
--   **Meilleur système de notification** : toutes les alertes plus récentes utilisent des [groupes d’actions]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), qui sont des groupes nommés de notifications et d’actions qui peuvent être réutilisées dans plusieurs alertes.  Les alertes métriques classiques et les alertes Log Analytics plus anciennes n’utilisent pas de groupes d’actions. 
+-   **Meilleur système de notification** : toutes les alertes plus récentes utilisent des [groupes d’actions]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), qui sont des groupes nommés de notifications et d’actions qui peuvent être réutilisées dans plusieurs alertes.  Les alertes métriques classiques et les alertes Log Analytics plus anciennes n’utilisent pas de groupes d’actions. 
 - **Une expérience de création unifiée** : la création de toutes les alertes pour les métriques, les journaux et le journal d’activité pour Azure Monitor, Log Analytics et Application Insights se fait à partir d’un même emplacement. 
 - **Affichage des alertes Log Analytics déclenchées dans le portail Azure** : à présent, vous pouvez également afficher les alertes Log Analytics déclenchées dans votre abonnement. Auparavant, elles se trouvaient dans un portail distinct. 
 - **Séparation des alertes déclenchées et des règles d’alerte** : les règles d’alerte (c’est-à-dire la définition des conditions qui déclenchent des alertes) et les alertes déclenchées (c’est-à-dire les instances d’activation de règles d’alerte) sont différenciées de manière à offrir des vues distinctes pour les opérations et la configuration.
@@ -104,7 +104,7 @@ Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour
 | **Type de signal** | **Source de l’analyse** | **Description** | 
 |-------------|----------------|-------------|
 | Métrique | Azure Monitor | Également appelées [alertes de métrique en temps quasi réel](monitoring-near-real-time-metric-alerts.md), elles prennent en charge l’évaluation des conditions de métrique jusqu’à une fréquence de 1 minute et autorisent les règles de métriques multiples et multidimensionnelles. Une liste de types de ressources pris en charge est disponible [ici](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Métrique | Azure Monitor | [Les alertes de métriques classiques plus anciennes](monitoring-overview-alerts.md) ne sont pas prises en charge dans la nouvelle expérience Alertes. Vous les trouverez dans l’onglet Alertes (classiques) dans le portail Azure. Les alertes classiques prennent en charge certains types de métriques qui n’ont pas encore été déplacés vers les alertes plus récentes. Pour obtenir la liste complète, consultez [Métriques prises en charge](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics).
+| Métrique | Azure Monitor | [Les alertes de métriques classiques plus anciennes](monitoring-overview-alerts.md) ne sont pas prises en charge dans la nouvelle expérience Alertes. Vous les trouverez dans l’onglet Alertes (classiques) dans le portail Azure. Les alertes classiques prennent en charge certains types de métriques qui n’ont pas encore été déplacés vers les alertes plus récentes. Pour obtenir la liste complète, consultez [Métriques prises en charge](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics).
 | Journaux  | Log Analytics | Reçoivent des notifications ou exécutent des actions automatisées lorsqu’une requête de recherche dans les journaux concernant les métriques et/ou des données d’événement répond à certains critères. Les alertes Log Analytics plus anciennes sont toujours disponibles, mais sont [copiées dans la nouvelle expérience](monitoring-alerts-extend.md). En outre, une [version préliminaire des *Journaux Log Analytics comme métriques*](monitoring-alerts-extend-tool.md) est disponible. La version préliminaire vous permet de prendre certains types de journaux et de les convertir en métriques. Vous pourrez alors mettre des alertes dessus à l’aide de la nouvelle expérience d’alerte. La version préliminaire est utile si vous avez des journaux non-Azure que vous souhaitez utiliser avec des métriques Azure Monitor en mode natif. |
 | Journal d’activité | Journaux d’activité (général) | Contient les enregistrements de toutes les actions Créer, Mettre à jour et Supprimer exécutées via la cible sélectionnée (ressource/groupe de ressources/abonnement). |
 | Journal d’activité  | Service Health | Non pris en charge dans la nouvelle expérience Alertes. Consultez [Créer des alertes de journal d’activité sur les notifications de service](monitoring-activity-log-alerts-on-service-notifications.md).  |

@@ -8,21 +8,22 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données
+# <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
 
-La machine virtuelle pour la science des données (DSVM, « Data Science Virtual Machine ») Microsoft est un environnement puissant de développement de la science des données qui vous permet d'effectuer diverses tâches de modélisation et d'exploration des données. L’environnement est déjà généré et fourni avec plusieurs outils d’analyse de données courants qui facilitent la prise en main rapide de votre analyse pour les déploiements sur site, dans le cloud ou hybrides. La DSVM fonctionne en lien avec de nombreux services Azure et peut lire et traiter les données déjà stockées sur Azure, dans Azure SQL Data Warehouse, Azure Data Lake, Stockage Azure et Azure Cosmos DB. Elle peut également utiliser d’autres outils d’analyse tels qu’Azure Machine Learning et Azure Data Factory.
+La machine virtuelle Science des données de Windows (DSVM, « Data Science Virtual Machine ») est un environnement puissant de développement pour la science des données qui vous permet d’effectuer diverses tâches de modélisation et d’exploration des données. L’environnement est déjà généré et fourni avec plusieurs outils d’analyse de données courants qui facilitent la prise en main rapide de votre analyse pour les déploiements sur site, dans le cloud ou hybrides. La DSVM fonctionne en lien avec de nombreux services Azure et peut lire et traiter les données déjà stockées sur Azure, dans Azure SQL Data Warehouse, Azure Data Lake, Stockage Azure et Azure Cosmos DB. Elle peut également exploiter d’autres outils d’analyse tels qu’Azure Machine Learning et Azure Data Factory.
 
 Dans cet article vous apprendrez comment utiliser votre DSVM afin d'effectuer diverses tâches de science des données et d'interagir avec d'autres services Azure. Voici quelques-unes des tâches que vous pouvez effectuer sur la DSVM :
 
@@ -54,7 +55,7 @@ Pour R, vous pouvez utiliser un IDE comme RStudio, qui se trouve sur le menu Dé
 
 Pour Python, vous pouvez utiliser un IDE comme Visual Studio Community Edition, dans lequel l'extension Outils Python pour Visual Studio (PTVS) est préinstallée. Par défaut, seul Python 3.6, l’environnement racine de Conda, est configuré sur PTVS. Pour activer Anaconda Python 2.7, vous devez procéder comme suit :
 
-* Créez des environnements personnalisés pour chaque version en accédant à **Outils** -> **Outils Python** -> **Environnements Python**, puis en cliquant sur « **+ Personnalisé** » dans Visual Studio 2015 Community Edition
+* Créez des environnements personnalisés pour chaque version en accédant à **Outils** -> **Outils Python** -> **Environnements Python**, puis en cliquant sur «  **+ Personnalisé** » dans Visual Studio 2015 Community Edition
 * Donnez une description et définissez le préfixe du chemin d’accès de l’environnement comme *c:\anaconda\envs\python2* pour Anaconda Python 2.7
 * Cliquez sur **Détection automatique**, puis sur **Appliquer** pour enregistrer l’environnement.
 
@@ -207,7 +208,7 @@ Les scientifiques des données peuvent partager des jeux de données volumineux,
 Vous pouvez utiliser Azure PowerShell pour créer un partage Azure File Service. Voici le script à exécuter sous Azure PowerShell pour créer un partage Azure File Service.
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.
@@ -861,7 +862,7 @@ De même, si vos besoins en matière de capacité de traitement de la machine vi
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Installer des outils supplémentaires sur votre machine virtuelle
 La DVSM inclut plusieurs outils prédéfinis qui peuvent traiter une bonne partie de l’analyse des données courantes. Vous pouvez ainsi gagner du temps, puisque vous n’avez pas à installer et à configurer vos environnements un par un, et économiser de l’argent, car vous payez uniquement pour les ressources que vous utilisez.
 
-Vous pouvez utiliser d’autres services de données et d’analyse Azure présentés dans cet article pour améliorer votre environnement d’analyse. Dans certains cas, vous pouvez avoir besoin d’outils supplémentaires, notamment d’outils tiers propriétaires. Vous avez un accès administratif total à la machine virtuelle pour installer les nouveaux outils dont vous avez besoin. Vous pouvez également installer des packages supplémentaires non préinstallés en Python et R. Pour Python, vous pouvez utiliser soit ```conda```, soit ```pip```. Pour R, vous pouvez utiliser ```install.packages()``` dans la console R ou utiliser l’IDE et choisir « **Packages** -> **Installer les packages...** ».
+Vous pouvez utiliser d’autres services de données et d’analyse Azure présentés dans cet article pour améliorer votre environnement d’analyse. Dans certains cas, vous pouvez avoir besoin d’outils supplémentaires, notamment d’outils tiers propriétaires. Vous avez un accès administratif total à la machine virtuelle pour installer les nouveaux outils dont vous avez besoin. Vous pouvez également installer des packages supplémentaires non préinstallés en Python et R. Pour Python, vous pouvez utiliser soit ```conda```, soit ```pip```. Pour R, vous pouvez utiliser ```install.packages()``` dans la console R ou utiliser l’IDE et choisir « **Packages** -> **Installer les packages...**  ».
 
 ## <a name="summary"></a>Résumé
 Ce sont quelques-unes des actions possibles sur la machine virtuelle pour la science des données Microsoft. Il existe bien d'autres actions que vous pouvez effectuer pour en faire un environnement d'analyse efficace.

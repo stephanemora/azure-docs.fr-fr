@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 250c66c3a39519a6eddc1ecb51259ec1944c88a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium
 Le Cache Redis Azure offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de couche Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Un réseau VNet est un réseau privé dans le cloud. Lorsqu’une instance de Cache Redis Azure est configurée avec un réseau virtuel, elle n’est pas adressable publiquement et est accessible uniquement à partir de machines virtuelles et d’applications sur le réseau virtuel. Cet article décrit comment configurer la prise en charge de réseau virtuel pour une instance Premium de Cache Redis Azure.
@@ -84,12 +84,13 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 
 * [Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 * [Comment puis-je vérifier que mon cache fonctionne dans un réseau virtuel ?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [Lorsque j’essaie de me connecter à mon cache Redis dans un réseau virtuel, pourquoi je reçois un message d’erreur indiquant que le certificat distant n’est pas valide ?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [Pourquoi la création d’un cache Redis échoue-t-elle dans certains sous-réseaux mais pas d’autres ?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [Quelles sont les exigences d’espace d’adressage du sous-réseau ?](#what-are-the-subnet-address-space-requirements)
 * [Toutes les fonctionnalités fonctionnent-elles lorsque vous hébergez un cache dans un réseau virtuel ?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?
+### <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?
 Lorsque le Cache Redis Azure est hébergé dans un réseau virtuel, les ports dans les tableaux suivants sont utilisés. 
 
 >[!IMPORTANT]
@@ -100,7 +101,7 @@ Lorsque le Cache Redis Azure est hébergé dans un réseau virtuel, les ports da
 - [Configuration requise de port sortant](#outbound-port-requirements)
 - [Configuration requise de port entrant](#inbound-port-requirements)
 
-### <a name="outbound-port-requirements"></a>Configuration requise de port sortant
+#### <a name="outbound-port-requirements"></a>Configuration requise de port sortant
 
 Il existe sept configurations requises de port sortant.
 
@@ -120,7 +121,7 @@ Il existe sept configurations requises de port sortant.
 | 6379-6380 |Règle de trafic sortant |TCP |Communications internes pour Redis | (sous-réseau Redis) |(sous-réseau Redis) |
 
 
-### <a name="inbound-port-requirements"></a>Configuration requise des ports entrants
+#### <a name="inbound-port-requirements"></a>Configuration requise des ports entrants
 
 Il existe huit configurations requises de port entrant. Les requêtes entrantes dans ces plages proviennent d’autres services hébergés dans le même réseau virtuel ou des communications sur sous-réseau Redis interne.
 
@@ -135,7 +136,7 @@ Il existe huit configurations requises de port entrant. Les requêtes entrantes 
 | 16001 |Trafic entrant |TCP/UDP |Équilibrage de charge Azure | (sous-réseau Redis) |Azure Load Balancer |
 | 20226 |Trafic entrant |TCP |Communications internes pour Redis | (sous-réseau Redis) |(sous-réseau Redis) |
 
-### <a name="additional-vnet-network-connectivity-requirements"></a>Conditions supplémentaires pour la connectivité réseau VNET
+#### <a name="additional-vnet-network-connectivity-requirements"></a>Conditions supplémentaires pour la connectivité réseau VNET
 
 Il existe des exigences de connectivité réseau pour le Cache Redis Azure qui peuvent ne pas être initialement satisfaites dans un réseau virtuel. Le Cache Redis Azure nécessite tous les éléments suivants pour fonctionner correctement lorsqu’il est utilisé dans un réseau virtuel.
 
@@ -164,6 +165,24 @@ Une fois les exigences de port configurées comme décrit dans la section préc�
   - Un autre test consiste à créer un client de cache de test (qui peut être une simple application console utilisant StackExchange.Redis) qui se connecte au cache et ajoute et récupère des éléments de celui-ci. Installez l’exemple d’application cliente sur une machine virtuelle figurant dans le même réseau virtuel que le cache, puis exécutez l’application pour vérifier la connectivité au cache.
 
 
+### <a name="when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>Lorsque j’essaie de me connecter à mon cache Redis dans un réseau virtuel, pourquoi je reçois un message d’erreur indiquant que le certificat distant n’est pas valide ?
+
+Lorsque vous tentez de vous connecter à un cache Redis dans un réseau virtuel, vous voyez une erreur de validation de certificat comme celle-ci :
+
+`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
+
+La cause peut être que vous vous connectez à l’hôte par le biais de l’adresse IP. Nous vous recommandons d’utiliser le nom d’hôte. En d’autres termes, utilisez les éléments suivants :     
+
+`[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+Évitez d’utiliser l’adresse IP similaire à la chaîne de connexion suivante :
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+Si vous ne parvenez pas à résoudre le nom DNS, des bibliothèques clientes incluent des options de configuration comme `sslHost`, qui est fournie par le client StackExchange.Redis. Cela vous permet de remplacer le nom d’hôte utilisé pour la validation du certificat. Par exemple : 
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
+
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?
 Vous ne pouvez utiliser des réseaux virtuels qu’avec les caches de niveau Premium.
 
@@ -182,7 +201,9 @@ Quand votre cache fait partie d’un réseau virtuel, seuls les clients de ce r�
 
 * Console redis. Console Redis s’exécutant dans votre navigateur local situé à l’extérieur du réseau virtuel, il ne peut pas se connecter à votre cache.
 
+
 ## <a name="use-expressroute-with-azure-redis-cache"></a>Utiliser ExpressRoute avec le Cache Redis Azure
+
 Les clients peuvent connecter un circuit [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) à leur infrastructure de réseau virtuel pour étendre leur réseau local à Azure. 
 
 Par défaut, un circuit ExpressRoute nouvellement créé n’effectue pas de tunneling forcé (publication d’un routage par défaut, 0.0.0.0/0) sur un réseau virtuel. Par conséquent, la connectivité Internet sortante est autorisée directement à partir du réseau virtuel, et les applications clientes sont en mesure de se connecter à d’autres points de terminaison Azure, dont Cache Redis Azure.

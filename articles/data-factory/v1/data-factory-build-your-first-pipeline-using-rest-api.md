@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c9b4408e6ac92a2f86a10f63ddd254486b82b3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b24d4b15d83d746c5a514725bcd474828c62001
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
   4. Attribuez l’application **ADFGetStartedApp** au rôle **Collaborateurs de fabrique de données**.
 * Installez [Azure PowerShell](/powershell/azure/overview).
 * Démarrez **PowerShell** et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes.
-  1. Exécutez **Login-AzureRmAccount** , puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
+  1. Exécutez **Connect-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
   2. Exécutez **Get-AzureRmSubscription** pour afficher tous les abonnements de ce compte.
   3. Exécutez **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** pour sélectionner l’abonnement que vous souhaitez utiliser. Remplacez **NameOfAzureSubscription** par le nom de votre abonnement Azure.
 * Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante dans PowerShell :

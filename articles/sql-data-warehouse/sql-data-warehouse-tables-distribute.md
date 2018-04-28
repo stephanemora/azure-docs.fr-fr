@@ -1,42 +1,38 @@
 ---
-title: "Guide de conception pour les tables distribuées - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Recommandations pour la conception des tables distribuées par hachage et par tourniquet (round-robin) dans Azure SQL Data Warehouse."
+title: Guide de conception pour les tables distribuées – Azure SQL Data Warehouse | Microsoft Docs
+description: Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Guide de conception des tables distribuées dans Azure SQL Data Warehouse
+Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.
 
-Cet article fournit des recommandations relatives à la conception de tables distribuées dans Azure SQL Data Warehouse. Les tables distribuées par hachage améliorent les performances des requêtes sur des tables de faits volumineuses et représentent le sujet de cet article. Les tables distribuées par tourniquet sont utiles pour améliorer la vitesse de chargement. Ces choix de conception ont un impact significatif sur l’amélioration des performances des requêtes et de chargement.
+Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez [Azure SQL Data Warehouse – architecture MPP (traitement massivement parallèle)](massively-parallel-processing-mpp-architecture.md). 
 
-## <a name="prerequisites"></a>Prérequis
-Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
+## <a name="what-is-a-distributed-table"></a>Qu’est-ce qu’une table distribuée ?
+Une table distribuée apparaît sous la forme d’une table unique, mais les lignes sont en réalité stockées sur 60 distributions. Les lignes sont distribuées avec un algorithme de hachage ou de tourniquet.  
+
+Les **tables distribuées par hachage** améliorent les performances des requêtes sur des tables de faits volumineuses et sont au cœur de cet article. Les **tables distribuées par tourniquet** sont utiles pour améliorer la vitesse de chargement. Ces choix de conception ont un impact significatif sur l’amélioration des performances des requêtes et de chargement.
+
+Une autre option de stockage de table est de répliquer une petite table sur tous les nœuds de calcul. Pour plus d’informations, consultez [Guide de conception pour les tables répliquées](design-guidance-for-replicated-tables.md). Pour choisir rapidement parmi les trois options, consultez Tables distribuées dans la [vue d’ensemble des tables](sql-data-warehouse-tables-overview.md). 
 
 Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
 
 - Quelle est la taille de la table ?   
 - Quelle est la fréquence d’actualisation de la table ?   
 - Est-ce que je dispose de tables de faits et de dimension dans un entrepôt de données ?   
-
-## <a name="what-is-a-distributed-table"></a>Qu’est-ce qu’une table distribuée ?
-Une table distribuée apparaît sous la forme d’une table unique, mais les lignes sont en réalité stockées sur 60 distributions. Les lignes sont distribuées avec un algorithme de hachage ou de tourniquet. 
-
-Une autre option de stockage de table est de répliquer une petite table sur tous les nœuds de calcul. Pour plus d’informations, consultez [Guide de conception pour les tables répliquées](design-guidance-for-replicated-tables.md). Pour choisir rapidement parmi les trois options, consultez Tables distribuées dans la [vue d’ensemble des tables](sql-data-warehouse-tables-overview.md). 
 
 
 ### <a name="hash-distributed"></a>Distribution par hachage
@@ -67,7 +63,7 @@ Vous pouvez envisager une distribution par tourniquet des données de votre tabl
 - si la jointure est moins importante que d’autres dans la requête ;
 - lorsque la table est une table temporaire intermédiaire ;
 
-Le didacticiel [Chargement des données à partir d’Azure Storage Blob](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) donne un exemple de chargement de données dans une table intermédiaire distribuée par tourniquet.
+Le didacticiel [Chargement de données des taxis new-yorkais vers Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) donne un exemple de chargement de données dans une table de mise en lots distribuée par tourniquet.
 
 
 ## <a name="choosing-a-distribution-column"></a>Choix d’une colonne de distribution
@@ -91,7 +87,7 @@ WITH
 ;
 ``` 
 
-Le choix d’une colonne de distribution est une décision de conception importante, car les valeurs de cette colonne déterminent la façon dont les lignes sont distribuées. Le meilleur choix dépend de plusieurs facteurs et implique généralement des compromis. Toutefois, si vous ne choisissez pas la meilleure colonne la première fois, vous pouvez utiliser [CTAS (CREATE TABLE AS SELECT)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour recréer la table avec une colonne de distribution différente. 
+Le choix d’une colonne de distribution est une décision de conception importante, car les valeurs de cette colonne déterminent la façon dont les lignes sont distribuées. Le meilleur choix dépend de plusieurs facteurs et implique généralement des compromis. Toutefois, si vous ne choisissez pas la meilleure colonne la première fois, vous pouvez utiliser [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour recréer la table avec une colonne de distribution différente. 
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Choisir une colonne de distribution qui ne nécessite pas de mises à jour
 Vous ne pouvez pas mettre à jour une colonne de distribution, sauf si vous supprimez la ligne et insérez une nouvelle ligne avec les valeurs mises à jour. Par conséquent, sélectionnez une colonne avec des valeurs statiques. 
@@ -129,7 +125,7 @@ Une fois que vous avez conçu une table distribuée par hachage, l’étape suiv
 Une fois que les données sont chargées dans une table distribuée par hachage, vérifiez si les lignes sont réparties uniformément entre les 60 distributions. Les lignes par distribution peuvent varier jusqu’à 10 % sans un impact perceptible sur les performances. 
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Déterminer si la table présente une asymétrie des données
-Un moyen rapide de rechercher une asymétrie des données consiste à utiliser [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Le code SQL suivant retourne le nombre de lignes de la table qui sont stockées dans chacune des 60 distributions. Pour obtenir des performances équilibrées, les lignes de votre table distribuée doivent être partagées uniformément entre toutes les distributions.
+Un moyen rapide de rechercher une asymétrie des données consiste à utiliser [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Le code SQL suivant retourne le nombre de lignes de la table qui sont stockées dans chacune des 60 distributions. Pour obtenir des performances équilibrées, les lignes de votre table distribuée doivent être partagées uniformément entre toutes les distributions.
 
 ```sql
 -- Find data skew for a distributed table

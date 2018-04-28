@@ -1,11 +1,11 @@
 ---
-title: "Prise en main des services cloud Azure et d’ASP.NET | Microsoft Docs"
-description: "Découvrez comment créer une application multiniveau avec ASP.NET MVC et Azure. L'application s'exécute dans un service cloud, avec un rôle web et un rôle de travail. Elle utilise Entity Framework, Base de données SQL et les files d'attente et objets blobs du stockage Azure."
+title: Prise en main des services cloud Azure et d’ASP.NET | Microsoft Docs
+description: Découvrez comment créer une application multiniveau avec ASP.NET MVC et Azure. L'application s'exécute dans un service cloud, avec un rôle web et un rôle de travail. Elle utilise Entity Framework, Base de données SQL et les files d'attente et objets blobs du stockage Azure.
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -34,8 +34,8 @@ L'application est un panneau d'affichage publicitaire. Les utilisateurs créent 
 
 L'application utilise le [modèle de travail centré sur les files d'attente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) pour décharger le travail de création de vignettes exigeant en ressources vers un processus principal.
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>Autre architecture : Sites Web et WebJobs
-Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le composant frontal dans un [site web Azure](/services/web-sites/) et à utiliser la fonctionnalité [Tâches web](http://go.microsoft.com/fwlink/?LinkId=390226) (actuellement en version préliminaire) pour le composant principal. Pour un didacticiel qui utilise Tâches web, reportez-vous à la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches web](https://github.com/Azure/azure-webjobs-sdk/wiki). Pour plus d'informations sur le choix des meilleurs services pour votre scénario, reportez-vous à la rubrique [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>Autre architecture : Web Apps et Tâches web
+Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le composant frontal dans [Azure Web Apps](/azure/app-service/) et à utiliser la fonctionnalité [Tâches web](http://go.microsoft.com/fwlink/?LinkId=390226) pour le composant principal. Pour un didacticiel qui utilise Tâches web, reportez-vous à la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches web](https://github.com/Azure/azure-webjobs-sdk/wiki). Pour plus d'informations sur le choix des meilleurs services pour votre scénario, reportez-vous à la rubrique [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Ce que vous allez apprendre
 * configurer votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
@@ -46,6 +46,7 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 * utiliser le service de File d'attente Azure pour la communication entre tiers.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](cloud-services-choose-me.md) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
 
 Vous pouvez exécuter l’application localement sans abonnement Azure, mais il vous en faut un pour déployer l’application dans le cloud. Si vous n’avez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [demander une évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -767,7 +768,6 @@ Voici quelques exemples d'applications de service cloud qui montrent des pratiqu
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). De conception identique à Contoso Ads, mais implémente plus de fonctionnalités et plus de pratiques d'encodage réelles.
 * [Application multiniveau Azure Cloud Service avec tables, files d'attente et objets blob](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Présente les tables Azure Storage ainsi que des objets blob et des files d’attente. Si l’on se base sur une version plus ancienne du kit de développement logiciel Azure pour .NET, certaines modifications sont nécessaires pour travailler avec la version actuelle.
-* [Concepts de base des services cloud dans Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Cet exemple complet présente une grande variété de meilleures pratiques, produites par le groupe Microsoft Patterns and Practices.
 
 Pour obtenir des informations générales sur le développement pour le cloud, consultez la rubrique [Création d’applications cloud réalistes avec Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -777,5 +777,5 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 * [Azure Cloud Services Partie 1 : Présentation](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](/documentation/services/storage/)
+* [Stockage Azure](https://docs.microsoft.com/azure/storage/)
 * [Choix d’un fournisseur de services cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

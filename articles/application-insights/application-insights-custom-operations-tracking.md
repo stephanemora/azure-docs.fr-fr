@@ -1,6 +1,6 @@
 ---
-title: "Suivi des opérations personnalisées avec le kit SDK .NET d’Azure Application Insights | Microsoft Docs"
-description: "Suivi des opérations personnalisées avec le kit SDK .NET d’Azure Application Insights"
+title: Suivi des opérations personnalisées avec le kit SDK .NET d’Azure Application Insights | Microsoft Docs
+description: Suivi des opérations personnalisées avec le kit SDK .NET d’Azure Application Insights
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 94424a3d8aad56cf4504cccd8adb1a45523d95e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -228,8 +228,8 @@ Vous pouvez également mettre en corrélation l’ID d’opération Application 
 
 Cet exemple montre comment effectuer le suivi de l’opération `Enqueue`. Vous pouvez :
 
- - **Mettre en corrélation les nouvelles tentatives (le cas échéant)** : elles ont toutes un parent commun qui est l’opération `Enqueue`. Dans le cas contraire, elles sont comptabilisées en tant qu’enfants de la demande entrante. S’il existe plusieurs demandes logiques pour la file d’attente, il pourrait être difficile de trouver quel appel a généré de nouvelles tentatives.
- - **Mettre en corrélation les journaux de stockage Azure (si nécessaire)** : elles sont mises en corrélation avec la télémétrie Application Insights.
+ - **Mettre en corrélation les nouvelles tentatives (le cas échéant)**  : elles ont toutes un parent commun qui est l’opération `Enqueue`. Dans le cas contraire, elles sont comptabilisées en tant qu’enfants de la demande entrante. S’il existe plusieurs demandes logiques pour la file d’attente, il pourrait être difficile de trouver quel appel a généré de nouvelles tentatives.
+ - **Mettre en corrélation les journaux de stockage Azure (si nécessaire)**  : elles sont mises en corrélation avec la télémétrie Application Insights.
 
 L’opération `Enqueue` est l’enfant d’une opération parent (par exemple, une demande HTTP entrante). L’appel de dépendance HTTP est l’enfant de l’opération `Enqueue` et le petit-enfant de la demande entrante :
 
@@ -450,7 +450,7 @@ public async Task RunMyTaskAsync()
 
 L’opération de suppression entraîne l’arrêt de l’opération. Vous pouvez donc l’utiliser au lieu d’appeler `StopOperation`.
 
-*Avertissement* : dans certains cas, une exception non prise en charge peut [empêcher](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) l’appel de `finally`, et par conséquent le suivi des opérations.
+*Avertissement* : dans certains cas, une exception non prise en charge peut [empêcher](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) l’appel de `finally`, et par conséquent le suivi des opérations.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Suivi et traitement d’opérations parallèles
 

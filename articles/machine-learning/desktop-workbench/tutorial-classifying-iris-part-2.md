@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: b0d268937300abd105349d340f7bf1dae398fa8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Didacticiel 2 : Classifier Iris - Générer un modèle
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
@@ -281,7 +281,7 @@ Vous pouvez essayer d’exécuter des scripts dans un conteneur Docker local (fa
    >[!IMPORTANT]
    >Vous devez utiliser cette fenêtre d’interface de ligne de commande pour accomplir les étapes suivantes.
 
-1. Dans la fenêtre de l’interface de ligne de commande, connectez-vous à Azure. [En savoir plus sur az login](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Dans la fenêtre de l’interface de ligne de commande, connectez-vous à Azure. [En savoir plus sur az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    Vous êtes peut-être déjà connecté. Dans ce cas, vous pouvez ignorer cette étape.
 

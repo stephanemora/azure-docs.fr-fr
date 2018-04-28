@@ -1,11 +1,11 @@
 ---
-title: "Créer un compte Batch dans le portail Azure | Microsoft Docs"
-description: "Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud"
+title: Créer un compte Batch dans le portail Azure | Microsoft Docs
+description: Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](batch-account-create-portal.md)
+> * [Portail Azure](batch-account-create-portal.md)
 > * [Gestion de lots .NET](batch-management-dotnet.md)
 >
 >
@@ -58,7 +58,7 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 
     d. **Emplacement** : la région Azure dans laquelle créer le compte Batch. Seules les régions prises en charge par votre abonnement et votre groupe de ressources sont affichées.
 
-    e. **Compte de stockage** (facultatif) : compte de stockage Azure à usage général à associer à votre compte Batch. Cela est recommandé pour la plupart des comptes Batch. Pour plus d’informations, consultez la section [Compte Stockage Azure lié](#linked-azure-storage-account) disponible plus loin dans cet article.
+    e. **Compte de stockage** (facultatif) : compte Stockage Azure à associer à votre compte Batch. Cela est recommandé pour la plupart des comptes Batch. Pour plus d’informations, consultez la section [Compte Stockage Azure lié](#linked-azure-storage-account) disponible plus loin dans cet article.
 
 4. Cliquez sur **Créer** pour créer le compte.
 
@@ -85,11 +85,11 @@ Une fois le compte créé, cliquez dessus pour accéder à ses propriétés et p
 
 ## <a name="linked-azure-storage-account"></a>Compte Azure Storage lié
 
-Vous pouvez lier un compte de stockage Azure à usage général à votre compte Batch, ce qui est utile dans de nombreux scénarios. La fonctionnalité de [packages d’application](batch-application-packages.md) de Batch utilise le stockage Azure Blob Azure comme la bibliothèque [Batch File Conventions .NET](batch-task-output.md). Ces fonctionnalités facultatives vous aident à déployer les applications exécutées par vos tâches Batch et à conserver les données qu’elles produisent.
+Vous pouvez lier un compte Stockage Azure à votre compte Batch, ce qui est utile dans de nombreux scénarios. La fonctionnalité de [packages d’application](batch-application-packages.md) de Batch utilise le stockage Azure Blob Azure comme la bibliothèque [Batch File Conventions .NET](batch-task-output.md). Ces fonctionnalités facultatives vous aident à déployer les applications exécutées par vos tâches Batch et à conserver les données qu’elles produisent.
 
-Nous vous recommandons de créer un compte de stockage dédié à votre compte Batch. Azure Batch prend actuellement en charge uniquement le type de compte de stockage à usage général. Ce type de compte est décrit à l’étape 5 [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) de l’article [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
+Pour plus d’options de compte de stockage dans Batch, consultez [l’Aperçu des fonctionnalités d’Azure Batch](batch-api-basics.md#azure-storage-account).
 
-![Créer un compte de stockage à usage général][storage_account]
+![Création d’un compte de stockage][storage_account]
 
 > [!NOTE]
 > Soyez prudent lorsque vous régénérez les clés d’accès d’un compte de stockage lié. Régénérez une seule clé de compte de stockage et cliquez sur **Synchroniser les clés** dans la page du compte de stockage lié. Attendez cinq minutes que les clés se propagent aux nœuds de calcul de vos pools, puis régénérez et synchronisez l’autre clé si nécessaire. Si vous régénérez les deux clés en même temps, les nœuds de calcul ne pourront pas les synchroniser, car elles perdront l’accès au compte de stockage.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-white-papers"></a>Livres blancs sur la sécurité Azure
 | | |
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 |[Sécurité du réseau Azure](azure-network-security.md)|Vous présente la grande variété de contrôles réseau que vous pouvez configurer pour améliorer la sécurité des solutions que vous déployez dans Azure. Les contrôles de sécurité réseau orientés client sont principalement abordés.|
 |[Azure Operational Security](azure-operational-security.md)|Fournit une vue d’ensemble complète au niveau des services et technologies de sécurité opérationnelle orientés client disponibles avec Azure.|
 |[Fonctionnalités techniques de la sécurité Azure](azure-security-technical-capabilities.md)|Se concentre sur les fonctions de sécurité et les fonctionnalités prenant en charge le Stockage Azure, les bases de données Azure SQL, le modèle de machine virtuelle Azure et les outils et l’infrastructure qui gèrent tout cela.|
-|[Guide de sécurité du Stockage Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Fournit une vue d’ensemble de chaque fonctionnalité de sécurité qui peut être utilisée avec le Stockage Azure. Aborde la sécurité du plan de gestion, la sécurité du plan de données, le chiffrement au repos, le chiffrement en déplacement et l’analyse de stockage.|
+|[Guide de sécurité du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Fournit une vue d’ensemble de chaque fonctionnalité de sécurité qui peut être utilisée avec le Stockage Azure. Aborde la sécurité du plan de gestion, la sécurité du plan de données, le chiffrement au repos, le chiffrement en déplacement et l’analyse de stockage.|
 |[Classification des données pour l’adoption du cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Ce document téléchargeable présente les notions de base de la classification des données et leur valeur dans le contexte du cloud computing. Ce document est une précieuse ressource pour les organisations qui évaluent le cloud computing pour une utilisation prochaine ou pour celles qui utilisent actuellement des services cloud et cherchent des méthodes pour optimiser la gestion des données.|
 |[Gouvernance dans Azure](governance-in-azure.md)|Décrit les fonctionnalités de sécurité et de gouvernance intégrées à Azure. Les principaux problèmes de gouvernance abordés sont : l’implémentation de stratégies, processus et procédures pour les objectifs de votre organisation ; la sécurité et la conformité continue aux normes de l’organisation ; la surveillance et la génération d’alertes.
 |[Isolation dans le cloud public Azure](azure-isolation.md)|Décrit comment Azure fournit une isolation pour assurer une protection contre les utilisateurs malveillants et non malveillants. Sert de guide pour l’architecture des solutions cloud en proposant diverses options d’isolation aux architectes. Se concentre principalement sur les contrôles de sécurité orientés client, et n’essaie pas de répondre aux considérations relatives aux SLA, aux modèles de tarification et aux pratiques DevOps.|

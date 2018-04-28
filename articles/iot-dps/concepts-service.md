@@ -1,28 +1,28 @@
 ---
 title: Concepts de service du service Azure IoT Hub Device Provisioning | Microsoft Docs
-description: "Décrit les concepts d’approvisionnement de service pour les appareils avec le service Device Provisioning et IoT Hub"
+description: Décrit les concepts d’approvisionnement de service pour les appareils avec le service Device Provisioning et IoT Hub
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 10/03/2017
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2bc58514ea716954ec3ac96151549168fedc2ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concepts du service IoT Hub Device Provisioning
 
-Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui vous permet de configurer l’approvisionnement sans contact des appareils dans un hub IoT spécifié. Avec le service Device Provisioning, vous pouvez approvisionner des millions d’appareils de manière sécurisée et scalable.
+Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui vous permet de configurer l’approvisionnement sans contact des appareils dans un hub IoT spécifié. Avec le service Device Provisioning Service, vous pouvez [approvisionner automatiquement](concepts-auto-provisioning.md) des millions d’appareils de manière sécurisée et évolutive.
 
-L’approvisionnement des appareils est un processus en deux parties. La première partie établit la connexion initiale entre l’appareil et la solution IoT en *inscrivant* l’appareil. La deuxième partie applique la *configuration* appropriée à l’appareil selon les exigences spécifiques de la solution. Une fois que ces deux étapes sont terminées, on peut dire que l’appareil est complètement *approvisionné*. Le service Device Provisioning automatise les deux étapes pour fournir une expérience d’approvisionnement fluide pour l’appareil.
+Le provisionnement des appareils est un processus en deux parties. La première partie établit la connexion initiale entre l’appareil et la solution IoT en *inscrivant* l’appareil. La deuxième partie applique la *configuration* appropriée à l’appareil selon les exigences spécifiques de la solution. Une fois que ces deux étapes sont terminées, l’appareil est complètement *approvisionné*. Le service Device Provisioning automatise les deux étapes pour fournir une expérience d’approvisionnement fluide pour l’appareil.
 
 Cet article donne une vue d’ensemble des concepts d’approvisionnement applicables en particulier à la gestion du *service*. Cet article concerne particulièrement les personnes impliquées dans l’[étape de configuration du cloud](about-iot-dps.md#cloud-setup-step) qui permet de préparer un appareil pour le déploiement.
 
@@ -32,7 +32,7 @@ Le point de terminaison des opérations de service est le point de terminaison d
 
 ## <a name="device-provisioning-endpoint"></a>Point de terminaison d'approvisionnement des appareils
 
-Le point de terminaison d’approvisionnement des appareils est le point de terminaison central sur lequel communiquent tous les appareils pour l’approvisionnement. L’URL est la même pour tous les services d’approvisionnement de façon à éviter d’avoir à réinitialiser les appareils avec les nouvelles informations de connexion dans les scénarios de chaîne d’approvisionnement. L’[étendue de l’ID](#id-scope) garantit l’isolation des locataires.
+Le point de terminaison de provisionnement des appareils est le seul point de terminaison sur lequel communiquent tous les appareils pour l’approvisionnement automatique. L’URL est la même pour toutes les instances de service d’approvisionnement de façon à éviter d’avoir à réinitialiser les appareils avec les nouvelles informations de connexion dans les scénarios de chaîne d’approvisionnement. L’[étendue de l’ID](#id-scope) garantit l’isolation des locataires.
 
 ## <a name="linked-iot-hubs"></a>Hubs IoT liés
 
@@ -47,21 +47,27 @@ Paramètre au niveau du service qui détermine la façon dont le service Device 
 
 ## <a name="enrollment"></a>Inscription
 
-L’inscription désigne l’enregistrement d’appareils ou de groupes d’appareils susceptibles de s’inscrire à un moment donné. L’enregistrement d’inscription contient les informations de l’appareil ou du groupe d’appareils, y compris la méthode d’attestation du ou des appareils et, éventuellement, la configuration initiale souhaitée, le hub IoT souhaité et l’ID d’appareil souhaité. Il existe deux types d’inscription pris en charge par le service Device Provisioning.
+L’inscription désigne l’enregistrement d’appareils ou de groupes d’appareils susceptibles de s’inscrire via l’approvisionnement automatique. L’enregistrement d’inscription contient des informations sur l’appareil ou le groupe d’appareils, notamment :
+- le [mécanisme d’attestation](concepts-security.md#attestation-mechanism) utilisée par l’appareil,
+- la configuration souhaitée initiale facultative,
+- le Hub IoT souhaité,
+- l’ID d’appareil souhaité.
+
+Il existe deux types d’inscription pris en charge par le service Device Provisioning Service :
 
 ### <a name="enrollment-group"></a>Groupe d’inscription
 
-Un groupe d’inscription désigne un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Tous les appareils du groupe d’inscription présentent des certificats X.509 qui ont été signés par la même autorité de certification racine. Les groupes d’inscription peuvent uniquement utiliser le mécanisme d’attestation X.509. Le nom du groupe d’inscription et le nom du certificat sont alphanumériques, en minuscules et peuvent contenir des traits d’union.
+Un groupe d’inscription désigne un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Tous les appareils du groupe d’inscription présentent des certificats X.509 qui ont été signés par la même autorité de certification racine ou intermédiaire. Les groupes d’inscription peuvent uniquement utiliser le mécanisme d’attestation X.509. Le nom du groupe d’inscription et le nom du certificat sont alphanumériques, en minuscules et peuvent contenir des traits d’union.
 
 > [!TIP]
 > Nous vous recommandons d’utiliser un groupe d’inscription pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire.
 
 ### <a name="individual-enrollment"></a>Inscription individuelle
 
-Une inscription individuelle désigne une entrée pour un seul appareil pouvant s’inscrire. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module TPM réel ou virtuel) comme mécanismes d’attestation. L’ID d’enregistrement d’une inscription individuelle est alphanumérique, en minuscules et peut contenir des traits d’union. Dans le cas d’inscriptions individuelles, vous pouvez spécifier l’ID de l’appareil IoT Hub souhaité.
+Une inscription individuelle désigne une entrée pour un seul appareil pouvant s’inscrire. Les inscriptions individuelles peuvent utiliser des certificats feuille X.509 ou des jetons SAP (à partir d’un module de plateforme sécurisée (TPM) réel ou virtuel) comme mécanismes d’attestation. L’ID d’enregistrement d’une inscription individuelle est alphanumérique, en minuscules et peut contenir des traits d’union. Dans le cas d’inscriptions individuelles, vous pouvez spécifier l’ID de l’appareil IoT Hub souhaité.
 
 > [!TIP]
-> Nous vous recommandons d’utiliser des inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique ou pour les appareils qui peuvent uniquement utiliser des jetons SAP par le biais du module TPM ou du module TPM virtuel comme mécanisme d’attestation.
+> Nous vous recommandons d’utiliser des inscriptions individuelles pour les appareils qui nécessitent des configurations initiales uniques ou pour ceux qui peuvent uniquement s’authentifier avec des jetons SAP via l’attestation TPM.
 
 ## <a name="registration"></a>Inscription
 
