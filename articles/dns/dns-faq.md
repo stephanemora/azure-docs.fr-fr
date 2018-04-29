@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
@@ -46,6 +46,7 @@ Pour plus d’informations, consultez la [page du contrat de niveau de service (
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>Qu’est-ce qu’une « zone DNS » ? Est-ce la même chose qu’un domaine DNS ? 
 
 Un domaine est un nom unique dans le système de noms de domaine, par exemple, « contoso.com ».
+
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Par exemple, le domaine « contoso.com » peut contenir plusieurs enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web). Ces enregistrements seraient hébergés dans la zone DNS « contoso.com ».
 
@@ -90,6 +91,14 @@ Le transfert de zone est une fonctionnalité qui est suivie dans le backlog Azur
 Non. Les services de redirection d’URL ne sont pas réellement un service DNS. Ils s’appliquent au niveau HTTP, plutôt qu’au niveau DNS. Certains fournisseurs DNS incluent un service de redirection d’URL dans leur offre globale. Ceci n’est actuellement pas pris en charge par Azure DNS.
 
 La fonctionnalité de redirection d’URL est suivie dans le backlog Azure DNS. Vous pouvez utiliser le site de commentaires pour [enregistrer votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Est-ce que Azure DNS prend en charge le jeu de codage ASCII étendu (8 bits) pour le recordset TXT ?
+
+Oui. Azure DNS prend en charge le jeu de codage ASCII étendu pour les recordset TXT, si vous utilisez la dernière version des API REST Azure, des SDK, de PowerShell et de CLI (les versions antérieures au 01/10/2017 ou le SDK 2.1 ne prennent pas en charge le jeu ASCII étendu). Par exemple, si l’utilisateur fournit une chaîne comme valeur pour un enregistrement TXT qui a le caractère ASCII étendu \128 (par exemple : « abcd\128efgh »), Azure DNS utilisera la valeur d’octets de ce caractère (128) dans la représentation interne. Au moment de la résolution DNS, cette valeur d’octet s’affichera également dans la réponse. Notez également que « abc » et « \097\098\099 » sont interchangeables en ce qui concerne la résolution. 
+
+Nous suivons les règles d’échappement de format maître de zone de fichiers [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). Par exemple, «\» échappe maintenant à tous les éléments d’après la RFC. Si vous spécifiez « A\B » en tant que la valeur d’enregistrement TXT, il sera représenté et résolu comme « AB ». Si vous voulez vraiment que l’enregistrement TXT soit « A\B » à la résolution, vous devez échapper le « \" de nouveau, c’est-à-dire spécifier comme «A\\B». 
+
+Notez que cette prise en charge n’est actuellement pas disponible pour les enregistrements TXT créés à partir du portail Azure. 
 
 ## <a name="using-azure-dns"></a>Utilisation d’Azure DNS
 
@@ -169,7 +178,7 @@ Non. Private Zones fonctionne conjointement avec les réseaux virtuels, et perme
 Oui. Les clients peuvent associer jusqu’à 10 réseaux virtuels de résolution à une même zone privée.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Un réseau virtuel qui appartient à un autre abonnement peut-il être ajouté en tant que réseau virtuel de résolution à une zone privée ? 
-Oui, tant que l’utilisateur a l’autorisation d’opération d’écriture sur les réseaux virtuels et sur la zone DNS privé. Notez que l’autorisation d’écriture peut être allouée à plusieurs rôles RBAC. Par exemple, le rôle RBAC Contributeur de réseaux classiques dispose d’autorisations d’écriture sur les réseaux virtuels. Pour plus d’informations sur les rôles RBAC, consultez [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md).
+Oui, tant que l’utilisateur a l’autorisation d’opération d’écriture sur les réseaux virtuels et sur la zone DNS privé. Notez que l’autorisation d’écriture peut être allouée à plusieurs rôles RBAC. Par exemple, le rôle RBAC Contributeur de réseaux classiques dispose d’autorisations d’écriture sur les réseaux virtuels. Pour plus d’informations sur les rôles RBAC, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Les enregistrements DNS de machines virtuelles inscrits automatiquement dans une zone privée sont-ils supprimés automatiquement quand les machines virtuelles sont supprimées par le client ?
 Oui. Si vous supprimez une machine virtuelle sur un réseau virtuel d’inscription, nous supprimons automatiquement les enregistrements DNS qui ont été inscrits dans la zone du fait qu’il s’agit d’un réseau virtuel d’inscription. 

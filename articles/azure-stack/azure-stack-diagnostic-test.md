@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Exécuter un test de validation pour Azure Stack
 
@@ -33,7 +33,8 @@ Lorsque vous rencontrez un problème, contactez les services de support techniqu
 2. Contactez les services de support technique Microsoft.
 3. Exécutez **Test-AzureStack** à partir du point de terminaison privilégié.
     1. Accédez au point de terminaison privilégié. Pour obtenir des instructions, voir [Utilisation du point de terminaison privilégié dans Azure Stack](azure-stack-privileged-endpoint.md). 
-    2. Connectez-vous en tant que **AzureStack\CloudAdmin** sur l’hôte de gestion.
+    2. Sur l’ASDK, connectez-vous à l’hôte de gestion sous le nom **AzureStack\CloudAdmin**.  
+    Sur un système intégré, vous devrez utiliser l’adresse IP du point de terminaison privilégié pour la gestion fournie par votre fabricant de matériel OEM.
     3. Ouvrez PowerShell ISE en tant qu’administrateur.
     4. Exécuter : `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Exécuter : `Test-AzureStack`

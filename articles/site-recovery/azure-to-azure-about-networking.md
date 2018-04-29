@@ -6,20 +6,20 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f318f98479caed8efb4a3705939cb9ac0dd5b237
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
 >[!NOTE]
 > La réplication Site Recovery pour les machines virtuelles Azure est actuellement en préversion.
 
-Cet article fournit des instructions détaillées sur la mise en réseau quand vous répliquez et récupérez des machines virtuelles d’une région vers une autre avec [Azure Site Recovery](site-recovery-overview.md). 
+Cet article fournit des instructions détaillées sur la mise en réseau quand vous répliquez et récupérez des machines virtuelles d’une région vers une autre avec [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -35,7 +35,7 @@ Si vous utilisez Azure ExpressRoute ou une connexion VPN de votre réseau local 
 
 ![environnement client](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Les réseaux sont généralement protégés à l’aide de pare-feu et de groupes de sécurité réseau. Les pare-feu se servent d’une liste verte basée sur l’adresse IP ou l’URL pour contrôler la connectivité réseau. Les groupes de sécurité réseau appliquent des règles qui utilise les plages d’adresses IP pour contrôler la connectivité réseau.
+Les réseaux sont généralement protégés à l’aide de pare-feu et de groupes de sécurité réseau. Les pare-feu se servent d’une liste blanche basée sur l’adresse IP ou l’URL pour contrôler la connectivité réseau. Les groupes de sécurité réseau appliquent des règles qui utilise les plages d’adresses IP pour contrôler la connectivité réseau.
 
 >[!IMPORTANT]
 > L’utilisation d’un proxy authentifié pour contrôler la connectivité réseau n’est pas pris en charge par Site Recovery, et la réplication ne peut pas être activée.
@@ -57,19 +57,18 @@ login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentific
 
 Si vous utilisez des règles de groupe de sécurité réseau, de proxy ou de pare-feu basées sur une adresse IP pour contrôler la connectivité sortante, ces plages d’adresses IP doivent être autorisées.
 
-- Toutes les plages d’adresses IP qui correspondent à l’emplacement source.
-    - Vous pouvez télécharger les [plages d’adresses IP](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+- Toutes les plages d’adresses IP qui correspondent aux comptes de stockage dans la région source
+    - Vous devez créer une règle de groupe de sécurité réseau basée sur une [balise de service de stockage](../virtual-network/security-overview.md#service-tags) pour la région source.
     - Vous devez autoriser ces adresses pour que les données puissent être écrites dans le compte de stockage de cache, à partir de la machine virtuelle.
 - Toutes les plages d’adresses IP qui correspondent aux [points de terminaison IP V4 d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) Office 365.
     - Si de nouvelles adresses sont ajoutées ultérieurement aux plages d’adresses IP Office 365, vous devez créer des règles de groupe de sécurité réseau.
-- Adresses IP de points de terminaison du service Site Recovery. Elles sont disponibles dans un [fichier XML](https://aka.ms/site-recovery-public-ips), et dépendent de l’emplacement de votre cible.
--  Pour créer automatiquement les règles requises sur le groupe de sécurité réseau, vous pouvez [télécharger et utiliser ce script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702). 
+- Adresses IP de points de terminaison du service Site Recovery. Elles sont disponibles dans un [fichier XML](https://aka.ms/site-recovery-public-ips) et dépendent de votre emplacement cible.
+-  Pour créer automatiquement les règles requises sur le groupe de sécurité réseau, vous pouvez [télécharger et utiliser ce script](https://aka.ms/nsg-rule-script).
 - Nous vous recommandons de créer les règles de groupe de sécurité réseau requises sur un groupe de sécurité réseau de test, et de vérifier qu’il n’y a aucun problème avant de créer les règles sur un groupe de sécurité réseau de production.
-- Pour créer le nombre nécessaire de règles de groupe de sécurité réseau, vérifiez que votre abonnement figure dans la liste verte. Contactez le support Azure pour augmenter la limite du nombre de règles de groupe de sécurité réseau dans votre abonnement.
 
-Les plages d’adresses IP sont les suivantes :
 
->
+Les plages d’adresses IP Site Recovery sont les suivantes :
+
    **Cible** | **IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
    --- | --- | ---
    Est de l'Asie | 52.175.17.132 | 13.94.47.61
@@ -99,50 +98,73 @@ Les plages d’adresses IP sont les suivantes :
    Nord du Royaume-Uni | 51.142.209.167 | 13.87.102.68
    Centre de la Corée | 52.231.28.253 | 52.231.32.85
    Corée du Sud | 52.231.298.185 | 52.231.200.144
-   
-   
-  
+
+
+
 
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 
-Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer. 
+Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer.
 
-- Si vous utilisez des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, utilisez des règles « Autoriser le trafic HTTPS sortant » pour toutes les plages d’adresses IP requises.
+- Si vous utilisez des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, utilisez des règles « Autoriser le trafic HTTPS sortant » sur port:443 pour toutes les plages d’adresses IP requises.
 - L’exemple part du principe que « Est des États-Unis » est l’emplacement source de la machine virtuelle, et que « Centre des États-Unis » en est l’emplacement cible.
 
 ### <a name="nsg-rules---east-us"></a>Règles de groupe de sécurité réseau - Est des États-Unis
 
-1. Créez des règles qui correspondent aux [plages d’adresses IP d’Est des États-Unis](https://www.microsoft.com/download/confirmation.aspx?id=41653). Ceci est nécessaire pour que les données puissent être écrites dans le compte de stockage de cache à partir de la machine virtuelle.
-2. Créez des règles pour toutes les plages d’adresses IP qui correspondent aux [points de terminaison IP V4 d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) Office 365.
-3. Créez des règles qui correspondent à l’emplacement cible :
+1. Créez une règle de sécurité HTTPS sortante (443) pour « Storage.EastUS » sur le groupe de sécurité réseau comme indiqué dans la capture d’écran ci-dessous.
+
+      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. Créez des règles HTTPS sortantes (443) pour toutes les plages d’adresses IP qui correspondent aux [points de terminaison IP V4 d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) Office 365.
+3. Créez des règles HTTPS sortantes (443) pour les adresses IP Site Recovery qui correspondent à l’emplacement cible :
 
    **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
    Centre des États-Unis | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>Règles de groupe de sécurité réseau - Centre des États-Unis 
+### <a name="nsg-rules---central-us"></a>Règles de groupe de sécurité réseau - Centre des États-Unis
 
 Ces règles sont nécessaires pour que la réplication puisse être activée de la région cible vers la région source après le basculement :
 
-* Règles qui correspondent aux [plages d’adresses IP de Centre des États-Unis](https://www.microsoft.com/download/confirmation.aspx?id=41653). Ces règles sont nécessaires pour que les données puissent être écrites dans le compte de stockage de cache à partir de la machine virtuelle.
+1. Créez une règle de sécurité HTTPS sortante (443) pour « Storage.CentralUS » sur le groupe de sécurité réseau.
 
-* Règles pour toutes les plages d’adresses IP qui correspondent aux [points de terminaison IP V4 d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) Office 365.
+2. Créez des règles HTTPS sortantes (443) pour toutes les plages d’adresses IP qui correspondent aux [points de terminaison IP V4 d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) Office 365.
 
-* Règles qui correspondent à l’emplacement source :
-    - Est des États-Unis
-    - Adresse IP Site Recovery : 13.82.88.226
-    - Adresse IP de surveillance Site Recovery : 104.45.147.24
+3. Créez des règles HTTPS sortantes (443) pour les adresses IP Site Recovery qui correspondent à l’emplacement source :
 
+   **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
+    --- | --- | ---
+   Centre des États-Unis | 13.82.88.226 | 104.45.147.24
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN 
+## <a name="network-virtual-appliance-configuration"></a>Configuration des appliances virtuelles réseau
+
+Si vous utilisez des appliances virtuelles réseau pour contrôler le trafic réseau sortant des machines virtuelles, l’appliance risque de présenter des limitations si tout le trafic de réplication passe par elle. Nous vous recommandons de créer un point de terminaison de service réseau dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication n’atteigne pas l’appliance virtuelle réseau.
+
+### <a name="create-network-service-endpoint-for-storage"></a>Créer un point de terminaison de service réseau pour le stockage
+Vous pouvez créer un point de terminaison de service réseau dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication ne quitte pas la limite Azure.
+
+- Sélectionnez votre réseau virtuel Azure et cliquez sur Points de terminaison de service
+
+    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
+- Cliquez sur Ajouter et l’onglet Ajouter des points de terminaison de service s’ouvre
+- Sélectionnez Microsoft.Storage sous Service et les sous-réseaux requis sous le champ Sous-réseaux, puis cliquez sur Ajouter
+
+>[!NOTE]
+>Ne limitez pas l’accès au réseau virtuel aux comptes de stockage utilisés pour ASR. Vous devez autoriser l’accès de Tous les réseaux
+
+## <a name="expressroutevpn"></a>ExpressRoute/VPN
 
 Si vous avez une connexion ExpressRoute ou VPN entre l’infrastructure locale et l’emplacement Azure, suivez les instructions de cette section.
 
 ### <a name="forced-tunneling"></a>Tunneling forcé
 
-En règle générale, vous définissez un itinéraire par défaut (0.0.0.0/0) qui force le trafic Internet sortant à circuler via l’emplacement local. Nous ne recommandons pas cette configuration. Le trafic de réplication et la communication du service Site Recovery ne doivent pas quitter la limite Azure. La solution consiste à ajouter des itinéraires définis par l’utilisateur pour [ces plages d’adresses IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges) afin que le trafic de réplication n’accède pas à l’infrastructure locale.
+En règle générale, vous définissez un itinéraire par défaut (0.0.0.0/0) qui force le trafic Internet sortant à circuler via l’emplacement local. Nous ne recommandons pas cette configuration. Le trafic de réplication ne doit pas quitter la limite Azure.
 
-### <a name="connectivity"></a>Connectivité 
+Vous pouvez [créer un point de terminaison de service réseau](#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication ne quitte pas la limite Azure.
+
+
+### <a name="connectivity"></a>Connectivité
 
 Suivez ces instructions pour les connexions entre l’emplacement cible et l’emplacement local :
 - Si votre application doit se connecter aux machines locales ou s’il existe des clients qui se connectent à l’application à partir de l’infrastructure locale par le biais d’un VPN/ExpressRoute, vérifiez que vous avez au moins une [connexion site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) entre votre région Azure cible et le centre de données local.

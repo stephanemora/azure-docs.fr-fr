@@ -12,19 +12,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Installer une application publiée - H2O Sparkling Water
 
-Cet article explique comment installer et exécuter l’application Hadoop publiée [H2O Sparkling Water](http://www.h2o.ai/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et une liste des applications publiées par des éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
+Cet article explique comment installer et exécuter l’application Hadoop publiée [H2O Sparkling Water](http://www.h2o.ai/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-h2o-sparkling-water"></a>À propos de H2O Sparkling Water
 
@@ -84,9 +82,9 @@ Pour obtenir des instructions détaillées sur l’installation de cette applica
 
     ![Sélectionner Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. Recherchez le chemin d’accès contenant **milsongs-cls-train.csv.gz**et remplacez le chemin d’accès complet par **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
+7. Recherchez le chemin d’accès contenant **milsongs-cls-train.csv.gz**, puis remplacez la totalité du chemin par **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
-8. Recherchez le chemin d’accès contenant **milsongs-cls-test.csv.gz** et remplacez-le par **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
+8. Recherchez le chemin d’accès contenant **milsongs-cls-test.csv.gz**, puis remplacez la totalité du chemin par **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 
 9. Pour exécuter toutes les instructions dans les cellules du bloc-notes, sélectionnez le bouton **Exécuter tout** dans la barre d’outils.
 
@@ -98,11 +96,11 @@ Pour obtenir des instructions détaillées sur l’installation de cette applica
 
 Et voilà ! Vous avez en quelques minutes maîtrisé l’intelligence artificielle de Spark. Vous pouvez maintenant explorer d’autres exemples dans H2O Flow, qui illustrent les différents types d’algorithmes d’apprentissage automatique.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Documentation H2O](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.
 * [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.
 * [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) : apprenez à utiliser l’action de script pour installer des applications supplémentaires.
-* [Utiliser les nœuds de périphérie vides dans HDInsight](hdinsight-apps-use-edge-node.md): apprenez à utiliser un nœud de périphérique vide pour accéder aux clusters HDInsight, ainsi que pour tester et héberger des applications HDInsight.
+* [Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight](hdinsight-apps-use-edge-node.md) : apprenez à utiliser un nœud de périphérie vide pour accéder aux clusters HDInsight, ainsi que pour tester et héberger des applications HDInsight.

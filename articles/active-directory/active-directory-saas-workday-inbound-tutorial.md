@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
 
@@ -469,7 +469,7 @@ Si votre locataire Azure Active Directory se trouve dans un des centres de donn�
 
 **Résolution des problèmes d’agent**
 
-Le [journal des événements Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) sur la machine Windows Server hébergeant l’agent contient des événements pour toutes les opérations effectuées par l’agent. Pour afficher ces événements :
+Le [journal des événements Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) sur la machine Windows Server hébergeant l’agent contient des événements pour toutes les opérations effectuées par l’agent. Pour afficher ces événements :
     
 1. Ouvrez **Eventvwr.msc**.
 2. Sélectionnez **Journaux Windows > Application**.
@@ -492,7 +492,7 @@ Une fois les parties 1 à 3 terminées, vous pouvez redémarrer le service d’a
 
 4. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement, tels que les utilisateurs lus dans Workday et par la suite ajoutés ou mis à jour dans Active Directory. **[Consultez le guide de création de rapports d’approvisionnement pour obtenir des instructions détaillées sur la façon de lire les journaux d’audit](active-directory-saas-provisioning-reporting.md)**
 
-5.  Consultez le [journal des événements Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) sur la machine Windows Server hébergeant l’agent pour connaître les nouveaux avertissements et erreurs. Ces événements sont visibles en lançant **Eventvwr.msc** sur le serveur et en sélectionnant **Journaux Windows > Application**. Tous les messages liés à l’approvisionnement sont enregistrés sous **l’AADSyncAgent** source. 
+5.  Consultez le [journal des événements Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) sur la machine Windows Server hébergeant l’agent pour connaître les nouveaux avertissements et erreurs. Ces événements sont visibles en lançant **Eventvwr.msc** sur le serveur et en sélectionnant **Journaux Windows > Application**. Tous les messages liés à l’approvisionnement sont enregistrés sous **l’AADSyncAgent** source. 
     
 
 6. Une fois cette opération terminée, un rapport de synthèse de l’audit est écrit dans l’onglet **Approvisionnement**, comme indiqué ci-dessous.
@@ -820,7 +820,7 @@ Il existe deux méthodes pour rester conforme aux règles RGPD :
 1. Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des journaux des événements Windows 
 2. Conserver moins de 48 heures les journaux des événements Windows provenant du processus AADSyncAgent
 
-Pour plus d’informations sur la configuration de la conservation des données dans les journaux des événements Windows, consultez [Settings for event logs](https://technet.microsoft.com/en-us/library/cc952132.aspx). Pour obtenir des informations générales sur le journal des événements Windows, consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Pour plus d’informations sur la configuration de la conservation des données dans les journaux des événements Windows, consultez [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx). Pour obtenir des informations générales sur le journal des événements Windows, consultez [cet article](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,6 +1,22 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
 
-Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plusieurs adresses IP privées. Vous devez ajouter manuellement toutes les adresses IP privées (y compris l’adresse principale) que vous avez ajoutées à la machine virtuelle. Effectuez les étapes suivantes dans le système d’exploitation de votre machine virtuelle :
+Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plusieurs adresses IP privées. Vous devez ajouter manuellement toutes les adresses IP privées (y compris l’adresse principale) que vous avez ajoutées à la machine virtuelle. Effectuez les étapes suivantes dans le système d’exploitation de votre machine virtuelle.
 
 ### <a name="windows"></a>Windows
 
@@ -13,17 +29,16 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
     * **Adresse IP**: entrez l’adresse IP privée *principale* .
     * **Masque de sous-réseau**: définissez cette option en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
     * **Passerelle par défaut**: première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24, l’adresse IP de la passerelle est 10.0.0.1.
-    * Cliquez sur **Utiliser l’adresse de serveur DNS suivante** et saisissez les valeurs ci-dessous :
+    * Sélectionnez **Utiliser l’adresse de serveur DNS suivante** et saisissez les valeurs ci-dessous :
         * **Serveur DNS préféré** : saisissez 168.63.129.16 si vous n’utilisez pas votre propre serveur DNS.  Si vous utilisez votre propre serveur DNS, entrez l’adresse IP de votre serveur.
-    * Cliquez sur le bouton **Avancé** et ajoutez des adresses IP supplémentaires. Ajoutez chacune des adresses IP privées secondaires de l’étape 8 à l’interface réseau avec le même sous-réseau que celui de l’adresse IP principale.
-        >[!WARNING] 
-        >Si vous ne suivez pas les étapes précédentes correctement, vous risquez de perdre la connectivité avec votre machine virtuelle. Assurez-vous que les informations entrées à l’étape 5 sont exactes avant de continuer.
+    * Sélectionnez le bouton **Avancé** et ajoutez des adresses IP supplémentaires. Ajoutez chaque adresse IP privée secondaire que vous avez ajoutée à l’interface réseau Azure dans une étape précédente, à l’interface réseau Windows à laquelle est attribuée l’adresse IP principale assignée à l’interface réseau Azure.
+
+        Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Lorsque vous définissez manuellement l’adresse IP dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). Vous ne devez jamais attribuer une adresse IP publique Azure au sein du système d’exploitation.
 
     * Cliquez sur **OK** pour fermer les paramètres TCP/IP, puis sur **OK** à nouveau pour fermer les paramètres de la carte réseau. Votre connexion RDP est rétablie.
 
 6. Tapez *ipconfig /all*à l’invite de commandes. Toutes les adresses IP que vous avez ajoutées sont affichées et le protocole DHCP est désactivé.
 7. Configurez Windows pour utiliser l’adresse IP privée de la configuration IP principale dans Azure en tant qu’adresse IP principale pour Windows. Pour plus d’informations, consultez [Aucun accès à Internet à partir de la machine virtuelle Windows Azure qui possède plusieurs adresses IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
-
 
 ### <a name="validation-windows"></a>Validation (Windows)
 

@@ -1,11 +1,11 @@
 ---
-title: "Installer l’extension de navigateur du volet d’accès aux applications - Azure | Microsoft Docs"
-description: "Corrigez les erreurs courantes rencontrées lorsque vous installez l’extension de navigateur du volet d’accès."
+title: Installer l’extension de navigateur du volet d’accès aux applications - Azure | Microsoft Docs
+description: Corrigez les erreurs courantes rencontrées lorsque vous installez l’extension de navigateur du volet d’accès.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installer l’extension de navigateur du volet d’accès
 
@@ -37,7 +37,6 @@ Pour l’authentification unique avec mot de passe, vous pouvez utiliser un des 
 - **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 
 - **Chrome** : sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
-- **Internet Explorer 8, 9, 10, 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
 
 ## <a name="install-the-access-panel-browser-extension"></a>Installer l’extension de navigateur du volet d’accès
 

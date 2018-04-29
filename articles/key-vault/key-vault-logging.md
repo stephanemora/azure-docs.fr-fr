@@ -1,8 +1,8 @@
 ---
-title: "Journalisation d’Azure Key Vault | Microsoft Docs"
-description: "Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisation du coffre de clés."
+title: Journalisation d’Azure Key Vault | Microsoft Docs
+description: Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisation du coffre de clés.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -42,7 +42,8 @@ Utilisez ce didacticiel pour vous familiariser avec Azure Key Vault pour créer 
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
@@ -52,7 +53,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 ## <a id="connect"></a>Se connecter à vos abonnements
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Azure PowerShell obtient alors tous les abonnements associés à ce compte et utilise par défaut le premier.
 
@@ -133,9 +134,9 @@ Pour répertorier tous les objets blob présents dans ce conteneur, saisissez :
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 Le résultat ressemble à ce qui suit :
 
-**URI du conteneur : https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI de conteneur :https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
-**Nom**
+**Name**
 
 - - -
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=05/h=01/m=00/PT1H.json**
@@ -150,7 +151,7 @@ Les valeurs de date et d’heure utilisent UTC.
 
 Le même compte de stockage pouvant être utilisé pour collecter les journaux de plusieurs ressources, l’ID complet de ressource dans le nom de l’objet blob est très utile si vous voulez accéder seulement aux objets blob dont vous avez besoin et les télécharger. Mais avant cela, nous aborderons le téléchargement de tous les objets blob.
 
-Tout d’abord, créez un dossier pour télécharger les objets blob. Par exemple :
+Tout d’abord, créez un dossier pour télécharger les objets blob. Par exemple : 
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -164,7 +165,7 @@ Adressez cette liste via « Get-AzureStorageBlobContent » pour télécharger 
 
 Lorsque vous exécutez cette seconde commande, le délimiteur **/** présent dans les noms d’objet blob crée une structure de dossiers complète sous le dossier de destination, structure qui servira à télécharger et à stocker les objets blob en tant que fichiers.
 
-Pour télécharger les objets blob de façon sélective, utilisez des caractères génériques. Par exemple :
+Pour télécharger les objets blob de façon sélective, utilisez des caractères génériques. Par exemple : 
 
 * Si vous disposez de plusieurs coffres de clés et souhaitez télécharger les journaux d’un seul d’entre eux nommé CONTOSOKEYVAULT3 :
 
@@ -211,7 +212,7 @@ Le tableau suivant répertorie les noms de champ et les descriptions.
 | Nom du champ | Description |
 | --- | --- |
 | time |Date et heure (UTC) |
-| resourceId |ID de ressource Azure Resource Manager Pour les journaux de coffre de clés, il s’agit toujours de l’ID de ressource du coffre de clés. |
+| ResourceId |ID de ressource Azure Resource Manager Pour les journaux de coffre de clés, il s’agit toujours de l’ID de ressource du coffre de clés. |
 | operationName |Nom de l’opération, comme indiqué dans le tableau suivant. |
 | operationVersion |Il s’agit de la version de l’API REST demandée par le client. |
 | category |Pour les journaux de coffre de clés, AuditEvent est la seule valeur disponible. |
@@ -224,7 +225,7 @@ Le tableau suivant répertorie les noms de champ et les descriptions.
 | identité |Identité issue du jeton qui a été présenté lors de la création de la demande de l’API REST. Il s’agit généralement d’un « utilisateur », d’« un principal de service » ou d’une combinaison « utilisateur + appId », comme dans le cas d’une demande résultant d’une applet de commande PowerShell Azure. |
 | properties |Ce champ contient des informations différentes en fonction de l’opération (operationName). Dans la plupart des cas, il contient des informations client (chaîne useragent transmise par le client), l’URI de requête API REST exacte et le code d’état HTTP. En outre, lorsqu’un objet est retourné suite à une demande (par exemple, KeyCreate ou VaultGet), il contient également l’URI de clé (sous la forme « id »), l’URI d’archivage ou l’URI de clé secrète. |
 
-Les valeurs du champ **operationName** sont au format ObjectVerb. Par exemple :
+Les valeurs du champ **operationName** sont au format ObjectVerb. Par exemple : 
 
 * Toutes les opérations de coffre de clés sont au format « Vault`<action>` », comme `VaultGet` et `VaultCreate`.
 * Toutes les opérations de clé sont au format « Key`<action>` », comme `KeySign` et `KeyList`.

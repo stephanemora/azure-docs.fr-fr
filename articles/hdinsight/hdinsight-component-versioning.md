@@ -1,27 +1,25 @@
 ---
-title: "Composants et versions Hadoop - Azure HDInsight | Microsoft Docs"
-description: "Découvrez les composants et versions Hadoop de HDInsight et les niveaux de service disponibles dans cette distribution cloud de la solution Hortonworks Data Platform."
-keywords: "versions Hadoop,composants de l’écosystème hadoop,composants hadoop,comment vérifier la version hadoop"
+title: Composants et versions Hadoop - Azure HDInsight | Microsoft Docs
+description: Découvrez les composants et versions Hadoop de HDInsight et les niveaux de service disponibles dans cette distribution cloud de la solution Hortonworks Data Platform.
+keywords: versions Hadoop,composants de l’écosystème hadoop,composants hadoop,comment vérifier la version hadoop
 services: hdinsight
 editor: cgronlun
 manager: asadk
 author: bprakash
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 813b05c5be4378ea6e57cb0b14fd8110e2772998
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Hadoop disponibles avec HDInsight ?
 
@@ -109,7 +107,7 @@ Le tableau suivant liste les versions HDInsight qui **ne sont pas** disponibles 
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Package de sécurité d’entreprise pour HDInsight
 
-Azure HDInsight est un package facultatif que vous pouvez ajouter à votre cluster HDInsight dans le cadre du flux de travail de création du cluster. Le package de sécurité d’entreprise prend en charge les aspects suivants :
+Le package de sécurité d’entreprise est un package facultatif que vous pouvez ajouter à votre cluster HDInsight dans le cadre du flux de travail de création du cluster. Le package de sécurité d’entreprise prend en charge les aspects suivants :
 
 - Intégration à Active Directory pour l’authentification.
 

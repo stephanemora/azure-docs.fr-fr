@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: daef85164793dd6183c41604f200864aabadf8d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store
 
@@ -212,7 +212,7 @@ Félicitations !  Vous avez été authentifié auprès du système de fichiers 
 ## <a name="related-content"></a>Contenu connexe
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
-- Data Lake Store utilise Azure Resource Manager pour la gestion des opérations.  Pour plus d’informations sur l’utilisation d’une MSI de machine virtuelle pour l’authentification auprès du Gestionnaire des ressources, lisez [Utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder au Gestionnaire des ressources](msi-tutorial-linux-vm-access-arm.md).
+- Data Lake Store utilise Azure Resource Manager pour la gestion des opérations.  Pour plus d’informations sur l’utilisation d’une MSI de machine virtuelle pour l’authentification auprès du Gestionnaire des ressources, lisez [Utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder au Gestionnaire des ressources](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - En savoir plus sur l’[Authentification auprès de Data Lake Store à l’aide de Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - En savoir plus sur les [Opérations de système de fichiers sur Azure Data Lake Store à l’aide d’une API REST](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) ou des [API de système de fichiers WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - En savoir plus sur le [Contrôle d’accès dans Azure Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).

@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6c3eb1e86d2dd98590d3a17dedf76c2a694f1a6d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Exécuter une instance Databricks Notebook avec l’activité Databricks Notebook dans Azure Data Factory
 
@@ -50,7 +50,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 3.  Dans le volet **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** sous **Nom**.
 
-    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si vous voyez l’erreur suivante, modifiez le nom de la fabrique de données. Par exemple, utilisez **\<votrenom\>ADFTutorialDataFactory**. Consultez l’article [Data Factory - Règles d’affectation des noms](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) pour en savoir plus sur les règles d’affectation des noms d’artefacts Data Factory.
+    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si vous voyez l’erreur suivante, modifiez le nom de la fabrique de données. Par exemple, utilisez **\<votrenom\>ADFTutorialDataFactory**. Consultez l’article [Data Factory - Règles d’affectation des noms](https://docs.microsoft.com/azure/data-factory/naming-rules) pour en savoir plus sur les règles d’affectation des noms d’artefacts Data Factory.
 
     ![Entrer un nom pour la nouvelle fabrique de données](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -62,7 +62,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     
     - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.
 
-    Certaines étapes de ce guide de démarrage rapide supposent que vous utilisez le nom **ADFTutorialResourceGroup** pour le groupe de ressources. Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+    Certaines étapes de ce guide de démarrage rapide supposent que vous utilisez le nom **ADFTutorialResourceGroup** pour le groupe de ressources. Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1.  Pour **Version**, sélectionnez **V2 (préversion)**.
 

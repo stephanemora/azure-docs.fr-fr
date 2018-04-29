@@ -1,8 +1,8 @@
 ---
-title: "Collecte d’alertes Nagios et Zabbix dans OMS Log Analytics | Documents Microsoft"
-description: "Nagios et Zabbix sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des alertes provenant d’autres sources.  Cet article décrit comment configurer l’agent OMS pour Linux pour la collecte d’alertes à partir de ces systèmes."
+title: Collecte d’alertes Nagios et Zabbix dans OMS Log Analytics | Documents Microsoft
+description: Nagios et Zabbix sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des alertes provenant d’autres sources.  Cet article décrit comment configurer l’agent OMS pour Linux pour la collecte d’alertes à partir de ces systèmes.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -12,27 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Collecte d’alertes à partir de Nagios et Zabbix dans Log Analytics à partir de l’agent OMS pour Linux 
-[Nagios](https://www.nagios.org/) et [Zabbix](http://www.zabbix.com/) sont des outils de surveillance open source.  Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des [alertes provenant d’autres sources](log-analytics-alerts.md).  Cet article décrit comment configurer l’agent OMS pour Linux pour la collecte d’alertes à partir de ces systèmes.
+[Nagios](https://www.nagios.org/) et [Zabbix](http://www.zabbix.com/) sont des outils de surveillance open source. Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des [alertes provenant d’autres sources](log-analytics-alerts.md).  Cet article décrit comment configurer l’agent OMS pour Linux pour la collecte d’alertes à partir de ces systèmes.
  
+## <a name="prerequisites"></a>Prérequis
+
+L’agent OMS pour Linux prend en charge la collecte d’alertes à partir de Nagios jusqu’à la version 4.2.x et de Zabbix jusqu’à la version 2.x.
+
 ## <a name="configure-alert-collection"></a>Configuration de la collecte d’alertes
 
 ### <a name="configuring-nagios-alert-collection"></a>Configuration de la collecte d’alertes Nagios
-Procédez comme suit sur le serveur Nagios pour collecter les alertes.
+Pour collecter des alertes, procédez comme suit sur le serveur Nagios.
 
-1. Octroyez à l’utilisateur **omsagent** l’accès en lecture au fichier journal Nagios (par exemple, `/var/log/nagios/nagios.log`). Si le fichier nagios.log appartient au groupe `nagios`, vous pouvez ajouter l’utilisateur **omsagent** au groupe **nagios**. 
+1. Octroyez à l’utilisateur **omsagent** l’accès en lecture au fichier journal Nagios `/var/log/nagios/nagios.log`. Si le fichier nagios.log appartient au groupe `nagios`, vous pouvez ajouter l’utilisateur **omsagent** au groupe **nagios**. 
 
     sudo usermod -a -G nagios omsagent
 
-2.  Modifiez le fichier de configuration dans (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Vérifiez que les entrées suivantes sont présentes et non mises en commentaire :  
+2.  Modifiez le fichier de configuration dans `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Vérifiez que les entrées suivantes sont présentes et non mises en commentaire :  
 
         <source>  
           type tail  
@@ -53,11 +57,11 @@ Procédez comme suit sur le serveur Nagios pour collecter les alertes.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configuration de la collecte d’alertes Zabbix
-Pour collecter les alertes à partir d’un serveur Zabbix, vous devez indiquer un utilisateur et un mot de passe en *texte clair*. Ce n’est pas l’idéal, mais nous vous recommandons de créer l’utilisateur et d’accorder des autorisations pour surveiller onlu.
+Pour collecter les alertes à partir d’un serveur Zabbix, vous devez indiquer un utilisateur et un mot de passe en *texte clair*.  Même si ce n’est pas l’idéal, nous vous recommandons de créer l’utilisateur et d’accorder des autorisations pour surveiller onlu.
 
 Procédez comme suit sur le serveur Nagios pour collecter les alertes.
 
-1. Modifiez le fichier de configuration dans (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Vérifiez que les entrées suivantes sont présentes et non commentées.  Remplacez le nom d’utilisateur et le mot de passe par des valeurs pour votre environnement Zabbix.
+1. Modifiez le fichier de configuration dans `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Vérifiez que les entrées suivantes sont présentes et non commentées.  Remplacez le nom d’utilisateur et le mot de passe par des valeurs pour votre environnement Zabbix.
 
         <source>
          type zabbix_alerts
@@ -82,7 +86,7 @@ Pour les enregistrements d’alerte collectés par Nagios, le **type** est **Ale
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |*Alert* |
+| type |*Alert* |
 | SourceSystem |*Nagios* |
 | AlertName |Nom de l’alerte. |
 | AlertDescription | Description de l’alerte. |
@@ -98,7 +102,7 @@ Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Ale
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |*Alert* |
+| type |*Alert* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nom de l’alerte. |
 | AlertPriority | Gravité de l’alerte.<br><br>non classée<br>information<br>Avertissement<br>average<br>élevée<br>urgence  |
@@ -113,4 +117,4 @@ Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Ale
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [alertes](log-analytics-alerts.md) dans Log Analytics.
-* En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
+* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions. 

@@ -1,39 +1,27 @@
 ---
-title: "Utilisation du stockage d’objets blob à partir de C++ | Microsoft Docs"
-description: "Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
+title: Utilisation du stockage d’objets (blob) à partir de C++ - Azure | Microsoft Docs
+description: Stockez des données non structurées dans le cloud avec le stockage d’objet blob Azure.
 services: storage
-documentationcenter: .net
 author: MichaelHauss
-manager: vamshik
-editor: tysonn
-ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d'objets blob à partir de C++
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
+# <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d’objets blob à partir de C++
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-## <a name="overview"></a>Vue d'ensemble
-Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets/blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.
-
-Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent le **chargement**, l’**énumération**, le **téléchargement** et la **suppression** d’objets blob.  
+Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent le chargement, l'énumération, le téléchargement et la suppression d'objets blob.  
 
 > [!NOTE]
-> Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 2.2.0, disponible par le biais de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
-> 
-> 
+> Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. Microsoft recommande d’utiliser la dernière version de la bibliothèque cliente pour C++, disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+
+## <a name="what-is-blob-storage"></a>Présentation du stockage d'objets blob
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -51,7 +39,7 @@ Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez proc
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-blob-storage"></a>Configuration de votre application pour accéder au stockage d'objets blob
+## <a name="configure-your-application-to-access-blob-storage"></a>Configurer votre application pour accéder au stockage d’objets blob
 Ajoutez l'instruction include suivante au début du fichier C++ dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux objets blob :  
 
 ```cpp
@@ -88,7 +76,7 @@ Vous pouvez utiliser la classe **cloud_storage_account** pour représenter les i
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Ensuite, récupérez une référence pointant vers une classe **cloud_blob_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d’objets blob. Le code suivant crée un objet **cloud_blob_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :  
+Ensuite, récupérez une référence pointant vers une classe **cloud_blob_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le stockage d’objets blob. Le code suivant crée un objet **cloud_blob_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :  
 
 ```cpp
 // Create the blob client.
@@ -133,9 +121,9 @@ container.upload_permissions(permissions);
 Tous les utilisateurs d’Internet peuvent afficher les objets blob d’un conteneur public, mais seuls ceux possédant la clé d’accès adéquate peuvent les modifier ou les supprimer.  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Téléchargement d’un objet blob dans un conteneur
-Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de page. Dans la plupart des cas, il est recommandé d’utiliser le type d’objet blob de blocs.  
+Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de pages. Dans la plupart des cas, il est recommandé d’utiliser le type d’objet blob de blocs.  
 
-Pour télécharger un fichier vers un objet blob de blocs, obtenez une référence de conteneur et utilisez-la pour obtenir une référence d’objet blob de blocs. Lorsque vous disposez d’une référence d’objet blob, vous pouvez télécharger un flux de données vers cet objet en appelant la méthode **upload_from_stream**. Si l’objet blob n’existe pas, cette opération entraîne sa création. S’il existe, il est remplacé. L’exemple suivant illustre le téléchargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.  
+Pour télécharger un fichier vers un objet blob de blocs, obtenez une référence de conteneur et utilisez-la pour obtenir une référence d’objet blob de blocs. Lorsque vous disposez d’une référence d’objet blob, vous pouvez télécharger un flux de données vers cet objet en appelant la méthode **upload_from_stream**. Si l’objet blob n’existe pas, cette opération entraîne sa création. S’il existe, il est remplacé. L’exemple suivant illustre le chargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -272,6 +260,6 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 * [Utilisation du stockage de tables à partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Listage des ressources Azure Storage en C++](../storage-c-plus-plus-enumeration.md)
 * [Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
-* [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md)
 

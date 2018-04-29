@@ -1,4 +1,26 @@
-
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: d407b015699925a6a3ce6ef9108ace1e9900303f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
 Dans cette section, vous allez créer un projet pour apprendre à intégrer une application de bureau Windows .NET (XAML) avec l’option *Se connecter avec Microsoft* pour que l’application puisse interroger les API web qui nécessitent un jeton.
@@ -6,7 +28,7 @@ Dans cette section, vous allez créer un projet pour apprendre à intégrer une 
 L’application que vous créez dans ce guide affiche un bouton pour appeler un graphique, une zone pour afficher les résultats à l’écran et un bouton de déconnexion.
 
 > [!NOTE]
-> Vous préférez télécharger le projet Visual Studio de cet exemple ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) et passez à [l’étape Configuration](#create-an-application-express) pour configurer l’exemple de code avant de l’exécuter.
+> Vous préférez télécharger le projet Visual Studio de cet exemple ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) et passez à [l’étape Configuration](#register-your-application) pour configurer l’exemple de code avant de l’exécuter.
 >
 
 Pour créer l’application, procédez comme suit :
@@ -51,6 +73,7 @@ Dans cette étape, vous allez créer une classe pour gérer l’interaction avec
     ```
 
 ## <a name="create-the-application-ui"></a>Créer l’interface utilisateur de l’application
+
 La section suivante explique comment une application peut interroger un serveur principal protégé tel que Microsoft Graph. 
 
 Un fichier *MainWindow.xaml* doit être automatiquement créé dans le cadre de votre modèle de projet. Ouvrez ce fichier et remplacez le nœud *\<Grid>* de votre application par le code suivant :

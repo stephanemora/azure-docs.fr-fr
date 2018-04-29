@@ -1,8 +1,8 @@
 ---
-title: "Connexion à une machine virtuelle Windows Server | Microsoft Docs"
-description: "Découvrez comment vous connecter à une machine virtuelle Windows à l’aide du portail Azure et du modèle de déploiement Resource Manager."
+title: Connexion à une machine virtuelle Windows Server | Microsoft Docs
+description: Découvrez comment vous connecter à une machine virtuelle Windows à l’aide du portail Azure et du modèle de déploiement Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 04/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 3e7b7c2ffa7471b96ebd23ac430fbd21eb21e9c5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 0c81e70a76983885fdfb6eefe9b6cbe407e117c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
 Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d’abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
@@ -30,9 +30,7 @@ Si vous essayez de vous connecter à une machine virtuelle Windows à partir d�
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, cliquez sur **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle dans la liste.
-4. Sur la page de la machine virtuelle, cliquez sur **Connecter**.
-   
-    ![Capture d'écran du portail Azure montrant comment se connecter à votre machine virtuelle.](./media/connect-logon/connect.png)
+4. Sur la partie supérieure de la page de la machine virtuelle, cliquez sur ![l’image du bouton de connexion.](./media/connect-logon/connect.png) .
    
    > [!TIP]
    > Si le bouton **Connecter** du portail est grisé et si vous n’êtes pas connecté à Azure avec une connexion [Express Route](../../expressroute/expressroute-introduction.md) ou [réseau privé virtuel de site à site](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).

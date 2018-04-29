@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -25,7 +25,7 @@ Le tableau répertorie les prérequis du déploiement d’une machine de serveur
 | **Composant** | **Prérequis** |
 | --- |---|
 | Cœurs d’unité centrale| 8 |
-| RAM | 12 Go|
+| RAM | 16 Go|
 | Nombre de disques | 3, y compris le disque du système d’exploitation, le disque de cache du serveur de processus et le lecteur de conservation pour la restauration automatique |
 | Espace disque disponible (cache du serveur de traitement) | 600 Go
 | Espace disque disponible (disque de rétention) | 600 Go|
@@ -37,7 +37,7 @@ Le tableau répertorie les prérequis du déploiement d’une machine de serveur
 | IIS | - Aucun site web par défaut préexistant <br> - Activer l’[authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Aucune application/aucun site web préexistants ne doivent écouter le port 443<br>|
 | Type de carte réseau | VMXNET3 (en cas de déploiement comme machine virtuelle VMware) |
 | Type d’adresse IP | statique |
-| Accès à Internet | Le serveur doit également accéder à ces URL : <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (non requis pour les serveurs de traitement à montée en charge) <br> - time.nist.gov <br> - time.windows.com |
+| Accès à Internet | Le serveur doit également accéder à ces URL : <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (non requis pour les serveurs de processus d’augmentation de la taille) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Orchestration du canal de contrôle)<br>9443 (Transport de données)|
 
 ## <a name="download-the-latest-installation-file"></a>Télécharger le fichier d’installation le plus récent
@@ -268,7 +268,7 @@ Mettez à niveau le serveur comme suit :
 1. [Installez](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) le module Azure PowerShell.
 2. Connectez-vous à votre compte Azure à l’aide de la commande suivante :
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Sélectionnez l’abonnement sous lequel le coffre est présent.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

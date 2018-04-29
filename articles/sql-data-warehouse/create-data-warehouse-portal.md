@@ -1,20 +1,20 @@
 ---
-title: Créer et interroger un entrepôt de données SQL Azure - Portail Azure | Microsoft Docs
-description: Créez un Azure SQL Data Warehouse dans le portail Azure, puis interrogez-le.
+title: 'Démarrage rapide : créer et interroger un entrepôt de données SQL Azure - Portail Azure | Microsoft Docs'
+description: Créez et interrogez un entrepôt de données avec Azure SQL Data Warehouse dans le portail Azure.
 services: sql-data-warehouse
-author: hirokib
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.topic: quickstart
-ms.component: implement
-ms.date: 03/28/2018
-ms.author: elbutter
-ms.reviewer: jrj
-ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans le portail Azure
 
@@ -22,9 +22,14 @@ Créez et interrogez rapidement un entrepôt SQL Azure dans le portail Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
+> [!NOTE]
+> La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable.  Pour en savoir plus, voir [SQL Data Warehouse - Tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+>
+>
+
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -32,7 +37,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Créer un entrepôt de données
 
-Un entrepôt SQL Azure est créé avec un ensemble défini de [ressources de calcul](performance-tiers.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
+Un entrepôt SQL Azure est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server). 
 
 Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exemple de base de données AdventureWorksDW. 
 

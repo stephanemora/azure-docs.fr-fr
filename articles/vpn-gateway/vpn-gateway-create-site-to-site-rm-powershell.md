@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6ee23beaa450129be7c173da9efc687cc3790a15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee4e200fa57a38249b0be2997de7e3268a9302cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de PowerShell
 
@@ -52,7 +52,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 Si vous choisissez d’installer et d’utiliser PowerShell en local, installez la dernière version des cmdlets PowerShell Azure Resource Manager. Les applets de commande PowerShell sont fréquemment mises à jour, et vous devez généralement mettre à jour les vôtres pour obtenir les toutes dernières fonctionnalités. Si vous ne mettez pas à jour vos cmdlets PowerShell, les valeurs spécifiées peuvent échouer. 
 
 Pour trouver la version que vous utilisez, exécutez « Get-Module -ListAvailable AzureRM ». Si vous devez effectuer une mise à niveau, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
-Si vous exécutez PowerShell en local, vous devez également exécuter « Login-AzureRmAccount » pour créer une connexion à Azure.
+Si vous exécutez PowerShell en local, vous devez également exécuter « Connect-AzureRmAccount » pour créer une connexion à Azure.
 
 
 ### <a name="example"></a>Exemples de valeurs

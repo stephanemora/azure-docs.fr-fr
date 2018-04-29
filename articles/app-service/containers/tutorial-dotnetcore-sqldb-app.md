@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/10/2017
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c79d82ddc65b7302552f745ab653109677205aa4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 654c187bcd552e9682115bc5e53ba69a3dca7c1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux
 
@@ -48,8 +48,8 @@ Vous apprendrez à :
 
 Pour suivre ce didacticiel :
 
-1. [Installez Git](https://git-scm.com/)
-1. [Installez .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [Installez Git](https://git-scm.com/)
+* [Installez .NET Core](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>Création de l’application .NET Core locale
 
@@ -137,7 +137,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Créer une base de données
 
-Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers-dtu.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -148,7 +148,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Remplacez la chaîne suivante par les valeurs *\<server_name>*, *\<db_username>* et *\<db_password>* utilisées précédemment.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 Chaîne de connexion pour votre application .NET Core. Copiez-la pour une utilisation ultérieure.
@@ -216,7 +216,8 @@ L’appel `Database.Migrate()` vous aide lorsqu’il est exécuté dans Azure ca
 Enregistrez vos modifications, puis validez-les dans le référentiel Git. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
@@ -348,8 +349,8 @@ Dans votre navigateur, accédez à `http://localhost:5000/`. Vous pouvez mainten
 ### <a name="publish-changes-to-azure"></a>Publier les modifications dans Azure
 
 ```bash
-
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -84,7 +84,7 @@ Pour obtenir la liste des adresses IP sortantes pour votre application web :
 
 La liste des adresses IP sortantes s’affiche.
 
-Si votre site web est hébergé dans App Service Environment pour PowerApps, pour savoir comment obtenir votre adresse IP sortante, voir [Adresses réseau sortantes](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Pour savoir comment obtenir l’adresse IP sortante si votre site web est hébergé dans un environnement App Service, consultez [Adresses réseau sortantes](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Comment obtenir une adresse IP entrante réservée ou dédiée pour mon application web ?
 
@@ -268,7 +268,7 @@ Comme indiqué dans le message, ce processus de vérification de fraude peut pre
 Si votre certificat App Service continue d’afficher ce message après 24 heures, exécutez le script PowerShell suivant. Le script contacte directement le [fournisseur de certificat](https://www.godaddy.com/) pour résoudre le problème.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

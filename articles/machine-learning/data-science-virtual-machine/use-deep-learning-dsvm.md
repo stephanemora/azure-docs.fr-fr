@@ -5,20 +5,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b517e4c8cc57f833037f4c67deb318f2756e7b24
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Utilisation de Deep Learning Virtual Machine
 
@@ -35,9 +35,12 @@ Outre les exemples basés sur les frameworks, un ensemble de procédures détail
 
 - [Guide pratique pour créer une solution de bout en bout afin de détecter des produits dans des images](https://github.com/Azure/cortana-intelligence-product-detection-from-images) : la détection d’image est une technique qui peut localiser des objets dans les images et les classer. Les retombées concrètes de cette technologie semblent très prometteuses dans de nombreux domaines professionnels. Par exemple, un détaillant peut utiliser cette technique pour déterminer quel produit un client a choisi dans un rayon. Il peut ensuite utiliser ces informations pour gérer le stock des produits. 
 
+- [Extraction d’entités nommées à partir de résumés PubMed](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) : ce tutoriel montre comment extraire des entités nommées, telles que les noms de médicament ou de maladie, à partir de texte non structuré. Il entraîne une incorporation de mots personnalisée dans un corpus constitués de 18 millions de résumés PubMed, utilise ce modèle pour générer un modèle de réseau neuronal récurrent de mémoire à court et long terme pour l’extraction des entités, et montre que le modèle d’incorporation de mots propres à un domaine peut être plus performant qu’un modèle d’incorporation de mots génériques pour l’extraction d’entités.
+
+- [Modèle d’apprentissage profond pour l’audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) : Ce tutoriel montre comment entraîner un modèle d’apprentissage profond pour la détection des événements audio dans le [jeu de données Urban Sounds](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html), et explique comment utiliser les données audio.
+
 - [Classification de documents texte](https://github.com/anargyri/lstm_han) : cette procédure pas à pas montre comment créer et former deux architectures de réseau neuronal différentes : réseau d’attention hiérarchisée et réseau à mémoire à long ou court terme. Ces réseaux neuronaux utilisent l’API Keras de l’apprentissage profond pour classer les documents texte. Keras facilite l’utilisation de trois des frameworks d’apprentissage profond les plus populaires, à savoir Microsoft Cognitive Toolkit, TensorFlow et Theano.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 La [page d’exemples](dsvm-samples-and-walkthroughs.md) fournit des pointeurs vers des exemples de code préchargés sur la machine virtuelle pour chacun des frameworks afin de vous aider à démarrer rapidement. 
-

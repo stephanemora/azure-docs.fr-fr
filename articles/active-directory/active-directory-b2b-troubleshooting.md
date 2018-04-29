@@ -1,13 +1,13 @@
 ---
-title: "Résolution des problèmes d’Azure Active Directory B2B Collaboration | Microsoft Docs"
-description: "Solutions pour les problèmes courants liés à Azure Active Directory B2B Collaboration"
+title: Résolution des problèmes d’Azure Active Directory B2B Collaboration | Microsoft Docs
+description: Solutions pour les problèmes courants liés à Azure Active Directory B2B Collaboration
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
 
@@ -63,7 +63,7 @@ Pour résoudre ce problème, administrateur de l’utilisateur externe doit sync
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Comment synchroniser « \# », qui n’est normalement pas un caractère valide, avec Azure AD ?
 
-« \# » est un caractère réservé dans les UPN pour les utilisateurs Azure AD B2B Collaboration ou externes, car le compte invité user@contoso.com devient user_contoso.com#EXT@fabrikam.onmicrosoft.com. Par conséquent, il est impossible pour \# dans les UPN en local de se connecter au portail Azure. 
+« \# » est un caractère réservé dans les UPN pour les utilisateurs de collaboration ou externes Azure AD B2B, car le compte invité user@contoso.com devient user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Par conséquent, il est impossible pour \# dans les UPN en local de se connecter au portail Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Je reçois une erreur lors de l’ajout d'utilisateurs externes à un groupe synchronisé
 

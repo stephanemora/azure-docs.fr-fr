@@ -1,25 +1,25 @@
 ---
-title: "Enregistrer des messages IoT Hub dans le stockage de données Azure | Microsoft Docs"
-description: "Utilisez le routage de messages IoT Hub pour enregistrer les messages IoT Hub dans votre stockage Blob Azure. Les messages IoT Hub contiennent des informations, notamment des données de capteurs, envoyées par l’appareil IoT."
+title: Enregistrer des messages IoT Hub dans le stockage de données Azure | Microsoft Docs
+description: Utilisez le routage de messages IoT Hub pour enregistrer les messages IoT Hub dans votre stockage Blob Azure. Les messages IoT Hub contiennent des informations, notamment des données de capteurs, envoyées par l’appareil IoT.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "stockage de données iot, stockage de données de capteur iot"
+tags: ''
+keywords: stockage de données iot, stockage de données de capteur iot
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
-ms.author: xshi
-ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Enregistrer les messages IoT Hub qui contiennent des données de capteurs dans un stockage Blob Azure
 
@@ -61,7 +61,7 @@ Vous allez découvrir comment créer un compte de stockage Azure et une applicat
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>Préparer l’IoT Hub pour router les messages vers le stockage
 
-IoT Hub en mode natif prend en charge le routage des messages vers le stockage Azure en tant qu’objets blob.
+IoT Hub en mode natif prend en charge le routage des messages vers le stockage Azure en tant qu’objets blob. Pour en savoir plus sur les points de terminaison personnalisés de Azure IoT Hub, vous pouvez faire référence à la [liste de points de terminaison IoT Hub intégrés](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints).
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>Ajouter un stockage en tant qu’un point de terminaison personnalisé
 

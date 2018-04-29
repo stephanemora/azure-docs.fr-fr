@@ -51,7 +51,7 @@
 ### [Guide de résolution des problèmes](dns-troubleshoot.md)
 
 # Informations de référence
-## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
+## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [interface de ligne de commande Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)

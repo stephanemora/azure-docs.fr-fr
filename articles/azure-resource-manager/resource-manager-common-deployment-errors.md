@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -31,9 +31,9 @@ Cette article décrit certaines erreurs courantes liées au déploiement Azure q
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Suivez les restrictions concernant l’attribution de noms pour les comptes de stockage. | [Résoudre les erreurs de nom du compte de stockage](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Vérifiez les propriétés disponibles du compte de stockage. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Le cluster ou la région n’a pas de ressources disponibles, ou ne prend pas en charge la taille de machine virtuelle demandée. Renouvelez la demande plus tard ou demandez une taille de machine virtuelle différente. | [Problèmes de provisionnement et d’allocation pour Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) et [Problèmes de provisionnement et d’allocation pour Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| AllocationFailed | Le cluster ou la région n’a pas de ressources disponibles, ou ne prend pas en charge la taille de machine virtuelle demandée. Renouvelez la demande plus tard ou demandez une taille de machine virtuelle différente. | [Problèmes d’approvisionnement et d’allocation pour Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problèmes d’approvisionnement et d’allocation pour Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) et [Résoudre des échecs d’allocation](../virtual-machines/windows/allocation-failure.md)|
 | AnotherOperationInProgress | Attendez que l’opération simultanée soit terminée. | |
-| AuthorizationFailed | Votre compte ou principal du service ne dispose pas de droits d’accès suffisants pour terminer le déploiement. Vérifiez le rôle auquel votre compte appartient et son accès dans le cadre du déploiement. | [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md) |
+| AuthorizationFailed | Votre compte ou principal du service ne dispose pas de droits d’accès suffisants pour terminer le déploiement. Vérifiez le rôle auquel votre compte appartient et son accès dans le cadre du déploiement. | [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Vous avez envoyé des valeurs de déploiement qui ne correspondent pas aux valeurs attendues par Resource Manager. Vérifiez le message d’état interne pour résoudre plus facilement le problème. | [Référence de modèle](/azure/templates/) et [Emplacements pris en charge](resource-manager-templates-resources.md#location) |
 | Conflit | Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. Par exemple, un redimensionnement de disque est autorisé uniquement durant la création ou la libération d’une machine virtuelle. | |
 | DeploymentActive | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |

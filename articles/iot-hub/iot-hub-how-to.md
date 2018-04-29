@@ -1,11 +1,11 @@
 ---
-title: "Guide Azure IoT Hub | Microsoft Docs"
-description: "En tant que développeur, comment utiliser les différentes fonctionnalités IoT Hub ?"
+title: Guide Azure IoT Hub | Microsoft Docs
+description: En tant que développeur, comment utiliser les différentes fonctionnalités IoT Hub ?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Utilisation d’Azure IoT Hub
 
@@ -52,7 +52,7 @@ Si vous souhaitez découvrir les fonctionnalités spécifiques de IoT Hub par l
 
 - [Utilisation des propriétés souhaitées pour configurer des appareils][lnk-properties-tutorial]. Ce didacticiel explique comment combiner les propriétés souhaitées des jumeaux d’appareils aux propriétés signalées afin de configurer votre appareil à distance.
 
-- [Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil][lnk-jobs-tutorial]. Ce didacticiel vous montre comment utiliser les principales fonctionnalités de gestion d’appareils, notamment les jumeaux et les méthodes directes. Vous apprenez à utiliser ces fonctionnalités pour mettre à jour à distance le microprogramme de votre appareil.
+- [Utilisation de la gestion des appareils pour mettre à jour le microprogramme][lnk-jobs-tutorial]. Ce didacticiel vous montre comment utiliser les principales fonctionnalités de gestion d’appareils, notamment les jumeaux et les méthodes directes. Vous apprenez à utiliser ces fonctionnalités pour mettre à jour à distance le microprogramme de votre appareil.
 
 - [Planifier et diffuser des travaux][lnk-schedule-tutorial]. Ce didacticiel vous montre comment utiliser les propriétés souhaitées et les méthodes directes pour interagir avec plusieurs appareils à une heure planifiée.
 

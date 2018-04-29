@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d287206d30c05289679c83636ba5f968a5fcbcbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procédure d’édition des visages avec Azure Media Analytics
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur **Azure Media Redactor**, consultez la rubrique [
 
 Cette rubrique explique étape par étape comment exécuter un workflow de rédaction complet à l’aide d’Azure Media Services Explorer (AMSE) et d’Azure Media Redactor Visualizer (outil open source).
 
-Pour plus d’informations, consultez [ce](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
+Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Worfkflow d’Azure Media Services Explorer
 

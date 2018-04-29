@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9b8a7988be2c3a2622dd45a264abcb674b7d169e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Gestion des partages de fichiers Azure avec le portail Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec le [portail Azure](https://portal.azure.com/). Découvrez comment :
@@ -47,10 +47,10 @@ Pour créer un partage de fichiers :
 4. Dans **Nom**, saisissez *myshare*.
 5. Cliquez sur **OK** pour créer le partage de fichiers Azure.
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Manipulation du contenu du partage de fichiers Azure
-Maintenant que vous avez créé un partage de fichiers Azure, vous pouvez monter le partage de fichiers avec SMB sur [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) ou [macOS](storage-how-to-use-files-mac.md). Vous pouvez également manipuler votre partage de fichiers Azure avec le portail Azure. Toutes les requêtes faites via le portail Azure sont faites avec l’API REST File, ce qui vous permet de créer, modifier et supprimer des fichiers et répertoires sur des clients sans accès SMB.
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Utiliser du contenu du partage de fichiers Azure
+Maintenant que vous avez créé un partage de fichiers Azure, vous pouvez monter le partage de fichiers avec SMB sur [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) ou [macOS](storage-how-to-use-files-mac.md). Vous pouvez également utiliser votre partage de fichiers Azure avec le portail Azure. Toutes les requêtes faites via le portail Azure sont faites avec l’API REST File, ce qui vous permet de créer, modifier et supprimer des fichiers et répertoires sur des clients sans accès SMB.
 
-### <a name="create-directory"></a>Créer un répertoire
+### <a name="create-a-directory"></a>Créer un répertoire
 Pour créer un répertoire nommé *myDirectory* à la racine de votre partage de fichiers Azure :
 
 1. Dans la page **Service de fichiers**, sélectionnez le partage de fichiers **myshare**. La page de votre partage de fichiers s’ouvre.

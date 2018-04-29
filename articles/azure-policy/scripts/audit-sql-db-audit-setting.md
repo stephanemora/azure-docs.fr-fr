@@ -1,25 +1,25 @@
 ---
-title: "Exemple JSON Azure Policy - Auditer le paramètre d’audit de niveau de la base de données SQL | Microsoft Docs"
-description: "Cet exemple de stratégie JSON audite les paramètres d’audit de la base de données SQL pour déterminer si ces paramètres ne correspondent pas à un paramétrage spécifié."
+title: Exemple JSON Azure Policy - Auditer le paramètre d’audit de niveau de la base de données SQL | Microsoft Docs
+description: Cet exemple de stratégie JSON audite les paramètres d’audit de la base de données SQL pour déterminer si ces paramètres ne correspondent pas à un paramétrage spécifié.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: a2aeaae3aeabe0c7c3fcbc975919d4436ae5eadc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 02114ea454c50313a184e605594afb1c56bc3469
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="audit-sql-db-level-audit-setting"></a>Auditer le paramètre d’audit de niveau de la base de données SQL
 

@@ -1,6 +1,6 @@
 ---
-title: "Exécuter Ansible avec Bash dans Azure Cloud Shell"
-description: "Découvrir comment effectuer diverses tâches Ansible avec Bash dans Azure Cloud Shell"
+title: Exécuter Ansible avec Bash dans Azure Cloud Shell
+description: Découvrir comment effectuer diverses tâches Ansible avec Bash dans Azure Cloud Shell
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Exécuter Ansible avec Bash dans Azure Cloud Shell
 
@@ -25,7 +25,7 @@ Dans ce didacticiel, vous allez apprendre à effectuer diverses tâches Ansible 
 
 - **Informations d’identification Azure** - [Créer des informations d’identification Azure et configurer Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Configurer Azure Cloud Shell** : si vous ne connaissez pas encore Azure Cloud Shell, l’article [Démarrage rapide de Bash dans Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) illustre comment démarrer et configurer Cloud Shell. Lancez un site web dédié pour Cloud Shell ici :
+- **Configurer Azure Cloud Shell** : si vous ne connaissez pas encore Azure Cloud Shell, l’article [Démarrage rapide de Bash dans Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) illustre comment démarrer et configurer Cloud Shell. Lancez un site web dédié pour Cloud Shell ici :
 
 [![Lancer Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Lancer Cloud Shell")](https://shell.azure.com)
 

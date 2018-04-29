@@ -1,25 +1,25 @@
 ---
-title: "Décisions de déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack | Microsoft Docs"
-description: "Déterminez les décisions relatives à la planification du déploiement pour les déploiements à plusieurs nœuds de Azure Stack connectés à Azure."
+title: Décisions de déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack | Microsoft Docs
+description: Déterminez les décisions relatives à la planification du déploiement pour les déploiements à plusieurs nœuds de Azure Stack connectés à Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
@@ -45,7 +45,7 @@ Azure Stack a été conçu pour fonctionner de façon optimale avec une connexio
 |Déploiement de machine virtuelle avec l’extension Docker pour exécuter des commandes Docker|Altérée – Docker recherche la dernière version sur internet et cette recherche échoue.|
 |Liens de documentation dans le portail de Azure Stack|Non disponible – Les liens, tels que Donner votre avis, Aide, Démarrage rapide, etc. utilisant une URL internet, ne fonctionnent pas.|
 |Correction/atténuation des alertes faisant référence à un guide de correction en ligne|Non disponible – Les liens de correction d’alerte utilisant une URL internet ne fonctionnent pas.|
-|Syndication de la Place de Marché – La possibilité de sélectionner et d’ajouter des packages de galerie directement depuis Azure Marketplace|Non disponible – Cette fonctionnalité nécessite une connexion à Azure et un compte Azure Active Directory.|
+|Syndication de la Place de Marché – La possibilité de sélectionner et d’ajouter des packages de galerie directement depuis Azure Marketplace|Altérée - Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne pouvez pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Toutefois, vous pouvez utiliser [l’outil de syndication de la Place de marché](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack.|
 |Utilisation des comptes de fédération Azure Active Directory pour gérer un déploiement de Azure Stack|Non disponible – Cette fonctionnalité nécessite une connexion à Azure. Des services de fédération Active Directory (AD FS) avec une instance de Active Directory local doivent être utilisés à la place.|
 |Fournisseurs de ressources tels que WebApps et SQL|Non disponible - Les fournisseurs de ressources tels que WebApps et SQL requièrent un accès Internet pour leur contenu.|
 |Interface de ligne de commande (CLI)|Altérée – L’interface CLI a des fonctionnalités réduites en termes d’authentification et d’approvisionnement des principes de service.|

@@ -1,6 +1,6 @@
 ---
-title: "Prise en main du Kit de développement logiciel Java pour Azure Media Services | Microsoft Docs"
-description: "Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide de Java."
+title: Prise en main du Kit de développement logiciel Java pour Azure Media Services | Microsoft Docs
+description: Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide de Java.
 services: media-services
 documentationcenter: java
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b8dea132fc1af546b64f51e5ab395ad8bc3fe37
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Prise en main du Kit de développement logiciel du client Java pour Azure Media Services
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -26,6 +26,7 @@ ms.lasthandoff: 03/02/2018
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo avec l’application Azure Media Services (AMS) à l’aide du Kit de développement logiciel Java.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Les éléments suivants sont requis pour suivre ce didacticiel :
 
@@ -42,7 +43,7 @@ Par exemple, si vous utilisez l’outil de compilation `gradle`, ajoutez la dép
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->En commençant par le package `azure-media`, version `0.9.8`, le kit de développement logiciel a ajouté la prise en charge de l’authentification Azure Active Directory (AAD) et a supprimé la prise en charge de l’authentification d’Azure Access Control Service (ACS). Les services ACS seront déconseillés à partir du 1 juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible. Pour obtenir des informations détaillées sur la migration, lisez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+>En commençant par le package `azure-media`, version `0.9.8`, le kit de développement logiciel a ajouté la prise en charge de l’authentification Azure Active Directory (AAD) et a supprimé la prise en charge de l’authentification d’Azure Access Control Service (ACS). Les services ACS seront déconseillés à partir du 22 juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible. Pour obtenir des informations détaillées sur la migration, lisez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
 >Le code source du Kit de développement logiciel Java pour Azure Media Services est disponible dans notre [référentiel GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Veillez à basculer vers la branche 0,9 et pas la branche principale. 

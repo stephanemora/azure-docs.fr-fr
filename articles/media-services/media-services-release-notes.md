@@ -2,10 +2,10 @@
 title: Notes de publication Media Services | Microsoft Docs
 description: Notes de publication de Media Services
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 Ces notes de publication pour Azure Media Services récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.
@@ -47,7 +47,7 @@ Pour obtenir des informations sur l’historique des versions de l’API REST, c
 
 ## <a name="october-2017-release"></a>Version d’octobre 2017
 > [!IMPORTANT] 
-> Media Services déprécie la prise en charge des clés d’authentification Azure Access Control Service. Le 1er juin 2018, vous ne pourrez plus vous authentifier auprès du backend Media Services par le biais de code à l’aide de clés Access Control Service. Vous devez mettre à jour votre code pour utiliser Azure Active Directory (Azure AD) comme l’indique l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Surveillez les avertissements relatifs à ce changement dans le portail Azure.
+> Media Services déprécie la prise en charge des clés d’authentification Azure Access Control Service. Le 22 juin 2018, vous ne pourrez plus vous authentifier auprès du backend Media Services par le biais de code, à l’aide de clés Access Control Service. Vous devez mettre à jour votre code pour utiliser Azure Active Directory (Azure AD) comme l’indique l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Surveillez les avertissements relatifs à ce changement dans le portail Azure.
 
 ### <a name="updates-for-october-2017"></a>Mises à jour d’octobre 2017
 #### <a name="sdks"></a>Kits de développement logiciel (SDK)

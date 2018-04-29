@@ -1,25 +1,25 @@
 ---
 title: Exemple JSON Azure Policy - Exiger le chiffrement des fichiers du stockage | Microsoft Docs
-description: "Cet exemple de stratégie JSON exige que le chiffrement des fichiers soit activé pour les comptes de stockage."
+description: Cet exemple de stratégie JSON exige que le chiffrement des fichiers soit activé pour les comptes de stockage.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 922f9f6bf5bd8a84b2265fb0ea9c3b021bbe1621
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 9a60fcf83f609570540d6dd9d68500e658ac8dab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="ensure-storage-file-encryption"></a>Appliquer le chiffrement des fichiers de stockage
 

@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/09/2018
+ms.date: 04/06/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: de04253a51d30885e936cb65a1925df4e5e96eaf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
-Ce tutoriel montre comment ajouter un domaine personnalisé à un point de terminaison Azure CDN. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
+Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
 
 Après avoir créé un point de terminaison CDN dans votre profil, le nom de point de terminaison, qui est un sous-domaine de azureedge.net, est inclus dans l’URL de diffusion de contenu CDN par défaut (par exemple, https :\//contoso.azureedge.net/photo.png). Par commodité, Azure CDN offre la possibilité d’associer un domaine personnalisé à un point de terminaison. Avec cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL au lieu d’un nom de point de terminaison (par exemple, https :\//www.contoso.com/photo.png). 
 
@@ -50,7 +50,8 @@ Avant de pouvoir utiliser un domaine personnalisé avec un point de terminaison 
 
 Un domaine personnalisé et son sous-domaine peuvent être associés à un seul point de terminaison à la fois. Toutefois, vous pouvez utiliser différents sous-domaines du même domaine personnalisé pour différents points de terminaison de service Azure en utilisant plusieurs enregistrements CNAME. Vous pouvez également mapper un domaine personnalisé ayant différents sous-domaines au même point de terminaison CDN.
 
-## <a name="map-temporary-cdnverify-subdomain"></a>Mapper le sous-domaine temporaire cdnverify
+
+## <a name="map-the-temporary-cdnverify-subdomain"></a>Mapper le sous-domaine temporaire cdnverify
 
 Lorsque vous mappez un domaine existant qui est en production, plusieurs points demandent une attention particulière. Lorsque vous inscrivez votre domaine personnalisé dans le Portail Azure, il se peut que le domaine connaisse un court temps d’arrêt. Pour éviter l’interruption du trafic web, vous devez tout d’abord mapper votre domaine personnalisé à votre nom d’hôte du point de terminaison CDN avec le sous-domaine cdnverify Azure afin de créer un mappage CNAME temporaire. Avec cette méthode, les utilisateurs peuvent accéder à votre domaine sans interruption pendant que le mappage DNS est en cours. 
 
@@ -136,7 +137,8 @@ Une fois que vous avez terminé l’inscription de votre domaine personnalisé, 
 
 2. Dans votre navigateur, accédez à l’adresse du fichier à l’aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est cdn.contoso.com, l’URL vers l’objet mis en cache sera similaire à l’URL suivante : http:\//cdn.contoso.com/my-public-container/my-file.jpg.
 
-## <a name="map-permanent-custom-domain"></a>Mapper le domaine personnalisé permanent
+
+## <a name="map-the-permanent-custom-domain"></a>Mapper le domaine personnalisé permanent
 
 Si vous avez vérifié que le sous-domaine cdnverify a été correctement mappé à votre point de terminaison (ou si vous utilisez un nouveau domaine personnalisé qui n’est pas en production), vous pouvez ensuite mapper le domaine personnalisé directement à votre nom d’hôte du point de terminaison CDN.
 
@@ -161,6 +163,8 @@ Pour créer un enregistrement CNAME pour votre domaine personnalisé :
 4. Enregistrez vos modifications.
 
 5. Si vous avez déjà créé un enregistrement temporaire CNAME du sous-domaine cdnverify, supprimez-le. 
+
+6. Si vous utilisez ce domaine personnalisé en production pour la première fois, suivez les étapes pour [Associer le domaine personnalisé à votre point de terminaison CDN](#associate-the-custom-domain-with-your-cdn-endpoint) et [Vérifier le domaine personnalisé](#verify-the-custom-domain).
 
 Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy est la suivante :
 
@@ -193,8 +197,6 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 7. Si vous avez un enregistrement CNAME cdnverify, sélectionnez l’icône crayon en regard de celui-ci, puis sélectionnez l’icône corbeille.
 
 8. Sélectionnez **Supprimer** pour supprimer l’enregistrement CNAME.
-
-Si vous utilisez ce domaine personnalisé en production pour la première fois, suivez les étapes pour [Associer le domaine personnalisé à votre point de terminaison CDN](#associate-the-custom-domain-with-your-cdn-endpoint) et [Vérifier le domaine personnalisé](#verify-the-custom-domain).
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

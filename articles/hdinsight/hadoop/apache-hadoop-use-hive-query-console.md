@@ -1,8 +1,8 @@
 ---
-title: "Utiliser Hadoop Hive sur la console de requêtes dans HDInsight - Azure | Documents Microsoft"
-description: "Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur."
+title: Utiliser Hadoop Hive sur la console de requêtes dans HDInsight - Azure | Documents Microsoft
+description: Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: d6032b8a1e3d338b046c958804102aeb9efcf4ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Exécution de requêtes Hive à l'aide de la console de requêtes
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -39,7 +37,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 * Un navigateur Web moderne
 
 ## <a id="run"></a> Exécution de requêtes Hive à l'aide de la console de requêtes
-1. Dans un navigateur web, accédez à l’adresse **https://CLUSTERNAME.azurehdinsight.net**, où **CLUSTERNAME** est le nom de votre cluster HDInsight. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
+1. Ouvrez un navigateur, puis accédez à **https://CLUSTERNAME.azurehdinsight.net**, où **CLUSTERNAME** est le nom de votre cluster HDInsight. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
 2. À partir des liens situés en haut de la page, sélectionnez **Éditeur Hive**. Cela affiche un formulaire qui peut être utilisé pour saisir les instructions HiveQL que vous souhaitez exécuter sur le cluster HDInsight.
 
     ![l’éditeur Hive](./media/apache-hadoop-use-hive-query-console/queryconsole.png)

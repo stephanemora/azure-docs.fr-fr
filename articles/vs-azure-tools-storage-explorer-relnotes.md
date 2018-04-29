@@ -1,12 +1,12 @@
 ---
-title: "Notes de publication pour Microsoft Azure Storage Explorer (préversion)"
-description: "Notes de publication pour Microsoft Azure Storage Explorer (préversion)"
+title: Notes de publication de l’Explorateur Stockage Microsoft Azure
+description: Notes de publication de l’Explorateur Stockage Microsoft Azure
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notes de publication pour Microsoft Azure Storage Explorer (préversion)
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
 Cet article contient les notes de publication de l’Explorateur Stockage Azure 0.9.6 (préversion), ainsi que celles des versions précédentes.
 
-[Microsoft Azure Storage Explorer (préversion)](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux.
+[L’Explorateur Stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données du Stockage Azure sur Windows, maOS et Linux.
 
 ## <a name="version-096"></a>Version 0.9.6
 28/02/2018

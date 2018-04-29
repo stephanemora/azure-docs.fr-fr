@@ -1,11 +1,11 @@
 ---
-title: "Comparaison des files d’attente Azure et des files d’attente Service Bus | Microsoft Docs"
-description: "Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
+title: Comparaison des files d’attente Azure et des files d’attente Service Bus | Microsoft Docs
+description: Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les ressemblances entre les deux types de file d’attente proposés aujourd’hui par Microsoft Azure : les files d’attente Azure et les files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -39,7 +39,7 @@ Pour déterminer quelle technologie de file d’attente est adaptée à une solu
 
 En tant que développeur/architecte de solutions, **vous devez envisager d’utiliser les files d’attente Azure** dans les cas de figure suivants :
 
-* Votre application doit stocker plus de 80 Go de messages dans une file d'attente, où les messages ont une durée de vie inférieure à 7 jours.
+* Votre application doit stocker plus de 80 Go de messages dans une file d’attente.
 * Votre application veut suivre la progression du traitement d'un message dans la file d'attente. Cela est utile si le processus traitant un message se bloque. Un processus suivant peut alors utiliser ces informations pour continuer là où le processus précédent s'était arrêté.
 * Vous avez besoin de journaux côté serveur de toutes les transactions exécutées sur les files d'attente.
 
@@ -51,7 +51,6 @@ En tant que développeur/architecte de solutions, **vous devez envisager d’uti
 * Votre solution doit pouvoir prendre en charge la détection automatique des doublons.
 * Vous voulez que votre application traite les messages sous forme de flux de longue durée parallèles (les messages sont associés à un flux à l’aide de la propriété [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) du message). Dans ce modèle, chaque nœud de l'application consommatrice entre en concurrence pour les flux, contrairement aux messages. Lorsqu'un flux est donné à un nœud consommateur, le nœud peut examiner l'état du flux de l'application à l'aide de transactions.
 * Votre solution nécessite un comportement transactionnel et l'atomicité lors de l'envoi ou de la réception de plusieurs messages à partir d'une file d'attente.
-* La caractéristique de durée de vie (TTL) de la charge de travail spécifique à l'application peut dépasser la période de 7 jours.
 * Votre application gère des messages qui peuvent dépasser 64 Ko, mais qui n'atteindront sans doute pas la limite de 256 Ko.
 * Vous êtes confronté à l'exigence de fournir un modèle d'accès basé sur les rôles aux files d'attente et des droits/autorisations différents pour les expéditeurs et les destinataires.
 * La taille de la file d'attente ne sera pas supérieure à 80 Go.
@@ -133,7 +132,7 @@ Cette section compare les files d’attente de stockage et les files d’attente
 | --- | --- | --- |
 | Taille de file d'attente maximale |**500 To**<br/><br/>(limitée à une [capacité de compte de stockage unique](../storage/common/storage-introduction.md#queue-storage)) |**1 Go à 80 Go**<br/><br/>(définie lors de la création d’une file d’attente et d’une [activation du partitionnement](service-bus-partitioning.md) – consultez la section « Informations supplémentaires ») |
 | Taille de message maximale |**64 Ko**<br/><br/>(48 Ko avec un codage en **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d’attente et des objets blob. Dans ce cas, vous pouvez placer jusqu’à 200 Go en file d’attente pour un seul élément. |**256 Ko** ou **1 Mo**<br/><br/>(y compris l’en-tête et le corps, taille maximale d’en-tête : 64 Ko).<br/><br/>Dépend du [niveau de service](service-bus-premium-messaging.md). |
-| Durée de vie maximale des messages |**7 jours** |**TimeSpan.Max** |
+| Durée de vie maximale des messages |**Infini** (avec api-version 2017-07-27) |**TimeSpan.Max** |
 | Nombre maximal de files d'attente |**Illimité** |**10,000**<br/><br/>(par espace de noms de service) |
 | Nombre maximal de clients simultanés |**Illimité** |**Illimité**<br/><br/>(la limite de 100 connexions simultanées s’applique uniquement à la communication basée sur le protocole TCP) |
 

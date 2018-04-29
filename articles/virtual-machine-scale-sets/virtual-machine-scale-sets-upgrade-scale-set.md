@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 Tout au long du cycle de vie de vos applications, vous pourrez avoir besoin de modifier ou de mettre à jour votre groupe de machines virtuelles identiques. Ces mises à jour peuvent être liées à la configuration du groupe de machines ou à la modification de la configuration de l’application. Cet article décrit comment modifier un groupe identique avec les API REST, Azure PowerShell ou Azure CLI 2.0.
@@ -347,6 +347,7 @@ Certaines propriétés peuvent être définies uniquement lors de la création d
 - Zones de disponibilité
 - Image reference publisher
 - Image reference offer
+- Type géré de compte de stockage de disque de système d’exploitation
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propriétés qui peuvent être modifiées uniquement en fonction de la valeur actuelle
 La capacité à modifier certaines propriétés peut dépendre de la valeur actuelle. Ces propriétés sont les suivantes :

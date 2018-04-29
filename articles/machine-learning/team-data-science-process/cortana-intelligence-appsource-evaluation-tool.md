@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams
-ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Outil d’évaluation de la solution Cortana Intelligence
 ## <a name="overview"></a>Vue d'ensemble
@@ -195,7 +195,7 @@ Pour plus d’informations sur la création de services web de reformation, voir
 Pour plus d’informations sur l’automatisation du processus de formation de modèle à l’aide d’Azure Data Factory, consultez [Mettre à jour les modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Documentation existante
-[Microsoft Azure Certified permet de développer votre activité dans le cloud](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Microsoft Azure Certified permet de développer votre activité dans le cloud](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Microsoft Azure Certified pour Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Microsoft Azure Certified pour Cortana Intelligence](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

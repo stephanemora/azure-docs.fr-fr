@@ -1,8 +1,8 @@
 ---
-title: "Portail de l’utilisateur pour le serveur Azure MFA | Microsoft Docs"
-description: "Voici la page Azure Multi-Factor Authentication qui explique la prise en main de Azure MFA et du portail de l’utilisateur."
+title: Portail de l’utilisateur pour le serveur Azure MFA | Microsoft Docs
+description: Voici la page Azure Multi-Factor Authentication qui explique la prise en main de Azure MFA et du portail de l’utilisateur.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@ Pour déployer le portail de l’utilisateur, procédez comme suit :
    > [!NOTE]
    > Le certificat SSL est généralement un certificat SSL signé publiquement.
 
-4. Ouvrez un navigateur web sur un ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+4. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth)). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
 ![Installation du portail de l’utilisateur du serveur MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
@@ -105,10 +105,10 @@ Une installation du portail de l'utilisateur sur un serveur autre que le serveur
     * Recherchez la clé **"USE_WEB_SERVICE_SDK"** et modifiez **value="false"** en **value="true"**
     * Recherchez la clé **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** et modifiez **value=""** en **value="DOMAIN\User"** où DOMAIN\User est un compte de service faisant partie du groupe « PhoneFactor Admins ».
     * Recherchez la clé **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** et modifiez **value=""** en **value="Password"** où Password est le mot de passe pour le compte de service entré dans la ligne précédente.
-    * Recherchez la valeur **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** et remplacez l’URL de l’espace réservé par l’URL du Service Web SDK que nous avons installé à l’étape 2.
+    * Recherchez la valeur **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** et modifiez cette URL d’espace réservé par l’URL du Kit de développement logiciel (SDK) de service web que nous avons installé à l’étape 2.
     * Enregistrez le fichier config Web et fermez le Bloc-notes.
 
-6. Ouvrez un navigateur web sur un ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+6. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth)). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
 Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 

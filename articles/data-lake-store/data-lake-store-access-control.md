@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Contrôle d’accès dans Azure Data Lake Store
 
@@ -150,7 +150,7 @@ Dans Azure, un compte Data Lake Store possède plusieurs rôles Azure :
 * Contributeurs
 * Lecteurs
 
-Toutes les personnes ayant le rôle **Propriétaire** pour un compte Data Lake Store sont automatiquement considérées comme des super utilisateurs pour ce compte. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md).
+Toutes les personnes ayant le rôle **Propriétaire** pour un compte Data Lake Store sont automatiquement considérées comme des super utilisateurs pour ce compte. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).
 Si vous souhaitez créer un rôle personnalisé de contrôle d’accès en fonction du rôle (RBAC) qui possède des autorisations de super utilisateur, il doit disposer des autorisations suivantes :
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ Le groupe propriétaire peut être modifié par :
 * l’utilisateur propriétaire, si l’utilisateur propriétaire est également membre du groupe cible.
 
 > [!NOTE]
-> Le groupe propriétaire *ne peut pas* modifier les ACL d’un fichier ou d’un dossier.
+> Le groupe propriétaire *ne peut pas* modifier les ACL d’un fichier ou d’un dossier.  Alors que le groupe d’appartenance est défini sur l’utilisateur qui a créé le compte dans le cas du dossier racine, **Cas 1** ci-dessus, un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe d’appartenance.  Si applicable, vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
 
 ## <a name="access-check-algorithm"></a>Algorithme de vérification des accès
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0c8fc2551f529fbff647d3400144fa2a9600bbd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -130,7 +130,7 @@ Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet artic
 
 **Résolution :**
 
-Pour restaurer votre service, [renouvelez l’abonnement Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associé à votre domaine managé.
+Pour restaurer votre service, [renouvelez l’abonnement Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associé à votre domaine managé.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504 : Suspension en raison d’une configuration non valide
 

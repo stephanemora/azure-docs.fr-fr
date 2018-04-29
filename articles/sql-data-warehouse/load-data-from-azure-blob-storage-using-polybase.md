@@ -1,31 +1,24 @@
 ---
-title: 'Didacticiel : chargement de données PolyBase - Azure Storage Blob vers Azure SQL Data Warehouse | Microsoft Docs'
-description: Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un Stockage Blob Azure dans Azure SQL Data Warehouse.
+title: 'Tutoriel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse | Microsoft Docs'
+description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Didacticiel : utiliser PolyBase pour charger des données du Stockage Blob Azure dans Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutoriel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 
-PolyBase est la technologie de chargement standard qui permet de charger des données dans SQL Data Warehouse. Dans ce didacticiel, vous utilisez PolyBase pour charger les données de New York Taxicab du Stockage Blob Azure dans Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
+Ce tutoriel utilise PolyBase pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse. Ce tutoriel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
 > [!div class="checklist"]
 > * Créer un entrepôt de données dans le portail Azure
@@ -44,13 +37,13 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt de données SQL vide
 
-Un entrepôt de données Azure SQL est créé avec un ensemble défini de [ressources de calcul](performance-tiers.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
+Un entrepôt de données Azure SQL est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
 
 Suivez ces étapes pour créer un entrepôt de données SQL vide. 
 
@@ -62,7 +55,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
 
-   | Paramètre | Valeur suggérée | Description | 
+   | Paramètre | Valeur suggérée | DESCRIPTION | 
    | ------- | --------------- | ----------- | 
    | **Nom de la base de données** | mySampleDataWarehouse | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -73,7 +66,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | Description | 
+    | Paramètre | Valeur suggérée | DESCRIPTION | 
     | ------- | --------------- | ----------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -93,7 +86,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 8. Cliquez sur **Appliquer**.
 9. Dans la page SQL Data Warehouse, sélectionnez un **classement** pour la base de données vide. Pour ce didacticiel, utilisez la valeur par défaut. Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
 
-11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour approvisionner la base de données. L’approvisionnement prend quelques minutes. 
+11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes. 
 
     ![cliquer sur créer](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -170,7 +163,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 
-Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les [valeurs maximales de mémoire](performance-tiers.md#memory-maximums) sont définies conformément au [niveau de performance](performance-tiers.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
+Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies conformément au [niveau de performance](memory-and-concurrency-limits.md#performance-tiers), aux valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
 
 Il est préférable de créer une connexion et un utilisateur dédiés au chargement des données. Ensuite, ajoutez l’utilisateur de chargement à une [classe de ressource](resource-classes-for-workload-management.md) qui permet une allocation de mémoire maximale appropriée.
 
@@ -221,7 +214,7 @@ La première étape du chargement des données consiste à se connecter sous Loa
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Créer des tables externes pour les exemples de données
 
-Vous êtes prêt à commencer le processus de chargement des données dans votre nouvel entrepôt de données. Ce didacticiel décrit comment utiliser [PolyBase](/sql/relational-databases/polybase/polybase-guide) pour charger les données de New York Taxicab à partir d’un objet blob de Stockage Azure. Pour vous y référer ultérieurement, pour savoir comment charger vos données vers le stockage d’objets blob Azure ou pour les charger directement à partir de votre source dans SQL Data Warehouse, consultez la [présentation du chargement](sql-data-warehouse-overview-load.md).
+Vous êtes prêt à commencer le processus de chargement des données dans votre nouvel entrepôt de données. Ce tutoriel vous montre comment utiliser des tables externes pour charger les données de New York Taxicab à partir d’un objet blob de stockage Azure. Pour vous y référer ultérieurement, pour savoir comment charger vos données vers le stockage d’objets blob Azure ou pour les charger directement à partir de votre source dans SQL Data Warehouse, consultez la [présentation du chargement](sql-data-warehouse-overview-load.md).
 
 Exécutez les scripts SQL suivants en spécifiant les informations des données que vous voulez charger. Ces informations sont notamment l’emplacement des données, le format du contenu des données et la définition de table pour les données. 
 

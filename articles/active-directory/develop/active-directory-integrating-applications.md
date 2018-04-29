@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Intégration d’applications dans Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -101,7 +101,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
   > Le fait d’accorder un consentement explicite à l’aide du bouton **Accorder des autorisations** est actuellement nécessaire pour les applications à page unique (SPA) qui utilisent ADAL.js. Sinon, l’application échoue lorsque le jeton d’accès est demandé.   
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurer une application cliente pour accéder aux API web
-Une application cliente web/confidentielle doit établir des informations d’identification sécurisées afin de pouvoir participer à un flux d’octroi d’autorisations qui requiert une authentification. La méthode d’authentification par défaut prise en charge par le portail Azure est l’ID Client + la clé secrète. Cette section décrit les étapes de configuration requises pour fournir les informations d’identification de votre client à la clé secrète.
+Une application cliente web/confidentielle doit établir des informations d’identification sécurisées afin de pouvoir participer à un flux d’octroi d’autorisations qui requiert une authentification. La méthode d’authentification par défaut prise en charge par le portail Azure est l’ID Client + la clé secrète. Cette section décrit les étapes de configuration requises pour fournir les informations d’identification de votre client avec la clé secrète.
 
 En outre, avant qu’un client puisse accéder à une API web exposée par une application de ressources (comme l’API Microsoft Graph), l’infrastructure de consentement permet au client d’obtenir l’autorisation nécessaire en fonction des autorisations demandées. Par défaut, toutes les applications peuvent choisir des autorisations à partir de « Azure Active Directory Windows » (API Graph) et « API Gestion des services Azure  Windows». L’[autorisation « Connexion et lecture du profil utilisateur » de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) est également sélectionnée par défaut. Si votre client est en cours d’enregistrement dans un locataire possédant des comptes inscrits à Office 365, vous aurez également la possibilité de sélectionner les API web et les autorisations pour Exchange Online et SharePoint. Vous pouvez choisir à partir de [deux types d’autorisations](active-directory-dev-glossary.md#permissions) pour chaque API web souhaitée :
 
@@ -233,7 +233,7 @@ Rendre une application multilocataire nécessite des modifications de l’inscri
 Si vous écrivez une application que vous souhaitez proposer à vos clients ou à des partenaires externes à votre organisation, vous devez mettre à jour la définition de l’application dans le portail Azure.
 
 > [!IMPORTANT]
-> Azure AD nécessite que l’URI ID d’application des applications multilocataires soit globalement unique. L’URI ID d’application est l’une des méthodes d’identification d'une application dans les messages de protocole. Pour une application à client unique, il suffit que l’URI ID d’application soit unique au sein de ce client. Pour une application mutualisée, l’URI doit être globalement unique afin qu’Azure AD puisse trouver l’application sur tous les clients. L’unicité globale est appliquée en obligeant l’URI ID d’application à avoir un nom d’hôte correspondant à un domaine vérifié du client Azure AD. Par exemple, si le nom de votre client est contoso.onmicrosoft.com, un URI ID d’application valide serait https://contoso.onmicrosoft.com/myapp. Si votre locataire a un domaine vérifié de contoso.com, un URI ID d’application valide serait également https://contoso.com/myapp. Si l’URI ID d’application ne suit pas ce modèle, une application ne peut pas être définie comme multi-locataire.
+> Azure AD nécessite que l’URI ID d’application des applications multilocataires soit globalement unique. L’URI ID d’application est l’une des méthodes d’identification d'une application dans les messages de protocole. Pour une application à client unique, il suffit que l’URI ID d’application soit unique au sein de ce client. Pour une application mutualisée, l’URI doit être globalement unique afin qu’Azure AD puisse trouver l’application sur tous les clients. L’unicité globale est appliquée en obligeant l’URI ID d’application à avoir un nom d’hôte correspondant à un domaine vérifié du client Azure AD. Par exemple, si le nom de votre locataire est contoso.onmicrosoft.com, un URI ID d’application valide serait https://contoso.onmicrosoft.com/myapp. Si votre locataire a un domaine vérifié de contoso.com, un URI ID d’application valide serait également https://contoso.com/myapp. Si l’URI ID d’application ne suit pas ce modèle, une application ne peut pas être définie comme multi-locataire.
 > 
 
 Pour permettre aux utilisateurs externes d’accéder à votre application : 
@@ -311,7 +311,7 @@ Un sous-ensemble des applications qui s’affichent sous le filtre « Toutes les
 
 Afin de pouvoir supprimer l’accès d’une application multilocataires à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit supprimer son principal du service. L’administrateur doit avoir un accès d’administrateur général et peut supprimer ou utiliser les [applets de commande PowerShell Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) au sein du portail Azure pour supprimer l’accès.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d'informations sur le fonctionnement de l'authentification dans Azure AD, consultez la section [Scénarios d'authentification pour Azure AD](active-directory-authentication-scenarios.md).
 - Consultez les [instructions de personnalisation pour applications intégrées](active-directory-branding-guidelines.md) afin d’obtenir des conseils sur l’aide visuelle pour votre application.
 - Consultez la rubrique [Objets principal du service et application](active-directory-application-objects.md) pour plus d’informations sur la relation existant entre les objets principal du service et application de l’application.

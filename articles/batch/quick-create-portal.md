@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide Azure - Exécution d’un travail Batch - Portail"
-description: "Apprenez rapidement à exécuter un travail Batch avec le portail Azure."
+title: Démarrage rapide Azure - Exécution d’un travail Batch - Portail
+description: Apprenez rapidement à exécuter un travail Batch avec le portail Azure.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : exécution de votre premier travail Batch dans le portail Azure
 
@@ -24,7 +24,7 @@ Ce démarrage rapide montre comment utiliser le portail Azure pour créer un com
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure 
 
-Connectez-vous au portail Azure depuis l’adresse https://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-batch-account"></a>Création d’un compte Batch
 
@@ -37,7 +37,7 @@ Suivez ces étapes pour créer un compte Batch d’exemple à des fins de test. 
 
 2. Entrez les valeurs **Nom du compte** et **Groupe de ressources**. Le nom du compte doit être unique à l’**emplacement** Azure sélectionné, utilisez uniquement des caractères en minuscules ou des nombres dans une limite de 3 à 24 caractères. 
 
-3. Dans **Compte de stockage** : sélectionnez un compte de stockage à usage général existant ou créez un nouveau compte de stockage.
+3. Sous **Compte de stockage**, sélectionnez un compte de stockage existant ou créez un nouveau compte de stockage.
 
 4. Conserver les valeurs par défaut pour les paramètres restants, puis cliquez sur **Créer** pour créer le compte.
 

@@ -1,13 +1,13 @@
 ---
-title: "Machine virtuelle avec plusieurs adresses IP à l’aide d’Azure CLI | Microsoft Docs"
-description: "Découvrez comment attribuer plusieurs adresses IP à une machine virtuelle à l’aide de l’interface de ligne de commande (CLI) Azure."
+title: Machine virtuelle avec plusieurs adresses IP à l’aide d’Azure CLI | Microsoft Docs
+description: Découvrez comment attribuer plusieurs adresses IP à une machine virtuelle à l’aide de l’interface de ligne de commande (CLI) Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Attribuer plusieurs adresses IP à des machines virtuelles à l’aide d’Azure CLI
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/17/2017
 
 Cet article explique comment créer une machine virtuelle dans le modèle de déploiement Azure Resource Manager à l’aide de l’interface de ligne de commande (CLI) Azure. Il n’est pas possible d’affecter plusieurs adresses IP à des ressources créées à l’aide du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, voir [Comprendre les modèles de déploiement](../resource-manager-deployment-model.md).
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
 
@@ -167,7 +167,7 @@ Ajoutez les adresses IP privées pour le système d’exploitation de la machine
 
 ## <a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 
-Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples reposent sur le [scénario](#Scenario) décrit dans cet article.
+Vous pouvez ajouter des adresses IP privées et publiques à une interface réseau Azure en suivant les étapes décrites ci-après. Les exemples reposent sur le [scénario](#Scenario) décrit dans cet article.
 
 1. Ouvrez un interpréteur de commandes Azure et effectuez les étapes restantes de cette section en une seule session. Si l’interface Azure CLI n’est pas encore installée et configurée, suivez les étapes décrites dans l’article consacré à l’[installation d’Azure CLI 2.0](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) et connectez-vous à votre compte Azure avec la commande `az-login`.
 

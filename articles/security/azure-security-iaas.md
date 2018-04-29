@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -166,7 +166,7 @@ Toutes les machines virtuelles dans Azure IaaS doivent faire l’objet d’une s
 
 Security Compliance Manager est un outil gratuit. Vous pouvez l’utiliser pour rapidement configurer et gérer vos postes de travail, votre centre de données traditionnel et vos clouds privé et public, à l’aide de la stratégie de groupe et de System Center Configuration Manager.
 
-Security Compliance Manager fournit des stratégies prêtes à l’emploi et des packs de configuration de gestion de la configuration souhaitée testés. Ces lignes de base sont basées sur les recommandations [Instructions de sécurité Microsoft](https://technet.microsoft.com/en-us/library/cc184906.aspx) et les meilleures pratiques du secteur. Ils vous aident à gérer les dérives de configuration, à respecter les exigences de conformité et à réduire les menaces de sécurité.
+Security Compliance Manager fournit des stratégies prêtes à l’emploi et des packs de configuration de gestion de la configuration souhaitée testés. Ces lignes de base sont basées sur les recommandations [Instructions de sécurité Microsoft](https://technet.microsoft.com/library/cc184906.aspx) et les meilleures pratiques du secteur. Ils vous aident à gérer les dérives de configuration, à respecter les exigences de conformité et à réduire les menaces de sécurité.
 
 Vous pouvez utiliser Security Compliance Manager pour importer la configuration actuelle de vos ordinateurs à l’aide de deux méthodes différentes. Tout d’abord, vous pouvez importer des stratégies de groupe Active Directory. Ensuite, vous pouvez importer la configuration d’un ordinateur de référence « golden master » à l’aide de l’[outil LocalGPO](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) pour sauvegarder la stratégie de groupe locale. Vous pouvez ensuite importer la stratégie de groupe locale dans Security Compliance Manager.
 

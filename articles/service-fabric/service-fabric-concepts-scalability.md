@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Mise à l’échelle dans Service Fabric
 Azure Service Fabric facilite la création d’applications évolutives en gérant les services, les partitions et les réplicas sur les nœuds d’un cluster. L’exécution de nombreuses charges de travail sur un même appareil permet une utilisation maximale des ressources, mais permet également de choisir la façon dont vous mettez à l’échelle vos charges de travail. Cette vidéo Channel 9 décrit comment vous pouvez générer des applications de microservices scalables :
@@ -117,12 +117,7 @@ Les [métriques](service-fabric-cluster-resource-manager-metrics.md) corresponde
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Mise à l’échelle par l’ajout ou la suppression de nœuds dans un cluster 
 Une autre option de mise à l’échelle avec Service Fabric consiste à modifier la taille du cluster. Modifier la taille du cluster signifie ajouter ou supprimer des nœuds d’un ou plusieurs types dans le cluster. Supposons, par exemple, que tous les nœuds du cluster soient actifs. Cela signifie que quasiment toutes les ressources du cluster sont consommées. Dans ce cas, l’ajout de nœuds supplémentaires au cluster est le meilleur moyen d’effectuer la mise à l’échelle. Une fois que les nouveaux nœuds ont rejoint le cluster, Service Fabric Cluster Resource Manager déplace les services vers ces nœuds, ce qui diminue la charge totale sur les nœuds existants. Pour les services sans état avec « instance count = -1 », des instances de service supplémentaires sont créées automatiquement. Cela permet à certains appels d’être déplacés des nœuds existants vers les nouveaux nœuds. 
 
-L’ajout et la suppression de nœuds dans le cluster peuvent être effectués via le module PowerShell de Service Fabric Azure Resource Manager.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+Pour plus d’informations, consultez [Mise à l’échelle de cluster](service-fabric-cluster-scaling.md).
 
 ## <a name="putting-it-all-together"></a>Exemple complet
 Reprenons toutes les idées que nous avons évoquées et prenons un exemple. Supposons que vous essayiez de créer un service qui agit comme un carnet d’adresses, avec les noms et les coordonnées de personnes. 

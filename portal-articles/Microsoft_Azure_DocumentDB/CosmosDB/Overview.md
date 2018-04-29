@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble d’Azure Cosmos DB | Microsoft Docs"
-description: "Aide relative à la vue d’ensemble d’Azure Cosmos DB au sein du portail Azure"
+title: Vue d’ensemble d’Azure Cosmos DB | Microsoft Docs
+description: Aide relative à la vue d’ensemble d’Azure Cosmos DB au sein du portail Azure
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -8,11 +8,11 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 13fe8d81c656aeb07947fcd8b2c8a9157b810ca6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentation Azure Cosmos DB
 
@@ -50,7 +50,7 @@ En savoir plus sur Azure Cosmos DB permet de créer une base de données mondia
 
 Apprenez à développer des applications à l’aide d’Azure Cosmos DB :
 
-- Développer une application avec Cosmos DB : [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Développer une application avec Cosmos DB : [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb-nodejs) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
 - Importer des données dans Cosmos DB : [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
 - Interroger des données avec Cosmos DB : [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
 - Réplication de base de données globale avec Cosmos DB : [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
@@ -60,7 +60,7 @@ Apprenez à développer des applications à l’aide d’Azure Cosmos DB :
 
 Trouvez des scripts pour gérer les tâches courantes.
 
-- [Interface de ligne de commande Azure](/azure/cosmos-db/cli-samples)
+- [interface de ligne de commande Azure](/azure/cosmos-db/cli-samples)
 - [Azure PowerShell](/azure/cosmos-db/powershell-samples)
 
 ## <a name="more"></a>En savoir plus

@@ -1,7 +1,22 @@
+---
+title: Distribution globale de Azure Cosmos DB
+description: Découvrez comment répliquer les données globalement avec Azure Cosmos DB dans le portail Azure
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 03/26/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/16/2018
+---
+Pour en savoir plus sur la distribution globale Azure Cosmos DB, visionnez la vidéo suivante, dans laquelle Andrew Liu, Program Manager d’Azure Cosmos DB, présente la fonctionnalité de distribution globale.
 
-Vous pouvez découvrir la diffusion mondiale de Azure Cosmos DB dans cette vidéo Azure Friday avec Scott Hanselman et Karthik Raman, responsable principal de l’ingénierie.
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 
 Pour plus d’informations sur le fonctionnement de la réplication de base de données à l’échelle mondiale dans Azure Cosmos DB, voir [Diffuser des données à l’échelle mondiale avec Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 
@@ -9,13 +24,13 @@ Pour plus d’informations sur le fonctionnement de la réplication de base de d
 Azure Cosmos DB est disponible dans toutes les [régions Azure][azureregions] à travers le monde. Après avoir sélectionné le niveau de cohérence par défaut pour votre compte de base de données, vous pouvez associer une ou plusieurs régions (en fonction de votre choix de niveau de cohérence par défaut et de vos besoins de distribution mondiale).
 
 1. Dans la barre à gauche du [portail Azure](https://portal.azure.com/), cliquez sur **Azure Cosmos DB**.
-2. Dans le panneau **Azure Cosmos DB**, sélectionnez le compte de base de données à modifier.
-3. Dans le panneau du compte, cliquez sur **Répliquer les données globalement** à partir du menu.
-4. Dans le panneau **Répliquer les données globalement**, sélectionnez les régions à ajouter ou à supprimer en cliquant sur des régions sur la carte, puis cliquez sur **Enregistrer**. L’ajout de régions est payant. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) ou l’article [Distribution mondiale des données avec Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
+2. Dans la page **Azure Cosmos DB**, sélectionnez le compte de base de données à modifier.
+3. Dans la page du compte, cliquez sur **Répliquer les données globalement** à partir du menu.
+4. Dans la page **Répliquer les données globalement**, sélectionnez les régions à ajouter ou à supprimer en cliquant sur des régions sur la carte, puis cliquez sur **Enregistrer**. L’ajout de régions est payant. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) ou l’article [Distribution mondiale des données avec Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
    
     ![Cliquez sur les régions dans la carte pour les ajouter ou les supprimer.][1]
     
-Une fois que vous ajoutez une deuxième région, l’option **basculement manuel** est activée sur le panneau **Répliquer les données localement** dans le portail. Vous pouvez utiliser cette option pour tester le processus de basculement ou modifier la région principale d’écriture. Une fois que vous ajoutez une troisième région, l’option **Priorités de basculement** est activée sur le même panneau afin que vous puissiez modifier l’ordre de basculement pour les lectures.  
+Une fois que vous ajoutez une deuxième région, l’option **Basculement manuel** est activée sur la page **Répliquer les données globalement** dans le portail. Vous pouvez utiliser cette option pour tester le processus de basculement ou modifier la région principale d’écriture. Une fois que vous ajoutez une troisième région, l’option **Priorités de basculement** est activée sur la même page afin que vous puissiez modifier l’ordre de basculement pour les lectures.  
 
 ### <a name="selecting-global-database-regions"></a>Sélection de régions de base de données mondiale
 Il existe deux scénarios courants pour la configuration de deux ou plusieurs régions :
@@ -23,7 +38,7 @@ Il existe deux scénarios courants pour la configuration de deux ou plusieurs r�
 1. La fourniture aux utilisateurs finaux d’un accès à faible latence aux données, où qu’ils se trouvent dans le monde
 2. L’ajout d’une résilience régionale pour la continuité des activités et la récupération d’urgence (BCDR)
 
-Pour fournir une faible latence aux utilisateurs finaux, il est recommandé de déployer l’application et d’ajouter Azure Cosmos DB dans les régions correspondant à la localisation géographique des utilisateurs de l’application.
+Pour fournir une faible latence aux utilisateurs finaux, il est recommandé de déployer l’application et Azure Cosmos DB dans les régions correspondant à la localisation géographique des utilisateurs de l’application.
 
 Pour BCDR, nous vous recommandons d’ajouter les régions en fonction des paires de régions décrites dans l’article [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure][bcdr].
 

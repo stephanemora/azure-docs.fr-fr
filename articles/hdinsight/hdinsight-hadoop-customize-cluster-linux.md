@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d1af5ae008fb2811f1ae59396a03833b8c1b15f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ff8b8ffc66ea4c90ca2f11edc36aac670f24eac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personnaliser des clusters HDInsight Linux à l’aide d’actions de script
 
@@ -208,7 +208,7 @@ Cette section fournit des exemples sur les différentes façons d’utiliser des
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Utiliser une action de script à partir de modèles Azure Resource Manager
 
-Les actions de script peuvent être utilisées avec des modèles Azure Resource Manager. Pour obtenir un exemple, voir [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Les actions de script peuvent être utilisées avec des modèles Azure Resource Manager. Pour obtenir un exemple, voir [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/).
 
 Dans cet exemple, l’action de script est ajoutée à l’aide du code suivant :
 

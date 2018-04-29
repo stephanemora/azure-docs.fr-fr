@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemple d'utilisation : Déploiement continu sur des ordinateurs virtuels à l’aide d’Automation DSC et Chocolatey
 L’univers des opérations de développement offre de nombreux outils conçus pour aider les développeurs à franchir plus facilement différents stades dans le pipeline de l’intégration continue.  Le nouveau service Azure Automation Desired State Configuration (DSC) vient aujourd’hui enrichir la liste des options disponibles pour les équipes DevOps.  Cet article explique comment configurer le déploiement continu (CD) pour un ordinateur Windows.  Vous pouvez facilement étendre la technique afin d’inclure autant d’ordinateurs Windows que vous le souhaitez dans le rôle (par exemple, un site Web), puis dans des rôles supplémentaires.
@@ -50,7 +50,7 @@ Vraisemblablement, vous le faites déjà au départ, ou du moins la majeure part
 Si vous ne commencez pas par un modèle ARM, il n’y a aucun problème.  Il existe des applets de commande PowerShell conçues pour vous aider à enregistrer vos machines virtuelles auprès du serveur d’extraction et de tous les autres serveurs. Pour plus d’informations, consultez cet article : [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Étape 1 : configuration du serveur Pull et du compte Automation
-Ouvrez une ligne de commande PowerShell (Add-AzureRmAccount) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
+Ouvrez une ligne de commande PowerShell (Connect-AzureRmAccount) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Signaler les données d’utilisation Azure Stack à Azure 
 
@@ -27,7 +27,7 @@ Les données d’utilisation, également appelées « données de consommation�
 Les systèmes à plusieurs nœuds Azure Stack qui utilisent un modèle de facturation basé sur la consommation doivent communiquer les données d’utilisation à Azure à des fins de facturation.  Les opérateurs Azure Stack doivent configurer leur instance Azure Stack pour communiquer les données d’utilisation à Azure.
 
 > [!NOTE]
-> Les rapports d’utilisation des données sont nécessaires pour les utilisateurs des systèmes intégrés Azure Stack qui attribuent des licences sous le modèle de paiement à l’utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (consultez la page [Comment acheter Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Pour les utilisateurs du Kit de développement Azure Stack, les opérateurs Azure Stack peuvent communiquer des données d’utilisation et tester la fonctionnalité. Les utilisateurs ne sont cependant pas facturés pour l’utilisation qu’elles impliquent. 
+> Les rapports d’utilisation des données sont nécessaires pour les utilisateurs des systèmes intégrés Azure Stack qui attribuent des licences sous le modèle de paiement à l’utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (consultez la page [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Pour les utilisateurs du Kit de développement Azure Stack, les opérateurs Azure Stack peuvent communiquer des données d’utilisation et tester la fonctionnalité. Les utilisateurs ne sont cependant pas facturés pour l’utilisation qu’elles impliquent. 
 
 
 ![flux de facturation](media/azure-stack-usage-reporting/billing-flow.png)

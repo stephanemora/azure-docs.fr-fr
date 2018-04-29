@@ -9,26 +9,32 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 4546f03294ea8ab01ecb2b2777c5b92dbc5a7f4a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5b8a2ec7e0401ac239acdefdd77a13b522f73960
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Database Managed Instance
 
 Dans cet article, vous allez découvrir les méthodes de migration d’une instance SQL Server 2005 ou version ultérieure vers Azure SQL Database Managed Instance (préversion). 
-
-> [!NOTE]
-> Pour effectuer la migration d’une base de données unique vers une base de données unique ou un pool élastique, consultez [Effectuer la migration d’une base de données SQL Server vers Azure SQL Database](sql-database-cloud-migrate.md).
 
 SQL Database Managed Instance est une extension du service SQL Database actuel. Elle fournit une troisième option de déploiement en plus des bases de données uniques et des pools élastiques.  Cette extension est conçue pour permettre une migration « lift-and-shift » d’une base de données vers un PaaS entièrement géré, sans reconcevoir l’application. SQL Database Managed Instance fournit une forte compatibilité avec le modèle de programmation SQL Server local, ainsi qu’un support prêt à l’emploi pour la grande majorité des fonctionnalités SQL Server et les outils et services connexes.
 
 Le processus général de migration d’une application est illustré dans le diagramme suivant :
 
 ![processus de migration](./media/sql-database-managed-instance-migration/migration-process.png)
+
+- [Évaluer la compatibilité de Managed Instance](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
+- [Choisir une option de connectivité des applications](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
+- [Déployer sur une option Managed Instance dimensionnée de façon optimale](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
+- [Sélectionner une méthode de migration et effectuer la migration](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
+- [Surveillance des applications](sql-database-managed-instance-migrate.md#monitor-applications)
+
+> [!NOTE]
+> Pour effectuer la migration d’une base de données unique vers une base de données unique ou un pool élastique, consultez [Effectuer la migration d’une base de données SQL Server vers Azure SQL Database](sql-database-cloud-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Évaluer la compatibilité de Managed Instance
 
@@ -43,14 +49,6 @@ Toutefois, dans certains cas, vous devez tenir compte d’une autre option, comm
 - Si vous devez absolument conserver une version spécifique de SQL Server (2012, par exemple).
 - Si vos exigences de calcul sont beaucoup plus faibles que ce qu’offre Managed Instance en préversion publique (un seul vCore, par exemple) et que l’option de consolidation de bases de données n’est pas une option acceptable.
 
-## <a name="choose-app-connectivity-option"></a>Choisir une option de connectivité des applications
-
-Managed Instance est entièrement contenu dans votre réseau virtuel, et fournit donc un niveau optimal d’isolation et de sécurité à vos données. Le diagramme suivant montre plusieurs options de déploiement de diverses topologies entièrement dans Azure ou dans un environnement hybride, que vous choisissiez un service entièrement géré ou un modèle hébergé pour vos applications frontales.
-
-![topologies de déploiement d’application](./media/sql-database-managed-instance-migration/application-deployment-topologies.png)
-
-Toutes les options sélectionnées permettent une connexion à un point de terminaison SQL uniquement par le biais d’adresses IP privées, ce qui garantit le niveau optimal d’isolation de vos données. <!--- For more information, see How to connect your application to Managed Instance.--->
-
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Déployer sur une option Managed Instance dimensionnée de façon optimale
 
 Managed Instance convient aux charges de travail locales qui envisagent de migrer vers le cloud. Un nouveau modèle d’achat est ainsi présenté. Il offre davantage de flexibilité dans le choix du niveau de ressources pour vos charges de travail. Localement, vous êtes probablement habitué à dimensionner ces charges de travail à l’aide de cœurs physiques. Le nouveau modèle d’achat de Managed Instance repose sur la mémoire à tores magnétiques virtuelle, ou « vCore », avec un stockage et des E/S supplémentaires disponibles séparément. Le modèle vCore vous permet de comprendre plus facilement vos exigences de calcul dans le cloud par rapport à ce que vous utilisez localement aujourd’hui. Ce nouveau modèle vous permet de dimensionner au mieux votre environnement de destination dans le cloud.
@@ -59,7 +57,7 @@ Vous pouvez sélectionner des ressources de calcul et de stockage au moment du d
 
 ![dimensionnement de l’instance managée](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Pour apprendre à créer l’infrastructure de réseau virtuel et l’option Managed Instance (et restaurer une base de données à partir d’un fichier de sauvegarde), consultez [Créer une option Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+Pour apprendre à créer l’infrastructure de réseau virtuel et l’option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 
 > [!IMPORTANT]
 > Il est important de toujours maintenir vos réseau virtuel et sous-réseau de destination en adéquation avec les [exigences pour les réseaux virtuels Managed Instance](sql-database-managed-instance-vnet-configuration.md#requirements). Toute incompatibilité risque de vous empêcher de créer des instances ou d’utiliser celles que vous avez déjà créées.
@@ -77,11 +75,13 @@ Managed Instance est un service entièrement géré qui vous permet de délégue
 
 Managed Instance prend en charge les options de migration de base de données suivantes (actuellement ce sont les seules méthodes prises en charge) :
 
+- Azure Database Migration Service - Migration ne nécessitant quasiment aucun temps d’arrêt
+- RESTAURATION native à partir d’une URL - Utilise des sauvegardes natives à partir de SQL Server et nécessite un temps d’arrêt
+- Effectuer une migration avec un fichier BACPAC - Utilise le fichier BACPAC à partir de SQL Server ou de SQL Database et nécessite un temps d’arrêt
+
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 [Azure Database Migration Service (DMS)](../dms/dms-overview.md) est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Ce service simplifie les tâches nécessaires pour déplacer des bases de données SQL Server tierces existantes vers Azure. Les options de déploiement en préversion publique incluent Azure SQL Database, Managed Instance et SQL Server dans une machine virtuelle Azure. DMS est la méthode recommandée de migration pour vos charges de travail d’entreprise. 
-
-![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
 Pour plus d’informations sur ce scénario et les étapes de configuration de DMS, consultez [Migrer votre base de données locale vers Managed Instance à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -100,12 +100,12 @@ Le tableau suivant fournit plus d’informations sur la méthode que vous pouvez
 |Placer la sauvegarde sur Stockage Azure|Avant SQL 2012 SP1 CU2|Charger le fichier .bak directement sur Stockage Azure|
 ||2012 SP1 CU2 - 2016|Sauvegarde directe utilisant la syntaxe [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) dépréciée|
 ||2016 et versions ultérieures|Sauvegarde directe utilisant [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restaurer de Stockage Azure vers Managed Instance|[RESTORE FROM URL avec SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
+|Restaurer de Stockage Azure vers Managed Instance|[RESTORE FROM URL avec SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
 > La restauration de bases de données système n’est pas prise en charge. Pour effectuer la migration d’objets au niveau de l’instance (stockés dans des bases de données master et msdb), nous vous recommandons de les scripter et d’exécuter des scripts T-SQL sur l’instance de destination.
 
-Pour un tutoriel complet qui inclut la restauration d’une sauvegarde de base de données vers une option Managed Instance à l’aide d’informations d’identification SAP, consultez [Créer une option Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+Pour découvrir un didacticiel complet incluant la restauration d’une sauvegarde de base de données vers une option Managed Instance à l’aide d’informations d’identification SAP, consultez [Restaurer une sauvegarde de base de données dans Azure SQL Database Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md).
 
 ### <a name="migrate-using-bacpac-file"></a>Effectuer une migration avec un fichier BACPAC
 
@@ -128,5 +128,5 @@ Pour renforcer la sécurité, envisagez d’utiliser certaines des fonctionnalit
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur l’option Managed Instance, consultez [Présentation de l’option Managed Instance](sql-database-managed-instance.md).
-- Pour un tutoriel qui inclut une restauration à partir d’une sauvegarde, consultez [Créer une option Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- Pour un tutoriel qui inclut une restauration à partir d’une sauvegarde, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - Pour un tutoriel qui illustre la migration à l’aide de DMS, consultez [Migrer votre base de données locale vers Managed Instance à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

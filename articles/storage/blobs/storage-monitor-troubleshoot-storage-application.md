@@ -1,6 +1,6 @@
 ---
-title: "Surveiller et résoudre les problèmes d’une application de stockage cloud dans Azure | Microsoft Docs"
-description: "Utilisez des outils de diagnostic, des métriques et la génération d’alertes pour surveiller et résoudre les problèmes d’une application cloud."
+title: Surveiller et résoudre les problèmes d’une application de stockage cloud dans Azure | Microsoft Docs
+description: Utilisez des outils de diagnostic, des métriques et la génération d’alertes pour surveiller et résoudre les problèmes d’une application cloud.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Surveiller et résoudre les problèmes d’une application de stockage cloud
 
@@ -33,7 +33,7 @@ Dans ce quatrième volet, vous apprenez à :
 
 La journalisation et les métriques des comptes de stockage sont activées sous l’onglet **Diagnostics** du portail Azure. Il existe deux types de métriques. Les métriques d’**agrégation** collectent les pourcentages d’entrée/de sortie, de disponibilité, de latence et de réussite. Ces métriques sont agrégées pour les services Blob, File d’attente, Table et Fichier. **Par API** collecte le même ensemble de métriques pour chaque opération de stockage de l’API du service de stockage Azure. La journalisation du stockage permet d’enregistrer les détails des demandes ayant réussi ou échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, files d'attente et objets blob Azure. Ils permettent également de connaître la raison des échecs de demande comme les délais d’attente, la limitation et les erreurs d’autorisation.
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com)
 
@@ -41,11 +41,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com)
 
 Dans le menu de gauche, sélectionnez **Groupes de ressources**, **myResourceGroup**, puis votre compte de stockage dans la liste des ressources.
 
-Sous **Diagnostics**, définissez **État** sur **Activé**. Vérifiez que **Métriques d’agrégation d’objet blob**, **Métriques d’objet blob par API** et **Journaux d’objets blob** sont activés.
+Sous **Diagnostics**, définissez **État** sur **Activé**. Vérifiez que toutes les options sous **Propriétés de l’objet blob** sont activées.
 
 Quand vous avez terminé, cliquez sur **Enregistrer**
 
-![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>Activer les alertes
 

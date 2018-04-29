@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -193,7 +193,7 @@ Propriété | Description | Obligatoire
 Nom | Nom de la colonne. | OUI
 Type | Type de données de la colonne. Data Factory prend en charge les types de données temporaires suivants, comme les valeurs autorisées : **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset et Timespan** | Non 
 culture | Culture .NET à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. | Non 
-format | Chaîne de format à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. | Non 
+format | Chaîne de format à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. | Non 
 
 ### <a name="example"></a>Exemples
 Dans l’exemple suivant, supposons que les données Blob sources sont au format CSV et contiennent trois colonnes : userid, nom et lastlogindate. Elles sont de type Int64, String et Datetime avec un format de date et d'heure personnalisé utilisant des noms abrégés en français pour le jour de la semaine.

@@ -1,12 +1,12 @@
 ---
-title: "Sauvegarde Azure : Restaurer l’état du système sur un serveur Windows | Microsoft Docs"
-description: "Explication étape par étape pour la restauration de l’état du système de Windows Server à partir d’une sauvegarde dans Azure."
+title: 'Sauvegarde Azure : Restaurer l’état du système sur un serveur Windows | Microsoft Docs'
+description: Explication étape par étape pour la restauration de l’état du système de Windows Server à partir d’une sauvegarde dans Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
@@ -171,7 +171,7 @@ Une fois que vous avez récupéré l’état du système sous forme de fichiers 
 La sauvegarde de l’état du système inclut les données Active Directory. Effectuez les étapes suivantes pour restaurer les services de domaine Active Directory (AD DS) de leur état actuel vers un état antérieur.
 
 1. Redémarrez le contrôleur de domaine en Mode restauration des services d’annuaire (DSRM).
-2. Suivez les étapes [ici](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) pour utiliser les applets de commande Windows Server Backup afin de récupérer AD DS.
+2. Suivez les étapes [ici](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) pour utiliser les applets de commande Windows Server Backup afin de récupérer AD DS.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Résoudre les problèmes d’échec de restauration de l’état du système

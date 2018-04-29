@@ -2,25 +2,23 @@
 title: Migrer un cluster HBase vers une nouvelle version - Azure HDInsight | Microsoft Docs
 description: Comment migrer des clusters HBase vers une nouvelle version.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 15d23d0ccf816ca355103ad7fd0d6124f1c5c226
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 3ca982e7fc0ce56bee2ee2e193c82a78fac44362
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Migrer un cluster HBase vers une nouvelle version
 
@@ -193,7 +191,7 @@ Le scénario suivant est destiné à la mise à niveau de HDInsight 3.4 vers 3.6
     
 4. Arrêtez l’ingestion des données vers l’ancien cluster HBase.
 5. Pour vous assurer que toutes les données récentes dans le memstore sont vidées, exécutez à nouveau le script précédent.
-6. Ouvrez une session Ambari sur l’ancien cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) et arrêtez les services HBase. Lorsque vous êtes invité à confirmer que vous souhaitez arrêter les services, cochez la case pour activer le mode de maintenance pour HBase. Pour plus d’informations sur la connexion à Ambari et sur l’utilisation d’Ambari, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](../hdinsight-hadoop-manage-ambari.md).
+6. Connectez-vous à Ambari sur l’ancien cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) et interrompez les services HBase. Lorsque vous êtes invité à confirmer que vous souhaitez arrêter les services, cochez la case pour activer le mode de maintenance pour HBase. Pour plus d’informations sur la connexion à Ambari et sur l’utilisation d’Ambari, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](../hdinsight-hadoop-manage-ambari.md).
 
     ![Dans Ambari, cliquer sur l’onglet Services, puis sur HBase dans le menu de gauche, puis sur Arrêter sous Service Actions (Actions du service)](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 

@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -23,18 +23,19 @@ Les modifications apportées aux logiciels installés, aux services Windows, aux
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
-
 Pour commencer à suivre les modifications, vous devez activer la solution Change Tracking et Inventory pour votre compte Automation.
 
 1. Dans le Portail Azure, accédez à votre compte Automation.
 1. Sélectionnez **Change Tracking** sous **CONFIGURATION**.
-2. Sélectionnez un espace de travail Log Analytics existant ou **créez un espace de travail** et cliquez sur **Activer**.
+1. Sélectionnez un espace de travail Log Analytics existant ou **créez un espace de travail** et cliquez sur **Activer**.
 
 La solution est ainsi activée pour votre compte Automation. L’activation de la solution peut prendre jusqu’à 15 minutes. La bannière bleue vous avertit quand la solution est activée. Revenez à la page **Change Tracking** pour gérer la solution.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configuration de Change Tracking et Inventory
 
-Pour découvrir comment intégrer des ordinateurs à la solution, visitez : [Intégration de solutions Automation](automation-onboard-solutions-from-automation-account.md). Quand vous activez le suivi d’un nouveau fichier ou d’une nouvelle clé de Registre, ceux-ci sont activés à la fois pour Change Tracking et Inventory.
+Pour découvrir comment intégrer des ordinateurs à la solution, visitez : [Intégration de solutions Automation](automation-onboard-solutions-from-automation-account.md). Lorsque vous disposez de l’intégration d’une machine avec la solution Change Tracking and Inventory, vous pouvez configurer les éléments à suivre. Quand vous activez le suivi d’un nouveau fichier ou d’une nouvelle clé de Registre, ceux-ci sont activés à la fois pour Change Tracking et Inventory.
+
+Pour suivre les modifications apportées à des fichiers sur Windows et Linux, les hachages MD5 de fichiers sont utilisés. Ces hachages sont ensuite utilisés pour détecter si une modification a été apportée depuis le dernier inventaire.
 
 ### <a name="configure-linux-files-to-track"></a>Configuration des fichiers Linux à suivre
 
@@ -109,6 +110,7 @@ Autres limitations :
 ## <a name="known-issues"></a>Problèmes connus
 
 La solution Change Tracking connaît les problèmes suivants :
+
 * Les mises à jour de correctif logiciel ne sont pas collectées pour les machines Windows 10 Creators Update et Windows Server 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Détails de la collecte de données de suivi des modifications
@@ -117,13 +119,13 @@ Le tableau suivant indique la fréquence de collecte de données selon les types
 
 | **Type de modification** | **Fréquence** |
 | --- | --- |
-| Registre Windows | 50 minutes | 
-| Fichier Windows | 30 minutes | 
-| Fichier Linux | 15 minutes | 
-| Services Windows | 30 minutes | 
+| Registre Windows | 50 minutes |
+| Fichier Windows | 30 minutes |
+| Fichier Linux | 15 minutes |
+| Services Windows | 30 minutes |
 | Démons Linux | 5 minutes |
-| Logiciels Windows | 30 minutes | 
-| Logiciels Linux | 5 minutes | 
+| Logiciels Windows | 30 minutes |
+| Logiciels Linux | 5 minutes |
 
 ### <a name="registry-key-change-tracking"></a>Suivi des modifications des clés de Registre
 

@@ -1,8 +1,8 @@
 ---
-title: "Déploiement et gestion de topologies Apache Storm sur HDInsight basé sur Linux | Microsoft Docs"
-description: "Apprenez à déployer, surveiller et gérer des topologies Apache Storm à l’aide du tableau de bord Storm sur HDInsight basé sur Linux. Utilisez les outils Hadoop pour Visual Studio."
+title: Déploiement et gestion de topologies Apache Storm sur HDInsight basé sur Linux | Microsoft Docs
+description: Apprenez à déployer, surveiller et gérer des topologies Apache Storm à l’aide du tableau de bord Storm sur HDInsight basé sur Linux. Utilisez les outils Hadoop pour Visual Studio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur HDInsight
 
@@ -32,6 +30,7 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * **Un cluster Storm Linux sur HDInsight**: consultez [Prise en main d’Apache Storm sur HDInsight](apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
@@ -166,7 +165,7 @@ Le rééquilibrage d’une topologie permet au système de réviser le parallél
 
 ## <a name="monitor-and-manage-storm-ui"></a>Surveiller et gérer : interface utilisateur de Storm
 
-L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, ouvrez un navigateur web sur l’adresse **https://CLUSTERNAME.azurehdinsight.net/stormui**, où **CLUSTERNAME** est le nom de votre cluster.
+L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, utilisez un navigateur web pour ouvrir **https://CLUSTERNAME.azurehdinsight.net/stormui**, où **CLUSTERNAME** est le nom de votre cluster.
 
 > [!NOTE]
 > Si vous êtes invité à fournir un nom d’utilisateur et un mot de passe, entrez l’administrateur de cluster (admin) et le mot de passe que vous avez utilisé pour la création du cluster.

@@ -1,6 +1,6 @@
 ---
-title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Intégrité du système et des informations"
-description: "Automatisation d’applications web FedRAMP - Intégrité du système et des informations"
+title: Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Intégrité du système et des informations
+description: Automatisation d’applications web FedRAMP - Intégrité du système et des informations
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0eca3c82aea287f6582bd56574512dce5e8e86c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Intégrité du système et des informations (SI)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-1** L’organisation développe, documente et communique à [Affectation : personnel ou rôles de l’organisation] une stratégie d’intégrité du système et des informations qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités de l’organisation et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie d’intégrité du système et des informations et des contrôles d’intégrité du système et des informations associés ; et révise et met à jour la stratégie actuelle d’intégrité du système et des informations [Affectation : fréquence définie par l’organisation] ; et les procédures d’intégrité du système et des informations [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,11 +45,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2.a** L’organisation identifie, signale et corrige les défauts du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie la solution OMS Automation & Control pour suivre l’état des mises à jour des machines virtuelles Windows déployées dans cette architecture. À partir du tableau de bord OMS, la vignette Update Management affiche l’état de correction des défauts pour tous les serveurs Windows déployés. |
+| **Client** | Cette solution Blueprint déploie la solution Automation & Control pour suivre l’état des mises à jour des machines virtuelles Windows déployées dans cette architecture. À partir du tableau de bord, la vignette Update Management affiche l’état de correction des défauts pour tous les serveurs Windows déployés. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2.b** L’organisation teste les mises à jour des logiciels et des microprogrammes liées à la correction des défauts pour évaluer l’efficacité et les effets secondaires potentiels avant l’installation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles Windows déployées par cette solution Blueprint sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution déploie également la solution OMS Automation & Control par le biais de laquelle des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire. |
+| **Client** | Les machines virtuelles Windows déployées par cette solution Blueprint sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution déploie également la solution Automation & Control par le biais de laquelle des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2.d** L’organisation incorpore la correction des défauts dans le processus de gestion de la configuration de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -105,7 +105,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie la solution OMS Automation & Control pour suivre l’état des mises à jour des machines virtuelles Windows déployées dans cette architecture. À partir du tableau de bord OMS, la vignette Update Management affiche l’état de correction des défauts pour tous les serveurs Windows déployés. Des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire. |
+| **Client** | Cette solution Blueprint déploie la solution Automation & Control pour suivre l’état des mises à jour des machines virtuelles Windows déployées dans cette architecture. À partir du tableau de bord, la vignette Update Management affiche l’état de correction des défauts pour tous les serveurs Windows déployés. Des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -115,11 +115,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (2)** L’organisation utilise les mécanismes automatisés [Affectation : fréquence définie par l’organisation] pour déterminer l’état des composants du système d’information concernant la correction des défauts.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie la solution OMS Automation & Control pour suivre l’état des mises à jour des machines virtuelles Windows déployées dans cette architecture. Pour chaque ordinateur Windows géré, une analyse est effectuée deux fois par jour. Les API Windows sont appelées toutes les 15 minutes pour rechercher l’heure de la dernière mise à jour afin de déterminer si l’état a changé et si une analyse de conformité est lancée. |
+| **Client** | Cette solution Blueprint déploie la solution Automation & Control pour suivre l’état des mises à jour des machines virtuelles Windows déployées dans cette architecture. Pour chaque ordinateur Windows géré, une analyse est effectuée deux fois par jour. Les API Windows sont appelées toutes les 15 minutes pour rechercher l’heure de la dernière mise à jour afin de déterminer si l’état a changé et si une analyse de conformité est lancée. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (3).a** L’organisation mesure le délai entre l’identification des défauts et la correction des défauts.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,11 +157,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3.a** L’organisation utilise des mécanismes de protection contre les codes malveillants aux points d’entrée et de sortie du système d’information pour détecter et éliminer les codes malveillants.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| Client | Cette solution Blueprint déploie les protections contre les programmes malveillants pour toutes les machines virtuelles Windows déployées par le client à l’aide de l’extension de machine virtuelle Microsoft Antimalware. |
+| **Client** | Cette solution Blueprint déploie les protections contre les programmes malveillants pour toutes les machines virtuelles Windows déployées par le client à l’aide de l’extension de machine virtuelle Microsoft Antimalware. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3.b** L’organisation met à jour les mécanismes de protection contre les codes malveillants lorsque de nouvelles versions sont disponibles conformément à la stratégie et aux procédures de gestion de la configuration de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3.d** L’organisation gère la réception de faux positifs pendant la détection et l’éradication de codes malveillants et l’impact potentiel sur la disponibilité du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -217,7 +217,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie les protections contre les programmes malveillants pour toutes les machines virtuelles Windows déployées par le client à l’aide de l’extension de machine virtuelle Microsoft Antimalware. OMS Azure fournit une fonctionnalité centralisée permettant d’examiner l’état actuel de la solution anti-programme malveillant. |
+| **Client** | Cette solution Blueprint déploie les protections contre les programmes malveillants pour toutes les machines virtuelles Windows déployées par le client à l’aide de l’extension de machine virtuelle Microsoft Antimalware. Azure fournit une fonctionnalité centralisée permettant d’examiner l’état actuel de la solution anti-programme malveillant. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3 (2)** Le système d’information met automatiquement à jour les mécanismes de protection contre les codes malveillants.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,11 +255,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4.a** L’organisation surveille le système d’information pour détecter les attaques et les indicateurs d’attaques potentielles conformément aux [Affectation : objectifs de surveillance définis par l’organisation] ; et les connexions locales, réseau et à distance non autorisées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie Log Analytics et la solution OMS Security and Audit. Cette solution fournit une vue complète de l’état de sécurité, des attaques et des indicateurs d’attaques potentielles. Le tableau de bord Security and Audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées. |
+| **Client** | Cette solution Blueprint déploie Log Analytics et la solution de sécurité et d’audit. Cette solution fournit une vue complète de l’état de sécurité, des attaques et des indicateurs d’attaques potentielles. Le tableau de bord de la solution de sécurité et d’audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions de gestion déployées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie la solution OMS Security and Audit. Le domaine Identity and Access fournit un tableau de bord avec une vue d’ensemble de l’état de l’identité du système d’information, y compris le nombre de tentatives de connexion ayant échoué et le nombre actuel de comptes connectés. Les informations disponibles dans ce tableau de bord peuvent vous aider à identifier une activité suspecte potentielle. |
+| **Client** | Cette solution Blueprint déploie la solution de sécurité et d’audit. Le domaine Identity and Access fournit un tableau de bord avec une vue d’ensemble de l’état de l’identité du système d’information, y compris le nombre de tentatives de connexion ayant échoué et le nombre actuel de comptes connectés. Les informations disponibles dans ce tableau de bord peuvent vous aider à identifier une activité suspecte potentielle. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -283,11 +283,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4.c** L’organisation déploie de façon stratégique des dispositifs de surveillance dans le système d’information pour collecter des informations essentielles déterminées par l’organisation ; et à des emplacements ad hoc dans le système pour suivre les types spécifiques de transactions présentant un intérêt pour l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie Log Analytics et la solution OMS Security and Audit. Le tableau de bord Security and Audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées, y compris des informations sur les données de surveillance du système d’exploitation des machines virtuelles. |
+| **Client** | Cette solution Blueprint déploie Log Analytics et la solution de sécurité et d’audit. Le tableau de bord de la solution de sécurité et d’audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions de gestion déployées, y compris des informations sur les données de surveillance du système d’exploitation des machines virtuelles. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4.d** L’organisation protège les informations obtenues à partir d’outils de surveillance des intrusions contre tout accès, modification et suppression non autorisés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4.e** L’organisation accroît l’activité de surveillance du système d’information chaque fois qu’un soupçon de risque accru pour les opérations et les ressources organisationnelles, les individus, les autres organisations ou la nation reposant sur des informations relatives au respect des lois, des informations décisionnelles ou d’autres sources d’informations crédibles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4.f** L’organisation obtient un avis juridique concernant les activités de surveillance du système d’information conformément aux lois fédérales, décrets, directives, politiques ou réglementations en vigueur.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (2)** L’organisation utilise des outils automatisés pour prendre en charge l’analyse des événements quasiment en temps réel.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie Log Analytics et différentes solutions OMS, dont la solution Security and Audit. Log Analytics fournit des analyses des événements sur l’ensemble des ressources déployées quasiment en temps réel. La solution OMS fournit une vue complète de l’état de sécurité de l’ensemble des domaines de la solution. OMS fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées. OMS peut être configuré pour générer des alertes en fonction de critères définis. |
+| **Client** | Cette solution Blueprint déploie Log Analytics et différentes solutions de gestion, dont la solution de sécurité et d’audit. Log Analytics fournit des analyses des événements sur l’ensemble des ressources déployées quasiment en temps réel. Les solutions de gestion fournissent une vue complète de l’état de sécurité de l’ensemble des domaines des solutions. Log Analytics fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions de gestion déployées. Log Analytics peut être configuré pour générer des alertes en fonction de critères définis. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie différentes solutions OMS, dont la solution Security and Audit. Log Analytics fournit des analyses des événements sur l’ensemble des ressources déployées quasiment en temps réel. La solution OMS fournit une vue complète de l’état de sécurité de l’ensemble des domaines de la solution. OMS peut être configuré pour générer des alertes en fonction de critères définis. |
+| **Client** | Cette solution Blueprint déploie différentes solutions de gestion, dont la solution de sécurité et d’audit. Log Analytics fournit des analyses des événements sur l’ensemble des ressources déployées quasiment en temps réel. Les solutions de gestion fournissent une vue complète de l’état de sécurité de l’ensemble des domaines des solutions. Log Analytics peut être configuré pour générer des alertes en fonction de critères définis. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (14)** L’organisation utilise un système de détection des intrusions sans fil pour identifier les appareils sans fil non fiables et détecter les tentatives d’attaque et les compromissions/failles potentielles du système d’information.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -437,11 +437,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (16)** L’organisation met en corrélation les informations des outils de surveillance utilisés dans l’ensemble du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint déploie Log Analytics et différentes solutions OMS, dont la solution Security and Audit. OMS fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées. |
+| **Client** | Cette solution Blueprint déploie Log Analytics et différentes solutions de gestion, dont la solution de sécurité et d’audit. Log Analytics fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions de gestion déployées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (18)** L’organisation analyse le trafic des communications sortantes à la frontière externe du système d’information (c’est-à-dire, le périmètre du système) et à certains [Affectation : éléments internes du système définis par l’organisation (par exemple, les sous-systèmes, les sous-réseaux)] pour détecter l’exfiltration secrète d’informations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (19)** L’organisation met en œuvre une [Affectation : surveillance supplémentaire définie par l’organisation] des personnes identifiées par les [Affectation : sources définies par l’organisation] comme présentant un niveau accru de risque.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (22)** Le système d’information détecte les services réseau qui n’ont pas été autorisés ou approuvés par [Affectation : processus d’autorisation ou d’approbation définis par l’organisation] et [Sélection (au moins une) : audits ; alertes [Affectation : personnel ou rôles définis par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -511,7 +511,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Client** | Cette solution Blueprint collecte des données de surveillance à partir des ressources déployées, dont les données des fonctionnalités de surveillance basées sur l’hôte. Microsoft Monitoring Agent est installé sur toutes les machines virtuelles Windows pour collecter les données de surveillance utilisées par Log Analytics et d’autres solutions d’OMS. |
+| **Client** | Cette solution Blueprint collecte des données de surveillance à partir des ressources déployées, dont les données des fonctionnalités de surveillance basées sur l’hôte. Microsoft Monitoring Agent est installé sur toutes les machines virtuelles Windows pour collecter les données de surveillance utilisées par Log Analytics et d’autres solutions de gestion. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (24)** Le système d’information détecte, collecte, distribue et utilise des indicateurs de compromission.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-5.d** L’organisation implémente les directives de sécurité conformément aux délais établis ou notifie l’organisation émettrice du degré de non-conformité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-5 (1)** L’organisation utilise les mécanismes automatisés pour rendre les informations des alertes de sécurité et des conseils disponibles dans toute l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-6.b** Le système d’information effectue cette vérification des [Sélection (au moins une) : [Affectation : états de transition du système définis par l’organisation] ; suite à une commande d’un utilisateur disposant de privilèges appropriés ; [Affectation : fréquence définie par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-6.c** Le système d’information informe [Affectation : personnel ou rôles définis par l’organisation] des tests de vérification de sécurité ayant échoué.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -661,11 +661,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7** L’organisation utilise des outils de vérification de l’intégrité pour détecter les modifications non autorisées des [Affectation : informations, microprogrammes et logiciels définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| Client | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Windows assure la validation d’intégrité des fichiers en temps réel, la protection et la récupération des fichiers du système noyau installés dans le cadre de Windows ou de mises à jour autorisées du système Windows par le biais de la fonctionnalité Protection des ressources Windows. |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Windows assure la validation d’intégrité des fichiers en temps réel, la protection et la récupération des fichiers du système noyau installés dans le cadre de Windows ou de mises à jour autorisées du système Windows par le biais de la fonctionnalité Protection des ressources Windows. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (1)** Le système d’information effectue un contrôle d’intégrité des [Affectation : logiciels, microprogrammes et informations définis par l’organisation] [Sélection (au moins une) : au démarrage ; à [Affectation : états de transition ou événements relatifs à la sécurité définis par l’organisation] ; [Affectation : fréquence définie par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (2)** L’organisation utilise des outils automatisés qui informent [Affectation : personnel ou rôles définis par l’organisation] de la découverte d’incohérences pendant la vérification de l’intégrité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (5)** Le système d’information [Sélection (au moins une) : arrête le système d’information ; redémarre le système d’information ; implémente [Affectation : dispositifs de protection de sécurité définis par l’organisation]] lorsque des violations de l’intégrité sont détectées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (7)** L’organisation incorpore la détection des [affectation : modifications de la sécurité du système d’information définies par l’organisation] non autorisées dans la fonctionnalité de réponse aux incidents de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-8.a** L’organisation utilise des mécanismes de protection contre les courriers indésirables aux points d’entrée et de sortie du système d’information pour détecter les codes malveillants et agir en fonction.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-8 (1)** L’organisation centralise la gestion des mécanismes de protection contre les courriers indésirables.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-8 (2)** Le système d’information met automatiquement à jour les mécanismes de protection contre les courriers indésirables.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-12** L’organisation gère et conserve les informations dans le système d’information et les informations générées par le système conformément aux lois fédérales, aux décrets, aux directives, aux politiques, aux réglementations, aux normes et aux conditions opérationnelles en vigueur.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -861,5 +861,5 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| Client | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Windows a mis en place des protections pour empêcher l’exécution de code dans des emplacements mémoire restreints : NX (No Execute), randomisation du format d’espace d’adresse (ASLR, Address Space Layout Randomization) et PED (Prévention de l’exécution des données). |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Windows a mis en place des protections pour empêcher l’exécution de code dans des emplacements mémoire restreints : NX (No Execute), randomisation du format d’espace d’adresse (ASLR, Address Space Layout Randomization) et PED (Prévention de l’exécution des données). |
 | **Fournisseur (Microsoft Azure)** | Non applicable |

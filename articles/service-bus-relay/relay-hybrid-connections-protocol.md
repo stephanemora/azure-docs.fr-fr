@@ -5,7 +5,7 @@ services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 Azure Relay est l’une des fonctionnalités clés de la plateforme Azure Service Bus. La nouvelle fonctionnalité *Connexions hybrides* de Relay est une évolution sécurisée, à protocole ouvert, sur HTTP et WebSocket. Elle remplace l’ancienne fonctionnalité, nommée *BizTalk Services*, conçue sur un protocole propriétaire. L’intégration des connexions hybrides dans Azure App Services continue de fonctionner telle quelle.
@@ -28,10 +28,10 @@ Les connexions hybrides permettent d’établir une communication de flux binair
 ## <a name="interaction-model"></a>Modèle d’interaction
 Le relais Connexions hybrides connecte deux parties en fournissant un point de rencontre détectable par les deux parties dans le cloud Azure, auquel elles peuvent se connecter du point de vue de leur propre réseau. Ce point de rencontre est appelé « Connexion hybride » dans ce document, entre autres, dans les API et dans le Portail Azure. Le point de terminaison de service Connexions hybrides est appelé « service » dans la suite de cet article. Le modèle d’interaction utilise la nomenclature établie par de nombreuses autres API de mise en réseau.
 
-Un écouteur indique tout d’abord qu’il est prêt à gérer des connexions entrantes, puis les accepte dès leur arrivée. De l’autre côté, un client de connexion se connecte à l’écouteur et attend l’acceptation de cette connexion pour établir un chemin de communication bidirectionnelle.
+Un écouteur indique tout d’abord qu’il est prêt à gérer des connexions entrantes, puis les accepte dès leur arrivée. De l’autre côté, un client de connexion offre une connexion à l’écouteur et attend l’acceptation de cette connexion pour établir un chemin de communication bidirectionnelle.
 « Se connecter », « écouter » et « accepter » sont les termes que vous trouverez dans la plupart des API de sockets.
 
-Selon les modèles de communication relayée, l’une des parties établit des connexions sortantes vers un point de terminaison de service, ce qui fait que « l’écouteur » est également un « client » dans le langage courant, entre autres surcharges terminologiques. Par conséquent, voici la terminologie précise que nous utilisons pour les connexions hybrides :
+Selon les modèles de communication relayée, l’une des parties établit des connexions sortantes vers un point de terminaison de service, ce qui fait que « l’écouteur » est également un « client » dans le langage courant, entre autres surcharges terminologiques. Par conséquent, voici la terminologie précise que nous utilisons pour les connexions hybrides :
 
 Les programmes des deux côtés d’une connexion sont appelés « clients », puisqu’il s’agit de clients du service. Le client qui attend et accepte les connexions est « l’écouteur » ; on peut également dire qu’il a le « rôle d’écouteur ». Le client qui démarre une nouvelle connexion vers un écouteur par le biais du service est appelé « expéditeur » ou considéré comme ayant le « rôle d’expéditeur ».
 
@@ -40,7 +40,7 @@ L’écouteur a quatre interactions avec le service ; tous les détails sont d�
 
 #### <a name="listen"></a>Écouter
 Pour indiquer au service qu’il est prêt à accepter les connexions, l’écouteur crée une connexion WebSocket sortante. L’établissement de la connexion porte le nom d’une connexion hybride configurée dans l’espace de noms Relay, et un jeton de sécurité qui confère le droit « d’écoute » sur ce nom.
-Quand le WebSocket est accepté par le service, l’inscription est terminée et le WebSocket établi reste actif en tant que « canal de contrôle » autorisant toutes les interactions suivantes. Le service autorise jusqu’à 25 écouteurs simultanés sur une connexion hybride. S’il existe plusieurs écouteurs actifs, les connexions entrantes sont réparties entre tous selon un ordre aléatoire ; la répartition équitable n’est pas garantie.
+Quand le WebSocket est accepté par le service, l’inscription est terminée et le WebSocket établi reste actif en tant que « canal de contrôle » autorisant toutes les interactions suivantes. Le service autorise jusqu’à 25 écouteurs simultanés sur une connexion hybride. S’il existe plusieurs écouteurs actifs, les connexions entrantes sont réparties entre tous selon un ordre aléatoire ; la répartition équitable n’est pas garantie.
 
 #### <a name="accept"></a>Acceptation
 Quand un expéditeur ouvre une nouvelle connexion sur le service, celui-ci choisit et informe l’un des écouteurs actifs sur la connexion hybride. Cette notification est envoyée à l’écouteur sur le canal de contrôle ouvert sous forme de message JSON contenant l’URL du point de terminaison du WebSocket auquel doit se connecter l’écouteur pour accepter la connexion.
@@ -75,7 +75,7 @@ Toutes les connexions de WebSocket sont effectuées sur le port 443 mis à nivea
 Le protocole de l’écouteur se compose de deux mouvements de connexion et de trois opérations messages.
 
 #### <a name="listener-control-channel-connection"></a>Connexion du canal de contrôle de l’écouteur
-Le canal de contrôle est ouvert lors de la création d’une connexion de WebSocket à :
+Le canal de contrôle est ouvert en créant une connexion de WebSocket à :
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
@@ -195,7 +195,7 @@ En cas de réussite, cette liaison échoue intentionnellement avec un code d’e
 | 500 |Erreur interne |Un problème est survenu dans le service. |
 
 ### <a name="listener-token-renewal"></a>Renouvellement du jeton de l’écouteur
-Lorsque le jeton de l’écouteur est sur le point d’expirer, celui-ci peut le remplacer en envoyant un message de bloc de texte au service via le canal de contrôle établi. Le message contient un objet JSON nommé `renewToken`, qui définit la propriété suivante à ce moment donné :
+Lorsque le jeton de l’écouteur est sur le point d’expirer, l’écouteur peut le remplacer en envoyant un message de bloc de texte au service via le canal de contrôle établi. Le message contient un objet JSON nommé `renewToken`, qui définit la propriété suivante à ce moment donné :
 
 * **token** : jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit d’**écoute**.
 

@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implémenter une base de données géo-distribuée
 
@@ -381,4 +381,17 @@ Installez [Maven](https://maven.apache.org/download.cgi) à l’aide du programm
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, voir l’article [Groupes de basculement et géoréplication active](sql-database-geo-replication-overview.md).
+Dans ce didacticiel, vous avez appris à configurer une application et une base de données SQL Azure pour le basculement vers une région distante, puis à tester votre plan de basculement.  Vous avez appris à effectuer les actions suivantes : 
+
+> [!div class="checklist"]
+> * Créer des utilisateurs de base de données et leur accorder des autorisations
+> * Configurer une règle de pare-feu au niveau de la base de données
+> * Créer un groupe de basculement de géoréplication
+> * Créer et compiler une application Java pour interroger une base de données SQL Azure
+> * Effectuer une simulation de récupération d'urgence
+
+Passez au didacticiel suivant pour découvrir comment créer une instance gérée.
+
+> [!div class="nextstepaction"]
+>[Créer une instance gérée](sql-database-managed-instance-create-tutorial-portal.md)
+

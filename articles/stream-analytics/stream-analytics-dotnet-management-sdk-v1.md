@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: 79e807a1ee52c4b6b18671e25785ed14bd79624a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a8f272403a0c6903521acc7cc45935c4e5bc419c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Kit de développement logiciel (SDK) Management .NET v1.x : configurer et exécuter des travaux d’analyse à l’aide de l’API Azure Stream Analytics pour .NET
 Découvrez comment configurer et exécuter des travaux d’analyse à l’aide de l’API Stream Analytics pour .NET avec le Kit de développement logiciel (SDK) Management .NET. configurer un projet, créer des sources d’entrée et de sortie, des transformations, et démarrer et arrêter des tâches. Pour vos tâches d’analyse, vous pouvez diffuser des données à partir du stockage d’objets blob ou d’un hub d’événements.
@@ -46,7 +46,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Configurez une source d’entrée et une cible de sortie à utiliser. Pour obtenir des instructions complémentaires, voir [Ajouter des entrées](stream-analytics-add-inputs.md) pour configurer un exemple d’entrée et [Ajouter des sorties](stream-analytics-add-outputs.md) pour configurer un exemple de sortie.
+* Configurez une source d’entrée et une cible de sortie auxquelles le travail se connecte.
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 Pour créer une tâche d’analyse à l’aide de l’API Stream Analytics pour .NET, commencez par configurer votre projet.

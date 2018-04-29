@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Workday | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workday."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Workday | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workday.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Didacticiel : Intégration d’Azure Active Directory à Workday
 
@@ -33,6 +33,7 @@ L’intégration de Workday dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Workday, vous avez besoin des éléments suivants :
 
@@ -119,11 +120,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
-    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Votre URL de réponse doit avoir un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Quelque chose comme « *http://www.myworkday.com* » fonctionnera, mais pas « *http://myworkday.com* ». Pour obtenir ces valeurs, contactez l’[équipe de support technique de Workday](https://www.workday.com/en-us/partners-services/services/support.html).  
+    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Votre URL de réponse doit avoir un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Utilisez « *http://www.myworkday.com* » fonctionne, alors que « *http://myworkday.com* » ne fonctionne pas. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Workday](https://www.workday.com/en-us/partners-services/services/support.html).  
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-workday-tutorial/tutorial_workday_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-workday-tutorial/tutorial_workday_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
@@ -153,7 +154,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     >[!NOTE]
     > La valeur de l’attribut Environment est liée à celle de l’URL du client :  
-    >- Si le nom de domaine de l’URL du locataire Workday commence par impl (par exemple : *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), l’attribut **Environment** doit être défini sur Implementation.  
+    >- Si le nom de domaine de l’URL du locataire Workday commence par impl (par exemple : *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), l’attribut **Environnement** doit être défini sur Implémentation.  
     >- Si le nom de domaine commence par autre chose, vous devez contacter l’[équipe de support technique de Workday](https://www.workday.com/en-us/partners-services/services/support.html) pour obtenir la valeur correspondante de l’attribut **Environment**.
 
 11. Dans la section **SAML Setup** , procédez comme suit :
@@ -172,9 +173,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
    
     b. Dans le portail Azure, dans la fenêtre **Configurer l’authentification**, copiez la valeur **ID d’entité SAML**, puis collez-la dans la zone de texte **Issuer**.
 
-    ![Fournisseurs d’identité SAML](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "Fournisseurs d’identité SAML")
+    ![Fournisseurs d’identité SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "Fournisseurs d’identité SAML")
    
-    c. Sélectionnez **Enable Workday Initiated Logout**.
+    c. Sélectionnez **Enable idp Initiated Logout** (Activer la déconnexion initiée par IDP).
    
     d. Dans le portail Azure, dans la fenêtre **Configurer l’authentification**, copiez la valeur **d’URL de déconnexion**, puis collez-la dans la zone de texte **Logout Response URL** (UL de réponse de déconnexion).
 
@@ -215,7 +216,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
    
     ![Configuration SSO](./media/active-directory-saas-workday-tutorial/WorkdaySSOConfiguratio.png "Configuration SSO")
    
-    a.  Dans la zone de texte **Service Provider ID**, tapez **http://www.workday.com**.
+    a.  Dans la zone de texte **ID fournisseur de services**, tapez**http://www.workday.com**.
    
     b. Sélectionnez **Ne pas compresser la demande d’authentification initiée par le fournisseur de services**.
    
@@ -226,9 +227,6 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     d. Cliquez sur **OK**. 
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -309,7 +307,6 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +320,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

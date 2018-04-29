@@ -1,12 +1,12 @@
 ---
-title: "Intégrer Azure Service Fabric à la Gestion des API | Microsoft Docs"
-description: "Dans ce didacticiel, vous apprenez à démarrer rapidement avec la Gestion des API Azure et Service Fabric."
+title: Intégrer Azure Service Fabric à la Gestion des API | Microsoft Docs
+description: Dans ce didacticiel, vous apprenez à démarrer rapidement avec la Gestion des API Azure et Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Didacticiel : déployer la gestion des API avec Service Fabric
 Ce didacticiel est la quatrième partie de la série.  Le déploiement du service Gestion des API Azure avec Service Fabric représente un scénario avancé.  Le service Gestion des API est utile lorsque vous avez besoin de publier des API avec un ensemble complet de règles d’acheminement pour vos services Service Fabric principaux. Les applications cloud ont généralement besoin d’une passerelle frontale afin de fournir un point d’entrée unique pour les utilisateurs, les appareils ou d’autres applications. Dans Service Fabric, une passerelle peut être n’importe quel service sans état conçu pour l’entrée de trafic, comme une application ASP.NET Core, Event Hubs, IoT Hub ou Gestion des API Azure. 
@@ -60,7 +60,7 @@ Maintenant que vous avez un [cluster Windows](service-fabric-tutorial-create-vne
 Connectez-vous à votre compte Azure, sélectionnez votre abonnement avant d’exécuter des commandes Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -143,7 +143,7 @@ Dans le cadre de ce didacticiel, vous déployez un serveur web de base qui renvo
 
    Un service sans état Java nommé `fabric:/EchoServerApplication/EchoServerService` doit maintenant s’exécuter dans votre cluster Service Fabric dans Azure.
 
-5. Ouvrez un navigateur et tapez http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Vous devez voir « [version 1.0] Hello World !!! » .
+5. Ouvrez un navigateur et tapez http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. « [version 1.0] Hello World!!! » doit s’afficher. .
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Téléchargement et découverte des modèles Resource Manager
 Téléchargez et enregistrez les modèles Resource Manager et le fichier de paramètres suivants :

@@ -1,7 +1,7 @@
 ---
 title: 'Microsoft Genomics : Questions courantes | Microsoft Docs'
 titleSuffix: Azure
-description: "Réponses apportées aux questions fréquemment posées par les clients de Microsoft Genomics."
+description: Réponses apportées aux questions fréquemment posées par les clients de Microsoft Genomics.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
 
-Cet article répertorie les principales questions relatives à Microsoft Genomics. Pour plus d’informations sur le service Microsoft Genomics, voir [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md) 
+Cet article répertorie les principales questions relatives à Microsoft Genomics. Pour plus d’informations sur le service Microsoft Genomics, voir [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md). Pour plus d’informations sur la résolution des problèmes, consultez notre [Guide de résolution des problèmes](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Quel contrat de niveau de service utiliser pour Microsoft Genomics ?
@@ -57,7 +57,7 @@ Votre clé de compte de stockage sert à créer des jetons d’accès à court t
 ## <a name="what-genome-references-can-i-use"></a>Quelle référence au génome puis-je utiliser ?
 
 Voici les références prises en charge :
- |Référence              | Valeur de `-pa/--process-args` |
+ |Informations de référence              | Valeur de `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

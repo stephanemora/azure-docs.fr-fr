@@ -1,24 +1,25 @@
 ---
-title: "Les référentiels Azure Container Registry dans le portail Azure"
-description: "Procédure d’affichage des référentiels Azure Container Registry dans le portail Azure."
+title: Les référentiels Azure Container Registry dans le portail Azure
+description: Procédure d’affichage des référentiels Azure Container Registry dans le portail Azure.
 services: container-registry
 author: cristy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 593972e972207a27d1232fcb0c1bf220ac3a8def
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4479c78eb2eb4138dbacfa3619616a3b16d51121
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Affichage des référentiels Container Registry dans le portail Azure
 
 Un référentiel Azure Container Registry vous permet de stocker des images de conteneur Docker. En stockant les images dans des référentiels, vous pouvez stocker des groupes d’images (ou une version de ces images) au sein d’environnements isolés. Vous pouvez spécifier ces référentiels lorsque vous envoyez des images à votre Registre via une transmission de type push, et afficher leur contenu dans le portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 * **Registre de conteneurs** : créez un Registre de conteneurs dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Docker CLI** : Installez [Docker][docker-install] sur votre ordinateur local, ce qui vous fournit l’interface de ligne de commande Docker.

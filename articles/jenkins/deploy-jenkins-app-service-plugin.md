@@ -1,12 +1,12 @@
 ---
-title: "Déployer sur Azure App Service à l’aide du plug-in Jenkins | Microsoft Docs"
-description: "Découvrez comment utiliser le plug-in Azure App Service Jenkins pour déployer une application web Java sur Azure dans Jenkins"
+title: Déployer sur Azure App Service à l’aide du plug-in Jenkins | Microsoft Docs
+description: Découvrez comment utiliser le plug-in Azure App Service Jenkins pour déployer une application web Java sur Azure dans Jenkins
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 
@@ -39,7 +39,7 @@ Si vous ne disposez pas encore d’un serveur maître Jenkins, commencez par uti
 * [Plug-in du client Git Jenkins](https://plugins.jenkins.io/git-client) version 2.4.6 
 * [Plug-in Docker Commons](https://plugins.jenkins.io/docker-commons) version 1.4.0
 * [Informations d’identification Azure](https://plugins.jenkins.io/azure-credentials) version 1.2
-* [Azure App Service](https://plugins.jenkins.io/azure-app-server) version 0.1
+* [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
 Vous pouvez utiliser le plug-in Jenkins pour déployer une application web dans n’importe quel langage pris en charge par Web Apps, comme C#, PHP, Java et Node.js. Dans ce didacticiel, nous utilisons une [simple application web Java pour Azure](https://github.com/azure-devops/javawebappsample). Pour dupliquer (fork) le référentiel dans votre propre compte GitHub, cliquez sur le bouton **Fork** dans l’angle supérieur droit de l’interface GitHub.  
 > [!NOTE]
@@ -90,7 +90,7 @@ Avant de configurer le travail dans Jenkins, vous avez besoin d’un plan Azure 
 ### <a name="set-up-the-jenkins-job"></a>Configurer la tâche Jenkins
 
 1. Créez un nouveau projet **freestyle** dans le tableau de bord Jenkins.
-2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/&lt;your_ID>/javawebappsample.
+2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/ &lt;your_ID > / javawebappsample.
 3. Ajoutez une étape pour générer le projet à l’aide de Maven en ajoutant la commande **Execute shell**. Pour cet exemple, nous avons besoin d’une commande supplémentaire pour renommer le fichier \*.war dans le dossier cible et lui attribuer le nom **ROOT.war** :   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Avant de configurer le travail dans Jenkins, vous avez besoin d’une applicatio
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configurer le travail Jenkins pour Docker
 
 1. Créez un nouveau projet **freestyle** dans le tableau de bord Jenkins.
-2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/&lt;your_ID>/javawebappsample.
+2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/&lt;your_ID > / javawebappsample.
 3. Ajoutez une étape pour générer le projet à l’aide de Maven en ajoutant une commande **Execute shell**. Incluez la ligne suivante dans la commande :
     ```bash
     mvn clean package

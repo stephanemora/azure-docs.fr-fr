@@ -1,11 +1,11 @@
 ---
 title: Configurer un cluster Linux Azure Service Fabric sur Windows | Microsoft Docs
-description: "Cet article explique comment configurer des clusters Linux Service Fabric exécutés sur des machines de développement Windows. Cette méthode est particulièrement utile pour le développement multiplateforme."
+description: Cet article explique comment configurer des clusters Linux Service Fabric exécutés sur des machines de développement Windows. Cette méthode est particulièrement utile pour le développement multiplateforme.
 services: service-fabric
 documentationcenter: .net
 author: suhuruli
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 89c1cf36c3b92376dedb1cb29d190c4c6d8f619b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurer un cluster Linux Service Fabric sur votre machine de développement Windows
 
 Ce document explique comment configurer une infrastructure Linux Service Fabric locale sur des machines de développement Windows. La configuration d'un cluster Linux local est utile pour tester rapidement les applications ciblées pour les clusters Linux mais développées sur une machine Windows.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Les clusters Service Fabric basés sur Linux ne s'exécutent pas nativement sous Windows. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM
@@ -36,7 +37,7 @@ Les clusters Service Fabric basés sur Linux ne s'exécutent pas nativement sous
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Créer un conteneur local et configurer Service Fabric
-Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabric, procédez comme suit :
+Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabric, effectuez les opérations suivantes dans PowerShell :
 
 1. Extrayez l’image du référentiel Docker Hub :
 

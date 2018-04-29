@@ -1,8 +1,8 @@
 ---
-title: "Démarrage rapide avec Azure Application Insights | Microsoft Docs"
-description: "Fournit des instructions permettant de configurer rapidement une application web Java pour l’analyse avec Application Insights."
+title: Démarrage rapide avec Azure Application Insights | Microsoft Docs
+description: Fournit des instructions permettant de configurer rapidement une application web Java pour l’analyse avec Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -22,11 +22,12 @@ Azure Application Insights vous permet d’analyser facilement la disponibilité
 
 Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit de développement logiciel (SDK) Application Insights dans un projet web dynamique Java existant.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour effectuer ce démarrage rapide :
 
-- Installez Oracle JRE 1.6 ou version ultérieure, ou Zulu JRE 1.6 ou version ultérieure.
+- Installez JRE 1.7 ou 1.8
 - Installez l’[Environnement de développement intégré Eclipse gratuit pour développeurs Java EE](http://www.eclipse.org/downloads/). Ce guide de démarrage rapide utilise Eclipse Oxygen (4.7).
 - Vous avez besoin d’un abonnement Azure et d’un projet web dynamique Java existant.
  
@@ -34,7 +35,7 @@ Si vous n’avez pas de projet web dynamique Java, vous pouvez en créer un à l
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 

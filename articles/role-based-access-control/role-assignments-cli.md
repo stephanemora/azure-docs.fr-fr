@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9a4489c575de9f63740c68bda8cbf921592402ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f783b08b25b7dd00351537f4dd404d9c8d02044d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure
 
@@ -39,7 +39,7 @@ Pour pouvoir gérer les attributions de rôles à partir d’Azure CLI, vous dev
 
 ## <a name="list-role-definitions"></a>Lister les définitions de rôles
 
-Pour lister toutes les définitions de rôles disponibles, utilisez [az role definition list](/cli/azure/role/definition#az_role_definition_list) :
+Pour lister toutes les définitions de rôles disponibles, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
 
 ```azurecli
 az role definition list
@@ -96,7 +96,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 
 ### <a name="list-actions-of-a-role-definition"></a>Lister les actions d’une définition de rôle
 
-Pour lister les actions d’une définition de rôle, utilisez [az role definition list](/cli/azure/role/definition#az_role_definition_list) :
+Pour lister les actions d’une définition de rôle, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
 
 ```azurecli
 az role definition list --name <role_name>
@@ -186,7 +186,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-assignments-for-a-user"></a>Répertorier les attributions de rôles pour un utilisateur
 
-Pour lister les attributions de rôles d’un utilisateur déterminé, utilisez [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) :
+Pour lister les attributions de rôles d’un utilisateur déterminé, utilisez [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) :
 
 ```azurecli
 az role assignment list --assignee <assignee>
@@ -215,7 +215,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ### <a name="list-role-assignments-for-a-resource-group"></a>Lister les attributions de rôles pour un groupe de ressources
 
-Pour lister les attributions de rôles qui existent pour un groupe de ressources, utilisez [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) :
+Pour lister les attributions de rôles qui existent pour un groupe de ressources, utilisez [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) :
 
 ```azurecli
 az role assignment list --resource-group <resource_group>
@@ -244,7 +244,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Créer une attribution de rôle pour un utilisateur
 
-Pour créer une attribution de rôle pour un utilisateur dans l’étendue du groupe de ressources, utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) :
+Pour créer une attribution de rôle pour un utilisateur dans l’étendue du groupe de ressources, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) :
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
@@ -258,13 +258,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Créer une attribution de rôle pour un utilisateur
 
-Pour créer une attribution de rôle pour un groupe, utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) :
+Pour créer une attribution de rôle pour un groupe, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) :
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-L’exemple suivant attribue le rôle *Lecteur* au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue de l’abonnement. Pour obtenir l’ID du groupe, vous pouvez utiliser [az ad group list](/cli/azure/ad/group#az_ad_group_list) ou [az ad group show](/cli/azure/ad/group#az_ad_group_show).
+L’exemple suivant attribue le rôle *Lecteur* au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue de l’abonnement. Pour obtenir l’ID du groupe, vous pouvez utiliser [az ad group list](/cli/azure/ad/group#az-ad-group-list) ou [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -278,13 +278,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application"></a>Créer une attribution de rôle pour une application
 
-Pour créer un rôle pour une application, utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) :
+Pour créer un rôle pour une application, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) :
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à une application associée à l’ID d’objet 44444444-4444-4444-4444-444444444444 dans l’étendue du groupe de ressources *pharma-sales-projectforecast*. Pour obtenir l’ID d’objet de l’application, vous pouvez utiliser [az ad app list](/cli/azure/ad/app#az_ad_app_list) ou [az ad app show](/cli/azure/ad/app#az_ad_app_show).
+L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à une application associée à l’ID d’objet 44444444-4444-4444-4444-444444444444 dans l’étendue du groupe de ressources *pharma-sales-projectforecast*. Pour obtenir l’ID d’objet de l’application, vous pouvez utiliser [az ad app list](/cli/azure/ad/app#az-ad-app-list) ou [az ad app show](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -292,7 +292,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 
-Pour supprimer une attribution de rôle, utilisez [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) :
+Pour supprimer une attribution de rôle, utilisez [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) :
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -304,7 +304,7 @@ L’exemple suivant retire l’attribution de rôle *Collaborateur de machine vi
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-L’exemple suivant retire le rôle *Lecteur* au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue de l’abonnement. Pour obtenir l’ID du groupe, vous pouvez utiliser [az ad group list](/cli/azure/ad/group#az_ad_group_list) ou [az ad group show](/cli/azure/ad/group#az_ad_group_show).
+L’exemple suivant retire le rôle *Lecteur* au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue de l’abonnement. Pour obtenir l’ID du groupe, vous pouvez utiliser [az ad group list](/cli/azure/ad/group#az-ad-group-list) ou [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -314,7 +314,7 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ### <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 
-Pour lister les rôles pouvant être affectés dans une étendue, utilisez [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+Pour lister les rôles pouvant être affectés dans une étendue, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 Les deux exemples suivants listent tous les rôles personnalisés de l’abonnement actuel :
 
@@ -345,7 +345,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ### <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
-Pour créer un rôle personnalisé, utilisez [az role definition create](/cli/azure/role/definition#az_role_definition_create). La définition de rôle peut être une description JSON ou le chemin d’un fichier contenant une description JSON.
+Pour créer un rôle personnalisé, utilisez [az role definition create](/cli/azure/role/definition#az-role-definition-create). La définition de rôle peut être une description JSON ou le chemin d’un fichier contenant une description JSON.
 
 ```azurecli
 az role definition create --role-definition <role_definition>
@@ -387,7 +387,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ### <a name="update-a-custom-role"></a>Mettre à jour un rôle personnalisé
 
-Pour mettre à jour un rôle personnalisé, utilisez d’abord [az role definition list](/cli/azure/role/definition#az_role_definition_list) pour récupérer la définition de rôle. Apportez ensuite les modifications souhaitées à la définition de rôle. Enfin, utilisez [az role definition update](/cli/azure/role/definition#az_role_definition_update) pour enregistrer la définition de rôle mise à jour.
+Pour mettre à jour un rôle personnalisé, utilisez d’abord [az role definition list](/cli/azure/role/definition#az-role-definition-list) pour récupérer la définition de rôle. Apportez ensuite les modifications souhaitées à la définition de rôle. Enfin, utilisez [az role definition update](/cli/azure/role/definition#az-role-definition-update) pour enregistrer la définition de rôle mise à jour.
 
 ```azurecli
 az role definition update --role-definition <role_definition>
@@ -430,7 +430,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ### <a name="delete-a-custom-role"></a>Supprimer un rôle personnalisé
 
-Pour supprimer un rôle personnalisé, utilisez [az role definition delete](/cli/azure/role/definition#az_role_definition_delete). Pour spécifier le rôle à supprimer, utilisez le nom ou l’ID du rôle. Pour déterminer l’ID du rôle, utilisez [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+Pour supprimer un rôle personnalisé, utilisez [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). Pour spécifier le rôle à supprimer, utilisez le nom ou l’ID du rôle. Pour déterminer l’ID du rôle, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition delete --name <role_name or role_id>

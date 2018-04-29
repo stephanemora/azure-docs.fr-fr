@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montage d’un partage de fichiers Azure et accès au partage dans Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows et Windows Server. Cet article présente trois méthodes différentes de montage d’un partage de fichiers Azure sur Windows : avec l’interface utilisateur de l’Explorateur de fichiers, via PowerShell ou via l’invite de commandes. 
 
 Pour monter un partage de fichiers Azure en dehors de la région Azure sur laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.0. 
 
-Vous pouvez monter des partages de fichiers Azure sur une installation Windows en cours d’exécution dans une machine virtuelle Azure ou localement. Le tableau ci-dessous illustre les versions du système d’exploitation qui prennent en charge le montage des partages de fichiers dans un environnement donné :
+Vous pouvez monter des partages de fichiers Azure sur une installation Windows en cours d’exécution dans une machine virtuelle Azure ou localement. Le tableau suivant illustre les versions du système d’exploitation qui prennent en charge le montage des partages de fichiers dans un environnement donné :
 
 | Version de Windows        | Version SMB | Version montable dans une machine virtuelle Azure | Montable en local |
 |------------------------|-------------|-----------------------|----------------------|
@@ -49,7 +49,16 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 
 * **Clé du compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Assurez-vous que le port 445 est ouvert** : Azure Files utilise le protocole SMB. SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 à partir de la machine cliente.
+* **Assurez-vous que le port 445 est ouvert** : Azure Files utilise le protocole SMB. SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 à partir de la machine cliente. Vous pouvez utiliser Portqry pour vérifier si le port TCP 445 est ouvert. Si le port TCP 445 est affiché comme filtré, le port TCP est bloqué. Voici un exemple de requête :
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    Si le port TCP 445 est bloqué par une règle sur le chemin d’accès réseau, vous verrez la sortie suivante :
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Pour plus d’informations sur l’utilisation de Portqry, consultez [Description de l’utilitaire de ligne de commande Portqry.exe](https://support.microsoft.com/help/310099).
+
 
 ## <a name="persisting-connections-across-reboots"></a>Connexions persistantes entre les redémarrages
 ### <a name="cmdkey"></a>CmdKey

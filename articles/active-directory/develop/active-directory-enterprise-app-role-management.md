@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 88a9f5988d1fe3f4de4fe10da23a5f713e3f3370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5520781c9f687e5e32ad1d8c38922a456bb5e3ce
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configuration des revendications de rôle émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 
-Cette fonctionnalité permet aux utilisateurs de personnaliser le type de revendication pour la revendication « rôles » dans le jeton de réponse reçu lors de l’autorisation d’une application à l’aide d’Azure AD.
+Cette fonctionnalité permet aux utilisateurs de personnaliser le type de revendication pour la revendication « rôles » dans le jeton de réponse reçu lors de l’autorisation d’une application à l’aide d’Azure AD.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,11 +49,11 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, saisissez le nom de votre application, sélectionnez votre application dans le volet de résultats, puis, cliquez sur **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, saisissez le nom de votre application, sélectionnez votre application dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Application dans la liste de résultats](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
+    ![Application dans la liste des résultats](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
-5. Une fois l’application ajoutée, allez à la page **Propriétés** et copiez **l’ID de l’objet**
+5. Une fois l’application ajoutée, allez à la page **Propriétés** et copiez **l’ID de l’objet**.
 
     ![Page Propriétés](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
@@ -77,22 +77,22 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
 
     ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
 
-    e. Vous devez générer de nouveaux rôles pour votre application maintenant. Vous pouvez télécharger le Générateur de rôles d’Azure AD à partir [d’ici](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y).
+    e. À présent, vous devez générer de nouveaux rôles pour votre application. Vous pouvez télécharger le Générateur de rôles d’Azure AD à partir [d’ici](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y).
 
-    f. Ouvrez le Générateur Azure AD, puis procédez comme suit :
+    f. Ouvrez le Générateur d’Azure AD, puis procédez comme suit :
 
-    ![Générateur Azure AD](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
+    ![Générateur d’Azure AD](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
     
-    Entrez le **Nom de rôle**, la **Description du rôle** et la **Valeur du rôle**. Cliquez sur **Ajouter** pour ajouter le rôle
+    Entrez le **Nom de rôle**, la **Description du rôle** et la **Valeur du rôle**. Cliquez sur **Ajouter** pour ajouter le rôle.
     
-    Après avoir ajouté tous les rôles requis, cliquez sur **Générer**
+    Après avoir ajouté tous les rôles requis, cliquez sur **Générer**.
     
-    Copiez le contenu en cliquant sur **Copier le contenu**
+    Copiez le contenu en cliquant sur **Copier le contenu**.
 
     > [!NOTE] 
     > Assurez-vous que vous avez le rôle d’utilisateur **msiam_access** et que l’ID correspond au rôle généré.
 
-    g. Revenez à votre Explorateur de graphique. Modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les appRoles en mettant à jour la propriété appRoles avec les valeurs copiées. Cliquez sur **Exécuter la requête**.
+    g. Revenez à votre Explorateur graphique. Modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les appRoles souhaités en mettant à jour la propriété appRoles avec les valeurs copiées. Cliquez sur **Exécuter la requête**.
 
     ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
 
@@ -129,7 +129,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
     >
     >   ```
 
-7. Une fois le principal du service corrigé avec plusieurs rôles, nous pouvons assigner des utilisateurs aux rôles respectifs. Cela est possible en accédant au Portail et en navigant vers l’application respective. Puis, en cliquant sur l’onglet **Utilisateurs et groupes** en haut. Ce processus répertorie tous les utilisateurs ou groupes.
+7. Une fois le principal du service corrigé avec plusieurs rôles, nous pouvons assigner des utilisateurs aux rôles respectifs. Pour ce faire, accédez au portail et à l’application respective. Cliquez ensuite sur l’onglet **Utilisateurs et groupes** dans la partie supérieure. Ce processus répertorie tous les utilisateurs ou groupes.
 
     ![Configurer l’authentification unique Add](./media/active-directory-enterprise-app-role-management/userrole.png)
 
@@ -137,7 +137,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
 
     ![Configurer l’authentification unique Add](./media/active-directory-enterprise-app-role-management/userandgroups.png)
 
-    b. Le fait de cliquer permet d’afficher une fenêtre contextuelle afin de sélectionner un rôle dans différents rôles définis pour le principal du service respectif.
+    b. Le fait de cliquer permet d’afficher une fenêtre contextuelle afin de sélectionner un rôle parmi différents rôles définis pour le principal du service respectif.
 
     c. Choisissez le rôle requis et cliquez sur Envoyer.
 
@@ -163,11 +163,11 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
     
     e. Cliquez sur **OK**.
 
-10. Pour tester votre application dans l’authentification unique initiée par IDP, connectez-vous au volet d’accès (https://myapps.microsoft.com) puis cliquez sur la mosaïque de votre application. Dans le jeton SAML, vous devez voir tous les rôles assignés à l’utilisateur avec le nom de la revendication que vous avez attribué.
+10. Pour tester votre application dans l’authentification unique initiée par IDP, connectez-vous au panneau d’accès (https://myapps.microsoft.com), puis cliquez sur la vignette de votre application. Dans le jeton SAML, vous devez voir tous les rôles assignés à l’utilisateur avec le nom de la revendication que vous avez attribué.
 
 ## <a name="update-existing-role"></a>Mettre à jour un rôle existant
 
-1. Pour mettre à jour un rôle existant, procédez comme suit :
+1. Pour mettre à jour un rôle existant, procédez comme suit :
 
     a. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
 
@@ -189,7 +189,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
     
     ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
     
-    f. Pour mettre à jour le rôle existant, procédez comme suit :
+    f. Pour mettre à jour le rôle existant, procédez comme suit :
 
     ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
@@ -247,11 +247,11 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
     h. Le rôle sera supprimé après l’exécution de la requête.
     
     > [!NOTE]
-    > Le rôle doit d’abord être désactivé avant de pouvoir être supprimée. 
+    > Le rôle doit d’abord être désactivé avant de pouvoir être supprimé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Documentation de l’application ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) pour connaître les étapes supplémentaires.
+Consultez [Documentation de l’application ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) pour connaître les étapes supplémentaires.
 
 <!--Image references-->
 <!--Image references-->

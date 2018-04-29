@@ -1,18 +1,18 @@
 ---
 title: Monter un volume GitRepo dans Azure Container Instances
-description: "Découvrez comment monter un volume GitRepo pour cloner un référentiel Git dans vos instances de conteneurs"
+description: Découvrez comment monter un volume GitRepo pour cloner un référentiel Git dans vos instances de conteneurs
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/16/2018
 ms.author: marsma
-ms.openlocfilehash: 9acde9259fcb392458e7b2fa7d3369776978285e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9c4e6e16bed6c8563561e292fe93c974376bab09
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monter un volume GitRepo dans Azure Container Instances
 
@@ -33,14 +33,42 @@ Lorsque vous montez un volume *GitRepo*, vous pouvez définir trois propriétés
 | `directory` | Non  | Répertoire dans lequel le référentiel doit être cloné. Le chemin d’accès ne peut pas contenir ou commencer par « `..` ».  Si vous spécifiez « `.` », le référentiel est cloné dans le répertoire du volume. Autrement, le référentiel Git est cloné dans un sous-répertoire du nom spécifié à l’intérieur du répertoire de volume. |
 | `revision` | Non  | Hachage de validation de la révision à cloner. À défaut de spécification, la révision `HEAD` est clonée. |
 
-## <a name="mount-a-gitrepo-volume"></a>Monter un volume GitRepo
+## <a name="mount-gitrepo-volume-azure-cli"></a>Monter un volume gitRepo : Azure CLI
 
-Pour monter un volume *GitRepo* dans une instance de conteneur, vous devez opérer le déploiement à l’aide d’un [modèle Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+Pour monter un volume gitRepo lorsque vous déployez des instances de conteneurs avec [Azure CLI](/cli/azure), fournissez les paramètres `--gitrepo-url` et `--gitrepo-mount-path` à la commande [az container create][az-container-create]. Vous pouvez éventuellement spécifier le répertoire dans le volume où effectuer le clonage (`--gitrepo-dir`) et le hachage de validation de la révision à cloner (`--gitrepo-revision`).
 
-Tout d’abord, remplissez le tableau `volumes` dans la section `properties` du groupe de conteneurs du modèle. Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaitez monter le volume *GitRepo*, remplissez le tableau `volumeMounts` dans la section  `properties` de la définition de conteneur.
+Cet exemple de commande clone l’exemple d’application [aci-helloworld][aci-helloworld] dans `/mnt/aci-helloworld` au sein de l’instance de conteneur :
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name hellogitrepo \
+    --image microsoft/aci-helloworld \
+    --dns-name-label aci-demo \
+    --ports 80 \
+    --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
+    --gitrepo-mount-path /mnt/aci-helloworld
+```
+
+Pour vérifier que le volume gitRepo a été monté, lancez un interpréteur de commandes dans le conteneur avec [az container exec][az-container-exec] et dressez la liste du répertoire :
+
+```console
+$ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+/usr/src/app # ls -l /mnt/aci-helloworld/
+total 16
+-rw-r--r--    1 root     root           144 Apr 16 16:35 Dockerfile
+-rw-r--r--    1 root     root          1162 Apr 16 16:35 LICENSE
+-rw-r--r--    1 root     root          1237 Apr 16 16:35 README.md
+drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
+```
+
+## <a name="mount-gitrepo-volume-resource-manager"></a>Monter un volume gitRepo : Gestionnaire des ressources
+
+Pour monter un volume gitRepo lorsque vous déployez des instances de conteneurs avec un [modèle Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), commencez par renseigner le tableau `volumes` dans la section `properties` du groupe de conteneurs du modèle. Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaitez monter le volume *GitRepo*, renseignez le tableau `volumeMounts` dans la section `properties` de la définition de conteneur.
 
 Par exemple, le modèle Resource Manager suivant crée un groupe de conteneurs consistant en un seul conteneur. Le conteneur clone deux référentiels GitHub spécifiés par les blocs de volume *GitRepo*. Le deuxième volume inclut des propriétés supplémentaires spécifiant un répertoire vers lequel cloner, ainsi que le hachage de validation d’une révision spécifique à cloner.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
 [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 La structure ainsi obtenue de répertoire des deux référentiels clonés définis dans le modèle précédent est la suivante :
@@ -59,3 +87,10 @@ Découvrez comment monter d’autres types de volumes dans Azure Container Insta
 * [Monter un partage de fichiers Azure dans Azure Container Instances](container-instances-volume-azure-files.md)
 * [Monter un volume emptyDir dans Azure Container Instances](container-instances-volume-emptydir.md)
 * [Monter un volume secret dans Azure Container Instances](container-instances-volume-secret.md)
+
+<!-- LINKS - External -->
+[aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-exec]: /cli/azure/container#az-container-exec

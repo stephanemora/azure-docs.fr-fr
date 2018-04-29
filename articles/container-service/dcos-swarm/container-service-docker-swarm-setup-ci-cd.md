@@ -1,19 +1,19 @@
 ---
 title: CI/CD avec Azure Container Service et Swarm
-description: "Utilisez Azure Container Service avec Docker Swarm, un Registre de conteneurs Azure et Visual Studio Team Services pour fournir en continu une application .NET Core à conteneurs multiples"
+description: Utilisez Azure Container Service avec Docker Swarm, un Registre de conteneurs Azure et Visual Studio Team Services pour fournir en continu une application .NET Core à conteneurs multiples
 services: container-service
 author: jcorioland
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 38877afb63e993eeaab723a6ea5f4c40d3c956a5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 81a07fdfe1c862bc30fb9d567db9a393c0610990
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Pipeline CI/CD complet pour déployer une application à conteneurs multiples sur Azure Container Service avec Docker Swarm à l’aide de Visual Studio Team Services
 
@@ -38,7 +38,8 @@ Voici une brève explication de ces étapes :
 7. Docker Swarm sur le cluster extrait la dernière version des images. 
 8. La nouvelle version de l’application est déployée à l’aide de Docker Compose. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 

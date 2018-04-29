@@ -1,24 +1,24 @@
 ---
-title: "Sécurité des données Log Analytics | Microsoft Azure"
-description: "Découvrez comment Log Analytics protège vos données personnelles et sécurise vos données."
+title: Sécurité des données Log Analytics | Microsoft Azure
+description: Découvrez comment Log Analytics protège vos données personnelles et sécurise vos données.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: bfd9b3302c73e50408cdd68b25317630aa087d7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
 Ce document est destiné à fournir des informations propres à Azure Log Analytics en complément des informations disponibles sur le [Centre de confidentialité Azure](../security/security-microsoft-trust-center.md).  
@@ -155,9 +155,9 @@ Les données mises en cache de l’agent Windows ou du serveur d’administratio
 Comme décrit ci-dessus, les données provenant d’agents du serveur d’administration ou d’agents connectés directement sont envoyées par le biais du protocole SSL aux centres de données Microsoft Azure. Vous pouvez également utiliser ExpressRoute pour sécuriser davantage les données. ExpressRoute vous permet de vous connecter directement à Azure à partir de votre réseau étendu (WAN) existant, comme un VPN MPLS fourni par un fournisseur de services réseau. Pour plus d’informations, voir [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Le service Log Analytics reçoit et traite les données
-Le service Log Analytics vérifie que les données entrantes émanent d’une source approuvée en validant les certificats et l’intégrité des données à l’aide de la certification Azure. Les données brutes non traitées sont ensuite stockées dans un hub d’événements Azure de la région où les données finissent par être stockées au repos. Le type des données stockées dépend des types de solutions qui ont été importées et utilisées pour collecter des données. Ensuite, le service Log Analytics traite les données brutes et les ingère dans la base de données.
+Le service Log Analytics s’assure que les données entrantes proviennent d’une source approuvée en validant des certificats et l’intégrité des données à l’aide de la certification Azure. Les données brutes non traitées sont ensuite stockées dans un hub d’événements Azure de la région où les données finissent par être stockées au repos. Le type des données stockées dépend des types de solutions qui ont été importées et utilisées pour collecter des données. Ensuite, le service Log Analytics traite les données brutes et les ingère dans la base de données.
 
-La période de rétention des données collectées stockées dans la base de données varie selon le plan qui a été sélectionné lors de la création de l’espace de travail.  Dans le cas du niveau payant, les données collectées restent disponibles pendant 31 jours par défaut, mais cette durée peut être étendue à 365 jours.  Ces données ne sont pas encore chiffrées au repos, cette opération étant prévue pour le milieu de l’année 2018. 
+La période de rétention des données collectées stockées dans la base de données varie selon le plan de tarification. Dans le cas du niveau *gratuit*, les données collectées restent disponibles pendant 7 jours. Dans le cas du niveau *payant*, les données collectées restent disponibles pendant 31 jours par défaut, mais cette durée peut être étendue à 720 jours. Les données sont chiffrées au repos dans le stockage Azure pour garantir leur confidentialité. Pendant les deux dernières semaines, les données sont également stockées dans le cache sur disque SSD, ce cache n’étant actuellement pas chiffré.  Nous prévoyons la prise en charge de ce type de chiffrement dans la deuxième moitié de 2018.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utiliser Log Analytics pour accéder aux données
 Pour accéder à votre espace de travail Log Analytics, vous vous connectez au portail Azure à l’aide du compte professionnel ou d’un compte Microsoft que vous avez configuré précédemment. La totalité du trafic entre le portail et le service Log Analytics est envoyée par le biais d’un canal HTTPS sécurisé. Lorsque vous utilisez le portail, un ID de session est généré sur le client utilisateur (navigateur web), et les données sont stockées dans un cache local jusqu’à la fin de la session. Ensuite, le cache est supprimé. Les cookies côté client qui ne contiennent pas d’informations d’identification personnelle ne sont pas supprimés automatiquement. Les cookies de session sont marqués HTTPOnly et sécurisés. Après une période d’inactivité prédéfinie, la session du portail Azure prend fin.

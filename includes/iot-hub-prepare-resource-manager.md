@@ -8,7 +8,7 @@ Les étapes suivantes montrent comment configurer l’authentification par mot d
 1. Pour vous connecter à votre abonnement Azure, exécutez la commande suivante :
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la commande suivante pour répertorier les abonnements Azure que vous pouvez utiliser :
@@ -28,8 +28,8 @@ Les étapes suivantes montrent comment configurer l’authentification par mot d
 3. Créez une application Azure Active Directory à l’aide de la commande suivante, en remplaçant les espaces réservés :
    
    * **{Nom d’affichage} :** nom d’affichage pour votre application, par exemple, **MySampleApp**
-   * **{URL de la page d’accueil} :** URL de la page d’accueil de votre application, par exemple, **http://mysampleapp/home**. Cette URL n’a pas besoin de pointer vers une application réelle.
-   * **{Identificateur d’application} :** identificateur unique, par exemple, **http://mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
+   * **{URL de la page d’accueil} :** URL de la page d’accueil de votre application, par exemple, **http://mysampleapp/home**. Cette URL n’a pas besoin de pointer vers une application réelle.
+   * **{Identificateur d’application} :** identificateur unique, par exemple, **http://mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
    * **{Mot de passe} :** mot de passe que vous utiliserez pour vous authentifier dans votre application.
      
      ```powershell

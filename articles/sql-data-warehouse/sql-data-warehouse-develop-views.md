@@ -1,38 +1,36 @@
 ---
 title: Utilisation des vues T-SQL dans Azure SQL Data Warehouse | Microsoft Docs
-description: "Conseils relatifs à l’utilisation de vues Transact-SQL dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+description: Conseils relatifs à l’utilisation de vues T-SQL dans  Azure SQL Data Warehouse dans le cadre du développement de solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: b5208f32-8f4a-4056-8788-2adbb253d9fd
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: d2a03be810bd7f792876607ec735eb578b65a3b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 28280a067e7008c20361e0a0041c81ba84e7f74c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="views-in-sql-data-warehouse"></a>Vues proposées par SQL Data Warehouse
-Les vues sont particulièrement utiles dans SQL Data Warehouse. Vous pouvez les utiliser de différentes façons, afin d’améliorer la qualité de votre solution.  Cet article met en évidence quelques exemples montrant comment enrichir votre solution avec des vues, ainsi que les limites à prendre en considération.
+# <a name="views-in-azure-sql-data-warehouse"></a>Vues dans Azure SQL Data Warehouse
+Conseils relatifs à l’utilisation de vues T-SQL dans  Azure SQL Data Warehouse dans le cadre du développement de solutions. 
+
+## <a name="why-use-views"></a>Pourquoi utiliser des vues ?
+Des vues peuvent être utilisées de différentes façons afin d’améliorer la qualité de votre solution.  Cet article met en évidence quelques exemples montrant comment enrichir votre solution avec des vues, ainsi que les limites à prendre en considération.
 
 > [!NOTE]
-> La syntaxe de `CREATE VIEW` n’est pas abordée dans cet article. Consultez l’article [CREATE VIEW][CREATE VIEW] sur MSDN pour obtenir ces informations de référence.
+> La syntaxe de CREATE VIEW n’est pas abordée dans cet article. Pour plus d’informations, consultez la documentation [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql).
 > 
 > 
 
 ## <a name="architectural-abstraction"></a>Abstraction architecturale
-Un des modèles d’application les plus courants consiste à recréer des tables au moyen de la commande CREATE TABLE AS SELECT (CTAS), suivie d’un modèle de changement de nom d’un objet, lors du chargement des données.
+Un modèle d’application courant consiste à recréer des tables au moyen de la commande CREATE TABLE AS SELECT (CTAS). Ceci est suivi d’un modèle de changement de nom d’un objet lors du chargement des données.
 
-L’exemple ci-dessous permet d’ajouter de nouveaux enregistrements de date à une dimension de date. Notez comment un nouvel objet, DimDate_New, est d’abord créé et ensuite renommé pour remplacer la version d’origine de la table.
+L’exemple suivant permet d’ajouter de nouveaux enregistrements de date à une dimension de date. Notez comment une nouvelle table, DimDate_New, est d’abord créée, puis renommée pour remplacer la version d’origine de la table.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -52,13 +50,13 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Toutefois, cette approche peut provoquer l’apparition et la disparition de table d’une vue utilisateur, ainsi que l’affichage de messages d’erreur de type « la table n’existe pas ». Vous pouvez utiliser des vues pour fournir aux utilisateurs une couche de présentation cohérente alors que les objets sous-jacents sont renommés. Grâce à la mise à disposition d’un accès aux données via une vue, les utilisateurs n’ont pas besoin d’afficher les tables sous-jacentes. Ainsi, l’expérience utilisateur est plus cohérente ; les concepteurs d’entrepôts de données peuvent faire évoluer le modèle de données tout en optimisant les performances, en exécutant la commande CTAS lors du processus de chargement des données.    
+Toutefois, cette approche peut provoquer l’apparition et la disparition de table d’une vue utilisateur, ainsi que l’affichage de messages d’erreur de type « la table n’existe pas ». Vous pouvez utiliser des vues pour fournir aux utilisateurs une couche de présentation cohérente alors que les objets sous-jacents sont renommés. L’accès aux données étant fourni via des vues, les utilisateurs n’ont pas besoin d’une visibilité des tables sous-jacentes. Cette couche fournit une expérience utilisateur homogène, tout en garantissant que les concepteurs d’entrepôts de données puissent faire évoluer le modèle de données. Pouvoir faire évoluer les tables sous-jacentes signifie que les concepteurs peuvent utiliser CTAS pour optimiser les performances lors du processus de chargement de données.   
 
 ## <a name="performance-optimization"></a>Optimisation des performances
-Une vue peut également être utilisée pour mettre en place des jointures plus performantes entre les tables. Ainsi, une vue peut inclure une clé de distribution redondante parmi ses critères de jointure, afin de réduire le nombre de déplacements de données.  Elle peut également permettre de forcer une indication de jointure ou de requête spécifique. Utiliser des vues de cette manière permet de garantir que les jointures sont toujours effectuées de façon optimale en évitant d’avoir à se souvenir de leur construction correcte.
+Une vue peut également être utilisée pour mettre en place des jointures plus performantes entre les tables. Ainsi, une vue peut inclure une clé de distribution redondante parmi ses critères de jointure, afin de réduire le nombre de déplacements de données. Elle peut également permettre de forcer une indication de jointure ou de requête spécifique. Utiliser des vues de cette manière permet de garantir que les jointures sont toujours effectuées de façon optimale en évitant d’avoir à se souvenir de leur construction correcte.
 
-## <a name="limitations"></a>Limitations
-Dans SQL Data Warehouse, les vues concernent uniquement les métadonnées.  De ce fait, les options suivantes ne sont pas disponibles :
+## <a name="limitations"></a>Limites
+Dans SQL Data Warehouse, les vues sont exclusivement stockées sous forme de métadonnées. De ce fait, les options suivantes ne sont pas disponibles :
 
 * Il n’existe aucune option de liaison de schéma.
 * Les tables de base ne peuvent pas être mises à jour par le biais de la vue.
@@ -67,15 +65,6 @@ Dans SQL Data Warehouse, les vues concernent uniquement les métadonnées.  De
 * SQL Data Warehouse n’inclut aucune vue indexée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
-Pour la syntaxe de `CREATE VIEW`, consultez [CREATE VIEW][CREATE VIEW].
+Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
 
-<!--Article references-->
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
-
-<!--Other Web references-->

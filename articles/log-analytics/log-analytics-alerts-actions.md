@@ -1,8 +1,8 @@
 ---
-title: "Réponses aux alertes dans Azure Log Analytics | Microsoft Docs"
-description: "Les alertes dans Log Analytics identifient des informations importantes dans votre espace de travail Azure et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit comment créer une règle d’alerte et détaille les différentes actions qu’elle peut engager."
+title: Réponses aux alertes dans Azure Log Analytics | Microsoft Docs
+description: Les alertes dans Log Analytics identifient des informations importantes dans votre espace de travail Azure et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit comment créer une règle d’alerte et détaille les différentes actions qu’elle peut engager.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,16 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 04/13/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 717adf1b19b9de8542ec507df3a01b187d0df8a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Ajouter des actions à des règles d’alerte dans Log Analytics
+
+> [!NOTE]
+> Les alertes dans Log Analytics sont [étendues à Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Les alertes dans Azure utilisent des [groupes d’action](../monitoring-and-diagnostics/monitoring-action-groups.md) plutôt que les informations de cet article pour définir leurs actions.
+
+
 Lorsqu’une [alerte est créée dans Log Analytics](log-analytics-alerts.md), vous avez la possibilité de [configurer la règle d’alerte](log-analytics-alerts.md) pour effectuer une ou plusieurs actions.  Cet article décrit les différentes actions possibles et explique la configuration associée à chacune.
 
 | Action | Description |
@@ -56,8 +61,6 @@ Les propriétés requises par les actions webhook sont décrites dans le tableau
 
 Les webhooks incluent une URL et une charge utile au format JSON qui correspond aux données envoyées au service externe.  Par défaut, la charge utile comprend les valeurs du tableau suivant.  Vous pouvez choisir de remplacer cette charge utile par une charge utile personnalisée de votre choix.  Dans ce cas, vous pouvez reprendre les variables de chacun des paramètres indiquées dans le tableau pour inclure les valeurs correspondantes dans votre charge utile personnalisée.
 
->[!NOTE]
-> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), alors la charge utile du Webhook a changé.  Vous trouverez les détails du format sur la page [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  La section [Exemples](#sample-payload) ci-dessous présente un exemple.
 
 | Paramètre | Variable | Description |
 |:--- |:--- |:--- |
@@ -126,38 +129,7 @@ Vous ne pouvez pas compléter directement tous les paramètres du runbook, mais 
 Par exemple, les runbooks suivants extraient les enregistrements renvoyés par la recherche de journal et attribuent des propriétés différentes selon le type de chaque enregistrement.  Notez que le runbook commence par convertir **RequestBody** à partir de json, de sorte qu’il est utilisable en tant qu’objet dans PowerShell.
 
 >[!NOTE]
-> Ces deux runbooks utilisent **SearchResult**, qui est la propriété contenant les résultats des actions de runbook et de webhook avec une charge utile standard.  Si le runbook a été appelé à partir d’une réponse de webhook à l’aide d’une charge utile personnalisée, vous devez définir cette propriété sur **SearchResults**.
-
-Le runbook suivant fonctionne avec la charge utile d’un [espace de travail Log Analytics hérité](log-analytics-log-search-upgrade.md).
-
-    param ( 
-        [object]$WebhookData
-    )
-
-    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResult.value
-
-    foreach ($Record in $Records)
-    {
-        $Computer = $Record.Computer
-
-        if ($Record.Type -eq 'Event')
-        {
-            $EventNo    = $Record.EventID
-            $EventLevel = $Record.EventLevelName
-            $EventData  = $Record.EventData
-        }
-
-        if ($Record.Type -eq 'Perf')
-        {
-            $Object    = $Record.ObjectName
-            $Counter   = $Record.CounterName
-            $Instance  = $Record.InstanceName
-            $Value     = $Record.CounterValue
-        }
-    }
-
-Le runbook suivant fonctionne avec la charge utile d’un [espace de travail Log Analytics mis à niveau](log-analytics-log-search-upgrade.md).
+> Ce runbook utilisent **SearchResult**, qui est la propriété contenant les résultats des actions de runbook et de webhook avec une charge utile standard.  Si le runbook a été appelé à partir d’une réponse de webhook à l’aide d’une charge utile personnalisée, vous devez définir cette propriété sur **SearchResults**.
 
     param ( 
         [object]$WebhookData
@@ -208,88 +180,12 @@ Le runbook suivant fonctionne avec la charge utile d’un [espace de travail Log
 
 
 ## <a name="sample-payload"></a>Exemple de charge utile
-Cette section présente un exemple de charge utile pour les actions de Webhook et de runbook dans [un espace de travail Log Analytics hérité et un autre mis à niveau](log-analytics-log-search-upgrade.md).
+Cette section montre un exemple de charge utile pour les actions de webhook et de runbook.
 
 ### <a name="webhook-actions"></a>Actions de webhook
-Ces deux exemples utilisent **SearchResult**, qui est la propriété contenant les résultats des actions de webhook avec une charge utile standard.  Si le webhook utilisait une charge utile personnalisée qui comprend les résultats de recherche, cette propriété serait **SearchResults**.
+Cet exemple utilise **SearchResult**, qui est la propriété contenant les résultats des actions de webhook avec une charge utile standard.  Si le webhook utilisait une charge utile personnalisée qui comprend les résultats de recherche, cette propriété serait **SearchResults**.
 
-#### <a name="legacy-workspace"></a>Espace de travail hérité
-Voici un exemple de charge utile pour une action de Webhook dans un espace de travail hérité.
-
-    {
-    "WorkspaceId": "workspaceID",
-    "AlertRuleName": "WebhookAlert",
-    "SearchQuery": "Type=Usage",
-    "SearchResult": {
-        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
-        "__metadata": {
-        "resultType": "raw",
-        "total": 1,
-        "top": 2147483647,
-        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
-        "CoreSummaries": [
-            {
-            "Status": "Successful",
-            "NumberOfDocuments": 135000000
-            }
-        ],
-        "Status": "Successful",
-        "NumberOfDocuments": 135000000,
-        "StartTime": "2017-09-27T10:30:38.9453282Z",
-        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
-        "ETag": "636421050440907473",
-        "sort": [
-            {
-            "name": "TimeGenerated",
-            "order": "desc"
-            }
-        ],
-        "requestTime": 361
-        },
-        "value": [
-        {
-            "Computer": "-",
-            "SourceSystem": "OMS",
-            "TimeGenerated": "2017-09-26T13:59:59Z",
-            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
-            "DataType": "Operation",
-            "StartTime": "2017-09-26T13:00:00Z",
-            "EndTime": "2017-09-26T13:59:59Z",
-            "Solution": "LogManagement",
-            "BatchesWithinSla": 8,
-            "BatchesOutsideSla": 0,
-            "BatchesCapped": 0,
-            "TotalBatches": 8,
-            "AvgLatencyInSeconds": 0.0,
-            "Quantity": 0.002502,
-            "QuantityUnit": "MBytes",
-            "IsBillable": false,
-            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-            "Type": "Usage",
-            "MG": "00000000-0000-0000-0000-000000000000",
-            "__metadata": {
-            "Type": "Usage",
-            "TimeGenerated": "2017-09-26T13:59:59Z"
-            }
-        }
-        ]
-    },
-    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 1,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
-    "Description": null,
-    "Severity": "Low"
-    }
-
-
-#### <a name="upgraded-workspace"></a>Espace de travail mis à niveau
-Voici un exemple de charge utile pour une action de Webhook dans un espace de travail mis à niveau.
+Voici un exemple de charge utile pour une action de webhook.
 
     {
     "WorkspaceId": "workspaceID",
@@ -427,64 +323,7 @@ Voici un exemple de charge utile pour une action de Webhook dans un espace de tr
 
 ### <a name="runbooks"></a>Runbooks
 
-#### <a name="legacy-workspace"></a>Espace de travail hérité
-Voici un exemple de charge utile pour une action de runbook dans un espace de travail hérité.
-
-    {
-        "SearchResult": {
-            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
-            "__metadata": {
-                "resultType": "raw",
-                "total": 1,
-                "top": 2147483647,
-                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
-                "CoreSummaries": [{
-                    "Status": "Successful",
-                    "NumberOfDocuments": 135000000
-                }],
-                "Status": "Successful",
-                "NumberOfDocuments": 135000000,
-                "StartTime": "2017-09-27T10:51:43.3075124Z",
-                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
-                "ETag": "636421063111002092",
-                "sort": [{
-                    "name": "TimeGenerated",
-                    "order": "desc"
-                }],
-                "requestTime": 511
-            },
-            "value": [{
-                "Computer": "-",
-                "SourceSystem": "OMS",
-                "TimeGenerated": "2017-09-26T13:59:59Z",
-                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
-                "DataType": "Operation",
-                "StartTime": "2017-09-26T13:00:00Z",
-                "EndTime": "2017-09-26T13:59:59Z",
-                "Solution": "LogManagement",
-                "BatchesWithinSla": 8,
-                "BatchesOutsideSla": 0,
-                "BatchesCapped": 0,
-                "TotalBatches": 8,
-                "AvgLatencyInSeconds": 0.0,
-                "Quantity": 0.002502,
-                "QuantityUnit": "MBytes",
-                "IsBillable": false,
-                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-                "Type": "Usage",
-                "MG": "00000000-0000-0000-0000-000000000000",
-                "__metadata": {
-                    "Type": "Usage",
-                    "TimeGenerated": "2017-09-26T13:59:59Z"
-                }
-            }]
-        }
-    }
-
-#### <a name="upgraded-workspace"></a>Espace de travail mis à niveau
-Voici un exemple de charge utile pour une action de runbook dans un espace de travail mis à niveau.
+Voici un exemple de charge utile pour une action de runbook.
 
     {
     "WorkspaceId": "workspaceID",
@@ -603,6 +442,7 @@ Voici un exemple de charge utile pour une action de runbook dans un espace de tr
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

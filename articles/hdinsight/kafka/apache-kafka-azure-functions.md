@@ -1,24 +1,24 @@
 ---
-title: "Utiliser Azure Functions pour envoyer des données vers Kafka sur HDInsight | Microsoft Docs"
-description: "Apprenez à utiliser une fonction Azure pour écrire des données dans Kafka sur HDInsight."
+title: Utiliser Azure Functions pour envoyer des données vers Kafka sur HDInsight | Microsoft Docs
+description: Apprenez à utiliser une fonction Azure pour écrire des données dans Kafka sur HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Utiliser Kafka sur HDInsight depuis une application de fonction Azure
 
@@ -70,7 +70,7 @@ Les informations dans cette section préparent le cluster Kafka à accepter les 
 
 Par défaut, Zookeeper renvoie le nom de domaine des répartiteurs Kafka aux clients. Cette configuration ne fonctionne pas sans serveur DNS, car le client (Azure Functions) ne peut résoudre des noms pour le réseau virtuel. Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adresses IP au lieu des noms de domaine :
 
-1. Accédez à https://CLUSTERNAME.azurehdinsight.net via votre navigateur web. Remplacez __CLUSTERNAME__ par le nom du cluster Kafka sur HDInsight.
+1. À l’aide d’un navigateur web, accédez à https://CLUSTERNAME.azurehdinsight.net. Remplacez __CLUSTERNAME__ par le nom du cluster Kafka sur HDInsight.
 
     Lorsque vous y êtes invité, utilisez le nom et le mot de passe utilisateur HTTPS correspondant au cluster. L’interface utilisateur web d’Ambari pour le cluster s’affiche.
 

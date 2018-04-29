@@ -1,12 +1,12 @@
 ---
-title: "CLI Azure Service Fabric : sfctl node | Microsoft Docs"
-description: "Décrit les commandes sfctl node de l’interface de ligne de commande (CLI) Service Fabric."
+title: 'CLI Azure Service Fabric : sfctl node | Microsoft Docs'
+description: Décrit les commandes sfctl node de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Permet de gérer les nœuds qui forment un cluster.
@@ -60,7 +60,7 @@ Désactive un nœud de cluster Service Fabric avec l’intention de désactivat
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
 | --output -o        | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query            | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query            | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose          | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-enable"></a>sfctl node enable
@@ -82,7 +82,7 @@ Active un nœud de cluster Service Fabric actuellement désactivé. Une fois ac
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
 | --output -o        | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query            | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query            | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose          | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-health"></a>sfctl node health
@@ -105,7 +105,7 @@ Permet d’obtenir l’intégrité d’un nœud Service Fabric. EventsHealthSta
 | --debug                  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                | Affiche ce message d’aide et quitte.|
 | --output -o              | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query                  | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                  | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-info"></a>sfctl node info
@@ -127,7 +127,7 @@ Permet d’obtenir des informations sur un nœud spécifique du cluster Service 
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
 | --output -o        | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query            | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query            | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose          | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-list"></a>sfctl node list
@@ -150,7 +150,7 @@ Permet d’obtenir la liste des nœuds du cluster Service Fabric. La réponse c
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
 | --output -o      | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query          | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query          | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose        | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-load"></a>sfctl node load
@@ -172,7 +172,7 @@ Permet de récupérer les informations sur le chargement d’un nœud Service Fa
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
 | --output -o        | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query            | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query            | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose          | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-restart"></a>sfctl node restart
@@ -196,7 +196,7 @@ Redémarre un nœud de cluster Service Fabric déjà démarré.
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
 | --output -o        | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query            | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query            | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose          | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-transition"></a>sfctl node transition
@@ -223,9 +223,9 @@ Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « St
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
 | --output -o                       | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.                       Valeur par défaut : json.|
-| --query                           | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                           | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                         | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

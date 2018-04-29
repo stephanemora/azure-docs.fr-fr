@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparer les versions V1 et V2 d’Azure Data Factory
 Cet article compare la version V2 à la version V1 d’Azure Data Factory. Pour une présentation de V1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). Pour une présentation de V2, consultez [Présentation d’Azure Data Factory (V2 - préversion)](introduction.md).
@@ -139,11 +139,7 @@ Les Kits de développement logiciel (SDK) mis à jour pour V2 ne sont pas compat
 
 ## <a name="roles-and-permissions"></a>Rôles et autorisations
 
-Pour créer et gérer des ressources enfants d’une Data Factory v2 :
-
--   Le rôle de contributeur de Data Factory version 1 ne peut pas être utilisé pour créer et gérer les ressources v2.
--   Le rôle de contributeur d’ARM standard, créé sur la ressource Data Factory, est suffisant pour créer et gérer des ressources enfants d’une Data Factory v2 déployée avec PowerShell ou les kits de développement logiciel (SDK). Il n’est pas suffisant pour créer et gérer des ressources enfants d’une Data Factory v2 déployée à partir du portail Azure ou avec le modèle de déploiement ARM.
--   Pour créer et gérer des ressources enfants d’une Data Factory v2 déployée à partir du portail Azure ou avec le modèle de déploiement ARM, vous devez être membre du rôle « Opérateur de travaux Automation » au niveau du groupe de ressources ou au niveau de l’abonnement. Votre organisation peut également créer un rôle personnalisé qui contient « Microsoft.Resources/deployments/* » dans la liste « Actions », comme décrit dans [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md).
+Le rôle de contributeur de Data Factory version 1 ne peut pas être utilisé pour créer et gérer les ressources Data Factory v2.
 
 ## <a name="monitoring-experience"></a>Expérience de surveillance
 Dans V2, vous pouvez également surveiller les fabriques de données à l’aide d’[Azure Monitor](monitor-using-azure-monitor.md). Les nouvelles applets de commande PowerShell prennent en charge la surveillance des [runtimes d’intégration](monitor-integration-runtime.md). V1 et V2 prennent toutes deux en charge la surveillance visuelle à l’aide d’une application de surveillance pouvant être lancée depuis le portail Azure.

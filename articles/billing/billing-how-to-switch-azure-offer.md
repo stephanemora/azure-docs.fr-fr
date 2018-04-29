@@ -1,11 +1,11 @@
 ---
-title: "Modification de votre offre d’abonnement Azure | Microsoft Docs"
-description: "Découvrez comment changer votre abonnement Azure et basculer vers une autre offre à l’aide du Centre des comptes Azure."
-services: 
-documentationcenter: 
+title: Modification de votre offre d’abonnement Azure | Microsoft Docs
+description: Découvrez comment changer votre abonnement Azure et basculer vers une autre offre à l’aide du Centre des comptes Azure.
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Changer votre abonnement Paiement à l’utilisation Azure pour une autre offre
 
@@ -63,9 +63,9 @@ En tant que client [avec paiement à l’utilisation](https://azure.microsoft.co
 1. Vous pouvez renommer votre abonnement. Par défaut, nous le définissons sur le nom de la nouvelle offre. Cliquez sur **Changer d’offre** pour terminer le processus.
 
    ![Cliquez sur le bouton vert](./media/billing-how-to-switch-azure-offer/confirmpage.png)
-1. C’est terminé ! Votre abonnement est désormais associé à la nouvelle offre.
+1. Vous avez réussi ! Votre abonnement est désormais associé à la nouvelle offre.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="what-is-an-azure-offer"></a>Qu'est-ce qu'une offre Azure ?
 

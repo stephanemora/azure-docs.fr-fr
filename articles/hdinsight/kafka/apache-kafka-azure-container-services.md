@@ -1,24 +1,24 @@
 ---
 title: Utiliser Azure Container Service avec Kafka sur HDInsight | Microsoft Docs
-description: "Découvrez comment utiliser Kafka sur HDInsight à partir d’images de conteneur hébergées dans Azure Container Service (AKS)."
+description: Découvrez comment utiliser Kafka sur HDInsight à partir d’images de conteneur hébergées dans Azure Container Service (AKS).
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Utiliser Azure Container Service avec Kafka sur HDInsight
 
@@ -30,6 +30,7 @@ Découvrez comment utiliser Azure Container Service (AKS) avec Kafka sur un clus
 > Ce document se concentre sur les étapes à suivre pour permettre à Azure Container Service de communiquer avec Kafka sur HDInsight. Nous prenons pour exemple un simple client Kafka pour montrer que la configuration fonctionne.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Abonnement Azure
@@ -108,7 +109,7 @@ Lorsque vous créez le cluster Kafka sur le cluster HDInsight, vous devez joindr
 
 Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adresses IP plutôt que des noms de domaine :
 
-1. Accédez à https://CLUSTERNAME.azurehdinsight.net via votre navigateur web. Remplacez __CLUSTERNAME__ par le nom du cluster Kafka sur HDInsight.
+1. À l’aide d’un navigateur web, accédez à https://CLUSTERNAME.azurehdinsight.net. Remplacez __CLUSTERNAME__ par le nom du cluster Kafka sur HDInsight.
 
     Lorsque vous y êtes invité, utilisez le nom et le mot de passe utilisateur HTTPS correspondant au cluster. L’interface utilisateur web d’Ambari pour le cluster s’affiche.
 

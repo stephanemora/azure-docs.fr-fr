@@ -7,11 +7,11 @@ manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Utiliser une image de la Place de marché Microsoft Azure pour créer une machine virtuelle Terraform pour Linux avec Managed Service Identity
 
@@ -89,7 +89,7 @@ Le script précédent utilise la méthode de [connexion interactive avec AZ CLI 
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Pour plus d’informations sur la gestion de l’état à distance, consultez [cette page sur l’état à distance Terraform](https://www.terraform.io/docs/state/remote.html). La clé d’accès de stockage est exposée dans ce fichier et doit être vérifiée avec soin dans le contrôle de code source.  
+ Pour plus d’informations sur la gestion de l’état à distance, consultez [cette page sur l’état à distance Terraform](https://www.terraform.io/docs/state/remote.html). La clé d’accès de stockage est exposée dans ce fichier et doit être exclue avant la validation des fichiers de configuration Terraform dans le contrôle de code source.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à créer une machine virtuelle Terraform pour Linux sur Azure. Pour en savoir plus sur Terraform sur Azure, consultez les ressources supplémentaires suivantes : 

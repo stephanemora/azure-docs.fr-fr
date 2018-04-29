@@ -16,12 +16,12 @@ Ces ressources IaaS classiques sont prises en charge lors de la migration
 * Virtual Network
 * Passerelles VPN
 * Passerelles ExpressRoute _(dans le même abonnement que Réseau virtuel uniquement)_
-* Network Security Group 
-* Tables de routage 
-* IP réservées 
+* Network Security Group
+* Tables de routage
+* IP réservées
 
 ## <a name="supported-scopes-of-migration"></a>Étendues de migration prises en charge
-Il existe 4 façons différentes de migrer les ressources de calcul, de réseau et de stockage. Les voici : 
+Il existe 4 façons différentes de migrer les ressources de calcul, de réseau et de stockage. Les voici :
 
 * Migration de machines virtuelles (ne figurant PAS dans un réseau virtuel)
 * Migration de machines virtuelles (dans un réseau virtuel)
@@ -77,7 +77,7 @@ Les fonctionnalités non prises en charge actuellement sont les suivantes. Si vo
 | Calcul | Images de machine virtuelle. | Les objets BLOB VHD derrière ces disques seront migrés lors de la migration du compte de stockage |
 | Réseau | Listes de contrôle d’accès de points de terminaison. | Supprimez les listes de contrôle d’accès des points de terminaison et réessayez la migration. |
 | Réseau | Application Gateway | Supprimez l’Application Gateway avant de commencer la migration, puis recréez l’Application Gateway une fois la migration terminée. |
-| Réseau | Réseaux virtuels à l’aide de l’homologation de réseaux virtuels (VNet Peering). | Migrez le réseau virtuel vers Resource Manager, puis homologuez-le. Apprenez-en plus sur l’[Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Réseau | Réseaux virtuels à l’aide de l’homologation de réseaux virtuels (VNet Peering). | Migrez le réseau virtuel vers Resource Manager, puis homologuez-le. Apprenez-en plus sur l’[Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Configurations non prises en charge
 Les configurations non prises en charge actuellement sont les suivantes.
@@ -85,7 +85,7 @@ Les configurations non prises en charge actuellement sont les suivantes.
 | de diffusion en continu | Configuration | Recommandation |
 | --- | --- | --- |
 | Gestionnaire de ressources |Contrôle d’accès en fonction du rôle (RBAC) pour les ressources Classic |L’URI des ressources étant modifié après la migration, il est recommandé de planifier les mises à jour de stratégie RBAC à exécuter après la migration. |
-| Calcul |Plusieurs sous-réseaux associés à une machine virtuelle |Mettez à jour la configuration du sous-réseau afin de référencer uniquement des sous-réseaux. |
+| Calcul |Plusieurs sous-réseaux associés à une machine virtuelle |Mettez à jour la configuration de sous-réseau afin de ne référencer qu’un seul sous-réseau. Pour cette opération, vous devrez peut-être supprimer de la machine virtuelle une carte réseau secondaire (se rapportant à un autre sous-réseau), puis la rattacher une fois la migration effectuée. |
 | Calcul |Machines virtuelles appartenant à un réseau virtuel, mais auxquelles aucun sous-réseau n’est affecté de manière explicite |Si vous le souhaitez, vous pouvez supprimer la machine virtuelle. |
 | Calcul |Machines virtuelles dotées d’alertes et de stratégies de mise à l’échelle automatique |La migration a lieu et ces paramètres sont ignorés. Il est vivement recommandé d’évaluer votre environnement avant de procéder à la migration. Vous pouvez également choisir de reconfigurer les paramètres d’alerte une fois la migration terminée. |
 | Calcul |Extensions XML de machines virtuelles (BGInfo 1.*, débogueur Visual Studio, Web Deploy et débogage à distance) |Ce n’est pas pris en charge. Il est recommandé de supprimer ces extensions de la machine virtuelle pour continuer la migration ; sinon, elles seront automatiquement supprimées pendant le processus de migration. |

@@ -1,3 +1,26 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 79b6b8e5d81d3885f9c125f971f3e32e695cf2b1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/28/2018
+---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
 Ce guide explique comment une application de bureau Windows .NET (XAML) native peut obtenir un jeton d’accès et appeler l’API Microsoft Graph ou d’autres API qui nécessitent des jetons d’accès provenant d’un point de terminaison Azure Active Directory v2.
@@ -7,7 +30,7 @@ Ce guide explique comment une application de bureau Windows .NET (XAML) native p
 > [!NOTE] 
 > Le guide requiert Visual Studio 2015 Update 3 ou Visual Studio 2017.  Vous n’avez aucune de ces versions ? [Téléchargez gratuitement Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-## <a name="how-this-guide-works"></a>Fonctionnement de ce guide
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 
 ![Fonctionnement de ce guide](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5316013631670ab3612e441e64e2f330f01941b7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Mesures de Stockage Azure dans Azure Monitor (version préliminaire)
 
@@ -28,23 +28,23 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder avec le [Portail Azure](https://portal.azure.com), les API d’Azure Monitor (REST et .NET) et des solutions d’analyse comme Log Analytics et Event Hub. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder depuis le [portail Azure](https://portal.azure.com), les API d’Azure Monitor (REST et .Net) et les solutions d’analyse comme Operation Management Suite et Event Hubs. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Les mesures sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) dans Azure Monitor.
+Les mesures sont activées par défaut et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) dans Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Accéder aux mesures dans le portail Azure
 
-Vous pouvez surveiller les mesures au fil du temps dans le portail Azure. Voici un exemple montrant comment afficher **UsedCapacity** au niveau du compte.
+Vous pouvez surveiller les mesures au fil du temps dans le portail Azure. L’exemple suivant montre comment afficher **UsedCapacity** au niveau du compte.
 
 ![capture d’écran d’accès aux mesures dans le portail Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Pour les mesures prenant en charge des dimensions, vous devez filtrer avec la valeur de dimension souhaitée. Voici un exemple montrant comment afficher **Transactions** au niveau du compte avec le type de réponse **Réussite**.
+Pour les mesures prenant en charge des dimensions, vous devez filtrer avec la valeur de dimension souhaitée. L’exemple suivant montre comment afficher des **Transactions** au niveau du compte avec le type de réponse **Opération réussie**.
 
 ![capture d’écran d’accès aux mesures avec une dimension dans le portail Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
 ### <a name="access-metrics-with-the-rest-api"></a>Accéder aux mesures avec l’API REST
 
-Azure Monitor fournit des [API REST](/rest/api/monitor/) pour les définitions et valeurs de mesures. Cette section vous montre comment lire les mesures de stockage. L’ID de ressource est utilisé dans toutes les API REST. Pour plus d’informations, consultez [Présentation de l’ID de ressource pour des services dans Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor fournit des [API REST](/rest/api/monitor/) pour les définitions et valeurs de mesures. Cette section vous montre comment lire les mesures de stockage. L’ID de ressource est utilisé dans toutes les API REST. Pour plus d’informations, consultez [Compréhension de l’ID de ressource pour des services dans Storage](#understanding-resource-id-for-services-in-storage).
 
 L’exemple suivant montre comment utiliser [ArmClient](https://github.com/projectkudu/ARMClient) sur la ligne de commande pour simplifier les tests avec l’API REST.
 
@@ -139,9 +139,151 @@ La réponse suivante contient des valeurs de mesures au format JSON :
 
 ```
 
-## <a name="billing-for-metrics"></a>Facturation des mesures
+### <a name="access-metrics-with-the-net-sdk"></a>Accéder aux mesures avec le kit de développement logiciel (SDK) .Net
 
-L’utilisation de mesures dans Azure Monitor est actuellement gratuite. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de mesures, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Sinon, Log Analytics vous est facturé si vous diffusez des données de métriques vers Log Analytics à des fins d’analyse avancée.
+Azure Monitor fournit des [kits de développement logiciel (SDK) .Net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou version ultérieure pour les mesures de stockage. L’ID de ressource est utilisé dans le kit de développement logiciel (SDK) .Net. Pour plus d’informations, consultez [Compréhension de l’ID de ressource pour des services dans Storage](#understanding-resource-id-for-services-in-storage).
+
+L’exemple suivant montre comment utiliser le kit de développement logiciel (SDK) Azure Monitor .Net pour lire les mesures de stockage.
+
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Répertorier les définitions de mesures au niveau du compte avec le kit de développement logiciel (SDK) .Net
+
+L’exemple suivant montre comment répertorier les définition de mesures au niveau du compte :
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+Si vous souhaitez répertorier les définitions de mesures d’objet blob, table, fichier ou file d’attente, vous devez spécifier des ID de ressources différents pour chaque service avec l’API.
+
+#### <a name="read-metric-values-with-the-net-sdk"></a>Lire les valeurs de mesure avec le kit de développement logiciel .Net
+
+L’exemple suivant montre comment lire des données `UsedCapacity` au niveau du compte :
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metric: "UsedCapacity",
+
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+Dans l’exemple ci-dessus, si vous souhaitez lire des valeurs de mesures d’objet blob, table, fichier ou file d’attente, vous devez spécifier des ID de ressources différents pour chaque service avec l’API.
+
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Lire les valeurs de mesures multidimensionnelles avec le kit de développement logiciel (SDK) .Net
+
+Pour les mesures multidimensionnelles, vous devez définir le filtre des métadonnées si vous souhaitez lire les données métriques sur la valeur de dimension spécifique.
+
+L’exemple suivant montre comment lire les données de mesures sur la métrique prenant en charge plusieurs dimensions :
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metric: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Présentation des ID de ressources pour des services dans Stockage Azure
 
@@ -187,8 +329,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## <a name="capacity-metrics"></a>Métriques de capacité
-
-Les valeurs de mesures de capacité sont envoyées à Azure Monitor toutes les heures. Les valeurs sont actualisées chaque jour. Le fragment de temps définit l’intervalle de temps pour lequel des valeurs de mesures sont présentées. Le fragment de temps pris en charge pour toutes les mesures de capacité est d’une heure (PT1H).
+Les valeurs de mesures de capacité sont envoyées à Azure Monitor toutes les heures. Les valeurs sont actualisées tous les jours. Le fragment de temps définit l’intervalle de temps pour lequel des valeurs de mesures sont présentées. Le fragment de temps pris en charge pour toutes les mesures de capacité est d’une heure (PT1H).
 
 Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
@@ -230,7 +371,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 | FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
 | FileShareCount | Nombre de partages de fichiers dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
 
-## <a name="transaction-metrics"></a>Mesures de transaction
+## <a name="transaction-metrics"></a>Métriques de transaction
 
 Les mesures de transaction sont envoyées de Stockage Azure à Azure Monitor toutes les minutes. Toutes les mesures de transaction sont disponibles au niveau du compte et au niveau du service (stockage d’objets blob, stockage de tables, fichiers Azure et stockage de files d’attente). Le fragment de temps définit l’intervalle de temps auquel des valeurs de mesures sont présentées. Les fragments de temps pris en charge pour toutes les mesures de transaction sont PT1H et PT1M.
 
@@ -252,7 +393,7 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 | Nom de la dimension | Description |
 | ------------------- | ----------------- |
 | /BlobType | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob** et **PageBlob**. Append Blob est inclus dans BlockBlob. |
-| ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. (Pas encore pris en charge) </li> <li> ServerTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> ThrottlingError : somme des erreurs de limitation côté client et côté serveur (elle sera supprimée lorsque ServerBusyError et ClientThrottlingError seront pris en charge) </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>  ClientThrottlingError : erreur de limitation côté client (pas encore pris en charge) </li> <li> ClientTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Réussite : requête réussie|
+| ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li> ServerTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>    ClientThrottlingError : erreur de limitation côté client. </li> <li> ClientTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Réussite : requête réussie|
 | GeoType | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent Principal et Secondaire. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
 | ApiName | Nom de l’opération. Par exemple :  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
@@ -260,8 +401,8 @@ Pour les mesures prenant en charge des dimensions, vous devez spécifier la vale
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuité de service d’anciennes mesures
 
-Les anciennes mesures sont disponibles en parallèle avec les mesures gérées d’Azure Monitor. La prise en charge permet de les conserver jusqu’à ce que Stockage Azure mette fin au service des anciennes mesures. Nous annoncerons le plan de fin de prise en charge après la publication officielle des mesures gérées d’Azure Monitor.
+Les anciennes mesures sont disponibles en parallèle avec les mesures gérées d’Azure Monitor. La prise en charge permet de les conserver jusqu’à ce que Stockage Azure mette fin au service des anciennes mesures.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)

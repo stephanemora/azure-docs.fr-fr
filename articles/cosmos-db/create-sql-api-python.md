@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/13/2018
 ms.author: sngun
-ms.openlocfilehash: 5b9206a7bbd0fe5afcb2c65f2270fc67dffee4e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2e439b260ae2964aeab33c100db3f62e0bd06f33
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application API SQL avec Python et le Portail Azure
 
@@ -26,16 +26,14 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et exécuter une application console basée sur [l’API Python SQL](sql-api-sdk-python.md).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-* Par ailleurs :
-    * Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
-    * Outils Python pour Visual Studio disponibles dans [GitHub](http://microsoft.github.io/PTVS/). Ce didacticiel utilise Python Tools for Visual Studio 2015.
-    * Python 2.7 disponible auprès de [python.org](https://www.python.org/downloads/release/python-2712/)
+* [Python 3.6](https://www.python.org/downloads/) avec \<l’emplacement d’installation\>\Python36 et \<l’emplacement d’installation>\Python36\Scripts ajoutés à votre chemin d’accès. 
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Extension Python pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
@@ -45,21 +43,41 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## <a name="add-sample-data"></a>Ajouter un exemple de données
+
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+
+## <a name="query-your-data"></a>Interroger vos données
+
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
 À présent, nous allons cloner une application API SQL à partir de github, configurer la chaîne de connexion et l’exécuter. Vous pouvez constater à quel point il est facile de travailler par programmation avec des données. 
 
-1. Ouvrez une fenêtre de terminal git, comme git bash, et accédez à un répertoire de travail à l’aide de la commande `cd`.  
+1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
 
-2. Exécutez la commande suivante pour cloner l’exemple de référentiel : 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Ouvrez une fenêtre de terminal git comme Git Bash et utilisez la commande `cd` pour accéder au nouveau dossier d’installation pour l’exemple d’application.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
     ```  
+    
 ## <a name="review-the-code"></a>Vérifier le code
 
-Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le fichier DocumentDBGetStarted.py, et vous découvrirez que ces lignes de code créent les ressources Azure Cosmos DB. 
+Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
+Tous les extraits de code suivants proviennent du fichier DocumentDBGetStarted.py.
 
 * Le DocumentClient est initialisé.
 
@@ -123,28 +141,55 @@ Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le 
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous utiliserez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier `DocumentDBGetStarted.py` à l’étape suivante.
+1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, cliquez sur **Clés** dans le volet de navigation de gauche. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier **l’URI** et la **clé primaire** dans le fichier DocumentDBGetStarted.py à l’étape suivante.
 
-    ![Affichage et copie d’une clé d’accès dans le portail Azure, panneau Clés](./media/create-sql-api-dotnet/keys.png)
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-dotnet/keys.png)
 
-2. Ouvrez le fichier `DocumentDBGetStarted.py`. 
+2. Ouvrez le fichier C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py dans Visual Studio Code. 
 
-3. Copiez votre valeur URI à partir du portail (à l’aide du bouton Copier) et définissez-la comme la valeur de la clé du point de terminaison dans `DocumentDBGetStarted.py`. 
+3. Copiez votre valeur **URI** à partir du portail (à l’aide du bouton Copier) et définissez-la comme valeur de la clé du **point de terminaison** dans le fichier DocumentDBGetStarted.py. 
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. Puis, copiez votre valeur de clé primaire à partir du portail et définissez-la comme la valeur de `config.MASTERKEY` dans `DocumentDBGetStarted.py`. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+4. Puis, copiez votre valeur de **clé primaire** à partir du portail et définissez-la comme valeur du paramètre **config.MASTERKEY** dans le fichier DocumentDBGetStarted.py. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
     `'MASTERKEY': 'FILLME',`
+
+5. Enregistrez le fichier DocumentDBGetStarted.py.
     
 ## <a name="run-the-app"></a>Exécution de l'application
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, sélectionnez l’environnement Python actuel, puis cliquez avec le bouton droit.
 
-2. Sélectionnez Installer le package Python, puis tapez dans **pydocumentdb**
+1. Dans Visual Studio Code, sélectionnez **Affichage**>**Palette de commandes**. 
 
-3. Lancez F5 pour exécuter l'application. Votre application s’affiche dans votre navigateur. 
+2. À l’invite, saisissez **Python: Select Interpreter**, puis sélectionnez la version de Python à utiliser.
 
-Vous pouvez dès à présent revenir à l’Explorateur de données et voir la requête, modifier et travailler avec ces nouvelles données. 
+    Le pied de page dans Visual Studio Code affiche désormais l’interpréteur sélectionné. 
+
+3. Sélectionnez **Affichage** > **Terminal intégré** pour ouvrir le terminal intégré Visual Studio Code.
+
+4. Dans la fenêtre du terminal intégré, vérifiez que vous vous trouvez dans le dossier azure-cosmos-db-documentdb-python-getting-started. Si ce n’est pas le cas, exécutez la commande suivante pour passer au dossier d’exemple. 
+
+    ```
+    cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
+    ```
+
+5. Exécutez la commande suivante pour installer le package pydocumentdb. 
+
+    ```
+    pip3 install pydocumentdb
+    ```
+
+    Si vous obtenez une erreur d’accès refusé lorsque vous tentez d’installer pydocumentdb, vous devrez [exécuter VS Code en tant qu’administrateur](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
+
+6. Exécutez la commande suivante pour exécuter l’exemple, et créer et stocker de nouveaux documents dans Azure Cosmos DB.
+
+    ```
+    python DocumentDBGetStarted.py
+    ```
+
+7. Pour vérifier que les nouveaux documents ont été créés et enregistrés, dans le portail Azure, sélectionnez **Explorateur de données**, développez **coll**, développez **Documents**, puis sélectionnez le document **server1**. Le contenu du document server1 correspond au contenu retourné dans la fenêtre du terminal intégré. 
+
+    ![Affichage des nouveaux documents dans le portail Azure](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
@@ -152,10 +197,7 @@ Vous pouvez dès à présent revenir à l’Explorateur de données et voir la r
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante :
-
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

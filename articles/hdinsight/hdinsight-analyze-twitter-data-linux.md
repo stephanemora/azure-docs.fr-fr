@@ -1,26 +1,24 @@
 ---
-title: "Analyser des données Twitter avec Apache Hive - Azure HDInsight | Documents Microsoft"
-description: "Découvrez comment utiliser Hive et Hadoop sur HDInsight pour transformer des données TWitter brutes en une table Hive utilisable pour effectuer des recherches."
+title: Analyser des données Twitter avec Apache Hive - Azure HDInsight | Documents Microsoft
+description: Découvrez comment utiliser Hive et Hadoop sur HDInsight pour transformer des données TWitter brutes en une table Hive utilisable pour effectuer des recherches.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analyser des données Twitter avec Hive et Hadoop sur HDInsight
 
@@ -37,7 +35,7 @@ Twitter vous permet de récupérer les [données de chaque tweet](https://dev.tw
 
 ### <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
-1. Depuis un navigateur Web, connectez-vous à [https://apps.twitter.com/](https://apps.twitter.com/). Cliquez sur le lien **Sign up now** si vous ne possédez pas de compte Twitter.
+1. Dans un navigateur web, connectez-vous à [https://apps.twitter.com/](https://apps.twitter.com/). Cliquez sur le lien **Sign up now** si vous ne possédez pas de compte Twitter.
 
 2. Cliquez sur **Create New App**.
 
@@ -179,9 +177,9 @@ Le code Python suivant télécharge 10 000 tweets à partir de Twitter et les e
 
 Pour télécharger les données vers le stockage HDInsight, utilisez les commandes suivantes :
 
-   ```bash
-   hdfs dfs -mkdir -p /tutorials/twitter/data
-   hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
+```bash
+hdfs dfs -mkdir -p /tutorials/twitter/data
+hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
 Ces commandes stockent les données dans un emplacement accessible à tous les nœuds du cluster.

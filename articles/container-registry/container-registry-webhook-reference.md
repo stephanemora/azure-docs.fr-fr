@@ -1,18 +1,18 @@
 ---
-title: "Référence de schéma de webhook Azure Container Registry"
-description: "Référence de charge utile JSON de requête de Webhook pour Azure Container Registry."
+title: Référence de schéma de webhook Azure Container Registry
+description: Référence de charge utile JSON de requête de Webhook pour Azure Container Registry.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Référence de webhook Azure Container Registry
 
@@ -40,33 +40,33 @@ Webhook déclenché lorsqu’une image conteneur est envoyée vers un référent
 
 ### <a name="push-event-payload"></a>Charge utile d’événement push
 
-|Élément|Type|Description|
+|Élément|type|Description|
 |-------------|----------|-----------|
-|`id`|String|ID de l’événement de webhook.|
-|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|String|Action qui a déclenché l’événement de webhook.|
+|`id`|Chaîne|ID de l’événement de webhook.|
+|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
 ### <a name="target"></a>cible
 
-|Élément|Type|Description|
+|Élément|type|Description|
 |------------------|----------|-----------|
-|`mediaType`|String|Type MIME de l’objet référencé.|
+|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu. Identique au champ Longueur.|
-|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
 |`length`|Int32|Nombre d’octets du contenu. Identique au champ Taille.|
-|`repository`|String|Nom du référentiel.|
-|`tag`|String|Nom de la balise d’image.|
+|`repository`|Chaîne|Nom du référentiel.|
+|`tag`|Chaîne|Nom de la balise d’image.|
 
 ### <a name="request"></a>request
 
-|Élément|Type|Description|
+|Élément|type|Description|
 |------------------|----------|-----------|
-|`id`|String|ID de la requête qui a initié l’événement.|
-|`host`|String|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
-|`method`|String|Méthode de requête qui a généré l’événement.|
-|`useragent`|String|En-tête d’agent utilisateur de la requête.|
+|`id`|Chaîne|ID de la requête qui a initié l’événement.|
+|`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
+|`method`|Chaîne|Méthode de requête qui a généré l’événement.|
+|`useragent`|Chaîne|En-tête d’agent utilisateur de la requête.|
 
 ### <a name="payload-example-push-event"></a>Exemple de charge utile : événement push
 
@@ -104,30 +104,30 @@ Webhook déclenché lorsqu’un référentiel ou un manifeste est supprimé. Non
 
 ### <a name="delete-event-payload"></a>Charge utile d’événement de suppression
 
-|Élément|Type|Description|
+|Élément|type|Description|
 |-------------|----------|-----------|
-|`id`|String|ID de l’événement de webhook.|
-|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|String|Action qui a déclenché l’événement de webhook.|
+|`id`|Chaîne|ID de l’événement de webhook.|
+|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#delete_request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
 ### <a name="delete_target"></a> cible
 
-|Élément|Type|Description|
+|Élément|type|Description|
 |------------------|----------|-----------|
-|`mediaType`|String|Type MIME de l’objet référencé.|
-|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
-|`repository`|String|Nom du référentiel.|
+|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
+|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`repository`|Chaîne|Nom du référentiel.|
 
 ### <a name="delete_request"></a> requête
 
-|Élément|Type|Description|
+|Élément|type|Description|
 |------------------|----------|-----------|
-|`id`|String|ID de la requête qui a initié l’événement.|
-|`host`|String|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
-|`method`|String|Méthode de requête qui a généré l’événement.|
-|`useragent`|String|En-tête d’agent utilisateur de la requête.|
+|`id`|Chaîne|ID de la requête qui a initié l’événement.|
+|`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
+|`method`|Chaîne|Méthode de requête qui a généré l’événement.|
+|`useragent`|Chaîne|En-tête d’agent utilisateur de la requête.|
 
 ### <a name="payload-example-delete-event"></a>Exemple de charge utile : événement de suppression
 

@@ -1,14 +1,14 @@
 ---
-title: "Configurer la surveillance des événements avec Azure Event Hubs pour Azure Logic Apps | Microsoft Docs"
-description: "Surveiller des flux de données afin de recevoir et d’envoyer des événements avec vos applications logique en utilisant Azure Event Hubs"
+title: Configurer la surveillance des événements avec Azure Event Hubs pour Azure Logic Apps | Microsoft Docs
+description: Surveiller des flux de données afin de recevoir et d’envoyer des événements avec vos applications logique en utilisant Azure Event Hubs
 services: logic-apps
-keywords: "flux de données, observateur d’événements, event hubs"
+keywords: flux de données, observateur d’événements, event hubs
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,17 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Surveillez, recevez et envoyez des événements avec le connecteur Event Hubs
 
 Pour configurer un observateur d’événements afin que votre application logique puisse détecter, recevoir et envoyer des événements, connectez-vous à un hub [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) à partir de votre application logique. Apprenez-en davantage sur [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) et la [tarification des connecteurs Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour pouvoir utiliser le connecteur Event Hubs, vous devez disposer des éléments suivants :
 
@@ -76,11 +77,28 @@ Un [*déclencheur*](../logic-apps/logic-apps-overview.md#logic-app-concepts) dé
 3. Sélectionnez le hub d’événements à surveiller, puis définissez l’intervalle et la fréquence de contrôle du hub d’événements.
 
     ![Spécifier un hub Event Hubs ou un groupe de consommateurs](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > Tous les déclencheurs Event Hub sont des déclencheurs *d’interrogation longue*, ce qui signifie que lorsqu’un déclencheur est activé, celui-ci traite tous les événements puis attend 30 secondes le temps qu’un plus grand nombre d’événements s’affichent dans l’Event Hub.
+    > Si aucun événement n’est reçu dans les 30 secondes, l’exécution du déclencheur est ignorée. Dans le cas contraire, le déclencheur poursuit la lecture des événements jusqu’à ce que l’Event Hub soit vide.
+    > La prochaine interrogation de déclencheur est basée sur l’intervalle de récurrence spécifié dans les propriétés du déclencheur.
 
-    > [!TIP]
-    > Si vous souhaitez sélectionner un groupe de consommateurs pour la lecture des événements, choisissez **Afficher les options avancées**.
 
-4. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+4. Pour sélectionner certaines des options avancées du déclencheur, choisissez **Afficher les options avancées**.
+
+    ![Options avancées du déclencheur](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Propriété | Détails |
+    | --- | --- |
+    | Type de contenu  |Dans la liste déroulante, sélectionnez le type de contenu des événements. Par défaut, application/octet-stream est sélectionné. |
+    | Schéma du contenu |Entrez le schéma du contenu au format JSON pour les événements qui sont lus à partir de l’Event Hub. |
+    | Nom du groupe de consommateurs |Entrez le [nom du groupe de consommateurs](../event-hubs/event-hubs-features.md#consumer-groups) de l’Event Hub pour lire les événements. Lorsque le nom du groupe de consommateurs n’est pas spécifié, le groupe de consommateurs par défaut est utilisé. |
+    | Clé de partition minimum |Entrez l’ID de [partition](../event-hubs/event-hubs-features.md#partitions) minimum à lire. Par défaut, toutes les partitions sont lues. |
+    | Clé de partition maximum |Entrez l’ID de [partition](../event-hubs/event-hubs-features.md#partitions) maximum à lire. Par défaut, toutes les partitions sont lues. |
+    | Nombre d’événements maximum |Entrez une valeur pour le nombre maximum d’événements. Le déclencheur retourne entre 1 et le nombre d’événements spécifié par cette propriété. |
+    |||
+
+5. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 Désormais, quand votre application logique vérifie le hub d’événements sélectionné et trouve un nouvel événement, le déclencheur exécute les actions de votre logique d’application pour l’événement trouvé.
 

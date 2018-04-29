@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 L’audit de bases de données SQL Azure suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
@@ -165,8 +165,18 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 3. Revenez au panneau de configuration de l’audit, remplacez la clé d’accès de stockage secondaire par la clé primaire, puis cliquez sur **OK**. Cliquez ensuite sur **Enregistrer** en haut du panneau de configuration de l’audit.
 4. Revenez au panneau de configuration du stockage, puis régénérez la clé d’accès secondaire (en préparation du cycle suivant d’actualisation des clés).
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gérer l’audit de base de données SQL avec Azure PowerShell
+## <a name="additional-information"></a>Informations supplémentaires
 
+* Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > Azure SQL Database stocke 4 000 caractères de données pour des champs caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
+
+* Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
+   * **Stockage Premium** n’est actuellement  **pas pris en charge** par l’ajout d’objets blob.
+   * Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gérer l’audit de base de données SQL avec Azure PowerShell
 
 * **Applets de commande PowerShell**:
 

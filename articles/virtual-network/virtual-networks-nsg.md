@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrer le trafic réseau avec les groupes de sécurité réseau
 
@@ -50,8 +50,8 @@ Les règles de groupe de sécurité réseau contiennent les propriétés suivant
 | **Protocole** |Protocole à faire correspondre à la règle. |TCP, UDP ou * |L’utilisation de la valeur * en guise de protocole inclut ICMP (trafic est-ouest uniquement), ainsi qu’UDP et TCP, et peut réduire le nombre de règles dont vous avez besoin.<br/>Dans le même temps, l’utilisation de la valeur * peut constituer une approche trop large. Il est donc recommandé de ne l’utiliser qu’en cas de réelle nécessité. |
 | **Plage de ports source** |Plage de ports sources à faire correspondre à la règle. |Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65535) ou * (pour tous les ports). |Les ports source peuvent être éphémères. Privilégiez l’utilisation de * dans la plupart des cas, sauf si votre programme client utilise un port spécifique.<br/>Dans la mesure du possible, essayez d’utiliser des plages de ports pour éviter d’avoir à disposer de plusieurs règles.<br/>Il est impossible de regrouper plusieurs ports ou plages de ports à l’aide d’une virgule. |
 | **Plage de ports de destination** |Plage de ports de destination à faire correspondre à la règle. |Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65535) ou \* (pour tous les ports). |Dans la mesure du possible, essayez d’utiliser des plages de ports pour éviter d’avoir à disposer de plusieurs règles.<br/>Il est impossible de regrouper plusieurs ports ou plages de ports à l’aide d’une virgule. |
-| **Préfixe d’adresse source** |Préfixe d’adresse source ou balise à faire correspondre à la règle. |Adresse IP unique (par exemple, 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24), [balise par défaut](#default-tags) ou * (pour toutes les adresses). |Envisagez d’utiliser des plages, des balises par défaut et * pour réduire le nombre de règles. |
-| **Préfixe d’adresse de destination** |Préfixe d’adresse de destination ou balise à faire correspondre à la règle. | Adresse IP unique (par exemple, 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24), [balise par défaut](#default-tags) ou * (pour toutes les adresses). |Envisagez d’utiliser des plages, des balises par défaut et * pour réduire le nombre de règles. |
+| **Préfixe d’adresse source** |Préfixe d’adresse source ou balise à faire correspondre à la règle. |Adresse IP unique (par exemple, 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24), [balise de service](#service-tags) ou * (pour toutes les adresses). |Envisagez d’utiliser des plages, des balises de service et * pour réduire le nombre de règles. |
+| **Préfixe d’adresse de destination** |Préfixe d’adresse de destination ou balise à faire correspondre à la règle. | Adresse IP unique (par exemple, 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24), [balise par défaut](#service-tags) ou * (pour toutes les adresses). |Envisagez d’utiliser des plages, des balises de service et * pour réduire le nombre de règles. |
 | **Direction** |Direction du trafic à faire correspondre à la règle. |Entrant ou sortant. |Les règles de trafic entrant et de trafic sortant sont traitées séparément, en fonction de la direction. |
 | **Priorité** |Les règles sont vérifiées dans l’ordre de priorité. Une fois qu’une règle s’applique, plus aucune correspondance de règle n’est testée. | Nombre compris entre 100 et 4096. | Envisagez de créer des règles de passage des priorités par 100 pour chaque règle afin de laisser de la place pour les règles que vous pourriez créer à l’avenir. |
 | **Access** |Type d’accès à appliquer si la règle correspond. | Autoriser ou refuser. | N’oubliez pas que si la règle d’autorisation d’un paquet est introuvable, le paquet est abandonné. |
@@ -62,36 +62,13 @@ Les NSG contiennent deux ensembles de règles : les règles de trafic entrant et
 
 La figure ci-dessus illustre le mode de traitement des règles de NSG.
 
-### <a name="default-tags"></a>Balises par défaut
-Les balises par défaut sont des identificateurs fournis par le système pour adresser une catégorie d’adresses IP. Vous pouvez utiliser les balises par défaut dans les propriétés du **préfixe d’adresse source** et du **préfixe d’adresse de destination** de toute règle. Les balises par défaut que vous pouvez utiliser sont au nombre de trois :
+### <a name="default-tags"></a>Balises système
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** pour Classic) : cette balise inclut l’espace d’adressage du réseau virtuel (plages CIDR définies dans Azure), ainsi que tous les espaces d’adressage locaux connectés et les réseaux virtuels Azure connectés (réseaux locaux).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour Classic) : cette balise désigne l’équilibreur de charge de l’infrastructure Azure. Elle convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure Load Balancer.
-* **Internet** (Resource Manager) (**INTERNET** pour Classic) : cette balise indique l’espace d’adressage IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. La plage inclut [l’espace IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Les balises de service sont des identificateurs fournis par le système pour adresser une catégorie d’adresses IP. Vous pouvez utiliser les balises de service dans les propriétés du **préfixe d’adresse source** et du **préfixe d’adresse de destination** de toute règle de sécurité. En savoir plus sur les [balises de service](security-overview.md#service-tags).
 
-### <a name="default-rules"></a>Règles par défaut
-Tous les groupes de ressources réseau contiennent un ensemble de règles par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. 
+### <a name="default-rules"></a>Règles de sécurité par défaut
 
-Les règles par défaut autorisent et interdisent le trafic comme suit :
-- **Réseau virtuel :** le trafic en provenance et à destination d’un réseau virtuel est autorisé à la fois dans les directions entrante et sortante.
-- **Internet :** le trafic sortant est autorisé, mais le trafic entrant est bloqué.
-- **Équilibreur de charge :** Azure Load Balancer est autorisé à tester l’intégrité de vos machines virtuelles et instances de rôle. Si vous remplacez cette règle, les sondes d’intégrité d’Azure Load Balancer échoueront, ce qui peut affecter votre service.
-
-**Les règles par défaut sont :**
-
-| NOM | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65 000 | VirtualNetwork | * | VirtualNetwork | * | * | AUTORISER |
-| AllowAzureLoadBalancerInBound | 65 001 | AzureLoadBalancer | * | * | * | * | AUTORISER |
-| DenyAllInBound |65 500 | * | * | * | * | * | Deny |
-
-**Les règles sortantes par défaut sont :**
-
-| NOM | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65 000 | VirtualNetwork | * | VirtualNetwork | * | * | AUTORISER |
-| AllowInternetOutBound | 65 001 | * | * | Internet | * | * | AUTORISER |
-| DenyAllOutBound | 65 500 | * | * | * | * | * | Deny |
+Tous les groupes de sécurité réseau contiennent un ensemble de règles de sécurité par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. Découvrez d’autres informations sur les [règles de sécurité par défaut](security-overview.md#default-security-rules).
 
 ## <a name="associating-nsgs"></a>Association de groupe de sécurité réseau
 Vous pouvez associer un NSG à des machines virtuelles, à des NIC et à des sous-réseaux, selon le modèle de déploiement que vous utilisez, en procédant comme suit :
@@ -127,7 +104,7 @@ Vous pouvez implémenter des NSG dans les modèles de déploiement Resource Mana
 | PowerShell     | [Oui](virtual-networks-create-nsg-classic-ps.md) | [Oui](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [Oui](virtual-networks-create-nsg-classic-cli.md) | [Oui](tutorial-filter-network-traffic-cli.md) |
 | Azure CLI **V2**   | Non  | [Oui](tutorial-filter-network-traffic-cli.md) |
-| Modèle Azure Resource Manager   | Non   | [Oui](virtual-networks-create-nsg-arm-template.md) |
+| Modèle Azure Resource Manager   | Non   | [Oui](template-samples.md) |
 
 ## <a name="planning"></a>Planification
 Avant d’implémenter des groupes de sécurité réseau, vous devez répondre aux questions suivantes :

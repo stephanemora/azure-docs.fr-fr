@@ -1,11 +1,11 @@
 ---
-title: "Glossaire du développeur Azure Active Directory | Microsoft Docs"
-description: "Liste de termes liés aux concepts et fonctionnalités de développeur Azure Active Directory couramment utilisés."
+title: Glossaire du développeur Azure Active Directory | Microsoft Docs
+description: Liste de termes liés aux concepts et fonctionnalités de développeur Azure Active Directory couramment utilisés.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossaire du développeur Azure Active Directory
 Cet article contient des définitions pour certains des principaux concepts de développeur Azure Active Directory (AD), qui s’avèrent utiles lors de l’apprentissage du développement d’applications pour Azure AD.
@@ -54,7 +54,7 @@ Afin de pouvoir s’intégrer à Azure AD et déléguer à ce service les foncti
 
 Pour plus d’informations, consultez [Integrating applications with Azure Active Directory (Intégration d’applications dans Azure Active Directory)][AAD-Integrating-Apps].
 
-## <a name="authentication"></a>authentication
+## <a name="authentication"></a>Authentification
 Action de demander à une partie des informations d’identification légitimes, fournissant la base de la création d’un principal de sécurité à des fins de contrôle de l’identité et de l’accès. Pendant un [octroi d’autorisation OAuth2](#authorization-grant) par exemple, la partie s’authentifiant remplit le rôle de [propriétaire des ressources](#resource-owner) ou [d’application cliente](#client-application), selon l’octroi utilisé.
 
 ## <a name="authorization"></a>autorisation
@@ -203,7 +203,7 @@ Utilisez la section des commentaires suivante pour fournir des commentaires et n
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
@@ -63,7 +63,7 @@ La configuration des bases de données doit faire partie de votre stratégie de 
 
 L’application Wingtip Tickets, qui comporte une base de données par locataire, provisionne les nouveaux locataires en copiant la base de données de modèle nommée _basetenantdb_, qui est déployée sur le serveur de catalogue. Le provisionnement peut être intégré à l’application dans le cadre d’un abonnement. Il est également possible d’effectuer un provisionnement hors connexion, à l’aide de scripts. Ce tutoriel décrit le processus de provisionnement à l’aide de PowerShell. 
 
-Les scripts de provisionnement copient la base de données _basetenantdb_ pour créer une nouvelle base de données de locataire dans un pool élastique. Ensuite, les scripts initialisent la base de données avec les informations du locataire, et l’inscrivent dans la carte de partitions du catalogue. Les bases de données des locataires portent le nom de leur locataire. Ce schéma de nommage ne constitue pas un élément essentiel du modèle. Le catalogue mappe la clé de locataire dans le nom de la base de données, ce qui permet d’utiliser n’importe quelle convention de nommage. 
+Les scripts de provisionnement copient la base de données _basetenantdb_ pour créer une nouvelle base de données de locataire dans un pool élastique. La base de données de locataire est créée dans le serveur du locataire mappé sur l’alias DNS _newtenant_. Cet alias conserve une référence au serveur utilisé pour provisionner de nouveaux locataires et est mis à jour pour pointer vers un serveur de locataire de récupération dans les didacticiels consacrés à la récupération d’urgence ([DR using georestore](saas-dbpertenant-dr-geo-restore.md) (La récupération d’urgence à l’aide de la géorestauration), [DR using georeplication](saas-dbpertenant-dr-geo-replication.md)) (la récupération d’urgence à l’aide de la géoréplication). Ensuite, les scripts initialisent la base de données avec les informations du locataire, et l’inscrivent dans la carte de partitions du catalogue. Les bases de données des locataires portent le nom de leur locataire. Ce schéma de nommage ne constitue pas un élément essentiel du modèle. Le catalogue mappe la clé de locataire dans le nom de la base de données, ce qui permet d’utiliser n’importe quelle convention de nommage. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application SaaS Wingtip Tickets comportant une base de données par locataire

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Tutoriel : Exécuter des applications dans Azure Container Service (ACS)
 
@@ -115,7 +115,7 @@ Pour afficher l’application, accédez à l’adresse IP externe.
 
 Si l’application ne s’est pas chargée, il y a peut-être un problème d’autorisation avec votre registre d’images.
 
-Suivez ces étapes pour [autoriser l’accès via un secret Kubernetes](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Suivez ces étapes pour [autoriser l’accès via un secret Kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

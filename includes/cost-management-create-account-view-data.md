@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>Afficher les données de coût
 
 Azure Cost Management (de Cloudyn) vous permet d’accéder à toutes vos données de ressources cloud. À partir des rapports de tableau de bord, vous trouverez des rapports standard et personnalisés dans une vue à onglets. Voici quelques exemples d’un tableau de bord populaire et d’un rapport qui indiquent des données de coûts immédiatement.

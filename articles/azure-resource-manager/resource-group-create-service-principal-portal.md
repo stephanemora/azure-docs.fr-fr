@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
 
@@ -46,13 +46,13 @@ Pour cette article, vous devez disposer des autorisations suffisantes pour enreg
 
    ![afficher les inscriptions d’applications](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les utilisateurs administrateurs peuvent inscrire des applications. Vérifiez si votre compte est administrateur de l’abonné Azure AD. Sélectionnez **vue d’ensemble** et consultez vos informations utilisateur. Si le rôle Utilisateur est assigné à votre compte mais que le paramètre d’inscription d’application (de l’étape précédente) est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous assigner un rôle administrateur ou d’autoriser les utilisateurs à inscrire des applications.
+1. Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les [administrateurs généraux](../active-directory/active-directory-assign-admin-roles-azure-portal.md) peuvent inscrire des applications. Vérifiez si votre compte est administrateur de l’abonné Azure AD. Sélectionnez **vue d’ensemble** et consultez vos informations utilisateur. Si le rôle Utilisateur est assigné à votre compte mais que le paramètre d’inscription d’applications (de l’étape précédente) est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous assigner un rôle administrateur général ou d’autoriser les utilisateurs à inscrire des applications.
 
    ![rechercher un utilisateur](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Vérifier les autorisations d’abonnement Azure
 
-Dans votre abonnement Azure, votre compte doit disposer d’un accès `Microsoft.Authorization/*/Write` pour affecter un rôle à une application AD. Cette action est accordée par le biais du rôle [Propriétaire](../active-directory/role-based-access-built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Si le rôle **Collaborateur** est affecté à votre compte, vous ne disposez pas de l’autorisation appropriée. Vous recevez un message d’erreur lorsque vous tentez d’attribuer le principal de service à un rôle.
+Dans votre abonnement Azure, votre compte doit disposer d’un accès `Microsoft.Authorization/*/Write` pour affecter un rôle à une application AD. Cette action est accordée par le biais du rôle [Propriétaire](../role-based-access-control/built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator). Si le rôle **Collaborateur** est affecté à votre compte, vous ne disposez pas de l’autorisation appropriée. Vous recevez un message d’erreur lorsque vous tentez d’attribuer le principal de service à un rôle.
 
 Pour vérifier vos autorisations d’abonnement :
 
@@ -135,7 +135,7 @@ Lors d’une connexion par programmation, vous devez transmettre l’ID de locat
 
 ## <a name="assign-application-to-role"></a>Affecter l’application à un rôle
 
-Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
+Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
@@ -167,5 +167,5 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer une application mutualisée, consultez le [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
-* Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md).  
-* Pour une liste des actions disponibles qui peuvent être autorisées ou refusées aux utilisateurs, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).  
+* Pour une liste des actions disponibles qui peuvent être autorisées ou refusées aux utilisateurs, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md).

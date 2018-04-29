@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Surveiller les connexions réseau avec Azure Network Watcher à l’aide du portail Azure
 
@@ -70,4 +70,4 @@ Les étapes suivantes permettent de contrôler la connexion à une machine virtu
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en [créant une capture de paquets déclenchée par alerte](network-watcher-alert-triggered-packet-capture.md).
-- Déterminez si certains types de trafic sont autorisés au sein ou en dehors de votre machine virtuelle en [vérifiant le flux IP](network-watcher-check-ip-flow-verify-portal.md).
+- Déterminez si certains types de trafic sont autorisés au sein ou en dehors de votre machine virtuelle en [vérifiant le flux IP](diagnose-vm-network-traffic-filtering-problem.md).

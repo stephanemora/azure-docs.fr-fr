@@ -1,11 +1,11 @@
 ---
-title: "Ajout ou modification de rôles d’abonnement administrateur Azure | Microsoft Docs"
-description: "Décrit comment ajouter ou modifier un coadministrateur, administrateur de services et administrateur de compte Azure"
-services: 
-documentationcenter: 
+title: Ajout ou modification de rôles d’abonnement administrateur Azure | Microsoft Docs
+description: Décrit comment ajouter ou modifier un coadministrateur, administrateur de services et administrateur de compte Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
-Les administrateurs d’abonnements Azure Classic et Azure [RBAC (Role-Based Access Control)](../active-directory/role-based-access-control-what-is.md) sont deux systèmes de gestion de l’accès aux ressources Azure :
+Les administrateurs d’abonnements Azure Classic et Azure [RBAC (Role-Based Access Control)](../role-based-access-control/overview.md) sont deux systèmes de gestion de l’accès aux ressources Azure :
 
 * Les rôles d’administrateur d’abonnements Classic offrent une gestion des accès de base et incluent l’administrateur de compte, l’administrateur de services fédérés et les coadministrateurs.
     * Lorsque vous souscrivez un nouvel abonnement Azure, votre compte est défini en tant qu’administrateur de compte et administrateur de services fédérés par défaut.
@@ -41,10 +41,12 @@ Pour ajouter un utilisateur comme administrateur pour l’administration de serv
 
 1. Visitez [**Abonnements** dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Sélectionnez l’abonnement auquel octroyer un accès.
-3. Sélectionnez **Contrôle d’accès (IAM)** dans le menu.
-4. Dans la zone **Rôle**, sélectionnez **Propriétaire**. 
-5. Dans la zone **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**. 
-6. Dans la zone **Sélectionner**, tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire. Sélectionnez l’utilisateur, puis **Enregistrer**.
+3. Sélectionnez **Ajouter**  
+   (Si le bouton Ajouter manque, vous n’êtes pas autorisé à ajouter des autorisations.)
+4. Sélectionnez **Contrôle d’accès (IAM)** dans le menu.
+5. Dans la zone **Rôle**, sélectionnez **Propriétaire**. 
+6. Dans la zone **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**. 
+7. Dans la zone **Sélectionner**, tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire. Sélectionnez l’utilisateur, puis **Enregistrer**.
 
     ![Capture d’écran montrant le rôle Propriétaire sélectionné](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -91,8 +93,8 @@ Seul l’administrateur de compte peut modifier l’administrateur de services f
 
   | Méthode de connexion | Ajouter l’utilisateur de compte Microsoft comme administrateur de services fédérés ? | Ajouter le compte professionnel ou scolaire de la même organisation comme administrateur de services fédérés ? | Ajouter le compte professionnel ou scolaire d’une autre organisation comme administrateur de services fédérés ? |
   | --- | --- | --- | --- |
-  |  Compte Microsoft |Oui |Non  |Non  |
-  |  Compte professionnel ou scolaire |Oui |Oui |Non  |
+  |  Compte Microsoft |OUI |Non  |Non  |
+  |  Compte professionnel ou scolaire |OUI |OUI |Non  |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Modifier l’administrateur de compte d’un abonnement Azure
 
@@ -111,7 +113,7 @@ L’administrateur de compte est l’utilisateur qui a initialement souscrit l�
  Dans Azure, les trois types de rôle d’administrateur d’abonnements Classic sont Administrateur de compte, Administrateur de services fédérés et Coadministrateur. Le compte qui est utilisé pour l’inscription à Azure est automatiquement défini en tant qu’administrateur de compte et administrateur de services fédérés. Par la suite, des coadministrateurs peuvent être ajoutés. Le tableau suivant décrit les différences exactes entre ces trois rôles d’administrateur. 
 
 > [!TIP]
-> Pour un meilleur contrôle et une gestion fine des accès, nous vous recommandons l’utilisation d’Azure RBAC (Role-Based Access Control), qui permet aux utilisateurs d’être ajoutés à plusieurs rôles. Pour en savoir plus, consultez la rubrique [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-what-is.md).
+> Pour un meilleur contrôle et une gestion fine des accès, nous vous recommandons l’utilisation d’Azure RBAC (Role-Based Access Control), qui permet aux utilisateurs d’être ajoutés à plusieurs rôles. Pour en savoir plus, consultez la rubrique [Contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/overview.md).
 
 | Administrateur d’abonnements classiques | Limite | Description |
 | --- | --- | --- |
@@ -121,7 +123,7 @@ L’administrateur de compte est l’utilisateur qui a initialement souscrit l�
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>En savoir plus sur le contrôle d’accès aux ressources et Active Directory
 
-* Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, consultez la page[Présentation de l’accès aux ressources dans Azure](../active-directory/active-directory-understanding-resource-access.md).
+* Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, consultez la page[Présentation de l’accès aux ressources dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Pour plus d’informations sur Azure Active Directory, consultez les pages [Association des abonnements Azure avec Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) et [Affecter des rôles Administrateur dans Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.

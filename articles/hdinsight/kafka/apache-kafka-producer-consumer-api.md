@@ -1,8 +1,8 @@
 ---
 title: Utiliser les API de producteur et de consommateur Apache Kafka - Azure HDInsight | Microsoft Docs
-description: "Découvrez comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Ces API permettent de développer des applications qui écrivent et lisent à partir d’Apache Kafka."
+description: Découvrez comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Ces API permettent de développer des applications qui écrivent et lisent à partir d’Apache Kafka.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: b57745d6bd993a993e923c964327d9071e745413
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 01592401c4c88adeed49b11df4e7963e27b1bcee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>API de producteur et de consommateur Apache Kafka
 
@@ -63,7 +63,7 @@ Cet exemple nécessite Kafka sur HDInsight 3.6. Pour découvrir comment créer u
 
 ## <a id="run"></a> Exécuter l’exemple
 
-1. Pour ouvrir une connexion SSH au cluster, utilisez la commande suivante :
+1. Pour ouvrir une connexion SSH au cluster, utilisez la commande suivante :
 
     ```bash
     ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
@@ -71,7 +71,7 @@ Cet exemple nécessite Kafka sur HDInsight 3.6. Pour découvrir comment créer u
 
     Remplacez **SSHUSER** par l’utilisateur SSH pour votre cluster, et remplacez **CLUSTERNAME** par le nom de votre cluster. Si vous y êtes invité, entrez le mot de passe du compte d’utilisateur SSH. Pour en savoir plus sur l’utilisation de `scp` avec HDInsight, voir [Utiliser SSH avec Hadoop - Azure HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Pour créer les rubriques Kafka utilisées par cet exemple, exécutez les commandes suivantes :
+2. Pour créer les rubriques Kafka utilisées par cet exemple, exécutez les commandes suivantes :
 
     ```bash
     sudo apt -y install jq
@@ -148,5 +148,5 @@ Dans ce document, vous avez découvert comment utiliser les API de consommateur 
 * [Utiliser le streaming Apache Spark (DStream) avec Kafka sur HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Utiliser Apache Spark Structured Streaming avec Kafka sur HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Utiliser Apache Spark Structured Streaming pour déplacer des données de Kafka sur HDInsight vers Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Utiliser Apache Storm avec Kafka sur HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Se connecter à Kafka via un réseau virtuel Azure](apache-kafka-connect-vpn-gateway.md)
+* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md) (Utilisation d’Apache Storm avec Kafka sur HDInsight)
+* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md) (Se connecter à Kafka via un réseau virtuel Azure)

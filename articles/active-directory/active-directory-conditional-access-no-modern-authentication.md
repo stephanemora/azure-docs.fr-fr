@@ -1,25 +1,25 @@
 ---
-title: "Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory."
+title: Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory | Microsoft Docs
+description: Découvrez comment configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c527d4511ab2dd3bb349c10c1defb24723fef59a
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: aff37c4b440fe545ba69a409b9dcd83deabf7660
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory 
 
@@ -56,7 +56,7 @@ Voici des exemples d’applications clientes auxquelles l’accès conditionnel 
 
 En plus de l’authentification moderne, SharePoint Online prend en charge des protocoles d’authentification hérités. Si les protocoles d’authentification hérités sont activés, vos stratégies d’accès conditionnel pour SharePoint ne sont pas appliquées pour les clients qui n’utilisent pas l’authentification moderne.
 
-Vous pouvez désactiver les protocoles d’authentification hérités pour l’accès SharePoint à l’aide de l’applet de commande **[Set-SPOTenant](https://technet.microsoft.com/library/fp161390.aspx)** : 
+Vous pouvez désactiver les protocoles d’authentification hérités pour l’accès SharePoint à l’aide de l’applet de commande **[Set-SPOTenant](https://technet.microsoft.com/library/fp161390.aspx)**  : 
 
     Set-SPOTenant -LegacyAuthProtocolsEnabled $false
 
@@ -181,6 +181,10 @@ En appliquant les trois règles suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+Pour obtenir des instructions sur la configuration des règles de revendication, consultez [Configurer les règles de revendication](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules). 
+
+
 
 
 

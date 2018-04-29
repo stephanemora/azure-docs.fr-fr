@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e7693ea40df2bf12fd6e9be2ef627f30748bcd
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Interroge et envoie des commandes vers le service gestionnaire de réparation.
@@ -47,7 +47,7 @@ Cette API prend en charge la plateforme Service Fabric ; elle n’est pas cens
 |    --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h           | Affiche ce message d’aide et quitte.|
 |    --output -o         | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.
-|    --query             | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+|    --query             | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 |    --verbose           | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 
@@ -69,9 +69,9 @@ Cette API prend en charge la plateforme Service Fabric ; elle n’est pas cens
 |    --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h        | Affiche ce message d’aide et quitte.|
 |    --output -o      | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Default| json.|
-|    --query          | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+|    --query          | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 |    --verbose        | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

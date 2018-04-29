@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fae9d7f871dbb20f19bfd61576e017b3910ee8f4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -29,21 +29,13 @@ La mise à l’échelle d’un travail Stream Analytics tire parti des partitio
 
 ### <a name="inputs"></a>Entrées
 Toutes les entrées Azure Stream Analytics peuvent tirer parti du partitionnement :
--   EventHub (nécessité de définir la clé de partition explicitement)
--   IoT Hub (nécessité de définir la clé de partition explicitement)
+-   EventHub (nécessité de définir la clé de partition explicitement avec le mot clé PARTITION BY)
+-   IoT Hub (nécessité de définir la clé de partition explicitement avec le mot clé PARTITION BY)
 -   Stockage d'objets blob
 
 ### <a name="outputs"></a>Outputs
 
-Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement dans les sorties :
--   Azure Data Lake Storage
--   Azure Functions
--   table Azure
--   Stockage d'objets blob
--   CosmosDB (nécessité de définir la clé de partition explicitement)
--   EventHub (nécessité de définir la clé de partition explicitement)
--   IoT Hub (nécessité de définir la clé de partition explicitement)
--   Service Bus
+Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement pour la plupart des récepteurs de sortie. Plus d’informations sur le partitionnement de la sortie sont disponibles dans la [section sur le partitionnement de la page de sortie](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
 
 Les sorties PowerBI, SQL et SQL Data Warehouse ne prennent pas en charge le partitionnement. Toutefois, vous pouvez toujours partitionner l’entrée comme décrit dans [cette section](#multi-step-query-with-different-partition-by-values) 
 
@@ -56,7 +48,7 @@ Pour plus d’informations sur les partitions, consultez les articles suivants 
 ## <a name="embarrassingly-parallel-jobs"></a>Travaux massivement parallèles
 Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure Stream Analytics. Elle permet de connecter une partition de l’entrée à une instance de la requête, puis de connecter celle-ci à une partition de la sortie. Ce parallélisme comporte les exigences suivantes :
 
-1. Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Pour les concentrateurs d’événements, cela signifie que les données d’événement doivent posséder la valeur **PartitionKey** définie. Par ailleurs, vous pouvez utiliser des expéditeurs partitionnés. Pour le stockage d’objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête ne requiert pas la même clé pour être traitée par la même instance de requête, vous pouvez ignorer cette condition. Un exemple de cette logique serait une requête simple du type select/project/filter.  
+1. Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Pour Event Hubs ou IoT Hub, cela signifie que vous devez définir la valeur de **PartitionKey** pour les données d’événement. Par ailleurs, vous pouvez utiliser des expéditeurs partitionnés. Pour le stockage d’objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête ne requiert pas la même clé pour être traitée par la même instance de requête, vous pouvez ignorer cette condition. Un exemple de cette logique serait une requête simple du type select/project/filter.  
 
 2. Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **PARTITION BY** à toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Pour le moment, la clé de partitionnement doit être définie sur **PartitionId** afin que le travail soit entièrement parallèle.  
 
@@ -66,6 +58,7 @@ Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure
 
    * 8 partitions d’entrée de concentrateur Event Hub et 8 partitions de sortie de concentrateur Event Hub
    * 8 partitions d’entrée de concentrateur Event Hub et une sortie de stockage d’objets blob  
+   * 8 partitions d’entrée de hub IoT et 8 partitions de sortie de hub d’événement
    * 8 partitions d’entrée de stockage d’objets blob et une sortie de stockage d’objets blob  
    * 8 partitions d’entrée de stockage d’objets blob et 8 partitions de sortie de concentrateur Event Hub  
 

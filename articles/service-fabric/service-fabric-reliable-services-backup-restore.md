@@ -1,6 +1,6 @@
 ---
 title: Sauvegarde et restauration de Service Fabric | Microsoft Docs
-description: "Documentation conceptuelle relative à la sauvegarde et à la restauration de Service Fabric"
+description: Documentation conceptuelle relative à la sauvegarde et à la restauration de Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
 Azure Service Fabric est une plateforme haute disponibilité qui réplique l’état sur plusieurs nœuds afin de conserver cette haute disponibilité.  Ainsi, même si un nœud du cluster échoue, les services continuent à être disponibles. Bien que cette redondance intégrée fournie par la plateforme suffise pour certains, dans d’autres cas, il est souhaitable que le service sauvegarde les données (dans un magasin externe).
@@ -99,7 +99,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 }
 ```
 
-Dans l’exemple précédent, `ExternalBackupStore` est l’exemple de classe qui sert d’interface avec le Stockage Blob Azure, et `UploadBackupFolderAsync` est la méthode qui compresse le dossier et le place dans le magasin d’objets blob Azure.
+Dans l’exemple précédent, `ExternalBackupStore` est l’exemple de classe qui sert d’interface avec le stockage Blob Azure, et `UploadBackupFolderAsync` est la méthode qui compresse le dossier et le place dans le magasin d’objets blob Azure.
 
 Notez les points suivants :
 
@@ -153,7 +153,7 @@ Par exemple, s’il contient la sauvegarde complète, les première et troisièm
 > 
 
 ## <a name="deleted-or-lost-service"></a>Service supprimé ou perdu
-Si un service est supprimé, vous devez d’abord le recréer pour que les données puissent être restaurées.  Il est important de créer le service avec la même configuration, par exemple, le schéma de partitionnement, afin que les données puissent être restaurées en toute transparence.  Une fois le service opérationnel, l’API permettant de restaurer les données (`OnDataLossAsync` ci-dessus) doit être appelée sur chacune de ses partitions. Pour cela, vous pouvez utiliser `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` sur chaque partition.  
+Si un service est supprimé, vous devez d’abord le recréer pour que les données puissent être restaurées.  Il est important de créer le service avec la même configuration, par exemple le schéma de partitionnement, afin que les données puissent être restaurées de manière fluide.  Une fois le service opérationnel, l’API permettant de restaurer les données (`OnDataLossAsync` ci-dessus) doit être appelée sur chacune de ses partitions. Pour cela, vous pouvez utiliser `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` sur chaque partition.  
 
 À ce stade, l’implémentation est identique au scénario ci-dessus. Chaque partition doit restaurer la dernière sauvegarde pertinente à partir du magasin externe. L’inconvénient est que l’ID de partition peut avoir changé, étant donné que le runtime crée des ID de partition de manière dynamique. Par conséquent, le service doit stocker les informations de partition appropriées et le nom du service pour identifier la dernière sauvegarde correcte à restaurer pour chaque partition.
 
@@ -164,7 +164,7 @@ Si un service est supprimé, vous devez d’abord le recréer pour que les donn�
 ## <a name="replication-of-corrupt-application-data"></a>Réplication des données d’application endommagées
 Si la mise à niveau de l’application récemment déployée comporte un bogue, des données risquent d’être endommagées. Par exemple, une mise à niveau de l’application peut commencer à mettre à jour les enregistrements de numéro de téléphone d’un Dictionnaire fiable en utilisant un indicatif non valide.  Dans ce cas, les numéros de téléphone non valides seront répliqués, car Service Fabric ne connaît pas la nature des données stockées.
 
-La première chose que vous devez faire après avoir détecté un bogue si flagrant qui endommage les données est de figer le service au niveau de l’application et, si possible, de procéder à une mise à niveau vers une version du code d’application qui exclut le bogue.  Cependant, même une fois que le code du service est résolu, les données peuvent être toujours endommagées et les données peuvent avoir besoin d’être restaurées.  Dans ce cas, restaurer la dernière sauvegarde peut ne pas suffire, étant donné qu’elle peut également être endommagée.  Il convient donc de rechercher la dernière sauvegarde effectuée avant que les données ne soient endommagées.
+La première chose que vous devez faire après avoir détecté un bogue si flagrant qui endommage les données est de figer le service au niveau de l’application et, si possible, de procéder à une mise à niveau vers une version du code d’application qui exclut le bogue.  Cependant, même une fois que le code du service est résolu, les données peuvent toujours être endommagées et par conséquent avoir besoin d’être restaurées.  Dans ce cas, restaurer la dernière sauvegarde peut ne pas suffire, étant donné qu’elle peut également être endommagée.  Il convient donc de rechercher la dernière sauvegarde effectuée avant que les données ne soient endommagées.
 
 Si vous ne savez pas exactement quelles mises à jour sont endommagées, vous pouvez déployer un nouveau cluster Service Fabric et restaurer les sauvegardes des partitions affectées comme dans le scénario de « service supprimé ou perdu » ci-dessus.  Pour chaque partition, lancer la restauration de sauvegardes de la plus récente à la plus ancienne. Une fois que vous avez trouvé une sauvegarde ne présentant pas de corruption, déplacez/supprimez toutes les sauvegardes de partition plus récentes (que cette sauvegarde). Répétez ce processus pour chaque partition. À présent, lorsque `OnDataLossAsync` est appelé sur la partition dans le cluster de production, la dernière sauvegarde trouvée dans le magasin externe est celle choisie par le processus ci-dessus.
 
@@ -222,7 +222,7 @@ Une fois la sauvegarde incrémentielle activée, elle peut échouer avec l’err
   - Le réplica n’a jamais fait l’objet d’une sauvegarde complète depuis qu’il est devenu le principal.
   - Certains enregistrements de journal ont été tronqués depuis la dernière sauvegarde.
 
-Lorsque la sauvegarde incrémentielle est activée, `KvsActorStateProvider` n’utilise pas de mémoire tampon circulaire pour gérer ses enregistrements et les tronque de temps en temps. Si aucune sauvegarde n’est effectuée par l’utilisateur pendant une période de 45 minutes, le système tronque automatiquement les enregistrements du journal. Vous pouvez configurer cet intervalle en spécifiant `logTrunctationIntervalInMinutes` dans le constructeur `KvsActorStateProvider` (comme pour activer la sauvegarde incrémentielle). Les enregistrements de journal peuvent également être tronqués si le réplica principal nécessaire doit créer un autre réplica en envoyant toutes ses données.
+Lorsque la sauvegarde incrémentielle est activée, `KvsActorStateProvider` n’utilise pas de mémoire tampon circulaire pour gérer ses enregistrements et les tronque de temps en temps. Si aucune sauvegarde n’est effectuée par l’utilisateur pendant une période de 45 minutes, le système tronque automatiquement les enregistrements du journal. Vous pouvez configurer cet intervalle en spécifiant `logTrunctationIntervalInMinutes` dans le constructeur `KvsActorStateProvider` (comme pour activer la sauvegarde incrémentielle). Les enregistrements de journal peuvent également être tronqués si le réplica principal doit créer un autre réplica en envoyant toutes ses données.
 
 Lors de la restauration à partir d’une chaîne de sauvegarde, comme pour Reliable Services, BackupFolderPath doit contenir des sous-répertoires avec un seul sous-répertoire contenant la sauvegarde complète et les autres sous-répertoires contenant les sauvegardes incrémentielles. Si la validation de la chaîne de sauvegarde échoue, l’API de restauration lance une exception FabricException avec le message d’erreur correspondant. 
 
@@ -246,7 +246,7 @@ Le gestionnaire d’état fiable offre la possibilité de créer des sauvegardes
 
 Une transaction validée après l’appel de `BackupAsync` peut figurer ou non dans la sauvegarde.  Une fois que le dossier de sauvegarde local a été rempli par la plateforme (c’est-à-dire que la sauvegarde locale est effectuée par le runtime), le rappel de sauvegarde du service est appelé.  Ce rappel est chargé de déplacer le dossier de sauvegarde vers un emplacement externe comme Azure Storage.
 
-### <a name="restore"></a>Restauration
+### <a name="restore"></a>Restore
 Le gestionnaire d’état fiable permet de restaurer une sauvegarde à l’aide de l’API `RestoreAsync`.  
 La méthode `RestoreAsync` sur `RestoreContext` ne peut être appelée qu’au sein de la méthode `OnDataLossAsync`.
 Le booléen retourné par `OnDataLossAsync` indique si le service a été restauré à cet état à partir d’une source externe.
@@ -255,12 +255,7 @@ Pour les responsables de l’implémentation de StatefulService, cela implique q
 Ensuite, la méthode `OnDataLossAsync` est appelée sur le nouveau réplica principal.
 L’API continuera d’être appelée jusqu’à ce que l’API se termine correctement (en renvoyant true ou false) et termine la reconfiguration concernée.
 
-`RestoreAsync` supprime d’abord tout état existant dans le réplica principal sur lequel elle a été appelée.  
-Le gestionnaire d’état fiable crée ensuite tous les objets fiables qui existent dans le dossier de sauvegarde.  
-Les objets fiables sont alors invités à procéder à une restauration à partir de leurs points de contrôle dans le dossier de sauvegarde.  
-Enfin, le gestionnaire d’état fiable récupère son propre état à partir d’enregistrements de journal dans le dossier de sauvegarde, puis effectue la récupération.  
-Dans le cadre de la récupération, les opérations commençant à partir du point de départ qui ont validé des enregistrements de journal dans le dossier de sauvegarde sont relues dans les objets fiables.  
-Cette étape garantit que l’état récupéré est cohérent.
+`RestoreAsync` supprime d’abord tout état existant dans le réplica principal sur lequel elle a été appelée. Le gestionnaire d’état fiable crée ensuite tous les objets fiables qui existent dans le dossier de sauvegarde. Les objets fiables sont alors invités à procéder à une restauration à partir de leurs points de contrôle dans le dossier de sauvegarde. Enfin, le gestionnaire d’état fiable récupère son propre état à partir d’enregistrements de journal dans le dossier de sauvegarde, puis effectue la récupération. Dans le cadre de la récupération, les opérations commençant à partir du point de départ qui ont validé des enregistrements de journal dans le dossier de sauvegarde sont relues dans les objets fiables. Cette étape garantit que l’état récupéré est cohérent.
 
 ## <a name="next-steps"></a>Étapes suivantes
   - [Collections fiables](service-fabric-work-with-reliable-collections.md)
@@ -268,4 +263,5 @@ Cette étape garantit que l’état récupéré est cohérent.
   - [Notifications Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuration de Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Sauvegarde et restauration périodiques dans Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

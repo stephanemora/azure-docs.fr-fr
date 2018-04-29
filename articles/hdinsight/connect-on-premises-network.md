@@ -8,16 +8,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Connecter HDInsight à votre réseau local
 
@@ -297,7 +295,7 @@ Pour créer un cluster HDInsight, procédez de la manière décrite dans [Créer
 
 ## <a name="connecting-to-hdinsight"></a>Connexion à HDInsight
 
-L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via internet. Par exemple, vous pouvez vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
+L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via Internet. Par exemple, vous devez pouvoir vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
 
 Certains documents font également référence à `headnodehost` lors de la connexion au cluster à partir d’une session SSH. Cette adresse est uniquement disponible à partir des nœuds d’un cluster, et elle n’est pas utilisable sur les clients connectés au réseau virtuel.
 

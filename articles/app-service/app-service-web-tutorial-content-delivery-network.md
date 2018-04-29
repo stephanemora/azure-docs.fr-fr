@@ -10,11 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 131424b4a09beeca7c2e318a04e454bea7dab6a7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Tutoriel : Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service
 
@@ -48,7 +48,7 @@ Pour créer l’application web que vous allez utiliser, suivez les instructions
 
 ### <a name="have-a-custom-domain-ready"></a>Nécessité d’avoir un nom de domaine
 
-Pour suivre l’étape relative au domaine personnalisé de ce didacticiel, vous devez posséder un domaine personnalisé et avoir accès à votre registre DNS pour votre fournisseur de domaine (tel que GoDaddy). Par exemple, pour ajouter des entrées DNS pour `contoso.com` et `www.contoso.com`, vous devez pouvoir configurer les paramètres DNS du domaine racine `contoso.com`.
+Pour suivre l’étape relative au domaine personnalisé de ce didacticiel, vous devez posséder un domaine personnalisé et avoir accès à votre registre DNS pour votre fournisseur de domaine. Par exemple, pour ajouter des entrées DNS pour `contoso.com` et `www.contoso.com`, vous devez pouvoir configurer les paramètres DNS du domaine racine `contoso.com`.
 
 Si vous n’avez pas encore de nom de domaine, suivez le [didacticiel sur le domaine App Service](custom-dns-web-site-buydomains-web-app.md) pour acheter un domaine à l’aide du portail Azure. 
 

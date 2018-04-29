@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
@@ -42,7 +42,7 @@ Les environnements suivants sont pris en charge :
 
 1. Si vous ne l’avez pas encore fait, [Activez Application Insights dans votre application web](app-insights-asp-net.md).
 
-2. Incluez le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application. 
+2. Incluez le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application.
 
 3. Examinez les options par défaut que le package a ajoutées à [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -92,10 +92,18 @@ Les environnements suivants sont pris en charge :
 
 3. Modifiez la classe `Startup` de votre application pour ajouter et configurer le processeur de télémétrie du collecteur de captures instantanées.
 
+    Ajoutez les paramètres suivants à l’aide des instructions pour `Startup.cs`
+
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   Ajoutez les paramètres suivants de la classe `SnapshotCollectorTelemetryProcessorFactory` à la classe `Startup`.
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -111,11 +119,11 @@ Les environnements suivants sont pris en charge :
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    Ajoutez les services `SnapshotCollectorConfiguration` et `SnapshotCollectorTelemetryProcessorFactory` au pipeline de start-up :
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -178,7 +186,7 @@ Les environnements suivants sont pris en charge :
         }
    }
     ```
-    
+
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
 Les propriétaires de l’abonnement Azure peuvent inspecter des captures instantanées. Les autres utilisateurs doivent y être autorisés par un propriétaire.
@@ -208,7 +216,7 @@ Une pile d’appel et un volet de variables s’affichent dans la vue Capture in
 Les captures instantanées peuvent contenir des informations sensibles qui, par défaut, ne sont pas visibles. Pour afficher les captures instantanées, le rôle `Application Insights Snapshot Debugger` doit vous être attribué.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Déboguer des captures instantanées avec Visual Studio 2017 Enterprise
-1. Cliquez sur le bouton **Télécharger la capture instantanée** pour télécharger un fichier `.diagsession`, qui peut être ouvert par Visual Studio 2017 Enterprise. 
+1. Cliquez sur le bouton **Télécharger la capture instantanée** pour télécharger un fichier `.diagsession`, qui peut être ouvert par Visual Studio 2017 Enterprise.
 
 2. Pour ouvrir le fichier `.diagsession`, vous devez d’abord [télécharger et installer l’extension du débogueur de captures instantanées pour Visual Studio](https://aka.ms/snapshotdebugger).
 
@@ -312,7 +320,7 @@ Vous devez autoriser au moins deux instantanés simultanés.
 Par exemple, si votre application utilise un jeu de travail de 1 Go au total, vous devez vous assurer qu’il y a au moins 2 Go d’espace disque pour stocker les instantanés.
 Suivez ces étapes pour configurer votre rôle service cloud avec une ressource locale dédiée pour les instantanés.
 
-1. Ajoutez une nouvelle ressource locale à votre service cloud en modifiant le fichier de définition (.csdf) du service cloud. L’exemple suivant définit une ressource appelée `SnapshotStore` avec une taille de 5 Go.
+1. Ajoutez une nouvelle ressource locale à votre service cloud en modifiant le fichier de définition (.csdef) du service cloud. L’exemple suivant définit une ressource appelée `SnapshotStore` avec une taille de 5 Go.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
@@ -379,5 +387,5 @@ Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela si
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Définir des points de capture instantanée dans votre code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
-* [Diagnostiquer des exceptions dans vos applications web](app-insights-asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions. 
+* [Diagnostiquer des exceptions dans vos applications web](app-insights-asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions.
 * [Détection intelligente](app-insights-proactive-diagnostics.md) permet de détecter automatiquement les anomalies relatives aux performances.

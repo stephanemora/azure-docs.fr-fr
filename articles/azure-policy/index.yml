@@ -2,29 +2,29 @@
 documentType: LandingData
 title: Documentation Azure Policy
 metadata:
-  title: "Documentation Azure Policy - Didacticiels, référence sur les API | Microsoft Docs"
-  description: "Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des actions pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Découvrez comment créer, assigner et gérer des définitions de stratégies avec nos démarrages rapides, nos didacticiels et nos exemples."
+  title: Documentation Azure Policy - Didacticiels, référence sur les API | Microsoft Docs
+  description: Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des actions pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Découvrez comment créer, assigner et gérer des définitions de stratégies avec nos démarrages rapides, nos didacticiels et nos exemples.
   services: azure-policy
-  author: czeumault
-  manager: carolz
+  author: DCtheGeek
+  manager: carmonm
   ms.service: azure-policy
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: 6082601b46ab4b420575fbc4d04b176c96225f72
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.author: dacoulte
+  ms.openlocfilehash: 0ca9efe0c1c1871265da127acfd76e90126b59ad
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
-  description: "Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des actions pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Découvrez comment créer, assigner et gérer des définitions de stratégies avec nos démarrages rapides, nos didacticiels et nos exemples."
+  description: Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des actions pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Découvrez comment créer, assigner et gérer des définitions de stratégies avec nos démarrages rapides, nos didacticiels et nos exemples.
 sections:
-- title: "Démarrages en 5 minutes"
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: "Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure."
+    text: Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure.
   - type: list
     style: icon48
     items:
@@ -34,30 +34,30 @@ sections:
       href: /azure/azure-policy/assign-policy-definition
     - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: "Azure PowerShell"
+      text: Azure PowerShell
       href: /azure/azure-policy/assign-policy-definition-ps
     - image:
         src: https://docs.microsoft.com/media/common/cli.svg
       text: Azure CLI
       href: /azure/azure-policy/assign-policy-definition-cli
-- title: "Didacticiels pas à pas"
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: "Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure."
+    text: Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure.
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/azure/azure-policy/create-manage-policy\">Créer et gérer Azure Policy</a>"
+    - html: <a href="/azure/azure-policy/create-manage-policy">Créer et gérer Azure Policy</a>
 - title: Exemples
   items:
   - type: paragraph
-    text: "Utilisez les exemples JSON suivants pour vous aider à créer des définitions de stratégies dans Azure."
+    text: Utilisez les exemples JSON suivants pour vous aider à créer des définitions de stratégies dans Azure.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
-- title: "Référence"
+- title: Informations de référence
   items:
   - type: list
     style: cards

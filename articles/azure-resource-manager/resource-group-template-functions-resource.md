@@ -1,12 +1,12 @@
 ---
-title: "Ressources - fonctions de modèle Azure Resource Manager | Microsoft Docs"
-description: "Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources."
+title: Ressources - fonctions de modèle Azure Resource Manager | Microsoft Docs
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
 Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
 
-* [listKeys and list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [fournisseurs](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -36,12 +38,14 @@ Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel,
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys and list{Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets et list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Renvoie les valeurs pour n’importe quel type de ressource qui prend en charge l’opération list. L’utilisation la plus courante est `listKeys`. 
+Renvoie les valeurs pour n’importe quel type de ressource qui prend en charge l’opération list. Les utilisations les plus courantes sont `listKeys` et `listSecrets`. 
 
 ### <a name="parameters"></a>parameters
 
@@ -93,7 +97,7 @@ Pour déterminer les types de ressources qui ont une opération de liste, utilis
 
 Spécifiez la ressource en utilisant la [fonction resourceId](#resourceid) ou le format `{providerNamespace}/{resourceType}/{resourceName}`.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) suivant montre comment retourner les clés primaires et secondaires à partir d’un compte de stockage dans la section outputs.
 
@@ -170,7 +174,7 @@ Chaque type pris en charge est renvoyé au format suivant :
 
 Le classement du tableau des valeurs renvoyées n’est pas garanti.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) suivant montre comment utiliser la fonction provider :
 
@@ -251,7 +255,7 @@ Chaque type de ressource retourne des propriétés différentes pour la fonction
 
 ### <a name="remarks"></a>Remarques
 
-La fonction reference dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d’un modèle ou d’un [modèle lié](resource-group-linked-templates.md#link-or-nest-a-template). Elle ne peut pas être utilisée dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour retourner les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié. 
+La fonction reference dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d’un modèle ou d’un [modèle lié](resource-group-linked-templates.md#link-or-nest-a-template). Elle ne peut pas être utilisée dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié. 
 
 En utilisant la fonction « reference », vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété dependsOn. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
 
@@ -298,7 +302,7 @@ Utilisez `'Full'` quand vous avez besoin de valeurs de ressource qui ne font pas
 
 Pour voir l’exemple complet du modèle précédent, consultez [Windows et le coffre de clés](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Un exemple similaire est disponible pour [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) suivant déploie, puis référence une ressource.
 
@@ -479,7 +483,7 @@ Une utilisation courante de la fonction resourceGroup consiste à créer des res
 ]
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) suivant retourne les propriétés du groupe de ressources.
 
@@ -620,7 +624,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) suivant retourne l’ID de ressource pour un compte de stockage appartenant au groupe de ressources :
 
@@ -691,7 +695,7 @@ La fonction retourne les informations au format suivant :
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) suivant montre la fonction subscription qui est appelée dans la section outputs. 
 

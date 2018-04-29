@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -170,7 +170,7 @@ Pour plus d’informations, consultez [Création ou mise à jour d’un groupe d
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 Vous trouverez la valeur extensionName dans `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Existe-t-il un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Operations Management Suite ?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Existe-t-il un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Log Analytics ?
 
-Pour obtenir un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Operations Management Suite, consultez le deuxième exemple sous [Déployer un cluster Azure Service Fabric et activer la surveillance à l’aide de Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Pour obtenir un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre à Log Analytics, consultez le deuxième exemple sous [Déployer un cluster Azure Service Fabric et activer le monitoring à l’aide de Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Les extensions semblent s’exécuter en parallèle sur des groupes de machines virtuelles identiques. Ceci entraîne l’échec de mon extension de script personnalisé. Que puis-je faire pour résoudre ce problème ?
 
@@ -693,9 +693,9 @@ Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialise
 
 Pour plus d’informations, consultez [Gérer toutes les machines virtuelles dans un groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Est-il possible d’intégrer des groupes identiques avec Azure OMS (Operations Management Suite) ?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Est-il possible d’intégrer des groupes identiques à Log Analytics ?
 
-Oui, vous pouvez, en installant l’extension OMS sur les machines virtuelles du groupe identique. Voici un exemple d’interface de ligne de commande Azure :
+Oui, vous pouvez le faire en installant l’extension Log Analytics sur les machines virtuelles du groupe identique. Voici un exemple d’interface de ligne de commande Azure :
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

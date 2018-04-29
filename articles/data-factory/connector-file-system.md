@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: e765c5b0240eb1b0311210dc466d1bc0a43ae58f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cac7ba6f538a8efbd09b27888bd5f1059c2290bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,11 @@ Les propriétés prises en charge pour le service lié de système de fichiers s
 
 | Scénario | « host » dans la définition du service lié | « folderPath » dans la définition du jeu de données |
 |:--- |:--- |:--- |
-| Dossier local sur l’ordinateur runtime d'intégration : <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\\* |D:\\\\ |.\\\\ ou dossier\\\\sous-dossier |
-| Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
+| Dossier local sur l’ordinateur runtime d'intégration : <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\\* |Dans JSON : `D:\\`<br/>Sur l’interface utilisateur : `D:\` |Dans JSON : `.\\` ou `folder\\subfolder`<br>Sur l’interface utilisateur : `.\` ou `folder\subfolder` |
+| Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\\* |Dans JSON : `\\\\myserver\\share`<br/>Sur l’interface utilisateur : `\\myserver\share` |Dans JSON : `.\\` ou `folder\\subfolder`<br/>Sur l’interface utilisateur : `.\` ou `folder\subfolder` |
+
+>[!NOTE]
+>Lors d’une création via l’interface utilisateur, vous n’avez pas besoin d’entrer la double barre oblique inverse (`\\`) pour générer une séquence d’échappement comme vous le faites via JSON. Spécifiez simplement une barre oblique inverse unique.
 
 **Exemple :**
 

@@ -1,6 +1,6 @@
 ---
-title: "Services Microsoft en cyber-sécurité | Microsoft Docs"
-description: "Cet article fournit une introduction aux services Microsoft liés à la cyber-sécurité et explique comment obtenir plus d’informations sur ces services."
+title: Services Microsoft en cyber-sécurité | Microsoft Docs
+description: Cet article fournit une introduction aux services Microsoft liés à la cyber-sécurité et explique comment obtenir plus d’informations sur ces services.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 058cda5dd2e7e8026410a14d08d5714ce92822cd
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 5502f315a29e6bcc31038c7c05e779925fe295f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Services Microsoft en cyber-sécurité
+
 Les services Microsoft fournissent une approche complète de la sécurité, des identités et de la cyber-sécurité. Microsoft Services fournit toute une gamme de services de sécurité et d'identité pour la stratégie, la planification, la mise en œuvre et le support continu. Ces services peuvent aider les clients de type entreprise à mettre en œuvre des solutions de sécurité holistiques qui répondent à leurs objectifs stratégiques.
 
 Grâce à un accès direct aux équipes de développement de produits, nous pouvons créer des solutions intégrées qui améliorent les fonctionnalités de sécurité et d’identité les plus récentes de nos produits, afin de protéger l’activité de nos clients et de stimuler l’innovation.

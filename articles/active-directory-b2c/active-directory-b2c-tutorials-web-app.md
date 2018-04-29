@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET
+title: Didacticiel - Autoriser une application web à effectuer l’authentification avec des comptes à l’aide d’Azure Active Directory B2C | Microsoft Docs
 description: Didacticiel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur pour une application web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
@@ -8,13 +8,13 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Didacticiel : authentifier les utilisateurs avec Azure Active Directory B2C dans une application web ASP.NET
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel - Autoriser une application web à effectuer l’authentification avec des comptes à l’aide d’Azure Active Directory B2C
 
 Ce didacticiel vous montre comment utiliser Azure Active Directory B2C pour connecter et inscrire des utilisateurs dans une application web ASP.NET. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux, de comptes d’entreprise et de comptes Azure Active Directory à l’aide de protocoles standards ouverts.
 
@@ -41,22 +41,22 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Sélectionnez **Azure AD B2C** dans la liste des services du portail Azure.
+1. Sélectionnez **Azure AD B2C** dans la liste des services du portail Azure. 
 
-2. Dans les paramètres B2C, cliquez sur **Applications**, puis sur **Ajouter**.
+2. Dans les paramètres B2C, cliquez sur **Applications**, puis sur **Ajouter**. 
 
     Pour inscrire l’exemple d’application web dans votre locataire, utilisez les paramètres suivants :
 
     ![Ajouter une nouvelle application](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | Mon exemple d’application web | Entrez un **nom** décrivant votre application aux consommateurs. | 
     | **Inclure une application/API web** | OUI | Sélectionnez **Oui** pour une application web. |
     | **Autoriser le flux implicite** | OUI | Sélectionnez **Oui** puisque l’application utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de réponse** | `https://localhost:44316` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre application. Dans ce didacticiel, l’exemple s’exécute localement (localhost) et écoute sur le port 44316. |
-    | **Client natif** | Non  | Dans la mesure où il s’agit d’une application web et pas d’un client natif, sélectionnez Non. |
-
+    | **Inclure le client natif** | Non  | Dans la mesure où il s’agit d’une application web et pas d’un client natif, sélectionnez Non. |
+    
 3. Cliquez sur **Créer** pour inscrire votre application.
 
 Les applications inscrites sont indiquées dans la liste des applications du client Azure AD B2C. Sélectionnez votre application web dans la liste. Le volet de propriétés de l’application web s’affiche.
@@ -71,7 +71,7 @@ Azure AD B2C utilise l’autorisation OAuth2 pour [les applications clientes](..
 
 1. Sélectionnez la page Clés de l’application web inscrit et cliquez sur **Générer une clé**.
 
-2. Cliquez sur **Enregistrer** pour afficher la clé.
+2. Cliquez sur **Enregistrer** pour afficher la clé d’application.
 
     ![page générale des clés de l’application](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -113,7 +113,7 @@ Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de
     | **Name** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SiPe** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Local Account SignIn | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de profil** | Nom d’affichage et Code Postal | Sélectionnez les attributs que les utilisateurs peuvent modifier durant la modification du profil. |
-    | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) après une modification de profil réussie. |
+    | **Revendications de l’application** | Nom complet, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) après une modification de profil réussie. |
 
 2. Cliquez sur **Créer** pour créer votre stratégie. 
 
@@ -135,7 +135,7 @@ Pour activer la réinitialisation du mot de passe sur votre application, vous de
 
 ## <a name="update-web-app-code"></a>Mettre à jour le code d’application web
 
-Maintenant que vous avez une application web inscrite et des stratégies créées, vous devez configurer votre application pour utiliser votre locataire Azure AD B2C. Dans ce didacticiel, vous configurez un exemple d’application web. 
+Maintenant que vous avez une application web inscrite et des stratégies créées, vous devez configurer votre application pour utiliser votre locataire Azure AD B2C. Dans ce didacticiel, vous configurez un exemple d’application web que vous pouvez télécharger à partir de GitHub. 
 
 [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
 
@@ -155,7 +155,7 @@ Vous devez modifier l’application pour utiliser l’inscription de l’applica
 
 1. Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
 
-2. Dans le projet d’application web **TaskWebApp**, ouvrez le fichier **Web.config** et effectuez les mises à jour suivantes :
+2. Dans le projet d’application web **TaskWebApp**, ouvrez le fichier **Web.config** et apportez les mises à jour suivantes aux clés existantes :
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -164,7 +164,7 @@ Vous devez modifier l’application pour utiliser l’inscription de l’applica
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. Mettez à jour les paramètres de stratégie à l’aide du nom généré lorsque vous avez créé vos stratégies.
+3. Mettez à jour les clés existantes avec les valeurs des noms de stratégie que vous avez créés lors d’une étape précédente. N’oubliez pas d’inclure le préfixe *b2c_1_*.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

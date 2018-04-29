@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour l’analyse de trafic
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Le message suivant s’affiche : « 1) Première analyse des journaux de flux de votre groupe de sécurité réseau. Ce processus peut prendre de 20 à 30 minutes. Vérifiez ultérieurement. (2) Si l’étape ci-dessus ne fonctionne pas et que votre espace de travail se trouve sous la référence SKU libre, vérifiez l’utilisation de votre espace de travail pour valider le quota. Sinon, reportez-vous à la FAQ pour plus d’informations. » Comment résoudre le problème ?
 
         Vous pouvez recevoir cette erreur pour les raisons suivantes :
-        - L’analyse de trafic a peut-être été récemment activée et peut avoir agrégé suffisamment de données pour pouvoir tirer des informations utiles avant de générer des rapports. Dans ce cas, essayez à nouveau après 30 minutes.
+        - L’analyse de trafic peut avoir été récemment désactivé et ne pas avoir agrégé suffisamment de données pour qu’en ressortent des analyses significatives.
         - Votre espace de travail OMS est sous la référence SKU libre et il enfreint les limites de quota. Dans ce cas, vous devrez peut-être utiliser un espace de travail dans une référence SKU de capacité supérieure.
     
         Si les problèmes persistent, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -104,11 +104,15 @@ ms.lasthandoff: 03/28/2018
 
         Vous voyez les informations de ressources sur le tableau de bord. Toutefois, aucune statistique de flux n’est présente. Les données sont peut-être manquantes en l’absence de flux de communication entre les ressources. Attendez 60 minutes et revérifier l’état. Si vous êtes sûr que les ressources communiquent, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Quel est le prix de l’analyse de trafic ?
+14. Puis-je configurer l’analyse de trafic à l’aide de PowerShell ou d’un modèle Azure Resource Manager ?
+
+    Non, l’analyse de trafic peut uniquement être configurée à l’aide du Portail Azure.
+
+15.  Quel est le prix de l’analyse de trafic ?
 
         L’analyse de trafic est limitée pour améliorer les journaux réduits et stocker les journaux améliorés dans un espace de travail Log Analytics. En mode préversion, l’analyse de trafic n’est pas facturée pour l’amélioration des journaux réduits, bien que la rétention des données dans l’espace de travail soit soumise à facturation aux taux publiés. Cette réponse sera mise à jour une fois le tarif de l’analyse de trafic disponible.
 
-15.  Comment puis-je naviguer dans la vue de la carte géographique à l’aide du clavier ?
+16.  Comment puis-je naviguer dans la vue de la carte géographique à l’aide du clavier ?
 
         La page de la carte géographique contient deux sections principales :
     

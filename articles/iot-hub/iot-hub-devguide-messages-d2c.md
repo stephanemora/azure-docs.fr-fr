@@ -1,11 +1,11 @@
 ---
-title: "Présentation de la messagerie d’appareil-à-cloud Azure IoT Hub | Microsoft Docs"
-description: "Guide du développeur : comment utiliser la messagerie d’appareil-à-cloud avec IoT Hub. Inclut des informations sur l’envoi de données de télémétrie et autres, ainsi que sur l’utilisation du routage pour remettre les messages."
+title: Présentation de la messagerie d’appareil-à-cloud Azure IoT Hub | Microsoft Docs
+description: 'Guide du développeur : comment utiliser la messagerie d’appareil-à-cloud avec IoT Hub. Inclut des informations sur l’envoi de données de télémétrie et autres, ainsi que sur l’utilisation du routage pour remettre les messages.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Envoyer des messages appareil-à-cloud sur IoT Hub
 
@@ -32,7 +32,7 @@ La messagerie appareil-à-cloud avec IoT Hub présente les caractéristiques sui
 * Les messages appareil-à-cloud sont durables et sont conservés dans le point de terminaison **messages/events** par défaut d’un hub IoT jusqu’à sept jours.
 * Les messages appareil-à-cloud ne doivent pas dépasser 256 Ko et peuvent être groupés en lots pour optimiser les envois. Les lots ne peuvent pas dépasser 256 Ko.
 * Comme l’explique la section [Contrôler l’accès à IoT Hub][lnk-devguide-security], IoT Hub permet l’authentification et le contrôle d’accès par appareil.
-* IoT Hub vous permet de créer jusqu'à 10 points de terminaison personnalisés. Les messages sont remis aux points de terminaison selon les itinéraires configurés sur votre IoT Hub. Pour plus d’informations, consultez [Règles de routage](#routing-rules).
+* IoT Hub vous permet de créer jusqu'à 10 points de terminaison personnalisés. Les messages sont remis aux points de terminaison selon les itinéraires configurés sur votre IoT Hub. Pour plus d’informations, consultez [Règles de routage](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * IoT Hub autorise des millions d’appareils connectés simultanément (voir [Quotas et la limitation][lnk-quotas]).
 * IoT Hub n’autorise pas le partitionnement arbitraire. Les messages appareil-à-cloud sont partitionnés selon leur **deviceId**d’origine.
 
@@ -40,7 +40,7 @@ Pour plus d’informations sur les différences entre IoT Hub et Event Hubs, con
 
 ## <a name="send-non-telemetry-traffic"></a>Envoyer du trafic autre que la télémétrie
 
-Souvent, en plus des données de télémétrie, les appareils envoient des messages et des requêtes qui nécessitent une exécution et une gestion séparées dans le backend de la solution. Par exemple, les alertes critiques qui doivent déclencher une action spécifique dans le backend. Vous pouvez écrire une [règle de routage][lnk-devguide-custom] qui envoie ces types de messages à un point de terminaison dédié à leur traitement en fonction d’un en-tête sur le message ou d’une valeur dans le corps de message.
+Souvent, en plus des données de télémétrie, les appareils envoient des messages et des requêtes qui nécessitent une exécution et une gestion séparées dans le backend de la solution. Par exemple, les alertes critiques qui doivent déclencher une action spécifique dans le service principal. Vous pouvez écrire une [règle de routage][lnk-devguide-custom] qui envoie ces types de messages à un point de terminaison dédié à leur traitement en fonction d’un en-tête sur le message ou d’une valeur dans le corps de message.
 
 Pour plus d’informations sur la meilleure façon de traiter ce genre de messages, consultez [Didacticiel : traiter les messages appareil-à-cloud IoT Hub][lnk-d2c-tutorial].
 

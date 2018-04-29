@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -168,6 +168,8 @@ Chiffrement au repos (SSE) | Prise en charge | Pour les comptes de stockage du c
 Azure Disk Encryption (ADE) | Non pris en charge |
 Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
 Exclure le disque | Non pris en charge|   Le disque temporaire est exclu par défaut.
+Espaces de stockage direct  | Non pris en charge|
+Serveur de fichiers avec montée en puissance parallèle  | Non pris en charge|
 LRS | Prise en charge |
 GRS | Prise en charge |
 RA-GRS | Prise en charge |

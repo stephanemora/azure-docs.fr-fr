@@ -1,11 +1,11 @@
 ---
-title: "Stratégies de restriction des accès de la Gestion des API Azure | Microsoft Docs"
-description: "Découvrez les stratégies de restriction des accès disponibles dans la Gestion des API Azure."
+title: Stratégies de restriction des accès de la Gestion des API Azure | Microsoft Docs
+description: Découvrez les stratégies de restriction des accès disponibles dans la Gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -45,7 +45,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </check-header>  
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
   
 ```xml  
 <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">  
@@ -88,13 +88,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
   
 ```xml  
 <policies>  
@@ -113,8 +113,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-limit|Élément racine.|OUI|  
-|api|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres.|Non |  
-|operation|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres.|Non |  
+|api|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
+|operation|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
   
 ### <a name="attributes"></a>Attributs  
   
@@ -149,7 +149,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
  Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de l’appelant.  
   
 ```xml  
@@ -201,7 +201,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </ip-filter>  
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
   
 ```xml  
 <ip-filter action="allow | forbid">  
@@ -243,13 +243,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
   
 ```xml  
 <policies>  
@@ -268,8 +268,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |quota|Élément racine.|OUI|  
-|api|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota aux API au sein du produit. Les quotas au niveau du produit et de l’API s’appliquent indépendamment les uns des autres.|Non |  
-|operation|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota aux opérations au sein d’une API. Les quotas au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres.|Non |  
+|api|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
+|operation|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
   
 ### <a name="attributes"></a>Attributs  
   
@@ -307,7 +307,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
  Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelant.  
   
 ```xml  

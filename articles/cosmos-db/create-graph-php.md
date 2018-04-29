@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f6d8b8773719a59ad5326196f32a69a13a9a5d34
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4c7046c335039f5bc689790aaf53f5dff65991d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB : Créer une base de données de graphes à l’aide de PHP et du portail Azure
 
@@ -43,24 +43,7 @@ Pour être en mesure de créer une base de données de graphiques, vous devez av
 
 ## <a name="add-a-graph"></a>Ajout d’un graphique
 
-Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données de graphiques. 
-
-1. Cliquez sur **Explorateur de données** > **New Graph** (Nouveau graphique).
-
-    La zone **Ajouter un graphique** est affichée à l’extrême droite. Il peut donc être nécessaire de faire défiler à droite pour l’afficher.
-
-    ![Explorateur de données du portail Azure, page Ajouter un graphique](./media/create-graph-php/azure-cosmosdb-data-explorer-graph.png)
-
-2. Dans la page **Ajouter un graphique**, entrez les paramètres relatifs au nouveau graphique.
-
-    Paramètre|Valeur suggérée|Description
-    ---|---|---
-    ID de base de données|sample-database|Entrez le nom *sample-database* pour la nouvelle base de données. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin.
-    ID du graphique|sample-graph|Entrez le nom *sample-graph* pour votre nouvelle collection. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
-    Capacité de stockage|Fixe (10 Go)|Conservez la valeur par défaut **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
-    Throughput|400 unités de requête|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.
-
-3. Une fois le formulaire rempli, cliquez sur **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
@@ -86,7 +69,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Les extraits de code sont tirés du fichier `connect.php` dans le dossier C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information). 
+Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Tous les extraits de code sont tirés du fichier connect.php dans le dossier C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information). 
 
 * L’objet `connection` Gremlin est initialisé au début du fichier `connect.php` à l’aide de l’objet `$db`.
 
@@ -123,7 +106,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-php/keys.png)
 2. Ouvrez le fichier `connect.php` et, sur la ligne 8, collez la valeur de l’URI sur `your_server_address`.
 
-    L’initialisation de l’objet de connexion doit maintenant ressembler à ceci :
+    L’initialisation de l’objet de connexion doit maintenant ressembler au code ci-après :
 
     ```php
     $db = new Connection([
@@ -139,11 +122,11 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
 3. Si votre compte de base de données de graphiques a été créé le 20 décembre 2017 ou après, modifiez `graphs.azure.com` dans le nom d’hôte pour le remplacer par `gremlin.cosmosdb.azure.com`.
 
-4. Remplacez le paramètre `username` dans l’objet de connexion par le nom de votre base de données et de votre graphe. Si vous avez utilisé les valeurs recommandées `sample-database` et `sample-graph`, vous devriez avoir ceci :
+4. Remplacez le paramètre `username` dans l’objet de connexion par le nom de votre base de données et de votre graphe. Si vous avez utilisé les valeurs recommandées `sample-database` et `sample-graph`, vous devriez avoir le code suivant :
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    Voici à quoi doit ressembler l’objet de connexion à ce stade :
+    L’intégralité de l’objet de connexion doit maintenant ressembler à l’extrait de code suivant :
 
     ```php
     $db = new Connection([
@@ -159,7 +142,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
 5. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `your_primary_key` dans le paramètre de mot de passe.
 
-    L’initialisation de l’objet de connexion doit maintenant ressembler à ceci :
+    L’initialisation de l’objet de connexion doit maintenant ressembler au code ci-après :
 
     ```php
     $db = new Connection([
@@ -229,7 +212,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
     tech | java | 
 
     > [!NOTE]
-    > Dans ce guide de démarrage rapide, nous créons une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau vertex. 
+    > Dans ce Démarrage rapide, vous créez une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau vertex. 
 
 6. Cliquez sur **OK**. Vous pouvez avoir besoin d’agrandir votre écran pour voir apparaître le bouton **OK** au bas de l’écran.
 
@@ -251,7 +234,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
     À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et cliquez sur **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
 
-12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis cliquez sur le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
+12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis cliquez sur le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
 
    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -263,7 +246,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
    ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   La partie de ce didacticiel consacrée à la création de ressources est terminée. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
+   Ainsi s’achève la section de ce Démarrage rapide consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

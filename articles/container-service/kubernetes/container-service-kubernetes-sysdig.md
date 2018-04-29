@@ -1,25 +1,26 @@
 ---
 title: Surveiller le cluster Azure Kubernetes - Sysdig
-description: "Surveillance du cluster Kubernetes dans Azure Container Service à l’aide de Sysdig"
+description: Surveillance du cluster Kubernetes dans Azure Container Service à l’aide de Sysdig
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 4ff610f72af4e6a750749009f3cd4b4df632a37f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 275e71ce054b83c16b9f9cbfe621c6a7e31f79c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Surveiller un cluster Kubernetes Azure Container Service avec Sysdig
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Elle suppose également que vous avez installé les outils azure cli et kubectl.

@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -92,7 +92,7 @@ Les abonnements aux événements d’objet Blob peuvent être filtrés en foncti
 
 Le sujet des événements de stockage d’objets Blob utilise le format suivant :
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Pour faire correspondre tous les événements pour un compte de stockage, vous p
 
 Pour faire correspondre les événements à partir d’objets Blob créés dans un ensemble de conteneurs partageant un préfixe, utilisez un filtre `subjectBeginsWith`, comme :
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Pour faire correspondre les événements d’objet Blob créés dans un conteneur spécifique, utilisez un filtre `subjectBeginsWith`, comme :
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Pour faire correspondre les événements d’objet Blob créés dans un conteneur spécifique partageant un préfixe de nom d’objet Blob, utilisez un filtre `subjectBeginsWith`, comme :
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

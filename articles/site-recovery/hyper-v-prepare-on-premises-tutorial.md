@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 
@@ -58,14 +58,13 @@ Préparez VMM pour le mappage réseau comme suit :
 
 ## <a name="verify-internet-access"></a>Vérifiez l’accès à Internet
 
-1. Pour les besoins de ce didacticiel, la configuration la plus simple pour les hôtes Hyper-V et le serveur VMM, le cas échéant, est d’accéder directement à internet sans utiliser de proxy. 
+1. Pour les besoins de ce didacticiel, la configuration la plus simple pour les hôtes Hyper-V et le serveur VMM consiste à accéder directement à Internet sans utiliser de proxy. 
 2. Assurez-vous que les hôtes Hyper-V et le serveur VMM, le cas échéant, peuvent accéder à ces URL : 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Assurez-vous que :
-    - Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser les communications vers Azure.
-    - Autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).
+3. Si vous contrôlez l’accès par adresse IP, vérifiez les points suivants :
+    - Assurez-vous que les règles de pare-feu basées sur une adresse IP peuvent se connecter aux [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), ainsi qu’au port HTTPS (443).
     - Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
 
 

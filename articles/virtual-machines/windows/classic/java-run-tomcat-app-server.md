@@ -1,11 +1,10 @@
 ---
-title: "Exécuter un serveur d’applications Java sur une machine virtuelle Azure Classic | Microsoft Docs"
-description: "Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et montre comment créer une machine virtuelle Windows et la configurer pour exécuter un serveur d’applications Apache Tomcat."
+title: Exécuter un serveur d’applications Java sur une machine virtuelle Azure Classic
+description: Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et montre comment créer une machine virtuelle Windows et la configurer pour exécuter un serveur d’applications Apache Tomcat.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e13228a707e7dae4a4c2505154d01215c40b4716
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Exécution d’un serveur d’applications Java sur une machine virtuelle créée avec le modèle de déploiement classique.
 > [!IMPORTANT]

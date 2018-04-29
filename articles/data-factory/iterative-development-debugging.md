@@ -4,7 +4,7 @@ description: Apprenez à développer et déboguer les pipelines de Data Factory 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,11 +12,11 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: adb5ffd65d4b2b591abba5d4b3481b7ca08de579
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Développement et débogage itératifs dans Azure Data Factory
 
@@ -48,6 +48,14 @@ Lorsque vous effectuez des séries de tests, vous n’êtes pas obligé de publi
 Data Factory vous permet également de déboguer jusqu’à ce que vous atteigniez une activité précise dans le canevas du pipeline. Placez simplement un point d’arrêt sur l’activité jusqu’à laquelle vous souhaitez tester, puis sélectionnez **Déboguer**. Data Factory garantit que le test s’exécute uniquement jusqu’à l’activité de point d’arrêt sur le canevas du pipeline. Cette fonctionnalité *Déboguer jusqu’à* est utile lorsque vous ne souhaitez pas tester le pipeline en entier, mais uniquement un sous-ensemble des activités à l’intérieur du pipeline.
 
 ![Points d’arrêt sur le canevas du pipeline](media/iterative-development-debugging/iterative-development-image4.png)
+
+Pour définir un point d’arrêt, sélectionnez un élément du canevas du pipeline. Une option *Déboguer jusqu’à* apparaît sous la forme d’un cercle rouge vide dans le coin supérieur droit de l’élément.
+
+![Avant de définir un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-image5.png)
+
+Après avoir sélectionné l’option *Déboguer jusqu’à*, elle se transforme en un cercle rouge plein pour indiquer que le point d’arrêt est activé.
+
+![Après avoir défini un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Intégration et déploiement continus dans Azure Data Factory](continuous-integration-deployment.md)

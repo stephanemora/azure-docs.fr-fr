@@ -1,11 +1,11 @@
 ---
-title: "Diagnostic pour Reliable Services avec état dans Azure Service Fabric | Microsoft Docs"
-description: "Fonctionnalité de diagnostic pour Reliable Services avec état dans Azure Service Fabric"
+title: Diagnostic pour Reliable Services avec état dans Azure Service Fabric | Microsoft Docs
+description: Fonctionnalité de diagnostic pour Reliable Services avec état dans Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: edcaaaf8f1619082b33195aedf1fb1abf32e85b1
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3ed03194ca095d539d10081578fa71c748ba1d23
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Fonctionnalité de diagnostic pour Reliable Services avec état
 La classe StatefulServiceBase de Reliable Services avec état dans Azure Service Fabric émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) qui peuvent être utilisés pour déboguer le service, fournir des informations sur le fonctionnement du runtime et vous aider lors du dépannage.
@@ -35,7 +35,7 @@ Le nom EventSource de la classe StatefulServiceBase de Reliable Services avec é
 | StatefulRunAsyncCancellation |2 |Informations |Émis lorsque la tâche de service RunAsync est annulée |
 | StatefulRunAsyncCompletion |3 |Informations |Émis lorsque la tâche de service RunAsync est terminée |
 | StatefulRunAsyncSlowCancellation |4 |Avertissement |Émis lorsque la tâche de service RunAsync prend trop de temps pour terminer l'annulation |
-| StatefulRunAsyncFailure |5 |Error |Émis lorsque la tâche de service RunAsync renvoie une exception |
+| StatefulRunAsyncFailure |5. |Error |Émis lorsque la tâche de service RunAsync renvoie une exception |
 
 ## <a name="interpret-events"></a>Interprétation des événements
 Les événements StatefulRunAsyncInvocation, StatefulRunAsyncCompletion et StatefulRunAsyncCancellation sont utiles à l’enregistreur du service pour comprendre le cycle de vie d’un service, ainsi que le minutage lorsqu’un service démarre, est annulé ou se termine. Cette information peut être utile lors du débogage de problèmes du service ou pour comprendre le cycle de vie du service.
@@ -45,6 +45,48 @@ Les enregistreurs de service doivent prêter attention aux événements Stateful
 StatefulRunAsyncFailure est émis à chaque fois que la tâche RunAsync() du service lève une exception. En général, une exception levée indique une erreur ou un bogue dans le service. En outre, l’exception entraîne l’échec du service, qui est alors déplacé vers un autre nœud. Cette opération peut s’avérer coûteuse et peut retarder les requêtes entrantes pendant le déplacement du service. Les enregistreurs de service doivent déterminer la cause de l’exception et, si possible, la résoudre.
 
 StatefulRunAsyncSlowCancellation est émis à chaque fois qu’une requête d’annulation de la tâche RunAsync prend plus de quatre secondes. Lorsqu’un service prend trop de temps pour terminer l’annulation, cela a un impact sur la capacité du service à être redémarré rapidement sur un autre nœud. Ce scénario peut avoir un impact sur la disponibilité globale du service.
+
+## <a name="performance-counters"></a>Compteurs de performances
+Le runtime Reliable Services définit les catégories de compteurs de performances suivantes :
+
+| Catégorie | Description |
+| --- | --- |
+| Réplicateur transactionnel Service Fabric |Compteurs spécifiques au réplicateur transactionnel Azure Service Fabric |
+
+Le réplicateur transactionnel Service Fabric est utilisé par le [Gestionnaire d’état fiable](service-fabric-reliable-services-reliable-collections-internals.md) pour répliquer les transactions au sein d’un ensemble donné de [réplicas](service-fabric-concepts-replica-lifecycle.md). 
+
+L'application [Analyseur de performances Windows](https://technet.microsoft.com/library/cc749249.aspx) , disponible par défaut dans le système d'exploitation Windows, peut être utilisée pour collecter et afficher les données de compteur de performances. [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) est une autre option pour collecter les données de compteur de performances et les télécharger dans les tables Azure.
+
+### <a name="performance-counter-instance-names"></a>Noms d'instance de compteur de performances
+Un cluster avec un grand nombre de services fiables ou de partitions de services fiables disposera d'un grand nombre d’instances de compteur de performances du réplicateur transactionnel. Les noms d'instance de compteur de performances peuvent aider à identifier la [partition](service-fabric-concepts-partitioning.md) et les réplicas de service spécifiques auxquels l’instance de compteur de performances est associée.
+
+#### <a name="service-fabric-transactional-replicator-category"></a>Catégorie de réplicateur transactionnel Service Fabric
+Pour la catégorie `Service Fabric Transactional Replicator`, les noms d'instance de compteur ont le format suivant :
+
+`ServiceFabricPartitionId:ServiceFabricReplicaId`
+
+*ServiceFabricPartitionId* est la représentation sous forme de chaîne de l'ID de partition Service Fabric associée à l'instance de compteur de performances. L'ID de partition est un GUID et sa représentation sous forme de chaîne est générée via [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) avec le spécificateur de format « D ».
+
+*ServiceFabricReplicaId* est l’ID associé à un réplica donné d’un service fiable. L’ID de réplica est inclus dans le nom de l'instance de compteur de performances pour garantir son unicité et éviter tout conflit avec d'autres instances de compteur de performances générées par la même partition. Vous trouverez [ici](service-fabric-concepts-replica-lifecycle.md) d’autres détails sur les réplicas et leur rôle dans les services fiables.
+
+Le nom d’instance de compteur suivant est typique d’un compteur de la catégorie `Service Fabric Transactional Replicator` :
+
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571`
+
+Dans l’exemple précédent, `00d0126d-3e36-4d68-98da-cc4f7195d85e` est la représentation sous forme de chaîne de l’ID de partition de Service Fabric et `131652217797162571` est l’ID du réplica.
+
+### <a name="transactional-replicator-performance-counters"></a>Compteurs de performance du réplicateur transactionnel
+
+Le runtime Reliable Services émet les événements suivants dans la catégorie `Service Fabric Transactional Replicator`
+
+ Nom du compteur | Description |
+| --- | --- |
+| Opérations BeginTransaction/s | Nombre de nouvelles transactions d’écriture créées par seconde.|
+| Opérations de transaction/s | Nombre d’opérations d’ajout/de mise à jour/de suppression effectuée sur des collections fiables par seconde.|
+| Avg. Latence de vidage (ms) | Nombre d'octets vidés sur le disque chaque seconde par le réplicateur transactionnel |
+| Opérations limitées/s | Nombre d'opérations rejetées chaque seconde par le réplicateur transactionnel en raison de la limitation. |
+| Avg. Transaction en ms/validation | Latence de validation moyenne par transaction en millisecondes |
+| Avg. Latence de vidage (ms) | Durée moyenne des opérations de vidage disque initiées par le réplicateur transactionnel en millisecondes |
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Fournisseurs EventSource dans PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

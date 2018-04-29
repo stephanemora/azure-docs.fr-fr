@@ -1,19 +1,19 @@
 ---
 title: CI/CD avec le moteur Azure Container Service et le mode Swarm
-description: "Utilisez le moteur Azure Container Service avec le mode Docker Swarm, un Registre de conteneurs Azure et Visual Studio Team Services pour fournir en continu une application .NET Core à conteneurs multiples"
+description: Utilisez le moteur Azure Container Service avec le mode Docker Swarm, un Registre de conteneurs Azure et Visual Studio Team Services pour fournir en continu une application .NET Core à conteneurs multiples
 services: container-service
 author: diegomrtnzg
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pipeline CI/CD complet pour déployer une application à conteneurs multiples sur Azure Container Service avec le moteur ACS et le mode Docker Swarm à l’aide de Visual Studio Team Services
 
@@ -43,7 +43,8 @@ Voici une brève explication de ces étapes :
 7. Le mode Docker Swarm sur le cluster extrait la dernière version des images 
 8. La nouvelle version de l’application est déployée à l’aide de Docker Stack 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 

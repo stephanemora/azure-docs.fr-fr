@@ -1,4 +1,19 @@
-
+---
+title: Fichier Include
+description: Fichier Include
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/24/2018
+---
 ## <a name="about-vhds"></a>À propos des VHD
 
 Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Pour plus d’informations sur le stockage Premium, consultez [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md) (Stockage Premium hautes performances et machines virtuelles Azure).
@@ -10,10 +25,10 @@ Dans Azure, tous les fichiers .vhd que vous souhaitez utiliser comme source pour
 Lorsque vous créez une machine virtuelle à partir d’une image, Azure crée, pour la machine virtuelle, un disque qui est une copie du fichier .vhd source. Pour vous protéger contre une suppression accidentelle, Azure place un bail sur tout fichier .vhd source utilisé pour créer une image, un disque de système d’exploitation ou un disque de données.
 
 Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail en supprimant le disque ou l’image. Pour supprimer un fichier .vhd utilisé par une machine virtuelle comme disque de système d’exploitation, vous pouvez supprimer simultanément la machine virtuelle, le disque de système d’exploitation et le fichier .vhd source en supprimant la machine virtuelle et tous les disques associés. Toutefois, la suppression d’un fichier .vhd qui constitue une source pour un disque de données requiert l’exécution de plusieurs étapes dans un ordre défini. Détachez tout d’abord le disque de la machine virtuelle, supprimez le disque, puis supprimez le fichier .vhd.
-
 > [!WARNING]
 > Si vous supprimez un fichier .vhd source d’un stockage ou si vous supprimez votre compte de stockage, Microsoft ne pourra pas récupérer ces données pour vous.
 > 
+> Les objets blob de pages du Stockage Premium doivent uniquement être utilisés en tant que disques durs virtuels. Microsoft déconseille de stocker d’autres types de données dans les objets blob de pages du Stockage Premium, dans la mesure où le coût associé peut se révéler considérablement supérieur. Pour stocker des données non contenues dans un disque dur virtuel, utilisez des objets blob de blocs.
 
 ## <a name="types-of-disks"></a>Types de disques 
 
@@ -30,7 +45,7 @@ Pour plus d’informations sur l’utilisation du stockage Standard avec des dis
 
 ### <a name="premium-storage"></a>Stockage Premium 
 
-Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Vous pouvez utiliser le stockage Premium avec les machines virtuelles Azure de série DS, DSv2, GS, Ls, ou FS. Pour plus d’informations, consultez [Stockage Premium](../articles/virtual-machines/windows/premium-storage.md).
+Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Généralement, vous pouvez utiliser le Stockage Premium avec des tailles dont le nom de série comporte un « s ». Par exemple, pour les noms de série Dv3 et Dsv3, vous pouvez utiliser la taille de série Dsv3 avec le Stockage Premium.  Pour plus d’informations, consultez [Stockage Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Disques non gérés
 

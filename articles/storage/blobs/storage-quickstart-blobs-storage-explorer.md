@@ -1,19 +1,19 @@
 ---
-title: Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Azure Storage Explorer | Microsoft Docs
-description: Dans le cadre de ce démarrage rapide, vous utilisez Azure Storage Explorer pour créer un compte de stockage et un conteneur. Ensuite, vous utilisez Storage Explorer pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur.
+title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de l’Explorateur Stockage Azure | Microsoft Docs
+description: Dans ce Démarrage rapide, vous utilisez l’Explorateur Stockage Azure dans un stockage d’objets (blob). Ensuite, vous utilisez Storage Explorer pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Storage Explorer
 

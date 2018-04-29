@@ -1,12 +1,12 @@
 ---
-title: "Plusieurs adresses IP pour les machines virtuelles Azure - Modèle | Microsoft Docs"
-description: "Apprenez à affecter plusieurs adresses IP à une machine virtuelle à l’aide d’un modèle Azure Resource Manager."
-documentationcenter: 
+title: Plusieurs adresses IP pour les machines virtuelles Azure - Modèle | Microsoft Docs
+description: Apprenez à affecter plusieurs adresses IP à une machine virtuelle à l’aide d’un modèle Azure Resource Manager.
+documentationcenter: ''
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Affecter plusieurs adresses IP à des machines virtuelles à l’aide d’un modèle Azure Resource Manager
 
@@ -34,9 +34,9 @@ Le déploiement d’un modèle vous permet de créer rapidement et de manière c
 
 <a name="resources"></a>Le déploiement du modèle crée les ressources suivantes :
 
-|Ressource|Nom|Description|
+|Ressource|NOM|Description|
 |---|---|---|
-|Interface réseau|*myNic1*|Les trois configurations IP décrites dans la section du scénario de cet article sont créées et affectées à cette carte réseau.|
+|interface réseau|*myNic1*|Les trois configurations IP décrites dans la section du scénario de cet article sont créées et affectées à cette carte réseau.|
 |Ressource d’adresse IP publique|2 sont créés : *myPublicIP* et *myPublicIP2*|Ces ressources sont affectées à des adresses IP statiques publics et aux configurations IP *IPConfig-1* et *IPConfig-2* décrites dans le scénario.|
 |machine virtuelle|*myVM1*|Une machine virtuelle DS3 standard.|
 |Réseau virtuel|*myVNet1*|Un réseau virtuel avec un sous-réseau nommé *mySubnet*.|
@@ -44,7 +44,7 @@ Le déploiement d’un modèle vous permet de créer rapidement et de manière c
 
 <a name="parameters"></a>Lorsque vous déployez le modèle, vous devez spécifier des valeurs pour les paramètres suivants :
 
-|Nom|Description|
+|NOM|Description|
 |---|---|
 |adminUsername|Nom d’utilisateur administrateur. Le nom d’utilisateur doit satisfaire aux [exigences de nom d’utilisateur Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |adminPassword|Mot de passe administrateur. Le mot de passe doit satisfaire les [exigences de mot de passe Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -68,7 +68,7 @@ Pour déployer le modèle à l’aide du portail Azure, procédez comme suit :
 1. Si vous le souhaitez, modifiez le modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Déployez le modèle selon l’une des méthodes suivantes :
     - **Sélectionner le modèle dans le portail :** suivez les étapes de l’article [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template). Choisissez le modèle existant nommé *101-vm-multiple-ipconfig*.
-    - **Directement :** cliquez sur le bouton ci-dessous pour ouvrir le modèle directement dans le portail :<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    - **Directement :** cliquez sur le bouton ci-dessous pour ouvrir le modèle directement dans le portail : <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 Quelle que soit la méthode choisie, vous devez fournir des valeurs pour le [paramètres](#parameters) répertoriés précédemment dans cet article. Une fois la machine virtuelle déployée, connectez la machine virtuelle et ajoutez les adresses IP privées au système d’exploitation que vous avez déployé en suivant les étapes de la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas les adresses IP publiques au système d’exploitation.
 
@@ -76,7 +76,7 @@ Quelle que soit la méthode choisie, vous devez fournir des valeurs pour le [par
 
 Pour déployer le modèle à l’aide de PowerShell, procédez comme suit :
 
-1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md). L’article décrit plusieurs options de déploiement d’un modèle. Si vous choisissez de déployer à l’aide de `-TemplateUri parameter`, l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `-TemplateFile`, copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md). L’article décrit plusieurs options de déploiement d’un modèle. Si vous décidez de procéder au déploiement à l’aide de l’élément `-TemplateUri parameter`, l’URI de ce modèle est le suivant : *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `-TemplateFile`, copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `-TemplateParameterFile`.
 
@@ -91,7 +91,7 @@ Pour déployer le modèle à l’aide de PowerShell, procédez comme suit :
 
 Pour déployer le modèle à l’aide de l’interface de ligne de commande (CLI) Azure 1.0, procédez comme suit :
 
-1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). L’article décrit plusieurs options de déploiement du modèle. Si vous choisissez de déployer à l’aide de `--template-uri` (-f), l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `--template-file` (f-), copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). L’article décrit plusieurs options de déploiement du modèle. Si vous décidez de procéder au déploiement à l’aide de l’élément `--template-uri` (-f), l’URI de ce modèle est le suivant : *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `--template-file` (f-), copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `--parameters-file` (-e).
 

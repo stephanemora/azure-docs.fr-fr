@@ -1,12 +1,12 @@
 ---
 title: Interface de ligne de commande CLI Azure Service Fabric - sfctl cluster | Microsoft Docs
-description: "Décrit les commandes sfctl cluster de l’interface CLI Azure Service Fabric."
+description: Décrit les commandes sfctl cluster de l’interface CLI Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Permet de sélectionner, de gérer et d’utiliser les clusters Service Fabric.
@@ -68,7 +68,7 @@ Obtient l’intégrité d’un cluster Service Fabric. EventsHealthStateFilter p
 | --debug                        | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                      | Affiche ce message d’aide et quitte.|
 | --output -o                    | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.                    Valeur par défaut : json.|
-| --query                        | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                        | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                      | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-cluster-manifest"></a>sfctl cluster manifest
@@ -89,7 +89,7 @@ Obtient le manifeste du cluster Service Fabric. Le manifeste du cluster contient
 | --debug  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h| Affiche ce message d’aide et quitte.|
 | --output -o | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query  | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query  | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose| Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
@@ -111,7 +111,7 @@ Valide et provisionne le code ou les packages de configuration d’un cluster Se
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h  | Affiche ce message d’aide et quitte.|
 | --output -o| Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose  | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
@@ -138,7 +138,7 @@ Si vous vous connectez au cluster sécurisé, vous devez spécifier un fichier d
 | --debug           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h         | Affiche ce message d’aide et quitte.|
 | --output -o       | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query           | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query           | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose         | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
@@ -159,7 +159,7 @@ Annule l’approvisionnement du code ou des packages de configuration d’un clu
 |--debug         | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
  |   --help -h       | Affiche ce message d’aide et quitte.|
  |   --output -o     | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
- |   --query         | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+ |   --query         | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
  |   --verbose       | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 
@@ -197,9 +197,9 @@ Valide les paramètres de mise à niveau fournis et démarre la mise à niveau d
 |--debug                               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h                             | Affiche ce message d’aide et quitte.|
 |    --output -o                           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv. Valeur par défaut : json.|
-|    --query                               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+|    --query                               | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 |    --verbose                             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

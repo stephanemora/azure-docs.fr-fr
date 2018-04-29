@@ -1,11 +1,11 @@
 ---
-title: "Configurer des adresses IP privées pour les machines virtuelles - Azure CLI | Microsoft Docs"
-description: "Apprenez à configurer des adresses IP privées pour les machines virtuelles à l’aide de l’interface de ligne de commande Azure (CLI)."
+title: Configurer des adresses IP privées pour les machines virtuelles - Azure CLI | Microsoft Docs
+description: Apprenez à configurer des adresses IP privées pour les machines virtuelles à l’aide de l’interface de ligne de commande Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide d’Azure CLI
 
@@ -158,6 +158,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 
    * `--nics` : nom de la carte réseau à laquelle est associée la machine virtuelle.
    
+Il est recommandé de ne pas statiquement assigner l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-cli.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Récupérer des informations d’adresse IP privée statique pour une machine virtuelle
 
@@ -267,9 +268,7 @@ Pour modifier la carte réseau de la machine virtuelle utilisée dans les comman
 
     > [!NOTE]
     > Si la machine virtuelle présente une taille permettant la prise en charge de plusieurs cartes réseau, exécutez la commande **azure network nic delete** afin de supprimer l’ancienne carte réseau.
-   
-## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md) .
-* En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md) .
-* Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+## <a name="next-steps"></a>Étapes suivantes
+
+En savoir plus sur la gestion des [paramètres d’adresse IP](virtual-network-network-interface-addresses.md).

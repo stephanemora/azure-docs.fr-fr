@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles par le biais du [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard du secteur (également connu sous le nom de Common Internet File System ou CIFS). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync (préversion) pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -257,7 +257,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     Oui. Azure Files peut conserver un maximum de 200 instantanés de partage. Les instantanés de partage n’étant pas comptabilisés dans le quota de partages, il n’y a pas de limite par partage quant à l’espace total utilisé par tous les instantanés de partage. Les limites de compte de stockage continuent de s’appliquer. Au-delà de 200 instantanés de partage, vous devez supprimer les anciens instantanés pour en créer de nouveaux.
 * <a id="snapshot-cost"></a>
 **Quel est le coût des instantanés de partage ?**  
-    Le coût d’une transaction standard et du stockage standard s’applique à l’instantané. Les instantanés sont incrémentiels par nature. L’instantané de base est le partage lui-même. Tous les instantanés suivants étant incrémentiels, chacun ne stocke que la différence par rapport à l’instantané précédent. Cela signifie que les modifications delta qui apparaîtront dans la facture seront minimales si l’évolution de votre charge de travail est minime. Consultez la [page Tarification](https://azure.microsoft.com/en-us/pricing/details/storage/files/) pour obtenir des informations sur la tarification Azure Files standard. Actuellement, la façon d’examiner la taille utilisée par un instantané de partage consiste à comparer la capacité facturée avec la capacité utilisée. Nous travaillons sur des outils pour améliorer la génération de rapports.
+    Le coût d’une transaction standard et du stockage standard s’applique à l’instantané. Les instantanés sont incrémentiels par nature. L’instantané de base est le partage lui-même. Tous les instantanés suivants étant incrémentiels, chacun ne stocke que la différence par rapport à l’instantané précédent. Cela signifie que les modifications delta qui apparaîtront dans la facture seront minimales si l’évolution de votre charge de travail est minime. Consultez la [page Tarification](https://azure.microsoft.com/pricing/details/storage/files/) pour obtenir des informations sur la tarification Azure Files standard. Actuellement, la façon d’examiner la taille utilisée par un instantané de partage consiste à comparer la capacité facturée avec la capacité utilisée. Nous travaillons sur des outils pour améliorer la génération de rapports.
 
 
 ### <a name="create-share-snapshots"></a>Créer des instantanés de partage

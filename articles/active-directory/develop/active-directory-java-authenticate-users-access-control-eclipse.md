@@ -1,25 +1,24 @@
 ---
-title: Comment utiliser Access Control (Java) | Microsoft Docs
+title: Procédure d’utilisation du contrôle d’accès (Java)
 description: Apprenez à développer et à utiliser le contrôle d'accès avec Java dans Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: ''
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse
 Ce guide vous indique comment utiliser Azure Access Control Service (ou ACS) au sein du Kit de ressources Azure pour Eclipse. Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps) .
@@ -117,14 +116,14 @@ Cette tâche vise à configurer ACS afin que votre application Web Java soit rec
    
    1. Dans **Name**, entrez le nom de la partie de confiance. Pour suivre l'exemple de ce didacticiel, entrez **Azure Web App**.
    2. Dans **Mode**, sélectionnez **Enter settings manually**.
-   3. Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour suivre notre exemple, entrez **http://localhost:8080/**.
+   3. Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez **http://localhost:8080/**.
       ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
-   4. Sous **Return URL** , entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Dans le cas présent, entrez **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![URL de retour vers partie de confiance pour utilisation dans l'émulateur de calcul][relying_party_return_url_emulator]
+   4. Sous **Return URL** , entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez **http://localhost:8080/MyACSHelloWorld/index.jsp**
+      ![URL de renvoi de la partie de confiance pour une utilisation dans l’émulateur de calcul][relying_party_return_url_emulator]
    5. Acceptez les valeurs par défaut dans les autres champs.
 4. Cliquez sur **Enregistrer**.
 
-Votre application Web Java est maintenant correctement configurée pour fonctionner avec l'émulateur de calcul Azure (à l'adresse http://localhost:8080/). Elle est considérée comme une partie de confiance dans votre espace de noms ACS. Il vous faut ensuite créer les règles utilisées par ACS pour traiter les demandes pour la partie de confiance.
+Votre application Web Java est maintenant correctement configurée pour fonctionner avec l'émulateur de calcul Azure (à l'adresse http://localhost:8080/)). Elle est considérée comme une partie de confiance dans votre espace de noms ACS. Il vous faut ensuite créer les règles utilisées par ACS pour traiter les demandes pour la partie de confiance.
 
 ## <a name="create-rules"></a>Création de règles
 Au cours de cette tâche, vous allez définir les règles qui définissent comment les demandes sont transmises de vos fournisseurs d'identité à votre partie de confiance. Dans l'exemple suivi pour ce didacticiel, nous allons simplement configurer une règle pour indiquer à ACS de copier les types et valeurs de demandes entrantes directement dans le jeton de sortie, sans effectuer de filtrage ni apporter de modifications.

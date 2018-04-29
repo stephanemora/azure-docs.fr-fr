@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
@@ -184,6 +184,19 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
     ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Si vous avez choisi de déployer un modèle dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+> * Source : Toutes
+> * Plage de ports source : : *
+> * Destination : adresses IP
+> * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+> * Plage de ports de destination : 445
+> * Protocole : TCP
+> * Action : Autoriser
+> * Priorité : 700
+> * Nom : Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
 

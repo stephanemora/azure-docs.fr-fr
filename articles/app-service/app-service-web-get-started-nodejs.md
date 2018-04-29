@@ -1,11 +1,11 @@
 ---
-title: "Créer une application web Node.js dans Azure | Microsoft Docs"
-description: "Déployez votre premier programme Hello World Node.js dans Azure App Service Web Apps en quelques minutes."
+title: Créer une application web Node.js dans Azure | Microsoft Docs
+description: Déployez votre premier programme Hello World Node.js dans Azure App Service Web Apps en quelques minutes.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bc4f2fd72860278fcd6c41c64f6f55715eb1884c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936077f9445ec38fe8d05314fdf20d8412fb8b06
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Créer une application web Node.js dans Azure
 
@@ -39,13 +39,14 @@ Vous pouvez suivre ces étapes en utilisant un ordinateur Mac, Windows ou Linux.
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour effectuer ce démarrage rapide :
 
 * <a href="https://nodejs.org/" target="_blank">Installez Node.js et NPM</a>
 
 ## <a name="download-the-sample"></a>Téléchargez l’exemple
 
-Téléchargez l’exemple de projet Node.js à partir de [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) et procédez à l’extraction de l’archive ZIP.
+Téléchargez l’exemple de projet Node.js à partir de [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) et extrayez l’archive ZIP.
 
 Dans une fenêtre de terminal, accédez au répertoire racine de l’exemple de projet Node.js (celui qui contient _index.js_).
 
@@ -80,7 +81,10 @@ Dans Cloud Shell, créez une application web dans le plan App Service `myAppServ
 Dans l’exemple suivant, remplacez `<app_name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `NODE|6.9`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
+# Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# PowerShell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
 ```
 
 Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :

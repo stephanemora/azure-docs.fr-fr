@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Étendre (copier) les alertes à partir du portail OMS vers Azure
 Le portail Operations Management Suite (OMS) affiche uniquement les alertes Log Analytics.  La nouvelle expérience d’alertes intègre désormais l’expérience d’alerte entre les différents services et parties dans Microsoft Azure. La nouvelle expérience, disponible sous forme d’**alertes** sous Azure Monitor dans le portail Azure, contient les alertes de journal d’activité, les alertes de métriques et les alertes de journal sur Log Analytics ainsi qu’Application Insights. 
@@ -43,7 +43,7 @@ Lorsque des alertes dans un espace de travail Log Analytics sont planifiées pou
  ![Pendant la période planifiée, une action de l’utilisateur sur des alertes est redirigée vers Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> L’extension des alertes du portail OMS à Azure est gratuite et l’utilisation d’alertes Azure pour des alertes Log Analytics basées sur une requête ne sera pas facturée dans les limites et les conditions stipulées dans la [stratégie de tarification d’Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> L’extension des alertes du portail OMS à Azure est gratuite et l’utilisation d’alertes Azure pour des alertes Log Analytics basées sur une requête ne sera pas facturée dans les limites et les conditions stipulées dans la [stratégie de tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Les utilisateurs peuvent tirer profit des avantages de l’extension des alertes avant cette date en optant volontairement pour la gestion de leurs alertes dans Azure.
 

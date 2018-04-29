@@ -1,12 +1,12 @@
 ---
-title: "CLI Azure Service Fabric : sfctl service | Microsoft Docs"
-description: "Décrit les commandes sfctl service de l’interface de ligne de commande (CLI) Service Fabric."
+title: 'CLI Azure Service Fabric : sfctl service | Microsoft Docs'
+description: Décrit les commandes sfctl service de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
 ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 Permet de créer, de supprimer et de gérer le service, les types de service et les packages de services.
@@ -93,7 +93,7 @@ Crée le service Service Fabric spécifié à partir de la description.
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
 | --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query               | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
@@ -116,7 +116,7 @@ Supprime un service Service Fabric existant. Un service doit être créé avant
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
 | --output -o         | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query             | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query             | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose           | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-description"></a>sfctl service description
@@ -138,7 +138,7 @@ Permet d’obtenir la description d’un service Service Fabric existant. Vous 
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
 | --output -o         | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query             | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query             | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose           | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-health"></a>sfctl service health
@@ -163,7 +163,7 @@ Permet d’obtenir les informations d’intégrité du service spécifié. Event
 | --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                    | Affiche ce message d’aide et quitte.|
 | --output -o                  | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.                  Valeur par défaut : json.|
-| --query                      | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                      | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                    | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-info"></a>sfctl service info
@@ -186,7 +186,7 @@ Retourne les informations sur le service spécifique faisant partie de l’appli
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
 | --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut :             json.|
-| --query                 | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                 | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose               | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-list"></a>sfctl service list
@@ -210,7 +210,7 @@ Retourne les informations sur tous les services faisant partie de l’applicatio
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
 | --output -o             | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut :             json.|
-| --query                 | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                 | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose               | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
@@ -234,7 +234,7 @@ Permet d’obtenir le manifeste qui décrit un type de service. La réponse cont
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
 | --output -o                       | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.                       Valeur par défaut : json.|
-| --query                           | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                           | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose                         | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-recover"></a>sfctl service recover
@@ -256,7 +256,7 @@ Indique au cluster Service Fabric qu’il doit tenter de récupérer le service
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
 | --output -o         | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query             | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query             | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose           | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
@@ -281,7 +281,7 @@ Résout une partition de service Service Fabric pour obtenir les points de term
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
 | --output -o         | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query             | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query             | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose           | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-service-update"></a>sfctl service update
@@ -315,9 +315,9 @@ Met à jour le service spécifié à l’aide de la description de la mise à jo
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
 | --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query               | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http://jmespath.org/.|
 | --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

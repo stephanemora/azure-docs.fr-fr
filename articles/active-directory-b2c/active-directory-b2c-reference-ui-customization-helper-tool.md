@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C : un outil d’assistance utilisé pour illustrer la fonctionnalité de personnalisation de l’interface utilisateur de la page
 Cet article complète le [principal article sur la personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md) dans Azure Active Directory (Azure AD) B2C. Les étapes suivantes décrivent l’utilisation de la fonctionnalité de personnalisation de l’interface utilisateur de la page à l’aide de l’exemple de contenu HTML et CSS que nous vous avons fourni.
@@ -29,7 +29,7 @@ L’exemple de contenu fourni peut servir à personnaliser deux pages dans une [
 ## <a name="register-an-application"></a>Inscription d'une application
 Vous devrez [inscrire une application](active-directory-b2c-app-registration.md) dans votre client B2C qui permettra d'exécuter votre stratégie. Après avoir inscrit votre application, vous disposez de quelques options pour exécuter votre stratégie d’inscription :
 
-* Générez l’une des applications de démarrage rapide Azure AD B2C répertoriées dans la section « Prise en main » dans [Inscription et connexion de consommateurs à vos applications](active-directory-b2c-overview.md#get-started).
+* Générez l’une des applications de démarrage rapide Azure AD B2C répertoriées dans la section « Prise en main » dans [Inscription et connexion de consommateurs à vos applications](active-directory-b2c-overview.md).
 * Utilisez l’application [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) préconfigurée. Si vous choisissez d’utiliser l’application Playground, vous devez inscrire une application dans votre client B2C en utilisant **l’URI de redirection** `https://aadb2cplayground.azurewebsites.net/`.
 * Utilisez le bouton **Exécuter maintenant** sur votre stratégie dans le [portail Azure](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Pour personnaliser l’apparence de votre stratégie, vous devez d’abord crée
 Dans le cadre de ce didacticiel, nous avons déjà créé quelques exemples de contenu et les avons hébergés sur Azure Blob Storage. L’exemple de contenu est une personnalisation très basique dans le thème de notre entreprise fictive, « Wingtip Toys ». Pour le tester dans votre propre stratégie, procédez comme suit :
 
 1. Connectez-vous à votre client dans le [portail Azure](https://portal.azure.com/) et accédez au panneau de fonctionnalités B2C.
-2. Cliquez sur **Stratégies d’inscription ou de connexion**, puis sur votre stratégie (par exemple, « b2c\_1\_sign\_up\_sign\_in »).
+2. Cliquez sur **Stratégies d’inscription ou de connexion**, puis sur votre stratégie et cliquez sur Modifier (par exemple, « b2c\_1\_s’\_inscrire\_se\_connecter »).
 3. Cliquez sur **Personnalisation de l’interface utilisateur de la page**, puis sur **Page d’inscription ou de connexion unifiée**.
 4. Placez le commutateur **Utiliser la page personnalisée** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Cliquez sur **OK**.
 5. Cliquez sur **page d’inscription à un compte Local**. Placez le commutateur **Utiliser un modèle personnalisé** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Gestion de machines avec Azure Automation DSC
 
@@ -31,7 +31,7 @@ Azure Automation DSC peut servir à gérer une grande diversité de machines :
 En outre, si vous n’êtes pas prêt à gérer la configuration de l’ordinateur dans le cloud, Azure Automation DSC peut également servir de point de terminaison dédié uniquement à la génération de rapports. Vous pouvez ainsi définir la configuration (push) de votre choix via une instance DSC en local et afficher des détails de rapports sur la conformité du nœud à l’état souhaité dans Azure Automation.
 
 > [!NOTE]
-> La gestion des machines virtuelles Azure avec DSC est fournie sans frais supplémentaires si l’extension DSC de la machine virtuelle installée est ultérieure à la version 2.70. Pour plus d’informations, reportez-vous à la [**page relative à la tarification d’Automation**](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> La gestion des machines virtuelles Azure avec DSC est fournie sans frais supplémentaires si l’extension DSC de la machine virtuelle installée est ultérieure à la version 2.70. Pour plus d’informations, reportez-vous à la [**page relative à la tarification d’Automation**](https://azure.microsoft.com/pricing/details/automation/).
 
 
 Les sections suivantes décrivent la manière dont vous pouvez intégrer chaque type de machine à Azure Automation DSC.
@@ -195,7 +195,7 @@ La machine à partir de laquelle cette commande est exécutée doit disposer de 
 
 ## <a name="generating-dsc-metaconfigurations"></a>Génération de métaconfigurations DSC
 
-Pour intégrer de manière générique n’importe quelle machine à Azure Automation DSC, une [métaconfiguration DSC](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) peut être générée qui, une fois appliquée, demande à l’agent DSC de la machine d’effectuer une extraction auprès d’Azure Automation DSC et/ou de lui adresser un rapport. Les métaconfigurations DSC pour Azure Automation DSC peuvent être générées à l’aide d’une configuration PowerShell DSC ou des applets de commande PowerShell Azure Automation.
+Pour intégrer de manière générique n’importe quelle machine à Azure Automation DSC, une [métaconfiguration DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig) peut être générée qui, une fois appliquée, demande à l’agent DSC de la machine d’effectuer une extraction auprès d’Azure Automation DSC et/ou de lui adresser un rapport. Les métaconfigurations DSC pour Azure Automation DSC peuvent être générées à l’aide d’une configuration PowerShell DSC ou des applets de commande PowerShell Azure Automation.
 
 > [!NOTE]
 > Les métaconfigurations DSC contiennent les clés secrètes nécessaires à l’intégration d’une machine à un compte Automation à des fins de gestion. Veillez à protéger convenablement les métaconfigurations DSC que vous créez ou supprimez-les après utilisation.

@@ -1,11 +1,11 @@
 ---
-title: "Conception d’identités hybrides : stratégie d’adoption Azure | Microsoft Docs"
-description: "Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
-documentationcenter: 
+title: 'Conception d’identités hybrides : stratégie d’adoption Azure | Microsoft Docs'
+description: Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -90,7 +90,7 @@ Vous devez également avoir conscience des fonctionnalités qui ne seront pas di
 * La transition d’Office vers l’authentification passive permet la prise en charge de fournisseurs d’identité SAML 2.0 purs, mais cette prise en charge s’effectuera toujours client par client.
 
 > [!NOTE]
-> Pour consulter la dernière liste disponible, lisez l’article http://aka.ms/ssoproviders.
+> Pour consulter la liste la plus à jour, lisez l’article https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -196,7 +196,7 @@ Même si vous avez opté pour une solution pour votre stratégie, vous devez tou
 | AD local |Serveur Multi-Factor Authentication |
 
 > [!NOTE]
-> Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception.  Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la mieux adaptée](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception.  Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la mieux adaptée](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -81,7 +81,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Redimensionnement ou modification d’une référence SKU
 
-Le redimensionnement d’une référence SKU de passerelle est assez simple. Pendant le redimensionnement de la passerelle, le temps d’arrêt sera limité. Toutefois, il existe des règles concernant le redimensionnement :
+Si vous disposez d’une passerelle VPN et que vous souhaitez utiliser une autre référence SKU de passerelle, vous avez le choix entre redimensionner votre référence SKU de passerelle ou remplacer par une autre référence SKU. Lorsque vous remplacez par une autre référence SKU de passerelle, vous supprimez la passerelle existante dans son ensemble et en créez une nouvelle. Cette création peut prendre jusqu’à 45 minutes. En comparaison, lorsque vous redimensionnez une référence SKU de passerelle, le temps d’arrêt sera très faible car vous n’aurez pas à supprimer et à recréer la passerelle. Si vous avez la possibilité de redimensionner votre référence SKU de passerelle plutôt que de la modifier, vous devez le faire. Toutefois, il existe des règles concernant le redimensionnement :
 
 1. Vous pouvez effectuer un redimensionnement entre les références SKU VpnGw1, VpnGw2 et VpnGw3.
 2. Lors de l’utilisation des anciennes références SKU de passerelle, vous pouvez effectuer un redimensionnement entre les références SKU Basic, Standard et HighPerformance.

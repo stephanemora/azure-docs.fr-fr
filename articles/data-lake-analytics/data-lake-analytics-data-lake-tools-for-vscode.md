@@ -1,10 +1,10 @@
 ---
-title: "Azure Data Lake Tools : Utiliser Azure Data Lake Tools pour Visual Studio Code | Microsoft Docs"
-description: "Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code pour créer, tester et exécuter des scripts U-SQL. "
+title: 'Azure Data Lake Tools : Utiliser Azure Data Lake Tools pour Visual Studio Code | Microsoft Docs'
+description: 'Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code pour créer, tester et exécuter des scripts U-SQL. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
 
@@ -29,6 +29,7 @@ Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code (VS Co
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Azure Data Lake Tools pour VSCode prend en charge Windows, Linux et MacOS.  
 
@@ -224,7 +225,7 @@ Avant de pouvoir compiler et exécuter des scripts U-SQL dans Data Lake Analytic
 
     ![Palette de commandes de Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Informations de connexion d’appareil Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3.  Cliquez sur **Copier et ouvrir** pour ouvrir la page web de connexion https://aka.ms/devicelogin. Collez le code **G567LX42V** dans la zone de texte, puis sélectionnez **Continuer**.
+3.  Cliquez sur **Copier et ouvrir** pour ouvrir la page web de connexion avec l’URL https://aka.ms/devicelogin. Collez le code **G567LX42V** dans la zone de texte, puis sélectionnez **Continuer**.
 
    ![Data Lake Tools pour Visual Studio Code - Coller le code de connexion](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  Suivez les instructions pour vous connecter à partir de la page web. Une fois connecté, le nom de votre compte Azure s’affiche dans la barre d’état dans le coin inférieur gauche de la fenêtre **VS Code**. 
@@ -356,13 +357,13 @@ L’état s’affiche en bas de la barre d’état à l’issue du téléchargem
 
 **Intégration à Azure** 
 
-- Avant de vous connecter à Azure, vous pouvez toujours développer **DATALAKE EXPLORER** (Explorateur Data Lake), puis cliquer sur **Sign in to Azur** pour vous connecter à Azure. Une fois connecté, tous les abonnements Azure apparaissent sous votre compte Azure, dans le panneau gauche de **DATALAKE EXPLORER**. 
+- Avant de vous connecter à Azure, vous pouvez toujours développer **Azure Data Lake**, puis cliquer sur **Sign in to Azure** pour vous connecter à Azure. Une fois connecté, tous les abonnements Azure apparaissent sous votre compte Azure, dans le panneau gauche **Azure Data Lake**. 
 
    ![Explorateur Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![Explorateur Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Navigation dans les métadonnées ADLA** 
+**Navigation dans les métadonnées ADLA**
 
 - Développez votre abonnement Azure pour parcourir votre base de données SQL-U, afficher les **schémas**, les **informations d’identification**, les **assemblys**, les **tables**, les **index** et autres éléments, sous le nœud U-SQL Databases (Bases de données U-SQL).
 
@@ -382,11 +383,31 @@ L’état s’affiche en bas de la barre d’état à l’issue du téléchargem
 
 **Intégration à ADLS** 
 
- - Accédez au **compte de stockage** pour **afficher un aperçu**, **télécharger**, **supprimer**, **copier le chemin d’accès relatif** ou **copier le chemin d’accès complet** via le menu contextuel du nœud de fichier. Vous pouvez **actualiser**, **charger**, **charger un dossier** ou **supprimer** en cliquant avec le bouton droit dans le menu contextuel du nœud de dossier.
+Accédez à **Data Lake Store**.
+
+ - Dans le nœud du dossier, vous pouvez utiliser les options suivantes du menu contextuel : **Actualiser**, **Supprimer**, **Charger**, **Charger un dossier**, **Copier le chemin relatif** et **Copier le chemin complet**.
 
    ![Explorateur Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - Dans le nœud du fichier, vous pouvez utiliser les options suivantes du menu contextuel : **Télécharger**, **Aperçu**, **Supprimer**, **Copier le chemin relatif** et **Copier le chemin complet**. 
+
    ![Explorateur Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**Intégration WASB**
+
+Accédez au **Stockage Blob**.
+
+- Dans le nœud du conteneur d’objets blob, vous pouvez utiliser les options suivantes du menu contextuel : **Actualiser**, **Supprimer le conteneur d’objets blob** et **Charger l’objet blob**.
+
+    ![Nœud du conteneur d’objets blob du stockage Azure](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- Dans le nœud du dossier, vous pouvez utiliser les options suivantes du menu contextuel : **Actualiser** et **Charger l’objet blob**.
+
+    ![Nœud du dossier du stockage d’objets blob](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- Dans le nœud du fichier, vous pouvez utiliser les options suivantes du menu contextuel : **Aperçu/Modification**, **Télécharger**, **Supprimer**, **Copier le chemin relatif** et **Copier le chemin complet**.
+
+    ![Nœud du fichier du stockage d’objets blob](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Ouvrir l’explorateur de stockage ADL sur le portail
 1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes.

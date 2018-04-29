@@ -1,12 +1,12 @@
 ---
-title: "Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI"
-description: "Questions fréquemment posées sur les Collections d’espaces de travail Power BI."
+title: Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
+description: Questions fréquemment posées sur les Collections d’espaces de travail Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -15,29 +15,29 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 6b33f497a5dbc889945e2147586f79edf1bd9aeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
 
 > [!IMPORTANT]
-> Les Collections d’espaces de travail Power BI sont dépréciés et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la façon de migrer vos données vers Power BI Embedded, consultez [Comment migrer le contenu d’une collection d’espaces de travail Power BI Embedded vers Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Les Collections d’espaces de travail Power BI sont dépréciés et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="what-is-microsoft-power-bi-workspace-collections"></a>Que sont les Collections d’espaces de travail Microsoft Power BI ?
 Les Collections d’espaces de travail Microsoft Power BI sont un service Azure qui permet aux développeurs d’applications d’incorporer des visualisations et des rapports totalement interactifs dans les applications destinées aux clients, sans avoir à dépenser le temps et l’argent nécessaires à la création de leurs propres commandes. Les Collections d’espaces de travail Power BI sont désormais disponibles dans les contrats SLA dans 9 centres de données du monde entier. Par ailleurs, nous avons amélioré des fonctionnalités du service Collections d’espaces de travail Power BI, telles que la prise en charge de la sécurité des données via la sécurité au niveau des lignes (RLS) pour le filtrage avancé. Nous avons aussi simplifié et mis à jour le modèle tarifaire des Collections d’espaces de travail Power BI.
 
 ## <a name="who-would-want-to-use-microsoft-power-bi-workspace-collections-and-why"></a>À qui et en quoi les Collections d’espaces de travail Power BI peuvent être utiles ?
-Les Collections d’espaces de travail Power BI s’adressent aux développeurs d’applications qui souhaitent permettre à leurs utilisateurs d’afficher de belles visualisations de données interactives sur tous les types d’appareils, sans avoir à les créer eux-mêmes. En utilisant Direct Query dans les Collections d’espaces de travail Power BI, les développeurs fournissent des visualisations de données toujours actualisées. Ils peuvent aussi utiliser les API Azure Resource Manager et Power BI pour déployer, gérer et automatiser Power BI par programmation. Comme toujours avec Power BI, le service incorporé est automatiquement mis à l’échelle en fonction de l’usage et des besoins de votre application. Le service Collections d’espaces de travail Power BI applique un modèle tarifaire basé sur le paiement à l’utilisation.
+Les Collections d’espaces de travail Power BI s’adressent aux développeurs d’applications qui souhaitent permettre à leurs utilisateurs d’afficher de belles visualisations de données interactives sur tous les types d’appareils, sans avoir à les créer eux-mêmes. En utilisant Direct Query dans les Collections d’espaces de travail Power BI, les développeurs fournissent des visualisations de données toujours actualisées. Ils peuvent aussi utiliser les API Azure Resource Manager et Power BI pour déployer, gérer et automatiser Power BI par programmation. Comme c’est toujours le cas avec Power BI, le service incorporé est automatiquement mis à l’échelle en fonction de l’usage et des besoins de votre application. Le service Collections d’espaces de travail Power BI applique un modèle tarifaire basé sur le paiement à l’utilisation.
 
 ## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Quelle est la relation entre les Collections d’espaces de travail Power BI et le service Power BI ?
 Les Collections d’espaces de travail Power BI et le service Power BI sont deux offres distinctes. Les Collections d’espaces de travail Power BI appliquent un modèle de facturation basée sur la consommation réelle et est déployé par le biais du portail Azure. Il est conçu pour permettre aux éditeurs de logiciels indépendants d’incorporer des visualisations de données dans les applications destinées à leurs clients. Le service Power BI, facturé et déployé via le portail O365, est une offre BI autonome à usage général, principalement destinée à une utilisation interne en entreprise. Pour plus d’informations sur le service Power BI, voir [www.powerbi.com](https://powerbi.microsoft.com).
 
 ## <a name="how-does-power-bi-workspace-collections-improve-my-app"></a>Comment les Collections d’espaces de travail Power BI améliorent mon application ?
-Les applications sont beaucoup plus performantes quand vous pouvez tirer parti de belles visualisations de données interactives qui vous permettent de prendre les bonnes décisions. Avec les Collections d’espaces de travail Power BI, optimisez votre application avec des visualisations de données interactives, riches et actualisées qui contribueront à accroître l’utilité de votre application, ainsi que la satisfaction et la fidélité des utilisateurs, et à fournir facilement une analytique contextuelle sur tous les appareils.
+Votre application sera beaucoup plus utile aux utilisateurs si elle leur fournit directement des visualisations de données interactives et saisissantes qui les aident à prendre les bonnes décisions. Avec les Collections d’espaces de travail Power BI, optimisez votre application avec des visualisations de données interactives, riches et actualisées qui contribueront à accroître l’utilité de votre application, ainsi que la satisfaction et la fidélité des utilisateurs, et à fournir facilement une analytique contextuelle sur tous les appareils.
 
 ## <a name="are-there-any-rules-or-restrictions-about-how-i-can-use-power-bi-workspace-collections-in-my-app"></a>L’utilisation des Collections d’espaces de travail Power BI dans mon application est-elle soumise à certaines règles ou limitations ?
 Les Collections d’espaces de travail Power BI sont conçues pour vos applications fournies pour une utilisation par des tiers. Si vous voulez utiliser le service Collections d’espaces de travail Power BI pour créer une application métier interne, vos utilisateurs internes ont besoin d’une licence d’abonnement utilisateur Power BI Pro. De plus, votre organisation est facturée pour sa consommation du service Collections d’espaces de travail Power BI ainsi que pour ses licences d’abonnement utilisateur Power BI Pro. Pour ne pas payer à la fois les frais de licences d’abonnement utilisateur Power BI Pro et les frais de consommation des Collections d’espaces de travail Power BI pour les applications internes, le service Power BI offre ses propres fonctionnalités d’incorporation de contenu en dehors des Collections d’espaces de travail Power BI sans coût supplémentaire pour les détenteurs de licences d’abonnement utilisateur Power BI (dev.powerbi.com).
@@ -74,18 +74,18 @@ Le service Collections d’espaces de travail Power BI utilise des jetons d’ap
 et envoie les jetons d’application à notre service pour lui indiquer d’afficher le rendu du rapport demandé. Avec cette conception, votre application peut gérer l’authentification et l’autorisation des utilisateurs sans passer par Azure AD. Cette option est toutefois possible. Pour plus d’informations sur les jetons d’application, cliquez [ici](app-token-flow.md). Nous avons également introduit la fonctionnalité de sécurité au niveau des lignes (RLS) dans les Collections d’espaces de travail Power BI pour les scénarios de filtrage de sécurité avancé.
 
 ## <a name="what-data-sources-are-currently-supported-with-power-bi-workspace-collections"></a>Quelles sont les sources de données actuellement prises en charge avec les Collections d’espaces de travail Power BI ?
-Nous prenons en charge l’accès aux sources de données cloud qui utilisent des informations d’identification de base via Direct Query. Cela signifie que les sources telles qu’Azure SQL DB et Azure SQL DW sont prises en charge dès à présent. Nous allons étendre la prise en charge d’autres sources de données et types d’accès dans les prochains mois. Pour plus d’informations, consultez [Connexion à la source de données](connect-datasource.md).
+Nous prenons en charge l’accès aux sources de données cloud qui utilisent des informations d’identification de base via une requête directe. Cela signifie que les sources telles qu’Azure SQL DB et Azure SQL DW sont prises en charge dès à présent. Nous allons étendre la prise en charge d’autres sources de données et types d’accès dans les prochains mois. Pour plus d’informations, consultez [Connexion à la source de données](connect-datasource.md).
 
 ## <a name="how-does-the-tenancy-model-work-for-power-bi-workspace-collections"></a>Comment le modèle de location fonctionne-t-il pour Collections d’espaces de travail Power BI ?
 Le modèle Collections d’espaces de travail Power BI n’impose pas explicitement que vos utilisateurs soient dans des locataires Azure AD. Vous avez le choix d’exiger ou non Azure AD pour vos clients. Vous devez donc déterminer le modèle de location nécessaire pour les Collections d’espaces de travail Power BI par rapport à l’architecture de votre application et de votre infrastructure.
 
-Les développeurs ou employés qui conçoivent ou utilisent votre application doivent avoir un compte d’utilisateur AAD pour pouvoir gérer votre abonnement Azure et les collections d’espaces de travail par le biais du portail Azure. Les API de programmation utilisées par les développeurs pour importer des rapports, modifier des chaînes de connexion et obtenir des URL incorporées se servent de jetons d’application pour l’authentification. Elles n’ont donc pas besoin d’AAD.
+Les développeurs ou employés qui conçoivent ou utilisent votre application doivent avoir un compte d’utilisateur AAD pour pouvoir gérer votre abonnement Azure et les collections d’espaces de travail par le biais du portail Azure. Les API de programmation utilisées par les développeurs pour importer des rapports, modifier des chaînes de connexion et obtenir des URL incorporées se servent de jetons d’application pour l’authentification. Elles ne nécessitent donc pas AAD.
 
 ## <a name="where-can-i-learn-more"></a>Où en savoir plus ?
 Vous pouvez consulter la [page de documentation des Collections d’espaces de travail Power BI](get-started.md). Vous pouvez aussi rester informé des dernières actualités concernant ce service en consultant le [blog Power BI](https://powerbi.microsoft.com/blog/) ou le centre de développement Power BI à l’adresse dev.powerbi.com. Vous pouvez également poser vos questions sur le site [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
-Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement Azure, vous pouvez provisionner le service Collections d’espaces de travail Power BI directement à partir du portail Azure. Si vous n’en avez pas, vous pouvez créer votre [compte Azure gratuit](https://azure.microsoft.com/free/). Une fois que vous avez provisionné le service Collections d’espaces de travail Power BI, vous pouvez facilement utiliser directement les API REST de Power BI ou utiliser le SDK disponible sur [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Plusieurs exemples sont fournis pour vous aider à utiliser le kit SDK.
+Vous pouvez démarrer gratuitement dès maintenant ! Si vous avez un abonnement Azure, vous pouvez provisionner le service Collections d’espaces de travail Power BI directement à partir du portail Azure. Si vous n’en avez pas, vous pouvez créer votre [compte Azure gratuit](https://azure.microsoft.com/free/). Une fois que vous avez provisionné le service Collections d’espaces de travail Power BI, vous pouvez facilement utiliser directement les API REST de Power BI ou utiliser le SDK disponible sur [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Plusieurs exemples sont fournis pour vous aider à utiliser le Kit SDK.
 
 ## <a name="see-also"></a>Voir aussi
 

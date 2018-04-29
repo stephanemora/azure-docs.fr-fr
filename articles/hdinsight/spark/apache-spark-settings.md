@@ -1,30 +1,28 @@
 ---
-title: "Configurer les paramètres Spark : Azure HDInsight | Microsoft Docs"
+title: 'Configurer les paramètres Spark : Azure HDInsight | Microsoft Docs'
 description: Guide pratique pour configurer Spark pour un cluster HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-spark-settings"></a>Configurer les paramètres Spark
 
-Un cluster HDInsight Spark comprend une installation de la bibliothèque Apache Spark.  Chaque cluster HDInsight inclut des paramètres de configuration par défaut pour tous ses services installés, y compris Spark.  Un aspect clé de la gestion d’un cluster HDInsight Hadoop est la surveillance de la charge de travail, notamment des travaux Spark, pour s’assurer qu’ils s’exécutent de manière prévisible. Pour exécuter les travaux Spark dans les meilleures conditions, tenez compte de la configuration physique du cluster au moment d’optimiser sa configuration logique.
+Un cluster HDInsight Spark comprend une installation de la bibliothèque Apache Spark.  Chaque cluster HDInsight inclut des paramètres de configuration par défaut pour tous ses services installés, y compris Spark.  Un aspect clé de la gestion d’un cluster HDInsight Hadoop est la surveillance de la charge de travail, notamment des travaux Spark, pour s’assurer que tous les travaux s’exécutent de manière prévisible. Pour exécuter les travaux Spark dans les meilleures conditions, tenez compte de la configuration physique du cluster au moment d’optimiser sa configuration logique.
 
 Le cluster HDInsight Apache Spark par défaut inclut les nœuds suivants : trois nœuds ZooKeeper, deux nœuds principaux et un ou plusieurs nœuds Worker :
 
@@ -34,9 +32,13 @@ Le nombre de machines virtuelles, et leurs tailles, pour les nœuds de votre clu
 
 ## <a name="spark-versions"></a>Versions de Spark
 
-Vous devez également envisager la meilleure version de Spark pour votre cluster.  Spark 2.x peut s’exécuter beaucoup mieux que Spark 1.x. Spark 2.x comporte différentes fonctionnalités permettant d’optimiser les performances, telles que Tungsten ou l’optimisation des requêtes Catalyst.  Le service HDInsight inclut plusieurs versions de Spark et HDInsight.  Chaque version de Spark comprend un ensemble de paramètres de cluster par défaut.  Quand vous créez un cluster, voici les versions de Spark disponibles :
+Utilisez la version de Spark la mieux adaptée à votre cluster.  Le service HDInsight inclut plusieurs versions de Spark et de HDInsight.  Chaque version de Spark comprend un ensemble de paramètres de cluster par défaut.  
+
+Quand vous créez un cluster, voici les versions de Spark disponibles :
 
 ![Versions de Spark](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x peut s’exécuter beaucoup mieux que Spark 1.x. Spark 2.x comporte différentes fonctionnalités permettant d’optimiser les performances, telles que Tungsten ou l’optimisation des requêtes Catalyst.  
 
 > [!NOTE]
 > La version par défaut d’Apache Spark dans le service HDInsight peut changer sans préavis. Si vous êtes dépendant d’une version, Microsoft vous recommande de spécifier cette version quand vous créez des clusters à l’aide du SDK .NET/Azure PowerShell et Azure CLI.
@@ -47,7 +49,7 @@ Apache Spark a trois emplacements de configuration système :
 * Les variables d’environnement permettent de définir les paramètres par machine, tels que l’adresse IP, par le biais du script `conf/spark-env.sh` sur chaque nœud.
 * Vous pouvez configurer la journalisation par le biais de `log4j.properties`.
 
-Quand vous sélectionnez une version particulière de Spark, votre cluster comprend les paramètres de configuration par défaut.  Vous pouvez changer les valeurs de configuration de Spark par défaut en fournissant un fichier de configuration Spark personnalisé.  Voici un exemple.
+Quand vous sélectionnez une version particulière de Spark, votre cluster comprend les paramètres de configuration par défaut.  Vous pouvez modifier la configuration par défaut de Spark à l’aide d’un fichier de configuration Spark personnalisé.  Voici un exemple.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -57,7 +59,7 @@ Quand vous sélectionnez une version particulière de Spark, votre cluster compr
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres de configuration Spark.  Il s’agit du codec de compression, de la taille de fractionnement minimale Hadoop MapReduce, des tailles de bloc Parquet, ainsi que de la partition Spar SQL et des valeurs par défaut des tailles des fichiers ouverts.  Ces modifications de configuration sont choisies, car les données et travaux associés (dans cet exemple, des données génomiques) présentent des caractéristiques particulières dont l’efficacité peut être améliorée à l’aide de ces paramètres de configuration personnalisés.
+L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres de configuration Spark.  Il s’agit du codec de compression, de la taille de fractionnement minimale Hadoop MapReduce, des tailles de bloc parquet, ainsi que de la partition Spar SQL et des valeurs par défaut des tailles des fichiers ouverts.  Ces modifications de configuration sont choisies, car les données et travaux associés (dans cet exemple, des données génomiques) présentent des caractéristiques particulières dont l’efficacité peut être améliorée à l’aide de ces paramètres de configuration personnalisés.
 
 ---
 
@@ -86,7 +88,7 @@ Si vous créez un ensemble de valeurs de configuration autre qu’un ensemble pa
 
 ## <a name="configuring-spark-executors"></a>Configuration des Exécuteurs Spark
 
-Le diagramme suivant montre les objets Spark clés : le programme de pilote et son contexte Spark associé, ainsi que le gestionnaire de cluster et ses nœuds Worker *n*.  Chaque nœud Worker inclut un Exécuteur, un cache et des instances de tâches *n*.
+Le diagramme suivant montre les objets Spark clés : le programme de pilote et son contexte Spark associé, ainsi que le gestionnaire de cluster et ses *n* nœuds Worker.  Chaque nœud Worker inclut un Exécuteur, un cache et *n* instances de tâches.
 
 ![Objets de cluster](./media/apache-spark-settings/spark-arch.png)
 

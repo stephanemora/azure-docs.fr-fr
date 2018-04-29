@@ -1,6 +1,6 @@
 ---
-title: Évaluer une application monopage activée pour Azure AD B2C
-description: Démarrage rapide pour essayer une application monopage qui utilise Azure Active Directory B2C pour authentifier et inscrire des utilisateurs.
+title: Démarrage rapide - Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C | Microsoft Docs
+description: Exécutez un exemple d’application monopage qui utilise Azure Active Directory B2C pour fournir une connexion à un compte.
 services: active-directory-b2c
 documentationcenter: ''
 author: davidmu1
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 96baf0297c3d2976f3d6fb112b0bd0ce077a186f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Démarrage rapide : Évaluer une application monopage activée pour Azure AD B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud pour protéger votre application, votre entreprise et vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts.
 

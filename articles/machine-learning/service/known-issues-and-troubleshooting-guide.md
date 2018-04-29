@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -137,7 +137,7 @@ Vous pouvez également supprimer les projets et espaces de travail dans l’appl
 Si vous avez Windows 10 Fall Creators Update et que votre projet est créé dans un dossier local mappé à OneDrive, vous constaterez peut-être que vous ne pouvez ouvrir aucun fichier dans Workbench. Il s’agit d’un bogue, introduit par Fall Creators Update, qui provoque l’échec du code node.js dans un dossier OneDrive. Ce bogue sera bientôt résolu par Windows Update, mais en attendant ne créez pas de projets dans un dossier OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Nom de fichier trop long sous Windows
-Si vous utilisez Workbench sur Windows, vous risquez d’atteindre la limite maximale de longueur de nom de fichier par défaut (260 caractères), ce qui vous sera signifié par l’erreur « Le chemin d’accès spécifié est introuvable ». Vous pouvez modifier un paramètre de clé de Registre pour permettre des noms de chemin de fichier beaucoup plus longs. Consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) pour plus d’informations sur la façon de définir la clé de Registre _MAX_PATH_.
+Si vous utilisez Workbench sur Windows, vous risquez d’atteindre la limite maximale de longueur de nom de fichier par défaut (260 caractères), ce qui vous sera signifié par l’erreur « Le chemin d’accès spécifié est introuvable ». Vous pouvez modifier un paramètre de clé de Registre pour permettre des noms de chemin de fichier beaucoup plus longs. Consultez [cet article](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) pour plus d’informations sur la façon de définir la clé de Registre _MAX_PATH_.
 
 ## <a name="interrupt-cli-execution-output"></a>Interrompre la sortie de l’exécution de l’interface CLI
 Si vous démarrez une expérimentation à l’aide de `az ml experiment submit` ou `az ml notebook start` et que vous souhaitez interrompre la sortie : 

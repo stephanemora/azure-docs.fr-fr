@@ -1,11 +1,11 @@
 ---
-title: "Accéder à une API Azure Media Services avec l’authentification Azure Active Directory | Microsoft Docs"
-description: "Découvrez les concepts et les étapes à suivre pour utiliser Azure Active Directory (Azure AD) afin d’authentifier l’accès à l’API Azure Media Services."
+title: Accéder à une API Azure Media Services avec l’authentification Azure Active Directory | Microsoft Docs
+description: Découvrez les concepts et les étapes à suivre pour utiliser Azure Active Directory (Azure AD) afin d’authentifier l’accès à l’API Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD
  
 L’API Azure Media Services est une API RESTful. Vous pouvez l’utiliser pour effectuer des opérations sur les ressources médias à l’aide d’une API REST ou à l’aide de Kits de développement logiciel (SDK) clients disponibles. Azure Media Services propose un Kit de développement logiciel (SDK) client Media Services pour Microsoft .NET. Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. 
 
-Media Services prend en charge l’[authentification avec Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md). Le service REST Media Azure nécessite que l’utilisateur ou l’application effectuant les requêtes de l’API REST ait le rôle **Collaborateur** ou **Propriétaire** pour accéder aux ressources. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../active-directory/role-based-access-control-what-is.md).  
+Media Services prend en charge l’[authentification avec Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md). Le service REST Media Azure nécessite que l’utilisateur ou l’application effectuant les requêtes de l’API REST ait le rôle **Collaborateur** ou **Propriétaire** pour accéder aux ressources. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > À l’heure actuelle, Media Services prend en charge le modèle d’authentification du service Azure Access Control. Toutefois, l’autorisation Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
@@ -75,13 +75,13 @@ Dans le diagramme précédent, les nombres représentent le flux des requêtes d
         Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite.
     * URI de ressource Media Services. 
 
-        Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net).
+        Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net)).
 
     * ID client d’application Media Services (natif).
     * URI de redirection d’application Media Services (natif).
     * URI de ressource pour REST Media Services.
         
-        L’URI représente le point de terminaison de l’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/).
+        L’URI représente le point de terminaison d’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/)).
 
     Pour obtenir les valeurs de ces paramètres, consultez [Prise en main de l’authentification Azure AD à l’aide du portail Azure](media-services-portal-get-started-with-aad.md) par le biais de l’option d’authentification utilisateur.
 
@@ -117,11 +117,11 @@ Dans la figure précédente, les nombres représentent le flux des requêtes dan
         Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite.
     * URI de ressource Media Services. 
 
-        Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net).
+        Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net)).
 
     * URI de ressource pour REST Media Services.
 
-        L’URI représente le point de terminaison de l’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/).
+        L’URI représente le point de terminaison d’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/)).
 
     * Valeurs de l’application Azure AD : ID client et clé secrète client.
     
@@ -147,7 +147,7 @@ Les articles suivants sont des vues d’ensemble des concepts d’authentificati
 
 - [Scénarios d’authentification pour Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Add, update, or remove an application in Azure AD](../active-directory/develop/active-directory-integrating-applications.md) (Ajouter, mettre à jour ou supprimer une application dans Azure AD)
-- [Configure and manage Role-Based Access Control by using PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md) (Configurer et gérer le contrôle d’accès en fonction du rôle à l’aide de PowerShell)
+- [Configure and manage Role-Based Access Control by using PowerShell](../role-based-access-control/role-assignments-powershell.md) (Configurer et gérer le contrôle d’accès en fonction du rôle à l’aide de PowerShell)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

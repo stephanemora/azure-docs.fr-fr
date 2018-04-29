@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Utiliser Draft avec Azure Container Service (AKS)
 
@@ -34,10 +34,10 @@ Enfin, vous devez installer [Docker](https://www.docker.com).
 
 ## <a name="install-draft"></a>Installer Draft
 
-L’interface CLI Draft est un client qui s’exécute sur votre système de développement et vous permet de rapidement déployer un code dans un cluster Kubernetes. 
+L’interface CLI Draft est un client qui s’exécute sur votre système de développement et vous permet de rapidement déployer un code dans un cluster Kubernetes.
 
-> [!NOTE] 
-> Si vous avez installé une version de Draft antérieure à 0.12, vous devez tout d’abord supprimer Draft de votre cluster à l’aide de `helm delete --purge draft`, puis supprimer votre configuration locale en exécutant `rm -rf ~/.draft`. Si vous êtes sur MacOS, vous pouvez exécuter `brew upgrade draft`.
+> [!NOTE]
+> Si vous avez installé une version de Draft antérieure à 0.12, vous devez tout d’abord supprimer Draft de votre cluster à l’aide de `helm delete --purge draft`, puis supprimer votre configuration locale en exécutant `rm -rf ~/.draft`. Si vous êtes sur MacOS, exécutez `brew upgrade draft`.
 
 Pour installer l’interface CLI Draft sur un Mac, utilisez `brew`. Pour connaître les autres options d’installation, consultez le [guide d’installation de Draft][install-draft].
 
@@ -72,9 +72,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Maintenant qu’il existe une relation d’approbation entre AKS et ACR, les étapes suivantes permettent l’utilisation d’ACR à partir de votre cluster AKS.
 1. Définissez la valeur `registry` de configuration Draft en exécutant `draft config set registry <registry name>.azurecr.io`, où _&lt;registry name&lt;_ est le nom de votre registre ACR.
-2. Connectez-vous au registre ACR en exécutant `az acr login -n <registry name>`. 
+2. Connectez-vous au registre ACR en exécutant `az acr login -n <registry name>`.
 
-Puisque vous êtes désormais connecté en local à ACR et que vous avez créé une relation d’approbation entre AKS et ACR, aucun mot de passe ou secret n’est nécessaire pour la transmission ou l’extraction depuis ACR vers AKS. L’authentification s’effectue au niveau d’Azure Resource Manager, à l’aide d’Azure Active Directory. 
+Puisque vous êtes désormais connecté en local à ACR et que vous avez créé une relation d’approbation entre AKS et ACR, aucun mot de passe ou secret n’est nécessaire pour la transmission ou l’extraction depuis ACR vers AKS. L’authentification s’effectue au niveau d’Azure Resource Manager, à l’aide d’Azure Active Directory.
 
 ## <a name="run-an-application"></a>Exécuter une application
 

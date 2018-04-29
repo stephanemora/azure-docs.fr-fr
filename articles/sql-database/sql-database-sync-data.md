@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync (préversion)
 
@@ -138,6 +138,11 @@ Oui. Vous devez avoir un compte SQL Database pour héberger la base de données 
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Puis-je utiliser Data Sync pour effectuer une synchronisation entre les bases de données SQL Server locales uniquement ? 
 Pas directement. Vous pouvez effectuer une synchronisation entre les bases de données SQL Server locales de façon indirecte, en créant une base de données Hub dans Azure, puis en ajoutant les bases de données locales au groupe de synchronisation.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Puis-je utiliser Data Syn pour synchroniser entre des SQL Databases qui appartiennent à différents abonnements ?
+Oui. Vous pouvez synchroniser entre des SQL Databases qui appartiennent à des groupes de ressources appartenant à différents abonnements.
+-   Si les abonnements appartiennent au même locataire et que disposez d’autorisations sur tous les abonnements, vous pouvez configurer le groupe de synchronisation dans le portail Azure.
+-   Sinon, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant à différents abonnements.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Puis-je utiliser Data Sync pour envoyer des données de ma base de données de production vers une base de données vide, et garder mes données synchronisées ? 
 Oui. Créez manuellement le schéma dans la nouvelle base de données en créant le script à partir de la base de données d’origine. Après avoir créé le schéma, ajoutez les tables à un groupe de synchronisation pour copier les données et les garder synchronisées.
@@ -147,6 +152,12 @@ Oui. Créez manuellement le schéma dans la nouvelle base de données en créant
 Il est déconseillé d’utiliser SQL Data Sync (préversion) pour créer une sauvegarde de vos données. Vous ne pouvez pas sauvegarder et restaurer à un point précis dans le temps, car les synchronisations de SQL Data Sync (version préliminaire) ne sont pas affectées à des versions. Par ailleurs, SQL Data Sync (préversion) ne sauvegarde pas d’autres objets SQL, notamment les procédures stockées, et n’effectue pas rapidement l’équivalent d’une opération de restauration.
 
 Consultez [Copie d'une base de données SQL Azure](sql-database-copy.md) pour prendre connaissance d’une technique de sauvegarde recommandée.
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Data Sync peut-il synchroniser des tables et colonnes chiffrées ?
+
+-   Si une base de données utilise Always Encrypted, vous ne pouvez synchroniser que les tables et colonnes qui sont *pas* chiffrées. Vous ne pouvez pas synchroniser les colonnes chiffrées, car Data Sync ne peut pas déchiffrer les données.
+
+-   Si une colonne utilise le chiffrement Column-Level Encryption (CLE), vous pouvez synchroniser la colonne tant que la taille de ligne est inférieure à la taille maximale de 24 Mo. Data Sync traite la colonne chiffrée par clé (CLE) comme des données binaires normales. Pour déchiffrer les données d’autres membres de synchronisation, vous devez avoir le même certificat.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Le classement est-il pris en charge dans SQL Data Sync ?
 

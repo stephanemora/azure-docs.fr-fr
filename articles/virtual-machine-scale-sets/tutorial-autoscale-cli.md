@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 10e5b1a261f28391bed8cf3f111b1124b52d7816
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6f184ac0b2af3a66affecd1a3a9c247a96e616f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Didacticiel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure CLI 2.0
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -28,8 +28,8 @@ Lorsque vous créez un groupe identique, vous définissez le nombre d’instance
 > [!div class="checklist"]
 > * Utiliser la mise à l’échelle automatique avec un groupe identique
 > * Créer et utiliser des règles de mise à l’échelle automatique
-> * Tests de contraintes des instances de machine virtuelle et déclenchement des règles de mise à l’échelle
-> * Remise à l’échelle en cas de réduction de la demande
+> * Effectuer un test de contrainte sur les instances de machine virtuelle et déclencher des règles de mise à l’échelle automatique
+> * Remettre à l’échelle automatiquement en cas de baisse de la demande
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -85,10 +85,10 @@ Le début du profil de mise à l’échelle automatique définit les capacités 
 ```
 
 
-## <a name="create-a-rule-to-autoscale-out"></a>Créer une règle pour la mise à l’échelle automatique
+## <a name="create-a-rule-to-autoscale-out"></a>Créer une règle pour l’augmentation automatique
 Si la demande de votre application augmente, la charge sur les instances de machine virtuelle dans votre groupe identique augmente. Si cette augmentation de la charge est cohérente, au lieu d’une brève demande, vous pouvez configurer des règles de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle dans le groupe identique. Lorsque ces instances de machine virtuelle sont créées et que vos applications sont déployées, le groupe identique commence à distribuer le trafic vers les instances via l’équilibreur de charge. Vous contrôlez les métriques à surveiller, telles que l’usage du processeur ou du disque, la durée pendant laquelle la charge de l’application doit respecter un seuil donné, et le nombre d’instances de machine virtuelle à ajouter au groupe identique.
 
-Créons une règle qui augmente le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est supérieure à 70 % pendant 5 minutes. Lorsque la règle déclenche l’opération, le nombre d’instances de machine virtuelle est augmenté de trois.
+Créons une règle qui augmente le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est supérieure à 70 % pendant 5 minutes. Lorsque la règle se déclenche, le nombre d’instances de machine virtuelle est majoré de trois unités.
 
 Les paramètres suivants sont utilisés pour cette règle :
 
@@ -131,7 +131,7 @@ L’exemple suivant définit la règle pour augmenter le nombre d’instances de
 ```
 
 
-## <a name="create-a-rule-to-autoscale-in"></a>Créer une règle pour la mise à l’échelle automatique
+## <a name="create-a-rule-to-autoscale-in"></a>Créer une règle pour la diminution automatique
 Au cours d’une soirée ou d’un week-end, la demande de votre application peut diminuer. Si cette charge réduite est constante pendant un certain temps, vous pouvez configurer des règles de mise à l’échelle automatique pour réduire le nombre d’instances de machine virtuelle dans le groupe identique. Cette action de diminution du nombre d’instances a pour effet de réduire le coût d’exécution de votre groupe identique, car vous seul exécutez le nombre d’instances requis pour répondre à la demande en cours.
 
 Créez une autre règle qui diminue le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est inférieure à 30 % pendant 5 minutes. L’exemple suivant définit la règle pour diminuer de une unité le nombre d’instances de machine virtuelle. Le paramètre *metricResourceUri* utilise les variables précédemment définies pour l’ID d’abonnement, le nom du groupe de ressources et le nom du groupe identique :
@@ -232,7 +232,7 @@ az monitor autoscale-settings create \
 ## <a name="generate-cpu-load-on-scale-set"></a>Générer une charge du processeur sur un groupe identique
 Pour tester les règles de mise à l’échelle automatique, générez des charges du processeur sur les instances de machine virtuelle dans le groupe identique. Cette charge du processeur simulée provoque la mise à l’échelle automatique afin d’entraîner une montée en puissance et l’augmentation du nombre d’instances de machine virtuelle. Comme la charge du processeur simulée est ensuite diminuée, les règles de mise à l’échelle automatique réduisent le nombre d’instances de machine virtuelle.
 
-Tout d’abord, affichez l’adresse et les ports à connecter à des instances de machine virtuelle dans un groupe identique avec la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) :
+Tout d’abord, affichez l’adresse et les ports à connecter aux instances de machine virtuelle d’un groupe identique avec la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) :
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -240,7 +240,7 @@ az vmss list-instance-connection-info \
   --name $scaleset_name
 ```
 
-L’exemple de sortie suivant affiche le nom de l’instance, l’adresse IP publique de l’équilibreur de charge et le numéro de port vers lequel les règles NAT (traduction d’adresse réseau) transfèrent le trafic :
+L’exemple de sortie suivant affiche le nom de l’instance, l’adresse IP publique de l’équilibreur de charge et le numéro de port où les règles de traduction d’adresse réseau (NAT) transfèrent le trafic :
 
 ```json
 {
@@ -255,16 +255,16 @@ SSH vers votre première instance de machine virtuelle. Spécifiez votre propre 
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Une fois connecté, installez l’utilitaire **stress**. Démarrez *10* rôles de travail **stress** qui génèrent une charge du processeur. Ces rôles de travail sont exécutés pendant *420* secondes, ce qui est suffisant pour que les règles de mise à l’échelle automatique implémentent l’action souhaitée.
+Une fois connecté, installez l’utilitaire **stress**. Démarrez *10* rôles de travail **stress** qui génèrent une charge d’UC. Ces rôles de travail sont exécutés pendant *420* secondes, ce qui est suffisant pour que les règles de mise à l’échelle automatique implémentent l’action souhaitée.
 
 ```azurecli-interactive
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Lorsque **stress** affiche une sortie similaire à *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
+Lorsque **stress** affiche une sortie semblable à *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
 
-Pour vérifier que **stress** génère du processeur de charge, examinez la charge du système active avec l’utilitaire **top** :
+Pour vérifier que **stress** génère une charge d’UC, examinez la charge du système actif avec l’utilitaire **top** :
 
 ```azuecli-interactive
 top
@@ -277,7 +277,7 @@ Ctrl-c
 exit
 ```
 
-Connectez-vous à la deuxième instance de machine virtuelle avec le numéro de port indiqué dans le [az mise liste-instance-connexion-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) précédent :
+Connectez-vous à la deuxième instance de machine virtuelle avec le numéro de port indiqué à partir de la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) précédente :
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -290,7 +290,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-De nouveau, lorsque **stress** affiche une sortie similaire à *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
+De nouveau, lorsque **stress** affiche une sortie semblable à *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
 
 Fermez votre connexion à la deuxième instance de machine virtuelle. **stress** continue de s’exécuter sur l’instance de machine virtuelle.
 
@@ -299,7 +299,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Surveiller les règles actives de mise à l’échelle automatique
-Pour surveiller le nombre d’instances de machine virtuelle dans votre groupe identique, utilisez **watch**. Les règles de mise à l’échelle automatique prennent 5 minutes pour commencer le processus de montée en charge en réponse à la charge du processeur générée par **stress** sur chacune des instances de machine virtuelle :
+Pour surveiller le nombre d’instances de machine virtuelle dans votre groupe identique, utilisez **watch**. Les règles de mise à l’échelle automatique prennent 5 minutes pour commencer le processus de montée en puissance en réponse à la charge d’UC générée par **stress** sur chacune des instances de machine virtuelle :
 
 ```azurecli-interactive
 watch az vmss list-instances \
@@ -308,7 +308,7 @@ watch az vmss list-instances \
   --output table
 ```
 
-Une fois que le seuil du processeur a été atteint, les règles de mise à l’échelle automatique augmentent le nombre d’instances de machine virtuelle au sein du groupe identique. La sortie suivante montre trois machines virtuelles créées par la montée en puissance automatique du groupe identique :
+Une fois que le seuil de l’UC est atteint, les règles de mise à l’échelle automatique augmentent le nombre d’instances de machine virtuelle au sein du groupe identique. La sortie suivante montre trois machines virtuelles créées au moment de la montée en puissance automatique du groupe identique :
 
 ```bash
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
@@ -322,13 +322,13 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Une fois que **stress** s’arrête sur les instances initiales de machine virtuelle, la charge moyenne du processeur retourne à la normale. Lorsque 5 autres minutes ont passé, les règles de mise à l’échelle automatique diminuent le nombre d’instances de machine virtuelle. Les actions de diminution commencent par supprimer les instances de machine virtuelle disposant des ID les plus élevés. La sortie d’exemple suivante montre une instance de machine virtuelle supprimée lors de la diminution automatique :
+Une fois que **stress** s’arrête sur les instances initiales de machine virtuelle, la charge d’UC moyenne retourne à la normale. Lorsque 5 autres minutes ont passé, les règles de mise à l’échelle automatique diminuent le nombre d’instances de machine virtuelle. La diminution commence par la suppression des instances de machine virtuelle disposant des ID les plus élevés. Lorsqu’un groupe identique utilise des groupes à haute disponibilité ou des zones de disponibilité, les actions d’échelle sont réparties uniformément entre les instances de machine virtuelle. La sortie d’exemple suivante montre une instance de machine virtuelle supprimée lors de la diminution automatique :
 
 ```bash
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Fermez *watch* avec `Ctrl-c`. Le groupe identique continue à diminuer toutes les 5 minutes et supprime une instance de machine virtuelle jusqu'à atteindre la quantité minimale (2).
+Fermez *watch* avec `Ctrl-c`. Le groupe identique continue à diminuer toutes les 5 minutes et supprime une instance de machine virtuelle jusqu’à ce que la quantité minimale d’instances (2) soit atteinte.
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
@@ -340,15 +340,15 @@ az group delete --name $resourcegroup_name --yes --no-wait
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à mettre automatiquement l’échelle un groupe identique avec Azure CLI 2.0 :
+Dans ce didacticiel, vous avez appris à mettre automatiquement à l’échelle un groupe identique avec Azure CLI 2.0 :
 
 > [!div class="checklist"]
 > * Utiliser la mise à l’échelle automatique avec un groupe identique
 > * Créer et utiliser des règles de mise à l’échelle automatique
-> * Tests de contraintes des instances de machine virtuelle et déclenchement des règles de mise à l’échelle
-> * Remise à l’échelle en cas de réduction de la demande
+> * Effectuer un test de contrainte sur les instances de machine virtuelle et déclencher des règles de mise à l’échelle automatique
+> * Remettre à l’échelle automatiquement en cas de baisse de la demande
 
-Pour plus d’exemples de groupes identiques de machines virtuelles en action, consultez l’exemple suivant de scripts Azure CLI 2.0 :
+Pour plus d’exemples de groupes identiques de machines virtuelles en action, consultez les exemples suivants de scripts Azure CLI 2.0 :
 
 > [!div class="nextstepaction"]
 > [Exemples de scripts de groupe identique pour Azure CLI 2.0](cli-samples.md)

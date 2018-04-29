@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Présentation de la simulation d’appareil
 
@@ -69,22 +69,22 @@ Le modèle d’appareil vous permet de choisir le type d’appareil à simuler. 
 
 La simulation d’appareil propose trois modèles d’appareil préconfigurés. Les modèles d’appareil Chiller (Refroidisseur), Elevator (Élévateur) et Truck (Camion) sont disponibles.
 
-Les modèles d’appareil préconfigurés incluent plusieurs capteurs avec une fréquence de télémétrie prédéfinie. Vous ne pouvez pas personnaliser la fréquence de télémétrie pour ces appareils.
+Les modèles d’appareil préconfigurés incluent plusieurs capteurs avec des comportements avancés définis dans un fichier JavaScript. Ces comportements personnalisés ne sont pas pris en charge dans l’interface utilisateur web. 
 
 Le tableau suivant présente une liste des configurations pour chaque modèle d’appareil préconfiguré :
 
-| Modèle de l'appareil | Capteur | Unité | Fréquence de télémétrie
-| -------------| ------ | -----| --------------------|
-| Chiller (Refroidisseur) | humidity | % | 5 secondes |
-| | pressure | psig | 5 secondes |
-| | temperature | F | 5 secondes |
-| Elevator (Élévateur) | Floor | | 5 secondes |
-| | Vibration | MM | 5 secondes |
-| | Température | F | 5 secondes |
-| Truck (Camion) | Latitude | | 3 secondes |
-| | Longitude | | 3 secondes |
-| | speed | mph | 5 secondes |
-| | cargotemperature | F | 5 secondes |
+| Modèle de l'appareil | Capteur | Unité | 
+| -------------| ------ | -----| 
+| Chiller (Refroidisseur) | humidity | % |
+| | pressure | psig | 
+| | temperature | F | 
+| Elevator (Élévateur) | Floor | 
+| | Vibration | MM | 
+| | Température | F | 
+| Truck (Camion) | Latitude | |
+| | Longitude | | 
+| | speed | mph | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>Modèle d’appareil personnalisé
 
@@ -106,7 +106,7 @@ Les capteurs personnalisés possèdent les propriétés suivantes :
 
 ### <a name="number-of-devices"></a>Nombre d’appareils
 
-À l’heure actuelle, la simulation d’appareil vous permet de simuler jusqu'à 1 000 appareils.
+À l’heure actuelle, la simulation d’appareil vous permet de simuler jusqu’à 20 000 appareils.
 
 ![Nombre d’appareils](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

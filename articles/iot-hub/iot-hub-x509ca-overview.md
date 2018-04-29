@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble de la sécurité de l’autorité de certification Azure IoT Hub X.509 | Microsoft Docs"
-description: "Vue d’ensemble - guide pratique pour authentifier les appareils auprès d’IoT Hub à l’aide d’autorités de certification X.509."
+title: Vue d’ensemble de la sécurité de l’autorité de certification Azure IoT Hub X.509 | Microsoft Docs
+description: Vue d’ensemble - guide pratique pour authentifier les appareils auprès d’IoT Hub à l’aide d’autorités de certification X.509.
 services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 11f340ebe1719c680cce5f6ad34150d3717c57d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -69,7 +69,7 @@ Découvrez comment [enregistrer votre certificat d’autorité de certification]
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Guide pratique pour créer un appareil sur IoT Hub
 
-Afin d’éviter l’emprunt d’identité de l’appareil, IoT Hub vous oblige à l’informer des appareils que vous utiliserez.  Pour cela, vous créez une entrée dans le registre des appareils d’IoT Hub.  Ce processus est automatique si vous utilisez le service [Device Provisioning Service](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) d’IoT Hub. 
+Afin d’éviter l’emprunt d’identité de l’appareil, IoT Hub vous oblige à l’informer des appareils que vous utiliserez.  Pour cela, vous créez une entrée dans le registre des appareils d’IoT Hub.  Ce processus est automatique si vous utilisez le service [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) d’IoT Hub. 
 
 Découvrez ici comment [créer manuellement un appareil dans IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
 
