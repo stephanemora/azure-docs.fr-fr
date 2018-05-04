@@ -1,9 +1,9 @@
 ---
 title: Fonctionnalités du moteur de règles Azure CDN | Microsoft Docs
-description: Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN.
+description: Documentation de référence sur les fonctionnalités du moteur de règles Azure CDN.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/10/2018
+ms.author: v-deasim
+ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cet article comprend les descriptions détaillées des fonctionnalités du [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
 
-La troisième partie d’une règle est la fonctionnalité. Une fonctionnalité définit le type d’action appliqué au type de requête identifié par un ensemble de conditions de correspondance.
+La troisième partie d’une règle est la fonctionnalité. Une fonctionnalité définit le type d’action appliqué au type de requête qui est identifié par un ensemble de conditions de correspondance.
 
 ## <a name="access-features"></a>Fonctionnalités d’accès
 
@@ -326,7 +326,7 @@ Le moteur de règles vous permet de personnaliser la manière dont la mise en ca
 Pour dupliquer le comportement de mise en cache de la chaîne de requête « no-cache » sur la page de mise en cache de la chaîne de requête, créez une règle qui contient une condition de correspondance de caractère générique de requête d’URL et une fonctionnalité Ignorer le cache. Définissez la condition de correspondance de caractère générique de requête d’URL sur un astérisque (*).
 
 >[!IMPORTANT] 
-> Si l’autorisation du jeton est activée pour n’importe quel chemin d’accès sur ce compte, le mode de cache standard est le seul mode qui peut être utilisé pour la mise en cache de la chaîne de requête. Pour plus d’informations, consultez [Contrôle du comportement de mise en cache du CDN Azure avec des chaînes de requête](cdn-query-string-premium.md).
+> Si l’autorisation par jeton est activée pour un chemin d’accès sur ce compte, le mode de cache standard est le seul mode qui puisse être utilisé pour la mise en cache de la chaîne de requête. Pour plus d’informations, consultez [Contrôle du comportement de mise en cache du CDN Azure avec des chaînes de requête](cdn-query-string-premium.md).
 
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 
@@ -361,7 +361,7 @@ Ce type de configuration génère la clé de cache de paramètre de chaîne de r
 Exemple de configuration :
 
 - **Type :** Exclure
-- **Paramètre(s) :**sessionid userid
+- **Paramètre(s) :** sessionid userid
 
 Ce type de configuration génère la clé de cache de paramètre de chaîne de requête suivante :
 
@@ -428,14 +428,32 @@ Une absence de cache partielle se produit généralement après qu’un utilisat
 
 Conservez la configuration par défaut pour la plateforme HTTP Large, car cela réduit la charge sur le serveur d’origine de votre client et augmente la vitesse à laquelle vos clients téléchargent votre contenu.
 
-En raison de la manière dont les paramètres de cache sont suivis, cette fonctionnalité ne peut pas être associée aux conditions de correspondance suivantes : Edge Cname, Littéral d’en-tête de requête, Caractère générique d’en-tête de requête, Littéral de requête d’URL et Caractère générique de requête d’URL.
-
 Valeur|Résultat
 --|--
 activé|Restaure le comportement par défaut. Le comportement par défaut consiste à forcer le point de présence à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Après quoi, la ressource se trouvera dans le cache local du point de présence.
 Désactivé|Empêche un point de présence d’effectuer une récupération en arrière-plan pour la ressource. Le résultat est tel que la requête suivante pour cette ressource à partir de cette région force un point de présence à la demander à partir du serveur d’origine du client.
 
 **Comportement par défaut :** Activé.
+
+#### <a name="compatibility"></a>Compatibilité
+En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
+- Numéro AS
+- Adresse IP du client
+- Paramètre de cookie
+- Expression régulière de paramètre de cookie
+- Pays
+- Appareil
+- Cname Edge
+- Domaine de référence
+- Littéral d’en-tête de requête
+- Expression régulière d’en-tête de requête
+- Caractère générique d’en-tête de requête
+- Méthode de requête
+- Modèle de requête
+- Littéral de requête d’URL
+- Expression régulière de requête d’URL
+- Caractère générique de requête d’URL
+- Paramètre de requête d’URL
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
 
@@ -497,16 +515,16 @@ Informations essentielles :
 
 ---
 ### <a name="debug-cache-response-headers"></a>En-têtes de réponse de cache de débogage
-**Objectif :** détermine si une réponse peut inclure l’en-tête de réponse X-EC-Debug qui fournit des informations sur la stratégie de cache de la ressource demandée.
+**Objectif :** détermine si une réponse peut inclure des [en-têtes de réponse X-EC-Debug](cdn-http-debug-headers.md) qui fournissent des informations sur la stratégie de cache de la ressource demandée.
 
 Les en-têtes de réponse de cache de débogage seront inclus dans la réponse lorsque les conditions suivantes sont remplies :
 
-- La fonctionnalité En-têtes de réponse de cache de débogage a été activée sur la requête souhaitée.
-- La requête ci-dessus définit l’ensemble des en-têtes de réponse de cache de débogage qui seront inclus dans la réponse.
+- La fonctionnalité En-têtes de réponse de cache de débogage a été activée sur la requête spécifiée.
+- La requête spécifiée définit l’ensemble des en-têtes de réponse de cache de débogage qui seront inclus dans la réponse.
 
-Des en-têtes de réponse de cache de débogage peuvent être demandés en incluant l’en-tête suivant et les directives voulues dans la requête :
+Des en-têtes de réponse de cache de débogage peuvent être demandés en incluant l’en-tête suivant et les directives spécifiées dans la requête :
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Exemple :**
 
@@ -538,16 +556,28 @@ Informations essentielles :
     - spécifiant une valeur entière, puis en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.). Cette valeur définit l’intervalle d’âge maximal interne.
 
 - Définissez l’unité de temps sur « Off » (Désactivé) pour affecter un intervalle d’âge maximal interne par défaut (default internal max-age interval) de 7 jours pour les requêtes auxquelles aucune indication d’âge maximal (max-age) n’a été affectée dans l’en-tête `Cache-Control` ou `Expires`.
-- En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
-    - Edge 
-    - Cname
-    - Littéral d’en-tête de requête
-    - Caractère générique d’en-tête de requête
-    - Méthode de requête
-    - Littéral de requête d’URL
-    - Caractère générique de requête d’URL
 
 **Valeur par défaut :** 7 jours
+
+#### <a name="compatibility"></a>Compatibilité
+En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
+- Numéro AS
+- Adresse IP du client
+- Paramètre de cookie
+- Expression régulière de paramètre de cookie
+- Pays
+- Appareil
+- Cname Edge
+- Domaine de référence
+- Littéral d’en-tête de requête
+- Expression régulière d’en-tête de requête
+- Caractère générique d’en-tête de requête
+- Méthode de requête
+- Modèle de requête
+- Littéral de requête d’URL
+- Expression régulière de requête d’URL
+- Caractère générique de requête d’URL
+- Paramètre de requête d’URL
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
 
@@ -642,16 +672,28 @@ Informations essentielles :
     - spécifiant une valeur entière et en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.). Cette valeur définit l’intervalle d’âge maximal de la requête.
 
 - La définition de l’unité de temps sur « Désactivé » a pour effet de désactiver cette fonctionnalité. Un intervalle d’âge maximal interne n’est pas attribué aux ressources demandées. Si l’en-tête d’origine ne contient pas d’instructions de mise en cache, la ressource est mise en cache en fonction du paramètre actif de la fonctionnalité Âge maximal interne par défaut.
-- En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
-    - Edge 
-    - Cname
-    - Littéral d’en-tête de requête
-    - Caractère générique d’en-tête de requête
-    - Méthode de requête
-    - Littéral de requête d’URL
-    - Caractère générique de requête d’URL
 
 **Comportement par défaut :** Désactivé
+
+#### <a name="compatibility"></a>Compatibilité
+En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
+- Numéro AS
+- Adresse IP du client
+- Paramètre de cookie
+- Expression régulière de paramètre de cookie
+- Pays
+- Appareil
+- Cname Edge
+- Domaine de référence
+- Littéral d’en-tête de requête
+- Expression régulière d’en-tête de requête
+- Caractère générique d’en-tête de requête
+- Méthode de requête
+- Modèle de requête
+- Littéral de requête d’URL
+- Expression régulière de requête d’URL
+- Caractère générique de requête d’URL
+- Paramètre de requête d’URL
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
 
@@ -664,7 +706,7 @@ Informations essentielles :
 Informations essentielles :
 
 - Définissez un ensemble d’extensions de noms de fichier H.264 autorisées séparé par un espace dans l’option Extensions de fichier. Cette option remplacera le comportement par défaut. Maintenez la prise en charge de MP4 et F4V en incluant ces extensions de noms de fichier lors de la définition de cette option. 
-- Veillez à inclure un point lorsque vous spécifiez une extension de nom de fichier (par exemple, .mp4 .f4v).
+- Incluez un point lorsque vous spécifiez une extension de nom de fichier (par exemple, _.mp4_, _.f4v_).
 
 **Comportement par défaut :** Le téléchargement progressif HTTP prend en charge les formats multimédia MP4 et F4V par défaut.
 
@@ -685,7 +727,7 @@ Désactivé|Restaure le comportement par défaut. Le comportement par défaut co
 
 Pour tout le trafic de production, il est fortement recommandé de laisser cette fonctionnalité désactivée par défaut. Dans le cas contraire, les serveurs d’origine ne sont pas protégés des utilisateurs finaux qui peuvent par inadvertance déclencher un grand nombre de requêtes non cache lors de l’actualisation des pages web ou des nombreux lecteurs multimédias populaires codés pour envoyer un en-tête non cache avec chaque requête vidéo. Néanmoins, il peut être utile d’appliquer cette fonctionnalité à certains répertoires de test ou intermédiaires hors production pour autoriser la collecte de contenu actualisé à partir du serveur d’origine à la demande.
 
-L’état du cache qui sera signalé pour une requête, dont le transfert vers un serveur d’origine est autorisé en raison de cette fonctionnalité est TCP_Client_Refresh_Miss. Le rapport des états du cache, qui est disponible dans le module de création de rapports de base, fournit des informations statistiques par état de cache. Cela vous permet de suivre le nombre et le pourcentage de requêtes transférées vers un serveur d’origine en raison de cette fonctionnalité.
+L’état du cache qui est signalé pour une requête, dont le transfert vers un serveur d’origine est autorisé en raison de cette fonctionnalité, est `TCP_Client_Refresh_Miss`. Le rapport des états du cache, qui est disponible dans le module de création de rapports de base, fournit des informations statistiques par état de cache. Ce rapport vous permet de suivre le nombre et le pourcentage de requêtes transférées vers un serveur d’origine en raison de cette fonctionnalité.
 
 **Comportement par défaut** : Désactivé.
 
@@ -707,16 +749,28 @@ Informations essentielles :
 - Configurez cette fonctionnalité en définissant une liste délimitée par un espace des codes d’état pour lequel les directives ci-dessus seront ignorées.
 - L’ensemble des codes d’état valides pour cette fonctionnalité sont les suivants :200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, et 505.
 - Désactivez cette fonctionnalité en lui attribuant une valeur vide.
-- En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
-    - Edge 
-    - Cname
-    - Littéral d’en-tête de requête
-    - Caractère générique d’en-tête de requête
-    - Méthode de requête
-    - Littéral de requête d’URL
-    - Caractère générique de requête d’URL
 
 **Comportement par défaut :** Le comportement par défaut consiste à respecter les directives ci-dessus.
+
+#### <a name="compatibility"></a>Compatibilité
+En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
+- Numéro AS
+- Adresse IP du client
+- Paramètre de cookie
+- Expression régulière de paramètre de cookie
+- Pays
+- Appareil
+- Cname Edge
+- Domaine de référence
+- Littéral d’en-tête de requête
+- Expression régulière d’en-tête de requête
+- Caractère générique d’en-tête de requête
+- Méthode de requête
+- Modèle de requête
+- Littéral de requête d’URL
+- Expression régulière de requête d’URL
+- Caractère générique de requête d’URL
+- Paramètre de requête d’URL
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
 
@@ -758,16 +812,28 @@ Informations essentielles :
     - spécifiant une valeur entière, puis en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.). Cette valeur définit l’obsolescence maximale qui sera appliquée.
 
 - La définition de l’unité de temps sur « Désactivé » a pour effet de désactiver cette fonctionnalité. Une ressource mise en cache ne sera pas traitée au-delà de son délai d’expiration normal.
-- En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
-    - Edge 
-    - Cname
-    - Littéral d’en-tête de requête
-    - Caractère générique d’en-tête de requête
-    - Méthode de requête
-    - Littéral de requête d’URL
-    - Caractère générique de requête d’URL
 
 **Comportement par défaut :** deux minutes
+
+#### <a name="compatibility"></a>Compatibilité
+En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
+- Numéro AS
+- Adresse IP du client
+- Paramètre de cookie
+- Expression régulière de paramètre de cookie
+- Pays
+- Appareil
+- Cname Edge
+- Domaine de référence
+- Littéral d’en-tête de requête
+- Expression régulière d’en-tête de requête
+- Caractère générique d’en-tête de requête
+- Méthode de requête
+- Modèle de requête
+- Littéral de requête d’URL
+- Expression régulière de requête d’URL
+- Caractère générique de requête d’URL
+- Paramètre de requête d’URL
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
 
@@ -792,7 +858,7 @@ Désactivé|Restaure le comportement par défaut. Le comportement par défaut co
 ### <a name="maximum-keep-alive-requests"></a>Nombre maximal de requêtes toujours actives
 **Objectif :** Définit le nombre maximal de requêtes pour une connexion toujours active avant sa fermeture.
 
-Définir le nombre maximal de requêtes sur une valeur faible est fortement déconseillé et peut entraîner une dégradation des performances.
+Définir le nombre maximal de requêtes sur une valeur faible est déconseillé et peut entraîner une dégradation des performances.
 
 Informations essentielles :
 
@@ -818,9 +884,9 @@ Une des actions suivantes peut être effectuée sur un en-tête de requête :
 
 Option|Description|Exemples
 -|-|-
-Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (Client) :**Value1 <br/> **Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value1Value2
-Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de requête (Client) :**Value1 <br/>**Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value2 <br/>
-Supprimer|Supprime l’en-tête de requête spécifié.|**Valeur d’en-tête de requête (Client) :**Value1 <br/> **Modifier la configuration de l’en-tête de requête Client :** supprime l’en-tête de requête en question. <br/>**Résultat :** l’en-tête de requête spécifié ne sera pas transféré vers le serveur d’origine.
+Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (Client) :** Value1 <br/> **Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value1Value2
+Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de requête (Client) :** Value1 <br/>**Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value2 <br/>
+Supprimer|Supprime l’en-tête de requête spécifié.|**Valeur d’en-tête de requête (Client) :** Value1 <br/> **Modifier la configuration de l’en-tête de requête Client :** supprime l’en-tête de requête en question. <br/>**Résultat :** l’en-tête de requête spécifié ne sera pas transféré vers le serveur d’origine.
 
 Informations essentielles :
 
@@ -856,8 +922,8 @@ Une des actions suivantes peut être effectuée sur un en-tête de réponse :
 
 Option|Description|Exemples
 -|-|-
-Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/> **Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value1Value2
-Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/>**Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value2 <br/>
+Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (Client) :** Value1 <br/> **Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value1Value2
+Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (Client) :** Value1 <br/>**Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value2 <br/>
 Supprimer|Supprime l’en-tête de réponse spécifiée.|**Valeur d’en-tête de réponse (Client) :** Value1 <br/> **Modifier la configuration de l’en-tête de réponse client :** supprime l’en-tête de réponse en question. <br/>**Résultat :** l’en-tête de requête spécifié ne sera pas transféré vers le demandeur.
 
 Informations essentielles :
@@ -924,12 +990,22 @@ Informations essentielles :
 
 ---
 ### <a name="proxy-special-headers"></a>En-têtes spéciaux de proxy
-**Objectif :** définit l’ensemble d’en-têtes de requête propres à CDN devant être transmis depuis un point de présence vers un serveur d’origine.
+**Objectif :** définit l’ensemble des [en-têtes de requête HTTP spécifiques à Verizon](cdn-verizon-http-headers.md) devant être transmis depuis un point de présence vers un serveur d’origine.
 
 Informations essentielles :
 
-- Chaque en-tête de requête CDN spécifique défini dans cette fonctionnalité sera transmis à un serveur d’origine.
-- Empêchez la transmission d’un en-tête de requête propre à CDN vers un serveur d’origine en le supprimant de la liste.
+- Chaque en-tête de requête CDN spécifique défini dans cette fonctionnalité est transmis à un serveur d’origine. Les en-têtes exclus ne sont pas transférés.
+- Pour empêcher qu’un en-tête de requête propre à CDN ne soit transféré, vous devez le supprimer de la liste séparée par des espaces dans le champ de la liste des en-têtes.
+
+Les en-têtes HTTP suivants sont inclus dans la liste par défaut :
+- Via
+- X-Forwarded-For
+- X-Forwarded-Proto
+- X-Host
+- X-Midgress
+- X-Gateway-List
+- X-EC-Name
+- Host
 
 **Comportement par défaut :** tous les en-têtes de requête propres à CDN sont transmis au serveur d’origine.
 
@@ -1041,12 +1117,17 @@ Si l’authentification basée sur les jetons est activée, seules les requêtes
 
 La clé de chiffrement qui est utilisée pour chiffrer et déchiffrer des valeurs de jeton est déterminée par les options de la clé primaire et de la clé de sauvegarde dans la page d’authentification du jeton. N’oubliez pas que les clés de chiffrement sont spécifiques de la plateforme.
 
+**Comportement par défaut** : Désactivé.
+
+Cette fonctionnalité est prioritaire sur la plupart des fonctionnalités à l’exception de la fonctionnalité de réécriture d’URL.
+
 Valeur | Résultat
 ------|---------
 activé | Protège le contenu demandé avec l’authentification basée sur les jetons. Seules les demandes des clients qui fournissent un jeton valide et répondent aux exigences seront respectées. Les transactions FTP sont exclues de l’authentification basée sur les jetons.
 Désactivé| Restaure le comportement par défaut. Le comportement par défaut consiste à permettre à votre configuration d’authentification basée sur les jetons de déterminer si une demande sera sécurisée.
 
-**Comportement par défaut** : Désactivé.
+#### <a name="compatibility"></a>Compatibilité
+N’utilisez pas Token Auth avec une condition de correspondance Always. 
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
 
@@ -1055,8 +1136,6 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 ---
 ### <a name="token-auth-denial-code"></a>Code de refus d’authentification de jeton
 **Objectif :** détermine le type de réponse à retourner à un utilisateur quand une requête est refusée en raison de l’authentification basée sur les jetons.
-
-Le code de refus d’authentification du jeton ne peut pas être utilisé avec une condition de correspondance Toujours. Au lieu de cela, utilisez la section **Gestion des refus personnalisés** dans la page **Authentification du jeton** du portail **Gérer**. Pour plus d’informations, consultez [Sécurisation des ressources CDN Azure avec l’authentification du jeton](cdn-token-auth.md).
 
 Les codes de réponse disponibles sont répertoriés dans la table suivante.
 
@@ -1068,6 +1147,9 @@ Code de la réponse|Nom de la réponse|Description
 401|Non autorisé|L’association de ce code d’état avec l’en-tête de réponse WWW-Authenticate vous permet d’inviter un utilisateur à procéder à une authentification.
 403|Interdit|Il s’agit du message d’état 403 Interdit standard qu’un utilisateur non autorisé voit lorsqu’il tente d’accéder à un contenu protégé.
 404|Fichier introuvable|Ce code d’état indique que le client HTTP a été en mesure de communiquer avec le serveur, mais que le contenu demandé est introuvable.
+
+#### <a name="compatibility"></a>Compatibilité
+N’utilisez pas Token Auth Denial Code avec une condition de correspondance Always. Au lieu de cela, utilisez la section **Gestion des refus personnalisés** dans la page **Authentification du jeton** du portail **Gérer**. Pour plus d’informations, consultez [Sécurisation des ressources CDN Azure avec l’authentification du jeton](cdn-token-auth.md).
 
 #### <a name="url-redirection"></a>Redirection d’URL
 
@@ -1152,7 +1234,7 @@ La configuration de cette fonctionnalité nécessite de définir les options sui
 Option|Description
 -|-
 Code|Sélectionnez le code de réponse qui sera renvoyé au demandeur.
-Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
+Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
 Destination| Définissez l’URL vers laquelle les requêtes ci-dessus seront redirigées. <br/> Construisez dynamiquement cette URL à l’aide des éléments suivants : <br/> - Un modèle d’expression régulière <br/>- Des variables HTTP <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. <br/> 
 Il est fortement recommandé d’utiliser une URL absolue. L’utilisation d’une URL relative peut rediriger les URL CDN vers un chemin d’accès non valide.
 
@@ -1177,7 +1259,7 @@ Cette redirection d’URL peut être obtenue via la configuration suivante :![]
     - Exemple de scénario n°3 : 
         - Exemple de requête (URL CNAME Edge) : http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - URL de la requête (après la redirection) : http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- La variable Modèle de requête (%{scheme}) a été utilisée dans l’option Destination. Cela garantit que le modèle de requête reste inchangé après la redirection.
+- La variable Request Scheme (%{scheme}) est utilisée dans l’option Destination, qui garantit que le schéma de la requête reste inchangé après la redirection.
 - Les segments d’URL qui ont été capturés à partir de la requête sont ajoutés à la nouvelle URL via « $1 ».
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
@@ -1194,7 +1276,7 @@ Informations essentielles :
 
 Option|Description
 -|-
- Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/>     - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance. 
+ Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/>     - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance. 
  Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - Des variables HTTP <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. 
  Cette fonctionnalité permet aux points de présence de réécrire l’URL sans effectuer de redirection classique. Cela signifie que le demandeur reçoit un code de réponse identique à celui reçu si l’URL réécrite avait été demandée.
 
@@ -1220,7 +1302,6 @@ Cette redirection d’URL peut être obtenue via la configuration suivante :![]
 - Les segments d’URL qui ont été capturés à partir de la requête sont ajoutés à la nouvelle URL via « $1 ».
 
 #### <a name="compatibility"></a>Compatibilité
-
 Cette fonctionnalité inclut des critères de correspondance devant être remplis avant de pouvoir l’appliquer à une requête. Pour empêcher la définition de critères de correspondance conflictuels, cette fonctionnalité est incompatible avec les conditions de correspondance suivantes :
 
 - Numéro AS

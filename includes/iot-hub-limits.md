@@ -42,7 +42,7 @@ Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT H
 
 
 > [!NOTE]
-> Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/en-us/support/options/).
+> Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 
 Le service IoT Hub limite les demandes cas de dépassement des quotas suivants :
 

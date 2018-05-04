@@ -187,6 +187,10 @@
           href: web-sites-create-web-jobs.md
         - name: Développer WebJobs avec Visual Studio
           href: websites-dotnet-deploy-webjobs.md
+        - name: Prise en main du kit de développement logiciel (SDK) WebJobs
+          href: webjobs-sdk-get-started.md
+        - name: Utiliser le kit de développement logiciel (SDK) WebJobs
+          href: webjobs-sdk-how-to.md
 - name: Informations de référence
   items:
     - name: Azure CLI
@@ -253,6 +257,8 @@
           href: app-service-web-troubleshoot-http-502-http-503.md
         - name: Résoudre les problèmes de performances
           href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Résoudre les problèmes de certificat et de domaine
+          href: app-service-web-troubleshoot-domain-ssl-certificates.md
         - name: Forum Aux Questions
           items:
             - name: 'FAQ sur la disponibilité, les performances et les applications'

@@ -1,6 +1,6 @@
 ---
-title: "Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC"
-description: "Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC"
+title: Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC
+description: Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC
 
@@ -71,7 +71,7 @@ Des rôles d’utilisateur sont utilisés pour illustrer le cas d’usage et don
 
 #### <a name="role-site-and-subscription-admin"></a>Rôle : Administrateur du site et des abonnements
 
-|Item      |exemples|
+|Item      |Exemples|
 |----------|------|
 |Nom d’utilisateur : |`adminXX@contosowebstore.com`|
 | Nom : |`Global Admin Azure PCI Samples`|
@@ -83,7 +83,7 @@ Des rôles d’utilisateur sont utilisés pour illustrer le cas d’usage et don
 
 #### <a name="role-sql-administrator"></a>Rôle : Administrateur SQL
 
-|Item      |exemples|
+|Item      |Exemples|
 |----------|------|
 |Nom d’utilisateur : |`sqlAdmin@contosowebstore.com`|
 | Nom : |`SQLADAdministrator PCI Samples`|
@@ -96,7 +96,7 @@ Des rôles d’utilisateur sont utilisés pour illustrer le cas d’usage et don
 
 #### <a name="role-clerk"></a>Rôle : Comptable
 
-|Item      |exemples|
+|Item      |Exemples|
 |----------|------|
 |Nom d’utilisateur :| `receptionist_EdnaB@contosowebstore.com`|
 | Nom : |`Edna Benson`|
@@ -122,7 +122,7 @@ Cette solution a utilisé les services Azure suivants. Les informations détaill
 >- Application Gateway
 >- Azure Active Directory
 >- App Service Environment v2
->- OMS Log Analytics
+>- Log Analytics
 >- Azure Key Vault
 >- Network Security Group
 >- Base de données SQL Azure
@@ -177,7 +177,7 @@ Chaque groupe de sécurité réseau a ses propres ports et protocoles ouverts po
 En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
 
 - Activation du stockage des [journaux de diagnostic et des événements](/azure/virtual-network/virtual-network-nsg-manage-log) dans le compte de stockage 
-- Connexion d’OMS Log Analytics aux [diagnostics du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Connexion de Log Analytics aux [diagnostics du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
  
 #### <a name="subnets"></a>Sous-réseaux
@@ -208,12 +208,12 @@ L’instance Azure SQL Database utilise les mesures suivantes pour la sécurité
 
 ### <a name="logging-and-auditing"></a>Journalisation et audit
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) peut fournir à Contoso Webstore des fonctionnalités avancées de journalisation pour toutes les activités système et utilisateur, y compris la journalisation des données financières. Vous pouvez passer en revue les changements et vérifier leur exactitude. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics) peut fournir à Contoso Webstore des fonctionnalités avancées de journalisation pour toutes les activités système et utilisateur, y compris la journalisation des données financières. Vous pouvez passer en revue les changements et vérifier leur exactitude. 
 
 - **Journaux d’activité.**  Les [journaux d’activité ](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations qui ont été effectuées sur les ressources de votre abonnement.
 - **Journaux de diagnostic.**  Les [journaux de diagnostic](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par chaque ressource. Ces journaux incluent les journaux des événements système Windows, ainsi que les journaux du Stockage Blob Azure, des tables et des files d’attente.
 - **Journaux de pare-feu.**  Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
-- **Archivage des journaux.**  Tous les journaux de diagnostic sont configurés pour être enregistrés dans un compte de stockage Azure centralisé et chiffré pour archivage, avec une période de rétention définie (2 jours). Les journaux sont ensuite connectés à Azure Log Analytics en vue d’être traités, stockés et insérés dans un tableau de bord. [Log Analytics](https://azure.microsoft.com/services/log-analytics) est un service OMS qui vous permet de collecter et d’analyser les données générées par les ressources de vos environnements locaux et cloud.
+- **Archivage des journaux.**  Tous les journaux de diagnostic sont configurés pour être enregistrés dans un compte de stockage Azure centralisé et chiffré pour archivage, avec une période de rétention définie (2 jours). Les journaux sont ensuite connectés à Azure Log Analytics en vue d’être traités, stockés et insérés dans un tableau de bord. [Log Analytics](https://azure.microsoft.com/services/log-analytics) est un service qui vous permet de collecter et d’analyser les données générées par les ressources de vos environnements locaux et cloud.
 
 ### <a name="encryption-and-secrets-management"></a>Chiffrement et gestion des secrets
 
@@ -230,7 +230,7 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) est le service cloud et multilocataire de gestion des annuaires et des identités, proposé par Microsoft. Tous les utilisateurs de la solution ont été créés dans Azure Active Directory, y compris ceux qui accèdent à la base de données SQL.
 - L’authentification auprès de l’application est effectuée à l’aide d’Azure AD. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Par ailleurs, le chiffrement des colonnes de base de données utilise également Azure AD pour authentifier l’application dans Azure SQL Database. Pour plus d’informations, consultez [Always Encrypted : Protéger les données sensibles dans SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités pouvant affecter les identités de votre organisation et configure les réponses automatiques aux actions suspectes détectées qui sont liées aux identités de votre organisation. Enfin, il examine les incidents suspects et prend les mesures nécessaires pour les résoudre.
-- Le [contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/active-directory/role-based-access-control-configure) permet une gestion précise de l’accès pour Azure. L’accès à l’abonnement est limité à l’administrateur des abonnements, et l’accès à Azure Key Vault est interdit à tous les utilisateurs.
+- Le [contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/role-based-access-control/role-assignments-portal) permet une gestion précise de l’accès pour Azure. L’accès à l’abonnement est limité à l’administrateur des abonnements, et l’accès à Azure Key Vault est interdit à tous les utilisateurs.
 
 Pour plus d’informations sur l’utilisation des fonctionnalités de sécurité d’Azure SQL Database, consultez l’exemple [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) (Application de démonstration Contoso Clinic).
    
@@ -263,7 +263,7 @@ L’utilisation des environnements ASE pour cette architecture permet les contr�
 Une machine virtuelle a été créée en tant que serveur de rebond (hôte bastion) avec les configurations suivantes :
 
 -   [Extension Antimalware](/azure/security/azure-security-antimalware)
--   [Extension OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Extension Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Extension Diagnostics Azure](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](/azure/security/azure-security-disk-encryption) avec Azure Key Vault 
 -   [Stratégie d’arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées
@@ -284,11 +284,11 @@ Utilisez [Application Insights](https://azure.microsoft.com/services/application
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) est un service d’Operations Management Suite (OMS) qui vous permet de collecter et d’analyser les données générées par les ressources de votre cloud et de vos environnements locaux.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) est un service qui vous permet de collecter et d’analyser les données générées par les ressources de vos environnements locaux et cloud.
 
-#### <a name="oms-solutions"></a>Solutions OMS
+#### <a name="managment-solutions"></a>Solutions de gestion
 
-Ces solutions OMS supplémentaires doivent être envisagées et configurées : 
+Ces solutions de gestion supplémentaires doivent être envisagées et configurées : 
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Utiliser la solution d’analytique du réseau Azure](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -344,9 +344,9 @@ Microsoft recommande vivement d’utiliser une nouvelle installation de PowerShe
     
     Pour obtenir des instructions d’utilisation détaillées, consultez [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Journalisation et surveillance OMS Une fois la solution déployée, un espace de travail [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) peut être ouvert, et les exemples de modèles fournis dans le dépôt de la solution peuvent être utilisés pour décrire la configuration d’un tableau de bord de monitoring. Les exemples de modèles OMS se trouvent dans le [dossier omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Notez que les données doivent être collectées dans OMS pour que les modèles soient déployés correctement. Cette opération peut prendre une heure ou plus, suivant l’activité sur le site.
+3. Journalisation et surveillance Log Analytics Une fois la solution déployée, un espace de travail Log Analytics peut être ouvert, et les exemples de modèles fournis dans le référentiel de la solution peuvent être utilisés pour montrer comment configurer un tableau de bord de surveillance. Les exemples de modèles se trouvent dans le [dossier omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Notez que les données doivent être collectées dans Log Analytics pour que les modèles soient déployés correctement. Cette opération peut prendre une heure ou plus, suivant l’activité sur le site.
  
-    Lorsque vous configurez la journalisation OMS, vous pouvez inclure les ressources suivantes :
+    Lorsque vous configurez la journalisation Log Analytics, vous pouvez inclure les ressources suivantes :
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups

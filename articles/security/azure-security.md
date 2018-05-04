@@ -1,12 +1,12 @@
 ---
-title: "Présentation d’Azure Security | Microsoft Docs"
-description: "Découvrez Azure Security, ses services et son fonctionnement."
+title: Présentation d’Azure Security | Microsoft Docs
+description: Découvrez Azure Security, ses services et son fonctionnement.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 68bba95e177fa8d0261b84f51b0f5285c7fb7417
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d'ensemble
@@ -58,8 +58,8 @@ Vous pouvez consulter les fonctionnalités répertoriées ci-après pour vous as
 | [Plateforme sécurisée](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Confidentialité et contrôles](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Conformité](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparence](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Cycle de développement de sécurité](https://www.microsoft.com/en-us/sdl/), audits internes | [Gérer vos données tout le temps](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Centre de gestion de la confidentialité](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Comment Microsoft sécurise les données client dans les services Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Formation obligatoire sur les mesures de sécurité, vérifications de la formation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc) |  [Contrôler l’emplacement des données](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub des contrôles communs](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Comment Microsoft gère l’emplacement des données dans les services Azure](http://azuredatacentermap.azurewebsites.net/)|
-| [Test de pénétration](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc), [détection d’intrusion, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [audits et journalisation](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Fournir l’accès aux données selon vos conditions](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Liste de contrôle d’obligation de diligence des services cloud](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Qui dans Microsoft peut accéder à vos données dans quelles conditions](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [Formation obligatoire sur les mesures de sécurité, vérifications de la formation](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Contrôler l’emplacement des données](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub des contrôles communs](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Comment Microsoft gère l’emplacement des données dans les services Azure](http://azuredatacentermap.azurewebsites.net/)|
+| [Test de pénétration](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [détection d’intrusion, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [audits et journalisation](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Fournir l’accès aux données selon vos conditions](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Liste de contrôle d’obligation de diligence des services cloud](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Qui dans Microsoft peut accéder à vos données dans quelles conditions](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Centre de données ultramoderne](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), sécurité physique, [réseau sécurisé](https://docs.microsoft.com/azure/security/security-network-overview) | [Réponse à l’application de la législation](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformité par service, site et secteur](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Comment Microsoft sécurise les données client dans les services Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Réponse aux incidents de sécurité](http://aka.ms/SecurityResponsepaper), [responsabilité partagée](http://aka.ms/sharedresponsibility) |[Normes de confidentialité strictes](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Passer en revue la certification des services Azure, concentrateur de transparence](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
@@ -105,7 +105,7 @@ Log Analytics peut être un outil utile dans l’analyse d’investigation et d
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 En outre, Azure Security Center aide aux opérations de sécurité en vous fournissant un tableau de bord qui présente les alertes et les recommandations qui peuvent être traitées immédiatement. Dans la plupart des cas, vous pourrez corriger les problèmes d’un simple clic dans la console Azure Security Center.
-## <a name="applications"></a>Applications
+## <a name="applications"></a>APPLICATIONS
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité des applications et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analyse de la vulnérabilité des applications web
@@ -139,7 +139,7 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 
 -   Journalisation du serveur web : informations sur les transactions HTTP à l’aide du format de fichier journal étendu W3C. Ce rapport se révèle utile pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
 
-#### <a name="application-diagnostics"></a>diagnostics d’application
+#### <a name="application-diagnostics"></a>Diagnostic d'application
 La fonctionnalité [Diagnostic d’application](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) vous permet de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Dans Diagnostic d’application, il existe deux types d’événement principaux, ceux qui sont liés aux performances de l’application et ceux qui sont liés à ses erreurs et échecs. Les échecs et les erreurs peuvent être répartis en problèmes de connectivité, sécurité et défaillance. Les problèmes de défaillance sont généralement associés à un problème lié au code d’application.
 
 Dans Diagnostic d’application, vous pouvez afficher les événements regroupés comme suit :
@@ -152,7 +152,7 @@ Dans Diagnostic d’application, vous pouvez afficher les événements regroupé
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité du stockage Azure et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
-Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles RBAC intégrés](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles), comme Collaborateur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
+Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles RBAC intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), comme Collaborateur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
 
 ### <a name="shared-access-signature"></a>Signature d’accès partagé
 Une [signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte.
@@ -188,13 +188,13 @@ Pour de nombreuses organisations, le chiffrement des données au repos est une �
 [CORS (Cross-Origin Resource Sharing) ](https://docs.microsoft.com/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) est un mécanisme qui autorise les domaines à donner des autorisations mutuelles pour accéder aux ressources de l’un ou l’autre domaine. L’agent utilisateur envoie des en-têtes supplémentaires pour s’assurer que le code JavaScript chargé à partir d’un domaine est autorisé à accéder aux ressources situées dans un autre domaine. Ce dernier domaine répond alors avec des en-têtes supplémentaires qui autorisent ou refusent l’accès du domaine d’origine à ses ressources.
 
 Les services de stockage Azure prennent désormais en charge CORS si bien que lorsque vous avez défini les règles CORS du service, une demande authentifiée exécutée auprès du service à partir d’un autre domaine est évaluée pour déterminer si elle est autorisée conformément aux règles que vous avez spécifiées.
-## <a name="networking"></a>Réseau
+## <a name="networking"></a>Mise en réseau
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité du réseau Azure et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="network-layer-controls"></a>Contrôles de la couche réseau
 Le contrôle d’accès réseau consiste à limiter la connectivité vers et depuis certains appareils ou sous-réseaux, et représente le cœur de la sécurité réseau. Le contrôle d’accès réseau permet de vous assurer que seuls les utilisateurs et appareils autorisés peuvent accéder à vos machines virtuelles et à vos services.
 
-#### <a name="network-security-groups"></a>Groupes de sécurité réseau
+#### <a name="network-security-groups"></a>Network Security Group
 Un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) est un pare-feu de base de filtrage des paquets avec état qui vous permet de contrôler l’accès sur la base d’un algorithme à [5 tuples](https://www.techopedia.com/definition/28190/5-tuple). Les groupes de sécurité réseau n’effectuent pas d’inspection de la couche d’application ni de contrôles d’accès authentifiés. Ils permettent de contrôler le trafic entre les sous-réseaux d’un réseau virtuel Azure et le trafic entre un réseau virtuel Azure et Internet.
 
 #### <a name="route-control-and-forced-tunneling"></a>Contrôle du routage et tunneling forcé
@@ -243,7 +243,7 @@ Microsoft [Azure Application Gateway](https://docs.microsoft.com/azure/applicati
 
 ![Application Gateway](./media/azure-security/azure-security-fig2.png)
 
-Elle vous permet d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison SSL gourmande en ressources du processeur vers la passerelle Application Gateway (processus également appelé « déchargement SSL » ou « pontage SSL »). Elle fournit également d’autres fonctionnalités de routage de couche 7, notamment la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. La passerelle Azure Application Gateway est un équilibreur de charge de couche 7.
+Elle vous permet d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison SSL gourmande en ressources du processeur vers la passerelle Application Gateway (processus également appelé « déchargement SSL » ou « pontage SSL »). Elle fournit également d’autres fonctionnalités de routage de couche 7, notamment la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. La passerelle Azure Application Gateway est un équilibreur de charge de couche 7.
 
 Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud.
 
@@ -356,7 +356,7 @@ Microsoft a recours à plusieurs technologies et pratiques de sécurité dans se
 
 -   [L’application de la stratégie de mot de passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/) renforce la sécurité des mots de passe traditionnels en imposant des exigences de longueur et de complexité, une rotation périodique forcée et un verrouillage de compte après des tentatives d’authentification en échec.
 
--   [L’authentification basée sur les jetons](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) permet l’authentification via Active Directory Federation Services (AD FS) ou des systèmes de jetons sécurisés tiers.
+-   [L’authentification basée sur le jeton](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) permet l’authentification via Azure Active Directory.
 
 -   Le [contrôle d’accès en fonction du rôle (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) vous permet d’accorder un accès en fonction du rôle de l’utilisateur. Vous pouvez ainsi donner facilement aux utilisateurs uniquement le niveau d’accès dont ils ont besoin pour effectuer leurs tâches. Vous pouvez personnaliser le contrôle RBAC en fonction du modèle d’entreprise et de la tolérance au risque de votre organisation.
 

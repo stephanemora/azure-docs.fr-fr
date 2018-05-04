@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: davidmu
-ms.openlocfilehash: 4f2c47f3e2debe0dc2b919858af9c347da00be5b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca9e45a214639da86cf8e0c4a39b3e3d6b6d6491
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
@@ -72,7 +72,7 @@ Chaque requête qui est envoyée à Azure AD B2C spécifie une stratégie. Une s
 
 #### <a name="custom-policies"></a>Stratégies personnalisées 
 
-Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de l’Infrastructure d’expérience d’identité dans votre locataire Azure AD B2C. Vous pouvez modifier entièrement les stratégies personnalisées afin d’effectuer un grand nombre de tâches. Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. 
+Les [stratégies personnalisées](active-directory-b2c-overview-custom.md) sont des fichiers config qui définissent le comportement de l’infrastructure d’expérience d’identité dans votre locataire Azure AD B2C. Vous pouvez modifier entièrement les stratégies personnalisées afin d’effectuer un grand nombre de tâches. Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. 
 
 Selon vos besoins, vous pouvez utiliser différents types de stratégies personnalisées dans votre locataire Azure AD B2C et les réutiliser dans l’ensemble de vos applications. Cette flexibilité vous permet de définir et de modifier les expériences relatives à l’identité du client avec peu ou pas de modification du code. Vous pouvez utiliser les stratégies en ajoutant un paramètre de requête spécial dans les requêtes d’authentification HTTP.
 

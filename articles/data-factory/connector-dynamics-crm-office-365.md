@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -63,7 +63,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Dynamics**. | OUI |
 | deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | OUI |
-| organizationName | Nom d’organisation de l’instance Dynamics. | Non, à spécifier quand il y a plusieurs instances Dynamics associées à l’utilisateur |
+| serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | OUI |
 | authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | OUI |
 | username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | OUI |
 | password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
@@ -71,6 +71,9 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 >[!IMPORTANT]
 >Lorsque vous copiez des données dans Salesforce, le runtime d’intégration Azure par défaut ne peut pas être utilisé pour exécuter la copie. En d’autres termes, si votre service lié à la source n’a pas de runtime d’intégration spécifié, [créez un Runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) de manière explicite, avec un emplacement près de votre instance Dynamics. Associez-le dans le service lié Dynamics comme dans l’exemple suivant.
+
+>[!NOTE]
+>Le connecteur Dynamics utilisé pour la propriété facultative « organizationName » afin d’identifier votre instance de Dynamics CRM/365 Online. Pendant qu’il continue de fonctionner, vous êtes invité à spécifier à la place la nouvelle propriété « serviceUri » pour obtenir de meilleures performances pour l’instance de détection.
 
 **Exemple : Dynamics en ligne utilisant l’authentification Office 365**
 
@@ -82,7 +85,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -207,7 +210,7 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | OUI |
-| query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Build queries with FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx) (Générer des requêtes avec FeachXML). | Non (si « entityName » est spécifié dans le jeu de données) |
+| query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Build queries with FeachXML](https://msdn.microsoft.com/library/gg328332.aspx) (Générer des requêtes avec FeachXML). | Non (si « entityName » est spécifié dans le jeu de données) |
 
 **Exemple :**
 

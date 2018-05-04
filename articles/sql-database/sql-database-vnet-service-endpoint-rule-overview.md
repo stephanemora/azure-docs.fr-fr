@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -140,7 +140,7 @@ Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel prése
 Lorsque vous utilisez des points de terminaison de service pour Azure SQL Database, passez en revue les considérations suivantes :
 
 - **Une sortie vers les adresses IP publiques Azure SQL Database est requise** : des groupes de sécurité réseau (NSG) doivent être ouverts aux adresses IP Azure SQL Database pour autoriser la connectivité. Vous pouvez pour ce faire utiliser des [balises de service](../virtual-network/security-overview.md#service-tags) NSG pour Azure SQL Database.
-- **Azure SQL Database pour PostgreSQL et MySQL ne sont pas pris en charge** : les points de terminaison de service ne sont pas pris en charge pour Azure Database pour PostgreSQL ou MySQL. L’activation des points de terminaison de service pour la base de données SQL interrompra la connectivité à ces services. Nous avons une atténuation pour cela ; veuillez contacter *dmalik@microsoft.com*.
+- **Azure SQL Database pour PostgreSQL et MySQL ne sont pas pris en charge** : les points de terminaison de service ne sont pas pris en charge pour Azure Database pour PostgreSQL ou MySQL. L’activation des points de terminaison de service pour la base de données SQL interrompra la connectivité à ces services. Nous proposons une atténuation pour cela, et vous pouvez envoyer un e-mail à l’adresse *dmalik@microsoft.com* pour plus d’informations.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Le stockage Azure a implémenté la même fonctionnalité qui vous permet de lim
 Si vous choisissez d’utiliser cette fonctionnalité avec un compte de stockage utilisé par une instance SQL Azure Server, vous risquez de rencontrer les problèmes. Vous trouverez ci-dessous une liste détaillée des fonctionnalités Azure SQLDB affectées par ce problème.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase est couramment utilisé pour charger des données dans Azure SQLDW à partir de comptes de stockage. Si le compte de stockage à partir duquel vous chargez des données limite l’accès à seulement un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Il existe une atténuation des risques pour cet objet ; veuillez contacter *dmalik@microsoft.com* pour plus d’informations.
+PolyBase est couramment utilisé pour charger des données dans Azure SQLDW à partir de comptes de stockage. Si le compte de stockage à partir duquel vous chargez des données limite l’accès à seulement un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Il existe une atténuation pour cela, et vous pouvez envoyer un e-mail à l’adresse *dmalik@microsoft.com* pour plus d’informations.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Audit d’objets blob Azure SQLDB
 L’audit d’objets blob transfère des journaux d’audit à votre propre compte de stockage. Si ce compte de stockage utilise la fonctionnalité de points de terminaison de service VENT, la connectivité entre Azure SQLDB et le compte de stockage sera interrompue.
@@ -227,8 +227,9 @@ Une liste de plusieurs messages d’erreur de base de données SQL Database est 
 Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-portal-link-ref-477t] pour créer une *règle de réseau virtuel* sur votre serveur Azure SQL Database. La règle donne l’instruction à votre serveur SQL Database d’accepter les communications provenant d’un sous-réseau spécifique qui a été marqué comme étant un *point de terminaison de service de réseau virtuel*.
 
 > [!NOTE]
-> Vérifiez que les points de terminaison de service sont activés pour le réseau virtuel/sous-réseau que vous envisagez d’ajouter aux règles de pare-feu de réseau virtuel de votre serveur.
-> S’ils ne le sont pas pour le réseau virtuel/sous-réseau, vous êtes invité à les activer dans le portail, en cliquant sur Activer dans le panneau que vous utilisez pour ajouter la règle.
+> Si vous envisagez d’ajouter un point de terminaison de service aux règles de pare-feu de réseau virtuel de votre serveur Azure SQL Database, commencez par vérifier que les points de terminaison de service sont activés pour le sous-réseau.
+>
+> Si les points de terminaison de service ne sont pas activés pour le sous-réseau, le portail vous invite à les activer. Cliquez sur le bouton **Activer** sur le même panneau que celui où vous ajoutez la règle.
 
 #### <a name="powershell-alternative"></a>Alternative PowerShell
 

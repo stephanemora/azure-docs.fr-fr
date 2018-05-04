@@ -1,11 +1,11 @@
 ---
 title: Charger un certificat de gestion de service Azure | Microsoft Docs
-description: "Découvrez comment charger le certificat de gestion de service pour le portail Azure."
+description: Découvrez comment charger le certificat de gestion de service pour le portail Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Charger un certificat de gestion de service Azure
 Les certificats de gestion vous permettent de vous authentifier dans le modèle de déploiement classique fourni par Azure. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. 
@@ -30,7 +30,7 @@ Les certificats de gestion vous permettent de vous authentifier dans le modèle 
 
 Si vous souhaitez plus d’informations sur les certificats Azure (y compris sur la création d’un certificat auto-signé), consultez [Vue d’ensemble des certificats pour Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-Vous pouvez également utiliser [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) pour authentifier le code client à des fins d’automatisation.
+Vous pouvez également utiliser [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour authentifier le code client à des fins d’automatisation.
 
 **Remarque :** vous devez être un coadministrateur de l’abonnement pour effectuer des opérations dans le volet Certificats de gestion. [Découvrez](https://go.microsoft.com/fwlink/?linkid=849300) comment ajouter ou supprimer des coadministrateurs du nouveau portail Azure 
 

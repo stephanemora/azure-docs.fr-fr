@@ -1,8 +1,8 @@
 ---
-title: "Créer des clusters Hadoop à la demande à l’aide de Data Factory - Azure HDInsight | Microsoft Docs"
-description: "Découvrez comment créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory."
+title: Créer des clusters Hadoop à la demande à l’aide de Data Factory - Azure HDInsight | Microsoft Docs
+description: Découvrez comment créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: spelluru
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6344b9a50f182a2b9ab05562c29099c9d6976f0b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factor
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -66,7 +64,8 @@ Pour obtenir la liste des activités de transformation de données de Data Facto
 > [!NOTE]
 > Actuellement, vous ne pouvez créer qu’un cluster HDInsight version 3.2 à partir d’Azure Data Factory.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 * [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -89,7 +88,7 @@ Pour simplifier ce didacticiel, vous utilisez un seul compte de stockage pour ce
 4. Création d’un conteneur d’objets blob dans le compte de stockage.
 5. Copie des deux fichiers suivants dans le conteneur d’objets blob :
 
-   * Fichier d’entrée : [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
+   * Fichier de données d’entrée : [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
    * Script HiveQL : [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
 
      Les deux fichiers sont stockés dans un conteneur d’objets blob public.
@@ -117,7 +116,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 ####################################
@@ -178,7 +177,7 @@ Si vous avez besoin d’aide avec le script PowerShell, consultez l’article [U
 
 **Pour examiner le compte de stockage et son contenu**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
 3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue.
 4. Dans la mosaïque **Ressources** , vous devez voir une ressource, sauf si vous partagez le groupe de ressources avec d’autres projets. Cette ressource correspond au compte de stockage avec le nom que vous avez spécifié précédemment. Cliquez sur le nom du compte de stockage.
@@ -189,7 +188,7 @@ Si vous avez besoin d’aide avec le script PowerShell, consultez l’article [U
 ## <a name="create-a-data-factory-using-resource-manager-template"></a>Créer une fabrique de données à l’aide du modèle Resource Manager
 Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Dans ce didacticiel, vous créez une fabrique de données en déployant un modèle Azure Resource Manager à l’aide du Portail Azure. Vous pouvez également déployer un modèle Resource Manager en utilisant [l’interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) et [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/quickstart-create-data-factory-dot-net.md).
 
-1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Pour obtenir des informations détaillées sur les entités définies dans le modèle, consultez la section [Entités Data Factory dans le modèle](#data-factory-entities-in-the-template). 
+1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure. Le modèle se trouve ici : https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Pour obtenir des informations détaillées sur les entités définies dans le modèle, consultez la section [Entités Data Factory dans le modèle](#data-factory-entities-in-the-template). 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Sélectionnez l’option **Utiliser existant** pour le paramètre **Groupe de ressources**, puis sélectionnez le nom du groupe de ressources que vous avez créé à l’étape précédente (à l’aide du script PowerShell).
@@ -276,7 +275,7 @@ Les entités Data Factory suivantes sont définies dans le modèle JSON :
 * [Jeu de données de sortie d’objet Blob Azure](#azure-blob-output-dataset)
 * [Pipeline de données avec une activité de copie](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
+#### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 Le service lié Stockage Azure relie votre compte de stockage Azure à la fabrique de données. Dans ce didacticiel, le même compte de stockage est utilisé comme compte de stockage HDInsight par défaut, comme stockage des données d’entrée et comme stockage des données de sortie. Par conséquent, vous ne définissez qu’un seul service lié Stockage Azure. Dans la définition du service lié, vous spécifiez le nom et la clé de votre compte de stockage Azure. Consultez [Service lié Stockage Azure](../data-factory/connector-azure-blob-storage.md) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié Stockage Azure.
 
 ```json
@@ -491,7 +490,7 @@ Supprimez les dossiers **adfjobs** et **adfyourdatafactoryname-linkedservicename
 ### <a name="delete-the-resource-group"></a>Supprimer le groupe de ressources
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) est utilisé pour déployer, gérer et surveiller votre solution en tant que groupe.  La suppression d’un groupe de ressources supprime tous les composants qu’il contient.  
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
 3. Cliquez sur le nom du groupe de ressources que vous avez créé dans votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue. Il ouvre le groupe de ressources dans un nouveau panneau.
 4. Dans la mosaïque **Ressources**, vous devez voir le compte de stockage par défaut et la fabrique de données, sauf si vous partagez le groupe de ressources avec d’autres projets.

@@ -1,11 +1,11 @@
 ---
-title: "Paramètres de passerelle réseau VPN pour Azure Stack | Microsoft Docs"
-description: "En savoir plus sur les paramètres pour les passerelles VPN que vous utilisez avec Azure Stack."
+title: Paramètres de passerelle réseau VPN pour Azure Stack | Microsoft Docs
+description: En savoir plus sur les paramètres pour les passerelles VPN que vous utilisez avec Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Paramètres de configuration de la passerelle VPN pour Azure Stack
 
@@ -160,7 +160,7 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |Version IKE |IKEv2 |
 |Chiffrement et algorithmes de hachage (Chiffrement)     | GCMAES256|
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
-|Durée de vie de l’AS (durée)  | 14 400 secondes |
+|Durée de vie de l’AS (durée)  | 27 700 secondes |
 |Durée de vie de l’AS (octets) | 819,200       |
 |PFS (Perfect Forward Secrecy) |PFS2048 |
 |Détection d’homologue mort | Prise en charge|  

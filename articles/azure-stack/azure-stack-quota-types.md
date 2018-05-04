@@ -1,25 +1,25 @@
 ---
 title: Types de quotas dans Azure Stack | Microsoft Docs
-description: "Passez en revue les différents types de quotas disponibles pour les services et les ressources dans Azure Stack."
+description: Passez en revue les différents types de quotas disponibles pour les services et les ressources dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -35,16 +35,18 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Nombre maximal de groupes à haute disponibilité | 10 | Nombre maximal de groupes à haute disponibilité qui peuvent être créés à cet emplacement. |
 | Nombre maximal de groupes de machines virtuelles identiques | 20 | Nombre maximal de groupes de machines virtuelles identiques qui peuvent être créés à cet emplacement. |
 
-> [!NOTE]
-> Les quotas de capacité de traitement (compute) ne sont pas appliqués dans cette version Technical Preview.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Types de quotas de stockage
 | **Item** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
 | Capacité maximale (Go) |500 |Capacité de stockage totale qui peut être consommée par un abonnement à cet emplacement. |
 | Nombre total de comptes de stockage |20 |Nombre maximal de comptes de stockage qu’un abonnement peut créer à cet emplacement. |
+
+> [!NOTE]  
+> L’application d’un nouveau quota de stockage peut prendre jusqu’à deux heures. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
 | **Item** | **Valeur par défaut** | **Description** |

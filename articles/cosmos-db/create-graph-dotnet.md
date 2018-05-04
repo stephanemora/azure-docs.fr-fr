@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: dd2ff95c23b149cd8d5becf086c021060b0ec5a8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3585acb550bdf408b0912f1fb2d7244eaa5b7011
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB : Créer une application .NET Framework ou Core à l’aide de l’API Graph
 
@@ -69,10 +69,11 @@ Si Visual Studio 2017 est déjà installé, assurez-vous de disposer de [Visual 
 
 5. Restaurez les packages NuGet dans le projet. Sont concernés ici le pilote Gremlin.Net et le package Newtonsoft.Json.
 
-6. Vous pouvez également installer le pilote Gremlin.Net manuellement, sous sa version 3.2.7, à l’aide du gestionnaire de package Nuget ou de l’[utilitaire de ligne de commande nuget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) : 
+
+6. Vous pouvez également installer le pilote Gremlin.Net manuellement à l’aide du gestionnaire de package Nuget ou de [l’utilitaire de ligne de commande nuget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) : 
 
     ```bash
-    nuget install Gremlin.Net -Version 3.2.7
+    nuget install Gremlin.Net
     ```
 
 ## <a name="review-the-code"></a>Vérifier le code

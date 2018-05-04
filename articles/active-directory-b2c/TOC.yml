@@ -16,7 +16,7 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Didacticiels
   items:
-    - name: 1 - Inscrire des applications
+    - name: 1 - Inscrire des application
       href: tutorial-register-applications.md
     - name: 2 - Authentifier des comptes
       items:
@@ -112,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (un seul abonné)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: Personnaliser OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Configurer la réinitialisation du mot de passe en libre-service
           href: active-directory-b2c-reference-sspr.md
         - name: Personnalisation de l’interface utilisateur
@@ -159,6 +163,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: Multi-locataire
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Configurer les fournisseurs SAML
               items:
                 - name: ADFS
@@ -195,12 +201,12 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Activer le maintien de la connexion
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: Suivi du comportement des utilisateurs
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: Résolution de problèmes
               items:
                 - name: Collecter les journaux à l’aide d’Application Insights
                   href: active-directory-b2c-troubleshoot-custom.md
+                - name: Suivre le comportement des utilisateurs
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: Informations de référence
           items:
             - name: Notes de publication

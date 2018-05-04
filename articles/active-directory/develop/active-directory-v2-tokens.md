@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informations de référence sur les jetons Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 émet plusieurs types de jeton de sécurité dans chaque [flux d’authentification](active-directory-v2-flows.md). Ces informations de référence décrivent le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | ID d’objet |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur.  Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`.  Cela signifie qu’il peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph.  Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné.  `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
 
 ### <a name="access-tokens"></a>Jetons d’accès
-Actuellement, les jetons d’accès émis par le point de terminaison v2.0 peuvent être utilisés uniquement par les services Microsoft. Vos applications n’ont pas besoin de valider ou d’inspecter les jetons d’accès dans les scénarios actuellement pris en charge. Vous pouvez traiter les jetons d’accès complètement opaques. Ce sont seulement des chaînes que votre application peut transmettre à Microsoft dans des requêtes HTTP.
 
-Dans un avenir proche, le point de terminaison v2.0 permettra à votre application de recevoir des jetons d’accès à partir d’autres clients. Nous mettrons alors à jour les informations de cette rubrique de référence pour refléter les données dont vous avez besoin pour que votre application valide les jetons d’accès et effectue d’autres tâches similaires.
+Le point de terminaison v2.0 permet aux applications tierces qui sont inscrites auprès d’Azure AD d’émettre des jetons d’accès pour des ressources sécurisées telles que des API web. Pour plus d’informations sur la configuration d’une application pour l’émission de jetons d’accès, consultez [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Lors de l’enregistrement de l’application auprès du point de terminaison v2.0, le développeur peut spécifier des niveaux d’accès, appelés **étendues**, pour lesquels les jetons d’accès peuvent être émis. Par exemple, l’étendue **calendars.read** définie dans l’API Microsoft Graph accorde l’autorisation de lire le calendrier de l’utilisateur. Lorsque votre application reçoit un jeton d’accès du point de terminaison v2.0, vous devez valider la signature, l’émetteur, l’audience, le délai d’expiration et toutes les autres revendications du jeton en fonction de votre scénario. 
 
 Quand vous demandez un jeton d’accès auprès du point de terminaison v2.0, ce dernier retourne également des métadonnées sur le jeton d’accès que votre application peut utiliser. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Votre application utilise ces métadonnées pour effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser.
 

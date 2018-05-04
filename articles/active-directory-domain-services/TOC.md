@@ -16,7 +16,7 @@
 ## [Tâche 2 : Configurer les paramètres réseau](active-directory-ds-getting-started-network.md)
 ## [Tâche 3 : Configurer le groupe d’administrateurs et activer Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ## [Tâche 4 : Mettre à jour les paramètres DNS du réseau virtuel](active-directory-ds-getting-started-dns.md)
-## [Tâche 5 : Activer la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md)
+## [Tâche 5 : Activer la synchronisation de hachage de mot de passe](active-directory-ds-getting-started-password-sync.md)
 
 # Procédures
 ## [Vérifier l’intégrité d’un domaine managé](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # Informations de référence
-## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Rubriques connexes
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

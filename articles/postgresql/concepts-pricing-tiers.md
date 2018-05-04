@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8526988685faec0318d0f048b10971712942eef5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -36,7 +36,8 @@ Pour choisir un niveau tarifaire, utilisez le tableau suivant comme point de dé
 | Usage général | La plupart des charges de travail professionnelles qui nécessitent une capacité de calcul et de mémoire équilibrée avec un débit d’E/S extensible. Il s’agit, par exemple, de serveurs destinés à l’hébergement d’applications web et mobiles, ainsi que d’autres applications d’entreprise.|
 | Mémoire optimisée | Charges de travail de base de données haute performance qui nécessitent des performances en mémoire suffisantes pour un traitement plus rapide des transactions et une simultanéité plus élevée. Il s’agit, par exemple, de serveurs destinés au traitement de données en temps réel et à des applications transactionnelles ou analytiques haute performance.|
 
-Après avoir créé un serveur, le nombre de vCores peut être augmenté ou diminué en quelques secondes. Vous pouvez également augmenter ou diminuer de manière indépendante la quantité de stockage et la période de rétention des sauvegardes sans interruption de l’application. Pour plus d’informations, consultez la section « Mettre les ressources à l’échelle ».
+Après avoir créé un serveur, le nombre de vCores peut être augmenté ou diminué (au sein du même niveau de tarification) en quelques secondes. Vous pouvez également augmenter ou diminuer de manière indépendante la quantité de stockage et la période de rétention des sauvegardes sans interruption de l’application. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
+
 
 ## <a name="compute-generations-vcores-and-memory"></a>Générations de calcul, vCores et mémoire
 
@@ -53,13 +54,13 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Ouest des États-Unis 2 |  | X |
 | Centre du Canada | X | X |
 | Est du Canada | X | X |
-| Sud du Brésil | X |  |
+| Sud du Brésil | X | X |
 | Europe du Nord | X | X |
 | Europe de l'Ouest | X | X |
 | Ouest du Royaume-Uni |  | X |
 | Sud du Royaume-Uni |  | X |
 | Est de l'Asie | X |  |
-| Asie du Sud-Est | X |  |
+| Asie du Sud-Est | X | X |
 | Est de l’Australie |  | X |
 | Inde centrale | X |  |
 | Inde occidentale | X |  |
@@ -90,7 +91,7 @@ Le service effectue automatiquement des sauvegardes de votre serveur. La périod
 
 ## <a name="scale-resources"></a>Mettre les ressources à l’échelle
 
-Après avoir créé votre serveur, vous pouvez modifier de manière indépendante les vCores, la quantité de stockage et la période de rétention de sauvegarde. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Les vCores et la période de rétention de sauvegarde peuvent être augmentés ou diminués. La taille de stockage ne peut être qu’augmentée. La mise à l’échelle des ressources peut être effectuée par le biais du portail ou d’Azure CLI. Pour obtenir un exemple de mise à l’échelle à l’aide d’Azure CLI, consultez [Surveiller et mettre à l’échelle un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
+Après avoir créé votre serveur, vous pouvez modifier de manière indépendante les vCores, la quantité de stockage et la période de rétention de sauvegarde. Vous ne pouvez pas modifier le niveau tarifaire ou le type de stockage de sauvegarde après la création d’un serveur. Le nombre de vCores peut être augmenté ou diminué au sein du même niveau de tarification. La période de rétention de sauvegarde peut être augmentée ou diminuée et va de 7 à 35 jours. La taille de stockage ne peut être qu’augmentée.  La mise à l’échelle des ressources peut être effectuée par le biais du portail ou d’Azure CLI. Pour obtenir un exemple de mise à l’échelle à l’aide d’Azure CLI, consultez [Surveiller et mettre à l’échelle un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
 Lorsque vous modifiez le nombre de vCores, une copie du serveur d’origine est créée avec la nouvelle allocation du calcul. Une fois que le nouveau serveur est opérationnel, les connexions sont basculées vers le nouveau serveur. Pendant le moment durant lequel le système bascule vers le nouveau serveur, aucune nouvelle connexion ne peut être établie, et toutes les transactions non validées sont restaurées. Cette fenêtre varie, mais dans la plupart des cas elle dure moins d’une minute.
 

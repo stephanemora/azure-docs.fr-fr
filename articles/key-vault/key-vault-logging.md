@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -236,32 +236,32 @@ Le tableau suivant répertorie les éléments operationName et la commande API R
 | operationName | Commande API REST |
 | --- | --- |
 | Authentification |Via le point de terminaison Azure Active Directory (Azure AD) |
-| VaultGet |[Obtention des informations sur un coffre de clés](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Création ou mise à jour d’un coffre de clés](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Suppression d’un coffre de clés](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Obtention des informations sur un coffre de clés](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Création ou mise à jour d’un coffre de clés](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Suppression d’un coffre de clés](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Mise à jour d’un coffre de clés](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Liste de l’ensemble des coffres de clés dans un groupe de ressources](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Création d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Obtention des informations sur une clé](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Importation d’une clé dans un coffre](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Sauvegarde d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[Suppression d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Restauration d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Signature avec une clé](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Vérification à l’aide d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Encapsulage d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Désencapsulage d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Chiffrement avec une clé](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Déchiffrement avec une clé](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Mise à jour d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[Liste des clés dans un coffre](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[Liste des versions d’une clé](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Création d’une clé secrète](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Obtention d’une clé secrète](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Mise à jour d’une clé secrète](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Suppression d’une clé secrète](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Liste des clés secrètes d’un coffre](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Liste des versions d’une clé secrète](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[Liste de l’ensemble des coffres de clés dans un groupe de ressources](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Création d’une clé](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Obtention des informations sur une clé](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Importation d’une clé dans un coffre](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Sauvegarde d’une clé](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[Suppression d’une clé](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Restauration d’une clé](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Signature avec une clé](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Vérification à l’aide d’une clé](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Encapsulage d’une clé](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Désencapsulage d’une clé](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Chiffrement avec une clé](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Déchiffrement avec une clé](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Mise à jour d’une clé](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[Liste des clés dans un coffre](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[Liste des versions d’une clé](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Création d’une clé secrète](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Obtention d’une clé secrète](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Mise à jour d’une clé secrète](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Suppression d’une clé secrète](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[Liste des clés secrètes d’un coffre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[Liste des versions d’une clé secrète](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Utilisation de Log Analytics
 

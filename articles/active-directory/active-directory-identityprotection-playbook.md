@@ -1,9 +1,9 @@
 ---
-title: "Manuel d’Azure Active Directory Identity Protection | Microsoft Docs"
-description: "Découvrez comment Azure AD Identity Protection vous permet de limiter la capacité d’un cybercriminel à exploiter une identité ou un appareil compromis et de sécuriser une identité ou un appareil déjà identifié comme potentiellement ou effectivement compromis."
+title: Manuel d’Azure Active Directory Identity Protection | Microsoft Docs
+description: Découvrez comment Azure AD Identity Protection vous permet de limiter la capacité d’un cybercriminel à exploiter une identité ou un appareil compromis et de sécuriser une identité ou un appareil déjà identifié comme potentiellement ou effectivement compromis.
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Manuel d’Azure Active Directory Identity Protection
 
@@ -50,7 +50,7 @@ L’exécution de la procédure ci-après requiert l’utilisation des élément
 
 **Pour simuler une connexion depuis une adresse IP anonyme, procédez comme suit**:
 
-1. À l’aide du [navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en), accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+1. Avec le [navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en), accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).   
 2. Entrez les informations d’identification du compte que vous souhaitez voir apparaître dans le rapport **Connexions depuis des adresses IP anonymes** .
 
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 10 à 15 minutes. 
@@ -90,18 +90,18 @@ La simulation de la condition de voyage impossible est difficile, car l’algori
 
 **Pour simuler un voyage impossible vers des emplacements inhabituels, procédez comme suit**:
 
-1. À l’aide de votre navigateur standard, accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Avec votre navigateur standard, accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).  
 2. Entrez les informations d’identification du compte pour lequel vous souhaitez générer cet événement à risque.
 3. Changez votre agent utilisateur. Vous pouvez changer l’agent utilisateur depuis les outils de développement dans Internet Explorer ou à l’aide d’un module complémentaire de sélecteur d’agents utilisateur dans Firefox ou Chrome.
 4. Changez votre adresse IP. Vous pouvez changer votre adresse IP en utilisant un VPN, un module complémentaire Tor ou en créant une nouvelle machine au sein d’Azure dans un autre centre de données.
-5. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com) à l’aide des mêmes informations d’identification que précédemment et dans un délai de quelques minutes seulement après la connexion précédente.
+5. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com) à l’aide des mêmes informations d’identification que précédemment et quelques minutes seulement après la connexion précédente.
 
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 2 à 4 heures.
 
 ## <a name="simulating-vulnerabilities"></a>Simulation de vulnérabilités
 Les vulnérabilités sont des points faibles exploitables par une personne malveillante au sein de votre environnement Azure AD. Actuellement, Azure AD Identity Protection présente trois types de vulnérabilités tirant parti d’autres fonctionnalités d’Azure AD. Ces vulnérabilités s’affichent automatiquement dans le tableau de bord d’Identity Protection dès lors que ces fonctionnalités sont configurées.
 
-* Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
@@ -120,7 +120,7 @@ Pour plus d’informations, consultez la section [Stratégie de sécurité en ma
 
 **Pour tester une stratégie de sécurité en matière de risque des utilisateurs, procédez comme suit :**
 
-1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre client.
+1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre locataire.
 2. Accédez à **Identity Protection**. 
 3. Sur la page **Azure AD Identity Protection**, cliquez sur **Stratégie d’utilisateur à risque**.
 4. Dans la section **Affectations**, sélectionnez les utilisateurs (et groupes) et le niveau de risque utilisateur souhaités.
@@ -145,7 +145,7 @@ Pour plus d’informations, consultez la section [Stratégie de sécurité en ma
 
 **Pour tester une stratégie de risque à la connexion, procédez comme suit :**
 
-1. Connectez-vous à [https://portal.azure.com ](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre client.
+1. Connectez-vous à [https://portal.azure.com ](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre locataire.
 
 2. Accédez à **Azure AD Identity Protection**.
 

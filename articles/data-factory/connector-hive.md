@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 0b216b334f07a59f7c159bc804116f2190f3bf6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 758da9ceb86e26d373f71e4f89a47d67d1cefe2d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copier des données de Hive à l’aide d’Azure Data Factory 
 
@@ -46,7 +46,7 @@ Les propriétés prises en charge pour le service lié Hive sont les suivantes :
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Hive** | OUI |
 | host | Adresse IP ou nom d’hôte du serveur Hive, séparé par « ; » pour plusieurs hôtes (uniquement quand serviceDiscoveryMode est activé).  | OUI |
-| port | Port TCP utilisé par le serveur Hive pour écouter les connexions clientes.  | Non  |
+| port | Port TCP utilisé par le serveur Hive pour écouter les connexions clientes. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | OUI |
 | serverType | Type du serveur Hive. <br/>Valeurs autorisées : **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Non  |
 | thriftTransportProtocol | Protocole de transport à utiliser dans la couche Thrift. <br/>Valeurs autorisées : **Binary**, **SASL**, **HTTP** | Non  |
 | authenticationType | Méthode d’authentification utilisée pour accéder au serveur Hive. <br/>Valeurs autorisées : **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | OUI |
@@ -78,8 +78,7 @@ Les propriétés prises en charge pour le service lié Hive sont les suivantes :
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

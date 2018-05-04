@@ -1,8 +1,8 @@
 ---
-title: "Configurer des sources de données dans Azure Log Analytics | Microsoft Docs"
-description: "Les sources de données définissent les données que Log Analytics collectent auprès des agents et d'autres sources connectées.  Cet article décrit la façon dont Log Analytics utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles."
+title: Configurer des sources de données dans Azure Log Analytics | Microsoft Docs
+description: Les sources de données définissent les données que Log Analytics collectent auprès des agents et d'autres sources connectées.  Cet article décrit la façon dont Log Analytics utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Sources de données dans Log Analytics
 Log Analytics collecte les données à partir de vos sources connectées et les stocke dans votre espace de travail Log Analytics.  Les données collectées à partir de chacune de ces sources dépendent des sources de données que vous configurez.  Les données dans Log Analytics sont stockées sous forme d’ensemble d’enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
@@ -29,16 +29,19 @@ Les sources de données sont différentes des [solutions de gestion](log-analyti
 
 
 ## <a name="summary-of-data-sources"></a>Résumé des sources de données
-Les sources de données actuellement disponibles dans Log Analytics sont répertoriées dans le tableau suivant.  Chacune de ces sources comporte un lien vers un article distinct qui fournit des détails sur cette source de données.
+Le tableau suivant répertorie les sources de données actuellement disponibles dans Log Analytics.  Chacune de ces sources comporte un lien vers un article distinct qui fournit des détails sur cette source de données.   Il fournit également des informations sur leur méthode et leur fréquence de collecte de données dans Log Analytics.  Vous pouvez utiliser les informations de cet article pour identifier les différentes solutions disponibles et comprendre leurs exigences en termes de flux de données et de connexion. Pour obtenir des explications sur les colonnes, consultez [Détails sur la collecte de données pour les solutions de gestion dans Azure](../monitoring/monitoring-solutions-inventory.md).
 
-| source de données | Type d'événement | Description |
-|:--- |:--- |:--- |
-| [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Fichiers texte sur les agents Windows ou Linux, qui contiennent des informations des journal. |
-| [Journaux d’événements Windows](log-analytics-data-sources-windows-events.md) |Événement |Événements collectés à partir du journal des événements d’ordinateurs Windows. |
-| [Compteurs de performances Windows](log-analytics-data-sources-performance-counters.md) |Perf |Compteurs de performances collectés à partir d’ordinateurs Windows. |
-| [Compteurs de performances Linux](log-analytics-data-sources-performance-counters.md) |Perf |Compteurs de performances collectés à partir d’ordinateurs Linux. |
-| [Journaux IIS](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Journaux d’Internet Information Services (IIS) au format W3C. |
-| [Syslog](log-analytics-data-sources-syslog.md) |syslog |Événements Syslog sur des ordinateurs Windows ou Linux. |
+
+| Source de données | Plateforme | Microsoft Monitoring Agent | Agent Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | à l'arrivée |
+| [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | à l'arrivée |
+| [Journaux IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutes |
+| [Compteurs de performances](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |comme prévu, minimum de 10 secondes |
+| [Compteurs de performances](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |comme prévu, minimum de 10 secondes |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |depuis le stockage Azure : 10 minutes ; à partir de l’agent : à l’arrivée |
+| [Journaux d’événements Windows](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | à l'arrivée |
+
 
 ## <a name="configuring-data-sources"></a>Configuration des sources de données
 Vous configurez des sources de données à partir du menu **Données** dans **Paramètres avancés** de Log Analytics.  Toutes les configurations sont remises à toutes les sources connectées dans votre espace de travail.  Nous ne pouvez actuellement exclure aucun agents de cette configuration.

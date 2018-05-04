@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Utilisation de Deep Learning Virtual Machine
 
@@ -35,7 +35,7 @@ Outre les exemples basés sur les frameworks, un ensemble de procédures détail
 
 - [Guide pratique pour créer une solution de bout en bout afin de détecter des produits dans des images](https://github.com/Azure/cortana-intelligence-product-detection-from-images) : la détection d’image est une technique qui peut localiser des objets dans les images et les classer. Les retombées concrètes de cette technologie semblent très prometteuses dans de nombreux domaines professionnels. Par exemple, un détaillant peut utiliser cette technique pour déterminer quel produit un client a choisi dans un rayon. Il peut ensuite utiliser ces informations pour gérer le stock des produits. 
 
-- [Extraction d’entités nommées à partir de résumés PubMed](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) : ce tutoriel montre comment extraire des entités nommées, telles que les noms de médicament ou de maladie, à partir de texte non structuré. Il entraîne une incorporation de mots personnalisée dans un corpus constitués de 18 millions de résumés PubMed, utilise ce modèle pour générer un modèle de réseau neuronal récurrent de mémoire à court et long terme pour l’extraction des entités, et montre que le modèle d’incorporation de mots propres à un domaine peut être plus performant qu’un modèle d’incorporation de mots génériques pour l’extraction d’entités.
+- [Extraction d’entités nommées à partir de résumés PubMed](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) : ce tutoriel montre comment extraire des entités nommées, telles que les noms de médicament ou de maladie, à partir de texte non structuré. Il entraîne une incorporation de mots personnalisée dans un corpus constitués de 18 millions de résumés PubMed, utilise ce modèle pour générer un modèle de réseau neuronal récurrent de mémoire à court et long terme pour l’extraction des entités, et montre que le modèle d’incorporation de mots propres à un domaine peut être plus performant qu’un modèle d’incorporation de mots génériques pour l’extraction d’entités.
 
 - [Modèle d’apprentissage profond pour l’audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) : Ce tutoriel montre comment entraîner un modèle d’apprentissage profond pour la détection des événements audio dans le [jeu de données Urban Sounds](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html), et explique comment utiliser les données audio.
 

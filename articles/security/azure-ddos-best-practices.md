@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fea235ed057517840515f1ad0543dba1b1c46dd0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4b2d785f5b9095a2decfc65ec46808ff6f65c38e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architecture"></a>Azure DDoS Protection : bonnes pratiques et architecture de référence
 
@@ -167,7 +167,7 @@ Nous travaillons en collaboration avec [BreakingPoint Cloud](https://www.ixiacom
 
 - Former des équipes de sécurité réseau
 
-La cybersécurité est une bataille sans relâche qui nécessite des innovations constantes en matière de défense. Azure DDoS Protection Standard est une solution de pointe qui permet aux clients d’atténuer de manière efficace les attaques DDoS de plus en plus complexes.
+La cybersécurité est une bataille sans relâche qui nécessite des innovations constantes en matière de défense. La protection Standard DDoS d’Azure est une solution de pointe qui permet aux clients d’atténuer de manière efficace les attaques DDoS de plus en plus complexes.
 
 ## <a name="components-of-a-ddos-response-strategy"></a>Composants d’une stratégie de réponse DDoS
 

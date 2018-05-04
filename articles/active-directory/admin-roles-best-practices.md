@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -240,7 +240,7 @@ Exigez une authentification forte et moderne, telle qu’Azure MFA ou Windows He
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Utiliser des stations de travail dédiées pour l’administration d’Azure AD
 
-Les personnes malveillantes peuvent tenter de cibler des comptes privilégiés pour accéder aux données et systèmes d’une organisation dans le but de nuire à l’intégrité et l’authenticité des données, via un code malveillant modifiant la logique du programme ou qui usurpe l’administrateur saisissant des informations d’identification. Les stations de travail d’accès privilégié (PAW) fournissent un système d’exploitation dédié aux tâches sensibles et protégé contre les attaques Internet et les vecteurs de menaces. La séparation de ces tâches et comptes sensibles et de ces stations de travail et appareils utilisés au quotidien fournit une protection très élevée contre les attaques par hameçonnage, les vulnérabilités du système d’exploitation et des applications, différentes attaques par emprunt d’identité et les vols d’informations d’identification tels que les enregistreurs de frappe et les attaques de type « Pass the hash » et « Pass the ticket ». En déployant des stations de travail à accès privilégié, vous pouvez réduire le risque de saisie d’informations d’identification administrateur par les administrateurs si ce n’est sur un environnement de bureau qui a été renforcé. Pour plus d’informations, consultez [Stations de travail d’accès privilégié](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Les personnes malveillantes peuvent tenter de cibler des comptes privilégiés pour accéder aux données et systèmes d’une organisation dans le but de nuire à l’intégrité et l’authenticité des données, via un code malveillant modifiant la logique du programme ou qui usurpe l’administrateur saisissant des informations d’identification. Les stations de travail d’accès privilégié (PAW) fournissent un système d’exploitation dédié aux tâches sensibles et protégé contre les attaques Internet et les vecteurs de menaces. La séparation de ces tâches et comptes sensibles et de ces stations de travail et appareils utilisés au quotidien fournit une protection très élevée contre les attaques par hameçonnage, les vulnérabilités du système d’exploitation et des applications, différentes attaques par emprunt d’identité et les vols d’informations d’identification tels que les enregistreurs de frappe et les attaques de type « Pass the hash » et « Pass the ticket ». En déployant des stations de travail à accès privilégié, vous pouvez réduire le risque de saisie d’informations d’identification administrateur par les administrateurs si ce n’est sur un environnement de bureau qui a été renforcé. Pour plus d’informations, consultez [Stations de travail d’accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Passer en revue les recommandations relatives à la gestion des incidents du National Institute of Standards and Technology 
 

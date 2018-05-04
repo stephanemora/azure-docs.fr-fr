@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console série de machine virtuelle (préversion) 
 
@@ -110,7 +110,7 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 
 Cette section présente des exemples de commandes permettant d’effectuer des tâches courantes dans les situations où vous pouvez avoir besoin d’utiliser la console SAC pour accéder à la machine virtuelle, notamment pour résoudre les échecs de connexion RDP.
 
-La console SAC est incluse dans toutes les versions de Windows depuis Windows Server 2003, mais elle est désactivée par défaut. La console SAC s’appuie sur le pilote du noyau `sacdrv.sys`, le service `Special Administration Console Helper` (`sacsvr`) et le processus `sacsess.exe`. Pour plus d’informations, consultez la page [Emergency Management Services Tools and Settings (Paramètres et outils des services de gestion d’urgence)](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+La console SAC est incluse dans toutes les versions de Windows depuis Windows Server 2003, mais elle est désactivée par défaut. La console SAC s’appuie sur le pilote du noyau `sacdrv.sys`, le service `Special Administration Console Helper` (`sacsvr`) et le processus `sacsess.exe`. Pour plus d’informations, consultez la page [Emergency Management Services Tools and Settings (Paramètres et outils des services de gestion d’urgence)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 La console SAC vous permet de vous connecter à votre système d’exploitation en cours d’exécution par le biais du port série. Lorsque vous lancez CMD à partir de la console SAC, `sacsess.exe` lance `cmd.exe` au sein de votre système d’exploitation en cours d’exécution. Dans le Gestionnaire des tâches, vous pouvez constater que si vous établissez une connexion RDP vers votre machine virtuelle simultanément, vous êtes connecté à la console SAC par le biais de la fonctionnalité de console série. L’instance CMD à laquelle vous accédez par le biais de la console SAC est la même `cmd.exe` que vous utilisez lorsque la connexion est établie par le biais du protocole RDP. Les mêmes commandes et les mêmes outils sont disponibles, y compris la possibilité de lancer PowerShell à partir de cette instance CMD. La console SAC diffère de l’environnement de récupération Windows (WinRE) : la console SAC vous permet de gérer votre système d’exploitation en cours d’exécution, tandis que WinRE démarre dans un système d’exploitation minimal. Alors que les machines virtuelles Azure ne permettent pas d’accéder à WinRE, les machines virtuelles Azure peuvent être gérées par le biais de la console SAC avec la fonctionnalité de console série.
 
@@ -267,11 +267,11 @@ Cet exemple retourne la version du fichier du pilote de carte réseau virtuel, q
 #### <a name="scan-for-system-file-corruption"></a>Analyser l’endommagement des fichiers système
 `sfc /scannow`
 
-Voir aussi [Repair a Windows Image (Réparer une image Windows)](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Voir aussi [Repair a Windows Image (Réparer une image Windows)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="scan-for-system-file-corruption"></a>Analyser l’endommagement des fichiers système
 `dism /online /cleanup-image /scanhealth`
 
-Voir aussi [Repair a Windows Image (Réparer une image Windows)](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Voir aussi [Repair a Windows Image (Réparer une image Windows)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="export-file-permissions-to-text-file"></a>Exporter les autorisations de fichier vers un fichier texte
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Enregistrer les autorisations de fichier dans un fichier ACL
@@ -517,7 +517,7 @@ Vous pouvez interroger les métadonnées d’instance Azure à partir de votre m
 
 L’interrogation des métadonnées d’instance nécessite une connectivité de réseau invité saine, car elle effectue un appel REST par le biais de l’hôte Azure vers le service de métadonnées d’instance. Par conséquent, si vous êtes en mesure d’interroger les métadonnées d’instance, cela vous indique que l’invité peut communiquer sur le réseau vers un service Azure.
 
-Pour plus d’informations, consultez [Service de métadonnées d’instance Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Pour plus d’informations, consultez [Service de métadonnées d’instance Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Métadonnées d’instance
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -36,10 +36,13 @@ ms.lasthandoff: 04/16/2018
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Bien démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
+|**Prise en main**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Correctifs inclus dans l’estimation de travail en attente.
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Améliorations de la stabilité.
@@ -74,6 +77,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |18 avril 2018 |--- |
 | [1.3.1](#1.3.1) |13 mars 2018 |--- |
 | [1.2.0](#1.2.0) |31 octobre 2017 |--- |
 | [1.1.1](#1.1.1) |29 août 2017 |--- |

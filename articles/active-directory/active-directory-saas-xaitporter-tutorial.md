@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration de Azure Active Directory à XaitPorter
 
@@ -28,11 +28,12 @@ L’intégration de XaitPorter dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à XaitPorter.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à XaitPorter (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration de Azure AD à XaitPorter, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de XaitPorter depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +85,10 @@ Dans XaitPorter, affectez la valeur de **nom d’utilisateur** dans Azure AD co
 
 Pour configurer et tester l’authentification unique Azure AD avec XaitPorter, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer utilisateur de test XaitPorter](#create-a-xaitporter-test-user)** pour avoir un équivalent de Britta Simon dans XaitPorter lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -113,59 +114,39 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique XaitPorter](https://www.xait.com/support/). 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique XaitPorter](https://www.xait.com/support/).
+     
+4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes. 
 
-4. Cliquez sur le bouton **Enregistrer** .
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
-
-    a. Cliquez sur **Inscriptions des applications**.
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    b. Cliquez sur **Points de terminaison** pour ouvrir la boîte de dialogue **Points de terminaison**.  
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
-    
-    ![Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. Accédez maintenant à la page de propriétés de **XaitPorter**, puis copiez l’**ID d’application** à l’aide du bouton **Copier** et collez-le dans le Bloc-notes.
- 
-    ![Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Fournissez l’**adresse IP** ou l’**URL des métadonnées de** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste verte de leur côté. 
+6. Fournissez **l’adresse IP** ou **l’URL des métadonnées de fédération de l’application** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste verte de leur côté. 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise XaitPorter en tant qu’administrateur.
 
 8. Cliquez sur le titre **Admin**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/user1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user1.png)
 
 9. Sélectionnez **Gérer l’authentification unique** à partir de la liste déroulante **Configuration système**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/user2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user2.png)
 
 10. Dans la section **GÉRER L’AUTHENTIFICATION UNIQUE**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-xaitporter-tutorial/user3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user3.png)
 
     a. Sélectionnez **Activer l'authentification unique**.
 
-    b. Dans la zone de texte **Paramètres de fournisseur d’identité**, collez **l’URL de métadonnées** que vous avez copiée dans Azure et cliquez sur **Récupérer**.
+    b. Dans la zone de texte **Paramètres de fournisseur d’identité**, collez **l’URL de métadonnées de fédération de l’application** que vous avez copiée dans le portail Azure et cliquez sur **Récupérer**.
 
     c. Sélectionnez **Activer la création automatique d’utilisateurs**.
 
     d. Cliquez sur **OK**.
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

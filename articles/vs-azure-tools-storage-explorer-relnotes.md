@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -227,7 +227,7 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 * Si vous tentiez d’ouvrir ou de télécharger un objet blob avec un nom de fichier Windows non valide, l’opération entraînait un échec. L’explorateur de stockage sera désormais capable de détecter si un nom d’objet blob n’est pas valide et vous demandera si vous souhaitez encoder ou ignorer cet objet blob. L’explorateur de stockage pourra également détecter si un nom de fichier semble être encodé et vous demandera si souhaitez le décoder avant de le charger.
 * Lors du chargement de l’objet blob, l’éditeur du conteneur d’objets blob cible ne s’actualisait parfois pas correctement. Ce problème a été résolu.
 * La prise en charge de plusieurs formats de chaînes de connexion et d’URI SAP a été améliorée. Nous avons résolu tous les problèmes connus, mais n’hésitez pas à nous envoyer vos commentaires si vous en rencontrez d’autres.
-* La notification de mises à jour ne fonctionnait pas pour certains utilisateurs dans la version 0.9.0. Ce problème a été résolu. Ceux qui ont été affectés par ce bogue peuvent télécharger manuellement la dernière version de l’Explorateur Stockage [ici](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* La notification de mises à jour ne fonctionnait pas pour certains utilisateurs dans la version 0.9.0. Ce problème a été résolu. Ceux qui ont été affectés par ce bogue peuvent télécharger manuellement la dernière version de l’Explorateur Stockage [ici](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Problèmes connus
 * L’explorateur de stockage ne prend pas en charge les comptes ADFS.
@@ -281,7 +281,7 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 * Si vous tentiez d’ouvrir ou de télécharger un objet blob avec un nom de fichier Windows non valide, l’opération entraînait un échec. L’explorateur de stockage sera désormais capable de détecter si un nom d’objet blob n’est pas valide et vous demandera si vous souhaitez encoder ou ignorer cet objet blob. L’explorateur de stockage pourra également détecter si un nom de fichier semble être encodé et vous demandera si souhaitez le décoder avant de le charger.
 * Lors du chargement de l’objet blob, l’éditeur du conteneur d’objets blob cible ne s’actualisait parfois pas correctement. Ce problème a été résolu.
 * La prise en charge de plusieurs formats de chaînes de connexion et d’URI SAP a été améliorée. Nous avons résolu tous les problèmes connus, mais n’hésitez pas à nous envoyer vos commentaires si vous en rencontrez d’autres.
-* La notification de mises à jour ne fonctionnait pas pour certains utilisateurs dans la version 0.9.0. Ce problème a été résolu. Ceux qui ont été affectés par ce bogue peuvent télécharger manuellement la version la plus récente de l’explorateur de stockage [ici](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* La notification de mises à jour ne fonctionnait pas pour certains utilisateurs dans la version 0.9.0. Ce problème a été résolu. Ceux qui ont été affectés par ce bogue peuvent télécharger manuellement la version la plus récente de l’explorateur de stockage [ici](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Problèmes connus
 * L’explorateur de stockage ne prend pas en charge les comptes ADFS.

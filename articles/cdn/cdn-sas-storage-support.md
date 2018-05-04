@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 44c28f45b7be8fbaa47a16d8ab07892ab146c39e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -84,7 +84,7 @@ Avec cette option, vous pouvez sécuriser le stockage blob d’origine sans qu�
    
    Destination :   
    ```
-   $1sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
 
    ![Règle de réécriture d’URL de CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
@@ -136,8 +136,8 @@ Azure CDN ne peut pas changer son comportement de remise en se basant sur les pa
 
 | Nom du paramètre SAP | Description |
 | --- | --- |
-| Début | Heure à laquelle Azure CDN peut commencer à accéder au fichier blob. En raison des variations d’horloges (quand un signal d’horloge arrive à des moments différents pour différents composants), vous devez choisir une heure 15 minutes plus tôt si vous souhaitez que la ressource soit disponible immédiatement. |
-| Fin | Heure après laquelle Azure CDN ne peut plus accéder au fichier blob. Les fichiers précédemment mis en cache sur Azure CDN sont toujours accessibles. Pour contrôler le délai d’expiration de fichier, définissez le délai d’expiration approprié sur le jeton de sécurité Azure CDN ou nettoyez la ressource. |
+| Démarrer | Heure à laquelle Azure CDN peut commencer à accéder au fichier blob. En raison des variations d’horloges (quand un signal d’horloge arrive à des moments différents pour différents composants), vous devez choisir une heure 15 minutes plus tôt si vous souhaitez que la ressource soit disponible immédiatement. |
+| Terminer | Heure après laquelle Azure CDN ne peut plus accéder au fichier blob. Les fichiers précédemment mis en cache sur Azure CDN sont toujours accessibles. Pour contrôler le délai d’expiration de fichier, définissez le délai d’expiration approprié sur le jeton de sécurité Azure CDN ou nettoyez la ressource. |
 | Adresses IP autorisées | facultatif. Si vous utilisez **Azure CDN de Verizon**, vous pouvez affecter à ce paramètre les plages définies dans [Azure CDN from Verizon Edge Server IP Ranges (Plages d’adresses IP de serveur Edge Azure CDN de Verizon)](https://msdn.microsoft.com/library/mt757330.aspx). Si vous utilisez **CDN Azure d’Akamai**, vous ne pouvez pas définir le paramètre de plages IP, car les adresses IP ne sont pas statiques.|
 | Protocoles autorisés | Protocole(s) autorisé(s) pour une requête effectuée avec la SAP de compte. Le paramètre HTTPS est recommandé.|
 

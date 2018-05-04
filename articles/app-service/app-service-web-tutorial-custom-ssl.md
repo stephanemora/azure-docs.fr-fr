@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutoriel : Lier un certificat SSL existant à des applications web Azure
 
@@ -233,9 +233,17 @@ Votre application autorise [TLS](https://wikipedia.org/wiki/Transport_Layer_Secu
 
 Dans le volet de navigation gauche de la page de votre application web, sélectionnez **Paramètres SSL**. Ensuite, dans **Version TLS**, sélectionnez la version minimale de TLS souhaitée.
 
-![Appliquer le protocole HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![Appliquer le protocole TLS 1.1 ou 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Une fois l’opération terminée, votre application rejette toutes les connexions effectuées avec des versions antérieures de TLS.
+
+## <a name="renew-certificates"></a>Renouveler les certificats
+
+Votre adresse IP entrante peut être modifiée lorsque vous supprimez une liaison, même si cette liaison repose sur une adresse IP. Cela est particulièrement important lorsque vous renouvelez un certificat qui se trouve déjà dans une liaison reposant sur une adresse IP. Pour éviter une modification de l’adresse IP de votre application, suivez ces étapes dans l’ordre :
+
+1. Chargez le nouveau certificat.
+2. Liez le nouveau certificat au domaine personnalisé souhaité, sans supprimer l’ancien. Cette action remplace la liaison plutôt que de supprimer l’ancienne.
+3. Supprimez l’ancien certificat. 
 
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 
@@ -279,7 +287,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Certificats publics (facultatifs)
-Vous pouvez charger les [certificats publics](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) sur votre application web. Vous pouvez également utiliser les certificats publics pour les applications dans les environnements App Service. Si vous avez besoin de stocker le certificat dans le magasin de certificats LocalMachine, vous devez utiliser une application web dans le service App Service Environment. Pour plus d’informations, consultez [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Configuration de certificats publics pour votre application web).
+Vous pouvez charger des [certificats publics](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) sur votre application web, afin que l’application puisse accéder à un service externe qui requiert une authentification par certificat.  Pour plus d’informations sur le chargement et l’utilisation d’un certificat public dans votre application, consultez [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load).  Vous pouvez également utiliser des certificats publics avec les applications dans les environnements App Service. Si vous avez besoin de stocker le certificat dans le magasin de certificats LocalMachine, vous devez utiliser une application web dans le service App Service Environment. Pour plus d’informations, consultez [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Configuration de certificats publics pour votre application web).
 
 ![Charger un certificat public](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

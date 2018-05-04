@@ -1,31 +1,24 @@
 ---
 title: 'Didacticiel : Chargement de données dans Azure SQL Data Warehouse | Microsoft Docs'
-description: Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger les données de l’entrepôt de données WideWorldImportersDW d’un Stockage Blob Azure dans Azure SQL Data Warehouse.
+description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure public vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/06/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 7e7d9a299e141ef8fd564e7f97077471264420ea
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: igorstan
+ms.openlocfilehash: 0e108487bac5154477988ad0b01378af4152836f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement de données dans Azure SQL Data Warehouse
 
-Ce didacticiel charge l’entrepôt de données WideWorldImportersDW d’un Stockage Blob Azure dans Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) pour : 
+Ce tutoriel utilise PolyBase pour charger l’entrepôt de données WideWorldImportersDW depuis Stockage Blob Azure vers Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
 > [!div class="checklist"]
 > * Créer un entrepôt de données dans le portail Azure
@@ -42,16 +35,16 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt de données SQL vide
 
-Un entrepôt de données Azure SQL est créé avec un ensemble défini de [ressources de calcul](performance-tiers.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
+Un entrepôt de données Azure SQL est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
 
 Suivez ces étapes pour créer un entrepôt de données SQL vide. 
 
@@ -63,7 +56,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
 
-   | Paramètre | Valeur suggérée | Description | 
+   | Paramètre | Valeur suggérée | DESCRIPTION | 
    | ------- | --------------- | ----------- | 
    | **Nom de la base de données** | SampleDW | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -74,7 +67,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | Description | 
+    | Paramètre | Valeur suggérée | DESCRIPTION | 
     | ------- | --------------- | ----------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -92,9 +85,9 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
     ![configurer les performances](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. Cliquez sur **Appliquer**.
-9. Dans la page SQL Data Warehouse, sélectionnez un **classement** pour la base de données vide. Pour ce didacticiel, utilisez la valeur par défaut. Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations.md)
+9. Dans la page SQL Data Warehouse, sélectionnez un **classement** pour la base de données vide. Pour ce didacticiel, utilisez la valeur par défaut. Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
 
-11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour approvisionner la base de données. L’approvisionnement prend quelques minutes. 
+11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes. 
 
     ![cliquer sur créer](media/load-data-wideworldimportersdw/click-create.png)
 
@@ -147,7 +140,7 @@ Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utilisez
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
-Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) pour établir une connexion à votre serveur Azure SQL.
+Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour établir une connexion à votre serveur Azure SQL.
 
 1. Ouvrez SQL Server Management Studio.
 
@@ -171,7 +164,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 
-Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les [valeurs maximales de mémoire](performance-tiers.md#memory-maximums) sont définies conformément au [niveau de performance](performance-tiers.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
+Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies conformément au [niveau de performance](memory-and-concurrency-limits.md#performance-tiers), aux valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
 
 Il est préférable de créer une connexion et un utilisateur dédiés au chargement des données. Ensuite, ajoutez l’utilisateur de chargement à une [classe de ressource](resource-classes-for-workload-management.md) qui permet une allocation de mémoire maximale appropriée.
 
@@ -238,7 +231,7 @@ Exécutez les scripts SQL suivants pour spécifier les informations sur les donn
     CREATE MASTER KEY;
     ```
 
-4. Exécutez l’instruction [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) suivante pour définir l’emplacement de l’objet blob Azure. Il s’agit de l’emplacement des données externes de taxi cab.  Pour exécuter une commande que vous avez ajoutée à la fenêtre de requête, mettez en surbrillance les commandes que vous voulez exécuter, puis cliquez sur **Exécuter**.
+4. Exécutez l’instruction [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) suivante pour définir l’emplacement de l’objet blob Azure. Il s’agit de l’emplacement des données externes de taxi cab.  Pour exécuter une commande que vous avez ajoutée à la fenêtre de requête, mettez en surbrillance les commandes que vous voulez exécuter, puis cliquez sur **Exécuter**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -249,7 +242,7 @@ Exécutez les scripts SQL suivants pour spécifier les informations sur les donn
     );
     ```
 
-5. Exécutez l’instruction T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) suivante pour spécifier les caractéristiques de mise en forme et les options pour le fichier de données externe. Cette instruction spécifie que les données externes sont stockées sous forme de texte et que les valeurs sont séparées par une barre verticale (« | »).  
+5. Exécutez l’instruction T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) suivante pour spécifier les caractéristiques de mise en forme et les options pour le fichier de données externe. Cette instruction spécifie que les données externes sont stockées sous forme de texte et que les valeurs sont séparées par une barre verticale (« | »).  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +257,7 @@ Exécutez les scripts SQL suivants pour spécifier les informations sur les donn
     );
     ```
 
-6.  Exécutez les instructions [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) suivantes pour créer un schéma pour le format de votre fichier externe. Le schéma ext fournit un moyen d’organiser les tables externes que vous allez créer. Le schéma wwi organise les tables standard qui contiendront les données. 
+6.  Exécutez les instructions [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) suivantes pour créer un schéma pour le format de votre fichier externe. Le schéma ext fournit un moyen d’organiser les tables externes que vous allez créer. Le schéma wwi organise les tables standard qui contiendront les données. 
 
     ```sql
     CREATE SCHEMA ext;
@@ -559,7 +552,7 @@ Cette section utilise les tables externes que vous venez de définir pour charge
 > Ce didacticiel charge directement les données dans la table finale. Dans un environnement de production, vous utilisez généralement l’instruction CREATE TABLE AS SELECT pour procéder au chargement dans une table de mise en lots. Lorsque les données se trouvent dans la table de mise en lots, vous pouvez effectuer toutes les transformations nécessaires. Pour ajouter les données de la table de mise en lots à une table de production, vous pouvez utiliser l’instruction INSERT...SELECT. Pour plus d’informations, voir [Insertion de données dans une table de production](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, SQL Data Warehouse importe les données dans une table relationnelle de l’entrepôt de données. 
+Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, SQL Data Warehouse importe les données dans une table relationnelle de l’entrepôt de données. 
 
 Ce script ne charge pas les données dans les tables wwi.dimension_Date et wwi.fact_Sales. Ces tables sont générées lors d’une étape ultérieure pour que les tables aient un nombre de lignes important.
 
@@ -953,12 +946,13 @@ Cette section crée les tables wwi.dimension_Date et wwi.fact_Sales. Elle crée 
         END;
 
     END;
+    ```
 
-## Generate millions of rows
-Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
+## <a name="generate-millions-of-rows"></a>Générer des millions de lignes
+Utilisez les procédures stockées que vous avez créées pour générer des millions de lignes dans la table wwi.fact_Sales et les données correspondantes dans la table wwi.dimension_Date. 
 
 
-1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
+1. Exécutez cette procédure pour amorcer [wwi].[seed_Sale] avec plus de lignes.
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]

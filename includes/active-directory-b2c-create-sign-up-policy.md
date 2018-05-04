@@ -1,4 +1,4 @@
-Pour permettre l’inscription sur votre application, vous devez créer une stratégie d’inscription. Celle-ci décrit les expériences des clients lors de l’inscription, et le contenu des jetons que l’application reçoit en cas de réussite de l’opération.
+Si vous souhaitez uniquement activer l’inscription dans votre application, vous utilisez une stratégie **d’inscription**. Cette stratégie décrit les expériences clients lors de l’inscription, ainsi que le contenu des jetons que l’application reçoit en cas de réussite de l’opération.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -14,7 +14,7 @@ Cliquez sur **Attributs d’inscription**. Ici, vous choisissez les attributs qu
 
 Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience d’inscription réussie. Par exemple, sélectionnez **Nom d’affichage**, **Fournisseur d’identité**, **Code postal**, **Nouvel utilisateur** et **ID d’objet de l’utilisateur**.
 
-Cliquez sur **Create**. La stratégie créée s’affiche sous la forme **B2C_1_SiUp** (le fragment **B2C\_1\_** est automatiquement ajouté) dans le panneau **Stratégies d’inscription**.
+Cliquez sur **Créer**. La stratégie créée s’affiche sous la forme **B2C_1_SiUp** (le fragment **B2C\_1\_** est automatiquement ajouté) dans le panneau **Stratégies d’inscription**.
 
 Ouvrez la stratégie en cliquant sur **B2C_1_SiUp**.
 

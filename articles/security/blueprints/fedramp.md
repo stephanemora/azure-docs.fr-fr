@@ -1,6 +1,6 @@
 ---
-title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP"
-description: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP"
+title: Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP
+description: Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP
 
@@ -76,10 +76,9 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+    - (1) Espace de travail Log Analytics
 * **Azure Automation**
     - (1) Compte Automation
-* **Operations Management Suite**
-    - (1) Espace de travail OMS
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 
@@ -136,7 +135,7 @@ Azure Disk Encryption permet de chiffrer les disques de machines virtuelles IaaS
 
 ### <a name="logging-and-auditing"></a>Journalisation et audit
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fournit une journalisation complète de l’activité système et utilisateur, ainsi que de l’intégrité du système. 
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fournit une journalisation complète de l’activité système et utilisateur, ainsi que de l’intégrité du système. 
 
 - **Journaux d’activité :** les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement.
 - **Journaux de diagnostic :** les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par chaque ressource. Ces journaux incluent les journaux système des événements Windows, les journaux de stockage Azure, les journaux d’audit Key Vault, ainsi que les journaux de pare-feu et d’accès Application Gateway.
@@ -154,7 +153,7 @@ La solution utilise Azure Key Vault pour gérer les clés et les secrets.
 Les technologies suivantes fournissent des fonctionnalités de gestion des identités dans l’environnement Azure.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) est le service Microsoft de gestion des annuaires et des identités, basé sur le cloud, multilocataire.
 - L’authentification auprès d’une application web déployée par le client peut être effectuée à l’aide d’Azure AD. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- Le [contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permet une gestion précise de l’accès pour Azure. L’accès aux abonnements est limité à l’administrateur des abonnements, tandis que l’accès aux ressources peut être limité en fonction du rôle d’utilisateur.
+- Le [contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permet une gestion précise de l’accès pour Azure. L’accès aux abonnements est limité à l’administrateur des abonnements, tandis que l’accès aux ressources peut être limité en fonction du rôle d’utilisateur.
 - Une instance Active Directory IaaS déployée fournit la gestion des identités au niveau du système d’exploitation pour les machines virtuelles IaaS déployées.
    
 ### <a name="compute-resources"></a>Ressources de calcul
@@ -182,17 +181,17 @@ Un serveur de rebond de gestion (bastion) fournit une connexion sécurisée perm
 
 ### <a name="patch-management"></a>Gestion des correctifs
 
-Les machines virtuelles Windows déployées par cette solution Azure Security and Compliance Blueprint Automation sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution déploie également la solution OMS Azure Automation par le biais de laquelle des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire.
+Les machines virtuelles Windows déployées par cette solution Azure Security and Compliance Blueprint Automation sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution déploie également la solution Azure Automation par le biais de laquelle des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire.
 
 ### <a name="operations-management"></a>Gestion des opérations
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) est un service d’Operations Management Suite (OMS) qui permet de collecter et d’analyser les données générées par les ressources des environnements Azure et locaux.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) est un service qui permet de collecter et d’analyser les données générées par les ressources des environnements Azure et locaux.
 
-#### <a name="oms-solutions"></a>Solutions OMS
+#### <a name="management-solutions"></a>Liste des solutions de gestion
 
-Les solutions OMS suivantes sont préinstallées dans le cadre de cette solution :
+Les solutions de gestion suivantes sont préinstallées dans le cadre de cette solution :
 - [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Analyse anti-programme malveillant](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

@@ -9,11 +9,11 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: e7f894733546fa8949902a82f4ae3a9c62b749c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 102fa06be3734fa6993616f752922433ee0dee7f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choosing-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 
@@ -87,7 +87,7 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 * **Expérience utilisateur** : il est recommandé aux organisations de déployer une authentification unique fluide avec l’authentification directe pour éviter les invites inutiles une fois la connexion établie et ainsi améliorer l’expérience de connexion de l’utilisateur.
 
-* **Scénarios avancés** : l’authentification directe garantit que les demandes d’authentification sont immédiatement refusées quand l’état du compte d’un utilisateur local indique « désactivé », « verrouillé » ou « mot de passe expiré ». Les organisations exigeant une authentification multifacteur avec l’authentification directe doivent utiliser l’authentification multifacteur Azure AD et ne peuvent pas utiliser de méthode d’authentification multifacteur tierce ou locale. Les fonctionnalités avancées, comme le rapport sur la fuite des informations d’identification généré par Identity Protection, nécessite le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non).
+* **Scénarios avancés** : l’authentification directe garantit que les demandes d’authentification sont immédiatement refusées quand l’état du compte d’un utilisateur local indique « désactivé », « verrouillé » ou « mot de passe expiré » ou se trouvent en dehors des heures de connexion autorisées de l’utilisateur. Les organisations exigeant une authentification multifacteur avec l’authentification directe doivent utiliser l’authentification multifacteur Azure AD et ne peuvent pas utiliser de méthode d’authentification multifacteur tierce ou locale. Les fonctionnalités avancées, comme le rapport sur la fuite des informations d’identification généré par Identity Protection, nécessite le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non).
 
 * **Continuité d’activité**  : il est recommandé de déployer deux agents directs supplémentaires, en plus du premier agent sur le serveur Azure AD Connect, pour garantir la haute disponibilité des demandes d’authentification. Quand trois agents sont déployés et que l’un d’eux est hors service pour maintenance, l’échec d’un agent n’a aucune incidence. Le déploiement de la synchronisation de hachage du mot de passe présente un autre avantage. En effet, outre l’authentification directe, elle peut servir de méthode d’authentification de secours quand la méthode d’authentification principale n’est plus disponible, par exemple en cas d’indisponibilité des serveurs locaux.
 
@@ -95,7 +95,7 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 Pour obtenir les étapes de déploiement à suivre, consultez [Implémentation de l’authentification directe](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 
-### <a name="federated-authentication"></a>Authentification fédérée
+### <a name="federated-authentication"></a>Federated Authentication
 
 * **Effort**  : l’utilisation d’un système d’authentification fédérée s’appuie sur un système externe pour authentifier les utilisateurs. Certaines entreprises souhaitent rentabiliser leur investissement et réutiliser leur système fédéré existant avec leur solution d’identité hybride Azure AD. La maintenance et la gestion du système fédéré ne relèvent pas d’Azure AD. Il appartient à l’organisation d’utiliser le système fédéré pour vérifier qu’il est déployé de manière sécurisée et qu’il peut gérer la charge de l’authentification. 
 

@@ -1,18 +1,22 @@
 # [Documentation Analysis Services](index.md)
 
 # Vue d'ensemble
-## [À propos d’Azure Analysis Services](analysis-services-overview.md)
-## [Sources de données prises en charge](analysis-services-datasource.md)
-## [Authentification et autorisations utilisateur](analysis-services-manage-users.md)
-## [Connexion à des sources de données locales](analysis-services-gateway.md)
-## [Niveau de compatibilité](analysis-services-compat-level.md)
-## [Haute disponibilité](analysis-services-bcdr.md)
+## [Qu’est-ce qu’Azure Analysis Services ?](analysis-services-overview.md)
+
 
 # Prise en main
 ## [Créer un serveur dans le portail Azure](analysis-services-create-server.md)
 ## [Créer un serveur avec Azure PowerShell](analysis-services-create-powershell.md)
 ## [Déployer un modèle à partir de Visual Studio](analysis-services-deploy.md)
 ## [Créer un modèle dans le portail Azure (aperçu)](analysis-services-create-model-portal.md)
+
+# Concepts
+## [Sources de données prises en charge](analysis-services-datasource.md)
+## [Connexion à des sources de données locales](analysis-services-gateway.md)
+## [Connexion aux serveurs](analysis-services-connect.md)
+## [Authentification et autorisations utilisateur](analysis-services-manage-users.md)
+## [Niveau de compatibilité](analysis-services-compat-level.md)
+## [Haute disponibilité](analysis-services-bcdr.md)
 
 # Procédure 
 ## [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md)
@@ -21,8 +25,8 @@
 ## [Actualiser avec l’API REST](analysis-services-async-refresh.md)
 ## [Configurer la montée en charge](analysis-services-scale-out.md)
 ## Automatiser les tâches administratives
-### [Créer le principal du service - portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Créer le principal du service - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Créer un principal de service - Portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Créer un principal de service - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md)
 ## Gestion des serveurs
 ### [Configurer un alias de nom de serveur](analysis-services-server-alias.md)

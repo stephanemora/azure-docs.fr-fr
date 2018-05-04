@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: À propos d’Azure Traffic Manager avec Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: À propos d’ExpressRoute avec Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
     - name: Forum Aux Questions
       href: site-recovery-faq.md
 - name: Procédures
@@ -119,16 +121,20 @@
       items:
         - name: Mise en réseau
           items:
-            - name: Gérer la mise en réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
+            - name: Gérer la mise en réseau pour la récupération d’urgence de machines virtuelles Azure
               href: azure-to-azure-about-networking.md
             - name: Préparer le mappage réseau pour la récupération d’urgence de machines virtuelles Azure
               href: azure-to-azure-network-mapping.md
             - name: Configurer l’adressage IP pour le basculement
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: ExpressRoute avec la récupération d’urgence de machines virtuelles Azure
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Récupération d'urgence
           items:
             - name: Récupération d’urgence des machines virtuelles Azure après la migration vers Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Récupération d’urgence de machines virtuelles Azure à l’aide de PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Réplication, basculement et restauration automatique'
           items:
             - name: Activer la réplication Azure vers Azure

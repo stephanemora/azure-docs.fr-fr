@@ -2,10 +2,10 @@
 title: Configurer une messagerie avec Azure Service Bus pour Azure Logic Apps | Microsoft Docs
 description: Envoyer et recevoir des messages avec vos applications logiques en utilisant Azure Service Bus
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Envoyer et recevoir des messages avec le connecteur Azure Service Bus
 
@@ -65,12 +65,17 @@ Un [*déclencheur*](../logic-apps/logic-apps-overview.md#logic-app-concepts) dé
 
    ![Sélectionner un déclencheur Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Certains déclencheurs retournent un ou plusieurs messages, tels que le déclencheur *Service Bus - Lorsqu’un ou plusieurs messages arrivent dans une file d’attente (saisie semi-automatique)*.
+   > Lorsque ces déclencheurs sont activés, ils retournent entre un et le nombre de messages spécifiés par la propriété **Nombre maximal de messages** du déclencheur.
+
    1. Si vous ne disposez pas encore d’une connexion à votre espace de noms Service Bus, vous êtes invité à créer cette connexion. Donnez un nom à votre connexion, puis sélectionnez l’espace de noms Service Bus à utiliser.
 
       ![Créer une connexion Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       Ou bien, pour entrer manuellement la chaîne de connexion, choisissez **Entrer manuellement les informations de connexion**. 
       Découvrez [comment trouver votre chaîne de connexion](#permissions-connection-string).
+      
 
    2. Sélectionnez à présent la stratégie Service Bus à utiliser, puis choisissez **Créer**.
 
@@ -79,6 +84,11 @@ Un [*déclencheur*](../logic-apps/logic-apps-overview.md#logic-app-concepts) dé
 4. Sélectionnez la file d’attente Service Bus à utiliser, puis définissez l’intervalle et la fréquence de contrôle de la file d’attente.
 
    ![Sélectionner une file d’attente Service Bus, configurer l’intervalle d’interrogation](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > Tous les déclencheurs de Service Bus sont des déclencheurs **d’interrogation longue**, ce qui signifie que lorsqu’un déclencheur est activé, celui-ci traite tous les messages puis attend 30 secondes le temps qu’un plus grand nombre de messages s’affichent dans la file d’attente ou la rubrique d’abonnement.
+   > Si aucun message n’est reçu dans les 30 secondes, l’exécution du déclencheur est ignorée. Dans le cas contraire, le déclencheur poursuit la lecture des messages jusqu’à ce que la rubrique d’abonnement ou la file d’attente soit vide.
+   > La prochaine interrogation de déclencheur est basée sur l’intervalle de récurrence spécifié dans les propriétés du déclencheur.
 
 5. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
@@ -108,7 +118,7 @@ Vous avez configuré une action qui envoie des messages à partir de votre appli
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Pour en savoir plus sur les déclencheurs et les actions définies par le fichier Swagger, ainsi que les limites, voir les [détails du connecteur](/connectors/servicebus/).
+Pour en savoir plus sur les déclencheurs et les actions définies par le fichier Swagger, ainsi que les limites, voir les [détails du connecteur](/connectors/servicebus/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

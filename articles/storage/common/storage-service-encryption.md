@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
 
@@ -50,7 +50,7 @@ R : Lorsque le chiffrement est activé par défaut, le stockage Azure chiffre a
 
 R : Storage Service Encryption est activé par défaut sur tous les comptes de stockage Resource Manager existants. Il est pris en charge pour le stockage Blob, le stockage Table, le stockage File d’attente et les fichiers Azure. 
 
-**Q : Comment chiffrer les données dans un compte de stockage Resource Manager ?**
+**Q : comment chiffrer les données dans un compte de stockage Resource Manager ?**
 
 R : Le chiffrement du service de stockage est activé par défaut pour tous les comptes de stockage (comptes classiques et comptes du Gestionnaire des ressources). Tous les fichiers existants dans le compte de stockage créés avant l’activation du chiffrement sont chiffrés rétroactivement par un processus de chiffrement en arrière-plan.
 
@@ -72,7 +72,7 @@ R : Oui, si vous [utilisez vos propres clés de chiffrement](storage-service-enc
 
 **Q : Storage Service Encryption est-il activé par défaut lorsque je crée un compte de stockage ?**
 
-R : Storage Service Encryption (avec des clés gérées par Microsoft) est activé par défaut pour tous les comptes de stockage : Azure Resource Manager et classiques. Il est également activé pour tous les services : stockage Blob, stockage Table, stockage File d’attente et fichiers Azure.
+R : Oui, Storage Service Encryption est activé par défaut pour tous les comptes de stockage et pour tous les services Stockage Azure.
 
 **Q : En quoi est-ce différent d’Azure Disk Encryption ?**
 

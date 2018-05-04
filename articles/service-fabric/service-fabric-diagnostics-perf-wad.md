@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: b2b740c2ececba2c3f95f8fbfbfb55e7f4811112
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9e8ef7243fcef990dae6ddc6509cd31b3f36e3d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Analyse des performances avec l’extension Microsoft Azure Diagnostics
 
@@ -44,7 +44,9 @@ Pour collecter les compteurs de performances via Microsoft Azure Diagnostics, vo
 
     `scheduledTransferPeriod` définit à quelle fréquence les valeurs des compteurs collectés sont transférées vers votre table de stockage Azure et tous les récepteurs configurés. 
 
-3. Ajoutez les compteurs de performances à collecter au `PerformanceCounterConfiguration` qui a été déclaré à l’étape précédente. Chaque compteur à collecter est défini avec un `counterSpecifier`, un `sampleRate`, un `unit` et un `annotation`, ainsi qu’avec tous les `sinks` applicables. Voici un exemple de configuration avec le compteur pour le *Temps total du processeur* (la quantité de temps d’utilisation de l’UC pour les opérations de traitement) et les *appels de la Méthode Service Fabric Actor par seconde*, un des compteurs des performances personnalisés Service Fabric. Reportez-vous à l’article [Compteurs de performances de l’acteur fiable](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) et [Compteurs de Performances du service fiable](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) pour obtenir une liste complète des compteurs de performances personnalisés Service Fabric.
+3. Ajoutez les compteurs de performances à collecter au `PerformanceCounterConfiguration` qui a été déclaré à l’étape précédente. Chaque compteur à collecter est défini avec un `counterSpecifier`, un `sampleRate`, un `unit` et un `annotation`, ainsi qu’avec tous les `sinks` applicables.
+
+Voici un exemple de configuration avec le compteur pour le *Temps total du processeur* (la quantité de temps d’utilisation de l’UC pour les opérations de traitement) et les *appels de la Méthode Service Fabric Actor par seconde*, un des compteurs des performances personnalisés Service Fabric. Reportez-vous à l’article [Compteurs de performances de l’acteur fiable](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) et [Compteurs de Performances du service fiable](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) pour obtenir une liste complète des compteurs de performances personnalisés Service Fabric.
 
  ```json
  "WadCfg": {
@@ -112,9 +114,8 @@ Pour collecter les compteurs de performances via Microsoft Azure Diagnostics, vo
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Une fois la mise à niveau terminée (au bout de 15 à 45 minutes), WAD doit collecter les compteurs de performances et les envoyer à la table nommée WADPerformanceCountersTable dans le compte de stockage associé à votre cluster.
+5. Une fois la mise à niveau terminée (au bout de 15 à 45 minutes), WAD doit collecter les compteurs de performances et les envoyer à la table nommée WADPerformanceCountersTable dans le compte de stockage associé à votre cluster. Pour voir vos compteurs de performances dans Application Insights, [ajoutez le Récepteur IA au modèle Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour voir vos compteurs de performances dans Application Insights, [ajoutez le Récepteur IA au modèle Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
 * Collectez d’autres compteurs de performances pour votre cluster. Consultez [Mesures de performances](service-fabric-diagnostics-event-generation-perf.md) pour obtenir la liste des compteurs à collecter.
 * [Utilisez les fonctionnalités de surveillance et de diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) pour apporter des modifications à votre `WadCfg` (y compris pour la configuration de comptes de stockage supplémentaires vers lesquels envoyer des données de diagnostics).

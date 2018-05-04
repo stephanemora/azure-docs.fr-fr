@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 947e26aadd06e1420e95a6d25ff96e631265db3f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons 
 
@@ -60,18 +60,18 @@ L’interface fondamentale pour l’acquisition d’un jeton d’accès est bas�
 Exemple de requête à l’aide du point de terminaison de service de métadonnées d’instance (IMDS) MSI *(recommandé)*  :
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
 ```
 
 | Élément | Description |
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Le point de terminaison MSI pour le service de métadonnées d’instance. |
-| `api-version`  | Un paramètre de chaîne de requête qui indique la version d’API pour le point de terminaison IMDS.  |
+| `api-version`  | Un paramètre de chaîne de requête qui indique la version d’API pour le point de terminaison IMDS. Veuillez utiliser la version d’API `2018-02-01` ou une version ultérieure. |
 | `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, https://management.azure.com/. |
 | `Metadata` | Un champ d’en-tête de requête HTTP, requis par MSI afin de limiter une attaque de falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules.
 
-Exemple de requête à l’aide du point de terminaison MSI d’extension de machine virtuelle *(plan d’obsolescence à venir)*  :
+Exemple de requête utilisant le point de terminaison d’extension de machine virtuelle MSI *(prochainement déconseillé)* :
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -231,6 +231,11 @@ L’exemple suivant montre comment utiliser le point de terminaison REST de MSI 
 2. Utilisez le jeton d’accès pour appeler une API REST de Azure Resource Manager et obtenez des informations sur la machine virtuelle. Indiquez votre ID d’abonnement, le nom de groupe de ressources et le nom de la machine virtuelle respectivement à la place de `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, et `<VM-NAME>`.
 
 ```azurepowershell
+Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Headers @{Metadata="true"}
+```
+
+Exemple d’extraction du jeton d’accès de la réponse :
+```azurepowershell
 # Get an access token for the MSI
 $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
                               -Headers @{Metadata="true"}
@@ -248,7 +253,14 @@ echo $vmInfoRest
 ## <a name="get-a-token-using-curl"></a>Obtenir un jeton par CURL
 
 ```bash
-response=$(curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true -s)
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s
+```
+
+
+Exemple d’extraction du jeton d’accès de la réponse :
+
+```bash
+response=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```

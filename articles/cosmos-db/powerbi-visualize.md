@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a0f50ad6df1135e05cd69be78e6b7f7820f90c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Didacticiel Power BI pour Azure Cosmos DB : visualiser les données à l’aide du connecteur Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) est un service en ligne qui vous permet de créer et partager des tableaux de bord et des rapports à partir de données véritablement significatives pour vous et votre organisation.  Power BI Desktop est un outil de création de rapports dédié qui vous permet de récupérer des données à partir de diverses sources, de les fusionner et de les transformer, de créer de puissants rapports et visualisations, puis de publier ces rapports sur Power BI.  Grâce à la dernière version de Power BI Desktop, vous pouvez maintenant vous connecter à votre compte Azure Cosmos DB via le connecteur Azure Cosmos DB pour Power BI.   
@@ -97,16 +97,16 @@ Prêt à vous lancer ? Allons-y.
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Fenêtre de connexion](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 8. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte. Vous pouvez récupérer la clé dans la zone **Clé primaire** du panneau **[Clés en lecture seule](manage-account.md#keys)** du portail Azure pour votre propre compte. Pour le compte de démonstration, la clé est `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Entrez la clé appropriée, puis cliquez sur **Connecter**.
    
-    nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels.  ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau [Clés](manage-account.md#keys) du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus.
+    nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels.  Cela évite toute exposition inutile de la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau [Clés](manage-account.md#keys) du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus.
    
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Clé du compte](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
     
     > [!NOTE] 
     > Si vous obtenez une erreur indiquant « La base de données spécifiée est introuvable. » consultez les étapes de la solution de contournement dans ce [problème Power BI](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
     
-9. Une fois le compte connecté, le **Navigateur** s’affiche.  Le **Navigateur** affiche une liste des bases de données attachées au compte.
+9. Une fois le compte connecté, le volet **Navigateur** s’affiche.  Le **Navigateur** affiche une liste des bases de données attachées au compte.
 10. Sélectionnez puis développez la base de données d’où proviennent les données du rapport. Si vous utilisez le compte de démonstration, sélectionnez **volcanodb**.   
-11. À présent, sélectionnez une collection d’où vous allez récupérer les données. Si vous utilisez le compte de démonstration, sélectionnez **volcano1**.
+11. Ensuite, sélectionnez une collection contenant les données à récupérer. Si vous utilisez le compte de démonstration, sélectionnez **volcano1**.
     
     le volet d’aperçu affiche une liste des éléments d’ **enregistrement** .  Dans Power BI, un Document est représenté sous la forme d’un type d’ **enregistrement** . De même, un bloc JSON imbriqué à l’intérieur d’un document est également considéré comme un **enregistrement**.
     
@@ -116,28 +116,29 @@ Prêt à vous lancer ? Allons-y.
 ## <a name="flattening-and-transforming-json-documents"></a>Mise à plat et transformation de documents JSON
 1. Basculez dans la fenêtre de l’éditeur de requête de Power BI, où une colonne **Document** s’affiche dans le volet central.
    ![Power BI Desktop - Éditeur de requête](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
-2. Cliquez sur l’icône de développement à droite de l’en-tête de colonne **Document** .  Un menu contextuel s’affiche avec une liste de champs.  Sélectionnez les champs dont vous avez besoin pour votre rapport (par exemple, nom du volcan, pays, région, emplacement, altitude, type, état et dernière éruption connue), puis cliquez sur **OK**.
+2. Cliquez sur l’icône de développement à droite de l’en-tête de colonne **Document** .  Un menu contextuel s’affiche avec une liste de champs.  Sélectionnez les champs dont vous avez besoin pour votre rapport (par exemple, nom du volcan, pays, région, emplacement, altitude, type, état et dernière éruption connue). Désactivez la case à cocher **Utiliser le nom de la colonne d’origine comme préfixe**, puis cliquez sur **OK**.
    
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Développement des documents](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 3. Le volet central affiche un aperçu du résultat avec les champs sélectionnés.
    
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Résultats aplatis](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. Dans notre exemple, la propriété Emplacement est un bloc GeoJSON contenu dans un document.  Comme vous pouvez le constater, l’emplacement est représenté en tant que type d’ **enregistrement** dans Power BI Desktop.  
-5. Cliquez sur l’icône de développement à droite de l’en-tête de colonne Emplacement.  Un menu contextuel s’affiche avec les champs « type » et « coordonnées ».  Sélectionnez le champ de coordonnées et cliquez sur **OK**.
+5. Cliquez sur l’icône de développement à droite de l’en-tête de colonne Document.Location.  Un menu contextuel s’affiche avec le type et les coordonnées.  Nous allons sélectionner le champ des coordonnées, vérifier que la case **Utiliser le nom de la colonne d’origine comme préfixe** n’est pas cochée, puis cliquer sur **OK**.
    
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Enregistrement emplacement](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. Le volet central affiche maintenant une colonne de coordonnées de type **Liste** .  Comme indiqué au début de ce didacticiel, les données GeoJSON utilisées dans ce didacticiel sont de type « Point », avec des valeurs de latitude et longitude enregistrées dans le tableau de coordonnées.
    
     L’élément coordinates[0] représente la longitude et l’élément coordinates[1] la latitude.
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Liste des coordonnées](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. Pour mettre à plat le tableau de coordonnées, nous allons créer une **colonne personnalisée** appelée LatLong.  Sélectionnez le ruban **Add column** (Ajouter une colonne), puis cliquez sur **Add Custom Column** (Ajouter une colonne personnalisée).  La fenêtre **Add Custom Column** (Ajouter une colonne personnalisée) s’affiche.
+7. Pour mettre à plat le tableau de coordonnées, créez une **colonne personnalisée** appelée LatLong.  Sélectionnez le ruban **Ajouter une colonne**, puis cliquez sur **Colonne personnalisée**.  La fenêtre **Colonne personnalisée** s’affiche.
 8. Indiquez un nom pour la nouvelle colonne, par exemple LatLong.
 9. Spécifiez ensuite la formule personnalisée à appliquer à la nouvelle colonne.  Dans notre exemple, nous allons concaténer les valeurs de latitude et longitude séparées par une virgule, comme indiqué ci-dessous, à l’aide de la formule suivante : `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Cliquez sur **OK**.
    
     Pour plus d’informations sur le langage DAX (Data Analysis Expressions) et notamment sur les fonctions DAX, consultez la page [DAX Basic in Power BI Desktop (Dax de base dans Power BI Desktop)](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Ajout d’une colonne personnalisée](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
-10. Le volet central affiche maintenant la nouvelle colonne LatLong contenant les valeurs de latitude et de longitude, séparées par une virgule.
+
+10. Maintenant, le volet central affiche les nouvelles colonnes LatLong remplies avec les valeurs.
     
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Colonne personnalisée LatLong](./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
@@ -146,10 +147,8 @@ Prêt à vous lancer ? Allons-y.
     ![Les étapes appliquées doivent être Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom](./media/powerbi-visualize/power-bi-applied-steps.png)
     
     Si vos étapes sont différentes, supprimez les étapes supplémentaires et essayez d’ajouter de nouveau la colonne personnalisée. 
-11. Nous avons terminé de convertir les données au format tabulaire.  Vous pouvez tirer parti de toutes les fonctionnalités disponibles dans l’éditeur de requête pour modeler et transformer des données dans Cosmos DB.  Si vous utilisez l’exemple, modifiez le type de données pour le champ Altitude en **Nombre entier**, en modifiant le **Type de données** sur le ruban **Accueil**.
-    
-    ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Modification du type de colonne](./media/powerbi-visualize/power_bi_connector_pbichangetype.png)
-12. Cliquez sur **Fermer et appliquer** pour enregistrer le modèle de données.
+
+11. Cliquez sur **Fermer et appliquer** pour enregistrer le modèle de données.
     
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Fermer et appliquer](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -161,9 +160,9 @@ La vue Rapport de Power BI Desktop vous permet de créer des rapports pour vis
 
 Dans la vue Rapport, vous devriez trouver les éléments suivants :
 
-1. Le volet **Champs** , qui contient une liste de modèles de données avec des champs que vous pouvez utiliser pour vos rapports.
+1. Le volet **Champs**, qui contient une liste de modèles de données avec des champs que vous pouvez utiliser pour vos rapports.
 2. Le volet **Visualisations** . Un rapport peut contenir une ou plusieurs visualisations.  Dans le volet **Visualisations** , sélectionnez les types visuels adaptés à vos besoins.
-3. La zone de dessin **Rapport** , où vous allez créer les éléments visuels de votre rapport.
+3. La zone de dessin **Rapport**, où vous créez les éléments visuels de votre rapport.
 4. La page **Rapport** . Vous pouvez ajouter plusieurs pages de rapport dans Power BI Desktop.
 
 Vous trouverez ci-dessous les principales étapes de création d’un rapport de vue cartographique interactif simple.
@@ -176,12 +175,13 @@ Vous trouverez ci-dessous les principales étapes de création d’un rapport de
 6. Vous avez maintenant créé un rapport de base.  Vous pouvez continuer à personnaliser votre rapport en ajoutant davantage de visualisations.  Dans notre cas, nous avons ajouté un segment Type de volcan pour obtenir un rapport interactif.  
    
     ![Capture d’écran du rapport final Power BI Desktop après avoir terminé le didacticiel Power BI pour Azure Cosmos DB](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+7. Dans le menu Fichier, cliquez sur **Enregistrer** et enregistrez le fichier sous PowerBITutorial.pbix.
 
 ## <a name="publish-and-share-your-report"></a>Publier et partager votre rapport
 Pour partager votre rapport, vous devez disposer d’un compte dans PowerBI.com.
 
 1. Dans Power BI Desktop, cliquez sur le ruban **Accueil** .
-2. Cliquez sur **Publier**.  Vous devrez entrer le nom d’utilisateur et le mot de passe associés à votre compte PowerBI.com.
+2. Cliquez sur **Publier**.  Vous êtes invité à entrer le nom d’utilisateur et le mot de passe associés à votre compte PowerBI.com.
 3. Une fois les informations d’identification authentifiées, le rapport est publié sur la destination sélectionnée.
 4. Cliquez sur **Open 'PowerBITutorial.pbix' in Power BI (Ouvrir PowerBITutorial.pbix dans Power BI)** pour consulter et partager votre rapport sur PowerBI.com.
    
@@ -202,26 +202,26 @@ Ensuite, suivez les instructions de [Pin a tile from a report (Épingler une vig
 
 Vous pouvez également apporter des modifications ad hoc au rapport avant de créer un tableau de bord. Toutefois, il est recommandé d’utiliser Power BI Desktop pour effectuer les modifications et republier le rapport sur PowerBI.com.
 
-## <a name="refresh-data-in-powerbicom"></a>Actualiser les données dans PowerBI.com
-Il existe deux manières d’actualiser les données, le modèle ad hoc et la planification.
+<!-- ## Refresh data in PowerBI.com
+There are two ways to refresh data, ad hoc and scheduled.
 
-Pour une actualisation ad hoc, cliquez sur les ellipses (…) en regard du **Jeu de données**, par exemple PowerBITutorial. Une liste d’actions doit s’afficher, comprenant notamment **Actualiser maintenant**. Cliquez sur **Actualiser maintenant** pour actualiser les données.
+For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![Capture d’écran de la fenêtre Actualiser maintenant dans PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
+![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
 
-Pour procéder à une actualisation planifiée, procédez comme suit.
+For a scheduled refresh, do the following.
 
-1. Cliquez sur **Planifier l’actualisation** dans la liste d’actions. 
+1. Click **Schedule Refresh** in the action list. 
 
-    ![Capture d’écran de la fenêtre Planifier l’actualisation de PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
-2. Sur la page **Paramètres**, développez **Informations d’identification de la source de données**. 
-3. Cliquez sur **Modifier les informations d’identification**. 
+    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+2. In the **Settings** page, expand **Data source credentials**. 
+3. Click on **Edit credentials**. 
    
-    La fenêtre contextuelle de configuration apparaît. 
-4. Entrez la clé de connexion au compte Azure Cosmos DB pour ce jeu de données, puis cliquez sur **Se connecter**. 
-5. Développez **Planifier l’actualisation** , puis définissez le calendrier que vous souhaitez actualiser pour le jeu de données. 
-6. Cliquez sur **Appliquer** ; vous avez terminé la configuration de l’actualisation planifiée.
-
+    The Configure popup appears. 
+4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
+5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
+6. Click **Apply** and you are done setting up the scheduled refresh.
+-->
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur Power BI, consultez la section [Get started with Power BI (Prise en main de Power BI)](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Pour en savoir plus sur Azure Cosmos DB, consultez la [page d’accueil de la documentation relative à Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).

@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: ea13126030bb7a2672dcd153b36f1d5d63623903
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f69b818e86e84a797ef6cad6eb178c6310017bb5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Création d’une base de données SQL Azure dans le portail Azure
 
-Ce didacticiel de démarrage rapide vous guide dans la procédure de création d’une base de données SQL dans Azure à l’aide du [modèle d’achat DTU](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Azure SQL Database est une offre de type « base de données en tant que service » qui vous permet d’exécuter et de mettre à l’échelle des bases de données SQL Server hautement disponibles dans le cloud. Ce démarrage rapide vous indique comment commencer en créant une base de données SQL à l’aide du portail Azure.
+Ce démarrage rapide décrit comment créer une base de données SQL dans Azure à l’aide du [modèle d’achat DTU](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Azure SQL Database est une offre de type « base de données en tant que service » qui vous permet d’exécuter et de mettre à l’échelle des bases de données SQL Server hautement disponibles dans le cloud. Ce démarrage rapide vous indique comment commencer en créant une base de données SQL à l’aide du portail Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -34,7 +34,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
-2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même** page.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette** même page.
 
    ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -78,7 +78,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
    >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis – Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Pour ce didacticiel de démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **10 DTU (S0)** et **1** Go de stockage.
+7. Pour ce démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **10 DTU (S0)** et **1** Go de stockage.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -108,7 +108,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
 
 1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20170824.database.windows.net**) et fournit des options pour poursuivre la configuration.
 
-2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les didacticiels de démarrage rapide suivants.
+2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les démarrages rapides suivants.
 
    ![nom du serveur](./media/sql-database-get-started-portal/server-name.png)
 

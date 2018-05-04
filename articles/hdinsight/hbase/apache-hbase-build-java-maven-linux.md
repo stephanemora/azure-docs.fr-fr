@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 82fffa23a7688b66be486cc3147c134fa849a33e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 564bfb9c80fe835bd5defb4321607e0970c9f0aa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Créer des applications Java pour Apache HBase
 
@@ -41,9 +41,6 @@ La procédure décrite dans ce document utilise [Maven](http://maven.apache.org/
 * [Maven](http://maven.apache.org/)
 
 * [Un cluster Azure HDInsight sous Linux avec HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > Les étapes décrites dans ce document ont été testées avec des versions de cluster HDInsight 3.4 et 3.5. Les valeurs par défaut fournies dans les exemples concernent un cluster HDInsight 3.5.
 
 ## <a name="create-the-project"></a>Création du projet
 
@@ -679,7 +676,7 @@ Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) pro
 
 Lorsque vous avez terminé, utilisez la commande ci-après pour supprimer la table **people** utilisée dans l’exemple :
 
-__À partir d’une session `ssh`__ :
+__À partir d’une session `ssh`__  :
 
 `yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 

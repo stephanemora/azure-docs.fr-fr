@@ -1,11 +1,11 @@
 ---
-title: "Gérer les comptes de stockage Azure Stack | Microsoft Docs"
-description: "Découvrez comment rechercher, gérer, restaurer et récupérer des comptes de stockage Azure Stack"
+title: Gérer les comptes de stockage Azure Stack | Microsoft Docs
+description: Découvrez comment rechercher, gérer, restaurer et récupérer des comptes de stockage Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
@@ -99,7 +99,7 @@ Dans Azure Stack, il existe un moyen simple de le faire :
   Il se peut que votre compte ne s’affiche pas dans la liste des comptes lorsque les comptes supprimés ont déjà été effacés. Dans ce cas, il ne peut pas être récupéré. Consultez [Récupérer de la capacité](#reclaim) dans cette rubrique.
 
 ## <a name="set-the-retention-period"></a>Définir la période de conservation
-Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de conservation par défaut est définie sur 15 jours. La valeur « 0 » pour ce paramètre signifie qu’un compte supprimé est immédiatement hors conservation et est marqué pour faire l’objet d’un nettoyage périodique de la mémoire.
+Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de rétention par défaut est définie sur 0 jour. La valeur « 0 » pour ce paramètre signifie qu’un compte supprimé est immédiatement hors conservation et est marqué pour faire l’objet d’un nettoyage périodique de la mémoire.
 
 **Pour changer la période de conservation :**
 

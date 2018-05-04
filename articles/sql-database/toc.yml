@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Instance gérée
       href: sql-database-managed-instance.md
-    - name: Niveaux de service
-      href: sql-database-service-tiers.md
+    - name: Niveaux de service basés sur des unités DTU
+      href: sql-database-service-tiers-dtu.md
+    - name: Niveaux de service basés sur des vCore
+      href: sql-database-service-tiers-vcore.md
     - name: Lecture du Scale-out
       href: sql-database-read-scale-out.md
     - name: Limites de ressources basées sur des unités DTU
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Création de rapports inter-clients
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: 'Extraction, transformation et chargement (ETL) pour analyse'
-              href: saas-tenancy-tenant-analytics.md
+            - name: Analyse des clients
+              items:
+                - name: Avec SQL DB
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Avec SQL DW
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Récupération d’urgence à l’aide de la géo-restauration
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Récupération d’urgence à l’aide de la géo-réplication de base de données

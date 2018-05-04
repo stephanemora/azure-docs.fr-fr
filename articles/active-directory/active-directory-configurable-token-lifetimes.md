@@ -16,17 +16,17 @@ ms.date: 07/20/2017
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 840cd28b1b5781428e23f36fe5904cd445942e69
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (version préliminaire publique)
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
 
-> [!NOTE]
-> Pour le moment, cette fonctionnalité est disponible dans la version préliminaire publique. Soyez prêt à rétablir ou à supprimer les modifications. La fonctionnalité est disponible dans n’importe quel abonnement Azure Active Directory tant que la version préliminaire publique est utilisée. Toutefois, lorsque la fonctionnalité est mise à la disposition générale, certains aspects de la fonctionnalité peuvent nécessiter un abonnement [Azure Active Directory Premium](active-directory-get-started-premium.md).
+> [!IMPORTANT]
+> Cette méthode de contrôle de la durée de vie des jetons sera prochainement déconseillée.  Bien qu’elle reste disponible tant que la fonctionnalité de remplacement n’est pas prête, une fois déconseillée, les stratégies de durée de vie des jetons créées via cette méthode ne fonctionneront plus. 
 >
 >
 

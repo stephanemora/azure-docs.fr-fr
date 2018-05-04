@@ -99,6 +99,8 @@
           href: search-get-started-java.md
         - name: Mettre à niveau le kit de développement logiciel (SDK)
           items:
+            - name: Kit de développement logiciel (SDK) .NET 5.0
+              href: search-dotnet-sdk-migration-version-5.md
             - name: Kit de développement logiciel (SDK) .NET 3.0
               href: search-dotnet-sdk-migration.md
             - name: Kit de développement logiciel (SDK) .NET 1.1

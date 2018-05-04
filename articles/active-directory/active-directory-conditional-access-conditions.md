@@ -1,26 +1,26 @@
 ---
-title: "Conditions dans l’accès conditionnel Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment les affectations sont utilisées dans l’accès conditionnel Azure Active Directory pour déclencher une stratégie."
+title: Conditions dans l’accès conditionnel Azure Active Directory | Microsoft Docs
+description: Découvrez comment les affectations sont utilisées dans l’accès conditionnel Azure Active Directory pour déclencher une stratégie.
 services: active-directory
-keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
-documentationcenter: 
+keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Conditions dans l’accès conditionnel Azure Active Directory 
 
@@ -71,7 +71,7 @@ La condition d’applications de cloud est obligatoire dans une stratégie d’a
 
 Vous pouvez sélectionner :
 
-- **Toutes les applications cloud** pour les stratégies de base à appliquer à toute l’organisation. Un cas d’usage courant pour cette sélection est une stratégie qui requiert l’authentification multifacteur lorsqu’un risque d’ouverture de session est détecté sur quelle application cloud.
+- **Toutes les applications cloud** pour les stratégies de base à appliquer à toute l’organisation. Un cas d’usage courant pour cette sélection est une stratégie qui requiert l’authentification multifacteur lorsqu’un risque d’ouverture de session est détecté sur quelle application cloud. Une stratégie appliquée à **Toutes les applications cloud** concerne l’accès à tous les services et sites web. Ce paramètre n’est pas limité aux applications cloud de la liste **Sélection des applications cloud**.
 
 - Applications cloud individuelles pour cibler des services spécifiques par stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](active-directory-conditional-access-policy-connected-applications.md) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint, par exemple, Microsoft Teams. 
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b0bc6035c3004587ae50f1c331dd3976883e9d34
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d56b27a040420d049f567ac0de9289b1e72f3ea9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Entrée HTTPS sur Azure Container Service (AKS)
 
@@ -27,7 +27,7 @@ Installer l’interface CLI Helm - Consultez la [documentation][helm-cli] de l�
 
 ## <a name="install-an-ingress-controller"></a>Installer un contrôleur d’entrée
 
-Utilisez Helm pour installer le contrôleur d’entrée NGINX. Consultez la [documentation][nginx-ingress] du contrôleur d’entrée NGINX pour plus d’informations sur le déploiement. 
+Utilisez Helm pour installer le contrôleur d’entrée NGINX. Consultez la [documentation][nginx-ingress] du contrôleur d’entrée NGINX pour plus d’informations sur le déploiement.
 
 Mettez à jour le référentiel de graphiques.
 
@@ -76,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Si nécessaire, exécutez la commande suivante pour récupérer le nom de domaine complet. Mettez à jour la valeur de l’adresse IP avec celle de votre contrôleur d’entrée.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-Le contrôleur d’entrée est désormais accessible par le biais du nom de domaine complet.
+Le contrôleur d’entrée doit désormais être accessible par le biais du nom de domaine complet.
 
 ## <a name="install-kube-lego"></a>Installer KUBE-LEGO
 
@@ -181,7 +175,7 @@ Notez également que la connexion est chiffrée et qu’un certificat émis par 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez le logiciel mentionné dans ce document. 
+Découvrez le logiciel mentionné dans ce document.
 
 - [Interface CLI Helm][helm-cli]
 - [Contrôleur d’entrée NGINX][nginx-ingress]

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -372,7 +372,7 @@ Le niveau Gratuit de Machine Learning n’autorise pas de stockage distinct. Le 
 
 **Machine Learning prend-il en charge la disponibilité élevée ?**
 
-Oui. Pour plus d’informations, voir [Tarification de Machine Learning](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) et une description du contrat de niveau de service (SLA).
+Oui. Pour plus d’informations, voir [Tarification de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) et une description du contrat de niveau de service (SLA).
 
 **Sur quel type de ressources de calcul mes appels d’API de production seront-ils exécutés ?**
 

@@ -299,10 +299,12 @@
     - name: Schéma de langage de définition de flux de travail
       href: logic-apps-workflow-definition-language.md
       items:
+        - name: Actions et déclencheurs de flux de travail
+          href: logic-apps-workflow-actions-triggers.md
+        - name: Fonction de langage de définition de flux de travail
+          href: workflow-definition-language-functions-reference.md
         - name: GA - Historique de schéma
           href: logic-apps-schema-2016-04-01.md
-    - name: Actions et déclencheurs de flux de travail
-      href: logic-apps-workflow-actions-triggers.md
     - name: Schémas de suivi
       items:
         - name: Schéma de suivi AS2

@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
@@ -65,6 +65,8 @@ Pour extraire les valeurs individuelles de l’enregistrement, utilisez la fonct
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 Une anomalie d’un type est détectée lorsqu’un des scores d’anomalie dépasse un seuil. Le seuil peut être n’importe quel nombre à virgule flottante >= 0. Le seuil est un compromis entre la sensibilité et la confiance. Par exemple, un seuil inférieur rend les détections plus sensibles aux modifications et génère davantage d’alertes, tandis qu’un seuil plus élevé peut rendre la détection plus confiante et moins sensible, mais masquer certaines anomalies. La valeur de seuil exacte à utiliser dépend du scénario. Il n’existe aucune limite supérieure, mais l’intervalle recommandé est 3,25-5. 
+
+La valeur 3,25 indiqué dans l’exemple n’est qu’une suggestion de point de départ. Ajustez la valeur en effectuant les opérations sur votre propre jeu de données, et observez la valeur de sortie jusqu’à ce que vous atteigniez un seuil acceptable.
 
 ## <a name="anomaly-detection-algorithm"></a>Algorithme de détection d’anomalie
 
@@ -118,19 +120,19 @@ Examinons le calcul d’étrangeté en détail (en supposant qu’un ensemble de
    - event_value/90th_percentile, si event_value est supérieur à 90th_percentile  
    - 10th_percentile/event_value, si event_value est inférieur à 10th_percentile  
 
-2. **Tendance positive lente** : une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et nous cherchons une tendance positive dans la ligne. La valeur d’étrangeté est calculée par :  
+2. **Tendance positive lente** : une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et l’opération recherche une tendance positive dans la ligne. La valeur d’étrangeté est calculée par :  
 
    - Slope, si slope est positif  
    - 0, dans le cas contraire 
 
-1. **Tendance négative lente** : une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et nous cherchons une tendance négative dans la ligne. La valeur d’étrangeté est calculée par : 
+3. **Tendance négative lente** : une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et l’opération recherche une tendance négative dans la ligne. La valeur d’étrangeté est calculée par : 
 
    - Slope, si slope est négatif  
    - 0, dans le cas contraire  
 
 Lorsque la valeur d’étrangeté pour l’événement entrant est calculée, une valeur martingale est calculée, selon la valeur d’étrangeté (voir le [blog Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) pour savoir comment la valeur martingale est calculée). Cette valeur martingale est retournée comme score d’anomalie. La valeur martingale augmente lentement en réponse aux valeurs étranges, ce qui permet au détecteur de demeurer résistant face à des changements sporadiques et réduit les fausses alertes. Elle a aussi une propriété utile : 
 
-Probabilité [où t égal M<sub>t</sub> > λ ] < 1/λ, où M<sub>t</sub> est la valeur martingale à l’instant t et λ est une valeur réelle. Par exemple, si nous envoyons une alerte quand M<sub>t</sub>>100, alors la probabilité de faux positifs est inférieure à 1/100.  
+Probabilité [où t égal M<sub>t</sub> > λ ] < 1/λ, où M<sub>t</sub> est la valeur martingale à l’instant t et λ est une valeur réelle. Par exemple, en cas d’alerte lorsque M<sub>t</sub>>100, alors la probabilité de faux positifs est inférieure à 1/100.  
 
 ## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Conseils d’utilisation du détecteur de changements de niveau bidirectionnels 
 
@@ -140,7 +142,7 @@ Les points suivants doivent être pris en compte lors de l’utilisation de ce d
 
 1. Lorsque la série chronologique rencontre soudainement un pic ou une chute dans ses valeurs, l’opérateur AnomalyDetection le détecte. Mais la détection d’un retour à la normale nécessite davantage de planification. Si une série chronologique était dans un état stable avant l’anomalie, ce qui peut être le cas en réglant la fenêtre de détection de l’opérateur AnomalyDetection à au plus la moitié de la longueur de l’anomalie. Ce scénario part du principe que la durée minimum de l’anomalie peut être estimée en avance, et qu’il y a assez d’événements dans ce délai d’exécution pour former suffisamment un modèle (au moins 50 événements). 
 
-   Ceci est montré dans les figure 1 et 2 ci-dessous, en utilisant un changement de limite supérieure (la même logique s’applique à un changement de limite inférieure). Sur les deux figures, les formes d’onde représentent un changement de niveau anormal. Les lignes verticales orange représentent les limites de tronçon et la taille de tronçon est similaire à la fenêtre de détection spécifiée dans l’opérateur AnomalyDetection. Les lignes vertes indiquent la taille de la fenêtre de formation. Dans la Figure 1, la taille du tronçon correspond à la durée de l’anomalie. Dans la Figure 2, la taille du tronçon correspond à la moitié de la durée de l’anomalie. Dans tous les cas, un changement vers le haut est détecté, car le modèle utilisé pour marquer a été formé sur des données normales. Mais en se basant sur le fonctionnement du détecteur de changement au niveau bidirectionnel, nous devons exclure les valeurs de la fenêtre de formation utilisées pour le modèle qui marque le retour à la normale. Dans la Figure 1, la formation du modèle de notation inclut des événements normaux. Le retour à la normale ne peut donc être détecté. Mais dans la Figure 2, elle inclut la partie anormale, ce qui assure la détection du retour à la normale. Toute valeur inférieure à la moitié fonctionne aussi pour la même raison, alors que toute valeur supérieure inclura au final une petite part des événements normaux. 
+   Ceci est montré dans les figure 1 et 2 ci-dessous, en utilisant un changement de limite supérieure (la même logique s’applique à un changement de limite inférieure). Sur les deux figures, les formes d’onde représentent un changement de niveau anormal. Les lignes verticales orange représentent les limites de tronçon et la taille de tronçon est similaire à la fenêtre de détection spécifiée dans l’opérateur AnomalyDetection. Les lignes vertes indiquent la taille de la fenêtre de formation. Dans la Figure 1, la taille du tronçon correspond à la durée de l’anomalie. Dans la Figure 2, la taille du tronçon correspond à la moitié de la durée de l’anomalie. Dans tous les cas, un changement vers le haut est détecté, car le modèle utilisé pour marquer a été formé sur des données normales. Mais en se basant sur le fonctionnement du détecteur de changement au niveau bidirectionnel, il doit exclure les valeurs de la fenêtre de formation utilisées pour le modèle qui marque le retour à la normale. Dans la Figure 1, la formation du modèle de notation inclut des événements normaux. Le retour à la normale ne peut donc être détecté. Mais dans la Figure 2, elle inclut la partie anormale, ce qui assure la détection du retour à la normale. Toute valeur inférieure à la moitié fonctionne aussi pour la même raison, alors que toute valeur supérieure inclura au final une petite part des événements normaux. 
 
    ![AD plus taille de la fenêtre égal durée de l’anomalie](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
 

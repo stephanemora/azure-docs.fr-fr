@@ -22,3 +22,10 @@
 7. Vous pouvez sélectionner la balise épinglée sur le tableau de bord pour afficher les ressources associées à cette balise.
 
      ![Épingler des balises au tableau de bord](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Pour attribuer des balises en bloc à plusieurs ressources :
+1. Dans l’une des listes de ressources (par exemple, Toutes les ressources, vue d’ensemble Groupe de ressources) :
+2. Cochez la case à côté des ressources auxquelles vous souhaitez attribuer une balise.
+3. Sélectionnez l’option Attribuer des balises.
+4. Ajoutez des noms et des valeurs, puis sélectionnez Attribuer.

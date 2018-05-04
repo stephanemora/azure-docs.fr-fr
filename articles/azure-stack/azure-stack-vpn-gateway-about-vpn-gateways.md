@@ -1,11 +1,11 @@
 ---
-title: "À propos de la passerelle VPN pour Azure Stack | Microsoft Docs"
+title: À propos de la passerelle VPN pour Azure Stack | Microsoft Docs
 description: En savoir plus et configurer les passerelles VPN que vous utilisez avec Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -71,7 +71,7 @@ Ce type de connexion est une variante de la connexion site à site. Vous créez 
 ## <a name="gateway-skus"></a>SKU de passerelle
 Lorsque vous créez une passerelle de réseau virtuel pour Azure Stack, vous spécifiez la référence SKU de passerelle que vous voulez utiliser. Les références SKU de passerelle VPN suivantes sont prises en charge :
 - De base
-- Standard
+- standard
 - HighPerformance
 
 Lorsque vous sélectionnez une référence SKU de passerelle supérieure, par exemple Standard à la place de De base, ou HighPerformance à la place de Standard ou De base, un plus grand nombre de processeurs et une bande passante réseau plus importante sont alloués à la passerelle. Par conséquent, la passerelle peut prendre en charge un débit réseau plus élevé sur le réseau virtuel.
@@ -87,13 +87,14 @@ Lorsque vous sélectionnez une référence SKU, tenez compte des éléments sui
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Débit agrégé estimé par SKU
 Le tableau suivant présente les types de passerelle et le débit total estimé par référence de passerelle.
 
-|   | Débit de passerelle VPN *(1)* |Tunnels IPsec max de passerelle VPN |
+|   | Débit de passerelle VPN *(1)* | Tunnels IPsec max de passerelle VPN *(2)* |
 |-------|-------|-------|
-|**Référence SKU de base** ***(2)***    | 100 Mbits/s  | 10    |
+|**Référence SKU de base** ***(3)***    | 100 Mbits/s  | 10    |
 |**Référence Standard**       | 100 Mbits/s  | 10    |
-|**Référence Hautes performances** | 200 Mbits/s    | 30    |
+|**Référence Hautes performances** | 200 Mbits/s    | 5. |
 ***(1)*** Le débit du VPN n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
-***(2)*** Le protocole BGP n’est pas pris en charge pour la référence SKU de base.
+***(2)***  Le nombre maximal de tunnels est le total par déploiement Azure Stack pour TOUS les abonnements.
+***(3)*** Le protocole BGP n’est pas pris en charge pour la référence SKU de base.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [paramètres pour les passerelles VPN](azure-stack-vpn-gateway-settings.md) pour Azure Stack.

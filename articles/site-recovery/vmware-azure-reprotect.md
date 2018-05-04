@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotéger des machines depuis Azure vers un site local
 
@@ -79,7 +79,7 @@ Une fois que vous avez créé un serveur cible maître, effectuez les étapes su
 - Vous devez ajouter un nouveau lecteur si vous utilisez une machine de serveur de configuration /un serveur de processus existant ou un serveur de traitement ou de mise à l’échelle/une machine de serveur cible maître. Le nouveau lecteur doit respecter les conditions ci-dessus. Si le lecteur de rétention n’est pas présent, il n’apparaît pas dans la liste de sélection déroulante sur le portail. Une fois que vous avez ajouté un lecteur au serveur cible maître local, 15 minutes sont nécessaires pour que le lecteur apparaisse dans la sélection sur le portail. Vous pouvez également actualiser le serveur de configuration si le lecteur n’apparaît pas au bout de 15 minutes.
 - Installez les outils VMware sur le serveur cible maître. Sans les outils VMware, les magasins de données sur l’hôte ESXi du serveur cible maître ne peuvent pas être détectés.
 - Définissez le paramètre `disk.EnableUUID=true` dans les paramètres de configuration de la machine virtuelle cible maître dans VMware. Si cette ligne n’existe pas, ajoutez-la. Ce paramètre est nécessaire pour fournir un UUID cohérent au disque de machine virtuelle (VMDK) et lui assurer ainsi un montage correct.
-- Au moins une banque de données VMFS doit être attaché au serveur cible maître. S’il n’y en a aucun, l’entrée **Banque de données** sur la page de reprotection sera vide et vous ne pouvez pas continuer.
+- Au moins une banque de données VMFS doit être attachée à l’hôte ESX sur lequel la cible maître est créée. S’il n’y en a aucun, l’entrée **Banque de données** sur la page de reprotection sera vide et vous ne pouvez pas continuer.
 - Le serveur cible maître ne peut pas avoir de captures instantanées sur les disques. S’il existe des captures instantanées, l’opération de reprotection et de restauration automatique échoue.
 - Le serveur cible maître ne peut pas présenter de contrôleur SCSI Paravirtual. Il peut uniquement s’agir d’un contrôleur LSI Logic. Sans contrôleur LSI Logic, la reprotection échoue.
 - Sur toute instance donnée, le serveur cible maître peut avoir au plus 60 disques attachés. Si le nombre de machines virtuelles en cours de reprotection sur le serveur cible maître local a un nombre total de disques supérieur à 60, les reprotections vers le serveur cible maître commencent à échouer. Veillez à avoir assez d’emplacements de disque sur le serveur cible maître, ou déployez des serveurs cibles maîtres supplémentaires.
@@ -92,7 +92,7 @@ Après le démarrage d’une machine virtuelle dans Azure, il faut un certain te
 
 1. Dans **Coffre** > **Éléments répliqués**, cliquez avec le bouton droit de la souris sur la machine virtuelle ayant basculé et sélectionnez **Reprotéger**. Vous pouvez également cliquer sur la machine et sélectionner **Reprotéger** à partir des boutons de commande.
 2. Vérifiez que la direction de protection **Azure à local** est déjà sélectionnée.
-3. Dans les champs **Serveur cible maître** et **Serveur de processus**, sélectionnez le serveur cible maître local et le serveur de processus.
+3. Dans les champs **Serveur cible maître** et **Serveur de processus**, sélectionnez le serveur cible maître local et le serveur de processus.  
 4. Pour **Banque de données**, sélectionnez la banque de données dans laquelle vous souhaitez récupérer les disques locaux. Cette option est utilisée lorsque la machine virtuelle locale est supprimée et que vous devez créer de nouveaux disques. Cette option est ignorée si les disques existent déjà, mais vous devez toujours spécifier une valeur.
 5. Choisissez le lecteur de rétention.
 6. La stratégie de restauration automatique est sélectionnée automatiquement.

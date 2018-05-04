@@ -1,8 +1,8 @@
 ---
-title: "Intégrer une application à un réseau virtuel Azure"
-description: "Explique comment connecter une application d’Azure App Service à un réseau virtuel Azure nouveau ou existant"
+title: Intégrer une application à un réseau Azure Virtual Network
+description: Explique comment connecter une application d’Azure App Service à un réseau virtuel Azure nouveau ou existant
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau virtuel Azure
-Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si vous n’êtes pas familiarisé avec les réseaux virtuels Azure, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide d’une variété de technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel][VNETOverview]. 
+# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
+Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide d’une variété de technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel][VNETOverview]. 
 
 Azure App Service se présente sous deux formes. 
 
@@ -57,7 +57,8 @@ Voici quelques informations à garder à l’esprit avant de connecter votre app
 
 * L’intégration au réseau virtuel fonctionne uniquement avec des applications faisant partie d’un plan de tarification **Standard**, **Premium** ou **Isolé**. Si vous activez la fonctionnalité et faites ensuite évoluer votre plan App Service vers un plan de tarification non pris en charge, vos applications perdront la connexion aux réseaux virtuels qu’elles utilisent. 
 * Si votre réseau virtuel cible existe déjà, il doit prendre en charge la connexion VPN de point à site avec une passerelle de routage dynamique avant de pouvoir être connecté à une application. Vous ne pouvez pas activer le réseau privé virtuel (VPN) de point à site si votre passerelle est configurée avec un routage statique.
-* Le réseau virtuel doit faire partie du même abonnement que votre plan App Service (ASP, App Service Plan). 
+* Le réseau virtuel doit faire partie du même abonnement que votre plan App Service (ASP, App Service Plan).
+* Si votre passerelle existe déjà avec la connexion de point à site activée, et si elle ne se trouve pas dans la référence SKU de base, IKEV2 doit être désactivé dans votre configuration de point à site.
 * Les applications intégrées à un réseau virtuel utilisent le serveur DNS spécifié pour ce réseau virtuel.
 * Par défaut, vos applications intégrées acheminent le trafic sur votre réseau virtuel uniquement selon les itinéraires définis dans votre réseau virtuel. 
 

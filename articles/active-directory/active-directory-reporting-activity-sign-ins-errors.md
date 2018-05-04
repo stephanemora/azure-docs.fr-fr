@@ -1,25 +1,25 @@
 ---
-title: "Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory | Microsoft Docs"
-description: "Informations de référence des codes d’erreur des rapports d’activité des connexions."
+title: Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory | Microsoft Docs
+description: Informations de référence des codes d’erreur des rapports d’activité des connexions.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory
 
@@ -65,6 +65,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |50055|Mot de passe non valide, mot de passe arrivé à expiration entré.|
 |50057|Le compte d’utilisateur est désactivé.|
 |50058|Aucune information sur l’identité de l’utilisateur ne se trouve dans les informations d’identification indiquées ; l’utilisateur est introuvable dans le locataire ; une demande de connexion en mode silencieux a été envoyée, mais aucun utilisateur n’est connecté ou encore le service n’a pas pu authentifier l’utilisateur.|
+|50072|L’utilisateur doit s’inscrire pour l’authentification (interactive) du second facteur|
 |50074|L’utilisateur n’a pas réussi la vérification de l’authentification multifacteur.|
 |50079|L’utilisateur doit s’inscrire pour l’authentification du second facteur.|
 |50089|La validation du jeton du flux a échoué en raison de l’expiration du jeton flux.|
@@ -97,7 +98,6 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |81013|Impossible de trouver l’objet utilisateur à partir des informations contenues dans le ticket Kerberos de l’utilisateur.|
 |90014|Utilisation dans différents cas lorsqu’un champ attendu est absent des informations d’identification.|
 |90093|Graphique retourné avec un code d’erreur interdit pour la demande.|
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

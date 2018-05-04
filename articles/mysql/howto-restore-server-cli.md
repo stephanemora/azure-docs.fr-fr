@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -69,14 +69,14 @@ Vous choisissez entre la configuration de votre serveur pour des sauvegardes red
 
 Lors de la création d’un serveur via la commande `az mysql server create`, le paramètre `--geo-redundant-backup` décide de votre Option de redondance de sauvegarde. Si `Enabled`, des sauvegardes géo-redondantes sont effectuées. Ou si `Disabled`, des sauvegardes localement redondantes sont effectuées. 
 
-La période de rétention des sauvegardes est définie par le paramètre `--backup-retention-days`. 
+La période de rétention des sauvegardes est définie par le paramètre `--backup-retention`. 
 
 Pour plus d’informations sur la définition de ces valeurs lors de la création, consultez [Démarrage rapide CLI du serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 La période de rétention des sauvegardes d’un serveur peut être modifiée comme suit :
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 L’exemple précédent modifie la période de période de rétention des sauvegardes de mydemoserver à 10 jours.

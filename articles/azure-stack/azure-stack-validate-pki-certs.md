@@ -1,6 +1,6 @@
 ---
 title: Valider des certificats pour infrastructure à clé publique Azure Stack pour le déploiement de systèmes intégrés Azure Stack | Microsoft Docs
-description: Explique comment valider les certificats pour infrastructure à clé publique Azure Stack pour des systèmes intégrés Azure Stack.
+description: Explique comment valider les certificats pour infrastructure à clé publique Azure Stack pour des systèmes intégrés Azure Stack. Couvre l’utilisation de l’outil de vérification de certificats d’Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,171 +11,165 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd917165804314f6ee4ee006e3f29263d8d4b4c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valider des certificats PKI Azure Stack
 
-L’outil de vérification de certificat Azure Stack décrit dans cet article est fourni par l’OEM inclus dans le fichier deploymentdata.json afin de vérifier que les [certificats PKI générés](azure-stack-get-pki-certs.md) conviennent pour le prédéploiement. Les certificats doivent être validés avec suffisamment de temps pour tester et obtenir les certificats réémis si nécessaire.
+L’outil Azure Stack Readiness Checker décrit dans cet article est accessible [à partir de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Vous pouvez utiliser cet outil pour vérifier que les [certificats pour infrastructure à clé publique (PKI) générés](azure-stack-get-pki-certs.md) sont adaptés au prédéploiement. Vous devez valider les certificats en gardant suffisamment de temps pour tester et réémettre les certificats si nécessaire.
 
-L’outil de vérification de certificat (Certchecker) effectue les vérifications suivantes :
+L’outil Readiness Checker effectue les validations de certificat suivantes :
 
-- **Lecture PFX**. Vérifie si le fichier PFX est valide, si mot de passe est correct et vous avertit si les informations publiques ne sont pas protégées par un mot de passe. 
-- **Algorithme de signature**. Vérifie que l’algorithme de signature n’est pas SHA1.
-- **Clé privée**. Vérifie que la clé privée est présente et qu’elle est exportée avec l’attribut Ordinateur Local. 
-- **Chaîne de certificats**. Vérifie que la chaîne de certificats est intacte, y compris pour les certificats auto-signés. 
-- **Noms DNS**. Vérifie que le réseau SAN contient les noms DNS appropriés pour chaque point de terminaison ou si un caractère générique de prise en charge est présent. 
-- **Syntaxe de la clé**. Vérifie que la syntaxe de la clé contient une signature numérique et un chiffrement de clé, et que la syntaxe avancée de la clé contient l’authentification du serveur et l’authentification du client.
-- **Taille de la clé**. Vérifie que la taille de clé est d’au moins 2 048 octets.
-- **Ordre de la chaîne**. Vérifie que l’ordre des autres certificats qui constituent la chaîne est correct.
-- **Autres certificats**. Assurez-vous qu’aucun autre certificat n’a été packagé dans le PFX, à part le certificat feuille pertinent et sa chaîne.
-- **Aucun profil**. Vérifie qu’un nouvel utilisateur peut charger les données PFX sans profil utilisateur chargé, en simulant le comportement des comptes de service administré de groupe pendant la maintenance du certificat.
+- **Lecture PFX**  
+    Vérifie la validité du fichier PFX et l’exactitude du mot de passe et vous avertit si les informations publiques ne sont pas protégées par le mot de passe. 
+- **Algorithme de signature**  
+    Vérifie que l’algorithme de signature n’est pas SHA1 (Secure Hash Algorithm 1).
+- **Clé privée**  
+    Vérifie que la clé privée est présente et qu’elle est exportée avec l’attribut d’ordinateur local. 
+- **Chaîne d’approbation**  
+    Vérifie que la chaîne d’approbation est intacte, y compris pour les certificats auto-signés.
+- **Noms DNS**  
+    Vérifie que le réseau SAN contient les noms DNS appropriés pour chaque point de terminaison ou si un caractère générique de prise en charge est présent.
+- **Syntaxe de la clé**  
+    Vérifie que la syntaxe de la clé contient une signature numérique et un chiffrement de clé, et que la syntaxe avancée de la clé contient l’authentification du serveur et l’authentification du client.
+- **Taille de la clé**  
+    Vérifie que la taille de clé est au moins égale à 2 048 octets.
+- **Ordre de la chaîne**  
+    Vérifie l’ordre des autres certificats afin de garantir que l’ordre est correct.
+- **Autres certificats**  
+    Assurez-vous qu’aucun autre certificat n’a été packagé dans le PFX, à part le certificat feuille pertinent et sa chaîne.
 
 > [!IMPORTANT]  
-> Le fichier PFX du certificat PKI et le mot de passe doivent être considérés comme des informations sensibles.
+> Le certificat PKI est un fichier PFX et le mot de passe doit être considéré comme une information sensible.
 
 ## <a name="prerequisites"></a>Prérequis
-Votre système doit respecter la configuration requise suivante pour permettre la validation des certificats PKI pour le déploiement Azure Stack :
-- CertChecker (dans **PartnerToolKit** sous **\utils\certchecker**)
+
+
+Votre système doit respecter la configuration requise ci-après afin de permettre la validation des certificats PKI pour un déploiement Azure Stack :
+
+- Outil Microsoft Azure Stack Readiness Checker
 - Certificats SSL exportés conformément aux [instructions de préparation](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 ou Windows Server 2016
 
 ## <a name="perform-certificate-validation"></a>Valider les certificats
 
-Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack : 
+Pour préparer et valider les certificats PKI Azure Stack, procédez comme suit :
 
-1. Extrayez le contenu de <partnerToolkit>\utils\certchecker vers un nouveau répertoire (par exemple, **c:\certchecker**).
+1. Installez AzsReadinessChecker à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
 
-2. Ouvrez PowerShell en tant qu’administrateur et modifiez le répertoire du dossier certchecker :
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker 
+    ````
 
-  ```powershell
-  cd c:\certchecker
-  ```
- 
-3. Créez une structure de répertoires pour les certificats en exécutant les commandes PowerShell suivantes :
+2. Créez la structure de répertoires de certificat. Dans l’exemple ci-après, vous pouvez remplacer `<c:\certificates>` par un nouveau chemin d’accès de répertoire de votre choix.
 
-  ```powershell 
-  $directories = "ACS","ADFS","Admin Portal","ARM Admin","ARM Public","Graph","KeyVault","KeyVaultInternal","Public Portal" 
-  $destination = '.\certs' 
-  $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
-  ```
+    ````PowerShell  
+    New-Item C:\Certificates -ItemType Directory
 
-  >  [!NOTE]
-  >  Si le fournisseur d’identité du déploiement Azure Stack est Azure AD, supprimez les répertoires **ADFS** et **Graph**. 
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
 
-4. Placez vos certificats dans les répertoires appropriés créés à l’étape précédente, par exemple : 
-  - c:\certchecker\Certs\ACS\CustomerCertificate.pfx,  
-  - c:\certchecker\Certs\Admin Portal\CustomerCertificate.pfx  
-  - c:\certchecker\Certs\ARM Admin\CustomerCertificate.pfx  
-  - Etc. 
+    $destination = 'c:\certificates' 
 
-5. Copiez **deploymentdata.json** dans le répertoire **c:\certchecker**.
+    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
+    ````
 
-6. Dans la fenêtre PowerShell, exécutez les commandes suivantes : 
+ - Placez vos certificats dans les répertoires appropriés créés à l’étape précédente. Par exemple :   
+    - c:\certificates\ACSBlob\CustomerCertificate.pfx 
+    - c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx 
+    - c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx 
+    - Etc. 
 
-  ```powershell
-  $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-  .\CertChecker.ps1 -CertificatePath .\Certs\ -pfxPassword $password -deploymentDataJSONPath .\DeploymentData.json  
-  ```
+3. Dans la fenêtre PowerShell, exécutez les commandes suivantes :
 
-7. La sortie doit contenir OK pour tous les certificats et tous les attributs vérifiés : 
+    ````PowerShell  
+    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 
-  ```powershell
-  Starting Azure Stack Certificate Validation 1.1802.221.1
-  Testing: ADFS\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: KeyVaultInternal\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: ACS\ContosoSSL.pfx
-  WARNING: Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. Refer to deployment documentation for further informat
-  ion.
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Detailed log can be found C:\CertChecker\CertChecker.log 
-  ```
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
+    ````
 
-### <a name="known-issues"></a>Problèmes connus 
-**Symptôme**: Certchecker se termine prématurément et vous recevez l’erreur suivante : 
-> Échec
+4. Examinez la sortie pour vérifier que tous les certificats ont réussi les tests. Par exemple : 
 
-> Détails : cette commande ne peut pas être exécutée en raison de l’erreur : le nom du répertoire n’est pas valide. 
+    ````PowerShell
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Validation
 
-**Cause** : exécution de certchecker.ps1 à partir d’un dossier restrictif (par exemple, c:\temp ou % temp%). 
+    Starting Azure Stack Certificate Validation 1.1803.405.3
+    Testing: ARM Public\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: ACSBlob\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-**Résolution** : déplacez l’outil certchecker dans nouveau répertoire (par exemple, C:\CertChecker). 
+    Finished Certificate Validation
 
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
+    AzsReadinessChecker Completed
+    ````
 
-**Symptôme** : Certchecker émet un avertissement sur l’utilisation d’une version antérieure à 1803 (comme dans l’exemple ci-dessus à l’étape 7) :
-
-> [!WARNING]
-> Structure de certificat antérieure à 1803. La structure de dossiers pour Azure Stack 1803 et versions ultérieures est : ACSBlob, ACSQueue, ACSTable au lieu du dossier ACS. Pour plus d’informations, consultez la documentation sur le déploiement.
-
-**Cause** : CertChecker a détecté l’utilisation d’un seul dossier ACS. Cela est approprié pour les déploiements antérieurs à la version 1803. Pour les déploiements Azure Stack 1803 et versions ultérieures, la structure de dossiers devient ACSTable, ACSQueue, ACSBlob. Certchecker a déjà été mis à jour pour prendre en charge cette fonctionnalité.
-
-**Résolution** : si vous déployez la version 1802, aucune action n’est requise. Pour un déploiement 1803 et versions ultérieures, remplacez ACS par ACSTable, ACSQueue, ACSBlob, puis copiez les certificats ACS dans ces dossiers.
+### <a name="known-issues"></a>Problèmes connus
 
 **Symptôme** : les tests sont ignorés.
 
-**Cause** : CertChecker ignore certains tests si une dépendance n’est pas détectée :
-- Les autres certificats sont ignorés si la chaîne de certificats échoue.
-- Aucun profil n’est ignoré si :
-  - Il existe une stratégie de sécurité qui restreint la possibilité de créer un utilisateur temporaire et d’exécuter PowerShell en tant que cet utilisateur.
-  - Échec de la vérification de la clé privée.
+**Cause** : AzsReadinessChecker ignore certains tests si aucune dépendance n’est détectée :
 
-**Résolution** : suivez les instructions des outils dans la section des détails sous l’ensemble de tests de chaque certificat.
+ - Si la chaîne d’approbation échoue, les autres certificats sont ignorés.
 
+    ````PowerShell  
+    Testing: ACSBlob\singlewildcard.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: Fail
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: Skipped
+    Details:
+    The certificate records '*.east.azurestack.contoso.com' do not contain a record that is valid for '*.blob.east.azurestack.contoso.com'. Please refer to the documentation for how to create the required certificate file.
+    The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-## <a name="prepare-deployment-script-certificates"></a>Préparer les certificats de script de déploiement 
-Comme dernière étape, tous les certificats que vous avez préparés doivent être placés dans les répertoires appropriés sur l’ordinateur hôte de déploiement. Sur votre hôte de déploiement, créez un dossier nommé Certificats** et placez les fichiers de certificat exportés dans les sous-dossiers correspondants spécifiés dans la section [Certificats obligatoires](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates) :
+    Finished Certificate Validation
 
-```
-\Certificates
-\ACS\ssl.pfx
-\Admin Portal\ssl.pfx
-\ARM Admin\ssl.pfx
-\ARM Public\ssl.pfx
-\KeyVault\ssl.pfx
-\KeyVaultInternal\ssl.pfx
-\Public Portal\ssl.pfx
-\ADFS\ssl.pfx*
-\Graph\ssl.pfx*
-```
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
 
-<sup>*</sup> Les certificats signalés par un astérisque * sont nécessaires uniquement lorsqu’AD FS est utilisé en tant que magasin d’identités.
+**Résolution** : suivez les instructions de l’outil dans la section des détails sous chaque ensemble de tests de chacun des certificats.
 
+## <a name="using-validated-certificates"></a>Utilisation des certificats validés
+
+Une fois que vos certificats ont été validés par l’outil AzsReadinessChecker, vous êtes prêt à les utiliser dans votre déploiement Azure Stack ou pour la rotation des secrets Azure Stack. 
+
+ - Pour le déploiement, transférez en toute sécurité vos certificats à votre ingénieur de déploiement pour lui permettre de les copier sur l’hôte de déploiement, comme spécifié dans la [documentation relative aux exigences de certificat pour infrastructure à clé publique Azure Stack](azure-stack-pki-certs.md).
+ - Pour la rotation des secrets, vous pouvez utiliser les certificats afin de mettre à jour les anciens certificats pour les points de terminaison d’infrastructure publique de votre environnement Azure Stack en suivant les instructions de la [documentation concernant la rotation des secrets Azure Stack](azure-stack-rotate-secrets.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Intégration des identités au centre de données](azure-stack-integrate-identity.md)

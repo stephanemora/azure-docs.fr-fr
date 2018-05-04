@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: jroth
-ms.openlocfilehash: e4f955a0880254cb67ccd3e46ad04b3685341263
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9d3fbbab76f16a8546c431d5acf913bf419edeb4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Cet article présente les meilleures pratiques pour optimiser les performances de SQL Server dans la machine virtuelle Microsoft Azure. Lorsque vous exécutez SQL Server dans Microsoft Azure Virtual Machines, nous vous recommandons de continuer à utiliser les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Toutefois, les performances d’une base de données relationnelle dans un cloud public dépendent de nombreux facteurs, comme la taille de la machine virtuelle et la configuration des disques de données.
+Cet article donne des conseils pour optimiser les performances de SQL Server dans la machine virtuelle Microsoft Azure. Lorsque vous exécutez SQL Server dans Microsoft Azure Virtual Machines, nous vous recommandons de continuer à utiliser les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Toutefois, les performances d’une base de données relationnelle dans un cloud public dépendent de nombreux facteurs, comme la taille de la machine virtuelle et la configuration des disques de données.
 
-Lors de la création d’images SQL Server, [pensez à approvisionner vos machines virtuelles dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Les machines virtuelles SQL Server configurées dans le portail avec Resource Manager respectent les meilleures pratiques.
+[Les images de SQL Server configurées dans le portail Azure](quickstart-sql-vm-create-portal.md) suivent les meilleures pratiques en matière de configuration du stockage. Pour plus d’informations sur la configuration du stockage, consultez [Configuration du stockage pour les machines virtuelles SQL Server](virtual-machines-windows-sql-server-storage-configuration.md). Après l’approvisionnement, vous pouvez appliquer les autres optimisations présentées dans cet article. Faites votre choix en fonction de votre charge de travail et vérifiez en effectuant des tests.
 
-Cet article est axé sur l’obtention des *meilleures* performances pour SQL Server sur les machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations suivantes. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+> [!TIP]
+> Cet article est axé sur l’obtention des *meilleures* performances pour SQL Server sur les machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations suivantes. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
 
 ## <a name="quick-check-list"></a>Liste de vérification rapide
 
@@ -41,8 +40,8 @@ Voici une liste de vérification rapide pour optimiser les performances de SQL S
 | --- | --- |
 | [Taille de la machine virtuelle](#vm-size-guidance) |[Édition SQL Enterprise DS3](../sizes-general.md) ou supérieure.<br/><br/>[DS2](../sizes-general.md) ou supérieure pour SQL Server Standard Edition ou SQL Server Web Edition. |
 | [Stockage](#storage-guidance) |Utiliser [Premium Storage](../premium-storage.md). Le stockage standard n’est recommandé que pour le développement et le test.<br/><br/>Conservez le [compte de stockage](../../../storage/common/storage-create-storage-account.md) et la machine virtuelle SQL Server dans la même région.<br/><br/>Désactivez le [stockage géo-redondant](../../../storage/common/storage-redundancy.md) (géo-réplication) d’Azure sur le compte de stockage. |
-| [Disques](#disks-guidance) |Utilisez au moins 2 [disques P30](../premium-storage.md#scalability-and-performance-targets) (1 pour les fichiers journaux ; 1 pour les fichiers de données et TempDB).<br/><br/>Éviter d’utiliser des disques de système d’exploitation ou temporaires pour le stockage ou la journalisation des bases de données.<br/><br/>Activer la mise en cache de lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/>Ne pas activer la mise en cache sur le ou les disques hébergeant le fichier journal.<br/><br/>Important : arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache d’un disque de machine virtuelle Azure.<br/><br/>Entrelacer plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/>Formatez avec des tailles d’allocation documentées. |
-| [E/S](#io-guidance) |Activez la compression des pages de base de données.<br/><br/>Activer l’initialisation de fichiers instantanée pour les fichiers de données.<br/><br/>Limiter la croissance automatique sur la base de données.<br/><br/>Désactiver la réduction automatique sur la base de données.<br/><br/>Déplacer toutes les bases de données vers des disques de données, y compris les bases de données système.<br/><br/>Déplacer les répertoires des journaux d’erreurs et des fichiers de trace SQL Server vers des disques de données.<br/><br/>Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données.<br/><br/>Activer les pages verrouillées.<br/><br/>Appliquez les correctifs de performances de SQL Server. |
+| [Disques](#disks-guidance) |Utilisez au moins 2 [disques P30](../premium-storage.md#scalability-and-performance-targets) (1 pour les fichiers journaux et 1 pour les fichiers de données et TempDB ; ou entrelacez plusieurs disques et stockez tous les fichiers dans un seul volume).<br/><br/>Éviter d’utiliser des disques de système d’exploitation ou temporaires pour le stockage ou la journalisation des bases de données.<br/><br/>Activer la mise en cache de lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/>Ne pas activer la mise en cache sur le ou les disques hébergeant le fichier journal.<br/><br/>Important : arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache d’un disque de machine virtuelle Azure.<br/><br/>Entrelacer plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/>Formatez avec des tailles d’allocation documentées. |
+| [E/S](#io-guidance) |Activez la compression des pages de base de données.<br/><br/>Activer l’initialisation de fichiers instantanée pour les fichiers de données.<br/><br/>Limitez la croissance automatique sur la base de données.<br/><br/>Désactiver la réduction automatique sur la base de données.<br/><br/>Déplacer toutes les bases de données vers des disques de données, y compris les bases de données système.<br/><br/>Déplacer les répertoires des journaux d’erreurs et des fichiers de trace SQL Server vers des disques de données.<br/><br/>Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données.<br/><br/>Activer les pages verrouillées.<br/><br/>Appliquez les correctifs de performances de SQL Server. |
 | [Spécifique aux fonctionnalités](#feature-specific-guidance) |Sauvegardez directement dans le stockage d’objets blob. |
 
 Pour plus d’informations sur *comment* et *pourquoi* effectuer ces optimisations, passez en revue les détails et les instructions fournies dans les sections suivantes.
@@ -89,7 +88,7 @@ Pour les machines virtuelles qui prennent en charge le stockage Premium (de sér
 
 ### <a name="data-disks"></a>Disques de données
 
-* **Utilisation de disques de données pour les données et les fichiers journaux** : si vous n’utilisez pas l’entrelacement de disques, utilisez au moins 2 [disques P30](../premium-storage.md#scalability-and-performance-targets) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir les données, ainsi que le ou les fichiers TempDB. Chaque disque de stockage Premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article suivant : [Utilisation du stockage Premium pour les disques](../premium-storage.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, vous devez placer tous les fichiers sur le même disque.
+* **Utilisation de disques de données pour les fichiers journaux et de données** : si vous n’utilisez pas l’entrelacement de disques, utilisez au moins deux [disques P30](../premium-storage.md#scalability-and-performance-targets) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir le ou les fichiers TempDB et de données. Chaque disque de stockage Premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article, [Utilisation du stockage Premium pour les disques](../premium-storage.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, nous vous recommandons de placer tous les fichiers journaux et de données sur le même disque.
 
    > [!NOTE]
    > Lorsque vous configurez une machine virtuelle SQL Server dans le portail, vous avez la possibilité de modifier votre configuration de stockage. Selon votre configuration, Azure configure un ou plusieurs disques. Plusieurs disques sont combinés en un pool de stockage unique par entrelacement. Les fichiers journaux et de données se trouvent dans cette configuration. Pour plus d’informations, voir [Configuration du stockage pour les machines virtuelles SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
@@ -112,16 +111,24 @@ Pour les machines virtuelles qui prennent en charge le stockage Premium (de sér
 
   * Pour Windows 2008 R2 ou version antérieure, vous pouvez utiliser des disques dynamiques (volumes entrelacés de système d’exploitation). La taille de l’entrelacement restera 64 Ko. Remarque : cette option est déconseillée à partir des versions Windows 8/Windows Server 2012. Pour plus d’informations, consultez les instructions du support dans [Transition du service de disque virtuel vers l’API de gestion de stockage Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-  * Si vous utilisez les [espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) avec un scénario comme [Instances de cluster de basculement SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md), vous devez configurer un pool unique. Notez que même si vous créez différents volumes sur ce pool unique, tous partageront les mêmes caractéristiques, par exemple la même stratégie de mise en cache. 
+  * Si vous utilisez les [espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) avec un scénario comme [Instances de cluster de basculement SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md), vous devez configurer un pool unique. Notez que même si vous créez différents volumes sur ce pool unique, tous partageront les mêmes caractéristiques, par exemple la même stratégie de mise en cache.
 
   * Déterminez le nombre de disques associés à votre pool de stockage en fonction de vos attentes en matière de charge. N’oubliez pas que les différentes tailles de machines virtuelles autorisent différents nombres de disques de données attachés. Pour plus d’informations, consultez [Tailles des machines virtuelles](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
   * Si vous n’utilisez pas le stockage Premium (scénarios de développement/de test), nous vous recommandons d’ajouter le nombre maximal de disques de données pris en charge par la [taille de votre machine virtuelle](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et d’utiliser l’entrelacement de disques.
 
-* **Stratégie de mise en cache** : pour les disques de données de stockage Premium, activez la mise en cache de lecture uniquement sur les disques de données hébergeant vos fichiers de données et les fichiers de données TempDB. Si vous n’utilisez pas Premium Storage, n’activez aucune mise en cache sur les disques de données. Pour obtenir des instructions sur la configuration de la mise en cache des disques, consultez les articles suivants. Pour le modèle de déploiement classique (ASM), consultez : [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) et [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Pour le modèle de déploiement Azure Resource Manager, consultez : [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) et [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+* **Stratégie de mise en cache** : notez les recommandations suivantes pour la stratégie de mise en cache en fonction de la configuration de votre stockage.
 
-  > [!WARNING]
-  > Arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache de disques de machines virtuelles Azure pour éviter toute altération de la base de données.
+  * Si vous utilisez des disques différents pour les fichiers journaux et de données, activez la mise en cache de lecture sur les disques de données hébergeant vos fichiers de données et les fichiers de données TempDB. Cela devrait vous permettre d’obtenir un gain de performances significatif. N’activez pas la mise en cache sur le disque contenant le fichier journal, car cela entraîne une légère diminution des performances.
+
+  * Si vous utilisez l’entrelacement de disques, la plupart des charges de travail peuvent tirer parti de la mise en cache de lecture. Étant donné le gain de performances permis par l’entrelacement de disques, cette recommandation s’applique même lorsque le fichier journal se trouve sur le même lecteur. Avec certaines charges de travail nécessitant beaucoup d’écritures, il est possible d’améliorer les performances sans mise en cache. Cela ne peut être déterminé que par le biais de test.
+
+  * Les recommandations précédentes s’appliquent aux disques de stockage Premium. Si vous n’utilisez pas Premium Storage, n’activez aucune mise en cache sur les disques de données.
+
+  * Pour obtenir des instructions sur la configuration de la mise en cache des disques, consultez les articles suivants. Pour le modèle de déploiement classique (ASM), consultez : [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) et [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Pour le modèle de déploiement Azure Resource Manager, consultez : [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) et [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+
+     > [!WARNING]
+     > Arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache de disques de machines virtuelles Azure pour éviter toute altération de la base de données.
 
 * **Taille d’unité d’allocation NTFS**: lors du formatage du disque de données, il est recommandé d’utiliser une taille d’unité d’allocation de 64 Ko pour les fichiers de données et les fichiers journaux, ainsi que pour TempDB.
 

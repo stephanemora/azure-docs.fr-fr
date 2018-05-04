@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -122,7 +122,9 @@ Une passerelle de réseau local peut échanger les itinéraires avec une passere
 - **VPN** : vous pouvez éventuellement utiliser le protocole BGP. Pour plus d’informations, consultez [BGP avec les connexions VPN de site à site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, un itinéraire distinct est ajouté à la table de routage de tous les sous-réseaux d’un réseau virtuel pour chaque préfixe publié. L’itinéraire est ajouté avec *Passerelle de réseau virtuel* comme source et type de tronçon suivant. 
- 
+
+Vous pouvez désactiver la propagation des itinéraires BGP sur un sous-réseau à l’aide d’une propriété sur une table de routage. Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, les itinéraires ne sont pas ajoutés à la table de routage de tous les sous-réseaux pour lesquels la propagation BGP est désactivée. La connectivité avec les connexions VPN est obtenue à l’aide d’itinéraires personnalisés (#custom-routes) avec un tronçon suivant de type VPN. Pour plus d’informations, consultez l’article décrivant [comment désactiver la propagation des itinéraires BGP](/manage-route-table#create-a-route-table.md).
+
 ## <a name="how-azure-selects-a-route"></a>Comment Azure choisit un itinéraire
 
 Lorsque le trafic sortant est envoyé à partir d’un sous-réseau, Azure choisit un itinéraire sur la base de l’adresse IP de destination, à l’aide de l’algorithme de correspondance de préfixe le plus long. Par exemple, une table de routage contient deux itinéraires : un itinéraire spécifie le préfixe d’adresse 10.0.0.0/24, tandis que l’autre spécifie le préfixe d’adresse 10.0.0.0/16. Azure achemine le trafic destiné à 10.0.0.5, au type de tronçon suivant spécifié dans l’itinéraire avec le préfixe d’adresse 10.0.0.0/24, car 10.0.0.0/24 est un préfixe plus long que 10.0.0.0/16, même si 10.0.0.5 se trouve dans les deux préfixes d’adresse. Azure achemine le trafic destiné à 10.0.1.5, au type de tronçon suivant spécifié dans l’itinéraire avec le préfixe d’adresse 10.0.0.0/16, car 10.0.1.5 ne fait pas partie du préfixe d’adresse 10.0.0.0/24, et par conséquent, l’itinéraire avec le préfixe d’adresse 10.0.0.0/16 est le préfixe correspondant le plus long.
@@ -213,7 +215,7 @@ La table de routage du *Sous-réseau1* dans l’image contient les itinéraires 
 |6.   |Utilisateur   |Actif |10.1.0.0/16         |Aucun                   |                   |ToVNet2-1-Drop|
 |7   |Utilisateur   |Actif |10.2.0.0/16         |Aucun                   |                   |ToVNet2-2-Drop|
 |8   |Default|Non valide|10.10.0.0/16        |Passerelle de réseau virtuel|[X.X.X.X]          |              |
-|9.   |Utilisateur   |Actif |10.10.0.0/16        |Appliance virtuelle      |10.0.100.4         |To-On-Prem    |
+|9   |Utilisateur   |Actif |10.10.0.0/16        |Appliance virtuelle      |10.0.100.4         |To-On-Prem    |
 |10  |Default|Actif |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Default|Non valide|0.0.0.0/0           |Internet|              |                   |              |
 |12  |Utilisateur   |Actif |0.0.0.0/0           |Appliance virtuelle      |10.0.100.4         |Default-NVA   |

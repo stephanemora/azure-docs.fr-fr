@@ -1,25 +1,22 @@
 ---
-title: Règles et groupes de règles CRS de pare-feu d’applications web Azure Application Gateway | Microsoft Docs
+title: Règles et groupes de règles CRS de pare-feu d’applications web Azure Application Gateway
 description: Cette page fournit des informations sur les règles et groupes CRS de pare-feu d’applications web.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Liste des règles et groupes de règles CRS de pare-feu d’applications web proposées
 
@@ -27,28 +24,8 @@ Le pare-feu d’applications web Application Gateway protège les applications w
 
 Les tableaux suivants correspondent aux groupes de règles et règles disponibles lors de l’utilisation de la passerelle d’Application Gateway avec le pare-feu d’applications web.  Chaque tableau représente les règles trouvées dans un groupe de règles pour une version CRS spécifique.
 
-##<a name="owasp30"></a> OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-
-|ID de la règle|Description|
-|---|---|
-|910011|Règle 910011|
-|910012|Règle 910012|
-|910000|Requête depuis un client malveillant connu (basée sur les violations de trafic précédentes).|
-|910100|L’adresse IP du client provient d’un pays présentant un risque ÉLEVÉ.|
-|910120|Règle 910120|
-|910130|Règle 910130|
-|910150|Correspondance avec la liste rouge HTTP pour l’IP du moteur de recherche|
-|910160|Correspondance avec la liste rouge HTTP pour l’IP du spammeur|
-|910170|Correspondance avec la liste rouge HTTP pour l’IP suspecte|
-|910180|Correspondance avec la liste rouge HTTP pour l’IP du système de récupération|
-|910013|Règle 910013|
-|910014|Règle 910014|
-|910015|Règle 910015|
-|910016|Règle 910016|
-|910017|Règle 910017|
-|910018|Règle 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -64,26 +41,6 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |911017|Règle 911017|
 |911018|Règle 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-
-|ID de la règle|Description|
-|---|---|
-|912100|Règle 912100|
-|912012|Règle 912012|
-|912120|Attaque par déni de service identifiée à partir de %@{tx.real_ip} (%@{tx.dos_block_counter} correspondances depuis la dernière alerte)|
-|912130|Règle 912130|
-|912140|Règle 912140|
-|912150|Règle 912150|
-|912160|Règle 912160|
-|912170|Possible attaque par déni de service à partir de %@{tx.real_ip} - Nombre de pics de requêtes = %@{ip.dos_burst_counter}|
-|912013|Règle 912013|
-|912014|Règle 912014|
-|912019|Règle 912019|
-|912171|Possible attaque par déni de service à partir de %@{tx.real_ip} - Nombre de pics de requêtes = %@{ip.dos_burst_counter}|
-|912015|Règle 912015|
-|912016|Règle 912016|
-|912017|Règle 912017|
-|912018|Règle 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 

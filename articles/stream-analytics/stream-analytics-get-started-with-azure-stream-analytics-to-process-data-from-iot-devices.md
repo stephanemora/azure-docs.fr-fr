@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: hero-article
 ms.date: 03/28/2017
-ms.openlocfilehash: 491b0fdba464e5b0c6225a75c534ca6abb710855
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8bee80647d692b60898880a85652189a684426f7
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Prendre en main Azure Stream Analytics pour traiter des données à partir d’appareils IoT
 Dans ce didacticiel, vous allez apprendre à créer une logique de traitement de flux pour collecter des données à partir d’appareils IoT (Internet des objets). Nous allons recourir à un cas d’utilisation réel de l’IoT pour vous montrer comment générer votre solution rapidement et à moindre coût.
@@ -28,19 +28,21 @@ Entreprise du secteur de l’automatisation industrielle, Contoso a complètemen
 
 Dans notre cas, les données sont générées à partir d’un appareil Texas Instruments SensorTag. La charge utile des données est au format JSON et ressemble à ceci :
 
-    {
-        "time": "2016-01-26T20:47:53.0000000",  
-        "dspl": "sensorE",  
-        "temp": 123,  
-        "hmdt": 34  
-    }  
+```json
+{
+    "time": "2016-01-26T20:47:53.0000000",  
+    "dspl": "sensorE",  
+    "temp": 123,  
+    "hmdt": 34  
+}  
+```
 
 Dans un scénario réel, des centaines de capteurs de ce type pourraient générer des événements sous forme de flux. Dans l’idéal, un appareil de passerelle exécuterait du code pour transmettre ces événements à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ou [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Votre tâche Stream Analytics ingèrerait ces événements depuis Event Hubs et exécuterait des requêtes d’analyse en temps réel sur les flux. Vous pourriez ensuite envoyer les résultats à l’une des [sorties prises en charge](stream-analytics-define-outputs.md).
 
 Pour plus de convivialité, ce guide de mise en route fournit un exemple de fichier de données capturé à partir de balises de capteur réelles. Vous pouvez exécuter des requêtes sur les exemples de données et afficher les résultats. Dans les didacticiels suivants, vous apprendrez comment connecter votre travail aux entrées et sorties et le déployer sur le service Azure.
 
 ## <a name="create-a-stream-analytics-job"></a>Création d’un travail Stream Analytics
-1. Dans le [portail Azure](http://portal.azure.com), cliquez sur le signe +, puis saisissez **STREAM ANALYTICS** dans le champ de texte situé à droite. Sélectionnez ensuite **Stream Analytics job** (tâche Stream Analytics) dans la liste des résultats.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur le signe +, puis saisissez **STREAM ANALYTICS** dans le champ de texte situé à droite. Sélectionnez ensuite **Stream Analytics job** (tâche Stream Analytics) dans la liste des résultats.
    
     ![Créer une tâche Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. Saisissez un nom de tâche unique et vérifiez que l’abonnement est approprié pour votre tâche. Ensuite, créez un groupe de ressources ou sélectionnez un groupe existant dans votre abonnement.

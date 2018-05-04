@@ -1,8 +1,9 @@
-Pour activer la connexion à votre application, vous devez créer une stratégie de connexion. Cette stratégie décrit les expériences des clients lors de la connexion et le contenu des jetons que l’application reçoit en cas de connexion réussie.
+Si vous souhaitez uniquement activer la connexion dans votre application, vous utilisez une stratégie de **connexion**. Cette stratégie décrit les expériences clients lors de la connexion, ainsi que le contenu des jetons que l’application reçoit en cas de connexion réussie.
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)] Cliquez sur **Stratégies de connexion**.
+[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
+Cliquez sur **Stratégies d’authentification**.
 
-Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
+Cliquez sur **+Ajouter** en haut du volet.
 
 Le **Nom** détermine le nom de la stratégie de connexion utilisée par votre application. Par exemple, entrez **SiIn**.
 
@@ -10,7 +11,7 @@ Cliquez sur **Fournisseurs d’identité** et sélectionnez **Connexion du compt
 
 Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de connexion réussie. Par exemple, sélectionnez **Nom d’affichage**, **Fournisseur d’identité**, **Code postal** et **ID d’objet de l’utilisateur**. Cliquez sur **OK**.
 
-Cliquez sur **Create**. Notez que la stratégie créée s’affiche sous la forme **B2C_1_SiIn** (le fragment **B2C\_1\_** est automatiquement ajouté) dans le panneau **Stratégies de connexion**.
+Cliquez sur **Créer**. Notez que la stratégie créée s’affiche sous la forme **B2C_1_SiIn** (le fragment **B2C\_1\_** est automatiquement ajouté) dans le panneau **Stratégies de connexion**.
 
 Ouvrez la stratégie en cliquant sur **B2C_1_SiIn**.
 

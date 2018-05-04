@@ -1,8 +1,8 @@
 ---
-title: "Surveiller et gérer Hadoop avec l’API REST Ambari - Azure HDInsight | Documents Microsoft"
-description: "Découvrez comment utiliser Ambari pour surveiller et gérer les clusters Hadoop dans Azure HDInsight. Dans ce document, vous allez apprendre à utiliser l'API REST d'Ambari incluse avec les clusters HDInsight."
+title: Surveiller et gérer Hadoop avec l’API REST Ambari - Azure HDInsight | Documents Microsoft
+description: Découvrez comment utiliser Ambari pour surveiller et gérer les clusters Hadoop dans Azure HDInsight. Dans ce document, vous allez apprendre à utiliser l'API REST d'Ambari incluse avec les clusters HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 44066a3b4d5bebc67b089bebc2f3c11d33c77000
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 55017b139ce89fa74a8105da05792024ecee86b2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gérer des clusters HDInsight à l'aide de l'API REST d'Ambari
 
@@ -51,7 +49,7 @@ Que vous utilisiez Bash ou PowerShell, vous devez également avoir installé [jq
 
 ### <a name="base-uri-for-ambari-rest-api"></a>URI de base pour l’API Rest Ambari
 
-L’URI de base pour l’API REST sur les clusters HDInsight est https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, où **CLUSTERNAME** est le nom de votre Storm sur le cluster HDInsight.
+L’URI de base pour l’API REST Ambari sur HDInsight est https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, où **CLUSTERNAME** est le nom de votre cluster.
 
 > [!IMPORTANT]
 > Bien que le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (CLUSTERNAME.azurehdinsight.net) ne respecte pas la casse, les autres occurrences dans l’URI respectent la casse. Par exemple, si le nom de votre cluster est `MyCluster`, les éléments suivants sont des URI valides :

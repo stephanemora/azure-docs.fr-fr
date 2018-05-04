@@ -17,10 +17,18 @@
   items:
     - name: Azure Container Instances
       href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (ACS)
+    - name: Azure Container Service (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Générer des images de conteneur (version préliminaire)
+      items:
+        - name: 1 - Générer des images dans Azure
+          href: container-registry-tutorial-quick-build.md
+        - name: 2 - Automatiser des générations d’images
+          href: container-registry-tutorial-build-task.md
+        - name: 3 - Mettre à jour les générations d’images de base
+          href: container-registry-tutorial-base-image-update.md
     - name: Géoréplication (préversion)
       items:
         - name: 1 - Préparer le registre de conteneurs
@@ -35,6 +43,8 @@
       href: container-registry-skus.md
     - name: Stockage des images
       href: container-registry-storage.md
+    - name: Créer et corriger avec ACR Build
+      href: container-registry-build-overview.md
     - name: Géoréplication (préversion)
       href: container-registry-geo-replication.md
     - name: Bonnes pratiques concernant les registres

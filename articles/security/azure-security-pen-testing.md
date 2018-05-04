@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1b7b6604de80beadf15dabe0d2da1d7a2e5fabd6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="pen-testing"></a>Test de pénétration
 L’un des avantages liés à l’utilisation d’Azure pour tester et déployer des applications est que vous pouvez créer rapidement des environnements.  Vous n’avez pas à vous soucier des aspects liés à la demande, à l’acquisition, à la mise en rack et à l’empilage de votre propre matériel en local.
@@ -34,7 +34,7 @@ Que faire, alors ?
 Depuis le 15 juin 2017, une approbation préalable n’est plus exigée par Microsoft pour réaliser des tests d’intrusion sur les ressources Azure. Les clients qui souhaitent officiellement attester de leurs engagements relatifs aux tests d’intrusion à venir auprès de Microsoft Azure sont invités à remplir le [formulaire Azure Service Penetration Testing Notification](https://portal.msrc.microsoft.com/en-us/engage/pentest) (Notification de tests d’intrusion sur les services Azure). Ce processus concerne uniquement Microsoft Azure et ne s’applique à aucun autre service cloud de Microsoft. 
 
 >[!IMPORTANT] 
->Même s’il n’est plus nécessaire de prévenir Microsoft d’une activité de test d’intrusion, les clients doivent toujours respecter les [Règles d’engagement pour les tests d’intrusion unifiés du cloud Microsoft](https://technet.microsoft.com/en-us/mt784683). 
+>Même s’il n’est plus nécessaire de prévenir Microsoft d’une activité de test d’intrusion, les clients doivent toujours respecter les [Règles d’engagement pour les tests d’intrusion unifiés du cloud Microsoft](https://technet.microsoft.com/mt784683). 
 
 Vous avez la possibilité d’effectuer plusieurs tests :
 

@@ -9,18 +9,18 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database, de Managed Instance ou de SQL Data Warehouse
 L’authentification Azure Active Directory est un mécanisme servant à se connecter aux services Base de données SQL Microsoft Azure et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure AD, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations. Les avantages suivants sont inclus :
 
 * Il fournit une alternative à l’authentification SQL Server.
 * Permet de bloquer la prolifération des identités utilisateur sur plusieurs serveurs de base de données.
-* Permet la rotation de mot de passe à un emplacement unique
+* Permet une rotation du mot de passe dans un emplacement unique.
 * Les clients peuvent gérer les autorisations de base de données à l’aide des groupes (Azure AD) externes.
 * Il peut éliminer le stockage des mots de passe en activant l’authentification intégrée Windows et les autres formes d’authentification prises en charge par Azure Active Directory.
 * L’authentification Azure AD utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
@@ -75,7 +75,7 @@ Limitations d’Azure AD pour Managed Instance :
 - Seul l’administrateur Azure AD peut créer des bases de données, les utilisateurs Azure AD sont limités à une base de données unique et n’ont pas cette autorisation
 - Propriété de base de données :
   - Le principal Azure AD ne peut pas modifier la propriété de la base de données (ALTER AUTHORIZATION ON DATABASE) et ne peut pas être défini comme propriétaire.
-  - Pour les bases de données créées par l’administrateur Azure AD, aucune propriété n’est définie (le champ owner_sid dans sys.sysdatabases est 0x1)
+  - Pour les bases de données créées par l’administrateur Azure AD, aucune propriété n’est définie (le champ owner_sid dans sys.sysdatabases est 0x1).
 - L’Agent SQL ne peut pas être géré lors de la connexion à l’aide des principaux Azure AD. 
 - L’administrateur Azure AD ne peut pas être représenté à l’aide de EXECUTE AS
 - La connexion DAC n’est pas prise en charge avec les principaux Azure AD. 

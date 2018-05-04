@@ -2,24 +2,19 @@
 title: Gérer les ressources de calcul dans Azure SQL Data Warehouse | Microsoft Docs
 description: Découvrez les capacités de montée en puissance des performances dans Azure SQL Data Warehouse. Procédez à une montée en puissance en ajustant la valeur DWU ou allégez les coûts en suspendant l’entrepôt de données.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: ''
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
-ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: ca6d34d3b670bfd05a9b65fe9e6b260120e3a5b8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
 Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 
@@ -28,7 +23,7 @@ Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse
 L’architecture de SQL Data Warehouse sépare le stockage du calcul, ce qui permet de les mettre à l’échelle indépendamment l’un de l’autre. En conséquence, vous pouvez procéder à la mise à l’échelle du calcul afin de répondre aux exigences en matière de niveau de performance, sans modifier le stockage des données. Vous avez également la possibilité de suspendre ou reprendre des ressources de calcul. Dans le cadre de cette architecture, la [facturation](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) du calcul est donc effectuée séparément de celle du stockage. Si vous n’avez pas besoin d’utiliser votre entrepôt de données pendant un certain temps, vous pouvez alléger les coûts de calcul en suspendant les ressources de calcul. 
 
 ## <a name="scaling-compute"></a>Mise à l’échelle du calcul
-Vous pouvez procéder à la montée ou descente en puissance du calcul en ajustant le paramétrage relatif aux [unités Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) de votre entrepôt de données. Les performances de chargement et de requête peuvent s’accroître de manière linéaire à mesure que vous augmentez la valeur DWU. SQL Data Warehouse offre des [niveaux de service](performance-tiers.md#service-levels) pour les DWU qui garantissent une évolution notable des performances lorsque vous procédez à une montée ou descente en puissance. 
+Vous pouvez procéder à la montée ou descente en puissance du calcul en ajustant le paramétrage relatif aux [unités Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) de votre entrepôt de données. Les performances de chargement et de requête peuvent s’accroître de manière linéaire à mesure que vous augmentez la valeur DWU. 
 
 Pour plus d’informations sur la procédure de montée en puissance, consultez les articles de démarrage rapide pour le [portail Azure](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) ou [T-SQL](quickstart-scale-compute-tsql.md). Vous pouvez également effectuer des opérations de montée en puissance à l’aide d’une [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -103,19 +98,19 @@ Nous vous recommandons d’autoriser l’achèvement des transactions existantes
 
 Lorsque vous suspendez ou mettez à l’échelle de votre SQL Data Warehouse, en arrière-plan, vos requêtes sont annulées lorsque vous lancez la requête de suspension de mise à l’échelle.  L’annulation d’une simple requête SELECT est une opération rapide et n’a quasiment aucun impact sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre instance.  Toutefois, les requêtes transactionnelles, qui modifient vos données ou la structure des données, ne pourront peut-être pas s’arrêter rapidement.  **Par définition, les requêtes transactionnelles doivent être terminées dans leur intégralité ou annuler leurs modifications.**  L’annulation du travail effectué par une requête transactionnelle peut être aussi longue, voire plus, que la modification originale appliquée par la requête.  Par exemple, si vous annulez une requête qui supprimait des lignes et était en cours d’exécution depuis une heure, le système mettra peut-être une heure à insérer à nouveau les lignes supprimées.  Si vous exécutez une suspension ou une mise à l’échelle pendant que les transactions sont en cours, votre suspension ou mise à l’échelle peut sembler très longue, car la suspension et la mise à l’échelle doivent attendre la fin de la restauration avant de se lancer.
 
-Consultez également les articles fournissant une [présentation des transactions](sql-data-warehouse-develop-transactions.md) et décrivant la [procédure d’optimisation des transactions](sql-data-warehouse-develop-best-practices-transactions.md).
+Consultez aussi [Transactions](sql-data-warehouse-develop-transactions.md) et [Optimisation des transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## <a name="automating-compute-management"></a>Automatisation de la gestion du calcul
 Pour plus d’informations sur l’automatisation des opérations de gestion du calcul, consultez l’article décrivant comment [gérer le calcul avec Azure Functions](manage-compute-with-azure-functions.md).
 
 L’exécution de chacune des opérations de montée en puissance, de suspension et de reprise peut nécessiter plusieurs minutes. Si vous procédez à une mise à l’échelle, une suspension ou une reprise automatiques, nous vous recommandons d’implémenter une logique pour vous assurer que certaines opérations ont été effectuées avant d’exécuter une autre action. La vérification de l’état de l’entrepôt de données au niveau de différents points de terminaison vous permet d’automatiser correctement de telles opérations. 
 
-Pour vérifier l’état de l’entrepôt de données, voir les articles de démarrage rapide pour [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). Vous pouvez également vérifier l’état de l’entrepôt de données à l’aide d’une [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Pour vérifier l’état de l’entrepôt de données, consultez les articles de démarrage rapide pour [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). Vous pouvez également vérifier l’état de l’entrepôt de données à l’aide d’une [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Autorisations
 
-La mise à l’échelle de l’entrepôt de données requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  La suspension et la reprise requièrent l’autorisation [Collaborateur de base de données SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor), notamment Microsoft.Sql/servers/databases/action.
+La mise à l’échelle de l’entrepôt de données requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  La suspension et la reprise requièrent l’autorisation [Collaborateur de base de données SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor), notamment Microsoft.Sql/servers/databases/action.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

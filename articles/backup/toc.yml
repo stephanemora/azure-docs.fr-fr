@@ -29,6 +29,8 @@
   items:
     - name: "Azure\_PowerShell"
       href: powershell-backup-samples.md
+    - name: Modèles Resource Manager
+      href: backup-rm-template-samples.md
 - name: Concepts
   items:
     - name: Forum Aux Questions
@@ -67,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: Protection des charges de travail
           items:
-            - name: Utiliser le serveur de sauvegarde Azure pour sauvegarder un serveur VMware
+            - name: Serveur VMware
               href: backup-azure-backup-server-vmware.md
-            - name: Utiliser le serveur de sauvegarde Azure pour sauvegarder Exchange
+            - name: "Microsoft\_Exchange"
               href: backup-azure-exchange-mabs.md
-            - name: Utiliser le serveur de sauvegarde Azure pour sauvegarder une batterie de serveurs SharePoint
+            - name: Batterie de serveurs SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Utiliser le serveur de sauvegarde Azure pour sauvegarder SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Protéger l’état du système et la récupération complète
               href: backup-mabs-system-state-and-bmr.md
+            - name: Fichiers et applications sur Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Récupérer des données depuis Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
     - name: Partages de fichiers Azure

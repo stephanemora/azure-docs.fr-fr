@@ -1,25 +1,18 @@
 ---
 title: Installer une passerelle de données locale | Microsoft Docs
 description: Découvrez comment installer et configurer une passerelle de données locale.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
@@ -45,7 +38,7 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 * Installez la passerelle sur un ordinateur qui reste activé et qui ne se met pas en veille.
 * N’installez pas la passerelle sur un ordinateur sans fil connecté à votre réseau. Les performances peuvent être réduites.
 * Connectez-vous à Azure avec le compte Azure AD du même [locataire](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que l’abonnement dans lequel vous inscrivez la passerelle. Les comptes Azure B2B (invité) ne sont pas pris en charge lors de l’installation et de l’inscription d’une passerelle.
-* La passerelle (unifiée) décrite ici n’est pas prise en charge dans Azure Government (Fairfax). Utilisez la passerelle locale dédiée pour Azure Analysis Services. La passerelle dédiée ne prend pas en charge les services complémentaires, notamment Power BI et Power Apps. La passerelle dédiée s’installe à partir du démarrage rapide du serveur sur le portail.
+* La passerelle (unifiée) décrite ici n’est pas prise en charge dans Azure Government, Azure Allemagne et les régions souveraines de Azure Chine. Utilisez la **passerelle locale dédiée pour Azure Analysis Services**, installée à partir du **Démarrage rapide** de votre serveur dans le portail. 
 
 
 ## <a name="download"></a>Télécharger

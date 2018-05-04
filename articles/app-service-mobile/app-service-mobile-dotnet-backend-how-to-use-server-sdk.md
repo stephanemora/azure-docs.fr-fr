@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -46,10 +46,24 @@ Pour créer un backend mobile App Service, suivez le [didacticiel de démarrage 
 
 Dans le panneau *Prise en main*, sous **Créer une table API**, sélectionnez **C#** en tant que **langue du backend**. Cliquez sur **Télécharger**, extrayez les fichiers projets compressés sur votre ordinateur local, puis ouvrez la solution dans Visual Studio.
 
-### <a name="create-a-net-backend-using-visual-studio-2013-and-visual-studio-2015"></a>Créer un backend .NET à l’aide de Visual Studio 2013 et de Visual Studio 2015
+### <a name="create-a-net-backend-using-visual-studio-2017"></a>Créer un backend .NET à l’aide de Visual Studio 2017
+
+Installez la charge de travail Azure par le biais de Visual Studio Installer pour publier le projet Azure Mobile Apps à partir de Visual Studio. Une fois que vous avez installé le SDK, créez une application ASP.NET en procédant comme suit :
+
+1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...**).
+2. Développez **Visual C#**, puis sélectionnez **Web**.
+3. Sélectionnez **Application Web ASP.NET (.NET Framework)**.
+4. Renseignez le nom du projet. Cliquez ensuite sur **OK**.
+5. Sélectionnez **Application mobile Azure** dans la liste des modèles.
+6. Cliquez sur **OK** pour créer la solution.
+7. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, choisissez **Publier...**, puis **App Service** comme cible de publication.
+8. Suivez les invites pour procéder à l’authentification et à la sélection d’un backend Azure App Service nouveau ou existant comme cible de publication.
+
+### <a name="create-a-net-backend-using-visual-studio-2015"></a>Créer un backend .NET à l’aide de Visual Studio 2015
+
 Pour créer un projet Azure Mobile Apps dans Visual Studio, installez le [Kit de développement logiciel (SDK) Azure pour .NET][4] (version 2.9.0 ou ultérieure). Une fois que vous avez installé le SDK, créez une application ASP.NET en procédant comme suit :
 
-1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu *Fichier* > **Nouveau** > **Projet...**).
+1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...**).
 2. Développez **Modèles** > **Visual C#**, puis sélectionnez **Web**.
 3. Sélectionnez **Application web ASP.NET**.
 4. Renseignez le nom du projet. Cliquez ensuite sur **OK**.

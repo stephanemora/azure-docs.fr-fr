@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1802 à votre système intégré Azure Stack ou déployez le dernier kit de développement Azure Stack avant de déployer Azure App Service.
+> Appliquez la mise à jour 1802 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service.
 >
 >
 
@@ -70,12 +70,12 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Programme d’installation App Service][3]
 
-4. Vous avez maintenant la possibilité d’effectuer le déploiement sur un réseau virtuel existant conformément à la configuration dans les étapes mentionnées [ici](azure-stack-app-service-before-you-get-started.md#virtual-network), ou d’autoriser le programme d’installation App Service à créer un réseau virtuel et des sous-réseaux associés.
+4. Vous avez maintenant la possibilité d’effectuer le déploiement sur un réseau virtuel existant en suivant la configuration indiquée dans les étapes mentionnées [ici](azure-stack-app-service-before-you-get-started.md#virtual-network), ou d’autoriser le programme d’installation App Service à créer un réseau virtuel et des sous-réseaux associés.
     1. Sélectionnez **Créer un réseau virtuel avec les paramètres par défaut**, acceptez les valeurs par défaut, puis cliquez sur **Suivant** ; ou
     2. Sélectionnez **Utiliser un réseau virtuel et des sous-réseaux existants**.
-        1. Sélectionnez le **Groupe de ressources** qui contient votre réseau virtuel.
-        2. Choisissez le nom de **Réseau virtuel** sur lequel vous voulez effectuer le déploiement.
-        3. Sélectionnez les valeurs **Sous-réseau** appropriées pour chacun des sous-réseaux de rôle nécessaires.
+        1. Sélectionnez le **Groupe de ressources** qui contient votre réseau virtuel ;
+        2. Choisissez le nom du **Réseau virtuel** sur lequel vous voulez effectuer le déploiement ;
+        3. Sélectionnez les valeurs **Sous-réseau** correspondant à chacun des sous-réseaux de rôle nécessaires ;
         4. Cliquez sur **Suivant**
 
     ![Programme d’installation App Service][4]
@@ -137,7 +137,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     ![Programme d’installation App Service][13]
 
     > [!NOTE]
-    > **Windows Server 2016 Core n’est pas une image de plateforme prise en charge pour une utilisation avec Azure App Service sur Azure Stack.  N’utilisez pas d’images d’évaluation pour les déploiements de production.**
+    > **Windows Server 2016 Core n’est pas une image de plateforme prise en charge pour une utilisation avec Azure App Service sur Azure Stack.  N’utilisez pas d’images d’évaluation pour les déploiements de production.**
 
 12. Dans la zone **Sélectionner l’image de plateforme**, choisissez votre image de machine virtuelle Windows Server 2016 de déploiement parmi les images disponibles dans le fournisseur de ressources de calcul pour le cloud App Service. Cliquez sur **Suivant**.
 
@@ -168,6 +168,18 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
     ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Si vous avez choisi de déployer un modèle dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+> * Source : Toutes
+> * Plage de ports source : : *
+> * Destination : adresses IP
+> * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+> * Plage de ports de destination : 445
+> * Protocole : TCP
+> * Action : Autoriser
+> * Priorité : 700
+> * Nom : Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
 

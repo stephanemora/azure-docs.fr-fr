@@ -62,7 +62,7 @@ Pour en savoir plus sur cloud-init sur Azure :
 
 
 ## <a name="powershell-dsc"></a>DSC PowerShell
-La [Configuration d’état souhaité (DSC) PowerShell](https://msdn.microsoft.com/en-us/powershell/dsc/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Elle peut également être utilisée sur Linux via le [serveur Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
+La [Configuration d’état souhaité (DSC) PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Elle peut également être utilisée sur Linux via le [serveur Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
 
 Les configurations d’état souhaité définissent les éléments à installer sur une machine et la procédure à suivre pour configurer l’hôte. Un moteur du Gestionnaire de configuration local (LCM) s’exécute sur chaque nœud cible qui traite les actions demandées en fonction des configurations envoyées. Un serveur collecteur est un service web qui s’exécute sur un hôte central pour stocker les configurations d’état souhaité et les ressources associées. Le serveur collecteur communique avec le moteur du Gestionnaire de configuration local sur chaque hôte cible pour fournir les configurations requises et signaler la conformité.
 

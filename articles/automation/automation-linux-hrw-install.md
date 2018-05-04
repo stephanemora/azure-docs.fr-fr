@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bc6c98784195aaf80cb6ca32ef29f75666099b06
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Déploiement d’un Runbook Worker hybride Linux
 
@@ -36,7 +36,7 @@ Avant de continuer, vous devez noter l’espace de travail Log Analytics auquel 
 
 1.  Activez la solution « Automation Hybrid Worker » dans Azure. Pour ce faire, vous pouvez :
 
-   1. Ajoutez la solution **Automation Hybrid Worker** à votre abonnement à l’aide de la procédure dans la rubrique [Ajouter des solutions de gestion Log Analytics à votre espace de travail](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
+   1. Ajoutez la solution **Automation Hybrid Worker** à votre abonnement à l’aide de la procédure dans la rubrique [Ajouter des solutions de gestion Log Analytics à votre espace de travail](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
    2. Exécutez l’applet de commande suivante :
 
         ```powershell

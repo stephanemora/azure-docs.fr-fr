@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
 > [!NOTE]
@@ -34,7 +34,7 @@ Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azu
 2. Connectez-vous à votre compte Azure à l’aide de la commande suivante.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Exécutez la commande suivante pour enregistrer le fournisseur Azure Data Factory.
 
@@ -45,7 +45,7 @@ Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azu
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problème : erreur non autorisée lors de l’exécution d’une applet de commande Data Factory
 Vous n’utilisez probablement pas le compte ou l’abonnement Azure correct pour Azure PowerShell. Utilisez les applets de commande suivantes pour sélectionner le compte et l’abonnement Azure corrects à utiliser avec Azure PowerShell.
 
-1. Login-AzureRmAccount - Utilisez l’ID d’utilisateur et le mot de passe corrects.
+1. Connect-AzureRmAccount : utilisez l’ID d’utilisateur et le mot de passe corrects
 2. Get-AzureRmSubscription : affichez tous les abonnements du compte.
 3. Select-AzureRmSubscription &lt;nom de l’abonnement&gt; - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
 

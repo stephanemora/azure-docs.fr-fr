@@ -1,6 +1,6 @@
 ---
-title: "Créer une application gérée par Azure avec Azure CLI | Microsoft Docs"
-description: "Montre comment créer une application managée Azure destinée aux membres de votre organisation."
+title: Créer une application gérée par Azure avec Azure CLI | Microsoft Docs
+description: Montre comment créer une application managée Azure destinée aux membres de votre organisation.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Créer et déployer une application managée avec l’interface de ligne de commande Azure
 
@@ -22,7 +22,7 @@ Cet article fournit une introduction sur l’utilisation des applications manag�
 
 Lorsque vous avez terminé, vous disposez de trois groupes de ressources contenant les différentes parties de l’application managée.
 
-| Groupe de ressources | Contient | Description |
+| Groupe de ressources | Contains | Description |
 | -------------- | -------- | ----------- |
 | appDefinitionGroup | La définition d’application gérée. | Le serveur de publication crée ce groupe de ressources et la définition de l’application managée. Toute personne ayant accès à la définition d’application managée peut la déployer. |
 | applicationGroup | L’instance de l’application managée. | Le consommateur crée ce groupe de ressources et l’instance de l’application managée. Le consommateur peut mettre à jour l’application managée par cette instance. |
@@ -75,7 +75,7 @@ Une fois la commande terminée, vous avez une définition de l’application man
 Certains des paramètres utilisés dans cet exemple sont les suivants :
 
 * **resource-group** : nom du groupe de ressources dans lequel la définition de l’application managée est créée.
-* **lock-level**: type de verrou placé sur le groupe de ressources gérées. Il empêche le client d’effectuer des opérations indésirables sur ce groupe de ressources. Actuellement, ReadOnly est le seul niveau de verrou pris en charge. Lorsque ReadOnly est spécifié, le client peut lire uniquement les ressources présentes dans le groupe de ressources gérées.
+* **lock-level**: type de verrou placé sur le groupe de ressources gérées. Il empêche le client d’effectuer des opérations indésirables sur ce groupe de ressources. Actuellement, ReadOnly est le seul niveau de verrou pris en charge. Lorsque ReadOnly est spécifié, le client peut lire uniquement les ressources présentes dans le groupe de ressources gérées. Les identités de l’éditeur qui ont accès au groupe de ressources managé sont exemptées du verrou.
 * **authorizations** : décrit l’ID principal et l’ID de définition de rôle utilisés pour accorder des autorisations au groupe de ressources gérées. Il est spécifié sous la forme `<principalId>:<roleDefinitionId>`. Plusieurs valeurs peuvent également être spécifiées pour cette propriété. Si plusieurs valeurs sont nécessaires, elles doivent être spécifiées sous la forme `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Les valeurs sont séparées par un espace.
 * **package-file-uri**: l’emplacement d’un package .zip contenant les fichiers requis. Au minimum, le package contient les fichiers **mainTemplate.json** et **createUiDefinition.json**. **mainTemplate.json** définit les ressources Azure approvisionnées pour l’application managée. Le modèle n’est en rien différent d’un modèle Resource Manager normal. **createUiDefinition.json** : génère l’interface utilisateur pour les clients qui créent l’application managée par le biais du portail.
 

@@ -97,6 +97,8 @@
           href: durable-functions-bindings.md
         - name: Point de contrôle et relecture
           href: durable-functions-checkpointing-and-replay.md
+        - name: Statut de l’orchestration personnalisée
+          href: durable-functions-custom-orchestration-status.md
         - name: Gestion d’instance
           href: durable-functions-instance-management.md
         - name: API HTTP
@@ -181,6 +183,8 @@
           href: durable-functions-phone-verification.md
         - name: Test des unités
           href: durable-functions-unit-testing.md
+        - name: Publication d’événement
+          href: durable-functions-event-publishing.md
 - name: Informations de référence
   items:
     - name: Liaisons

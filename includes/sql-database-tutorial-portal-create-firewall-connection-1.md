@@ -4,13 +4,13 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 
-Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](../articles/sql-database/sql-database-service-tiers.md). La base de données est créée dans un [groupe de ressources Azure](../articles/azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL Database](../articles/sql-database/sql-database-features.md). 
+Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](../articles/sql-database/sql-database-service-tiers-dtu.md). La base de données est créée dans un [groupe de ressources Azure](../articles/azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL Database](../articles/sql-database/sql-database-features.md). 
 
 Pour créer une base de données SQL vide, suivez la procédure suivante. 
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
-2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans ****cette même page.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même**page.
 
    ![créer une base de données vide](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 

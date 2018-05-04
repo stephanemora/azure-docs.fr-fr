@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Création d’un service
 
-1.  À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail Azure à cette URL : <https://portal.azure.com/>. Si vous déployez l’appareil dans le portail Government, connectez-vous à l’adresse suivante : <https://portal.azure.us/>
+1.  À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail Azure à cette URL : <https://portal.azure.com/>. Si vous déployez l’appareil dans le portail Government, connectez-vous à l’adresse suivante : <https://portal.azure.us/>
 
 2.  Dans le portail Azure, cliquez sur **+ Créer une ressource** &gt; **Stockage** &gt; **StorSimple Virtual Series**.
 
@@ -18,7 +18,7 @@
 
         -   Si vous avez d’autres charges de travail dans Azure que vous souhaitez déployer avec votre appareil StorSimple, nous vous invitons à utiliser ce centre de données.
 
-        -   Le gestionnaire d’appareil StorSimple et le stockage Azure peuvent se trouver en deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire d’appareil StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Stockage Azure dans le portail Azure et suivez les étapes indiquées dans [Créer un compte Stockage Azure](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). Une fois que vous avez créé ce compte, ajoutez-le au service StorSimple Device Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   Le gestionnaire d’appareil StorSimple et le stockage Azure peuvent se trouver en deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire d’appareil StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Stockage Azure dans le portail Azure et suivez les étapes indiquées dans [Créer un compte Stockage Azure](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). Une fois que vous avez créé ce compte, ajoutez-le au service StorSimple Device Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
 
         -   Si vous déployez l’appareil virtuel dans le portail Government, le service StorSimple Device Manager est disponible dans l’Iowa et en Virginie.
 

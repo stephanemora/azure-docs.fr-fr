@@ -3,16 +3,17 @@ title: Explorer les API REST de Fiddler ou Postman (REST de la Recherche Azure) 
 description: Découvrez comment émettre des demandes HTTP et des appels d’API REST vers la Recherche Azure, via Fiddler ou Postman.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: 8a2e423d635c12f5d08395c03e4bc57ac71156ef
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Explorer les API REST de la Recherche Azure à l’aide de Fiddler ou Postman
 
@@ -32,7 +33,7 @@ Si vous ne disposez d’aucun abonnement Azure, créez un [compte gratuit](https
 
 Les outils suivants sont souvent utilisés lors du développement web. Même si vous êtes familiarisé avec un autre outil, les instructions du présent article restent applicables, en théorie.
 
-+ [Postman (complément Google Chrome)](https://www.getpostman.com/)
++ [Application de bureau Postman](https://www.getpostman.com/)
 + [Telerik Fiddler](http://www.telerik.com/fiddler)
 
 ## <a name="get-the-api-key-and-endpoint"></a>Obtenir la clé d’API et le point de terminaison

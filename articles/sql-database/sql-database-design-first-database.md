@@ -9,11 +9,11 @@ ms.custom: mvc,develop databases
 ms.topic: tutorial
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: b09807e1fa7624ed134a24c7df4a61abf2a1d723
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-your-first-azure-sql-database-using-ssms"></a>Concevoir votre première base de données SQL Azure à l’aide de SSMS
 
@@ -109,7 +109,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
 
 1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20170824.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
-2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les didacticiels de démarrage rapide suivants. 
+2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les démarrages rapides suivants. 
 
    ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -148,7 +148,7 @@ Utilisez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-
 
    | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
+   | Type de serveur | Moteur de base de données | Cette valeur est obligatoire. |
    | Nom du serveur | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mon_nouveau_serveur20170824.database.windows.net**. |
    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
    | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |

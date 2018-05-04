@@ -86,5 +86,5 @@
 
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=developer-tools)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

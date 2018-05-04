@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Créer un compte de développeur Microsoft
 Cet article décrit la procédure de création de compte et d’inscription que vous devez suivre pour devenir un développeur Microsoft agréé pour Azure Marketplace.
@@ -37,7 +37,7 @@ L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine
 Lorsque vous créez un compte de société, suivez ces instructions si plusieurs personnes devront accéder au compte en se connectant avec le compte Microsoft qui a ouvert le compte.
 
 > [!Important]
-> Important : pour permettre à plusieurs utilisateurs d’accéder à votre compte Centre de développement, nous vous recommandons d’utiliser Azure Active Directory pour assigner des rôles aux différents utilisateurs, qui peuvent accéder au compte en se connectant avec leurs informations d’identification Azure AD. Pour plus d’informations, consultez [Gérer les utilisateurs du compte](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Important : pour permettre à plusieurs utilisateurs d’accéder à votre compte Centre de développement, nous vous recommandons d’utiliser Azure Active Directory pour assigner des rôles aux différents utilisateurs, qui peuvent accéder au compte en se connectant avec leurs informations d’identification Azure AD. Pour plus d’informations, consultez [Gérer les utilisateurs du compte](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Créez votre compte Microsoft avec une adresse e-mail qui appartient au domaine de votre entreprise, mais pas à une seule personne, par exemple, windowsapps@fabrikam.com.
 * Limitez l’accès à ce compte Microsoft au plus petit nombre possible de développeurs.
@@ -49,7 +49,7 @@ Lorsque vous créez un compte de société, suivez ces instructions si plusieurs
 
 Votre compte de développeur doit être principalement utilisé à partir d’ordinateurs approuvés. Cela est essentiel, car il existe une limite au nombre de codes générés par semaine pour chaque compte. Ceci rend également l’expérience de connexion plus transparente.
 
-Pour plus d’informations sur la sécurité et sur les instructions relatives au compte de développeur, cliquez [ici](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Pour plus d’informations sur la sécurité et sur les instructions relatives au compte de développeur, cliquez [ici](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instructions
 1. Ouvrez une nouvelle session de navigation Chrome Incognito ou Internet Explorer InPrivate pour vous assurer que vous n'êtes pas connecté à un compte existant.

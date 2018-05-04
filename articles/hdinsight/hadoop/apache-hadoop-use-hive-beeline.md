@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b96f457bc13ae3e412580096a1f9be865e64cb74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Utiliser le client Beeline avec Apache Hive
 
@@ -252,10 +252,17 @@ Pour rechercher le nom de domaine complet d’un nœud principal, utilisez les i
 
 Spark fournit sa propre implémentation de HiveServer2, qui est quelquefois appelée « serveur Spark Thrift ». Ce service utilise Spark SQL pour résoudre les requêtes à la place de Hive, et peut offrir de meilleures performances selon la requête.
 
-Pour vous connecter au serveur Spark Thrift d’un cluster Spark sur HDInsight, utilisez le port `10002` au lieu du port `10001`. Par exemple : `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+La __chaîne de connexion__ utilisée lors de la connexion à Internet est légèrement différente. Au lieu de contenir `httpPath=/hive2`, elle contient `httpPath/sparkhive2`. Voici un exemple de connexion à Internet :
 
-> [!IMPORTANT]
-> Il est impossible d’accéder directement au serveur Spark Thrift sur Internet. Vous ne pouvez vous y connecter qu’à partir d’une session SSH ou depuis le même réseau virtuel Microsoft Azure que le cluster HDInsight.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Lorsque vous vous connectez directement depuis le nœud principal du cluster, ou à partir d’une ressource à l’intérieur du même réseau virtuel Azure que le cluster HDInsight, le port `10002` doit être utilisé pour le serveur Spark Thrift à la place de `10001`. Voici un exemple de connexion directe au nœud principal :
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
-title: "Guide pratique pour surveiller et réduire la limitation dans Azure Time Series Insights | Microsoft Docs"
-description: "Cet article explique comment analyser, diagnostiquer et réduire les problèmes de performances qui provoquent la latence et la limitation dans Azure Time Series Insights."
+title: Guide pratique pour surveiller et réduire la limitation dans Azure Time Series Insights | Microsoft Docs
+description: Cet article explique comment analyser, diagnostiquer et réduire les problèmes de performances qui provoquent la latence et la limitation dans Azure Time Series Insights.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: ec16f20723e4a613c953363da6cf6b463de829a9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac59359eb6af268f311534d90e1529fc5e41094f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights
 Lorsque la quantité de données entrantes dépasse la configuration de votre environnement, vous pouvez rencontrer une latence ou une limitation dans Azure Time Series Insights.
@@ -35,31 +35,38 @@ Vous êtes susceptible de rencontrer une latence et une limitation lorsque vous 
 
 Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de latence dus à votre environnement. 
 
-1. Dans le portail Azure, cliquez sur **Métriques**. 
+1. Dans le portail Azure, cliquez sur **Mesures**. 
 
-   ![Métriques](media/environment-mitigate-latency/add-metrics.png)
+   ![Mesures](media/environment-mitigate-latency/add-metrics.png)
 
-2. Cliquez sur **Ajouter une alerte Métriques**.  
+2. Cliquez sur **Ajouter une alerte de mesure**.  
 
-    ![Ajouter une alerte Métriques](media/environment-mitigate-latency/add-metric-alert.png)
+    ![Ajouter une alerte de mesure](media/environment-mitigate-latency/add-metric-alert.png)
 
 À partir de là, vous pouvez configurer des alertes à l’aide des mesures suivantes :
 
 |Métrique  |Description  |
 |---------|---------|
 |**Octets reçus en entrée**     | Nombre d’octets bruts lus à partir des sources d’événements. Le nombre brut inclut généralement le nom de la propriété et la valeur.  |  
-|**Messages non valides reçus en entrée**     | Nombre de messages non valides lus à partir de la totalité des hubs d’événements Azure ou des sources d’événements Azure IoT Hub.      |
-|**Messages reçus en entrée**   | Nombre de messages lus à partir de la totalité des hubs d’événements ou des sources d’événements IoT Hub.        |
+|**Messages non valides reçus en entrée**     | Nombre de messages non valides lus à partir de la totalité des Event Hubs Azure ou des sources d’événements Azure IoT Hub.      |
+|**Messages reçus en entrée**   | Nombre de messages lus à partir de la totalité des Event Hubs ou des sources d’événements IoT Hub.        |
 |**Octets stockés en entrée**     | Taille totale des événements stockés et disponibles pour la requête. La taille est calculée uniquement sur la valeur de propriété.        |
 |**Événements stockés en entrée**     |   Nombre d’événements aplatis stockés et disponibles pour la requête.      |
+|**Ingress Recieved Message Time Lag** (Décalage dans le temps des messages reçus en entrée)    |  Différence entre l’heure à laquelle le message est placé en file d’attente dans la source d’événement et l’heure à laquelle il est traité en entrée.      |
+|**Ingress Recieved Message Count Lag** (Écart de référence des messages reçus en entrée)    |  Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée.      |
 
-![Latence](media/environment-mitigate-latency/latency.png)
 
-L’une des techniques consiste à définir une alerte d’**événements stockés en entrée** >= un seuil légèrement inférieur à la capacité totale de votre environnement pour une période de 2 heures.  Cette alerte peut vous aider à comprendre si vous êtes en permanence à votre capacité maximale, ce qui implique une forte probabilité de latence.  
+![Latency](media/environment-mitigate-latency/latency.png)
+
+Si vous êtes limité, une valeur s’affichera pour la mesure *Ingress Recieved Message Time Lag* (Décalage dans le temps des messages reçus en entrée), vous informant du décalage en minutes entre le TSI et l’horodatage réel de l’arrivée du message dans la source d’événement (sans tenir compte du délai d’indexation d’environ 30 à 60 secondes).  Le champ *Ingress Received Message Count Lag* (Écart de référence des messages reçus en entrée) doit également comporter une valeur, vous octroyant une visibilité sur le nombre de messages de retard que vous accusez.  Le moyen le plus simple de rattraper le retard est d’augmenter la capacité de votre environnement à une taille qui vous permettra de combler la différence.  
+
+Par exemple, si vous disposez d’un environnement S1 à une seule unité et constatez un décalage de 5 millions de messages, vous avez intérêt à augmenter la taille de votre environnement à 6 unités durant environ une journée pour refaire votre retard.  Vous pouvez même augmenter davantage pour rattraper plus vite le retard.  Cela se produit souvent lors du provisionnement initial d’un environnement, plus particulièrement lorsque vous le connectez à une source d’événement qui présente déjà des événements ou quand vous chargez de manière groupée de gros volumes de données d’historique.
+
+Une autre technique est de définir une alerte d’**événements stockés en entrée** >= à un seuil légèrement inférieur à la capacité totale de votre environnement pour une période de 2 heures.  Cette alerte peut vous aider à comprendre si vous êtes en permanence à votre capacité maximale, ce qui implique une forte probabilité de latence.  
 
 Par exemple, si vous avez trois unités S1 configurées (ou 2 100 événements de capacité d’entrée par minute), vous pouvez définir une alerte d’**événements stockés en entrée** pour >= 1 900 événements pendant 2 heures. Si vous dépassez en permanence ce seuil et par conséquent, vous déclenchez l’alerte, vous êtes probablement sous-configuré.  
 
-En outre, si vous pensez que vous êtes limité, vous pouvez comparer vos **messages reçus en entrée** avec les messages de sortie de votre source d’événement.  Si l’entrée dans votre hub d’événements est supérieure à vos **messages reçus en entrée**, vos informations Time Series Insights sont probablement limitées.
+En outre, si vous pensez que vous êtes limité, vous pouvez comparer vos **messages reçus en entrée** avec les messages de sortie de votre source d’événement.  Si l’entrée dans votre Event Hub est supérieure à vos **messages reçus en entrée**, vos informations Time Series Insights sont probablement limitées.
 
 ## <a name="improving-performance"></a>Améliorer les performances 
 La meilleure façon de réduire la limitation ou la latence est de d’augmenter la capacité de votre environnement. 

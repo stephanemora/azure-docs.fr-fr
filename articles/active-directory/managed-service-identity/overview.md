@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6b62baf1fdad6e08535b13f2ca461b00156a7f14
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identité du service administré (MSI) pour les ressources Azure
 
@@ -32,14 +32,14 @@ Lorsque vous activez l’identité du service administré sur un service Azure, 
 
 Voici un exemple du fonctionnement de l’identité du service administré avec des machines virtuelles Azure.
 
-![Exemple d’identité du service administré d’une machine virtuelle](../media/msi-vm-example.png)
+![Exemple d’identité du service administré d’une machine virtuelle](../media/msi-vm-imds-example.png)
 
-1. Azure Resource Manager reçoit un message pour activer l’identité du service administré sur une machine virtuelle.
+1. Azure Resource Manager reçoit un message pour activer Managed Service Identity (MSI) sur une machine virtuelle.
 2. Azure Resource Manager crée un principal de service dans Azure AD pour représenter l’identité de la machine virtuelle. Le principal de service est créé dans l’abonné Azure AD approuvé par cet abonnement.
-3. Azure Resource Manager configure les détails du principal de service dans l’extension de l’identité de service administré de la machine virtuelle.  Cette étape inclut la configuration de l’ID de client et du certificat utilisés par l’extension pour obtenir des jetons d’accès d’Azure AD.
-4. Maintenant que l’identité du principal de service de la machine virtuelle est connue, elle peut accéder aux ressources Azure.  Par exemple, si votre code doit appeler Azure Resource Manager, il vous faut ensuite attribuer le rôle approprié au principal de service de la machine virtuelle à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure AD.  Si votre code doit appeler Key Vault, cela signifie que vous devez accorder à votre code un accès au secret spécifique ou à la clé dans Key Vault.
-5. Votre code en cours d’exécution sur la machine virtuelle demande un jeton à partir d’un point de terminaison local qui est hébergé par l’extension de l’identité de service administré de la machine virtuelle : http://localhost:50342/oauth2/token.  Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Par exemple, si vous souhaitez que votre code s’authentifie sur Azure Resource Manager, vous devez utiliser resource=https://management.azure.com/.
-6. L’extension de l’identité de service administré de la machine virtuelle utilise son ID de client et son certificat configurés pour demander un jeton d’accès émanant d’Azure AD.  Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
+3. Azure Resource Manager configure les détails du principal du service pour la machine virtuelle dans Azure Instance Metadata Service de la machine virtuelle. Cette étape inclut la configuration de l’ID et du certificat du client utilisés pour obtenir des jetons d’accès à partir d’Azure AD. *Remarque : Le point de terminaison MSI IMDS consiste à remplacer le point de terminaison actuel de l’extension de machine virtuelle MSI. Pour plus d’informations sur cette modification, consultez la page des FAQ et des problèmes connus*
+4. Maintenant que l’identité du principal de service de la machine virtuelle est connue, elle peut accéder aux ressources Azure. Par exemple, si votre code doit appeler Azure Resource Manager, il vous faut ensuite attribuer le rôle approprié au principal de service de la machine virtuelle à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure AD.  Si votre code doit appeler Key Vault, cela signifie que vous devez accorder à votre code un accès au secret spécifique ou à la clé dans Key Vault.
+5. Votre code en cours d’exécution sur la machine virtuelle demande un jeton du point de terminaison MSI de Azure Instance Metadata Service (IMDS), uniquement accessible à partir de l’intérieur de la machine virtuelle : http://169.254.169.254/metadata/identity/oauth2/token. Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Par exemple, si vous souhaitez que votre code s’authentifie sur Azure Resource Manager, vous devez utiliser resource=https://management.azure.com/.
+6. Azure Instance Metadata demande un jeton d’accès à partir d’Azure AD, à l’aide de l’ID et du certificat du client pour la machine virtuelle. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
 7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
 
 Chaque service Azure qui prend en charge l’identité du service administré a sa propre méthode permettant à votre code d’obtenir un jeton d’accès. Consultez les didacticiels pour chaque service, afin de connaître la méthode spécifique pour obtenir un jeton.

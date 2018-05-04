@@ -1,8 +1,8 @@
 ---
-title: "Création d’alertes dans OMS Log Analytics | Microsoft Docs"
-description: "Les alertes dans Log Analytics identifient des informations importantes dans votre référentiel OMS et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit comment créer une règle d’alerte et détaille les différentes actions qu’elle peut engager."
+title: Création d’alertes dans OMS Log Analytics | Microsoft Docs
+description: Les alertes dans Log Analytics identifient des informations importantes dans votre référentiel OMS et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit comment créer une règle d’alerte et détaille les différentes actions qu’elle peut engager.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,28 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b692822660ab12f89b274cea75727fb808d673f8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Utilisation des règles d’alerte dans Log Analytics
-Les alertes sont créées par des règles dédiées, qui exécutent automatiquement des recherches de journaux à intervalles réguliers.  Elles créent un enregistrement d’alerte si les résultats correspondent aux critères spécifiques.  La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive.   
+
+> [!NOTE]
+> Cet article décrit les alertes Log Analytics classiques qui sont gérées dans le portail OMS.  Les alertes dans Log Analytics sont [étendues à Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Une fois cette opération effectuée, vous allez créer et modifier des règles d’alerte dans le portail Azure et utiliser les procédures décrites dans cet article.
+
+
+Les alertes sont créées par des règles dédiées qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers.  Elles créent un enregistrement d’alerte si les résultats correspondent aux critères spécifiques.  La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive.   
 
 Cet article décrit les processus permettant de créer et de modifier des règles d’alerte à l’aide du portail OMS.  Pour plus d’informations sur les différents paramètres et sur l’implémentation de la logique requise, consultez l’article [Présentation des alertes dans Log Analytics](log-analytics-alerts.md).
 
->[!NOTE]
-> Pour le moment, vous ne pouvez pas créer ni modifier une règle d’alerte dans le portail Azure. 
 
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 
 Pour créer une règle d’alerte à l’aide du portail OMS, commencez par créer une recherche dans les journaux pour trouver les enregistrements qui doivent appeler l’alerte.  Vous pouvez ensuite utiliser le bouton **Alerte** pour créer et configurer la règle d’alerte.
 
 >[!NOTE]
-> Un maximum de 250 règles d’alerte peut être créé dans un espace de travail OMS. 
+> Un maximum de 250 règles d’alerte peut être créé dans un espace de travail Log Analytics. 
 
 1. Dans la page de présentation d’OMS, cliquez sur **Recherche de journal**.
 2. Créez une requête de recherche de journal ou sélectionnez une recherche de journal enregistrée. 
@@ -66,9 +69,9 @@ Il s’agit des paramètres de base de la règle d’alerte et de l’alerte qu�
 
 | Propriété | Description |
 |:--- |:---|
-| Nom | Nom unique identifiant la règle d’alerte. Ce nom est inclus dans les alertes créées par la règle.  |
+| NOM | Nom unique identifiant la règle d’alerte. Ce nom est inclus dans les alertes créées par la règle.  |
 | Description | Description facultative de la règle d’alerte. |
-| Severity |Gravité des alertes créées par cette règle. |
+| Niveau de gravité |Gravité des alertes créées par cette règle. |
 
 ### <a name="search-query-and-time-window"></a>Fenêtre de requête et de durée de recherche
 Retourne les enregistrements qui sont évalués pour déterminer si des alertes doivent être créées.

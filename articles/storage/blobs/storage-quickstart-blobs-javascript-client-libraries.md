@@ -1,5 +1,5 @@
 ---
-title: Télécharger, répertorier et supprimer des objets BLOB avec le stockage Azure à l’aide de JavaScript et de HTML dans le navigateur
+title: Guide de démarrage rapide Azure - Créer un objet blob dans le stockage d’objets à l’aide de JavaScript et d’HTML dans le navigateur
 description: Apprenez à utiliser une instance de BlobService pour télécharger, répertorier et supprimer des objets BLOB à l’aide de JavaScript dans une page HTML.
 services: storage
 keywords: stockage, javascript, html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>Démarrage rapide : Télécharger, répertorier et supprimer des objets BLOB avec le stockage Azure à l’aide de JavaScript/HTML dans le navigateur
-Ce guide de démarrage rapide explique comment gérer des objets BLOB à partir de code s’exécutant entièrement dans le navigateur, ainsi que les mesures de sécurité requises pour garantir l’accès protégé à votre compte de stockage d’objets BLOB. Pour suivre ce guide de démarrage rapide, vous devez disposer d’un [abonnement Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Démarrage rapide : Télécharger, répertorier et supprimer des objets blob à l’aide de JavaScript/HTML dans le navigateur
+Ce guide de démarrage rapide explique comment gérer des objets blob à partir d’un code s’exécutant entièrement dans le navigateur. L’approche utilisée ici montre comment utiliser des mesures de sécurité requises pour sécuriser l’accès à votre compte de stockage Blob. Pour suivre ce guide de démarrage rapide, vous devez disposer d’un [abonnement Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>Copier des paramètres de sécurité
-Pendant ce démarrage rapide, vous devez disposer de quelques valeurs relatives à la sécurité afin de créer un jeton de sécurité. À partir du portail, vous pouvez copier les valeurs dans un éditeur de texte pour utilisation ultérieure. 
-
-Sélectionnez le compte de stockage dans le portail et recherchez la section **Paramètres**. Sous Paramètres, sélectionnez **Clés d’accès** et réservez le **nom de compte de stockage** et la valeur **Clé** sous le titre **clé1**. (Vous pouvez utiliser le bouton « Copier » situé à droite de la zone d’entrée pour copier la valeur dans le Presse-papiers).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configuration des règles CORS du compte de stockage 
 Avant que votre application Web puisse accéder à un stockage d’objets BLOB à partir du client, le compte doit être configuré pour activer le [partage des ressources cross-origin](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS. 
@@ -55,7 +50,7 @@ Vous utilisez ensuite Azure Cloud Shell pour créer un jeton de sécurité.
 ## <a name="create-a-shared-access-signature"></a>Créer une signature d’accès partagé
 La signature d’accès partagé (SAP) est utilisée par le code en cours d’exécution dans le navigateur pour authentifier les requêtes de stockage d’objets BLOB. À l’aide de la SAP, le client peut s’authentifier sans disposer de la clé d'accès ou de la chaîne de connexion du compte. Pour plus d’informations sur la SAP, consultez [Utiliser des signatures d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-Vous pouvez créer une SAP à l’aide de l’interface de ligne de commande Azure via Azure Cloud Shell. Le tableau suivant décrit les paramètres que vous devez configurer pour les valeurs afin de générer une SAP.
+Vous pouvez créer une SAP à l’aide de l’interface de ligne de commande Azure via Azure Cloud Shell ou de l’Explorateur Stockage Azure. Le tableau suivant décrit les paramètres que vous devez configurer pour les valeurs afin de générer une SAP à l’aide de l’interface de ligne de commande.
 
 | Paramètre      |Description  | Placeholder |
 |----------------|-------------|-------------|
@@ -93,7 +88,7 @@ Maintenant que la SAP est générée, copiez dans votre éditeur de texte la val
 ## <a name="implement-the-html-page"></a>Mettre en œuvre la page HTML
 
 ### <a name="set-up-the-web-application"></a>Configurer l’application Web
-Les bibliothèques de client JavaScript de stockage Azure ne fonctionnent pas directement depuis le système de fichiers et doivent être pris en charge à partir d’un serveur Web. Par conséquent, les étapes suivantes décrivent en détail comment utiliser un serveur Web local simple avec Node.js.
+Les bibliothèques de client JavaScript de stockage Azure ne fonctionnent pas directement depuis le système de fichiers et doivent être pris en charge à partir d’un serveur Web. Par conséquent, les étapes suivantes décrivent en détail comment utiliser un serveur web local simple avec Node.js.
 
 > [!NOTE]
 > Cette section vous montre comment créer un serveur Web local. Vous devez pour cela avoir installé Node.js sur votre ordinateur. Si vous ne souhaitez pas installer Node.js, vous pouvez alors utiliser tout autre moyen permettant d’exécuter un serveur Web local.
@@ -121,7 +116,7 @@ Enfin, dans votre invite de commandes, entrez `npm start` pour démarrer le serv
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>Obtenir les scripts client du stockage Blob
+### <a name="get-the-blob-storage-client-library"></a>Obtenir la bibliothèque du client de stockage Blob
 [Téléchargez les bibliothèques client JavaScript](https://aka.ms/downloadazurestoragejs), procédez à l’extraction des contenus du fichier zip et placez les fichiers de script issus du dossier *offre groupée* dans un dossier nommé *scripts*.
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>Ajouter la référence de script client à la page
@@ -153,7 +148,7 @@ Cette balise ajoute les éléments suivants à la page :
 - un élément *ENTRÉE* utilisé pour télécharger un fichier
 - un espace réservé pour le code spécifique au stockage
 
-### <a name="create-a-blob-service"></a>Créer un service BLOB 
+### <a name="create-an-instance-of-blobservice"></a>Créer une instance de service Blob 
 [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) fournit une interface pour le stockage Blob Azure. Pour créer une instance du service, vous devez fournir le nom du compte de stockage et la SAP générée au cours d’une étape précédente.
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>Charger un objet blob
-Pour télécharger un objet blob à partir d’un formulaire HTML, commencez par faire référence au fichier sélectionné via le tableau `files` d’un élément *ENTRÉE* dont le *type* est défini sur *fichier*.
+Pour télécharger un objet blob depuis un formulaire HTML, vous devez obtenir une référence au fichier sélectionné à partir d’un élément *INPUT*. Le fichier sélectionné est disponible via le tableau `files` lorsque le *type* de l’élément est défini sur *fichier*.
 
 À partir du script, vous pouvez faire référence à l’élément HTML et transmettre le fichier sélectionné au service BLOB.
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+La méthode *listBlobsSegmented* renvoie une collection d’objets blob. Par défaut, la collection contient 5 000 objets blob, mais vous pouvez modifier cette valeur en fonction de vos besoins. [L’exemple de sauvegarde consécutive](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132) montre comment travailler avec un grand nombre d’objets blob et de quelle manière la bibliothèque de client prend en charge la pagination. 
+
 
 ### <a name="delete-blobs"></a>Suppression d’objets blob
 Vous pouvez supprimer l’objet blob que vous avez téléchargé en appelant [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor).

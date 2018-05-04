@@ -24,6 +24,8 @@
           href: migrate-scenarios-overview.md
         - name: 'Scénario 1 : évaluer les ressources locales à migrer vers Azure'
           href: migrate-scenarios-assessment.md
+        - name: 'Scénario 2 : Migration lift-and-shift vers Azure'
+          href: migrate-scenarios-lift-and-shift.md
     - name: Découvrir et évaluer un environnement de grande taille
       href: how-to-scale-assessment.md
     - name: Regrouper des machines

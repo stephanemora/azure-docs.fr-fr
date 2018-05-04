@@ -11,24 +11,24 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: v-daveng
-ms.openlocfilehash: b10d3e469ffac22a2b0994708f50125d21496fef
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3585a47e0823a765bd59b28f4b399aed7c5fcae3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-go-to-query-an-azure-sql-database"></a>Utiliser Go pour interroger une base de données Azure SQL
 
-Ce didacticiel rapide montre comment utiliser [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) pour se connecter à une base de données Azure SQL. Les instructions Transact-SQL permettant d’interroger et de modifier des données sont également présentées.
+Ce guide de démarrage rapide montre comment utiliser [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) pour se connecter à une base de données Azure. Les instructions Transact-SQL permettant d’interroger et de modifier des données sont également présentées.
 
 ## <a name="prerequisites"></a>Prérequis
 
 
-Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
+Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce didacticiel de démarrage rapide.
+- Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce démarrage rapide.
 
 - Installé Go et les logiciels connexes sur votre système d’exploitation :
 

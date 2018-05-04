@@ -154,7 +154,7 @@ La plupart des solutions HPC Azure reposent sur les machines virtuelles Azure, l
 * [Réseau virtuel](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
-### <a name="containers"></a>Conteneurs
+### <a name="containers"></a>Containers
 * [Service de conteneur](../articles/container-service/dcos-swarm/container-service-intro.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
 
@@ -181,7 +181,7 @@ Voici des exemples de clients ayant résolu des problèmes d’entreprise à l�
 * En savoir plus sur les solutions Big Compute pour la [simulation d’ingénierie](https://simulation.azure.com/), le [rendu](https://simulation.azure.com/), les [banques et marchés financiers](https://finance.azure.com/) et la [génomique](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Pour les dernières annonces, consultez le [blog de l’équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Utiliser le service Azure [Batch](https://azure.microsoft.com/services/batch/) géré et évolutif pour exécuter des charges de travail nécessitant beaucoup de ressources système sans gérer d’infrastructures sous-jacentes [En savoir plus](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Utiliser le service Azure [Batch](https://azure.microsoft.com/services/batch/) géré et évolutif pour exécuter des charges de travail nécessitant beaucoup de ressources système sans gérer d’infrastructures sous-jacentes [En savoir plus](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

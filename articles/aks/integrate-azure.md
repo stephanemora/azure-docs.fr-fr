@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 
@@ -22,9 +22,9 @@ Avec le [Catalogue de services Kubernetes][kubernetes-service-catalog], Open Ser
 
 * Abonnement Azure
 
-* Azure CLI 2.0 : vous pouvez [l’installer localement][azure-cli-install] ou l’utiliser dans [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI 2.0 : [installez-le localement][azure-cli-install] ou utilisez-le dans [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+ : vous pouvez [l’installer localement][helm-cli-install] ou l’utiliser dans [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+ : [installez-le localement][helm-cli-install] ou utilisez-le dans [Azure Cloud Shell][azure-cloud-shell].
 
 * Autorisations pour créer un principal de service avec le rôle Collaborateur pour votre abonnement Azure
 

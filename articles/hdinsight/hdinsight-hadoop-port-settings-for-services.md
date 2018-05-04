@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b6510024d1644f1e0b357126e2b971c66eb95dbc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4490ac9bccb406bd2e882fc8afcbaf05aa8ddfab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Hadoop sur HDInsight
 
@@ -56,6 +56,7 @@ Les éléments suivants sont disponibles pour les types de clusters spécifiques
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |hbase |API REST HBase. Consultez la page [Prise en main de HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |API REST Spark. Consultez la page [Envoi de travaux Spark à distance à l’aide de Livy](spark/apache-spark-livy-rest-interface.md) |
+| Serveur Spark Thrift |443 |HTTPS |Spark |Le serveur Spark Thrift utilisé pour envoyer des requêtes Hive. Consultez la section [Utiliser Beeline avec Hive dans HDInsight](hadoop/apache-hadoop-use-hive-beeline.md). |
 | Storm |443 |HTTPS |Storm |Interface utilisateur web de Storm. Consultez la page [Déploiement et gestion des topologies Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Authentification

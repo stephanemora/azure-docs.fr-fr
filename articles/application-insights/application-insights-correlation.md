@@ -1,6 +1,6 @@
 ---
-title: "Corrélation de télémétrie dans Azure Application Insights | Microsoft Docs"
-description: "Corrélation de télémétrie dans Application Insights"
+title: Corrélation de télémétrie dans Azure Application Insights | Microsoft Docs
+description: Corrélation de télémétrie dans Application Insights
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -103,6 +103,31 @@ ASP.NET Core 2.0 prend en charge l’extraction des en-têtes Http et le démar
 Il existe un nouveau module Http [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) pour ASP.NET Classic. Ce module implémente la corrélation de télémétrie à l’aide de DiagnosticsSource. Il démarre l’activité en fonction des en-têtes de requête entrante. Il met également en corrélation la télémétrie à différentes étapes du traitement de la requête. Même dans les cas où chaque étape du traitement IIS s’exécute sur différents threads de gestion.
 
 Le Kit de développement logiciel (SDK) à partir de la version `2.4.0-beta1` utilise DiagnosticsSource et Activity pour collecter la télémétrie et l’associer à l’activité en cours. 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Corrélation des données de télémétrie dans le Kit de développement logiciel (SDK) Java
+Le [Kit de développement logiciel (SDK) Java Application Insights](app-insights-java-get-started.md) prend en charge la corrélation automatique des données de télémétrie à partir de la version `2.0.0`. Il renseigne automatiquement `operation_id` pour toutes les données de télémétrie (traces, exceptions, événements personnalisés, etc.) émises dans l’étendue d’une demande. Il s’occupe aussi de propager les en-têtes de corrélation (comme décrit ci-dessus) pour les appels entre les services via le protocole HTTP si [l’agent du Kit de développement logiciel (SDK) Java](app-insights-java-agent.md) est configuré. Remarque : seuls les appels effectués via le client HTTP Apache sont pris en charge pour la fonctionnalité de corrélation. Si vous utilisez un modèle Rest Spring ou Feign, ils peuvent être utilisés avec le client HTTP Apache en arrière-plan.
+
+Actuellement, la propagation automatique de contexte entre les technologies de messagerie (par exemple, Kafka, RabbitMQ, Azure Service Bus) n’est pas prise en charge. Il est toutefois possible de coder manuellement ces scénarios à l’aide d’API `trackDependency` et `trackRequest`, où une dépendance de données de télémétrie représente un message étant ajouté à la file d’attente par un producteur, et où la demande représente un message en cours de traitement par un consommateur. Dans ce cas, `operation_id` et `operation_parentId` doivent être propagés dans les propriétés du message.
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>Nom du rôle
+Dans certains cas, vous souhaiterez peut-être personnaliser la façon dont les noms de composant sont affichés dans la [cartographie d’application](app-insights-app-map.md). Pour ce faire, vous pouvez définir manuellement l’élément `cloud_roleName` en effectuant l’une des opérations suivantes :
+
+Via un initialiseur de télémétrie (tous les éléments de télémétrie sont balisés)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Via la [classe de contexte d’appareil](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (seul cet élément de télémétrie est balisé)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,25 +1,18 @@
 ---
-title: "Leçon 9 du didacticiel Azure Analysis Services : Créer des hiérarchies | Microsoft Docs"
-description: 
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Leçon 9 du didacticiel Azure Analysis Services : Créer des hiérarchies | Microsoft Docs'
+description: Décrit comment créer des hiérarchies dans un modèle tabulaire.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 041096b1a93fdc671939b6d6715a7836d1977e3c
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: bb32736e5837c939b696e131746f9af2b9340acb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hierarchies"></a>Créer des hiérarchies
 
@@ -29,7 +22,8 @@ Pour créer des hiérarchies, utilisez le Générateur de modèles disponible da
   
 Durée estimée pour suivre cette leçon : **20 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 8 : Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Créer des hiérarchies  

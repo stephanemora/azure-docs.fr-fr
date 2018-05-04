@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
 
@@ -99,6 +99,8 @@ Pour résoudre le problème, essayez l’une des méthodes suivantes :
 Vous pouvez utiliser des [balises de service](../virtual-network/security-overview.md#service-tags) pour autoriser les connexions au stockage de la région concernée. Vérifiez que la règle qui autorise l’accès au compte de stockage a la priorité par rapport à la règle bloquant l’accès à Internet. 
 
 ![Groupe de sécurité réseau avec des balises de stockage pour une région](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Pour comprendre la procédure étape par étape permettant de configurer les balises de service, regardez [cette vidéo](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > Les balises de service de stockage sont en préversion. Elles ne sont disponibles que dans certaines régions. Vous en trouverez la liste dans la section [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).

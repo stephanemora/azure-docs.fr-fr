@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configuration des revendications de rôle émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 
@@ -55,7 +55,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
 
 5. Une fois l’application ajoutée, allez à la page **Propriétés** et copiez **l’ID de l’objet**.
 
-    ![Page Propriétés](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Page Propriétés](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
 
@@ -127,7 +127,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
     > [!Note]
     > Vous pouvez uniquement ajouter de nouveaux rôles après le **msiam_access** de l’opération de correction. En outre, vous pouvez ajouter autant de rôles que vous le souhaitez selon les besoins de votre organisation. Azure AD envoie la **valeur** de ces rôles conformément à la valeur de revendication dans la réponse SAML.
     
-    j. Revenez à l’Afficheur Graph et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle.
+    j. Revenez à Graph Explorer et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle.
 
     ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
@@ -140,7 +140,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
     ![Configurer l’authentification unique Add](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     > [!Note]
-    > Notez que vous devez actualiser votre session dans le Portail Azure pour afficher les nouveaux rôles.
+    > Notez que vous devez actualiser votre session dans le portail Azure pour afficher les nouveaux rôles.
 
 8. Après l’assignation des rôles aux utilisateurs, nous devons mettre à jour la table **Attributs** pour définir un mappage personnalisé de revendication de **rôle**.
 
@@ -182,7 +182,7 @@ Pour mettre à jour un rôle existant, procédez comme suit :
 
     ![Boîte de dialogue de l’Explorateur graphique](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-4. Dans la liste des principaux du service extraits, obtenez celui que vous devez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
+4. Dans la liste des principaux du service extraits, obtenez celui que vous souhaitez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Recherchez **l’ID de l’objet** que vous avez copié à partir de la page Propriétés et utilisez la requête suivante pour accéder au principal du service respectif.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
@@ -254,7 +254,7 @@ Pour supprimer un rôle existant, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Documentation de l’application ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) pour connaître les étapes supplémentaires.
+Consultez [Documentation de l’application ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) pour connaître les étapes supplémentaires.
 
 <!--Image references-->
 <!--Image references-->

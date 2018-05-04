@@ -1,25 +1,18 @@
 ---
-title: "Leçon 4 du didacticiel Azure Analysis Services : Créer des relations | Microsoft Docs"
-description: "Explique comment créer des relations dans le projet du didacticiel Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Leçon 4 du didacticiel Azure Analysis Services : Créer des relations | Microsoft Docs'
+description: Explique comment créer des relations dans le projet du didacticiel Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-relationships"></a>Créer des relations
 
@@ -27,7 +20,8 @@ Dans cette leçon, vous allez vérifier les relations qui ont été créées aut
   
 Durée estimée pour suivre cette leçon : **10 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 3 : Marquer en tant que Table de dates](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Vérifier les relations existantes et ajouter de nouvelles relations  
@@ -60,11 +54,11 @@ Avant de poursuivre avec la création de votre modèle, vous devez vérifier que
   
     |Actif|Table|Table de recherche associée|  
     |----------|---------|------------------------|  
-    |Oui|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |Oui|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |Oui|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |Oui|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |Oui|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |OUI|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |OUI|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |OUI|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |OUI|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |OUI|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     Si l’une des relations est manquante, vérifiez que votre modèle comprend les tables suivantes : DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory et FactInternetSales. Si vous importez des tables provenant de la même connexion de source de données à des moments différents, les relations entre ces tables ne sont pas créées et doivent être créées manuellement. Si aucune relation n’apparaît, cela veut dire qu’il n’y en a aucune à la source de données. Vous pouvez les créer manuellement dans le modèle de données.
 

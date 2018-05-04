@@ -1,16 +1,16 @@
 ---
-title: "Grouper des machines à l’aide des dépendances de machine avec Azure Migrate | Microsoft Docs"
-description: "Explique comment créer une évaluation à l’aide des dépendances de machine avec le service Azure Migrate."
+title: Grouper des machines à l’aide des dépendances de machine avec Azure Migrate | Microsoft Docs
+description: Explique comment créer une évaluation à l’aide des dépendances de machine avec le service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9e8e1fb918d9cd35b12e71abdd23ca101239ae26
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Grouper des machines à l’aide du mappage de dépendances de machine
 
@@ -33,8 +33,8 @@ Pour installer l’agent sur une machine Windows :
 1. Double-cliquez sur l’agent téléchargé.
 2. Sur la page d’**accueil**, cliquez sur **Suivant**. Sur la page **Termes du contrat de licence**, cliquez sur **J’accepte** pour accepter la licence.
 3. Dans **Dossier de destination**, conservez ou modifiez le dossier d’installation par défaut > **Suivant**. 
-4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics (OMS)** > **Suivant**. 
-5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail OMS. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
+4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**. 
+5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail Log Analytics. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
 
 
 Pour installer l’agent sur une machine Linux :
@@ -61,7 +61,7 @@ Pour installer l’agent sur une machine Linux :
 4. Le mappage de dépendances de la machine affiche les informations suivantes :
     - Connexions TCP entrantes (clients) et sortantes (serveurs) vers/depuis la machine
         - Les machines dépendantes sur lesquelles ne sont pas installés l’agent MMA et l’agent de dépendances sont regroupées par numéros de port.
-        - Les machines dépendantes sur lesquelles sont installés l’agent MMA et l’agent de dépendances apparaissent sous forme de zones distinctes. 
+        - Les machines dépendantes sur lesquelles sont installés l’agent MMA et l’agent de dépendances apparaissent sous forme de zones distinctes 
     - Processus en cours d’exécution dans la machine (vous pouvez développer chaque zone de machine pour afficher les processus correspondants)
     - Propriétés de chaque machine telles que Nom de domaine complet, Système d’exploitation ou Adresse MAC (vous pouvez cliquer sur chaque zone de machine pour afficher ces détails)
 

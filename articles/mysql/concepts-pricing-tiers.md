@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -44,7 +44,7 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Centre des États-Unis |  | X |
+| Centre des États-Unis | X |  |
 | Est des États-Unis | X | X |
 | Est des États-Unis 2 | X | X |
 | Centre-Nord des États-Unis | X |  |
@@ -55,14 +55,16 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Est du Canada | X | X |
 | Sud du Brésil | X | X |
 | Europe du Nord | X | X |
-| Europe de l'Ouest | X | X |
+| Europe de l'Ouest |  | X |
 | Ouest du Royaume-Uni |  | X |
 | Sud du Royaume-Uni |  | X |
 | Est de l'Asie | X |  |
 | Asie du Sud-Est | X | X |
 | Est de l’Australie |  | X |
+| Sud-est de l’Australie |  | X |
 | Inde centrale | X |  |
 | Inde occidentale | X |  |
+| Inde du Sud |  | X |
 | Est du Japon | X | X |
 | Ouest du Japon | X | X |
 | Corée du Sud |  | X |

@@ -2,12 +2,12 @@
 title: Groupes dynamiques et Azure Active Directory B2B Collaboration | Microsoft Docs
 description: Cet article montre comme utiliser des groupes dynamiques Azure AD avec Azure Active Directory B2B Collaboration.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb700e513947034a783c6b6574c8daddf96844b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Groupes dynamiques et Azure Active Directory B2B Collaboration
 
@@ -55,7 +55,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)
 * [Code B2B Collaboration et exemples PowerShell](active-directory-b2b-code-samples.md)
 * [Configurer des applications SaaS pour B2B Collaboration](active-directory-b2b-configure-saas-apps.md)
-* [Jetons utilisateur B2B Collaboration](active-directory-b2b-user-token.md)
-* [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
-* [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
-* [Limitations actuelles de B2B Collaboration](active-directory-b2b-current-limitations.md)
+

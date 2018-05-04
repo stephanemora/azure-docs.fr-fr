@@ -1,6 +1,6 @@
 ---
-title: "Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services | Microsoft Docs"
-description: "Instructions et informations de support technique pour mettre à niveau votre coffre de sauvegarde Azure vers un coffre Recovery Services."
+title: Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services | Microsoft Docs
+description: Instructions et informations de support technique pour mettre à niveau votre coffre de sauvegarde Azure vers un coffre Recovery Services.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services
 
@@ -34,7 +34,7 @@ La mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services n
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Modifications apportées à l’automatisation et à l’outil après mise à niveau
 
 Lors de la préparation de votre infrastructure pour la mise à niveau du coffre, vous devez mettre à jour l’automation ou les outils existants pour vous assurer qu’ils continuent à fonctionner après la mise à niveau.
-Consultez les références d’applets de commande PowerShell pour le [modèle de déploiement Resource Manager](backup-client-automation.md).
+Consultez les références de cmdlets PowerShell pour le [Modèle de déploiement Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Avant de mettre à niveau
@@ -84,7 +84,7 @@ Le script PowerShell vous invite à entrer vos informations d’identification. 
 ### <a name="pre-requisites-checking"></a>Vérification des conditions préalables
 Une fois que vous avez entré vos informations d’identification Azure, Azure vérifie que votre environnement remplit les conditions préalables suivantes :
 
-- **Version minimale de l’agent** : la mise à niveau des coffres de sauvegarde vers des coffres Recovery Services exige que la version de l’agent MARS soit au moins la version 2.0.9083.0. Si vous avez des éléments inscrits auprès d’un coffre de sauvegarde avec un agent dont la version est antérieure à la version 2.0.9083.0, la vérification des prérequis échoue. Si la vérification des conditions préalables échoue, mettez à jour l’agent et réessayez de mettre à niveau le coffre. Vous pouvez télécharger la dernière version de l’agent à partir de l’URL [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Version minimale de l’agent** : la mise à niveau des coffres de sauvegarde vers des coffres Recovery Services exige que la version de l’agent MARS soit au moins la version 2.0.9083.0. Si vous avez des éléments inscrits auprès d’un coffre de sauvegarde avec un agent dont la version est antérieure à la version 2.0.9083.0, la vérification des prérequis échoue. Si la vérification des conditions préalables échoue, mettez à jour l’agent et réessayez de mettre à niveau le coffre. Vous pouvez télécharger la dernière version de l’agent ici [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Tâches de configuration en cours** : si quelqu’un est en train de configurer un travail pour un coffre de sauvegarde défini pour être mis à niveau, ou d’inscrire un élément, la vérification des conditions préalables échoue. Achevez la configuration ou l’inscription de l’élément, puis démarrez le processus de mise à niveau du coffre.
 - **Modèle de facturation basée sur le stockage** : les coffres Recovery Services prennent en charge le modèle de facturation basée sur l’instance. Si vous exécutez la mise à niveau du coffre sur un coffre de sauvegarde utilisant le modèle de facturation basée sur le stockage, vous être invité à mettre à niveau votre modèle de facturation en même temps que le coffre. Autrement, vous pouvez commencer par mettre à jour votre modèle de facturation, avant d’exécuter la mise à niveau du coffre.
 - Identifiez un groupe de ressources pour le coffre Recovery Services. Pour tirer parti des fonctionnalités de déploiement de Resource Manager, vous devez placer un coffre Recovery Services dans un groupe de ressources. Si vous ignorez le groupe de ressources à utiliser, entrez un nom. Le processus de mise à niveau crée alors le groupe de ressources pour vous. Le processus de mise à niveau associe également le coffre au nouveau groupe de ressources.
@@ -106,7 +106,7 @@ Les coffres Recovery Services prennent en charge la spécification d’informati
 
 ## <a name="enhanced-security"></a>Sécurité améliorée
 
-Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md). 
+Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services, les paramètres de sécurité de ce coffre sont activés automatiquement. Quand les paramètres de sécurité sont actifs, certaines opérations telles que la suppression des sauvegardes ou la modification d’une phrase secrète nécessitent un code PIN [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Pour plus d’informations sur la sécurité améliorée, consultez l’article [Fonctionnalités de sécurité pour la protection des sauvegardes hybrides](backup-azure-security-feature.md). 
 
 Quand la sécurité améliorée est activée, les données sont conservées jusqu’à 14 jours après que les informations relatives au point de récupération ont été supprimées du coffre. Les clients sont facturés pour le stockage de ces données de sécurité. La rétention des données de sécurité s’applique aux points de récupération définis pour l’agent de sauvegarde Azure, le serveur de sauvegarde Azure et System Center Data Protection Manager. 
 

@@ -12,29 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/19/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5665af14b9b0d0705b68c8a27c593b19c31b053e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Créer une machine virtuelle Windows sur Azure Stack avec Azure CLI
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-stack-using-azure-cli"></a>Démarrage rapide : créer une machine virtuelle Windows dans Azure Stack avec Azure CLI
 
-Azure CLI permet de créer et de gérer des ressources Azure Stack à partir de la ligne de commande. Ce guide explique de manière détaillée comment utiliser Azure CLI pour créer une machine virtuelle Windows Server 2016 dans Azure Stack. Une fois la machine virtuelle créée, vous vous connecterez avec le Bureau à distance, installerez IIS, puis afficherez le site web par défaut. 
+Azure CLI permet de créer et de gérer des ressources Azure Stack à partir de la ligne de commande. Cet article explique comment utiliser Azure CLI pour créer une machine virtuelle Windows Server 2016 et y accéder dans Azure Stack.
 
 ## <a name="prerequisites"></a>Prérequis
- 
 
-* Vérifiez que votre opérateur Azure Stack a ajouté l’image « Windows Server 2016 » à la Place de Marché Azure Stack.  
+
+* Vérifiez que votre opérateur Azure Stack a ajouté l’image « Windows Server 2016 » à la Place de Marché Azure Stack.
 
 * Azure Stack nécessite une version spécifique d’Azure CLI pour créer et gérer les ressources. Si Azure CLI n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer et de configurer Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources. Nous avons affecté des valeurs à toutes les variables de ce document. Vous pouvez les utiliser en l’état ou affecter une valeur différente. L’exemple suivant crée un groupe de ressources nommé myResourceGroup à l’emplacement local.
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources. Des valeurs sont attribués à toutes les variables dans ce document. Vous pouvez utiliser ces valeurs ou attribuer de nouvelles valeurs. L’exemple suivant crée un groupe de ressources nommé myResourceGroup à l’emplacement local.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -55,8 +55,8 @@ az vm create \
   --location local
 ```
 
-Quand la machine virtuelle est créée, notez le paramètre *PublicIPAddress* généré. Vous l’utiliserez pour accéder à la machine virtuelle.
- 
+Lorsque la machine virtuelle est créée, le paramètre *PublicIPAddress* sort. Notez cette adresse, car vous en aurez besoin pour accéder à la machine virtuelle.
+
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
 
 Par défaut, seules les connexions RDP à une machine virtuelle Windows déployée dans Azure Stack sont autorisées. Si cet ordinateur virtuel doit être un serveur web, vous devez ouvrir le port 80 à partir d’Internet. Utilisez la commande [az vm open-port](/cli/azure/vm#open-port) pour ouvrir le port souhaité.
@@ -75,7 +75,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Installation de IIS à l’aide de PowerShell
 
-Maintenant que vous êtes connecté à la machine virtuelle Azure, vous pouvez utiliser une seule ligne de PowerShell pour installer IIS et activer la règle de pare-feu local pour autoriser le trafic web. Ouvrez une invite PowerShell et exécutez la commande suivante :
+Une fois connecté à la machine virtuelle Azure, vous pouvez utiliser une seule ligne de PowerShell pour installer IIS et activer la règle de pare-feu local pour autoriser le trafic web. Ouvrez une invite PowerShell et exécutez la commande suivante :
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -83,9 +83,9 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Une fois IIS installé et le port 80, ouvert sur votre machine virtuelle à partir d’Internet, vous pouvez utiliser un navigateur web pour afficher la page d’accueil IIS par défaut. Veillez à utiliser l’adresse IP publique indiquée ci-dessus pour vous rendre sur la page par défaut. 
+Vous pouvez utiliser un navigateur web de votre choix pour visualiser la page d’accueil IIS par défaut. Veillez à utiliser l’adresse IP publique indiquée dans la section précédente pour vous rendre sur la page par défaut.
 
-![Site IIS par défaut](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
+![Site IIS par défaut](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

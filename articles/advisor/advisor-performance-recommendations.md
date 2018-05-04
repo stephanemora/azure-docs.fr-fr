@@ -1,12 +1,12 @@
 ---
-title: "Recommandations Azure Advisor en matière de performances | Microsoft Docs"
-description: "Utilisez Advisor pour optimiser les performances de vos déploiements Azure."
+title: Recommandations Azure Advisor en matière de performances | Microsoft Docs
+description: Utilisez Advisor pour optimiser les performances de vos déploiements Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 00abb5aafc6f3aec2e2dd7326a307bee74d97cc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-performance-recommendations"></a>Recommandations Azure Advisor en matière de performances
 
@@ -31,11 +31,11 @@ Le conseiller vous offre une vue cohérente et consolidée des recommandations p
 > [!NOTE]
 > Pour obtenir des recommandations, une base de données doit avoir été utilisée pendant environ une semaine et avoir fait l’objet d’une activité cohérente au cours de cette semaine. SQL Database Advisor peut plus facilement optimiser les modèles de requête cohérents que les pics d’activité aléatoires.
 
-Pour plus d’informations sur SQL Database Advisor, consultez la page [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
+Pour plus d’informations sur SQL Database Advisor, consultez la page [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Améliorer la fiabilité et les performances du Cache Redis
 
-Advisor identifie les instances de Cache Redis où les performances peuvent être défavorablement affectées par une utilisation intensive de la mémoire, la charge du serveur, la bande passante réseau ou un grand nombre de connexions clientes. Il fournit également des recommandations quant aux meilleures pratiques pour vous éviter les problèmes potentiels. Pour plus d’informations concernant les recommandations de Cache Redis, consultez [Redis Cache Advisor](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor identifie les instances de Cache Redis où les performances peuvent être défavorablement affectées par une utilisation intensive de la mémoire, la charge du serveur, la bande passante réseau ou un grand nombre de connexions clientes. Il fournit également des recommandations quant aux meilleures pratiques pour vous éviter les problèmes potentiels. Pour plus d’informations concernant les recommandations de Cache Redis, consultez [Redis Cache Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Améliorer la fiabilité et les performances d’App Service
@@ -44,7 +44,7 @@ Le conseiller Azure intègre des recommandations quant aux meilleures pratiques 
 * Détection des instances où les ressources de mémoire ou de processeur sont épuisées par des exécutions d’application avec options d’atténuation.
 * Détection des instances où la colocalisation de ressources telles que les applications web et les bases de données peut améliorer les performances et réduire les coûts. 
 
-Pour plus d’informations sur les recommandations App Services, consultez [Meilleures pratiques pour Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
+Pour plus d’informations sur les recommandations App Services, consultez [Meilleures pratiques pour Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 
@@ -56,8 +56,8 @@ Pour plus d’informations sur les recommandations App Services, consultez [Meil
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 
-* [Présentation d’Azure](advisor-overview.md)
-* [Prise en main du conseiller](advisor-get-started.md)
+* [Présentation du conseiller](advisor-overview.md)
+* [Prise en main d’Advisor](advisor-get-started.md)
 * [Recommandations du conseiller en matière de coûts](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)

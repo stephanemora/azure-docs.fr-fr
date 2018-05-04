@@ -1,4 +1,4 @@
-Pour activer la réinitialisation affinée du mot de passe sur votre application, vous devez créer une stratégie de réinitialisation du mot de passe. Notez que l’option de réinitialisation du mot de passe au niveau du client est spécifiée [ici](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Cette stratégie décrit les expériences des clients lors de la réinitialisation du mot de passe et le contenu des jetons que l’application reçoit en cas d’opération réussie.
+Pour activer la réinitialisation de mot de passe affinée sur votre application, vous utilisez une stratégie de **réinitialisation de mot de passe**. Notez que l’option de réinitialisation du mot de passe au niveau du client est spécifiée [ici](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Cette stratégie décrit les expériences clients lors de la réinitialisation de mot de passe, ainsi que le contenu des jetons que l’application reçoit en cas d’opération réussie.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

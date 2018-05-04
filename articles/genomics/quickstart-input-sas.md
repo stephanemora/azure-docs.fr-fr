@@ -1,7 +1,7 @@
 ---
-title: "Envoyer un flux de travail à l’aide d’un SAS plutôt qu’une clé de compte de stockage | Microsoft Docs"
+title: Envoyer un flux de travail à l’aide d’un SAS plutôt qu’une clé de compte de stockage | Microsoft Docs
 titleSuffix: Azure
-description: "Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service."
+description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,11 +11,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: b6d84428749d8f5f78374efcca22ef913ee96c5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un flux de travail à l’aide d’un SAS plutôt qu’une clé de compte de stockage
 
@@ -50,7 +50,7 @@ Il existe deux façons de créer un jeton SAP, à l’aide de l’Explorateur St
 
 L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) est un outil pour gérer les ressources que vous avez stockées dans le stockage Azure.  Vous pouvez obtenir plus d’informations sur l’utilisation de l’Explorateur Stockage Azure [ici](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du fichier d’entrée particulier (blob). Pour créer un jeton SAP, suivez [ces instructions](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Une fois que vous avez créé la SAP, l’URL complète avec la chaîne de requête ainsi que la chaîne de requête elle-même sont fournies et peuvent être copiées à partir de l’écran.
+Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du fichier d’entrée particulier (blob). Pour créer un jeton SAP, suivez [ces instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Une fois que vous avez créé la SAP, l’URL complète avec la chaîne de requête ainsi que la chaîne de requête elle-même sont fournies et peuvent être copiées à partir de l’écran.
 
  ![Explorateur de stockage SAP Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur de stockage SAP Genomics")
 

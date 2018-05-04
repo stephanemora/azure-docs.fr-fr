@@ -1,16 +1,16 @@
 ---
-title: "Visualisation des dépendances dans Azure Migrate | Microsoft Docs"
-description: "Offre une vue d’ensemble des calculs d’évaluation dans le service Azure Migrate."
+title: Visualisation des dépendances dans Azure Migrate | Microsoft Docs
+description: Offre une vue d’ensemble des calculs d’évaluation dans le service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -24,7 +24,7 @@ La visualisation des dépendances dans Azure Migrate permet de créer des groupe
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
 Azure Migrate utilise la solution [Service Map](../operations-management-suite/operations-management-suite-service-map.md) dans [Log Analytics](../log-analytics/log-analytics-overview.md) pour la visualisation des dépendances.
-- Quand vous créez un projet de migration Azure, un espace de travail OMS Log Analytics est créé dans votre abonnement.
+- Quand vous créez un projet de migration Azure, un espace de travail Log Analytics est créé dans votre abonnement.
 - Le nom de l’espace de travail est le nom que vous spécifiez pour le projet de migration, auquel est ajouté le préfixe **migrate-**, et éventuellement un numéro en suffixe. 
 - Accédez à l’espace de travail Log Analytics à partir de la section **Essentials** de la page **Vue d’ensemble** du projet.
 - L’espace de travail créé est marqué à l’aide de la clé **MigrateProject** et de la valeur **project name**. Vous pouvez utiliser ces informations pour effectuer des recherches dans le portail Azure.  
@@ -56,6 +56,6 @@ Vous pouvez utiliser l’espace de travail Log Analytics en dehors d’Azure Mig
 
 Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous supprimez le projet de migration. Si vous le faites, les dépendances ne fonctionneront pas comme prévu.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Regrouper des machines à l’aide de dépendances de machines](how-to-create-group-machine-dependencies.md)

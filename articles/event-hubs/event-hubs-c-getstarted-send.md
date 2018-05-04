@@ -1,12 +1,12 @@
 ---
-title: "Envoyer des événements vers Azure Event Hubs avec C | Microsoft Docs"
-description: "Envoyer des événements vers Azure Event Hubs avec C"
+title: Envoyer des événements vers Azure Event Hubs avec C | Microsoft Docs
+description: Envoyer des événements vers Azure Event Hubs avec C
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,18 +14,18 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envoyer des événements vers Azure Event Hubs avec C
 
 ## <a name="introduction"></a>Introduction
 Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectées dans un concentrateur d’événements, les données peuvent être transformées et stockées à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d’informations, consultez la [Vue d’ensemble des concentrateurs d’événements][Vue d’ensemble des concentrateurs d’événements].
+Pour plus d'informations, consultez la page [Vue d'ensemble des hubs d'événements](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
 
 Ce didacticiel explique comment envoyer des événements à un hub d’événements à l’aide d’une application console en C. Pour en savoir plus sur la réception d’événements, cliquez sur le langage de réception approprié dans la table des matières de gauche.
 
@@ -33,7 +33,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un environnement de développement en C. Ce didacticiel présuppose que la pile GCC est sur une machine virtuelle Linux Azure dotée du système d’exploitation Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Envoi de messages vers Event Hubs
 Cette section explique comment écrire une application en C pour envoyer des événements à votre hub d’événements. Le code utilise la bibliothèque Proton AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l’utilisation de rubriques et de files d’attente Service Bus avec AMQP en partant du langage C comme indiqué dans [cet exemple](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d’informations, consultez la [Documentation Qpid Proton](http://qpid.apache.org/proton/index.html).
@@ -153,7 +153,7 @@ Cette section explique comment écrire une application en C pour envoyer des év
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 
 <!-- Images. -->

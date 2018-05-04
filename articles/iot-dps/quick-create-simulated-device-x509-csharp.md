@@ -3,27 +3,27 @@ title: Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub
 description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Device SDK'
 services: iot-dps
 keywords: ''
-author: JimacoMS2
-ms.author: v-jamebr
-ms.date: 12/21/2017
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/09/18
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 430a6fa294d09dc11984befb5b57e08f3b9753af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7377ee2b43f6d1a75dff8be37ee8683ec9682990
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Ces étapes indiquent comment générer un exemple d’appareil X.509 simulé à l’aide du [Azure IoT Hub C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) sur un ordinateur de développement sous Windows, mais aussi comment connecter cet appareil simulé au service Device Provisioning et à votre hub IoT.
 
-Veillez à compléter les étapes décrites dans la section relative à la [configuration du service d’approvisionnement d’appareil Azure IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer.
+Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
@@ -48,32 +48,32 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
     cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientX509
     ```
 
-1. Cet exemple de code est configuré pour utiliser des certificats X.509 stockés dans un fichier PKCS12 protégé par mot de passe (certificate.pfx). En outre, vous avez besoin d’un fichier de certificat de clé publique (certificate.cer) pour créer par la suite, dans ce démarrage rapide, une inscription individuelle. Pour générer un certificat auto-signé et ses fichiers .cer et .pfx associés, exécutez la commande suivante :
+2. Cet exemple de code est configuré pour utiliser des certificats X.509 stockés dans un fichier PKCS12 protégé par mot de passe (certificate.pfx). En outre, vous avez besoin d’un fichier de certificat de clé publique (certificate.cer) pour créer par la suite, dans ce démarrage rapide, une inscription individuelle. Pour générer un certificat auto-signé et ses fichiers .cer et .pfx associés, exécutez la commande suivante :
 
     ```cmd
     powershell .\GenerateTestCertificate.ps1
     ```
 
-2. Le script vous invite à saisir un mot de passe PFX. N’oubliez pas ce mot de passe. Il est indispensable lorsque vous exécutez l’exemple.
+3. Le script vous invite à saisir un mot de passe PFX. N’oubliez pas ce mot de passe. Il est indispensable lorsque vous exécutez l’exemple.
 
     ![ Saisir le mot de passe](./media/quick-create-simulated-device-x509-csharp/generate-certificate.png)  
 
 
 4. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service d'approvisionnement.
 
-4. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. 
+5. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. 
 
-5. Sous l’**entrée Ajouter la liste d’inscription**, entrez les informations suivantes :
+6. Dans le panneau **Add enrollment** (Ajouter une inscription), entrez les informations suivantes :
     - Sélectionnez **X.509** comme *mécanisme* d’attestation d’identité.
-    - Sous le *fichier .pem ou .cer du certificat*, sélectionnez le fichier de certificat **certificate.cer** créé au cours des étapes précédentes à l’aide du widget *Explorateur de fichiers*.
+    - Sous le *fichier .pem ou .cer du certificat principal*, cliquez sur *Sélectionner un fichier* pour sélectionner le fichier de certificat **certificate.pem** créé au cours des étapes précédentes.
     - Ne renseignez pas le champ **ID de l’appareil**. Votre appareil va être approvisionné. Son ID est défini sur le nom commun (CN) dans le certificat X.509, soit **iothubx509device1**. Ce nom sera également utilisé pour l’ID d’inscription de l’entrée d’inscription individuelle. 
     - Si vous le souhaitez, vous pouvez fournir les informations suivantes :
         - Sélectionnez un hub IoT lié à votre service d’approvisionnement.
         - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
     - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    ![Saisir les informations d’inscription pour l’appareil X.509 dans le panneau du portail](./media/quick-create-simulated-device-x509-csharp/enter-device-enrollment.png)  
-
+    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png#lightbox)
+    
    Lorsque l’opération aboutit, l’entrée d’inscription de votre appareil X.509 apparaît en tant que **iothubx509device1** sous la colonne *ID d’inscription* de l’onglet *Inscriptions individuelles*. 
 
 ## <a name="provision-the-simulated-device"></a>Approvisionner l’appareil simulé
@@ -89,11 +89,11 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
     dotnet run <IDScope>
     ```
 
-6. Lorsque vous y êtes invité, entrez le mot de passe du fichier PFX que vous avez créé précédemment. Notez les messages qui simulent le démarrage et la connexion de l’appareil au service d’approvisionnement d’appareil pour obtenir des informations concernant votre IoT Hub. 
+3. Lorsque vous y êtes invité, entrez le mot de passe du fichier PFX que vous avez créé précédemment. Notez les messages qui simulent le démarrage et la connexion de l’appareil au service d’approvisionnement d’appareil pour obtenir des informations concernant votre IoT Hub. 
 
     ![Exemple de sortie d’appareil](./media/quick-create-simulated-device-x509-csharp/sample-output.png) 
 
-1. Vérifiez que l’appareil a bien été approvisionné. En cas de réussite de l’approvisionnement de l’appareil simulé sur le hub IoT lié à votre service d’approvisionnement, l’ID de l’appareil s’affiche dans le panneau **IoT Devices** (Appareils IoT) du hub. 
+4. Vérifiez que l’appareil a bien été approvisionné. En cas de réussite de l’approvisionnement de l’appareil simulé sur le hub IoT lié à votre service d’approvisionnement, l’ID de l’appareil s’affiche dans le panneau **IoT Devices** (Appareils IoT) du hub. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device-x509-csharp/hub-registration.png) 
 

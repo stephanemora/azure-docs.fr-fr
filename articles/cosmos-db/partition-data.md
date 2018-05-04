@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f4825d7393b4507b1cd512f3e33c5637fea8ba2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 35636543ac4cbd260e9db2f6ca5d1548a7329858
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionner et mettre à l’échelle dans Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Comment le partitionnement fonctionne-t-il ? Chaque élément doit avoir une *c
 En bref, voici comment le partitionnement fonctionne dans Azure Cosmos DB :
 
 * Vous provisionnez un conteneur Azure Cosmos DB avec un débit de **T** RU/s (requêtes par seconde).
-* En arrière-plan, Azure Cosmos DB provisionne les partitions nécessaires pour servir **T** requêtes par seconde. Si la valeur de **T** est supérieure au débit maximal par partition **t**, Azure Cosmos DB provisionne **N = T/t** partitions.
+* En arrière-plan, Azure Cosmos DB provisionne les partitions nécessaires pour servir **T** requêtes par seconde. Si la valeur de **T** est supérieure au débit maximal par partition **t**, Azure Cosmos DB provisionne **N = T/t** partitions. La valeur de débit maximal par partition(t) est configurée par Azure Cosmos DB ; cette valeur est attribuée en fonction du débit approvisionné total et de la configuration matérielle utilisée. 
 * Azure Cosmos DB alloue l’espace des hachages de clé de partition uniformément entre les **N** partitions. Ainsi, chaque partition (physique) héberge **1/N** valeurs de clé de partition (partitions logiques).
 * Quand une partition physique **p** atteint sa limite de stockage, Azure Cosmos DB fractionne **p** en deux partitions nouvelles : **p1** et **p2**. Des valeurs correspondant à environ la moitié des clés sont distribuées à chacune des nouvelles partitions. Cette opération de division est complètement invisible pour votre application. Si une partition physique atteint sa limite de stockage et que toutes les données dans la partition physique appartiennent à la même clé de partition logique, l’opération de fractionnement n’a pas lieu. En effet, toutes les données d’une clé de partition logique unique doivent résider dans la même partition physique. Dans ce cas, une stratégie de clé de partition différente doit être employée.
 * Quand vous configurez un débit supérieur à **t*N**, Azure Cosmos DB fractionne une ou plusieurs de vos partitions pour prendre en charge le débit plus élevé.

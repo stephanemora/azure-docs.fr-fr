@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 999c9bc04cffcfe3e352d877ebf9e19fc7c7df35
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guide de l’éditeur Place de marché Microsoft Azure et AppSource
 
@@ -253,7 +253,7 @@ Tous les clients du Contrat Entreprise peuvent ajouter Azure à leur contrat s�
 
 |**Prérequis**  | **Détails**  |**Option de publication**  |
 |---------|---------|---------|
-|**Période d’essai gratuite et évaluation**     |  Un client doit pouvoir utiliser votre application gratuitement pendant une durée limitée.<br><br>Cela signifie que le client n’aura pas à payer de frais de licence ou d’abonnement pour votre produit, ni de frais liés à l’utilisation du produit ou du service Microsoft interne sous-jacent. Étant donné que toutes les options de version d’évaluation sont déployées dans l’abonnement de produit Microsoft de l’éditeur, l’optimisation et la gestion des coûts liés aux versions d’évaluation sont de la responsabilité du seul éditeur.<br><br>Vous pouvez choisir entre l’option Version d’évaluation, Démonstration interactive ou Test drive. Quel que soit votre choix, la version d’évaluation doit permettre au client de tester gratuitement l’application pendant une durée minimale.<br><br>Pour commencer la création d’un test drive, contactez-nous à l’adresse cloudmarketplace@microsoft.com. <br><br>Notez que les versions d’évaluation SaaS de la Place de marché Microsoft Azure doivent permettre aux utilisateurs de se connecter à l’aide de leurs informations d’identification professionnelles Active Directory. [Plus d’informations](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Version d’évaluation      | 
+|**Période d’essai gratuite et évaluation**     |  Un client doit pouvoir utiliser votre application gratuitement pendant une durée limitée.<br><br>Cela signifie que le client n’aura pas à payer de frais de licence ou d’abonnement pour votre produit, ni de frais liés à l’utilisation du produit ou du service Microsoft interne sous-jacent. Étant donné que toutes les options de version d’évaluation sont déployées dans l’abonnement de produit Microsoft de l’éditeur, l’optimisation et la gestion des coûts liés aux versions d’évaluation sont de la responsabilité du seul éditeur.<br><br>Vous pouvez choisir entre l’option Version d’évaluation, Démonstration interactive ou Test drive. Quel que soit votre choix, la version d’évaluation doit permettre au client de tester gratuitement l’application pendant une durée minimale.<br><br>Pour commencer la création d’un test drive, contactez-nous à l’adresse cloudmarketplace@microsoft.com. <br><br>Notez que les versions d’évaluation SaaS de la Place de marché Microsoft Azure doivent permettre aux utilisateurs de se connecter à l’aide de leurs informations d’identification professionnelles Active Directory. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Version d’évaluation      | 
 | **Solution clé en main facilement configurable**    |  Votre application doit être facile et rapide à configurer.       |  Version d’évaluation       |
 |**Disponibilité/Durée de fonctionnement**    |    La durée de fonctionnement de votre plateforme ou application SaaS doit être au minimum égale à 99,9 % du temps total.     |    Version d’évaluation     |
 |**Azure Active Directory**    |    Votre offre doit permettre l’authentification unique fédérée Azure Active Directory (Azure AD) avec activation du consentement.      |  Version d’évaluation|
@@ -264,7 +264,7 @@ Tous les clients du Contrat Entreprise peuvent ajouter Azure à leur contrat s�
 |**Prérequis**  |**Détails** |**Option de publication**  |
 |---------|---------|---------|
 |**Facturation et mesure**    |  Votre machine virtuelle doit prendre en charge soit la facturation BYOL (apportez votre propre licence), soit la facturation mensuelle basée sur l’utilisation.       |    Transaction    |
-|**Disque dur virtuel compatible avec Azure**     |   Les machines virtuelles doivent être basées sur [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) ou [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
+|**Disque dur virtuel compatible avec Azure**     |   Les machines virtuelles doivent être basées sur [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) ou [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Prérequis spécifiques concernant la publication avec l’option Services de conseil
 
@@ -277,7 +277,7 @@ Tous les clients du Contrat Entreprise peuvent ajouter Azure à leur contrat s�
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation
 Azure Active Directory est un service d’identité cloud qui permet de s’authentifier avec un compte professionnel ou scolaire Microsoft, à l’aide des protocoles standard OAuth et OpenID Connect. Apprenez-en plus sur Azure AD en vous rendant sur le [site du produit](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft authentifie tous les utilisateurs de la Place de marché avec Azure AD. Lorsqu’un utilisateur authentifié clique sur votre annonce de version d’évaluation dans la Place de marché et quand il est redirigé vers l’environnement de votre version d’évaluation, vous pouvez approvisionner l’utilisateur directement dans une version d’évaluation, sans qu’aucune autre étape de connexion ne soit nécessaire. Le [jeton que votre application reçoit d’Azure AD lors de l’authentification](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte d’utilisateur dans votre application. Vous pouvez ensuite automatiser l’expérience d’approvisionnement et augmenter la probabilité de conversion. 
+Microsoft authentifie tous les utilisateurs de la Place de marché avec Azure AD. Lorsqu’un utilisateur authentifié clique sur votre annonce de version d’évaluation dans la Place de marché et quand il est redirigé vers l’environnement de votre version d’évaluation, vous pouvez approvisionner l’utilisateur directement dans une version d’évaluation, sans qu’aucune autre étape de connexion ne soit nécessaire. Le [jeton que votre application reçoit d’Azure AD lors de l’authentification](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte d’utilisateur dans votre application. Vous pouvez ensuite automatiser l’expérience d’approvisionnement et augmenter la probabilité de conversion. 
 
 L’utilisation d’Azure AD pour activer l’authentification en un clic dans votre application ou version d’évaluation :
 
@@ -292,20 +292,20 @@ Si vous prenez actuellement en charge Azure AD :
 
 - Inscrivez votre application dans le portail Azure.
 - Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
-- [Plus d’informations](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 Si vous êtes un nouvel utilisateur de l’authentification unique fédérée Azure AD :
 
 - Inscrivez votre application dans le portail Azure.
-- Développer l’authentification unique avec Azure AD à l’aide [d’OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [d’OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Développer l’authentification unique avec Azure AD à l’aide [d’OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [d’OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 - Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
-- [Plus d’informations](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
+- [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
 
 ### <a name="certify-your-azure-ad-integration-for-the-marketplace-single-tenant-applications"></a>Certification de votre intégration Azure AD pour la Place de marché : applications avec un seul locataire
 
 Il existe plusieurs options pour les applications avec un seul locataire :
 
-- Ajouter des utilisateurs à votre répertoire en tant qu’utilisateurs invités à l’aide [d’Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Ajouter des utilisateurs à votre répertoire en tant qu’utilisateurs invités à l’aide [d’Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 - Approvisionner manuellement les versions d’évaluation pour les clients via l’option Me contacter.
 - Développer un test drive par client.
 - Créer un exemple d’application de démonstration mutualisée avec l’authentification unique.
@@ -316,11 +316,11 @@ Pour les applications AppSource qui étendent Office, Dynamics et Power BI, vous
 
 |Produit |Informations de publication  |
 |---------|---------|
-|Office 365     |    Examinez le [processus et les instructions de publication]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 pour la finance et les opérations  |   Lors de la création pour l’édition Entreprise, passez en revue le [processus et les instructions de publication](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 for Customer Engagement |Examinez le [processus et les instructions de publication](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Examinez le [processus et les instructions de publication]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Apprenez-en plus sur [Cortana dans AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
+|Office 365     |    Examinez le [processus et les instructions de publication]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 pour la finance et les opérations  |   Lors de la création pour l’édition Entreprise, passez en revue le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
+|Dynamics 365 for Customer Engagement |Examinez le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
+|Power BI   |     Examinez le [processus et les instructions de publication]( https://docs.microsoft.com/power-bi/developer/office-store).    |
+|Cortana Intelligence     |    Apprenez-en plus sur [Cortana dans AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
 |Offres de conseils AppSource     |  Examinez les [instructions et découvrez comment soumettre votre offre](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
 
 
@@ -522,11 +522,11 @@ Lorsque vous créez un compte d’entreprise, suivez ces instructions si plusieu
 
 Votre compte de développeur doit être principalement utilisé à partir d’ordinateurs approuvés. Cela est essentiel, car il existe une limite au nombre de codes générés par semaine pour chaque compte. Utiliser des ordinateurs approuvés rend également l’expérience de connexion plus transparente.
 
-Pour plus d’informations sur la sécurité et sur les instructions relatives au compte de développeur, consultez [Ouverture d’un compte de développeur](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+Pour plus d’informations sur la sécurité et sur les instructions relatives au compte de développeur, consultez [Ouverture d’un compte de développeur](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
 
 ### <a name="guidance-for-microsoft-ids-in-an-azure-ad-federated-domain"></a>Conseils concernant les ID Microsoft dans un domaine fédéré Azure AD
 
-Votre compte d’entreprise peut être fédéré via [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/). Une erreur est générée si vous essayez de créer un ID Microsoft avec une adresse e-mail d’entreprise. Si vous obtenez une erreur, renseignez-vous d’abord auprès de votre équipe informatique pour être sûr que c’est le cas. Il s’agit d’un problème connu et nous travaillons actuellement à sa résolution. 
+Votre compte d’entreprise peut être fédéré via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Une erreur est générée si vous essayez de créer un ID Microsoft avec une adresse e-mail d’entreprise. Si vous obtenez une erreur, renseignez-vous d’abord auprès de votre équipe informatique pour être sûr que c’est le cas. Il s’agit d’un problème connu et nous travaillons actuellement à sa résolution. 
 
 Pour le contourner, nous vous recommandons de créer une adresse e-mail dans le domaine @outlook.com et de créer une règle. Procédez comme suit :
 
@@ -562,7 +562,7 @@ Une fois cette dernière étape terminée, Outlook enverra tous les e-mails de l
 5. Pour **Type de compte**, sélectionnez **Entreprise**, puis cliquez sur le bouton **Suivant**.
 
    >[!IMPORTANT]
-   >Pour mieux comprendre les types de comptes et choisir celui qui vous convient le mieux, consultez [Types de compte, emplacements et frais](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+   >Pour mieux comprendre les types de comptes et choisir celui qui vous convient le mieux, consultez [Types de compte, emplacements et frais](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 6. Pour **Nom complet de l’éditeur**, indiquez le nom d’affichage (en général le nom de votre entreprise).
 

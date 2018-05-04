@@ -1,25 +1,23 @@
 ---
-title: "Analyse des données sur les retards de vol avec Hadoop dans HDInsight - Azure | Microsoft Docs"
-description: "Apprenez à utiliser un script Windows PowerShell pour créer un cluster HDInsight, exécuter une tâche Hive, exécuter une tache Sqoop et supprimer le cluster."
+title: Analyse des données sur les retards de vol avec Hadoop dans HDInsight - Azure | Microsoft Docs
+description: Apprenez à utiliser un script Windows PowerShell pour créer un cluster HDInsight, exécuter une tâche Hive, exécuter une tache Sqoop et supprimer le cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight
 Hive permet d’exécuter des tâches Hadoop MapReduce via un langage de création de scripts semblable à SQL, nommé *[HiveQL][hadoop-hiveql]*, qui peut être appliqué à la synthèse, à l’envoi de requêtes et à l’analyse d’importants volumes de données.
@@ -51,7 +49,8 @@ Dans les annexes, vous trouverez les instructions permettant de télécharger le
 > [!NOTE]
 > Les étapes de cette procédure sont spécifiques aux clusters HDInsight basés sur Windows. Pour les étapes fonctionnant avec un cluster basé sur Linux, consultez la rubrique [Analyse des données sur les retards de vol avec Hive dans HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -134,7 +133,7 @@ Pour plus d’informations sur la création d’un cluster HDInsight et l’exé
         $acct = Get-AzureRmSubscription
     }
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionID $subscriptionID
 
@@ -256,7 +255,7 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
 2. Sur la page, sélectionnez les valeurs suivantes :
 
     <table border="1">
-    <tr><th>Nom</th><th>Valeur</th></tr>
+    <tr><th>NOM</th><th>Valeur</th></tr>
     <tr><td>Filtre année</td><td>2013 </td></tr>
     <tr><td>Filtre période</td><td>Janvier</td></tr>
     <tr><td>Champs</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (effacez tous les autres champs)</td></tr>
@@ -271,7 +270,7 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
 1. Préparez les paramètres :
 
     <table border="1">
-    <tr><th>Nom de la variable</th><th>Remarques</th></tr>
+    <tr><th>Nom de la variable</th><th>Notes</th></tr>
     <tr><td>$storageAccountName</td><td>Compte Azure Storage sur lequel vous voulez télécharger les données.</td></tr>
     <tr><td>$blobContainerName</td><td>Conteneur d'objets blob dans lequel vous voulez télécharger les données.</td></tr>
     </table>
@@ -299,7 +298,7 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -379,12 +378,14 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 1. Préparez les paramètres :
 
     <table border="1">
-    <tr><th>Nom de la variable</th><th>Remarques</th></tr>
+    <tr><th>Nom de la variable</th><th>Notes</th></tr>
     <tr><td>$storageAccountName</td><td>Compte Azure Storage sur lequel vous voulez télécharger le script HiveQL.</td></tr>
     <tr><td>$blobContainerName</td><td>Conteneur d'objets blob dans lequel vous voulez télécharger le script HiveQL.</td></tr>
     </table>
-2. Ouvrez Azure PowerShell ISE.
-3. Copiez-collez le script suivant dans le volet du script :
+    
+2. Ouvrez Azure PowerShell ISE.  
+
+3. Copiez-collez le script suivant dans le volet du script :  
 
     ```powershell
     [CmdletBinding()]
@@ -418,7 +419,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -566,15 +567,17 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 1. Préparez les paramètres :
 
     <table border="1">
-    <tr><th>Nom de la variable</th><th>Remarques</th></tr>
+    <tr><th>Nom de la variable</th><th>Notes</th></tr>
     <tr><td>$sqlDatabaseServerName</td><td>Nom du serveur de la base de données SQL Azure. N'entrez rien pour créer un nouveau serveur.</td></tr>
     <tr><td>$sqlDatabaseUsername</td><td>Nom de connexion pour le serveur de la base de données SQL Azure. Si $sqlDatabaseServerName est un serveur existant, la connexion et le mot de passe de connexion permettent de s'authentifier auprès du serveur. Sinon, ils permettent de créer un nouveau serveur.</td></tr>
     <tr><td>$sqlDatabasePassword</td><td>Mot de passe pour se connecter au serveur de la base de données SQL Azure.</td></tr>
     <tr><td>$sqlDatabaseLocation</td><td>Cette valeur est uniquement utilisée lors de la création d’un nouveau serveur de base de données Azure.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>Base de données SQL utilisée pour créer la table AvgDelays pour la tâche Sqoop. Si vous laissez cette valeur vide, une base de données intitulée HDISqoop est créée. La table créée pour le résultat de la tâche Sqoop s’appelle AvgDelays. </td></tr>
     </table>
+    
 2. Ouvrez Azure PowerShell ISE.
-3. Copiez-collez le script suivant dans le volet du script :
+
+3. Copiez-collez le script suivant dans le volet du script :  
 
     ```powershell
     [CmdletBinding()]
@@ -635,7 +638,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #region - Create and validate Azure resouce group
@@ -699,11 +702,11 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
     ```
 
    > [!NOTE]
-   > Le script utilise un service REST (representational state transfer), http://bot.whatismyipaddress.com, pour extraire votre adresse IP externe. L’adresse IP permet de créer une règle de pare-feu pour votre serveur de base de données SQL.
+   > Le script utilise un service REST (representational state transfer), http://bot.whatismyipaddress.com, afin de récupérer votre adresse IP externe. L’adresse IP permet de créer une règle de pare-feu pour votre serveur de base de données SQL.
 
     Voici quelques variables utilisées dans le script :
 
-   * **$ipAddressRestService** : la valeur par défaut est http://bot.whatismyipaddress.com. Il s’agit d’un service REST d’adresse IP publique permettant d’obtenir votre adresse IP externe. Vous pouvez utiliser d'autres services si vous voulez. L’adresse IP externe extraite au moyen du service servira à créer une règle de pare-feu pour votre serveur de base de données SQL Azure, ce qui vous permet d’accéder à la base de données à partir de votre poste de travail (au moyen d’un script Windows PowerShell).
+   * **$ipAddressRestService** : la valeur par défaut est http://bot.whatismyipaddress.com. Il s’agit d’un service REST d’adresse IP publique permettant d’obtenir votre adresse IP externe. Vous pouvez utiliser d'autres services si vous voulez. L’adresse IP externe extraite au moyen du service servira à créer une règle de pare-feu pour votre serveur de base de données SQL Azure, ce qui vous permet d’accéder à la base de données à partir de votre poste de travail (au moyen d’un script Windows PowerShell).
    * **$fireWallRuleName** - Il s’agit du nom de la règle de pare-feu pour le serveur de la base de données SQL Azure. Le nom par défaut est <u>FlightDelay</u>. Vous pouvez le renommer si vous voulez.
    * **$sqlDatabaseMaxSizeGB** - Cette valeur est uniquement utilisée lors de la création d’un nouveau serveur de base de données SQL Azure. La valeur par défaut est 10 Go. Une capacité de 10 Go est suffisante pour ce didacticiel.
    * **$sqlDatabaseName** - Cette valeur est uniquement utilisée lors de la création d’une nouvelle base de données SQL Azure. La valeur par défaut est HDISqoop. Si vous la renommez, vous devez mettre à jour le script Sqoop Windows PowerShell en conséquence.

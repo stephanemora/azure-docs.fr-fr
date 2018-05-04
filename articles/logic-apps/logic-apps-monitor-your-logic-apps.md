@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -66,7 +66,7 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
    ![Détails de l’étape](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez également contrôler l’accès à ces événements avec le [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md).
+   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez également contrôler l’accès à ces événements avec le [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
 
 6. Pour obtenir des détails sur un événement déclencheur spécifique, revenez au volet **Vue d’ensemble**. Sous **Historique du déclencheur**, sélectionnez l’événement déclencheur. Vous pouvez maintenant examiner des détails tels que les entrées et sorties, par exemple :
 

@@ -1,33 +1,33 @@
 ---
-title: "Créer un rapport à partir d’un jeu de données dans les Collections d’espaces de travail Power BI | Microsoft Docs"
-description: "Vous pouvez désormais créer des rapports Collections d’espaces de travail Power BI à partir d’un jeu de données dans votre propre application."
+title: Créer un rapport à partir d’un jeu de données dans les Collections d’espaces de travail Power BI | Microsoft Docs
+description: Vous pouvez désormais créer des rapports Collections d’espaces de travail Power BI à partir d’un jeu de données dans votre propre application.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: aa902cbc4992292420948b36d85e52fafc7224de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Créer un rapport à partir d’un jeu de données dans Collections d’espaces de travail Power BI
 
 Vous pouvez désormais créer des rapports Collections d’espaces de travail Power BI à partir d’un jeu de données dans votre propre application.
 
 > [!IMPORTANT]
-> Les Collections d’espaces de travail Power BI sont dépréciés et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la façon de migrer vos données vers Power BI Embedded, consultez [Comment migrer le contenu d’une collection d’espaces de travail Power BI Embedded vers Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Les collections d’espaces de travail Power BI sont déconseillées et disponibles jusqu’en juin 2018 ou jusqu’à la date indiquée sur votre contrat. Nous vous conseillons de planifier votre migration vers Power BI Embedded pour éviter toute interruption dans votre application. Pour plus d’informations sur la migration de vos données vers Power BI Embedded, consultez l’article [How to migrate Power BI Workspace Collections content to Power BI Embedded (Migration du contenu de collections d’espaces de travail Power BI vers Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 La méthode d’authentification est similaire à celle employée pour l’incorporation d’un rapport. Elle est basée sur des jetons d’accès propres à un jeu de données. Les jetons utilisés pour PowerBI.com sont émis par Azure Active Directory (AAD). Les jetons Collections d’espaces de travail Power BI sont émis par votre propre application.
 
@@ -37,7 +37,7 @@ Lors de la création d’un rapport Embedded, les jetons sont émis pour un jeu 
 
 Le service Collections d’espaces de travail BI Power utilise des jetons d’incorporation, qui sont des jetons web JSON signés HMAC. Les jetons sont signés avec la clé d’accès issue de votre collection d’espaces de travail Power BI. Par défaut, les jetons d’incorporation sont utilisés pour fournir un accès en lecture seule à un rapport à incorporer dans une application. Les jetons d’incorporation sont émis pour un rapport donné et doivent être associés à une URL d’incorporation.
 
-Les jetons d’accès doivent être créés sur le serveur, car les clés d’accès sont utilisées pour signer / chiffrer les jetons. Pour plus d’informations sur la façon de créer des jetons d’accès, consultez [Authentification et autorisation avec le service Collections d’espaces de travail Power BI](app-token-flow.md). Vous pouvez également consulter la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Voici un exemple de ce à quoi cela ressemblerait avec le kit SDK .NET pour Power BI.
+Les jetons d’accès doivent être créés sur le serveur, car les clés d’accès sont utilisées pour signer / chiffrer les jetons. Pour plus d’informations sur la façon de créer des jetons d’accès, consultez [Authentification et autorisation avec le service Collections d’espaces de travail Power BI](app-token-flow.md). Vous pouvez également consulter la méthode [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Voici un exemple de ce à quoi cela ressemblerait avec le Kit de développement logiciel (SDK) .NET pour Power BI.
 
 Dans cet exemple, nous avons l’ID de jeu de données sur lequel nous voulons créer le rapport. Nous devons également ajouter les étendues de *Dataset.Read et Workspace.Report.Create*.
 
@@ -63,7 +63,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Créer un rapport vide
 
-Pour pouvoir créer un nouveau rapport, la configuration de création doit être fournie. Elle doit inclure le jeton d’accès, l’URL d’incorporation et l’ID de jeu de données sur lesquels nous souhaitons créer le rapport. Cela requiert l’installation du [package NuGet Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). L’URL d’incorporation est simplement https://embedded.powerbi.com/appTokenReportEmbed.
+Pour pouvoir créer un nouveau rapport, la configuration de création doit être fournie. Elle doit inclure le jeton d’accès, l’URL d’incorporation et l’ID de jeu de données sur lesquels nous souhaitons créer le rapport. Cela requiert l’installation du [package NuGet Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). L’embedUrl sera simplement https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
 > Vous pouvez utiliser [l’exemple d’incorporation de rapport JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) pour tester les fonctionnalités. Il donne également des exemples de code pour les différentes opérations disponibles.
@@ -203,8 +203,8 @@ var embedCreateConfiguration = {
 
 [Prise en main de l’exemple](get-started-sample.md)  
 [Enregistrer des rapports](save-reports.md)  
-[Incorporer un rapport](embed-report.md)  
-[Authentification et autorisation dans le service Collections d’espaces de travail Power BI](app-token-flow.md)  
+[Embed a report](embed-report.md) (Intégrer un rapport)  
+[Authentification et autorisation dans les collections d’espaces de travail Power BI](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Package NuGet Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  

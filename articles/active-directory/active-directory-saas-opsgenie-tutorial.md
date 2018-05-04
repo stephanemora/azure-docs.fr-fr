@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d57c80e8e965e15d92736ec482247f02064f6009
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Didacticiel : Intégration d’Azure Active Directory à OpsGenie
 
@@ -113,33 +113,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.opsgenie.com/auth/login`
 
-4. Cliquez sur le bouton **Enregistrer** .
+4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton de copie pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png)
+
+5. Cliquez sur le bouton **Enregistrer** .
 
     ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-5. Dans la section **Configuration d’OpsGenie**, cliquez sur **Configurer OpsGenie** pour ouvrir la fenêtre **Configurer l’authentification**. Dans la section Référence rapide, copiez **l’URL du service d’authentification unique SAML**.
+6. Dans la section **Configuration d’OpsGenie**, cliquez sur **Configurer OpsGenie** pour ouvrir la fenêtre **Configurer l’authentification**. Dans la section Référence rapide, copiez **l’URL du service d’authentification unique SAML**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
-
-6. Pour générer l’**URL des métadonnées**, effectuez les étapes suivantes :
-
-    a. Cliquez sur **Inscriptions des applications**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
-   
-    b. Cliquez sur **Points de terminaison** pour ouvrir la boîte de dialogue **Points de terminaison**.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
-
-    c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
-     
-    d. Accédez maintenant à la page de propriétés **OpsGenie**, puis copiez **l’ID d’application** à l’aide du bouton **Copier** et collez-le dans le Bloc-notes.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
-
-    e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Ouvrez une autre instance de navigateur, puis connectez-vous à OpsGenie en tant qu’administrateur.
 
@@ -161,13 +145,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Dans la zone de texte **Point de terminaison SAML 2.0**, collez la valeur **URL du service d’authentification unique** que vous avez copiée sur le Portail Azure.
     
-    b. Dans la zone de texte **URL des métadonnées**, collez la valeur **URL des métadonnées** que vous avez copiée sur le Portail Azure.
+    b. Dans la zone de texte **URL des métadonnées**, collez la valeur **URL des métadonnées de fédération de l’application** que vous avez copiée sur le portail Azure.
     
     c. Cliquez sur **Enregistrer les modifications**.
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.

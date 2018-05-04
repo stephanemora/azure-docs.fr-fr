@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Boucles : tableaux de traitement ou actions répétées jusqu’à remplir une condition
 
@@ -30,7 +30,8 @@ Pour itérer sur des tableaux dans votre application logique, vous pouvez utilis
   
 Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un statut ait changé, utilisez une [boucle « Until »](#until-loop). Votre application logique réalise toutes les actions dans la boucle puis vérifie la condition à la dernière étape. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître le nombre maximal de boucles « Until » dans une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
 
@@ -154,9 +155,6 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 * Appelez un point de terminaison jusqu’à obtenir la réponse souhaitée.
 * Créez un enregistrement dans une base de données, attendez qu’un champ spécifique de cet enregistrement soit approuvé, puis continuez. 
 
-> [!NOTE]
-> Les boucles « Until » ne peuvent inclure de boucles « Foreach » ou d’autres boucles « Until ».
-
 Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une variable jusqu’à ce que sa valeur soit égale à 10. Ensuite, l’application logique envoie un message qui confirme la valeur actuelle. Bien que cet exemple utilise Office 365 Outlook, vous pouvez utiliser n’importe quel fournisseur de messagerie électronique pris en charge par Logic Apps ([voir la liste des connecteurs ici](https://docs.microsoft.com/connectors/)). Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais votre interface utilisateur peut-être légèrement différente. 
 
 1. Créez une application logique vide. Dans Logic App Designer, cherchez « Récurrence », et sélectionnez ce déclencheur : **Planification - Récurrence** 
@@ -182,7 +180,7 @@ Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une va
 
    ![Définir les propriétés de la variable](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propriété | Valeur | DESCRIPTION |
+   | Propriété | Valeur | Description |
    | -------- | ----- | ----------- |
    | **Name** | Limite | Nom de votre variable | 
    | **Type** | Entier  | Type de données de votre variable | 
@@ -213,7 +211,7 @@ Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une va
 
     ![Configurer les propriétés du message électronique](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Propriété | Valeur | DESCRIPTION |
+    | Propriété | Valeur | Description |
     | -------- | ----- | ----------- | 
     | **To** | *<email-address@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
     | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
@@ -230,7 +228,7 @@ Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une va
 
 Une boucle « Until » dispose de limites par défaut qui arrêtent l’exécution si l’une de ces conditions est remplie :
 
-| Propriété | Valeur par défaut | DESCRIPTION | 
+| Propriété | Valeur par défaut | Description | 
 | -------- | ------------- | ----------- | 
 | **Count** | 60 | Le nombre maximum de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
 | **Délai d'expiration** | PT1H | La durée maximale d’exécution d’une boucle avant que la boucle ne sorte. La valeur par défaut est d’une heure et est spécifiée au format ISO 8601. <p>La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite du délai d’attente, le cycle actuel ne s’arrête pas, mais le prochain ne démarre pas car la condition de limite n’est pas remplie. | 
@@ -320,9 +318,9 @@ Dans un autre exemple, cette boucle « Until » appelle un point de terminaison 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées et suggestions de fonctionnalités ou pour en soumettre, rendez-vous sur le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Exécuter ou joindre des étapes (branches) parallèles](../logic-apps/logic-apps-control-flow-branches.md)
 * [Étendues : Exécuter des étapes en fonction de l’état d’un groupe](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

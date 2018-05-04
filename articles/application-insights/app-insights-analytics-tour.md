@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9727e3b715334837b959f22dd526caba221be62c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Visite guidée d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
@@ -33,7 +33,7 @@ Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards
 
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): afficher n lignes
+## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): afficher n lignes
 Les points de données qui consignent les opérations des utilisateurs (généralement des requêtes HTTP reçues par votre application web) sont stockés dans une table appelée `requests`. Chaque ligne est un point de données de télémétrie provenant du Kit de développement logiciel (SDK) Application Insights dans votre application.
 
 Commençons par examiner quelques exemples de lignes de la table :
@@ -68,7 +68,7 @@ Si vous souhaitez combiner des données provenant de plusieurs applications Appl
     
 ```
 
-## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) et [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[Top](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) et [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` est utile pour obtenir un exemple rapide d’un résultat, mais il n’affiche pas les lignes de la table dans un ordre particulier. Pour obtenir un affichage ordonné, utilisez `top` (pour un échantillon) ou `sort` (qui porte sur la table entière).
 
 Afficher les n premières lignes, classées par une colonne particulière :
@@ -94,7 +94,7 @@ Le résultat serait le même, mais l’exécution de la requête serait un peu p
 
 Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais, bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, cliquer sur l’en-tête de colonne ne fait que retrier les enregistrements que vous avez récupérés.
 
-## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrage sur une condition
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): filtrage sur une condition
 
 Concentrons-nous sur les requêtes qui ont renvoyé un code de résultat particulier :
 
@@ -173,7 +173,7 @@ Autres exemples :
 [Référence sur les dates et les heures](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
-## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Projet](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) : sélectionnez, renommez et calculez des colonnes
+## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Projet](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) : sélectionnez, renommez et calculez des colonnes
 Utilisez [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) pour choisir uniquement les colonnes qui vous intéressent :
 
 ```AIQL
@@ -207,7 +207,7 @@ Vous pouvez également renommer des colonnes et en définir de nouvelles :
 Les expressions peuvent inclure tous les opérateurs habituels (`+`, `-`, etc.), et il existe une gamme de fonctions utiles.
 
 ## <a name="extend"></a>Extend
-Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
+Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
 
 ```AIQL
 
@@ -216,7 +216,7 @@ Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, ut
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Utiliser [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) est plus concis que [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) si vous souhaitez conserver toutes les colonnes existantes.
+Utiliser [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) est plus concis que [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) si vous souhaitez conserver toutes les colonnes existantes.
 
 ### <a name="convert-to-local-time"></a>Convertir en heure locale
 
@@ -229,8 +229,7 @@ Les timestamps sont toujours exprimés en UTC. Par conséquent, si vous vous tro
     | extend localTime = timestamp - 8h
 ```
 
-
-## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): agréger des groupes de lignes
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): agréger des groupes de lignes
 `Summarize` applique une *fonction d’agrégation* spécifiée sur des groupes de lignes.
 
 Par exemple, le temps que met votre application web à répondre à une requête est reporté dans le champ `duration`. Observons le temps de réponse moyen pour toutes les demandes :
@@ -268,7 +267,7 @@ Par conséquent, le fait de résumer itemCount donne une bonne estimation du nom
 
 Il existe également une agrégation `count()` (et une opération de comptage), pour les cas où vous souhaitez réellement compter le nombre de lignes dans un groupe.
 
-Il existe toute une gamme de [fonctions d’agrégation](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+Il existe toute une gamme de [fonctions d’agrégation](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
 ## <a name="charting-the-results"></a>Affichage des résultats dans un graphique
 ```AIQL
@@ -409,7 +408,7 @@ La clause `where` exclut les sessions à déclenchement unique (sessionDuration=
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[Centiles](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Centiles](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 Quelles sont les plages de durées qui couvrent différents pourcentages de sessions ?
 
 Utilisez la requête ci-dessus, mais remplacez la dernière ligne :
@@ -470,7 +469,7 @@ Pour rechercher les exceptions liées à une requête qui a renvoyé une répons
 Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélectionner uniquement les colonnes dont nous avons besoin.
 Dans les mêmes clauses, nous renommons la colonne timestamp.
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): affecter un résultat à une variable
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): affecter un résultat à une variable
 
 Utilisez `let` pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 

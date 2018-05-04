@@ -9,11 +9,11 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migrer votre base de données SQL Server vers Azure SQL Database à l’aide de DMS
 
@@ -113,7 +113,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
 
 1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20170824.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
-2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les didacticiels de démarrage rapide suivants. 
+2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les démarrages rapides suivants. 
 
    ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
 

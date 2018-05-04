@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a28811437668488c2207535cef3aa4640f17aa54
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-token-reference"></a>Référence de jeton Azure AD
-Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
+Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton. 
 
 ## <a name="types-of-tokens"></a>Types de jetons
 Azure AD prend en charge le [protocole d’autorisation OAuth 2.0](active-directory-protocols-oauth-code.md), qui utilise aussi bien les jetons access_token que refresh_token.  Il prend également en charge l’authentification et la connexion via [OpenID Connect](active-directory-protocols-openid-connect-code.md), ce qui introduit un troisième type de jeton : le jeton d’ID (id_token).  Chacun de ces jetons est représenté en tant que « jeton porteur ».
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | Revendication JWT | NOM | Description |
 | --- | --- | --- |
-| `appid` |ID de l'application |Identifie l’application qui utilise le jeton pour accéder à une ressource. L'application peut agir pour elle-même ou pour le compte d'un utilisateur. L'ID d'application représente généralement un objet d’application, mais elle peut également représenter un objet du principal du service dans Azure AD. <br><br> **Exemple de valeur JWT** : <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Audience |Destinataire du jeton. L'application qui reçoit le jeton doit vérifier que la valeur de l'audience est correcte et rejeter les jetons destinés à une autre audience. <br><br> **Exemple de valeur SAML** : <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Exemple de valeur JWT** : <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Référence de classe du contexte d’authentification de l’application |Indique comment le client a été authentifié. Pour un client public, la valeur est 0. Si l'ID client et la clé secrète client sont utilisés, la valeur est 1. <br><br> **Exemple de valeur JWT** : <br> `"appidacr": "0"` |
 | `acr` |Référence de classe du contexte d'authentification |Indique comment le sujet a été authentifié, et non pas le client comme dans la revendication de référence de classe du contexte de l’authentification de l’application. La valeur « 0 » indique que l'authentification de l'utilisateur final ne répondait pas aux exigences de la norme ISO/IEC 29115. <br><br> **Exemple de valeur JWT** : <br> `"acr": "0"` |
@@ -147,7 +146,7 @@ Lorsque votre application reçoit un jeton (que ce soit un id_token, à la conne
 * **Valeur à usage unique (Nonce)** : il s’agit d’atténuer les attaques par relecture de jetons.
 * et bien plus...
 
-Pour obtenir la liste complète des revendications que votre application doit valider pour les jetons id_token, reportez-vous à la [Spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Les valeurs attendues pour ces revendications sont détaillées dans la [section Jeton id_token](#id-tokens) ci-dessus.
+Pour obtenir la liste complète des revendications que votre application doit valider pour les jetons id_token, reportez-vous à la [Spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Les valeurs attendues pour ces revendications sont détaillées dans la section [Jetons id_token](#id-tokens) ci-dessus.
 
 ## <a name="token-revocation"></a>Révocation de jetons
 
@@ -163,9 +162,8 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
   * Modification de mot de passe involontaire : si un administrateur oblige un utilisateur à modifier ou à réinitialiser son mot de passe, les jetons de ce dernier sont invalidés s’ils ont été acquis à l’aide de son mot de passe.  Consultez les notes ci-dessous pour connaître les exceptions. 
   * Violation de la sécurité : en cas de violation de la sécurité (par exemple, une violation du magasin local de mots de passe), l’administrateur a la possibilité de révoquer tous les jetons d’actualisation actuellement émis,  ce qui force tous les utilisateurs à se réauthentifier. 
 
-Remarque : 
-
-Si une méthode d’authentification sans mot de passe a été utilisée (Windows Hello, l’application Authenticator ou la biométrie, par exemple, une empreinte faciale ou digitale) pour acquérir le jeton, le fait de modifier le mot de passe de l’utilisateur ne l’obligera pas à se réauthentifier (mais forcera son application Authenticator à le faire).  En effet, l’entrée d’authentification (un visage, par exemple) n’ayant pas changé, elle est de nouveau utilisable pour la réauthentification.
+> [!NOTE]
+>Si une méthode d’authentification sans mot de passe a été utilisée (Windows Hello, l’application Authenticator ou la biométrie, par exemple, une empreinte faciale ou digitale) pour acquérir le jeton, le fait de modifier le mot de passe de l’utilisateur ne l’obligera pas à se réauthentifier (mais forcera son application Authenticator à le faire).  En effet, l’entrée d’authentification (un visage, par exemple) n’ayant pas changé, elle est de nouveau utilisable pour la réauthentification.
 
 ## <a name="sample-tokens"></a>Exemples de jeton
 

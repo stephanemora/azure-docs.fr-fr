@@ -9,13 +9,13 @@ ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Centre de données virtuel Microsoft Azure : une perspective réseau
 **Microsoft Azure** : accélérez votre migration, faites des économies et intégrez des applications et des données locales
@@ -97,7 +97,7 @@ Un [**réseau privé virtuel de site à site Azure**][VPN] est un service d’in
 Le déploiement de connexions ExpressRoute implique la souscription d’un engagement auprès d’un fournisseur de services ExpressRoute. Les clients qui doivent être opérationnels rapidement commencent généralement par utiliser un réseau privé virtuel de site à site pour établir la connectivité entre le vDC et les ressources locales, puis effectuent une migration vers une connexion ExpressRoute.
 
 ##### <a name="connectivity-within-the-cloud"></a>*Connectivité au sein du cloud*
-Les services [Réseau virtuel][VNet] et [VNet Peering][VNetPeering] sont les services de connectivité réseau de base au sein d’un vDC. Un réseau virtuel garantit une limite d’isolement naturelle pour les ressources du vDC, et l’homologation de réseaux virtuels assurée par VNet Peering autorise l’intercommunication entre différents réseaux virtuels au sein de la même région Azure. Le contrôle du trafic à l’intérieur d’un réseau virtuel et entre plusieurs réseaux virtuels doit correspondre à un ensemble de règles de sécurité spécifiées par le biais d’ACL ([Groupe de sécurité réseau][NSG]), d’[appliances virtuelles réseau][NVA] et de tables de routage personnalisées ([itinéraires définis par l’utilisateur][UDR]).
+Les services [Réseau virtuel][VNet] et [VNet Peering][VNetPeering] sont les services de connectivité réseau de base au sein d’un vDC. Un réseau virtuel garantit une limite d’isolement naturelle pour les ressources du vDC, et l’homologation de réseaux virtuels assurée par VNet Peering autorise l’intercommunication entre différents réseaux virtuels au sein de la même région Azure ou bien être plusieurs régions. Le contrôle du trafic à l’intérieur d’un réseau virtuel et entre plusieurs réseaux virtuels doit correspondre à un ensemble de règles de sécurité spécifiées par le biais d’ACL ([Groupe de sécurité réseau][NSG]), d’[appliances virtuelles réseau][NVA] et de tables de routage personnalisées ([itinéraires définis par l’utilisateur][UDR]).
 
 ## <a name="virtual-data-center-overview"></a>Vue d’ensemble d’un centre de données virtuel
 
@@ -124,7 +124,7 @@ Le rôle de chaque rayon peut consister à héberger différents types de charge
 ##### <a name="subscription-limits-and-multiple-hubs"></a>Limites d’abonnement et concentrateurs multiples
 Dans Azure, chacun des composants, quel qu’en soit le type, est déployé dans un abonnement Azure. L’isolement des composants Azure dans différents abonnements Azure peut satisfaire aux exigences de différents cœurs de métier, telles que la configuration de niveaux d’accès et d’autorisation différenciés.
 
-Il est possible de procéder à la montée en puissance d’un vDC en augmentant le nombre de rayons ; toutefois, à l’instar de chaque système informatique, il existe des limites de plateforme. Le déploiement d’un concentrateur est lié à un abonnement Azure spécifique, qui fait l’objet de restrictions et de limites, telles que le nombre maximal d’homologations de réseaux virtuels (pour plus d’informations, voir l’article [Abonnement Azure et limites, quotas et contraintes de service][Limits]). Dans les cas où ces limites peuvent poser problème, il est possible de procéder à la montée en puissance de l’architecture en faisant évoluer un modèle hub-and-spoke unique vers un cluster constitué de plusieurs concentrateurs et rayons. Plusieurs concentrateurs situés dans une ou plusieurs régions Azure peuvent être interconnectés à l’aide d’un réseau privé virtuel ExpressRoute ou de site à site.
+Il est possible de procéder à la montée en puissance d’un vDC en augmentant le nombre de rayons ; toutefois, à l’instar de chaque système informatique, il existe des limites de plateforme. Le déploiement d’un concentrateur est lié à un abonnement Azure spécifique, qui fait l’objet de restrictions et de limites, telles que le nombre maximal d’homologations de réseaux virtuels (pour plus d’informations, voir l’article [Abonnement Azure et limites, quotas et contraintes de service][Limits]). Dans les cas où ces limites peuvent poser problème, il est possible de procéder à la montée en puissance de l’architecture en faisant évoluer un modèle hub-and-spoke unique vers un cluster constitué de plusieurs concentrateurs et rayons. Plusieurs concentrateurs situés dans une ou plusieurs régions Azure peuvent être interconnectés à l’aide de VNET Peering, d’un réseau privé virtuel ExpressRoute ou de site à site.
 
 [![2]][2]
 
@@ -191,10 +191,10 @@ Les composants d’infrastructure comprennent les fonctionnalités suivantes :
 -   [**Réseau virtuel**][VPN]. Les réseaux virtuels sont l’un des principaux composants d’un vDC et vous permettent de créer une limite d’isolement du trafic sur la plateforme Azure. Un réseau virtuel est constitué d’un ou de plusieurs segments de réseau virtuel, chacun étant doté d’un préfixe de réseau IP (sous-réseau) spécifique. Le réseau virtuel définit une zone de périmètre interne dans laquelle les machines virtuelles IaaS et les services PaaS peuvent établir des communications privées. Les machines virtuelles (et les services PaaS) figurant dans un réseau virtuel ne peuvent pas communiquer directement avec les machines virtuelles (et les services PaaS) d’un autre réseau virtuel, même si ces deux réseaux virtuels sont créés par le même client, dans le cadre du même abonnement. Cet isolement est une propriété critique qui garantit que les machines virtuelles et les communications du client restent privées dans un réseau virtuel.
 -   [**Itinéraire défini par l’utilisateur**][UDR]. Le routage du trafic dans un réseau virtuel repose par défaut sur la table de routage système. Un itinéraire défini par l’utilisateur est une table de routage personnalisée que les administrateurs réseau peuvent associer à un ou plusieurs sous-réseaux afin de remplacer le comportement de la table de routage système et de définir un chemin de communication au sein d’un réseau virtuel. L’existence d’itinéraires définis par l’utilisateur garantit que le trafic de sortie en provenance du rayon transite par des machines virtuelles personnalisées et/ou des appliances virtuelles réseau et des équilibreurs de charge spécifiques présents dans le concentrateur et dans les rayons.
 -   [**Groupe de sécurité réseau (NSG)**][NSG]. Un groupe de sécurité réseau est une liste de règles de sécurité qui font office de filtrage du trafic sur les sources IP, la destination IP, les protocoles, les ports de source IP et les ports de destination IP. Le NSG peut être appliqué à un sous-réseau et/ou à une carte réseau virtuelle associée à une machine virtuelle Azure. Les NSG jouent un rôle essentiel dans l’implémentation d’un contrôle de flux approprié dans le concentrateur et dans les rayons. Le niveau de sécurité offert par le NSG dépend des ports que vous ouvrez et du but dans lequel vous le faites. Les clients doivent appliquer des filtres supplémentaires par machine virtuelle avec des pare-feu basés sur l’hôte, tels qu’IPtables ou le Pare-feu Windows.
--   **DNS (Domain Name System)**. La résolution de noms des ressources dans les réseaux virtuels d’un vDC est assurée par le biais du service DNS. L’étendue de la résolution du DNS par défaut est limitée au réseau virtuel. En règle générale, un service DNS personnalisé doit être déployé dans le concentrateur avec les services communs, mais les principaux consommateurs de services DNS résident dans le rayon. Si nécessaire, les clients peuvent créer une structure DNS hiérarchique avec délégation de zones DNS aux rayons.
+-   [**DNS**][DNS]. La résolution de noms des ressources dans les réseaux virtuels d’un vDC est assurée par le biais du service DNS. Azure fournit des services DNS pour les résolutions de noms [DNS] [public] et [privé][PrivateDNS]. Les zones privées fournissent la résolution de noms au sein d’un réseau virtuel, ainsi qu’entre des réseaux virtuels. Vous pouvez avoir des zones privées entre plusieurs réseaux virtuels au sein de la même région, mais aussi entre plusieurs régions et abonnements. Pour la résolution publique, Azure DNS fournit un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
 -   [**Abonnement][SubMgmt] et [Gestion des groupes de ressources][RGMgmt]**. Un abonnement définit une limite naturelle permettant de créer plusieurs groupes de ressources dans Azure. Les ressources d’un abonnement sont regroupées dans des conteneurs logiques nommés groupes de ressources. Le groupe de ressources représente un groupe logique destiné à organiser les ressources d’un vDC.
 -   [**Contrôle d’accès en fonction du rôle (RBAC)**][RBAC]. Le mécanisme RBAC permet de mapper un rôle organisationnel sur des droits d’accès à des ressources Azure spécifiques, ce qui vous donne la possibilité de restreindre les utilisateurs à un sous-ensemble d’actions. Avec RBAC, vous pouvez accorder l’accès en attribuant le rôle approprié à des utilisateurs, groupes et applications dans l’étendue adéquate. L’étendue d’une attribution de rôle peut être un abonnement Azure, un groupe de ressources ou une ressource unique. Le mécanisme RBAC autorise l’héritage des autorisations. Un rôle attribué à une étendue parent accorde également l’accès aux enfants qu’elle contient. RBAC vous permet de séparer les tâches et d’accorder aux utilisateurs uniquement les accès dont ils ont besoin pour accomplir leur travail. Par exemple, utilisez RBAC pour autoriser un employé à gérer les machines virtuelles d’un abonnement, et pour permettre à un autre employé de gérer les bases de données SQL au sein du même abonnement.
--   [**Homologation de réseaux virtuels**][VNetPeering]. La fonctionnalité fondamentale utilisée pour créer l’infrastructure d’un vDC est l’homologation de réseaux virtuels, un mécanisme qui connecte deux réseaux virtuels de la même région par le biais du réseau du centre de données Azure.
+-   [**Homologation de réseaux virtuels**][VNetPeering]. La fonctionnalité fondamentale utilisée pour créer l’infrastructure d’un vDC est l’homologation de réseaux virtuels, un mécanisme qui connecte deux réseaux virtuels de la même région par le biais du réseau du centre de données Azure, ou bien en utilisant la dorsale principale mondiale de Azure entre plusieurs régions.
 
 #### <a name="component-type-perimeter-networks"></a>Type de composant : réseaux de périmètre
 Les composants de type [réseau de périmètre][DMZ] (également appelé réseau DMZ) vous permettent d’assurer la connectivité réseau des réseaux de vos centres de données locaux ou physiques, ainsi que la connectivité à destination et en provenance d’Internet. Il s’agit également des composants auxquels vos équipes réseau et sécurité consacrent généralement la majorité de leur temps.
@@ -244,6 +244,8 @@ Les composants de surveillance offrent une vue d’ensemble de tous les autres t
 
 Azure propose différents types de services de journalisation et de surveillance pour effectuer le suivi du comportement des ressources hébergées par Azure. La gouvernance et le contrôle des charges de travail dans Azure reposent non seulement sur la collecte des données de journalisation, mais également sur la possibilité de déclencher des actions basées sur des événements signalés spécifiques.
 
+[**Azure Monitor**][Monitor] - Azure comprend plusieurs services qui effectuent individuellement un rôle ou une tâche spécifique dans l’espace d’analyse. Ensemble, ces services fournissent une solution complète pour la collecte, l’analyse et l’action sur les données de télémétrie de votre application et des ressources Azure qui les prennent en charge. Ces services peuvent aussi surveiller les ressources locales critiques afin de fournir un environnement de surveillance hybride. Comprendre les outils et les données disponibles est la première étape du développement d’une stratégie de surveillance complète pour votre application.
+
 Il existe deux principaux types de journaux dans Azure :
 
 -   Les [**journaux d’activité**][ActLog] (également désignés sous le terme de « journaux des opérations ») fournissent des informations sur les opérations qui ont été effectuées sur les ressources de l’abonnement Azure. Ces journaux signalent les événements de plan de contrôle relatifs à vos abonnements. Chaque ressource Azure génère des journaux d’audit.
@@ -259,9 +261,11 @@ Dans un vDC, il est primordial d’assurer le suivi des journaux de groupe de s�
 
 Tous les journaux peuvent être stockés dans des comptes de stockage Azure à des fins d’audit, d’analyse statique ou de sauvegarde. Lorsque les journaux sont stockés dans un compte de stockage Azure, les clients peuvent utiliser différents types d’infrastructures pour récupérer, préparer, analyser et visualiser ces données afin de signaler l’état et l’intégrité des ressources cloud.
 
-Les grandes entreprises doivent avoir préalablement acquis une infrastructure standard pour la surveillance des systèmes locaux, et peuvent étendre cette infrastructure afin d’y intégrer les journaux générés par les déploiements cloud. Dans le cas des organisations qui souhaitent conserver l’ensemble de la journalisation dans le cloud, la solution [Log Analytics][LogAnalytics] constitue un excellent choix. La solution Log Analytics étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal en services d’infrastructure. Log Analytics peut également s’intégrer aux composants System Center, tels que System Center Operations Manager, afin d’étendre au cloud vos investissements de gestion existants.
+Les grandes entreprises doivent avoir préalablement acquis une infrastructure standard pour la surveillance des systèmes locaux, et peuvent étendre cette infrastructure afin d’y intégrer les journaux générés par les déploiements cloud. Dans le cas des organisations qui souhaitent conserver l’ensemble de la journalisation dans le cloud, la solution [Log Analytics][Log Analytics] constitue un excellent choix. La solution Log Analytics étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal en services d’infrastructure. Log Analytics peut également s’intégrer aux composants System Center, tels que System Center Operations Manager, afin d’étendre au cloud vos investissements de gestion existants.
 
 Log Analytics est un service dans Azure conçu pour faciliter la collecte, la mise en corrélation, la recherche et l’exploitation des données de journalisation et de performances générées par les systèmes d’exploitation, les applications et les composants cloud d’infrastructure. Ce composant vous offre des informations opérationnelles en temps réel à l’aide d’une fonction de recherche intégrée et de tableaux de bord personnalisés, qui vous permettent d’analyser tous les enregistrements de l’ensemble de vos charges de travail dans un vDC.
+
+La solution [Network Performance Monitor (NPM)][NPM] à l’intérieur d’OMS peut fournir des informations détaillées sur le réseau, de bout en bout, y compris une vue unique de vos réseaux Azure et des réseaux locaux. Avec une surveillance spéciale les services publics et ExpressRoute.
 
 #### <a name="component-type-workloads"></a>Type de composant : charges de travail
 Les composants de type charge de travail désignent l’emplacement où résident vos applications et services proprement dits. Il s’agit également du composant auquel vos équipes de développement d’applications consacrent la majorité de leur temps.
@@ -276,7 +280,7 @@ Les applications métiers sont des applications informatiques cruciales pour le 
 -   **Pilotées par les données**. Les applications métiers utilisent de nombreuses données et accèdent fréquemment aux bases de données ou à d’autres types de stockages.
 -   **Intégrées**. Les applications métiers assurent une intégration à d’autres systèmes au sein ou à l’extérieur de l’organisation.
 
-**Sites web destinés aux clients (accès via Internet ou interne)** La plupart des applications qui interagissent avec Internet sont des sites web. Azure permet d’exécuter un site web sur une machine virtuelle IaaS ou à partir d’un site [Azure Web Apps][WebApps] (PaaS). Azure Web Apps prend en charge l’intégration à des réseaux virtuels permettant le déploiement des applications web dans le rayon d’un vDC. Grâce à l’intégration aux réseaux virtuels, vous n’avez pas besoin d’exposer un point de terminaison Internet pour vos applications, mais vous pouvez utiliser à la place l’adresse routable non-Internet privée des ressources à partir de votre réseau virtuel privé.
+**Sites web destinés aux clients (accès via Internet ou interne)** La plupart des applications qui interagissent avec Internet sont des sites web. Azure permet d’exécuter un site web sur une machine virtuelle IaaS ou à partir d’un site [Azure Web Apps][WebApps] (PaaS). Azure Web Apps prend en charge l’intégration à des réseaux virtuels permettant le déploiement des applications web dans le rayon d’un vDC. En examinant les sites web internes, avec l’intégration aux réseaux virtuels, vous n’avez pas besoin d’exposer un point de terminaison Internet pour vos applications, mais vous pouvez utiliser via des adresses routables non-Internet privées des ressources à partir de votre réseau virtuel privé.
 
 **Big Data/analytique** Lorsqu’il devient nécessaire de traiter de très gros volumes de données, la montée en puissance des bases de données peut ne pas s’effectuer correctement. La technologie Hadoop offre un système permettant d’exécuter des requêtes distribuées en parallèle sur un grand nombre de nœuds. Les clients ont la possibilité d’exécuter des charges de travail de données dans des machines virtuelles IaaS ou PaaS ([HDInsight][HDI]). HDInsight prend en charge le déploiement dans un réseau virtuel basé sur l’emplacement et peut être déployé sur un cluster dans un rayon du vDC.
 
@@ -308,11 +312,12 @@ L’implémentation d’un plan de récupération d’urgence est étroitement a
 
 La synchronisation ou l’analyse des pulsations des applications dans différents VDC nécessitent une communication entre ces derniers. Deux vDC situés dans des régions distinctes peuvent être connectés par le biais de différentes méthodes :
 
+-   VNET Peering - VNET Peering peut se connecter à des concentrateurs dans différentes régions
 -   Homologation privée ExpressRoute lorsque les concentrateurs de vDC sont connectés au même circuit ExpressRoute
 -   Plusieurs circuits ExpressRoute connectés au moyen de votre segment principal (backbone) d’entreprise et de votre maille vDC connectée aux circuits ExpressRoute
 -   Connexions de réseau privé virtuel de site à site entre les concentrateurs de vos vDC dans chaque région Azure
 
-La connexion ExpressRoute constitue généralement le mécanisme privilégié en raison d’une bande passante plus importante et d’une latence constante lors du transit à travers le segment principal (backbone) de Microsoft.
+Les connexions VNET Peering et ExpressRoute constituent généralement le mécanisme privilégié en raison d’une bande passante plus importante et d’une latence constante lors du transit à travers le segment principal (backbone) de Microsoft.
 
 Il n’existe aucune formule magique pour valider une application distribuée entre (au moins) deux vDC différents situés dans des régions distinctes. Les clients doivent exécuter des tests de qualification de réseau pour vérifier la latence et la bande passante des connexions et pour déterminer si la réplication synchrone ou asynchrone des données est appropriée, ainsi que l’objectif de délai de récupération (RTO) optimal possible pour les charges de travail.
 
@@ -330,9 +335,9 @@ Ce document a abordé les fonctionnalités ci-après. Pour plus d’informations
 | | | |
 |-|-|-|
 |Fonctionnalités réseau|Équilibrage de la charge.|Connectivité|
-|[Réseaux virtuels Azure][VNet]</br>[Groupes de sécurité réseau][NSG]</br>[Journaux de groupe de sécurité réseau][NSGLog]</br>[Itinéraire défini par l’utilisateur][UDR]</br>[Appliances virtuelles réseau][NVA]</br>[Adresses IP publiques][PIP]|[Azure Load Balancer (L3) ][ALB]</br>[Application Gateway (L7) ][AppGW]</br>[Pare-feu d’applications web][WAF]</br>[Azure Traffic Manager][TM] |[Homologation de réseaux virtuels][VNetPeering]</br>[Réseau privé virtuel][VPN]</br>[ExpressRoute][ExR]
+|[Réseaux virtuels Azure][VNet]</br>[Groupes de sécurité réseau][NSG]</br>[Journaux de groupe de sécurité réseau][NSGLog]</br>[Itinéraire défini par l’utilisateur][UDR]</br>[Appliances virtuelles réseau][NVA]</br>[Adresses IP publiques][PIP]</br>[DNS]|[Azure Load Balancer (L3) ][ALB]</br>[Application Gateway (L7) ][AppGW]</br>[Pare-feu d’applications web][WAF]</br>[Azure Traffic Manager][TM] |[Homologation de réseaux virtuels][VNetPeering]</br>[Réseau privé virtuel][VPN]</br>[ExpressRoute][ExR]
 |Identité</br>|Surveillance</br>|Meilleures pratiques</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Contrôle d’accès en fonction du rôle][RBAC]</br>[Rôles Azure Active Directory par défaut][Roles] |[Journaux d’activité][ActLog]</br>[Journaux de diagnostic][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Meilleures pratiques en matières de réseaux de périmètre][DMZ]</br>[Gestion des abonnements][SubMgmt]</br>[Gestion des groupes de ressources][RGMgmt]</br>[Limites d’abonnement Azure][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Contrôle d’accès en fonction du rôle][RBAC]</br>[Rôles Azure Active Directory par défaut][Roles] |[Azure Monitor][Monitor]</br>[Journaux d’activité][ActLog]</br>[Journaux de diagnostic][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Network Performance Monitor][NPM]|[Meilleures pratiques en matières de réseaux de périmètre][DMZ]</br>[Gestion des abonnements][SubMgmt]</br>[Gestion des groupes de ressources][RGMgmt]</br>[Limites d’abonnement Azure][Limits] |
 |Autres services Azure|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
@@ -358,12 +363,14 @@ Ce document a abordé les fonctionnalités ci-après. Pour plus d’informations
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
-[Roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
+[Roles]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 [VNet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
-[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg 
+[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[DNS]: https://docs.microsoft.com/azure/dns/dns-overview
+[PrivateDNS]: https://docs.microsoft.com/azure/dns/private-dns-overview
 [VNetPeering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview 
 [UDR]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview 
-[RBAC]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[RBAC]: https://docs.microsoft.com/azure/role-based-access-control/overview
 [MFA]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
 [AAD]: https://docs.microsoft.com/azure/active-directory/active-directory-whatis
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways 
@@ -376,10 +383,12 @@ Ce document a abordé les fonctionnalités ci-après. Pour plus d’informations
 [PIP]: https://docs.microsoft.com/azure/virtual-network/resource-groups-networking#public-ip-address
 [AppGW]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [WAF]: https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview
+[Monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
+[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[NPM]: https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

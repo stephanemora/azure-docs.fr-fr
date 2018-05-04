@@ -5,6 +5,7 @@
     - name: À propos du Réseau virtuel
       href: virtual-networks-overview.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer un réseau virtuel - Portail
       href: quick-create-portal.md

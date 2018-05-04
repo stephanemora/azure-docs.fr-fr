@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: stratégies intégrées
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Création d’une stratégie d’inscription ou de connexion
 
-Cette stratégie gère les expériences d’inscription et de connexion des utilisateurs avec une configuration unique. Les utilisateurs sont dirigés vers le chemin d’accès correct (inscription ou connexion) en fonction du contexte. Cet article décrit également le contenu des jetons que l’application recevra en cas d’inscription ou de connexion réussie.  Un exemple de code pour la stratégie d’inscription ou de connexion est [disponible ici](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Il est recommandé d’utiliser cette stratégie plutôt qu’une stratégie d’inscription et de connexion.  
+Cette stratégie gère les expériences d’inscription et de connexion des utilisateurs avec une configuration unique. Les utilisateurs sont dirigés vers le chemin d’accès correct (inscription ou connexion) en fonction du contexte. Cet article décrit également le contenu des jetons que l’application recevra en cas d’inscription ou de connexion réussie.  Un exemple de code pour la stratégie **d’inscription ou de connexion** est [disponible ici](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Il est recommandé d’utiliser cette stratégie plutôt qu’une stratégie **d’inscription** ou de **connexion**.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ Cette stratégie gère les expériences d’inscription et de connexion des util
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Comment lier une stratégie d’inscription ou de connexion à une stratégie de réinitialisation de mot de passe ?
-Lorsque vous créez une stratégie d’inscription ou de connexion (avec des comptes locaux), vous voyez un lien **Mot de passe oublié ?** sur la première page. Cliquer sur ce lien ne déclenche pas automatiquement une stratégie de réinitialisation de mot de passe. 
+Lorsque vous créez une stratégie **d’inscription ou de connexion** (avec des comptes locaux), vous voyez un lien **Mot de passe oublié ?** sur la première page. Cliquer sur ce lien ne déclenche pas automatiquement une stratégie de réinitialisation de mot de passe. 
 
 Au lieu de cela, le code d’erreur **`AADB2C90118`** est retourné à votre application. Votre application a besoin de gérer ce code d’erreur en appelant une stratégie de réinitialisation de mot de passe spécifique. Pour plus d’informations, consultez un [exemple qui illustre l’approche de la liaison de stratégies](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Dois-je utiliser une stratégie d’inscription ou de connexion ou une stratégie d’inscription et une stratégie de connexion ?
-Nous vous recommandons d’utiliser une stratégie d’inscription ou de connexion plutôt qu’une stratégie d’inscription et une stratégie de connexion.  
+Nous vous recommandons d’utiliser une **stratégie d’inscription ou de connexion** plutôt qu’une stratégie **d’inscription** et une stratégie de **connexion**.  
 
-La stratégie d’inscription ou de connexion offre plus de possibilités que la stratégie de connexion. Elle vous permet également d’utiliser une personnalisation de l’interface utilisateur de la page et offre une meilleure prise en charge de la localisation. 
+La stratégie **d’inscription ou de connexion** offre plus de possibilités que la stratégie de **connexion**. Elle vous permet également d’utiliser une personnalisation de l’interface utilisateur de la page et offre une meilleure prise en charge de la localisation. 
 
-La stratégie de connexion est recommandée si vous n’avez pas besoin de localiser vos stratégies mais que vous avez besoin uniquement de fonctionnalités de personnalisation mineures, et souhaitez que la réinitialisation de mot de passe y soit intégrée.
+La stratégie de **connexion** est recommandée si vous n’avez pas besoin de localiser vos stratégies mais que vous avez besoin uniquement de fonctionnalités de personnalisation mineures, et souhaitez que la réinitialisation de mot de passe y soit intégrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md)

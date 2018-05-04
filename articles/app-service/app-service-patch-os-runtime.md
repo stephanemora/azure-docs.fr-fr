@@ -1,11 +1,11 @@
 ---
-title: "Système d’exploitation et mise à jour corrective du runtime dans Azure App Service | Microsoft Docs"
-description: "Décrit comment Azure App Service met à jour le système d’exploitation et les runtimes, et comment obtenir des annonces de mise à jour."
+title: Système d’exploitation et mise à jour corrective du runtime dans Azure App Service | Microsoft Docs
+description: Décrit comment Azure App Service met à jour le système d’exploitation et les runtimes, et comment obtenir des annonces de mise à jour.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 869bd0e3f684ff4a2291e189cf247daedfb74922
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
@@ -93,7 +93,7 @@ Le tableau suivant indique comment afficher les versions de Windows et du runtim
 | Version Python | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `python --version` |
 
 > [!NOTE]
-> L’accès à l’emplacement de registre `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, où sont stockées les informations sur les [correctifs KB]((https://technet.microsoft.com/security/bulletins.aspx)), est verrouillé.
+> L’accès à l’emplacement de registre `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, où sont stockées les informations sur les [correctifs KB]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)), est verrouillé.
 >
 >
 

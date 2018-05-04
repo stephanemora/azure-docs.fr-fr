@@ -1,4 +1,4 @@
-Pour activer la modification de profil dans votre application, vous devez créer une stratégie de modification de profil. Cette stratégie décrit les expériences des clients lors de la modification du profil et le contenu des jetons que l'application reçoit en cas d'opération réussie.
+Si vous souhaitez activer la modification de profil dans votre application, vous utilisez une stratégie de **modification de profil**. Cette stratégie décrit les expériences clients lors de la modification du profil, ainsi que le contenu des jetons que l’application reçoit en cas d’opération réussie.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

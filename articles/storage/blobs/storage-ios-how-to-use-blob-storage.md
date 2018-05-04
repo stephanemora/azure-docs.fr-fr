@@ -1,32 +1,26 @@
 ---
-title: "Utilisation du stockage d’objets blob Azure à partir d’iOS | Microsoft Docs"
-description: "Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
+title: Utilisation du stockage d’objets (blob) à partir d’iOS - Azure | Microsoft Docs
+description: Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets).
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Utilisation du stockage d’objets blob à partir d’iOS
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples ont été écrits en Objective-C et utilisent la [bibliothèque du client de stockage Azure pour iOS](https://github.com/Azure/azure-storage-ios). Les scénarios traités incluent le chargement, l'énumération, le téléchargement et la suppression d'objets blob. Pour plus d’informations sur les objets blob, voir la section [Étapes suivantes](#next-steps) . Vous pouvez également télécharger l’ [exemple d’application](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) pour voir rapidement l’utilisation d’Azure Storage dans une application iOS.
 
-## <a name="overview"></a>Vue d'ensemble
-Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples ont été écrits en Objective-C et utilisent la [bibliothèque du client de stockage Azure pour iOS](https://github.com/Azure/azure-storage-ios). Les scénarios traités incluent le **chargement**, l’**énumération**, le **téléchargement** et la **suppression** d’objets blob. Pour plus d’informations sur les objets blob, voir la section [Étapes suivantes](#next-steps) . Vous pouvez également télécharger l’ [exemple d’application](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) pour voir rapidement l’utilisation d’Azure Storage dans une application iOS.
+## <a name="what-is-blob-storage"></a>Présentation du stockage d'objets blob
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -138,7 +132,7 @@ Vous pouvez vérifier que cela fonctionne en examinant [l’Explorateur de stock
 Les autorisations d’un conteneur sont configurées pour l’accès **Privé** par défaut. Toutefois, les conteneurs fournissent d’autres options pour l’accès aux conteneurs :
 
 * **Privé**: seul le propriétaire du compte peut lire les données de conteneur et d’objet blob.
-* **BLOB**: les données blob à l’intérieur de ce conteneur sont lisibles au moyen d’une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l’intérieur du conteneur via une demande anonyme.
+* **BLOB**: les données blob à l’intérieur de ce conteneur sont lisibles au moyen d’une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
 * **Conteneur**: les données de conteneur et blob sont lisibles au moyen d’une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
 L’exemple suivant montre comment créer un conteneur avec des autorisations d’accès de type **Conteneur** , qui autorisent un accès public en lecture seule à tous les utilisateurs sur Internet :
@@ -217,7 +211,7 @@ Vous pouvez vérifier que cela fonctionne en examinant [l’Explorateur de stock
 
 Outre le chargement d’un objet blob de blocs à partir d’une chaîne NSString, des méthodes similaires existent pour NSData, NSInputStream ou un fichier local.
 
-## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 L’exemple suivant montre comment répertorier tous les objets blob dans un conteneur. Lorsque vous effectuez cette opération, gardez à l’esprit les paramètres suivants :     
 
 * **continuationToken** : le jeton de continuation représente l’emplacement où l’opération de liste doit commencer. Si aucun jeton n’est fourni, il répertorie les objets blob depuis le début. N’importe quel nombre d’objets blob peut être répertorié, à partir de zéro jusqu’à un maximum spécifié. Même si cette méthode ne retourne aucun résultat, si la valeur `results.continuationToken` n’est pas nulle, il peut y avoir davantage d’objets blob sur le service qui n’ont pas été répertoriés.
@@ -286,7 +280,7 @@ Dans cet exemple, une méthode d’assistance est utilisée pour appeler de mani
 }
 ```
 
-## <a name="download-a-blob"></a>Téléchargement d’un objet blob
+## <a name="download-a-blob"></a>Télécharger un objet blob
 L’exemple suivant montre comment télécharger un objet blob vers un objet NSString.
 
 ```objc
@@ -321,7 +315,7 @@ L’exemple suivant montre comment télécharger un objet blob vers un objet NSS
 }
 ```
 
-## <a name="delete-a-blob"></a>Supprimer un objet blob
+## <a name="delete-a-blob"></a>Supprimer un objet blob
 L’exemple suivant indique comment supprimer un objet blob.
 
 ```objc

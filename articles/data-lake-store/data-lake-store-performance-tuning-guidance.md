@@ -1,8 +1,8 @@
 ---
-title: "Recommandations en matière d’optimisation des performances d’Azure Data Lake Store | Microsoft Docs"
-description: "Recommandations en matière d’optimisation des performances d’Azure Data Lake Store"
+title: Recommandations en matière d’optimisation des performances d’Azure Data Lake Store | Microsoft Docs
+description: Recommandations en matière d’optimisation des performances d’Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Paramétrage d’Azure Data Lake Store pour les performances
 
@@ -42,7 +42,7 @@ Que vous utilisiez des machines locales ou des machines virtuelles dans Azure, v
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Connectivité réseau à Azure Data Lake Store
 
-La connectivité réseau entre les données sources Azure Data Lake Store peut parfois être le goulot d’étranglement. Lorsque vos données sources sont locales, envisagez d’utiliser une liaison dédiée avec [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/). Si vos données sources sont dans Azure, les performances seront meilleures lorsque les données sont dans la même région Azure que le Data Lake Store.
+La connectivité réseau entre les données sources Azure Data Lake Store peut parfois être le goulot d’étranglement. Lorsque vos données sources sont locales, envisagez d’utiliser une liaison dédiée avec [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Si vos données sources sont dans Azure, les performances seront meilleures lorsque les données sont dans la même région Azure que le Data Lake Store.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configuration des outils d’ingestion des données pour une parallélisation maximale
 

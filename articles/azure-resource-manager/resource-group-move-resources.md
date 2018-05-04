@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -121,7 +121,6 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -163,11 +162,14 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Services de domaine AD
 * Service de contrôle d’intégrité hybride Active Directory
 * Application Gateway
+* Base de données Azure pour MySQL
 * BizTalk Services
+* Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
 * Service de conteneur
-* ExpressRoute
+* Data Factory
 * Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
+* ExpressRoute
 * Équilibreurs de charge - consultez [Limitations de l’équilibreur de charge](#lb-limitations)
 * Applications gérées
 * Disques gérés : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)

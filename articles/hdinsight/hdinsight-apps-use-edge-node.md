@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight
 
@@ -69,6 +69,9 @@ Après avoir créé un nœud de périmètre, vous pouvez vous connecter au nœud
 >
 > Si vous utilisez une technologie Apache, vous pouvez obtenir de l’aide par l’intermédiaire des sites de projets Apache sur [http://apache.org](http://apache.org), par exemple sur le site [Hadoop](http://hadoop.apache.org/).
 
+> [!NOTE]
+> Comme pour les clusters, la gestion des correctifs des nœuds de périphérie est également assurée.  Pour plus d’informations, consultez [Mise à jour corrective du système d’exploitation pour HDInsight](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Ajouter un nœud de périmètre à un cluster existant
 Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
 
@@ -115,6 +118,10 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
      
      Certaines propriétés ont été codées en dur dans le modèle : type de cluster, nombre de nœuds de travail du cluster, taille de nœud de périmètre et nom de nœud de périmètre.
 4. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur **Acheter** pour créer le cluster avec le nœud de périmètre.
+
+## <a name="add-multiple-edge-nodes"></a>Ajouter plusieurs nœuds de périphérie
+
+Vous pouvez ajouter plusieurs nœuds de périphérie à un cluster HDInsight.  La configuration de plusieurs nœuds de périphérie peut uniquement être effectuée à l’aide de modèles Azure Resource Manager.  Consultez l’exemple de modèle au début de cet article.  Vous devez mettre à jour l’élément **targetInstanceCount** afin de refléter le nombre de nœuds de périphérie que vous souhaitez créer.
 
 ## <a name="access-an-edge-node"></a>Accéder à un nœud de périmètre
 Le point de terminaison ssh de nœud de périphérie est &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22.  Par exemple, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

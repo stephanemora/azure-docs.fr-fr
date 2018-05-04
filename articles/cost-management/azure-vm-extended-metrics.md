@@ -1,20 +1,20 @@
 ---
-title: "Ajouter des métriques étendues pour les machines virtuelles Azure | Microsoft Docs"
-description: "Cet article vous aide à activer et à configurer les métriques de diagnostics étendues pour vos machines virtuelles Azure."
+title: Ajouter des métriques étendues pour les machines virtuelles Azure | Microsoft Docs
+description: Cet article vous aide à activer et à configurer les métriques de diagnostics étendues pour vos machines virtuelles Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 91797aaab1dca96e78643f57776eb16d336e894b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
 
@@ -31,7 +31,7 @@ Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation d
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Vérifier que les métriques sont activées sur les machines virtuelles
 
-1. Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
+1. Connectez-vous au portail Azure sur http://portal.azure.com.
 2. Sous **Machines virtuelles**, sélectionnez une machine virtuelle, puis sous **Surveillance**, sélectionnez **Métriques**. Une liste de métriques disponibles s’affiche.
 3. Sélectionnez certaines métriques ; un graphe affiche alors les données correspondantes.  
     ![Exemple de métrique : pourcentage d’UC (hôte)](./media/azure-vm-extended-metrics/metric01.png)

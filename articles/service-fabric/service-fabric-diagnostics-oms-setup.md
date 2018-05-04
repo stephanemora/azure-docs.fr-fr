@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurer Log Analytics pour un cluster
 
-Vous pouvez configurer un espace de travail Log Analytics à partir d’Azure Resource Manager, de PowerShell ou de la Place de marché Azure. Si vous gérez un modèle Resource Manager mis à jour de votre déploiement, utilisez le même modèle pour configurer votre environnement OMS. Le déploiement via la Place de marché est plus facile si vous avez déjà déployé un cluster et activé les diagnostics. Si vous ne disposez pas d’un accès de niveau abonnement pour le compte sur lequel vous déployez OMS, effectuez le déploiement avec PowerShell ou le modèle Resource Manager.
+Nous vous recommandons d’utiliser Log Analytics pour surveiller les événements au niveau du cluster. Vous pouvez configurer un espace de travail Log Analytics à partir d’Azure Resource Manager, de PowerShell ou de la Place de marché Azure. Si vous gérez un modèle Resource Manager mis à jour de votre déploiement, utilisez le même modèle pour configurer votre environnement Log Analytics. Le déploiement via la Place de marché est plus facile si vous avez déjà déployé un cluster et activé les diagnostics. Si vous ne disposez pas d’un accès de niveau abonnement pour le compte sur lequel vous effectuez le déploiement, déployez avec PowerShell ou le modèle Resource Manager.
 
 > [!NOTE]
-> Pour configurer Log Analytics afin de surveiller votre cluster, vous avez besoin d’activer les diagnostics pour voir les événements au niveau du cluster ou de la plateforme.
+> Pour configurer Log Analytics afin de surveiller votre cluster, vous avez besoin d’activer les diagnostics pour voir les événements au niveau du cluster ou de la plateforme. Reportez-vous à [Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure](service-fabric-diagnostics-event-aggregation-wad.md) et [Agrégation et collection d’événements à l’aide de Linux Azure Diagnostics](service-fabric-diagnostics-event-aggregation-lad.md) pour en savoir plus
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Déployer OMS à l’aide de la Place de marché Azure
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Déployer un espace de travail Log Analytics à l’aide de la Place de marché Microsoft Azure
 
-Si vous voulez ajouter un espace de travail OMS après avoir déployé un cluster, accédez à la Place de marché Azure dans le portail, puis recherchez **Service Fabric Analytics** :
+Si vous voulez ajouter un espace de travail Log Analytics après avoir déployé un cluster, accédez à la Place de marché Azure dans le portail, puis recherchez **Service Fabric Analytics**. Il s’agit d’une solution personnalisée pour les déploiements Service Fabric possédant des données spécifiques à Service Fabric. Dans ce processus, vous allez créer la solution (le tableau de bord pour afficher les informations) et l’espace de travail (l’agrégation des données de cluster sous-jacentes).
 
 1. Sélectionnez **Nouveau** dans le menu de navigation gauche. 
 
@@ -39,7 +39,7 @@ Si vous voulez ajouter un espace de travail OMS après avoir déployé un cluste
 
     ![SF Analytics OMS dans la Place de marché](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Dans la fenêtre de création Service Fabric Analytics, sélectionnez **Sélectionner un espace de travail** pour le champ **Espace de travail OMS**, puis **Créer un espace de travail**. Renseignez les entrées nécessaires. Ici, la seule exigence est que l’abonnement pour le cluster Service Fabric et celui pour l’espace de travail OMS soient identiques. Quand vos entrées ont été validées, le déploiement de votre espace de travail OMS commence. Ce déploiement ne prend que quelques minutes.
+4. Dans la fenêtre de création Service Fabric Analytics, sélectionnez **Sélectionner un espace de travail** pour le champ **Espace de travail OMS**, puis **Créer un espace de travail**. Renseignez les entrées nécessaires. Ici, la seule exigence est que l’abonnement pour le cluster Service Fabric et celui pour l’espace de travail soient identiques. Quand vos entrées ont été validées, le déploiement de votre espace de travail commence. Ce déploiement ne prend que quelques minutes.
 
 5. Une fois le déploiement terminé, sélectionnez une nouvelle fois **Créer** au bas de la fenêtre de création Service Fabric Analytics. Vérifiez que le nouvel espace de travail s’affiche sous **Espace de travail OMS**. Cette action ajoute la solution à l’espace de travail que vous avez créé.
 
@@ -48,9 +48,9 @@ Si vous utilisez Windows, passez aux étapes suivantes pour connecter OMS au com
 >[!NOTE]
 >Cette expérience pour les clusters Linux n’est pas encore disponible. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Connecter l’espace de travail OMS à votre cluster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connecter l’espace de travail Log Analytics à votre cluster 
 
-1. L’espace de travail a besoin d’être connecté aux données de diagnostic provenant de votre cluster. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nomEspaceTravailOMS\>** et accédez à sa page de présentation. À partir de là, vous pouvez modifier les paramètres de la solution, ceux de l’espace de travail et accéder au portail OMS.
+1. L’espace de travail a besoin d’être connecté aux données de diagnostic provenant de votre cluster. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nomEspaceTravail\>** et accédez à sa page de présentation. À partir de là, vous pouvez modifier les paramètres de la solution, ceux de l’espace de travail et accéder au portail OMS.
 
 2. Dans le menu de navigation gauche, sous **Sources de données de l’espace de travail**, sélectionnez **Journaux de comptes de stockage**.
 

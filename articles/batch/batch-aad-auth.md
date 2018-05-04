@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 09/28/2017
+ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c28af5a9773cc362663831346b58f599aed6ea9a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -65,7 +65,7 @@ Utilisez le **point de terminaison de ressource Azure Batch** pour obtenir un je
 
 La première étape d’utilisation d’Azure AD pour l’authentification consiste à inscrire votre application dans un client Azure AD. L’inscription de l’application vous permet d’appeler la [Bibliothèque d’authentification Active Directory][aad_adal] (ADAL) Azure à partir de votre code. La bibliothèque ADAL fournit une API pour l’authentification avec Azure AD à partir de votre application. L’inscription de votre application est nécessaire si vous prévoyez d’utiliser l’authentification intégrée ou un principal de service.
 
-Lorsque vous inscrivez votre application, vous fournissez des informations sur votre application à Azure AD. Azure AD fournit ensuite un ID d’application que vous utilisez pour associer votre application à Azure AD lors de l’exécution. Pour en savoir plus sur l’ID d’application, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+Lorsque vous inscrivez votre application, vous fournissez des informations sur votre application à Azure AD. Azure AD fournit ensuite un ID d’application (également appelé *ID client*) que vous utilisez pour associer votre application à Azure AD lors de l’exécution. Pour en savoir plus sur l’ID d’application, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
 
 Suivez les étapes de la section [Ajout d’une application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) dans [Intégration d’applications dans Azure Active Directory][aad_integrate] pour inscrire votre application Batch. Si vous inscrivez votre application en tant qu’application native, vous pouvez spécifier n’importe quel URI valide pour l’**URI de redirection**. Aucun point de terminaison réel n’est nécessaire.
 
@@ -81,7 +81,7 @@ L’ID client identifie le client Azure AD qui fournit des services d’authenti
 
 1. Dans le portail Azure, sélectionnez votre Active Directory.
 2. Cliquez sur **Propriétés**.
-3. Copiez la valeur GUID fournie pour l’ID de répertoire. Cette valeur est également appelée l’ID client.
+3. Copiez la valeur GUID fournie pour l’**ID de répertoire**. Cette valeur est également appelée l’ID client.
 
 ![Copier l’ID de répertoire](./media/batch-aad-auth/aad-directory-id.png)
 
@@ -97,17 +97,17 @@ Une fois que vous avez [inscrit votre application](#register-your-application-wi
 
     ![Rechercher le nom de votre application](./media/batch-aad-auth/search-app-registration.png)
 
-3. Ouvrez le panneau **Paramètres** de votre application. Dans la section **Accès API**, sélectionnez **Autorisations requises**.
+3. Cliquez sur l’application et sur **Paramètres**. Dans la section **Accès API**, sélectionnez **Autorisations requises**.
 4. Dans le panneau **Autorisations requises**, cliquez sur le bouton **Ajouter**.
-5. À l’étape 1, recherchez l’API Batch. Recherchez chacune de ces chaînes, jusqu’à ce que vous trouviez l’API :
+5. Dans **Sélectionner une API**, recherchez l’API Batch. Recherchez chacune de ces chaînes, jusqu’à ce que vous trouviez l’API :
     1. **MicrosoftAzureBatch**.
     2. **Microsoft Azure Batch**. Les locataires Azure AD les plus récents peuvent utiliser ce nom.
     3. La chaîne **ddbf3205-c6bd-46ae-8127-60eb93363864** correspond à l’ID de l’API Batch. 
-6. Une fois que vous avez trouvé l’API Batch, sélectionnez-la, puis cliquez sur le bouton **Sélectionner**.
-6. À l’étape 2, activez la case à cocher en regard de **Access Azure Batch Service** (Accéder au service Azure Batch) et cliquez sur le bouton **Sélectionner**.
-7. Cliquez sur le bouton **Terminé**.
+6. Une fois que vous avez trouvé l’API Batch, sélectionnez-la, puis cliquez sur **Sélectionner**.
+7. Dans **Sélectionner les autorisations**, sélectionnez la case en regard de **Accéder au service Azure Batch** et cliquez sur **Sélectionner**.
+8. Cliquez sur **Done**.
 
-Le panneau **Autorisations requises** indique à présent que votre application Azure AD autorise l’accès à la bibliothèque ADAL et à l’API de service Batch. Les autorisations sont accordées automatiquement à ADAL lorsque vous commencez par inscrire votre application auprès d’Azure AD.
+La fenêtre **Autorisations requises** indique à présent que votre application Azure AD a accès à la bibliothèque ADAL et à l’API de service Batch. Les autorisations sont accordées automatiquement à ADAL lorsque vous commencez par inscrire votre application auprès d’Azure AD.
 
 ![Accorder des autorisations d’API](./media/batch-aad-auth/required-permissions-data-plane.png)
 
@@ -126,7 +126,7 @@ Suivez les étapes ci-dessous dans le portail Azure :
 
 1. Dans le volet de navigation de gauche du portail Azure, choisissez **Tous les services**. Cliquez sur **Inscriptions des applications**.
 2. Recherchez le nom de votre application dans la liste des inscriptions d’application.
-3. Affichez le panneau **Paramètres**. Dans la section **Accès API**, sélectionnez **Clés**.
+3. Cliquez sur l’application et sur **Paramètres**. Dans la section **Accès API**, sélectionnez **Clés**.
 4. Pour créer une clé, entrez une description de la clé. Sélectionnez ensuite la durée de la clé, un ou deux ans. 
 5. Cliquez sur le bouton **Enregistrer** pour créer et afficher la clé. Copiez la valeur de clé dans un endroit sûr, car vous n’y avez plus accès lorsque vous quittez le panneau. 
 
@@ -152,14 +152,14 @@ L’ID client identifie le client Azure AD qui fournit des services d’authenti
 
 1. Dans le portail Azure, sélectionnez votre Active Directory.
 2. Cliquez sur **Propriétés**.
-3. Copiez la valeur GUID fournie pour l’ID de répertoire. Cette valeur est également appelée l’ID client.
+3. Copiez la valeur GUID fournie pour l’**ID de répertoire**. Cette valeur est également appelée l’ID client.
 
 ![Copier l’ID de répertoire](./media/batch-aad-auth/aad-directory-id.png)
 
 
 ## <a name="code-examples"></a>Exemples de code
 
-Les exemples de code de cette section montrent comment s’authentifier avec Azure AD à l’aide de l’authentification intégrée et d’un principal de service. Ces exemples de code utilisent .NET, mais les concepts sont similaires pour d’autres langages.
+Les exemples de code de cette section montrent comment s’authentifier avec Azure AD à l’aide de l’authentification intégrée et d’un principal de service. La plupart de ces exemples de code utilisent .NET, mais les concepts sont similaires pour d’autres langages.
 
 > [!NOTE]
 > Un jeton d’authentification Azure AD expire au bout d’une heure. Lorsque vous utilisez un objet **BatchClient** longue durée, nous vous recommandons de récupérer un jeton à partir d’ADAL à chaque demande pour garantir que vous disposez toujours d’un jeton valide. 
@@ -205,7 +205,7 @@ Spécifiez l’ID d’application (ID client) pour votre application. L’ID d�
 private const string ClientId = "<application-id>";
 ```
 
-Copiez également l’URI de redirection que vous avez spécifiée pendant l’inscription. L’URI de redirection spécifié dans votre code doit correspondre à l’URI de redirection que vous avez fourni lors de l’inscription de l’application :
+Copiez également l’URI de redirection que vous avez spécifiée, si vous avez enregistré votre application comme application native. L’URI de redirection spécifié dans votre code doit correspondre à l’URI de redirection que vous avez fourni lors de l’inscription de l’application :
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";
@@ -296,7 +296,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Créez un objet **BatchTokenCredentials** qui prend le délégué comme paramètre. Utilisez ces informations d’identification pour ouvrir un objet **BatchClient**. Vous pouvez ensuite utiliser cet objet **BatchClient** pour les opérations suivantes sur le service Batch :
+Créez un objet **BatchTokenCredentials** qui prend le délégué comme paramètre. Utilisez ces informations d’identification pour ouvrir un objet **BatchClient**. Utilisez ensuite cet objet **BatchClient** pour les opérations suivantes sur le service Batch :
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -308,6 +308,65 @@ public static async Task PerformBatchOperations()
         await client.JobOperations.ListJobs().ToListAsync();
     }
 }
+```
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch Python
+
+Pour s’authentifier avec un principal de service à partir de Batch Python, installez et référencez les modules [azure-batch](https://pypi.org/project/azure-batch/) et [azure-common](https://pypi.org/project/azure-common/).
+
+
+```python
+from azure.batch import BatchServiceClient
+from azure.common.credentials import ServicePrincipalCredentials
+```
+
+Lorsque vous utilisez un principal de service, vous devez indiquer un ID d’abonné. Pour récupérer l’ID client, suivez les étapes décrites dans [Obtenir l’ID client pour Azure Active Directory](#get-the-tenant-id-for-your-active-directory) :
+
+```python
+TENANT_ID = "<tenant-id>";
+```
+
+Référencez le point de terminaison de ressource de service Batch :  
+
+```python
+RESOURCE = "https://batch.core.windows.net/";
+```
+
+Référencez votre compte Batch :
+
+```python
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+```
+
+Spécifiez l’ID d’application (ID client) pour votre application. L’ID d’application est disponible dans votre inscription d’application dans le portail Azure :
+
+```python
+CLIENT_ID = "<application-id>";
+```
+
+Spécifiez la clé secrète que vous avez copiée à partir du portail Azure :
+
+```python
+SECRET = "<secret-key>";
+```
+
+Créez un objet **ServicePrincipalCredentials** :
+
+```python
+credentials = ServicePrincipalCredentials(
+    client_id=CLIENT_ID,
+    secret=SECRET,
+    tenant=TENANT_ID,
+    resource=RESOURCE
+)
+```
+
+Utilisez les informations d’identification du principal de service pour ouvrir un objet **BatchServiceClient**. Utilisez ensuite cet objet **BatchServiceClient** pour les opérations suivantes sur le service Batch.
+
+```python
+    batch_client = BatchServiceClient(
+    credentials,
+    base_url=BATCH_ACCOUNT_URL
+)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

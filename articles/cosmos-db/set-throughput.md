@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0e89b93764f51873d991524a5e226464c224b649
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="set-throughput-for-azure-cosmos-db-containers"></a>Définir le débit des conteneurs Azure Cosmos DB
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB
 
 Vous pouvez définir le débit de vos conteneurs Azure Cosmos DB dans le portail Azure ou à l’aide des SDK clients. 
 
@@ -96,6 +96,43 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
+## <a id="GetLastRequestStatistics"></a>Obtenir le débit en utilisant la commande GetLastRequestStatistics des API MongoDB
+
+L’API MongoDB prend en charge une commande personnalisée, *getLastRequestStatistics*, pour récupérer les frais de requête d’une opération donnée.
+
+Par exemple, dans l’interpréteur de commandes Mongo, exécutez l’opération dont vous souhaitez vérifier les frais de demande.
+```
+> db.sample.find()
+```
+
+Ensuite, exécutez la commande *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+Ainsi, une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.
+
+> [!NOTE]
+> Si vous avez des types d’éléments qui varient considérablement en termes de taille et de nombre de propriétés indexées, enregistrez les frais d’unités de requête d’opérations applicables associés à chaque *type* d’élément standard.
+> 
+> 
+
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtenir le débit à l’aide de mesures du portail de l’API MongoDB
+
+La méthode la plus simple pour obtenir une estimation correcte des frais d’unité de requête pour votre base de données de l’API MongoDB consiste à utiliser les mesures du [Portail Azure](https://portal.azure.com). Grâce aux graphiques *Nombre de requêtes* et *Frais de requête*, vous pouvez obtenir une estimation du nombre d’unités de requête consommées par chaque opération et par les opérations les unes par rapport aux autres.
+
+![Mesures du portail de l’API MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API MongoDB
+Les applications qui dépassent le débit approvisionné pour un conteneur seront limitées jusqu'à ce que le taux de consommation tombe au-dessous du taux de débit approvisionné. En cas de limitation, le serveur principal interrompra la requête de manière préemptive avec un code d’erreur `16500`-`Too Many Requests`. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur `Too Many Requests`. Si vous recevez de nombreux codes d’erreur`Too Many Requests`, vous pouvez considérer l’ajout d’une logique de nouvelle tentative dans vos routines de gestion des erreurs ou [augmenter le débit approvisionné pour le conteneur](set-throughput.md).
+
 ## <a name="throughput-faq"></a>Forum Aux Questions sur le débit
 
 **Puis-je définir mon débit sur une valeur inférieure à 400 unités de demande/s ?**
@@ -109,3 +146,5 @@ Il n’existe aucune extension d’API MongoDB pour définir le débit. Nous vou
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’approvisionnement et la mise à l’échelle avec Cosmos DB, consultez [Partitioning and scaling with Cosmos DB (Partitionnement et mise à l’échelle avec Cosmos DB)](partition-data.md).
+
+[1]: ./media/set-throughput/api-for-mongodb-metrics.png

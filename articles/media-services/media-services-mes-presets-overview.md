@@ -1,11 +1,11 @@
 ---
-title: "Présélections de tâches pour MES (Media Encoder Standard) | Microsoft Docs"
-description: "Cette rubrique vous propose une vue d’ensemble d’exemples de présélections définies par service pour MES (Media Encoder Standard)."
+title: Présélections de tâches pour MES (Media Encoder Standard) | Microsoft Docs
+description: Cette rubrique vous propose une vue d’ensemble d’exemples de présélections définies par service pour MES (Media Encoder Standard).
 author: Juliako
 manager: cfow
 editor: johndeu
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
 ms.service: media-services
 ms.workload: media
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
 ms.author: juliako
-ms.openlocfilehash: 5753b1dffe5a1a4ee069b83f58e9c2dac433b89d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Exemples de présélections pour MES (Media Encoder Standard)
 
 **Media Encoder Standard** définit un ensemble de présélections d’encodage système prédéfinies à utiliser lors de la création des travaux d’encodage. Il est recommandé d’utiliser les paramètres prédéfinis « Diffusion en continu adaptative » si vous souhaitez encoder une vidéo pour une diffusion en continu avec Media Services. Lorsque vous spécifiez cette présélection, Media Encoder Standard [générera automatiquement une échelle des vitesses de transmission](media-services-autogen-bitrate-ladder-with-mes.md). 
 
 ### <a name="creating-custom-presets-from-samples"></a>Création de présélections personnalisées à partir d’exemples
-Media Services prend entièrement en charge la personnalisation de toutes les valeurs dans les présélections afin de répondre à vos exigences et vos besoins spécifiques de codage. Si vous avez besoin de personnaliser une valeur d’encodage prédéfinie, nous vous conseillons de commencer par l’une des présélections système ci-dessous qui sont fournies dans cette section comme modèle pour votre configuration personnalisée. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Media Encoder Standard schema](media-services-mes-schema.md) (Schéma Media Encoder Standard).  
+Media Services prend entièrement en charge la personnalisation de toutes les valeurs dans les présélections afin de répondre à vos exigences et vos besoins spécifiques de codage. Si vous avez besoin de personnaliser une valeur d’encodage prédéfinie, nous vous conseillons de commencer par l’une des présélections système ci-dessous qui sont fournies dans cette section comme modèle pour votre configuration personnalisée. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
 >  Lorsque vous utilisez une présélection pour les encodages 4K, vous devez obtenir le type d’unité réservé `S3`. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
@@ -85,4 +85,4 @@ Lorsque vous utilisez Media Encoder Standard, la rotation vidéo est activée pa
   
  [H264 - Vitesse de transmission unique qualité faible SD pour Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produit un seul fichier MP4 avec une vitesse de transmission de 56 kbit/s, et de l’audio stéréo AAC.  
   
- Pour plus d’informations sur les encodeurs Azure Media Services, consultez la section [Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
+ Pour plus d’informations sur les encodeurs Azure Media Services, consultez la section [Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).

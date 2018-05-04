@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c8966f3dfa16010b82d1fe9cd02c63bdde65463c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Services de conseil de Place de marché Azure
 Dans le but de connecter les clients aux services pour prendre en charge et étendre leur utilisation d’Azure, la Place de marché Azure approuve le référencement des offres de services de conseil des partenaires intégrateurs de systèmes de Microsoft. 
@@ -48,6 +48,9 @@ Les offres doivent correspondre à l’un des cinq types de services suivants (v
 À l’exception du type de service *Réunion d’information*, les services de conseil peuvent être offerts en personne (à savoir, sur site chez un client ou dans l’établissement d’un partenaire) ou virtuellement (à savoir, via la téléconférence, la conférence web ou l’implémentation à distance). Les réunions doivent être proposées en personne.
 
 Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
+
+>[!TIP]
+>Ces informations s’appliquent uniquement aux services Place de marché Azure. Pour publier une offre dans la vitrine Place de marché, vous effectuerez cette sélection en choisissant « Azure » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. Pour publier une offre sur AppSource, vous procéderez à cette sélection en choisissant « Dynamics 365 », « Power BI » ou « Power Apps » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. 
 
 ## <a name="supported-countries"></a>Pays pris en charge
 
@@ -95,3 +98,31 @@ Le référencement de votre offre de services de conseil sur la Place de marché
 4. **Révision** : notre équipe marketing et de rédaction examine votre envoi et l’optimise du point de vue lisibilité, grammaire et efficacité. 
 5. **Intermédiaire** : votre envoi vous est renvoyé pour révision. 
 6. **Publication** : une fois que Microsoft et vous êtes satisfaits du contenu intermédiaire, votre annonce est prête pour la mise en ligne sur la Place de marché Azure. La date de lancement de votre annonce varie selon le pays spécifié dans votre offre. Si le catalogue pour le pays sélectionné est déjà en ligne sur la Place de marché Azure, votre annonce s’affiche au bout de quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
+
+## <a name="content-review-criteria"></a>Critères de révision du contenu
+
+Une fois que vous avez configuré les éléments requis répertoriés ci-dessus, l’équipe de révision du contenu vérifie que la description de votre offre est informative et exhaustive pour votre public cible. 
+
+Notez que le champ de titre est limité à 50 caractères et qu’il doit spécifier la durée et le type de service de l’offre. Cette approche garantit l’optimisation du référencement de votre site auprès d’un moteur de recherche. Le format requis est le suivant : NOM : DURÉE TYPE
+
+Exemples :
+
+
+|Exemple de titre  |Format correct  |
+|---------|---------|
+|Prise en main d’Azure IoT pour la fabrication    |   IoT pour la fabrication : évaluation de 2 jours      |
+|Atelier portant sur les grille-pain intelligents        |  Grille-pain intelligents : atelier d’une semaine       |
+|  POC sur la migration de SQL Server    | Migration SQL : preuve de concept de 3 semaines        |
+
+ 
+Lors de la révision des descriptions et des résumés des offres, l’équipe applique les critères suivants :
+
+|Type d’offre  |Obligatoire |Recommandé  |
+|---------|---------|---------|
+|Évaluation    |   Incluez un agenda détaillé des évaluations de plusieurs jours ou plusieurs semaines et formulez les livrables dont le client bénéficiera.      |    Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.     |
+|Réunion d’information    |   Formulez les livrables dont le client bénéficiera. N’oubliez pas que les réunions d’information doivent également être dispensées en personne. Si vous proposez un service virtuel, choisissez un autre type d’offre.    |  Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.       |
+|Implémentation    |  Incluez un agenda détaillé des implémentations de plusieurs jours ou plusieurs semaines, et formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.       |    Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.     |
+|Preuve de concept    |    Formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.     | Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.        |
+|Atelier    |   Incluez un agenda détaillé quotidien, hebdomadaire ou mensuel, selon la durée que vous avez choisie pour votre offre. Formulez les objectifs d’apprentissage ou les autres livrables de votre atelier.     |   Optimisez le récapitulatif de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.      |
+
+Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre référencement en utilisant [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Ce langage de conception léger vous aidera à peaufiner l’aspect de votre référencement. 

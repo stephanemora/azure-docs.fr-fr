@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ee4fe897bc8b0b1c969ea2fbfc1289d6a5bba7c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba2317e588b570acc1a4f24c89e892729f29b54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copier des données de HBase avec Azure Data Factory 
 
@@ -46,7 +46,7 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **HBase**. | OUI |
 | host | Adresse IP ou nom d’hôte du serveur HBase (Par exemple, 192.168.222.160, [clustername].azurehdinsight.net)  | OUI |
-| port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090.  | Non  |
+| port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non  |
 | httpPath | URL partielle correspondant au serveur HBase (c’est-à-dire /gateway/sandbox/hbase/version).  | Non  |
 | authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Valeurs autorisées : **Anonymous**, **Basic**. | OUI |
 | username | Nom d’utilisateur utilisé pour se connecter à l’instance HBase.  | Non  |

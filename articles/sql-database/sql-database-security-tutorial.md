@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Sécuriser votre base de données SQL Azure
 
-SQL Database protège vos données en limitant l’accès à votre base de données via des règles de pare-feu, des mécanismes d’authentification demandant aux utilisateurs de prouver leur identité, une autorisation pour accéder aux données en fonction des droits et des appartenances associés à un rôle, ainsi qu’à l’aide de la sécurité au niveau des lignes et du masquage de données dynamiques.
+SQL Database protège vos données en : 
+- Limitant l’accès à votre base de données au moyen de règles de pare-feu 
+- Utilisant des mécanismes d’authentification qui nécessitent leur identité
+- Autorisation des données au moyen d’appartenances basées sur le rôle et d’autorisations, 
+- Sécurité au niveau des lignes
+- Masquage des données dynamiques
+
+SQL Database dispose également de fonctionnalités avancées de surveillance, d’audit et de détection des menaces. 
 
 Quelques étapes simples suffisent pour améliorer la protection d’une base de données contre les utilisateurs malveillants ou tout accès non autorisé. Ce didacticiel vous apprend à effectuer les opérations suivantes : 
 
@@ -156,7 +163,7 @@ La technologie de chiffrement transparent des données (TDE) d’Azure SQL Datab
 
 3. Si nécessaire, réglez le paramètre **Chiffrement des données** sur Activé et cliquez sur **Enregistrer**.
 
-Le processus de chiffrement démarre en arrière-plan. Vous pouvez surveiller la progression en vous connectant à SQL Database à l’aide de [SQL Server Management Studio](./sql-database-connect-query-ssms.md) en interrogeant la colonne encryption_state de la vue `sys.dm_database_encryption_keys`.
+Le processus de chiffrement démarre en arrière-plan. Vous pouvez afficher la progression en vous connectant à SQL Database en utilisant [SQL Server Management Studio](./sql-database-connect-query-ssms.md) et en interrogeant la colonne [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). L’état 3 indique que la base de données est chiffrée. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Activer l’audit Azure SQL Database, si nécessaire
 
@@ -168,7 +175,7 @@ L’audit Azure SQL Database suit les événements de base de données et les é
 
     ![Panneau Audit](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Si vous préférez activer un type d’audit (ou un emplacement) différent de celui spécifié au niveau du serveur, **activez** l’audit et choisissez le type d’audit **Objet blob**. Si l’audit Objet blob du serveur est activé, l’audit configuré pour la base de données existe parallèlement à l’audit Objet blob du serveur.
+3. Si vous préférez activer un type d’audit (ou un emplacement) différent de celui spécifié au niveau du serveur, **activez** l’audit et choisissez le type d’audit **Objet blob**. Si l’audit d’objets Blob du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.
 
     ![Activer l’audit](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 

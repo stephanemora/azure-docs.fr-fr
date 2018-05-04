@@ -1,6 +1,6 @@
 ---
-title: "Transformation Fractionner des colonnes par exemple à l’aide d’Azure Machine Learning Workbench"
-description: "Document de référence pour la transformation « Fractionner des colonnes par exemple »"
+title: Transformation Fractionner des colonnes par exemple à l’aide d’Azure Machine Learning Workbench
+description: Document de référence pour la transformation « Fractionner des colonnes par exemple »
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 497c1725fc4554792add11c0ec069d1628a89fbd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Transformation Fractionner des colonnes par exemple
 Cette transformation fractionne de manière prédictive le contenu d’une colonne sur des limites significatives sans nécessiter d’intervention de l’utilisateur. L’algorithme de fractionnement sélectionne les limites après avoir analysé le contenu de la colonne. Ces limites peuvent être définies par
@@ -149,7 +149,7 @@ Dans certains cas il n’y a aucun délimiteur réel, et les champs de données 
 |Montant|Montant_1|Montant_2|
 |:-----|:-----|:-----|
 |\$14|$|14|
-|£9|£|9.|
+|£9|£|9|
 |\$34|$|34|
 |€ 18|€ |18|
 |\$42|$|42|
