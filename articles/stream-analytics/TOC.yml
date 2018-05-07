@@ -76,6 +76,8 @@
           href: stream-analytics-high-frequency-trading.md
         - name: Traiter les données de diffusion en continu IoT
           href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Règles basées sur un seuil
+          href: stream-analytics-threshold-based-rules.md
     - name: Surveiller
       items:
         - name: Surveiller les travaux - Portail Azure

@@ -108,34 +108,51 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Fonctionnalités d’objet blob de pages
           href: storage-blob-pageblob-overview.md
-        - name: Stockage Premium
+        - name: "Disques\_Azure"
           items:
-            - name: Linux
+            - name: Stockage Premium
               items:
-                - name: Stockage Premium hautes performances pour les disques de machine virtuelle
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
-                - name: Migration vers le stockage Premium à l'aide d'Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Conception pour de hautes performances
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
-            - name: Windows
+                - name: Linux
+                  items:
+                    - name: Stockage Premium hautes performances pour les disques de machine virtuelle
+                      href: ../../virtual-machines/linux/premium-storage.md
+                    - name: Migration vers le stockage Premium à l'aide d'Azure Site Recovery
+                      href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Conception pour de hautes performances
+                      href: ../../virtual-machines/linux/premium-storage-performance.md
+                - name: Windows
+                  items:
+                    - name: Stockage Premium hautes performances pour les disques de machine virtuelle
+                      href: ../../virtual-machines/windows/premium-storage.md
+                    - name: Migration vers le stockage Premium à l'aide d'Azure Site Recovery
+                      href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Conception pour de hautes performances
+                      href: ../../virtual-machines/windows/premium-storage-performance.md
+            - name: Stockage standard
               items:
-                - name: Stockage Premium hautes performances pour les disques de machine virtuelle
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
-                - name: Migration vers le stockage Premium à l'aide d'Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Conception pour de hautes performances
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
-        - name: Stockage standard
-          items:
-            - name: Linux
+                - name: Linux
+                  items:
+                    - name: Stockage standard pour disques de machine virtuelle
+                      href: ../../virtual-machines/linux/standard-storage.md
+                - name: Windows
+                  items:
+                    - name: Stockage standard pour disques de machine virtuelle
+                      href: ../../virtual-machines/windows/standard-storage.md
+            - name: Résoudre les problèmes de disques durs virtuels attachés
+              href: storage-troubleshoot-vhds.md
               items:
-                - name: Stockage standard pour disques de machine virtuelle
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
-            - name: Windows
-              items:
-                - name: Stockage standard pour disques de machine virtuelle
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
+                - name: Linux
+                  items:
+                    - name: Erreurs de suppression de ressources de stockage
+                      href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
+                    - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
+                      href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
+                - name: Windows
+                  items:
+                    - name: Erreurs de suppression de ressources de stockage
+                      href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
+                    - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
+                      href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
     - name: Sécuriser
       items:
         - name: Guide sur la sécurité

@@ -105,7 +105,11 @@
         - name: Comment activer l’accélérateur d’écriture
           href: how-to-enable-write-accelerator.md
         - name: Résoudre les problèmes de disques durs virtuels attachés
-          href: troubleshoot-vhds.md
+          items:
+            - name: Erreurs de suppression de ressources de stockage
+              href: storage-resource-deletion-errors.md
+            - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
+              href: unexpected-reboots-attached-vhds.md
     - name: Mise en réseau
       href: network-overview.md
     - name: Applications de mise à l’échelle automatique

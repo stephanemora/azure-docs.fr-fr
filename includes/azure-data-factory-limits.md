@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 7f74f100dca5dfe83ef88ca20f69a1b7af38b333
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support.
 
@@ -32,7 +32,7 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 | Paramètres maximaux par pipeline | 20 | 30 |
 | Octets par objet pour les objets pipeline <sup>1</sup> | 200 Ko | 200 Ko |
 | Octets par objet pour les objets jeu de données et service lié <sup>1</sup> | 100 Ko | 2 000 Ko |
-| Unités de déplacement de données cloud <sup>3</sup> | 256 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unités de déplacement de données cloud par activité exécutée <sup>3</sup> | 256 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline | 1 jour (délai d’expiration) | 1 jour (délai d’expiration) |
 | Écrire des appels d’API | 2 500/h<br/><br/> Cette limite est imposée par Azure Resource Manager, et non par Azure Data Factory. | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Lire des appels d’API | 12 500/h<br/><br/> Cette limite est imposée par Azure Resource Manager, et non par Azure Data Factory. | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -49,7 +49,7 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 | Octets par objet pour les objets pipeline <sup>1</sup> |200 Ko |200 Ko |
 | Octets par objet pour les objets jeu de données et service lié <sup>1</sup> |100 Ko |2 000 Ko |
 | Cœurs de cluster HDInsight à la demande d’un abonnement<sup>2</sup> |60 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Unités de déplacement de données cloud <sup>3</sup> |32 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unités de déplacement de données cloud par activité exécutée <sup>3</sup> |32 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline |1 000 |MaxInt (32 bits) |
 
 <sup>1</sup> Les objets Pipeline, DataSet et LinkedService correspondent à un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide du service Azure Data Factory. Data Factory est conçu pour permettre une mise à l’échelle de plusieurs pétaoctets de données.

@@ -17,8 +17,12 @@
   items:
     - name: Diagnostiquer un problème de routage sur une machine virtuelle
       href: diagnose-vm-network-routing-problem.md
-    - name: Surveiller les connexions réseau
+    - name: Surveiller les communications entre machines virtuelles
       href: connection-monitor.md
+    - name: Diagnostiquer un problème de communication entre réseaux
+      href: diagnose-communication-problem-between-networks.md
+    - name: Consigner le trafic réseau d’une machine virtuelle
+      href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
     - name: Diagnostiquer des problèmes de filtre de trafic réseau sur une machine virtuelle
@@ -93,8 +97,6 @@
       items:
         - name: Configurer des journaux de flux NSG
           items:
-            - name: Portail Azure
-              href: network-watcher-nsg-flow-logging-portal.md
             - name: "Azure\_PowerShell"
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
@@ -136,8 +138,6 @@
       items:
         - name: Résolution des problèmes
           items:
-            - name: Portail Azure
-              href: network-watcher-troubleshoot-manage-portal.md
             - name: "Azure\_PowerShell"
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Azure CLI

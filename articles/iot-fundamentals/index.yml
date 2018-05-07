@@ -13,22 +13,23 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: a86827616c96dd877a88fdd89cb5b0205c2cface
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: d8b144eb52400a76395096a2577fb9ecf28e01c1
+  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 05/03/2018
 abstract:
   description: Bienvenue dans Microsoft Azure et l'Internet des objets (IoT) Azure IoT est une collection complète de services et solutions conçus pour vous aider à créer des applications IoT de bout en bout sur Azure. De solutions SaaS entièrement hébergées et administrées jusqu’à des offres PaaS distinctes et spécialisées, en passant par des technologies conçues pour créer une périphérie intelligente, Azure IoT offre un ensemble complet d’options et d’outils adaptés aux besoins de votre secteur d’activité et aux compétences de votre entreprise et de vos ressources.
 sections:
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: Explorez ces guide de démarrage rapide pour apprendre à vous familiariser avec Azure IoT rapidement et en toute simplicité
+    text: En savoir plus sur Azure IoT rapidement et facilement en explorant ces articles.
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/iot-central/quick-deploy-iot-central">Apprenez à créer une application Azure IoT Central.</a>
+    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Apprenez à déployer la solution préconfigurée de surveillance à distance.</a>
     - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Apprenez à créer un hub IoT et à connecter votre premier appareil simulé à Azure (Node.js).</a>
     - html: <a href="/azure/iot-edge/quickstart-linux">Déployez votre premier module IoT Edge et traitez des données sur un appareil simulé sous Windows, Linux ou Mac.</a>
     - html: <a href="/azure/location-based-services/quick-demo-map-app">Lancez une application de recherche de mappage à l’aide d’Azure Location Based Services (préversion).</a>
@@ -53,7 +54,7 @@ sections:
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">Kits de développement logiciel (SDK) IoT Service</a>
   - type: paragraph
-    text: Développez une périphérie intelligente.
+    text: Créez des solutions avec des appareils IoT et Edge computing.
   - type: list
     style: unordered
     items:

@@ -22,6 +22,8 @@
       href: powershell-samples.md
 - name: Didacticiels
   items:
+    - name: Équilibrer la charge de trafic interne vers des machines virtuelles
+      href: tutorial-load-balancer-basic-internal-portal.md
     - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique

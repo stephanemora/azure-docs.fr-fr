@@ -11,11 +11,11 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: f1d54d71979c3a39b2b40a41b1ba1ab03aa75395
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d4bb27ddc4ff9385fd46fc7554af2af16ef40558
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Créer une base de données SQL Azure à l’aide de l’interface de ligne de commande Azure
 
@@ -25,7 +25,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="define-variables"></a>Définir des variables
 
@@ -78,7 +78,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Créer une base de données dans le serveur avec des exemples de données
 
-Créez une base de données avec un [niveau de performance S0](sql-database-service-tiers.md) sur le serveur avec la commande [az sql db create](/cli/azure/sql/db#az_sql_db_create). L’exemple suivant crée une base de données appelée `mySampleDatabase` et charge les exemples de données AdventureWorksLT dans cette base de données. Remplacez ces valeurs prédéfinies selon les besoins (les autres démarrages rapides de cette collection reposent sur les valeurs de ce démarrage rapide).
+Créez une base de données avec un [niveau de performance S0](sql-database-service-tiers-dtu.md) sur le serveur avec la commande [az sql db create](/cli/azure/sql/db#az_sql_db_create). L’exemple suivant crée une base de données appelée `mySampleDatabase` et charge les exemples de données AdventureWorksLT dans cette base de données. Remplacez ces valeurs prédéfinies selon les besoins (les autres démarrages rapides de cette collection reposent sur les valeurs de ce démarrage rapide).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \

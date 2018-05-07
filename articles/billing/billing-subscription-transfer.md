@@ -75,7 +75,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 1. Vous êtes désormais l’administrateur de compte. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les autres rôles RBAC. Pour plus d’informations, consultez [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services](billing-add-change-azure-subscription-administrator.md).
 1. Mettez à jour les informations d’identification associées aux services de cet abonnement, notamment :
-   1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Microsoft Azure](../cloud-services/cloud-services-certs-create.md)
    1. Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
    1. Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure. 
 1. [Mettez à jour les alertes de facturation pour cet abonnement](billing-set-up-alerts.md) dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions). 

@@ -31,6 +31,8 @@
       href: powershell-samples.md
     - name: Modèles Resource Manager
       href: template-samples.md
+    - name: Modèles de stratégie Azure
+      href: policy-samples.md
 - name: Concepts
   items:
     - name: Sécurité

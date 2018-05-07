@@ -71,6 +71,7 @@
 #### [Gérer les identités des appareils](iot-hub-devguide-identity-registry.md)
 #### [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md)
 #### [Comprendre les représentations d’appareils](iot-hub-devguide-device-twins.md)
+#### [Comprendre les jumeaux de module](iot-hub-devguide-module-twins.md)
 #### [Appeler des méthodes directes sur un appareil](iot-hub-devguide-direct-methods.md)
 #### [Planifier des travaux sur plusieurs appareils](iot-hub-devguide-jobs.md)
 #### [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md)
@@ -106,6 +107,9 @@
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-twin-getstarted.md)
 #### [Back end Python/appareil Python](iot-hub-python-twin-getstarted.md)
+### Prise en main des jumeaux de modules
+#### [Portail de l’appareil back end/.NET](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Utiliser des méthodes directes
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-direct-methods.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-direct-methods.md)

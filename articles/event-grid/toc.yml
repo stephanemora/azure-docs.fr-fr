@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: Interroger des abonnements à des événements
       href: query-event-subscriptions.md
+    - name: Utiliser le schéma CloudEvents
+      href: cloudevents-schema.md
 - name: Informations de référence
   items:
     - name: Azure CLI

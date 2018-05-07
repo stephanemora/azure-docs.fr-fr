@@ -1,8 +1,8 @@
 ---
-title: "Utiliser une MSI de machine virtuelle Linux pour accéder à Stockage Azure en utilisant des informations d’identification SAP"
-description: "Didacticiel montrant comment utiliser une MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage."
+title: Utiliser une MSI de machine virtuelle Linux pour accéder à Stockage Azure en utilisant des informations d’identification SAP
+description: Didacticiel montrant comment utiliser une MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -255,7 +255,7 @@ Réponse :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 - Pour savoir comment suivre ce didacticiel en utilisant une clé de compte de stockage, voir [Utiliser une MSI de machine virtuelle Linux pour accéder à Stockage Azure](msi-tutorial-linux-vm-access-storage.md).

@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Performances et mise à l’échelle
           href: durable-functions-perf-and-scale.md
+        - name: Récupération d’urgence et géo-distribution
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Procédures
   items:
     - name: Développement

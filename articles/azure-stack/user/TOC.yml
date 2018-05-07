@@ -21,8 +21,12 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: Didacticiels
   items:
-    - name: Déployer des applications vers Azure et Azure Stack
+    - name: Déployer des applications sur Azure et Azure Stack
       href: azure-stack-solution-pipeline.md
+    - name: Configurer l’identité de cloud hybride
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Configurer la connectivité de cloud hybride
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: Procédures
   items:
     - name: Utiliser le portail Azure Stack
