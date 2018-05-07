@@ -3880,7 +3880,7 @@ API REST Azure </h3>
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>interface de ligne de commande (CLI)</h2>
+                                    <h2>Interface de ligne de commande (CLI)</h2>
                                 </div>
                             </li>
                             <li>
