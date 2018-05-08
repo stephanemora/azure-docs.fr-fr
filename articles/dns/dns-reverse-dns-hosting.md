@@ -3,20 +3,20 @@ title: Héberger de zones de recherche inversées DNS dans Azure DNS | Microsoft
 description: Découvrez comment utiliser Azure DNS pour héberger les zones de recherche inversées DNS pour vos plages d’adresses IP
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: d5dc152af6acb510e12cd42503b6128dc6492e89
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: kumud
+ms.openlocfilehash: c5d53838ffb77ff8d33fee9d10aea4a74f3c523c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Héberger des zones de recherche DNS inversées dans Azure DNS
 
@@ -264,7 +264,7 @@ Oui. Vous pouvez utiliser Azure CLI pour importer des zones DNS existantes dans 
 
 Pour plus d’informations, consultez [Importer et exporter un fichier de zone DNS à l’aide d’Azure CLI](dns-import-export.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS inversée sur Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

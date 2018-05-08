@@ -2,7 +2,7 @@
 title: Réalisation de projets de science des données - Azure Machine Learning | Microsoft Docs
 description: Comment un scientifique des données peut suivre la progression d’un projet de science des données.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev
-ms.openlocfilehash: fe0c1b4917439221643bf481fdd21828f857e1c4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: ae0a32e15d86e8c2a9f8359a8caf1d205bd019f3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="track-progress-of-data-science-projects"></a>Suivre la progression des projets de science des données
 

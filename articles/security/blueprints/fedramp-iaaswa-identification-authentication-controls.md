@@ -1,6 +1,6 @@
 ---
-title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Identification et authentification"
-description: "Automatisation d’applications web FedRAMP - Identification et authentification"
+title: Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Identification et authentification
+description: Automatisation d’applications web FedRAMP - Identification et authentification
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identification et authentification (IA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles définis par l’organisation] une stratégie d’identification et d’authentification qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie d’identification et d’authentification et des contrôles associés ; et révise et met à jour la stratégie actuelle d’identification et d’authentification [Affectation : fréquence définie par l’organisation] ; et les procédures d’identification et d’authentification [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2** Le système d’information identifie et authentifie de manière unique les utilisateurs de l’organisation (ou les processus intervenant pour le compte des utilisateurs de l’organisation).
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (1)** Le système d’information implémente l’authentification multifacteur pour l’accès réseau aux comptes privilégiés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (3)** Le système d’information implémente l’authentification multifacteur pour l’accès local aux comptes privilégiés.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (4)** Le système d’information implémente l’authentification multifacteur pour l’accès local aux comptes non privilégiés.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -115,11 +115,11 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (5)** Lorsqu’un authentificateur de groupe est utilisé, l’organisation demande aux personnes de s’authentifier au moyen d’un authentificateur individuel.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par cette solution Blueprint. |
+| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par ce programme Blueprint. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| Client | L’accès aux ressources déployées par cette solution Blueprint est protégé contre les attaques par relecture grâce à la fonctionnalité Kerberos intégrée d’Azure Active Directory, d’Active Directory et du système d’exploitation Windows. Dans l’authentification Kerberos, l’authentificateur envoyé par le client contient des données supplémentaires, comme une liste d’adresses IP chiffrées, les horodateurs client et la durée de vie de ticket. Si un paquet est relu, l’horodatage est vérifié. Si l’horodatage est antérieur à ou identique à celui d’un authentificateur précédent, le paquet est rejeté. |
+| **Client** | L’accès aux ressources déployées par cette solution Blueprint est protégé contre les attaques par relecture grâce à la fonctionnalité Kerberos intégrée d’Azure Active Directory, d’Active Directory et du système d’exploitation Windows. Dans l’authentification Kerberos, l’authentificateur envoyé par le client contient des données supplémentaires, comme une liste d’adresses IP chiffrées, les horodateurs client et la durée de vie de ticket. Si un paquet est relu, l’horodatage est vérifié. Si l’horodatage est antérieur à ou identique à celui d’un authentificateur précédent, le paquet est rejeté. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (11)** Le système d’information implémente l’authentification multifacteur pour l’accès distant dans les comptes avec ou sans privilèges. En outre, l’un des facteurs est fourni par un appareil séparé du système et qui obtient l’accès. Cet appareil satisfait aux exigences définies [Affectation : niveau de sécurité du mécanisme défini par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (12)** Le système d’information accepte et vérifie par voie électronique les informations d’identification de la vérification d’identité personnelle (PIV).
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-3** Le système d’information identifie et authentifie de manière unique [Affectation : types d’appareils et/ou appareils spécifiques définis par l’organisation] avant d’établir une connexion [Sélection (une ou plusieurs réponses) : locale ; distante ; réseau].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.a** L’organisation gère les identificateurs du système d’information. Elle reçoit pour cela une autorisation envoyée par [Affectation : personnel ou rôles définis par l’organisation] lui permettant d’affecter un individu, un groupe, un rôle ou un identificateur d’appareil.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.b** L’organisation gère les identificateurs du système d’information en sélectionnant un identificateur qui identifie une personne, un groupe, un rôle ou un appareil.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.c** L’organisation gère les identificateurs du système d’information en affectant l’identificateur à la personne, au groupe, au rôle ou à l’appareil prévu.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.d** L’organisation gère les identificateurs du système d’information en empêchant la réutilisation des identificateurs pendant [Affectation : période de temps définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.e** L’organisation gère les identificateurs du système d’information en désactivant l’identificateur après [Affectation : période d’inactivité définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4 (4)** L’organisation gère les identificateurs individuels en identifiant de manière unique chaque individu en tant que [Affectation : caractéristique définie par l’organisation et révélant un état individuel].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.a** L’organisation gère les authentificateurs du système d’information en vérifiant, dans le cadre de leur distribution initiale, l’identité de la personne, du groupe, du rôle ou de l’appareil recevant l’authentificateur.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.b** L’organisation gère les authentificateurs du système d’information en établissant un contenu d’authentification initial pour les authentificateurs qu’elle définit.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.e** L’organisation gère les authentificateurs du système d’information en modifiant le contenu par défaut des authentificateurs avant l’installation du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.g** L’organisation gère les authentificateurs du système d’information en les modifiant ou en les actualisant [Affectation : période définie par l’organisation selon le type d’authentificateur].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.h** L’organisation gère les authentificateurs du système d’information en protégeant le contenu de l’authentificateur contre toute divulgation et modification non autorisée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.i** L’organisation gère les authentificateurs du système d’information en exigeant des utilisateurs qu’ils adoptent des mesures de sécurité spécifiques visant à protéger les authentificateurs et en faisant en sorte que les appareils implémentent ces mêmes mesures.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -409,11 +409,11 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.j** L’organisation gère les authentificateurs du système d’information en modifiant les authentificateurs des comptes de groupe ou de rôle, lorsque l’appartenance à ces comptes change.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par cette solution Blueprint. |
+| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par ce programme Blueprint. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1).e** Dans le cadre de l’authentification basée sur mot de passe, le système d’information interdit la réutilisation du mot de passe pendant [Affectation : nombre défini par l’organisation] générations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1).f** Dans le cadre de l’authentification basée sur mot de passe, le système d’information permet d’utiliser un mot de passe temporaire pour les ouvertures de session système, et il le modifie immédiatement en un mot de passe permanent.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .a** Dans le cadre de l’authentification basée sur une infrastructure à clé publique, le système d’information valide les certifications en construisant et en vérifiant un chemin d’accès de certification menant à une ancre d’approbation acceptée, y compris en vérifiant les informations sur l’état du certificat.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2).c** Dans le cadre de l’authentification basée sur une infrastructure à clé publique, le système d’information mappe l’identité authentifiée au compte de la personne ou du groupe.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -577,11 +577,11 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (4)** L’organisation utilise des outils automatisés pour déterminer si les authentificateurs de mot de passe sont suffisamment sécurisés pour répondre aux conditions définies [Affectation : exigences définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| Client | Les comptes d’utilisateur déployés avec cette solution Blueprint sont les comptes AD et d’utilisateurs locaux. Ces deux éléments fournissent des mécanismes qui forcent la conformité avec les exigences de mot de passe établies pour permettre la création d’un mot de passe initial, ainsi que pendant la modification des mots de passe. Azure Active Directory est l’outil automatisé utilisé pour déterminer si le niveau de sécurité des authentificateurs de mot de passe est suffisamment fort pour satisfaire les restrictions de longueur, de complexité, de rotation et de durée de vie établies dans le contrôle IA-5 (1). Azure Active Directory permet de s’assurer que le niveau de sécurité de l’authentificateur de mot de passe au moment de la création répond à ces normes. Les mots de passe spécifiés par le client et utilisés pour déployer cette solution sont vérifiés pour répondre aux exigences de niveau de sécurité des mots de passe. |
+| **Client** | Les comptes d’utilisateur déployés avec cette solution Blueprint sont les comptes AD et d’utilisateurs locaux. Ces deux éléments fournissent des mécanismes qui forcent la conformité avec les exigences de mot de passe établies pour permettre la création d’un mot de passe initial, ainsi que pendant la modification des mots de passe. Azure Active Directory est l’outil automatisé utilisé pour déterminer si le niveau de sécurité des authentificateurs de mot de passe est suffisamment fort pour satisfaire les restrictions de longueur, de complexité, de rotation et de durée de vie établies dans le contrôle IA-5 (1). Azure Active Directory permet de s’assurer que le niveau de sécurité de l’authentificateur de mot de passe au moment de la création répond à ces normes. Les mots de passe spécifiés par le client et utilisés pour déployer cette solution sont vérifiés pour répondre aux exigences de niveau de sécurité des mots de passe. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -605,11 +605,11 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (7)** L’organisation garantit qu’aucun authentificateur statique non chiffré n’est incorporé dans les applications ou les scripts d’accès, ni stocké sur les touches de fonction.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| Client | Cette solution Blueprint ne permet aucune utilisation des authentificateurs statiques non chiffrés dans les applications, les scripts d’accès ou les touches de fonction. Un script ou une application qui utilise un authentificateur passe un appel à un conteneur Azure Key Vault avant chaque utilisation. L’accès aux conteneurs Azure Key Vault fait l’objet d’un audit, ce qui permet de détecter les violations de cette interdiction si un compte de service est utilisé pour accéder à un système sans appel correspondant au conteneur Azure Key Vault. |
+| **Client** | Cette solution Blueprint ne permet aucune utilisation des authentificateurs statiques non chiffrés dans les applications, les scripts d’accès ou les touches de fonction. Un script ou une application qui utilise un authentificateur passe un appel à un conteneur Azure Key Vault avant chaque utilisation. L’accès aux conteneurs Azure Key Vault fait l’objet d’un audit, ce qui permet de détecter les violations de cette interdiction si un compte de service est utilisé pour accéder à un système sans appel correspondant au conteneur Azure Key Vault. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (11)** Dans le cadre de l’authentification basée sur les jetons matériels, le système d’information utilise des mécanismes qui répondent aux conditions définies [Affectation : exigences de qualité des jetons définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (13)** Le système d’information interdit l’utilisation des authentificateurs mis en cache après [Affectation : période de temps définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-6** Le système d’information masque les commentaires apportés aux informations d’authentification pendant le processus d’authentification. L’objectif est de protéger les informations contre toute exploitation ou utilisation possible par des personnes non autorisées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (1)** Le système d’information accepte et vérifie par voie électronique les informations d’identification de la vérification d’identité personnelle (PIV) émanant d’autres agences fédérales.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (2)** Le système d’information accepte uniquement les informations d’identification tierces approuvées par la FICAM.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (3)** L’organisation utilise uniquement les composants de système d’information approuvés par la FICAM dans [Affectation : systèmes d’information définis par l’organisation] pour accepter les informations d’identification tierces.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

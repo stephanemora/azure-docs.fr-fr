@@ -3,7 +3,7 @@ title: Démarrage rapide de Azure Security Center - Connexion des solutions de s
 description: Démarrage rapide de Azure Security Center - Connexion des solutions de sécurité
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: yurid
-ms.openlocfilehash: 95cc85f0c742d465ab1ed68d6c29b61a6919dd5b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: afc72f5b18460578b0cfcd085fe601184a2f898b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Démarrage rapide : Connexion des solutions de sécurité à Security Center
 
@@ -30,6 +30,7 @@ Ce démarrage rapide vous montre comment :
 - Valider la connexion avec la solution de sécurité
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/free/).
 
 Pour effectuer ce démarrage rapide, vous devez utiliser le niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pendant 60 jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
@@ -91,7 +92,7 @@ Si vous voulez désactiver l’approvisionnement automatique :
 > La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris à connecter une solution Syslog Linux à Security Center à l’aide du format CEF. En connectant vos journaux CEF à Security Center, vous pouvez tirer parti des règles d’alerte de recherche et personnalisée et des informations riches de Threat Intelligence. Pour en savoir plus sur l’utilisation de Security Center, passez au didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité de vos ressources.
 
 > [!div class="nextstepaction"]

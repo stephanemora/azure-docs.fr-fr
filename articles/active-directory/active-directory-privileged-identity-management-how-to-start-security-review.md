@@ -1,25 +1,23 @@
 ---
-title: "Démarrage d’une révision d’accès | Microsoft Docs"
-description: "Découvrez comment créer une révision d'accès pour les identités privilégiées avec l’application Azure Privileged Identity Management."
+title: Démarrage d’une révision d’accès | Microsoft Docs
+description: Découvrez comment créer une révision d'accès pour les identités privilégiées avec l’application Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 3e52b731-55f4-4c8a-ba87-9fd34033f52f
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 05/04/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: f57a32ca1914d18540289ebb05421a7ae9618094
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1923890e01b351f884837e14b5e2ca736ec687ce
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Comment démarrer une révision de l’accès dans Azure AD Privileged Identity Management ?
 Les attributions de rôles deviennent « obsolètes » lorsque les utilisateurs bénéficient d’un accès privilégié dont ils n’ont plus besoin. Pour réduire les risques associés à ces affectations de rôles « obsolètes », les administrateurs de rôle privilégié doivent régulièrement réviser les rôles qui ont été donnés aux utilisateurs. Ce document décrit les étapes de démarrage d’une révision d’accès dans Azure AD Privileged Identity Management (PIM).

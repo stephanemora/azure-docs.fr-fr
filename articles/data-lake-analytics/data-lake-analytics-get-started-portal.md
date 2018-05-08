@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: saveenr
-ms.openlocfilehash: bdd9ff78e8f720a7f1318c320d10070cbdd2d566
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Prise en main d’Azure Data Lake Analytics à l’aide du Portail Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -69,8 +69,7 @@ OUTPUT @a
 2. Collez le texte du script U-SQL ci-dessus. 
 3. Cliquez sur **Envoyer le travail**.   
 4. Attendez que l’état du travail passe à **Réussi**.
-5. Si le travail échoue, consultez [Analyser et dépanner les travaux Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. Cliquez sur l’onglet **Sortie**, puis sur `data.csv`. 
+5. Cliquez sur l’onglet **Sortie**, puis sur `data.csv`. 
 
 ## <a name="see-also"></a>Voir aussi
 

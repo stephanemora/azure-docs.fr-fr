@@ -1,19 +1,19 @@
 ---
 title: Calcul Azure - Extension de diagnostic Linux | Microsoft Docs
-description: "Comment configurer l’extension de diagnostic Linux Azure pour collecter des métriques et consigner les événements provenant de machines virtuelles Linux qui s’exécutent dans Azure."
+description: Comment configurer l’extension de diagnostic Linux Azure pour collecter des métriques et consigner les événements provenant de machines virtuelles Linux qui s’exécutent dans Azure.
 services: virtual-machines-linux
-author: jasonzio
-manager: anandram
+author: abhijeetgaiha
+manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: jasonzio
-ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: agaiha
+ms.openlocfilehash: 84be206ef02cca9cc321e9764c016ca79816edf5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
 
@@ -51,6 +51,7 @@ Ces instructions d’installation et un [exemple de configuration téléchargeab
 La configuration téléchargeable est seulement un exemple. Modifiez-la selon vos besoins.
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.

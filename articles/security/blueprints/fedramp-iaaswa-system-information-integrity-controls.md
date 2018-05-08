@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 0eca3c82aea287f6582bd56574512dce5e8e86c7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Intégrité du système et des informations (SI)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-2.a** L’organisation identifie, signale et corrige les défauts du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-2.c** L’organisation installe les mises à jour des logiciels et des microprogrammes relatifs à la sécurité pendant la [Affectation : période définie par l’organisation] de la version des mises à jour.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-2.d** L’organisation incorpore la correction des défauts dans le processus de gestion de la configuration de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-3.a** L’organisation utilise des mécanismes de protection contre les codes malveillants aux points d’entrée et de sortie du système d’information pour détecter et éliminer les codes malveillants.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-3.c** L’organisation configure les mécanismes de protection contre les codes malveillants pour effectuer des analyses périodiques du système d’information [Affectation : fréquence définie par l’organisation] et les analyses en temps réel des fichiers à partir des sources externes au niveau de [Sélection (au moins une) ; point de terminaison ; points d’entrée/sortie du réseau] lorsque les fichiers sont téléchargés, ouverts ou exécutés en fonction de la stratégie de sécurité de l’organisation ; et [Sélection (au moins une) : bloque le code malveillant ; met le code malveillant en quarantaine ; envoie une alerte à l’administrateur ; [Affectation : action définie par l’organisation]] en réponse à la détection d’un code malveillant.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-4.g** L’organisation fournit des [Affectation : informations de surveillance du système d’information définies par l’organisation] à [Affectation : personnel ou rôles définis par l’organisation] [Sélection (au moins une) : en fonction des besoins ; [Affectation : fréquence définie par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-4 (4)** Le système d’information surveille le trafic des communications entrantes et sortantes [Affectation : fréquence définie par l’organisation] pour détecter des activités ou des conditions inhabituelles ou non autorisées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-4 (14)** L’organisation utilise un système de détection des intrusions sans fil pour identifier les appareils sans fil non fiables et détecter les tentatives d’attaque et les compromissions/failles potentielles du système d’information.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-4 (16)** L’organisation met en corrélation les informations des outils de surveillance utilisés dans l’ensemble du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-4 (20)** L’organisation met en œuvre la [Affectation : surveillance supplémentaire définie par l’organisation] des utilisateurs disposant de privilèges.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-4 (22)** Le système d’information détecte les services réseau qui n’ont pas été autorisés ou approuvés par [Affectation : processus d’autorisation ou d’approbation définis par l’organisation] et [Sélection (au moins une) : audits ; alertes [Affectation : personnel ou rôles définis par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-4 (23)** L’organisation met en œuvre des [Affectation : mécanismes de surveillance basés sur l’hôte définis par l’organisation] à [Affectation : composants du système d’information définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-5.b** L’organisation génère des alertes de sécurité, des conseils et des directives internes comme jugé nécessaire.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-6.a** Le système d’information vérifie le bon fonctionnement des [Affectation : fonctions de sécurité définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-6.b** Le système d’information effectue cette vérification des [Sélection (au moins une) : [Affectation : états de transition du système définis par l’organisation] ; suite à une commande d’un utilisateur disposant de privilèges appropriés ; [Affectation : fréquence définie par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-6.d** Le système d’information [Sélection (au moins une) : arrête le système d’information ; redémarre le système d’information ; [Affectation : autre(s) action(s) définie(s) par l’organisation]] lorsque des anomalies sont détectées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-7 (2)** L’organisation utilise des outils automatisés qui informent [Affectation : personnel ou rôles définis par l’organisation] de la découverte d’incohérences pendant la vérification de l’intégrité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-7 (5)** Le système d’information [Sélection (au moins une) : arrête le système d’information ; redémarre le système d’information ; implémente [Affectation : dispositifs de protection de sécurité définis par l’organisation]] lorsque des violations de l’intégrité sont détectées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-7 (7)** L’organisation incorpore la détection des [affectation : modifications de la sécurité du système d’information définies par l’organisation] non autorisées dans la fonctionnalité de réponse aux incidents de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-7 (14)** L’organisation interdit l’utilisation d’un code binaire ou exécutable sur la machine provenant de sources ayant une garantie limitée ou sans garantie et lorsque le code source n’a pas été fourni ; et fournit des exceptions aux exigences de code en cas de besoins impératifs liés à la mission/au fonctionnement et avec l’approbation du responsable autorisé.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-10** Le système d’information contrôle la validité des [Affectation : entrées d’informations définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-12** L’organisation gère et conserve les informations dans le système d’information et les informations générées par le système conformément aux lois fédérales, aux décrets, aux directives, aux politiques, aux réglementations, aux normes et aux conditions opérationnelles en vigueur.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 04/16/2018
 
 **SI-16** Le système d’information implémente des [Affectation : sauvegardes de sécurité définies par l’organisation] pour protéger sa mémoire contre une exécution de code non autorisée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

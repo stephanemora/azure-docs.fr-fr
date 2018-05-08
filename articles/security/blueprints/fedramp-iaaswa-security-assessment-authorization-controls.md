@@ -1,6 +1,6 @@
 ---
-title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Évaluation de la sécurité et autorisation"
-description: "Automatisation d’applications web FedRAMP - Évaluation de la sécurité et autorisation"
+title: Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Évaluation de la sécurité et autorisation
+description: Automatisation d’applications web FedRAMP - Évaluation de la sécurité et autorisation
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Autorisation et évaluation de la sécurité (autorité de certification)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie d’autorisation et d’évaluation de la sécurité qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie d’autorisation et d’évaluation de la sécurité et des contrôles d’autorisation et d’évaluation de la sécurité associés ; et révise et met à jour la stratégie actuelle d’autorisation et d’évaluation de la sécurité [Affectation : fréquence définie par l’organisation] ; et les procédures d’autorisation et d’évaluation de la sécurité [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.a** L’organisation élabore un plan d’évaluation de la sécurité qui décrit la portée de l’évaluation, notamment les contrôles de sécurité et les améliorations apportées aux contrôles en cours d’évaluation ; les procédures d’évaluation à utiliser pour déterminer l’efficacité des contrôles de sécurité ; et l’environnement d’évaluation, l’équipe d’évaluation ainsi que les rôles et les responsabilités en matière d’évaluation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.b** L’organisation évalue les contrôles de sécurité dans le système d’information et son environnement opérationnel [Affectation : fréquence définie par l’organisation] afin de déterminer dans quelle mesure les contrôles sont mis en œuvre correctement, fonctionnent comme prévu et produisent les résultats escomptés quant au respect des exigences de sécurité établies.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.c** L’organisation produit un rapport d’évaluation de la sécurité qui décrit les résultats de l’évaluation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (2)** L’organisation comprend, dans le cadre des évaluations du contrôle de sécurité, [Affectation : fréquence définie par l’organisation],[Sélection : annoncée ; inopinée],[Sélection (un ou plusieurs) : surveillance approfondie ; analyse des vulnérabilités ; tests d’utilisateurs malveillants ; évaluation des menaces internes ; tests de performance/charge ; [Affectation : autres formes d’évaluation de la sécurité définies par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (3)** L’organisation accepte les résultats d’une évaluation de [Affectation : système d’information défini par l’organisation] effectuée par [Affectation : organisation définie par l’organisation] lorsque l’évaluation respecte les [Affectation : exigences définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3.b** L’organisation présente, pour chaque interconnexion, les caractéristiques de l’interface, les exigences de sécurité et la nature de l’information communiquée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3.c** L’organisation examine et met à jour les accords de sécurité d’interconnexion [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3 (3)** L’organisation interdit la connexion directe d’un [Affectation : système de sécurité non classifié et non national défini par l’organisation] à un réseau externe sans l’utilisation d’un [Affectation : dispositif de protection de la limite défini par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3 (5)** L’organisation a recours à la politique de [Sélection : tout autoriser, refuser par exception ; tout refuser, autoriser par exception] pour permettre aux [Affectation : systèmes d’information définis par l’organisation] de se connecter à des systèmes d’information externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-5.a** L’organisation élabore un plan d’action et des jalons pour le système d’information afin de documenter les mesures correctives prévues par l’organisation pour corriger les faiblesses ou les lacunes relevées au cours de l’évaluation des contrôles de la sécurité et pour réduire ou éliminer les vulnérabilités connues du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-5.b** L’organisation met à jour son plan d’action et ses jalons [Affectation : fréquence définie par l’organisation] en fonction des résultats des évaluations des contrôles de la sécurité, des analyses d’impact sur la sécurité et des activités de surveillance continue.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.a** L’organisation désigne un cadre supérieur ou un manager à titre de responsable autorisé du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.b** L’organisation s’assure que le responsable autorisé valide l’utilisation du système d’information pour le traitement avant le début des opérations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.b** L’organisation élabore une stratégie de surveillance continue et met en œuvre un programme de surveillance continue qui comprend l’établissement d’une [Affectation : fréquence définie par l’organisation] pour la surveillance et d’une [Affectation : fréquence définie par l’organisation] pour les évaluations qui prennent en charge ce type de surveillance.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.c** L’organisation élabore une stratégie de surveillance continue et met en œuvre un programme de surveillance continue qui comprend des évaluations continues du contrôle de la sécurité conformément à la stratégie de surveillance continue de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.e** L’organisation élabore une stratégie de surveillance continue et met en œuvre un programme de surveillance continue qui comprend la corrélation et l’analyse des informations relatives à la sécurité générées par les évaluations et la surveillance.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.f** L’organisation élabore une stratégie de surveillance continue et met en œuvre un programme de surveillance continue qui comprend des mesures d’intervention pour donner suite aux résultats de l’analyse des informations relatives à la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7 (1)** L’organisation emploie des évaluateurs ou des équipes d’évaluation dotées d’un [Affectation : niveau d’indépendance défini par l’organisation] pour surveiller en permanence les contrôles de la sécurité dans le système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7 (3)** L’organisation utilise des analyses de tendances pour déterminer si les mises en œuvre du contrôle de la sécurité, la fréquence des activités de surveillance continue ou les types d’activités du processus de surveillance continue doivent être modifié(e)s en fonction de données empiriques.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-8** L’organisation effectue des tests de pénétration [Affectation : fréquence définie par l’organisation] sur [Affectation : systèmes d’information ou composants de système définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-8 (1)** L’organisation emploie un agent ou une équipe de pénétration indépendant(e) pour effectuer des tests de pénétration sur le système d’information ou ses composants.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-9.a** L’organisation autorise les connexions internes des [Affectation : composants ou classes de composants du système d’information définis par l’organisation] au système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

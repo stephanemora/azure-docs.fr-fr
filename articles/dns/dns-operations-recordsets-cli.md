@@ -1,10 +1,10 @@
 ---
-title: "Gérer les enregistrements DNS dans Azure DNS à l’aide d’Azure CLI 2.0 | Microsoft Docs"
-description: "Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes CLI 2.0 destinées aux opérations sur les jeux d’enregistrements et les enregistrements."
+title: Gérer les enregistrements DNS dans Azure DNS à l’aide d’Azure CLI 2.0 | Microsoft Docs
+description: Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes CLI 2.0 destinées aux opérations sur les jeux d’enregistrements et les enregistrements.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: carmonm
+manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -14,16 +14,16 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
-ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [portail Azure](dns-operations-recordsets-portal.md)
+> * [Portail Azure](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -55,7 +55,7 @@ L’exemple suivant crée un enregistrement A appelé *www* dans la zone *contos
 az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Pour créer un jeu d’enregistrements à l’extrémité de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "\@\" (guillemets compris) :
+Pour créer un jeu d’enregistrements à l’extrémité de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "@" (guillemets compris) :
 
 ```azurecli
 az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -118,7 +118,7 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 ### <a name="create-an-mx-record"></a>Créer un enregistrement MX
 
-Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « \@\ » pour créer l’enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
+Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « @ » pour créer l’enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
 
 ```azurecli
 az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
@@ -140,7 +140,7 @@ az network dns record-set ptr set-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Création d’un enregistrement SRV
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "\@\" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "@" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
 
 ```azurecli
 az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com

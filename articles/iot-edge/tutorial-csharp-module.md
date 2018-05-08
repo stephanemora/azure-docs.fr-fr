@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 09e20d9a80b881075d9bb6be7d4daafc739340a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Développer et déployer un module C# IoT Edge sur votre appareil simulé - Aperçu
 
@@ -60,7 +60,7 @@ Les étapes suivantes montrent vous comment créer un module IoT Edge basé sur 
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-3. Créez un projet pour le nouveau module. La commande suivante crée le dossier du projet, **FilterModule**, avec le référentiel du conteneur. Le deuxième paramètre doit être au format `<your container registry name>.azurecr.io` si vous utilisez le registre de conteneurs Azure. Dans le dossier de travail actif, entrez la commande suivante :
+3. Créez un projet pour le nouveau module. La commande suivante crée le dossier du projet, **FilterModule**, avec le référentiel du conteneur. Le deuxième paramètre doit être au format `<your container registry name>.azurecr.io` si vous utilisez le registre de conteneurs Azure. Dans le dossier de travail actif, entrez la commande suivante :
 
     ```cmd/sh
     dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
@@ -116,9 +116,10 @@ Les étapes suivantes montrent vous comment créer un module IoT Edge basé sur 
     // Read TemperatureThreshold from Module Twin Desired Properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
     var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
+    try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    } catch(ArgumentOutOfRangeException e) {
+        Console.WriteLine("Proerty TemperatureThreshold not exist");
     }
 
     // Attach callback for Twin desired properties updates

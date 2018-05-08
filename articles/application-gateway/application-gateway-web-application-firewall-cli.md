@@ -1,20 +1,20 @@
 ---
-title: "Créer une passerelle d’application avec un pare-feu d’applications web - Interface CLI Azure | Microsoft Docs"
-description: "Apprenez à créer une passerelle d’application avec un pare-feu d’applications web à l’aide de l’interface CLI Azure."
+title: Créer une passerelle d’application avec un pare-feu d’applications web - Interface CLI Azure | Microsoft Docs
+description: Apprenez à créer une passerelle d’application avec un pare-feu d’applications web à l’aide de l’interface CLI Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 87125b68c81af07d0ecd9693fdf7e2dc00a93324
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Création d’une passerelle d’application avec un pare-feu d’applications web à l’aide de l’interface CLI Azure
 
@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Créer une passerelle d’application avec WAF
 
-Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) pour créer la passerelle d’application nommée *myAppGateway*. Lorsque vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, notamment la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est assignée aux *myAGSubnet* et *myPublicIPSddress* que vous avez créés.
+Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) pour créer la passerelle d’application nommée *myAppGateway*. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est assignée aux *myAGSubnet* et *myPublicIPSddress* que vous avez créés.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -94,11 +94,11 @@ az network application-gateway waf-config set \
 
 La création de la passerelle d’application peut prendre plusieurs minutes. Une fois la passerelle d’application créée, vous pouvez voir ses nouvelles fonctionnalités suivantes :
 
-- *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses principal.
+- *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses backend.
 - *appGatewayBackendHttpSettings* : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication.
 - *appGatewayHttpListener* : écouteur par défaut associé à *appGatewayBackendPool*.
 - *appGatewayFrontendIP* - assigne *myAGPublicIPAddress* à *appGatewayHttpListener*.
-- *rule1* : règle d’acheminement par défaut associée à *appGatewayHttpListener*.
+- *rule1* : règle de routage par défaut associée à *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Créer un groupe de machines virtuelles identiques
 
@@ -129,12 +129,12 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Créer un compte de stockage et configurer des diagnostics
 
-Dans ce didacticiel, la passerelle d’application utilise un compte de stockage pour stocker des données à des fins de détection et de prévention. Vous pouvez également utiliser Log Analytics ou Event Hub pour enregistrer des données. 
+Dans ce didacticiel, la passerelle d’application utilise un compte de stockage pour stocker des données à des fins de détection et de prévention. Vous pouvez également utiliser Log Analytics ou le hub d’événements pour enregistrer des données. 
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -185,4 +185,4 @@ Dans ce didacticiel, vous avez appris à :
 > * Créer un groupe de machines virtuelles identiques
 > * Créer un compte de stockage et configurer des diagnostics
 
-Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
+Pour en savoir plus sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.

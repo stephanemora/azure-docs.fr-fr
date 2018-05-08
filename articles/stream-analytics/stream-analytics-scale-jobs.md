@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
@@ -31,7 +31,8 @@ Si votre requête est par définition entièrement parallélisable sur plusieurs
         - Si le problème est dû à une limitation du récepteur, vous devrez peut-être augmenter le nombre de partitions de sortie (et également de partitions d’entrée pour que le travail reste entièrement parallélisable), ou augmenter la quantité de ressources du récepteur (par exemple le nombre d’unités de requête pour CosmosDB).
     - Dans le diagramme de travail, il existe une métrique d’événement de backlog par partition pour chaque entrée. Si la métrique d’événement de backlog continue à augmenter, cela indique également que la ressource système est contrainte (en raison de la limitation du récepteur de sortie ou d’une utilisation élevée du processeur).
 4.  Une fois que vous avez déterminé les limites d’un travail avec 6 unités de streaming, vous pouvez extrapoler linéairement la capacité de traitement du travail à mesure que vous ajoutez d’autres unités, en partant du principe que vous n’avez aucune asymétrie des données qui rend une partition « sensible ».
->[!Note]
+
+> [!NOTE]
 > Choisissez le nombre approprié d’unités de streaming : comme Stream Analytics crée un nœud de traitement pour chaque ensemble de 6 unités de streaming ajouté, il est préférable de faire du nombre de nœuds un diviseur du nombre de partitions d’entrée pour que les partitions puissent être réparties uniformément entre les nœuds.
 > Par exemple, vous avez mesuré que votre travail avec 6 unités de streaming peut atteindre une vitesse de traitement de 4 Mo/s et le nombre de partitions d’entrée est 4. Vous pouvez choisir d’exécuter votre travail avec 12 unités de streaming pour atteindre une vitesse de traitement d’environ 8 Mo/s, ou 24 unités de streaming pour atteindre 16 Mo/s. Vous pouvez alors décider quand augmenter le nombre d’unités de streaming du travail jusqu’à quelle valeur, en fonction de votre vitesse d’entrée.
 

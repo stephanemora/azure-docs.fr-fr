@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 7a7529f9a0ebe43c9fd6e473baff6f7a3b61e5e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="risk-assessment-ra"></a>Évaluation des risques (RA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie d’évaluation des risques qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie d’évaluation des risques et des contrôles d’évaluation des risques associés ; et révise et met à jour la stratégie actuelle d’évaluation des risques [Affectation : fréquence définie par l’organisation] ; et les procédures d’évaluation des risques [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-2.c** L’organisation s’assure que le responsable autorisé ou le représentant désigné du responsable autorisé examine et approuve la décision de catégorisation de sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-3.a** L’organisation procède à une évaluation des risques, incluant la probabilité et l’ampleur des dommages, liés à l’accès, l’utilisation, la divulgation, la perturbation, la modification ou la destruction du système d’informations et des informations qu’il traite, stocke ou transmet.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-3.b** L’organisation documente les résultats de l’évaluation des risques dans le [Sélection : plan de sécurité ; rapport d’évaluation des risques ; [Affectation : document défini par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-3.d** L’organisation distribue les résultats de l’évaluation des risques à [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-3.e** L’organisation met à jour l’évaluation des risques [Affectation : fréquence définie par l’organisation] ou les modifications importantes apportées au système d’information ou à l’environnement de fonctionnement (y compris l’identification des nouvelles menaces et vulnérabilités) ou les autres conditions pouvant avoir un impact sur l’état de sécurité du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-5.a** L’organisation analyse les vulnérabilités dans le système d’information et les applications hébergées [Affectation : fréquence définie par l’organisation et/ou de façon aléatoire conformément au processus défini par l’organisation] et le moment où de nouvelles vulnérabilités pouvant potentiellement affecter le système/les applications sont identifiées et signalées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-5.b** L’organisation utilise des outils et techniques d’analyse des vulnérabilités qui facilitent l’interopérabilité entre les outils et automatisent des parties du processus de gestion des vulnérabilités à l’aide de normes pour énumérer les plateformes, les défauts logiciels et les configurations incorrectes ; mettre en forme les listes de contrôle et les procédures de test ; et mesurer l’impact des vulnérabilités.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-5.c** L’organisation analyse les rapports et les résultats d’analyse des vulnérabilités des évaluations de contrôle de sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-5.d** L’organisation corrige les vulnérabilités légitimes [Affectation : temps de réponse définis par l’organisation] conformément à une évaluation des risques organisationnels.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-5.e** L’organisation partage les informations obtenues via le processus d’analyse des vulnérabilités et les évaluations du contrôle de sécurité avec [Affectation : personnel ou rôles définis par l’organisation] pour permettre l’élimination de vulnérabilités similaires dans d’autres systèmes d’information (par exemple, des anomalies ou des faiblesses systémiques).
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-5 (1)** L’organisation utilise des outils d’analyse des vulnérabilités permettant de mettre facilement à jour les vulnérabilités du système d’information à analyser.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 04/16/2018
 
 **RA-5 (10)** L’organisation met en corrélation les résultats des outils d’analyse des vulnérabilités pour déterminer la présence de vecteurs d’attaque via plusieurs vulnérabilités/plusieurs tronçons.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

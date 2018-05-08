@@ -3,7 +3,7 @@ title: 'Processus TDSP (Team Data Science Process) en action : utilisation d’
 description: Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données volumineux (1 To), disponible publiquement
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 72d958c4-3205-49b9-ad82-47998d400d2b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: deguhath
+ms.openlocfilehash: 187171d75a6bcc54a48c891aa2eafd8408b06ddb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
 
@@ -58,7 +58,7 @@ Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 2. **Régression**: prédit la probabilité d'un clic effectué sur une annonce à partir de fonctionnalités utilisateur.
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour la science des données
-**Remarque** : il s’agit généralement d’une tâche d’**administration**.
+**Remarque** : il s’agit généralement d’une tâche d’**administration **.
 
 Configurez votre environnement de science des données Azure pour créer des solutions d'analyse prédictives avec les clusters HDInsight en trois étapes :
 

@@ -1,26 +1,26 @@
 ---
-title: "Créer une passerelle d’application hébergeant plusieurs sites - Portail Azure | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application qui héberge plusieurs sites à l’aide du portail Azure."
+title: Créer une passerelle d’application hébergeant plusieurs sites - Portail Azure | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application qui héberge plusieurs sites à l’aide du portail Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Créer une passerelle d’application hébergeant plusieurs sites à l’aide du portail Azure
 
 Vous pouvez utiliser le portail Azure pour configurer [l’hébergement de plusieurs sites web](application-gateway-multi-site-overview.md) quand vous créez une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez des pools backend à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
-Dans cet article, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer une passerelle Application Gateway
@@ -102,7 +102,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle : 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -116,7 +116,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez *fabrikamVM* comme nom et valeur de VMName dans Set-AzureRmVMExtension.
 
-## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools backend avec les machines virtuelles
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools principaux avec les machines virtuelles
 
 1. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
 2. Cliquez sur **Pools principaux**, puis sur **Ajouter**.
@@ -166,7 +166,7 @@ Une fois la passerelle d’application créée avec son adresse IP publique, vou
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-1. Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple : http://www.contoso.com.
+1. Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, http://www.contoso.com.
 
     ![Tester le site contoso dans la passerelle d’application](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 

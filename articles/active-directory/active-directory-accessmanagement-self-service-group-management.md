@@ -1,26 +1,24 @@
 ---
-title: "Configuration de la gestion de l’accès aux applications en libre-service dans Azure Active Directory | Microsoft Docs"
-description: "Créer et gérer des groupes de sécurité ou Office 365 dans Azure Active Directory et demander des appartenances aux groupes de sécurité ou Office 365"
+title: Configuration de la gestion de l’accès aux applications en libre-service dans Azure Active Directory | Microsoft Docs
+description: Créer et gérer des groupes de sécurité ou Office 365 dans Azure Active Directory et demander des appartenances aux groupes de sécurité ou Office 365
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4798c9f9b289f8fa089498398079565c35ccdd2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee116762945f01c5c8031b97e0e09fa6c6ae6d7f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurer Azure Active Directory pour la gestion de groupes en libre-service
 Vos utilisateurs peuvent créer et gérer leurs propres groupes de sécurité ou Office 365 dans Azure Active Directory (Azure AD). Les utilisateurs peuvent également faire une demande d’appartenance à un groupe de sécurité ou Office 365. Le propriétaire du groupe peut alors approuver ou refuser l’appartenance. Le contrôle quotidien de l’appartenance à un groupe peut être délégué à des personnes qui ont une bonne connaissance du contexte professionnel de cette appartenance. Les fonctionnalités de gestion de groupes en libre-service ne sont disponibles que pour les groupes de sécurité et les groupes Office 365. Elles ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.

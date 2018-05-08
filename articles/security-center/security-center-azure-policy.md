@@ -1,11 +1,11 @@
 ---
-title: "Intégration des stratégies de sécurité Azure Security Center avec Azure Policy | Microsoft Docs"
-description: "Ce document est conçu pour vous aider à configurer l’intégration de stratégies de sécurité Azure Security Center avec Azure Policy."
+title: Intégration des stratégies de sécurité Azure Security Center avec Azure Policy | Microsoft Docs
+description: Ce document est conçu pour vous aider à configurer l’intégration de stratégies de sécurité Azure Security Center avec Azure Policy.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: d0092f57c162cc8727cfed33218e440d4da11f1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Intégrer des stratégies de sécurité Security Center avec Azure Policy
 Cet article est conçu pour vous aider à configurer les stratégies de sécurité Azure Security Center offertes par Azure Policy.

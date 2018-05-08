@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94b451f66d286426f6dd2cc556e8c6785c3f743e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configuration des revendications de rôle émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 
@@ -121,7 +121,7 @@ Si votre application s’attend à voir passer dans la réponse SAML des rôles 
             "origin": "ServicePrincipal",
             "value": "Administrator"
         }
-    ],
+    ]
     }
     ```
     > [!Note]

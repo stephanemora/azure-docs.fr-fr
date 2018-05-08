@@ -1,24 +1,24 @@
 ---
 title: Service de mappage des compteurs pour compte gratuit Azure | Microsoft Docs
 description: Comprendre le service de mappage des compteurs pour les services inclus dans un compte gratuit.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 9d7e355e755f2bac8929ab16f7f71aa3b0702658
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Comprendre le service gratuit de mappage des compteurs
 
@@ -26,7 +26,7 @@ Chaque service Azure émet des informations d’utilisation basées sur des comp
 
 ## <a name="service-to-meter-mapping-for-free-account-eligible-services"></a>Service de mappage des compteurs pour les services éligibles de compte gratuit 
 
-|    Service   | Nom du compteur sur le portail Azure | Nom du compteur dans le fichier ou l’API d’utilisation | ID du compteur |
+|    de diffusion en continu   | Nom du compteur sur le portail Azure | Nom du compteur dans le fichier ou l’API d’utilisation | ID du compteur |
 | ------------ | -------------------------- | -------------------------| -------- |
 | Machine virtuelle Linux B1S | Heures de calcul - Machine virtuelle Standard_B1 | Heures de calcul - Gratuit | 8260cba2-4437-47d1-a31e-2561cd370f50
 | Machine virtuelle Windows B1S | Heures de calcul - Machine virtuelle Standard_B1 (Windows) | Heures de calcul - Gratuit | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac

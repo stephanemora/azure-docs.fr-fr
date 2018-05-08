@@ -3,7 +3,7 @@ title: Processus TDSP (Team Data Science Process) pour DevOps | Microsoft Docs
 description: Fournit des conseils pour comprendre une charge de travail analytique à l’aide du processus TDSP et de Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
-ms.openlocfilehash: 3f9197ff93fe348057294ec15439a4f96bfa2969
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: edbe4901c5e30997a4707e5a445b37088ab2fab8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Processus TDSP pour les opérations de développement (DevOps)
 

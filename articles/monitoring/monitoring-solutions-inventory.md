@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: bwren
-ms.openlocfilehash: 2a8313640d2d0bd678d0e10da39c87de8cfce00b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cab92187c6c36dc4670e202b15b35db8ad510239
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Détails sur la collecte de données pour les solutions de gestion dans Azure
 Cet article fournit la liste des [solutions de gestion](monitoring-solutions.md) disponibles auprès de Microsoft avec des liens vers leur documentation détaillée.  Il fournit également des informations sur leur méthode et leur fréquence de collecte de données dans Log Analytics.  Vous pouvez utiliser les informations de cet article pour identifier les différentes solutions disponibles et comprendre leurs exigences en termes de flux de données et de connexion. 
@@ -53,7 +53,7 @@ Les explications des colonnes sont les suivantes :
 | [Azure Application Gateway Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | sur notification |
 | **Solution de gestion** | **Plateforme** | **Microsoft Monitoring Agent** | **Agent Operations Manager** | **Azure Storage** | **Operations Manager requis ?** | **Données de l’agent Operations Manager envoyées via un groupe d’administration** | **Fréquence de collecte** |
 | [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | sur notification |
-| [Azure SQL Analytics (préversion)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 10 minutes |
+| [Azure SQL Analytics (préversion)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minute |
 | [Sauvegarde](../backup/backup-introduction-to-azure-backup.md) | Azure |  |  |  |  |  | n/a |
 | [Capacity and Performance (préversion)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |à l'arrivée |
 | [Suivi des modifications](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |Toutes les heures |

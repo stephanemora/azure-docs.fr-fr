@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: a8d2a2281dcaf6e5e308ad4a2aafb167f9ba9121
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-unit-testing"></a>Tests unitaires de l’extension Fonctions durables
 
@@ -29,7 +29,7 @@ Le test unitaire est une partie importante des pratiques de développement de lo
 
 Les exemples de cet article exigent de connaître les concepts et frameworks suivants : 
 
-* Test unitaire
+* Test des unités
 
 * Fonctions durables 
 
@@ -129,7 +129,7 @@ Une fois toutes les étapes combinées, le test unitaire a le code suivant :
 
 ## <a name="unit-testing-orchestrator-functions"></a>Fonctions d’orchestrateur de test unitaire
 
-Les fonctions d’orchestrateur sont encore plus intéressantes pour le test unitaire, car elles ont généralement beaucoup plus de logique métier. Actuellement, les fonctions d’orchestrateur peuvent être implémentées uniquement en C#.
+Les fonctions d’orchestrateur sont encore plus intéressantes pour le test unitaire, car elles ont généralement beaucoup plus de logique métier.
 
 Dans cette section, les tests unitaires valident la sortie de la fonction d’orchestrateur `E1_HelloSequence` :
 

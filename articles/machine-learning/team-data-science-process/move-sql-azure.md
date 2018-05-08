@@ -1,9 +1,9 @@
 ---
-title: "Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning | Microsoft Docs"
-description: "Création d’une table SQL et chargement de données dans une table SQL"
+title: Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning | Microsoft Docs
+description: Création d’une table SQL et chargement de données dans une table SQL
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 323861d078e9beeb197333dc7e2d0314014dfdb0
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning
 Cette rubrique présente les options de déplacement des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées sur un ordinateur SQL Server local vers une base de données Azure SQL. Ces tâches permettant de déplacer des données vers le cloud font partie du processus TDSP (Team Data Science Process).

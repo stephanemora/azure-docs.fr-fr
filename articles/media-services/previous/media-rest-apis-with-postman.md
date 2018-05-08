@@ -1,11 +1,11 @@
 ---
-title: "Configurer Postman pour les appels d’API REST Azure Media Services"
-description: "Découvrez comment configurer Postman pour les appels d’API REST Media Services."
+title: Configurer Postman pour les appels d’API REST Azure Media Services
+description: Découvrez comment configurer Postman pour les appels d’API REST Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
 ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
 
@@ -26,6 +26,7 @@ Ce didacticiel vous montre comment configurer **Postman** afin de l’utiliser p
 Cet environnement et la collection sont utilisés dans les articles qui indiquent comment effectuer diverses tâches liées aux API REST Azure Media Services.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans certains des didacticiels REST AMS. 
 
@@ -54,6 +55,6 @@ Cet environnement et la collection sont utilisés dans les articles qui indiquen
 
     ![Charger un fichier](./media/media-services-rest-upload-files/postman-import-collection.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez l’article [charger des ressources](media-services-rest-upload-files.md).  

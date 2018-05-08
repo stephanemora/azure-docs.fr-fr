@@ -1,11 +1,11 @@
 ---
-title: "Rapport d’informations sur les menaces d’Azure Security Center | Microsoft Docs"
-description: "Ce document explique comment utiliser les rapports d’information sur les menaces d’Azure Security Center pendant un examen pour trouver plus d’informations sur une alerte de sécurité."
+title: Rapport d’informations sur les menaces d’Azure Security Center | Microsoft Docs
+description: Ce document explique comment utiliser les rapports d’information sur les menaces d’Azure Security Center pendant un examen pour trouver plus d’informations sur une alerte de sécurité.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: b4310cf4e6849c67031b3ec8b1fd5957e35f7ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540725147579f895cc17ed2dbf46471dab6b3747
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Rapport d’informations sur les menaces d’Azure Security Center
 Ce document explique comment trouver des informations supplémentaires sur une menace ayant généré une alerte de sécurité dans les rapports d’informations sur les menaces d’Azure Security Center.
@@ -52,7 +52,7 @@ Ce type d’information est très utile pendant le processus de [réponse aux in
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Comment accéder au rapport d’informations sur les menaces ?
 Vous pouvez connaître vos alertes actuelles en consultant la vignette **Alertes de sécurité** . Accédez au Portail Azure et suivez les étapes ci-après pour obtenir plus d’informations sur chaque alerte :
 
-1. La vignette **Alertes de sécurité** est affichée dans le tableau de bord Centre de sécurité.
+1. La mosaïque **Alertes de sécurité** s’affiche dans le tableau de bord Centre de sécurité.
 2. Cliquez sur la mosaïque pour ouvrir le panneau **Alertes de sécurité** qui contient plus de détails sur les alertes et cliquez sur une alerte de sécurité pour en savoir plus à son sujet.
 
     ![Alertes de sécurité](./media/security-center-threat-report/security-center-threat-report-fig1.png)

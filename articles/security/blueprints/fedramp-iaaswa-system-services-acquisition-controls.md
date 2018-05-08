@@ -1,6 +1,6 @@
 ---
-title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Acquisition du système et des services"
-description: "Automatisation des applications web pour le programme FedRAMP - Acquisition du système et des services"
+title: Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Acquisition du système et des services
+description: Automatisation des applications web pour le programme FedRAMP - Acquisition du système et des services
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Acquisition du système et des services (SA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie d’acquisition du système et des services qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie d’acquisition du système et des services et des contrôles d’acquisition du système et des services associés ; et révise et met à jour la stratégie actuelle d’acquisition du système et des services [Affectation : fréquence définie par l’organisation] ; et les procédures d’acquisition du système et des services [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-2.a** L’organisation détermine les exigences de sécurité des informations pour le système d’information ou le service du système d’information dans une planification de mission/processus d’entreprise.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-2.b** L’organisation détermine, documente et alloue les ressources requises pour protéger le système d’information ou service de système d’information dans le cadre de sa planification de capital et de son processus de contrôle des investissements.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-2.c** L’organisation établit un poste distinct pour la sécurité des informations dans la documentation sur la programmation et la budgétisation organisationnelles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-3.a** L’organisation gère le système d’information en utilisant [Affectation : cycle de vie du développement système défini par l’organisation] qui incorpore des considérations en matière de sécurité des informations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-3.b** L’organisation définit et décrit les rôles et responsabilités en matière de sécurité des informations tout au long du cycle de vie de développement de système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-3.c** L’organisation identifie des personnes ayant des rôles et responsabilités en matière de sécurité des informations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-3.d** L’organisation intègre le processus de gestion des risques de sécurité des informations organisationnelles dans les activités de cycle de vie de développement de système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4** L’organisation inclut les exigences, descriptions et critères suivants,explicitement ou par référence, dans le contrat d’acquisition du système d’information, d’un composant du système ou d’un service du système d’information, conformément aux lois de l’État fédéral, décrets, directives, stratégies, réglementations, normes, directives et missions organisationnelles/besoins métier applicables : exigences fonctionnelles en matière de sécurité ; exigences en matière de puissance de la sécurité ; exigences en matière de garantie de la sécurité ; exigences en matière de documentation relative à la sécurité ; exigences en matière protection de la documentation relative à la sécurité ; description de l’environnement de développement du système d’information et de l’environnement dans lequel le système est appelé à fonctionner ; et critères d’acceptation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-4 (8)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information produise un plan pour la surveillance continue de l’efficacité du contrôle de sécurité, contenant [Affectation : niveau de détail défini par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-5.a** L’organisation obtient la documentation de l’administrateur pour le système d’information, un composant du système ou un service du système d’informations, décrivant la configuration, l’installation et l’exploitation sécurisées du système, du composant ou du service ; l’utilisation et la maintenance efficaces des fonctions/mécanismes de sécurité ; et les vulnérabilités connues en matière de configuration et d’utilisation de fonctions (par exemple, privilégiées) d’administration.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-5.e** L’organisation distribue la documentation à [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-8** L’organisation applique les principes d’ingénierie de sécurité du système d’information dans la spécification, la conception, le développement, l’implémentation et la modification du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9.b** L’organisation définit et documente la supervision du gouvernement ainsi que les rôles et responsabilités de l’utilisateur en ce qui concerne les services de système d’information externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (1).a** L’organisation conduit une évaluation organisationnelle des risques avant l’acquisition ou la sous-traitance de services de sécurité des informations dédiés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (2)** L’organisation exige que les fournisseurs de [Affectation : services de système d’information externes définis par l’organisation] identifient les fonctions, ports, protocoles et autres services requis pour l’utilisation de tels services.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-9 (4)** L’organisation utilise des [Affectation : mesures de sécurité définies par l’organisation] pour s’assurer que les intérêts des [Affectation : fournisseurs de services externes définis par l’organisation] sont cohérents avec ceux de l’organisation et les reflètent.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10.b** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information documente, gère et contrôle l’intégrité des modifications apportées à [Affectation : éléments de configuration définis par l’organisation dans le cadre de la gestion de la configuration].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10.c** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information implémente uniquement les modifications du système, du composant ou du service approuvées par l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10.d** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information documente les modifications approuvées du système, composant ou service, ainsi que les impacts potentiels de telles modifications sur la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10.e** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information suive les défauts de sécurité et leur résolution à l’intérieur du système, composant ou service, et rende compte de ses observations à [Affectation : personnel défini par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-10 (1)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information active la vérification de l’intégrité des logiciels et microprogrammes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11.a** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information élabore et implémente un plan d’évaluation de la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11.b** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information teste et évalue [Sélection (un ou plusieurs) : unité ; intégration ; système ; régression] au niveau [Affectation : profondeur et couverture définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11.c** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information apporte la preuve de l’exécution du plan d’évaluation de la sécurité ainsi que les résultats du test et de l’évaluation de la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11.d** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information implémente un véritable processus de correction des défauts.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11 (1)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information emploie des outils d’analyse statique du code pour identifier des défauts courants et documenter les résultats de l’analyse.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-11 (8)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information emploie des outils d’analyse dynamique du code pour identifier des défauts courants et documenter les résultats de l’analyse.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-15.b** L’organisation examine le processus, les normes, les outils et les options/configurations d’outils mis en œuvre dans le cadre du développement [Affectation : fréquence définie par l’organisation] pour déterminer si le processus, les normes, les outils et les options/configurations d’outils sélectionnés et utilisés peuvent répondre aux [Affectation : exigences de sécurité définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-17.a** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information produise une spécification de conception et une architecture de sécurité cohérente avec l’architecture de sécurité de l’organisation et soutenant celle-ci, qui soit établie à l’intérieur de l’architecture d’entreprise de l’organisation et en fasse partie intégrante.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-17.b** L’organisation requiert que le développeur du système d’information, d’un composant du système ou d’un service du système d’information produise une spécification de conception et une architecture de sécurité décrivant précisément et complètement les fonctionnalités de sécurité requises et l’allocation des contrôles de sécurité entre les composants physiques et logiques.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SA-17.c** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information produise une spécification de conception et une architecture de sécurité qui exprime la manière dont les fonctions, mécanismes et services de sécurité opèrent ensemble pour fournir les fonctionnalités de sécurité requises et une approche unifiée de la protection.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

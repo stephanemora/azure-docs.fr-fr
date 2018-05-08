@@ -1,9 +1,9 @@
 ---
-title: "Créer et optimiser des tables pour une importation en parallèle rapide des données dans un serveur SQL Server sur une machine virtuelle Azure | Microsoft Docs"
-description: "Importer des données en parallèle et en bloc à l’aide de tables de partition SQL"
+title: Créer et optimiser des tables pour une importation en parallèle rapide des données dans un serveur SQL Server sur une machine virtuelle Azure | Microsoft Docs
+description: Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 55c213e26d39f1f9c27fdeae89e651a5f99a98b5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 Ce document décrit comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les *vues et tables partitionnées*permettent d’améliorer l’importation des données et le traitement des requêtes. 

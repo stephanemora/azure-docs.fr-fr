@@ -1,11 +1,11 @@
 ---
 title: Examiner les incidents et les alertes dans Azure Security Center | Microsoft Docs
-description: "Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité."
+description: Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: yurid
-ms.openlocfilehash: 818c257d1959936f0dc326486e372677aacb065a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Examiner les incidents et les alertes dans Azure Security Center (version préliminaire)
 Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité.
@@ -39,7 +39,7 @@ L’utilisateur peut naviguer d’une entité à une autre en cliquant dessus da
 ### <a name="investigation-path"></a>Chemin d’examen
 Le chemin d’examen aide à suivre le contexte d’examen et permet une navigation rapide à l’utilisateur qui navigue entre les différentes entités. L’incident contenant les résultats de l’examen apparaît toujours tout à gauche dans le chemin d’examen.
 
-![Chemin](./media/security-center-investigation/security-center-investigation-fig2.png)
+![path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informations générales
 Lorsqu’une entité est présentée dans le graphique, les onglets affichent des informations supplémentaires la concernant. L’onglet **Informations** présente des informations générales sur l’entité, de différentes sources d’informations disponibles. 
@@ -56,11 +56,11 @@ L’onglet **Entités** affiche toutes les entités associées, regroupées par 
 
 ![Entités](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Search
+### <a name="search"></a>action
 
 L’onglet **Recherche** présente tous les types de journaux disponibles pour l’entité. Pour chaque type de journal, vous pouvez voir le nombre d’enregistrements disponibles. En cliquant sur n’importe quel type de journal, vous êtes amené à l’écran de recherche. Sur l’écran de recherche, vous pouvez affiner votre recherche et utiliser diverses fonctionnalités telles que la définition d’alertes. Dans la version actuelle, l’onglet Recherche n’est disponible que pour les entités Utilisateurs et Ordinateurs.
 
-![Search](./media/security-center-investigation/security-center-investigation-fig5.png)
+![action](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Exploration
 

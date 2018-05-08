@@ -1,9 +1,9 @@
 ---
-title: "Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS | Microsoft Docs"
-description: "Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS"
+title: Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS | Microsoft Docs
+description: Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 39feca23532264c1f4c17017f89b064af09e9c1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
 Le [Feature Pack SQL Server Integration Services pour Azure](https://msdn.microsoft.com/library/mt146770.aspx) fournit des composants permettant de se connecter à Azure, de transférer des données entre des sources de données Azure et des sources de données sur site et de traiter les données stockées dans Azure.
@@ -36,7 +36,8 @@ Pour une présentation de scénarios canoniques utilisant SSIS pour répondre au
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour exécuter les tâches décrites dans cet article, vous devez disposer d’un abonnement Azure et configurer un compte de stockage Azure. Pour charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
 * Pour configurer un **abonnement Azure**, consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).

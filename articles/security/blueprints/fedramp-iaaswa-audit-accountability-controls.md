@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: acb0677d48084108a9a5219f92dead10948228c8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="audit-and-accountability-au"></a>Audit et responsabilité (AU)
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-2.d** L’organisation détermine que les événements suivants doivent être audités au sein du système d’information : [Affectation : événements audités définis par l’organisation (le sous-ensemble d’événements auditables défini à l’alinéa AU-2), ainsi que la fréquence de (ou la situation nécessitant) l’audit de chaque événement identifié].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-3 (2)** Le système d’information fournit une gestion et une configuration centralisées du contenu à capturer dans les enregistrements d’audit générés par [Affectation : composants de système d’information définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-5.a** Le système d’information envoie une alerte à [Affectation : personnel ou rôles définis par l’organisation] en cas d’échec du processus d’audit.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-6 (3)** L’organisation met en corrélation et analyse des enregistrements d’audit dans différents dépôts pour prendre connaissance de la situation à l’échelle de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-6 (4)** Le système d’information permet de réviser et d’analyser de façon centralisée des enregistrements d’audit provenant de plusieurs composants au sein du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-6 (5)** L’organisation intègre l’analyse des enregistrements d’audit à l’analyse de [Sélection (un ou plusieurs) : informations d’analyse des vulnérabilités, données de performances, informations de surveillance du système d’information, [Affectation : informations/données définies par l’organisation et collectées à partir d’autres sources]] pour améliorer la probabilité d’identifier toute activité inappropriée ou inhabituelle.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-6 (6)** L’organisation met en corrélation les informations des enregistrements d’audit avec les informations obtenues suite à la surveillance de l’accès physique pour améliorer la probabilité d’identifier toute activité suspecte, inappropriée, inhabituelle ou malveillante.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-6 (7)** L’organisation spécifie les actions autorisées pour chaque [Sélection (un ou plusieurs) : processus de système d’information, rôle, utilisateur] associé à la révision et à l’analyse des informations d’audit et aux rapports associés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-6 (10)** L’organisation ajuste le niveau de révision, d’analyse et de création de rapports de l’audit au sein du système d’information en cas de modification du risque basée sur les informations fournies par les forces de l’ordre, par les renseignements ou d’autres sources d’informations crédibles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-8.a** Le système d’information utilise l’horloge du système interne pour générer les horodatages des enregistrements d’audit.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-9 (2)** Le système d’information sauvegarde les enregistrements d’audit [Affectation : fréquence définie par l’organisation] sur un système physique ou composant système différent du système ou composant en cours d’audit.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -508,7 +508,7 @@ ms.lasthandoff: 04/16/2018
 
 **AU-10** Le système d’information assure une protection contre le fait qu’une personne (ou un processus agissant pour le compte d’une personne) nie avoir exécuté [Affectation : actions définies par l’organisation à couvrir par la non-répudiation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

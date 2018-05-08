@@ -1,21 +1,21 @@
 ---
-title: "Créer une passerelle d’application avec un pare-feu d’applications web - Portail Azure | Microsoft Docs"
-description: "Apprenez à créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure."
+title: Créer une passerelle d’application avec un pare-feu d’applications web - Portail Azure | Microsoft Docs
+description: Apprenez à créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure
 
@@ -168,4 +168,4 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Créer les machines virtuelles utilisées comme serveurs principaux
 > * Créer un compte de stockage et configurer des diagnostics
 
-Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
+Pour en savoir plus sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.

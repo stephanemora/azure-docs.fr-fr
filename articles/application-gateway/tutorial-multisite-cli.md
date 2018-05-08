@@ -1,9 +1,9 @@
 ---
-title: "Créer une passerelle d’application hébergeant plusieurs sites - Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application qui héberge plusieurs sites à l’aide d’Azure CLI."
+title: Créer une passerelle d’application hébergeant plusieurs sites - Azure CLI | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application qui héberge plusieurs sites à l’aide d’Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,16 +11,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: df475cb6eed2b75275e573721f754e7de87698f5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 2e1367db9c2c1d47f34cc35fc088a9eecf00247b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Créer une passerelle d’application hébergeant plusieurs sites à l’aide d’Azure CLI
 
-Vous pouvez utiliser Azure CLI pour configurer [l’hébergement de plusieurs sites web](application-gateway-multi-site-overview.md) quand vous créez une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous allez créer des pools backend à l’aide de groupes de machines virtuelles identiques. Vous configurerez ensuite des écouteurs et des règles basés sur des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel part du principe que vous possédez plusieurs domaines et utilise des exemples de *www.contoso.com* et de *www.fabrikam.com*.
+Vous pouvez utiliser Azure CLI pour configurer [l’hébergement de plusieurs sites web](application-gateway-multi-site-overview.md) quand vous créez une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous allez créer des pools backend à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
 Dans cet article, vous apprendrez comment :
 
@@ -114,7 +114,7 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### <a name="add-listeners"></a>Ajouter les écouteurs
+### <a name="add-listeners"></a>Ajouter des écouteurs
 
 Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, des écouteurs sont créés pour les domaines de *www.contoso.com* et de *www.fabrikam.com*. 
 
@@ -139,7 +139,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Ajouter les règles de routage
 
-Les règles sont traitées dans l’ordre dans lequel elles sont créées et le trafic est dirigé à l’aide de la première règle qui correspond à l’URL envoyée à la passerelle d’application. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
+Les règles sont traitées dans l’ordre dans lequel elles sont créées, et le trafic est dirigé à l’aide de la première règle qui correspond à l’URL envoyée à la passerelle d’application. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
 
 Dans cet exemple, vous créez deux règles et supprimez la règle par défaut qui a été créée au moment de la création de la passerelle d’application. Vous pouvez ajouter la règle à l’aide de la commande [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
 
@@ -205,7 +205,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```
@@ -222,11 +222,11 @@ az network public-ip show \
   --output tsv
 ```
 
-L’utilisation d’enregistrements A n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle d’application.
+L’utilisation d’enregistrements A n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer au moment du redémarrage de la passerelle d’application.
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple : http://www.contoso.com.
+Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, http://www.contoso.com.
 
 ![Tester le site contoso dans la passerelle d’application](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

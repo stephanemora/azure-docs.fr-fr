@@ -1,25 +1,23 @@
 ---
-title: "Guide pratique pour donner accès à Privileged Identity Management - Azure | Microsoft Docs"
-description: "Découvrez comment ajouter des rôles à des utilisateurs avec l’extension Azure Active Directory Privileged Identity Management pour qu’ils puissent gérer PIM."
+title: Guide pratique pour donner accès à Privileged Identity Management - Azure | Microsoft Docs
+description: Découvrez comment ajouter des rôles à des utilisateurs avec l’extension Azure Active Directory Privileged Identity Management pour qu’ils puissent gérer PIM.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 39caeef2648730194827e04e020d8eaea5414f4f
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f7e08e35ce4575715a72b0880d038ce0db766b66
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Donner accès à la gestion d’Azure AD Privileged Identity Management
 L’administrateur global qui active Azure AD Privileged Identity Management (PIM) pour une organisation obtient automatiquement les affectations de rôles et l’accès à PIM. Aucune autre personne ne dispose d’un accès en écriture par défaut, y compris les autres administrateurs généraux. Les autres administrateurs généraux, administrateurs de la sécurité et lecteurs Sécurité ont un accès en lecture seule à Azure AD PIM. Pour donner accès à PIM, le premier utilisateur peut affecter les autres au rôle **Administrateur de rôle privilégié** . Cette affectation doit être effectuée depuis PIM proprement dit et ne peut pas être modifiée via PowerShell ou d’autres portails.

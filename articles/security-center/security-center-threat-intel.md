@@ -1,11 +1,11 @@
 ---
 title: Informations sur les menaces dans Azure Security Center | Microsoft Docs
-description: "Découvrez comment utiliser la fonctionnalité d’informations sur les menaces dans Azure Security Center pour identifier les menaces potentielles sur vos machines virtuelles et ordinateurs."
+description: Découvrez comment utiliser la fonctionnalité d’informations sur les menaces dans Azure Security Center pour identifier les menaces potentielles sur vos machines virtuelles et ordinateurs.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
-ms.openlocfilehash: b5bdeb1c70893c2477413df02c7b1a4a07999e93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Informations sur les menaces dans Azure Security Center
 Cet article vous aide à utiliser les informations sur les menaces d’Azure Security Center pour traiter les problèmes relatifs à la sécurité.
@@ -93,10 +93,10 @@ Pour les machines virtuelles Azure, le tableau de bord **Informations sur les me
 ## <a name="see-also"></a>Voir aussi
 Dans cet article, vous avez découvert comment utiliser les informations sur les menaces dans Security Center pour vous aider à identifier une activité suspecte. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
-* [Gérer et répondre aux alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
+* [Gérer et répondre aux alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Comprendre les alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
-* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
+* [Comprendre les alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
+* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
 

@@ -1,10 +1,10 @@
 ---
-title: "Utiliser la passerelle Azure Application Gateway avec équilibreur de charge interne | Microsoft Docs"
-description: "Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure avec un point de terminaison d'équilibrage de charge interne"
+title: Utiliser la passerelle Azure Application Gateway avec équilibreur de charge interne | Microsoft Docs
+description: Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure avec un point de terminaison d'équilibrage de charge interne
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
 ms.service: application-gateway
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: davidmu
-ms.openlocfilehash: 7ca9307e8a78f6dade4b231fa3a0d83a68af3f21
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 5d5e70d46121252c616d77d33ee82397e3a3ca84
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Création d'une passerelle Application Gateway avec un équilibrage de charge interne (ILB)
 
@@ -60,7 +60,7 @@ Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 **Pour valider** la création de la passerelle, vous pouvez utiliser l’applet de commande `Get-AzureApplicationGateway`. 
 
-Dans l’exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs. La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut pour *GatewaySize* est Medium. Les autres valeurs disponibles sont Small et Large. *Vip* et *DnsName* s’affichent sans valeur car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution. 
+Dans l’exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs. La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut pour *GatewaySize* est Medium. Les autres valeurs disponibles sont Small et Large. *Vip* et *DnsName* s’affichent sans valeur car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution. 
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest

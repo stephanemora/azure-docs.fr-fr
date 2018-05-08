@@ -1,6 +1,6 @@
 ---
-title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Protection média"
-description: "Automatisation d’applications web FedRAMP - Protection média"
+title: Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Protection média
+description: Automatisation d’applications web FedRAMP - Protection média
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="media-protection-mp"></a>Protection média (MP)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de protection des supports qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de protection des supports et des contrôles de protection des supports associés ; et révise et met à jour la stratégie actuelle de protection des supports [Affectation : fréquence définie par l’organisation] ; et les procédures de protection des supports [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-3.a** L’organisation marque les supports du système d’information indiquant les limitations de la distribution, la gestion des mises en garde et les marquages de sécurité applicables (le cas échéant) pour les informations.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-4.b** L’organisation protège le support du système d’information jusqu'à ce que le support soit détruit, ou nettoyé à l’aide de matériel, techniques et procédures approuvés.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.c** L’organisation documente les activités associées au transport des supports de système d’information.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6.a** L’organisation assainit [Affectation : support de système d’information défini par l’organisation] avant la suppression, la sortie du contrôle de l’organisation ou la sortie pour utilisation et réutilisation avec [Affectation : procédures et techniques d’assainissement définies par l’organisation] conformément aux normes et stratégiques de la région et de l’organisation.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6.b** L’organisation utilise des mécanismes d’assainissement avec la puissance et l’intégrité correspondant à la catégorie de sécurité ou classification des informations.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (1)** L’organisation examine, approuve, suit, documente et vérifie les actions de nettoyage et de destruction de supports.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (2)** L’organisation teste le matériel et les procédures de nettoyage [Affectation : fréquence définie par l’organisation] pour vérifier que l’assainissement prévu est effectué.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-7 (1)** l’organisation interdit l’utilisation d’appareils de stockage portables dans les systèmes d’information sur l’entreprise lorsque ces appareils n’ont aucun propriétaire identifiable.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|

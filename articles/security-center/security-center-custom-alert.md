@@ -1,11 +1,11 @@
 ---
-title: "Règles d’alerte dans Azure Security Center | Microsoft Docs"
-description: "Ce document est conçu pour vous aider à créer des règles d’alerte dans Azure Security Center."
+title: Règles d’alerte dans Azure Security Center | Microsoft Docs
+description: Ce document est conçu pour vous aider à créer des règles d’alerte dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: yurid
-ms.openlocfilehash: 10c5c3e6f714aac4c08cb810f54eb09c3d2bbe70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e43d925317e32d2fcbdeb75eff71de0cc5a91378
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Règles d’alerte personnalisées dans Azure Security Center (préversion)
 Ce document est conçu pour vous aider à créer des règles d’alerte dans Azure Security Center.
@@ -48,7 +48,7 @@ Ouvrez le tableau de bord **Security Center** et procédez comme suit pour crée
 7.  Sélectionnez l’abonnement dans lequel cette règle s’applique dans le champ **Abonnement**.
 8.  Sélectionnez l’espace de travail que vous souhaitez analyser à l’aide de cette règle dans le champ **Espace de travail** et la requête que vous utilisez pour obtenir les résultats dans le champ **Rechercher**. Le résultat de la requête déclenche l’alerte. Notez que lorsque vous tapez une requête valide, la coche verte s’affiche sur le côté droit de ce champ :
 
-    ![Interroger](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
+    ![Requête](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
 10. Sélectionnez l’intervalle de temps lors duquel la requête ci-dessus sera exécutée dans le champ **Période**. Notez que le résultat de la recherche dans la partie inférieure de ce champ change selon l’intervalle de temps sélectionné.
 
@@ -70,7 +70,7 @@ Notez que les paramètres (requête de recherche, seuil, etc.) qui ont été ét
 Dans ce document, vous avez appris à créer une règle d’alerte personnalisée dans Azure Security Center. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
-* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). Découvrez comment surveiller l’intégrité de vos ressources Azure.
+* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
 * [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.

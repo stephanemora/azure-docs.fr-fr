@@ -1,24 +1,24 @@
 ---
-title: "Comprendre l’utilisation de l’offre d’instance réservée Azure pour l’Entreprise | Microsoft Docs"
-description: "Découvrez comment analyser votre utilisation pour comprendre l’application de l’offre d’instance réservée sur l’inscription de votre entreprise."
+title: Comprendre l’utilisation de l’offre d’instance réservée Azure pour l’Entreprise | Microsoft Docs
+description: Découvrez comment analyser votre utilisation pour comprendre l’application de l’offre d’instance réservée sur l’inscription de votre entreprise.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise
 Comprendre l’utilisation de l’offre d’instance réservée en utilisant l’ID de réservation dans la [page Réservation](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) et dans le fichier d’utilisation du [portail EA.](https://ea.azure.com) Vous pouvez également consulter l’utilisation de la réservation dans la section récapitulative de l’utilisation du [portail EA](https://ea.azure.com).

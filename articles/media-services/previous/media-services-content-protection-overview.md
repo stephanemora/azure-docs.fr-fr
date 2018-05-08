@@ -1,11 +1,11 @@
 ---
-title: "Protéger votre contenu avec Azure Media Services | Microsoft Docs"
-description: "Cet article donne une vue d’ensemble de la protection du contenu avec Media Services."
+title: Protéger votre contenu avec Azure Media Services | Microsoft Docs
+description: Cet article donne une vue d’ensemble de la protection du contenu avec Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
 ms.openlocfilehash: 13447fd9193374d80ed5c2e6af8543f11b95e709
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
  Vous pouvez utiliser Azure Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à la remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. 
@@ -83,7 +83,7 @@ Les considérations suivantes s'appliquent :
   * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
   * **cbc** : pour le chiffrement de l’enveloppe AES
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Les articles ci-dessous décrivent les étapes suivantes que vous pouvez exécuter pour mieux comprendre la protection du contenu :
 
 * [Protection avec le chiffrement du stockage](media-services-rest-storage-encryption.md)

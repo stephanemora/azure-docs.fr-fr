@@ -1,9 +1,9 @@
 ---
-title: "Déplacer des données vers SQL Server sur une machine virtuelle Azure | Microsoft Docs"
-description: "Déplacer des données à partir de fichiers plats ou d'un SQL Server local vers SQL Server sur une machine virtuelle Azure."
+title: Déplacer des données vers SQL Server sur une machine virtuelle Azure | Microsoft Docs
+description: Déplacer des données à partir de fichiers plats ou d'un SQL Server local vers SQL Server sur une machine virtuelle Azure.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b8c936163e8e0880d3518f44dba107a0393fd11f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 56a03347556f9ae3452548e85ce5d46f3961ed93
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Déplacer des données vers SQL Server sur une machine virtuelle Azure
 Cette rubrique présente les options de déplacement des données à partir de fichiers plats (format CSV ou TSV) ou d’un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure. Ces tâches permettant de déplacer des données vers le cloud font partie du processus TDSP (Team Data Science Process).

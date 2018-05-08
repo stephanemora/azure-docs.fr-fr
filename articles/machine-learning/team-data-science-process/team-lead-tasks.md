@@ -2,7 +2,7 @@
 title: Tâches du responsable de l’équipe Team Data Science Process - Azure | Microsoft Docs
 description: Liste des tâches du responsable de l’équipe chargée d’un projet de science des données.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: d17c6c7543416d3f279b7e25152a421dd233a806
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-lead-tasks"></a>Tâches du responsable d’équipe
 
@@ -123,7 +123,7 @@ Effectuez cette étape si vous utilisez VSTS comme plateforme d’hébergement d
 
 - Pour créer le nouveau dépôt *<nom_équipe\>Utilities* sous votre projet d’équipe, cliquez sur **Nouveau dépôt** sous l’onglet **Gestion de version**du panneau de configuration de votre projet d’équipe.  
 
-    ![9.](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
+    ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
 - Dans la fenêtre **Créer un dépôt** qui s’affiche, fournissez un nom pour ce dépôt. Dans cet exemple, nous allons utiliser le nom *MyTeamUtilities*, qui correspond à **R4** dans notre notation. Choisissez un nom tel que *<nom_équipe\>utilitaires*. Sélectionnez **Git** pour le **Type**. Ensuite, cliquez sur **Créer** pour continuer.
 
@@ -177,7 +177,7 @@ Pour commencer cette procédure :
     git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
     
     
-![13.](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
+![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
 
 Ces commandes clonent le dépôt **GroupProjectTemplate** (R1) de votre serveur VSTS de groupe dans un répertoire local situé sous **GitRepos\GroupCommon** sur votre ordinateur local. Après le clonage, le répertoire **GroupProjectTemplate** (D1) est créé dans le répertoire **GitRepos\GroupCommon**. Ici, nous partons du principe que le responsable de groupe a créé le projet d’équipe **GroupCommon** et le dépôt **GroupProjectTemplate** sous ce projet d’équipe. 
 

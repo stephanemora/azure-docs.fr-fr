@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="access-control-ac"></a>Contrôle d’accès (autorité de certification)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de contrôle d’accès qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de contrôle d’accès et des contrôles d’accès associés ; et révise et met à jour la stratégie actuelle de contrôle d’accès [Affectation : fréquence définie par l’organisation] ; et les procédures de contrôle d’accès [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2.b** L’organisation affecte des gestionnaires de comptes aux comptes du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2.c** L’organisation établit les conditions d’appartenance aux rôles et aux groupes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2.e** L’organisation doit obtenir l’approbation des [Affectation : personnel ou rôles définis par l’organisation] pour les requêtes de création de compte du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2.h** L’organisation notifie les gestionnaires de comptes lorsque les comptes ne sont plus requis ; lorsque les utilisateurs sont résiliés ou transférés ; et en cas de modification de l’utilisation ou des éléments à connaître du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2 (5)** L’organisation requiert une déconnexion des utilisateurs après [Affectation : période d’inactivité définie par l’organisation ou description des conditions de la déconnexion].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2 (7).b** L’organisation surveille les attributions de rôles dotés de privilèges.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2 (10)** Le système d’information résilie les informations d’identification des comptes partagés/de groupe lorsque les membres quittent le groupe.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2 (12).b** L’organisation crée des rapports sur l’utilisation atypique des comptes du système d’information pour [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-2 (13)** L’organisation désactive les comptes des utilisateurs qui présentent un risque élevé pendant la [Affectation : période définie par l’organisation] de découverte du risque.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-4 (8)** Le système d’information applique le contrôle des flux d’informations à l’aide de [Affectation : filtres de stratégie de sécurité définis par l’organisation] comme base des décisions de contrôle des flux pour les [Affectation : flux d’informations définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-5.b** L’organisation présente la séparation des tâches des individus.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-6 (5)** L’organisation limite les comptes privilégiés du système d’information aux [Affectation : membres du personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -609,7 +609,7 @@ ms.lasthandoff: 04/16/2018
 
 |||
 |---|---|
-| **Client** | Ce programme Blueprint implémente le service Log Analytics. Les machines virtuelles et les comptes de stockage de diagnostic Azure déployés sont connectés à Log Analytics, garantissant ainsi l’audit de l’exécution des fonctions privilégiées. |
+| **Client** | Cette solution Blueprint implémente le service Log Analytics. Les machines virtuelles et les comptes de stockage de diagnostic Azure déployés sont connectés à Log Analytics, garantissant ainsi l’audit de l’exécution des fonctions privilégiées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -703,7 +703,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-8.c** Le système d’information des systèmes accessibles publiquement affiche l’information sur l’utilisation du système [Affectation : conditions définies par l’organisation], avant d’accorder un accès supplémentaire ; affiche les références, le cas échéant, à la surveillance, à l’enregistrement ou à la vérification qui sont conformes aux mesures d’adaptation en matière de protection de la vie privée pour de tels systèmes qui interdisent généralement ces activités ; et comprend une description des utilisations autorisées du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-11.a** Le système d’information empêche tout accès ultérieur au système en déclenchant un verrouillage de session après [Affectation : période d’inactivité définie par l’organisation] ou à la demande d’un utilisateur.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-12** Le système d’information arrête automatiquement une session utilisateur après [Affectation : conditions ou événements déclenchant la déconnexion de la session définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -927,7 +927,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-17 (4).b** L’organisation présente l’argument d’un tel accès dans son plan de sécurité du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-17 (9)** L’organisation offre la capacité de déconnecter ou de désactiver rapidement l’accès à distance au système d’information dans un délai de [Affectation : période définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -955,7 +955,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-18.a** L’organisation établit des restrictions d’utilisation, des exigences en matière de configuration et de connexion ainsi que des directives de mise en œuvre pour l’accès sans fil.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -969,7 +969,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-18.b** L’organisation autorise l’accès sans fil au système d’information avant d’autoriser de telles connexions.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -997,7 +997,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-18 (3)** L’organisation désactive, lorsqu’elle ne sont pas conçues pour être utilisée, les fonctionnalités de mise en réseau sans fil intégrées à l’intérieur des composants du système d’information avant la délivrance et le déploiement.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -1081,7 +1081,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-20.a** Conformément à toute relation d’approbation établie avec d’autres organisations qui possèdent, exploitent ou assurent la maintenance de systèmes d’information externes, l’organisation établit les conditions générales qui permettent aux personnes autorisées d’accéder au système d’information à partir de systèmes d’information externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -1095,7 +1095,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-20.b** Conformément à toute relation d’approbation établie avec d’autres organisations qui possèdent, exploitent ou assurent la maintenance de systèmes d’information externes, l’organisation établit les conditions générales qui permettent aux personnes autorisées de traiter, de stocker ou de transmettre des informations contrôlées par l’organisation au moyen de systèmes d’information externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -1151,7 +1151,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-21.b** L’organisation a recours à des [Affectation : mécanismes automatisés ou processus manuels définis par l’organisation] pour aider les utilisateurs à prendre des décisions concernant le partage d’informations et la collaboration.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -1179,7 +1179,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-22.b** L’organisation forme les personnes autorisées à vérifier que les informations accessibles publiquement ne contiennent pas d’informations non publiques.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -1207,7 +1207,7 @@ ms.lasthandoff: 04/16/2018
 
 **AC-22.d** L’organisation examine le contenu du système d’information accessible publiquement en recherchant la moindre information non publique tous les [Affectation : fréquence définie par l’organisation] et supprime ces informations, le cas échéant.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

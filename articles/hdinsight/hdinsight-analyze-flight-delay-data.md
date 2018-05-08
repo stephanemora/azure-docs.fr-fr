@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight
 Hive permet d’exécuter des tâches Hadoop MapReduce via un langage de création de scripts semblable à SQL, nommé *[HiveQL][hadoop-hiveql]*, qui peut être appliqué à la synthèse, à l’envoi de requêtes et à l’analyse d’importants volumes de données.
@@ -260,6 +260,7 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
     <tr><td>Filtre période</td><td>Janvier</td></tr>
     <tr><td>Champs</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (effacez tous les autres champs)</td></tr>
     </table>
+
 3. Cliquez sur **Télécharger**.
 4. Décompressez le fichier dans le dossier **C:\Tutorials\FlightDelay\2013Data**. Chaque fichier correspond à un fichier CSV d’environ 60 Go.
 5. Donnez au fichier le nom du mois dont il contient les données. Par exemple, renommez le fichier contenant les données du mois de janvier *Janvier.csv*.
@@ -274,6 +275,7 @@ Le téléchargement du fichier de données et des fichiers de script HiveQL (voi
     <tr><td>$storageAccountName</td><td>Compte Azure Storage sur lequel vous voulez télécharger les données.</td></tr>
     <tr><td>$blobContainerName</td><td>Conteneur d'objets blob dans lequel vous voulez télécharger les données.</td></tr>
     </table>
+    
 2. Ouvrez Azure PowerShell ISE.
 3. Collez le script suivant dans le volet du script :
 

@@ -1,9 +1,9 @@
 ---
-title: "Explorer les données dans le stockage d’objets blob Azure avec Pandas | Microsoft Docs"
-description: "Comment explorer les données stockées dans un conteneur d’objets blob Azure à l’aide de Pandas."
+title: Explorer les données dans le stockage d’objets blob Azure avec Pandas | Microsoft Docs
+description: Comment explorer les données stockées dans un conteneur d’objets blob Azure à l’aide de Pandas.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: a46735dde28740087d201d7490f135349aad76f6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 8d769ebba349937448b8eed277d1dfb224f39115
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorer les données dans le stockage d’objets blob Azure avec Pandas
 Ce document explique comment explorer les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/) .
@@ -27,7 +27,8 @@ Le **menu** suivant pointe vers des rubriques qui expliquent comment utiliser de
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -79,7 +79,7 @@ Dans la zone de recherche située en haut du portail, entrez *groupes de sécuri
 ### <a name="change-a-network-security-group"></a>Changer un groupe de sécurité réseau
 
 1. Dans la zone de recherche située en haut du portail, entrez *groupes de sécurité réseau*. Quand la mention **groupes de sécurité réseau** apparaît dans les résultats de recherche, sélectionnez-la.
-2. Sélectionnez le groupe de sécurité réseau que vous souhaitez changer. Les modifications les plus courantes sont [ajouter](#create-a-security-rule) ou [supprimer](#delete-a-security-rule) des règles de sécurité et [associer un groupe de sécurité réseau à un sous-réseau ou à une interface réseau ou l’en dissocier](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource).
+2. Sélectionnez le groupe de sécurité réseau que vous souhaitez changer. Les modifications les plus courantes sont [ajouter](#create-a-security-rule) ou [supprimer](#delete-a-security-rule) des règles de sécurité et [associer un groupe de sécurité réseau à un sous-réseau ou à une interface réseau ou l’en dissocier](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Commandes**
 

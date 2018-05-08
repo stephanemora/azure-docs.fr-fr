@@ -1,9 +1,9 @@
 ---
-title: "Nettoyer et préparer des données pour Azure Machine Learning | Microsoft Docs"
-description: "Prétraitez et nettoyez les données afin de les préparer pour l'apprentissage automatique."
+title: Nettoyer et préparer des données pour Azure Machine Learning | Microsoft Docs
+description: Prétraitez et nettoyez les données afin de les préparer pour l'apprentissage automatique.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 7f0c1f0f549e746cc99db3b47f6c90bb51145d5d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: f3d05030e293c53c958aa1ba501fe9a2ba7a11b5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tâches de préparation des données pour l'apprentissage automatique amélioré
 Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus TDSP (Team Data Science Process) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus TDSP, consultez les étapes décrites dans le [processus TDSP (Team Data Science Process)](overview.md).
@@ -32,9 +32,9 @@ Pour obtenir un exemple d'exploration de données et de prétraitement effectué
 ## <a name="why-pre-process-and-clean-data"></a>Pourquoi prétraiter et nettoyer les données ?
 Dans le monde réel, les données proviennent de plusieurs sources et processus. Elles peuvent contenir des anomalies ou des valeurs incorrectes qui compromettent la qualité du jeu de données. Les problèmes de qualité les plus fréquents sont les suivants :
 
-* **Caractère incomplet :**des valeurs ou des attributs sont manquants.
-* **Bruit :**les données contiennent des enregistrements erronés ou des aberrations.
-* **Incohérence :**les données contiennent des enregistrements en conflit ou des contradictions.
+* **Caractère incomplet :** des valeurs ou des attributs sont manquants.
+* **Bruit :** les données contiennent des enregistrements erronés ou des aberrations.
+* **Incohérence :** les données contiennent des enregistrements en conflit ou des contradictions.
 
 La qualité des données est essentielle pour obtenir des modèles prédictifs performants. Pour éviter de traiter des données erronées et améliorer la performance du modèle, il faut impérativement analyser les données, détecter les anomalies le plus tôt possible et déterminer les étapes de prétraitement et de nettoyage appropriées.
 
@@ -56,22 +56,22 @@ Lorsque vous détectez des problèmes dans les données, des **étapes de traite
 **Azure Machine Learning n'exploite que les données tabulaires bien formées**.  Si les données sont déjà au format tabulaire, Azure Machine Learning peut les prétraiter directement dans Machine Learning Studio.  Si elles ne sont pas au format tabulaire, comme le format XML, une analyse peut être nécessaire pour les convertir.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Quelles sont les principales opérations effectuées lors du prétraitement des données ?
-* **Nettoyage des données :**compléter les valeurs manquantes, détecter et supprimer les données bruyantes et les aberrations.
-* **Transformation des données :**normaliser les données pour réduire le volume et le bruit.
-* **Réduction des données :**échantillonner les enregistrements de données ou les attributs pour faciliter la manipulation des données.
+* **Nettoyage des données :** compléter les valeurs manquantes, détecter et supprimer les données bruyantes et les aberrations.
+* **Transformation des données :** normaliser les données pour réduire le volume et le bruit.
+* **Réduction des données :** échantillonner les enregistrements de données ou les attributs pour faciliter la manipulation des données.
 * **Discrétisation des données :** convertir des attributs continus en attributs catégoriels pour simplifier l’exploitation des données dans certains outils d’apprentissage automatique.
-* **Nettoyage du texte :**supprimer les caractères intégrés pouvant perturber l’alignement des données (comme les tabulations dans un fichier TSV), les nouvelles lignes qui peuvent interrompre des enregistrements, etc.
+* **Nettoyage du texte :** supprimer les caractères intégrés pouvant perturber l’alignement des données (comme les tabulations dans un fichier TSV), les nouvelles lignes qui peuvent interrompre des enregistrements, etc.
 
 Les sections suivantes décrivent certaines de ces étapes de traitement des données.
 
 ## <a name="how-to-deal-with-missing-values"></a>Comment gérer les valeurs manquantes ?
 Si vous avez des valeurs manquantes, la première chose à faire est d’en identifier l’origine. Les méthodes les plus courantes de traitement des valeurs manquantes sont les suivantes :
 
-* **Suppression :**supprimer les enregistrements ayant des valeurs manquantes.
+* **Suppression :** supprimer les enregistrements ayant des valeurs manquantes.
 * **Remplacement par une valeur factice :** remplacer des valeurs manquantes par une valeur factice : par exemple, *inconnu* pour les valeurs catégorielles ou 0 pour les valeurs numériques.
-* **Remplacement par la moyenne :**si les données manquantes sont numériques, remplacez-les par la valeur moyenne.
-* **Remplacement par l’élément le plus fréquent :**si les données manquantes sont catégorielles, remplacer les valeurs manquantes par l’élément le plus fréquent.
-* **Remplacement par la valeur de régression :**remplacer les valeurs manquantes par des valeurs de régression.  
+* **Remplacement par la moyenne :** si les données manquantes sont numériques, remplacez-les par la valeur moyenne.
+* **Remplacement par l’élément le plus fréquent :** si les données manquantes sont catégorielles, remplacer les valeurs manquantes par l’élément le plus fréquent.
+* **Remplacement par la valeur de régression :** remplacer les valeurs manquantes par des valeurs de régression.  
 
 ## <a name="how-to-normalize-data"></a>Comment normaliser les données ?
 La normalisation des données restreint les valeurs numériques à une plage spécifiée. Les méthodes de normalisation les plus courantes sont les suivantes :
@@ -84,7 +84,7 @@ La normalisation des données restreint les valeurs numériques à une plage sp�
 Pour discrétiser les données, il faut convertir les valeurs continues en attributs ou intervalles nominaux. Plusieurs méthodes permettent d’effectuer cette opération :
 
 * **Compartimentage à largeur identique**: diviser la plage de toutes les valeurs possibles d’un attribut en N groupes de même taille et attribuer aux valeurs le numéro de compartiment qui leur correspond.
-* **Compartimentage à hauteur identique :**diviser la plage de toutes les valeurs possibles d’un attribut en N groupes contenant le même nombre d’instances, puis attribuer à aux valeurs le numéro de compartiment qui leur correspond.  
+* **Compartimentage à hauteur identique :** diviser la plage de toutes les valeurs possibles d’un attribut en N groupes contenant le même nombre d’instances, puis attribuer à aux valeurs le numéro de compartiment qui leur correspond.  
 
 ## <a name="how-to-reduce-data"></a>Comment réduire les données ?
 Plusieurs méthodes permettent de réduire la taille des données pour en faciliter la manipulation. Selon la taille et le domaine, les méthodes applicables sont les suivantes :
