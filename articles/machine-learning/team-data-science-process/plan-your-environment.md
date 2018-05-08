@@ -1,9 +1,9 @@
 ---
-title: "Identifier des scénarios et planifier votre processus analytique - Azure | Microsoft Docs"
-description: "Planifiez une analyse avancée en imaginant une série de questions clés."
+title: Identifier des scénarios et planifier votre processus analytique - Azure | Microsoft Docs
+description: Planifiez une analyse avancée en imaginant une série de questions clés.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: f4cf702b899b285b18c09d7a5951589d2ae71b7d
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: d2b982669f126695e3e5baefce24853269947536
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettent d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans [Qu’est-ce que le processus TDSP (Team Data Science Process) ?](overview.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
@@ -28,13 +28,13 @@ Quelles ressources devez-vous inclure lors de la configuration d’un environnem
 ## <a name="logistic-questions-data-locations-and-movement"></a>Questions logistiques : emplacements et déplacement des données
 Les questions logistiques concernent l’emplacement de la **source de données**, la **destination cible** dans Azure et la configuration requise pour le déplacement des données, notamment la planification, la quantité et les ressources impliquées. Il peut être nécessaire de déplacer les données plusieurs fois pendant le processus d’analyse. Un scénario courant consiste à déplacer les données locales dans un système de stockage sur Azure, puis dans Machine Learning Studio.
 
-1. **Quelle est votre source de données ?** S’agit-il d’une source locale ou dans le cloud ? Par exemple :
+1. **Quelle est votre source de données ?** S’agit-il d’une source locale ou dans le cloud ? Par exemple : 
    
    * Les données sont accessibles au public à une adresse HTTP.
    * Les données résident dans un fichier local ou sur le réseau.
    * Les données sont contenues dans une base de données SQL Server.
    * Les données sont stockées dans un conteneur de stockage Azure.
-2. **Qu’est-ce que la destination Azure ?** Où doit-elle se trouver pour le traitement ou la modélisation ? Par exemple :
+2. **Qu’est-ce que la destination Azure ?** Où doit-elle se trouver pour le traitement ou la modélisation ? Par exemple : 
    
    * un stockage Azure Blob
    * Bases de données SQL Azure

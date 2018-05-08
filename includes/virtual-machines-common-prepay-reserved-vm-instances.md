@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/03/2018
+---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Prépayer les machines virtuelles avec des instances de machines virtuelles réservées
 
 Prépayez les machines virtuelles et réalisez des économies avec les instances de machines virtuelles réservées. Pour plus d’informations, consultez [Offre des instances de machines virtuelles réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/).
@@ -35,7 +43,7 @@ La remise de réservation est appliquée automatiquement au nombre de machines v
 
 Pour savoir comment gérer une réservation, consultez [Gérer Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Pour plus d’informations sur les instances de machine virtuelle réservées, consultez les articles suivants.
+Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
 
 - [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](../articles/billing/billing-save-compute-costs-reservations.md)
 - [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)

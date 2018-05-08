@@ -1,24 +1,24 @@
 ---
 title: Guides HDInsight Spark avec PySpark et Scala sur Azure | Microsoft Docs
-description: "Exemples du processus TDSP (Team Data Science Process) qui montrent comment utiliser PySpark et Scala sur Azure HDInsight Spark pour effectuer des analyses prédictives."
+description: Exemples du processus TDSP (Team Data Science Process) qui montrent comment utiliser PySpark et Scala sur Azure HDInsight Spark pour effectuer des analyses prédictives.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 76c9382cc5210bb5ac8551ebb7b16ecabe0dcd39
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: deguhath
+ms.openlocfilehash: 06498f55b38be98441ddceb8f1667c89d257f8fd
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Guides de la science des données HDInsight Spark avec PySpark et Scala sur Azure
 

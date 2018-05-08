@@ -1,9 +1,9 @@
 ---
-title: "Explorer les données dans des tables Hive avec des requêtes Hive | Microsoft Docs"
-description: "Explorer les données dans des tables Hive à l’aide de requêtes Hive."
+title: Explorer les données dans des tables Hive avec des requêtes Hive | Microsoft Docs
+description: Explorer les données dans des tables Hive à l’aide de requêtes Hive.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 0d46cea5-2b4c-4384-9bfa-fa20f6f75148
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 9cf205abcf9782ceac4d9ac5a920e136b69c57b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: e85530e5297618b9e87f46a5a274621b060fe1fc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorer les données dans des tables Hive avec des requêtes Hive
 Ce document fournit des exemples de scripts Hive qui permettent d’explorer des données dans des tables Hive dans un cluster Hadoop HDInsight.
@@ -27,7 +27,8 @@ Le **menu** suivant pointe vers des rubriques qui expliquent comment utiliser de
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -42,7 +43,7 @@ Cet article suppose que vous avez :
 3. Obtenir les niveaux dans une colonne catégorielle   
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
 4. Obtenir le nombre de niveaux en combinant deux colonnes catégorielles  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. Obtenir la distribution relative aux colonnes numériques   
+5. Obtenir la distribution relative aux colonnes numériques  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extraire les enregistrements à partir de la jointure des deux tables
    

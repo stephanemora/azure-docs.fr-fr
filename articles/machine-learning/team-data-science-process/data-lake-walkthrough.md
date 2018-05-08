@@ -3,7 +3,7 @@ title: 'Science des données scalable avec Azure Data Lake : procédure complè
 description: Comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de donnés et de classification binaire sur un jeu de données.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 427c986b3099f9ae3ee25ab0106c7a4e665a35b9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données scalable avec Azure Data Lake : procédure complète
 Cette procédure de bout en bout montre comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de données et de classification binaire sur un échantillon de jeu de données NYC taxi trip and fare afin de prédire si le pourboire est compris dans le prix du billet. Elle vous guide tout au long du [processus de science des données pour les équipes](http://aka.ms/datascienceprocess)de bout en bout, depuis l’acquisition de données à l’apprentissage du modèle et au déploiement d’un service web qui publie le modèle.
@@ -147,7 +147,7 @@ Pour exécuter U-SQL, ouvrez Visual Studio, cliquez sur **Fichier--> Nouveau--> 
 > 
 > 
 
-![9.](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
+![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
 L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, peut être extrait à l’aide de **Extractors.Csv()**. Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container_name@blob_storage_account_name dans l’adresse wasb. Étant donné que les noms de fichiers sont au même format, nous pouvons utiliser **trip\_data_{\*\}.csv** pour lire les 12 fichiers de course. 
@@ -439,7 +439,7 @@ Lorsque vous avez terminé la modification de scripts U-SQL, vous pouvez les env
 
 Lorsque le travail est compilé avec succès, son état s’affiche dans Visual Studio pour la surveillance. Une fois le travail terminé, vous pouvez même relire le processus d’exécution du travail et rechercher les étapes de goulot d’étranglement afin d’améliorer l’efficacité. Vous pouvez également accéder au portail Azure pour vérifier l’état de vos travaux U-SQL.
 
- ![13.](./media/data-lake-walkthrough/13-USQL-running-v2.PNG)
+ ![13](./media/data-lake-walkthrough/13-USQL-running-v2.PNG)
 
  ![14](./media/data-lake-walkthrough/14-USQL-jobs-portal.PNG)
 
