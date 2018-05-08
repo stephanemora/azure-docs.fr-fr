@@ -1,26 +1,24 @@
 ---
-title: "Autres scénarios de licence basée sur le groupe Azure Active Directory | Microsoft Docs"
-description: "Plus de scénarios pour la licence basée sur le groupe Azure Active Directory"
+title: Autres scénarios de licence basée sur le groupe Azure Active Directory | Microsoft Docs
+description: Plus de scénarios pour la licence basée sur le groupe Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: piotrci
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf18076c81ecf7471771674fe40d36dba3b9866d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb8bd727618eda2a887cc9e1b739889204eb87fa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -43,7 +41,7 @@ Par exemple, vous pouvez créer un groupe dynamique pour un jeu de produits que 
 
 Les licences sont attribuées aux utilisateurs peu de temps après leur ajout au groupe. En cas de modification de son attribut, l’utilisateur quitte les groupes et les licences sont supprimées.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Considérez l’exemple d’une solution locale de gestion des identités, qui détermine quels utilisateurs doivent pouvoir accéder aux services web Microsoft. Elle utilise **extensionAttribute1** pour stocker une valeur de chaîne représentant les licences que l’utilisateur doit avoir. Azure AD Connect la synchronise avec Azure AD.
 
@@ -188,7 +186,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 > ```
 
 3. Pour afficher le journal complet indiquant la manière dont un groupe a été traité, y compris toutes les modifications utilisateur, définissez les filtres suivants :
-  - **Initié par (acteur)** : « Microsoft Azure AD Group-Based Licensing ».
+  - **Initié par (acteur)**  : « Microsoft Azure AD Group-Based Licensing ».
   - **Plage de dates** (facultatif) : plage personnalisée indiquant quand, à votre connaissance, le traitement d’un groupe spécifique a commencé et s’est terminé.
 
 Cet exemple de sortie indique le début du traitement, les modifications utilisateur opérées, et la fin du traitement.
@@ -237,4 +235,4 @@ Pour plus d’informations sur d’autres scénarios de gestion des licences par
 * [What is group-based licensing in Azure Active Directory? (Présentation des licences basées sur le groupe dans Azure Active Directory)](active-directory-licensing-whatis-azure-portal.md)
 * [Affectation de licences à un groupe dans Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Migration des utilisateurs individuels sous licence vers une licence basée sur le groupe dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Migration des utilisateurs individuels sous licence vers les licences basées sur les groupes dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)

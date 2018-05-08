@@ -1,8 +1,8 @@
 ---
-title: "Configurer les paramètres du clavier Azure Media Clipper | Microsoft Docs"
-description: "Étapes nécessaires pour définir des raccourcis clavier configurables pour Azure Media Clipper"
+title: Configurer les paramètres du clavier Azure Media Clipper | Microsoft Docs
+description: Étapes nécessaires pour définir des raccourcis clavier configurables pour Azure Media Clipper
 services: media-services
-keywords: "clip;sous-clip;encodage;média"
+keywords: clip;sous-clip;encodage;média
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: d6fa463f71c00787c994b41d84bb349dce676de5
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Configurer des raccourcis clavier Azure Media Clipper
 Azure Media Clipper prend en charge la personnalisation des raccourcis clavier par défaut en fournissant un paramètre JSON `keymap` facultatif.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Groupes d’ordinateurs dans les recherches de journal Log Analytics
 
@@ -56,14 +56,6 @@ Utilisez la procédure suivante pour créer un groupe d’ordinateurs à partir 
 2. Ouvrez **Recherche dans les journaux**, puis cliquez sur **Recherches enregistrées** en haut de l’écran.
 3. Cliquez sur **Ajouter** et entrez des valeurs pour chaque propriété du groupe d’ordinateurs.
 4. Sélectionnez **Enregistrer cette requête comme groupe d’ordinateurs**, puis cliquez sur **OK**.
-
-
-Utilisez la procédure suivante pour créer un groupe d’ordinateurs à partir d’une recherche dans les journaux dans le portail OMS.
-
-1. Ouvrez **Recherche dans les journaux** et créez la recherche dans les journaux pour le groupe d’ordinateurs.  
-2. Cliquez sur le bouton **Enregistrer** en haut de l’écran.
-3. Sélectionnez **Oui** à **Enregistrer cette requête comme groupe d’ordinateurs**.
-5. Entrez des valeurs pour chaque propriété du groupe d’ordinateurs. 
 
 
 

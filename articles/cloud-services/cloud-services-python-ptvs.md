@@ -1,11 +1,11 @@
 ---
 title: Prise en main des services cloud Azure et Python | Microsoft Docs
-description: "Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail."
+description: Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail.
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,17 +14,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6bd89c160387abbb2b0339a5a5f62d998c0c84e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Rôles Web et rôles de travail Python avec Python Tools pour Visual Studio
 
 Cet article fournit une vue d’ensemble de l’utilisation des rôles Web et de travail Python avec [Python Tools pour Visual Studio][Python Tools for Visual Studio]. Apprenez à utiliser Visual Studio pour créer et déployer un service cloud de base utilisant Python.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Python Tools pour Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][Azure SDK Tools for VS 2013] ou  
@@ -172,6 +173,7 @@ Ensuite, créez les fichiers **PrepPython.ps1** et **PipInstaller.ps1** dans le 
 Ce script installe Python. Si la variable d’environnement **PYTHON2** est définie sur **on**, Python 2.7 est installé. Dans le cas contraire, le script installé est Python 3.5.
 
 ```powershell
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine

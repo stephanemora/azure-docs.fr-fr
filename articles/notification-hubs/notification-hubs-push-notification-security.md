@@ -1,24 +1,24 @@
 ---
-title: "Sécurité des concentrateurs de notification"
-description: "Cette rubrique décrit la sécurité des hubs de notification Azure."
+title: Sécurité des concentrateurs de notification
+description: Cette rubrique décrit la sécurité des hubs de notification Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 9f197a85dfad31ce32d0f9c93127b69d8e33c9ee
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security"></a>Sécurité
 ## <a name="overview"></a>Vue d'ensemble
@@ -42,7 +42,7 @@ Comme pour les autres entités, les opérations Notification Hubs sont autorisé
 | --- | --- | --- |
 | Écouter |Créer/mettre à jour, lire et supprimer des inscriptions uniques |Créer/mettre à jour une inscription<br><br>Lire une inscription<br><br>Lire toutes les inscriptions pour un handle<br><br>Supprimer une inscription |
 | Envoyer |Envoyer de messages au concentrateur de notification |Envoyer un message |
-| Gérer |Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/Mettre à jour/Lire/Supprimer des hubs de notification<br><br>Lire des inscriptions par balise |
+| gérer |Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/Mettre à jour/Lire/Supprimer des hubs de notification<br><br>Lire des inscriptions par balise |
 
 Notification Hubs accepte les revendications accordées par les jetons de contrôle d'accès Microsoft Azure et les jetons de signature générés avec des clés partagées configurées directement sur le concentrateur de notification.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ac12ccb3f14c8ec433570da78e6ba8a76c7a5b5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d280ad1180949167bb8ebfc6b21521736db0f55d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrer des machines virtuelles Azure vers des disques gérés dans Azure
 
@@ -65,7 +65,7 @@ Il existe sept types de disques gérés Premium qui peuvent être utilisés avec
 
 | Type de disque Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Taille du disque           | 128 Go| 512 Go| 128 Go| 256 Go|512 Go | 1024 Go (1 To)    | 2 048 Go (2 To)    | 4 095 Go (4 To)    | 
+| Taille du disque           | 32 Go| 64 Go| 128 Go| 256 Go|512 Go | 1024 Go (1 To)    | 2 048 Go (2 To)    | 4 095 Go (4 To)    | 
 | IOPS par disque       | 120   | 240   | 500   | 1100  |2 300              | 5 000              | 7500              | 7500              | 
 | Débit par disque | 25 Mo par seconde  | 50 Mo par seconde  | 100 Mo par seconde | 125 Mo par seconde |150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde |
 

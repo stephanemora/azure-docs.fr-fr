@@ -1,11 +1,11 @@
 ---
-title: "Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST | Microsoft Docs"
-description: "Découvrez comment accéder à une API Azure Media Services avec l’authentification Azure Active Directory par le biais de REST."
+title: Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST | Microsoft Docs
+description: Découvrez comment accéder à une API Azure Media Services avec l’authentification Azure Active Directory par le biais de REST.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: willzhan
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST
 
@@ -42,7 +42,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!IMPORTANT]
 > À l’heure actuelle, Media Services prend en charge le modèle d’authentification des services Azure Access Control. Toutefois, l’authentification Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
@@ -57,7 +58,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour accéder aux API Media Services, vous devez collecter des points de données suivants.
 
-|Paramètre|exemples|DESCRIPTION|
+|Paramètre|Exemples|Description|
 |---|-------|-----|
 |Domaine du locataire Azure Active Directory|microsoft.onmicrosoft.com|Azure AD en tant que point de terminaison Secure Token Service (STS) est créé au format suivant : https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD émet un JWT pour accéder aux ressources (jeton d’accès).|
 |Point de terminaison d'API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Il s’agit du point de terminaison vis-à-vis duquel tous les appels d’API REST Media Services dans votre application sont effectués.|

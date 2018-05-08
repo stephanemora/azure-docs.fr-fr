@@ -1,11 +1,11 @@
 ---
-title: "Configurer l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique vers Azure | Microsoft Docs"
-description: "Cette rubrique explique comment configurer l’encodeur en direct Haivision KB pour envoyer un flux à débit binaire unique vers des canaux AMS activés pour l’encodage live."
+title: Configurer l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique vers Azure | Microsoft Docs
+description: Cette rubrique explique comment configurer l’encodeur en direct Haivision KB pour envoyer un flux à débit binaire unique vers des canaux AMS activés pour l’encodage live.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: dbgeorge
 manager: vsood
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique
 > [!div class="op_single_selector"]
@@ -33,15 +33,16 @@ Cette rubrique explique comment configurer [l’encodeur en direct Haivision KB]
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 *   Accès à un encodeur Haivision KB exécutant le logiciel v5.01 ou version ultérieure.
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
-* Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de streaming dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
+* Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Lancez l’outil et connectez-vous à votre compte AMS.
 
 ## <a name="tips"></a>Conseils
 * Si possible, utilisez une connexion Internet câblée.
-* Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de streaming. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.
+* Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de diffusion en continu. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.
 * Lors de l’utilisation d’encodeurs logiciels, fermez tous les programmes inutiles.
 
 ## <a name="create-a-channel"></a>Créer un canal

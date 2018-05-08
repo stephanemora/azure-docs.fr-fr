@@ -1,10 +1,10 @@
 ---
-title: "Notifications Push sécurisées avec Azure Notification Hubs"
-description: "Découvrez comment envoyer des notifications Push sécurisées dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET."
+title: Notifications Push sécurisées avec Azure Notification Hubs
+description: Découvrez comment envoyer des notifications Push sécurisées dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET.
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 9c626ec1534c4899588150a58c0da57b9d963f6f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 8d051107a5e114ed8aa5f4b5a629a439519157b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Notifications Push sécurisées avec Azure Notification Hubs
 > [!div class="op_single_selector"]
-> * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+> * [Windows Universel](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 > 
@@ -157,7 +157,7 @@ L’étape suivante consiste à créer le composant en arrière-plan pour les no
     ![][13]
 16. Dans le menu **Fichier**, cliquez sur **Enregistrer tout**.
 
-## <a name="run-the-application"></a>Exécution de l'application
+## <a name="run-the-application"></a>Exécution de l’application
 Pour exécuter l'application, procédez comme suit :
 
 1. Dans Visual Studio, exécutez l'application d'API web **AppBackend** . Une page web ASP.NET s'affiche.

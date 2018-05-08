@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e0e0fdbb3702ec16e9d5a33659c1ddbee589b989
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle Red Hat pour Azure
 Dans cet article, vous allez apprendre à préparer une machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Cet article couvre les versions de RHEL 6.7 et 7.1+. Les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM (Machine virtuelle basée sur le noyau) et VMware. Pour plus d’informations sur les conditions d’éligibilité pour participer au programme d’accès au Cloud de Red Hat, consultez le [site Web d’accès au cloud de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) et [Exécution RHEL sous Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -160,7 +160,7 @@ Cette section suppose que vous avez déjà obtenu un fichier ISO depuis le site 
 
 5. Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 6. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
 
@@ -412,7 +412,7 @@ Cette section suppose que vous avez déjà obtenu un fichier ISO depuis le site 
 
 6. Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
 
-        # chkconfig network on
+        # sudo systemctl enable network
 
 7. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
 
@@ -667,7 +667,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 3. Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 4. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
 

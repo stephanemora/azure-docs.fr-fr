@@ -1,11 +1,11 @@
 ---
-title: "Charger des fichiers dans un compte Azure Media Services à l’aide de REST | Microsoft Docs"
-description: "Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources."
+title: Charger des fichiers dans un compte Azure Media Services à l’aide de REST | Microsoft Docs
+description: Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 > [!div class="op_single_selector"]
@@ -39,7 +39,8 @@ Dans ce didacticiel, vous allez apprendre à charger un fichier et une autre op�
 > * Charger un fichier vers le stockage d’objets blob à l’aide de l’URL de chargement
 > * Créer des métadonnées dans l’élément multimédia pour le fichier multimédia que vous avez chargé
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
@@ -220,7 +221,7 @@ La réponse contient la taille, le nom et d’autres informations.
     "ContentFileSize": "3186542",
     "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
             
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
 

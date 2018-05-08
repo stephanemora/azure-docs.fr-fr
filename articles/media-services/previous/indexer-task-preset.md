@@ -1,11 +1,11 @@
 ---
-title: "Tâches prédéfinies pour Azure Media Indexer"
-description: "Cette rubrique offre une vue d’ensemble des tâches prédéfinies pour Azure Media Indexer."
+title: Tâches prédéfinies pour Azure Media Indexer
+description: Cette rubrique offre une vue d’ensemble des tâches prédéfinies pour Azure Media Indexer.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Asolanki
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
 ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Tâches prédéfinies pour Azure Media Indexer
 
@@ -29,7 +29,7 @@ Cette rubrique décrit les tâches prédéfinies que vous devez transmettre à v
 
 Le tableau suivant décrit les éléments et les attributs du fichier de configuration XML.
 
-|Nom|Require|Description|
+|NOM|Require|Description|
 |---|---|---|
 |Entrée|true|Fichiers de ressources que vous souhaitez indexer.<br/>Azure Media Indexer prend en charge les formats de fichiers multimédias suivants : MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Vous pouvez spécifier le nom des fichiers dans l’attribut **name** ou **list** de l’élément **input** (comme indiqué ci-dessous). Si vous ne spécifiez pas les fichiers d’élément multimédia à indexer, le fichier principal est sélectionné. Si aucun fichier principal n’est défini, le premier fichier de ressource d’entrée est indexé.<br/><br/>Pour spécifier explicitement le nom du fichier multimédia, effectuez ceci :<br/>```<input name="TestFile.wmv" />```<br/><br/>Vous pouvez également indexer plusieurs fichiers de ressources à la fois (jusqu'à 10 fichiers). Pour ce faire :<br/>- Créez un fichier texte (fichier manifeste) et affectez-lui une extension .lst.<br/>- Ajoutez une liste de tous les noms des fichiers de votre élément multimédia d’entrée à ce fichier de manifeste.<br/>- Ajoutez (chargez) le fichier manifeste dans l’élément multimédia.<br/>- Spécifiez le nom du fichier manifeste dans l’attribut list de l’élément input.<br/>```<input list="input.lst">```<br/><br/>**Remarque :** si vous ajoutez plus de 10 fichiers dans le fichier manifeste, la tâche d’indexation échouera avec le code d’erreur 2006.|
 |métadonnées|false|Métadonnées des fichiers d’élément multimédia spécifiés.<br/>```<metadata key="..." value="..." />```<br/><br/>Vous pouvez fournir des valeurs de clés prédéfinies. <br/><br/>À l’heure actuelle, les clés suivantes sont prises en charge :<br/><br/>**title** et **description** : permettent de mettre à jour le modèle linguistique pour améliorer la précision de la reconnaissance vocale.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** et **password** : utilisées à des fins d’authentification lors du téléchargement de fichiers Internet via HTTP ou HTTPS.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Les valeurs username et password s’appliquent à toutes les URL de média du manifeste d’entrée.|

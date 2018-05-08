@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -85,7 +85,7 @@ Utiliser Azure pour les environnements de développement et les labos permet aux
 
 Le service [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) utilise le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). RBAC vous permet de séparer les responsabilités au sein de votre équipe au sein de rôles qui accordent uniquement le niveau d’accès nécessaire pour permettre aux utilisateurs d’effectuer leurs travaux. RBAC est fourni avec des rôles prédéfinis (propriétaire, utilisateur de labo et collaborateur). Vous pouvez même utiliser ces rôles pour affecter des droits à des partenaires externes et simplifier considérablement la collaboration.
 
-Étant donné que DevTest Labs utilise RBAC, il est possible de créer d’autres [rôles personnalisés](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs ne simplifie pas seulement la gestion des autorisations, il simplifie le processus de configuration des environnements. Cela vous permet également de traiter les autres défis types des équipes qui travaillent sur des environnements de développement et de test. Une certaine préparation s’impose mais, à long terme, cela rendra les choses plus faciles pour votre équipe.
+Étant donné que DevTest Labs utilise RBAC, il est possible de créer d’autres [rôles personnalisés](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs ne simplifie pas seulement la gestion des autorisations, il simplifie le processus de configuration des environnements. Cela vous permet également de traiter les autres défis types des équipes qui travaillent sur des environnements de développement et de test. Une certaine préparation s’impose mais, à long terme, cela rendra les choses plus faciles pour votre équipe.
 
 Voici certaines des fonctionnalités d’Azure DevTest Labs :
 

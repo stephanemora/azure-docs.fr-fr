@@ -1,26 +1,24 @@
 ---
-title: "Exemples PowerShell pour gérer des groupes dans Azure Active Directory | Documents Microsoft"
-description: "Cette page fournit des exemples PowerShell pour vous aider à gérer vos groupes dans Azure Active Directory"
+title: Exemples PowerShell pour gérer des groupes dans Azure Active Directory | Documents Microsoft
+description: Cette page fournit des exemples PowerShell pour vous aider à gérer vos groupes dans Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groupes, Gestion des groupes
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 312efd6233546ae32e498907e04fbf8aea73f7b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 > [!div class="op_single_selector"]
@@ -267,4 +265,4 @@ Quand un groupe est créé, certain points de terminaison autorisent l’utilisa
 Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
