@@ -118,7 +118,6 @@
 #### [Portail Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configurer des encodeurs locaux pour une utilisation avec un encodeur cloud](media-services-live-encoders-overview.md)
-#### [Encodeur Elemental Live](media-services-configure-elemental-live-encoder.md)
 #### [Encodeur FMLE](media-services-configure-fmle-live-encoder.md)
 #### [Encodeur Haivision KB](media-services-configure-kb-live-encoder.md)
 #### [Encodeur NewTek TriCaster](media-services-configure-tricaster-live-encoder.md)

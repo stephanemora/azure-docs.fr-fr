@@ -90,7 +90,7 @@
     - name: Stockage sur disque
       href: about-disks-and-vhds.md
       items:
-        - name: "Managed\_Disks"
+        - name: Managed Disks
           href: managed-disks-overview.md
         - name: Stockage Premium
           href: premium-storage.md
@@ -177,7 +177,7 @@
           items:
             - name: Portail Azure
               href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Sauvegarder plusieurs machines virtuelles
           href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -206,7 +206,7 @@
         - name: Télécharger un modèle
           href: download-template.md
         - name: Agent de machine virtuelle Azure
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Maintenance planifiée
           href: maintenance-notifications.md
         - name: Atténuation de l’exécution spéculative
@@ -235,7 +235,7 @@
           href: download-vhd.md
     - name: Disponibilité et mise à l’échelle
       items:
-        - name: Jeux de mise à l’échelle de machine virtuelle
+        - name: Virtual Machine Scale Sets
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Haute disponibilité
           href: manage-availability.md
@@ -263,7 +263,7 @@
           href: ../workloads/sap/get-started.md
         - name: Cluster MATLAB
           href: matlab-mdcs-cluster.md
-        - name: "Visual\_Studio"
+        - name: Visual Studio
           href: using-visual-studio-vm.md
         - name: 'HPC (High-Performance Computing, calcul haute performance)'
           href: hpcpack-cluster-options.md
@@ -369,7 +369,7 @@
         - name: "Agent Network\_Watcher"
           href: extensions-nwa.md
         - name: Limiter l’installation de l’extension
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: Migrer des machines virtuelles
       items:
         - name: Migrer des machines virtuelles AWS et locales
@@ -437,7 +437,7 @@
           href: error-messages.md
         - name: Accès à la récupération d’une machine virtuelle
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: troubleshoot-recovery-disks.md
             - name: Portail Azure
               href: troubleshoot-recovery-disks-portal.md
@@ -453,7 +453,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/vm
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
