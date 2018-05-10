@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>Solutions de gestion dans Azure
 Les solutions de gestion tirent profit des services disponibles dans Azure pour offrir des informations supplémentaires sur le fonctionnement d’une application ou d’un service spécifiques. Cet article fournit un bref aperçu des solutions de gestion dans Azure et détaille l’utilisation et l’installation de ces dernières.
 
 En règle générale, les solutions de gestion collectent des informations dans Log Analytics et vous offrent des recherches dans les journaux et des vues pour analyser les données collectées. Ces solutions peuvent également tirer profit d’autres services tels qu’Azure Automation pour exécuter des actions liées à l’application ou au service.
 
-Vous pouvez ajouter des solutions de gestion à votre abonnement Azure pour les applications et services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation. Outre les solutions proposées par Microsoft, les partenaires et les clients peuvent [créer des solutions de gestion](../operations-management-suite/operations-management-suite-solutions-creating.md) utilisables dans leur propre environnement ou mises à la disposition des clients par le biais de la communauté.
+Vous pouvez ajouter des solutions de gestion à votre abonnement Azure pour les applications et services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation. Outre les solutions proposées par Microsoft, les partenaires et les clients peuvent [créer des solutions de gestion](../monitoring/monitoring-solutions-creating.md) utilisables dans leur propre environnement ou mises à la disposition des clients par le biais de la communauté.
 
 ## <a name="using-management-solutions"></a>Utilisation des solutions de gestion
 La page **Vue d’ensemble** de chaque espace de travail Log Analytics affiche une vignette pour chacune des solutions installées dans l’espace de travail. Cliquez sur la vignette d’une solution pour ouvrir la vue correspondante incluant une analyse plus détaillée des données collectées par la solution.

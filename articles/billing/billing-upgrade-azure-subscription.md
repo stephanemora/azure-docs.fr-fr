@@ -1,27 +1,27 @@
 ---
-title: "Mise à niveau de votre abonnement Azure gratuit pour le paiement à l’utilisation | Microsoft Docs"
-description: "Décrit comment vous pouvez effectuer une mise à niveau d’un abonnement gratuit vers un abonnement avec paiement à l’utilisation et la configuration requise"
-keywords: "mise à niveau sur plan de paiement à l'utilisation"
-services: 
-documentationcenter: 
+title: Mise à niveau de votre abonnement Azure gratuit pour le paiement à l’utilisation | Microsoft Docs
+description: Décrit comment vous pouvez effectuer une mise à niveau d’un abonnement gratuit vers un abonnement avec paiement à l’utilisation et la configuration requise
+keywords: mise à niveau sur plan de paiement à l'utilisation
+services: ''
+documentationcenter: ''
 author: jlian
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b9642eec0fd0f1e547f34de1077e551fbb61593
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Mise à niveau de votre abonnement d’essai gratuit ou Microsoft Imagine pour le paiement à l’utilisation
 

@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscrire l’appareil à un hub IoT avec le client du service IoT Hub Provisioning (.NET)
 
@@ -50,7 +50,7 @@ Cette étape implique l’ajout des artefacts de sécurité uniques de l’appar
 
 - Pour les appareils basés sur X.509 :
     - Le [certificat X.509 délivré à l’appareil](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sous la forme d’un fichier *.pem* ou *.cer*. Pour une inscription individuelle, vous devez utiliser le *certificat feuille* de votre système X.509, tandis que pour des groupes d’inscriptions, vous devez utiliser le *certificat racine* ou un *certificat du signataire* équivalent.
-    - *L’ID d’enregistrement* qui est utilisé pour identifier un appareil dans l’espace de noms ou l’étendue. Cet ID peut être ou non le même que l’ID de l’appareil. L’ID est obligatoire pour chaque appareil. Pour les appareils basés sur X.509, l’ID d’inscription est dérivé du nom commun du certificat. Pour plus d’informations sur ces exigences, consultez [Concepts d’appareil du service IoT Hub Device Provisioning](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - *L’ID d’enregistrement* qui est utilisé pour identifier un appareil dans l’espace de noms ou l’étendue. Cet ID peut être ou non le même que l’ID de l’appareil. L’ID est obligatoire pour chaque appareil. Pour les appareils basés sur X.509, l’ID d’inscription est dérivé du nom commun du certificat. Pour plus d’informations sur ces exigences, consultez [Concepts d’appareil du service IoT Hub Device Provisioning](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 Il existe deux façons d’inscrire l’appareil auprès du service Device Provisioning :
 

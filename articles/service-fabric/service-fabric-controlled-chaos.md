@@ -1,6 +1,6 @@
 ---
 title: Induire un chaos dans les clusters Service Fabric | Microsoft Docs
-description: "Utilisation des API du service d’injection d’erreurs et d’analyse du cluster pour gérer le chaos dans le cluster."
+description: Utilisation des API du service d’injection d’erreurs et d’analyse du cluster pour gérer le chaos dans le cluster.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 40ceb62e544d2aa71296e24da957cb062029da9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induire un chaos contrôlé dans les clusters Service Fabric
 Les systèmes distribués à grande échelle, comme les infrastructures cloud, sont par définition peu fiables. Azure Service Fabric permet aux développeurs d’écrire des services distribués fiables sur une infrastructure peu fiable. Pour écrire des services distribués robustes sur une infrastructure non fiable, les développeurs doivent pouvoir tester la stabilité de leurs services, tandis que l’infrastructure sous-jacente non fiable passe par des transitions d’état complexes en raison d’erreurs.
@@ -33,7 +33,7 @@ Une fois que vous avez configuré Chaos avec la fréquence et le type des erreur
 > Dans sa forme actuelle, le chaos déclenche uniquement des erreurs sécurisées, ce qui implique qu’en l’absence d’erreurs externes, une perte de quorum ou une perte de données ne se produit jamais.
 >
 
-Pendant que le chaos s’exécute, il génère différents événements qui capturent l’état de l’exécution à un moment précis. Par exemple, un ExecutingFaultsEvent contient toutes les erreurs que Chaos a choisi d’exécuter dans cette itération. Un ValidationFailedEvent contient les détails d’un échec de validation (problèmes d’intégrité ou de stabilité) qui a été identifié lors de la validation du cluster. Vous pouvez appeler l’API GetChaosReport (C#, Powershell ou REST) pour obtenir un rapport sur les exécutions de Chaos. Ces événements sont rendus persistants dans un [dictionnaire fiable](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), qui a une stratégie de troncation dictée par deux configurations : **MaxStoredChaosEventCount** (la valeur par défaut est 25 000) et **StoredActionCleanupIntervalInSeconds** (la valeur par défaut est 3 600). Toutes les vérifications *StoredActionCleanupIntervalInSeconds* de Chaos et tous les événements *MaxStoredChaosEventCount* à l’exception des plus récents sont purgés du dictionnaire fiable.
+Pendant que le chaos s’exécute, il génère différents événements qui capturent l’état de l’exécution à un moment précis. Par exemple, un ExecutingFaultsEvent contient toutes les erreurs que Chaos a choisi d’exécuter dans cette itération. Un ValidationFailedEvent contient les détails d’un échec de validation (problèmes d’intégrité ou de stabilité) qui a été identifié lors de la validation du cluster. Vous pouvez appeler l’API GetChaosReport (C#, Powershell ou REST) pour obtenir un rapport sur les exécutions de Chaos. Ces événements sont rendus persistants dans un [dictionnaire fiable](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), qui a une stratégie de troncation dictée par deux configurations : **MaxStoredChaosEventCount** (la valeur par défaut est 25 000) et **StoredActionCleanupIntervalInSeconds** (la valeur par défaut est 3 600). Toutes les vérifications *StoredActionCleanupIntervalInSeconds* de Chaos et tous les événements *MaxStoredChaosEventCount* à l’exception des plus récents sont purgés du dictionnaire fiable.
 
 ## <a name="faults-induced-in-chaos"></a>Erreurs introduites dans le chaos
 Le chaos génère des erreurs dans l’ensemble du cluster Service Fabric et compresse, en quelques heures, les erreurs constatées au cours de plusieurs mois ou années. L’utilisation d’erreurs entrelacées avec un taux élevé d’erreurs permet d’identifier des dysfonctionnements qui ne pourraient peut-être pas être isolés autrement. Cet exercice du chaos entraîne une amélioration significative de la qualité du code du service.

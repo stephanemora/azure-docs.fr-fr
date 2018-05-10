@@ -1,10 +1,10 @@
 ---
-title: Choisir entre Flow, Logic Apps, Functions et WebJobs | Microsoft Docs
-description: Découvrez une analyse comparative des services d’intégration cloud de Microsoft pour déterminer quel(s) service(s) utiliser.
+title: Comparer Flow, Logic Apps, Functions et WebJobs - Azure
+description: 'Comparez les services de cloud computing Microsoft qui sont optimisés pour les tâches d’intégration : Flow, Logic Apps, Functions et WebJobs.'
 services: functions,app-service\logic
 documentationcenter: na
 author: tdykstra
-manager: wpickett
+manager: cfowler
 tags: ''
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, traitement d’événements, calcul dynamique, architecture sans serveur
 ms.service: functions
@@ -12,18 +12,18 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 577031c58e95781dc97721acc71fb22114b1c606
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6df97a40be7bf1c437c5228006d114ace768f8ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Choisir entre Flow, Logic Apps, Functions et WebJobs
+# <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparer Flow, Logic Apps, Functions et WebJobs
 
-Cet article compare les services suivants dans le cloud de Microsoft :
+Cet article compare les services de cloud computing Microsoft suivants :
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
@@ -32,9 +32,9 @@ Cet article compare les services suivants dans le cloud de Microsoft :
 
 Tous ces services peuvent résoudre des problèmes d’intégration et automatiser des processus métier. Ils peuvent tous définir des entrées, des actions, des conditions et des sorties. Vous pouvez exécuter chacun d’eux selon une planification ou à l’aide d’un déclencheur. Toutefois, chaque service présente des avantages uniques, et cet article explique les différences.
 
-## <a name="flow-vs-logic-apps"></a>Flow vs Logic Apps
+## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Comparer Microsoft Flow et Azure Logic Apps
 
-Microsoft Flow et Azure Logic Apps sont tous les deux des services d’intégration *orientés configuration*. Ils créent des flux de travail qui s’intègrent à différentes applications SaaS et d’entreprise. 
+Flow et Logic Apps sont des services d’intégration *orientés concepteur* permettant de créer des flux de travail. Ils s’intègrent à différentes applications SaaS et d’entreprise. 
 
 Flow est basé sur Logic Apps. Ils partagent le même concepteur de flux de travail et les mêmes [connecteurs](../connectors/apis-list.md). 
 
@@ -51,17 +51,34 @@ Le tableau suivant vous aide à déterminer si Flow ou Logic Apps convient le mi
 | Expérience administrateur |Gérer les stratégies des environnements Flow et de prévention contre la perte des données, suivre la gestion des licences [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Gérer les groupes de ressources, les connexions, la gestion des accès et la connexion [https://portal.azure.com](https://portal.azure.com) |
 | Sécurité |Journaux d’audit de sécurité et conformité Office 365, prévention contre la perte de données, [chiffrement au repos](https://wikipedia.org/wiki/Data_at_rest#Encryption) pour les données sensibles, etc. |Garantie de sécurité d’Azure : [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [journaux d’audit](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), etc. |
 
+## <a name="compare-azure-functions-and-azure-logic-apps"></a>Comparer Azure Functions et Azure Logic Apps
+
+Functions et Logic Apps sont des services Azure qui proposent des charges de travail sans serveur. Azure Functions est un service de calcul sans serveur, alors qu’Azure Logic Apps fournit des flux de travail sans serveur. Ces services peuvent créer des *orchestrations* complexes. Une orchestration est une collection de fonctions ou d’étapes, appelées *actions* dans Logic Apps, qui sont exécutées pour accomplir une tâche complexe. Par exemple, pour traiter un lot de commandes vous pourrez exécuter plusieurs instances d’une fonction en parallèle, attendre que toutes les instances se terminent et exécuter une fonction qui calcule un résultat de l’agrégat.
+
+Pour Azure Functions, vous développez des orchestrations en écrivant du code et en utilisant [l’extension Fonctions durables ](durable-functions-overview.md) (en préversion). Pour Logic Apps, vous créez des orchestrations en utilisant une interface graphique utilisateur ou en modifiant des fichiers config.
+
+Vous pouvez mélanger et associer les services lorsque vous créez une orchestration, en appelant des fonctions à partir d’applications logiques et inversement. Vous pouvez opter pour l’un ou l’autre des services pour créer chacune de vos orchestrations en fonction des capacités de ceux-ci ou de vos préférences. Le tableau suivant répertorie certaines des principales différences entre ces services :
+ 
+|  | Fonctions durables | Logic Apps |
+| --- | --- | --- |
+| Développement | Orienté code (impératif) | Orienté concepteur (déclaratif) |
+| Connectivité | [Environ une douzaine de types de liaison intégrés](functions-triggers-bindings.md#supported-bindings), écriture de code pour les liaisons personnalisées | [Grande collection de connecteurs](../connectors/apis-list.md), [Enterprise Integration Pack pour les scénarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [intégration de connecteurs personnalisés](../logic-apps/custom-connector-overview.md) |
+| Actions | Chaque activité est une fonction Azure ; écriture de code pour les fonctions de l’activité |[Grande collection d’actions prédéfinies](../logic-apps/logic-apps-workflow-actions-triggers.md)|
+| Surveillance | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| gestion | [API REST](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| Contexte d’exécution | Exécution possible [en local](functions-runtime-overview.md) ou dans le cloud. | Exécution uniquement dans le cloud.|
+
 <a name="function"></a>
 
-## <a name="functions-vs-webjobs"></a>Functions vs WebJobs
+## <a name="compare-functions-and-webjobs"></a>Comparer Functions et WebJobs
 
 Comme Azure Functions, Azure App Service WebJobs avec le Kit de développement logiciel (SDK) WebJobs est un service d’intégration *orienté code* conçu pour les développeurs. Les deux reposent sur [Azure App Service](../app-service/app-service-web-overview.md) et prennent en charge des fonctionnalités telles que [l’intégration du contrôle de code source](../app-service/app-service-continuous-deployment.md), [l’authentification](../app-service/app-service-authentication-overview.md) et la [surveillance avec l’intégration Application Insights](functions-monitoring.md).
 
-### <a name="webjobs-vs-the-webjobs-sdk"></a>WebJobs/Kit de développement logiciel (SDK) WebJobs
+### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs et Kit de développement logiciel (SDK) WebJobs
 
 La fonctionnalité *WebJobs* d’App Service vous permet d’exécuter un script ou du code dans le contexte d’une application web App Service. Le *Kit de développement logiciel (SDK) WebJobs* est une infrastructure conçue pour les WebJobs qui simplifie le code que vous écrivez pour répondre aux événements dans les services Azure. Par exemple, vous pouvez répondre à la création d’un objet blob d’image dans Stockage Azure en créant une image miniature. Le Kit de développement logiciel (SDK) WebJobs s’exécute comme une application de console .NET, que vous pouvez déployer sur un WebJob. 
 
-Les WebJobs et le Kit de développement logiciel (SDK) WebJobs fonctionnent mieux ensemble, mais vous pouvez utiliser des WebJobs sans Kit de développement logiciel (SDK) WebJobs et vice versa. Un WebJob peut exécuter n’importe quel programme ou script pouvant s’exécuter dans le bac à sable App Service. Une application de console de Kit de développement logiciel (SDK) WebJobs peut s’exécuter là où les applications de console peuvent être exécutées, tels que des serveurs locaux.
+Les WebJobs et le Kit de développement logiciel (SDK) WebJobs fonctionnent mieux ensemble, mais vous pouvez utiliser des WebJobs sans Kit de développement logiciel (SDK) WebJobs et vice versa. Un WebJob peut exécuter n’importe quel programme ou script s’exécutant dans le bac à sable App Service. Une application de console de Kit de développement logiciel (SDK) WebJobs peut s’exécuter là où les applications de console s’exécutent, tels que des serveurs locaux.
 
 ### <a name="comparison-table"></a>Tableau de comparaison
 

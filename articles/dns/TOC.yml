@@ -12,10 +12,6 @@
       href: dns-getstarted-powershell.md
     - name: Créer une zone DNS et un enregistrement - CLI
       href: dns-getstarted-cli.md
-- name: Exemples
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Didacticiels
   items:
     - name: Créer une zone DNS privée et un enregistrement
@@ -24,6 +20,10 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Créer des enregistrements DNS personnalisés pour une application web
       href: dns-web-sites-custom-domain.md
+- name: Exemples
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Concepts
   items:
     - name: Enregistrements et zones DNS

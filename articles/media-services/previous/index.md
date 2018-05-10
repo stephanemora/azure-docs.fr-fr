@@ -1,11 +1,11 @@
 ---
-title: "Documentation Azure Media Services - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec la plateforme cloud extensible Media Services. Didacticiels, références d’API et autres."
+title: Documentation Azure Media Services - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec la plateforme cloud extensible Media Services. Didacticiels, références d’API et autres.
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="media-services-documentation"></a>Documentation Media Services
 
@@ -170,7 +170,7 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -203,7 +203,7 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/media">Référence d’API REST</a></p>
+                        <p><a href="/rest/api/media">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>

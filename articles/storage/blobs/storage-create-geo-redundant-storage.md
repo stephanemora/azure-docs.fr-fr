@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 86fb0ae7c9ee5a2856c81603a4e08ae7016b022f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Rendre vos données d’application hautement disponibles avec Stockage Azure
 
@@ -146,7 +146,7 @@ Dans l’exemple de code, la méthode `run_circuit_breaker` dans le fichier `cir
 
 La fonction Nouvelle tentative de l’objet de stockage est définie sur une stratégie linéaire de nouvelles tentatives. La fonction Nouvelle tentative indique s’il faut renouveler une requête et spécifie le nombre de secondes à attendre avant de renouveler la requête. Indiquez la valeur true pour **retry\_to\_secondary** si la requête doit être renvoyée à la base de données secondaire en cas d’échec de la requête à la base de données principale. Dans l’exemple d’application, une stratégie personnalisée de nouvelles tentatives est définie dans la fonction `retry_callback` de l’objet de stockage.
  
-Avant le téléchargement, l’objet du service [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) et la fonction [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) sont définis. Ces fonctions définissent les gestionnaires d’événements qui se déclenchent quand un téléchargement se termine correctement ou si un téléchargement échoue et effectue une nouvelle tentative.  
+Avant le téléchargement, l’objet du service [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) et la fonction [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) sont définis. Ces fonctions définissent les gestionnaires d’événements qui se déclenchent quand un téléchargement se termine correctement ou si un téléchargement échoue et effectue une nouvelle tentative.  
 
 # <a name="java-tabjava"></a>[Java] (#tab/java)
 Vous pouvez exécuter l’application en ouvrant un terminal ou une invite de commande inclus dans le dossier de l’application téléchargé. Entrez maintenant `mvn compile exec:java` pour exécuter l’application. L’application charge ensuite l’image **HelloWorld.png** du répertoire à votre compte de stockage et vérifiez que l’image a été répliquée vers le point de terminaison secondaire RA-GRS. Après vérification, l’application téléchargera l’image à plusieurs reprises, tout en rapportant le point de terminaison depuis lequel elle télécharge.
@@ -212,7 +212,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>Gestionnaire d’événements de nouvelle tentative
 
-Le Gestionnaire d’événements `retry_callback` est appelé quand le téléchargement de l’image échoue et qu’une nouvelle tentative est définie. Si le nombre maximal de tentatives définies dans l’application est atteint, le paramètre [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) de la requête passe à `SECONDARY`. Ce paramètre oblige l’application à essayer de télécharger l’image à partir du point de terminaison secondaire. Cette configuration réduit le temps nécessaire pour demander l’image puisque les nouvelles tentatives ne sont pas indéfiniment effectuées sur le point de terminaison principal.  
+Le Gestionnaire d’événements `retry_callback` est appelé quand le téléchargement de l’image échoue et qu’une nouvelle tentative est définie. Si le nombre maximal de tentatives définies dans l’application est atteint, le paramètre [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) de la requête passe à `SECONDARY`. Ce paramètre oblige l’application à essayer de télécharger l’image à partir du point de terminaison secondaire. Cette configuration réduit le temps nécessaire pour demander l’image puisque les nouvelles tentatives ne sont pas indéfiniment effectuées sur le point de terminaison principal.  
 
 ```python
 def retry_callback(retry_context):
@@ -235,7 +235,7 @@ def retry_callback(retry_context):
 
 ### <a name="request-completed-event-handler"></a>Gestionnaire d’événements de demande terminée
 
-Le Gestionnaire d’événements `response_callback` est appelé quand le téléchargement de l’image est réussi. Si l’application utilise le point de terminaison secondaire, elle continue à utiliser ce point de terminaison jusqu’à 20 fois. Au bout de 20 fois, l’application redéfinit le paramètre [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) sur `PRIMARY` et réessaie le point de terminaison principal. Si une requête réussit, l’application poursuit la lecture à partir du point de terminaison principal.
+Le Gestionnaire d’événements `response_callback` est appelé quand le téléchargement de l’image est réussi. Si l’application utilise le point de terminaison secondaire, elle continue à utiliser ce point de terminaison jusqu’à 20 fois. Au bout de 20 fois, l’application redéfinit le paramètre [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) sur `PRIMARY` et réessaie le point de terminaison principal. Si une requête réussit, l’application poursuit la lecture à partir du point de terminaison principal.
 
 ```python
 def response_callback(response):

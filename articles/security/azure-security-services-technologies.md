@@ -3,7 +3,7 @@ title: Services et technologies de sécurité Azure | Microsoft Docs
 description: Cet article fournit une liste des services et technologies de sécurité Azure.
 services: security
 documentationcenter: na
-author: TomShinder
+author: barclayn
 manager: MBaldwin
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 20d3eb9a1843e1a223ba7fb060df46a22f9315b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: eedfca2506f9e34b8e5039b0f101b1d4e68ef5a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Services et technologies de sécurité Azure
+
 Dans nos discussions avec les clients Azure actuels et futurs, une question revient souvent : « Avez-vous une liste de tous les services et technologies de sécurité proposés par Azure ? ».
 
 Lors de l’évaluation des options de fournisseur de services cloud, il est utile de disposer de ces informations.
@@ -28,6 +29,7 @@ Lors de l’évaluation des options de fournisseur de services cloud, il est uti
 Ce document fournit une première version de cette liste. Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. La liste est classée par catégories, et la liste des catégories évoluera également au fil du temps. Veillez à consulter cette page régulièrement pour vous tenir au courant de l’évolution de nos technologies et services liés à la sécurité.
 
 ## <a name="azure-security---general"></a>Sécurité de Windows Azure – Généralités
+
 * [Centre de sécurité Azure](https://azure.microsoft.com/documentation/services/security-center/)
 * [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
 * [Azure Disk Encryption](azure-security-disk-encryption.md)
@@ -35,6 +37,7 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Dev/Test Labs Azure](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Sécurité Azure Storage
+
 * [Storage Service Encryption Azure](../storage/common/storage-service-encryption.md)
 * [Stockage hybride chiffré StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)
 * [Chiffrement côté client Azure](../storage/common/storage-client-side-encryption.md)
@@ -44,6 +47,7 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Sécurité des bases de données Azure
+
 * [Pare-feu SQL Azure](../sql-database/sql-database-firewall-configure.md)
 * [Chiffrement au niveau des cellules SQL Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
 * [Chiffrement de la connexion SQL Azure](../sql-database/sql-database-control-access.md)
@@ -54,6 +58,7 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Audit de base de données SQL Azure](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Gestion de l’identité et de l’accès Azure
+
 * [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
@@ -61,10 +66,12 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 * [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d’urgence
+
 * [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
 * [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
 
 ## <a name="azure-networking"></a>Mise en réseau Azure
+
 * [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 * [Passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Application Gateway Azure](../application-gateway/application-gateway-introduction.md)

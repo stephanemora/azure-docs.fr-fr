@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da1289b7b86f6f8016920c28890189db8ccb2511
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 643db63b077d243617b8a54c6835aa560007d51b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 
@@ -1052,7 +1052,7 @@ Pour ajouter des entrées de registre aux deux nœuds du cluster de l’instance
 | Nom de la variable |`KeepAliveTime` |
 | Type de variable |REG_DWORD (décimal) |
 | Valeur |120 000 |
-| Lien vers la documentation |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Lien vers la documentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tableau 3 :** Modification du premier paramètre TCP/IP_
 
@@ -1063,7 +1063,7 @@ Puis, ajoutez ces entrées de registre Windows aux deux nœuds de cluster Window
 | Nom de la variable |`KeepAliveInterval` |
 | Type de variable |REG_DWORD (décimal) |
 | Valeur |120 000 |
-| Lien vers la documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Lien vers la documentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tableau 4 :** Modification du deuxième paramètre TCP/IP_
 

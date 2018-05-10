@@ -1,13 +1,13 @@
 ---
-title: "Valider le débit VPN vers un réseau virtuel Microsoft Azure | Microsoft Docs"
-description: "L’objectif de ce document est d’aider les utilisateurs à valider le débit du réseau de leurs ressources locales vers une machine virtuelle."
+title: Valider le débit VPN vers un réseau virtuel Microsoft Azure | Microsoft Docs
+description: L’objectif de ce document est d’aider les utilisateurs à valider le débit du réseau de leurs ressources locales vers une machine virtuelle.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: jasmc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -121,7 +121,7 @@ Téléchargez [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip)
 ## <a name="address-slow-file-copy-issues"></a>Résolution des problèmes de copie lente des fichiers
 Vous pouvez rencontrer des problèmes de copie trop lente de fichiers lorsque vous utilisez l’Explorateur Windows ou le glisser-déplacer via une session RDP. Ce problème est généralement dû à un ou deux des facteurs suivants :
 
-- Les applications de copie de fichiers, comme l’Explorateur Windows et le protocole RDP, n’utilisent pas plusieurs threads lors de la copie des fichiers. Pour de meilleures performances, utilisez une application de copie de fichiers multi-thread, comme [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), pour copier des fichiers à l’aide de 16 ou 32 threads. Pour modifier le nombre de threads pour la copie de fichiers dans Richcopy, cliquez sur **Action** > **Options de copie** > **Copie de fichiers**.<br><br>
+- Les applications de copie de fichiers, comme l’Explorateur Windows et le protocole RDP, n’utilisent pas plusieurs threads lors de la copie des fichiers. Pour de meilleures performances, utilisez une application de copie de fichiers multi-thread, comme [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx), pour copier des fichiers à l’aide de 16 ou 32 threads. Pour modifier le nombre de threads pour la copie de fichiers dans Richcopy, cliquez sur **Action** > **Options de copie** > **Copie de fichiers**.<br><br>
 ![Problèmes de copie lente de fichiers](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - La vitesse en lecture/écriture du disque de la machine virtuelle est insuffisante. Pour plus d'informations, consultez [Dépannage Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 

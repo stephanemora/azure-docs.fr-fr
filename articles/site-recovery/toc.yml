@@ -177,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Récupération d'urgence
           items:
-            - name: Récupération d’urgence des machines virtuelles VMware avec la prise en charge mutualisée et CSP
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: "Répliquer des machines virtuelles VMware sur Microsoft\_Azure à l’aide de PowerShell"
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Récupération d’urgence des serveurs physiques vers Azure
@@ -199,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: Activer la réplication de machines virtuelles VMware
               href: vmware-azure-enable-replication.md
+            - name: Architecture mutualisée avec CSP pour les machines virtuelles VMWare
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Déployer le service Mobilité
           items:
+            - name: Présentation du service Mobilité
+              href: vmware-azure-install-mobility-service.md
             - name: Déployer le service Mobilité avec System Center Configuration Manager
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Déployer le service Mobilité avec Azure Automation DSC
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Basculement et restauration automatique
           items:
             - name: Effectuer un exercice de récupération d'urgence vers Azure

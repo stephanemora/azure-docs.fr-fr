@@ -1,10 +1,10 @@
 ---
-title: "Créer des enregistrements DNS personnalisés pour une application web | Microsoft Docs"
-description: "Comment créer des enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS"
+title: Créer des enregistrements DNS personnalisés pour une application web | Microsoft Docs
+description: Comment créer des enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: gwallace
-ms.openlocfilehash: d4b0aa817c3fd7f3304b5122ac584166d8079d3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 00a56a2683e95e70bb13acd6b936e766f044e1cd
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Créer des enregistrements DNS pour une application web dans un domaine personnalisé
 
@@ -61,7 +61,7 @@ Pour trouver l’adresse IP d’une application web, suivez la procédure décri
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
 ```
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Validez les modifications apportées au jeu d’enregistrements. Utilisez `Set-AzureRMDnsRecordSet` pour charger les modifications apportées au jeu d’enregistrements dans Azure DNS :
 
@@ -73,7 +73,7 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 Si votre domaine est déjà géré par Azure DNS (consultez [Délégation de domaine DNS](dns-domain-delegation.md)), vous pouvez utiliser l’exemple suivant pour créer un enregistrement CNAME pour contoso.azurewebsites.net.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Ouvrez PowerShell et créez un jeu d’enregistrements CNAME, puis affectez-le à une variable $rs. Cet exemple crée un type de jeu d’enregistrements CNAME avec une durée de vie de 600 secondes dans la zone DNS nommée « contoso.com ».
 
@@ -117,7 +117,7 @@ L’exemple suivant est la réponse.
     Tags              : {}
 ```
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Validez vos modifications en utilisant l’applet de commande `Set-AzureRMDnsRecordSet` :
 
@@ -148,7 +148,7 @@ contoso.azurewebsites.net
 
 Si vous décidez d'utiliser un enregistrement A pour votre application web, vous devez réaliser un processus de vérification pour confirmer que vous êtes le propriétaire du domaine personnalisé. Cette étape de vérification est effectuée en créant un enregistrement CNAME spécial nommé « awverify ». Cette section s’applique seulement aux enregistrements A.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Créez l’enregistrement « awverify ». Dans l’exemple ci-dessous, nous créons l’enregistrement « awverify » pour contoso.com pour vérifier la propriété du domaine personnalisé.
 
@@ -190,7 +190,7 @@ L’exemple suivant est la réponse.
     Tags              : {}
 ```
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Validez les modifications avec `Set-AzureRMDnsRecordSet cmdlet`, comme indiqué dans la commande ci-dessous.
 

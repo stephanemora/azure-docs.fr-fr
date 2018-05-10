@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 9078b56ae9c5582aa21201c168974eb6cc7a4ed6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice de prise en charge pour la réplication d’Hyper-V vers Azure
 
@@ -170,7 +170,7 @@ Pour vous assurer que votre déploiement est compatible avec les paramètres de 
 
 **Name** | **Description** | **Détails**
 --- | --- | --- | --- | ---
-Fournisseur Azure Site Recovery | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Hyper-V avec Virtual Machine Manager : installé sur les serveurs Virtual Machine Manager<br/><br/> Hyper-V sans Virtual Machine Manager : installé sur les hôtes Hyper-V| Version la plus récente : 5.1.2700.1 (disponible sur le portail Azure)<br/><br/> [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
+Fournisseur Azure Site Recovery | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Hyper-V avec Virtual Machine Manager : installé sur les serveurs Virtual Machine Manager<br/><br/> Hyper-V sans Virtual Machine Manager : installé sur les hôtes Hyper-V| Version la plus récente : 5.1.2700.1 (disponible sur le portail Azure)<br/><br/> [Fonctionnalités et correctifs récents](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agent Microsoft Azure Recovery Services | Coordonne la réplication entre les machines virtuelles Hyper-V et Azure<br/><br/> Installé sur des serveurs Hyper-V locaux (avec ou sans serveur Virtual Machine Manager) | Dernier agent disponible sur le portail
 
 

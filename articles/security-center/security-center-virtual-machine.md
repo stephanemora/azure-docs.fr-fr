@@ -1,11 +1,11 @@
 ---
 title: Azure Security Center et machines virtuelles Azure | Microsoft Docs
-description: "Ce document vous a permis de découvrir comment Azure Security Center peut protéger vos machines virtuelles Azure."
+description: Ce document vous a permis de découvrir comment Azure Security Center peut protéger vos machines virtuelles Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: 137ed1c65d2eb619192364dd7d0d17a55d98403c
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 78a944302726a7e3445ebcd24ba8af4c40389e40
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center et machines virtuelles Azure
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) vous aide à vous empêcher, détecter et répondre aux menaces. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
@@ -42,7 +42,8 @@ En plus de vous aider à protéger vos machines virtuelles Azure, Security Cente
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour commencer à utiliser Azure Security Center, vous devez connaître et prendre en compte les points suivants :
 
 * Vous devez disposer d’un abonnement à Microsoft Azure. Pour plus d’informations sur les niveaux Gratuit et Standard de Security Center, consultez l’article [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).

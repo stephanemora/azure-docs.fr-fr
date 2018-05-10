@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure et Azure Files en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans Stockage Blob Azure ou Azure Files. 
@@ -29,7 +29,7 @@ Suivez les étapes ci-dessous si les données sur le disque doivent être import
 2.  En fonction de la taille totale des données, procurez-vous le nombre requis de SSD de 2,5 pouces ou HDD SATA II ou III de 2,5 ou 3,5 pouces.
 3.  Attachez les disques durs directement à l’aide de SATA ou avec des adaptateurs USB externes à un ordinateur Windows.
 1.  Créez un seul volume NTFS sur chaque disque dur et affectez-lui une lettre de lecteur. Pas de points de montage.
-2.  Pour activer le chiffrement sur l’ordinateur Windows, activez le chiffrement BitLocker sur le volume NTFS. Suivez les instructions sur https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Pour activer le chiffrement sur l’ordinateur Windows, activez le chiffrement BitLocker sur le volume NTFS. Suivez les instructions sur https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Copiez entièrement les données vers ces volumes NTFS uniques chiffrés sur les disques à l’aide des fonctions Copier/Coller ou Glisser-déplacer, de Robocopy ou de n’importe quel outil de ce type.
 7.  Téléchargez WAImportExport V1 à partir de https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Effectuez la décompression dans le dossier par défaut waimportexportv1. Par exemple, C:\WaImportExportV1  
@@ -561,7 +561,7 @@ La taille maximale des objets blob de pages est de 1 To.
 
 Par défaut, le service Azure Import/Export chiffre avec le chiffrement BitLocker AES 128, mais vous pouvez aller jusqu’à un chiffrement à AES 256 en chiffrant manuellement avec bitlocker avant la copie des données. 
 
-Si vous utilisez [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), voici un exemple de commande.
+Si vous utilisez [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), voici un exemple de commande
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

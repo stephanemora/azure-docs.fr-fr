@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration
 Quand vous demandez aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration, leurs appareils peuvent être marqués comme étant connus de votre organisation. Vous trouverez ci-dessous un guide pas à pas visant à activer l’accès conditionnel pour des applications locales à l’aide des services de fédération Active Directory (AD FS) dans Windows Server 2012 R2.
@@ -86,7 +86,7 @@ Suivez les étapes de la liste de vérification pour activer et configurer le se
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3ème partie : Activer l'écriture différée des appareils dans Azure AD
 | Tâche | Informations de référence |
 | --- | --- |
-| Terminez la 2ème partie de l’activation de l’écriture différée des appareils dans Azure AD Connect. Une fois cette tâche terminée, revenez à ce guide. |[Activation de l’écriture différée des appareils dans Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Terminez la 2ème partie de l’activation de l’écriture différée des appareils dans Azure AD Connect. Une fois cette tâche terminée, revenez à ce guide. |[Activation de l’écriture différée des appareils dans Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Facultatif] 4ème partie : Activer l’authentification multifacteur
 Nous vous recommandons vivement de configurer l’une des différentes options d’authentification multifacteur. Si vous voulez imposer l’authentification multifacteur, consultez [Choisissez la solution de sécurité Azure Multi-Factor Authentication qui vous convient](authentication/concept-mfa-whichversion.md). Cette rubrique inclut une description de chaque solution et des liens pour vous aider à configurer la solution de votre choix.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Répliquer une application SharePoint multiniveau pour la récupération d’urgence à l’aide d’Azure Site Recovery
 
@@ -54,7 +54,7 @@ Avant de commencer, veillez à bien comprendre ce qui suit :
 
 ## <a name="sharepoint-architecture"></a>Architecture SharePoint
 
-SharePoint peut être déployée sur un ou plusieurs serveurs à l’aide de rôles de serveur et de topologies à plusieurs niveaux pour implémenter une conception de batterie de serveurs qui répond à des objectifs spécifiques. Une batterie de serveurs SharePoint de grande capacité et à forte demande qui prend en charge un grand nombre d’utilisateurs simultanés et un grand nombre d’éléments de contenu utilise le regroupement de service dans le cadre de sa stratégie d’évolutivité. Cette approche implique d’exécuter les services sur des serveurs dédiés, de regrouper ces services puis d’augmenter la taille des instances des serveurs en tant que groupe. La topologie suivante illustre le regroupement des services et serveurs pour une batterie de serveurs SharePoint à trois niveaux. Reportez-vous à la documentation de SharePoint et aux architectures de gamme de produits pour des instructions détaillées sur les différentes topologies de SharePoint. Vous trouverez plus d’informations sur le déploiement de SharePoint 2013 dans [ce document](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+SharePoint peut être déployée sur un ou plusieurs serveurs à l’aide de rôles de serveur et de topologies à plusieurs niveaux pour implémenter une conception de batterie de serveurs qui répond à des objectifs spécifiques. Une batterie de serveurs SharePoint de grande capacité et à forte demande qui prend en charge un grand nombre d’utilisateurs simultanés et un grand nombre d’éléments de contenu utilise le regroupement de service dans le cadre de sa stratégie d’évolutivité. Cette approche implique d’exécuter les services sur des serveurs dédiés, de regrouper ces services puis d’augmenter la taille des instances des serveurs en tant que groupe. La topologie suivante illustre le regroupement des services et serveurs pour une batterie de serveurs SharePoint à trois niveaux. Reportez-vous à la documentation de SharePoint et aux architectures de gamme de produits pour des instructions détaillées sur les différentes topologies de SharePoint. Vous trouverez plus d’informations sur le déploiement de SharePoint 2013 dans [ce document](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 

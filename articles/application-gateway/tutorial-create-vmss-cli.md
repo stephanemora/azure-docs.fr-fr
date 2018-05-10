@@ -1,26 +1,26 @@
 ---
-title: "Créer une passerelle d’application avec un groupe de machines virtuelles identiques - Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application avec un groupe de machines virtuelles identiques avec Azure CLI."
+title: Créer une passerelle d’application avec un groupe de machines virtuelles identiques - Azure CLI | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application avec un groupe de machines virtuelles identiques avec Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 9a0119e0db834f008a1a3999ff546580499e73c3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 22eef26750bf4d45d87f222d0d34fbd56ad589df
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Créer une passerelle d’application avec un groupe de machines virtuelles identiques avec Azure CLI
 
 Vous pouvez utiliser Azure CLI pour créer une [passerelle d’application](application-gateway-introduction.md) qui utilise un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour les serveurs backend. Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool backend par défaut de la passerelle d’application.
 
-Dans cet article, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Configurer le réseau
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -90,7 +90,7 @@ az network application-gateway create \
 - *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses backend.
 - *appGatewayBackendHttpSettings* : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication.
 - *appGatewayHttpListener* : écouteur par défaut associé à *appGatewayBackendPool*.
-- *appGatewayFrontendIP* : assigne *myAGPublicIPAddress* à *appGatewayHttpListener*.
+- *appGatewayFrontendIP* - assigne *myAGPublicIPAddress* à *appGatewayHttpListener*.
 - *rule1* : règle de routage par défaut associée à *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Créer un groupe de machines virtuelles identiques
@@ -122,7 +122,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application

@@ -1,11 +1,11 @@
 ---
 title: Optimisation de votre environnement SQL Server avec Azure Log Analytics | Microsoft Docs
-description: "Avec Azure Log Analytics, la solution SQL Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers."
+description: Avec Azure Log Analytics, la solution SQL Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimisez votre environnement SQL avec la solution SQL Server Health Check dans Log Analytics
 
@@ -41,6 +41,7 @@ Une fois la solution ajoutée et l’évaluation terminée, le récapitulatif de
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 * La solution SQL Health Check nécessite l’installation d’une version prise en charge de .NET Framework 4 sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics.  
 * La solution prend en charge SQL Server 2012, 2014 et 2016.
 * Espace de travail Log Analytics pour ajouter la solution SQL Health Check à partir de la Place de marché Azure dans le portail Azure.  Pour installer la solution,vous devez être administrateur ou collaborateur dans l’abonnement Azure.
@@ -54,7 +55,7 @@ Pour que vous puissiez contrôler l’intégrité de vos serveurs SQL Server, ce
 
 1. Installez [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si le serveur n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. S’il est surveillé avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2 et que le groupe d’administration n’est pas intégré au service Log Analytics, le serveur peut être multirésident avec Log Analytics pour collecter des données et les transférer au service, et quand même être surveillé par Operations Manager.  
-3. Sinon, si votre groupe d’administration Operations Manager est intégré au service, vous devez ajouter des contrôleurs de domaine pour la collecte de données par le service en suivant la procédure décrite dans [Ajout d’ordinateurs gérés par des agents](log-analytics-om-agents.md#connecting-operations-manager-to-oms) après avoir activé la solution dans votre espace de travail.  
+3. Sinon, si votre groupe d’administration Operations Manager est intégré au service, vous devez ajouter des contrôleurs de domaine pour la collecte de données par le service en suivant la procédure décrite dans [Ajout d’ordinateurs gérés par des agents](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) après avoir activé la solution dans votre espace de travail.  
 
 L’agent sur votre serveur SQL Server qui est rattaché à un groupe d’administration Operations Manager collecte les données et les transfère au serveur d’administration qui lui a été assigné, puis ce dernier les envoie directement au service Log Analytics.  Les données ne sont pas écrites dans les bases de données Operations Manager.  
 

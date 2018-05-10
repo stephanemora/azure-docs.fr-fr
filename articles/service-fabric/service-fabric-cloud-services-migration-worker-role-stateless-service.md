@@ -1,11 +1,11 @@
 ---
 title: Convertir des applications Azure Cloud Services en microservices | Microsoft Docs
-description: "Ce guide compare les rôles web et de travail des services cloud aux services sans état Service Fabric afin de faciliter la migration des services cloud vers Service Fabric."
+description: Ce guide compare les rôles web et de travail des services cloud aux services sans état Service Fabric afin de faciliter la migration des services cloud vers Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide de conversion des rôles web et de travail en services sans état Service Fabric
 Cet article explique comment migrer vos rôles web et de travail des services cloud vers les services sans état Service Fabric. Il s’agit de la manière la plus simple de migrer des applications dont l’architecture globale va rester quasi identique des services cloud vers Service Fabric.
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Tâches de démarrage
 Les tâches de démarrage sont des actions effectuées avant le démarrage d’une application. Elles sont généralement utilisées pour exécuter des scripts de configuration avec des privilèges élevés. Les services cloud et Service Fabric prennent tous deux en charge les tâches de démarrage. La principale différence est que dans les services cloud, les tâches de démarrage sont liées à une machine virtuelle, car elles font partie d’une instance de rôle, tandis que dans Service Fabric, les tâches de démarrage sont liées à un service, qui n’est lui-même pas lié à une machine virtuelle en particulier.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Emplacement de la configuration |ServiceDefinition.csdef |
 | Privilèges |« limités » ou « élevés » |

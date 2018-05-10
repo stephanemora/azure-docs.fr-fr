@@ -7,12 +7,12 @@ ms.author: brjohnst
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/12/2017
-ms.openlocfilehash: d51726ee1387b8e1cae05084d9c60eb93a28c112
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Interroger votre index Azure Search à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ Dans le cadre de l’interrogation d’un index, vous pouvez utiliser l’une de
 ## <a name="formulate-your-query"></a>Formuler votre requête
 Deux méthodes permettent d’effectuer une [recherche dans un index à l’aide de l’API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). L’une consiste à émettre une requête HTTP POST, dans laquelle vos paramètres de requête sont définis dans un objet JSON contenu dans le corps de la requête. L’autre consiste à émettre une requête HTTP GET, dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez que les limites en matière de taille des paramètres de requête sont [plus souples](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour la méthode POST que pour la méthode GET. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.
 
-Pour les méthodes POST et GET, vous devez indiquer dans l’URL de la demande le *nom de votre service*, le *nom de l’index* ainsi que la *version d’API* appropriée (la version actuelle de l’API est celle du `2016-09-01` au moment de la publication de ce document). Pour la méthode GET, vous renseignez les paramètres de requête au niveau de la *chaîne de requête* à la fin de l’URL. Voici le format URL à utiliser :
+Pour les méthodes POST et GET, vous devez indiquer dans l’URL de la demande le *nom de votre service*, le *nom de l’index* ainsi que la *version d’API* appropriée (la version actuelle de l’API est celle du `2017-11-11` au moment de la publication de ce document). Pour la méthode GET, vous renseignez les paramètres de requête au niveau de la *chaîne de requête* à la fin de l’URL. Voici le format URL à utiliser :
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
 
 La méthode POST suit un format identique, mais seule la version d’API figure dans les paramètres de chaîne de requête.
 
@@ -57,9 +57,9 @@ Voici quelques exemples de requêtes effectuées sur un index nommé « hotels�
 Rechercher le terme « budget » dans la totalité de l’index et retourner uniquement le champ `hotelName` :
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "budget",
     "select": "hotelName"
@@ -69,9 +69,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Appliquer un filtre à l’index pour trouver des hôtels à moins de 150 $ la nuit et retourner les champs `hotelId` et `description` :
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -82,9 +82,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Effectuer une recherche dans l’ensemble de l’index, appliquer un tri sur un champ spécifique (`lastRenovationDate`) dans l’ordre décroissant, retenir les deux premiers résultats et afficher uniquement les champs `hotelName` et `lastRenovationDate` :
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -106,7 +106,7 @@ Vous devez définir deux en-têtes de requête pour GET, ou trois en-têtes pour
 L’exemple ci-dessous illustre une requête HTTP GET permettant d’effectuer une recherche sur l’index « hotels » à l’aide de l’API REST de la Recherche Azure, en utilisant une simple requête portant sur la recherche du terme « motel » :
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2017-11-11
 Accept: application/json
 api-key: [query key]
 ```
@@ -114,7 +114,7 @@ api-key: [query key]
 Voici le même exemple de requête, cette fois à l’aide de HTTP POST :
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]

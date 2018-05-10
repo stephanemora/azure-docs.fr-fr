@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 En tant qu’administrateur de cloud Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs de créer des bases de données SQL qu’ils peuvent utiliser avec leurs applications cloud natives, sites web et charges de travail. En fournissant à vos utilisateurs ces bases de données cloud à la demande et personnalisées, vous pouvez leur faire gagner du temps et économiser des ressources. Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
@@ -34,8 +34,8 @@ En tant qu’administrateur de cloud Azure Stack, vous pouvez créer des offres
 
 Le processus de déploiement est décrit en détail dans l’[article Utiliser des bases de données SQL sur Azure Stack](azure-stack-sql-resource-provider-deploy.md), et se compose des étapes principales suivantes :
 
-1. [Déployez un fournisseur de ressources SQL]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Vérifiez le déploiement]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Déployez un fournisseur de ressources SQL](azure-stack-sql-resource-provider-deploy.md).
+2. [Vérifiez le déploiement](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Fournissez de la capacité par le biais d’une connexion à un serveur SQL d’hébergement.
 
 ## <a name="create-an-offer"></a>Créer une offre
@@ -66,7 +66,7 @@ Maintenant que vous avez déployé le fournisseur de ressources SQL Server et c
 1. Cliquez sur **+** > **Données et stockage** > **Base de données SQL**.
 2. Conservez les valeurs par défaut pour les champs ou utilisez les exemples suivants :
     - **Nom de la base de données** : SQLdb
-    - **Taille maximale (en Mo)** : 100
+    - **Taille maximale (en Mo)**  : 100
     - **Abonnement** : TestSQLOffer
     - **Groupe de ressources** : SQL-RG
 3. Cliquez sur **Paramètres de connexion**, entrez les informations d’identification pour la base de données, puis cliquez sur **OK**.

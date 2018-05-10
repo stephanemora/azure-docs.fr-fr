@@ -1,13 +1,13 @@
 ---
-title: "Concevoir et implémenter une base de données Oracle sur Azure | Microsoft Docs"
-description: "Concevez et implémentez une base de données Oracle dans votre environnement Azure."
+title: Concevoir et implémenter une base de données Oracle sur Azure | Microsoft Docs
+description: Concevez et implémentez une base de données Oracle dans votre environnement Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
@@ -136,7 +136,7 @@ Le débit réseau total est estimé selon les informations suivantes  :
 
 ![Capture d’écran du débit SQL*Net](./media/oracle-design/sqlnet_info.png)
 
-Selon vos besoins en bande passante réseau, vous pouvez choisir différents types de passerelles, notamment une passerelle de base, VpnGw ou Azure ExpressRoute. Pour plus d’informations, consultez [Tarification Passerelle VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Selon vos besoins en bande passante réseau, vous pouvez choisir différents types de passerelles, notamment une passerelle de base, VpnGw ou Azure ExpressRoute. Pour plus d’informations, consultez [Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recommandations**
 
@@ -201,7 +201,7 @@ Pour optimiser le débit, il est recommandé de commencer par **Aucun** pour la 
 
 Pour plus d’informations, consultez [Stockage Premium pour les machines virtuelles Linux](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
-![Capture d’écran de la page de disque géré](./media/oracle-design/premium_disk02.png)
+![Capture d’écran de la page de disque managé](./media/oracle-design/premium_disk02.png)
 
 - Pour les disques du système d’exploitation, utilisez la mise en cache par défaut **Lecture/Écriture**.
 - Pour SYSTEM, TEMP et UNDO, utilisez **Aucun** pour la mise en cache.

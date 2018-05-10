@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9c2ce75b2bfb4b8ddab11ac94e5a8e50c2fad6ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Cycle de vie des Reliable Services
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Les services qui ne gèrent pas l’annulation « proprement » peuvent être co
 
 Comme les services sont avec état, il est également probable qu’ils utilisent des [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Dans Service Fabric, lorsqu’un réplica principal est rétrogradé, l’une des premières choses qui se produisent est que l’accès en écriture à l’état sous-jacent est révoqué. Cela conduit à un deuxième type de problème qui peut avoir un impact sur le cycle de vie du service. Les collections retournent des exceptions selon le délai et selon que le réplica est déplacé ou arrêté. Il est important de gérer ces exceptions correctement. 
 
-Les exceptions levées par Service Fabric sont soit permanentes [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception), soit passagères [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). Les exceptions permanentes doivent être journalisées et levées. Les exceptions passagères peuvent être retentées selon une logique de nouvelle tentative.
+Les exceptions levées par Service Fabric sont soit permanentes [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception), soit passagères [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). Les exceptions permanentes doivent être journalisées et levées. Les exceptions passagères peuvent être retentées selon une logique de nouvelle tentative.
 
 Le fait de gérer des exceptions issues de l’utilisation de `ReliableCollections` conjointement aux événements du cycle de vie du service constitue une partie importante du test et de la validation des Reliable Services. Il est recommandé de toujours exécuter votre service sous une charge. Vous devez également effectuer les mises à niveau et un [test CHAOS](service-fabric-controlled-chaos.md) avant le déploiement en production. Ces étapes de base vous permettent de vérifier que votre service est correctement implémenté et qu’il gère correctement les événements de cycle de vie.
 

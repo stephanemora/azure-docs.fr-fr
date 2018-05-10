@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de Node.js | Microsoft Docs
-description: Dans le cadre de ce Démarrage rapide, vous créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Node.js, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
+description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Node.js, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07ac5195d9653affdbb0f305ac1697cecd379319
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Node.js
 
@@ -143,7 +143,7 @@ const upload = () => {
 ```
 Dans le contexte de l’exemple d’application, le fichier nommé *example.txt* est chargé dans un objet blob nommé *example* à l’intérieur d’un conteneur nommé *test-container*. D’autres approches pour charger du contenu dans des objets blob sont disponibles, dans lesquelles on utilise du [texte](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) et des [flux](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
 
-Pour vérifier que le fichier est chargé dans votre stockage d’objets blob, vous pouvez utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/en-us/features/storage-explorer/) pour afficher les données dans votre compte.
+Pour vérifier que le fichier est chargé dans votre stockage d’objets blob, vous pouvez utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour afficher les données dans votre compte.
 
 ### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
@@ -284,7 +284,7 @@ Consultez ces ressources supplémentaires sur le développement Node.js avec le 
 
 ### <a name="client-library-reference-and-samples"></a>Référence et exemples de la bibliothèque de client
 
-- Consultez la [référence API Node.js](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage) pour plus d’informations sur la bibliothèque de client Node.js.
+- Consultez la [référence API Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage) pour plus d’informations sur la bibliothèque de client Node.js.
 - Explorez les [exemples de Stockage Blob](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) écrits avec la bibliothèque de client Node.js.
 
 ## <a name="next-steps"></a>Étapes suivantes

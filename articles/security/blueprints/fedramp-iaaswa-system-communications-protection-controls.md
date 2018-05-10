@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Protection du système et des communications (SC)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de protection du système et des communications qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de protection du système et des communications et des contrôles de protection du système et des communications associés ; et révise et met à jour la stratégie actuelle de protection du système et des communications [Affectation : fréquence définie par l’organisation] ; et les procédures de protection du système et des communications [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-2** Le système informatique sépare les fonctionnalités utilisateur (notamment les services d’interface utilisateur) des fonctionnalités de gestion du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-4** Le système informatique empêche le transfert d’informations non autorisé et non intentionnel via des ressources système partagées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-6** Le système informatique protège la disponibilité des ressources en affectant [Affectation : ressources définies par l’organisation] par [Sélection (un ou plusieurs choix) ; priorité ; quota ; [Affectation : dispositifs de sécurité définis par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-7.b** Le système informatique implémente des sous-réseaux pour les composants système accessibles publiquement qui sont [Sélection : physiquement ; logiquement] séparés des réseaux internes à l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-7 (4).b** L’organisation établit une stratégie de flux du trafic pour chaque interface gérée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-7 (7)** Le système informatique, en association avec un appareil distant, empêche l’appareil d’établir simultanément des connexions non distantes avec le système et de communiquer via une autre connexion avec des ressources dans des réseaux externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-7 (12)** L’organisation met en œuvre [Affectation : mécanismes de protection de la limite basés sur l’hôte définis par l’organisation] à [Affectation : composants du système d’information définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-7 (13)** L’organisation isole [Affectation : outils de sécurité, mécanismes et composants de support définis par l’organisation] des autres composants du système informatique interne en implémentant des sous-réseaux avec des interfaces gérées séparés physiquement des autres composants du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-7 (18)** Le système informatique échoue en toute sécurité en cas d’échec opérationnel d’un appareil de protection de la limite.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-8** Le système informatique protège [Sélection (un ou plusieurs choix) : la confidentialité ; l’intégrité] des informations transmises.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-13** Le système informatique met en œuvre [Affectation : utilisations du chiffrement définies par l’organisation et type de chiffrement requis pour chaque utilisation] conformément aux lois fédérales, décrets présidentiels, directives, stratégies, réglementations et normes applicables.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-15.a** Le système informatique interdit l’activation à distance d’appareils informatiques collaboratifs avec les exceptions suivantes : [Affectation : exceptions définies par l’organisation où l’activation à distance est autorisée].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-18.a** L’organisation définit un code mobile et des technologies de code mobile acceptables et inacceptables.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-18.c** L’organisation autorise, surveille et contrôle l’utilisation de code mobile au sein du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-19.a** L’organisation établit des restrictions d’utilisation et des directives d’implémentation pour les technologies de protocole VoIP (voix sur IP) en fonction des dommages potentiels au système informatique en cas d’utilisation malveillante.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-19.b** L’organisation autorise, surveille et contrôle l’utilisation de VoIP au sein du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-20.a** Le système informatique fournit des artefacts supplémentaires de vérification de l’intégrité et d’authentification de l’origine des données, ainsi que les données de résolution de nom faisant autorité que le système retourne en réponse aux requêtes de résolution de nom/d’adresse externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-20.b** Le système informatique fournit les moyens d’indiquer l’état de sécurité des zones enfants et (si l’enfant prend en charge les services de résolution sécurisés) d’activer la vérification d’une chaîne de confiance entre des domaines parents et enfants, dans le cadre d’un espace de noms hiérarchique et distribué.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-23** Le système informatique protège l’authenticité des sessions de communications.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 04/16/2018
 
 **SC-39** Le système informatique conserve un domaine d’exécution distinct pour chaque processus d’exécution.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

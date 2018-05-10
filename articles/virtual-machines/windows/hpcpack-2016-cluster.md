@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Déployer un cluster HPC Pack 2016 dans Azure
 
@@ -57,7 +57,7 @@ Une fois que vous avez créé le certificat dans le magasin de l’utilisateur a
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Chargement d’un certificat vers Azure Key Vault
 
-Avant de déployer le cluster HPC, chargez le certificat PFX dans [Azure Key Vault](../../key-vault/index.md) en tant que secret, puis enregistrez les informations suivantes à utiliser durant le déploiement : **nom du coffre**, **groupe de ressources du coffre**, **URL du certificat** et **empreinte numérique du certificat**.
+Avant de déployer le cluster HPC, chargez le certificat PFX dans [Azure Key Vault](../../key-vault/index.yml) en tant que secret, puis enregistrez les informations suivantes à utiliser durant le déploiement : **nom du coffre**, **groupe de ressources du coffre**, **URL du certificat** et **empreinte numérique du certificat**.
 
 L’exemple de script PowerShell ci-dessous charge le certificat, crée le coffre de clés et génère les informations requises. Pour en savoir plus sur le téléchargement d’un certificat dans Azure Key Vault, voir [Prise en main d’Azure Key Vault](../../key-vault/key-vault-get-started.md).
 

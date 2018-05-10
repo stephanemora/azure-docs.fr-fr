@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Activer des abonnements et des comptes Azure avec Azure Cost Management
 
@@ -93,7 +93,7 @@ Ces messages indiquent que vous avez acheté un Contrat Entreprise Azure via un 
 Voici comment corriger les problèmes :
 
 1. Votre revendeur doit activer le _balisage_ pour votre compte. Consultez les instructions sous [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) (Guide d’intégration de client indirecte).
-2. Vous générez la clé Azure Enterprise Agreement à utiliser avec Azure Cost Management. Pour connaître les instruction, consultez [Inscrire un Accord Entreprise Azure et afficher les données de coût](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+2. Vous générez la clé Azure Enterprise Agreement à utiliser avec Azure Cost Management. Pour connaître les instruction, consultez [Inscrire un Accord Entreprise Azure et afficher les données de coût](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
 Seul un administrateur de service Azure peut activer la Gestion des coûts. Les autorisations de coadministrateur sont insuffisantes.
 

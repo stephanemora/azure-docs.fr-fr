@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 1241f893ca69e3ddaf464e66943caa2697e6d8e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migrer manuellement une machine virtuelle classique vers une nouvelle machine virtuelle avec disque managé par ARM depuis le disque dur virtuel 
 
@@ -72,7 +72,7 @@ Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les di
 
 ### <a name="pricing"></a>Tarifs
 
-Consultez la [tarification des disques gérés](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). La tarification des disques gérés Premium est identique à celle des disques non gérés Premium. En revanche, la tarification des disques gérés Standard diffère de celle des disques Standard non gérés.
+Consultez la [tarification des disques gérés](https://azure.microsoft.com/pricing/details/managed-disks/). La tarification des disques gérés Premium est identique à celle des disques non gérés Premium. En revanche, la tarification des disques gérés Standard diffère de celle des disques Standard non gérés.
 
 
 ## <a name="checklist"></a>Liste de contrôle

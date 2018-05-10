@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 4fb84c95da061991711fe51326ccd95295fbdcc3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9bde8657e435f1c759eceb26682e650605012a89
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -76,7 +76,7 @@ Procédez comme suit :
 
 1.  Créez le conteneur (dossier) dans l'objet blob de destination.
 
-2.  Utilisez [AzCopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) pour copier le contenu du conteneur d'objets blob d'origine vers un autre conteneur d'objets blob.
+2.  Utilisez [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) pour copier le contenu du conteneur d'objets blob d'origine vers un autre conteneur d'objets blob.
 
 **Comment créer un script PowerShell pour déplacer les données d'un partage de fichiers Azure vers un autre stockage Azure ?**
 

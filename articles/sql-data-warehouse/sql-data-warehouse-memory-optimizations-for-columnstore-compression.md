@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3bbcf7b637a0f32751dc15664a1b7479e65503eb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
@@ -34,7 +34,7 @@ Pendant un chargement en masse ou une reconstruction d’index columnstore, la m
 
 Lorsque la mémoire est insuffisante pour compresser au moins 10 000 lignes dans chaque rowgroup, SQL Data Warehouse génère une erreur.
 
-Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Comment surveiller la qualité du rowgroup
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 213888ff47db56be8bfb99a816da4da245c39211
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ce858553a67bce714ceae43a5bb2f86839d9c507
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -43,7 +43,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 1. Sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 2. Entrez ou sélectionnez des valeurs pour les paramètres suivants, puis cliquez sur **Créer** :
-    - **Nom** : le nom doit être unique dans le [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dans lequel vous choisissez de créer le réseau virtuel. Vous ne pouvez pas modifier le nom une fois le réseau virtuel créé. Vous pouvez créer plusieurs réseaux virtuels au fil du temps. Pour des suggestions de dénomination, voir [Conventions d’affectation de noms](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). Le respect d’une convention d’affectation de noms peut simplifier la gestion de plusieurs réseaux virtuels.
+    - **Nom** : le nom doit être unique dans le [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dans lequel vous choisissez de créer le réseau virtuel. Vous ne pouvez pas modifier le nom une fois le réseau virtuel créé. Vous pouvez créer plusieurs réseaux virtuels au fil du temps. Pour des suggestions de dénomination, voir [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). Le respect d’une convention d’affectation de noms peut simplifier la gestion de plusieurs réseaux virtuels.
     - **Espace d’adressage** : l’espace d’adressage d’un réseau virtuel est composé d’une ou de plusieurs plages d’adresses ne se chevauchant pas et spécifiées dans la notation CIDR. La plage d’adresses que vous définissez peut être publique ou privée (RFC 1918). Que vous définissiez la plage d’adresses comme publique ou privée, celle-ci est uniquement accessible à partir du réseau virtuel, à partir de réseaux virtuels interconnectés et à partir de tout réseau local que vous avez connecté au réseau virtuel. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
         - 224.0.0.0/4 (multidiffusion)
         - 255.255.255.255/32 (diffusion)
@@ -136,7 +136,7 @@ Toutes les machines virtuelles connectées au réseau virtuel s’inscrivent aup
 2. Dans la liste des réseaux virtuels, sélectionnez le réseau dont vous souhaitez modifier les serveurs DNS.
 3.  Sous**PARAMÈTRES**, sélectionnez **Serveurs DNS**.
 4. Sélectionnez l’une des options suivantes :
-    - **Par défaut (fournie par Azure)** : les noms de ressources et adresses IP privées sont inscrits automatiquement sur les serveurs DNS d’Azure. Vous pouvez résoudre les noms parmi toutes les ressources connectées à un même réseau virtuel. Vous ne pouvez pas utiliser cette option pour résoudre les noms dans plusieurs réseaux virtuels. Pour résoudre les noms dans plusieurs réseaux virtuels, vous devez utiliser un serveur DNS personnalisé.
+    - **Par défaut (fournie par Azure)**  : les noms de ressources et adresses IP privées sont inscrits automatiquement sur les serveurs DNS d’Azure. Vous pouvez résoudre les noms parmi toutes les ressources connectées à un même réseau virtuel. Vous ne pouvez pas utiliser cette option pour résoudre les noms dans plusieurs réseaux virtuels. Pour résoudre les noms dans plusieurs réseaux virtuels, vous devez utiliser un serveur DNS personnalisé.
     - **Personnalisé** : vous pouvez ajouter un ou plusieurs serveurs, jusqu’à la limite qu’Azure autorise pour un réseau virtuel. Pour en savoir plus sur les limites du serveur DNS, voir [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Vous disposez des options suivantes :
         - **Ajouter une adresse** : ajoute le serveur à la liste des serveurs DNS de votre réseau virtuel. Cette option inscrit également le serveur DNS auprès d’Azure. Si vous avez déjà inscrit un serveur DNS auprès d’Azure, vous pouvez sélectionner ce serveur dans la liste.
         - **Supprimer une adresse** : sélectionnez **...** en regard du serveur à supprimer, puis cliquez sur **Supprimer**. La suppression du serveur ne supprime que le serveur de cette liste de réseaux virtuels. Le serveur DNS reste enregistré dans Azure pour être utilisé par vos autres réseaux virtuels.

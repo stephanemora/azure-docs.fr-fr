@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planifier votre environnement Azure Time Series Insights
 
@@ -87,14 +87,14 @@ Vous ne savez peut-être pas à l’avance la quantité de données que vous all
 Pour plus d’informations sur la manière d’éviter la limitation et la latence, consultez [Résoudre la latence et la limitation](time-series-insights-environment-mitigate-latency.md). 
 
 ## <a name="shaping-your-events"></a>Mise en forme de vos événements
-Il est important de vérifier que le moyen d’envoi de vos événements à TSI prend en charge la taille de l’environnement que vous provisionnez (inversement, vous pouvez mapper la taille de l’environnement sur le nombre d’événements lus par TSI et sur la taille de chaque événement).  De la même manière, il est important de songer aux attributs à traiter et à utiliser pour le filtrage lors de l’interrogation de vos données.  En gardant ceci à l’esprit, nous vous suggérons d’examiner la section de mise en forme JSON de notre documentation *Envoyer des événements* [documentation] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Cette ressource se trouve vers le bas de la page.  
+Il est important de vérifier que le moyen d’envoi de vos événements à TSI prend en charge la taille de l’environnement que vous provisionnez (inversement, vous pouvez mapper la taille de l’environnement sur le nombre d’événements lus par TSI et sur la taille de chaque événement).  De la même manière, il est important de songer aux attributs à traiter et à utiliser pour le filtrage lors de l’interrogation de vos données.  En gardant ceci à l’esprit, nous vous suggérons d’examiner la section de mise en forme JSON de notre documentation *Envoyer des événements* [documentation] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Cette ressource se trouve vers le bas de la page.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>Vérification de la mise en place des données de référence
 Un jeu de données de référence est une collection d’éléments qui augmente les événements issus de votre source d’événements. Le moteur d’entrée Time Series Insights associe chaque événement de votre source d’événements à la ligne de données correspondante dans votre jeu de données de référence. Cet événement ajouté est ensuite disponible pour la requête. Cette jointure repose sur les colonnes de clé privée définies dans votre jeu de données de référence.
 
 Notez que les données de référence ne sont pas jointes rétroactivement. Cela signifie que seules les données d’entrée actuelles et futures sont mises en correspondance et jointes à l’ensemble de données de référence, après configuration et téléchargement.  Si vous envoyez de gros volumes de données d’historique à TSI sans préalablement charger ou créer de données de référence dans TSI, il est possible que vous deviez exécuter à nouveau votre tâche (configuration pas très amusante, au demeurant).  
 
-Pour en savoir plus sur la création, le chargement et la gestion de vos données de référence dans TSI, accédez à notre documentation sur les *données de référence* [documentation] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Pour en savoir plus sur la création, le chargement et la gestion de vos données de référence dans TSI, accédez à notre documentation sur les *données de référence* [documentation] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

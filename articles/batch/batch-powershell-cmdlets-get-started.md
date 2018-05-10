@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6767257a540e4f29bb5445a718ad65a31e1f373e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7d263dbb89b10876c3a1deb330f969c598addd6a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
 
@@ -34,9 +34,9 @@ Cet article est basé sur les applets de commande d’Azure PowerShell version 3
 Effectuez les opérations suivantes pour utiliser Azure PowerShell pour gérer vos ressources de traitement par lots.
 
 * [Installation et configuration d'Azure PowerShell](/powershell/azure/overview)
-* Exécutez l’applet de commande **Login-AzureRmAccount** pour vous connecter à votre abonnement (les applets de commande Azure Batch font partie du module Azure Resource Manager) :
+* Exécutez la cmdlet **Connect-AzureRmAccount** pour vous connecter à votre abonnement (les cmdlets Azure Batch font partie du module Azure Resource Manager) :
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **Inscrivez-vous dans l’espace de noms de fournisseur Batch**. Cette opération ne doit être effectuée qu’**une fois par abonnement**.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`

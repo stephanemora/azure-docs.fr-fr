@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C : personnalisation de l’interface utilisateur Azure AD B2C
 
@@ -332,7 +332,17 @@ Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (p
 
 ## <a name="localizing-your-html-content"></a>Localisation de votre contenu HTML
 
-Vous pouvez localiser votre contenu HTML en activant [« Personnalisation de la langue »](active-directory-b2c-reference-language-customization.md).  L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre Open ID Connect, `ui-locales`, à votre point de terminaison.  Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML personnalisées qui sont spécifiques à la langue.
+Il existe deux façons de traduire votre contenu HTML. Vous pouvez tout d’abord activer la [personnalisation de la langue](active-directory-b2c-reference-language-customization.md). L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre Open ID Connect, `ui-locales`, à votre point de terminaison.  Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML personnalisées qui sont spécifiques à la langue.
+
+Vous pouvez également extraire le contenu de plusieurs emplacements selon les paramètres régionaux utilisés. Dans votre point de terminaison avec CORS activé, vous pouvez configurer une structure de dossiers pour héberger du contenu pour des langues spécifiques. Vous devez appeler celui qui convient si vous utilisez la valeur générique `{Culture:RFC5646}`.  Imaginons, par exemple, qu’il s’agit de l’URI de votre page personnalisée :
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+Vous pouvez charger la page dans `fr`. La page extrait le contenu HTML et CSS à partir de :
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Points à retenir lors de la création de votre propre contenu
 

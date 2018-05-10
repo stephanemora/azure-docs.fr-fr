@@ -9,24 +9,36 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Itinéraire d’événements de stockage Blob - Azure CLI
+    - name: Événements de stockage Blob - Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Itinéraire d’événements de stockage Blob - Azure PowerShell
+    - name: Événements de stockage Blob - PowerShell
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Créer un événement personnalisé - Interface de ligne de commande Azure
+    - name: Événements personnalisés - Azure CLI
       href: custom-event-quickstart.md
-    - name: Créer un événement personnalisé - Azure PowerShell
+    - name: Événements personnalisés - PowerShell
       href: custom-event-quickstart-powershell.md
-    - name: Créer un événement personnalisé - Portail Azure
+    - name: Événements personnalisés - Portail
       href: custom-event-quickstart-portal.md
+    - name: Envoyer des événements dans le Stockage File d’attente
+      href: custom-event-to-queue-storage.md
 - name: Didacticiels
   items:
-    - name: Surveiller les modifications apportées aux machines virtuelles avec les applications logiques
+    - name: M’avertir par e-mail lorsque la machine virtuelle subit des modifications
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Redimensionner les images chargées
       href: resize-images-on-storage-blob-upload-event.md
     - name: Déclencher le runbook Azure Automation
       href: ensure-tags-exists-on-new-virtual-machines.md
+    - name: M’avertir par e-mail lors de l’ajout d’un appareil IoT Hub
+      href: publish-iot-hub-events-to-logic-apps.md
+    - name: Répondre aux événements de Service Bus
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Diffuser en continu des données depuis Event Hubs
+      href: event-grid-event-hubs-integration.md
+    - name: Itinéraire vers des événements Media Services
+      href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Itinéraire vers une connexion hybride
+      href: custom-event-to-hybrid-connection.md
 - name: Exemples
   items:
     - name: Azure CLI
@@ -43,22 +55,22 @@
       href: security-authentication.md
     - name: Livraison et nouvelle tentative
       href: delivery-and-retry.md
+    - name: Sources d’événement
+      href: event-sources.md
+    - name: Gestionnaires d’événements
+      href: event-handlers.md
 - name: Procédures
   items:
     - name: Envoyer des messages dans une rubrique personnalisée
       href: post-to-custom-topic.md
     - name: Recevoir des événements sur un point de terminaison HTTP
       href: receive-events.md
-    - name: Diffuser des données en continu sur l’entrepôt de données à partir d’Event Hubs
-      href: event-grid-event-hubs-integration.md
-    - name: Envoyer des notifications concernant les événements IoT Hub
-      href: publish-iot-hub-events-to-logic-apps.md
-    - name: Écouter les événements Service Bus avec Functions et Logic Apps
-      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Surveiller la remise d’événement
       href: monitor-event-delivery.md
     - name: Interroger des abonnements à des événements
       href: query-event-subscriptions.md
+    - name: Mapper des champs personnalisés au schéma
+      href: input-mappings.md
     - name: Utiliser le schéma CloudEvents
       href: cloudevents-schema.md
 - name: Informations de référence
@@ -84,8 +96,12 @@
           href: event-schema-event-hubs.md
         - name: IoT Hub
           href: event-schema-iot-hub.md
+        - name: Media Services
+          href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Groupes de ressources
           href: event-schema-resource-groups.md
+        - name: Service Bus
+          href: event-schema-service-bus.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

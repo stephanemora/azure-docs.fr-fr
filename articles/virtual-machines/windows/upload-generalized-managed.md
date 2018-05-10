@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 919b1bef1f1337ad188e26476da8c5a5ef029224
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 133c09ad1f81a122d089485f8793d7dddbd1488a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -107,7 +107,7 @@ Vous pouvez également télécharger un disque dur virtuel sur votre compte de s
     Le service Import/Export permet de copier sur un compte de stockage Standard. Vous devez effectuer une copie d’un compte de stockage Standard vers un compte de stockage Premium à l’aide d’un outil tel qu’AzCopy.
 
 > [!IMPORTANT]
-> Si vous utilisez AzCopy pour télécharger votre disque dur virtuel vers Azure, vérifiez que vous avez défini [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) avant d’exécuter le script de téléchargement. Si la destination est un objet blob et si cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
+> Si vous utilisez AzCopy pour télécharger votre disque dur virtuel vers Azure, vérifiez que vous avez défini [/BlobType:page](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) avant d’exécuter le script de téléchargement. Si la destination est un objet blob et si cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
 > 
 > 
 

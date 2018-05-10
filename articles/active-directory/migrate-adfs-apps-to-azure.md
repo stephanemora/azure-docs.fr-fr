@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 5eb562901d73974765878024b1107e3b75e9abb5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6303fdce65e460489c9f66e388c28383b9942627
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrer des applications locales AD FS vers Azure 
 
@@ -230,7 +230,7 @@ En raison de la configuration créée plus tôt sous **Identité** > **Paramètr
 ![Sélectionner Azure AD en tant que service d’authentification](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Facultatif : configurer l’approvisionnement utilisateur dans Azure AD
-Si vous souhaitez qu’Azure AD gère l’approvisionnement utilisateur pour une application SaaS, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning).
+Si vous souhaitez qu’Azure AD gère l’approvisionnement utilisateur pour une application SaaS, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

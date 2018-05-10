@@ -1,6 +1,6 @@
 ---
-title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Planification des impondérables"
-description: "Automatisation d’applications web FedRAMP - Planification des impondérables"
+title: Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Planification des impondérables
+description: Automatisation d’applications web FedRAMP - Planification des impondérables
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="contingency-planning-cp"></a>Planification d’urgence (CP)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.a** L’organisation développe un plan d’urgence pour le système d’information qui identifie les missions et fonctions métier essentielles, ainsi que les exigences d’urgence associées ; indique les objectifs de récupération, les priorités de restauration et les indicateurs ; définit les rôles d’urgence, les responsabilités, les personnes affectées avec leurs coordonnées ; gère le maintien des missions et fonctions métier essentielles en dépit d’une interruption de service, d’une compromission ou d’une défaillance du système d’information ; assure l’éventuelle restauration complète du système sans détérioration des dispositifs de protection planifiés et implémentés à l’origine ; et est vérifié et approuvé par [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.b** L’organisation distribue des copies du plan d’urgence à [Affectation : personnel (identifié par nom ou par rôle) et éléments organisationnels d’urgence clés définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.b** L’organisation coordonne les activités de planification d’urgence avec les activités de gestion des incidents.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.e** L’organisation met à jour le plan d’urgence pour gérer les modifications subies par l’organisation, le système d’information ou l’environnement opérationnel, et les problèmes rencontrés pendant l’implémentation, l’exécution ou les tests du plan d’urgence.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.f** L’organisation communique les modifications du plan d’urgence à [Affectation : personnel (identifié par nom ou par rôle) et éléments organisationnels d’urgence clés définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.g** L’organisation protège le plan d’urgence contre toute divulgation ou modification non autorisée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (1)** L’organisation coordonne le développement du plan d’urgence avec les éléments organisationnels responsables des plans associés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (2)** L’organisation effectue la planification de la capacité pour que la capacité nécessaire au traitement des informations, aux télécommunications et à la prise en compte de l’environnement soit présente pendant les opérations d’urgence.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (3)** L’organisation planifie la reprise des missions et fonctions métier essentielles sous [Affectation : période définie par l’organisation] à compter de l’activation du plan d’urgence.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (4)** L’organisation planifie la reprise de toutes les missions et fonctions métier sous [Affectation : période définie par l’organisation] à compter de l’activation du plan d’urgence.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (5)** L’organisation planifie la poursuite des missions et des fonctions métier essentielles avec peu de, voire aucune, perte de continuité opérationnelle, et maintient cette continuité jusqu'à la restauration complète du système d’information sur les sites de traitement ou de stockage principaux.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (8)** L’organisation identifie les ressources critiques du système d’information qui gèrent les missions et fonctions métier essentielles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3.b** L’organisation dispense aux utilisateurs du système d’information une formation aux urgences cohérente avec les rôles et responsabilités affectés lorsque des modifications du système d’information l’imposent.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3.c** L’organisation dispense aux utilisateurs du système d’information une formation aux urgences cohérente avec les rôles et responsabilités affectés [Affectation : fréquence définie par l’organisation] par la suite.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3 (1)** L’organisation incorpore des événements simulés dans la formation aux urgences afin d’améliorer l’efficacité des réponses du personnel en situation de crise.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4.a** L’organisation teste le plan d’urgence du système d’information [Affectation : fréquence définie par l’organisation] à l’aide de [Affectation : tests définis par l’organisation] pour déterminer l’efficacité du plan et la capacité de l’organisation à le mettre en œuvre.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4.c** L’organisation déclenche des actions correctives si nécessaire.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4 (1)** L’organisation coordonne les tests du plan d’urgence avec les éléments organisationnels responsables des plans associés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4 (2).a** L’organisation teste le plan d’urgence sur le site de traitement secondaire pour familiariser le personnel d’urgence avec l’installation et les ressources disponibles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6.a** L’organisation établit un site de stockage secondaire, ainsi que les accords nécessaires pour permettre le stockage et la récupération des informations de sauvegarde du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6.b** L’organisation garantit que le site de stockage secondaire offre des dispositifs de protection équivalents à ceux du site principal.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (3)** L’organisation identifie les problèmes potentiels d’accessibilité au site de stockage secondaire en cas d’interruption ou de sinistre sur l’ensemble de la zone et décrit des actions d’atténuation explicites.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.a** L’organisation établit un site de traitement secondaire, ainsi que les accords nécessaires pour autoriser le transfert et la reprise de [Affectation : opérations du système d’information définies par l’organisation] pour les missions et fonctions métier essentielles sous [Affectation : période définie par l’organisation, cohérente avec les objectifs de temps et de point de récupération] à compter du moment où les fonctions de traitement principales ne sont plus disponibles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.b** L’organisation garantit que l’équipement et les fournitures nécessaires pour transférer et reprendre les opérations sont disponibles sur le site de traitement secondaire, ou que les contrats sont en place pour prendre en charge la distribution sur le site dans le délai défini par l’organisation pour le transfert/la reprise.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,11 +465,11 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.c** L’organisation garantit que le site de traitement secondaire offre des dispositifs de protection équivalents à ceux du site principal.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| Client | Cette solution Blueprint contient des instructions sur son déploiement simultané dans plusieurs régions et sa configuration de façon à assurer une redondance complète sur un autre site de traitement. Les dispositifs de protection sont implémentés de façon uniforme entre les centres de données Azure. |
+| **Client** | Cette solution Blueprint contient des instructions sur son déploiement simultané dans plusieurs régions et sa configuration de façon à assurer une redondance complète sur un autre site de traitement. Les dispositifs de protection sont implémentés de façon uniforme entre les centres de données Azure. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (1)** L’organisation identifie un site de traitement secondaire distinct du site de traitement principal pour réduire la sensibilité aux mêmes menaces.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (2)** L’organisation identifie les problèmes potentiels d’accessibilité au site de traitement secondaire en cas d’interruption ou de sinistre sur l’ensemble de la zone et décrit des actions d’atténuation explicites.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (3)** L’organisation développe des accords sur le site de traitement secondaire qui contiennent des clauses de priorité de service conformes aux exigences de disponibilité organisationnelle (y compris des objectifs de temps de récupération).
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8** L’organisation établit des services de télécommunications secondaires, ainsi que les accords nécessaires pour autoriser la reprise de [Affectation : opérations du système d’information définies par l’organisation] pour les missions et fonctions métier essentielles sous [Affectation : période définie par l’organisation] à compter du moment où les fonctions de télécommunications principales ne sont plus disponibles sur le site de traitement ou de stockage principal ou secondaire.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (1).a** L’organisation développe des accords de services de télécommunications qui contiennent des clauses de priorité de service conformes aux exigences de disponibilité organisationnelle (y compris des objectifs de temps de récupération).
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (1).b** L’organisation demande la priorité pour tous les services de télécommunications utilisés à des fins de préparation aux urgences de sécurité nationale dans le cas où les services de télécommunications principaux ou secondaires sont fournis par un opérateur commun.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (2)** L’organisation se procure des services de télécommunications secondaires afin de réduire la probabilité de partage d’un point de défaillance unique avec les services de télécommunications principaux.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (3)** L’organisation se procure des services de télécommunications secondaires auprès de fournisseurs distincts des fournisseurs de services principaux afin de réduire la sensibilité aux mêmes menaces.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (4).a** L’organisation exige des fournisseurs de services de télécommunications principaux et secondaires qu’ils aient des plans d’urgence.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (4).c** L’organisation se procure la preuve des tests/de la formation aux urgences auprès des fournisseurs [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -651,7 +651,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| Client | Cette solution Blueprint déploie un coffre Recovery Services. Les informations au niveau de l’utilisateur qui se trouvent dans la base de données SQL déployée sont implémentées à l’aide de l’extension IaaS de machine virtuelle SQL. |
+| **Client** | Cette solution Blueprint déploie un coffre Recovery Services. Les informations au niveau de l’utilisateur qui se trouvent dans la base de données SQL déployée sont implémentées à l’aide de l’extension IaaS de machine virtuelle SQL. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9.b** L’organisation effectue des sauvegardes des informations au niveau du système qui sont contenues dans le système d’information [Affectation : fréquence définie par l’organisation, cohérente avec les objectifs de temps et de point de récupération].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9.c** L’organisation effectue des sauvegardes de la documentation du système d’information, y compris de la documentation relative à la sécurité [Affectation : fréquence définie par l’organisation, cohérente avec les objectifs de temps et de point de récupération].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -693,7 +693,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| Client | La confidentialité et l’intégrité de tous les objets Storage Blob déployés par cette solution Blueprint sont protégées par le biais du chiffrement SSE Azure, qui utilise le chiffrement AES 256 bits pour toutes les données au repos. |
+| **Client** | La confidentialité et l’intégrité de tous les objets Storage Blob déployés par cette solution Blueprint sont protégées par le biais du chiffrement SSE Azure, qui utilise le chiffrement AES 256 bits pour toutes les données au repos. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (1)** L’organisation teste les informations de sauvegarde [Affectation : fréquence définie par l’organisation] pour vérifier la fiabilité des supports et l’intégrité des informations.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (3)** L’organisation stocke des copies de sauvegarde de [Affectation : logiciel du système d’information critique et autres informations relatives à la sécurité, définis par l’organisation] dans une installation distincte ou dans un conteneur classé résistant au feu non colocalisé avec le système opérationnel.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10** L’organisation assure la récupération et la reconstitution du système d’information à un état connu après une interruption, une compromission ou une défaillance.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10 (4)** L’organisation assure la capacité de restaurer les composants du système d’information sous [Affectation : délai de restauration défini par l’organisation] à partir d’informations dont la configuration est contrôlée et l’intégrité protégée, et qui représentent un état opérationnel connu pour les composants.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

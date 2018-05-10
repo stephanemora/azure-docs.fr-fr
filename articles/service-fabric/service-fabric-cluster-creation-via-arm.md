@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 68894ec209171e210a36ade3cdb703a48e28bc75
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e3e9e0c13368dbf7dd32c8483f8e6783afc1bdbb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -463,7 +463,7 @@ Le certificat d’authentification de cluster doit être configuré à la fois d
               "settings": {
                 ...
                 "certificate": {
-                  "thumbprint": "[parameters('clusterCertificateThumbprint')]",
+                  "commonNames": ["[parameters('certificateCommonName')]"],
                   "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
                 },
                 ...
@@ -480,7 +480,7 @@ Le certificat d’authentification de cluster doit être configuré à la fois d
 ##### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Ajoutez les informations de certificat à la ressource de cluster Service Fabric :
 ```json
 {
-  "apiVersion": "[variables('sfrpApiVersion')]",
+  "apiVersion": "2018-02-01",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   "location": "[parameters('clusterLocation')]",
@@ -488,9 +488,14 @@ Le certificat d’authentification de cluster doit être configuré à la fois d
     "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
   ],
   "properties": {
-    "certificate": {
-      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-      "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
+    "certificateCommonNames": {
+        "commonNames": [
+        {
+            "certificateCommonName": "[parameters('certificateCommonName')]",
+            "certificateIssuerThumbprint": ""
+        }
+        ],
+        "x509StoreName": "[parameters('certificateStoreValue')]"
     },
     ...
   }
@@ -503,14 +508,19 @@ Vous ajoutez les configurations Azure AD à un modèle Resource Manager de clust
 
 ```json
 {
-  "apiVersion": "[variables('sfrpApiVersion')]",
+  "apiVersion": "2018-02-01",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   ...
   "properties": {
-    "certificate": {
-      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-      "x509StoreName": "[parameters('clusterCertificateStorevalue')]"
+    "certificateCommonNames": {
+        "commonNames": [
+        {
+            "certificateCommonName": "[parameters('certificateCommonName')]",
+            "certificateIssuerThumbprint": ""
+        }
+        ],
+        "x509StoreName": "[parameters('certificateStoreValue')]"
     },
     ...
     "azureActiveDirectory": {
@@ -534,6 +544,9 @@ Si vous envisagez d’utiliser les modules PowerShell RM Azure Service Fabric, v
 
 ```json
         "clusterCertificateThumbprint": {
+            "value": ""
+        },
+        "certificateCommonName": {
             "value": ""
         },
         "clusterCertificateUrlValue": {

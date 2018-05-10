@@ -11,15 +11,18 @@
 #### Courant
 ##### [Liste déroulante](../managed-applications/microsoft-common-dropdown.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Chargement de fichier](../managed-applications/microsoft-common-fileupload.md?toc=%2fazure%2fmarketplace%2ftoc.json)
+##### [InfoBox](../managed-applications/microsoft-common-infobox.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Groupe d’options](../managed-applications/microsoft-common-optionsgroup.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Zone de mot de passe](../managed-applications/microsoft-common-passwordbox.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Section](../managed-applications/microsoft-common-section.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Zone de texte](../managed-applications/microsoft-common-textbox.md?toc=%2fazure%2fmarketplace%2ftoc.json)
+##### [TextBlock](../managed-applications/microsoft-common-textblock.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 #### Calcul
 ##### [Zone de liste modifiable Informations d’identification](../managed-applications/microsoft-compute-credentialscombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Sélecteur de taille](../managed-applications/microsoft-compute-sizeselector.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Zone de texte Nom d’utilisateur](../managed-applications/microsoft-compute-usernametextbox.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 #### Réseau
+##### [AvailabilityZoneDropDown](../managed-applications/microsoft-network-availabilityzonedropdown.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Zone de liste modifiable Adresse IP publique](../managed-applications/microsoft-network-publicipaddresscombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 ##### [Zone de liste modifiable Réseau virtuel](../managed-applications/microsoft-network-virtualnetworkcombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
 #### Stockage

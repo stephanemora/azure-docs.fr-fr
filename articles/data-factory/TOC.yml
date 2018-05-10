@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: Flux de contrôle
       items:
-        - name: Activité Condition si
-          href: control-flow-if-condition-activity.md
-        - name: Activité jusqu’à
-          href: control-flow-until-activity.md
-        - name: Activité web
-          href: control-flow-web-activity.md
-        - name: Activité de recherche
-          href: control-flow-lookup-activity.md
-        - name: Activité d’obtention des métadonnées
-          href: control-flow-get-metadata-activity.md
         - name: Activité d’exécution du pipeline
           href: control-flow-execute-pipeline-activity.md
+        - name: Activité de filtre
+          href: control-flow-filter-activity.md
         - name: Pour chaque activité
           href: control-flow-for-each-activity.md
+        - name: Activité d’obtention des métadonnées
+          href: control-flow-get-metadata-activity.md
+        - name: Activité Condition si
+          href: control-flow-if-condition-activity.md
+        - name: Activité de recherche
+          href: control-flow-lookup-activity.md
+        - name: Activité jusqu’à
+          href: control-flow-until-activity.md
         - name: Activité d’attente
           href: control-flow-wait-activity.md
+        - name: Activité web
+          href: control-flow-web-activity.md
         - name: Langage d’expression
           href: control-flow-expression-language-functions.md
         - name: Variables système

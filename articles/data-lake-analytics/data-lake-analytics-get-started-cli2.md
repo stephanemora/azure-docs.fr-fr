@@ -1,8 +1,8 @@
 ---
-title: "Prise en main d’Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure 2.0 | Microsoft Docs"
-description: "Découvrez comment utiliser l’interface de ligne de commande Azure 2.0 pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et le soumettre. "
+title: Prise en main d’Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure 2.0 | Microsoft Docs
+description: 'Découvrez comment utiliser l’interface de ligne de commande Azure 2.0 pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et le soumettre. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.openlocfilehash: fbd4f1ae5eeec971a378c41761508629e530887c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Prise en main d’Azure Data Lake Analytics à l’aide d’Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -25,6 +25,7 @@ ms.lasthandoff: 02/09/2018
 Dans ce didacticiel, vous développez un travail qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertit en fichier CSV (valeurs séparées par des virgules). Pour suivre ce didacticiel même à l’aide d’autres outils pris en charge, utilisez la liste déroulante en haut de cette section.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -193,26 +194,6 @@ Par exemple :
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
-```
-
-## <a name="pipelines-and-recurrences"></a>Pipelines et récurrences
-
-**Obtenir des informations sur les pipelines et les récurrences**
-
-Utilisez les commandes `az dla job pipeline` pour afficher les tâches déjà soumises sur les informations de pipeline.
-
-```
-az dla job pipeline list --account "<Data Lake Analytics Account Name>"
-
-az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
-```
-
-Utilisez les commandes `az dla job recurrence` pour afficher les tâches déjà soumises sur les informations de récurrences.
-
-```
-az dla job recurrence list --account "<Data Lake Analytics Account Name>"
-
-az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

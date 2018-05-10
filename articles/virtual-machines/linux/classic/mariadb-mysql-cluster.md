@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>Cluster MariaDB (MySQL) : didacticiel Azure
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager](../../../resource-manager-deployment-model.md) et classique. Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Azure Resource Manager.
 
 > [!NOTE]
-> Le cluster MariaDB Enterprise est désormais disponible dans Azure Marketplace. La nouvelle offre déploiera automatiquement un cluster MariaDB Galera sur Azure Resource Manager. Vous devez utiliser la nouvelle offre à partir [d’Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/).
+> Le cluster MariaDB Enterprise est désormais disponible dans Azure Marketplace. La nouvelle offre déploiera automatiquement un cluster MariaDB Galera sur Azure Resource Manager. Vous devez utiliser la nouvelle offre à partir [d’Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/).
 >
 >
 

@@ -1,4 +1,4 @@
-- name: Azure Container Service (AKS)
+- name: Service Azure Kubernetes (AKS)
   href: ./index.yml
 - name: Vue d'ensemble
   items:
@@ -25,9 +25,7 @@
       href: tutorial-kubernetes-scale.md
     - name: 6 - Mettre à jour l’application
       href: tutorial-kubernetes-app-update.md
-    - name: 7 - Surveiller avec Log Analytics
-      href: tutorial-kubernetes-monitor.md
-    - name: 8 - Mettre à niveau un cluster
+    - name: 7 - Mettre à niveau un cluster
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
@@ -57,12 +55,16 @@
           href: azure-files-dynamic-pv.md
     - name: Configurer la mise en réseau
       items:
+        - name: Vue d’ensemble de la mise en réseau
+          href: networking-overview.md
         - name: Adresse IP statique
           href: static-ip.md
         - name: Équilibreur de charge interne
           href: internal-lb.md
         - name: Entrée et TLS
           href: ingress.md
+        - name: Routage d’applications HTTP
+          href: http-application-routing.md
     - name: Sécurité et authentification
       items:
         - name: Créer un principal du service

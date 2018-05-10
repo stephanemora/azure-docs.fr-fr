@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Cet article présente des méthodes pour créer une image de machine virtuelle personnalisée d’un groupe identique, ou pour exécuter automatiquement des scripts d’installation sur des instances de machine virtuelle existantes. Vous apprendrez également à gérer des applications ou des mises à jour du système d’exploitation sur un groupe identique.
@@ -42,9 +42,9 @@ L’extension de script personnalisé télécharge et exécute des scripts sur d
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installer une application sur une machine virtuelle Windows avec PowerShell DSC
-La [Configuration d’état souhaité (DSC) PowerShell](https://msdn.microsoft.com/en-us/powershell/dsc/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Les configurations d’état souhaité définissent les éléments à installer sur une machine et la procédure à suivre pour configurer l’hôte. Un moteur du Gestionnaire de configuration local (LCM) s’exécute sur chaque nœud cible qui traite les actions demandées en fonction des configurations envoyées.
+La [Configuration d’état souhaité (DSC) PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Les configurations d’état souhaité définissent les éléments à installer sur une machine et la procédure à suivre pour configurer l’hôte. Un moteur du Gestionnaire de configuration local (LCM) s’exécute sur chaque nœud cible qui traite les actions demandées en fonction des configurations envoyées.
 
-L’extension PowerShell DSC vous permet de personnaliser les instances de machine virtuelle d’un groupe identique avec PowerShell. L’exemple suivant :
+L’extension PowerShell DSC vous permet de personnaliser les instances de machine virtuelle d’un groupe identique avec PowerShell. L’exemple suivant permet :
 
 - Donne pour instruction aux instances de machine virtuelle de télécharger un package DSC à partir de GitHub - *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Définit l’extension pour exécuter un script d’installation - `configure-http.ps1`

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux.  Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité.
@@ -97,7 +97,7 @@ Pour démarrer l’audit, effectuez les étapes suivantes :
 2. Cliquez sur Afficher les journaux d’audit.</br>
 ![Événement d’audit](media/active-directory-tou/tou8.png)
 3.  Sur l’écran des journaux d’audit Azure AD, vous pouvez filtrer les informations à l’aide des menus déroulants pour cibler des éléments spécifiques du journal d’audit.
-![Événement d’audit](media/active-directory-tou/tou9.png)
+[Événement d’audit](media/active-directory-tou/tou9.png)
 4.  Vous pouvez également télécharger les informations dans un fichier .csv en vue d’une utilisation locale.
 
 ## 
@@ -150,7 +150,7 @@ R. : Oui.  Actuellement, un administrateur peut configurer 18 langues différen
 **Q : À quel moment les conditions d’utilisation sont-elles déclenchées ?**</br>
 R : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.
 
-**Q : Quelles sont les applications pouvant être ciblées par des conditions d’utilisation ?**</br>
+**Q : Quelles sont les applications pouvant être ciblées par des conditions d’utilisation ?**</br>
 R : Vous pouvez créer une stratégie d’accès conditionnel sur les applications d’entreprise à l’aide de l’authentification moderne.  Pour plus d’informations, consultez [Applications d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
 **Q : Puis-je ajouter plusieurs conditions d’utilisation à une application ou un utilisateur donné ?**</br>

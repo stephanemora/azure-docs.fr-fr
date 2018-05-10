@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Charger des données dans Azure Search à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -60,9 +60,9 @@ Chaque objet JSON du tableau « value » représente un document à indexer. C
 Maintenant que vous avez recueilli les valeurs de champ requises pour les actions de votre index, vous pouvez construire votre requête HTTP et le corps de requête JSON pour importer vos données.
 
 #### <a name="request-and-request-headers"></a>Requête et en-têtes de requête
-Dans l’URL, vous devez fournir le nom de votre service, le nom de l’index (« hotels » dans notre exemple) ainsi que la version d’API appropriée (la version actuelle de l’API est celle du `2016-09-01` au moment de la publication de ce document). Vous devez définir les en-têtes de requête `Content-Type` et `api-key`. Pour cette dernière, utilisez l’une des clés d’administration de votre service.
+Dans l’URL, vous devez fournir le nom de votre service, le nom de l’index (« hotels » dans notre exemple) ainsi que la version d’API appropriée (la version actuelle de l’API est celle du `2017-11-11` au moment de la publication de ce document). Vous devez définir les en-têtes de requête `Content-Type` et `api-key`. Pour cette dernière, utilisez l’une des clés d’administration de votre service.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

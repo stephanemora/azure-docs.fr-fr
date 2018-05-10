@@ -1,9 +1,9 @@
 ---
-title: "Créer une passerelle d’application avec une redirection interne - Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application qui redirige le trafic web interne vers le pool approprié à l’aide de l’interface CLI d’Azure."
+title: Créer une passerelle d’application avec une redirection interne - Azure CLI | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application qui redirige le trafic web interne vers le pool approprié à l’aide de l’interface CLI d’Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 4228a3f534a5dc58ab2efa3c5cf0edd4caee43c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 5bd9e8f2521120dd1d12eb9630663493b89f5844
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection interne à l’aide d’Azure CLI
 
 Vous pouvez utiliser l’interface CLI Azure pour configurer une [redirection du trafic web](application-gateway-multi-site-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.contoso.org* en guise d’exemples.
 
-Dans cet article, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Configurer le réseau
@@ -98,7 +98,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 - *rule1* : règle de routage par défaut associée à *appGatewayHttpListener*.
 
 
-## <a name="add-listeners-and-rules"></a>Ajouter les écouteurs et les règles 
+## <a name="add-listeners-and-rules"></a>Ajouter des écouteurs et des règles 
 
 Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, des écouteurs sont créés pour les domaines *www.contoso.com* et *www.contoso.org*.
 
@@ -190,7 +190,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -208,7 +208,7 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple : http://www.contoso.com.
+Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, http://www.contoso.com.
 
 ![Tester le site contoso dans la passerelle d’application](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 

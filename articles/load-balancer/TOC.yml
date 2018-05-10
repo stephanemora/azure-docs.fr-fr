@@ -14,12 +14,6 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Créer un équilibrage de charge standard - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-- name: Exemples
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: "Azure\_PowerShell"
-      href: powershell-samples.md
 - name: Didacticiels
   items:
     - name: Équilibrer la charge de trafic interne vers des machines virtuelles
@@ -28,6 +22,12 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+- name: Exemples
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: "Azure\_PowerShell"
+      href: powershell-samples.md
 - name: Concepts
   items:
     - name: "Qu’est-ce qu’un équilibreur de charge standard\_?"

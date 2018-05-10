@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
@@ -61,7 +61,7 @@ Dans le code d’application, le modèle consiste à utiliser les paramètres de
 
 ### <a name="query-basics"></a>Principes de base des requêtes
 
-Dans Azure Search, une requête est spécifiée par le biais d'un ou de plusieurs paramètres de requête (consultez [Rechercher des documents](http://msdn.microsoft.com/library/azure/dn798927.aspx) pour obtenir une description de chacun d'eux). Aucun des paramètres de requête n'est requis, mais vous devez en avoir au moins un pour qu'une requête soit valide.
+Dans Azure Search, une requête est spécifiée par le biais d'un ou de plusieurs paramètres de requête (consultez [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir une description de chacun d'eux). Aucun des paramètres de requête n'est requis, mais vous devez en avoir au moins un pour qu'une requête soit valide.
 
 La précision, interprétée comme la possibilité de filtrer les résultats non pertinents, s’effectue par le biais d’une ou de ces deux expressions :
 
@@ -228,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx) pour obtenir des détails sur l'utilisation.
+Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir des détails sur l'utilisation.
 
 En plus des facettes, la requête formulée par votre application doit également créer des filtres pour limiter le jeu de documents candidats basés sur une sélection de valeur de facette. Pour un magasin de vélos, la navigation à facettes fournit des indications aux questions du type *Quels sont les couleurs, fabricants et types de vélos disponibles ?*. Le filtrage permet de répondre à des questions du type *Quels sont les vélos de type VTT et de couleur rouge dans cette gamme de prix ?*. Lorsque vous cliquez sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s’afficher, la requête suivante envoyée par l’application inclut `$filter=Color eq ‘Red’`.
 
@@ -329,7 +329,7 @@ Les étiquettes sont généralement définies dans le code HTML ou le formulaire
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtrer sur une plage de valeurs
-L’utilisation de facettes sur des plages de valeurs est une condition d’application de recherche courante. Les plages sont prises en charge pour les données numériques et les valeurs DateHeure. Vous pouvez en savoir plus sur chaque approche dans [Rechercher des documents (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+L’utilisation de facettes sur des plages de valeurs est une condition d’application de recherche courante. Les plages sont prises en charge pour les données numériques et les valeurs DateHeure. Vous pouvez en savoir plus sur chaque approche dans [Rechercher des documents (API Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Azure Search simplifie la création de plage en fournissant deux approches pour calculer une plage. Pour les deux approches, Azure Search crée les plages appropriées avec les entrées que vous avez fournies. Par exemple, si vous spécifiez des valeurs de plage de 10|20|30, Recherche Azure crée automatiquement les plages 0-10, 10-20, 20-30. Votre application peut éventuellement supprimer les intervalles vides. 
 
@@ -362,7 +362,7 @@ Il existe deux fonctions géospatiales dans la Recherche Azure, **geo.distance**
 * La fonction **geo.distance** renvoie la distance en kilomètres entre deux points. L’un est un champ et l’autre est une constante considérée comme une partie du filtre. 
 * La fonction **geo.intersects** renvoie true si un point donné se trouve dans un polygone donné. Le point est un champ et le polygone est spécifié sous forme de liste constante de coordonnées en tant que partie du filtre.
 
-Vous trouverez des exemples de filtres dans [Syntaxe d'expression OData (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Vous trouverez des exemples de filtres dans [Syntaxe d'expression OData (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -431,9 +431,9 @@ Pour plus d'informations sur les principes de conception pour la navigation à f
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

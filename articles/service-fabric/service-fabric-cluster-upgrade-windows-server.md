@@ -1,11 +1,11 @@
 ---
-title: "Mettre à niveau un cluster Azure Service Fabric autonome sur Windows Server | Microsoft Docs"
-description: "Mettez à niveau le code et/ou la configuration Azure Service Fabric qui exécute un cluster Service Fabric autonome, notamment en définissant le mode de mise à jour du cluster."
+title: Mettre à niveau un cluster Azure Service Fabric autonome sur Windows Server | Microsoft Docs
+description: Mettez à niveau le code et/ou la configuration Azure Service Fabric qui exécute un cluster Service Fabric autonome, notamment en définissant le mode de mise à jour du cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3354fab5f664391520e721586712e5035ff79cb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Mettre à niveau un cluster Azure Service Fabric autonome sur Windows Server 
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Modifiez la configuration du cluster pour affecter la valeur *false* à la propr
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Pour plus de détails, consultez la [commande PowerShell Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Veillez à mettre à jour « clusterConfigurationVersion » dans votre code JSON avant de commencer la mise à niveau de la configuration.
+Pour plus de détails, consultez la [commande PowerShell Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/library/mt788302.aspx). Veillez à mettre à jour « clusterConfigurationVersion » dans votre code JSON avant de commencer la mise à niveau de la configuration.
 
 ```powershell
 

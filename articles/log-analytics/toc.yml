@@ -148,7 +148,7 @@
             - name: de l’API REST
               href: log-analytics-api-alerts.md
             - name: Modèle Resource Manager
-              href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md
+              href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
         - name: Exemple d’action webhook
           href: log-analytics-alerts-webhooks.md
         - name: Solution Alert Management
@@ -176,7 +176,7 @@
         - name: Présentation des solutions
           href: log-analytics-add-solutions.md
         - name: Solutions cibles
-          href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Journaux d’activité Azure
           items:
             - name: Analyse
@@ -201,7 +201,7 @@
           href: log-analytics-capacity.md
         - name: Suivi des modifications
           href: log-analytics-change-tracking.md
-        - name: Conteneurs
+        - name: Containers
           href: log-analytics-containers.md
         - name: DNS Analytics
           href: log-analytics-dns.md
@@ -246,13 +246,13 @@
             - name: Service Fabric avec Azure Resource Manager
               href: log-analytics-service-fabric-azure-resource-manager.md
         - name: Service Map
-          href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Contrôle d’intégrité de SQL
           href: log-analytics-sql-assessment.md
         - name: Surface Hub
           href: log-analytics-surface-hubs.md
         - name: Update Management
-          href: ../operations-management-suite/oms-solution-update-management.md
+          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: VMware
           href: log-analytics-vmware.md
         - name: Windows Analytics

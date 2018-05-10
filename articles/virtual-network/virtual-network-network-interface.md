@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c39f11eae08e74e1bb29a5587fa4a8f0ba7c6a5b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -216,7 +216,7 @@ Les règles de sécurité effectives pour chaque interface réseau attachée à 
 4. Sous **SUPPORT + DÉPANNAGE**, sélectionnez **Règles de sécurité effectives**.
 5. Passez en revue la liste des règles de sécurité effectives pour déterminer si les règles appropriées existent pour vos communications entrante et sortante requises. Découvrez-en plus sur le contenu de la liste dans [Vue d’ensemble des groupes de sécurité réseau](security-overview.md).
 
-La fonctionnalité de vérification du flux IP d’Azure Network Watcher peut également vous aider à déterminer si des règles de sécurité empêchent la communication entre une machine virtuelle et un point de terminaison. Pour plus d’informations, consultez [Vérification du flux IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La fonctionnalité de vérification du flux IP d’Azure Network Watcher peut également vous aider à déterminer si des règles de sécurité empêchent la communication entre une machine virtuelle et un point de terminaison. Pour plus d’informations, consultez [Vérification du flux IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Commandes**
 
@@ -233,7 +233,7 @@ Les itinéraires effectifs pour les interfaces réseau attachées à une machine
 4. Sous **SUPPORT + DÉPANNAGE**, cliquez sur **Routages effectifs**.
 5. Passez en revue la liste des itinéraires effectifs pour déterminer si les itinéraires appropriés existent pour vos communications entrante et sortante requises. Pour en savoir plus sur le contenu de la liste, consultez [Vue d’ensemble du routage](virtual-networks-udr-overview.md).
 
-La fonctionnalité de tronçon suivant d’Azure Network Watcher peut également vous aider à déterminer si des itinéraires empêchent la communication entre une machine virtuelle et un point de terminaison. Pour plus d’informations, consultez [Tronçon suivant](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La fonctionnalité de tronçon suivant d’Azure Network Watcher peut également vous aider à déterminer si des itinéraires empêchent la communication entre une machine virtuelle et un point de terminaison. Pour plus d’informations, consultez [Tronçon suivant](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Commandes**
 

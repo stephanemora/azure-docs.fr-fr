@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 356eccac6af2780c02d1cd935d41891b5f89f1a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configuration-management-cm"></a>Gestion de la configuration (CM)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-2** L’organisation développe, documente et conserve sous le contrôle de la configuration, une configuration de base courante du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-2 (7).b** L’organisation applique des [Affectation : dispositifs de sécurité définis par l’organisation] aux appareils lorsque les employés reviennent de leurs déplacements.
 
-**Responsabilités :** `Not Applicable`
+**Responsabilités :** `Not Applicable`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-3.a** L’organisation détermine les types de modifications apportées au système informatique qui sont contrôlés par la configuration.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-3.f** L’organisation audite et passe en revue les activités associées aux modifications contrôlées par la configuration apportées au système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-3 (1).c** L’organisation utilise des mécanismes automatiques pour surligner les modifications du système informatique proposées qui n’ont pas été approuvées ou refusées pendant [Affectation : durée définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-3 (4)** L’organisation requiert qu’un représentant de la sécurité informatique soit membre de [Affectation : élément de contrôle de modification de la configuration défini par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-4** L’organisation analyse les modifications du système informatique pour déterminer les impacts potentiels sur la sécurité avant de les implémenter.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-4 (1)** L’organisation analyse les modifications du système informatique dans un environnement de test séparé avant leur implémentation dans un environnement opérationnel, et examine les impacts sur la sécurité dus à des défauts, des faiblesses, une incompatibilité ou une malveillance intentionnelle.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-5** L’organisation définit, documente, approuve et applique des restrictions d’accès physique et logique associées aux modifications du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-5 (5).a** L’organisation limite les privilèges de modification des composants du système informatique et des informations liées au système au sein d’un environnement de production ou opérationnel.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-6 (2)** L’organisation utilise [Affectation : dispositifs de sécurité définis par l’organisation] pour répondre aux modifications non autorisées de [Affectation : paramètres de configuration définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-7 (5).a** L’organisation identifie [Affectation : logiciels définis par l’organisation dont l’exécution est autorisés sur le système informatique].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-7 (5).c** L’organisation vérifie et met à jour la liste des logiciels autorisés [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-8 (2)** L’organisation utilise des mécanismes automatiques pour disposer d’un inventaire à jour, complet, précis et disponible des composants du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-8 (3).a** L’organisation utilise des mécanismes automatiques [Affectation : fréquence définie par l’organisation] pour détecter la présence de composants matériels, logiciels et de microprogramme non autorisés au sein du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-8 (3).b** L’organisation effectue les actions suivantes lorsque des composants non autorisés sont détectés : [Sélection (un ou plusieurs choix) : désactive l’accès au réseau pour ces composants ; isole les composants ; avertit [Affectation : personnel ou rôles définis par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-8 (5)** L’organisation vérifie que tous les composants dans la limite d’autorisation du système informatique ne sont pas dupliqués dans d’autres inventaires des composants du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-9.a** L’organisation développe, documente et met en œuvre un plan de gestion de la configuration pour le système informatique qui traite des rôles, des responsabilités, des processus et des procédures de gestion de la configuration.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-9.d** L’organisation développe, documente et met en œuvre un plan de gestion de la configuration pour le système informatique qui protège le plan de gestion de la configuration contre toute divulgation ou modification non autorisée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-10.a** L’organisation utilise des logiciels et la documentation associée conformément aux contrats et lois sur le copyright.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -885,7 +885,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-10.c** L’organisation contrôle et documente l’utilisation de la technologie de partage de fichiers pair à pair pour s’assurer que cette fonctionnalité n’est pas utilisée à des fins de distribution, d’affichage, de performance ou de reproduction non autorisés de travail soumis aux lois de copyright.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 04/16/2018
 
 **CM-11.c** L’organisation surveille la conformité à la stratégie [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Navigation dans les résultats de recherche d’Azure Search
 Cet article explique comment utiliser l’API REST de service Azure Search pour implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation.
 
-Dans tous les cas mentionnés ci-après, les options de page qui fournissent des données ou des informations à votre page de résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](http://msdn.microsoft.com/library/azure/dn798927.aspx) envoyées à votre service Azure Search. Ces demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de ce qui est demandé et de la manière dont formuler la réponse.
+Dans tous les cas mentionnés ci-après, les options de page qui fournissent des données ou des informations à votre page de résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées à votre service Azure Search. Ces demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de ce qui est demandé et de la manière dont formuler la réponse.
 
 > [!NOTE]
-> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Consultez [API REST de service Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) pour en savoir plus sur la syntaxe de demande.
+> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Consultez [API REST de service Azure Search](https://docs.microsoft.com/rest/api/searchservice) pour en savoir plus sur la syntaxe de demande.
 > 
 > 
 
@@ -59,7 +59,7 @@ Pour renvoyer un sous-ensemble de champs relatif à une disposition en mosaïque
 
 Les images et les fichiers multimédias ne peuvent pas faire l’objet de recherches directes et doivent être stockés sur une autre plateforme de stockage, comme l’espace de stockage Azure Blob, afin de limiter les coûts. Dans les index et les documents, définissez un champ destiné à stocker l’adresse URL du contenu externe. Vous pourrez utiliser ce champ comme référence d’image. L’URL de l’image doit se trouver dans le document.
 
-Pour récupérer une page de description de produit relative à un événement **onClick** , utilisez la [recherche de document](http://msdn.microsoft.com/library/azure/dn798929.aspx) afin d’indiquer la clé du document à récupérer. Le type de données de la clé est `Edm.String`. Dans cet exemple, il s’agit de *246810*. 
+Pour récupérer une page de description de produit relative à un événement **onClick** , utilisez la [recherche de document](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) afin d’indiquer la clé du document à récupérer. Le type de données de la clé est `Edm.String`. Dans cet exemple, il s’agit de *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -81,7 +81,7 @@ Vous pouvez créer la méthode qui accepte l’option de tri sélectionnée comm
  ![][5]
 
 > [!NOTE]
-> Si le score par défaut suffit dans de nombreuses situations, nous vous recommandons tout de même de baser la pertinence sur un profil de score personnalisé. Un profil de score personnalisé accorde plus d’importance aux éléments qui avantagent votre entreprise. Consultez [Ajout de profils de calcul de score](http://msdn.microsoft.com/library/azure/dn798928.aspx) pour en savoir plus. 
+> Si le score par défaut suffit dans de nombreuses situations, nous vous recommandons tout de même de baser la pertinence sur un profil de score personnalisé. Un profil de score personnalisé accorde plus d’importance aux éléments qui avantagent votre entreprise. Consultez [Ajout de profils de calcul de score](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) pour en savoir plus. 
 > 
 > 
 
@@ -95,12 +95,12 @@ Vous pouvez envoyer un filtre avec ou sans expression de recherche. Par exemple,
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Consultez [Recherche de documents (API Recherche Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) pour en savoir plus sur les expressions `$filter`.
+Consultez [Recherche de documents (API Recherche Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour en savoir plus sur les expressions `$filter`.
 
 ## <a name="see-also"></a>Voir aussi
-* [API REST de service Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Opérations d’index](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Opérations de document](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [API REST de service Azure Search](https://docs.microsoft.com/rest/api/searchservice)
+* [Opérations d’index](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Opérations de document](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Vidéos et didacticiels relatifs à Azure Search](search-video-demo-tutorial-list.md)
 * [Navigation à facettes dans Azure Search](search-faceted-navigation.md)
 

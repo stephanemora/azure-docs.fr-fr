@@ -8,12 +8,6 @@
   items:
     - name: Créer un profil Traffic Manager
       href: traffic-manager-create-profile.md
-- name: Exemples
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: "Azure\_PowerShell"
-      href: powershell-samples.md
 - name: Didacticiels
   items:
     - name: Acheminer le trafic en fonction de l’emplacement géographique du point de terminaison
@@ -24,6 +18,12 @@
       href: traffic-manager-configure-weighted-routing-method.md
     - name: Acheminer le trafic vers un point de terminaison prioritaire
       href: traffic-manager-configure-priority-routing-method.md
+- name: Exemples
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: "Azure\_PowerShell"
+      href: powershell-samples.md
 - name: Concepts
   items:
     - name: Méthodes de routage

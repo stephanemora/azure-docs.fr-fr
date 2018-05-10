@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0cef0a261b0362fcb9776e63c10e96aedc408b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
@@ -134,7 +134,7 @@ Lorsque vous utilisez Azure Active Directory B2C, vos consommateurs peuvent s’
 
 #### <a name="device-registration"></a>Enregistrement de l’appareil
 
-[L’inscription d’appareil Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) constitue la base des scénarios [d’accès conditionnel](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) basé sur les appareils. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour l’authentifier lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
+[L’inscription d’appareil Azure AD](https://docs.microsoft.com/azure/active-directory/device-management-introduction) constitue la base des scénarios [d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) basé sur les appareils. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour l’authentifier lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
 
 Quand ils sont associés à une solution de [gestion des appareils mobiles (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) comme Intune, les attributs de l’appareil dans Azure Active Directory sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos critères de sécurité et de conformité.
 

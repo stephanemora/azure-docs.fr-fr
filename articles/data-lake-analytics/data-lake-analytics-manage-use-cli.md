@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/29/2018
 ms.author: sngun
-ms.openlocfilehash: a78a7ea619be28f01372a7b80d3cb4a5d35bd50e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Gestion de Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI)
 
@@ -194,6 +194,27 @@ Utilisez la commande list pour trouver l'id de travail, puis utilisez la fonctio
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
+
+## <a name="pipelines-and-recurrences"></a>Pipelines et récurrences
+
+**Obtenir des informations sur les pipelines et les récurrences**
+
+Utilisez les commandes `az dla job pipeline` pour afficher les tâches déjà soumises sur les informations de pipeline.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Utilisez les commandes `az dla job recurrence` pour afficher les tâches déjà soumises sur les informations de récurrences.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+```
+
 
 ## <a name="use-azure-resource-manager-groups"></a>Utilisation des groupes Azure Resource Manager
 Les applications sont généralement constituées de nombreux composants, par exemple une application web, une base de données, un serveur de base de données, un stockage et des services tiers. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 

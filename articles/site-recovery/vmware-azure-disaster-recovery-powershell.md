@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ac2b1d1eec8ea623128e4f1413c45f2bfa37a13d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Répliquer et basculer des machines virtuelles VMware vers Azure avec PowerShell
 
@@ -43,10 +43,10 @@ Avant de commencer :
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Connexion à un abonnement Microsoft Azure
 
-Connectez-vous à votre abonnement Azure à l’aide de la cmdlet Login-AzureRmAccount.
+Connectez-vous à votre abonnement Azure à l’aide de l’applet de commande Connect-AzureRmAccount.
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Sélectionnez l’abonnement Azure vers lequel répliquer vos machines virtuelles VMware. Utilisez la cmdlet Get-AzureRmSubscription pour obtenir la liste des abonnements Azure auxquels vous avez accès. Sélectionnez l’abonnement Azure à utiliser à l’aide de la cmdlet Select-AzureRmSubscription.
 
@@ -256,7 +256,7 @@ $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
 
 # Associate the replication policies to the protection container corresponding to the Configuration Server. 
 
-$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
 # Check the job status
 while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){ 
@@ -265,7 +265,12 @@ while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.S
 }
 $Job_AssociatePolicy.State
 
-$Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+<# In the protection container mapping used for failback (replicating failed over virtual machines 
+   running in Azure, to the primary VMware site.) the protection container corresponding to the 
+   Configuration server acts as both the Primary protection container and the recovery protection
+   container
+#>
+ $Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
 # Check the job status
 while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){ 

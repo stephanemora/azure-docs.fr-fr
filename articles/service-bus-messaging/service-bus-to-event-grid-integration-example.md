@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid
 
@@ -63,7 +63,7 @@ Vous pouvez utiliser la méthode de votre choix pour envoyer un message à votre
 
 Avant d’étudier le scénario dans son intégralité, configurez au moins une petite fonction test, que vous pouvez utiliser pour déboguer et voir quels événements sont transmis.
 
-1. Dans le portail Azure, créez une application Azure Functions. Pour apprendre les notions de base d’Azure Functions, consultez la [documentation Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
+1. Dans le portail Azure, créez une application Azure Functions. Pour apprendre les notions de base d’Azure Functions, consultez la [documentation Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 
 2. Dans la fonction que vous venez de créer, sélectionnez le signe plus (+) pour ajouter une fonction de déclencheur HTTP :
 

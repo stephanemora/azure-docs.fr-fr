@@ -1,22 +1,22 @@
 ---
-title: Didacticiel d’utilisation d’Azure Active Directory B2C pour protéger une API Web ASP.NET
+title: Didacticiel - Accorder l’accès à une API web ASP.NET depuis une application web à l’aide d’Azure Active Directory B2C | Microsoft Docs
 description: Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API Web ASP.NET et l’appeler à partir d’une application web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 editor: ''
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>Didacticiel : Utiliser Azure Active Directory B2C pour protéger une API Web ASP.NET
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Didacticiel - Accorder l’accès à une API web ASP.NET depuis une application web à l’aide d’Azure Active Directory B2C
 
 Ce didacticiel vous montre comment appeler une ressource d’API web protégée par Azure Active Directory (Azure AD) B2C à partir d’une application web ASP.NET.
 
@@ -45,7 +45,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
 
 1. Sélectionnez **Azure AD B2C** dans la liste des services du portail Azure.
 
-2. Dans le paramètres B2C, cliquez sur **Applications**, puis sur **+ Ajouter**.
+2. Dans les paramètres B2C, cliquez sur **Applications**, puis sur **Ajouter**.
 
     Pour inscrire l’exemple d’API web dans votre client, utilisez les paramètres ci-dessous.
     
@@ -89,11 +89,13 @@ Pour configurer les étendues de l’API, ajoutez les entrées ci-dessous.
 | **Portée** | Hello.Read | Accès en lecture à hello |
 | **Portée** | Hello.Write | Accès en écriture à hello |
 
+Cliquez sur **Enregistrer**.
+
 Les étendues publiées peuvent servir à accorder à une application cliente une autorisation d’accès à l’API web.
 
 ### <a name="grant-app-permissions-to-web-api"></a>Accorder à une application des autorisations d’accès à l’API web
 
-Pour appeler une API web protégée à partir d’une application, vous devez accorder à cette application des autorisations d’accès à l’API. 
+Pour appeler une API web protégée à partir d’une application, vous devez accorder à cette application des autorisations d’accès à l’API. Dans ce didacticiel, utilisez l’application web créée dans [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md) (Didacticiel d’utilisation d’Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET). 
 
 1. Dans le portail Azure, sélectionnez **Azure AD B2C** dans la liste des services, puis cliquez sur **Applications** pour afficher la liste des applications inscrites.
 
@@ -109,7 +111,7 @@ Pour appeler une API web protégée à partir d’une application, vous devez ac
 
 L’application **Mon exemple d’application web** est inscrite pour appeler **Mon exemple d’API web** protégée. Un utilisateur [s’authentifie](../active-directory/develop/active-directory-dev-glossary.md#authentication) auprès d’Azure AD B2C pour utiliser l’application web. L’application web obtient un [octroi d’autorisation](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) d’Azure AD B2C pour accéder à l’API web protégée.
 
-## <a name="update-web-api-code"></a>Mettre à jour le code de l’API web
+## <a name="update-code"></a>Mettre à jour le code
 
 Maintenant que l’API web est inscrite et que les étendues sont définies, vous devez configurer le code de l’API web pour utiliser votre client Azure AD B2C. Dans ce didacticiel, vous allez configurer un exemple d’API web. 
 
@@ -137,11 +139,11 @@ Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
 
 3. Configurez l’URI de l’API. Il s’agit de l’URI que l’application web utilise pour effectuer la demande d’API. Configurez également les autorisations demandées.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### <a name="configure-the-web-api"></a>Configurer l’API web
 
@@ -162,7 +164,7 @@ Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
 4. Mettez à jour le paramètre de stratégie à l’aide du nom généré lorsque vous avez créé votre stratégie d’inscription et de connexion.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configurez le paramètre des étendues pour qu’il corresponde à ce que vous avez créé dans le portail.
@@ -172,7 +174,7 @@ Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## <a name="run-the-sample-web-app-and-web-api"></a>Exécuter l’exemple d’application web et d’API web
+## <a name="run-the-sample"></a>Exécution de l'exemple
 
 Vous devez exécuter les projets **TaskWebApp** et **TaskService**. 
 

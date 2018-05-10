@@ -1,23 +1,23 @@
 ---
-title: "Réaliser des économies en prépayant des machines virtuelles - Azure | Microsoft Docs"
-description: "Découvrez l’instance de machine virtuelle réservée Azure pour baisser vos coûts de machines virtuelles."
+title: Réaliser des économies en prépayant des machines virtuelles - Azure | Microsoft Docs
+description: Découvrez l’instance de machine virtuelle réservée Azure pour baisser vos coûts de machines virtuelles.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées 
 Les instances de machine virtuelle réservées vous permettent de payer à l’avance la capacité de calcul pendant un an ou trois ans et d’obtenir une remise sur les machines virtuelles que vous utilisez. Avec cet engagement initial d’une durée de 1 an ou de 3 ans, les coûts de vos machines virtuelles sont considérablement réduits, jusqu’à 72 % par rapport au tarif du paiement à l’utilisation. Cette offre d’instances de machine virtuelle réservées représente une remise sur facturation et n’a pas d’incidence sur l’état d’exécution des machines virtuelles.

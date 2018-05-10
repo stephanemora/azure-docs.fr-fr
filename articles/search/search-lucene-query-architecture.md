@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/06/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: d05aade97ea5713b63b921d9e39d4df0c30b8fa0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
@@ -52,7 +52,7 @@ Une requête de recherche est une spécification complète de ce qui doit être 
 L’exemple suivant est une requête de recherche que vous pourriez envoyer à la recherche Azure à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2016-09-01 
+POST /indexes/hotels/docs/search?api-version=2017-11-11 
 {  
     "search": "Spacious, air-condition* +\"Ocean view\"",  
     "searchFields": "description, title",  

@@ -4,14 +4,14 @@
   items:
     - name: À propos de la passerelle VPN
       href: vpn-gateway-about-vpngateways.md
-- name: Exemples
-  items:
-    - name: "Azure\_PowerShell"
-      href: powershell-samples.md
 - name: Didacticiels
   items:
     - name: Créer et gérer une passerelle VPN
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+- name: Exemples
+  items:
+    - name: "Azure\_PowerShell"
+      href: powershell-samples.md
 - name: Concepts
   items:
     - name: Planification et conception de la passerelle VPN

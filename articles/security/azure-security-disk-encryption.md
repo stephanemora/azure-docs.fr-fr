@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
@@ -142,7 +142,7 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 > [!NOTE]
 > Pour Windows Server 2008 R2, .NET Framework 4.5 doit être installé avant l’activation du chiffrement dans Azure. Vous pouvez l’installer à partir de Windows Update en installant la mise à jour facultative Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption est pris en charge uniquement sur les versions et les distributions de serveur Linux basées sur Azure Gallery.  Pour obtenir la liste des versions actuellement prises en charge, reportez-vous à la [FAQ Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
+* Azure Disk Encryption est pris en charge uniquement sur les versions et les distributions de serveur Linux basées sur Azure Gallery.  Pour obtenir la liste des versions actuellement prises en charge, reportez-vous à la [FAQ Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption requiert que votre coffre de clés et vos machines virtuelles se trouvent dans la même région et le même abonnement Azure.
 
@@ -784,7 +784,7 @@ Utilisez la commande [`manage-bde`](https://technet.microsoft.com/library/ff8298
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Configuration requise pour le chiffrement du lecteur du système d’exploitation
 
-* La machine virtuelle doit utiliser une distribution compatible avec le chiffrement de disque du système d’exploitation, comme indiqué dans le [Forum aux questions (FAQ) Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support). 
+* La machine virtuelle doit utiliser une distribution compatible avec le chiffrement de disque du système d’exploitation, comme indiqué dans le [Forum aux questions (FAQ) Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support). 
 * La machine virtuelle doit être créée à partir de l’image Marketplace dans Azure Resource Manager.
 * Machine virtuelle Azure au moins 4 Go de RAM (la taille recommandée est de 7 Go).
 * (Pour RHEL et CentOS) Désactivez SELinux. Pour désactiver SELinux, consultez la rubrique « 4.4.2. Désactivation de SELinux » dans le [Guide d’utilisation et d’administration SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) sur la machine virtuelle.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux
 
@@ -53,7 +53,7 @@ La dernière version de l’extension est **2.3**. Les **anciennes versions (2.0
 
 Vous pouvez activer cette extension via le [portail Azure](https://portal.azure.com/#), Azure PowerShell ou les scripts de l’interface CLI Azure.
 
-Pour afficher et configurer les données système et de performances directement à partir du portail Azure, suivez ces [étapes sur le blog d’Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+Pour afficher et configurer les données système et de performances directement à partir du portail Azure, suivez ces [étapes sur le blog d’Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 Cet article se concentre sur la procédure permettant d’activer et de configurer l’extension à l’aide des commandes de la CLI Azure. Cela vous permet de lire et d’afficher les données directement à partir de la table de stockage.
 

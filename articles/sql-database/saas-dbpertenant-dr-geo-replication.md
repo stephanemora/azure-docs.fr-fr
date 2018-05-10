@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
 
-Dans ce didacticiel, vous examinez un scénario complet de récupération d’urgence pour une application SaaS multi-locataire implémentée à l’aide du modèle de base de données par locataire. Afin de protéger l’application contre les pannes, vous utilisez la [_géoréplication_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) pour créer des réplicas de bases de données de catalogue et de locataire dans une autre région de récupération. En cas de panne, vous basculez rapidement vers ces réplicas pour reprendre les opérations normales. Lors du basculement, les bases de données dans la région d’origine deviennent des réplicas secondaires des bases de données dans la région de récupération. Après leur retour en ligne, les réplicas reprennent automatiquement l’état des bases de données dans la région de récupération. Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région de production d’origine.
+Dans ce didacticiel, vous examinez un scénario complet de récupération d’urgence pour une application SaaS multi-locataire implémentée à l’aide du modèle de base de données par locataire. Afin de protéger l’application contre les pannes, vous utilisez la [_géoréplication_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) pour créer des réplicas de bases de données de catalogue et de locataire dans une autre région de récupération. En cas de panne, vous basculez rapidement vers ces réplicas pour reprendre les opérations normales. Lors du basculement, les bases de données dans la région d’origine deviennent des réplicas secondaires des bases de données dans la région de récupération. Après leur retour en ligne, les réplicas reprennent automatiquement l’état des bases de données dans la région de récupération. Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région de production d’origine.
 
 Ce didacticiel explore les flux de travail de basculement et de restauration automatique. Vous découvrirez comment effectuer les actions suivantes :
 > [!div classs="checklist"]
@@ -82,12 +82,12 @@ Dans ce didacticiel, vous utilisez d’abord la géoréplication pour créer des
 Ensuite, lors d’une étape distincte de rapatriement, vous basculez les bases de données de catalogue et de locataire dans la région de récupération vers la région d’origine. L’application et les bases de données restent disponibles tout au long du rapatriement. Lorsque vous avez terminé, l’application est totalement fonctionnelle dans la région d’origine.
 
 > [!Note]
-> L’application est récupérée dans la _région jumelée_ à celle dans laquelle l’application est déployée. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> L’application est récupérée dans la _région jumelée_ à celle dans laquelle l’application est déployée. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examiner l’état d’intégrité de l’application
 
 Avant de lancer le processus de récupération, examinez l’état d’intégrité normale de l’application.
-1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt; utilisateur&gt;.trafficmanager.net - remplacez &lt;utilisateur&gt; par la valeur d’utilisateur de votre déploiement).
+1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt; utilisateur&gt;.trafficmanager.net : remplacez &lt;utilisateur&gt; par la valeur d’utilisateur de votre déploiement).
     * Faites défiler la page vers le bas et notez le nom et l’emplacement du serveur de catalogue dans le pied de page. L’emplacement correspond à la région dans laquelle vous avez déployé l’application.
     *Conseil : placez le pointeur de la souris sur l’emplacement pour agrandir l’affichage.*
     ![État intègre du hub d’événements dans la région d’origine](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -103,7 +103,7 @@ Avant de lancer le processus de récupération, examinez l’état d’intégrit
 Cette tâche vous permet de démarrer un processus de synchronisation de la configuration des serveurs, des pools élastiques et des bases de données dans le catalogue du locataire. Le processus maintient ces informations à jour dans le catalogue.  Le processus fonctionne avec le catalogue actif, que ce soit dans la région d’origine ou dans la région de récupération. Les informations de configuration sont utilisées dans le cadre du processus de récupération pour vérifier que l’environnement de récupération est cohérent avec l’environnement d’origine, puis lors du rapatriement pour vérifier que la région d’origine est cohérente avec les modifications apportées dans l’environnement de récupération. Le catalogue permet également d’assurer le suivi de l’état de récupération des ressources de locataire.
 
 > [!IMPORTANT]
-> Par souci de simplicité, le processus de synchronisation et les autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels sous la forme de sessions ou de travaux Powershell locaux qui s’exécutent sous votre ID d’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Par souci de simplicité, le processus de synchronisation et les autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels sous la forme de sessions ou de travaux Powershell locaux qui s’exécutent sous votre ID d’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. Dans l’_ISE PowerShell_, ouvrez le fichier ...\Learning Modules\UserConfig.psm1. Remplacez `<resourcegroup>` et `<user>` sur les lignes 10 et 11 par la valeur utilisée lors du déploiement de l’application.  Enregistrez le fichier.
 
@@ -181,7 +181,7 @@ Le script de récupération effectue les tâches suivantes :
 
 2. Appuyez sur **F5** pour exécuter le script.  
     * Le script s’ouvre dans une nouvelle fenêtre PowerShell, puis démarre une série de travaux PowerShell qui s’exécutent en parallèle. Ces travaux basculent les bases de données de locataire vers la région de récupération.
-    * La région de récupération correspond à la _région jumelée_ à la région Azure où vous avez déployé l’application. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+    * La région de récupération correspond à la _région jumelée_ à la région Azure où vous avez déployé l’application. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Surveillez l’état du processus de récupération dans la fenêtre PowerShell.
     ![Processus de basculement](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -232,7 +232,7 @@ Même avant le basculement de toutes les bases de données de locataire, vous po
 3. Ouvrez le groupe de ressources de récupération et notez les éléments suivants :
     * Les versions de récupération des serveurs de catalogue et tenants1, avec le suffixe _-recovery_.  Toutes les bases de données de catalogue et de locataire restaurées sur ces serveurs portent les noms utilisés dans la région d’origine.
 
-    * Le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_.  Ce serveur sert à approvisionner les nouveaux locataires pendant la panne.
+    * Le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_ est utilisé  Ce serveur sert à approvisionner les nouveaux locataires pendant la panne.
     *   Le service App Service nommé _events-wingtip-dpt-&lt;région_récupération&gt;-&lt;utilisateur&gt_;, qui est l’instance de récupération de l’application Événements. 
 
     ![Ressources de récupération Azure ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
@@ -310,4 +310,4 @@ Pour plus d’informations sur les technologies fournies par SQL Azure Database 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Autres didacticiels reposant sur l’application SaaS Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Autres didacticiels reposant sur l’application SaaS Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

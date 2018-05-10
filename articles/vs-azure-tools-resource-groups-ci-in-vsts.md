@@ -1,11 +1,11 @@
 ---
-title: "Intégration continue dans Visual Studio Team Services à l’aide de projets Groupe de ressources Azure | Microsoft Docs"
-description: "Décrit la configuration de l’intégration continue dans Visual Studio Team Services en utilisant des projets de déploiement Groupe de ressources Azure dans Visual Studio."
+title: Intégration continue dans Visual Studio Team Services à l’aide de projets Groupe de ressources Azure | Microsoft Docs
+description: Décrit la configuration de l’intégration continue dans Visual Studio Team Services en utilisant des projets de déploiement Groupe de ressources Azure dans Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Intégration continue dans Visual Studio Team Services à l’aide de projets de déploiement de groupe de ressources Azure
 Pour déployer un modèle Azure, vous devez effectuer les tâches en différentes étapes : Générer, Tester, Copier sur Azure (également appelé « gestion intermédiaire ») et Déployer le modèle. Il existe deux façons de déployer des modèles sur Visual Studio Team Services (VS Team Services). Les deux méthodes fournissent les mêmes résultats. Par conséquent, choisissez celle qui convient le mieux à votre flux de travail.
@@ -106,7 +106,7 @@ Les procédures suivantes vous guident lors des étapes nécessaires à la confi
    
    | Paramètre | Description |
    | --- | --- |
-   | -ResourceGroupLocation |Valeur de l’emplacement géographique où le groupe de ressources est localisé, par exemple **eastus** ou **« États-Unis de l'Est »**. (Ajouter des guillemets simples si le nom comporte un espace). Consultez les [Régions Azure](https://azure.microsoft.com/en-us/regions/) pour plus d’informations. |
+   | -ResourceGroupLocation |Valeur de l’emplacement géographique où le groupe de ressources est localisé, par exemple **eastus** ou **« États-Unis de l'Est »**. (Ajouter des guillemets simples si le nom comporte un espace). Consultez les [Régions Azure](https://azure.microsoft.com/regions/) pour plus d’informations. |
    | -ResourceGroupName |Nom du groupe de ressources utilisé pour ce déploiement. |
    | -UploadArtifacts |Ce paramètre, quand il est présent, spécifie que les artefacts doivent être chargés vers Azure à partir du système local. Il vous suffit de définir ce commutateur si le déploiement de votre modèle requiert des artefacts supplémentaires pour les phases intermédiaires de l’utilisation du script PowerShell (tels que les scripts de configuration ou les modèles imbriqués). |
    | -StorageAccountName |Nom du compte de stockage utilisé pour les artefacts intermédiaires pour ce déploiement. Ce paramètre est utilisé uniquement si vous mettez en place des artefacts pour le déploiement. Si ce paramètre est fourni, un compte de stockage est créé si le script n’en a pas créé un au cours d’un déploiement précédent. Si le paramètre est spécifié, le compte de stockage doit déjà exister. |

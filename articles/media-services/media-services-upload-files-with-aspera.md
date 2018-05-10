@@ -1,11 +1,11 @@
 ---
-title: "Charger des fichiers dans un compte Azure Media Services à l’aide d’Aspera | Microsoft Docs"
-description: "Ce didacticiel vous guide tout au long du processus de chargement de fichiers dans un compte de stockage associé à un compte Media Services à l’aide du service **Aspera Server On Demand** dans Azure."
+title: Charger des fichiers dans un compte Azure Media Services à l’aide d’Aspera | Microsoft Docs
+description: Ce didacticiel vous guide tout au long du processus de chargement de fichiers dans un compte de stockage associé à un compte Media Services à l’aide du service **Aspera Server On Demand** dans Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: johndeu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 58fec9746828863c4d0bff223fb6e9fb122256c3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Charger des fichiers dans un compte Media Services à l’aide du service Aspera Server On Demand dans Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 **Aspera** est un logiciel de transfert de fichiers à haut débit. Le service **Aspera Server On Demand** pour Azure permet de charger et télécharger rapidement des fichiers volumineux directement dans un espace de stockage d’objets blob Azure. Pour plus d’informations sur **Aspera On Demand**, consultez le site [Aspera Cloud](http://cloud.asperasoft.com/). 
   
-**Aspera Server On Demand** pour Azure est disponible à l’achat sur la [Place de marché Azure](https://azure.microsoft.com/en-us/marketplace/). Pour acheter **Aspera Server On Demand** pour Azure, veuillez vous connecter à la Place de marché Azure à l’aide de votre identifiant Windows Live.
+**Aspera Server On Demand** pour Azure est disponible à l’achat sur la [Place de marché Azure](https://azure.microsoft.com/marketplace/). Pour acheter **Aspera Server On Demand** pour Azure, veuillez vous connecter à la Place de marché Azure à l’aide de votre identifiant Windows Live.
 
 Ce didacticiel vous guide tout au long du processus de chargement de fichiers dans un compte de stockage associé à un compte Media Services à l’aide du service **Aspera Server On Demand** dans Azure. 
 
@@ -36,7 +36,8 @@ Vous trouverez un exemple qui montre comment utiliser les fonctions Azure avec A
 >Une limite est appliquée à la taille maximale des fichiers pris en charge pour le traitement dans les processeurs multimédias Azure Media Services. Consultez [cet](media-services-quotas-and-limitations.md) article pour en savoir plus sur les limites de taille des fichiers.
 >
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis
+ 
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 

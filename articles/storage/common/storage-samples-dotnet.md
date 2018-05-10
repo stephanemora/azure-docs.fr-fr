@@ -1,12 +1,12 @@
 ---
 title: Exemples de stockage Azure avec .NET| Microsoft Docs
-description: "Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers qui utilisent des bibliothèques clientes de stockage .NET."
+description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers qui utilisent des bibliothèques clientes de stockage .NET.
 services: storage
 documentationcenter: na
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 74777ed14ebb41ad31657f814e86724ff1e5e62e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e6973f0decc448657d869afb8823dd03c62d272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemples de stockage Azure avec .NET
 
@@ -30,7 +30,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 <tr> 
 <td rowspan="16"><b>Objet blob</b></td>
 <td>Append Blob</td> 
-<td><a href="https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Exemple de méthode CloudBlobContainer.GetAppendBlobReference</a></td> 
+<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Exemple de méthode CloudBlobContainer.GetAppendBlobReference</a></td> 
 </tr> 
 <tr> 
 <td>Objet blob de blocs</td>
@@ -195,7 +195,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 </table>
 <br/>
 
-## <a name="azure-code-samples-library"></a>Bibliothèque d’exemples de code Azure
+## <a name="azure-code-samples-library"></a>Bibliothèque Exemples de code Azure
 
 Pour voir la bibliothèque complète des exemples, consultez la bibliothèque d’[exemples de code Azure](https://azure.microsoft.com/resources/samples/?service=storage) pour trouver des exemples de stockage Azure que vous pouvez télécharger et exécuter localement. Les exemples de code fournis par la bibliothèque sont au format .zip. Vous pouvez également parcourir et cloner le dépôt GitHub pour chaque exemple.
 

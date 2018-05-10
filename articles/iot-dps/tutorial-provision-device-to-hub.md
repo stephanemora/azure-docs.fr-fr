@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 03/28/2018
+ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
-Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous apprenez à utiliser ce service pour approvisionner votre appareil sur un seul IoT Hub à l’aide de **_listes d’inscriptions_**. Ce didacticiel vous explique les procédures suivantes :
+Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous apprenez à utiliser ce service pour approvisionner votre appareil sur un seul IoT Hub à l’aide de l’approvisionnement automatique et de **_listes d’inscriptions_**. Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil
@@ -43,18 +43,18 @@ Cette étape implique l’ajout des artefacts de sécurité uniques de l’appar
     - La *paire de clés de type EK* qui est unique à chaque simulation ou processeur TPM, obtenue auprès du fournisseur de processeurs TPM.  Pour plus d’informations, consultez [Comprendre la paire de clés de type EK (Endorsement Key) du module de plateforme sécurisée](https://technet.microsoft.com/library/cc770443.aspx).
     - *L’ID d’enregistrement* qui est utilisé pour identifier un appareil dans l’espace de noms ou l’étendue. Cet ID peut ou non être le même que l’ID de l’appareil. L’ID est obligatoire pour chaque appareil. Pour les appareils basés sur TPM, l’ID d’enregistrement peut être dérivé du module TPM lui-même, par exemple un hachage SHA-256 de la paire de clés de type EK TPM.
 
-    ![Informations d’inscription pour le module TPM dans le portail](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
+    [![Informations d’inscription pour le module TPM dans le portail](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Pour les appareils X.509, vous avez besoin des éléments suivants :
     - Le [certificat délivré à X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) (processeur ou simulation), sous la forme d’un fichier *.pem* ou *.cer*. Pour une inscription individuelle, vous devez utiliser le *certificat du signataire* par appareil de votre système X.509, tandis que pour des groupes d’inscriptions, vous devez utiliser le *certificat racine*. 
 
-    ![Informations d’inscription pour X.509 dans le portail](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Il existe deux façons d’inscrire l’appareil auprès du service Device Provisioning :
 
 - **Groupe d’inscriptions** : représente un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Nous recommandons d’utiliser un groupe d’inscriptions pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire.
 
-    ![Groupes d’inscriptions pour X.509 dans le portail](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+    [![Ajouter une inscription de groupe pour l’attestation X.509 dans le portail](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **Inscription individuelle** : représente une entrée d’un seul appareil pouvant être enregistré auprès du service Device Provisioning. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module de plateforme sécurisée réel ou virtuel) comme mécanismes d’attestation. Nous vous recommandons d’utiliser des inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique et pour les appareils qui peuvent uniquement utiliser des jetons SAP par le biais du TPM ou TPM virtuel comme mécanisme d’attestation. Dans le cas d’inscriptions individuelles, vous pouvez spécifier l’ID de l’appareil IoT Hub souhaité.
 

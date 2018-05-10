@@ -3,8 +3,8 @@ title: Bonnes pratiques en matière de chiffrement et de sécurité des données
 description: Cet article détaille les meilleures pratiques en matière de chiffrement et de sécurité des données, à l’aide de capacités Azure intégrées.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure
+
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Dans le cadre des meilleures pratiques en termes de chiffrement et de sécurité des données d’Azure, les recommandations que nous proposons s’articulent autour des états suivants des données :
 
 * Au repos : cela inclut tous les objets de stockage, conteneurs et types d’informations présents de manière statique sur un support physique, qu’il s’agisse d’un disque magnétique ou d’un disque optique.
@@ -50,6 +51,7 @@ Les meilleures pratiques en matière de chiffrement et de sécurité des donnée
 * Application du chiffrement des données au niveau fichier
 
 ## <a name="enforce-multi-factor-authentication"></a>Application de l’authentification multifacteur via Azure Multi-Factor Authentication
+
 Pour permettre le contrôle et l’octroi d’un accès aux données dans Microsoft Azure, il est avant tout nécessaire d’authentifier l’utilisateur. [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) est une méthode permettant de vérifier l’identité de l’utilisateur grâce à d’autres moyens que les seuls nom d’utilisateur et mot de passe. Cette méthode contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande de l’utilisateur, qui souhaite bénéficier d’un processus d’authentification simple.
 
 En activant Azure MFA pour vos utilisateurs, vous ajoutez une deuxième couche de sécurité aux connexions et transactions des utilisateurs. Dans ce cas, une transaction peut accéder à un document situé sur un serveur de fichiers ou sur votre site SharePoint Online. Azure MFA permet également au département informatique de réduire le risque d’accès aux données de l’organisation par un compte compromis.
@@ -61,6 +63,7 @@ Les organisations souhaitant conserver le contrôle de l’authentification loca
 Pour en savoir plus sur Azure Multi-Factor Authentication, voir [Prise en main avec Azure Multi-Factor Authentication dans le cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Utilisation du contrôle d’accès en fonction du rôle (RBAC)
+
 Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Ces principes sont impératifs pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. La fonction de contrôle d’accès en fonction du rôle (RBAC) d’Azure peut être utilisée pour affecter des autorisations aux utilisateurs, groupes et des applications, à une certaine étendue. L’étendue d’une attribution de rôle peut être une seule ressource, un groupe de ressources ou un abonnement.
 
 Vous pouvez tirer parti des [rôles RBAC intégrés](../role-based-access-control/built-in-roles.md) dans Azure pour affecter des privilèges aux utilisateurs. Envisagez l’utilisation du rôle *Contributeur de comptes de stockage* pour les opérateurs de cloud qui ont besoin de gérer des comptes de stockage, et du rôle *Contributeur de comptes de stockage classiques* pour ceux qui gèrent des comptes de stockage classiques. Pour les opérateurs de cloud qui doivent gérer des machines virtuelles et des comptes de stockage, vous pouvez recourir au rôle *Contributeur de machines virtuelles*.
@@ -70,6 +73,7 @@ Les organisations qui n’appliquent aucun contrôle d’accès aux données via
 Vous pouvez en savoir plus sur la fonction RBAC d’Azure en lisant l’article [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Chiffrement des machines virtuelles Azure
+
 Pour de nombreuses organisations, le [chiffrement des données au repos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Azure Disk Encryption permet aux administrateurs informatiques de chiffrer des disques de machines virtuelles Windows et Linux IaaS. Azure Disk Encryption s’appuie sur la fonctionnalité standard BitLocker Windows et la fonctionnalité DM-Crypt de Linux pour assurer le chiffrement de volume du système d’exploitation et des disques de données.
 
 Vous pouvez tirer parti d’Azure Disk Encryption pour protéger vos données, afin de répondre aux exigences de l’entreprise en matière de sécurité et de conformité. Les organisations doivent également envisager d’utiliser le chiffrement pour réduire les risques liés aux accès non autorisés. Avant d’écrire des données sensibles sur les lecteurs, il est également recommandé de chiffrer ces derniers.
@@ -125,6 +129,7 @@ Les organisations qui n’appliquent aucun chiffrement au niveau de la base de d
 Vous pouvez en savoir plus sur le chiffrement TDE de SQL en lisant l’article [Transparent Data Encryption avec Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>Protection des données en transit
+
 La protection des données en transit doit être un aspect essentiel de votre stratégie de protection des données. Comme les données transitent entre différents emplacements, dans les deux sens, nous vous recommandons d’utiliser systématiquement les protocoles SSL/TLS pour ces déplacements de données. Dans certains cas, vous souhaiterez isoler l’intégralité du canal de communication entre votre infrastructure locale et sur le cloud, via un réseau privé virtuel (VPN).
 
 Pour les données qui transitent entre votre infrastructure locale et Azure, vous devez envisager le recours aux dispositifs de protection appropriés, comme HTTPS ou VPN.
@@ -142,6 +147,7 @@ Les organisations qui ne parviennent pas à protéger les données en transit so
 Vous pouvez en savoir plus sur l’option de VPN Azure en lisant l’article [Planification et conception de la passerelle VPN](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Application du chiffrement des données au niveau fichier
+
 Le chiffrement du fichier lui-même, quel que soit son emplacement, constitue une autre couche de protection susceptible d’optimiser la sécurité de vos données.
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) utilise des stratégies de chiffrement, d’identité et d’autorisation pour vous aider à sécuriser vos fichiers et vos e-mails. Azure RMS peut fonctionner sur plusieurs appareils (téléphones, tablettes et PC), en protégeant les données au sein de votre organisation et en dehors de cette dernière. Cette fonctionnalité est possible, car Azure RMS ajoute un niveau de protection qui reste avec les données, même lorsqu’elles quittent les limites de votre organisation.

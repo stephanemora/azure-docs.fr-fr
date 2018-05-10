@@ -3,7 +3,7 @@ title: 'Didacticiel Azure Security Center : définir et évaluer les stratégies
 description: 'Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité'
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: yurid
-ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Didacticiel : définir et évaluer les stratégies de sécurité
 Security Center garantit la conformité aux exigences de l’entreprise et de sécurité réglementaires à l’aide de stratégies de sécurité, afin de définir la configuration souhaitée de vos charges de travail. Une fois les stratégies pour vos abonnements Azure définies et adaptées au type de charge de travail ou à la sensibilité de vos données, Security Center peut fournir des recommandations de sécurité pour votre ordinateur, la mise en réseau, SQL et le stockage, et les ressources d’application. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
@@ -31,6 +31,7 @@ Security Center garantit la conformité aux exigences de l’entreprise et de s�
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pendant 60 jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
 
 ## <a name="configure-security-policy"></a>Configurer une stratégie de sécurité
@@ -89,7 +90,7 @@ Si vous voulez désactiver l’approvisionnement automatique :
 > La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez développé des connaissances à propos de la définition de stratégie de base et de l’évaluation de la sécurité de votre charge de travail avec Security Center, telles que :
 
 > [!div class="checklist"]

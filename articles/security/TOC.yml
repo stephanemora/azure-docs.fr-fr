@@ -161,7 +161,7 @@
           href: protect-personal-data-in-transit-encryption.md
         - name: Protéger des données personnelles à l’aide des outils de création de rapports Azure
           href: protection-personal-data-azure-reporting-tools.md
-    - name: FEDRAMP
+    - name: FedRAMP
       items:
         - name: Analyse de données
           href: ./blueprints/fedramp-analytics-overview.md

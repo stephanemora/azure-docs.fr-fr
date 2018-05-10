@@ -1,8 +1,8 @@
 ---
-title: "Identité hybride : Comparaison des outils d’intégration d’annuaire | Microsoft Docs"
-description: "Cette page contient un tableau comparatif complet des différents outils d’intégration de répertoire pouvant être utilisés pour l’intégration de répertoire."
+title: 'Identité hybride : Comparaison des outils d’intégration d’annuaire | Microsoft Docs'
+description: Cette page contient un tableau comparatif complet des différents outils d’intégration de répertoire pouvant être utilisés pour l’intégration de répertoire.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 04/27/2018
 ms.author: billmath
-ms.openlocfilehash: 78ca910b4dfd5a706d2f1df7f70291fb48f096f5
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Identité hybride : Comparaison des outils d’intégration d’annuaire
 Au fil des années, les outils d’intégration de répertoire ont évolué et se sont améliorés.  Ce document procure une vue d’ensemble consolidée de ces outils et compare les fonctions disponibles dans chacun d’entre eux.
@@ -43,16 +43,14 @@ PP = Version préliminaire publique
 | Connexion à une forêt AD locale |● |● |● |● |● |
 | Connexion à plusieurs forêts AD locales |● |● | |● |● |
 | Connexion à plusieurs organisations Exchange locales |● | | | | |
-| Connexion à un répertoire LDAP local |●* | | |● |● |
-| Connexion à plusieurs répertoires LDAP |●*  | | |● |● |
-| Connexion à des répertoires locaux AD et LDAP |●* | | |● |● |
+| Connexion à un répertoire LDAP local | | | |● |● |
+| Connexion à plusieurs répertoires LDAP |  | | |● |● |
+| Connexion à des répertoires locaux AD et LDAP | | | |● |● |
 | Connexion à des systèmes personnalisés (comme SQL, Oracle, MySQL, etc.) |FR | | |● |● |
 | Synchronisation des attributs définis par le client (extensions de répertoire) |● | | | | |
 | Connexion à un système de ressources humaines local (par exemple, SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
 | Prise en charge des connecteurs et des règles de synchronisation FIM pour le déploiement sur des systèmes locaux. | | | |● |● |
-&#42; Actuellement, deux options sont prises en charge pour cela.  Il s'agit de :
-   1. Vous pouvez utiliser le connecteur LDAP générique et l’activer en dehors d’Azure AD Connect.  C’est une opération complexe demandant un partenaire pour l’intégration et un contrat de support Premier pour le tenir à jour.  Cette option peut gérer les répertoires LDAP uniques et multiples.
-   2. Vous pouvez développer votre propre solution pour déplacer des objets depuis LDAP vers Active Directory.  Synchronisez ensuite les objets avec Azure AD Connect.  MIM ou FIM peut être utilisé comme solution pour déplacer les objets.
+
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Synchronisation du cloud avec les ressources locales
 | Fonctionnalité | Azure Active Directory Connect | Services de synchronisation Azure Active Directory | Outil de synchronisation Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

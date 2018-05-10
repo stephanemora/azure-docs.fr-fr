@@ -54,6 +54,12 @@
 ### [Migrer vers .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### [Enregistrer des secrets d’application web](vs-secure-secret-appsettings.md)
 ### [Authentification du service avec .NET](service-to-service-authentication.md)
+### Utilisation de Visual Studio
+#### [Utilisation du service connecté Key Vault](vs-key-vault-add-connected-service.md)
+#### [Bien démarrer avec les projets ASP.NET](vs-key-vault-aspnet-get-started.md)
+#### [Qu’est-il arrivé à mon projet ASP.NET ?](vs-key-vault-aspnet-what-happened.md)
+#### [Bien démarrer avec les projets ASP.NET Core](vs-key-vault-aspnet-core-get-started.md)
+#### [Qu’est-il arrivé à mon projet ASP.NET Core ?](vs-key-vault-aspnet-core-what-happened.md)
 
 # Ressources
 ## [Vue d’ensemble du service](https://azure.microsoft.com/services/key-vault/)

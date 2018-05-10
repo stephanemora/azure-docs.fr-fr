@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6bfe48df685952d2b465d9549e2f1c086c1c490
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 L’agent de machine virtuelle Microsoft Azure et les extensions associées font partie des services d’infrastructure Microsoft Azure. Les extensions de machine virtuelle sont des composants logiciels qui étendent les fonctionnalités d’une machine virtuelle et simplifient ses diverses opérations de gestion.
 
-L’extension de configuration d’état souhaité (DSC) Azure sert principalement à amorcer une machine virtuelle sur le [service Azure Automation DSC](../../automation/automation-dsc-overview.md). L’amorçage d’une machine virtuelle offre divers [avantages](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service), notamment la gestion en continu de la configuration de la machine virtuelle et l’intégration avec d’autres outils opérationnels, tels que Azure Monitoring.
+L’extension de configuration d’état souhaité (DSC) Azure sert principalement à amorcer une machine virtuelle sur le [service Azure Automation DSC](../../automation/automation-dsc-overview.md). L’amorçage d’une machine virtuelle offre divers [avantages](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service), notamment la gestion en continu de la configuration de la machine virtuelle et l’intégration avec d’autres outils opérationnels, tels que Azure Monitoring.
 
 Vous pouvez utiliser l’extension DSC indépendamment du service Automation DSC. Cela implique cependant une action bien spécifique qui intervient au cours du déploiement. Aucune fonction de création de rapports ou de gestion de la configuration n’est disponible si ce n’est en local, au niveau de la machine virtuelle.
 
@@ -49,7 +49,7 @@ Ce guide part du principe que vous connaissez les concepts suivants :
 
 ## <a name="architecture"></a>Architecture
 
-L’extension DSC d’Azure utilise l’infrastructure de l’agent Azure VM pour fournir, mettre en œuvre et créer des rapports sur les configurations DSC sur des machines virtuelles Azure. L’extension DSC accepte un document de configuration et un ensemble de paramètres. Si aucun fichier n’est fourni, un [script de configuration par défaut](#default-configuration-script) est incorporé avec l’extension. Le script de configuration par défaut est utilisé uniquement pour définir les métadonnées dans le [Gestionnaire de configuration local](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig).
+L’extension DSC d’Azure utilise l’infrastructure de l’agent Azure VM pour fournir, mettre en œuvre et créer des rapports sur les configurations DSC sur des machines virtuelles Azure. L’extension DSC accepte un document de configuration et un ensemble de paramètres. Si aucun fichier n’est fourni, un [script de configuration par défaut](#default-configuration-script) est incorporé avec l’extension. Le script de configuration par défaut est utilisé uniquement pour définir les métadonnées dans le [Gestionnaire de configuration local](https://docs.microsoft.com/powershell/dsc/metaconfig).
 
 Lorsque l’extension est appelée pour la première fois, elle installe une version de WMF en utilisant la logique suivante :
 
@@ -61,7 +61,7 @@ L’installation de WMF nécessite un redémarrage. Après le redémarrage, l’
 
 ### <a name="default-configuration-script"></a>Script de configuration par défaut
 
-L’extension DSC Azure inclut un script de configuration par défaut destiné à être utilisé lorsque vous intégrez une machine virtuelle au service Azure Automation DSC. Les paramètres de script sont alignés sur les propriétés configurables du [Gestionnaire de configuration local](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). Pour les paramètres de script, consultez [Script de configuration par défaut](extensions-dsc-template.md#default-configuration-script) dans [Extension de configuration d’état souhaité avec des modèles Azure Resource Manager](extensions-dsc-template.md). Pour le script complet, consultez le [modèle de démarrage rapide Azure dans GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+L’extension DSC Azure inclut un script de configuration par défaut destiné à être utilisé lorsque vous intégrez une machine virtuelle au service Azure Automation DSC. Les paramètres de script sont alignés sur les propriétés configurables du [Gestionnaire de configuration local](https://docs.microsoft.com/powershell/dsc/metaconfig). Pour les paramètres de script, consultez [Script de configuration par défaut](extensions-dsc-template.md#default-configuration-script) dans [Extension de configuration d’état souhaité avec des modèles Azure Resource Manager](extensions-dsc-template.md). Pour le script complet, consultez le [modèle de démarrage rapide Azure dans GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extension DSC dans les modèles Resource Manager
 

@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0e108487bac5154477988ad0b01378af4152836f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement de données dans Azure SQL Data Warehouse
 
@@ -164,7 +164,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 
-Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies conformément au [niveau de performance](memory-and-concurrency-limits.md#performance-tiers), aux valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
+Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies en fonction de la génération de SQL Data Warehouse que vous utilisez, des [unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md) et des [classes de ressources](resource-classes-for-workload-management.md). 
 
 Il est préférable de créer une connexion et un utilisateur dédiés au chargement des données. Ensuite, ajoutez l’utilisateur de chargement à une [classe de ressource](resource-classes-for-workload-management.md) qui permet une allocation de mémoire maximale appropriée.
 

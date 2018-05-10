@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Limites du modèle d’achat vCore d’Azure SQL Database (préversion)
 
@@ -40,8 +40,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |IOPS cible|320|640|1 280|2560|5120|
 |Latence d’E/S (approximative)|5-7 ms (écriture)
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|
-|Nombre maximal de connexions simultanées|200|400|800|1 600|3200|
-|Nombre maximal de sessions autorisé|3000|3000|3000|3000|3000|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
@@ -63,8 +62,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |IOPS cible|5 000|10000|20000|40000|80000|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|
-|Nombre maximal de connexions simultanées|200|400|800|1 600|3200|
-|Nombre maximal de sessions autorisé|3000|3000|3000|3000|3000|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
 |Nombre de réplicas|3|3|3|3|3|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|
@@ -117,8 +115,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |IOPS cible|320|640|1 280|2560|5120|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|
-|Nombre maximal de connexions simultanées|210|420|840|1680|3360|
-|Nombre maximal de sessions autorisé|3000|3000|3000|3000|3000|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
 |Densité de pool maximale|100|200|500|500|500|
 |Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|
 |Nombre de réplicas|1|1|1|1|1|
@@ -128,7 +125,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |||
 
 ### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
-|Niveau de performance|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Niveau de performance|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|
 |vCores|1|2|4|8|16|
@@ -142,8 +139,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |IOPS cible|320|640|1 280|2560|5120|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|
-|Nombre maximal de connexions simultanées|210|420|840|1680|3360|
-|Nombre maximal de sessions autorisé|3000|3000|3000|3000|3000|
+|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|
 |Densité de pool maximale|N/A|50|100|100|100|
 |Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|

@@ -1,13 +1,13 @@
 ---
-title: "Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS | Microsoft Docs"
-description: "Découvrez comment préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour une instance SAP ASCS/SCS."
+title: Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS | Microsoft Docs
+description: Découvrez comment préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour une instance SAP ASCS/SCS.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: ec976257-396b-42a0-8ea1-01c97f820fa6
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2547d40ac39bc8188511f6682911fa302cf3e8a5
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 25d3d01e12132165cc9e12032ba0f6e7a2f15070
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/14/2017
 [sap-high-availability-infrastructure-wsfc-shared-disk-install-sios-both-nodes]:sap-high-availability-infrastructure-wsfc-shared-disk.md#dd41d5a2-8083-415b-9878-839652812102
 [sap-high-availability-infrastructure-wsfc-shared-disk-setup-sios]:sap-high-availability-infrastructure-wsfc-shared-disk.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuration de haute disponibilité multi-SID SAP)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -165,7 +165,8 @@ ms.lasthandoff: 11/14/2017
 
 Cet article décrit les étapes à suivre pour préparer l’infrastructure Azure à l’installation et à la configuration d’un système SAP à haute disponibilité sur un cluster de basculement Windows en utilisant un *disque partagé de cluster* en tant qu’option de clustering d’une instance ASCS SAP.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer l’installation, consultez cet article :
 
@@ -204,7 +205,7 @@ _**Figure 1 :** Définir les paramètres Azure Resource Manager de haute disponi
     * \<SIDSystèmeSAP\>-nic-ascs-\<Numéro\>
     * \<SIDSystèmeSAP\>-nic-db-\<Numéro\>
 
-  * **Des comptes de stockage Azure (disques non gérés uniquement)** :
+  * **Des comptes de stockage Azure (disques non gérés uniquement)**  :
 
   * **Des groupes de disponibilité** pour :
     * Les machines virtuelles de serveur d’applications SAP : \<SIDSystèmeSAP\>-avset-di
@@ -525,7 +526,7 @@ Si vous souhaitez utiliser d’autres numéros pour les instances SAP ASCS ou SC
 1.  Dans le portail Azure, sélectionnez **\<SID\>-lb-ascs load balancer** > **Règles d’équilibrage de charge**.
 2.  Pour toutes les règles d’équilibrage de charge qui appartiennent à l’instance SAP ASCS ou SCS, modifiez les valeurs suivantes :
 
-  * Nom
+  * NOM
   * Port
   * Port principal
 
@@ -551,7 +552,7 @@ Azure Load Balancer offre un équilibrage de charge interne qui ferme les connex
 
 Pour ajouter des entrées de registre aux deux nœuds du cluster de l’instance SAP ASCS/SCS, ajoutez tout d’abord ces entrées de registre Windows aux deux nœuds de cluster Windows pour SAP ASCS/SCS :
 
-| Chemin | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nom de la variable |`KeepAliveTime` |
 | Type de variable |REG_DWORD (décimal) |
@@ -562,12 +563,12 @@ Pour ajouter des entrées de registre aux deux nœuds du cluster de l’instance
 
 Puis, ajoutez cette entrée de registre Windows aux deux nœuds de cluster Windows pour l’instance SAP ASCS/SCS :
 
-| Chemin | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nom de la variable |`KeepAliveInterval` |
 | Type de variable |REG_DWORD (décimal) |
 | Valeur |120 000 |
-| Lien vers la documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Lien vers la documentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 **Tableau 4 :** Modification du deuxième paramètre TCP/IP
 

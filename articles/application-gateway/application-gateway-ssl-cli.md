@@ -1,24 +1,24 @@
 ---
-title: "Créer une passerelle d’application avec un arrêt SSL - Interface CLI Azure | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide de l’interface CLI Azure."
+title: Créer une passerelle d’application avec un arrêt SSL - Interface CLI Azure | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide de l’interface CLI Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
-ms.author: davidmu
-ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: cdc24d0b95e30f762eb202ce08222ccde34424e9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide de l’interface CLI Azure
 
-Vous pouvez utiliser l’interface CLI Azure pour créer une [passerelle d’application](application-gateway-introduction.md) avec un certificat pour un [arrêt SSL](application-gateway-backend-ssl.md) qui utilise un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour des serveurs principaux. Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool principal par défaut de la passerelle d’application.
+Vous pouvez utiliser l’interface CLI Azure pour créer une [passerelle d’application](application-gateway-introduction.md) avec un certificat pour un [arrêt SSL](application-gateway-backend-ssl.md) qui utilise un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour des serveurs principaux. Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool backend par défaut de la passerelle d’application.
 
 Dans cet article, vous apprendrez comment :
 
@@ -26,7 +26,7 @@ Dans cet article, vous apprendrez comment :
 > * Créer un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
-> * Créer un groupe de machines virtuelles identiques avec le pool principal par défaut
+> * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -62,7 +62,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Créer des ressources réseau
 
-Créez le réseau virtuel nommé *myVNet* et le sous-réseau nommé *myAGSubnet* à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az_net). Vous pouvez ensuite ajouter le sous-réseau nommé *myBackendSubnet* nécessaire aux serveurs principaux à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Créez l’adresse IP publique nommée *myAGPublicIPAddress* à l’aide de la commande [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Créez le réseau virtuel nommé *myVNet* et le sous-réseau nommé *myAGSubnet* à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az_net). Vous pouvez ensuite ajouter le sous-réseau nommé *myBackendSubnet* nécessaire aux serveurs backend à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Créez l’adresse IP publique nommée *myAGPublicIPAddress* à l’aide de la commande [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -109,11 +109,11 @@ az network application-gateway create \
 
  La création de la passerelle d’application peut prendre plusieurs minutes. Une fois la passerelle d’application créée, vous pouvez voir ses nouvelles fonctionnalités suivantes :
 
-- *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses principal.
+- *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses backend.
 - *appGatewayBackendHttpSettings* : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication.
 - *appGatewayHttpListener* : écouteur par défaut associé à *appGatewayBackendPool*.
 - *appGatewayFrontendIP* - assigne *myAGPublicIPAddress* à *appGatewayHttpListener*.
-- *rule1* : règle d’acheminement par défaut associée à *appGatewayHttpListener*.
+- *rule1* : règle de routage par défaut associée à *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Créer un groupe de machines virtuelles identiques
 
@@ -144,7 +144,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -176,4 +176,4 @@ Dans ce didacticiel, vous avez appris à :
 > * Créer une passerelle d’application avec le certificat
 > * Créer un groupe de machines virtuelles identiques avec le pool principal par défaut
 
-Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
+Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de guide pratique.

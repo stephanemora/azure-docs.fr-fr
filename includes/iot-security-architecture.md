@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-architecture"></a>Architecture de sécurité de l’Internet des objets
 
 Lorsque vous concevez un système, il est important de comprendre les menaces potentielles qui pèsent sur ce dernier et d’ajouter les défenses appropriées en conséquence, à mesure de sa conception et de la création de son architecture. Il est particulièrement important de concevoir le produit dès le début dans une optique de sécurité : comprendre comment une personne malveillante peut compromettre un système contribue à s’assurer que les préventions adéquates sont en place dès le début.
