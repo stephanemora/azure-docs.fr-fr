@@ -26,7 +26,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
@@ -76,7 +76,6 @@
         - name: Créer un équilibreur de charge public avec IPv6 (modèle)
           href: load-balancer-ipv6-internet-template.md
     - name: Configuration de l’équilibreur de charge interne
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: Configuration de l’équilibreur de charge interne (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md
@@ -130,7 +129,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.network
     - name: Azure CLI
       href: /cli/azure/network/lb
