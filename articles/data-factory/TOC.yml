@@ -29,7 +29,7 @@
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-deploy-ssis-packages-azure.md
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
     - name: 2 - Copier des données dans le cloud
       items:
@@ -45,13 +45,13 @@
           href: tutorial-hybrid-copy-data-tool.md
         - name: Interface utilisateur (IU)
           href: tutorial-hybrid-copy-portal.md
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: tutorial-hybrid-copy-powershell.md
     - name: 4 - Copier des données en bloc
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-bulk-copy-portal.md
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: tutorial-bulk-copy.md
     - name: 5 - Copier des données de façon incrémentielle
       href: tutorial-incremental-copy-overview.md
@@ -60,19 +60,19 @@
           items:
             - name: Interface utilisateur (IU)
               href: tutorial-incremental-copy-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copie à partir de plusieurs tables
           items:
             - name: Interface utilisateur (IU)
               href: tutorial-incremental-copy-multiple-tables-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Utilisation de la fonctionnalité de suivi des modifications
           items:
             - name: Interface utilisateur (IU)
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Transformer des données dans le cloud
       items:
@@ -80,7 +80,7 @@
           items:
             - name: Interface utilisateur (IU)
               href: tutorial-transform-data-spark-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: tutorial-transform-data-spark-powershell.md
         - name: Databricks Notebook
           items:
@@ -90,7 +90,7 @@
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - Flux de contrôle
       items:
@@ -102,7 +102,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: samples-powershell.md
 - name: Concepts
   items:
@@ -151,15 +151,15 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
-            - name: Base de données Azure pour MySQL
+            - name: Azure Database pour MySQL
               href: connector-azure-database-for-mysql.md
-            - name: Base de données Azure pour PostgreSQL
+            - name: Azure Database pour PostgreSQL
               href: connector-azure-database-for-postgresql.md
             - name: Stockage Fichier Azure
               href: connector-azure-file-storage.md
             - name: Recherche Azure
               href: connector-azure-search.md
-            - name: Base de données SQL Azure
+            - name: Azure SQL Database
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
@@ -406,19 +406,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Ressources
   items:
-    - name: Forum Aux Questions
-      href: frequently-asked-questions.md
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Dépassement de capacité de la pile
+    - name: Poser une question - Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: Poser une question - Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Demander une fonctionnalité
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Disponibilité des régions
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Forum Aux Questions
+      href: frequently-asked-questions.md
+    - name: Feuille de route
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Disponibilité par région
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Options de support
       href: 'https://azure.microsoft.com/support/options/'

@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Runbook Worker hybride
       items:
-        - name: Déployer Runbook Worker hybride
+        - name: Vue d’ensemble des Runbook Worker hybrides
           href: automation-hybrid-runbook-worker.md
-        - name: "Runbook Worker hybride Windows Azure\_Automation"
+        - name: Déployer des Runbook Worker hybrides Windows
           href: automation-windows-hrw-install.md
-        - name: "Runbook Worker hybride Linux Azure\_Automation"
+        - name: Déployer des Runbook Worker hybrides Linux
           href: automation-linux-hrw-install.md
-        - name: Exécuter des runbooks sur Worker
+        - name: Exécuter des runbooks sur un Runbook Worker hybride
           href: automation-hrw-run-runbooks.md
-        - name: Supprimer des runbooks Workers hybrides Azure Automation
-          href: automation-remove-hrw.md
     - name: Gestion des configurations (configuration d’état souhaité)
       items:
         - name: Présentation de la configuration de l’état souhaité
@@ -201,7 +199,7 @@
           href: automation-troubleshooting-hybrid-runbook-worker.md
 - name: Informations de référence
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.automation
     - name: Azure PowerShell (Classic)
       href: /powershell/module/azure/?view=azuresmps-3.7.0

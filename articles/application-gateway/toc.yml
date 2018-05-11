@@ -29,7 +29,7 @@
       href: tutorial-url-redirect-cli.md
 - name: Exemples
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
@@ -59,19 +59,19 @@
       href: create-multiple-sites-portal.md
     - name: Rediriger le trafic externe
       items:
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: redirect-external-site-powershell.md
         - name: Azure CLI
           href: redirect-external-site-cli.md
     - name: Rediriger le trafic HTTP vers HTTPS
       items:
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: redirect-http-to-https-powershell.md
         - name: Azure CLI
           href: redirect-http-to-https-cli.md
     - name: Rediriger le trafic interne
       items:
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           href: redirect-internal-site-powershell.md
         - name: Azure CLI
           href: redirect-internal-site-cli.md
@@ -91,11 +91,13 @@
       href: tutorial-url-route-powershell.md
     - name: Rediriger le trafic web avec Azure PowerShell
       href: tutorial-url-redirect-powershell.md
+    - name: Créer une passerelle d’application redondante dans une zone
+      href: create-zone-redundant.md
 - name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/network/application-gateway
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/azure/overview
     - name: .NET
       href: /dotnet/api

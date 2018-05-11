@@ -142,7 +142,9 @@
       items:
         - name: En-têtes X-EC-Debug
           href: cdn-http-debug-headers.md
-    - name: "Azure\_PowerShell"
+    - name: Variables HTTP
+      href: cdn-http-variables.md
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.cdn

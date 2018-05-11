@@ -61,8 +61,22 @@
               href: azure-stack-prepare-pki-certs.md
             - name: Valider des certificats d’infrastructure à clé publique
               href: azure-stack-validate-pki-certs.md
-        - name: Intégration des identités
-          href: azure-stack-integrate-identity.md
+            - name: Corriger des certificats d’infrastructure à clé publique
+              href: azure-stack-remediate-certs.md
+            - name: Ressources de déploiement
+              items:
+                - name: Référence sur les applets de commande Start-AzsReadiness
+                  href: azure-stack-azsreadiness-cmdlet.md
+                - name: Afficher l’état de préparation
+                  href: azure-stack-validation-report.md
+            - name: Intégration des identités
+              items:
+                - name: Choix d’un fournisseur d’identité
+                  href: azure-stack-integrate-identity.md
+                - name: Valider l’identité Azure
+                  href: azure-stack-validate-identity.md
+        - name: Valider l’inscription auprès d’Azure
+          href: azure-stack-validate-registration.md
         - name: Surveillance externe
           href: azure-stack-integrate-monitor.md
         - name: Intégration de la sécurité
@@ -123,7 +137,7 @@
               href: azure-stack-manage-storage-accounts.md
             - name: Gérer la capacité de stockage
               href: azure-stack-manage-storage-shares.md
-            - name: "Gérer la capacité de mémoire physique pour Azure\_Stack"
+            - name: Gérer la capacité de mémoire physique
               href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Remplacer le matériel
           items:
@@ -253,6 +267,10 @@
               href: azure-stack-compute-add-scalesets.md
             - name: "Offrir des machines virtuelles\_Linux"
               href: azure-stack-linux.md
+            - name: "Ajouter une machine virtuelle Red\_Hat"
+              href: azure-stack-redhat-create-upload-vhd.md
+            - name: "Offrir un cluster\_Kubernetes"
+              href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Utilisation et facturation
           items:
             - name: Vue d'ensemble

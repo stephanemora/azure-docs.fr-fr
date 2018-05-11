@@ -30,14 +30,14 @@
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
-    - name: API Management
+    - name: Gestion des API
       tocHref: /azure/api-management/
       topicHref: /azure/api-management/
       items:
         - name: Stratégies
           tocHref: /azure/api-management/policies/
           topicHref: /azure/api-management/policy-samples/
-        - name: "Azure\_PowerShell"
+        - name: Azure PowerShell
           tocHref: /azure/api-management/scripts/
           topicHref: /azure/api-management/powershell-samples/
     - name: App Service
@@ -71,13 +71,13 @@
     - name: Azure Databricks
       tocHref: /azure/azure-databricks/
       topicHref: /azure/azure-databricks/
-    - name: Registre de conteneurs
+    - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
-    - name: Gestion des coûts
+    - name: Cost Management
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
-    - name: Functions
+    - name: Fonctions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
     - name: Azure Government
@@ -171,16 +171,16 @@
         - name: Content Moderator
           tocHref: /azure/cognitive-services/content-moderator/
           topicHref: /azure/cognitive-services/content-moderator/overview
-        - name: Service de décision personnalisé
+        - name: Service Décision personnalisée
           tocHref: /azure/cognitive-services/custom-decision-service/
           topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-        - name: Service vocal personnalisé
+        - name: Custom Speech Service
           tocHref: /azure/cognitive-services/custom-speech-service/
           topicHref: /azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home
         - name: Reconnaissance de l’orateur
           tocHref: /azure/cognitive-services/speaker-recognition/
           topicHref: /azure/cognitive-services/speaker-recognition/home
-        - name: Service de vision personnalisé
+        - name: Service Vision personnalisée
           tocHref: /azure/cognitive-services/custom-vision-service/
           topicHref: /azure/cognitive-services/custom-vision-service/
         - name: Emotion
@@ -207,7 +207,7 @@
         - name: Exploration de la base de connaissances
           tocHref: /azure/cognitive-services/kes/
           topicHref: /azure/cognitive-services/kes/overview
-        - name: Compréhension de la langue (LUIS)
+        - name: Language Understanding (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Analyse linguistique
@@ -231,12 +231,15 @@
         - name: Translator Speech
           tocHref: /azure/cognitive-services/translator-speech/
           topicHref: /azure/cognitive-services/translator-speech/
-        - name: Indexeur de vidéo
+        - name: Video Indexer
           tocHref: /azure/cognitive-services/video-indexer/
           topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
         - name: Modèle de langage web
           tocHref: /azure/cognitive-services/web-language-model/
           topicHref: /azure/cognitive-services/web-language-model/home
+        - name: Personality Chat
+          tocHref: /azure/cognitive-services/project-personality-chat/
+          topicHref: /azure/cognitive-services/project-personality-chat/overview
     - name: Connecteurs
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
@@ -324,7 +327,7 @@
         - name: Notions de base de l’IoT
           tocHref: /azure/iot-fundamentals/
           topicHref: /azure/iot-fundamentals/
-        - name: "IoT\_Edge"
+        - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
         - name: IoT Hub
@@ -348,16 +351,16 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Équilibreur de charge
+    - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics
       tocHref: /azure/log-analytics/
       topicHref: /azure/log-analytics/
-    - name: "Logic\_Apps"
+    - name: Logic Apps
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
-    - name: "Machine\_Learning"
+    - name: Machine Learning
       tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/
       items:
@@ -408,7 +411,7 @@
     - name: MySQL
       tocHref: /azure/mysql/
       topicHref: /azure/mysql/
-    - name: "Network\_Watcher"
+    - name: Network Watcher
       tocHref: /azure/network-watcher/
       topicHref: /azure/network-watcher/
     - name: Mise en réseau
@@ -469,13 +472,13 @@
     - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: action
+    - name: Recherche
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: Sécurité
       tocHref: /azure/security/
       topicHref: /azure/security/
-    - name: Centre de sécurité
+    - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
     - name: Service Bus
@@ -493,7 +496,7 @@
     - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
-    - name: "SQL\_Data\_Warehouse"
+    - name: SQL Data Warehouse
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
     - name: Base de données SQL
@@ -524,7 +527,7 @@
     - name: Traffic Manager
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
-    - name: Jeux de mise à l’échelle de machine virtuelle
+    - name: Virtual Machine Scale Sets
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
     - name: Virtual Machines

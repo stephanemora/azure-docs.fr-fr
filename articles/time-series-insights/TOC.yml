@@ -7,10 +7,13 @@
     - name: À propos de Time Series Insights
       href: time-series-insights-overview.md
 - name: Démarrages rapides
-  expanded: true
   items:
     - name: Explorer Time Series Insights
       href: time-series-quickstart.md
+- name: Didacticiels
+  items:
+    - name: Découvrez la bibliothèque cliente TSI JavaScript
+      href: tutorial-explore-js-client-lib.md
 - name: Concepts
   items:
     - name: Planifier votre environnement
@@ -81,7 +84,7 @@
           href: /azure/time-series-insights
     - name: Edge
       items:
-        - name: "IoT\_Edge"
+        - name: IoT Edge
           href: /azure/iot-edge
         - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

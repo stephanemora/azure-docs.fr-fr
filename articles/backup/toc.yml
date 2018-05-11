@@ -27,7 +27,7 @@
       href: tutorial-backup-restore-files-windows-server.md
 - name: Exemples
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-backup-samples.md
     - name: Modèles Resource Manager
       href: backup-rm-template-samples.md
@@ -49,6 +49,8 @@
       href: backup-azure-security-feature.md
     - name: Configurer la sauvegarde hors connexion
       href: backup-azure-backup-import-export.md
+    - name: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
+      href: backup-azure-backup-server-import-export-.md
     - name: Remplacer votre bibliothèque de bandes
       href: backup-azure-backup-cloud-as-tape.md
 - name: Procédures
@@ -155,7 +157,7 @@
           href: backup-dpm-automation.md
         - name: Windows Server dans le portail Azure
           href: backup-client-automation.md
-    - name: Base de données SQL Azure
+    - name: Azure SQL Database
       items:
         - name: Configuration et restauration de sauvegardes SQL Database - Stockage SQL
           href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
