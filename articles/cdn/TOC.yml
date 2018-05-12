@@ -1,10 +1,10 @@
 - name: Documentation CDN
-  href: index.md
+  href: index.yml
 - name: Vue d'ensemble
   items:
     - name: Présentation d’Azure CDN
       href: cdn-overview.md
-    - name: Caractéristiques de produit Azure CDN
+    - name: Comparer les caractéristiques de produit
       href: cdn-features.md
 - name: Démarrages rapides
   items:
@@ -137,13 +137,13 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Fonctionnalités du moteur de règles
           href: cdn-rules-engine-reference-features.md
+        - name: Variables HTTP
+          href: cdn-http-variables.md
     - name: En-têtes HTTP propres à Verizon
       href: cdn-verizon-http-headers.md
       items:
         - name: En-têtes X-EC-Debug
           href: cdn-http-debug-headers.md
-    - name: Variables HTTP
-      href: cdn-http-variables.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET
