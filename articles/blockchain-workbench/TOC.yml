@@ -14,10 +14,10 @@
   items:
     - name: Déployer Workbench
       href: blockchain-workbench-deploy.md
-    - name: Gérer les utilisateurs de Workbench
-      href: blockchain-workbench-manage-users.md
     - name: Créer une application blockchain
       href: blockchain-workbench-create-app.md
+    - name: Gérer les utilisateurs de Workbench
+      href: blockchain-workbench-manage-users.md
     - name: Utiliser une application blockchain
       href: blockchain-workbench-use.md
     - name: Utiliser l’API Workbench
