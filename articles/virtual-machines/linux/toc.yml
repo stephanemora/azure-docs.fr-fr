@@ -51,6 +51,8 @@
       href: tutorial-mean-stack.md
     - name: 16 - Sécuriser un serveur web avec SSL
       href: tutorial-secure-web-server.md
+    - name: Déployer une image Packer et des applications sur un groupe identique
+      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Exemples
   items:
     - name: Azure CLI

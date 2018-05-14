@@ -32,6 +32,16 @@
       href: use-deep-learning-dsvm.md
     - name: "Utiliser une machine virtuelle de science des données\_Geo AI"
       href: use-geo-ai-dsvm.md
+- name: Assistance Entreprise
+  items:
+    - name: Vue d'ensemble
+      href: dsvm-enterprise-overview.md
+    - name: Mise à l'échelle
+      href: dsvm-pools.md
+    - name: "Intégration d’Active\_Directory"
+      href: dsvm-common-identity.md
+    - name: Sécuriser les informations d’identification d’accès de ressource
+      href: dsvm-secure-access-keys.md
 - name: Informations de référence
   expanded: true
   items:

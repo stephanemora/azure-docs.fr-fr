@@ -114,6 +114,8 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (un seul abonné)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
             - name: Personnaliser OpenID Connect
               href: active-directory-b2c-setup-oidc-idp.md
         - name: Configurer la réinitialisation du mot de passe en libre-service

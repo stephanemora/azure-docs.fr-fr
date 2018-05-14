@@ -29,6 +29,8 @@
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Modèle](tutorial-autoscale-template.md)
+## Déployer des applications sur un groupe de machines virtuelles identiques Azure à l’aide d’une image Packer personnalisée
+### [Azure CLI 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # Exemples
 ## [Azure CLI 2.0](cli-samples.md)

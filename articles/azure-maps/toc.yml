@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: Langues prises en charge
       href: supported-languages.md
+    - name: Modèle de consommation
+      href: consumption-model.md
 - name: Procédures
   items:
     - name: Gérer les comptes Maps
@@ -115,7 +117,7 @@
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates'
     - name: Dépassement de capacité de la pile
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: Études de cas techniques
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: vidéos
