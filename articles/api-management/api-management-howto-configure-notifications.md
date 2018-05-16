@@ -1,11 +1,11 @@
 ---
-title: "Configurer des notifications et des modèles d’e-mails dans Gestion des API Azure | Microsoft Docs"
-description: "Apprenez à configurer des notifications et des modèles de messages électroniques dans Gestion des API Azure."
+title: Configurer des notifications et des modèles d’e-mails dans Gestion des API Azure | Microsoft Docs
+description: Apprenez à configurer des notifications et des modèles de messages électroniques dans Gestion des API Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 228cbb103e13c478bea460bb04de43d6480bc60e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 60788f76dac58ead10e43e892d587a86bdd3fcad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
 Gestion des API Azure permet de configurer les notifications pour des événements spécifiques et de configurer les modèles de courrier électronique utilisés pour communiquer avec les administrateurs et les développeurs de l’instance Gestion des API. Cet article montre comment configurer des notifications pour les événements disponibles. Il offre également un aperçu de la configuration des modèles d’e-mail utilisés pour ces événements.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Si vous ne disposez pas d’une instance de service Gestion des API, effectuez le démarrage rapide suivant : [Créer une instance Gestion des API Azure](get-started-create-service-instance.md).
 
@@ -68,11 +69,11 @@ Ces modèles peuvent être modifiés comme vous le souhaitez.
 
 Pour afficher et configurer les modèles d’e-mail pour votre instance Gestion des API, cliquez sur **Modèles de notification**.
 
-![Modèles d’e-mail][api-management-email-templates]
+![Email templates][api-management-email-templates]
 
 Pour chaque modèle de message, l'objet est au format texte et le corps au format HTML. Chaque élément peut être personnalisé.
 
-![Éditeur de modèles d’e-mail][api-management-email-template]
+![Email template editor][api-management-email-template]
 
 La liste **Paramètres** contient une liste de paramètres qui, lorsqu'ils sont insérés dans l'objet ou dans le corps du message, sont remplacés par une valeur définie lorsque le message est envoyé. Pour insérer un paramètre, placez le curseur là où vous voulez insérer le paramètre, puis cliquez sur la flèche à gauche du nom du paramètre.
 

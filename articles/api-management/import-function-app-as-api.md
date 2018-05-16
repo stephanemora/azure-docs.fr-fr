@@ -1,11 +1,11 @@
 ---
-title: "Importer une application de fonction en tant qu’API avec le portail Azure | Microsoft Docs"
-description: "Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour importer une application de fonction en tant qu’API."
+title: Importer une application de fonction en tant qu’API avec le portail Azure | Microsoft Docs
+description: Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour importer une application de fonction en tant qu’API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: c6c7b1f3c2cba9d9f99f7ee1a8e0518bc30f0d27
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-a-function-app-as-an-api"></a>Importer une application de fonction en tant qu’API
 
@@ -32,23 +32,24 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Vérifiez que votre abonnement contient une application de fonction. Pour plus d’informations, consultez [Créer une application de fonction](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importer et publier une API backend
+## <a name="create-api"> </a>Importer et publier une API de serveur principal
 
 1. Sélectionnez **API** sous **Gestion des API**.
 2. Sélectionnez **Application de fonction** dans la liste **Ajouter une nouvelle API**.
 
-    ![Application de fonction](./media/import-function-app-as-api/function-app-api.png)
+    ![Conteneur de fonctions](./media/import-function-app-as-api/function-app-api.png)
 3. Appuyez sur **Parcourir** pour afficher la liste des applications de fonction dans votre abonnement.
 4. Sélectionnez l’application. APIM recherche le swagger associé à l’application sélectionnée, l’extrait et l’importe. 
 5. Ajoutez un suffixe d’URL d’API. Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.
-6. Publiez l’API en l’associant à un produit. Dans ce cas, le produit *Illimité* est utilisé.  Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.
+6. Publiez l’API en l’associant à un produit. Dans ce cas, le produit « *Illimité* » est utilisé.  Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.
 
-    Les produits sont des associations d’une ou plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.
+    Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.
 
     Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
 
@@ -67,17 +68,17 @@ Les opérations peuvent être directement appelées depuis le portail Azure, qui
     La page affiche des champs pour les paramètres de requête et des champs pour les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance APIM, la clé est renseignée automatiquement, car vous êtes déjà administrateur. 
 1. Appuyez sur **Envoyer**.
 
-    Le backend répond avec **200 OK** et certaines données.
+    Le serveur principal répond avec **200 OK** et certaines données.
 
 ## <a name="call-operation"></a>Appel d’une opération à partir du portail des développeurs
 
-Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester l’API. 
+Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester les API. 
 
-1. Sélectionnez l’API que vous avez créée à l’étape « Importer et publier une API backend ».
+1. Sélectionnez l’API que vous avez créée à l’étape « Importer et publier une API de serveur principal ».
 2. Appuyez sur **Portail des développeurs**.
 
     Le site « Portail des développeurs » s’ouvre.
-3. Sélectionnez **l’API** que vous avez créée.
+3. Sélectionnez l’**API** que vous avez créée.
 4. Cliquez sur l’opération que vous souhaitez tester.
 5. Appuyez sur **Essayer**.
 6. Appuyez sur **Envoyer**.
@@ -91,4 +92,4 @@ Vous pouvez également appeler des opérations depuis le **portail des développ
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Transformer et protéger une API publiée](transform-api.md)
+> [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)

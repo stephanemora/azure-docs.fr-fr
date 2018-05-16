@@ -3,11 +3,12 @@ title: Bien démarrer avec Azure AD iOS | Microsoft Docs
 description: Création d’une application iOS qui s’intègre à Azure AD pour la connexion et appelle des API protégées par Azure AD en utilisant OAuth.
 services: active-directory
 documentationcenter: ios
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 598771eb12d0608ef424c08401b04191a2cc3ee8
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1ceae59cca5790d9d74f72ce644e31fb0949cd49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Bien démarrer avec Azure AD iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -67,12 +68,12 @@ Pour configurer votre application afin d’obtenir des jetons, vous devez d’ab
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Suivez les invites pour créer une **application cliente native**.
   * Le **nom** de l’application donne une description de votre application aux utilisateurs finaux.
-  * L’**URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour retourner des réponses de jeton.  Entrez une valeur spécifique à votre application et basée sur les informations d’URI de redirection précédentes.
-6. Une fois que vous avez terminé l’inscription, Azure AD affecte un ID d’application unique à votre application.  Copiez cette valeur dans l’onglet de l’application, car vous en aurez besoin dans les sections suivantes.
-7. Dans la page **Paramètres**, sélectionnez **Autorisations nécessaires**, puis **Ajouter**. Sélectionnez **Microsoft Graph** comme API, puis ajoutez l’autorisation **Lire les données de l’annuaire** sous **Autorisations déléguées**.  Cette opération configure votre application afin de pouvoir interroger l’API Azure AD Graph concernant les utilisateurs.
+  * L’**URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour retourner des réponses de jeton. Entrez une valeur spécifique à votre application et basée sur les informations d’URI de redirection précédentes.
+6. Une fois que vous avez terminé l’inscription, Azure AD affecte un ID d’application unique à votre application. Copiez cette valeur dans l’onglet de l’application, car vous en aurez besoin dans les sections suivantes.
+7. Dans la page **Paramètres**, sélectionnez **Autorisations nécessaires**, puis **Ajouter**. Sélectionnez **Microsoft Graph** comme API, puis ajoutez l’autorisation **Lire les données de l’annuaire** sous **Autorisations déléguées**. Cette opération configure votre application afin de pouvoir interroger l’API Azure AD Graph concernant les utilisateurs.
 
 ## <a name="3-install-and-configure-adal"></a>3. Installer et configurer la bibliothèque ADAL
-Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité.  Pour que la bibliothèque ADAL communique avec Azure AD, vous devez lui fournir des informations sur l’inscription de votre application.
+Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour que la bibliothèque ADAL communique avec Azure AD, vous devez lui fournir des informations sur l’inscription de votre application.
 
 1. Commencez par ajouter la bibliothèque ADAL au projet DirectorySearcher à l’aide de CocoaPods.
 
@@ -97,15 +98,15 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
     $ open QuickStart.xcworkspace
     ```
 
-4. Dans le projet de démarrage rapide, ouvrez le fichier plist `settings.plist`.  Remplacez les valeurs des éléments de la section afin qu’elles reflètent les valeurs que vous avez entrées dans le portail Azure. Votre code fait référence à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
+4. Dans le projet de démarrage rapide, ouvrez le fichier plist `settings.plist`. Remplacez les valeurs des éléments de la section afin qu’elles reflètent les valeurs que vous avez entrées dans le portail Azure. Votre code fait référence à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
   * `tenant` est le domaine de votre locataire Azure AD ; par exemple, contoso.onmicrosoft.com.
   * `clientId` est l’ID client de votre application, copié à partir du portail.
   * `redirectUri` est l’URL de redirection que vous avez inscrite dans le portail.
 
-## <a name="4----use-adal-to-get-tokens-from-azure-ad"></a>4.    Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
-Le principe de base de la bibliothèque ADAL consiste simplement à appeler un completionBlock `+(void) getToken : ` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste.  
+## <a name="4-use-adal-to-get-tokens-from-azure-ad"></a>4. Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
+Le principe de base de la bibliothèque ADAL consiste simplement à appeler un completionBlock `+(void) getToken : ` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste. 
 
-1. Dans le projet `QuickStart`, ouvrez `GraphAPICaller.m` et recherchez le commentaire `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` vers le haut.  C’est à ce moment-là que vous fournissez à la bibliothèque ADAL, à l’aide d’une méthode CompletionBlock, les coordonnées dont elle a besoin pour communiquer avec Azure AD, et que vous lui indiquez comment mettre en cache des jetons.
+1. Dans le projet `QuickStart`, ouvrez `GraphAPICaller.m` et recherchez le commentaire `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` vers le haut. C’est à ce moment-là que vous fournissez à la bibliothèque ADAL, à l’aide d’une méthode CompletionBlock, les coordonnées dont elle a besoin pour communiquer avec Azure AD, et que vous lui indiquez comment mettre en cache des jetons.
 
     ```ObjC
     +(void) getToken : (BOOL) clearCache
@@ -146,7 +147,7 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler un c
 
     ```
 
-2. Nous devons à présent utiliser ce jeton pour rechercher des utilisateurs dans le graphique. Recherchez le commentaire `// TODO: implement SearchUsersList`. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné.  Pour interroger l’API Azure AD Graph, vous devez inclure un jeton d’accès (access_token) dans l’en-tête `Authorization` de la demande. C’est là que la bibliothèque ADAL entre en jeu.
+2. Nous devons à présent utiliser ce jeton pour rechercher des utilisateurs dans le graphique. Recherchez le commentaire `// TODO: implement SearchUsersList`. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Pour interroger l’API Azure AD Graph, vous devez inclure un jeton d’accès (access_token) dans l’en-tête `Authorization` de la demande. C’est là que la bibliothèque ADAL entre en jeu.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString
@@ -218,7 +219,7 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler un c
     ```
 
 
-3. Quand votre application demande un jeton en appelant `getToken(...)`, la bibliothèque ADAL tente de retourner un jeton sans demander à l’utilisateur ses informations d’identification.  Si la bibliothèque ADAL détermine que l’utilisateur doit se connecter pour obtenir un jeton, elle affiche une boîte de dialogue de connexion, récupère les informations d’identification de l’utilisateur, puis retourne un jeton après une authentification réussie.  Si la bibliothèque ADAL ne peut pas retourner un jeton pour une raison quelconque, un `AdalException` est levé.
+3. Quand votre application demande un jeton en appelant `getToken(...)`, la bibliothèque ADAL tente de retourner un jeton sans demander à l’utilisateur ses informations d’identification. Si la bibliothèque ADAL détermine que l’utilisateur doit se connecter pour obtenir un jeton, elle affiche une boîte de dialogue de connexion, récupère les informations d’identification de l’utilisateur, puis retourne un jeton après une authentification réussie. Si la bibliothèque ADAL ne peut pas retourner un jeton pour une raison quelconque, un `AdalException` est levé.
 
 > [!Note] 
 > L’objet `AuthenticationResult` contient un objet `tokenCacheStoreItem` qui peut être utilisé pour collecter les informations dont votre application peut avoir besoin. Dans le démarrage rapide, `tokenCacheStoreItem` est utilisé pour déterminer si l’authentification a déjà été effectuée.
@@ -226,14 +227,14 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler un c
 >
 
 ## <a name="5-build-and-run-the-application"></a>5. Génération et exécution de l’application
-Félicitations ! Vous disposez désormais d’une application iOS fonctionnelle pouvant authentifier les utilisateurs, appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et obtenir des informations de base concernant l’utilisateur.  Si vous ne l’avez pas encore fait, il est maintenant temps de remplir votre client avec quelques utilisateurs.  Démarrez votre application de démarrage rapide, puis connectez-vous à l’aide de l’un de ces utilisateurs.  Recherchez d’autres utilisateurs en fonction de leur UPN.  Fermez l’application, puis redémarrez-la.  Notez que la session de l’utilisateur reste intacte.
+Félicitations ! Vous disposez désormais d’une application iOS fonctionnelle pouvant authentifier les utilisateurs, appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et obtenir des informations de base concernant l’utilisateur. Si vous ne l’avez pas encore fait, il est maintenant temps de remplir votre client avec quelques utilisateurs. Démarrez votre application de démarrage rapide, puis connectez-vous à l’aide de l’un de ces utilisateurs. Recherchez d’autres utilisateurs en fonction de leur UPN. Fermez l’application, puis redémarrez-la. Notez que la session de l’utilisateur reste intacte.
 
-La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d’identité communes dans votre application.  Elle effectue les tâches ingrates à votre place, comme la gestion du cache, la prise en charge du protocole OAuth, la présentation d’une interface utilisateur à l’utilisateur pour qu’il se connecte et l’actualisation des jetons expirés.  La seule chose que vous devez vraiment connaître est un appel unique d’API : `getToken`.
+La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d’identité communes dans votre application. Elle effectue les tâches ingrates à votre place, comme la gestion du cache, la prise en charge du protocole OAuth, la présentation d’une interface utilisateur à l’utilisateur pour qu’il se connecte et l’actualisation des jetons expirés. La seule chose que vous devez vraiment connaître est un appel unique d’API : `getToken`.
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni sur [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni sur [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez à présent aborder d’autres scénarios.  Par exemple :
+Vous pouvez à présent aborder d’autres scénarios. Par exemple :
 
 * [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
 * En savoir plus sur l’[activation d’une authentification unique (SSO) entre applications sur iOS à l’aide de la bibliothèque ADAL](active-directory-sso-ios.md)  

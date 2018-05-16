@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 4479c78eb2eb4138dbacfa3619616a3b16d51121
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 171593483fc94c1c67013ab520b0085ca98f3a82
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Affichage des référentiels Container Registry dans le portail Azure
 
@@ -50,7 +50,7 @@ Par exemple, si vous avez poussé l’image Nginx, comme indiqué dans [Envoyer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous connaissez les principes fondamentaux de l’affichage et de l’utilisation des référentiels dans le portail, essayez d’utiliser Azure Container Registry avec un cluster [Azure Container Service](../aks/tutorial-kubernetes-prepare-app.md).
+Maintenant que vous connaissez les principes fondamentaux de l’affichage et de l’utilisation des référentiels dans le portail, essayez d’utiliser Azure Container Registry avec un cluster [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

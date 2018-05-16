@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 2c6f5cf2d89da0c2418ac58ca5d47a8aa05e732f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-best-practices"></a>Meilleures pratiques de sécurité pour l’Internet des objets (IoT)
 
 Sécuriser une infrastructure IoT implique la mise en œuvre d’une stratégie complète et rigoureuse. Dans le cadre de cette stratégie, vous devez sécuriser les données dans le cloud, protéger l’intégrité des données transitant sur le réseau Internet public et configurer des appareils en toute sécurité. Chaque couche contribue à garantir la sécurité de l’infrastructure globale.
@@ -7,7 +23,7 @@ Sécuriser une infrastructure IoT implique la mise en œuvre d’une stratégie 
 Cette stratégie de sécurité complète peut être développée et appliquée avec la participation active des différents acteurs impliqués dans la fabrication, le développement et le déploiement de l’infrastructure et des appareils IoT. Voici une description générale de ces acteurs.
 
 * **Fabricant/intégrateur de matériel IoT** : il s’agit généralement de fabricants de matériels IoT déployés, d’intégrateurs qui assemblent le matériel de différents fabricants ou de fournisseurs de matériels dédiés à un déploiement IoT réalisé ou intégré par d’autres fournisseurs.
-* **Développeur de solutions IoT** : le développement d’une solution IoT est généralement assuré par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer différents composants de la solution IoT de bout en bout, intégrer une variété de composants du commerce ou open source ou adopter des solutions préconfigurées moyennant une légère adaptation.
+* **Développeur de solutions IoT** : le développement d’une solution IoT est généralement assuré par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer plusieurs composants de la solution IoT en partant de zéro, intégrer de nombreux composants du commerce ou open source ou encore adopter des accélérateurs de solution moyennant une légère adaptation.
 * **Responsable du déploiement de solutions IoT** : une fois développée, une solution IoT doit être déployée sur le terrain. Ce processus implique le déploiement du matériel, l’interconnexion des appareils et le déploiement des solutions sur les appareils ou dans le cloud.
 * **Opérateur de solutions IoT** : une fois déployée, la solution IoT requiert une exploitation, une surveillance, des mises à niveau et une maintenance sur la durée. Ces tâches peuvent être assurées par une équipe interne comprenant des spécialistes en technologies de l’information, des équipes d’exploitation et de maintenance du matériel et des spécialistes du domaine qui contrôlent le comportement de l’infrastructure IoT globale.
 

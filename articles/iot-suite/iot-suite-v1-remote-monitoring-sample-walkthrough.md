@@ -1,12 +1,12 @@
 ---
-title: "Présentation de la solution préconfigurée de surveillance à distance | Microsoft Docs"
-description: "Description de la solution préconfigurée de surveillance à distance Azure IoT et de son architecture"
-services: 
+title: Présentation de la solution préconfigurée de surveillance à distance | Microsoft Docs
+description: Description de la solution préconfigurée de surveillance à distance Azure IoT et de son architecture
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Présentation de la solution préconfigurée de surveillance à distance
 
@@ -35,13 +35,23 @@ Cet article vous familiarise avec les éléments clés de la solution de surveil
 
 Le schéma suivant décrit les composants logiques de la solution préconfigurée :
 
-![Architecture logique](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Architecture logique](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Microservices & Conteneurs Docker
+La surveillance à distance est la première de nos solutions préconfigurées pour tirer parti d’une architecture de microservices. La solution est disponible en [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) et [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+Les microservices sont apparus comme un modèle pour obtenir une mise à l’échelle et une flexibilité (en autorisant une mise à l’échelle individuelle des conteneurs), sans compromettre la vitesse de développement.
+Les microservices compartimentent le code et fournissent des interfaces bien définies, rendant la solution plus facile à comprendre et moins monolithique. Ils développent également davantage d’options pour les partenaires qui veulent étendre nos accélérateurs de solution actuels pour créer des solutions terminées pouvant être monétisées.
+
+**Approfondissez vos connaissances sur les conteneurs Docker**
+* [Installation de Docker](https://docs.docker.com/engine/installation/)
+* [Commandes Docker courantes pour la surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Prise en main de Docker](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Simulations d’appareils
 
 Dans la solution préconfigurée, l’appareil simulé représente un système de refroidissement (un climatiseur dans un bâtiment ou une unité de traitement d’air dans une usine, par exemple). Lorsque vous déployez la solution préconfigurée, vous configurez automatiquement quatre appareils simulés qui s’exécutent dans une [tâche web Azure][lnk-webjobs]. Les appareils simulés vous permettent d’explorer plus facilement le comportement de la solution sans avoir à déployer des appareils physiques. Pour déployer un appareil physique réel, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
-### <a name="device-to-cloud-messages"></a>Messages Appareil vers cloud
+### <a name="device-to-cloud-messages"></a>Messages appareil-à-cloud
 
 Chaque appareil simulé peut envoyer les types de messages suivants à IoT Hub :
 
@@ -246,7 +256,7 @@ La solution utilise une base de données Cosmos DB pour stocker des information
 
 Le portail de la solution est une application web déployée dans le cadre de la solution préconfigurée. Les pages essentielles dans le portail de la solution sont le tableau de bord et la liste des appareils.
 
-### <a name="dashboard"></a>Tableau de bord
+### <a name="dashboard"></a>tableau de bord
 
 Cette page de l’application web utilise les contrôles Javascript PowerBI (consultez le [référentiel d’éléments visuels PowerBI](https://www.github.com/Microsoft/PowerBI-visuals)) pour visualiser les données de télémétrie provenant des appareils. La solution utilise la tâche de télémétrie ASA pour écrire les données de télémétrie dans le stockage d’objets blob.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -145,7 +145,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 }
 ```
   
-## <a name="functions"></a>Functions  
+## <a name="functions"></a>Fonctions  
  Vous pouvez appeler des fonctions dans des expressions. Les sections suivantes fournissent des informations sur les fonctions qui peut être utilisées dans une expression.  
 
 ## <a name="string-functions"></a>Fonctions de chaîne  
@@ -215,7 +215,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 |-------------------|-----------------|  
 |int|Convertit le paramètre en entier. Par exemple, l’expression suivante retourne 100 en tant que nombre, au lieu d’une chaîne : `int('100')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en entier.|  
 |chaîne|Convertit le paramètre en chaîne. Par exemple, l’expression suivante retourne `'10'` : `string(10)` vous pouvez également convertir un objet en chaîne, par exemple, si le paramètre **foo** est un objet avec une seule propriété `bar : baz`, puis les paramètres suivants retournent `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en chaîne.|  
-|json|Convertissez le paramètre en valeur de type JSON. C’est l’opposé de string(). Par exemple, l’expression suivante retourne `[1,2,3]` en tant que tableau, plutôt qu’en tant que chaîne :<br /><br /> `parse('[1,2,3]')`<br /><br /> Vous pouvez également convertir une chaîne en objet. Par exemple, `json('{"bar" : "baz"}')` retourne :<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne qui est convertie en valeur de type natif.<br /><br /> La fonction json prend en charge également les entrées xml. Par exemple, la valeur du paramètre :<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> est convertie dans le code json suivant :<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json|Convertissez le paramètre en valeur de type JSON. C’est l’opposé de string(). Par exemple, l’expression suivante retourne `[1,2,3]` en tant que tableau, plutôt qu’en tant que chaîne :<br /><br /> `json('[1,2,3]')`<br /><br /> Vous pouvez également convertir une chaîne en objet. Par exemple, `json('{"bar" : "baz"}')` retourne :<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne qui est convertie en valeur de type natif.<br /><br /> La fonction json prend en charge également les entrées xml. Par exemple, la valeur du paramètre :<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> est convertie dans le code json suivant :<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convertit l’argument de paramètre en nombre à virgule flottante. Par exemple, l’expression suivante retourne `10.333` : `float('10.333')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en nombre à virgule flottante.|  
 |bool|Convertit le paramètre en booléen. Par exemple, l’expression suivante retourne `false` : `bool(0)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en booléen.|  
 |coalesce|Retourne le premier objet non Null dans les arguments transmis. Remarque : une chaîne vide n’a pas la valeur Null. Par exemple, si les paramètres 1 et 2 ne sont pas définis, cette expression retourne `fallback` : `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Numéro du paramètre** : 1 ... *n*<br /><br /> **Nom** : Objet *n*<br /><br /> **Description** : obligatoire. Objets dans lesquels rechercher `null`.|  

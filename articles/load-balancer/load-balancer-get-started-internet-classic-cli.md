@@ -1,10 +1,10 @@
 ---
-title: "Créer un équilibrage de charge accessible sur Internet à l’aide de l’interface de ligne de commande Azure classique | Microsoft Docs"
-description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide de l’interface de ligne de commande Azure"
+title: Créer un équilibrage de charge accessible sur Internet à l’aide de l’interface de ligne de commande Azure classique | Microsoft Docs
+description: Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide de l’interface de ligne de commande Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: timlt
+author: genlin
+manager: cshepard
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
@@ -13,19 +13,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: kumud
-ms.openlocfilehash: c50596d353629c8a320d77e802aa51b9b1cb1a5d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: genli
+ms.openlocfilehash: bacf135da25a5315e61922179db9a29fa8a152f1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Création d'un équilibreur de charge accessible sur Internet (classique) dans l'interface de ligne de commande CLI Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
-> * [Services cloud Azure](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
+> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/18/2017
 
 Ce guide indique comment créer un équilibreur de charge Internet selon le scénario ci-dessus.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande CLI Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode classique, comme illustré ci-dessous.
 
     ```azurecli

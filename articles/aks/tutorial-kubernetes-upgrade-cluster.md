@@ -3,21 +3,21 @@ title: Didacticiel Kubernetes sur Azure - Mettre à jour un cluster
 description: Didacticiel Kubernetes sur Azure - Mettre à jour un cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a293ebbd2ec07d9de53d168f79b8546576499bcb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0886d13b62b6b8ad1c0dcd430ce48bcc51d6d465
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Didacticiel : Mettre à niveau Kubernetes dans Azure Container Service (AKS)
+# <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à niveau Kubernetes dans Azure Kubernetes Service (AKS)
 
-Un cluster Azure Container Service (AKS) peut être mis à niveau à l’aide d’Azure CLI. Pendant le processus de mise à niveau, les nœuds Kubernetes sont soigneusement [coordonnés et purgés][kubernetes-drain] afin de limiter les perturbations pour les applications en cours d’exécution.
+Un cluster Azure Kubernetes Service (AKS) peut être mis à niveau à l’aide d’Azure CLI. Pendant le processus de mise à niveau, les nœuds Kubernetes sont soigneusement [coordonnés et purgés][kubernetes-drain] afin de limiter les perturbations pour les applications en cours d’exécution.
 
 Dans ce didacticiel (le huitième d’une série de huit), un cluster Kubernetes est mis à niveau. Les tâches que vous effectuez sont les suivantes :
 
@@ -41,7 +41,7 @@ Avant la mise à niveau d’un cluster, utilisez la commande `az aks get-upgrade
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Ici, vous pouvez voir la version actuelle du nœud (`1.7.9`) ainsi que les versions de mise à jour disponibles sous la colonne des mises à jour.
+Dans cet exemple, la version actuelle du nœud est `1.7.9` et les versions de mise à jour disponibles sous la colonne des mises à jour.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -115,7 +115,7 @@ Output:
 
 ## <a name="validate-upgrade"></a>Valider la mise à niveau
 
-Vous pouvez maintenant vérifier si la mise à niveau a réussi avec la commande `az aks show`.
+Vérifiez si la mise à niveau a réussi avec la commande `az aks show`.
 
 ```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

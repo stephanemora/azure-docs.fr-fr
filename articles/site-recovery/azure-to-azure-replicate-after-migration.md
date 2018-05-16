@@ -1,17 +1,17 @@
 ---
-title: "Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Cet article décrit comment préparer des machines pour configurer la récupération d’urgence entre des régions Azure après une migration vers Azure à l’aide d’Azure Site Recovery."
+title: Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment préparer des machines pour configurer la récupération d’urgence entre des régions Azure après une migration vers Azure à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 034052c0406ee51f33c598634f92d27867c7cbe7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure 
 
@@ -30,11 +30,11 @@ Avant de configurer la récupération d’urgence, assurez-vous que la migration
 
 ## <a name="install-the-azure-vm-agent"></a>Installer l’agent de machine virtuelle Azure
 
-Vous devez installer [l’agent de machine virtuelle](../virtual-machines/windows/agent-user-guide.md) Azure sur la machine virtuelle pour permettre au service Site Recovery de la répliquer.
+Vous devez installer [l’agent de machine virtuelle](../virtual-machines/extensions/agent-windows.md) Azure sur la machine virtuelle pour permettre au service Site Recovery de la répliquer.
 
 
 1. Pour installer l’agent de machine virtuelle sur des machines virtuelles Windows, téléchargez et exécutez le [programme d’installation de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous devez avoir des privilèges Administrateur sur les machines virtuelles pour effectuer l’installation.
-2. Pour installer l’agent de machine virtuelle sur des machines virtuelles Linux, installez la dernière version de [l’agent Linux](../virtual-machines/linux/agent-user-guide.md). Vous avez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons de procéder à l’installation à partir de votre dépôt de distribution. Nous vous déconseillons d’installer l’agent de machine virtuelle Linux directement à partir de GitHub. 
+2. Pour installer l’agent de machine virtuelle sur des machines virtuelles Linux, installez la dernière version de [l’agent Linux](../virtual-machines/extensions/agent-linux.md). Vous avez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons de procéder à l’installation à partir de votre dépôt de distribution. Nous vous déconseillons d’installer l’agent de machine virtuelle Linux directement à partir de GitHub. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Vérifier l’installation sur des machines virtuelles Windows

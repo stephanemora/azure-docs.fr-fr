@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="door-monitor"></a>Surveillance de la porte          
 
@@ -44,7 +44,7 @@ Suivez le [Guide de mise en route]({{"/docs/get-started/" | absolute_url }}) pou
 
 Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire via l’une de ces méthodes :
 
-* Activez un [compte Microsoft Azure pour un essai gratuit de 30 jours](https://azure.microsoft.com/en-us/free/).
+* Activez un [compte Microsoft Azure pour un essai gratuit de 30 jours](https://azure.microsoft.com/free/).
 * Réclamez votre [crédit Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) si vous êtes un abonné à MSDN ou Visual Studio.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>Déployer un service SendGrid dans Azure
@@ -69,7 +69,7 @@ La page suivante s’affiche alors.
 
 Remplissez le formulaire d’inscription :
 
-  * **Groupe de ressources** : créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Groupe de ressources** : créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Nom** : le nom de votre service SendGrid. Choisissez un nom unique, différent des autres services dont vous disposez.
 
@@ -111,7 +111,7 @@ La page suivante s’affiche alors.
 
 Remplissez le formulaire d’inscription :
 
-  * **Groupe de ressources** : créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Groupe de ressources** : créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Nom de IoT Hub** : nom de votre IoT Hub. Choisissez un nom unique, différent des autres services dont vous disposez.
 
@@ -132,10 +132,6 @@ Remplissez le formulaire d’inscription :
 - Démarrez VS Code.
 - Connectez le kit DevKit à votre ordinateur.
 
-VS Code détectera automatiquement votre kit DevKit et ouvre une page de présentation :
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > Quand vous lancez VS Code, vous pouvez recevoir un message d’erreur indiquant que l’IDE Arduino ou le package de la carte associée ne peut pas être trouvé. Si vous recevez cette erreur, fermez VS Code et relancez l’IDE Arduino ; VS Code devrait localiser correctement le chemin d’accès de l’IDE Arduino.
 
@@ -145,7 +141,8 @@ Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples po
 
 ![mini-solution-exemples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-S’il vous arrive de fermer le volet par inadvertance, vous pouvez le rouvrir. Utilisez `Ctrl+Shift+P` (macOS : `Cmd+Shift+P`) pour ouvrir la palette de commandes, tapez **Arduino**, puis recherchez et sélectionnez **Arduino : Exemples**.
+> [!NOTE]
+> Vous pouvez également ouvrir l’exemple à partir de la palette de commandes. Utilisez `Ctrl+Shift+P` (macOS : `Cmd+Shift+P`) pour ouvrir la palette de commandes, tapez **Arduino**, puis recherchez et sélectionnez **Arduino : Exemples**.
 
 ### <a name="provision-azure-services"></a>Approvisionner les services Azure
 
@@ -213,7 +210,7 @@ Si vous rencontrez des problèmes, consultez les [FAQ](https://microsoft.github.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez appris à connecter un appareil DevKit et à utiliser le service SendGrid pour envoyer un e-mail. Voici les prochaines étapes suggérées :
+Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de surveillance à distance Azure IoT et à utiliser le service SendGrid pour envoyer un e-mail. Voici les prochaines étapes suggérées :
 
-* [Vue d’ensemble d’Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Connecter un appareil DevKit IoT MXChip à votre application Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Vue d’ensemble des accélérateurs de solution de surveillance à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Connecter un appareil DevKit IoT MXChip à votre application Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

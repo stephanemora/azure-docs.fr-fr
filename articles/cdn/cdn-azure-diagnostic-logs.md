@@ -3,8 +3,8 @@ title: Journaux de diagnostic Azure | Microsoft Docs
 description: Le client peut activer l’analyse des journaux pour Azure CDN.
 services: cdn
 documentationcenter: ''
-author: ''
-manager: ''
+author: dksimpson
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 
@@ -28,7 +28,7 @@ Les journaux de diagnostic Azure permettent d’afficher l’analytique principa
  - Hubs d'événements Azure
  - [Espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Cette fonctionnalité est disponible pour tous les points de terminaison CDN appartenant à des profils CDN Verizon (Standard et Premium) et Akamai (Standard). 
+Cette fonctionnalité est disponible sur les points de terminaison de CDN à tous les niveaux tarifaires. 
 
 Les journaux de diagnostic Azure vous permettent d’exporter des métriques d’utilisation de base de votre point de terminaison CDN vers diverses sources afin de pouvoir les utiliser de façon personnalisée. Vous pouvez par exemple exécuter les types suivants d’exportation de données :
 
@@ -156,10 +156,10 @@ Pour pouvoir accéder aux données d’analyse de base à partir du compte de st
 
 **Description des champs :**
 
-|value|description|
+|Valeur|Description|
 |-------|---------|
 |Identifiant d’abonnement    |ID de l’abonnement Azure au format Guid.|
-|Ressource |Nom de groupe   Nom du groupe de ressources auquel les ressources CDN appartiennent.|
+|Nom du groupe de ressources |Nom du groupe de ressources auquel les ressources CDN appartiennent.|
 |Nom de profil |Nom du profil CDN|
 |Nom du point de terminaison |Nom du point de terminaison CDN|
 |Year|  Représentation à 4 chiffres de l’année, par exemple, 2017|
@@ -276,47 +276,49 @@ Vous pouvez faire glisser et déplacer les types de graphiques et renseigner le 
     
 ## <a name="log-data-delays"></a>Retards des données de journal
 
-Retards des données de journal Verizon | Retards des données de journal Akamai
---- | ---
-Les données de journal Verizon sont retardées de 1 heure et ont besoin de jusqu'à 2 heures pour commencer à apparaître après l’achèvement de la propagation du point de terminaison. | Les données de journal Akamai sont retardées de 24 heures ; si la création remonte à plus de 24 heures, elles nécessitent jusqu'à 2 heures pour commencer à apparaître. Si elle a été effectuée récemment, il peut falloir jusqu’à 25 heures pour que les journaux commencent à apparaître.
+Le tableau suivant présente les retards des données de journal pour **CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard/Premium fourni par Verizon**.
+
+Retards des données de journal Microsoft | Retards des données de journal Verizon | Retards des données de journal Akamai
+--- | --- | ---
+Retard de 1 heure. | Retard de 1 heure et possibilité de nécessiter jusqu’à 2 heures pour commencer à apparaître après l’achèvement de la propagation du point de terminaison. | Retard de 24 heures. Si la création remonte à plus de 24 heures, il faut attendre jusqu’à 2 heures avant leur apparition. Si elle a été effectuée récemment, il peut falloir jusqu’à 25 heures pour que les journaux commencent à apparaître.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Types de journaux de diagnostic pour l’analytique principale CDN
 
 Nous proposons uniquement les journaux de l’analytique principale, qui contiennent les métriques affichant les statistiques de réponse HTTP et de sortie, comme dans les points de présence/périmètres CDN.
 
 ### <a name="core-analytics-metrics-details"></a>Détails des métriques de Core Analytics
-Le tableau suivant répertorie les métriques disponibles dans les journaux de Core Analytics. Toutes les métriques ne sont pas disponibles auprès tous les fournisseurs, même si ces différences sont minimes. Le tableau suivant indique également si une métrique donnée est disponible à partir d’un fournisseur particulier. Notez que les métriques sont disponibles uniquement pour les points de terminaison CDN recevant du trafic.
+Le tableau suivant présente la liste des métriques disponibles dans les journaux d’analyse principale pour **CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard/Premium fourni par Verizon**. Toutes les métriques ne sont pas disponibles auprès tous les fournisseurs, même si ces différences sont minimes. Ce tableau indique également si une métrique donnée est disponible à partir d’un fournisseur particulier. Notez que les métriques sont disponibles uniquement pour les points de terminaison CDN recevant du trafic.
 
 
-|Métrique                     | Description   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Nombre total d’occurrences de requêtes pendant cette période| OUI  |OUI   |
-| RequestCountHttpStatus2xx |Nombre de toutes les requêtes qui ont abouti à un code HTTP 2xx (par ex. 200, 202)              | OUI  |OUI   |
-| RequestCountHttpStatus3xx | Nombre de toutes les requêtes qui ont abouti à un code HTTP 3xx (par ex. 300, 302)              | OUI  |OUI   |
-| RequestCountHttpStatus4xx |Nombre de toutes les requêtes qui ont abouti à un code HTTP 4xx (par ex. 400, 404)               | OUI   |OUI   |
-| RequestCountHttpStatus5xx | Nombre de toutes les requêtes qui ont abouti à un code HTTP 5xx (par ex. 500, 504)              | OUI  |OUI   |
-| RequestCountHttpStatusOthers |  Nombre d’occurrences de tous les autres codes HTTP (en dehors de 2xx-5xx) | OUI  |OUI   |
-| RequestCountHttpStatus200 | Nombre de toutes les requêtes qui ont abouti au code de réponse HTTP 200              |Non    |OUI   |
-| RequestCountHttpStatus206 | Nombre de toutes les requêtes qui ont abouti au code de réponse HTTP 206              |Non    |OUI   |
-| RequestCountHttpStatus302 | Nombre de toutes les requêtes qui ont abouti au code de réponse HTTP 302              |Non    |OUI   |
-| RequestCountHttpStatus304 |  Nombre de toutes les requêtes qui ont abouti au code de réponse HTTP 304             |Non    |OUI   |
-| RequestCountHttpStatus404 | Nombre de toutes les requêtes qui ont abouti au code de réponse HTTP 404              |Non    |OUI   |
-| RequestCountCacheHit |Nombre de toutes les requêtes qui ont abouti à un accès au cache. La ressource a été traitée directement du point de présence vers le client.               | OUI  |Non    |
-| RequestCountCacheMiss | Nombre de toutes les requêtes qui ont abouti à un échec de cache. Cela signifie que la ressource est introuvable sur le point de présence le plus proche du client et a donc été récupérée à l’origine.              |OUI   | Non   |
-| RequestCountCacheNoCache | Nombre de requêtes vers une ressource empêchées d’être mises en cache en raison d’une configuration de l’utilisateur sur le périmètre.              |OUI   | Non   |
-| RequestCountCacheUncacheable | Nombre de requêtes de ressources empêchées d’être mises en cache par les en-têtes Cache-Control et Expires, qui indiquent qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP                |OUI   |Non    |
-| RequestCountCacheOthers | Nombre de toutes les requêtes avec un état du cache non traité ci-dessus.              |OUI   | Non   |
-| EgressTotal | Transfert de données sortantes en Go              |OUI   |OUI   |
-| EgressHttpStatus2xx | Transfert de données sortantes * pour les réponses avec des codes d’état HTTP 2xx en Go            |OUI   |Non    |
-| EgressHttpStatus3xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 3xx en Go              |OUI   |Non    |
-| EgressHttpStatus4xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 4xx en Go               |OUI   | Non   |
-| EgressHttpStatus5xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 5xx en Go               |OUI   |  Non  |
-| EgressHttpStatusOthers | Transfert de données sortantes pour les réponses avec d’autres codes d’état HTTP en Go                |OUI   |Non    |
-| EgressCacheHit |  Transfert de données sortantes pour les réponses qui ont été livrées directement depuis le cache CDN sur les points de présence/périmètres CDN  |OUI   |  Non  |
-| EgressCacheMiss | Transfert des données sortantes pour les réponses introuvables sur le serveur le plus proche et récupérées à partir du serveur d’origine              |OUI   |  Non  |
-| EgressCacheNoCache | Transferts de données sortants pour les ressources empêchés d’être mis en cache en raison d’une configuration de l’utilisateur sur le périmètre.                |OUI   |Non    |
-| EgressCacheUncacheable | Transfert de données sortantes pour les ressources empêchées d’être mises en cache par les en-têtes Cache-Control et/ou Expires. Cela indique qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP.                   |OUI   | Non   |
-| EgressCacheOthers |  Transfère les données sortantes pour d’autres scénarios de cache.             |OUI   | Non   |
+|Métrique                     | Description | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Nombre total d’occurrences de requêtes pendant cette période. | OUI | OUI |OUI |
+| RequestCountHttpStatus2xx | Nombre total des requêtes ayant abouti à un code HTTP 2xx (par exemple, 200, 202). | OUI | OUI |OUI |
+| RequestCountHttpStatus3xx | Nombre total des requêtes ayant abouti à un code HTTP 3xx (par exemple, 300, 302). | OUI | OUI |OUI |
+| RequestCountHttpStatus4xx | Nombre total des requêtes ayant abouti à un code HTTP 4xx (par exemple, 400, 404). | OUI | OUI |OUI |
+| RequestCountHttpStatus5xx | Nombre total des requêtes ayant abouti à un code HTTP 5xx (par exemple, 500, 504). | OUI | OUI |OUI |
+| RequestCountHttpStatusOthers | Nombre total des autres codes HTTP (en dehors de 2xx-5xx). | OUI | OUI |OUI |
+| RequestCountHttpStatus200 | Nombre total des requêtes ayant abouti à un code HTTP 200. | OUI | Non   |OUI |
+| RequestCountHttpStatus206 | Nombre total des requêtes ayant abouti à un code HTTP 206. | OUI | Non   |OUI |
+| RequestCountHttpStatus302 | Nombre total des requêtes ayant abouti à un code HTTP 302. | OUI | Non   |OUI |
+| RequestCountHttpStatus304 | Nombre total des requêtes ayant abouti à un code HTTP 304. | OUI | Non   |OUI |
+| RequestCountHttpStatus404 | Nombre total des requêtes ayant abouti à un code HTTP 404. | OUI | Non   |OUI |
+| RequestCountCacheHit | Nombre de toutes les requêtes qui ont abouti à un accès au cache. La ressource a été traitée directement du point de présence vers le client. | OUI | OUI | Non   |
+| RequestCountCacheMiss | Nombre de toutes les requêtes qui ont abouti à un échec de cache. Cela signifie que la ressource est introuvable sur le point de présence le plus proche du client et a donc été récupérée à l’origine. | OUI | OUI | Non  |
+| RequestCountCacheNoCache | Nombre de requêtes vers une ressource empêchées d’être mises en cache en raison d’une configuration de l’utilisateur sur le périmètre. | OUI | OUI | Non  |
+| RequestCountCacheUncacheable | Nombre total des requêtes de ressources que les en-têtes Cache-Control et Expires empêchent de mettre en cache, et qui indiquent qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | OUI | OUI | Non  |
+| RequestCountCacheOthers | Nombre de toutes les requêtes avec un état du cache non traité ci-dessus. | Non  | OUI | Non   |
+| EgressTotal | Transfert de données sortantes en Go | OUI |OUI |OUI |
+| EgressHttpStatus2xx | Transfert de données sortantes* pour les réponses avec des codes d’état HTTP 2xx en Go. | OUI | OUI | Non   |
+| EgressHttpStatus3xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 3xx en Go. | OUI | OUI | Non   |
+| EgressHttpStatus4xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 4xx en Go. | OUI | OUI | Non   |
+| EgressHttpStatus5xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 5xx en Go. | OUI | OUI | Non  |
+| EgressHttpStatusOthers | Transfert de données sortantes pour les réponses avec d’autres codes d’état HTTP en Go. | OUI | OUI | Non   |
+| EgressCacheHit | Transfert de données sortantes pour les réponses qui ont été livrées directement à partir du cache CDN sur les points de présence/périmètres CDN. | OUI | OUI | Non  |
+| EgressCacheMiss. | Transfert des données sortantes pour les réponses introuvables sur le serveur POP le plus proche et récupérées à partir du serveur d’origine. | OUI | OUI | Non  |
+| EgressCacheNoCache | Transferts de données sortants pour les ressources empêchés d’être mis en cache en raison d’une configuration de l’utilisateur sur le périmètre. | OUI | OUI | Non  |
+| EgressCacheUncacheable | Transfert de données sortantes pour les ressources empêchées d’être mises en cache par les en-têtes Cache-Control et/ou Expires. Cela indique qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | OUI | OUI | Non  |
+| EgressCacheOthers | Transfère les données sortantes pour d’autres scénarios de cache. | Non  | OUI | Non  |
 
 * Le transfert de données sortantes fait référence au trafic produit des serveurs POP CDN vers le client.
 
@@ -368,7 +370,7 @@ Tous les journaux sont stockés au format JSON, et chaque entrée comprend des c
 }
 ```
 
-Où « time » représente l’heure de début des limites d’heure pour lesquelles les statistiques sont rapportées. Quand une métrique n’est pas prise en charge par un fournisseur CDN, il y a une valeur null au lieu d’un entier ou d’un double. Cette valeur null indique l’absence de métrique, et diffère de la valeur 0. Il y a un ensemble de ces métriques par domaine configuré sur le point de terminaison.
+Où *time* représente l’heure de début des limites d’heure pour lesquelles les statistiques sont rapportées. Quand une métrique n’est pas prise en charge par un fournisseur CDN, il y a une valeur null au lieu d’un entier ou d’un double. Cette valeur null indique l’absence de métrique, et diffère de la valeur 0. Il y a un ensemble de ces métriques par domaine configuré sur le point de terminaison.
 
 Exemple de propriétés :
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Suppression réversible pour objets blob de Stockage Azure (préversion)
 
@@ -94,7 +94,7 @@ Le tableau suivant indique le comportement attendu quand la suppression réversi
 
 Il est important de noter que l’appel de la commande « Put Page » pour remplacer ou supprimer des plages de pages dans un objet blob de pages n’a pas pour effet de générer automatiquement des instantanés. Les disques de machine virtuelle s’appuient sur des objets blob de pages et utilisent la commande **Put Page** pour écrire des données.
 
-### <a name="recovery"></a>Récupération
+### <a name="recovery"></a>Récupérer
 
 Pour faciliter la récupération de données supprimées, nous avons introduit la nouvelle API « Undelete Blob ». L’appel de l’API Undelete sur un objet blob de base supprimé de manière réversible a pour effet de restaurer comme actifs cet objet blob ainsi que tous les instantanés d’objets blob supprimés de manière réversible qui y sont associés. L’appel de l’API Undelete sur un objet blob de base actif a pour effet de restaurer comme actifs tous les instantanés d’objets blob supprimés de manière réversible qui y sont associés. Quand des instantanés sont restaurés comme actifs, ils ressemblent à des instantanés générés par l’utilisateur et ne remplacent pas l’objet blob de base.
 
@@ -292,7 +292,7 @@ Oui, la suppression réversible est configurable pour des comptes de stockage ta
 
 **Si je supprime un compte ou un conteneur entiers alors que la suppression réversible est activée, les objets blob associés sont-ils tous enregistrés ?**
 
-Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour savoir comment protéger un compte de stockage contre des suppressions accidentelles, voir l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](/azure-resource-manager/resource-group-lock-resources.md).
+Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour savoir comment protéger un compte de stockage contre des suppressions accidentelles, voir l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Puis-je afficher les métriques de capacité pour des données supprimées ?**
 

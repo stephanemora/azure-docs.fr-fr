@@ -1,7 +1,7 @@
 ---
 title: Surveillance avancée dans la solution de surveillance à distance - Azure | Microsoft Docs
 description: Ce didacticiel vous montre comment surveiller les appareils à l’aide du tableau de bord de la solution de surveillance à distance.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Effectuer une surveillance avancée à l’aide de la solution de surveillance à distance
 
 Ce didacticiel montre les fonctionnalités du tableau de bord de la solution de surveillance à distance. Pour présenter ces fonctionnalités, le didacticiel utilise un scénario dans l’application Contoso IoT.
 
-Dans ce didacticiel, vous utilisez deux appareils Contoso simulés pour apprendre à surveiller vos appareils à partir du tableau de bord des solutions préconfigurées. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement de vos camions sur la route.
+Dans ce tutoriel, vous utilisez deux appareils Contoso simulés pour apprendre à surveiller vos appareils à partir du tableau de bord de l’accélérateur de solution. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement de vos camions sur la route.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -30,14 +30,15 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Filtrage des appareils dans le tableau de bord
 > * Affichage des données de télémétrie en temps réel
 > * Affichage des détails sur l’appareil
-> * Affichage des alarmes à partir de vos appareils
+> * Affichage des alertes à partir de vos appareils
 > * Affichage des KPI du système
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez terminer le didacticiel [Déployer la solution de surveillance à distance préconfigurée](iot-suite-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Choisir les appareils à afficher
 
@@ -57,7 +58,7 @@ Pour créer, modifier et supprimer des filtres, choisissez **Gérer les filtres*
 
 ## <a name="view-real-time-telemetry"></a>Affichage des données de télémétrie en temps réel
 
-La solution préconfigurée trace les données de télémétrie en temps réel détaillées dans le graphique de la page **Tableau de bord**. Le graphique de télémétrie affiche des informations de télémétrie pour les appareils sélectionnés par le filtre actif :
+L’accélérateur de solution trace les données détaillées de télémétrie en temps réel dans le graphique de la page **Tableau de bord**. Le graphique de télémétrie affiche des informations de télémétrie pour les appareils sélectionnés par le filtre actif :
 
 ![Tracé de télémétrie des camions](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
@@ -65,41 +66,43 @@ Pour sélectionner les valeurs de télémétrie à afficher, choisissez le type 
 
 ![Tracé de télémétrie des camions](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
-Pour suspendre l’affichage dynamique de la télémétrie, choisissez l’option de circulation **Flowing**. Pour réactiver l’affichage dynamique, choisissez **Pause** :
+<!-- 05/01 - this features appears to have been removed
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![Suspendre et redémarrer l’affichage des données de télémétrie](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## <a name="use-the-map"></a>Utiliser la carte
 
-La carte affiche des informations sur les camions simulés sélectionnés par le filtre actif. Vous pouvez effectuer un zoom avant et un panoramique sur la carte pour afficher les positions avec plus ou moins de détails. Les icônes d’appareil sur la carte indiquent les **alarmes** ou **avertissements** qui sont actifs pour l’appareil. Un résumé du nombre d’**alarmes** et d’**avertissements** est affiché à gauche de la carte.
+La carte affiche des informations sur les camions simulés sélectionnés par le filtre actif. Vous pouvez effectuer un zoom avant et un panoramique sur la carte pour afficher les positions avec plus ou moins de détails. Les icônes d’appareil sur la carte indiquent les **alertes** et les **avertissements** qui sont activés pour l’appareil. Un récapitulatif du nombre **d’alertes** et **d’avertissements** est affiché à gauche de la carte.
 
-Pour afficher les détails des appareils, effectuez un panoramique et un zoom sur la carte pour localiser les appareils, puis cliquez sur l’appareil souhaité sur la carte. Les détails sont les suivants :
+<!-- 05/01 - cannot select a deice on the map
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
-* Valeurs de données de télémétrie récentes
-* Méthodes prises en charge par l’appareil
-* Propriétés de l’appareil
+* Recent telemetry values
+* Methods the device supports
+* Device properties
 
-![Afficher les détails des appareils dans le tableau de bord](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## <a name="view-alarms-from-your-devices"></a>Affichage des alarmes à partir de vos appareils
+## <a name="view-alerts-from-your-devices"></a>Affichage des alertes à partir de vos appareils
 
-La carte met en évidence les appareils du filtre actif associés à des **alarmes** et **avertissements**. Le panneau rassemblant les **alarmes du système** affiche des informations détaillées sur les alarmes les plus récentes de vos appareils :
+La carte met en évidence les appareils du filtre actif qui sont associés à des **alertes** et à des **avertissements**. Le panneau **Alertes** affiche des informations détaillées sur les alertes les plus récentes de vos appareils :
 
-![Affichage des alarmes de système sur le tableau de bord](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
+![Afficher des alertes système dans le tableau de bord](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-Vous pouvez utiliser le filtre des **alarmes du système** pour ajuster la période des alarmes récentes. Par défaut, le panneau affiche les alarmes de la dernière heure écoulée :
+Vous pouvez utiliser le filtre **Tableau de bord** pour n’afficher que les alertes récentes. Par défaut, le panneau affiche les alertes de l’heure écoulée :
 
-![Filtrer les alarmes par période](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+![Filtrer les alertes par période](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## <a name="view-the-system-kpis"></a>Affichage des KPI du système
 
 La page **Tableau de bord** affiche les KPI du système :
 
-![Filtrer les alarmes par période](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![KPI du tableau de bord](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-Vous pouvez utiliser le filtre des **KPI du système** pour ajuster la période d’agrégation des KPI. Par défaut, le panneau affiche les KPI agrégés pendant la dernière heure écoulée.
+Vous pouvez utiliser le filtre **Tableau de bord** pour ajuster la période d’agrégation des KPI. Par défaut, le panneau affiche les KPI agrégés pendant la dernière heure écoulée.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a montré comment utiliser la page **Tableau de bord** pour filtrer et surveiller les camions simulés approvisionnés dans votre solution de surveillance à distance :
 
@@ -108,7 +111,7 @@ Ce didacticiel vous a montré comment utiliser la page **Tableau de bord** pour 
 > * Filtrage des appareils dans le tableau de bord
 > * Affichage des données de télémétrie en temps réel
 > * Affichage des détails sur l’appareil
-> * Affichage des alarmes à partir de vos appareils
+> * Affichage des alertes à partir de vos appareils
 > * Affichage des KPI du système
 
 La surveillance de vos appareils n’ayant plus de secrets pour vous, nous vous suggérons de découvrir les opérations suivantes :

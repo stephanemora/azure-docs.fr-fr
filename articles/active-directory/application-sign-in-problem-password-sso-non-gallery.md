@@ -1,11 +1,11 @@
 ---
-title: "Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe | Microsoft Docs"
-description: "Fournit des instructions sur la manière de résoudre les problèmes de connexion aux applications de la galerie Azure AD configurées pour l’authentification unique par mot de passe"
+title: Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe | Microsoft Docs
+description: Fournit des instructions sur la manière de résoudre les problèmes de connexion aux applications de la galerie Azure AD configurées pour l’authentification unique par mot de passe
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c01bf353c9617811e14a3d60f91584b57ac0b5e7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe
 
@@ -96,7 +96,7 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
-1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant **qu’administrateur général** ou que **coadministrateur**.
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
@@ -195,5 +195,5 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 -   Traces Fiddler
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
+[Fournir une authentification unique à vos applications avec le proxy d’application](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

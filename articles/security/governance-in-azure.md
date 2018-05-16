@@ -4,7 +4,7 @@ description: Découvrez les services informatiques cloud qui incluent une large 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="governance-in-azure"></a>Gouvernance dans Azure
 
@@ -289,7 +289,7 @@ Utiliser l’[API Azure Resource Usage](https://msdn.microsoft.com/library/azure
 
 - **Agrégations horaires ou quotidiennes** : les appelants peuvent indiquer s’ils souhaitent visualiser leurs données d’utilisation Azure par intervalles de temps horaires ou quotidiens. Par défaut, les données sont présentées par jour.
 
-- **Métadonnées d’instance (balises de ressource incluses)** : obtenez des détails de niveau instance, comme l’URI de ressource complet (/subscriptions/{subscription-id}/..), des informations sur le groupe de ressources et des balises de ressource. Les métadonnées vous aideront à allouer de façon déterministe et par programme l’utilisation par les balises, pour les cas d’utilisation comme la facturation interne.
+- **Métadonnées d’instance (balises de ressource incluses)**  : obtenez des détails de niveau instance, comme l’URI de ressource complet (/subscriptions/{subscription-id}/..), des informations sur le groupe de ressources et des balises de ressource. Les métadonnées vous aideront à allouer de façon déterministe et par programme l’utilisation par les balises, pour les cas d’utilisation comme la facturation interne.
 
 - **Métadonnées sur les ressources** : des détails sur les ressources, comme le nom du compteur, la catégorie du compteur, la sous-catégorie du compteur, l’unité et la région offrent à l’appelant une meilleure compréhension des ressources consommées. Nous nous efforçons également d’aligner la terminologie des métadonnées de ressource dans l’ensemble du portail Azure, des fichiers CSV sur l’utilisation d’Azure et sur la facturation Contrat Entreprise (EA), ainsi que dans toutes les autres expériences destinées au public, afin de vous permettre de mettre en corrélation les données des différentes expériences.
 
@@ -301,7 +301,7 @@ Utilisez l’API Azure Resource RateCard pour obtenir la liste des ressources Az
 
 - **Contrôle d’accès en fonction du rôle Azure** : configurez vos stratégies d’accès dans le portail Azure ou par le biais des cmdlets Azure PowerShell pour spécifier les utilisateurs ou les applications qui peuvent accéder aux données de RateCard. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure particulier.
 
-- **Prise en charge des offres Paiement à l’utilisation, MSDN, Engagement monétaire et Crédit monétaire (offre EA non prise en charge)** : cette API fournit des informations de tarif au niveau des offres Azure. L’appelant de cette API doit transmettre les informations d’offre pour obtenir les détails et les tarifs des ressources. Nous sommes actuellement pas en mesure de fournir les tarifs EA, car les offres EA présentent des tarifs par inscription personnalisés. Voici quelques-uns des scénarios autorisés par l’utilisation combinée des API Usage et RateCard :
+- **Prise en charge des offres Paiement à l’utilisation, MSDN, Engagement monétaire et Crédit monétaire (offre EA non prise en charge)**  : cette API fournit des informations de tarif au niveau des offres Azure. L’appelant de cette API doit transmettre les informations d’offre pour obtenir les détails et les tarifs des ressources. Nous sommes actuellement pas en mesure de fournir les tarifs EA, car les offres EA présentent des tarifs par inscription personnalisés. Voici quelques-uns des scénarios autorisés par l’utilisation combinée des API Usage et RateCard :
 
 - **Dépenses Azure au cours du mois** : utilisez la combinaison des API d’utilisation et RateCard pour obtenir une meilleure idée de vos dépenses de cloud au cours du mois. Vous pouvez analyser les compartiments horaires et quotidiens des estimations d’utilisation et de facturation.
 

@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 163db8fdaecefbf51174392ba37039115cdb91c8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="volumes-with-azure-files"></a>Volumes avec fichiers Azure
 
-Les applications basées sur des conteneurs doivent souvent consulter et conserver des données dans un volume de données externe. Azure Files peut être utilisé en tant que banque de données externe. Cet article explique comment utiliser Azure Files comme volume Kubernetes dans Azure Container Service.
+Les applications basées sur des conteneurs doivent souvent consulter et conserver des données dans un volume de données externe. Azure Files peut être utilisé en tant que banque de données externe. Cet article explique comment utiliser Azure Files comme volume Kubernetes dans Azure Kubernetes Service.
 
 Pour plus d’informations sur les volumes Kubernetes, consultez [Volumes Kubernetes][kubernetes-volumes].
 

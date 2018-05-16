@@ -44,14 +44,14 @@
     - name: Lier un certificat SSL
       href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Ajouter un CDN
-      href: ../app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../../cdn/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Authentification des utilisateurs
       href: tutorial-auth-aad.md
 - name: Exemples
   items:
     - name: Azure CLI
       href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Concepts
   items:
@@ -147,7 +147,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/appservice
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell
     - name: de l’API REST
       href: /rest/api/appservice/

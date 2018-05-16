@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Contrôler le comportement de mise en cache du CDN Azure avec des chaînes de requête - niveau standard
 > [!div class="op_single_selector"]
@@ -27,11 +27,10 @@ ms.lasthandoff: 04/05/2018
 > 
 
 ## <a name="overview"></a>Vue d'ensemble
-Avec la mise en cache des chaînes de requête, le réseau de distribution de contenu (CDN) Azure contrôle comment les fichiers sont mis en cache pour une requête Web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance. 
+Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance. 
 
-> [!NOTE]
-> Les produits CDN standard et premium Azure proposent la même fonctionnalité de mise en cache des chaînes de requête, mais l’interface utilisateur est différente.  Cet article décrit l’interface **Azure CDN Standard fourni par Akamai** et **Azure CDN Standard fourni par Verizon**. Pour la mise en cache des chaînes de requête avec le **CDN Azure Premium fourni par Verizon**, consultez [Contrôler le comportement de mise en cache avec des chaînes de requête – niveau Premium](cdn-query-string-premium.md).
->
+> [!IMPORTANT]
+> Les produits CDN standard et premium Azure proposent la même fonctionnalité de mise en cache des chaînes de requête, mais l’interface utilisateur est différente. Cet article décrit l’interface **CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard fourni par Verizon**. Pour la mise en cache des chaînes de requête avec le **CDN Azure Premium fourni par Verizon**, consultez [Contrôler le comportement de mise en cache avec des chaînes de requête – niveau Premium](cdn-query-string-premium.md).
 
 Trois modes de chaîne de requête sont disponibles :
 
@@ -58,9 +57,10 @@ Trois modes de chaîne de requête sont disponibles :
    ![Options de mise en cache des chaînes de requête CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> La propagation de l’inscription dans le CDN prenant un certain temps, la modification des paramètres des chaînes mises en cache peut ne pas être visible immédiatement : 
+> La propagation de l’inscription dans le CDN prenant un certain temps, la modification des paramètres des chaînes mises en cache peut ne pas être visible immédiatement :
+> - Pour les profils **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de dix minutes. 
 > - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
-> - Pour les profils du **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes.
->
+> - Pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes. 
+
 
 

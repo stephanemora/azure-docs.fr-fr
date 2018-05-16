@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9294940785deb0834a419de8320286783635d68e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mapper des réseaux virtuels dans différentes régions Azure
 
@@ -26,6 +26,7 @@ ms.lasthandoff: 02/28/2018
 Cet article explique comment mapper deux instances de réseau virtuel Azure dans différentes régions Azure entre elles. Le mappage réseau garantit que, quand une machine virtuelle répliquée est créée dans la région Azure cible, elle est aussi créée sur le réseau virtuel qui est mappé au réseau virtuel de la machine virtuelle source.  
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de mapper des réseaux, vérifiez que vous avez créé des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md) dans les régions Azure source et cible.
 
 ## <a name="map-virtual-networks"></a>Mappage des réseaux virtuels
@@ -97,6 +98,6 @@ Si les sous-réseaux source et cible ont un espace d’adressage différent, l�
 
 Pour modifier l’adresse IP cible sur chacune des interfaces réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Vérifiez [Aide à la mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).

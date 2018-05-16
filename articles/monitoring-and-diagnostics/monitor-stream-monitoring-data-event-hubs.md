@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -38,7 +38,7 @@ Vous pouvez envoyer les données de toutes les couches vers un hub d’événeme
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configurer un espace de noms Event Hubs
 
-Avant de commencer, vous devez [créer un espace de noms Event Hubs et un hub d’événements](../event-hubs/event-hubs-create.md). Cet espace de noms et ce hub d’événements constituent la destination de toutes vos données de surveillance. Un espace de noms Event Hubs est un regroupement logique de hubs d’événements qui partagent une même stratégie d’accès, tout comme un compte de stockage contient des objets blob. Notez les points suivants concernant l’espace de noms Event Hubs et les hubs d’événements que vous créez :
+Avant de commencer, vous devez [créer un espace de noms et un hub Event Hubs](../event-hubs/event-hubs-create.md). Cet espace de noms et ce hub d’événements constituent la destination de toutes vos données de surveillance. Un espace de noms Event Hubs est un regroupement logique de hubs d’événements qui partagent une même stratégie d’accès, tout comme un compte de stockage contient des objets blob. Notez les points suivants concernant l’espace de noms Event Hubs et les hubs d’événements que vous créez :
 * Nous recommandons d’utiliser un espace de noms Event Hubs standard.
 * En règle générale, une seule unité de débit est nécessaire. Si vous avez besoin de plus pour répondre à l’augmentation de l’utilisation de votre journal, vous pouvez augmenter manuellement le nombre d’unités de débit pour l’espace de noms ou activer l’inflation automatique.
 * Le nombre d’unités de débit vous permet d’augmenter l’échelle de débit de vos hubs d’événements. Le nombre de partitions vous permet de paralléliser la consommation sur un grand nombre de consommateurs. Une seule partition peut atteindre jusqu’à 20 Mbits/s, soit environ 20 000 messages par seconde. En fonction de l’outil qui consomme les données, la consommation simultanée de plusieurs partitions risque de ne pas être prise en charge. Si vous n’êtes pas sûr du nombre de partitions à définir, il est recommandé de commencer avec quatre partitions.
@@ -79,7 +79,7 @@ Pour envoyer les données de surveillance des systèmes d’exploitation invité
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Diffuser les données Linux vers un hub d’événements
 
-[L’agent de diagnostic Azure pour Linux](../virtual-machines/linux/diagnostic-extension.md) peut être utilisé pour envoyer les données de surveillance d’une machine Linux vers un hub d’événements. Pour cela, ajoutez le hub d’événements comme récepteur dans les paramètres protégés de votre fichier config LAD. [Consultez cet article pour en savoir plus sur l’ajout du récepteur de hub d’événements à l’agent de diagnostic Azure pour Linux](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+[L’agent de diagnostic Azure pour Linux](../virtual-machines/extensions/diagnostics-linux.md) peut être utilisé pour envoyer les données de surveillance d’une machine Linux vers un hub d’événements. Pour cela, ajoutez le hub d’événements comme récepteur dans les paramètres protégés de votre fichier config LAD. [Consultez cet article pour en savoir plus sur l’ajout du récepteur de hub d’événements à l’agent de diagnostic Azure pour Linux](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Il n’est pas possible de configurer le streaming des données de surveillance des systèmes d’exploitation invités vers un hub d’événements dans le portail. Au lieu de cela, vous devez modifier manuellement le fichier config.

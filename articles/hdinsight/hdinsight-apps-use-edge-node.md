@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 04/23/2018
 ms.author: jgao
-ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight
 
@@ -73,12 +73,11 @@ Après avoir créé un nœud de périmètre, vous pouvez vous connecter au nœud
 > Comme pour les clusters, la gestion des correctifs des nœuds de périphérie est également assurée.  Pour plus d’informations, consultez [Mise à jour corrective du système d’exploitation pour HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Ajouter un nœud de périmètre à un cluster existant
-Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
+Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
 
 **Pour ajouter un nœud de périmètre vide à un cluster existant**
 
-1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez le [Didacticiel Hadoop : prise en main de Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-2. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le portail Azure. 
+1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le portail Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configurez les propriétés suivantes :
@@ -98,7 +97,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Ajouter un nœud de périmètre lors de la création d’un cluster
 Dans cette section, vous allez utiliser un modèle Resource Manager pour créer un cluster HDInsight avec un nœud de périmètre.  Le modèle Resource Manager se trouve dans la [galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
 
-**Pour ajouter un nœud de périmètre vide à un cluster existant**
+**Pour créer un cluster HDInsight avec un nœud de périphérie**
 
 1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez [Prise en main de Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le portail Azure. 
@@ -132,7 +131,7 @@ Le nœud de périmètre apparaît comme une application sur le portail Azure.  L
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Ouvrez le cluster HDInsight avec un nœud de périmètre.
-3. Dans le panneau du cluster, cliquez sur **Applications** . Vous devriez voir le nœud de périmètre.  Le nom par défaut est **new-edgenode**.
+3. Cliquez sur **Applications**. Vous devriez voir le nœud de périmètre.  Le nom par défaut est **new-edgenode**.
 4. Cliquez sur le nœud de périmètre. Vous devriez voir le point de terminaison SSH.
 
 **Pour utiliser Hive sur le nœud de périmètre**
@@ -153,7 +152,7 @@ Vous pouvez supprimer un nœud de périmètre à partir du portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Ouvrez le cluster HDInsight avec un nœud de périmètre.
-3. Dans le panneau du cluster, cliquez sur **Applications** . Vous devriez voir une liste des nœuds de périmètre.  
+3. Cliquez sur **Applications**. Vous devriez voir une liste des nœuds de périmètre.  
 4. Cliquez avec le bouton droit sur le nœud de périmètre à supprimer, puis cliquez sur **Supprimer**.
 5. Cliquez sur **Yes** (Oui) pour confirmer.
 

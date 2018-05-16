@@ -1,5 +1,5 @@
 ---
-title: Nouveautés dans Azure Machine Learning
+title: Nouveautés d’Azure Machine Learning
 description: Ce document décrit en détail les mises à jour d’Azure Machine Learning.
 services: machine-learning
 author: hning86
@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="whats-new-in-azure-machine-learning"></a>Nouveautés dans Azure Machine Learning
+# <a name="whats-new-in-azure-machine-learning"></a>Nouveautés d’Azure Machine Learning
 
-Dans cet article, découvrez les nouvelles versions dans [Azure Machine Learning Services](../service/overview-what-is-azure-ml.md). 
+Dans cet article, découvrez les nouvelles versions d’[Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
+
+
+## <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
+
+Avec cette version d’Azure Machine Learning, vous pouvez effectuer les opérations suivantes :
++ Caractériser des images à l’aide d’une version quantifiée de ResNet 50, former un classifieur en fonction de ces caractéristiques et [déployer ce modèle sur un FPGA dans Azure](../service/how-to-deploy-fpga-web-service.md) pour une inférence de très faible latence.
+
++ Rapidement créer et déployer des modèles d’apprentissage automatique et d’apprentissage profond (deep learning) extrêmement précis à l’aide de [packages Azure Machine Learning personnalisés](../service/reference-python-package-overview.md) dans les domaines suivants :
+  + [Vision par ordinateur](../service/how-to-build-deploy-image-classification-models.md)
+  + [Analytique de texte](../service/how-to-build-deploy-text-classification-models.md)
+  + [Prévisions](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
 **Numéro de version** : 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Recherchez votre version](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Bienvenue dans la cinquième mise à jour d’Azure Machine Learning Workbench. La plupart des mises à jour suivantes sont les résultats directs de vos commentaires. Continuez à en envoyer !
+La plupart des mises à jour suivantes sont les résultats directs de vos commentaires. Continuez à en envoyer !
 
 **Nouvelles fonctionnalités et modifications notables**
 

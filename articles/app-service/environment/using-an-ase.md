@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’un environnement Azure App Service"
-description: "Comment créer, publier et mettre à l’échelle des applications dans un environnement Azure App Service"
+title: Utilisation d’un environnement Azure App Service
+description: Comment créer, publier et mettre à l’échelle des applications dans un environnement Azure App Service
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
 
@@ -58,19 +58,28 @@ Pour créer une application web dans un environnement ASE :
 
 4. Entrez un nom pour un nouveau groupe de ressources ou sélectionnez **Use existing** (Utiliser existant) et choisissez-en un dans la liste déroulante.
 
+5. Sélectionnez votre OS. 
+
+    * Étant donné que l’hébergement d’une application Linux dans un environnement ASE est une nouvelle fonctionnalité préliminaire, nous vous suggérons de ne pas ajouter d’applications Linux dans un environnement ASE qui est en train d’exécuter des charges de travail de production. 
+    * L’ajout d’une application Linux dans un environnement ASE signifie que l’environnement ASE est également en préversion. 
+
 5. Sélectionnez un plan App Service existant dans votre environnement ASE ou créez-en un en procédant comme suit :
 
     a. Sélectionnez **Créer**.
 
     b. Entrez le nom de votre plan App Service.
 
-    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**.
+    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**. L’hébergement d’applications Linux dans un environnement ASE est activé uniquement dans 6 régions, à savoir pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie, Asie du Sud-Est.** 
 
     d. Sélectionnez un niveau tarifaire **Isolé**. Sélectionnez **Sélectionner**.
 
     e. Sélectionnez **OK**.
     
     ![Niveaux tarifaires isolés][2]
+
+    > [!NOTE]
+    > Les applications web Linux et les applications web Windows ne peuvent pas se trouver dans le même plan App Service, mais elles peuvent être dans le même environnement ASE. 
+    >
 
 6. Sélectionnez **Créer**.
 

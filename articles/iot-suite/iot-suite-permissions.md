@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Suite et Azure Active Directory | Microsoft Docs
-description: "Décrit comment Azure IoT Suite utilise Azure Active Directory pour gérer les autorisations."
-services: 
+title: Accélérateurs de solution Azure IoT et Azure Active Directory | Microsoft Docs
+description: Explique comment les accélérateurs de solution Azure IoT utilisent Azure Active Directory pour gérer les autorisations.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Autorisations sur le site azureiotsuite.com
 
@@ -29,35 +29,35 @@ Lorsque vous vous connectez pour la première fois à [azureiotsuite.com][lnk-az
 
 1. Tout d’abord, afin de remplir la liste des clients qui apparaît en regard de votre nom d’utilisateur, le site recherche dans Azure les clients ADD auxquels vous appartenez. Actuellement, le site peut obtenir des jetons d’utilisateur pour un seul client. Par conséquent, lorsque vous basculez sur d’autres clients en utilisant la liste déroulante dans le coin supérieur droit, le site vous reconnecte à ce client pour obtenir les jetons pour ce client.
 
-2. Ensuite, le site détecte à partir d’Azure, les abonnements que vous avez associés au client sélectionné. Vous pouvez voir les abonnements disponibles lorsque vous créez une nouvelle solution préconfigurée.
+2. Ensuite, le site détecte à partir d’Azure, les abonnements que vous avez associés au client sélectionné. Vous pouvez voir les abonnements disponibles lorsque vous créez un nouvel accélérateur de solution.
 
-3. Enfin, le site extrait toutes les ressources dans les abonnements et les groupes de ressources marqués en tant que solutions préconfigurées et renseigne les mosaïques de la page d’accueil.
+3. Enfin, le site récupère toutes les ressources des abonnements et des groupes de ressources marquées en tant qu’accélérateurs de solution, et les ajoute aux vignettes de la page d’accueil.
 
-Les sections suivantes décrivent les rôles qui contrôlent l’accès aux solutions préconfigurées.
+Les sections suivantes décrivent les rôles qui contrôlent l’accès aux accélérateurs de solution.
 
 ## <a name="aad-roles"></a>Rôles AAD
 
-Les rôles AAD contrôlent la possibilité d’approvisionnement de solutions préconfigurées et gèrent les utilisateurs dans une solution préconfigurée.
+Les rôles AAD contrôlent la possibilité de provisionner les accélérateurs de solution et de gérer leurs utilisateurs.
 
-Pour plus d’informations sur les rôles d’administrateur dans ADD, consultez la page [Attribution de rôles d’administrateur dans Azure AD][lnk-aad-admin]. Cet article se concentre sur les rôles d’annuaire **Administrateur général** et **Utilisateur** tels qu’utilisés par les solutions préconfigurées.
+Pour plus d’informations sur les rôles d’administrateur dans ADD, consultez la page [Attribution de rôles d’administrateur dans Azure AD][lnk-aad-admin]. Cet article se concentre sur les rôles d’annuaire **Administrateur général** et **Utilisateur**, qui sont utilisés par les accélérateurs de solution.
 
 ### <a name="global-administrator"></a>Administrateur général
 
 Il peut y avoir de nombreux administrateurs généraux pour chaque locataire AAD :
 
 * Lorsque vous créez un client AAD, vous en devenez par défaut l’administrateur.
-* L’administrateur général peut approvisionner des solutions préconfigurées de base et standard.
+* L’administrateur général peut provisionner des accélérateurs de solution de base et standard.
 
 ### <a name="domain-user"></a>Utilisateur de domaine
 
 Il peut y avoir de nombreux utilisateurs de domaine pour chaque locataire AAD :
 
-* Un utilisateur de domaine peut approvisionner une solution préconfigurée de base via le site [azureiotsuite.com][lnk-azureiotsuite].
-* Un utilisateur de domaine peut utiliser l’interface CLI pour créer une solution préconfigurée de base.
+* Un utilisateur de domaine peut provisionner un accélérateur de solution de base via le site [azureiotsuite.com][lnk-azureiotsuite].
+* Un utilisateur de domaine peut utiliser l’interface CLI pour créer un accélérateur de solution de base.
 
 ### <a name="guest-user"></a>Utilisateur invité
 
-Il peut y avoir de nombreux utilisateurs invités pour chaque locataire AAD. Les utilisateurs invités disposent d’un ensemble limité de droits au sein du client AAD. Par conséquent, les utilisateurs invités ne peuvent pas approvisionner une solution préconfigurée dans le client AAD.
+Il peut y avoir de nombreux utilisateurs invités pour chaque locataire AAD. Les utilisateurs invités disposent d’un ensemble limité de droits au sein du client AAD. Par conséquent, les utilisateurs invités ne peuvent pas provisionner un accélérateur de solution dans le locataire AAD.
 
 Pour plus d’informations sur les utilisateurs et les rôles dans AAD, consultez les ressources suivantes :
 
@@ -94,7 +94,7 @@ Examinez le schéma suivant pour obtenir des conseils :
 Si vous êtes sûr de disposer d’un abonnement Azure, validez le mappage de votre abonnement client et assurez-vous que c’est le bon client qui est sélectionné dans la liste déroulante. Si vous avez validé le locataire souhaité, suivez le schéma ci-dessus et validez le mappage de votre abonnement et de ce locataire AAD.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour poursuivre votre formation concernant IoT Suite, découvrez comment [personnaliser une solution préconfigurée][lnk-customize].
+Pour en savoir plus sur les accélérateurs de solution IoT, consultez [Personnaliser un accélérateur de solution][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

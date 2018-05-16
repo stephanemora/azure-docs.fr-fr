@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Dépanner un objet qui bloque la synchronisation avec Azure AD
 
@@ -139,7 +139,7 @@ Vous devez disposer d’un connecteur pour :
 - Chaque forêt Active Directory dans laquelle l’utilisateur est représenté. Cette représentation peut inclure foreignSecurityPrincipals et les objets contact.
 - Un connecteur dans Azure AD.
 
-Si le connecteur Azure AD est manquant, lisez [Attributs MV](#MV-attributes) pour vérifier les critères d’approvisionnement sur Azure AD.
+Si le connecteur Azure AD est manquant, lisez [Attributs MV](#mv-attributes) pour vérifier les critères d’approvisionnement sur Azure AD.
 
 Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#connector-space-object-properties). Sélectionnez une ligne et cliquez sur **Propriétés**.
 

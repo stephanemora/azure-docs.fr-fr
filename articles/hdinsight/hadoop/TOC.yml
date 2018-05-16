@@ -49,6 +49,10 @@
         - name: Hive avec Hadoop
           href: hdinsight-use-hive.md
           items:
+            - name: Utiliser les outils HDInsight pour VSCode
+              href: ../hdinsight-for-vscode.md
+            - name: Utiliser les outils HDInsight pour Visual Studio
+              href: apache-hadoop-use-hive-visual-studio.md
             - name: Utiliser la vue Hive
               href: apache-hadoop-use-hive-ambari-view.md
             - name: Utiliser BeeLine
@@ -59,8 +63,6 @@
               href: apache-hadoop-use-hive-powershell.md
             - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: apache-hadoop-use-hive-dotnet-sdk.md
-            - name: Utiliser les outils HDInsight pour Visual Studio
-              href: apache-hadoop-use-hive-visual-studio.md
             - name: Utiliser le Bureau à distance
               href: apache-hadoop-use-hive-remote-desktop.md
             - name: Utiliser la console de requête
@@ -440,7 +442,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.hdinsight
     - name: .NET (Hadoop)
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'

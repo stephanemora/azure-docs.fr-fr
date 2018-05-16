@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Afficher des données analytiques pour des métriques sur toutes les ressources de votre application Azure Web
 
 ![Symbole Web Apps](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> La solution Azure Web Apps Analytics est désormais dépréciée.  Les clients qui ont déjà installé la solution Azure Web Apps Analytics peuvent continuer de l’utiliser, mais ils ne peuvent pas l’ajouter à de nouveaux espaces de travail.
+
 La solution Azure Web Apps Analytics (version préliminaire) fournit des informations sur vos [applications Azure Web](../app-service/app-service-web-overview.md) en collectant différentes mesures pour toutes les ressources de votre application Azure Web. Avec la solution, vous pouvez analyser et rechercher des données métriques de ressource Web App.
 
 À l’aide de la solution, vous pouvez afficher :
@@ -54,7 +58,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 Procédez comme suit pour configurer la solution Azure Web Apps Analytics pour vos espaces de travail.
 
 1. Activez la solution Azure Web Apps Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
-2. [Activez la journalisation des mesures de ressources Azure pour OMS à l’aide de PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [Activez la journalisation des métriques de ressources Azure dans Log Analytics à l’aide de PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 La solution Azure Web Apps Analytics collecte deux ensembles de mesures à partir d’Azure :
 
@@ -74,10 +78,6 @@ La solution Azure Web Apps Analytics collecte deux ensembles de mesures à parti
   - Pourcentage de mémoire
 
 Les mesures du plan App Service sont collectées uniquement si vous utilisez un plan de service dédié. Cela ne s’applique pas aux plans App Service gratuits ou partagés.
-
-Si vous ajoutez la solution via le portail OMS, vous verrez la vignette suivante. Vous devez [activer la journalisation des mesures de ressources Azure pour OMS avec PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Notification d’exécution de l’évaluation](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 Après avoir configuré la solution, les données devraient commencer à circuler vers votre espace de travail dans les 15 minutes.
 

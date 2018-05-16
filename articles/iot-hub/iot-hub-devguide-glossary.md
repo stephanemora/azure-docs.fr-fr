@@ -1,11 +1,11 @@
 ---
-title: "Glossaire Azure IoT Hub | Microsoft Docs"
-description: "Guide du développeur : glossaire des termes courants relatifs à Azure IoT Hub."
+title: Glossaire Azure IoT Hub | Microsoft Docs
+description: 'Guide du développeur : glossaire des termes courants relatifs à Azure IoT Hub.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
 
 ## <a name="advanced-message-queueing-protocol"></a>Advanced Message Queuing Protocol
 [Advanced Message Queuing Protocol (AMQP)](https://www.amqp.org/) est l’un des protocoles de messagerie que [IoT Hub](#iot-hub) prend en charge pour communiquer avec des appareils. Pour plus d’informations sur les protocoles de messagerie pris en charge par IoT Hub, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
+
+## <a name="automatic-device-management"></a>Gestion automatique des appareils
+La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils pendant tout leur cycle de vie. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble d’appareils en fonction de leurs propriétés, définir la configuration souhaitée et permettre à IoT Hub de mettre à jour les appareils chaque fois qu’ils se trouvent dans l’étendue.  La gestion automatique des appareils comprend les [configurations automatiques des appareils](iot-hub-auto-device-config.md) et les [déploiements automatiques IoT Edge](../iot-edge/how-to-deploy-monitor.md).
+
+## <a name="automatic-device-configuration"></a>Configuration automatique des appareils
+Le backend de la solution peut utiliser des [configurations automatiques des appareils](iot-hub-auto-device-config.md) pour affecter des propriétés souhaitées à un ensemble de [jumeaux d’appareil](#device-twin) et signaler l’état à l’aide de métriques système et de métriques personnalisées. 
 
 ## <a name="azure-cli"></a>Azure CLI
 [Azure CLI](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI est implémentée à l’aide de Node.js.
@@ -65,6 +71,9 @@ Une passerelle cloud assure la connectivité d’appareils qui ne peuvent pas se
 
 ## <a name="cloud-to-device"></a>Cloud-à-appareil
 Fait référence aux messages envoyés à partir d’un hub IoT à un appareil connecté. Souvent, ces messages sont des commandes qui donnent pour instruction à l’appareil d’effectuer une action. Pour plus d’informations, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
+
+## <a name="configuration"></a>Configuration
+Dans le contexte d’une [configuration automatique des appareils](iot-hub-auto-device-config.md), une configuration dans IoT Hub définit la configuration souhaitée pour un ensemble de jumeaux d’appareils et fournit un ensemble de métriques pour signaler l’état et la progression.
 
 ## <a name="connection-string"></a>Chaîne de connexion
 Vous utilisez des chaînes de connexion dans votre code d’application afin d’encapsuler les informations requises pour se connecter à un point de terminaison. Une chaîne de connexion inclut généralement l’adresse du point de terminaison et des informations de sécurité, mais les formats de chaîne de connexion varient selon les services. Il existe deux types de chaîne de connexion associés au service IoT Hub :
@@ -110,6 +119,9 @@ L’[API REST des identités des appareils](https://docs.microsoft.com/rest/api/
 ## <a name="device-identity"></a>Identité d’appareil
 L’identité d’appareil est l’identificateur unique attribué à chaque appareil inscrit dans le [registre des identités](#identity-registry).
 
+## <a name="module-identity"></a>Identité de module
+L’identité de module est l’identificateur unique affecté à chaque module qui appartient à un appareil. L’identité de module est également enregistrée dans le [registre des identités](#identity-registry).
+
 ## <a name="device-management"></a>Gestion des appareils
 La gestion des appareils couvre le cycle de vie complet associé à la gestion des appareils dans votre solution IoT, comprenant la planification, l’approvisionnement, la configuration, la surveillance et la mise hors service.
 
@@ -125,14 +137,17 @@ L’approvisionnement des appareils est le processus d’ajout des [données d�
 ## <a name="device-twin"></a>Jumeau d’appareil
 Un [jumeau d’appareil](iot-hub-devguide-device-twins.md) est un document JSON contenant des informations d’état d’appareil telles que des métadonnées, des configurations et des conditions. [IoT Hub](#iot-hub) conserve une représentation d’appareil pour chaque appareil que vous configurez dans votre IoT Hub. Les jumeaux d’appareil vous permettent de synchroniser des [conditions d’appareil](#device-condition) et des configurations entre l’appareil et le back-end de la solution. Vous pouvez interroger des jumeaux d’appareil pour localiser des appareils spécifiques et déterminer l’état d’opérations longues.
 
-## <a name="device-twin-queries"></a>Requêtes de représentations d’appareil
-Les [requêtes de jumeaux d’appareil](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil. Vous pouvez utiliser ce même langage de requête IoT Hub pour extraire des informations sur des [travaux](#job) en cours d’exécution dans votre hub IoT.
+## <a name="module-twin"></a>Jumeau de module
+À l’image d’un jumeau d’appareil, un jumeau de module est un document JSON contenant des informations d’état de module telles que des métadonnées, des configurations et des conditions. IoT Hub conserve un jumeau de module pour chaque identité de module que vous provisionnez sous une identité d’appareil dans votre hub IoT. Les jumeaux de module vous permettent de synchroniser des conditions de module et des configurations entre le module et le backend de la solution. Vous pouvez interroger des jumeaux de module pour localiser des modules spécifiques et déterminer l’état d’opérations longues.
+
+## <a name="twin-queries"></a>Requêtes de jumeaux
+Les [requêtes de jumeaux d’appareil et de module](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil ou jumeaux de module. Vous pouvez utiliser ce même langage de requête IoT Hub pour extraire des informations sur des [travaux](#job) en cours d’exécution dans votre hub IoT.
 
 ## <a name="device-twin-rest-api"></a>API REST Jumeau d’appareil
 Vous pouvez utiliser [l’API REST Jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) à partir du back-end de la solution pour gérer vos jumeaux d’appareil. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), et d’appeler des [méthodes directes](#direct-method). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels sur IoT Hub.
 
-## <a name="device-twin-synchronization"></a>Synchronisation de jumeau d’appareil
-Une synchronisation de jumeau d’appareil utilise les [propriétés souhaitées](#desired-properties) de vos jumeaux d’appareil pour configurer vos appareils et extraire de ceux-ci des [propriétés signalées](#reported-properties) à stocker dans le jumeau d’appareil.
+## <a name="twin-synchronization"></a>Synchronisation des jumeaux
+Une synchronisation de jumeau utilise les [propriétés souhaitées](#desired-properties) de vos jumeaux d’appareil ou jumeaux de module pour configurer vos appareils ou modules et extraire de ceux-ci des [propriétés signalées](#reported-properties) à stocker dans le jumeau.
 
 ## <a name="direct-method"></a>Méthode directe
 Une [méthode directe](iot-hub-devguide-direct-methods.md) est un moyen de déclencher une méthode à exécuter sur un appareil en appelant une API sur votre hub IoT.
@@ -175,8 +190,8 @@ Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) est un lang
 ## <a name="iot-hub-resource-provider-rest-api"></a>API REST de fournisseur de ressources IoT Hub
 L’[API REST de fournisseur de ressources IoT Hub](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) vous permet de gérer les hubs IoT dans votre [abonnement Azure](#subscription) en effectuant des opérations telles que la création, la mise à jour et la suppression de hubs.
 
-## <a name="iot-suite"></a>IoT Suite
-Azure IoT Suite inclut plusieurs services Azure et des solutions préconfigurées. Ces solutions préconfigurées vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Suite ?](../iot-suite/iot-suite-overview.md).
+## <a name="iot-solution-accelerators"></a>Accélérateurs de solution IoT
+Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure dans des solutions. Ces solutions vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, consultez [Présentation des accélérateurs de solution Azure IoT](../iot-suite/iot-suite-overview.md).
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Extension IoT pour Azure CLI 2.0
 [L’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) est un outil de ligne de commande multiplateforme. Cet outil vous permet de gérer vos appareils dans le [registre des identités](#identity-registry), d’envoyer et de recevoir des messages et des fichiers sur vos appareils, et de surveiller les opérations de votre IoT Hub.

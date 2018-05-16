@@ -1,12 +1,12 @@
 ---
-title: "Architecture de la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Présentation détaillée de l’architecture de la solution préconfigurée de surveillance à distance"
-services: 
+title: Architecture de la solution de surveillance à distance - Azure | Microsoft Docs
+description: Présentation détaillée de l’architecture de l’accélérateur de solution de surveillance à distance
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="remote-monitoring-preconfigured-solution-architecture"></a>Architecture de la solution préconfigurée de surveillance à distance
+# <a name="remote-monitoring-solution-accelerator-architecture"></a>Architecture de l’accélérateur de solution de surveillance à distance
 
-La [solution préconfigurée](iot-suite-what-are-preconfigured-solutions.md) de surveillance à distance IoT Suite implémente une solution de surveillance de bout en bout destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](iot-suite-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
+[L’accélérateur de solution](iot-suite-what-are-solution-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](iot-suite-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
 
 Cet article vous familiarise avec les éléments clés de la solution de surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
@@ -33,13 +33,13 @@ Cet article vous familiarise avec les éléments clés de la solution de surveil
 
 ## <a name="logical-architecture"></a>Architecture logique
 
-Le diagramme suivant décrit l’articulation des composants logiques de la solution préconfigurée de surveillance à distance dans [l’architecture IoT](iot-suite-what-is-azure-iot.md) :
+Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution de surveillance à distance dans [l’architecture IoT](iot-suite-what-is-azure-iot.md) :
 
 ![Architecture logique](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="why-microservices"></a>Intérêt des microservices
 
-L’architecture cloud a évolué depuis que Microsoft a publié les premières solutions préconfigurées. Les [microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) ont émergé comme une pratique ayant fait ses preuves pour obtenir une mise à l’échelle et une flexibilité sans sacrifier la vitesse de développement. Plusieurs services de Microsoft utilisent ce modèle d’architecture en interne et obtiennent de très bons résultats en termes de scalabilité et de fiabilité. Les solutions préconfigurées mises à jour intègrent ces apprentissages afin que vous puissiez également en bénéficier.
+L’architecture cloud a évolué depuis que Microsoft a publié les premiers accélérateurs de solution. Les [microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) ont émergé comme une pratique ayant fait ses preuves pour obtenir une mise à l’échelle et une flexibilité sans sacrifier la vitesse de développement. Plusieurs services de Microsoft utilisent ce modèle d’architecture en interne et obtiennent de très bons résultats en termes de scalabilité et de fiabilité. Les nouveaux accélérateurs de solution intègrent ces microservices pour que vous puissiez également en bénéficier.
 
 > [!TIP]
 > Pour en savoir plus sur les architectures de microservice, consultez [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architecture d’application .NET) et [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: une révolution des applications par le cloud).
@@ -67,7 +67,7 @@ Vous pouvez provisionner les appareils physiques à partir du tableau de bord da
 
 ### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub et le microservice iot-manager
 
-[IoT Hub](../iot-hub/index.md) ingère les données envoyées par les appareils au cloud et les met à disposition dans le microservice `telemetry-agent`.
+[IoT Hub](../iot-hub/index.yml) ingère les données envoyées par les appareils au cloud et les met à disposition dans le microservice `telemetry-agent`.
 
 L’instance IoT Hub de la solution effectue également ce qui suit :
 
@@ -110,13 +110,13 @@ Le microservice `telemetry-agent` permet au portail de solutions de lire les don
 
 Utilisez le point de terminaison RESTful fourni par ce microservice pour gérer les données de télémétrie, les règles et les alarmes.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Stockage
 
-Le microservice [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) est un adaptateur devant le service de stockage principal utilisé pour la solution préconfigurée. Son rôle se résume aux opérations de collecte et de stockage de paires clé/valeur.
+Le microservice [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) est un adaptateur situé devant le service de stockage principal, et utilisé pour l’accélérateur de solution. Son rôle se résume aux opérations de collecte et de stockage de paires clé/valeur.
 
-Le déploiement standard de la solution préconfigurée utilise Cosmos DB comme service de stockage principal.
+Le déploiement standard de l’accélérateur de solution utilise Cosmos DB comme service de stockage principal.
 
-La base de données Cosmos DB stocke les données de la solution préconfigurée. Le microservice **storage-adapter** fait office d’adaptateur permettant aux autres microservices dans la solution d’accéder aux services de stockage.
+La base de données Cosmos DB stocke les données de l’accélérateur de solution. Le microservice **storage-adapter** fait office d’adaptateur permettant aux autres microservices dans la solution d’accéder aux services de stockage.
 
 ## <a name="presentation"></a>Présentation
 
@@ -128,7 +128,7 @@ La solution inclut les composants suivants dans la partie présentation de l’a
 * Est mise en forme en CSS.
 * Interagit avec des microservices publics par le biais d’appels AJAX.
 
-L’interface utilisateur présente toutes les fonctionnalités de la solution préconfigurée et interagit avec d’autres services tels que les suivants :
+L’interface utilisateur présente toutes les fonctionnalités de l’accélérateur de solution et interagit avec d’autres services tels que ceux-ci :
 
 * Le microservice [authentication](https://github.com/Azure/pcs-auth-dotnet) pour protéger les données utilisateur
 * Le microservice [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) pour lister et gérer les appareils IoT
@@ -139,8 +139,8 @@ Le microservice [ui-config](https://github.com/Azure/pcs-config-dotnet) permet �
 
 Si vous souhaitez consulter le code source et la documentation de développement, commencez avec l’un des deux principaux dépôts GitHub :
 
-* [Solution préconfigurée de surveillance à distance avec Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)
-* [Solution préconfigurée de surveillance à distance avec Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Solution préconfigurée pour l’architecture de surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
+* [Accélérateur de solution de surveillance à distance avec Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)
+* [Accélérateur de solution de surveillance à distance avec Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Architecture de l’accélérateur de solution de surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
 
-Pour plus d’informations conceptuelles sur la solution préconfigurée de surveillance à distance, consultez [Personnaliser la solution préconfigurée](iot-suite-remote-monitoring-customize.md).
+Pour plus d’informations sur la conception de l’accélérateur de solution de surveillance à distance, consultez [Personnaliser l’accélérateur de solution](iot-suite-remote-monitoring-customize.md).

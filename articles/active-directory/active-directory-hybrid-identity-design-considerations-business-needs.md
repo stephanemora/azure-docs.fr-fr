@@ -1,11 +1,11 @@
 ---
-title: "Identifier les exigences en matière de conception d’identités cloud hybrides Azure | Microsoft Docs"
-description: "Identifier les besoins métier de l’entreprise vous conduira à définir les exigences pour la conception d’identités hybrides."
-documentationcenter: 
+title: Identifier les exigences en matière de conception d’identités cloud hybrides Azure | Microsoft Docs
+description: Identifier les besoins métier de l’entreprise vous conduira à définir les exigences pour la conception d’identités hybrides.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5741a5024b5f5105a71d9404191601b951a301e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d’identité pour votre solution d’identités hybrides
 La première étape dans la conception d’une solution d’identités hybrides consiste à déterminer les exigences de l’entreprise qui va exploiter cette solution.  L’identité hybride démarre comme un rôle de support (elle prend en charge toutes les autres solutions cloud en assurant l’authentification), et continue en proposant des fonctionnalités nouvelles et intéressantes qui révèlent de nouvelles charges de travail pour les utilisateurs.  Ces charges de travail ou les services que vous souhaitez adopter pour vos utilisateurs déterminent les exigences pour la conception d’identités hybrides.  Ces services et charges de travail doivent exploiter l’identité hybride à la fois en local et dans le cloud.  
@@ -56,7 +56,7 @@ Vous devez également connaître les services cloud dont votre entreprise dispos
 * Cette intégration est-elle actuellement en production ou s’agit-il d’un pilote ?
 
 > [!NOTE]
-> Si vous ne disposez pas d’un mappage précis de l’ensemble de vos applications et services cloud, vous pouvez utiliser l’outil Cloud App Discovery. Cet outil peut fournir à votre service informatique une visibilité sur toutes les applications cloud d’entreprise et clientes de votre organisation. Il est ainsi plus facile de faire émerger les données informatiques de votre organisation, notamment les informations concernant les tendances d’utilisation et les utilisateurs qui accèdent à vos applications cloud. Pour commencer, consultez [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+> Si vous ne disposez pas d’un mappage précis de l’ensemble de vos applications et services cloud, vous pouvez utiliser l’outil Cloud App Discovery. Cet outil peut fournir à votre service informatique une visibilité sur toutes les applications cloud d’entreprise et clientes de votre organisation. Il est ainsi plus facile de faire émerger les données informatiques de votre organisation, notamment les informations concernant les tendances d’utilisation et les utilisateurs qui accèdent à vos applications cloud. Pour commencer, consultez [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 > 
 > 
 

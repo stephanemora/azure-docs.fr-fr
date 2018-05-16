@@ -1,18 +1,18 @@
 ---
-title: "Configurer la récupération d’urgence dans Azure des machines virtuelles Hyper-V locales hébergées dans des clouds VMM, avec Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment configurer la récupération d’urgence dans Azure des machines virtuelles Hyper-V locales hébergées dans des clouds System Center VMM, avec le service Azure Site Recovery."
+title: Configurer la récupération d’urgence dans Azure des machines virtuelles Hyper-V locales hébergées dans des clouds VMM, avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment configurer la récupération d’urgence dans Azure des machines virtuelles Hyper-V locales hébergées dans des clouds System Center VMM, avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 99477757c89fe2df7ae24b7ffe95c8fb7f470c93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a8bbbe0a5aca20222ff7385be9d0ecf0a4224d5c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurer la récupération d’urgence dans Azure de machines virtuelles Hyper-V locales hébergées dans des clouds VMM
 
@@ -96,7 +96,7 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 
 ## <a name="configure-network-mapping"></a>Configurer le mappage réseau
 
-1. Dans **Infrastructure Site Recovery** > **Mappages réseau** > **Mappage réseau**, cliquez sur l’icône**+Mappage réseau**.
+1. Dans **Infrastructure Site Recovery** > **Mappages réseau** > **Mappage réseau**, cliquez sur l’icône **+Mappage réseau**.
 2. Dans la zone **Ajouter un mappage réseau**, sélectionnez le serveur VMM source. Sélectionnez **Azure** comme cible.
 3. Vérifiez l’abonnement et le modèle de déploiement après le basculement.
 4. Dans **Réseau Source**, sélectionnez le réseau de machines virtuelles locales sources.

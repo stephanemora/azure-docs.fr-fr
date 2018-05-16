@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: Console
           href: application-insights-console.md
+        - name: Tableau de bord de l’application
+          href: app-insights-overview-dashboard.md
     - name: Surveillance des applications Java
       items:
         - name: les applications web
@@ -168,7 +170,7 @@
           items:
             - name: Tableaux de bord
               href: app-insights-dashboards.md
-            - name: action
+            - name: Recherche
               href: app-insights-diagnostic-search.md
             - name: Mesures
               href: app-insights-metrics-explorer.md
@@ -180,7 +182,7 @@
               href: app-insights-transaction-diagnostics.md
             - name: Données HockeyApp
               href: app-insights-hockeyapp-bridge-app.md
-        - name: "Visual\_Studio"
+        - name: Visual Studio
           items:
             - name: Connaissances F5
               href: app-insights-visual-studio.md
@@ -208,7 +210,7 @@
               href: app-insights-usage-flows.md
             - name: Workbooks
               href: app-insights-usage-workbooks.md
-        - name: Analyse
+        - name: Analytics
           items:
             - name: Vue d'ensemble
               href: app-insights-analytics.md
@@ -228,6 +230,8 @@
           href: app-insights-automate-with-flow.md
         - name: Automatiser avec une application logique Azure
           href: automate-with-logic-apps.md
+        - name: Rapports e-mail personnalisés
+          href: automate-custom-reports.md
     - name: Développement
       items:
         - name: API pour les événements personnalisés et les mesures
@@ -276,7 +280,7 @@
           href: app-insights-asp-net-troubleshoot-no-data.md
         - name: Débogueur de capture instantanée
           href: app-insights-troubleshoot-snapshot-debugger.md
-        - name: Analyse
+        - name: Analytics
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
@@ -290,7 +294,7 @@
   items:
     - name: Langage de requête Analytics
       href: 'https://docs.loganalytics.io/'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/?view=azurermps-5.7.0#monitor'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'

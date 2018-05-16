@@ -15,15 +15,15 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory 
 
-Dans Azure Active Directory (Azure AD), la configuration d’un grand nombre d’applications locales peut rapidement devenir ingérable et introduire des risques inutiles d’erreurs de configuration si la plupart d'entre elles utilisent les mêmes paramètres. Avec le [proxy d’application Azure AD](active-directory-application-proxy-get-started.md), vous pouvez résoudre ce problème à l’aide de la publication d’applications génériques qui permet de publier et de gérer plusieurs applications à la fois. Cette solution vous permet de :
+Dans Azure Active Directory (Azure AD), la configuration d’un grand nombre d’applications locales peut rapidement devenir ingérable et introduire des risques inutiles d’erreurs de configuration si la plupart d'entre elles utilisent les mêmes paramètres. Avec le [proxy d’application Azure AD](manage-apps/application-proxy.md), vous pouvez résoudre ce problème à l’aide de la publication d’applications génériques qui permet de publier et de gérer plusieurs applications à la fois. Cette solution vous permet de :
 
 -   Simplifier votre surcharge administrative
 -   Réduire le nombre d’erreurs de configuration potentielles
@@ -48,7 +48,7 @@ Par exemple : `http(s)://*.adventure-works.com`. Alors que les URL internes et e
 
 Si vous avez d’autres applications avec différents paramètres de configuration, vous devez publier ces exceptions en tant qu’applications distinctes pour remplacer les valeurs par défaut définies pour le caractère générique. Les applications sans caractère générique ont toujours priorité sur les applications génériques. Du point de vue de la configuration, ce sont « juste » des applications normales.
 
-La création d’une application générique repose sur le même [flux de publication d’application](application-proxy-publish-azure-portal.md) que celui de toutes les autres applications. La seule différence est que vous ajoutez un caractère générique dans les URL et éventuellement la configuration de l’authentification unique.
+La création d’une application générique repose sur le même [flux de publication d’application](manage-apps/application-proxy-publish-azure-portal.md) que celui de toutes les autres applications. La seule différence est que vous ajoutez un caractère générique dans les URL et éventuellement la configuration de l’authentification unique.
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -56,7 +56,7 @@ La création d’une application générique repose sur le même [flux de public
 
 ### <a name="custom-domains"></a>Domaines personnalisés
 
-Bien que les [domaines personnalisés](active-directory-application-proxy-custom-domains.md) soient facultatifs pour toutes les autres applications, ils sont obligatoires pour les applications génériques. Pour créer des domaines personnalisés, vous devez :
+Bien que les [domaines personnalisés](manage-apps/application-proxy-configure-custom-domain.md) soient facultatifs pour toutes les autres applications, ils sont obligatoires pour les applications génériques. Pour créer des domaines personnalisés, vous devez :
 
 1. Créer un domaine vérifié dans Azure 
 2. Charger un certificat SSL au format PFX dans votre proxy d’application.
@@ -113,12 +113,12 @@ Si vous utilisez cette option, vous avez aussi besoin d’une autre entrée CNAM
 
 L’application générique est représentée par une seule vignette dans le [panneau MyApps](https://myapps.microsoft.com). Par défaut, cette vignette est masquée. Pour afficher la vignette et diriger les utilisateurs vers une page d’accueil spécifique :
 
-1. Suivez les instructions permettant de [définir une URL de page d’accueil](application-proxy-office365-app-launcher.md).
+1. Suivez les instructions permettant de [définir une URL de page d’accueil](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Définissez **Afficher l’application** avec la valeur **true** dans la page de propriétés d’application.
 
 ### <a name="kerberos-constrained-delegation"></a>Délégation Kerberos contrainte
 
-Pour les applications qui utilisent [la délégation Kerberos contrainte (KCD) comme méthode d’authentification unique](active-directory-application-proxy-sso-using-kcd.md), le SPN répertorié pour la méthode d’authentification unique peut aussi nécessiter un caractère générique. Par exemple, le SPN peut être : `HTTP/*.adventure-works.com`. Vous devez toujours configurer les SPN individuels sur vos serveurs backend (par exemple, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Pour les applications qui utilisent [la délégation Kerberos contrainte (KCD) comme méthode d’authentification unique](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), le SPN répertorié pour la méthode d’authentification unique peut aussi nécessiter un caractère générique. Par exemple, le SPN peut être : `HTTP/*.adventure-works.com`. Vous devez toujours configurer les SPN individuels sur vos serveurs backend (par exemple, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 
 
@@ -137,7 +137,7 @@ Les trois applications :
 - Ont les mêmes propriétés
 
 
-Vous pouvez publier l’application générique en suivant les étapes décrites dans [Publier des applications à l’aide du proxy d’application Azure AD](application-proxy-publish-azure-portal.md). Ce scénario part du principe que :
+Vous pouvez publier l’application générique en suivant les étapes décrites dans [Publier des applications à l’aide du proxy d’application Azure AD](manage-apps/application-proxy-publish-azure-portal.md). Ce scénario part du principe que :
 
 - Un locataire a l’ID suivant : `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -145,7 +145,7 @@ Vous pouvez publier l’application générique en suivant les étapes décrites
 
 - Une entrée **CNAME** qui fait pointer `*.adventure-works.com` vers `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` a été créée.
 
-En suivant les [étapes documentées](application-proxy-publish-azure-portal.md), vous créez une application de proxy d’application dans votre locataire. Dans cet exemple, le caractère générique est dans les champs suivants :
+En suivant les [étapes documentées](manage-apps/application-proxy-publish-azure-portal.md), vous créez une application de proxy d’application dans votre locataire. Dans cet exemple, le caractère générique est dans les champs suivants :
 
 - URL interne :
 
@@ -184,7 +184,7 @@ Dans ce scénario, en plus des trois applications générales, vous avez une aut
 
 Vous devez vérifier qu’un enregistrement CNAME fait pointer `finance.adventure-works.com` vers le point de terminaison propre à l’application, spécifié dans la page Proxy d’application de l’application. Pour ce scénario, `finance.adventure-works.com` pointe vers `https://finance-awcycles.msappproxy.net/`. 
 
-D’après les [étapes documentées](application-proxy-publish-azure-portal.md), ce scénario nécessite les paramètres suivants :
+D’après les [étapes documentées](manage-apps/application-proxy-publish-azure-portal.md), ce scénario nécessite les paramètres suivants :
 
 
 - Dans **l’URL interne**, vous définissez **finance** au lieu d’un caractère générique. 
@@ -213,8 +213,8 @@ Si vous avez plusieurs applications publiées pour la finance et que `finance.ad
 
 Le cas échéant, consultez les références suivantes :
 
-- **Domaines personnalisés**, consultez [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](active-directory-application-proxy-custom-domains.md).
+- **Domaines personnalisés**, consultez [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](manage-apps/application-proxy-configure-custom-domain.md).
 
-- **Publication d’applications**, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-publish-azure-portal.md)
+- **Publication d’applications**, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](manage-apps/application-proxy-publish-azure-portal.md)
 
 

@@ -1,6 +1,6 @@
 ---
 title: Comprendre le langage de requête d’Azure IoT Hub | Microsoft Docs
-description: Guide du développeur - Description du langage de requête IoT Hub de type SQL utilisé pour récupérer des informations sur les jumeaux d’appareil et les travaux à partir de votre hub IoT.
+description: Guide du développeur - Description du langage de requête IoT Hub de type SQL utilisé pour récupérer des informations sur les jumeaux d’appareil/de module et les travaux à partir de votre hub IoT.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
 IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [jumeaux d’appareil][lnk-twins], les [travaux][lnk-jobs] et le [routage des messages][lnk-devguide-messaging-routes]. Cet article présente les éléments suivants :
 
@@ -29,9 +29,9 @@ IoT Hub fournit un puissant langage de type SQL pour récupérer des information
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>Requêtes de représentations d’appareil
-Des [jumeaux d’appareil][lnk-twins] peuvent contenir des objets JSON arbitraires tels que des balises (tags) et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux d’appareil.
-Par exemple, supposons que vos jumeaux d’appareil IoT Hub présentent la structure suivante :
+## <a name="device-and-module-twin-queries"></a>Requêtes de jumeaux de l’appareil et du module
+Des [jumeaux d’appareil][lnk-twins] et des jumeaux de module peuvent contenir des objets JSON arbitraires tels que des balises et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil et des jumeaux de module sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux.
+Par exemple, supposons que les jumeaux d’appareil de votre hub IoT ont la structure suivante (qui serait similaire dans le cas d’un jumeau de module, avec simplement un ID de module supplémentaire) :
 
 ```json
 {
@@ -82,6 +82,8 @@ Par exemple, supposons que vos jumeaux d’appareil IoT Hub présentent la struc
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>Requêtes de représentations d’appareil
 
 IoT Hub expose les jumeaux d’appareil en tant que collection de documents appelée **appareils**.
 Par conséquent, la requête suivante récupère l’ensemble des jumeaux d’appareil :
@@ -158,6 +160,26 @@ Les requêtes de projection permettent aux développeurs de retourner uniquement
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>Requêtes de jumeaux de module
+
+L’interrogation de jumeaux de module est similaire à l’interrogation de jumeaux d’appareil, à la différence que vous utilisez une collection/un espace de noms différent. En d’autres termes, au lieu d’utiliser « from devices », vous pouvez exécuter la requête suivante :
+
+```sql
+SELECT * FROM devices.modules
+```
+
+Nous n’autorisons pas de jointure entre les collections devices et devices.modules. Si vous souhaitez interroger les jumeaux de module sur les appareils, faites-le à partir des balises. Cette requête retourne tous les jumeaux de module sur tous les appareils ayant pour état « scanning » (analyse) :
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+Cette requête retourne tous les jumeaux de module ayant pour état « scanning » (analyse), mais uniquement sur le sous-ensemble d’appareils spécifié.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>Exemple en code C#

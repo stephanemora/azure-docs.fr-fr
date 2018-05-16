@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 27ad4351bdcf9d7d655b19343dcf41d334f079f9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid 
 
@@ -35,7 +35,7 @@ Les codes de réponse HTTP suivants indiquent qu’un événement a bien été d
 
 ### <a name="failure-codes"></a>Codes d’échec
 
-Les codes de réponse HTTP suivants indiquent un échec de la tentative de distribution d’un événement. Event Grid tente à nouveau d’envoyer l’événement. 
+Les codes de réponse HTTP suivants indiquent un échec de la tentative de distribution d’un événement. 
 
 - 400 Demande incorrecte
 - 401 Non autorisé
@@ -46,9 +46,9 @@ Les codes de réponse HTTP suivants indiquent un échec de la tentative de distr
 - 503 Service indisponible
 - 504 Dépassement du délai de la passerelle
 
-Tout autre code de réponse ou manque de réponse indique un échec. Event Grid effectue une nouvelle tentative de distribution. 
+Si Event Grid reçoit une erreur qui indique que le point de terminaison n’est pas disponible, il tente à nouveau d’envoyer l’événement. 
 
-## <a name="retry-intervals"></a>Intervalles avant nouvelle tentative
+## <a name="retry-intervals-and-duration"></a>Intervalles avant nouvelle tentative et durée
 
 Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Si votre webhook ne répond pas ou s’il retourne un code d’échec, Event Grid effectue une nouvelle tentative de distribution aux intervalles suivants :
 
@@ -62,9 +62,7 @@ Event Grid utilise une stratégie de nouvelle tentative d’interruption exponen
 
 Event Grid ajoute une petite randomisation à tous les intervalles de nouvelle tentative. La remise des événements est renouvelée après une heure, une fois par heure.
 
-## <a name="retry-duration"></a>Durée des nouvelles tentatives
-
-Azure Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures.
+Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

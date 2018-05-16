@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 4b9ab8aaef091573d204b8de58115cc03707aa01
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -26,7 +26,7 @@ Azure Event Grid dispose de trois types d’authentification :
 
 Un Webhook constitue l’un des nombreux moyens de recevoir des événements provenant d’Azure Event Grid. Quand un nouvel événement est prêt, le Webhook Event Grid envoie une requête HTTP au point de terminaison HTTP configuré avec l’événement dans le corps.
 
-Lorsque vous inscrivez votre point de terminaison WebHook auprès d’Event Grid, le WebHook vous envoie une requête POST avec un code de validation simple pour prouver que vous êtes le propriétaire du point de terminaison. Votre application doit répondre en renvoyant le code de validation. Event Grid ne remet aucun événement aux points de terminaison WebHook qui n’ont pas été validés.
+Lorsque vous inscrivez votre point de terminaison WebHook auprès d’Event Grid, le WebHook vous envoie une requête POST avec un code de validation simple pour prouver que vous êtes le propriétaire du point de terminaison. Votre application doit répondre en renvoyant le code de validation. Event Grid ne remet aucun événement aux points de terminaison WebHook qui n’ont pas été validés. Si vous utilisez un service d’API tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir envoyer le code de validation par programmation. Pour ces services, vous pouvez manuellement valider l’abonnement à l’aide d’une URL de validation qui est envoyée dans l’événement de validation de l’abonnement. Copiez cette URL et envoyez une demande GET par le biais d’un client REST ou de votre navigateur web.
 
 ### <a name="validation-details"></a>Détails de validation
 
@@ -34,6 +34,7 @@ Lorsque vous inscrivez votre point de terminaison WebHook auprès d’Event Grid
 * L’événement contient une valeur d’en-tête « Aeg-Event-Type: SubscriptionValidation ».
 * Le corps de l’événement dispose du même schéma que les autres événements Event Grid.
 * Les données d’événement incluent une propriété « validationCode » avec une chaîne générée de façon aléatoire, par exemple « validationCode: acb13… ».
+* Les données d’événement incluent une propriété « validationUrl » avec une URL pour la validation manuelle de l’abonnement.
 * Le tableau contient uniquement l’événement de validation. Les autres événements sont envoyés dans une requête distincte, une fois que vous avez renvoyé le code de validation.
 
 Un exemple de SubscriptionValidationEvent est illustré ci-dessous :
@@ -44,7 +45,8 @@ Un exemple de SubscriptionValidationEvent est illustré ci-dessous :
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -60,6 +62,9 @@ Pour prouver que vous êtes propriétaire du point de terminaison, renvoyez le c
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Ou bien, validez manuellement l’abonnement en envoyant une demande GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente jusqu’à ce qu’il soit validé.
+
 ### <a name="event-delivery-security"></a>Sécurité de la remise des événements
 
 Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Configurez l’un de ces paramètres de requête comme un secret, par exemple, un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token) que le Webhook peut utiliser pour identifier l’événement qui est envoyé par Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook.

@@ -1,45 +1,45 @@
 ---
-title: "Diagnostic des problèmes liés à la perte des notifications dans Azure Notification Hubs"
-description: "Découvrez comment diagnostiquer les problèmes courants liés à la perte des notifications dans Azure Notification Hubs."
+title: Diagnostic des problèmes liés à la perte des notifications dans Azure Notification Hubs
+description: Découvrez comment diagnostiquer les problèmes courants liés à la perte des notifications dans Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnostiquer les problèmes de perte des notifications dans Notification Hubs
 
 L’une des questions les plus couramment posées par les clients d’Azure Notification Hubs concerne les notifications qui sont envoyées à partir d’une application et qui n’apparaissent pas sur leurs appareils. Ils souhaitent savoir où se trouvent ces notifications, pourquoi elles se sont perdues et comment résoudre ce problème. Cet article explique les raisons pour lesquelles les notifications peuvent être perdues ou ne pas apparaître sur les appareils. Découvrez comment analyser le problème et déterminer la cause racine. 
 
-En premier lieu, il est essentiel de comprendre la manière dont Notification Hubs envoie (push) les notifications vers un appareil.
+En premier lieu, il est essentiel de comprendre la manière dont le service Notification Hubs envoie (push) les notifications vers un appareil.
 
 ![Architecture de Notification Hubs][0]
 
 Dans un flux de notification d’envoi type, le message est envoyé par le *serveur d’applications backend* à Notification Hubs. Notification Hubs procède à un traitement de toutes les inscriptions. Le traitement prend en compte les balises configurées et les expressions de balise pour déterminer les cibles. Les cibles correspondent à tous les enregistrements qui doivent recevoir la notification Push. Ces inscriptions peuvent inclure toutes les plateformes prises en charge : iOS, Google, Windows, Windows Phone, Kindle et Baidu pour Android en Chine.
 
-Une fois les cibles établies, Notification Hubs envoie (push) des notifications au *service de notifications Push* correspondant à la plateforme de l’appareil. Il peut s’agir, par exemple, d’Apple Push Notification Service (APNs) pour Apple ou de Firebase Cloud Messaging (FCM) pour Google. Notification Hubs envoie les notifications regroupées en plusieurs lots d’inscriptions. Notification Hubs s’authentifie auprès du service de notifications Push correspondant, en fonction des informations d’identification que vous avez configurées dans le portail Azure, sous **Configure Notification Hub** (Configurer Notification Hubs). Le service de notifications Push transmet alors les notifications aux *appareils clients* correspondants. 
+Une fois les cibles établies, le service Notification Hubs envoie (push) des notifications au *service de notifications Push* correspondant à la plateforme de l’appareil. Il peut s’agir, par exemple, d’Apple Push Notification Service (APNs) pour Apple ou de Firebase Cloud Messaging (FCM) pour Google. Notification Hubs envoie les notifications regroupées en plusieurs lots d’inscriptions. Notification Hubs s’authentifie auprès du service de notifications Push correspondant, en fonction des informations d’identification que vous avez configurées dans le portail Azure, sous **Configure Notification Hub** (Configurer Notification Hubs). Le service de notifications Push transmet alors les notifications aux *appareils clients* correspondants. 
 
-Notez que le dernier tronçon de remise des notifications s’effectue entre le service de notifications Push de la plateforme et l’appareil. La perte des notifications peut être causée par l’un des quatre composants principaux du processus de notification Push, à savoir le client, le serveur d’applications backend, Notification Hubs et le service de notifications Push de la plateforme. Pour plus d’informations sur l’architecture de Notification Hubs, consultez [Présentation de Notification Hubs].
+Le dernier tronçon de remise des notifications s’effectue entre le service de notifications Push de la plateforme et l’appareil. La perte des notifications peut être causée par l’un des quatre composants principaux du processus de notification Push, à savoir le client, le serveur d’applications backend, Notification Hubs et le service de notifications Push de la plateforme. Pour plus d’informations sur l’architecture de Notification Hubs, consultez [Présentation de Notification Hubs].
 
 L’échec de la remise des notifications peut se produire lors de la phase de test ou de préproduction. À ce stade, la perte des notifications peut indiquer un problème de configuration. Si l’échec de remise des notifications se produit lors de la phase de production, il se peut que certaines ou que l’ensemble des notifications soient perdues. Dans ce cas, cela indique un problème plus complexe lié à l’application ou au type de messagerie. 
 
 La section suivante présente les scénarios dans lesquels les notifications peuvent être perdues, des plus courants aux plus rares.
 
 ## <a name="notification-hubs-misconfiguration"></a>Configuration incorrecte de Notification Hubs
-Pour envoyer des notifications au service de notifications Push adapté, Notification Hubs doit s’authentifier dans le contexte de l’application du développeur. Pour ce faire, le développeur doit créer un compte de développeur avec la plateforme correspondante (Google, Apple, Windows, etc.). Ensuite, il doit inscrire son application auprès de la plateforme qui lui fournit des informations d’identification. 
+Pour envoyer des notifications au service de notifications Push adapté, le service Notification Hubs doit s’authentifier dans le contexte de l’application du développeur. Pour ce faire, le développeur doit créer un compte de développeur avec la plateforme correspondante (Google, Apple, Windows, etc.). Ensuite, il doit inscrire son application auprès de la plateforme qui lui fournit des informations d’identification. 
 
 Vous devez ajouter ces informations d’identification de plateforme dans le portail Azure. Si aucune notification n’arrive sur l’appareil, la première chose à faire est de vérifier que les bonnes informations d’identification sont configurées dans Notification Hubs. Les informations d’identification doivent être celles de l’application qui a été créée sous un compte de développeur spécifique à la plateforme. 
 
@@ -88,7 +88,7 @@ Voici certaines erreurs de configuration courantes :
 
 * **Inscriptions non valides**
 
-    Si le hub de notification a été configuré correctement, et si les balises ou les expressions de balise ont été correctement utilisées, des cibles valides sont trouvées. Les notifications doivent être envoyées à ces cibles. Notification Hubs déclenche ensuite plusieurs traitements en parallèle. Chaque lot envoie des messages à un ensemble d’inscriptions. 
+    Si le hub de notification a été configuré correctement, et si les balises ou les expressions de balise ont été correctement utilisées, des cibles valides sont trouvées. Les notifications doivent être envoyées à ces cibles. Le service Notification Hubs déclenche ensuite plusieurs traitements en parallèle. Chaque lot envoie des messages à un ensemble d’inscriptions. 
 
     > [!NOTE]
     > Étant donné que plusieurs traitements sont effectués en parallèle, l’ordre dans lequel les notifications sont remises n’est pas garanti. 
@@ -102,7 +102,7 @@ Voici certaines erreurs de configuration courantes :
     Pour plus d’informations sur les messages d’erreur concernant l’échec d’une tentative de remise pour une inscription, vous pouvez utiliser les API REST de Notification Hubs [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) (Télémétrie par message : télémétrie d’obtention de messages de notification) et [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx) (Commentaires du service de notifications Push). Pour obtenir un exemple de code, consultez [l’exemple d’API REST d’envoi](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## <a name="push-notification-service-issues"></a>Problèmes liés au service de notifications Push
-Une fois que le message de notification a été reçu par le service de notifications Push de la plateforme, le service de notifications Push est chargé de remettre la notification à l’appareil. À ce stade, Notification Hubs n’intervient pas et n’a aucun contrôle sur le moment de livraison ou la livraison en elle-même à l’appareil. 
+Une fois que le message de notification a été reçu par le service de notifications Push de la plateforme, le service de notifications Push est chargé de remettre la notification à l’appareil. À ce stade, le service Notification Hubs n’intervient pas et n’a aucun contrôle sur le moment de livraison ou la livraison en elle-même à l’appareil. 
 
 Les services de notifications de plateforme étant très performants, les notifications envoyées par le service de notifications Push arrivent généralement sur les appareils en quelques secondes. Si le service de notifications Push subit une limitation, Notification Hubs applique une stratégie d’interruption exponentielle. Si le service de notifications Push reste inaccessible pendant 30 minutes, l’une de nos stratégies consiste à faire expirer puis à supprimer définitivement ces messages. 
 
@@ -120,7 +120,7 @@ Voici des méthodes permettant de déterminer la cause racine des pertes de noti
    
     Vérifiez les informations d’identification dans le portail des développeurs du service de notifications Push correspondant (Apple Push Notification Service, Firebase Cloud Messaging, service de notification Windows, etc.). Pour plus d’informations, consultez [Bien démarrer avec Azure Notification Hubs].
 
-* **Portail Azure**
+* **Portail Azure**
    
     Pour vérifier et comparer les informations d’identification avec celles que vous avez obtenues via le portail des développeurs du service de notifications Push, dans le portail Azure, accédez à l’onglet **Stratégies d’accès**. 
    
@@ -146,7 +146,7 @@ Voici des méthodes permettant de déterminer la cause racine des pertes de noti
     De nombreux clients utilisent [Service Bus Explorer] pour afficher et gérer leur hub de notification. Service Bus Explorer est un projet open source. Pour obtenir des exemples, consultez [Exemples de code Service Bus Explorer].
 
 ### <a name="verify-message-notifications"></a>Vérification des notifications de messages
-* **Portail Azure**
+* **Portail Azure**
    
     Pour envoyer une notification de test à vos clients sans backend de service opérationnel, sous **Support + dépannage**, sélectionnez **Envoi de test**. 
    
@@ -226,7 +226,7 @@ Ce message indique que des informations d’identification non valides sont conf
    
         ![Tableau de bord de Notification Hubs][5]
    
-    2. Sous l’onglet **Surveiller**, vous pouvez ajouter de nombreuses autres métriques relatives à la plateforme. Vous pouvez ainsi obtenir des informations plus précises sur les erreurs liées au service de notifications Push qui sont retournées lorsque Notification Hubs tente d’envoyer la notification au service de notifications Push. 
+    2. Sous l’onglet **Surveiller**, vous pouvez ajouter de nombreuses autres métriques relatives à la plateforme. Vous pouvez ainsi obtenir des informations plus précises sur les erreurs liées au service de notifications Push qui sont retournées lorsque le service Notification Hubs tente d’envoyer la notification au service de notifications Push. 
    
         ![Journal d’activités - Portail Azure][6]
    

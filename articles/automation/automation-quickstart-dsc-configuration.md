@@ -1,7 +1,9 @@
 ---
-title: "Démarrage rapide d’Azure : Configurer une machine virtuelle avec DSC | Microsoft Docs"
-description: "Configurer une pile LAMP sur une machine virtuelle Linux avec le service de configuration d’état souhaité"
+title: 'Démarrage rapide d’Azure : Configurer une machine virtuelle avec DSC | Microsoft Docs'
+description: Configurer une pile LAMP sur une machine virtuelle Linux avec le service de configuration d’état souhaité
 services: automation
+ms.service: automation
+ms.component: dsc
 keywords: dsc, configuration, automatisation
 author: KrisBash
 ms.author: krbash
@@ -9,17 +11,18 @@ ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle Linux avec le service de configuration d’état souhaité
 
 En activant le service de configuration d’état souhaité (DSC), vous gérez et surveillez les configurations de vos serveurs Windows et Linux. Les configurations dérivant de la configuration souhaitée peuvent être identifiées ou corrigées automatiquement. Cette procédure de démarrage rapide vous permettra d’intégrer une machine virtuelle Linux et de déployer une pile LAMP avec DSC.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
@@ -28,7 +31,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 * Une machine virtuelle Azure Resource Manager (autre que classique) exécutant Red Hat Enterprise Linux, CentOS ou Oracle Linux. Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Linux dans le portail Azure](../virtual-machines/linux/quick-create-portal.md).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
-Connectez-vous à Azure à l’adresse https://portal.azure.com
+Connectez-vous à Azure à l’adresse https://portal.azure.com.
 
 ## <a name="onboard-a-virtual-machine"></a>Intégrer une machine virtuelle
 Il existe plusieurs méthodes pour intégrer une machine et activer le service de configuration d’état souhaité. Ce démarrage rapide aborde l’intégration via un compte Automation. Pour en savoir plus sur différentes méthodes d’intégration de vos machines au service de configuration d’état souhaité, lisez l’article sur [l’intégration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).

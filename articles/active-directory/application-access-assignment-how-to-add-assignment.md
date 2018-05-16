@@ -1,11 +1,11 @@
 ---
-title: "Guide pratique pour affecter des utilisateurs et des groupes à une application | Microsoft Docs"
-description: "Affecter des utilisateurs à l’application pour accorder l’accès"
+title: Guide pratique pour affecter des utilisateurs et des groupes à une application | Microsoft Docs
+description: Affecter des utilisateurs à l’application pour accorder l’accès
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d670b2400fc1ac50afdcc8b809a1d482c3219686
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 19303237e7e2c3c3a7f373102465875c34a571d1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Guide pratique pour affecter des utilisateurs et des groupes à une application
 
@@ -163,4 +163,4 @@ Lorsque vous avez terminé la configuration d’applications en libre-service, l
 Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut autoriser l’accès à l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
+[Fournir une authentification unique à vos applications avec le proxy d’application](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

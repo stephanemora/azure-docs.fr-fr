@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Collecter des données d’ordinateurs dans un environnement avec Log Analytics
 
@@ -28,7 +28,7 @@ Azure Log Analytics peut collecter et exploiter des données provenant d’ordin
 * votre centre de données en tant que serveurs physiques ou que machines virtuelles ;
 * des machines virtuelles dans un service hébergé dans le cloud, comme Amazon Web Services (AWS).
 
-Les ordinateurs hébergés dans l’environnement peuvent être connectés directement à Log Analytics ; si vous effectuez déjà le monitoring de ces ordinateurs avec System Center Operations Manager 2012 R2 ou 2016, vous pouvez également intégrer votre groupe d’administration Operations Manager à Log Analytics et continuer à gérer vos processus et votre stratégie d’opérations de service.  
+Les ordinateurs hébergés dans l’environnement peuvent être connectés directement à Log Analytics. Si vous effectuez déjà la surveillance de ces ordinateurs avec System Center Operations Manager version 2012 R2, 2016 ou 1801, vous pouvez également intégrer votre groupe d’administration Operations Manager à Log Analytics et continuer à gérer vos processus d’opérations de service informatique.  
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -36,15 +36,11 @@ Les ordinateurs hébergés dans l’environnement peuvent être connectés direc
 
 Avant d’analyser et d’exploiter les données collectées, vous devez commencer par installer et connecter les agents de tous les ordinateurs qui devront envoyer des données au service Log Analytics. Pour installer des agents sur vos ordinateurs locaux, vous pouvez utiliser le programme d’installation, la ligne de commande ou la fonction Desired State Configuration (DSC) d’Azure Automation. 
 
-L’agent pour Linux et Windows communique en sortie avec le service Log Analytics via le port TCP 443 ; si l’ordinateur se connecte à un pare-feu ou à un serveur proxy pour communiquer sur Internet, consultez la page [Configurer l’agent en vue d’une utilisation avec un serveur proxy HTTP ou une passerelle OMS](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway) pour connaître les modifications de configuration à appliquer. Si vous effectuez le monitoring de l’ordinateur avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2, il peut être multihébergé avec le service Log Analytics pour collecter des données et les transférer au service, tandis [qu’Operations Manager](log-analytics-om-agents.md) poursuit le monitoring. Les ordinateurs Linux analysés par un groupe d’administration Operations Manager intégré à Log Analytics ne reçoivent pas de configuration des sources de données et transmettent les données collectées par l’intermédiaire du groupe d’administration. L’agent Windows peut envoyer des rapports à quatre espaces de travail, contre un seul pour l’agent Linux.  
+L’agent pour Linux et Windows communique en sortie avec le service Log Analytics via le port TCP 443. Si l’ordinateur se connecte à un pare-feu ou à un serveur proxy pour communiquer sur Internet, consultez la [section relative aux prérequis](#prerequisites) pour connaître la configuration réseau nécessaire.  Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs du réseau à se connecter à Internet, vous pouvez configurer une [passerelle OMS](log-analytics-oms-gateway.md), puis configurer l’agent pour qu’il se connecte à Log Analytics via la passerelle. L’agent peut ensuite recevoir des informations de configuration et envoyer les données collectées en fonction des règles de collecte de données et des solutions que vous avez activées. 
 
-L’agent pour Linux et Windows ne sert pas seulement à la connexion à Log Analytics ; il prend également en charge la connexion à Azure Automation pour héberger le rôle Runbook Worker hybride et des solutions de gestion telles que Change Tracking et Update Management.  Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+Si vous effectuez le monitoring de l’ordinateur avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2, il peut être multihébergé avec le service Log Analytics pour collecter des données et les transférer au service, tandis [qu’Operations Manager](log-analytics-om-agents.md) poursuit le monitoring. Les ordinateurs Linux analysés par un groupe d’administration Operations Manager intégré à Log Analytics ne reçoivent pas de configuration des sources de données et transmettent les données collectées par l’intermédiaire du groupe d’administration. L’agent Windows peut envoyer des rapports à quatre espaces de travail, contre un seul pour l’agent Linux.  
 
-Si vos stratégies de sécurité n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, l’agent peut être configuré pour se connecter à la passerelle OMS afin de recevoir des informations de configuration et d’envoyer les données collectées en fonction de la solution que vous avez activée. Pour plus d’informations, et pour savoir comment configurer l’agent Linux ou Windows pour communiquer par l’intermédiaire d’une passerelle OMS avec le service Log Analytics, consultez la page [Connecter des ordinateurs à OMS avec la passerelle OMS](log-analytics-oms-gateway.md). 
-
-> [!NOTE]
-> L’agent pour Windows prend uniquement en charge le protocole TLS versions 1.0 et 1.1.  
-> 
+L’agent pour Linux et Windows ne sert pas seulement à la connexion à Log Analytics. Il prend également en charge la connexion à Azure Automation pour héberger le rôle Runbook Worker hybride, ainsi que des solutions de gestion telles que Change Tracking et Update Management.  Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -55,6 +51,9 @@ Les versions suivantes du système d’exploitation Windows sont officiellement 
 
 * Windows Server 2008 Service Pack 1 (SP1) (ou version ultérieure) ;
 * Windows 7 SP1 (ou version ultérieure).
+
+> [!NOTE]
+> L’agent pour Windows prend uniquement en charge le protocole TLS versions 1.0 et 1.1.  
 
 #### <a name="network-configuration"></a>Configuration réseau
 Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Windows de communiquer avec Log Analytics. Le trafic va de votre réseau vers le service Log Analytics. 

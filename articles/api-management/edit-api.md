@@ -2,10 +2,10 @@
 title: Modifier une API avec le portail Azure | Microsoft Docs
 description: Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour modifier une API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 362c36181da706e3fe0a27cc5ab262271c2a1e57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: b39259fcfc93cb0a2a1a2dc600e5235da8cc6930
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="edit-an-api"></a>Modifier une API
 
@@ -26,7 +26,8 @@ Les étapes de ce didacticiel vous montrent comment utiliser le service Gestion 
 + Vous pouvez le faire en ajoutant, supprimant et renommant des opérations dans l’instance APIM. 
 + Vous pouvez modifier le Swagger de votre API.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 + [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 + [Importer et publier votre première API](import-and-publish.md)

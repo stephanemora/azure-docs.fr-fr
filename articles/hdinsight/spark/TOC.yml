@@ -19,6 +19,10 @@
   items:
     - name: Exécuter des requêtes sur un cluster Spark
       href: apache-spark-load-data-run-query.md
+    - name: Utiliser VSCode pour exécuter des requêtes Spark
+      href: ../hdinsight-for-vscode.md
+    - name: Utiliser IntelliJ pour exécuter des requêtes Spark
+      href: apache-spark-intellij-tool-plugin.md
     - name: Analyser des données avec des outils décisionnels
       href: apache-spark-use-bi-tools.md
     - name: Exécuter une tâche de diffusion en continu
@@ -47,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Créer des applications avec IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Déboguer des tâches Spark à distance avec IntelliJ via VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Déboguer des tâches Spark à distance avec IntelliJ via SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Déboguer des tâches Spark à distance avec IntelliJ via VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Créer des applications .NET HDInsight d’authentification non interactives
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -316,6 +320,8 @@
       items:
         - name: Déboguer des tâches Spark
           href: apache-spark-job-debugging.md
+        - name: Utiliser IntelliJ pour déboguer des travaux Spark
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
@@ -406,7 +412,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.hdinsight
     - name: .NET (Hadoop)
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'

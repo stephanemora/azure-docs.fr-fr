@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Secouez, secouez pour récupérer un tweet - Récupérez un message Twitter avec Azure Functions !
 
@@ -33,7 +33,7 @@ Suivez le [Guide de mise en route](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire via l’une de ces méthodes :
 
-* Activez un [compte d’évaluation Microsoft Azure gratuit pendant 30 jours](https://azure.microsoft.com/en-us/free/).
+* Activez un [compte d’évaluation Microsoft Azure gratuit pendant 30 jours](https://azure.microsoft.com/free/).
 * Réclamez votre [crédit Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) si vous êtes abonné à MSDN ou Visual Studio
 
 ## <a name="open-the-project-folder"></a>Ouvrir le dossier de projet
@@ -44,10 +44,6 @@ Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire v
 - Démarrez VS Code.
 - Connectez le kit DevKit à votre ordinateur.
 
-VS Code trouve automatiquement votre DevKit et affiche une page de présentation :
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > Quand vous lancez VS Code, vous pouvez recevoir un message d’erreur indiquant que l’IDE Arduino ou le package de la carte associée ne peut pas être trouvé. Si cette erreur se produit, fermez VS Code et lancez une nouvelle fois l’IDE Arduino. VS Code devrait maintenant localiser correctement le chemin de l’IDE Arduino.
 
@@ -57,7 +53,8 @@ Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples po
 
 ![mini-solution-exemples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-S’il vous arrive de fermer le volet par inadvertance, vous pouvez le rouvrir. Utilisez `Ctrl+Shift+P` (macOS : `Cmd+Shift+P`) pour ouvrir la palette de commandes, tapez **Arduino**, puis recherchez et sélectionnez **Arduino : Exemples**.
+> [!NOTE]
+> Vous pouvez également ouvrir l’exemple à partir de la palette de commandes. Utilisez `Ctrl+Shift+P` (macOS : `Cmd+Shift+P`) pour ouvrir la palette de commandes, tapez **Arduino**, puis recherchez et sélectionnez **Arduino : Exemples**.
 
 ## <a name="provision-azure-services"></a>Approvisionner les services Azure
 
@@ -68,7 +65,7 @@ Dans le terminal VS Code, une ligne de commande interactive vous guide dans l’
 ![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> Si la page se bloque dans l’état de chargement lorsque vous tentez de vous connecter à Azure, consultez cette [étape de FAQ] ({{"/docs/faq/#page-hangs-when-log-in-azure" | 
+> Si la page se bloque dans l’état de chargement quand vous tentez de vous connecter à Azure, consultez cette [section de la FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## <a name="modify-the-hashtag"></a>Modifier le #mot-dièse
 
@@ -191,6 +188,6 @@ Si vous rencontrez d’autres problèmes, consultez les [FAQ](https://microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un appareil DevKit à votre solution Azure IoT Suite et à récupérer un tweet, nous vous suggérons les étapes suivantes :
+Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de surveillance à distance Azure IoT et à récupérer un tweet ; nous vous suggérons à présent les étapes suivantes :
 
-* [Vue d’ensemble d’Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Vue d’ensemble des accélérateurs de solution de surveillance à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

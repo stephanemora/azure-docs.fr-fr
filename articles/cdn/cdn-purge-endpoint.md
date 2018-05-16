@@ -1,11 +1,11 @@
 ---
-title: "Purger un point de terminaison CDN Azure | Microsoft Docs"
-description: "Découvrez comment vider tout le contenu mis en cache à partir d’un point de terminaison CDN Azure."
+title: Purger un point de terminaison CDN Azure | Microsoft Docs
+description: Découvrez comment vider tout le contenu mis en cache à partir d’un point de terminaison CDN Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 262a8f7385ba5f74d21991772599540260a145fc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purger un point de terminaison CDN Azure
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Les nœuds de périmètre CDN Azure mettent en cache les éléments multimédias jusqu’à l’expiration de leur durée de vie.  Une fois la durée de vie de l’élément multimédia expirée, lorsqu’un client demande l’élément multimédia à partir du nœud de périmètre, ce dernier récupère une nouvelle copie mise à jour de l’élément pour répondre à la demande du client et actualiser le cache.
 
 La bonne pratique pour vous assurer que vos utilisateurs obtiennent toujours la dernière copie de vos éléments multimédia consiste à établir une version de vos ressources pour chaque mise à jour et à les publier en tant que nouvelles URL.  CDN récupère immédiatement les nouveaux éléments multimédia pour les demandes suivantes du client.  Il est parfois souhaitable de vider le contenu mis en cache sur tous les nœuds de périmètre et de tous les forcer à récupérer de nouveaux éléments multimédias mis à jour.  Ce besoin peut être dû à des mises à jour de votre application web, ou à la nécessité de mettre à jour rapidement les éléments multimédias qui contiennent des informations incorrectes.
@@ -68,7 +68,7 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
     ![Bouton Vider](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Le traitement des demandes de vidage prend environ 2 à 3 minutes avec le **CDN Azure fourni par Verizon** (Standard et Premium) et environ 7 minutes avec le **CDN Azure fourni par Akamai**.  Le CDN Azure impose une limite de 50 demandes de vidage simultanées à un moment donné au niveau du profil. 
+> Le traitement des demandes de vidage prend environ 2 à 3 minutes avec le **CDN Azure fourni par Verizon** (Standard et Premium) et environ 7 minutes avec le **CDN Azure fourni par Akamai**.  Le CDN Azure impose une limite de 50 demandes de vidage simultanées à un moment donné au niveau du profil. 
 > 
 > 
 

@@ -25,7 +25,7 @@
 ### [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource)
 
 ## Déployer
-### Azure PowerShell
+### Azure PowerShell
 #### [Déployer un modèle](resource-group-template-deploy.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-powershell-sas-token.md)
 #### [Exporter un modèle et le redéployer](resource-manager-export-template-powershell.md)
@@ -102,6 +102,7 @@
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Gérer des données personnelles](resource-manager-personal-data.md)
 ## [Demandes de limitation](resource-manager-request-limits.md)
 ## [Suivre les opérations asynchrones](resource-manager-async-operations.md)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

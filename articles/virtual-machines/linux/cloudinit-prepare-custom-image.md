@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 855088de338d3f240d9c675028ce88ec4e4995e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Préparer une image de machine virtuelle Azure Linux existante pour une utilisation avec cloud-init
 Cet article explique comment prendre une machine virtuelle Azure existante et la préparer pour la redéployer et utiliser cloud-init. L’image obtenue peut être utilisée pour déployer une nouvelle machine virtuelle ou des groupes de machines virtuelles identiques, qui peuvent par la suite être personnalisés par cloud-init au moment du déploiement.  Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
@@ -44,22 +44,20 @@ Mettez à jour la section `cloud_init_modules` dans `/etc/cloud/cloud.cfg` pour 
 
 Voici un exemple de ce à quoi une section `cloud_init_modules` classique ressemble.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 Un certain nombre de tâches relatives à l’approvisionnement et à la gestion des disques éphémères doit être mis à jour dans `/etc/waagent.conf`. Exécutez les commandes suivantes pour mettre à jour les paramètres appropriés. 
 ```bash
@@ -139,7 +137,7 @@ Toutes les images de plateforme Azure ont l’agent Linux Azure installé, qu’
 sudo waagent -deprovision+user -force
 ```
 
-Pour plus d’informations sur les commandes de déprovisionnement de l’agent Linux Azure, consultez [Présentation et utilisation de l’agent Linux Azure](agent-user-guide.md) pour plus d’informations.
+Pour plus d’informations sur les commandes de déprovisionnement de l’agent Linux Azure, consultez [Présentation et utilisation de l’agent Linux Azure](../extensions/agent-linux.md) pour plus d’informations.
 
 Quittez la session SSH, puis à partir de votre interpréteur de commandes bash, exécutez les commandes Azure CLI suivantes pour désallouer, généraliser et créer une image de machine virtuelle Azure.  Remplacez `myResourceGroup` et `sourceVmName` par les informations appropriées reflétant votre machine virtuelle source.
 

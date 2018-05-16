@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: a6ed74de159593003e8a18daefce2eb9a5945481
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 528832473d68fa90e6383873b1e0491f5abe09c7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB : développer avec l’API SQL dans .NET
 
@@ -156,7 +156,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-Cette méthode passe un appel d’API REST à Azure Cosmos DB et le service approvisionne un certain nombre de partitions en fonction du débit demandé. Vous pouvez modifier le débit d’une collection à mesure que vos besoins en performances évoluent. Pour cela, vous utilisez le SDK ou le [portail Azure](set-throughput.md).
+Cette méthode passe un appel d’API REST à Azure Cosmos DB et le service approvisionne un certain nombre de partitions en fonction du débit demandé. Vous pouvez modifier le débit d’une collection ou d’un ensemble de collections à mesure que vos besoins en performances évoluent. Pour cela, vous utilisez le SDK ou le [portail Azure](set-throughput.md).
 
 ## <a id="CreateDoc"></a>Créer des documents JSON
 Insérons maintenant des documents JSON dans Azure Cosmos DB. Vous pouvez créer un [document](sql-api-resources.md#documents) à l’aide de la méthode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la classe **DocumentClient**. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Cette classe utilisée à titre d’exemple contient la lecture d’un appareil et un appel à la méthode CreateDocumentAsync pour insérer une nouvelle lecture d’appareil dans une collection.

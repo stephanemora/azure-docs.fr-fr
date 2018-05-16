@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics sur IoT Edge (version préliminaire)
 
@@ -60,11 +60,10 @@ Vous pouvez suivre [ce didacticiel pas à pas](https://docs.microsoft.com/azure/
 
 
 #### <a name="create-an-asa-edge-job"></a>Créer une tâche ASA Edge
-1. Depuis le portail Azure, créez une nouvelle tâche Stream Analytics. [Lien direct pour créer une nouvelle tâche ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
 > [!Note]
-> Vous pouvez créer des tâches Edge dans toutes les régions prises en charge par ASA, **sauf dans la région « États-Unis de l’Ouest 2 »**.
-> Cette limitation sera supprimée sous peu.
+> Ce didacticiel est consacré à la création d’un travail ASA à l’aide du portail Azure. Vous pouvez également [utiliser le plug-in Visual Studio pour créer un travail ASA Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs).
+
+1. Depuis le portail Azure, créez une nouvelle tâche Stream Analytics. [Lien direct pour créer une nouvelle tâche ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. Dans l’écran de création, sélectionnez **Edge** en tant qu’**environnement d’hébergement** (voir l’image suivante) ![Création de la tâche](media/stream-analytics-edge/ASAEdge_create.png)
 3. Définition de la tâche
@@ -147,7 +146,6 @@ Cependant, les fonctionnalités suivantes ne sont pas encore prises en charge po
 * Fonctions Azure ML.
 * Utilisation de plus de 14 agrégats dans une seule étape.
 * Format AVRO pour l’entrée/sortie. À ce stade, seuls les formats CSV et JSON sont pris en charge.
-* Compression d’entrée JSON.
 * Les opérateurs SQL suivants :
     * AnomalyDetection
     * Opérateurs géospatiaux :
@@ -210,6 +208,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Plus d’informations sur Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [Didacticiel pour ASA sur IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Envoyer des commentaires à l’équipe à l’aide de ce questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Développer des travaux Edge Stream Analytics avec les outils Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

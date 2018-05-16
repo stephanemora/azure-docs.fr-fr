@@ -1,22 +1,23 @@
 ---
-title: "Configurer l’accélération automatique de la connexion pour une application à l’aide d’une stratégie de découverte du domaine d’accueil | Microsoft Docs"
-description: "Explique ce qu’est un locataire Azure AD et comment gérer Azure depuis Azure Active Directory."
+title: Configurer l’accélération automatique de la connexion pour une application à l’aide d’une stratégie de découverte du domaine d’accueil | Microsoft Docs
+description: Explique ce qu’est un locataire Azure AD et comment gérer Azure depuis Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
-ms.author: billmath
-ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.openlocfilehash: 5df12f905595c9b3e8caa8f372b9ba7b54672f81
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer l’accélération automatique de la connexion pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -136,6 +137,7 @@ Nous allons utiliser des applets de commande PowerShell Azure AD dans le cadre d
 - Répertorier les applications pour lesquelles une stratégie est configurée.
 
 ### <a name="prerequisites"></a>Prérequis
+
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies sur des principaux de service d’application dans Azure AD.
 
 1.  Pour commencer, téléchargez la dernière préversion des applets de commande Azure AD PowerShell. 
@@ -158,7 +160,7 @@ Dans cet exemple, vous créez une stratégie qui accélère automatiquement les 
 
 #### <a name="step-1-create-an-hrd-policy"></a>Étape 1 : Créer une stratégie de découverte du domaine d’accueil
 ``` powershell
-New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Si vous avez un domaine fédéré unique qui authentifie les utilisateurs pour les applications, vous devez créer uniquement une stratégie de découverte du domaine d’accueil.  

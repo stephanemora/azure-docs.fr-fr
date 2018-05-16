@@ -1,6 +1,6 @@
 ---
 title: Modes Transactions et Verrouillage dans les Collections fiables Azure Service Fabric | Microsoft Docs
-description: "Verrouillage et transactions des collections fiables et gestionnaire d’état fiable Azure Service Fabric."
+description: Verrouillage et transactions des collections fiables et gestionnaire d’état fiable Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9d431d94a6df9636a48e1b2aaa59aaa576e2dc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Modes Transactions et Verrouillage dans les Collections fiables Azure Service Fabric
 
 ## <a name="transaction"></a>Transaction
 Une transaction est une séquence d’opérations effectuées en tant qu’unité logique de travail unique.
-Une transaction doit présenter les propriétés ACID suivantes. (voir : https://technet.microsoft.com/en-us/library/ms190612)
+Une transaction doit présenter les propriétés ACID suivantes. Consultez https://technet.microsoft.com/library/ms190612).
 * **Atomicité** : une transaction doit correspondre à une unité de travail atomique. En d’autres termes, soit toutes les modifications de données sont effectuées, soit aucune n’est effectuée.
 * **Cohérence** : une fois terminée, une transaction doit laisser toutes les données dans un état cohérent. Toutes les structures de données internes doivent être correctes à la fin de la transaction.
 * **Isolation** : les modifications apportées par des transactions concurrentes doivent être isolées des modifications apportées par d’autres transactions simultanées. Le niveau d’isolation utilisé pour une opération dans une ITransaction est déterminé par le IReliableState effectuant l’opération.

@@ -1,6 +1,6 @@
 ---
 title: Présentation des fonctions de fenêtrage d’Azure Stream Analytics
-description: Cet article décrit les trois fonctions de fenêtrage (bascules, récurrentes, glissantes) qui sont utilisées dans les travaux Azure Stream Analytics.
+description: Cet article décrit quatre fonctions de fenêtrage (bascules, récurrentes, glissantes, session) qui sont utilisées dans les travaux Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,35 +8,48 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/30/2018
+ms.openlocfilehash: dfc59c8d976720ddb313c2e9d29e68c56a8d49f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="introduction-to-stream-analytics-window-functions"></a>Introduction aux fonctions de fenêtrage de Stream Analytics
-Dans de nombreux scénarios de diffusion en continu en temps réel, il est nécessaire de n’effectuer des opérations que sur les données contenues dans des fenêtres temporelles. La prise en charge native des fonctions de fenêtrage est une fonctionnalité essentielle d’Azure Stream Analytics qui déplace le curseur de productivité des développeurs dans la création de tâches complexes de traitement de flux. Stream Analytics permet aux développeurs d’utiliser des fenêtres [**bascules**](https://msdn.microsoft.com/library/dn835055.aspx), [**récurrentes**](https://msdn.microsoft.com/library/dn835041.aspx) et [**glissantes**](https://msdn.microsoft.com/library/dn835051.aspx) pour effectuer des opérations temporelles sur des données de diffusion en continu. Il est important de noter que tous les opérations de [fenêtrage](https://msdn.microsoft.com/library/dn835019.aspx) renvoient les résultats à la **fin** de la fenêtre. La sortie de la fenêtre sera un événement unique qui dépendra de la fonction d’agrégation utilisée. L’événement aura l’horodatage de la fin de la fenêtre ; toutes les fonctions de fenêtrage sont définies avec une longueur fixe. Enfin, il est important de noter que toutes les fonctions de fenêtrage doivent être utilisées dans une clause [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
+# <a name="introduction-to-stream-analytics-windowing-functions"></a>Présentation des fonctions de fenêtrage de Stream Analytics
+Dans les scénarios de streaming en temps réel, il est courant d’effectuer des opérations sur les données contenues dans des fenêtres temporelles. Stream Analytics a une prise en charge native des fonctions de fenêtrage, permettant aux développeurs de créer des travaux de traitement de flux complexes avec un minimum d’effort.
+
+Il existe quatre types de fenêtres temporelles : [**Bascules**](https://msdn.microsoft.com/library/dn835055.aspx), [**Récurrentes**](https://msdn.microsoft.com/library/dn835041.aspx), [ **Glissantes**](https://msdn.microsoft.com/library/dn835051.aspx) et **Session**.  Vous utilisez les fonctions de fenêtre dans la clause [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) de la syntaxe de requête dans vos travaux Stream Analytics.
+
+Toutes les opérations de [fenêtrage](https://msdn.microsoft.com/library/dn835019.aspx) renvoient les résultats à la **fin** de la fenêtre. La sortie de la fenêtre sera un événement unique qui dépendra de la fonction d’agrégation utilisée. L’événement de sortie aura l’horodatage de la fin de la fenêtre et toutes les fonctions de fenêtrage sont définies avec une longueur fixe. 
 
 ![Concepts des fonctions de fenêtrage de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
 ## <a name="tumbling-window"></a>Fenêtre bascule
-Les fonctions de fenêtre bascule sont utilisées pour segmenter un flux de données en segments temporels distincts et exécuter une fonction sur ces segments, comme dans l’exemple ci-dessous. Les principales caractéristiques d’une fenêtre bascule sont les suivantes : elles se répètent, elles ne se chevauchent pas et un événement ne peut pas appartenir à plusieurs fenêtres bascules.
+Les fonctions de fenêtre bascule sont utilisées pour segmenter un flux de données en segments temporels distincts et exécuter une fonction sur ces segments, comme dans l’exemple ci-dessous. Les principales caractéristiques des fenêtres bascules sont les suivantes : elles se répètent, elles ne se chevauchent pas et un événement ne peut pas appartenir à plusieurs fenêtres bascules.
 
-![Introduction aux fonctions de fenêtre bascule de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
+![Fenêtre bascule Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Fenêtre récurrente
-Les fonctions de fenêtre récurrente font des bonds d’une durée fixe dans le temps. Il peut être facile de les considérer comme des fenêtres bascules pouvant se chevaucher : par conséquent, les événements peuvent appartenir au jeu de résultats de plusieurs fenêtres récurrentes. Pour créer une fenêtre récurrente identique à une fenêtre bascule, il suffit de spécifier une taille de bond égale à la taille de la fenêtre. 
+Les fonctions de fenêtre récurrente font des bonds d’une durée fixe dans le temps. Il peut être facile de les considérer comme des fenêtres bascules pouvant se chevaucher : par conséquent, les événements peuvent appartenir au jeu de résultats de plusieurs fenêtres récurrentes. Pour créer une fenêtre récurrente identique à une fenêtre bascule, spécifiez une taille de bond égale à la taille de la fenêtre. 
 
-![Introduction aux fonctions de fenêtre récurrente de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
+![Fenêtre récurrente Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Fenêtre glissante
 Les fonctions de fenêtre glissante, à la différence des fenêtres bascules ou récurrentes, ne génèrent une sortie **que** lorsqu’un événement se produit. Chaque fenêtre a au moins un événement et avance en permanence d’un € (epsilon). Comme pour les fenêtres récurrentes, les événements peuvent appartenir à plusieurs fenêtres glissantes.
 
-![Introduction aux fonctions de fenêtre glissante de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
+![Fenêtre glissante Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## <a name="getting-help-with-window-functions"></a>Obtenir de l’aide sur les fonctions de fenêtrage
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+## <a name="session-window-preview"></a>Fenêtre session (préversion)
+Les fonctions de fenêtre session regroupent les événements qui arrivent au même moment, en filtrant les périodes de temps où il n’existe aucune donnée. Il existe trois paramètres principaux : délai d’expiration, durée maximale et clé de partitionnement (facultative).
+
+![Fenêtre session Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
+
+Une fenêtre de session commence lorsque le premier événement se produit. Si un autre événement se produit dans le délai d’expiration spécifié à partir du dernier événement réceptionné, alors la fenêtre s’étend pour inclure le nouvel événement. Dans le cas contraire, si aucun événement ne se produit dans le délai imparti, la fenêtre est fermée une fois le délai expiré.
+
+Si des événements continuent à se produire durant le délai d’expiration spécifié, la fenêtre de session continuera à s’étendre jusqu'à ce que la durée maximale soit atteinte. Les intervalles de vérification de la durée maximale sont définis pour être de la même taille que la durée maximale spécifiée. Par exemple, si la durée maximale est égale à 10, alors les vérifications pour voir si la fenêtre dépasse la durée maximale se produisent à t = 0, 10, 20, 30, etc.
+
+Lorsqu’une clé de partition est fournie, les événements sont regroupés par la clé et la fenêtre de session est appliquée indépendamment à chaque groupe. Ce partitionnement est utile lorsque vous avez besoin de fenêtres de session différentes pour différents utilisateurs ou appareils.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

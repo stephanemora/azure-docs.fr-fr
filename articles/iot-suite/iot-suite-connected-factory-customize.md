@@ -1,13 +1,13 @@
 ---
-title: "Personnaliser la solution Usine connectée - Azure | Microsoft Docs"
-description: "Découvrez comment personnaliser le comportement de la solution préconfigurée Usine connectée."
-services: 
+title: Personnaliser la solution Usine connectée - Azure | Microsoft Docs
+description: Découvrez comment personnaliser le comportement de l’accélérateur de solution Usine connectée.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: c#
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5d074a5cf0dd5191b5d94531068341ad1b953391
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser la façon dont la solution Usine connectée présente les données à partir de vos serveurs OPC UA
+# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser la façon dont l’accélérateur de solution Usine connectée présente les données à partir de vos serveurs OPC UA
 
-La solution Usine connectée agrège et affiche les données des serveurs OPC UA qui y sont connectés. Vous pouvez parcourir les serveurs OPC UA et leur envoyer des commandes dans votre solution. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
+La solution Usine connectée agrège et affiche les données des serveurs OPC UA qui y sont connectés. Vous pouvez parcourir les serveurs OPC UA et leur envoyer des commandes dans votre solution. Pour plus d’informations sur OPC UA, consultez les [Questions fréquentes (FAQ) sur l’Usine connectée](iot-suite-faq-cf.md).
 
 Des exemples de données agrégées dans la solution incluent l’efficacité globale des équipements (OEE) et les indicateurs de performance clés (KPI), que vous pouvez afficher dans le tableau de bord au niveau d’une usine, d’une ligne de production et d’un poste. La capture d’écran suivante illustre les valeurs d’OEE et de KPI pour le poste d’assemblage **Assembly** de la ligne de production **Production line 1** dans l’usine de **Munich** :
 
@@ -61,33 +61,33 @@ Vous pouvez parcourir les éléments de données qu’un serveur OPC UA peut env
 
     ![Éléments publiés][img-published]
 
-1. Si vous êtes un *administrateur* dans la solution, vous pouvez choisir de publier un élément de données pour le rendre disponible dans la solution Usine connectée. En tant qu’administrateur, vous pouvez également modifier la valeur des éléments de données et appeler des méthodes sur le serveur OPC UA.
+1. Si vous êtes *administrateur* de la solution, vous pouvez choisir de publier un élément de données pour le rendre disponible dans la solution Usine connectée. En tant qu’administrateur, vous pouvez également modifier la valeur des éléments de données et appeler des méthodes sur le serveur OPC UA.
 
 ## <a name="map-the-data"></a>Mapper les données
 
-La solution Usine connectée mappe et agrège les éléments de données publiés à partir du serveur OPC UA dans les différentes vues de la solution. La solution Usine connectée se déploie sur votre compte Azure quand vous la provisionnez. Un fichier JSON de la solution Visual Studio Usine connectée stocke ces informations de mappage. Vous pouvez afficher et modifier ce fichier de configuration JSON dans la solution Visual Studio Usine connectée. Vous pouvez redéployer la solution une fois que vous apportez une modification.
+La solution Usine connectée mappe et agrège les éléments de données publiés à partir du serveur OPC UA dans les différentes vues de la solution. La solution Usine connectée est déployée dans votre compte Azure quand vous la provisionnez. Un fichier JSON de la solution Visual Studio Usine connectée stocke ces informations de mappage. Vous pouvez afficher et modifier ce fichier de configuration JSON dans la solution Visual Studio Usine connectée. Vous pouvez redéployer la solution une fois que vous apportez une modification.
 
 Vous pouvez utiliser le fichier de configuration pour :
 
 - Modifier les usines, les lignes de production existantes et les postes simulés existants.
 - Mapper les données des serveurs OPC UA réels que vous connectez à la solution.
 
-Pour plus d’informations sur le mappage et l’agrégation des données en fonction de vos besoins, consultez [Guide pratique pour configurer la solution préconfigurée Usine connectée](iot-suite-connected-factory-configure.md).
+Pour plus d’informations sur le mappage et l’agrégation des données en fonction de vos besoins, consultez [Guide pratique pour configurer l’accélérateur de solution Usine connectée](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Déployer les modifications
 
-Une fois que vous avez apporté toutes les modifications requises au fichier **ContosoTopologyDescription.json**, vous devez redéployer la solution Usine connectée dans votre compte Azure.
+Une fois que vous avez apporté toutes les modifications nécessaires au fichier **ContosoTopologyDescription.json**, vous devez redéployer la solution Usine connectée dans votre compte Azure.
 
 Le référentiel **azure-iot-connected-factory** inclut un script PowerShell **build.ps1** que vous pouvez utiliser pour régénérer et déployer la solution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la solution préconfigurée Usine connectée, consultez les articles suivants :
+Pour en savoir plus sur l’accélérateur de solution Usine connectée, consultez les articles suivants :
 
-* [Procédure pas à pas de la solution préconfigurée d’usine connectée][lnk-rm-walkthrough]
-* [Déployer une passerelle pour la solution Usine connectée][lnk-connect-cf]
+* [Procédure pas à pas de l’accélérateur de solution Usine connectée][lnk-rm-walkthrough]
+* [Déployer une passerelle pour l’Usine connectée][lnk-connect-cf]
 * [Autorisations sur le site azureiotsuite.com][lnk-permissions]
-* [FAQ sur la fabrique connectée](iot-suite-faq-cf.md)
+* [Questions fréquentes (FAQ) sur l’Usine connectée](iot-suite-faq-cf.md)
 * [FAQ][lnk-faq]
 
 

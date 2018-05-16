@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
 
@@ -137,7 +137,8 @@ En vous aidant de la durée de la requête et des attentes de requête, vous pou
 
 ### <a name="analyze-data-and-create-alerts"></a>Analyser les données et créer des alertes
 
-Vous pouvez facilement créer des alertes avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [Recherche dans les journaux](log-analytics-log-searches.md) que vous pouvez utiliser pour créer des alertes :
+Vous pouvez facilement [créer des alertes](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [recherche dans les journaux](log-analytics-log-searches.md) que vous pouvez utiliser pour créer des alertes :
+
 
 
 *DTU élevé sur Azure SQL Database*
@@ -158,18 +159,7 @@ AzureMetrics
 | render timechart
 ```
 
-Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains seuils sont atteints pour Azure SQL Database comme pour les pools élastiques. Pour configurer une alerte pour votre espace de travail Log Analytics :
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Pour configurer une alerte pour votre espace de travail
-
-1. Accédez au [portail OMS](http://mms.microsoft.com/), puis connectez-vous.
-2. Ouvrez l’espace de travail configuré pour la solution.
-3. Sur la page Vue d’ensemble, cliquez sur la vignette **Azure SQL Analytics (version préliminaire)**.
-4. Exécutez l’un des exemples de requêtes.
-5. Dans la recherche dans les journaux, cliquez sur **Alerte**.  
-![création d’une alerte dans la recherche](./media/log-analytics-azure-sql/create-alert01.png)
-6. Sur la page **Ajouter une règle d’alerte**, configurez les propriétés appropriées et les seuils spécifiques, puis cliquez sur **Enregistrer**. 
-![ajout d’une règle d’alerte](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

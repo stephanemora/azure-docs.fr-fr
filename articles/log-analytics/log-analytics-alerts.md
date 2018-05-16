@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Comprendre les alertes dans Log Analytics
 
@@ -67,7 +67,7 @@ Les règles d’alerte sont définies par les détails suivants :
  
     - **Fausses alertes**. Parfois, les requêtes d’alerte sont conçues pour identifier l’absence d’événements. C’est par exemple le cas lorsque vous recherchez des pulsations manquantes au moment où une machine virtuelle est mise hors ligne. Comme nous l’avons dit plus haut, si la pulsation ne peut pas faire l’objet d’une recherche dans la fenêtre de temps définie pour l’alerte, une alerte est alors générée. En effet, les données de pulsation n’étaient pas disponibles pour recherche. Entendez par là qu’elles étaient absentes. Cela équivaut à une machine virtuelle mise hors ligne de manière légitime. Elle ne génère aucune donnée de pulsation. L’exécution de la requête le jour suivant dans la fenêtre de temps correspondante indique qu’il y avait bien des pulsations, mais que le système d’alerte a échoué. En réalité, les pulsations ne pouvaient pas encore faire l’objet d’une recherche, car la fenêtre de temps pour l’alerte était trop limitée.
 
-- **Fréquence**.  Spécifie la fréquence d’exécution et d’utilisation de la requête pour rendre les alertes plus réactives dans le cas d’une utilisation normale. Cette valeur peut être comprise entre 5 minutes et 24 heures et doit être inférieure ou égale à la fenêtre de temps définie pour l’alerte.  Si la valeur est supérieure à celle de la fenêtre de temps, vous risquez de manquer des enregistrements.<br>Si l’objectif est la fiabilité pour des délais atteignant 30 minutes et que le délai d’attente normal est de 10 minutes, la fenêtre de temps doit être d’une heure et la fréquence de 10 minutes. Cela déclenche une alerte concernant les données dont le délai d’ingestion est de 10 minutes, de 10 à 20 minutes après le moment où les données d’alerte sont générées.<br>Pour éviter de créer plusieurs alertes pour les mêmes données, la fenêtre de temps étant trop étendue, vous pouvez utiliser l’option [Supprimer les alertes](log-analytics-tutorial-response.md#create-alerts). Elle vous permet de supprimer des alertes au moins pendant la fenêtre de temps définie.
+- **Fréquence**.  Spécifie la fréquence d’exécution et d’utilisation de la requête pour rendre les alertes plus réactives dans le cas d’une utilisation normale. Cette valeur peut être comprise entre 5 minutes et 24 heures et doit être inférieure ou égale à la fenêtre de temps définie pour l’alerte.  Si la valeur est supérieure à celle de la fenêtre de temps, vous risquez de manquer des enregistrements.<br>Si l’objectif est la fiabilité pour des délais atteignant 30 minutes et que le délai d’attente normal est de 10 minutes, la fenêtre de temps doit être d’une heure et la fréquence de 10 minutes. Cela déclenche une alerte concernant les données dont le délai d’ingestion est de 10 minutes, de 10 à 20 minutes après le moment où les données d’alerte sont générées.<br>Pour éviter de créer plusieurs alertes pour les mêmes données, la fenêtre de temps étant trop étendue, vous pouvez utiliser l’option Supprimer les alertes. Elle vous permet de supprimer des alertes au moins pendant la fenêtre de temps définie.
   
 - **Seuil**. Les résultats de la recherche dans les journaux sont évalués pour déterminer si une alerte doit être créée. Le seuil est différent pour chaque type de règle d’alerte.
 

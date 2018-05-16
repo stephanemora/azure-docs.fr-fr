@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB : Développer avec l’API Graph dans .NET
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
@@ -122,7 +122,7 @@ Par exemple, nous allons travailler avec un réseau social simple composé de qu
 L’espace de noms `Microsoft.Azure.Graphs.Elements` fournit les classes `Vertex`, `Edge`, `Property` et `VertexProperty` pour la désérialisation de réponses GraphSON en objets .NET bien définis.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>Exécuter Gremlin à l’aide de CreateGremlinQuery
-Gremlin, tout comme SQL, prend en charge les opérations de lecture, d’écriture et d’interrogation. Par exemple, l’extrait de code suivant montre comment créer des vertex, des bords, effectuer quelques exemples de requêtes à l’aide de `CreateGremlinQuery<T>`et itérer de manière asynchrone dans ces résultats à l’aide de `ExecuteNextAsync` et de `HasMoreResults.
+Gremlin, tout comme SQL, prend en charge les opérations de lecture, d’écriture et d’interrogation. Par exemple, l’extrait de code suivant montre comment créer des vertex et des bords, effectuer quelques exemples de requête à l’aide de `CreateGremlinQuery<T>` et itérer de manière asynchrone dans ces résultats à l’aide de `ExecuteNextAsync` et `HasMoreResults`.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

@@ -1,8 +1,8 @@
 ---
-title: "Python : opération de gestion du système de fichiers sur Azure Data Lake Store | Microsoft Docs"
-description: "Découvrez comment utiliser le kit de développement logiciel (SDK) Python avec le système de fichiers de Data Lake Store."
+title: 'Python : opération de gestion du système de fichiers sur Azure Data Lake Store | Microsoft Docs'
+description: Découvrez comment utiliser le kit de développement logiciel (SDK) Python avec le système de fichiers de Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 19e41cb0bb22bf27db4581954f1f6e68b8a941c2
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6e92eed5e4083c9b8063318b2a9139e20f53de1a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Store à l’aide de Python
 > [!div class="op_single_selector"]
@@ -32,6 +32,7 @@ Dans cet article, vous apprenez à utiliser le kit de développement logiciel (S
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -43,7 +44,7 @@ Dans cet article, vous apprenez à utiliser le kit de développement logiciel (S
 Pour utiliser Data Lake Store avec Python, vous devez installer trois modules.
 
 * Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory, etc.
-* Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion des comptes Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules de gestion Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion des comptes Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules de gestion Azure Data Lake Store](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
 * Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules du système de fichiers Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilisez les commandes suivantes pour installer les modules.

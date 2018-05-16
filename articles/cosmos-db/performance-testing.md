@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 3b908f1df9228505b2f3bce18bd42d9b502844c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e4995146433d0090849fe17175b152a6e45809f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .N
     Press any key to exit...
 
 
-**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit approvisionné de la collection. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, démarrez plusieurs instances de l’application sur d’autres ordinateurs clients. Si vous avez besoin d’aide pour cette étape, envoyez un e-mail à askcosmosdb@microsoft.com ou remplissez un ticket de support à partir du [portail Azure](https://portal.azure.com).
+**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit provisionné de la collection ou d’un ensemble de collections. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, démarrez plusieurs instances de l’application sur d’autres ordinateurs clients. Si vous avez besoin d’aide pour cette étape, envoyez un e-mail à askcosmosdb@microsoft.com ou remplissez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
 Une fois l’application exécutée, vous pouvez tester des [stratégies d’indexation](indexing-policies.md) et des [niveaux de cohérence](consistency-levels.md) différents pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
 

@@ -1,25 +1,25 @@
 ---
-title: "Gérer l’authentification unique pour le proxy d’application Azure AD | Microsoft Docs"
-description: "Comprendre les bases de l’authentification unique avec le proxy d’application"
+title: Gérer l’authentification unique pour le proxy d’application Azure AD | Microsoft Docs
+description: Comprendre les bases de l’authentification unique avec le proxy d’application
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: barbkess
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 60422b4c8256df024bbc870fc43ec6b491f674f1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 24578ba933b56517053ecfa434a0a58ba6c863a6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Comment le proxy d’application Azure AD fournit-il l’authentification unique ?
 

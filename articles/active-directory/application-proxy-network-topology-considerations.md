@@ -1,25 +1,25 @@
 ---
-title: "Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory | Microsoft Docs"
-description: "Couvre les considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure AD."
+title: Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory | Microsoft Docs
+description: Couvre les considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure AD.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f4ca4856333bf8b10a00952356080ed332dc266b
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e8f292f41c61ef208c316325f768dbdeaac88d84
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory
 
@@ -172,7 +172,7 @@ Vous pouvez également envisager d’utiliser une autre variante dans cette situ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activer le proxy d’application](active-directory-application-proxy-enable.md)
-- [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
+- [Activer le proxy d’application](manage-apps/application-proxy-enable.md)
+- [Activer l’authentification unique](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 - [Activer l’accès conditionnel](application-proxy-enable-remote-access-sharepoint.md)
 - [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)

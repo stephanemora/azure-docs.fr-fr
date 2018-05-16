@@ -1,13 +1,13 @@
 ---
-title: "Questions fréquentes sur la solution d’usine connectée - Azure | Microsoft Docs"
-description: "Questions fréquentes sur l’usine connectée IoT Suite"
-services: 
+title: Questions fréquentes (FAQ) sur la solution d’usine connectée - Azure | Microsoft Docs
+description: Questions fréquentes sur l’accélérateur de solution d’usine connectée
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Questions fréquentes sur la solution préconfigurée d’usine connectée IoT Suite
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 
-Voir aussi les [questions fréquentes (FAQ)](iot-suite-faq.md) d’ordre général sur IoT Suite.
+Voir aussi les [questions fréquentes (FAQ)](iot-suite-faq.md) d’ordre général sur les accélérateurs de solution IoT.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>Où trouver le code source de la solution préconfigurée ?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Où trouver le code source de l’accélérateur de solution ?
 
 Le code source est stocké dans le dépôt GitHub suivant :
 
-* [Solution préconfigurée d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
+* [Accélérateur de solution d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>Qu’est-ce que l’UA OPC ?
 
@@ -40,7 +40,7 @@ OPC UA (Unified Architecture) est un standard d’interopérabilité indépendan
 * Technology
 * Processus
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Pourquoi le choix de Microsoft s’est-il porté sur l’UA OPC en matière de solution préconfigurée d’usine connectée ?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Pourquoi le choix de Microsoft s’est-il porté sur OPC UA en matière d’accélérateur de solution d’usine connectée ?
 
 Microsoft a choisi l’UA OPC, car il s’agit d’une norme ouverte, non propriétaire, ne dépendant pas d’une plateforme, reconnue par le secteur et éprouvée. Elle est exigée pour les solutions d’architecture de référence Industrie 4.0 (RAMI4.0) assurant l’interopérabilité entre un large ensemble de processus de fabrication et les équipements. Microsoft constate une demande de solutions Industrie 4.0 chez ses clients. La prise en charge de l’UA OPC permet de supprimer la barrière empêchant les clients d’atteindre leurs objectifs et leur apporte une valeur commerciale instantanée.
 
@@ -100,7 +100,7 @@ Si vous avez déployé votre solution avec le script `build.ps1` du [dépôt](ht
 
 Vous pouvez aussi trouver la chaîne de connexion dans le portail Azure. Dans la ressource IoT Hub du groupe de ressources de votre déploiement, recherchez les paramètres de chaîne de connexion.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Quels appareils IoT Hub la simulation d’usine connectée utilise ?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Quels sont les appareils IoT Hub utilisés par la simulation d’usine connectée ?
 
 La simulation inscrit elle-même les appareils suivants :
 
@@ -144,15 +144,15 @@ Inspecter les données envoyées par l’un des appareils serveur de publication
 
 Si vous constatez qu’aucune donnée n’a été envoyée à IoT Hub, c’est qu’il y a un problème au niveau de la simulation. La première étape d’analyse que vous devez effectuer consiste à analyser les fichiers journaux des composants de simulation. Consultez [Comment obtenir les données de journal des composants de simulation ?](#how-can-i-get-log-data-from-the-simulation-components). Ensuite, essayez d’arrêter et de démarrer la simulation et si aucune donnée n’est toujours envoyée, mettez entièrement à jour la simulation. Consultez [Comment mettre à jour la simulation dans la machine virtuelle ?](#how-do-i-update-the-simulation-in-the-vm).
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Comment activer une carte interactive dans une solution Connected Factory ?
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Comment activer une carte interactive dans ma solution d’usine connectée ?
 
-Pour activer une carte interactive dans une solution Connected Factory, vous devez disposer d’un plan API Bing Cartes pour les entreprises.
+Pour activer une carte interactive dans votre solution d’usine connectée, vous devez disposer d’un plan Bing Maps API for Enterprise.
 
-Lors d’un déploiement à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), le processus de déploiement vérifie que votre abonnement a une API Bing Maps activée pour le plan Entreprise et déploie automatiquement une carte interactive sur la fabrique connectée. Si ce n’est pas le cas, vous pouvez toujours activer une carte interactive dans votre déploiement comme suit :
+Lors d’un déploiement à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), le processus de déploiement vérifie que votre abonnement a un plan Bing Maps API for Enterprise activé et déploie automatiquement une carte interactive dans la solution d’usine connectée. Si ce n’est pas le cas, vous pouvez toujours activer une carte interactive dans votre déploiement comme suit :
 
-Lorsque vous déployez à l’aide du script `build.ps1` dans le référentiel GitHub de la fabrique connectée et que vous avez une API Bing Maps pour le plan Entreprise, définissez la variable d’environnement `$env:MapApiQueryKey` dans la fenêtre de création sur la clé de requête de votre plan. La carte interactive est ensuite automatiquement activée.
+Quand vous procédez au déploiement à l’aide du script `build.ps1` dans le dépôt GitHub d’usine connectée et que vous disposez d’un plan Bing Maps API for Enterprise, affectez à la variable d’environnement `$env:MapApiQueryKey` dans la fenêtre de génération la clé de requête de votre plan. La carte interactive est ensuite automatiquement activée.
 
-Si vous ne disposez pas d’un plan API Bing Maps pour le plan Entreprise, déployez la solution Connected Factory à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), ou à l’aide du script `build.ps1`. Ajoutez ensuite une API Bing Maps pour le plan Entreprise à votre abonnement, comme expliqué dans [Comment créer un compte API Bing Maps pour les entreprises ?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Recherchez la clé de requête de ce compte comme expliqué dans [Comment obtenir une clé de requête API Bing Maps pour les entreprises ?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) et enregistrez-la. Accédez au portail Azure et accédez à la ressource App Service dans votre déploiement de fabrique connectée. Accédez aux **Paramètres de l’application**, où vous trouverez une section **Paramètres de l’application**. Définissez **MapApiQueryKey** sur la clé de requête que vous avez obtenue. Enregistrez les paramètres, puis accédez à la **Vue d’ensemble** et redémarrez App Service.
+Si vous ne disposez pas d’un plan Bing Maps API for Enterprise, déployez la solution d’usine connectée à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou à l’aide du script `build.ps1`. Ajoutez ensuite une API Bing Maps pour le plan Entreprise à votre abonnement, comme expliqué dans [Comment créer un compte API Bing Maps pour les entreprises ?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Recherchez la clé de requête de ce compte comme expliqué dans [Comment obtenir une clé de requête API Bing Maps pour les entreprises ?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) et enregistrez-la. Accédez au portail Azure, puis à la ressource App Service dans le déploiement de votre solution d’usine connectée. Accédez aux **Paramètres de l’application**, où vous trouverez une section **Paramètres de l’application**. Définissez **MapApiQueryKey** sur la clé de requête que vous avez obtenue. Enregistrez les paramètres, puis accédez à la **Vue d’ensemble** et redémarrez App Service.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Comment créer un compte API Bing Cartes pour les entreprises
 
@@ -162,7 +162,7 @@ Vous pouvez obtenir gratuitement un plan *Bing Cartes pour les entreprises Trans
 
 ### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Comment obtenir une clé de requête API Bing Cartes pour les entreprises ?
 
-Une fois que vous avez créé votre plan API Bing Cartes pour les entreprises, ajoutez une ressource Bing Cartes pour les entreprises au groupe de ressources de votre solution Connected Factory sur le Portail Azure.
+Une fois que vous avez créé votre plan Bing Maps API for Enterprise, ajoutez une ressource Bing Maps for Enterprise au groupe de ressources de votre solution d’usine connectée dans le portail Azure.
 
 1. Sur le Portail Azure, accédez au groupe de ressources contenant votre plan API Bing Cartes pour les entreprises sur le Portail Azure.
 
@@ -182,13 +182,13 @@ Pour activer la carte interactive pendant un débogage local, affectez la valeur
 
 Pour modifier l’image statique qui s’affiche sur la page d’accueil du tableau de bord, remplacez l’image `WebApp\Content\img\world.jpg`. Ensuite, régénérez et redéployez l’application WebApp.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Comment utiliser les appareils d’un autre type qu’OPC UA avec Connected Factory ?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Comment utiliser des appareils d’un autre type qu’OPC UA avec la solution d’usine connectée ?
 
-Pour envoyer les données de télémétrie à Connected Factory à partir d’appareils d’un autre type qu’OPC UA :
+Pour envoyer des données de télémétrie à la solution d’usine connectée à partir d’appareils d’un autre type qu’OPC UA :
 
-1. [Configurez une nouvelle station dans la topologie Connected Factory](iot-suite-connected-factory-configure.md) dans le fichier `ContosoTopologyDescription.json`.
+1. [Configurez une nouvelle station dans la topologie d’usine connectée](iot-suite-connected-factory-configure.md) dans le fichier `ContosoTopologyDescription.json`.
 
-1. Ingérez les données de télémétrie dans un format JSON compatible avec Connected Factory :
+1. Ingérez les données de télémétrie dans un format JSON compatible avec la solution d’usine connectée :
 
     ```json
     [
@@ -206,12 +206,12 @@ Pour envoyer les données de télémétrie à Connected Factory à partir d’ap
 
 1. Le format de `<timestamp>` est `2017-12-08T19:24:51.886753Z`.
 
-1. Redémarrez le service Connected Factory App Service.
+1. Redémarrez l’App Service d’usine connectée.
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
+Vous pouvez également explorer certaines des autres fonctionnalités et capacités des accélérateurs de solution IoT :
 
-* [Présentation de la solution préconfigurée de maintenance prédictive](iot-suite-predictive-overview.md)
-* [Présentation de la solution préconfigurée d’usine connectée](iot-suite-connected-factory-overview.md)
+* [Présentation de l’accélérateur de solution de maintenance prédictive](iot-suite-predictive-overview.md)
+* [Présentation de l’accélérateur de solution d’usine connectée](iot-suite-connected-factory-overview.md)
 * [Sécurisation de l’Internet des objets de bout en bout](securing-iot-ground-up.md)

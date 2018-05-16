@@ -1,40 +1,58 @@
 ---
-title: Analyse des données sur les retards de vol avec Hive dans HDInsight - Azure | Microsoft Docs
-description: Découvrez comment utiliser Hive pour analyser les données sur les retards de vol avec HDInsight basé sur Linux, et exporter les données vers SQL Database à l’aide de Sqoop.
+title: 'Didacticiel : Effectuer des opérations d’extraction, de transformation et de chargement (ETL) à l’aide d’Apache Hive sur Azure HDInsight | Microsoft Docs'
+description: Découvrez comment extraire des données d’un jeu de données CSV brutes, les transformer dans Hive sur HDInsight, puis charger les données transformées dans la base de données Azure SQL à l’aide de Sqoop.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/19/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
+ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight basé sur Linux
+# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight
 
-Découvrez comment analyser les données sur les retards de vol avec Hive sur HDInsight basé sur Linux, et comment exporter les données vers Azure SQL Database à l’aide de Sqoop.
+Dans ce didacticiel, vous allez utiliser un fichier de données brutes CSV, l’importer dans un espace de stockage en cluster HDInsight, puis transformer les données à l’aide d’Apache Hive sur Azure HDInsight. Une fois les données transformées, chargez-les dans une base de données Azure SQL à l’aide d’Apache Sqoop. Dans cet article, vous allez utiliser des données de vol accessibles au public.
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur Azure HDInsight version 3.4 ou ultérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
+Ce didacticiel décrit les tâches suivantes : 
+
+> [!div class="checklist"]
+> * Télécharger l’exemple des données de vol
+> * Charger des données vers un cluster HDInsight
+> * Transformer les données à l’aide de Hive
+> * Créer une table dans la base de données Azure SQL
+> * Utiliser Sqoop pour exporter des données vers la base de données Azure SQL
+
+
+L’illustration suivante montre un flux d’application ETL standard.
+
+![Opération ETL à l’aide d’Apache Hive sur Azure HDInsight](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "Opération ETL à l’aide d’Apache Hive sur Azure HDInsight")
+
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
 ## <a name="prerequisites"></a>Prérequis
 
 
-* **Un cluster HDInsight**. Consultez la rubrique [Bien démarrer avec Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) pour savoir comment créer un cluster HDInsight basé sur Linux.
+* **Cluster Hadoop Linux sur HDInsight**. Consultez la rubrique [Bien démarrer avec Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) pour savoir comment créer un cluster HDInsight basé sur Linux.
 
 * **Base de données SQL Azure**. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started.md).
 
-* **Azure CLI**. Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure 1.0](../cli-install-nodejs.md) pour connaître les étapes à suivre.
+* **Azure CLI 2.0**. Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour connaître les étapes à suivre.
+
+* **Un client SSH**. Pour en savoir plus, consultez la page [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Téléchargement des données de vol
 
@@ -49,14 +67,16 @@ Découvrez comment analyser les données sur les retards de vol avec Hive sur HD
    | Champs |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Effacez tous les autres champs. 
 
-3. Sélectionnez **Télécharger**.
+3. Sélectionnez **Télécharger**. Vous obtenez un fichier .zip avec les champs de données que vous avez sélectionnés.
 
-## <a name="upload-the-data"></a>Téléchargement des données
+## <a name="upload-data-to-an-hdinsight-cluster"></a>Charger des données vers un cluster HDInsight
 
-1. Utilisez la commande suivante pour charger le fichier zip sur le nœud principal du cluster HDInsight :
+De nombreuses méthodes permettent de charger des données vers l’espace de stockage associé à un cluster HDInsight. Dans cette section, vous utilisez `scp` pour charger des données. Pour en savoir plus sur les autres façons de charger des données, consultez [Charger des données dans HDInsight](hdinsight-upload-data.md).
 
-    ```
-    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+1. Ouvrez une invite de commandes et utilisez la commande suivante pour charger le fichier .zip sur le nœud principal du cluster HDInsight :
+
+    ```bash
+    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
     ```
 
     Remplacez *FILENAME* par le nom du fichier zip. Remplacez *USERNAME* par la connexion SSH du cluster HDInsight. Remplacez *CLUSTERNAME* par le nom du cluster HDInsight.
@@ -64,38 +84,40 @@ Découvrez comment analyser les données sur les retards de vol avec Hive sur HD
    > [!NOTE]
    > Si vous utilisez un mot de passe pour authentifier votre connexion SSH, vous êtes invité à l’indiquer. Si vous utilisez une clé publique, vous pouvez avoir besoin d’utiliser le paramètre `-i` et de spécifier le chemin de la clé privée correspondante. Par exemple, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
-2. À la fin du chargement, connectez-vous au cluster par l’intermédiaire de SSH :
+2. À la fin du chargement, connectez-vous au cluster par l’intermédiaire de SSH. À l’invite de commandes, entrez la commande suivante :
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-
-    Pour en savoir plus, consultez la page [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
 3. Utilisez la commande suivante pour décompresser le fichier .zip :
 
-    ```
+    ```bash
     unzip FILENAME.zip
     ```
 
     Cette commande extrait un fichier .csv d’environ 60 Mo.
 
-4. Utilisez la commande suivante pour créer un répertoire de stockage HDInsight, puis copiez le fichier dans le répertoire :
+4. Utilisez les commandes suivantes pour créer un répertoire de stockage HDInsight, puis copiez le fichier .csv dans le répertoire :
 
-    ```
+    ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
-    hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
+    hdfs dfs -put <FILENAME>.csv /tutorials/flightdelays/data/
     ```
 
-## <a name="create-and-run-the-hiveql"></a>Création et exécution du HiveQL
+## <a name="transform-data-using-a-hive-query"></a>Transformer des données à l’aide d’une requête Hive
 
-Suivez les étapes décrites ici pour importer des données à partir du fichier .csv dans une table Hive nommée **Delays**.
+De nombreuses méthodes permettent d’exécuter un travail Hive sur un cluster HDInsight. Dans cette section, vous allez utiliser Beeline pour exécuter un travail Hive. Pour plus d’informations sur les autres méthodes d’exécution d’un travail Hive, consultez l’article relatif à [l’utilisation de Hive sur HDInsight](./hadoop/hdinsight-use-hive.md).
 
-1. Pour créer et modifier un fichier nommé **flightdelays.hql**, utilisez la commande suivante :
+Dans le cadre du travail Hive, vous allez importer les données du fichier .csv dans une table Hive nommée **Delays**.
 
-    ```
+1. À partir de l’invite SSH que vous avez déjà pour le cluster HDInsight, utilisez la commande suivante pour créer et modifier un fichier nommé **flightdelays.hql** :
+
+    ```bash
     nano flightdelays.hql
     ```
 
-    Utilisez le texte suivant comme contenu de ce fichier :
+2. Utilisez le texte suivant comme contenu de ce fichier :
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -157,17 +179,17 @@ Suivez les étapes décrites ici pour importer des données à partir du fichier
     FROM delays_raw;
     ```
 
-2. Pour enregistrer le fichier, utilisez Ctrl+X, puis Y.
+2. Pour enregistrer le fichier, appuyez sur **Échap**, puis entrez `:x`.
 
 3. Pour démarrer Hive et exécuter le fichier **flightdelays.hql**, utilisez la commande suivante :
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
 4. Dès l’exécution du script __flightdelays.hql__ terminée, utilisez la commande suivante pour ouvrir une session Beeline interactive :
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
@@ -187,13 +209,13 @@ Suivez les étapes décrites ici pour importer des données à partir du fichier
 
 6. Pour quitter Beeline, entrez `!quit` à l’invite de commandes.
 
-## <a name="create-a-sql-database"></a>Créer une base de données SQL
-
-Si vous disposez déjà d’une base de données SQL, vous devez obtenir le nom du serveur. Pour trouver le nom du serveur sur le [portail Azure](https://portal.azure.com), sélectionnez **Bases de données SQL**, puis filtrez sur le nom de la base de données que vous décidez d’utiliser. Le nom du serveur est répertorié dans la colonne **SERVEUR** .
-
-Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started.md) pour en créer une. Enregistrez le nom du serveur qui est utilisé pour la base de données.
-
 ## <a name="create-a-sql-database-table"></a>Créer une table de base de données SQL
+
+Cette section part du principe que vous avez déjà créé une base de données Azure SQL. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started.md) pour en créer une.
+
+Si vous disposez déjà d’une base de données SQL, vous devez obtenir le nom du serveur. Pour trouver le nom du serveur sur le [portail Azure](https://portal.azure.com), sélectionnez **Bases de données SQL**, puis filtrez sur le nom de la base de données que vous décidez d’utiliser. Le nom du serveur est répertorié dans la colonne **Nom du serveur**.
+
+![Obtenir les détails du serveur Azure SQL](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Obtenir les détails du serveur Azure SQL")
 
 > [!NOTE]
 > Il existe de nombreuses façons de se connecter à la base de données SQL et de créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
@@ -201,13 +223,13 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
 1. Pour installer FreeTDS, utilisez la commande suivante à partir d’une connexion SSH avec le cluster :
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. Dès l’installation terminée, utilisez la commande suivante pour vous connecter au serveur SQL Database. Remplacez **serverName** par le nom du serveur de base de données SQL. Remplacez **adminLogin** et **adminPassword** par les informations d’identification de la base de données SQL. Remplacez **databaseName** par le nom de la base de données.
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
@@ -225,7 +247,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
 4. À l’invite de commandes `1>` , entrez les lignes suivantes :
 
-    ```
+    ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
@@ -238,7 +260,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
     Utilisez la requête suivante pour vérifier que la table a été créée :
 
-    ```
+    ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
@@ -247,16 +269,18 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-    databaseName       dbo     delays      BASE TABLE
+    databaseName       dbo             delays        BASE TABLE
     ```
 
 5. Entrée `exit` at the `1>` .
 
-## <a name="export-data-with-sqoop"></a>Exportation de données avec Sqoop
+## <a name="export-data-to-sql-database-using-sqoop"></a>Exporter des données vers la base de données SQL à l’aide de Sqoop
+
+Dans les sections précédentes, vous avez copié les données transformées dans `/tutorials/flightdelays/output`. Dans cette section, vous allez utiliser Sqoop pour exporter les données de « /tutorials/flightdelays/output » vers la table que vous avez créée dans la base de données Azure SQL. 
 
 1. Utilisez la commande suivante pour vérifier que Sqoop peut voir votre base de données SQL :
 
-    ```
+    ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
@@ -264,7 +288,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
 2. Utilisez la commande suivante pour exporter des données depuis hivesampletable dans la table des retards :
 
-    ```
+    ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
@@ -272,29 +296,38 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
 3. Après l’exécution de la commande sqoop, connectez-vous à la base de données à l’aide de l’utilitaire tsql :
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
     Utilisez les instructions suivantes pour vérifier que les données ont été exportées dans la table des retards :
 
-    ```
+    ```sql
     SELECT * FROM delays
     GO
     ```
 
-    Vous devez voir une liste des données dans la table. Tapez `exit` pour quitter l’utilitaire tsql.
+    Vous devez voir une liste des données dans la table. La table inclut le nom de la ville et le retard de vol moyen pour la ville en question. 
+
+    Tapez `exit` pour quitter l’utilitaire tsql.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce didacticiel, vous avez appris à effectuer des extractions, transformations et chargements à l’aide d’un cluster Apache Hadoop dans HDInsight. Passez au didacticiel suivant pour découvrir comment créer des clusters HDInsight Hadoop à la demande à l’aide d’Azure Data Factory.
+
+> [!div class="nextstepaction"]
+>[Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md)
 
 Pour découvrir d’autres façons d’utiliser les données dans HDInsight, consultez les articles suivants :
 
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
-* [Utilisation d’Oozie avec HDInsight][hdinsight-use-oozie]
-* [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop]
 * [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
 * [Développer des programmes MapReduce Java pour Hadoop sur HDInsight][hdinsight-develop-mapreduce]
 * [Développer des programmes MapReduce de diffusion en continu Python pour HDInsight][hdinsight-develop-streaming]
+* [Utilisation d’Oozie avec HDInsight][hdinsight-use-oozie]
+* [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop]
+
+
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

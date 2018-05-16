@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gérer des instances dans Fonctions durables (Azure Functions)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-Pour les langages autres que .NET, la liaison de sortie de la fonction peut être utilisée pour démarrer également de nouvelles instances. Dans ce cas, tout objet sérialisable JSON ayant les trois paramètres ci-dessus comme champs peut être utilisé. Considérez par exemple la fonction Node.js suivante :
+Pour les langages autres que .NET, la liaison de sortie de la fonction peut être utilisée pour démarrer également de nouvelles instances. Dans ce cas, tout objet sérialisable JSON ayant les trois paramètres ci-dessus comme champs peut être utilisé. Considérez par exemple la fonction JavaScript suivante :
 
 ```js
 module.exports = function (context, input) {
@@ -77,6 +77,7 @@ La méthode [GetStatusAsync](https://azure.github.io/azure-functions-durable-ext
 * **CreatedTime** : Heure à laquelle la fonction de l’orchestrateur a commencé à s’exécuter.
 * **LastUpdatedTime** : Heure du dernier point de contrôle d’orchestration.
 * **Input** : entrée de la fonction sous forme de valeur JSON.
+* **CustomStatus** : état personnalisé de l’orchestration au format JSON. 
 * **Output** : sortie de la fonction sous forme de valeur JSON (si cette fonction est terminée). En cas d’échec de la fonction, cette propriété inclut les détails de l’échec. En cas d’interruption de la fonction de l’orchestrateur, cette propriété indique pour quel motif (le cas échéant).
 * **RuntimeStatus** : une des valeurs suivantes :
     * **Running** : l’instance a commencé à s’exécuter.
@@ -99,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Actuellement, les requêtes d’instances ne sont prises en charge que pour les fonctions d’orchestrateur C#.
-
 ## <a name="terminating-instances"></a>Arrêt des instances
 
 Vous pouvez arrêter une instance d’orchestration en cours d’exécution à l’aide de la méthode [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) de la classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Les deux paramètres sont une chaîne `instanceId` et `reason`, qui est écrite dans les journaux et dans l’état de l’instance. Une instance interrompue cesse de s’exécuter dès qu’elle atteint le point `await` suivant, ou s’arrête immédiatement si elle se trouve déjà sur un `await`. 
@@ -116,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> Actuellement, l’arrêt d’instance n’est pris en charge que pour les fonctions d’orchestrateur C#.
 
 > [!NOTE]
 > Actuellement, l’arrêt de l’instance ne se propage pas. Les fonctions et sous-orchestrations de l’activité s’exécutent entièrement, même si l’instance d’orchestration qui les a appelées a été arrêtée.
@@ -145,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Actuellement, le déclenchement d’événements n’est pris en charge que pour les fonctions d’orchestrateur C#.
 
 > [!WARNING]
 > S’il n’existe aucune instance d’orchestration avec l’*ID d’instance* spécifié ou si l’instance n’attend pas le *nom d’événement* spécifié, le message d’événement est ignoré. Pour plus d’informations sur ce comportement, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

@@ -1,11 +1,11 @@
 ---
-title: "Modèles d’API dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment personnaliser le contenu des pages API dans le portail des développeurs dans Gestion des API Azure."
+title: Modèles d’API dans Gestion des API Azure | Microsoft Docs
+description: Découvrez comment personnaliser le contenu des pages API dans le portail des développeurs dans Gestion des API Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 9abbdda2300fd8d51bec372624f0349455cf2b01
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modèles d’API dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -26,7 +26,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 Les modèles de cette section vous permettent de personnaliser le contenu des pages API dans le portail des développeurs.  
   
 -   [Liste d’API](#APIList)  
--   [Opération](#Product)  
+-   [opération](#Product)  
 -   [Exemples de code](#CodeSamples)  
     -   [Curl](#Curl)  
     -   [C#](#CSharp)  
@@ -38,7 +38,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="APIList"></a> Liste d’API  
  Le modèle **Liste d’API** vous permet de personnaliser le corps de la page Liste d’API dans le portail des développeurs.  
@@ -84,7 +84,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
   
 ### <a name="data-model"></a>Modèle de données  
   
-|Propriété|Type|Description|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |apis|Collection d’entités [API summary](api-management-template-data-model-reference.md#APISummary).|API visibles par l’utilisateur actuel.|  
   
@@ -339,14 +339,14 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
   
 ### <a name="data-model"></a>Modèle de données  
   
-|Propriété|Type|Description|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
-|apiId|string|ID de l’API actuelle.|  
-|apiName|string|Nom de l’API.|  
-|apiDescription|string|Description de l’API.|  
+|apiId|chaîne|ID de l’API actuelle.|  
+|apiName|chaîne|Nom de l’API.|  
+|apiDescription|chaîne|Description de l’API.|  
 |api|Entité [API summary](api-management-template-data-model-reference.md#APISummary).|API actuelle.|  
-|operation|[Opération](api-management-template-data-model-reference.md#Operation)|Opération actuellement affichée.|  
-|sampleUrl|string|URL de l’opération actuelle.|  
+|operation|[opération](api-management-template-data-model-reference.md#Operation)|Opération actuellement affichée.|  
+|sampleUrl|chaîne|URL de l’opération actuelle.|  
 |operationMenu|[Operation menu](api-management-template-data-model-reference.md#Menu)|Menu d’opérations pour cette API.|  
 |consoleUrl|URI|URI du bouton **Essayer**.|  
 |exemples|Collection d’entités [Code sample](api-management-template-data-model-reference.md#Sample).|Exemples de code pour l’opération actuelle.|  
@@ -1468,4 +1468,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
+Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

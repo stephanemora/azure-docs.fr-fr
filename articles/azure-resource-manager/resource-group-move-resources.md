@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -53,7 +53,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Si les ID client pour les abonnements source et de destination ne sont pas identiques, utilisez les méthodes suivantes pour rapprocher les ID client : 
+  Si les ID client pour les abonnements source et de destination ne sont pas identiques, utilisez les méthodes suivantes pour rapprocher les ID client :
 
   * [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
   * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -121,6 +121,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Cognitive Services
 * Content Moderator
 * Data Catalog
+* Data Factory : la version V1 peut être déplacée, mais le déplacement de la version V2 (préversion) n’est pas pris en charge.
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -147,7 +148,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Stockage
 * Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Stream Analytics - Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
-* Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
+* Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Il s’agit notamment des bases de données Azure SQL Database et Azure SQL Data Warehouse. 
 * Traffic Manager
 * Machines virtuelles : les machines virtuelles avec des disques gérés ne peuvent pas être déplacées. Voir [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
@@ -165,8 +166,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Base de données Azure pour MySQL
 * BizTalk Services
 * Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
-* Service de conteneur
-* Data Factory
+* Kubernetes Service
 * Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
 * ExpressRoute
@@ -203,13 +203,13 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre abonnement s’il 
 
 ## <a name="app-service-limitations"></a>limitations d’App Service
 
-Les limitations imposées diffèrent selon que les ressources App Service sont déplacées au sein d’un abonnement ou vers un nouvel abonnement. 
+Les limitations imposées diffèrent selon que les ressources App Service sont déplacées au sein d’un abonnement ou vers un nouvel abonnement.
 
 Les limitations décrites dans les sections suivantes s’appliquent à des certificats téléchargés, et non aux App Service Certificats. Vous pouvez déplacer des App Service Certificats vers un nouveau groupe de ressources ou un nouvel abonnement sans aucun problème. Si vous avez plusieurs applications Web qui utilisent le même App Service Certificate, commencez par déplacer toutes les applications Web, puis déplacer le certificat.
 
 ### <a name="moving-within-the-same-subscription"></a>Déplacement au sein d’un même abonnement
 
-Lorsque vous déplacez une application web _au sein du même abonnement_, vous ne pouvez pas déplacer les certificats SSL téléchargés. Toutefois, vous pouvez déplacer une application web vers le nouveau groupe de ressources sans emporter son certificat SSL téléchargé, et la fonctionnalité SSL de votre application peut continuer de fonctionner. 
+Lorsque vous déplacez une application web _au sein du même abonnement_, vous ne pouvez pas déplacer les certificats SSL téléchargés. Toutefois, vous pouvez déplacer une application web vers le nouveau groupe de ressources sans emporter son certificat SSL téléchargé, et la fonctionnalité SSL de votre application peut continuer de fonctionner.
 
 Si vous souhaitez déplacer le certificat SSL avec l’application web, suivez ces étapes :
 
@@ -227,7 +227,7 @@ Lors du déplacement d’une application Web _entre des abonnements_, les limite
     - Certificats SSL chargés ou importés
     - Environnements App Service
 - Toutes les ressources App Service du groupe de ressources doivent être déplacées simultanément.
-- Les ressources App Service ne peuvent être déplacées qu’à partir du groupe de ressources dans lequel elles ont été créées à l’origine. Si une ressource App Service n’est plus dans son groupe de ressources d’origine, elle doit d’abord réintégrer ce groupe avant de pouvoir être déplacée entre les abonnements. 
+- Les ressources App Service ne peuvent être déplacées qu’à partir du groupe de ressources dans lequel elles ont été créées à l’origine. Si une ressource App Service n’est plus dans son groupe de ressources d’origine, elle doit d’abord réintégrer ce groupe avant de pouvoir être déplacée entre les abonnements.
 
 ## <a name="classic-deployment-limitations"></a>Limitations relatives au déploiement Classic
 

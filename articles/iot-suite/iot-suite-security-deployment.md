@@ -1,12 +1,12 @@
 ---
-title: "Sécuriser votre déploiement de l’Internet des objets | Microsoft Docs"
-description: "Cet article explique comment sécuriser votre déploiement IoT"
-services: 
+title: Sécuriser votre déploiement de l’Internet des objets | Microsoft Docs
+description: Cet article explique comment sécuriser votre déploiement IoT
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 95c23341-16b0-4954-b3f2-d2e82ab7b367
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 3c2c5c045ad4786ed656fbaf99373644de244570
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c14d2082854fe88df9d1139c619b061699e443aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## <a name="iot-suite-cipher-suites"></a>Suites de chiffrement IoT Suite
+## <a name="iot-solution-accelerator-cipher-suites"></a>Suites de chiffrement de l’accélérateur de solution IoT
 
-Azure IoT Suite prend en charge les suites de chiffrement suivantes, dans cet ordre.
+Les accélérateurs de solution IoT prennent en charge les suites de chiffrement ci-dessous (dans cet ordre).
 
 | Suite de chiffrement | Longueur |
 | --- | --- |
@@ -42,10 +42,10 @@ Azure IoT Suite prend en charge les suites de chiffrement suivantes, dans cet or
 | TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
 ## <a name="see-also"></a>Voir aussi
-Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
+Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
-* [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
-* [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
+* [Présentation de l’accélérateur de solution de maintenance prédictive][lnk-predictive-overview]
+* [Questions fréquentes (FAQ) sur les accélérateurs de solution IoT][lnk-faq]
 
 Pour en savoir plus sur la sécurité d’IoT Hub, consultez la rubrique [Contrôler l’accès à IoT Hub][lnk-devguide-security] du guide du développeur IoT Hub.
 

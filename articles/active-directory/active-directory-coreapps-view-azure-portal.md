@@ -3,24 +3,24 @@ title: Afficher toutes les applications d’entreprise que je peux gérer dans A
 description: Comment afficher la liste des applications d’entreprise que vous avez l’autorisation de gérer dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 64946b3bbf39cf8153fcc8c7aa548ed6055fb47f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: dd2d941cb4066bc4f7d1cfebe17d701feb105269
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Afficher toutes les applications d’entreprise que je peux gérer dans Azure Active Directory
 Vous pouvez gérer vos applications d’entreprise dans Azure Active Directory (Azure AD). Vous pouvez visualiser les applications que vous avez la possibilité de gérer, affecter des utilisateurs ou des groupes à une application, gérer les propriétés de l’application, comme le nom/logo d’application, et même désactiver une application afin qu’aucun utilisateur ne puisse s’y connecter.

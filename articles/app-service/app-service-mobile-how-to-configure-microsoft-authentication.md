@@ -1,24 +1,24 @@
 ---
 title: Comment configurer l'authentification par compte Microsoft pour votre application App Services
-description: "Découvrez comment configurer l'authentification par compte Microsoft pour votre application App Services."
+description: Découvrez comment configurer l'authentification par compte Microsoft pour votre application App Services.
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 67386b03ae4cc683fe00e11e8dad19d1442eff09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fb5bdf30502dbca3eba961165a1ab643427abd6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -28,13 +28,13 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 ## <a name="register-microsoft-account"></a>Inscription de votre application avec un compte Microsoft
 1. Connectez-vous au [portail Azure]et accédez à votre application. Copiez votre **URL**, que vous utiliserez ultérieurement pour configurer votre application avec votre compte Microsoft.
 2. Accédez à la page [Mes applications] dans le Centre des développeurs de compte Microsoft, puis connectez-vous avec votre compte Microsoft si nécessaire.
-3. Cliquez sur **Ajouter une application**, puis tapez le nom de l’application et cliquez sur **Créer une application**.
+3. Cliquez sur **Ajouter une application**, puis tapez le nom de l’application et cliquez sur **Créer**.
 4. Prenez note de l’ **ID d’application**, car vous en aurez besoin ultérieurement. 
 5. Sous « Plateformes », cliquez sur **Ajouter une plateforme** et sélectionnez « Web ».
 6. Sous « URI de redirection », entrez le point de terminaison de votre application, puis cliquez sur **Enregistrer**. 
    
    > [!NOTE]
-   > Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, */.auth/login/microsoftaccount/callback*. Par exemple, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
+   > Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, */.auth/login/microsoftaccount/callback*. Par exemple : `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Assurez-vous d'utiliser le schéma HTTPS.
    
 7. Sous « Secrets de l’application », cliquez sur **Générer un nouveau mot de passe**. Prenez note de la valeur qui s’affiche. Une fois que vous quittez cette page, le mot de passe ne s’affiche plus.

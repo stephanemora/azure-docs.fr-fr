@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bb981bcfb391362bad80aabf5808fd085e937232
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutoriel : Lier un certificat SSL existant à des applications web Azure
 
@@ -273,7 +273,7 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 La commande suivante charge un fichier PFX exporté et ajoute une liaison SSL basée sur SNI.
 
@@ -304,6 +304,6 @@ Dans ce didacticiel, vous avez appris à :
 Passez au didacticiel suivant pour découvrir comment utiliser un réseau de distribution de contenu Azure.
 
 > [!div class="nextstepaction"]
-> [Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+> [Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service](../cdn/app-service-web-tutorial-content-delivery-network.md)
 
 Pour plus d’informations, consultez [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](app-service-web-ssl-cert-load.md).

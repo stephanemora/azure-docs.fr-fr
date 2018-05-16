@@ -1,11 +1,11 @@
 ---
-title: "Résolution des problèmes de compression de fichiers dans Azure CDN | Microsoft Docs"
-description: "Résolvez les problèmes de compression des fichiers CDN Azure."
+title: Résolution des problèmes de compression de fichiers dans Azure CDN | Microsoft Docs
+description: Résolvez les problèmes de compression des fichiers CDN Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
@@ -55,15 +55,15 @@ Tout d’abord, effectuez une vérification rapide de l’intégrité de la requ
 * Vérifiez que la requête contient un en-tête **Accept-Encoding** et que la valeur de cet en-tête contient **gzip**, **deflate** ou **bzip2**.
 
 > [!NOTE]
-> Les profils du **CDN Azure fourni par Akamai** prennent uniquement en charge l’encodage **gzip**.
+> Les profils du **CDN Azure d’Akamai** prennent uniquement en charge l’encodage **gzip**.
 > 
 > 
 
 ![En-têtes de requête CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Vérifier les paramètres de compression (profil CDN Standard)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Vérifier les paramètres de compression (profils CDN Standard)
 > [!NOTE]
-> Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Standard fourni par Verizon** ou du **CDN Azure Standard fourni par Akamai**. 
+> Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Standard de Microsoft**, du **CDN Azure Standard de Verizon** ou du **CDN Azure Standard fourni d’Akamai**. 
 > 
 > 
 
@@ -74,9 +74,9 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 ![Paramètres de compression CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Vérifier les paramètres de compression (profil CDN Premium)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Vérifier les paramètres de compression (profils CDN Premium)
 > [!NOTE]
-> Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Premium fourni par Verizon** .
+> Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Premium de Verizon**.
 > 
 > 
 
@@ -88,9 +88,9 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 ![Paramètres de compression Premium CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>Vérifier que le contenu est mis en cache
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Vérifier que le contenu est mis en cache (profils CDN Verizon)
 > [!NOTE]
-> Cette étape vaut uniquement si votre profil CDN est un profil du **CDN Azure fourni par Verizon** (Standard ou Premium).
+> Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Standard de Verizon** ou du **CDN Azure Premium de Verizon**.
 > 
 > 
 
@@ -101,9 +101,9 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 ![En-têtes de réponse CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Vérifier que le fichier respecte les exigences de taille
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Vérifier que le fichier respecte les critères de taille (profils CDN Verizon)
 > [!NOTE]
-> Cette étape vaut uniquement si votre profil CDN est un profil du **CDN Azure fourni par Verizon** (Standard ou Premium).
+> Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Standard de Verizon** ou du **CDN Azure Premium de Verizon**.
 > 
 > 
 

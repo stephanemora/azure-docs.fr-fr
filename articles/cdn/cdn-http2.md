@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Prise en charge de HTTP/2 dans Azure CDN
 
@@ -50,11 +50,11 @@ Tous les principaux navigateurs ont implémenté la prise en charge de HTTP/2 da
 |Google Chrome| 43|
 |Mozilla Firefox| 38|
 |Opera| 32|
-|Safari| 9.|
+|Safari| 9|
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Activation de la prise en charge de HTTP/2 dans Azure CDN
 
-La prise en charge HTTP/2 est actuellement active pour les profils **Azure CDN d’Akamai** et **Azure CDN de Verizon**. Aucune action supplémentaire n’est nécessaire de la part des clients.
+Actuellement, la prise en charge HTTP/2 est active pour tous les profils d’Azure CDN. Aucune action supplémentaire n’est nécessaire de la part des clients.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

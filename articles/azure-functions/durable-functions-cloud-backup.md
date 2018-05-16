@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -56,11 +56,17 @@ La fonction `E2_BackupSiteContent` utilise le fichier *function.json* standard p
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/function.json)]
 
-Voici le code qui implémente la fonction d’orchestrateur :
+Voici le code qui implémente la fonction d’orchestrateur :
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-Cette fonction d’orchestrateur effectue essentiellement les opérations suivantes :
+### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
+
+Cette fonction d’orchestrateur effectue essentiellement les opérations suivantes :
 
 1. Prend une valeur `rootDirectory` comme paramètre d’entrée.
 2. Appelle une fonction pour obtenir une liste récursive des fichiers sous `rootDirectory`.
@@ -68,9 +74,11 @@ Cette fonction d’orchestrateur effectue essentiellement les opérations suivan
 4. Attend la fin de tous les chargements.
 5. Retourne le nombre total d’octets qui ont été chargés dans Stockage Blob Azure.
 
-Notez la ligne `await Task.WhenAll(tasks);`. Tous les appels à la fonction `E2_CopyFileToBlob` n’ont *pas* été attendus. Cela est intentionnel pour les autoriser à s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll`, nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension Fonctions durables garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
+Notez la ligne `await Task.WhenAll(tasks);` (C#) et `yield context.df.Task.all(tasks);` (JS). Tous les appels à la fonction `E2_CopyFileToBlob` n’ont *pas* été attendus. Cela est intentionnel pour les autoriser à s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll`, nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension Fonctions durables garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
 
-Après avoir attendu `Task.WhenAll`, nous savons que tous les appels à la fonction sont terminés et nous ont retourné des valeurs. Chaque appel à `E2_CopyFileToBlob` renvoie le nombre d’octets chargés. Pour calculer le nombre total d’octets, il suffit donc d’additionner toutes ces valeurs retournées.
+Les tâches sont très semblables au concept de promesses JavaScript. Toutefois, `Promise.all` présente des différences par rapport à `Task.WhenAll`. Le concept de `Task.WhenAll` a été déplacé dans le cadre du module JavaScript `durable-functions` et il est exclusif à ce dernier.
+
+Après avoir attendu `Task.WhenAll` (ou en cessant temporairement l’exécution à partir de `context.df.Task.all`), nous savons que tous les appels de fonction sont terminés et nous ont retourné des valeurs. Chaque appel à `E2_CopyFileToBlob` renvoie le nombre d’octets chargés. Pour calculer le nombre total d’octets, il suffit donc d’additionner toutes ces valeurs retournées.
 
 ## <a name="helper-activity-functions"></a>Fonctions d’activité d’assistance
 
@@ -80,7 +88,15 @@ Les fonctions d’activité d’assistance, tout comme avec d’autres exemples,
 
 Et voici l’implémentation :
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
+
+L’implémentation JavaScript de `E2_GetFileList` utilise le module `readdirp` pour lire de manière récursive la structure de répertoires.
 
 > [!NOTE]
 > Vous vous demandez peut-être pourquoi ne pas simplement placer ce code directement dans la fonction d’orchestrateur ? C’est possible, mais cela compromettrait une des règles fondamentales des fonctions d’orchestrateur, à savoir qu’elles ne doivent effectuer d’opérations E/S, y compris avec accès au système de fichiers local.
@@ -89,9 +105,17 @@ Le fichier *function.json* pour `E2_CopyFileToBlob` est tout aussi simple :
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-L’implémentation est également très simple. Elle utilise certaines des fonctionnalités avancées des liaisons d’Azure Functions (autrement dit, l’utilisation du paramètre `Binder`), mais vous n’avez pas à vous soucier de ces détails dans cette procédure pas à pas.
+L’implémentation C# est également très simple. Elle utilise certaines des fonctionnalités avancées des liaisons d’Azure Functions (autrement dit, l’utilisation du paramètre `Binder`), mais vous n’avez pas à vous soucier de ces détails dans cette procédure pas à pas.
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+L’implémentation JavaScript n’a pas accès à la fonctionnalité `Binder` Azure Functions. Par conséquent, le [Kit de développement logiciel (SDK) Azure Storage pour Node](https://github.com/Azure/azure-storage-node) prend sa place. Le Kit de développement logiciel nécessite un paramètre d’application `AZURE_STORAGE_CONNECTION_STRING`.
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
 L’implémentation charge le fichier à partir du disque et transmet de manière asynchrone le contenu vers un objet blob du même nom dans le conteneur « backups ». La valeur de retour correspond au nombre d’octets copiés vers le stockage, utilisée ensuite par la fonction d’orchestrateur pour calculer la somme d’agrégation.
 

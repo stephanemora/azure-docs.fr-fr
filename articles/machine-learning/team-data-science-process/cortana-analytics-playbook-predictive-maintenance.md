@@ -1,8 +1,8 @@
-﻿---
-title: "Maintenance prédictive dans l’industrie aérospatiale avec Azure - Modèle de solution Cortana Intelligence | Microsoft Docs"
-description: "Modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport."
+---
+title: Manuel d’Azure AI pour les solutions de maintenance prédictive | Microsoft Docs
+description: Une description complète de la science des données qui alimente les solutions de maintenance prédictive dans plusieurs secteurs d’activité.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Manuel d’utilisation du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Manuel d’Azure AI pour les solutions de maintenance prédictive 
 ## <a name="executive-summary"></a>Résumé
 La maintenance prédictive est l’une des applications d’analyse prédictive les plus demandées car elle offre des avantages indéniables, notamment en termes de coûts. Ce manuel a pour objectif de fournir une référence pour les solutions de maintenance prédictive en mettant l’accent sur les principaux cas d’usage.
 Il présente au lecteur les scénarios d’entreprise les plus courants, les problèmes à résoudre dans le cadre de ces solutions, les données nécessaires pour résoudre ces problèmes, les techniques de modélisation prédictive permettant de créer des solutions à l’aide de ces données, les meilleures pratiques à adopter, ainsi que des exemples d’architectures de solutions.
@@ -48,8 +48,7 @@ Avec l’avènement des applications Internet des Objets (IoT), la maintenance p
 
 Les problèmes d’entreprise entrant dans le cadre de la maintenance prédictive vont des risques opérationnels élevés dus à des défaillances inattendues aux connaissances limitées des causes initiales des problèmes dans les environnements d’entreprise complexes. Pour la plupart de ces problèmes, on peut se poser les questions suivantes :
 
-* Quelle est la probabilité qu’un équipement subisse une défaillance dans un avenir proche ?
-  
+* Qu’est la probabilité qu’un équipement subisse une défaillance dans un avenir proche ?
 * Quelle est la durée de vie restante de l’équipement ?
 * Quelles sont les causes des défaillances et quelles actions de maintenance faut-il effectuer pour résoudre ces problèmes ?
 

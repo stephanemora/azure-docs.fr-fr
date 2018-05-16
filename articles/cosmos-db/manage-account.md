@@ -64,7 +64,7 @@ Si certains de vos services cloud ou applications utilisent le compte Azure Cos
 
 1. Mettez à jour la clé d’accès dans le code de votre application afin de référencer la clé d’accès secondaire du compte Azure Cosmos DB.
 2. Régénérez la clé d’accès principale de votre compte Azure Cosmos DB. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte Azure Cosmos DB.
-3. Dans la page **Compte Azure Cosmos DB**, cliquez sur **Clés** (ou **Chaîne de connexion** pour les comptes MongoDB**).
+3. Dans la page **Compte Azure Cosmos DB**, cliquez sur **Clés** (ou **Chaîne de connexion** pour les comptes MongoDB\*\*).
 4. Dans la page **Clés**/**Chaîne de connexion**, cliquez sur le bouton Regénérer, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
     ![Régénération des clés d’accès](./media/manage-account/regenerate-keys.png)
 5. Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ cinq minutes après la regénération), mettez à jour la clé d’accès dans le code de votre application afin de référencer la nouvelle clé d’accès principale.

@@ -1,24 +1,24 @@
 ---
 title: Configurer l'authentification Azure Active Directory pour votre application App Services
-description: "Découvrez comment configurer l'authentification Azure Active Directory pour votre application App Services."
+description: Découvrez comment configurer l'authentification Azure Active Directory pour votre application App Services.
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configurer votre application App Service pour utiliser une connexion Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -41,7 +41,7 @@ Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentifi
 Vous pouvez également choisir de fournir des paramètres de configuration manuellement. Il s’agit de la solution préférée si le locataire AAD que vous voulez utiliser diffère de celui avec lequel vous vous connectez à Azure. Pour terminer la configuration, vous devez d’abord créer une inscription dans Azure Active Directory, puis fournir des informations d’inscription à App Service.
 
 ### <a name="register"> </a>Inscription de votre application App Service auprès d'Azure Active Directory
-1. Connectez-vous au [portail Azure]et accédez à votre application App Service. Copiez l**'URL** de votre application. Elle vous permettra de configurer l'inscription de votre application Azure Active Directory.
+1. Connectez-vous au [portail Azure]et accédez à votre application App Service. Copiez l **'URL** de votre application. Elle vous permettra de configurer l'inscription de votre application Azure Active Directory.
 2. Accédez à **Active Directory**, sélectionnez **Inscriptions des applications**, puis cliquez sur **Nouvelle inscription d’application** en haut pour démarrer une nouvelle inscription d’application. 
 3. Dans la page **Créer**, entrez un **Nom** pour l'inscription de votre application, sélectionnez le type **Application web / API** et, dans la zone **URL de connexion**, collez l’URL de l’application (celle de l’étape 1). Cliquez ensuite sur **Créer**.
 4. Au bout de quelques secondes, vous devez voir apparaître la nouvelle inscription d’application que vous venez de créer.
@@ -65,7 +65,7 @@ Azure Active Directory permet également d’inscrire les clients natifs, ce qui
 1. Accédez à **Azure Active Directory** dans le [portail Azure].
 2. Dans le volet de navigation de gauche, sélectionnez **Inscriptions des applications**. Cliquez sur **Nouvelle inscription d'application** dans la partie supérieure.
 4. Dans la page **Créer**, entrez un **Nom** pour l'inscription de votre application. Sélectionnez **Native** comme **type d'application**.
-5. Dans la zone **URI de redirection**, entrez le point de terminaison */.auth/login/done* de votre site à l’aide du modèle HTTPS. Cette valeur doit être semblable à *https://contoso.azurewebsites.net/.auth/login/done*. Si vous créez une application Windows, utilisez plutôt le [SID de package](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) en tant qu’URI.
+5. Dans la zone **URI de redirection**, entrez le point de terminaison */.auth/login/done* de votre site à l’aide du modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done*. Si vous créez une application Windows, utilisez plutôt le [SID de package](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) en tant qu’URI.
 5. Cliquez sur **Créer**.
 6. Une fois l'inscription de l'application ajoutée, sélectionnez-la pour l'ouvrir. Recherchez l’**ID de l'application** et notez-en la valeur.
 7. Cliquez sur **Tous les paramètres** > **Autorisations requises** > **Ajouter** > **Sélectionner une API**.

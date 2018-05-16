@@ -1,25 +1,25 @@
 ---
-title: Configurer l’entrée avec le cluster Azure Container Service (AKS)
-description: Installez et configurez un contrôleur d’entrée NGINX dans un cluster Azure Container Service (AKS).
+title: Configurer l’entrée avec le cluster Azure Kubernetes Service (AKS)
+description: Installez et configurez un contrôleur d’entrée NGINX dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d56b27a040420d049f567ac0de9289b1e72f3ea9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a6c9036a85e1c979d649896a9361e401f6f7cc0a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="https-ingress-on-azure-container-service-aks"></a>Entrée HTTPS sur Azure Container Service (AKS)
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Entrée HTTPS sur Azure Kubernetes Service (AKS)
 
 Un contrôleur d’entrée est un logiciel qui fournit un proxy inversé, un routage du trafic configurable et un arrêt TLS pour les services Kubernetes. Des ressources d’entrée Kubernetes sont utilisées pour configurer les règles d’entrée et les itinéraires des services Kubernetes individuels. En utilisant un contrôleur d’entrée et des règles d’entrée, une seule adresse externe peut être utilisée pour acheminer le trafic vers plusieurs services dans un cluster Kubernetes.
 
-Ce document décrit un exemple de déploiement du [contrôleur d’entrée NGINX][nginx-ingress] dans un cluster Azure Container Service (AKS). De plus, le projet [KUBE-LEGO][kube-lego] est utilisé pour générer et configurer automatiquement des certificats [Let’s Encrypt][lets-encrypt]. Enfin, plusieurs applications sont exécutées dans le cluster AKS, chacune étant accessible par le biais d’une adresse unique.
+Ce document décrit un exemple de déploiement du [contrôleur d’entrée NGINX][nginx-ingress] dans un cluster Azure Kubernetes Service (AKS). De plus, le projet [KUBE-LEGO][kube-lego] est utilisé pour générer et configurer automatiquement des certificats [Let’s Encrypt][lets-encrypt]. Enfin, plusieurs applications sont exécutées dans le cluster AKS, chacune étant accessible par le biais d’une adresse unique.
 
 ## <a name="prerequisite"></a>Configuration requise
 
@@ -46,9 +46,9 @@ Pendant l’installation, une adresse IP publique Azure est créée pour le cont
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Étant donné qu’aucune règle d’entrée n’a été créée, si vous accédez à l’adresse IP publique, vous êtes redirigé vers la page 404 par défaut des contrôleurs d’entrée NGINX.
@@ -63,7 +63,7 @@ eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none> 
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"
@@ -182,7 +182,7 @@ Découvrez le logiciel mentionné dans ce document.
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

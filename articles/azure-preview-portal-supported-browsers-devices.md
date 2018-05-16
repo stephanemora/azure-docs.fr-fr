@@ -1,26 +1,26 @@
 ---
 title: Navigateurs et périphériques pris en charge pour le portail Azure | Documents Microsoft
 description: Décrit les navigateurs et les appareils sur lesquels le portail Azure fonctionne.
-services: ''
+services: azure-portal
 documentationcenter: ''
 author: flanakin
 writer: flanakin
 manager: lwelicki
 editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
-ms.service: multiple
+ms.service: azure-portal
 ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: ff718b3482b298392a8f7fcbe410c62aeb8c1ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d3964bcfc78fccbd949b30ebb09db44ec5fd5bde
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Navigateurs et périphériques pris en charge pour le portail Azure
 Le [portail Azure](https://portal.azure.com) s’exécute sur tous les ordinateurs de bureau, tablettes et navigateurs modernes.

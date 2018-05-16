@@ -1,24 +1,24 @@
 ---
-title: "Résolution des problèmes de ralentissement des performances de sauvegarde des fichiers et des dossiers dans Sauvegarde Azure | Microsoft Docs"
-description: "Apporte des conseils visant à vous aider à diagnostiquer la cause des problèmes de performances d’Azure Backup"
+title: Résolution des problèmes de ralentissement des performances de sauvegarde des fichiers et des dossiers dans Sauvegarde Azure | Microsoft Docs
+description: Apporte des conseils visant à vous aider à diagnostiquer la cause des problèmes de performances d’Azure Backup
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6ed1e2d7bfc08afe135cb85995fdebaa30202c23
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 Cet article apporte des conseils visant à vous aider à diagnostiquer la cause du ralentissement des performances de sauvegarde des fichiers et des dossiers avec Azure Backup. Lorsque vous utilisez l’agent Azure Backup pour sauvegarder des fichiers, le processus de sauvegarde peut prendre plus longtemps que prévu. Ce ralentissement peut être dû à une ou plusieurs des raisons suivantes :
@@ -43,7 +43,7 @@ Windows fournit un outil intégré appelé [Analyseur de performances](https://t
 
 Voici quelques compteurs de performances et plages qui peuvent être utiles pour diagnostiquer les goulots d’étranglement et permettre des sauvegardes optimales.
 
-| Compteur | État |
+| Compteur | Statut |
 | --- | --- |
 | Disque logique (disque physique)--% temps d’inactivité |• 100 % à 50 % d’inactivité = sain</br>• 49 % à 20 % d’inactivité = avertissement ou analyse</br>• 19 % à 0 % d’inactivité = critique ou hors spécifications |
 | Disque logique (disque physique)--% moy. disque s/lecture ou disque s/écriture |• 0,001 ms à 0,015 ms = sain</br>• 0,015 ms à 0,025 ms = avertissement ou analyse</br>• 0,026 ms ou plus = critique ou hors spécifications |

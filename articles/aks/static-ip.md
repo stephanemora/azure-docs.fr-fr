@@ -1,23 +1,23 @@
 ---
-title: "Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Container Service (AKS)"
-description: "Utilisez une adresse IP statique avec l’équilibrage de charge d’Azure Container Service (AKS)."
+title: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
+description: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c250ef3520079f58eea2362212d861fdb134e1af
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Container Service (AKS)
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 
-Dans certains cas, comme lorsque l’équilibrage de charge d’Azure Container Service (AKS) est recréé ou que les services Kubernetes avec un type LoadBalancer sont recréés, l’adresse IP publique du service Kubernetes peut changer. Ce document décrit en détail la configuration d’une adresse IP statique pour vos services Kubernetes.
+Dans certains cas, comme lorsque l’équilibrage de charge d’Azure Kubernetes Service (AKS) est recréé ou que les services Kubernetes avec un type LoadBalancer sont recréés, l’adresse IP publique du service Kubernetes peut changer. Ce document décrit en détail la configuration d’une adresse IP statique pour vos services Kubernetes.
 
 ## <a name="create-static-ip-address"></a>Créer une adresse IP statique
 
@@ -59,9 +59,11 @@ Notez l’adresse IP.
 
  Si nécessaire, l’adresse peut être récupérée à l’aide de la commande [az network public-ip list][az-network-public-ip-list].
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 Si l’adresse IP statique n’a pas été créée ou a été créée dans le mauvais groupe de ressources, la création du service échoue. Pour résoudre les problèmes, renvoyez les événements de création de service à l’aide de la commande [kubectl describe][kubectl-describe].
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>
@@ -112,7 +116,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

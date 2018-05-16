@@ -1,25 +1,27 @@
 ---
-title: "Options d’aide et de support pour les développeurs Azure Identity | Microsoft Docs"
-description: "Découvrir comment obtenir une assistance par rapport à des questions liées au développement et à des problèmes soulevés lors de la création d’applications s’intégrant à Microsoft Azure Identities (Azure Active Directory et MSA)"
+title: Options d’aide et de support pour les développeurs Azure Identity | Microsoft Docs
+description: Découvrir comment obtenir une assistance par rapport à des questions liées au développement et à des problèmes soulevés lors de la création d’applications s’intégrant à Microsoft Azure Identities (Azure Active Directory et MSA)
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/27/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 06da07aa699d19602449dc365abb971867214a31
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ae682830a8d0e2c5c27211a3396d04c881c41585
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs 
 
@@ -33,7 +35,7 @@ Que vous implémentiez une nouvelle fonctionnalité dans votre application ou qu
 > * Enfin, si vous voulez vous entretenir avec une personne, ouvrez une demande de support
 
 
-## <a name="search"></a>Search
+## <a name="search"></a>Recherche
 
 Si votre question concerne le développement, la réponse peut se trouver dans notre documentation, nos [exemples github](https://github.com/azure-samples) ou dans les réponses aux questions posées sur [Stack Overflow](https://www.stackoverflow.com).
 
@@ -62,7 +64,7 @@ Stack Overflow est le canal de prédilection pour les questions liées au dével
 
 Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soumettez une nouvelle question à Stack Overflow : utilisez un des mots clés suivants lors de la formulation de votre question pour aider la Communauté à identifier rapidement votre problème et à le résoudre dans les meilleurs délais :
 
-|Composant/Zone  |Tags  |
+|Composant/Zone  |Balises  |
 |---------|---------|
 |Bibliothèque ADAL |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
 |Bibliothèque MSAL     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|

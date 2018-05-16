@@ -3,7 +3,7 @@ title: Utiliser mongoimport et mongorestore avec l’API Azure Cosmos DB pour 
 description: Découvrez comment utiliser mongoimport et mongorestore pour importer des données dans un compte API pour MongoDB
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/07/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB : importer des données MongoDB 
 
@@ -28,7 +28,7 @@ Pour migrer des données de MongoDB vers un compte Azure Cosmos DB en vue d’
 * télécharger *mongoimport.exe* ou *mongorestore.exe* depuis le [centre de téléchargement MongoDB](https://www.mongodb.com/download-center) ;
 * Obtenir votre [API pour la chaîne de connexion MongoDB](connect-mongodb-account.md).
 
-Si vous importez des données à partir de MongoDB et planifiez de les utiliser avec Azure Cosmos DB, vous devez avoir recours à [l’outil de migration de données](import-data.md) pour importer les données.
+Si vous importez des données à partir de MongoDB et planifiez de les utiliser avec l’API SQL Azure Cosmos DB, vous devez avoir recours à l’[outil de migration de données](import-data.md) pour importer les données.
 
 Ce didacticiel décrit les tâches suivantes :
 
@@ -40,7 +40,7 @@ Ce didacticiel décrit les tâches suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 
-* Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous définissez pour vos collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le [portail Azure](https://portal.azure.com), consultez les [niveaux de performances et niveaux tarifaires dans Azure Cosmos DB](performance-levels.md).
+* Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous définissez pour une collection spécifique ou un ensemble de collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le [portail Azure](https://portal.azure.com), consultez les [niveaux de performances et niveaux tarifaires dans Azure Cosmos DB](performance-levels.md).
 
 * Activez SSL : Azure Cosmos DB obéit à des normes et à des exigences strictes en matière de sécurité. Veillez à activer SSL lorsque vous interagissez avec votre compte. Les procédures décrites dans la suite de cet article incluent l’activation du protocole SSL pour mongoimport et mongorestore.
 
@@ -48,10 +48,11 @@ Ce didacticiel décrit les tâches suivantes :
 
 1. Dans le volet de gauche du [portail Azure](https://portal.azure.com), cliquez sur l’entrée **Azure Cosmos DB**.
 2. Dans le volet **Abonnements**, sélectionnez le nom de votre compte.
-3. Dans le panneau **Chaîne de connexion**, cliquez sur **Chaîne de connexion**.  
-Le volet droit contient toutes les informations dont vous avez besoin pour vous connecter à votre compte.
+3. Dans le panneau **Chaîne de connexion**, cliquez sur **Chaîne de connexion**.
 
-    ![Panneau Chaîne de connexion](./media/mongodb-migrate/ConnectionStringBlade.png)
+   Le volet droit contient toutes les informations dont vous avez besoin pour vous connecter à votre compte.
+
+   ![Panneau Chaîne de connexion](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>Importer des données dans l’API pour MongoDB avec mongoimport
 
@@ -81,9 +82,27 @@ Exemple :
 
 1. Créez au préalable vos collections et mettez-les à l’échelle :
         
-    * Par défaut, Azure Cosmos DB approvisionne une nouvelle collection MongoDB avec 1 000 unités de requête (RU). Avant de commencer la migration à l’aide de mongoimport, mongorestore ou mongomirror, créez au préalable l’ensemble des collections à partir du [portail Azure](https://portal.azure.com) ou à partir d’outils et de pilotes MongoDB. Si la taille de votre collection est supérieure à 10 Go, veillez à créer une [collection partitionnée](partition-data.md) avec une clé de partition appropriée.
+    * Par défaut, Azure Cosmos DB provisionne une nouvelle collection MongoDB avec 1 000 unités de requête (RU/s). Avant de commencer la migration à l’aide de mongoimport, mongorestore ou mongomirror, créez au préalable l’ensemble des collections à partir du [portail Azure](https://portal.azure.com) ou à partir d’outils et de pilotes MongoDB. Si la taille de votre collection est supérieure à 10 Go, veillez à créer une [collection partitionnée](partition-data.md) avec une clé de partition appropriée.
 
-    * Dans le [portail Azure](https://portal.azure.com), augmentez le débit de vos collections à partir de 1 000 RU pour une collection à partition unique et de 2 500 RU pour une collection partitionnée uniquement pour la migration. Si le débit est plus élevé, vous pouvez éviter la limitation et procéder à une migration plus rapide. Avec une facturation à l’heure dans Azure Cosmos DB, vous pouvez réduire immédiatement le débit à l’issue de la migration afin de réduire les coûts.
+    * Dans le [portail Azure](https://portal.azure.com), augmentez le débit de vos collections à partir de 1 000 RU/s pour une collection à partition unique et de 2 500 RU/s pour une collection partitionnée uniquement pour la migration. Si le débit est plus élevé, vous pouvez éviter la limitation et procéder à une migration plus rapide. Avec une facturation à l’heure dans Azure Cosmos DB, vous pouvez réduire immédiatement le débit à l’issue de la migration afin de réduire les coûts.
+
+    * En plus du provisionnement du nombre de RU/s au niveau de la collection, vous pouvez également provisionner le nombre de RU/s pour un ensemble de collections au niveau de la base de données parente. Cette opération nécessite la création préalable de la base de données et des collections, ainsi que la définition d’une clé de partition pour chaque collection.
+
+    * Vous pouvez créer des collections partitionnées à l’aide de l’outil, du pilote ou du SDK de votre choix. Dans cet exemple, nous utilisons l’interpréteur de commandes Mongo pour créer une collection partitionnée :
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        Résultats :
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
 
 2. Calculez les frais approximatifs d’unités de requête pour une écriture de document unique :
 
@@ -93,7 +112,7 @@ Exemple :
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Exécutez ```db.runCommand({getLastRequestStatistics: 1})```. Vous recevez une réponse semblable à celle-ci :
+    c. Exécutez ```db.runCommand({getLastRequestStatistics: 1})```. Vous recevrez une réponse semblable à celle-ci :
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -112,7 +131,7 @@ Exemple :
     
     a. Activez la journalisation détaillée à partir de l’interpréteur de commandes MongoDB à l’aide de cette commande : ```setVerboseShell(true)```
     
-    b. Exécutez une requête simple dans la base de données : ```db.coll.find().limit(1)```. Vous recevez une réponse semblable à celle-ci :
+    b. Exécutez une requête simple dans la base de données : ```db.coll.find().limit(1)```. Vous recevrez une réponse semblable à celle-ci :
 
         ```
         Fetched 1 record(s) in 100(ms)

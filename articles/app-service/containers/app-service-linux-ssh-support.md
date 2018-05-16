@@ -1,12 +1,12 @@
 ---
 title: Prise en charge SSH pour Azure App Service sur Linux | Microsoft Docs
-description: "Apprenez à utiliser SSH avec Azure App Service sur Linux."
+description: Apprenez à utiliser SSH avec Azure App Service sur Linux.
 keywords: azure app service, application web, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Prise en charge SSH pour Azure App Service sur Linux
 
@@ -30,6 +30,10 @@ App Service sur Linux assure la prise en charge SSH dans le conteneur d’applic
 ![Piles d’exécution](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 Vous pouvez également utiliser SSH avec vos images Docker personnalisées en incluant le serveur SSH dans le cadre de l’image et en le configurant comme indiqué dans cet article.
+
+> [!NOTE] 
+> Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://aka.ms/linux-debug).
+>
 
 ## <a name="making-a-client-connection"></a>Établissement d’une connexion avec un client
 

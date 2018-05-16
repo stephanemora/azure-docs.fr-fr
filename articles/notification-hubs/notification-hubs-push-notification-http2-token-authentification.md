@@ -1,23 +1,23 @@
 ---
-title: "Authentification basée sur un jeton (HTTP/2) pour APNS dans Azure Notification Hubs | Microsoft Docs"
+title: Authentification basée sur un jeton (HTTP/2) pour APNS dans Azure Notification Hubs | Microsoft Docs
 description: Cette rubrique explique comment tirer parti de la nouvelle authentification de jeton pour APNS
 services: notification-hubs
 documentationcenter: .net
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: kapiteir
-ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: ca86130e9c184576fc44119190d6224a363c6561
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 ## <a name="overview"></a>Vue d'ensemble
@@ -75,8 +75,8 @@ Il existe une nouvelle propriété : *Mode d’authentification*. La sélection
 Vous pouvez utiliser nos [API de gestion](https://msdn.microsoft.com/library/azure/dn495827.aspx) afin de mettre à jour votre hub de notification pour utiliser l’authentification basée sur un jeton.
 Selon que l’application que vous configurez est une application de production ou Bac à sable (sandbox), ce qui est indiqué dans votre compte de développeur Apple, utilisez l’un des points de terminaison correspondants :
 
-- Point de terminaison sandbox : [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
-- Point de terminaison de production : [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
+- Point de terminaison de bac à sable : [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
+- Point de terminaison de production : [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
 > [!IMPORTANT]
 > L’authentification basée sur un jeton nécessite la version d’API **2017-04 ou ultérieure**.

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 25ae6bde2ca89b2f944a8879c746dcedcf798ec2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 
-Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure Cosmos DB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur (FDU)** en mode natif dans une version [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) pour JavaScript. Cette intégration avec JavaScript vous permet ainsi d’écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
+Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure Cosmos DB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur (FDU)** en mode natif dans une version [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) pour JavaScript. L’intégration avec JavaScript vous permet d’écrire une logique de programme qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
 
 Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente le modèle de programmation de base de données côté serveur d’Azure Cosmos DB. 
 
@@ -58,7 +58,7 @@ La création et l’exécution de déclencheurs de base de données, de procédu
 Ce didacticiel utilise le [kit SDK Node.js avec Q Promises](http://azure.github.io/azure-documentdb-node-q/) pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.   
 
 ## <a name="stored-procedures"></a>Procédures stockées
-### <a name="example-write-a-simple-stored-procedure"></a>Exemple : Écriture d’une simple procédure stockée
+### <a name="example-write-a-stored-procedure"></a>Exemple : Écriture d’une procédure stockée
 Commençons par une simple procédure stockée qui renvoie une réponse « Hello World ».
 
     var helloWorldStoredProc = {
@@ -96,7 +96,7 @@ Une fois que la procédure stockée est enregistrée, vous pouvez l’exécuter 
         });
 
 
-L’objet context donne accès à toutes les opérations pouvant être effectuées dans le stockage Azure Cosmos DB, ainsi que l’accès aux objets request et response. En l'occurrence, nous avons utilisé l'objet response pour définir le corps de la réponse renvoyée au client. Pour plus d’informations, consultez la [documentation du kit SDK du serveur JavaScript Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
+L’objet context donne accès à toutes les opérations pouvant être effectuées dans le stockage Azure Cosmos DB, ainsi que l’accès aux objets request et response. En l’occurrence, vous utilisez l’objet response pour définir le corps de la réponse renvoyée au client. Pour plus d’informations, consultez la [documentation du kit SDK du serveur JavaScript Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
 
 Extrapolons à partir de cet exemple et ajoutons à la procédure stockée d’autres fonctionnalités liées à la base de données. Les procédures stockées peuvent créer, mettre à jour, lire, interroger et supprimer des documents et des pièces jointes au sein de la collection.    
 
@@ -122,7 +122,7 @@ L’extrait de code suivant indique comment utiliser l’objet context pour inte
 
 Cette procédure stockée prend en entrée documentToCreate, le corps d'un document à créer dans la collection actuelle. Toutes ces opérations sont asynchrones et dépendent de rappels de fonction JavaScript. La fonction de rappel présente deux paramètres, un pour l'objet d'erreur en cas d'échec de l'opération et un pour l'objet créé. À l'intérieur du rappel, les utilisateurs peuvent gérer l'exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur.   
 
-Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opération a échoué. Dans le cas contraire, elle définit l'ID du document créé en tant que corps de la réponse au client. Voici la façon dont cette procédure stockée est exécutée avec des paramètres d'entrée.
+Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opération a échoué. Dans le cas contraire, elle définit l’ID du document créé en tant que corps de la réponse au client. Voici la façon dont cette procédure stockée est exécutée avec des paramètres d'entrée.
 
     // register the stored procedure
     client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
@@ -148,16 +148,16 @@ Dans l'exemple ci-dessous, la fonction de rappel génère une erreur si l'opéra
     });
 
 
-Notez que cette procédure stockée peut être modifiée pour accepter en entrée un tableau de corps de document et pour les créer dans la même exécution de procédure stockée au lieu de plusieurs demandes du réseau visant à les créer chacune séparément. Ceci permet de mettre en œuvre une importation en bloc efficace pour Azure Cosmos DB (un point que nous aborderons plus tard dans ce didacticiel).   
+Cette procédure stockée peut être modifiée pour accepter en entrée un tableau de corps de document et pour les créer dans la même exécution de procédure stockée au lieu de plusieurs requêtes visant à les créer chacune séparément. Cette procédure stockée permet d’implémenter une importation en bloc efficace pour Azure Cosmos DB (un point que nous aborderons plus tard dans ce tutoriel).   
 
-L'exemple décrit ci-dessus a illustré la façon d'utiliser des procédures stockées. Nous verrons les déclencheurs et les fonctions définies par l’utilisateur plus loin dans ce didacticiel.
+L'exemple décrit ci-dessus a illustré la façon d'utiliser des procédures stockées. Plus loin dans ce tutoriel, vous en saurez plus sur les déclencheurs et les fonctions définies par l’utilisateur.
 
 ## <a name="database-program-transactions"></a>Transactions de programme de base de données
 Une transaction dans une base de données classique peut être définie comme étant une séquence d'opérations effectuées en tant qu'unité de travail logique unique. Chaque transaction offre des **garanties ACID**. ACID est un acronyme bien connu qui est l’abréviation de quatre propriétés : Atomicité, Cohérence, Isolation et Durabilité.  
 
 En bref, l'atomicité permet de s'assurer que tout le travail effectué au sein d'une transaction est traité en tant que simple unité validée dans son intégralité ou aucunement. La cohérence permet de s'assurer que les données sont toujours dans un état interne correct d'une transaction à l'autre. L'isolation, quant à elle, permet de garantir qu'aucune transaction n'interfère avec les autres. Généralement, la plupart des systèmes commerciaux fournissent plusieurs niveaux d'isolation pouvant être utilisés en fonction des besoins des applications. Enfin, la durabilité permet de s'assurer que toute modification validée dans la base de données sera toujours présente.   
 
-Dans Azure Cosmos DB, JavaScript est hébergé dans le même espace mémoire que la base de données. Par conséquent, les demandes effectuées au sein de procédures stockées et de déclencheurs s'exécutent dans la même étendue qu'une session de base de données. Cela permet à Azure Cosmos DB de garantir ACID pour toutes les opérations qui font partie d’une procédure stockée ou d’un déclencheur. Envisageons la définition de procédure stockée suivante :
+Dans Azure Cosmos DB, JavaScript est hébergé dans le même espace mémoire que la base de données. Par conséquent, les demandes effectuées au sein de procédures stockées et de déclencheurs s'exécutent dans la même étendue qu'une session de base de données. Cette fonctionnalité permet à Azure Cosmos DB de garantir ACID pour toutes les opérations qui font partie d’une procédure stockée ou d’un déclencheur. Envisageons la définition de procédure stockée suivante :
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -232,14 +232,14 @@ Les transactions sont intégrées de façon approfondie et native dans le modèl
 Si une exception est propagée à partir du script, le runtime JavaScript d’Azure Cosmos DB annule toute la transaction. Comme le montre l’exemple précédent, la génération d’une exception équivaut à une instruction ROLLBACK TRANSACTION dans Azure Cosmos DB.
 
 ### <a name="data-consistency"></a>Cohérence des données
-Les procédures stockées et les déclencheurs sont toujours exécutés dans le réplica principal du conteneur Azure Cosmos DB. Cela permet de s'assurer que les lectures à partir des procédures stockées offrent une cohérence forte. Les requêtes utilisant des fonctions définies par l’utilisateur peuvent être exécutées dans le réplica principal ou n’importe quel réplica secondaire, mais nous veillons à répondre au niveau de cohérence demandé en choisissant le réplica approprié.
+Les procédures stockées et les déclencheurs sont toujours exécutés dans le réplica principal du conteneur Azure Cosmos DB. Cela permet de s'assurer que les lectures à partir des procédures stockées offrent une cohérence forte. Les requêtes utilisant des fonctions définies par l’utilisateur peuvent être exécutées dans le réplica principal ou n’importe quel réplica secondaire, mais vous veillez à répondre au niveau de cohérence demandé en choisissant le réplica approprié.
 
 ## <a name="bounded-execution"></a>Exécution limitée
 Toutes les opérations Azure Cosmos DB doivent s’effectuer avant l’expiration de la demande spécifiée par le serveur. Cette contrainte s’applique également aux fonctions JavaScript (procédures stockées, déclencheurs et fonctions définies par l’utilisateur). Si une opération n'est pas terminée dans ce délai imparti, la transaction est annulée. Les fonctions JavaScript doivent s’exécuter dans ce délai ou mettre en œuvre un modèle basé sur la continuation pour traiter par lots/reprendre l’exécution.  
 
 Afin de simplifier le développement de procédures stockées et de déclencheurs pour gérer les limites de temps, toutes les fonctions sous l'objet de collection (pour la création, la lecture, le remplacement et la suppression de documents et de pièces jointes) renvoient une valeur booléenne qui indique si l'opération arrivera à son terme. Si cette valeur est false, cela indique que la limite de temps est sur le point d'arriver à échéance et que la procédure doit clôturer l'exécution.  Les opérations mises en file d'attente avant la première opération de stockage non acceptée sont assurées de s'exécuter si la procédure stockée s'exécute à temps et ne place pas d'autres demandes dans la file d'attente.  
 
-Les fonctions JavaScript sont également liées lors de la consommation de ressources. Azure Cosmos DB réserve le débit par collection en fonction de la taille configurée d’un compte de base de données. Le débit est exprimé en unités normalisées de processeur, de mémoire et de consommation d'E/S, appelées unités de demande. Les fonctions JavaScript peuvent potentiellement utiliser un nombre élevé d'unités de demande en peu de temps, et la limite de débit peut être restreinte si la limite de la collection est atteinte. Les procédures stockées gourmandes en ressources peuvent également être mises en quarantaine pour garantir la disponibilité des opérations de base de données primitives.  
+Les fonctions JavaScript sont également liées lors de la consommation de ressources. Cosmos DB réserve le débit par collection ou pour un ensemble de conteneurs. Le débit est exprimé en unités normalisées de processeur, de mémoire et de consommation d'E/S, appelées unités de demande. Les fonctions JavaScript peuvent potentiellement utiliser un nombre élevé d'unités de demande en peu de temps, et la limite de débit peut être restreinte si la limite de la collection est atteinte. Les procédures stockées gourmandes en ressources peuvent également être mises en quarantaine pour garantir la disponibilité des opérations de base de données primitives.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exemple : importation de données en bloc dans un programme de base de données
 Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour importer des documents en bloc dans une collection. Notez la façon dont la procédure stockée gère l'exécution liée en vérifiant la valeur de retour booléenne à partir de createDocument, puis utilise le nombre de documents insérés dans chaque appel de la procédure stockée pour effectuer le suivi de la progression et la reprendre d'un lot à un autre.
@@ -349,7 +349,7 @@ Ainsi que le code d'enregistrement côté client Node.js correspondant pour le d
 
 Les pré-déclencheurs ne peuvent pas avoir de paramètres en entrée. L'objet request peut être utilisé pour manipuler le message de demande associé à l'opération. Ici, le pré-déclencheur est exécuté avec la création d'un document et le corps du message de demande contient le document à créer au format JSON.   
 
-Lorsque les déclencheurs sont enregistrés, les utilisateurs peuvent spécifier les opérations avec lesquelles il peut s'exécuter. Ce déclencheur a été créé avec TriggerOperation.Create, ce qui signifie que le code suivant n'est pas autorisé.
+Lorsque les déclencheurs sont enregistrés, les utilisateurs peuvent spécifier les opérations avec lesquelles il peut s'exécuter. Ce déclencheur a été créé avec TriggerOperation.Create, ce qui signifie que l’utilisation du déclencheur dans une opération de remplacement comme indiqué dans le code suivant n’est pas autorisée.
 
     var options = { preTriggerInclude: "validateDocumentContents" };
 
@@ -434,7 +434,7 @@ Le déclencheur peut être enregistré comme indiqué dans l'exemple suivant.
 
 Ce déclencheur interroge le document de métadonnées et le met à jour avec des informations relatives au document qui vient d'être créé.  
 
-Un élément important à noter est l’exécution **transactionnelle** des déclencheurs dans Azure Cosmos DB. Ce post-déclencheur s'exécute dans le cadre de la même transaction que la création du document initial. Par conséquent, si nous générons une exception à partir du post-déclencheur (supposons que nous ne soyons pas en mesure de mettre à jour le document de métadonnées), la transaction entière échoue et est annulée. Aucun document n'est créé et une exception est renvoyée.  
+Un élément important à noter est l’exécution **transactionnelle** des déclencheurs dans Azure Cosmos DB. Ce post-déclencheur s'exécute dans le cadre de la même transaction que la création du document initial. Par conséquent, si vous levez une exception à partir du post-déclencheur (par exemple si vous ne pouvez pas mettre à jour le document de métadonnées), la transaction entière échoue et est annulée. Aucun document n'est créé et une exception est renvoyée.  
 
 ## <a id="udf"></a>Fonctions définies par l’utilisateur
 Les fonctions définies par l’utilisateur permettent d’étendre la grammaire du langage de requête SQL dans Azure Cosmos DB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service Azure Cosmos DB.  
@@ -479,7 +479,7 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API de requête intégrée au langage JavaScript
-En plus de l’émission de requêtes à l’aide de la grammaire SQL d’Azure Cosmos DB, le SDK côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index Azure Cosmos DB.
+En plus de l’émission de requêtes à l’aide de la grammaire SQL d’Azure Cosmos DB, le SDK côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programmation en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis d’Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que Lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`.
@@ -503,7 +503,7 @@ Commence un appel chaîné qui doit se terminer par value().
 <b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-Filtre l’entrée à l’aide d’une fonction de prédicat qui renvoie true/false afin de filtrer les documents d’entrée dans le jeu résultant. Ce comportement est semblable à celui d’une clause WHERE dans SQL.
+Filtre l’entrée à l’aide d’une fonction de prédicat qui renvoie true/false afin de filtrer les documents d’entrée dans le jeu résultant. Cette fonction se comporte comme une clause WHERE dans SQL.
 </li>
 </ul>
 </li>
@@ -511,7 +511,7 @@ Filtre l’entrée à l’aide d’une fonction de prédicat qui renvoie true/fa
 <b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
-Applique une projection à partir d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Ce comportement est semblable à celui d’une clause SELECT dans SQL.
+Applique une projection à partir d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Cette fonction se comporte comme une clause SELECT dans SQL.
 </li>
 </ul>
 </li>
@@ -519,7 +519,7 @@ Applique une projection à partir d’une fonction de transformation qui mappe c
 <b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-Ceci est un raccourci pour un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée.
+Cette fonction est un raccourci pour un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée.
 </li>
 </ul>
 </li>
@@ -527,7 +527,7 @@ Ceci est un raccourci pour un mappage qui extrait la valeur d’une propriété 
 <b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
-Combine et aplatit les tableaux à partir de chaque élément d’entrée en un seul tableau. Ce comportement est semblable à SelectMany dans LINQ.
+Combine et aplatit les tableaux à partir de chaque élément d’entrée en un seul tableau. Cette fonction se comporte comme SelectMany dans SQL.
 </li>
 </ul>
 </li>
@@ -535,7 +535,7 @@ Combine et aplatit les tableaux à partir de chaque élément d’entrée en un 
 <b>sortBy([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Ce comportement est semblable à celui d’une clause ORDER BY dans SQL.
+Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Cette fonction se comporte comme une clause ORDER BY dans SQL.
 </li>
 </ul>
 </li>
@@ -543,7 +543,7 @@ Produit un nouvel ensemble de documents en les triant dans le flux du document d
 <b>sortByDescending([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre décroissant à l’aide du prédicat donné. Ce comportement est semblable à celui d’une clause ORDER BY x DESC dans SQL.
+Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre décroissant à l’aide du prédicat donné. Cette fonction se comporte comme une clause ORDER BY x DESC dans SQL.
 </li>
 </ul>
 </li>
@@ -553,7 +553,7 @@ Produit un nouvel ensemble de documents en les triant dans le flux du document d
 Quand elles sont incluses dans les fonctions de prédicat et/ou de sélecteur, les constructions JavaScript suivantes sont automatiquement optimisées pour s’exécuter directement sur les index Azure Cosmos DB :
 
 * Opérateurs simples : = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
-* Littéraux, y compris le littéral d’objet : {}
+* Littéraux, notamment le littéral d’objet : {}
 * var, return
 
 Les constructions JavaScript suivantes ne sont pas optimisées pour les index Azure Cosmos DB :
@@ -648,7 +648,7 @@ Les descriptions suivantes expliquent chaque requête du tableau ci-dessus.
 Les déclencheurs et les procédures stockées JavaScript sont exécutés dans le bac à sable (sandbox) de façon à ce que les effets d'un script ne soient divulgués à un autre sans passer par l'isolement de transaction de capture instantanée au niveau de la base de données. Les environnements d'exécution sont regroupés mais leur contexte est nettoyé après chaque exécution. Par conséquent, ils sont assurés d'être préservés de tout effet secondaire inattendu les uns des autres.
 
 ### <a name="pre-compilation"></a>Précompilation
-Les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur sont précompilés de façon implicite en format de code d’octet afin d’éviter les frais de compilation à chaque appel de script. Cela permet de s'assurer que les appels de procédures stockées sont rapides et présentent un encombrement réduit.
+Les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur sont précompilés de façon implicite en format de code d’octet afin d’éviter les frais de compilation à chaque appel de script. La précompilation permet de s’assurer que les appels de procédures stockées sont rapides et présentent un encombrement réduit.
 
 ## <a name="client-sdk-support"></a>Prise en charge du kit SDK client
 En plus de l’API [Node.js](sql-api-sdk-node.md) Azure Cosmos DB, Azure Cosmos DB propose [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) et les [SDK Python](sql-api-sdk-python.md) pour l’API SQL. Les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur peuvent être créés et exécutés au moyen de l’un de ces kits SDK également. Voici un exemple de la façon de créer et d'exécuter une procédure stockée au moyen du client .NET. Notez la façon dont les types .NET sont transmis dans la procédure stockée au format JSON et lus.
@@ -723,7 +723,7 @@ Enfin, l’exemple suivant illustre la création d’une fonction définie par l
     }
 
 ## <a name="rest-api"></a>de l’API REST
-Toutes les opérations Azure Cosmos DB peuvent être effectuées sur la base de l’architecture REST. Les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur peuvent être enregistrés dans une collection au moyen de HTTP POST. Voici un exemple de la façon d'enregistrer une procédure stockée :
+Toutes les opérations Azure Cosmos DB peuvent être effectuées sur la base de l’architecture REST. Les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur peuvent être enregistrés dans une collection au moyen de HTTP POST. L’exemple suivant montre comment enregistrer une procédure stockée :
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -757,7 +757,7 @@ Cette procédure stockée peut ensuite être exécutée en émettant une demande
     [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Ici, la valeur entrée pour la procédure stockée est transmise dans le corps de la requête. Notez que la valeur entrée est transmise en tant que tableau JSON de paramètres d'entrée. La procédure stockée prend la première entrée en tant que document correspondant à un corps de réponse. La réponse reçue se présente comme suit :
+Ici, la valeur entrée pour la procédure stockée est transmise dans le corps de la requête. La valeur entrée est transmise en tant que tableau JSON de paramètres d’entrée. La procédure stockée prend la première entrée en tant que document correspondant à un corps de réponse. La réponse reçue se présente comme suit :
 
     HTTP/1.1 200 OK
 
@@ -773,7 +773,7 @@ Ici, la valeur entrée pour la procédure stockée est transmise dans le corps d
     }
 
 
-Contrairement aux procédures stockées, les déclencheurs ne peuvent pas être exécutés directement. À la place, ils sont exécutés au sein d'une opération dans un document. Nous pouvons spécifier les déclencheurs à exécuter avec une demande au moyen d'en-têtes HTTP. Le code suivant montre une demande de création de document.
+Contrairement aux procédures stockées, les déclencheurs ne peuvent pas être exécutés directement. À la place, ils sont exécutés au sein d'une opération dans un document. Vous pouvez spécifier les déclencheurs à exécuter avec une requête au moyen d’en-têtes HTTP. Le code suivant montre une demande de création de document.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -793,9 +793,9 @@ Contrairement aux procédures stockées, les déclencheurs ne peuvent pas être 
 Ici, le pré-déclencheur devant s'exécuter avec la demande est spécifié dans l'en-tête x-ms-documentdb-pre-trigger-include. De même, tous les post-déclencheurs sont fournis dans l'en-tête x-ms-documentdb-post-trigger-include. Les pré- et post-déclencheurs peuvent tous deux être spécifiés pour une demande donnée.
 
 ## <a name="sample-code"></a>Exemple de code
-Vous trouverez d’autres exemples de code côté serveur (notamment [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) et [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) dans notre [référentiel GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Vous trouverez d’autres exemples de code côté serveur (notamment [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) et [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) dans le [dépôt GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Vous souhaitez partager votre remarquable procédure stockée ? Envoyez-nous une requête d’extraction ! 
+Vous souhaitez partager votre procédure stockée ? Contribuez au dépôt et créez une demande de tirage (pull request) ! 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le portail Azure à l’aide de l’Explorateur de données.

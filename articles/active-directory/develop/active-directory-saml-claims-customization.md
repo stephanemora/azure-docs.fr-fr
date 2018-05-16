@@ -1,25 +1,27 @@
 ---
-title: "Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory | Microsoft Docs"
-description: "Découvrez la personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory"
+title: Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory | Microsoft Docs
+description: Découvrez la personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: jeevansd
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 Actuellement, Azure Active Directory prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les deux applications pré-intégrées dans la galerie d’applications Azure AD, ainsi que les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire d’Azure AD en utilisant le protocole SAML 2.0, Azure AD envoie un jeton à l’application (via HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
@@ -40,7 +42,7 @@ Vous pouvez modifier n’importe quelle valeur de revendication par défaut. Sé
 
 ![Modifier un attribut utilisateur][2]
 
-Vous pouvez également supprimer les revendications (autres que NameIdentifier) à l’aide du menu contextuel qui s’ouvre lorsque vous cliquez sur l’icône **...**.  Vous pouvez également ajouter de nouvelles revendications à l’aide du bouton **Ajouter un attribut**.
+Vous pouvez également supprimer les revendications (autres que NameIdentifier) à l’aide du menu contextuel qui s’ouvre lorsque vous cliquez sur l’icône **...**. Vous pouvez également ajouter de nouvelles revendications à l’aide du bouton **Ajouter un attribut**.
 
 ![Modifier un attribut utilisateur][3]
 

@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: fae9d7f871dbb20f19bfd61576e017b3910ee8f4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -35,7 +35,15 @@ Toutes les entrées Azure Stream Analytics peuvent tirer parti du partitionnemen
 
 ### <a name="outputs"></a>Outputs
 
-Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement pour la plupart des récepteurs de sortie. Plus d’informations sur le partitionnement de la sortie sont disponibles dans la [section sur le partitionnement de la page de sortie](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
+Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement dans les sorties :
+-   Azure Data Lake Storage
+-   Azure Functions
+-   table Azure
+-   Stockage Blob (possibilité de définir la clé de partition explicitement)
+-   CosmosDB (nécessité de définir la clé de partition explicitement)
+-   EventHub (nécessité de définir la clé de partition explicitement)
+-   IoT Hub (nécessité de définir la clé de partition explicitement)
+-   Service Bus
 
 Les sorties PowerBI, SQL et SQL Data Warehouse ne prennent pas en charge le partitionnement. Toutefois, vous pouvez toujours partitionner l’entrée comme décrit dans [cette section](#multi-step-query-with-different-partition-by-values) 
 
@@ -54,13 +62,13 @@ Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure
 
 3. La plupart de nos sorties peuvent tirer parti du partitionnement mais, si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail n’est pas totalement parallèle. Reportez-vous à la [section relative aux sorties](#outputs) pour plus d’informations.
 
-4. Le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. Actuellement, la sortie du stockage d’objets blob ne prend pas en charge les partitions, mais cela ne pose pas de problèmes, car elle hérite du schéma de partitionnement de la requête en amont. Voici des exemples de valeurs de partition qui permettent la création d’un travail entièrement parallèle :  
+4. Le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. La sortie du Stockage Blob peut prendre en charge les partitions et hériter du schéma de partitionnement de la requête en amont. Lorsqu’une clé de partition du Stockage Blob est spécifiée, les données sont partitionnées par partition d’entrée ; le résultat reste donc entièrement parallèle. Voici des exemples de valeurs de partition qui permettent la création d’un travail entièrement parallèle :
 
    * 8 partitions d’entrée de concentrateur Event Hub et 8 partitions de sortie de concentrateur Event Hub
-   * 8 partitions d’entrée de concentrateur Event Hub et une sortie de stockage d’objets blob  
-   * 8 partitions d’entrée de hub IoT et 8 partitions de sortie de hub d’événement
-   * 8 partitions d’entrée de stockage d’objets blob et une sortie de stockage d’objets blob  
-   * 8 partitions d’entrée de stockage d’objets blob et 8 partitions de sortie de concentrateur Event Hub  
+   * 8 partitions d’entrée de concentrateur Event Hub et une sortie de stockage d’objets blob
+   * 8 partitions d’entrée Event Hub et une sortie de Stockage Blob partitionnée par un champ personnalisé avec cardinalité arbitraire
+   * 8 partitions d’entrée de stockage d’objets blob et une sortie de stockage d’objets blob
+   * 8 partitions d’entrée de stockage d’objets blob et 8 partitions de sortie de concentrateur Event Hub
 
 Les sections ci-après présentent quelques exemples de parallélisme massif.
 

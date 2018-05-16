@@ -151,8 +151,10 @@
           href: security-center-playbooks.md
         - name: Visualiser les événements
           href: security-center-events-dashboard.md
-        - name: action
+        - name: Recherche
           href: security-center-search.md
+        - name: Passer en revue la conformité (REST)
+          href: security-center-review-policy-compliance.md
     - name: Scénarios
       items:
         - name: Réponse aux incidents

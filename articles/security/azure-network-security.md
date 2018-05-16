@@ -4,7 +4,7 @@ description: Découvrez les services informatiques cloud qui incluent une large 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -504,7 +504,7 @@ Resource Manager offre plusieurs avantages :
 
 Azure propose de nombreux outils destinés à surveiller, prévenir, détecter et répondre aux événements de sécurité réseau. Vous avez ainsi accès aux outils suivants, les plus puissants en la matière :
 
--   Network Watcher
+-   Network Watcher
 
 -   Surveillance au niveau des ressources réseau
 
@@ -514,7 +514,7 @@ Azure propose de nombreux outils destinés à surveiller, prévenir, détecter e
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : les fonctionnalités de Network Watcher permettent de bénéficier d’une surveillance basée sur des scénarios. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
 
- ![Network Watcher](./media/azure-network-security/azure-network-security-fig-15.png)
+ ![Network Watcher](./media/azure-network-security/azure-network-security-fig-15.png)
 
 Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure.
 

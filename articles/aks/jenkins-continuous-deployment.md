@@ -1,6 +1,6 @@
 ---
-title: Déploiement continu Jenkins avec Kubernetes dans Azure Container Service
-description: Automatisation d’un processus de déploiement continu avec Jenkins pour déployer et mettre à niveau une application en conteneur sur Kubernetes dans Azure Container Service
+title: Déploiement continu Jenkins avec Kubernetes dans Azure Kubernetes Service
+description: Automatisation d’un processus de déploiement continu avec Jenkins pour déployer et mettre à niveau une application en conteneur sur Kubernetes dans Azure Kubernetes Service
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: efdb89c5f4c6bdb9b007b7c0020cbdb8f6034eed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Déploiement continu avec Jenkins et Azure Container Service
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Déploiement continu avec Jenkins et Azure Kubernetes Service
 
-Ce document explique comment configurer un workflow de déploiement continu de base entre Jenkins et un cluster Azure Container Service (AKS).
+Ce document explique comment configurer un workflow de déploiement continu de base entre Jenkins et un cluster Azure Kubernetes Service (AKS).
 
 L’exemple de workflow inclut les étapes suivantes :
 
@@ -33,7 +33,7 @@ L’exemple de workflow inclut les étapes suivantes :
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants.
 
 - Notions de base de Kubernetes, Git, déploiement et intégration continus, et Azure Container Registry (ACR).
-- Un [cluster Azure Container Service (AKS)][aks-quickstart] et des [informations d’identification AKS configurées][aks-credentials] sur votre système de développement.
+- Un [cluster Azure Kubernetes Service (AKS)][aks-quickstart] et des [informations d’identification AKS configurées][aks-credentials] sur votre système de développement.
 - Un [registre Azure Container Registry (ACR)][acr-quickstart], le nom du serveur de connexion ACR, et les [informations d’identification ACR][acr-authentication] avec accès par envoi et par extraction.
 - Azure CLI installé sur votre système de développement.
 - Docker installé sur votre système de développement.
@@ -253,7 +253,7 @@ Cliquez sur **Générer maintenant** dans le menu de gauche du projet.
 
 ![Build de test Jenkins](media/aks-jenkins/test-build.png)
 
-Lors de ce processus, le dépôt GitHub est cloné dans le serveur de build Jenkins. Une image conteneur est générée et envoyée dans le registre ACR. Enfin, l’application de vote Azure exécutée sur le cluster AKS est mise à jour afin d’utiliser la nouvelle image. L’application n’est pas différente car aucun changement n’a été effectué au niveau du code de l’application.
+Lors de ce processus, le référentiel GitHub est cloné dans le serveur de génération Jenkins. Une image conteneur est générée et envoyée dans le registre ACR. Enfin, l’application de vote Azure exécutée sur le cluster AKS est mise à jour afin d’utiliser la nouvelle image. L’application n’est pas différente car aucun changement n’a été effectué au niveau du code de l’application.
 
 Une fois le processus terminé, cliquez sur **build #1** dans l’historique des builds et sélectionnez **Sortie de la console** pour voir toutes les sorties du processus de génération. La dernière ligne doit indiquer que la génération a été un succès.
 
@@ -285,7 +285,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Lorsque vous avez terminé, enregistrez le fichier, validez les modifications et envoyez-les à la branche de votre dépôt GitHub. Une fois la validation terminée, le webhook GitHub déclenche un nouveau build Jenkins, ce qui met à jour l’image conteneur et le déploiement AKS. Surveillez le processus de génération sur la console d’administration Jenkins.
+Lorsque vous avez terminé, enregistrez le fichier, validez les modifications et envoyez-les à la branche de votre référentiel GitHub. Une fois la validation terminée, le webhook GitHub déclenche un nouveau build Jenkins, ce qui met à jour l’image conteneur et le déploiement AKS. Surveillez le processus de génération sur la console d’administration Jenkins.
 
 Une fois la génération terminée, retournez au point de terminaison de l’application pour en observer les modifications.
 

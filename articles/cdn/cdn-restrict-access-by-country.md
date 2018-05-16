@@ -1,6 +1,6 @@
 ---
 title: Limiter l’accès à votre contenu CDN Azure par pays | Microsoft Docs
-description: Découvrez comment limiter l’accès à votre contenu Azure CDN à l’aide de la fonctionnalité de filtrage géographique.
+description: Découvrez comment limiter l’accès à votre contenu CDN Azure par le biais de la fonctionnalité de filtrage géographique.
 services: cdn
 documentationcenter: ''
 author: lichard
@@ -14,29 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bb757ab115d03ab04dac4468d23f446696a971a9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limiter l’accès à votre contenu CDN Azure par pays
 
 ## <a name="overview"></a>Vue d'ensemble
-Par défaut, lorsqu'un utilisateur demande du contenu, le contenu est pris en charge, quel que soit l’endroit d’où vient la demande. Dans certains cas, vous souhaiterez limiter l'accès à votre contenu par pays. Cette rubrique explique comment utiliser la fonctionnalité de **Filtrage géographique** afin de configurer le service pour autoriser ou bloquer l'accès par pays.
+Par défaut, lorsqu'un utilisateur demande du contenu, le contenu est pris en charge, quel que soit l’endroit d’où vient la demande. Dans certains cas, vous souhaiterez limiter l'accès à votre contenu par pays. Cet article explique comment utiliser la fonctionnalité de *filtrage géographique* pour configurer le service dans l’optique d’autoriser ou de bloquer l’accès par pays.
 
 > [!IMPORTANT]
-> Les produits Verizon et Akamai fournissent la même fonctionnalité de filtrage géographique, mais dans une interface utilisateur légèrement différente. Un lien vers les différences est disponible à l’étape 3.
+> Les produits CDN Azure fournissent tous la même fonctionnalité de filtrage géographique, mais avec une prise en charge des codes de pays légèrement différente. Un lien vers les différences est disponible à l’étape 3.
 
 
-Pour plus d’informations sur les considérations qui s’appliquent à la configuration de ce type de restriction, consultez la section [Considérations](cdn-restrict-access-by-country.md#considerations) à la fin de la rubrique.  
+Pour plus d’informations sur les considérations qui s’appliquent à la configuration de ce type de restriction, consultez [Considérations](cdn-restrict-access-by-country.md#considerations).  
 
 ![Filtrage par pays](./media/cdn-filtering/cdn-country-filtering-akamai.png)
 
 ## <a name="step-1-define-the-directory-path"></a>Étape 1 : définir le chemin d'accès
+> [!IMPORTANT]
+> Les profils **CDN Azure Standard fourni par Microsoft** ne prennent pas en charge le filtrage géographique basé sur le chemin d’accès.
+>
+
+
 Sélectionnez votre point de terminaison dans le portail et trouvez l’onglet Filtrage géographique dans le volet de navigation gauche pour trouver cette fonctionnalité.
 
-Lorsque vous configurez un filtre de pays, vous devez spécifier le chemin d'accès relatif à l'emplacement auquel les accès utilisateurs sont autorisés ou refusés. Vous pouvez appliquer le filtrage géographique pour tous vos fichiers avec « / » ou certains dossiers en spécifiant des chemins d'accès au répertoire "/pictures/". Vous pouvez également appliquer le filtrage géographique à un seul fichier en spécifiant le fichier et en omettant la barre oblique « /pictures/city.png ».
+Lorsque vous configurez un filtre de pays, vous devez spécifier le chemin d'accès relatif à l'emplacement auquel les accès utilisateurs sont autorisés ou refusés. Vous pouvez appliquer le filtrage géographique pour tous vos fichiers avec une barre oblique inversée (/) ou certains dossiers en spécifiant les chemins d’accès au répertoire */pictures/*. Vous pouvez également appliquer le filtrage géographique à un seul fichier en spécifiant le fichier et en omettant la barre oblique finale */pictures/city.png*.
 
 Exemple de filtre de chemin d'accès au répertoire :
 
@@ -60,10 +65,13 @@ Par exemple, la règle de blocage /Photos/Strasbourg/ filtre les fichiers, notam
 
 
 ### <a name="country-codes"></a>Codes de pays
-La fonctionnalité de **Filtrage géographique** utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé. Vous trouverez les codes de pays sur la page [Azure CDN Country Codes (Code de pays du CDN Azure)](https://msdn.microsoft.com/library/mt761717.aspx). 
+La fonctionnalité de filtrage géographique utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé. Bien que les produits CDN Azure fournissent tous la même fonctionnalité de filtrage géographique, on constate une légère différence de prise en charge des codes de pays. Pour plus d’informations, consultez [Azure CDN Country Codes (Codes de pays CDN Azure)](https://msdn.microsoft.com/library/mt761717.aspx). 
 
-## <a id="considerations"></a>Considérations
-* L’implémentation des modifications apportées à votre configuration de filtrage par pays peut prendre jusqu’à 90 minutes avec la solution Verizon ou quelques minutes avec la solution Akamai.
+## <a name="considerations"></a>Considérations
+* Les modifications apportées à votre configuration de filtrage par pays ne prennent pas effet immédiatement :
+   * Pour les profils **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de dix minutes. 
+   * Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
+   * Pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes.  
 * Cette fonctionnalité ne prend pas en charge les caractères génériques (par exemple, « * »).
 * La configuration de filtrage géographique associée avec le chemin d'accès relatif de filtrage est appliquée de manière récursive à ce chemin d’accès.
 * Une seule règle peut être appliquée au même chemin d'accès relatif (vous ne pouvez pas créer plusieurs filtres de pays qui pointent vers le même chemin d'accès relatif). Toutefois, un dossier peut avoir plusieurs filtres par pays. Cela est dû à la nature récursive des filtres par pays. En d'autres termes, un filtre par pays différent peut être attribué à un sous-dossier d'un dossier déjà configuré.

@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble de la solution de maintenance prédictive : Azure | Microsoft Docs"
-description: "Procédure pas à pas de la solution préconfigurée de maintenance prédictive Azure IoT."
-services: 
+title: Procédure pas à pas de l’accélérateur de solution Maintenance prédictive - Azure | Microsoft Docs
+description: Procédure pas à pas de l’accélérateur de solution Maintenance prédictive Azure IoT.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397ac3c8b9caa5c392aff4683df2db3b2144899b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Procédure pas à pas de la solution préconfigurée de maintenance prédictive
+# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>Procédure pas à pas de l’accélérateur de solution Maintenance prédictive
 
-La solution préconfigurée de maintenance prédictive est une solution de bout en bout pour un scénario d’entreprise qui prévoit le moment auquel une défaillance est susceptible de se produire. Vous pouvez utiliser cette solution préconfigurée de manière proactive pour des activités telles que l’optimisation de la maintenance. La solution combine des services Azure IoT Suite clés, comme IoT Hub, Stream Analytics et un espace de travail [Azure Machine Learning][lnk-machine-learning]. Cet espace de travail contient un modèle basé sur un échantillon de données publiques, permettant de prédire la durée de vie utile restante (VUR) d’un moteur d’avion. La solution implémente complètement le scénario professionnel IoT comme point de départ, pour vous permettre de planifier et de mettre en œuvre une solution qui réponde à vos besoins professionnels.
+L’accélérateur de solution Maintenance prédictive est une solution de bout en bout pour un scénario d’entreprise qui prévoit le moment auquel une défaillance est susceptible de se produire. Vous pouvez utiliser cet accélérateur de solution de manière proactive pour des activités telles que l’optimisation de la maintenance. La solution combine des services d’accélérateur de solution Azure IoT clés, comme Hub IoT, Stream Analytics et un espace de travail [Azure Machine Learning][lnk-machine-learning]. Cet espace de travail contient un modèle basé sur un échantillon de données publiques, permettant de prédire la durée de vie utile restante (VUR) d’un moteur d’avion. La solution implémente complètement le scénario professionnel IoT comme point de départ, pour vous permettre de planifier et de mettre en œuvre une solution qui réponde à vos besoins professionnels.
 
 ## <a name="logical-architecture"></a>Architecture logique
 
-Le schéma suivant décrit les composants logiques de la solution préconfigurée :
+Le diagramme suivant décrit les composants logiques de l’accélérateur de solution :
 
 ![][img-architecture]
 
-Les éléments en bleu sont des services Azure configurés dans la région dans laquelle vous avez déployé la solution préconfigurée. La liste des régions dans lesquelles vous pouvez déployer la solution préconfigurée apparaît sur la [page de configuration][lnk-azureiotsuite].
+Les éléments en bleu sont des services Azure configurés dans la région dans laquelle vous avez déployé l’accélérateur de solution. La liste des régions dans lesquelles vous pouvez déployer l’accélérateur de solution apparaît sur la [page de configuration][lnk-azureiotsuite].
 
 L’élément en vert est un appareil simulé qui représente un moteur d’avion. Des informations supplémentaires sur ces appareils simulés sont disponibles dans la section [Simulations d’appareils](#simulated-devices).
 
-Les éléments en gris représentent des composants qui implémentent les fonctionnalités de *gestion des appareils* . La version actuelle de la solution préconfigurée de maintenance prédictive ne provisionne pas ces ressources. Pour en savoir plus sur la gestion des appareils, reportez-vous à la [solution préconfigurée de surveillance à distance][lnk-remote-monitoring].
+Les éléments en gris représentent des composants qui implémentent les fonctionnalités de *gestion des appareils* . La version actuelle de l’accélérateur de solution Maintenance prédictive ne configure pas ces ressources. Pour en savoir plus sur la gestion des appareils, reportez-vous à la [solution préconfigurée de surveillance à distance][lnk-remote-monitoring].
 
 ## <a name="simulated-devices"></a>Simulations d’appareils
 
-Dans la solution préconfigurée, un appareil simulé représente un moteur d’avion. La solution est configurée avec deux moteurs correspondant à un même avion. Chaque moteur émet quatre types de télémétrie (Capteur 9, Capteur 11, Capteur 14 et Capteur 15) qui fournissent les données requises par le modèle Machine Learning pour calculer la durée de vie utile restante du moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
+Dans l’accélérateur de solution, un appareil simulé représente un moteur d’avion. La solution est configurée avec deux moteurs correspondant à un même avion. Chaque moteur émet quatre types de télémétrie (Capteur 9, Capteur 11, Capteur 14 et Capteur 15) qui fournissent les données requises par le modèle Machine Learning pour calculer la durée de vie utile restante du moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
 
 *Nombre de cycles*. Un cycle représente un vol d’une durée comprise entre deux et dix heures. Pendant le vol, les données de télémétrie sont collectées toutes les demi-heures.
 
-*Télémétrie*. Quatre capteurs représentent les attributs du moteur. Les capteurs sont nommés de manière générique Capteur 9, Capteur 11, Capteur 14 et Capteur 15. Ces quatre capteurs constituent une télémétrie suffisante pour obtenir des résultats utiles à partir du modèle de durée de vie utile restante. Le modèle utilisé dans la solution préconfigurée est créé à partir d’un jeu de données publiques qui inclut des données réelles de capteurs de moteurs. Pour plus d’informations sur la création du modèle à partir du jeu de données d’origine, consultez le [modèle de maintenance prédictive de la galerie Cortana Intelligence][lnk-cortana-analytics].
+*Télémétrie*. Quatre capteurs représentent les attributs du moteur. Les capteurs sont nommés de manière générique Capteur 9, Capteur 11, Capteur 14 et Capteur 15. Ces quatre capteurs constituent une télémétrie suffisante pour obtenir des résultats utiles à partir du modèle de durée de vie utile restante. Le modèle utilisé dans l’accélérateur de solution est créé à partir d’un jeu de données publiques qui inclut des données réelles de capteurs de moteur. Pour plus d’informations sur la création du modèle à partir du jeu de données d’origine, consultez le [modèle de maintenance prédictive de la galerie Cortana Intelligence][lnk-cortana-analytics].
 
 Les appareils simulés peuvent prendre en charge les commandes suivantes, envoyées à partir d’IoT Hub dans la solution :
 
@@ -64,16 +64,16 @@ IoT Hub fournit un accusé de réception de la commande de l’appareil.
 ## <a name="event-processor"></a>Processeur d’événements
 **L’hôte de processeur d’événements** s’exécute dans une tâche web Azure. Le **processeur d’événements** mémorise les valeurs moyennes des capteurs sur un cycle terminé. Il les transmet à une API qui expose le modèle formé pour calculer la durée de vie utile restante d’un moteur. L’API est exposée par un espace de travail Machine Learning configuré dans le cadre de la solution.
 
-## <a name="machine-learning"></a>Apprentissage automatique
+## <a name="machine-learning"></a>Machine Learning
 Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning depuis la vignette sur la page [azureiotsuite.com][lnk-azureiotsuite]. La vignette est disponible lorsque le statut de la solution est **Prêt**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous connaissez les composants clés de la solution préconfigurée de maintenance prédictive, vous pouvez passer à la personnalisation. Consultez [Conseils sur la personnalisation des solutions préconfigurées][lnk-customize].
+Maintenant que vous connaissez les composants clés de l’accélérateur de solution Maintenance prédictive, vous pouvez passer à la personnalisation. Consultez [Guidance on customizing solution accelerators (Conseils sur la personnalisation des accélérateurs de solution)][lnk-customize].
 
-Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
+Vous pouvez également explorer d’autres fonctionnalités et capacités des accélérateurs de solution IoT :
 
-* [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
+* [Questions fréquentes (FAQ) sur les accélérateurs de solution IoT][lnk-faq]
 * [Sécurisation de l’Internet des objets de bout en bout][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png

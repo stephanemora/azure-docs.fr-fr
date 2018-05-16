@@ -4,7 +4,7 @@ description: Cet article fournit une vue d’ensemble de l’infrastructure Azur
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20dfbd2c5c2c38abddf332dc6a20ddb271c95ace
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 Azure Operational Security renvoie aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) est une infrastructure qui intègre les connaissances acquises via différentes fonctionnalités spécifiques de Microsoft, notamment Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces.
@@ -27,7 +27,7 @@ Cet article de présentation d’Azure Operational Security se concentre sur les
 
 - Azure Operations Management Suite
 -   Azure Security Center
--   Azure Monitor
+-   Azure Monitor
 -   Azure Network Watcher
 -   Azure Storage Analytics
 -   Azure Active Directory
@@ -89,7 +89,7 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 
 Security Center utilise Microsoft Monitoring Agent (le même agent que celui utilisé par Operations Management Suite et le service Log Analytics). Les données collectées à partir de cet agent sont stockées dans un [espace de travail](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) Log Analytics existant associé à votre abonnement Azure ou dans un nouvel espace de travail, en tenant compte de la zone géographique de la machine virtuelle.
 
-## <a name="azure-monitor"></a>Azure Monitor
+## <a name="azure-monitor"></a>Azure Monitor
 Les problèmes de performances dans votre application cloud peuvent affecter votre entreprise. Avec plusieurs composants interconnectés et de nouvelles versions fréquentes, des dégradations peuvent se produire à tout moment. Et si vous développez une application, vos utilisateurs découvrent généralement des problèmes que vous n’avez pas trouvés dans le test. Vous devez prendre connaissance de ces problèmes immédiatement et disposer d’outils pour diagnostiquer et résoudre les problèmes.
 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) est l’outil de base pour la surveillance des services s’exécutant sur Azure. Il vous fournit des données au niveau de l’infrastructure sur le débit d’un service et l’environnement. Si vous gérez toutes vos applications dans Azure et décidez d’augmenter ou de diminuer les ressources, Azure Monitor vous donne le nécessaire pour démarrer.
@@ -118,7 +118,7 @@ Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les perf
 Cette fonctionnalité Azure active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de différentes sources. Les sources actuellement prises en charge sont les [rôles web et les rôles de travail Azure Cloud Services](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), les [machines virtuelles Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) sous Microsoft Windows et [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
 
 
-## <a name="network-watcher"></a>Network Watcher
+## <a name="network-watcher"></a>Network Watcher
 Les clients créent un réseau de bout en bout dans Azure en orchestrant et composant diverses ressources réseau telles qu’un réseau virtuel, ExpressRoute, Application Gateway, des équilibrages de charge, etc. La surveillance est disponible sur chacune des ressources réseau.
 
 Le réseau de bout en bout peut avoir des configurations et des interactions entre les ressources complexes, générant des scénarios compliqués pour lesquels la surveillance basée sur des scénarios via Network Watcher est nécessaire.

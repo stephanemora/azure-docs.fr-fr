@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/23/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -40,6 +42,8 @@ ms.lasthandoff: 04/23/2018
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="stable-builds"></a>Builds stables
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Correctifs inclus dans l’estimation de travail en attente.
@@ -65,6 +69,23 @@ ms.lasthandoff: 04/23/2018
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Kit SDK GA
 * Compatible avec les versions 1.14.1 et inférieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
+
+### <a name="pre-release-builds"></a>Builds en préversion
+
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Nouvelle API v2 :
+  * Modèle de générateur pour la construction flexible du processeur : la classe ChangeFeedProcessorBuilder.
+    * Peut prendre n’importe quelle combinaison de paramètres.
+    * Peut prendre une instance DocumentClient pour la surveillance et/ou la collection de baux (non disponible dans v1).
+  * IChangeFeedObserver.ProcessChangesAsync accepte désormais CancellationToken.
+  * IRemainingWorkEstimator : l’estimateur de travail restant peut être utilisé indépendamment du processeur.
+  * Nouveaux points d’extensibilité :
+    * IParitionLoadBalancingStrategy : pour un équilibrage de charge de partitions personnalisé entre des instances du processeur.
+    * ILease, ILeaseManager : pour la gestion de baux personnalisée.
+    * IPartitionProcessor : pour les modifications de traitement personnalisées sur une partition.
+* Journalisation : utilise la bibliothèque [LibLog](https://github.com/damianh/LibLog).
+* 100 % compatible avec l’API v1.
+* Compatible avec les versions 1.21.1 et ultérieures du [SDK SQL .NET](sql-api-sdk-dotnet.md).
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.

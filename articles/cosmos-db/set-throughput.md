@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 05/07/2018
 ms.author: sngun
-ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bede91ed3ffc456740a0eb63ed7a15278e99ebe2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB
 
-Vous pouvez définir le débit de vos conteneurs Azure Cosmos DB dans le portail Azure ou à l’aide des SDK clients. 
+Vous pouvez définir le débit de vos conteneurs Azure Cosmos DB ou d’un ensemble de conteneurs dans le portail Azure ou à l’aide des SDK clients. 
 
 Le tableau suivant répertorie les débits disponibles pour les conteneurs :
 
@@ -31,15 +31,18 @@ Le tableau suivant répertorie les débits disponibles pour les conteneurs :
             <td valign="top"><p></p></td>
             <td valign="top"><p><strong>Conteneur à partition unique</strong></p></td>
             <td valign="top"><p><strong>Conteneur partitionné</strong></p></td>
+            <td valign="top"><p><strong>Ensemble de conteneurs</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débit minimal</p></td>
             <td valign="top"><p>400 unités de demande par seconde</p></td>
-            <td valign="top"><p>1000 unités de requête par seconde</p></td>
+            <td valign="top"><p>1 000 unités de demande par seconde</p></td>
+            <td valign="top"><p>50 000 unités de demande par seconde</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débit maximal</p></td>
             <td valign="top"><p>10 000 unités de demande par seconde</p></td>
+            <td valign="top"><p>Illimité</p></td>
             <td valign="top"><p>Illimité</p></td>
         </tr>
     </tbody>
@@ -62,6 +65,7 @@ L’extrait de code suivant récupère le débit actuel et le modifie en 500 UR/
 
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
+// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -82,6 +86,7 @@ L’extrait de code suivant récupère le débit actuel et le modifie en 500 UR/
 
 ```Java
 // find offer associated with this collection
+// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
 Iterator < Offer > it = client.queryOffers(
     String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
 assertThat(it.hasNext(), equalTo(true));
@@ -131,7 +136,7 @@ La méthode la plus simple pour obtenir une estimation correcte des frais d’un
 ![Mesures du portail de l’API MongoDB][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API MongoDB
-Les applications qui dépassent le débit approvisionné pour un conteneur seront limitées jusqu'à ce que le taux de consommation tombe au-dessous du taux de débit approvisionné. En cas de limitation, le serveur principal interrompra la requête de manière préemptive avec un code d’erreur `16500`-`Too Many Requests`. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur `Too Many Requests`. Si vous recevez de nombreux codes d’erreur`Too Many Requests`, vous pouvez considérer l’ajout d’une logique de nouvelle tentative dans vos routines de gestion des erreurs ou [augmenter le débit approvisionné pour le conteneur](set-throughput.md).
+Les applications qui dépassent le débit provisionné pour un conteneur ou un ensemble de conteneurs sont limitées jusqu’à ce que le taux de consommation tombe au-dessous du taux de débit provisionné. En cas de limitation, le serveur principal interrompra la requête de manière préemptive avec un code d’erreur `16500`-`Too Many Requests`. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur `Too Many Requests`. Si vous recevez de nombreux codes d’erreur`Too Many Requests`, vous pouvez considérer l’ajout d’une logique de nouvelle tentative dans vos routines de gestion des erreurs ou [augmenter le débit approvisionné pour le conteneur](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Forum Aux Questions sur le débit
 

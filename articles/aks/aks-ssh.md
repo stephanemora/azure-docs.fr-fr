@@ -1,6 +1,6 @@
 ---
-title: SSH dans les nœuds de cluster Azure Container Service (AKS)
-description: Créer une connexion SSH avec des nœuds de cluster Azure Container Service (AKS)
+title: SSH dans les nœuds de cluster Azure Kubernetes Service (AKS)
+description: Créer une connexion SSH avec des nœuds de cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>SSH dans les nœuds de cluster Azure Container Service (AKS)
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH dans les nœuds de cluster Azure Kubernetes Service (AKS)
 
-Vous avez parfois besoin d’accéder à un nœud Azure Container Service (AKS) à des fins de maintenance, de collecte de journaux ou d’autres opérations de dépannage. Les nœuds Azure Container Service (AKS) ne sont pas exposés sur Internet. Utilisez les étapes décrites dans ce document pour créer une connexion SSH avec un nœud AKS.
+Vous avez parfois besoin d’accéder à un nœud Azure Kubernetes Service (AKS) à des fins de maintenance, de collecte de journaux ou d’autres opérations de dépannage. Les nœuds Azure Kubernetes Service (AKS) ne sont pas exposés sur Internet. Utilisez les étapes décrites dans ce document pour créer une connexion SSH avec un nœud AKS.
 
 ## <a name="get-aks-node-address"></a>Obtenir l’adresse du nœud AKS
 

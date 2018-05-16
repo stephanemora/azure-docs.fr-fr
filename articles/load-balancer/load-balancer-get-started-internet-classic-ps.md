@@ -1,10 +1,10 @@
 ---
-title: "Créer un équilibrage de charge accessible sur Internet à l’aide d’Azure PowerShell classique | Microsoft Docs"
-description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans le mode classique à l’aide de PowerShell"
+title: Créer un équilibrage de charge accessible sur Internet à l’aide d’Azure PowerShell classique | Microsoft Docs
+description: Découvrez comment créer un équilibreur de charge accessible sur Internet dans le mode classique à l’aide de PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: timlt
+author: genlin
+manager: cshepard
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
@@ -13,19 +13,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: kumud
-ms.openlocfilehash: 56e29dc792ef832a7693b9c8769e9b4269766955
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: genli
+ms.openlocfilehash: 07d3658ff86a46875a57cb3359a60661911e0c8b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Création d'un équilibreur de charge accessible sur Internet (classique) dans PowerShell
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
-> * [Services cloud Azure](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
+> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/18/2017
 
 Pour configurer un équilibreur de charge à l’aide de PowerShell, procédez comme suit :
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Après avoir créé une machine virtuelle, vous pouvez utiliser les applets de commande PowerShell pour ajouter un équilibrage de charge à une machine virtuelle dans le même service cloud.
 
 Dans l’exemple suivant, vous ajoutez un jeu d’équilibrage de charge appelé « webfarm » au service cloud « mytestcloud » (ou myctestcloud.cloudapp.net), puis ajoutez les points de terminaison de l’équilibreur de charge aux machines virtuelles nommées « web1 » et « web2 ». L’équilibreur de charge reçoit le trafic réseau sur le port 80 et effectue l’équilibrage de charge entre les machines virtuelles définies par le point de terminaison local (dans ce cas, le port 80) avec TCP.

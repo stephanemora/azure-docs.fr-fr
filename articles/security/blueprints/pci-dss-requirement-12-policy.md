@@ -1,9 +1,9 @@
 ---
-title: "Plan de traitement des paiements Azure - Conditions relatives aux stratégies"
+title: Plan de traitement des paiements Azure - Conditions relatives aux stratégies
 description: Condition 12 de la norme PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: a79d59d8-20e3-4efe-8686-c8f4ed80e220
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 05e9ed7c886d37a024db1eedbc541705b7d8a9a9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2fb238e9b95180d6156159c87ec008a71943e698
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>Conditions relatives aux stratégies pour les environnements conformes à la norme PCI DSS  
 ## <a name="pci-dss-requirement-12"></a>Condition 12 de la norme PCI DSS
@@ -34,12 +34,12 @@ Une stratégie de sécurité renforcée définit les règles de sécurité pour 
 
 **12.1** Établir, publier, maintenir et diffuser une stratégie de sécurité.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de l’établissement et de la gestion d’une stratégie de sécurité des informations.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de l’établissement et de la gestion d’une stratégie de sécurité des informations.|
 
 
 
@@ -47,12 +47,12 @@ Une stratégie de sécurité renforcée définit les règles de sécurité pour 
 
 **12.1.1** Examiner la stratégie de sécurité au moins une fois par an et mettre la stratégie à jour lorsque l’environnement change
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent mettre à jour leur stratégie de sécurité des informations au moins une fois par an, et lorsque des modifications sont apportées à leur environnement de données de titulaire de carte (CDE).|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent mettre à jour leur stratégie de sécurité des informations au moins une fois par an, et lorsque des modifications sont apportées à leur environnement de données de titulaire de carte (CDE).|
 
 
 
@@ -64,12 +64,12 @@ Une stratégie de sécurité renforcée définit les règles de sécurité pour 
 - Donne lieu à une évaluation formelle des risques
 - > Les exemples de méthodologies d’évaluation des risques comprennent entre autres les directives OCTAVE, ISO 27005 et NIST SP 800-30.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de l’implémentation d’un processus d’évaluation des risques traitant toutes les menaces répertoriées dans la Condition 12.2.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de l’implémentation d’un processus d’évaluation des risques traitant toutes les menaces répertoriées dans la Condition 12.2.|
 
 
 
@@ -81,12 +81,12 @@ Une stratégie de sécurité renforcée définit les règles de sécurité pour 
 > Les exemples de technologies critiques comprennent notamment l’accès à distance et les technologies sans fil, les ordinateurs portables, les tablettes, les supports électroniques amovibles, l’utilisation de l’e-mail et d’Internet.
 S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -94,12 +94,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.1** Approbation explicite des responsables.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -107,12 +107,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.2** Authentification pour l’utilisation des technologies
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -120,12 +120,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.3** Liste de tous les périphériques et du personnel disposant d’un accès
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -133,12 +133,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.4** Une méthode permettant de déterminer rapidement et avec précision le propriétaire, les coordonnées et le but (par exemple, étiquetage, codage et/ou inventaire des appareils)
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -146,12 +146,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.5** Usages acceptables de la technologie
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -159,12 +159,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.6** Emplacements acceptables des technologies sur le réseau
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de déterminer des emplacements réseau acceptables pour les machines virtuelles, ainsi que pour le stockage et les services de prise en charge dans le cloud.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de déterminer des emplacements réseau acceptables pour les machines virtuelles, ainsi que pour le stockage et les services de prise en charge dans le cloud.|
 
 
 
@@ -172,12 +172,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.7** Liste des produits approuvés par la société
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de déterminer des emplacements réseau acceptables pour les machines virtuelles, ainsi que pour le stockage et les services de prise en charge dans le cloud.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de déterminer des emplacements réseau acceptables pour les machines virtuelles, ainsi que pour le stockage et les services de prise en charge dans le cloud.|
 
 
 
@@ -185,12 +185,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.8** Déconnexion automatique des sessions des technologies d’accès à distance après une période d’inactivité spécifique
 
-**Responsabilités :&nbsp;&nbsp;`Shared`**
+**Responsabilités :&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utilise des fonctionnalités de verrouillage de session Microsoft AD pour l’entreprise, qui verrouillent une session après une période d’inactivité donnée. Les connexions réseau sont arrêtées après 30 minutes d’inactivité. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -198,12 +198,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 
 **12.3.9** Activation des technologies d’accès à distance pour les fournisseurs et les partenaires commerciaux, uniquement lorsque c’est nécessaire, avec désactivation immédiate après usage
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -212,12 +212,12 @@ S’assurer que ces stratégies d’utilisation exigent ce qui suit.
 **12.3.10** Lors de l’accès du personnel aux données du titulaire, au moyen de technologies d’accès à distance, interdire la copie, le déplacement et le stockage de données du titulaire sur des disques durs locaux et des supports électroniques amovibles, sauf autorisation expresse pour un besoin professionnel défini
 Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisation doit exiger que les données soient protégées selon toutes les conditions applicables de la norme PCI DSS.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Il revient aux clients d’interdire au personnel qui accèdent aux données de titulaire de carte, au moyen de technologies d’accès à distance, de copier, déplacer et stocker ces données sur des disques durs locaux et des supports électroniques amovibles, sauf autorisation expresse pour un besoin professionnel défini.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Il revient aux clients d’interdire au personnel qui accèdent aux données de titulaire de carte, au moyen de technologies d’accès à distance, de copier, déplacer et stocker ces données sur des disques durs locaux et des supports électroniques amovibles, sauf autorisation expresse pour un besoin professionnel défini.|
 
 
 
@@ -225,12 +225,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.4** S’assurer que la stratégie et les procédures de sécurité définissent clairement les responsabilités de tout le personnel en matière de sécurité
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -243,12 +243,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 > [!NOTE]
 > Cette condition sera considérée comme une bonne pratique jusqu’au 31 janvier 2018, après quoi elle deviendra obligatoire.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients qui sont des fournisseurs de services doivent documenter leur programme de conformité PCI.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients qui sont des fournisseurs de services doivent documenter leur programme de conformité PCI.|
 
 
 
@@ -256,12 +256,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.5** Attribuer à un individu ou à une équipe les responsabilités suivantes de gestion de la sécurité des informations
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de définir et d’attribuer les responsabilités de sécurité des informations à leurs employés.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de définir et d’attribuer les responsabilités de sécurité des informations à leurs employés.|
 
 
 
@@ -269,12 +269,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.5.1** Définir, documenter et diffuser les stratégies et les procédures de sécurité.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de définir et d’attribuer les responsabilités de sécurité des informations à leurs employés.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de définir et d’attribuer les responsabilités de sécurité des informations à leurs employés.|
 
 
 
@@ -282,12 +282,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.5.2** Contrôler et analyser les informations et les alertes de sécurité, et les diffuser au personnel compétent.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de définir et d’attribuer les responsabilités de sécurité des informations à leurs employés.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de définir et d’attribuer les responsabilités de sécurité des informations à leurs employés.|
 
 
 
@@ -295,12 +295,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.5.3** Définir, documenter et diffuser les procédures de remontée et de réponse aux incidents liés à la sécurité pour garantir une gestion rapide et efficace de toutes les situations
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -308,12 +308,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.5.4** Administrer les comptes d’utilisateur, notamment l’ajout, la suppression et la modification des comptes
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -321,12 +321,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.5.5** Surveiller et contrôler tous les accès aux données
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de la création et de la gestion de stratégies dictant l’utilisation, l’implémentation et l’authentification appropriées pour les technologies critiques présentes dans leur environnement de données de titulaire de carte.|
 
 
 
@@ -334,12 +334,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.6** Mettre en œuvre un programme formel de sensibilisation à la sécurité pour sensibiliser les employés à l’importance de la sécurité des données du titulaire
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la création et de la gestion de stratégies concernant la sensibilisation à la sécurité pour le personnel ayant accès à l’environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la création et de la gestion de stratégies concernant la sensibilisation à la sécurité pour le personnel ayant accès à l’environnement de données de titulaire de carte.|
 
 
 
@@ -350,12 +350,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 > [!NOTE]
 > Les méthodes varient selon les postes occupés et le niveau d’accès du personnel aux données du titulaire.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent fournir à leur personnel une formation de sensibilisation à la sécurité des informations et à la conformité PCI-DSS, et ce, au moins une fois par an.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent fournir à leur personnel une formation de sensibilisation à la sécurité des informations et à la conformité PCI-DSS, et ce, au moins une fois par an.|
 
 
 
@@ -363,12 +363,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.6.2** Exiger que le personnel reconnaisse au moins une fois par an avoir lu et compris les procédures et la stratégie de sécurité.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent fournir à leur personnel une formation de sensibilisation à la sécurité des informations et à la conformité PCI-DSS, et ce, au moins une fois par an.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent fournir à leur personnel une formation de sensibilisation à la sécurité des informations et à la conformité PCI-DSS, et ce, au moins une fois par an.|
 
 
 
@@ -379,12 +379,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 > [!NOTE]
 > Pour le personnel dont l’embauche potentielle concerne des postes tels que celui de caissier dans un magasin, et qui n’a accès qu’à un numéro de carte à la fois, à l’occasion du traitement d’une transaction, cette condition n’est qu’une recommandation.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent garantir que le personnel ayant accès à l’environnement de données de titulaire de carte a fait l’objet d’une vérification d’antécédents approfondie.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent garantir que le personnel ayant accès à l’environnement de données de titulaire de carte a fait l’objet d’une vérification d’antécédents approfondie.|
 
 
 
@@ -392,12 +392,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.8** Maintenir et mettre en œuvre des stratégies et des procédures de gestion des fournisseurs de services avec lesquelles les données du titulaire sont partagées, ou qui pourraient affecter la sécurité des données du titulaire.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de surveiller la conformité PCI des fournisseurs de services avec lesquels sont partagées les données des titulaires de cartes ou qui pourraient porter atteinte à la sécurité de l’environnement de données de titulaire de carte. Les clients doivent établir une liste de tous les fournisseurs de services qui ont utilisé leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de surveiller la conformité PCI des fournisseurs de services avec lesquels sont partagées les données des titulaires de cartes ou qui pourraient porter atteinte à la sécurité de l’environnement de données de titulaire de carte. Les clients doivent établir une liste de tous les fournisseurs de services qui ont utilisé leur environnement de données de titulaire de carte.|
 
 
 
@@ -406,12 +406,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 **12.8.1** Établir la liste des fournisseurs de services (avec la description des services fournis).
 
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont chargés de surveiller la conformité PCI des fournisseurs de services avec lesquels sont partagées les données des titulaires de cartes ou qui pourraient porter atteinte à la sécurité de l’environnement de données de titulaire de carte. Les clients doivent établir une liste de tous les fournisseurs de services qui ont utilisé leur environnement de données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont chargés de surveiller la conformité PCI des fournisseurs de services avec lesquels sont partagées les données des titulaires de cartes ou qui pourraient porter atteinte à la sécurité de l’environnement de données de titulaire de carte. Les clients doivent établir une liste de tous les fournisseurs de services qui ont utilisé leur environnement de données de titulaire de carte.|
 
 
 
@@ -422,12 +422,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 > [!NOTE]
 > La formulation exacte de ce document dépendra de l’accord entre les deux parties, des détails du service fourni et des responsabilités attribuées à chaque partie. La reconnaissance n’a pas besoin d’inclure la formulation exacte précisée dans cette condition.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent maintenir des accords écrits avec les fournisseurs de services dans lesquels ils reconnaissent leur responsabilité quant à la gestion de la sécurité et des données des titulaires de cartes.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent maintenir des accords écrits avec les fournisseurs de services dans lesquels ils reconnaissent leur responsabilité quant à la gestion de la sécurité et des données des titulaires de cartes.|
 
 
 
@@ -435,12 +435,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.8.3** S’assurer que le processus de sélection des fournisseurs de services est bien défini, et qu’il inclut notamment des contrôles préalables à l’engagement
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent s’assurer que le processus de sélection des fournisseurs de services est bien défini, et qu’il inclut notamment des contrôles préalables à l’engagement|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent s’assurer que le processus de sélection des fournisseurs de services est bien défini, et qu’il inclut notamment des contrôles préalables à l’engagement|
 
 
 
@@ -448,12 +448,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.8.4** Maintenir un programme qui contrôle la conformité des fournisseurs de services à la norme PCI DSS au moins une fois par an.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent maintenir un programme qui contrôle la conformité des fournisseurs de services à la norme PCI DSS au moins une fois par an.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent maintenir un programme qui contrôle la conformité des fournisseurs de services à la norme PCI DSS au moins une fois par an.|
 
 
 
@@ -461,12 +461,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.8.5** Maintenir les informations concernant les conditions de la norme PCI DSS qui sont gérées par chaque fournisseur de services et celles qui sont gérées par l’organisation.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients doivent conserver une copie de la [Matrice de responsabilités](https://aka.ms/pciblueprintcrm32), dans laquelle sont répertoriées les conditions de la norme PCI DSS qui sont sous la responsabilité du client, ainsi que celles qui sont sous la responsabilité de Microsoft Azure.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients doivent conserver une copie de la [Matrice de responsabilités](https://aka.ms/pciblueprintcrm32), dans laquelle sont répertoriées les conditions de la norme PCI DSS qui sont sous la responsabilité du client, ainsi que celles qui sont sous la responsabilité de Microsoft Azure.|
 
 
 
@@ -477,12 +477,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 > [!NOTE]
 > La formulation exacte de ce document dépendra de l’accord entre les deux parties, des détails du service fourni et des responsabilités attribuées à chaque partie. La reconnaissance n’a pas besoin d’inclure la formulation exacte précisée dans cette condition.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients qui sont des fournisseurs de services doivent reconnaître leurs responsabilités quant au maintien de la conformité PCI. |
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients qui sont des fournisseurs de services doivent reconnaître leurs responsabilités quant au maintien de la conformité PCI. |
 
 
 
@@ -490,12 +490,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.10** Mettre en œuvre un plan de réponse aux incidents. Être prêt à réagir immédiatement à toute intrusion dans le système
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
 
 
 
@@ -510,12 +510,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 - Couverture et réponses de tous les composants stratégiques du système
 - Référence ou inclusion des procédures de réponse aux incidents des sociétés de cartes de paiement
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
 
 
 
@@ -524,12 +524,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 **12.10.2** Évaluer et tester le plan, y compris tous les éléments de la condition 12.10.1, au moins une fois par an
 
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
 
 
 
@@ -537,12 +537,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.10.3** Désigner le personnel spécifique disponible 24 heures sur 24, et 7 jours sur 7, pour répondre aux alertes
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
 
 
 
@@ -550,12 +550,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.10.4** Organiser la formation appropriée du personnel responsable de la réponse aux violations de sécurité.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
 
 
 
@@ -563,12 +563,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.10.5** Inclure les alertes des systèmes de surveillance de sécurité, notamment les systèmes d’intrusion-détection, intrusion-prévention, les pare-feu et les systèmes de surveillance de l’intégrité des fichiers
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
 
 
 
@@ -576,12 +576,12 @@ Lorsqu’il existe un besoin professionnel autorisé, la stratégie d’utilisat
 
 **12.10.6** Définir un processus de modification et de développement du plan de réponse aux incidents en fonction des leçons apprises, et tenir compte de l’évolution du secteur
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la mise au point de plans de réponse aux incidents et de tests qui prennent en compte tous les contrôles clients relatifs aux points de contact partagés et toutes les applications clients qui utilisent l’infrastructure Azure. Il est de la responsabilité du client de fournir des informations de contact correctes à Azure lorsqu’il doit signaler un incident pouvant avoir un impact sur son application ou ses données.|
 
 
 
@@ -599,12 +599,12 @@ Les évaluations doivent comprendre les processus suivants :
 > Cette condition sera considérée comme une bonne pratique jusqu’au 31 janvier 2018, après quoi elle deviendra obligatoire.
 
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients qui sont des fournisseurs de services doivent documenter leurs évaluations des processus afin de maintenir la conformité PCI.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients qui sont des fournisseurs de services doivent documenter leurs évaluations des processus afin de maintenir la conformité PCI.|
 
 
 
@@ -618,12 +618,12 @@ Les évaluations doivent comprendre les processus suivants :
 > Cette condition sera considérée comme une bonne pratique jusqu’au 31 janvier 2018, après quoi elle deviendra obligatoire.
 
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients qui sont des fournisseurs de services doivent documenter leurs évaluations des processus afin de maintenir la conformité PCI.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients qui sont des fournisseurs de services doivent documenter leurs évaluations des processus afin de maintenir la conformité PCI.|
 
 
 

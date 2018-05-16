@@ -3,16 +3,16 @@ title: Intégrer avec des services gérés par Azure à l’aide d’Open Servic
 description: Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 
@@ -28,7 +28,7 @@ Avec le [Catalogue de services Kubernetes][kubernetes-service-catalog], Open Ser
 
 * Autorisations pour créer un principal de service avec le rôle Collaborateur pour votre abonnement Azure
 
-* Un cluster Azure Container Service (AKS) existant. Si vous avez besoin d’un cluster AKS, suivez le guide de démarrage rapide [Créer un cluster AKS][create-aks-cluster].
+* Un cluster Azure Kubernetes Service (AKS) existant. Si vous avez besoin d’un cluster AKS, suivez le guide de démarrage rapide [Créer un cluster AKS][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Installer le Catalogue de services
 
@@ -183,7 +183,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En suivant cet article, vous avez déployé le Catalogue de services dans un cluster Azure Container Service (AKS). Vous avez utilisé Open Service Broker pour Azure pour déployer une installation WordPress qui utilise des services gérés par Azure, dans ce cas Azure Database pour MySQL.
+En suivant cet article, vous avez déployé le Catalogue de services dans un cluster Azure Kubernetes Service (AKS). Vous avez utilisé Open Service Broker pour Azure pour déployer une installation WordPress qui utilise des services gérés par Azure, dans ce cas Azure Database pour MySQL.
 
 Consultez le référentiel [Azure/helm-charts][helm-charts] pour accéder à d’autres graphiques Helm basés sur OSBA mis à jour. Si vous souhaitez créer vos propres graphiques fonctionnant avec OSBA, consultez [Création d’un graphique][helm-create-new-chart].
 

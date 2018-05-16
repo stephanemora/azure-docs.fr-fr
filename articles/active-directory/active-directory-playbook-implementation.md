@@ -1,12 +1,12 @@
 ---
-title: "Implémentation du manuel de preuve de concept Azure Active Directory | Microsoft Docs"
-description: "Explorer et implémenter rapidement des scénarios de gestion des identités et des accès"
+title: Implémentation du manuel de preuve de concept Azure Active Directory | Microsoft Docs
+description: Explorer et implémenter rapidement des scénarios de gestion des identités et des accès
 services: active-directory
 keywords: azure active directory, manuel, preuve de concept, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f01bdee5ffcc9e2f48278c7209da40ef64cc030
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Manuel de preuve de concept Azure Active Directory : Implémentation
 
@@ -87,7 +87,7 @@ Une identité hybride constitue le fondement de la plupart des clients d’entre
 
 ### <a name="secure-remote-access-to-on-premises-applications"></a>Accès distant sécurisé à des applications locales
 
-1. Marc, administrateur global d’Azure AD, a reçu de nombreuses demandes visant à permettre aux employés travaillant à distance d’accéder à plusieurs ressources locales utiles, comme l’application de notes de frais. Il suit la [documentation du proxy d’application](active-directory-application-proxy-enable.md) pour installer un connecteur et publier les notes de frais comme application du proxy d’application. 
+1. Marc, administrateur global d’Azure AD, a reçu de nombreuses demandes visant à permettre aux employés travaillant à distance d’accéder à plusieurs ressources locales utiles, comme l’application de notes de frais. Il suit la [documentation du proxy d’application](manage-apps/application-proxy-enable.md) pour installer un connecteur et publier les notes de frais comme application du proxy d’application. 
 2. Marc partage l’URL externe de l’application Notes de frais avec Julie, une employée qui a besoin d’un accès à distance. Elle accède au lien, et une fois authentifiée à AAD, elle est en mesure d’accéder à l’application Notes de frais et de continuer à travailler à distance. 
 3. Marc continue de publier d’autres applications en local en suivant le même processus et en donnant l’accès aux utilisateurs en fonction des besoins. Pour des raisons de sécurité, il ajoute un accès conditionnel et une authentification multifacteur pour les applications plus sensibles qu’il publie.
 

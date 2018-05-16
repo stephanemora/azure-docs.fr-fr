@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dc70fe43c63d6b77d4a122f196f59fe51573b7aa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 
@@ -173,5 +173,5 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-Essayez ensuite le [didacticiel de génération d’état ad-hoc] (saas-multitenantdb-adhoc-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données client.
+Ensuite, consultez le [didacticiel de création de rapports Ad hoc](saas-multitenantdb-adhoc-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
 

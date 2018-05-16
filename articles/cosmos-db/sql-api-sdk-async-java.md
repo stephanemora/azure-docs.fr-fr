@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent du Kit de développement logiciel (SDK) Java de l’API SQL en fournissant des opérations asynchrones avec prise en charge de la [bibliothèque Netty](http://netty.io/). Le [Kit de développement logiciel (SDK) Java de l’API SQL](sql-api-sdk-java.md) existant ne prend pas en charge les opérations asynchrones. 
 
@@ -44,7 +44,7 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 <tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
-<tr><td>**Bien démarrer**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java Async](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
+<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java Async](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
 <tr><td>**Code sample**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
@@ -55,13 +55,23 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Ajout de la prise en charge de la contre-pression dans la requête.
+* Ajout de la prise en charge de l’ID de plage de clés de partition dans la requête.
+* Correction visant à autoriser un jeton de continuation plus grand dans l’en-tête de demande (correctif de bogue github n°24).
+* Mise à niveau de la dépendance Netty vers 4.1.22.Final pour que la machine virtuelle Java s’arrête après la fin du thread principal.
+* Correction visant à éviter la transmission d’un jeton de session durant la lecture de ressources principales.
+* Ajout d’exemples.
+* Ajout de scénarios de test.
+* Correction de fichiers d’en-tête Java pour que les documents java soient correctement générés.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Kit de développement logiciel (SDK) GA avec prise en charge de bout en bout des E/S non bloquantes à l’aide de la [bibliothèque Netty](http://netty.io/) en mode passerelle. 
 
 ## <a name="release-and-retirement-dates"></a>Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du Kit de développement logiciel (SDK) dès que possible.
+Les nouvelles fonctionnalités et optimisations sont ajoutées uniquement au SDK actuel. Nous vous recommandons donc de toujours effectuer une mise à niveau vers la dernière version du SDK dès que possible.
 
 Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
@@ -69,6 +79,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |20 avril 2018|--- |
 | [1.0.0](#1.0.0) |27 février 2018|--- |
 
 ## <a name="faq"></a>Forum Aux Questions

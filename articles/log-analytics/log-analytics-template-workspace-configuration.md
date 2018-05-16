@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: 0d9848a6477dbf1b93a7f640bc44adf627b40a45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
 Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
@@ -230,7 +230,7 @@ L’exemple de modèle suivant illustre comment :
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -506,10 +506,9 @@ La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles po
 * [Déployer une machine virtuelle exécutant Linux avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Analyser Azure Site Recovery à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Analyser les applications web Azure à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Analyser SQL Azure à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Déployer un cluster Service Fabric et l’analyser avec un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Déployer un cluster Service Fabric et créer un espace de travail Log Analytics pour le surveiller](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Ajouter un compte de stockage existant à OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Déployer des agents dans des machines virtuelles Azure en utilisant des modèles Resource Manager](log-analytics-azure-vm-extension.md)
+* [Déployez l’agent Windows sur des machines virtuelles Azure à l’aide du modèle Resource Manager](../virtual-machines/windows/extensions-oms.md).
+* [Déployez l’agent Linux sur des machines virtuelles Azure à l’aide du modèle Resource Manager](../virtual-machines/linux/extensions-oms.md).
 

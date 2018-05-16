@@ -1,11 +1,11 @@
 ---
 title: FAQ sur les performances des applications web Azure | Microsoft Docs
-description: "Obtenez des réponses aux questions récurrentes sur la disponibilité, les performances et les problèmes d’applications dans la fonctionnalité Web Apps d’Azure App Service."
+description: Obtenez des réponses aux questions récurrentes sur la disponibilité, les performances et les problèmes d’applications dans la fonctionnalité Web Apps d’Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 926005eace0acde27e26619a2787368ba0954351
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 
@@ -67,7 +67,7 @@ Pour capturer un vidage de mémoire en mode utilisateur de votre application web
 Vous avez deux options pour afficher les informations au niveau processus pour votre application web :
 
 *   Dans le portail Azure :
-    1. Ouvrez l**’Explorateur de processus** pour l’application web.
+    1. Ouvrez l **’Explorateur de processus** pour l’application web.
     2. Pour afficher les détails, sélectionnez le processus **w3wp.exe**.
 *   Dans la console Kudu :
     1. Connectez-vous à votre [site web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).

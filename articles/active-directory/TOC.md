@@ -16,6 +16,7 @@
 ## [Ajouter des utilisateurs dans Azure AD](add-users-azure-active-directory.md)
 ## [Attribuer des licences à des utilisateurs](license-users-groups.md)
 ## [Configurer la réinitialisation du mot de passe libre-service](authentication/quickstart-sspr.md)
+## [Ajouter les informations de confidentialité de votre organisation dans Azure AD](active-directory-properties-area.md)
 
 
 # Procédures
@@ -58,6 +59,7 @@
 #### [Stratégies de partage B2B](active-directory-b2b-delegate-invitations.md)
 #### [Ajouter un utilisateur B2B à un rôle](active-directory-b2b-add-guest-to-role.md)
 #### [Groupes dynamiques et utilisateurs B2B](active-directory-b2b-dynamic-groups.md)
+#### [Quitter une organisation](active-directory-b2b-leave-the-organization.md)
 #### [Audit et création de rapports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B pour les organisations hybrides](active-directory-b2b-hybrid-organizations.md)
 ##### [Accorder l’accès aux applications locales pour les utilisateurs B2B](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,32 +180,32 @@
 
 ### [Accéder aux applications à distance avec le proxy d’application](manage-apps/application-proxy.md)
 #### Prise en main
-##### [Activer le Proxy d’application](active-directory-application-proxy-enable.md)
-##### [Publiez des applications](application-proxy-publish-azure-portal.md)
-##### [Domaines personnalisés](active-directory-application-proxy-custom-domains.md)
-#### [Authentification unique](application-proxy-sso-overview.md)
-##### [Authentification unique avec KCD](active-directory-application-proxy-sso-using-kcd.md)
-##### [Authentification unique avec en-têtes](application-proxy-ping-access.md)
-##### [Authentification unique avec mise au coffre des mots de passe](application-proxy-sso-azure-portal.md)
+##### [Activer le Proxy d’application](manage-apps/application-proxy-enable.md)
+##### [Publiez des applications](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Domaines personnalisés](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Authentification unique](manage-apps/application-proxy-single-sign-on.md)
+##### [Authentification unique avec KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+##### [Authentification unique avec en-têtes](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [Authentification unique avec mise au coffre des mots de passe](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Concepts
-##### [Connecteurs](application-proxy-understand-connectors.md)
-##### [Sécurité](application-proxy-security-considerations.md)
-##### [Réseaux](application-proxy-network-topology-considerations.md)
+##### [Connecteurs](manage-apps/application-proxy-connectors.md)
+##### [Sécurité](manage-apps/application-proxy-security.md)
+##### [Réseaux](manage-apps/application-proxy-network-topology.md)
 
 
-##### [Mise à niveau à partir de TMG ou UAG](application-proxy-transition-from-uag-tmg.md)
+##### [Mise à niveau à partir de TMG ou UAG](manage-apps/application-proxy-migration.md)
 
 #### Configurations avancées
-##### [Publier sur des réseaux distincts](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Serveurs proxy](application-proxy-working-with-proxy-servers.md)
-##### [Applications prenant en charge les revendications](active-directory-application-proxy-claims-aware-apps.md)
-##### [Applications de client natif](active-directory-application-proxy-native-client.md)
-##### [Installation sans assistance](active-directory-application-proxy-silent-installation.md)
-##### [Page d’accueil personnalisée](application-proxy-office365-app-launcher.md)
-##### [Traduire les liens inclus](application-proxy-link-translation.md)
+##### [Publier sur des réseaux distincts](manage-apps/application-proxy-connector-groups.md)
+##### [Serveurs proxy](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [Applications prenant en charge les revendications](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [Applications de client natif](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Installation sans assistance](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Page d’accueil personnalisée](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Traduire les liens inclus](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Publication de procédures pas à pas
-##### [Bureau à distance](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Bureau à distance](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

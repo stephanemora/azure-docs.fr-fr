@@ -1,7 +1,7 @@
 ---
-title: "Simulation d’appareil dans la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Ce didacticiel montre comment utiliser le simulateur d’appareil avec la solution préconfigurée de surveillance à distance."
-services: 
+title: Simulation d’appareil dans la solution de surveillance à distance - Azure | Microsoft Docs
+description: Ce tutoriel vous montre comment utiliser le simulateur d’appareil avec l’accélérateur de solution de surveillance à distance.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 905e64d004c02db663634eb784cacf6fab805193
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Créer un appareil simulé
 
-Ce didacticiel montre comment personnaliser le microservice de simulateur d’appareil dans la solution préconfigurée de monitoring à distance. Pour illustrer les fonctionnalités de simulateur d’appareil, ce didacticiel utilise deux scénarios dans l’application IoT Contoso.
+Ce tutoriel vous montre comment personnaliser le microservice de simulateur d’appareil dans l’accélérateur de solution de surveillance à distance. Pour illustrer les fonctionnalités de simulateur d’appareil, ce didacticiel utilise deux scénarios dans l’application IoT Contoso.
+
+La vidéo suivante présente une vue d’ensemble des options pour personnaliser le microservice de simulateur d’appareil :
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 Dans le premier scénario, Contoso souhaite tester un nouvel appareil d’éclairage connecté. Pour exécuter les tests, vous créez un appareil simulé ayant les caractéristiques suivantes :
 
@@ -68,7 +72,7 @@ Le tableau suivant présente l’état initial de l’appareil :
 
 Dans le second scénario, vous ajoutez un nouveau type de données de télémétrie à l’appareil **Chiller** (Refroidisseur) existant de Contoso.
 
-Ce didacticiel montre comment utiliser le simulateur d’appareil avec la solution préconfigurée de surveillance à distance :
+Ce tutoriel vous montre comment utiliser le simulateur d’appareil avec l’accélérateur de solution de surveillance à distance :
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -87,7 +91,7 @@ La vidéo suivante explique pas à pas comment connecter des appareils simulés 
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Une instance déployée de la solution de surveillance à distance dans votre abonnement Azure. Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez terminer le didacticiel [Déployer la solution de surveillance à distance préconfigurée](iot-suite-remote-monitoring-deploy.md).
+* Une instance déployée de la solution de surveillance à distance dans votre abonnement Azure. Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Si vous n’avez pas Visual Studio 2017, vous pouvez télécharger la version gratuite [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 
@@ -290,10 +294,10 @@ Le fichier **lightbulb-01.json** définit les caractéristiques du type, telles 
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```
@@ -475,7 +479,7 @@ Vous êtes maintenant prêt à tester votre nouveau type d’appareil d’éclai
 
     ![Nombre d’appareils connectés](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. Dans votre navigateur, accédez au **Tableau de bord** de votre solution de surveillance à distance. Dans le panneau de télémétrie sur le **Tableau de bord**, sélectionnez **temperature**. La température de vos deux appareils simulés s’affiche sur le graphique :
+1. Dans votre navigateur, accédez au **Tableau de bord** de votre solution de surveillance à distance. Dans le panneau de télémétrie sur le **Tableau de bord**, sélectionnez **temperature**. La température de tous vos appareils simulés s’affiche sur le graphique :
 
     ![Données de télémétrie de température](media/iot-suite-remote-monitoring-test/telemetry.png)
 

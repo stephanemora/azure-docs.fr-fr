@@ -43,6 +43,7 @@
 ### [Mettre à jour les informations de paiement](billing-how-to-change-credit-card.md)
 ### [Payer pour les abonnements par facture](billing-how-to-pay-by-invoice.md)
 ### [ID partenaire de lien](billing-partner-admin-link-started.md)
+### [Afficher les comptes de facturation](billing-view-all-accounts.md)
 ## [Gérer des instances de machines virtuelles réservées](billing-manage-reserved-vm-instance.md)
 ## Résolution des problèmes
 ### [Problèmes d’inscription](https://support.microsoft.com/en-us/help/4042959)

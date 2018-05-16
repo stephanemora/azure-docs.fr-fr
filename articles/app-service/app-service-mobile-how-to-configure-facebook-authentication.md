@@ -1,24 +1,24 @@
 ---
 title: Comment configurer l'authentification Facebook pour votre application App Services
-description: "Découvrez comment configurer l'authentification Facebook pour votre application App Services."
+description: Découvrez comment configurer l'authentification Facebook pour votre application App Services.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: mattchenderson
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: c1b4c91d384c56c4f55bf8d31ced250f51c0d837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d2b294fc0663770f9a699e300672695225dfdfd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Comment configurer votre application App Service de manière à utiliser la connexion via Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -31,15 +31,16 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 1. Connectez-vous au [portail Azure]et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Facebook.
 2. Dans une autre fenêtre de navigateur, accédez au site Web [Développeurs Facebook] et connectez-vous à l’aide des informations d’identification de votre compte Facebook.
 3. (Facultatif) Si vous n’êtes pas encore inscrit, cliquez sur **Applications** > **S’inscrire en tant que développeur**, acceptez la politique et suivez la procédure d’inscription.
-4. Cliquez sur **Mes applications** > **Ajouter une nouvelle application** > **Site Web** > **Ignorer et créer un ID d’application**. 
-5. Dans **Nom d’affichage**, saisissez un nom unique pour votre application, saisissez votre **adresse de messagerie de contact**, choisissez une **catégorie** pour votre application, puis cliquez sur **Create App ID** (Créer ID application) et effectuez la vérification de sécurité. Vous serez alors redirigé vers le tableau de bord du développeur pour votre nouvelle application Facebook.
-6. Sous « Facebook Login » (Connexion Facebook), cliquez sur **Get Started**(Prise en main). Ajoutez **l’URI de redirection** de votre application dans les **URI de redirection Valid OAuth**, puis cliquez sur **Enregistrer les modifications**. 
+4. Cliquez sur **Mes applications** > **Ajouter une nouvelle application**.
+5. Dans **Nom d’affichage**, tapez le nom unique de votre application. Indiquez également votre **E-mail de contact**, puis cliquez sur **Créer un ID d’application** et exécutez la vérification de sécurité. Vous serez alors redirigé vers le tableau de bord du développeur pour votre nouvelle application Facebook.
+7. Sous **Connexion Facebook**, cliquez sur **Configurer**, puis choisissez **Paramètres** dans le volet de navigation gauche sous **Connexion Facebook**.
+8. Ajoutez **l’URI de redirection** de votre application dans les **URI de redirection Valid OAuth**, puis cliquez sur **Enregistrer les modifications**.
    
    > [!NOTE]
    > Votre URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, */.auth/login/facebook/callback*. Par exemple : `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assurez-vous d'utiliser le schéma HTTPS.
    > 
    > 
-7. Dans le volet de navigation gauche, cliquez sur **Paramètres**. Dans le champ **Question secrète de l’application**, cliquez sur **Afficher**, fournissez votre mot de passe si nécessaire, puis notez les valeurs **ID de l’application** et **Question secrète de l’application**. Vous les utiliserez plus tard pour configurer l’application dans Azure.
+7. Dans le volet de navigation gauche, cliquez sur **Paramètres** > **De base**. Dans le champ **Question secrète de l’application**, cliquez sur **Afficher**, fournissez votre mot de passe si nécessaire, puis notez les valeurs **ID de l’application** et **Question secrète de l’application**. Vous les utiliserez plus tard pour configurer l’application dans Azure.
    
    > [!IMPORTANT]
    > La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.

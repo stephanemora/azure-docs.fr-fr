@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -131,6 +131,7 @@ La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un o
 |-----------------|-----------|-------------|
 | runtimeStatus   | chaîne    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
 | entrée           | JSON      | Les données JSON utilisées pour initialiser l’instance. |
+| customStatus    | JSON      | Données JSON utilisées pour l’état d’orchestration personnalisé. Ce champ est `null` s’il n’est pas défini. |
 | sortie          | JSON      | La sortie JSON de l’instance. Ce champ est `null` si l’instance n’est pas dans un état terminé. |
 | createdTime     | chaîne    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
 | lastUpdatedTime | chaîne    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
@@ -180,6 +181,7 @@ Voici un exemple de charge utile de réponse incluant l’historique et les sort
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",

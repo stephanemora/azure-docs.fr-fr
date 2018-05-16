@@ -41,7 +41,7 @@
 ### [Octroi du code d’authentification OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Octroi implicite OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Configuration des revendications de rôle](active-directory-enterprise-app-role-management.md)
+### [Configuration des revendications de rôle](../active-directory-enterprise-app-role-management.md)
 ### [Personnaliser des revendications](active-directory-saml-claims-customization.md)
 ### [Déboguer l’authentification unique SAML](active-directory-saml-debugging.md)
 ### [Protocole SAML d’authentification unique](active-directory-single-sign-on-protocol-reference.md)

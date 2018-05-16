@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -29,34 +29,46 @@ ms.lasthandoff: 03/30/2018
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions dispose également de fonctionnalités de surveillance qui n’utilisent pas Application Insights. Nous recommandons Application Insights, qui offre plus de données et de meilleurs moyens de les analyser. Pour plus d’informations sur la surveillance intégrée, consultez la [dernière section de cet article](#monitoring-without-application-insights).
+Functions dispose également de [fonctionnalités de surveillance qui n’utilisent pas Application Insights](#monitoring-without-application-insights). Nous recommandons Application Insights, qui offre plus de données et de meilleurs moyens de les analyser.
 
-## <a name="enable-application-insights-integration"></a>Activer l’intégration à Application Insights
+## <a name="application-insights-pricing-and-limits"></a>Tarification et limites d’Application Insights
 
-Pour qu’une application de fonction envoie des données à Application Insights, elle a besoin de connaître la clé d’instrumentation d’une instance d’Application Insights. Il existe deux façons d’effectuer cette connexion dans le [portail Azure](https://portal.azure.com) :
+Vous pouvez essayer gratuitement l’intégration d’Application Insights avec les applications de fonctions. Toutefois, la quantité de données pouvant être traitée gratuitement chaque jour est limitée et il est possible que vous atteigniez ce seuil pendant le test. Azure envoie des notifications de messagerie et de portail lorsque vous approchez la limite quotidienne.  Cependant, si vous manquez ces alertes et atteignez la limite fixée, les nouveaux journaux n’apparaîtront pas dans les requêtes Application Insights. N’oubliez pas ces limites pour éviter de passer du temps à résoudre des problèmes superflus. Pour plus d’informations, consultez l’article [Gérer la tarification et le volume de données dans Application Insights](../application-insights/app-insights-pricing.md).
 
-* [Créer une instance d’Application Insights connectée quand vous créez l’application de la fonction](#new-function-app).
-* [Connecter une instance d’Application Insights à une application de fonction existante](#existing-function-app).
+## <a name="enable-app-insights-integration"></a>Activer l’intégration dans Application Insights
+
+Pour qu’une application de fonction envoie des données à Application Insights, elle a besoin de connaître la clé d’instrumentation d’une ressource Application Insights. Cette clé doit être fournie dans un paramètre d’application nommé APPINSIGHTS_INSTRUMENTATIONKEY.
+
+Vous pouvez configurer cette connexion dans le [portail Azure](https://portal.azure.com) :
+
+* [Automatiquement pour une nouvelle application de fonction](#new-function-app)
+* [En connectant manuellement une ressource Application Insights](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>Nouvelle application de fonction
 
-Activer Application Insights dans la page Function App **Créer** :
+1. Accédez à la page **Créer** de l’application de fonction.
 
 1. Définissez le commutateur **Application Insights** sur **Activé**.
 
 2. Sélectionnez un **Emplacement d’Application Insights**.
 
+   Choisissez la région la plus proche de la région de votre application de fonction, dans une [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez stocker vos données.
+
    ![Activer Application Insights pendant la création d’une application de fonction](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>Application de fonction existante
+3. Entrez les autres informations requises.
 
-Obtenir la clé d’instrumentation et l’enregistrer dans une application de fonction :
+1. Sélectionnez **Créer**.
 
-1. Créez l’instance d’Application Insights. Définissez le type d’application sur **Général**.
+L’étape suivante consiste à [désactiver la journalisation intégrée](#disable-built-in-logging).
 
-   ![Créer une instance d’Application Insights, type Général](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>En connectant manuellement une ressource Application Insights 
 
-2. Copiez la clé d’instrumentation à partir de la page **Bases** de l’instance d’Application Insights. Placez le curseur au-dessus de la fin de la valeur de clé affichée pour faire apparaître un bouton **Cliquer pour copier**.
+1. Créez la ressource Application Insights. Définissez le type d’application sur **Général**.
+
+   ![Créer une ressource Application Insights, type Général](media/functions-monitoring/ai-general.png)
+
+2. Copiez la clé d’instrumentation à partir de la page **Bases** de la ressource Application Insights. Placez le curseur au-dessus de la fin de la valeur de clé affichée pour faire apparaître un bouton **Cliquer pour copier**.
 
    ![Copier la clé d’instrumentation Application Insights](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ Obtenir la clé d’instrumentation et l’enregistrer dans une application de f
 
 Si vous activez Application Insights, nous vous conseillons de désactiver la [journalisation intégrée qui utilise le stockage Azure](#logging-to-storage). La journalisation intégrée permet de tester des charges de travail légères, mais n’est pas destinée à une utilisation en production avec des charges importantes. Application Insights est recommandé pour surveiller la production. Si la journalisation intégrée est utilisée en production, l’enregistrement de journal peut être incomplet en raison d’une limitation du stockage Azure.
 
-Pour désactiver la journalisation intégrée, supprimez le paramètre d’application `AzureWebJobsDashboard`. Pour plus d’informations sur la suppression de paramètres d’application dans le portail Azure, consultez la section **Paramètres de l’application** dans [Comment gérer une application de fonction dans le portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+Pour désactiver la journalisation intégrée, supprimez le paramètre d’application `AzureWebJobsDashboard`. Pour plus d’informations sur la suppression de paramètres d’application dans le portail Azure, consultez la section **Paramètres de l’application** dans [Comment gérer une application de fonction dans le portail Azure](functions-how-to-use-azure-function-app-settings.md#settings). Avant de supprimer le paramètre d’application, assurez-vous qu’aucune fonction existante dans la même application de fonction ne l’utilise pour les déclencheurs ou les liaisons de stockage Azure.
 
-Lorsque vous activez Application Insights et désactivez la journalisation intégrée, l’onglet **Surveiller** d’une fonction dans le portail Azure vous amène à Application Insights.
+## <a name="view-telemetry-in-monitor-tab"></a>Affichage des données de télémétrie dans l’onglet Surveiller
 
-## <a name="view-telemetry-data"></a>Afficher les données de télémétrie
+Une fois que vous avez configuré l’intégration d’Application Insights comme indiqué dans les sections précédentes, vous pouvez afficher les données de télémétrie dans l’onglet **Surveiller**.
 
-Pour accéder à l’instance Application Insights connectée à partir d’une application de fonction dans le portail, sélectionnez le lien **Application Insights** dans la page **Vue d’ensemble** de l’application de fonction.
+1. Dans la page d’application de fonction, sélectionnez une fonction exécutée au moins une fois après la configuration d’Application Insights, puis sélectionnez l’onglet **Surveiller**.
+
+   ![Sélectionner l’onglet Surveiller](media/functions-monitoring/monitor-tab.png)
+
+2. Sélectionnez **Actualiser** régulièrement jusqu’à ce que la liste d’appels de fonction s’affiche.
+
+   Cette opération peut prendre jusqu’à 5 minutes, selon la manière dont le client de télémétrie organise les données par lots pour les transmettre au serveur. (Ce délai ne s’applique pas au [Flux de métriques temps réel](../application-insights/app-insights-live-stream.md). Le service se connecte à l’hôte Functions lorsque vous chargez la page, de sorte que les journaux sont transmis directement sur la page.)
+
+   ![Liste d’appels](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. Pour afficher les journaux liés à un appel de fonction spécifique, sélectionnez le lien de la colonne **Date** correspondant à cet appel.
+
+   ![Lien des détails d’appel](media/functions-monitoring/invocation-details-link-ai.png)
+
+   La sortie de journalisation pour cet appel s’affiche dans une nouvelle page.
+
+   ![Détails des appels](media/functions-monitoring/invocation-details-ai.png)
+
+Les deux pages (liste d’appels et détails) sont liées à la requête Application Insights Analytics qui récupère les données :
+
+![Exécuter dans Application Insights](media/functions-monitoring/run-in-ai.png)
+
+![Liste d’appels Application Insights Analytics](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+À partir de ces requêtes, vous pouvez constater que la liste d’appels est limitée aux 30 derniers jours et à 20 lignes maximum (`where timestamp > ago(30d) | take 20`), tandis que la liste des détails d’appel concerne les 30 derniers jours sans limite.
+
+Pour plus d’informations, consultez la section [Interroger les données de télémétrie](#query-telemetry-data) dans la suite de cet article.
+
+## <a name="view-telemetry-in-app-insights"></a>Afficher les données de télémétrie dans Application Insights
+
+Pour ouvrir Application Insights à partir d’une application de fonction dans le portail Azure, sélectionnez le lien **Application Insights** dans la section **Fonctionnalités configurées** de la page **Vue d’ensemble** de l’application de fonction.
+
+![Lien Application Insights sur la page Vue d’ensemble](media/functions-monitoring/ai-link.png)
+
 
 Pour plus d’informations sur l’utilisation d’Application Insights, consultez la [documentation d’Application Insights](https://docs.microsoft.com/azure/application-insights/). Cette section présente des exemples montrant comment afficher les données dans Application Insights. Si vous êtes déjà familiarisé avec Application Insights, vous pouvez passer directement aux [sections sur la configuration et la personnalisation des données de télémétrie](#configure-categories-and-log-levels).
 
@@ -256,7 +301,7 @@ Comme indiqué dans la section précédente, le runtime agrège les données sur
 
 ## <a name="configure-sampling"></a>Configurer l’échantillonnage
 
-Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le nombre d’éléments de télémétrie dépasse un taux spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Vous pouvez configurer l’échantillonnage dans *host.json*.  Voici un exemple :
+Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le nombre d’éléments de télémétrie dépasse un taux spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans *host.json*.  Voici un exemple :
 
 ```json
 {
@@ -489,13 +534,19 @@ Pour signaler un problème avec l’intégration d’Application Insights dans A
 
 ## <a name="monitoring-without-application-insights"></a>Surveillance sans Application Insights
 
-Nous recommandons Application Insights pour surveiller les fonctions, car il offre plus de données et de meilleurs moyens de les analyser. Toutefois, vous pouvez également trouver des données de télémétrie et de journalisation dans les pages du portail Azure pour une application de fonction.
+Nous recommandons Application Insights pour surveiller les fonctions, car il offre plus de données et de meilleurs moyens de les analyser. Mais si vous préférez le système de journalisation intégré qui utilise le stockage Azure, vous pouvez continuer à l’utiliser.
 
 ### <a name="logging-to-storage"></a>Journalisation dans le stockage
 
-La journalisation intégrée utilise le compte de stockage spécifié par la chaîne de connexion dans le paramètre d’application `AzureWebJobsDashboard`. Si ce paramètre d’application est configuré, vous pouvez voir les données de journalisation dans le portail Azure. Dans la ressource Stockage, allez à Fichier, sélectionnez le service de fichiers pour la fonction et allez à `LogFiles > Application > Functions > Function > your_function` pour afficher le fichier journal. Dans la page d’une application de fonction, sélectionnez une fonction, puis l’onglet **Surveiller** pour obtenir la liste des exécutions de la fonction. Sélectionnez une exécution de fonction pour consulter la durée, les données d’entrée, les erreurs et les fichiers journaux associés.
+La journalisation intégrée utilise le compte de stockage spécifié par la chaîne de connexion dans le paramètre d’application `AzureWebJobsDashboard`. Dans la page d’application de fonction, sélectionnez une fonction, puis cliquez sur l’onglet **Surveiller** et choisissez de conserver l’affichage classique.
 
-Si vous utilisez Application Insights et que vous avez désactivé la [journalisation intégrée](#disable-built-in-logging), l’onglet **Surveiller** vous renvoie à Application Insights.
+![Basculer vers l’affichage classique](media/functions-monitoring/switch-to-classic-view.png)
+
+ Vous obtenez une liste des exécutions de la fonction. Sélectionnez une exécution de fonction pour consulter la durée, les données d’entrée, les erreurs et les fichiers journaux associés.
+
+Si vous avez déjà activé Application Insights et souhaitez maintenant revenir à la journalisation intégrée, désactivez Application Insights manuellement, puis sélectionnez l’onglet **Surveiller**. Pour désactiver l’intégration d’Application Insights, supprimez le paramètre d’application APPINSIGHTS_INSTRUMENTATIONKEY.
+
+Même si l’onglet **Surveiller** affiche des données d’Application Insights, vous pouvez voir des données du journal dans le système de fichiers, à condition que vous n’ayez pas [désactivé la journalisation intégrée](#disable-built-in-logging). Dans la ressource Stockage, allez à Fichier, sélectionnez le service de fichiers pour la fonction et allez à `LogFiles > Application > Functions > Function > your_function` pour afficher le fichier journal.
 
 ### <a name="real-time-monitoring"></a>Surveillance en temps réel
 

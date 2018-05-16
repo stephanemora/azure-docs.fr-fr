@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: acfe066d9ad4882bcff85b7fd51dc7d3b2278235
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 887ed316605ab423159ef0d2e07f0960c702ed8b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Web App for Containers
 
@@ -43,7 +43,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Git](https://git-scm.com/downloads)
-* Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) actif
 * [Docker](https://docs.docker.com/get-started/#setup)
 * Un [compte Docker Hub](https://docs.docker.com/docker-id/)
 
@@ -126,6 +125,10 @@ docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 Accédez à `http://localhost:2222` pour vérifier que l’application web et le conteneur fonctionnent correctement.
 
 ![Tester l’application web localement](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
+
+> [!NOTE] 
+> Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://aka.ms/linux-debug).
+>
 
 ## <a name="push-the-docker-image-to-docker-hub"></a>Envoyer (push) l’image Docker à Docker Hub
 

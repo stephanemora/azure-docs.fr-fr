@@ -1,13 +1,13 @@
 ---
-title: "Présentation de la solution d’usine connectée - Azure | Microsoft Docs"
-description: "Description de la solution préconfigurée d’usine connectée Azure IoT Suite."
-services: 
+title: Vue d’ensemble de la solution d’usine connectée - Azure | Microsoft Docs
+description: Description de l’accélérateur de solution Azure IoT d’usine connectée.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c5fe6cf6dff6fd8951a949761739cb12f98834bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Prise en main de la solution préconfigurée d’usine connectée
+# <a name="get-started-with-the-connected-factory-solution-accelerator"></a>Prise en main de l’accélérateur de solution d’usine connectée
 
-Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée d’*usine connectée* se connecte et surveille vos appareils industriels. Vous pouvez utiliser la solution pour analyser le flux de données à partir de vos appareils et pour encourager la productivité et la rentabilité opérationnelle.
+Les [accélérateurs de solution][lnk-preconfigured-solutions] IoT d’Azure IoT regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. L’accélérateur de solution d’*usine connectée* se connecte et surveille vos appareils industriels. Vous pouvez utiliser la solution pour analyser le flux de données à partir de vos appareils et pour encourager la productivité et la rentabilité opérationnelle.
 
-Ce didacticiel montre comment configurer la solution préconfigurée d’usine connectée. Il présente également les fonctionnalités de base de la solution préconfigurée. Vous pouvez accéder à la plupart de ces fonctionnalités à partir du *tableau de bord* de solution déployé avec la solution préconfigurée :
+Ce didacticiel montre comment configurer l’accélérateur de solution d’usine connectée. Il présente également les fonctionnalités de base de l’accélérateur de solution. Vous pouvez accéder à la plupart de ces fonctionnalités à partir du *tableau de bord* de solution déployé avec l’accélérateur de solution :
 
-![Tableau de bord de solution préconfigurée d’usine connectée][img-cf-home]
+![Tableau de bord de l’accélérateur de solution d’usine connectée][img-cf-home]
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
@@ -38,7 +38,7 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
 1. Connectez-vous à azureiotsuite.com à l’aide des informations d’identification de votre compte Azure, puis cliquez sur « **+** » pour créer une solution.
 2. Cliquez sur **Sélectionner** sur la vignette **Usine connectée**.
-3. Saisissez un **Nom de solution** pour votre solution préconfigurée d’usine connectée.
+3. Saisissez un **Nom de solution** pour votre accélérateur de solution d’usine connectée.
 4. Sélectionnez l’**Abonnement** et la **Région** à utiliser pour configurer la solution.
 5. Cliquez sur **Créer une solution** pour commencer le processus de déploiement. L’exécution de ce processus prend généralement plusieurs minutes.
 
@@ -50,13 +50,13 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 4. Cliquez sur la vignette pour visualiser les détails de votre solution dans le volet droit.
 
 > [!NOTE]
-> Si vous rencontrez des problèmes lors du déploiement de la solution préconfigurée, consultez les articles [Autorisations sur le site azureiotsuite.com][lnk-permissions] et le [FAQ sur l’usine connectée](iot-suite-faq-cf.md). Si les problèmes persistent, créez un ticket de service sur le [Portail][lnk-portal].
+> Si vous rencontrez des problèmes lors du déploiement de l’accélérateur de solution, consultez les articles [Autorisations sur le site azureiotsuite.com][lnk-permissions] et le [FAQ sur l’usine connectée](iot-suite-faq-cf.md). Si les problèmes persistent, créez un ticket de service sur le [Portail][lnk-portal].
 
 Certains détails de votre solution semblent-ils faire défaut ? Soumettez vos suggestions concernant les fonctionnalités sur [UserVoice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
-Lorsque vous déployez la solution préconfigurée d’usine connectée, elle est préremplie avec les ressources qui vous permettent de parcourir un scénario industriel courant. Dans ce scénario, plusieurs usines connectées à la solution rapportent les valeurs de données nécessaires pour calculer l’efficacité globale de l’équipement (OEE) et les indicateurs de performance clés (KPI). Les sections suivantes vous montrent comment :
+Lorsque vous déployez l’accélérateur de solution d’usine connectée, il est prérempli avec les ressources qui vous permettent de parcourir un scénario industriel courant. Dans ce scénario, plusieurs usines connectées à la solution rapportent les valeurs de données nécessaires pour calculer l’efficacité globale de l’équipement (OEE) et les indicateurs de performance clés (KPI). Les sections suivantes vous montrent comment :
 
 * Surveiller des valeurs d’usine, de lignes de production, OEE de poste et KPI
 * Analyser les données de télémétrie générées à partir de ces appareils à l’aide d’Azure Time Series Insights
@@ -68,17 +68,17 @@ Une fonctionnalité clé de ce scénario est que vous pouvez effectuer toutes ce
 
 Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée. Il s’agit d’une représentation hiérarchique d’une configuration d’usine globale. Par exemple, vous pouvez afficher l’OEE et les KPI, publier de nouveaux nœuds pour la télémétrie et les alarmes d’action.
 
-1. Une fois que l’approvisionnement est terminé et que la vignette de votre solution préconfigurée indique **Prêt**, choisissez **Lancer** pour ouvrir le portail de votre solution d’usine connectée dans un nouvel onglet.
+1. Une fois que l’approvisionnement est terminé et que la vignette de votre accélérateur de solution indique **Prêt**, choisissez **Lancer** pour ouvrir le portail de votre solution d’usine connectée dans un nouvel onglet.
 
-    ![Lancer la solution préconfigurée][img-launch-solution]
+    ![Lancer l’accélérateur de solution][img-launch-solution]
 
 1. Par défaut, le portail de solution affiche le *tableau de bord*. Utilisez le menu sur le côté gauche de la page pour accéder à d’autres zones du portail.
 
-    ![Tableau de bord de solution préconfigurée d’usine connectée][cf-img-menu]
+    ![Tableau de bord de l’accélérateur de solution d’usine connectée][cf-img-menu]
 
 Le tableau de bord affiche les informations suivantes :
 
-* Un panneau **Emplacements d’usine** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
+* Un panneau **Emplacements d’usine** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. Pour plus d’informations sur OPC UA, consultez le [FAQ sur l’usine connectée](iot-suite-faq-cf.md).
 * Une **carte** qui affiche l’emplacement de chaque appareil connecté à la solution. La solution peut utiliser l’API Bing Maps pour tracer les informations sur la carte. Si votre abonnement est activé pour l’API Bing Maps Enterprise, cette fonctionnalité est automatiquement utilisée. Sinon, consultez le [FAQ][lnk-faq] pour savoir comment rendre le mappage dynamique.
 * Un panneau **Alarmes** qui affiche les alarmes générées lorsqu’une valeur de télémétrie ou d’OEE/KPI dépasse un seuil spécifique.
 * Un panneau **Efficacité globale de l’équipement** qui affiche les valeurs OEE pour l’ensemble de l’entreprise, ou l’usine/la ligne de production/le poste que vous visualisez. Cette valeur est agrégée à partir de la vue du poste au niveau de l’entreprise. La données d’OEE et ses éléments constitutifs peuvent être analysés de manière plus approfondie.
@@ -88,7 +88,7 @@ Le tableau de bord affiche les informations suivantes :
 
 Le panneau *Emplacements d’usine* vous présente l’emplacement géographique de toutes les usines dans la solution, leur état et la configuration de production actuelle. À partir de la liste des emplacements, vous pouvez accéder aux autres niveaux de la hiérarchie de la solution. Les lignes de la liste sont des liens hypertexte vers des détails des lignes de production à cet emplacement. Il est ensuite possible d’accéder aux détails de la ligne de production et à la vue du poste. Vous pouvez également appliquer un filtre à la liste.
 
-![Usines de la solution préconfigurée d’usine connectée][cf-img-factories]
+![Usine de l’accélérateur de solution d’usine connectée][cf-img-factories]
 
 1. Le **panneau Usines** affiche la liste des usines pour cette solution.
 
@@ -106,7 +106,7 @@ Le panneau *Emplacements d’usine* vous présente l’emplacement géographique
 
 Si votre abonnement a accès à l’API Bing Maps, la carte *Usines* vous présente l’emplacement géographique et l’état de toutes les usines de la solution. Cliquez sur les emplacements indiqués sur la carte pour accéder aux détails de l’emplacement.
 
-![Carte de la solution préconfigurée d’usine connectée][cf-img-map]
+![Carte de l’accélérateur de solution d’usine connectée][cf-img-map]
 
 ## <a name="view-alarms"></a>Afficher les alarmes
 
@@ -121,10 +121,10 @@ Vous pouvez facultativement effectuer d’autres actions plus complexes. Par exe
 * Limiter la cause de l’alarme en appelant une méthode OPC UA sur l’appareil.
 * Supprimer la disponibilité des actions par défaut.
 
-    ![Alarmes de la solution préconfigurée d’usine connectée][cf-img-alerts]
+    ![Alarmes de l’accélérateur de solution d’usine connectée][cf-img-alerts]
 
 > [!NOTE]
-> Ces alarmes sont générées par des règles qui sont spécifiées dans un fichier de configuration de la solution préconfigurée. Ces règles peuvent générer des alarmes lorsque les données d’OEE ou KPI ou les valeurs de nœud OPC UA dépassent leur seuil configuré.
+> Ces alarmes sont générées par des règles qui sont spécifiées dans un fichier de configuration de l’accélérateur de solution. Ces règles peuvent générer des alarmes lorsque les données d’OEE ou KPI ou les valeurs de nœud OPC UA dépassent leur seuil configuré.
 
 1. Le **panneau Alarmes** affiche les alarmes générées dans cette solution.
 
@@ -138,23 +138,23 @@ Vous pouvez facultativement effectuer d’autres actions plus complexes. Par exe
 
 L’OEE évalue l’efficacité du processus de fabrication à l’aide de paramètres opérationnels liés à la production clés. L’OEE est une mesure standard du secteur calculée en multipliant le taux de disponibilité, le taux de performance et le taux de qualité : OEE = disponibilité x performance x qualité.
 
-![OEE de la solution préconfigurée d’usine connectée][cf-img-oee]
+![OEE de l’accélérateur de solution d’usine connectée][cf-img-oee]
 
 1. Pour afficher l’OEE d’un quelconque niveau de la hiérarchie, accédez à la vue spécifique souhaitée. L’OEE de cette vue s’affiche dans le panneau avec chacun des éléments qui composent le pourcentage d’OEE.
 
 2. Pour approfondir l’analyse de l’OEE d’un quelconque niveau de données de la hiérarchie, cliquez sur le pourcentage d’OEE, de disponibilité, de performance ou de qualité. Un panneau de contexte s’affiche avec des visualisations Time Series Insights qui présente des données de la dernière heure, des 24 dernières heures et des 7 derniers jours.
 
-    ![Visualisation TSI de la solution préconfigurée d’usine connectée][cf-img-tsi-visualization]
+    ![Visualisation TSI de l’accélérateur de solution d’usine connectée][cf-img-tsi-visualization]
 
 3. Pour approfondir l’analyse des données d’alarme, cliquez sur le graphique dans le panneau des alarmes. Cette action ouvre l’environnement de l’explorateur Time Series Insights.
 
-    ![Explorateur TSI de la solution préconfigurée d’usine connectée][cf-img-tsi-explorer]
+    ![Explorateur TSI de l’accélérateur de solution d’usine connectée][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Afficher les indicateurs de performance clés
 
 La solution fournit deux indicateurs de performance clés : *unités par heure* et *énergie utilisée en kWh*.
 
-![KPI de la solution préconfigurée d’usine connectée][cf-img-kpi]
+![KPI de l’accélérateur de solution d’usine connectée][cf-img-kpi]
 
 1. Pour afficher les unités par heure ou l’énergie utilisée d’un quelconque niveau de la hiérarchie, accédez à la vue spécifique souhaitée. Les unités par heure et l’énergie utilisée s’affichent dans le panneau.
 
@@ -174,13 +174,13 @@ Les sections suivantes décrivent quelques fonctionnalités supplémentaires de 
 
 2. Le panneau des filtres s’affiche.
 
-    ![Filtres de la solution préconfigurée d’usine connectée][cf-img-alert-filter]
+    ![Filtres de l’accélérateur de solution d’usine connectée][cf-img-alert-filter]
 
 3. Choisissez le filtre nécessaire. Il est également possible d’entrer du texte libre dans les champs du filtre.
 
 4. Le filtre est ensuite appliqué pour vous. L’état du filtre apparaît également dans le tableau de bord sous la forme d’un entonnoir affiché dans les tables d’usines et d’alarmes.
 
-    ![Filtres de la solution préconfigurée d’usine connectée][cf-img-alert-filter-funnel]
+    ![Filtres de l’accélérateur de solution d’usine connectée][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Un filtre actif n’affecte pas les valeurs d’OEE et KPI affichées. Il filtre uniquement le contenu de la liste.
@@ -189,27 +189,27 @@ Les sections suivantes décrivent quelques fonctionnalités supplémentaires de 
 
 ## <a name="browse-an-opc-ua-server"></a>Parcourir un serveur OPC UA
 
-Lorsque vous déployez la solution préconfigurée, vous configurez automatiquement des serveurs OPC UA simulés auxquels vous pouvez accéder via l’explorateur de solutions. Ces serveurs sont des *serveurs OPC UA simulés*. Les serveurs simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des serveurs physiques réels. Si vous ne souhaitez pas connecter un serveur OPC UA réel à la solution, consultez le didacticiel [Connexion de votre appareil OPC UA à la solution préconfigurée d’usine connectée][lnk-connect-cf].
+Lorsque vous déployez l’accélérateur de solution, vous configurez automatiquement des serveurs OPC UA simulés auxquels vous pouvez accéder via l’explorateur de solutions. Ces serveurs sont des *serveurs OPC UA simulés*. Les serveurs simulés vous permettent d’expérimenter plus facilement l’accélérateur de solution sans avoir à déployer des serveurs physiques réels. Si vous ne souhaitez pas connecter un serveur OPC UA réel à la solution, consultez le didacticiel [Connexion de votre appareil OPC UA à l’accélérateur de solution d’usine connectée][lnk-connect-cf].
 
 1. Cliquez sur l’**icône de navigateur** dans la barre de navigation du tableau de bord.
 
-    ![Explorateur de serveur de la solution préconfigurée d’usine connectée][cf-img-server-browser]
+    ![Navigateur de serveurs de l’accélérateur de solution d’usine connectée][cf-img-server-browser]
 
-2. Choisissez un des serveurs dans la liste prédéfinie. Cette liste affiche les serveurs déployés pour vous dans la solution préconfigurée.
+2. Choisissez un des serveurs dans la liste prédéfinie. Cette liste affiche les serveurs déployés pour vous dans l’accélérateur de solution.
 
-    ![Sélection de serveur de la solution préconfigurée d’usine connectée][cf-img-server-choice]
+    ![Sélection de serveur de l’accélérateur de solution d’usine connectée][cf-img-server-choice]
 
 3. Cliquez sur **Connecter**. Une boîte de dialogue de sécurité s’affiche. Pour la simulation, il est plus sûr de cliquer sur **Continuer**
 
 4. Cliquez sur un des nœuds dans l’arborescence de serveur pour le développer. Les nœuds qui publient des données de télémétrie sont indiqués par une coche.
 
-    ![Arborescence de serveur de la solution préconfigurée d’usine connectée][cf-img-server-tree]
+    ![Arborescence de serveur de l’accélérateur de solution d’usine connectée][cf-img-server-tree]
 
 5. Cliquez avec le bouton droit sur un élément pour lire, écrire, publier ou appeler ce nœud. Les actions disponibles dépendent de vos autorisations et des attributs du nœud. L’option de lecture affiche un panneau de contexte indiquant la valeur du nœud spécifique. L’option d’écriture affiche un panneau de contexte dans lequel vous pouvez entrer une nouvelle valeur. L’option d’appel affiche un nœud dans lequel vous pouvez entrer les paramètres de l’appel.
 
 ## <a name="publish-a-node"></a>Publier un nœud
 
-Lorsque vous parcourez un *serveur OPC UA simulé*, vous pouvez également choisir de publier de nouveaux nœuds. Vous pouvez analyser les données de télémétrie de ces nœuds dans la solution. Ces *serveurs OPC UA simulés* vous permettent d’expérimenter plus facilement la solution préconfigurée sans déployer des appareils physiques réels.
+Lorsque vous parcourez un *serveur OPC UA simulé*, vous pouvez également choisir de publier de nouveaux nœuds. Vous pouvez analyser les données de télémétrie de ces nœuds dans la solution. Ces *serveurs OPC UA simulés* vous permettent d’expérimenter plus facilement l’accélérateur de solution sans déployer des appareils physiques réels.
 
 1. Accédez à un nœud de l’arborescence du navigateur de serveur OPC UA que vous souhaitez publier.
 
@@ -225,7 +225,7 @@ Lorsque vous parcourez un *serveur OPC UA simulé*, vous pouvez également chois
 
 ## <a name="command-and-control"></a>Commande et contrôle
 
-L’usine connectée vous permet de commander et de contrôler vos appareils industriels directement à partir du cloud. Vous pouvez utiliser cette fonctionnalité pour répondre aux alarmes générées par l’appareil. Par exemple, vous pouvez envoyer une commande à l’appareil à partir du cloud. Vous pouvez rechercher les commandes disponibles dans le nœud **StationCommands** dans l’arborescence du navigateur de serveurs OPC UA. Dans ce scénario, vous ouvrez une soupape de décompression sur le poste d’assembly d’une ligne de production à Munich. Pour utiliser la fonctionnalité de commande et de contrôle, vous devez disposer du rôle **Administrateur** pour le déploiement de la solution préconfigurée.
+L’usine connectée vous permet de commander et de contrôler vos appareils industriels directement à partir du cloud. Vous pouvez utiliser cette fonctionnalité pour répondre aux alarmes générées par l’appareil. Par exemple, vous pouvez envoyer une commande à l’appareil à partir du cloud. Vous pouvez rechercher les commandes disponibles dans le nœud **StationCommands** dans l’arborescence du navigateur de serveurs OPC UA. Dans ce scénario, vous ouvrez une soupape de décompression sur le poste d’assembly d’une ligne de production à Munich. Pour utiliser la fonctionnalité de commande et de contrôle, vous devez disposer du rôle **Administrateur** pour le déploiement de l’accélérateur de solution.
 
 1. Accédez au nœud **StationCommands** dans l’arborescence du navigateur de serveur OPC UA.
 
@@ -235,39 +235,39 @@ L’usine connectée vous permet de commander et de contrôler vos appareils ind
 
 4. Choisissez **Appel**.
 
-    ![Commande d’appel de la solution préconfigurée d’usine connectée][cf-img-call-command]
+    ![Commande d’appel de l’accélérateur de solution d’usine connectée][cf-img-call-command]
 
 5. Un panneau de contexte vous informant sur la méthode que vous allez appeler et sur les détails de paramètre applicables s’affiche.
 
 6. Choisissez **Appel**.
 
-    ![Contexte d’appel de la solution préconfigurée d’usine connectée][cf-img-call-context]
+    ![Contexte d’appel de l’accélérateur de solution d’usine connectée][cf-img-call-context]
 
 7. Le panneau de contexte est mis à jour pour vous informer que l’appel de méthode a réussi. Vous pouvez vérifier que l’appel a réussi en lisant la valeur du nœud de pression mise à jour suite à l’appel.
 
-    ![Réussite de l’appel de la solution préconfigurée d’usine connectée][cf-img-call-success]
+    ![Réussite d’appel de l’accélérateur de solution d’usine connectée][cf-img-call-success]
 
 ## <a name="behind-the-scenes"></a>Dans les coulisses
 
-Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l’abonnement Azure sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
+Lorsque vous déployez un accélérateur de solution, le processus de déploiement crée plusieurs ressources dans l’abonnement Azure sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre accélérateur de solution :
 
-![Solution préconfigurée dans le portail Azure][img-cf-portal]
+![Accélérateur de solution dans le portail Azure][img-cf-portal]
 
 Vous pouvez afficher les paramètres de chaque ressource en la sélectionnant dans la liste des ressources dans le groupe de ressources.
 
-Vous pouvez également afficher le code source pour la solution préconfigurée. Le code source de la solution préconfigurée d’usine connectée se trouve dans le référentiel GitHub [azure-iot-connected-factory][lnk-cfgithub] :
+Vous pouvez également afficher le code source de l’accélérateur de solution. Le code source de l’accélérateur de solution d’usine connectée se trouve dans le référentiel GitHub [azure-iot-connected-factory][lnk-cfgithub] :
 
-Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à partir de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ce site vous permet de supprimer facilement toutes les ressources qui ont été configurées lors de la création de la solution préconfigurée.
+Lorsque vous avez terminé, vous pouvez supprimer l’accélérateur de solution de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ce site vous permet de supprimer facilement toutes les ressources qui ont été configurées lors de la création de l’accélérateur de solution.
 
 > [!NOTE]
-> Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez cette dernière sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ne supprimez pas le groupe de ressources dans le portail.
+> Pour vous assurer que vous supprimez tout ce qui concerne l’accélérateur de solution, supprimez ce dernier sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ne supprimez pas le groupe de ressources dans le portail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent que vous avez déployé une solution préconfigurée opérationnelle, vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
+À présent que vous avez déployé un accélérateur de solution opérationnel, vous pouvez poursuivre la prise en main des accélérateurs de solution IoT en lisant les articles suivants :
 
-* [Procédure pas à pas de la solution préconfigurée d’usine connectée][lnk-rm-walkthrough]
-* [Connexion de votre appareil à la solution préconfigurée d’usine connectée][lnk-connect-cf]
+* [Procédure pas à pas de l’accélérateur de solution d’usine connectée][lnk-rm-walkthrough]
+* [Connecter votre appareil à l’accélérateur de solution d’usine connectée][lnk-connect-cf]
 * [Autorisations sur le site azureiotsuite.com][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
@@ -293,7 +293,7 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory

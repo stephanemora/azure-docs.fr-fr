@@ -3,23 +3,25 @@ title: 'Azure Active Directory v2.0 : limites et restrictions du point de termi
 description: Une liste des limitations et restrictions associées au point de terminaison v2.0 Azure AD.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Dois-je utiliser le point de terminaison v2.0 ?
 Quand vous créez des applications qui s’intègrent dans Azure Active Directory, vous devez déterminer si les protocoles d’authentification et le point de terminaison v2.0 répondent à vos besoins. Le point de terminaison d’origine d’Azure Active Directory est toujours intégralement pris en charge. À certains égards, il est plus riche en fonctionnalités que le point de terminaison v2.0. Toutefois, le point de terminaison v2.0 [présente des avantages significatifs](active-directory-v2-compare.md) pour les développeurs.
@@ -47,7 +49,7 @@ Pour voir comment créer une API web qui accepte des jetons d’un client ayant
 De plus, les inscriptions d’applications que vous créez dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ont les caractéristiques suivantes :
 
 * Seuls deux secrets d’application sont autorisés par ID d’application.
-* Une application inscrite par un utilisateur dans un compte Microsoft personnel ne peut être affichée et gérée que par un compte de développeur. Elle ne peut pas être partagée entre plusieurs développeurs.  Si vous souhaitez partager votre inscription d’application avec plusieurs développeurs, vous pouvez créer l’application en vous connectant au portail d’inscription avec un compte Azure AD.
+* Une application inscrite par un utilisateur dans un compte Microsoft personnel ne peut être affichée et gérée que par un compte de développeur. Elle ne peut pas être partagée entre plusieurs développeurs. Si vous souhaitez partager votre inscription d’application avec plusieurs développeurs, vous pouvez créer l’application en vous connectant au portail d’inscription avec un compte Azure AD.
 * Il existe plusieurs restrictions quant au format de l’URI de redirection autorisé. Pour plus d’informations sur les URI de redirection, consultez la section suivante.
 
 ## <a name="restrictions-on-redirect-uris"></a>Restrictions concernant les URI de redirection
@@ -89,12 +91,12 @@ Pour savoir comment inscrire une application dans le portail d’inscription des
 Actuellement, la prise en charge des bibliothèques pour le point de terminaison v2.0 est limitée. Si vous souhaitez utiliser le point de terminaison v2.0 dans une application de production, vous disposez des options suivantes :
 
 * Si vous générez une application web, vous pouvez en toute sécurité utiliser le middleware Microsoft mis à la disposition générale côté serveur pour vous connecter et procéder à la validation des jetons. Vous recourrez notamment au middleware OWIN Open ID Connect pour ASP.NET et au plug-in Node.js Passport. Pour obtenir des exemples de code qui utilisent le middleware Microsoft, consultez la section [Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
-* Si vous créez une application de bureau ou mobile, vous pouvez utiliser l’une de nos bibliothèques d’authentification Microsoft (MSAL).  Bien qu’il s’agisse de versions préliminaires, ces bibliothèques sont utilisables dans des applications de production. Pour en savoir plus sur les versions préliminaires et les bibliothèques disponibles, consultez notre [référence des bibliothèques d’authentification](active-directory-v2-libraries.md).
+* Si vous créez une application de bureau ou mobile, vous pouvez utiliser l’une de nos bibliothèques d’authentification Microsoft (MSAL). Bien qu’il s’agisse de versions préliminaires, ces bibliothèques sont utilisables dans des applications de production. Pour en savoir plus sur les versions préliminaires et les bibliothèques disponibles, consultez notre [référence des bibliothèques d’authentification](active-directory-v2-libraries.md).
 * Vous pouvez intégrer les plateformes non couvertes par les bibliothèques Microsoft, dans le point de terminaison v2.0 en envoyant et en recevant directement des messages de protocole dans le code de votre application. Les protocoles v2.0 OpenID Connect et OAuth [sont explicitement documentés](active-directory-v2-protocols.md) pour vous aider à effectuer une telle intégration.
 * Pour finir, vous pouvez utiliser les bibliothèques open source Open ID Connect et OAuth pour procéder à l’intégration avec le point de terminaison v2.0. Le protocole v2.0 devrait être compatible avec de nombreuses bibliothèques de protocole open source sans modification majeure. La disponibilité de ces types de bibliothèques varie en fonction de la langue et de la plateforme. Les sites web [Open ID Connect](http://openid.net/connect/) et [OAuth 2.0](http://oauth.net/2/) contiennent une liste à jour des implémentations les plus courantes. Pour plus d’informations, consultez [Azure Active Directory v2.0 et bibliothèques d’authentification](active-directory-v2-libraries.md), ainsi que la liste des bibliothèques clientes open source et des exemples qui ont été testés avec le point de terminaison v2.0.
 
 ## <a name="restrictions-on-protocols"></a>Restrictions sur les protocoles
-Le point de terminaison 2.0 ne prend pas en charge SAML ou WS-Federation, mais uniquement Open ID Connect et OAuth 2.0.  Certaines fonctionnalités des protocoles OAuth n’ont pas été intégrées dans le point de terminaison v2.0. Ces fonctionnalités ne sont *pas disponibles* actuellement dans le point de terminaison v2.0 :
+Le point de terminaison 2.0 ne prend pas en charge SAML ou WS-Federation, mais uniquement Open ID Connect et OAuth 2.0. Certaines fonctionnalités des protocoles OAuth n’ont pas été intégrées dans le point de terminaison v2.0. Ces fonctionnalités ne sont *pas disponibles* actuellement dans le point de terminaison v2.0 :
 
 * Les jetons d’ID délivrés par le point de terminaison v2.0 ne contiennent pas de revendication `email` pour l’utilisateur, même si vous obtenez l’autorisation de l’utilisateur de consulter sa messagerie.
 * Le point de terminaison OpenID Connect UserInfo n’est pas implémenté sur le point de terminaison v2.0. Toutefois, toutes les données de profil utilisateur que vous êtes susceptible de recevoir sur ce point de terminaison sont disponibles sur le point de terminaison Microsoft Graph `/me` .

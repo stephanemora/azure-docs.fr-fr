@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 87f407aba40d4896ed8fb61b5528ed624afb80cb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Didacticiel : Préparer une application pour Azure Container Service (AKS)
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Didacticiel : Préparer une application pour Azure Kubernetes Service (AKS)
 
-Dans ce didacticiel (premier d’une série de huit), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :  
+Dans ce didacticiel (premier d’une série de huit), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :
 
 > [!div class="checklist"]
-> * Clonage de la source de l’application à partir de GitHub  
+> * Clonage de la source de l’application à partir de GitHub
 > * Création d’une image conteneur à partir de la source de l’application
 > * Test de l’application dans un environnement Docker local
 
@@ -32,7 +32,7 @@ Dans les didacticiels suivants, l’image conteneur est chargée dans Azure Cont
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel suppose une compréhension élémentaire des concepts Docker principaux tels que les conteneurs, les images de conteneur et les commandes Docker de base. Si besoin, consultez [Bien démarrer avec Docker][docker-get-started] pour apprendre les principes de base des conteneurs. 
+Ce didacticiel suppose une compréhension élémentaire des concepts Docker principaux tels que les conteneurs, les images de conteneur et les commandes Docker de base. Si besoin, consultez [Bien démarrer avec Docker][docker-get-started] pour apprendre les principes de base des conteneurs.
 
 Pour terminer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 
@@ -40,7 +40,7 @@ Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer cha
 
 ## <a name="get-application-code"></a>Obtenir le code d’application
 
-L’exemple d’application utilisé dans ce didacticiel est une application de votes de base. L’application est constituée d’un composant web frontal et d’une instance Redis principale. Le composant web est empaqueté dans une image conteneur personnalisée. L’instance Redis utilise une image non modifiée de Docker Hub.  
+L’exemple d’application utilisé dans ce didacticiel est une application de votes de base. L’application est constituée d’un composant web frontal et d’une instance Redis principale. Le composant web est empaqueté dans une image conteneur personnalisée. L’instance Redis utilise une image non modifiée de Docker Hub.
 
 Utilisez git pour télécharger une copie de l’application dans votre environnement de développement.
 
@@ -54,7 +54,7 @@ Modifiez les répertoires de manière à travailler à partir des répertoires c
 cd azure-voting-app-redis
 ```
 
-Dans le répertoire se trouvent le code source de l’application, un fichier Docker Compose précréé et un fichier manifeste Kubernetes. Ces fichiers sont utilisés tout au long de ce didacticiel. 
+Dans le répertoire se trouvent le code source de l’application, un fichier Docker Compose précréé et un fichier manifeste Kubernetes. Ces fichiers sont utilisés tout au long de ce didacticiel.
 
 ## <a name="create-container-images"></a>Créer des images de conteneur
 
@@ -97,7 +97,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Tester l’application localement
 
-Accédez à http://localhost:8080 pour afficher le conteneur en cours d’exécution.
+Accédez à http://localhost:8080 pour afficher l’application en cours d’exécution.
 
 ![Image du cluster Kubernetes sur Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
@@ -124,7 +124,7 @@ Une fois terminé, vous disposez de deux images conteneur contenant l’applicat
 Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
-> * Le clonage de la source de l’application à partir de GitHub  
+> * Le clonage de la source de l’application à partir de GitHub
 > * La création d’une image conteneur à partir de la source de l’application
 > * Le test de l’application dans un environnement Docker local
 

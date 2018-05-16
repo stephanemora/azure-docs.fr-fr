@@ -6,6 +6,7 @@
 # Prise en main
 ## [Portail Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [interface de ligne de commande Azure](data-lake-analytics-get-started-cli2.md)
 
@@ -37,7 +38,7 @@
 #### [Extensions cognitives](data-lake-analytics-u-sql-cognitive.md)
 #### [Guide de programmabilité](data-lake-analytics-u-sql-programmability-guide.md)
 
-### Visual Studio
+### Visual Studio
 #### [Installer](data-lake-analytics-data-lake-tools-install.md)
 #### [Parcourir et afficher des travaux](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Déboguer un code C# personnalisé](data-lake-analytics-debug-u-sql-jobs.md)

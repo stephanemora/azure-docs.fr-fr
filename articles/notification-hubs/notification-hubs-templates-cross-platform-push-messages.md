@@ -3,22 +3,22 @@ title: Modèles
 description: Cette rubrique décrit les modèles pour les hubs de notification Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 3e587bdf0efc7c5b416183640abb19286a5cff31
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="templates"></a>Modèles
 ## <a name="overview"></a>Vue d'ensemble
@@ -52,7 +52,7 @@ Cette condition force le serveur principal de l’application à générer diff�
 
 La fonctionnalité de modèle Notification Hubs permet à une application cliente de créer des inscriptions spéciales, appelées inscriptions de modèles, qui incluent, en plus de l’ensemble de balises, un modèle. La fonctionnalité de modèle Notification Hubs permet à une application cliente d’associer des appareils à des modèles, que vous travailliez avec des installations (recommandé) ou des inscriptions. Dans les exemples de charge utile précédents, les seules informations non spécifiques à la plateforme sont le message d’alerte réel (Hello!). Un modèle est un ensemble d’instructions destiné au hub de notification concernant la mise en forme d’un message non spécifique à une plateforme pour l’inscription de cette application cliente spécifique. Dans l’exemple précédent, le message non spécifique à une plateforme est une propriété unique : **message = Hello!**.
 
-L’image suivante illustre le processus décrit ci-dessus :
+L’image suivante illustre le processus :
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -74,7 +74,7 @@ Notez que le message réel est remplacé par l’expression $(message). Cette ex
 
 Si vous travaillez avec le modèle Installation, la clé « templates » de l’installation conserve un objet JSON de plusieurs modèles. Si vous travaillez avec le modèle Inscription, l’application cliente peut créer plusieurs inscriptions afin d’utiliser plusieurs modèles ; par exemple, un modèle pour les messages d’alerte et un modèle pour les mises à jour des mosaïques. Les applications clientes peuvent également combiner inscriptions natives (inscriptions sans modèle) et inscriptions avec modèle.
 
-Le hub de notification envoie une notification pour chaque modèle, sans tenir compte de leur appartenance, ou non, à la même application cliente. Ce comportement permet de convertir les notifications non spécifiques à une plateforme en plusieurs notifications. Par exemple, le même message non spécifique à une plateforme envoyé au hub de notification peut être converti de façon transparente en une alerte toast et une mise à jour de mosaïque, sans que le serveur principal n’en soit nécessairement averti. Notez bien que certaines plateformes (par exemple, iOS) peuvent regrouper plusieurs notifications sur le même appareil si elles sont envoyées sur une durée très courte.
+Le hub de notification envoie une notification pour chaque modèle, sans tenir compte de leur appartenance, ou non, à la même application cliente. Ce comportement permet de convertir les notifications non spécifiques à une plateforme en plusieurs notifications. Par exemple, le même message non spécifique à une plateforme envoyé au hub de notification peut être converti de façon transparente en une alerte toast et une mise à jour de mosaïque, sans que le serveur principal n’en soit nécessairement averti. Certaines plateformes (par exemple, iOS) peuvent regrouper plusieurs notifications sur le même appareil si elles sont envoyées sur une durée très courte.
 
 ## <a name="using-templates-for-personalization"></a>Utilisation des modèles à des fins de personnalisation
 Un autre avantage de l’utilisation des modèles est la possibilité d’utiliser les hubs de notification pour effectuer une personnalisation de notifications en fonction de l’inscription. Par exemple, prenez une application météo qui affiche une mosaïque contenant les conditions climatiques à un emplacement spécifique. Un utilisateur peut choisir entre les degrés Celsius ou Fahrenheit, et une prévision à un jour ou sur les cinq prochains jours. Grâce aux modèles, chaque installation d’application cliente peut s’inscrire au format approprié (Celsius sur 1 jour, Fahrenheit sur 1 jour, Celsius sur 5 jours, Fahrenheit sur 5 jours) et faire appel au serveur principal pour envoyer un message unique contenant toutes les informations nécessaires pour compléter ces modèles (par exemple, une prévision sur cinq jours en degrés Celsius et Fahrenheit).
@@ -126,7 +126,7 @@ Le tableau suivant indique le langage autorisé dans les modèles :
 
 Les expressions peuvent avoir n’importe laquelle des formes précédentes.
 
-Lors de l’utilisation de la concaténation, l’expression toute entière doit être placée entre {}. Par exemple, {$(prop) + ' - ' + $(prop2)}. |
+Lors de l’utilisation de la concaténation, l’expression tout entière doit être placée entre {}. Par exemple, {$(prop) + ' - ' + $(prop2)}. |
 
 Par exemple, le modèle suivant n’est pas un modèle XML valide :
 
@@ -139,7 +139,7 @@ Par exemple, le modèle suivant n’est pas un modèle XML valide :
     </tile>
 
 
-Comme expliqué ci-dessus, lors de l’utilisation de la concaténation, les expressions doivent être placées entre accolades. Par exemple : 
+Comme expliqué précédemment, lors de l’utilisation de la concaténation, les expressions doivent être placées entre accolades. Par exemple : 
 
     <tile>
       <visual>

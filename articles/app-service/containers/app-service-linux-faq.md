@@ -1,13 +1,13 @@
 ---
-title: "FAQ d’Azure App Service sur Linux | Microsoft Docs"
-description: "FAQ d’Azure App Service sur Linux."
+title: FAQ d’Azure App Service sur Linux | Microsoft Docs
+description: FAQ d’Azure App Service sur Linux.
 keywords: azure app service, application web, faq, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -37,7 +37,7 @@ Vous trouverez tous les fichiers Docker sur [GitHub](https://github.com/azure-ap
 
 Pour Node.js, vous spécifiez le fichier de configuration PM2 ou votre fichier de script. Pour .NET Core, vous spécifiez le nom de votre DLL compilée. Pour Ruby, vous pouvez spécifier le script Ruby avec lequel initialiser votre application.
 
-## <a name="management"></a>Gestion
+## <a name="management"></a>gestion
 
 **Que se passe-t-il lorsque j’appuie sur le bouton Redémarrer dans le portail Azure ?**
 
@@ -46,6 +46,10 @@ Cette action revient à redémarrer Docker.
 **Puis-je utiliser Secure Shell (SSH) pour me connecter à la machine virtuelle du conteneur d’application ?**
 
 Oui, vous pouvez le faire via le site de gestion de contrôle de code source (SCM).
+
+> [!NOTE] 
+> Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://aka.ms/linux-debug).
+>
 
 **Comment puis-je créer un plan App Service Linux via un kit de développement ou un modèle Azure Resource Manager ?**
 

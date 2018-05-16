@@ -1,11 +1,11 @@
 ---
-title: "Collecte des journaux et des métriques des services Azure pour Log Analytics | Microsoft Docs"
-description: "Configuration des diagnostics sur les ressources Azure pour écrire des journaux et métriques dans Log Analytics."
+title: Collecte des journaux et des métriques des services Azure pour Log Analytics | Microsoft Docs
+description: Configuration des diagnostics sur les ressources Azure pour écrire des journaux et métriques dans Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics
 
@@ -31,13 +31,13 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 4. Des scripts pour collecter puis publier les données dans Log Analytics (vide dans le tableau suivant et pour les services qui ne sont pas répertoriés)
 
 
-| Service                 | Type de ressource                           | Journaux        | Mesures     | Solution |
+| de diffusion en continu                 | Type de ressource                           | Journaux        | Mesures     | Solution |
 | --- | --- | --- | --- | --- |
 | Passerelles d’application    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Connecteur   | Connecteur   | [Connecteur Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (version préliminaire) |
 | Comptes Automation     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [Plus d’informations](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Comptes Batch          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
-| Services cloud classiques  |                                         | Storage     |             | [Plus d’informations](log-analytics-azure-storage-iis-table.md) |
+| Services cloud classiques  |                                         | Stockage     |             | [Plus d’informations](log-analytics-azure-storage-iis-table.md) |
 | Cognitive services      | Microsoft.CognitiveServices/accounts    |             | Diagnostics | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostics |             | |
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
@@ -46,14 +46,14 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 | Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Équilibreurs de charge          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Groupes de sécurité réseau | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Network Security Group | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Coffres de récupération         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (version préliminaire)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Services de recherche         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Espace de noms Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | Stockage     |             | [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (version préliminaire)](log-analytics-azure-sql.md) |
-| Storage                 |                                         |             | Script      | [Azure Storage Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
-| Machines virtuelles        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
+| Stockage                 |                                         |             | Script      | [Azure Storage Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
+| Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Groupes de machines virtuelles identiques | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Batteries de serveurs web        | Microsoft.Web/serverfarms               |             | Diagnostics | |
 | Sites web               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Azure Web Apps Analytics (version préliminaire)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
@@ -68,6 +68,13 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 De nombreuses ressources Azure sont en mesure d’écrire des journaux de diagnostic et métriques directement dans Log Analytics, et il s’agit du moyen recommandé de collecter les données à analyser. Lorsque vous utilisez les diagnostics Azure, les données sont écrites immédiatement dans Log Analytics, et il est inutile d’écrire les données dans le stockage avant.
 
 Mes ressources Azure qui prennent en charge [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) peuvent envoyer leurs journaux et métriques directement vers Log Analytics.
+
+> [!NOTE]
+> L’envoi à Log Analytics de métriques multidimensionnels au moyen des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportés en tant que métriques dimensionnels uniques aplatis, et agrégés entre les valeurs de la dimension.
+>
+> *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
+>
+>
 
 * Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Pour plus d’informations sur les journaux disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -125,7 +132,7 @@ Log Analytics peut utiliser cette approche pour collecter des diagnostics à par
 | Ressource | Journaux |
 | --- | --- |
 | Service Fabric |ETWEvent <br> Événement opérationnel <br> Événement Reliable Actor <br> Événement de service fiable |
-| Machines virtuelles |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |
+| Virtual Machines |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |
 | Rôles web <br> Rôles de travail |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |
 
 > [!NOTE]
@@ -145,7 +152,7 @@ En savoir plus sur le [connecteur Application Insights](https://blogs.technet.mi
 
 Pour les services Azure qui ne fournissent pas de moyen direct d’envoyer les journaux et métriques vers Log Analytics, vous pouvez utiliser un script Azure Automation pour les collecter. Le script peut alors envoyer les données vers Log Analytics à l’aide de [l’API de collecte de données](log-analytics-data-collector-api.md)
 
-La galerie de modèles Azure propose des [exemples d’utilisation d’Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) pour collecter des données à partir des services et en les envoyer à Log Analytics.
+La galerie de modèles Azure propose des [exemples d’utilisation d’Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) pour collecter des données à partir des services et en les envoyer à Log Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

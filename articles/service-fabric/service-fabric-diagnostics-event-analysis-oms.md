@@ -1,79 +1,113 @@
 ---
-title: "Analyse d’événements Azure Service Fabric avec OMS | Microsoft Docs"
-description: "Découvrez l’analyse et la visualisation d’événements à l’aide d’OMS pour la surveillance et le diagnostic de clusters Azure Service Fabric."
+title: Analyse d’événements Azure Service Fabric avec Log Analytics | Microsoft Docs
+description: Découvrez l’analyse et la visualisation d’événements à l’aide de Log Analytics pour la surveillance et le diagnostic de clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 8efbc1d400f1d32e6aee2c1e2d78847bea786940
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="event-analysis-and-visualization-with-oms"></a>Analyse et visualisation d’événements avec OMS
+# <a name="event-analysis-and-visualization-with-log-analytics"></a>Analyse et visualisation d’événements avec Log Analytics
 
-OMS (Operations Management Suite) est une collection de services de gestion liés à la surveillance et au diagnostic d’applications et de services hébergés dans le cloud. Pour obtenir une présentation plus détaillée d’OMS et de ce qu’il propose, lisez [Qu’est-ce qu’OMS ?](../operations-management-suite/operations-management-suite-overview.md)
+Log Analytics, également connue sous le nom d’OMS (Operations Management Suite) est une collection de services de gestion liés à la surveillance et au diagnostic d’applications et de services hébergés dans le cloud. Cet article explique comment exécuter des requêtes dans Log Analytics pour obtenir des informations détaillées et résoudre les problèmes qui surviennent dans votre cluster. Les questions courantes suivantes sont traitées :
 
-## <a name="log-analytics-and-the-oms-workspace"></a>Log Analytics et l’espace de travail OMS
+* Comment résoudre les problèmes d’intégrité ?
+* Comment savoir quand un nœud tombe en panne ?
+* Comment savoir si les services de mon application ont démarré ou se sont arrêtés ?
 
-Log Analytics collecte des données à partir de ressources gérées, notamment un agent ou une table de stockage Azure, et les conserve dans un référentiel central. Les données peuvent ensuite être utilisées pour l’analyse, l’alerte et la visualisation, ou une nouvelle exportation. Log Analytics prend en charge les événements, les données de performances ou toute autre donnée personnalisée.
+## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
 
-Quand OMS est configuré, vous avez accès à un *espace de travail OMS* spécifique, à partir duquel les données peuvent être interrogées ou visualisées dans des tableaux de bord.
+Log Analytics collecte des données à partir de ressources gérées, notamment un agent ou une table de stockage Azure, et les conserve dans un référentiel central. Les données peuvent ensuite être utilisées pour l’analyse, l’alerte et la visualisation, ou une nouvelle exportation. Log Analytics prend en charge les événements, les données de performances ou toute autre donnée personnalisée. Consultez [étapes de configuration de l’extension de diagnostics pour regrouper des événements](service-fabric-diagnostics-event-aggregation-wad.md) et [étapes de création d’un espace de travail Log Analytics pour lire les événements dans le stockage](service-fabric-diagnostics-oms-setup.md) pour vous assurer que les données circulent dans Log Analytics.
 
-Après réception des données par Log Analytics, OMS dispose de plusieurs *solutions de gestion* qui sont des solutions prépackagées permettant de surveiller les données entrantes, personnalisées pour plusieurs scénarios. Ces solutions incluent une solution *Service Fabric Analytics* et une solution *Conteneurs*, qui sont les deux solutions les plus appropriées pour les diagnostics et le suivi lors de l’utilisation des clusters Service Fabric. Il en existe aussi plusieurs autres qu’il est conseillé d’explorer. OMS permet également de créer des solutions personnalisées. Vous trouverez plus d’informations à ce sujet [ici](../operations-management-suite/operations-management-suite-solutions.md). Chaque solution que vous choisissez d’utiliser pour un cluster peut être configurée dans le même espace de travail OMS, avec Log Analytics. Les espaces de travail autorisent les tableaux de bord personnalisés et la visualisation de données, ainsi que les modifications des données que vous voulez collecter, traiter et analyser.
+Après réception des données par Log Analytics, Azure dispose de plusieurs *solutions de gestion* qui sont des solutions prépackagées permettant de surveiller les données entrantes, personnalisées pour plusieurs scénarios. Ces solutions incluent une solution *Service Fabric Analytics* et une solution *Conteneurs*, qui sont les deux solutions les plus appropriées pour les diagnostics et le suivi lors de l’utilisation des clusters Service Fabric. Cet article décrit comment utiliser la solution Service Fabric Analytics, qui est créée avec l’espace de travail.
 
-## <a name="setting-up-an-oms-workspace-with-the-service-fabric-analytics-solution"></a>Configuration d’un espace de travail OMS avec la solution Service Fabric Analytics
-Il est recommandé d’inclure la solution Service Fabric dans votre espace de travail OMS, car elle fournit un tableau de bord qui montre les différents canaux de journaux entrants du niveau plateforme et application, ainsi que la possibilité d’interroger des journaux Service Fabric spécifiques. Voici à quoi ressemble une solution Service Fabric relativement simple, avec une seule application déployée sur le cluster :
+## <a name="access-the-service-fabric-analytics-solution"></a>Accéder à la solution Service Fabric Analytics dans le portail
 
-![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
+1. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez la ressource **ServiceFabric\<nameOfOMSWorkspace\>** et accédez à sa page de présentation.
 
-Pour utiliser cette solution avec votre cluster, consultez [Configurer OMS Log Analytics](service-fabric-diagnostics-oms-setup.md).
+2. Dans la page Vue d’ensemble, cliquez sur le lien du haut pour accéder au portail OMS
 
-## <a name="using-the-oms-agent"></a>Utilisation de l’agent OMS
+    ![Lien vers le portail OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
 
-Il est recommandé d’utiliser EventFlow et WAD comme solutions d’agrégation, car ils permettent d’adopter une approche plus modulable des diagnostics et du suivi. Par exemple si vous voulez changer vos sorties à partir d’EventFlow, aucune modification de votre instrumentation réelle n’est nécessaire, mais juste une simple modification de votre fichier de configuration. Toutefois, si vous décidez d’utiliser OMS Log Analytics, vous devez configurer [l’agent OMS](../log-analytics/log-analytics-windows-agent.md). Vous devez également utiliser l’agent OMS lors du déploiement de conteneurs sur votre cluster, comme indiqué ci-dessous. 
+3. Vous êtes maintenant dans le portail OMS et vous pouvez voir les solutions que vous avez activées. Cliquez sur le graphique intitulé Service Fabric (première image ci-dessous) pour accéder à la solution Service Fabric (deuxième image ci-dessous)
 
-Pour obtenir des instructions, consultez [Ajouter l’agent OMS à un cluster](service-fabric-diagnostics-oms-agent.md).
+    ![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
 
-Les avantages de cette approche sont les suivants :
+    ![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
 
-* Données enrichies du côté des compteurs de performances et des indicateurs de performance.
-* Métriques faciles à configurer collectées à partir du cluster et sans avoir à mettre à jour la configuration de votre cluster. Les modifications apportées aux paramètres de l’agent peuvent être effectuées à partir du portail OMS et l’agent redémarre automatiquement pour correspondre à la configuration requise. Pour configurer l’agent OMS afin de récupérer des compteurs de performance spécifiques, accédez à la **Page d’accueil de l’espace de travail > Paramètres > Données > Compteurs de performances Windows**, puis sélectionnez les données que vous voulez collecter.
-* Les données s’affichent plus rapidement que si elles devaient être stockées avant d’être récupérées par OMS/Log Analytics.
-* La surveillance des conteneurs est beaucoup plus facile, car elle peut sélectionner les journaux Docker (stdout, stderr) et les statistiques (métriques de performance au niveau des conteneurs et des nœuds)
+L’image ci-dessus est la page d’accueil de la solution Service Fabric Analytics. Il s’agit d’une capture instantanée de ce qui se passe dans votre cluster. Si vous avez activé des diagnostics lors de la création du cluster, vous pouvez voir les événements pour le 
 
-La principale considération ici est que, comme l’agent sera déployé sur votre cluster avec toutes vos applications, les performances de vos applications sur le cluster peuvent être affectées.
+* [canal opérationnel](service-fabric-diagnostics-event-generation-operational.md) : opérations de niveau supérieur effectuées par la plateforme Service Fabric (collection de services système).
+* [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
-## <a name="monitoring-containers"></a>Surveillance des conteneurs
+>[!NOTE]
+>Outre le canal opérationnel, des événements système plus détaillés peuvent être collectés en [mettant à jour la configuration de votre extension de diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-Quand vous déployez des conteneurs dans un cluster Service Fabric, il est recommandé de configurer le cluster avec l’agent OMS et d’ajouter la solution Conteneurs à votre espace de travail OMS pour permettre le suivi et les diagnostics. Voici à quoi ressemble la solution Conteneurs dans un espace de travail :
+### <a name="view-operational-events-including-actions-on-nodes"></a>Afficher les événements opérationnels, y compris les actions sur les nœuds
 
-![Tableau de bord OMS de base](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+1. À la page Service Fabric Analytics sur le portail OMS, cliquez sur le graphique du canal opérationnel
 
-L’agent permet de collecter plusieurs journaux spécifiques aux conteneurs qui peuvent être interrogés dans OMS ou utilisés pour visualiser les indicateurs de performance. Les types de journaux collectés sont :
+    ![Canal opérationnel de la solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
 
-* ContainerInventory : affiche des informations sur les images, le nom et l’emplacement du conteneur
-* ContainerImageInventory : informations sur les images déployées, ID ou tailles compris
-* ContainerLog : journaux d’erreurs spécifiques, journaux de docker (stdout, etc.) et autres entrées
-* ContainerServiceLog : les commandes de démon docker qui ont été exécutées
-* Performances : les compteurs de performances, dont l’utilisation par le conteneur du processeur, de la mémoire, du E/S de disque, du trafic réseau et de mesures personnalisées à partir des machines hôtes
+2. Cliquez sur Table pour afficher les événements dans une liste. Vous verrez alors tous les événements système qui ont été collectés. Pour référence, il s’agit de la table WADServiceFabricSystemEventsTable dans le compte de stockage Azure. De même, les services fiables et les événements acteurs que vous voyez ensuite proviennent de ces tables respectives.
+    
+    ![Canal opérationnel de requêtes OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-L’article [Surveiller les conteneurs avec OMS Log Analytics](service-fabric-diagnostics-oms-containers.md) décrit les étapes nécessaires à la configuration de la surveillance de conteneur pour votre cluster. Pour en savoir plus sur la solution de conteneurs d’OMS, consultez leur [documentation](../log-analytics/log-analytics-containers.md).
+Vous pouvez également cliquer sur la loupe à gauche et utiliser le langage de requête Kusto pour trouver ce que vous cherchez. Par exemple, pour rechercher toutes les actions effectuées sur des nœuds du cluster, vous pouvez utiliser la requête suivante. Les ID d’événement ci-dessous se trouvent dans la [référence des événements du canal opérationnel](service-fabric-diagnostics-event-generation-operational.md)
+
+```kusto
+ServiceFabricOperationalEvent
+| where EventId < 25627 and EventId > 25619 
+```
+
+Vous pouvez effectuer des requêtes sur beaucoup plus de champs, tels que les nœuds spécifiques (ordinateur) et le service système (TaskName).
+
+### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Afficher le service Service Fabric Reliable et des événements d’acteurs
+
+1. À la page Service Fabric Analytics du portail OMS, cliquez sur le graphique de Reliable Services
+
+    ![Reliable Services pour la solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
+
+2. Cliquez sur Table pour afficher les événements dans une liste. Ici, vous pouvez voir les événements des services fiables. Vous pouvez voir différents événements qui surviennent lorsque le service runasync est démarré et terminé, ce qui est généralement le cas lors de déploiements et de mises à niveau. 
+
+    ![Reliable Services pour les requêtes OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-query-reliable-services.png)
+
+Les événements d’acteurs fiables peuvent être affichés de manière similaire. Pour configurer des événements plus détaillés pour des acteurs fiables, vous devez modifier le `scheduledTransferKeywordFilter` dans le fichier config pour l’extension de diagnostic (voir ci-dessous). Vous trouverez plus d’informations à ce sujet dans la [référence des événements des acteurs fiables](service-fabric-reliable-actors-diagnostics.md#keywords)
+
+```json
+"EtwEventSourceProviderConfiguration": [
+                {
+                    "provider": "Microsoft-ServiceFabric-Actors",
+                    "scheduledTransferKeywordFilter": "1",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                    }
+                },
+```
+
+Le langage de requête Kusto est puissant. Une autre requête précieuse que vous pouvez exécuter consiste à savoir quels nœuds génèrent la plupart des événements. La requête dans la capture d’écran ci-dessous montre un événement des services fiables agrégés avec le service et le nœud spécifiques.
+
+![Événements de requête OMS par nœud](media/service-fabric-diagnostics-event-analysis-oms/oms-query-events-per-node.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les outils et options OMS suivants pour personnaliser un espace de travail en fonction de vos besoins :
-
+* Pour activer la surveillance de l’infrastructure, par exemple, les compteurs de performances, rendez-vous sur [Ajout de l’agent OMS](service-fabric-diagnostics-oms-agent.md). L’agent collecte des compteurs de performances et les ajoute à votre espace de travail existant.
 * Pour les clusters locaux, OMS propose une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données à OMS. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs à OMS sans accès Internet à l’aide de la passerelle OMS](../log-analytics/log-analytics-oms-gateway.md)
-* Configurez OMS pour configurer l’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics
+* Configurez OMS pour paramétrer [l’alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
+* Pour obtenir une présentation plus détaillée de Log Analytics et de ce qu’il propose, lisez [Qu’est-ce que Log Analytics ?](../operations-management-suite/operations-management-suite-overview.md)

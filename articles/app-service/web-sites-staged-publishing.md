@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ Lorsque vous déployez votre application web, votre application web Linux, votre
 * Déployer d’abord une application vers un emplacement et la basculer ensuite en production garantit que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune demande n'est abandonnée durant les opérations de basculement. Ce flux de travail peut être entièrement automatisé en configurant [Échange automatique](#Auto-Swap) lorsqu’aucune validation n’est requise avant l’échange.
 * Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications basculées en production ne vous conviennent pas, vous pouvez effectuer le même basculement afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
 
-Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
-
-* Si votre application dispose de plusieurs emplacements, vous ne pouvez pas changer de plan.
-* La mise à l'échelle est uniquement disponible pour les emplacements de site de production.
-* La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement (autre que de production) vers un autre niveau de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même niveau que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
+Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Pour mettre votre application à l’échelle vers un niveau différent, le niveau cible doit prendre en charge le nombre d’emplacements déjà utilisés par votre application. Par exemple, si votre application possède plus de 5 emplacements, vous ne pouvez pas redéfinir le niveau **Standard**, car le niveau **Standard** prend uniquement en charge 5 emplacements.
 
 <a name="Add"></a>
 
@@ -54,7 +50,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
    
     ![Source de configuration][ConfigurationSource1]
    
-    La première fois que vous ajoutez un emplacement, vous avez uniquement deux choix : cloner la configuration à partir de l’emplacement par défaut en production ou ne rien cloner du tout.
+    La première fois que vous ajoutez un emplacement, vous avez uniquement deux choix : cloner la configuration à partir de l’emplacement par défaut en production ou ne rien cloner du tout.
     Après avoir créé plusieurs emplacements, vous pourrez cloner la configuration depuis un emplacement autre que l'emplacement de production :
    
     ![Sources de configuration][MultipleConfigurationSources]
@@ -67,8 +63,8 @@ Il n’existe pas de contenu après la création de l’emplacement de déploiem
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>Configuration d’emplacements de déploiement
-Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Par ailleurs, après un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement (éléments propres à un emplacement). Les listes suivantes présentent la configuration changée lorsque vous effectuez des basculements d'emplacements.
+## <a name="which-settings-are-swapped"></a>Quels sont les paramètres échangés ?
+Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Par ailleurs, après un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement (éléments propres à un emplacement). Les listes suivantes représentent les paramètres qui évoluent lorsque vous échangez les emplacements.
 
 **Paramètres échangés**:
 
@@ -87,7 +83,7 @@ Lorsque vous clonez la configuration depuis un autre emplacement de déploiement
 * Paramètres de mise à l'échelle
 * Planificateurs WebJobs
 
-Pour lier un paramètre d’application ou une chaîne de connexion à un emplacement (aucun échange), accédez au panneau **Paramètres de l’application** d’un emplacement, puis cochez la case **Paramètre d’emplacement** correspondant aux éléments de configuration à lier à cet emplacement. Notez que si vous marquez un élément de configuration comme propre à un emplacement, cet élément ne pourra pas être échangé entre tous les emplacements de déploiement associés à l’application.
+Pour lier un paramètre d’application ou une chaîne de connexion à un emplacement (aucun échange), accédez au panneau **Paramètres de l’application** d’un emplacement, puis cochez la case **Paramètre d’emplacement** correspondant aux éléments de configuration à lier à cet emplacement. Si vous marquez un élément de configuration comme propre à un emplacement, cet élément ne pourra pas être échangé entre tous les emplacements de déploiement associés à l’application.
 
 ![Paramètres d’emplacement][SlotSettings]
 
@@ -129,7 +125,7 @@ Lorsque vous utilisez l’option **Échange avec aperçu** (voir [Échanger des 
 - Lorsque vous effectuez l’échange : transfère l’emplacement source préinitialisé dans l’emplacement de destination. L’emplacement de destination est transféré dans l’emplacement source, comme dans le cadre d’un échange manuel.
 - Lorsque vous annulez l’échange : réapplique les éléments de configuration de l’emplacement source à l’emplacement source.
 
-Vous pouvez prévisualiser le comportement précis de l’application avec la configuration de l’emplacement de destination. Une fois la validation terminée, vous effectuez l’échange dans le cadre d’une étape distincte. L’avantage de cette étape est que l’emplacement source est déjà initialisé avec la configuration souhaitée et que les clients ne seront pas confrontés à des temps d’arrêt.  
+Vous pouvez prévisualiser le comportement précis de l’application avec la configuration de l’emplacement de destination. Une fois la validation terminée, vous effectuez l’échange dans le cadre d’une étape distincte. L’avantage de cette étape est que l’emplacement source est déjà initialisé avec la configuration souhaitée et que les clients ne sont pas confrontés à des temps d’arrêt.  
 
 Des exemples pour les applets de commande Azure PowerShell disponibles pour l’échange multiphase figurent dans les applets de commande Azure PowerShell de la section des emplacements de déploiement.
 
@@ -146,7 +142,7 @@ L’échange automatique simplifie les scénarios d’opérations de développem
 > [!NOTE]
 > L’échange automatique n’est pas pris en charge dans les applications web sous Linux.
 
-La configuration de l’échange automatique pour un emplacement est facile. Pour ce faire, procédez comme suit :
+La configuration de l’échange automatique pour un emplacement est facile. Procédez comme suit :
 
 1. Dans **Emplacements de déploiement**, sélectionnez un emplacement autre que de production et choisissez **Paramètres de l’application** dans le panneau de ressources de cet emplacement.  
    
@@ -165,22 +161,32 @@ La configuration de l’échange automatique pour un emplacement est facile. Pou
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Pour rétablir une application de production après un échange
+## <a name="roll-back-a-production-app-after-swap"></a>Rétablir une application de production après un échange
 Si vous identifiez des erreurs de production après un basculement d'emplacements, rétablissez ces deux emplacements comme ils étaient, en les intervertissant immédiatement.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Mise en route personnalisée avant la permutation
-Certaines applications peuvent nécessiter des actions personnalisées de mise en route. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter avant la réception d’une demande. L'opération de permutation attendra la fin de cette mise en route personnalisée. Voici un exemple de fragment web.config.
+Certaines applications peuvent nécessiter des actions personnalisées de mise en route. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter avant la réception d’une demande. L'opération d’échange attend la fin de cette mise en route personnalisée. Voici un exemple de fragment web.config.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>Surveiller l’avancement de l’échange
+
+Parfois, l’opération d’échange prend un certain temps à s’exécuter, comme quand l’application qui est échangée affiche un long délai de mise en route. Pour en savoir plus sur les opérations d’échange, accédez au [journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) dans le [portail Azure](https://portal.azure.com).
+
+Sur la page de votre application dans le portail, dans le volet de navigation gauche, sélectionnez **Journal d’activité**.
+
+Une opération d’échange s’affiche dans la requête de journal en tant que `Slotsswap`. Vous pouvez la développer et sélectionner l’une des sous-opérations ou erreurs afin d’afficher le contenu en détail.
+
+![Journal d’activité dédié aux échanges d’emplacements](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Pour supprimer un emplacement de déploiement
+## <a name="delete-a-deployment-slot"></a>Supprimer un emplacement de déploiement
 Ouvrez le panneau d’un emplacement de déploiement, cliquez sur **Vue d’ensemble** (page par défaut), puis cliquez sur **Supprimer** dans la barre de commandes.  
 
 ![Supprimer un emplacement de déploiement][DeleteStagingSiteButton]
@@ -189,41 +195,47 @@ Ouvrez le panneau d’un emplacement de déploiement, cliquez sur **Vue d’ense
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlets Azure PowerShell pour les emplacements de déploiement
+## <a name="automate-with-azure-powershell"></a>Automatiser avec Azure PowerShell
+
 Azure PowerShell est un module qui fournit des applets de commande pour gérer Azure via Windows PowerShell, notamment la prise en charge de la gestion des emplacements de déploiement des applications dans Azure App Service.
 
 * Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Créer une application web
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>Créer un emplacement de déploiement
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Initialiser un échange avec aperçu (échange multiphase) et appliquer la configuration de l’emplacement de destination à l’emplacement source
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Annuler un échange en attente (échange avec aperçu) et restaurer la configuration de l’emplacement source
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Échanger des emplacements de déploiement
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>Surveiller les événements d’échange dans le journal d’activité
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,53 +249,14 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Commandes de l’interface de ligne de commande Azure pour les emplacements de déploiement
-L’interface de ligne de commande (CLI) Azure fournit des commandes interplateformes fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement d’App Service.
+## <a name="automate-with-azure-cli"></a>Automatiser avec Azure CLI
 
-* Pour obtenir des instructions sur l’installation et la configuration de l’interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
-* Pour répertorier les commandes disponibles pour Azure App Service dans l’interface de ligne de commande Azure, appelez `azure site -h`.
-
-> [!NOTE] 
-> Pour connaître les commandes de l’interface [Azure CLI 2.0](https://github.com/Azure/azure-cli) pour les emplacements de déploiement, consultez [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
-
-- - -
-### <a name="azure-site-list"></a>azure site list
-Pour plus d’informations sur les applications de l’abonnement actuel, appelez **azure site list**, comme dans l’exemple suivant.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>azure site create
-Pour créer un emplacement de déploiement, appelez **azure site create** et spécifiez le nom d’une application et de l’emplacement à créer, comme dans l’exemple suivant.
-
-`azure site create webappslotstest --slot staging`
-
-Pour activer le contrôle de code source pour le nouvel emplacement, utilisez l'option **--git** , comme dans l'exemple suivant.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>azure site swap
-Pour appliquer l’emplacement de déploiement mis à jour à l’application de production, utilisez la commande **azure site swap** pour effectuer un échange, comme dans l’exemple suivant. L’application de production ne subira ni temps d’arrêt, ni démarrage à froid.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>azure site delete
-Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, utilisez la commande **azure site delete** , comme dans l'exemple suivant.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> Visualisez une application web en action. [Essayez App Service](https://azure.microsoft.com/try/app-service/) dès maintenant et créez une première application temporaire. Aucune carte de crédit ni aucun engagement ne sont nécessaires.
-> 
-> 
+Pour connaître les commandes de l’interface [Azure CLI](https://github.com/Azure/azure-cli) pour les emplacements de déploiement, consultez [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introduction à App Service sur Linux](../app-service/containers/app-service-linux-intro.md)
-[Essai gratuit de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
+[Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Présentation d’App Service sur Linux](../app-service/containers/app-service-linux-intro.md)  
+[Version d’évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png

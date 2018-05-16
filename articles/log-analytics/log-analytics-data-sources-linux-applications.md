@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Collecte des compteurs de performances pour les applications Linux dans Log Analytics 
 Cet article fournit des détails sur la configuration de l’[agent OMS pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) pour la collecte des compteurs de performances pour des applications spécifiques.  Les applications incluses dans cet article sont :  
@@ -78,9 +78,9 @@ Le tableau suivant fournit des détails sur la syntaxe pour utiliser mycimprovau
 
 | Opération | Exemples | Description
 |:--|:--|:--|
-| autoupdate *false\|true* | mycimprovauth autoupdate false | Définit si le fichier d’authentification sera automatiquement mis à jour au redémarrage ou lors de la mise à jour. |
+| autoupdate *false ou true* | mycimprovauth autoupdate false | Définit si le fichier d’authentification sera automatiquement mis à jour au redémarrage ou lors de la mise à jour. |
 | default *adresse_de_liaison nom_utilisateur mot_de_passe* | mycimprovauth default 127.0.0.1 root pwd | Définit l’instance par défaut dans le fichier d’authentification OMI MySQL.<br>Le champ du mot de passe doit être renseigné en texte brut ; le mot de passe dans le fichier d’authentification MySQL OMI sera encodé en Base64. |
-| delete *default\|port_num* | mycimprovauth 3308 | Supprime l’instance indiquée par valeur par défaut ou numéro de port. |
+| delete *port par défaut ou numéro_port* | mycimprovauth 3308 | Supprime l’instance indiquée par valeur par défaut ou numéro de port. |
 | help | mycimprov help | Imprime une liste de commandes à utiliser. |
 | print | mycimprov print | Imprime un fichier d’authentification OMI MySQL facile à lire. |
 | update num_port *adresse_de_liaison nom_utilisateur mot_de_passe* | mycimprov update 3307 127.0.0.1 root pwd | Met à jour l’instance indiquée ou ajoute l’instance si elle n’existe pas. |

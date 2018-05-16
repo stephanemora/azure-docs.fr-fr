@@ -1,11 +1,11 @@
 ---
-title: "Apparence des applications dans le volet d’accès | Microsoft Docs"
-description: "Identifier pourquoi une application apparaît dans le volet d’accès"
+title: Apparence des applications dans le volet d’accès | Microsoft Docs
+description: Identifier pourquoi une application apparaît dans le volet d’accès
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d4203ea39adf027d783a482198f523e18cbc246
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Apparence des applications dans le volet d’accès
 
@@ -151,4 +151,4 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 -   Traces Fiddler
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestion des applications avec Azure Active Directory](manage-apps/what-is-application-management.md)

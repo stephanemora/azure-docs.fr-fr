@@ -1,6 +1,6 @@
 ---
-title: Présentation du monitoring et des diagnostics Azure Service Fabric | Microsoft Docs
-description: Découvrez le monitoring et les diagnostics pour les clusters, applications et services Azure Service Fabric.
+title: Présentation de la surveillance et des diagnostics Azure Service Fabric | Microsoft Docs
+description: Découvrez la surveillance et les diagnostics pour les clusters, applications et services Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2018
+ms.date: 04/25/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: 03fa2862bbce39ac9ee6b7da02bd93b02b05f216
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dd2446fda204f4026ac8080c658ca1aa9419f1bd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoring et diagnostics pour Azure Service Fabric
+# <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Surveillance et diagnostics pour Azure Service Fabric
 
 Cet article fournit une vue d’ensemble du monitoring et des diagnostics dans Azure Service Fabric. Le monitoring et les diagnostics sont essentiels au développement, au test et au déploiement de charges de travail dans tout environnement cloud. Le monitoring vous permet de faire le suivi de la façon dont vos applications sont utilisées, de votre utilisation des ressources et de l’intégrité globale de votre cluster. Vous pouvez utiliser ces informations pour diagnostiquer et corriger les problèmes, et éviter qu’ils ne se reproduisent. 
 
@@ -33,19 +33,20 @@ Le monitoring des applications permet de suivre l’utilisation des fonctionnali
 
 Service Fabric prend en charge plusieurs options pour instrumenter votre code d’application avec les suivis et données de télémétrie appropriés. Il est recommandé d’utiliser Application Insights (AI). L’intégration d’Application Insights à Service Fabric comprend des outils pour Visual Studio et pour le portail Azure, ainsi que des métriques Service Fabric, ce qui fournit une expérience de journalisation complète et prête à l’emploi. Même si de nombreux journaux sont automatiquement créés et collectés pour vous quand vous utilisez Application Insights, nous vous recommandons d’ajouter une journalisation personnalisée à vos applications pour créer une expérience de diagnostics plus riche. Pour plus d’informations sur l’utilisation d’Application Insights avec Service Fabric, consultez [Analyse d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 
-![Détails de la trace AI](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
-
 ## <a name="platform-cluster-monitoring"></a>Monitoring de la plateforme (cluster)
 Le monitoring de votre cluster Service Fabric est essentiel pour garantir que la plateforme et toutes les charges de travail fonctionnent comme prévu. L’un des objectifs de Service Fabric est d’assurer le bon fonctionnement des applications même en cas de défaillances matérielles. Cet objectif repose sur la capacité des services système de la plateforme à détecter les problèmes d’infrastructure et à basculer rapidement les charges de travail sur d’autres nœuds du cluster. Mais dans ce cas précis, que se passe-t-il si les services système subissent eux aussi des problèmes ? Que se passe-t-il si, durant une tentative de déplacement d’une charge de travail, les règles de placement des services sont enfreintes ? Le monitoring du cluster vous permet d’être tenu informé de l’activité dans votre cluster pour diagnostiquer les problèmes et les résoudre efficacement. Voici quelques points clés à évaluer :
 * Service Fabric se comporte-t-il de la manière attendue, aussi bien au niveau du placement de vos applications que de l’équilibrage de la charge de travail autour du cluster ? 
 * Les actions utilisateur effectuées sur votre cluster sont-elles reconnues et exécutées comme prévu ? Ceci s’applique surtout lors de la mise à l’échelle d’un cluster.
 * Service Fabric gère-t-il correctement vos données et vos communications de service à service à l’intérieur du cluster ?
 
-Service Fabric propose un ensemble complet d’événements prêts à l’emploi qui sont accessibles par le biais du canal opérationnel et du canal de données et de messagerie. Dans Windows, ces événements se présentent sous la forme d’un fournisseur ETW unique comprenant un ensemble de `logLevelKeywordFilters` à l’aide desquels vous pouvez choisir entre les différents canaux. Sur Linux, tous les événements de la plateforme transitent par LTTng et sont placés dans une table où ils peuvent être filtrés selon les besoins. 
+Service Fabric fournit un ensemble complet d’événements prêts à l’emploi. Ces [événements Service Fabric](service-fabric-diagnostics-events.md) sont accessibles via les API EventStore ou le canal opérationnel (canal d’événements exposé par la plateforme). 
+* EventStore : EventStore (disponible sur Windows dans les versions 6.2 et ultérieures ; Linux toujours en cours d’avancement à la date de la dernière mise à jour de cet article) expose ces événements via un ensemble d’API (accessible via des points de terminaison REST ou la bibliothèque de client). Pour en savoir plus sur EventStore, consultez [Vue d’ensemble d’EventStore](service-fabric-diagnostics-eventstore.md).
+* Canaux d’événements Service Fabric : sur Windows, les événements Service Fabric sont disponibles à partir d’un seul fournisseur ETW avec un ensemble de filtres `logLevelKeywordFilters` pertinents permettant de choisir entre le canal opérationnel et le canal de données et de messagerie. Il s’agit de la méthode à l’aide de laquelle nous séparons des événements Service Fabric sortants à filtrer en fonction de vos besoins. Sur Linux, les événements Service Fabric transitent par LTTng et sont placés dans une table de stockage où ils peuvent être filtrés selon les besoins. Ces canaux contiennent des événements organisés et structurés que vous pouvez utiliser pour mieux comprendre l’état de votre cluster. Les diagnostics sont activés par défaut au moment de la création du cluster. Vous disposez ainsi d’une table Stockage Azure où sont envoyés les événements de ces canaux que vous pourrez interroger ultérieurement. 
 
-Ces canaux contiennent des événements organisés et structurés que vous pouvez utiliser pour mieux comprendre l’état de votre cluster. Les diagnostics sont activés par défaut au moment de la création du cluster. Vous disposez ainsi d’une table Stockage Azure où sont envoyés les événements de ces canaux que vous pourrez interroger ultérieurement. Pour plus d’informations sur le monitoring de votre cluster, consultez [Génération d’événements et de journaux au niveau plateforme](service-fabric-diagnostics-event-generation-infra.md).
+Nous vous recommandons d’utiliser EventStore pour effectuer une analyse rapide, obtenir un instantané du fonctionnement du cluster et vérifier si tout se passe comme prévu. Pour collecter les journaux et les événements générés par votre cluster, nous conseillons généralement l’utilisation de [l’extension Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md). Celle-ci s’intègre bien à Service Fabric Analytics, la solution propre à Service Fabric d’OMS Log Analytics, qui fournit un tableau de bord personnalisé pour surveiller des clusters Service Fabric et vous permet d’interroger les événements de votre cluster et de configurer des alertes. Pour plus d’informations, consultez [Analyse des événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
-Pour collecter les journaux et les événements générés par votre cluster, nous conseillons généralement l’utilisation de [l’extension Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md). Celle-ci s’intègre bien à la solution Service Fabric d’OMS Log Analytics qu’est Service Fabric Analytics. Cette solution, qui fournit un tableau de bord personnalisé pour le monitoring des clusters Service Fabric, vous permet aussi d’interroger les événements de votre cluster et de configurer des alertes. Pour plus d’informations, consultez [Analyse des événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md). 
+ Pour plus d’informations sur le monitoring de votre cluster, consultez [Génération d’événements et de journaux au niveau plateforme](service-fabric-diagnostics-event-generation-infra.md).
+
 
  ![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 

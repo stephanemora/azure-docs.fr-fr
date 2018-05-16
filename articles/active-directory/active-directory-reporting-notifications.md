@@ -2,10 +2,10 @@
 title: Notifications de rapports Azure Active Directory
 description: Comment utiliser les notifications de rapports Azure Active Directory pour signaler les connexions suspectes.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notifications de rapports Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Quels rapports génèrent les notifications par courrier électronique
@@ -39,7 +39,7 @@ Le courrier électronique est envoyé si 10 nouvelles activités de connexion an
 Lorsque vous cliquerez sur le lien, vous serez redirigé vers la page du rapport du portail Azure. Pour accéder au rapport, vous devez être à la fois :
 
 * Un administrateur ou un coadministrateur de votre abonnement Azure
-* Un administrateur général du répertoire, titulaire d’une licence Active Directory Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+* Un administrateur général du répertoire, titulaire d’une licence Active Directory Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-whatis.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Puis-je désactiver ces courriers électroniques ?
 Oui, pour désactiver les notifications liées à des connexions anormales dans le portail Azure, cliquez sur **Configurer**, puis sélectionnez **Désactivé** sous la rubrique **Notifications**.

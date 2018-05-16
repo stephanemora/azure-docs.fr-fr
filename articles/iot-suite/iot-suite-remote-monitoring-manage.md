@@ -1,22 +1,22 @@
 ---
-title: "Gestion des appareils dans la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Ce didacticiel vous montre comment gérer les appareils connectés à la solution de surveillance à distance."
-services: 
+title: Gestion des appareils dans la solution de surveillance à distance - Azure | Microsoft Docs
+description: Ce didacticiel vous montre comment gérer les appareils connectés à la solution de surveillance à distance.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Gérer et configurer vos appareils
 
@@ -24,7 +24,7 @@ Ce didacticiel montre les fonctionnalités de gestion des appareils de la soluti
 
 Contoso a commandé de nouvelles machines visant à développer l’une de ses usines pour accroître la production. En attendant la livraison des nouvelles machines, vous souhaitez exécuter une simulation pour vérifier le comportement de votre solution. En tant qu’opérateur, vous souhaitez gérer et configurer les appareils dans la solution de surveillance à distance.
 
-Pour fournir un moyen extensible de gérer et de configurer des appareils, la solution de surveillance à distance utilise des fonctionnalités IoT Hub telles que les [travaux](../iot-hub/iot-hub-devguide-jobs.md) et les [méthodes directes](../iot-hub/iot-hub-devguide-direct-methods.md). Pour savoir comment un développeur d’appareil implémente des méthodes sur un appareil physique, consultez [Personnaliser la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-customize.md).
+Pour fournir un moyen extensible de gérer et de configurer des appareils, la solution de surveillance à distance utilise des fonctionnalités IoT Hub telles que les [travaux](../iot-hub/iot-hub-devguide-jobs.md) et les [méthodes directes](../iot-hub/iot-hub-devguide-direct-methods.md). Pour savoir comment un développeur d’appareil implémente des méthodes sur un appareil physique, consultez [Personnaliser l’accélérateur de solution de surveillance à distance](iot-suite-remote-monitoring-customize.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -36,9 +36,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez terminer le didacticiel [Déployer la solution de surveillance à distance préconfigurée](iot-suite-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
 
 ## <a name="add-a-simulated-device"></a>Utiliser un appareil simulé
 
@@ -50,7 +51,7 @@ Laissez le nombre d’appareils à provisionner défini sur **1**. Choisissez l�
 
 ![Provisionner un appareil de moteur simulé](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
-Pour découvrir comment provisionner un appareil *physique*, consultez [Connecter votre appareil à la solution préconfigurée de surveillance à distance](iot-suite-connecting-devices-node.md).
+Pour découvrir comment provisionner un appareil *physique*, consultez [Connecter votre appareil à l’accélérateur de solution de surveillance à distance](iot-suite-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Tester l’appareil simulé
 
@@ -68,11 +69,11 @@ Pour afficher les diagnostics détaillés, faites défiler jusqu’à **Diagnost
 
 ## <a name="act-on-a-device"></a>Agir sur un appareil
 
-Pour agir sur un ou plusieurs appareils, sélectionnez-les dans la liste, puis choisissez **Planifier**. Le modèle d’appareil **Moteur** spécifie quatre méthodes devant être prises en charge par un appareil :
+Pour agir sur un ou plusieurs appareils, sélectionnez-les dans la liste, puis choisissez **Travaux**. Le modèle d’appareil **Moteur** spécifie trois méthodes devant être prises en charge par un appareil :
 
 ![Méthodes de moteur](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-Choisissez **Redémarrer**, définissez le nom du travail sur **RestartEngine**, puis choisissez **Appliquer** :
+Choisissez **FillTank**, attribuez au travail le nom de **FillEngineTank**, puis choisissez **Appliquer** :
 
 ![Planifier la méthode de redémarrage](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
@@ -84,11 +85,11 @@ Pour suivre l’état du travail dans la page **Maintenance**, choisissez **Trav
 
 Quand vous explorez les différents types d’appareil simulé, vous voyez que les autres types d’appareil prennent en charge différentes méthodes. Dans un déploiement avec des appareils physiques, le modèle d’appareil spécifie les méthodes que l’appareil doit prendre en charge. En règle générale, il appartient au développeur de l’appareil de développer le code qui définit la façon dont l’appareil réagit à un appel de méthode.
 
-Pour planifier une méthode à exécuter sur plusieurs appareils, vous pouvez sélectionner plusieurs appareils dans la liste de la page **Appareils**. Le volet **Planification** affiche les types de méthodes communes à tous les appareils sélectionnés.
+Pour planifier une méthode à exécuter sur plusieurs appareils, vous pouvez sélectionner plusieurs appareils dans la liste de la page **Appareils**. Le panneau **Travaux** affiche les types de méthodes qui sont communs à tous les appareils sélectionnés.
 
 ## <a name="reconfigure-a-device"></a>Reconfigurer un appareil
 
-Pour changer la configuration d’un appareil, sélectionnez-le dans la liste des appareils de la page **Appareils**, puis choisissez **Reconfigurer**. Le panneau Reconfigurer affiche les valeurs de propriété de l’appareil sélectionné que vous pouvez changer :
+Pour modifier la configuration d’un appareil, sélectionnez-le dans la liste des appareils de la page **Appareils**, choisissez **Travaux**, puis choisissez **Reconfigurer**. Le panneau Travaux affiche les valeurs de propriété de l’appareil sélectionné que vous pouvez modifier :
 
 ![Reconfigurer un appareil](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
@@ -113,6 +114,6 @@ La gestion de vos appareils n’ayant plus de secrets pour vous, nous vous sugg�
 
 * [Dépanner et corriger les problèmes d’un appareil](iot-suite-remote-monitoring-maintain.md)
 * [Tester votre solution avec des appareils simulés](iot-suite-remote-monitoring-test.md)
-* [Connecter votre appareil à la solution préconfigurée de surveillance à distance](iot-suite-connecting-devices-node.md)
+* [Connecter votre appareil à l’accélérateur de solution de surveillance à distance](iot-suite-connecting-devices-node.md)
 
 <!-- Next tutorials in the sequence -->

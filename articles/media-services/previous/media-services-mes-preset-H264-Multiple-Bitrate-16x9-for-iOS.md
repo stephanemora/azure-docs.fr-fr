@@ -1,11 +1,11 @@
 ---
-title: "H264 - Vitesse de transmission multiples - 16 x 9 pour iOS | Microsoft Docs"
-description: "Cette rubrique vous procure une vue d’ensemble de la présélection de travaux**H264 - Vitesse de transmission multiples - 16x9 pour iOS**"
+title: H264 - Vitesse de transmission multiples - 16 x 9 pour iOS | Microsoft Docs
+description: Cette rubrique vous procure une vue d’ensemble de la présélection de tâches **H264 - Vitesse de transmission multiple - 16x9 pour iOS**.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5473e93a-8c18-4fa4-a1b9-215eba325af7
 ms.service: media-services
 ms.workload: media
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 9b938a5396e9f29fc9f2222056b84fbf13179dff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="h264-multiple-bitrate-16x9-for-ios"></a>H264 – Vitesse de transmission multiple – 16 x 9 pour iOS
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Cette rubrique présente la présélection `H264 Multiple Bitrate 16x9 for iOS` aux formats XML et JSON.  
   
- Cette présélection produit un ensemble de 8 fichiers MP4 alignés sur le groupe d’images, de 8 500 kbit/s à 200 kbit/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le format XML ou JSON défini ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Schéma Media Encoder Standard](media-services-mes-schema.md).  
+ Cette présélection produit un ensemble de 8 fichiers MP4 alignés sur le groupe d’images, de 8 500 kbit/s à 200 kbit/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
 >  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1 920 x 1 080, 1 280 x 720, 1 080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, comme : 1 280 x 720, 720 x 480, 640 x 360.  

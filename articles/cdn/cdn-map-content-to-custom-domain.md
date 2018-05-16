@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
@@ -28,9 +27,9 @@ Après avoir créé un point de terminaison CDN dans votre profil, le nom de poi
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> - Créer un enregistrement CNAME DNS
-> - Associer le domaine personnalisé à votre point de terminaison CDN
-> - Vérifier le domaine personnalisé
+> - Créez un enregistrement CNAME DNS.
+> - Associez le domaine personnalisé à votre point de terminaison CDN.
+> - Vérifiez le domaine personnalisé.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -212,16 +211,16 @@ Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez appris à effectuer les opérations suivantes :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> - Créer un enregistrement CNAME DNS
-> - Associer le domaine personnalisé à votre point de terminaison CDN
-> - Vérifier le domaine personnalisé
+> - Créez un enregistrement CNAME DNS.
+> - Associez le domaine personnalisé à votre point de terminaison CDN.
+> - Vérifiez le domaine personnalisé.
 
 Passer au tutoriel suivant pour apprendre à configurer HTTPS sur un domaine personnalisé Azure CDN.
 
 > [!div class="nextstepaction"]
-> [Configurer HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md)
+> [Didacticiel : configurer HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md)
 
 

@@ -39,8 +39,8 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Vue du groupe de sécurité réseau
       href: network-watcher-security-group-view-overview.md
-    - name: Afficher la topologie du réseau
-      href: network-watcher-topology-overview.md
+    - name: Autorisations de contrôle d’accès en fonction du rôle
+      href: required-rbac-permissions.md
 - name: Procédures
   items:
     - name: Configurer Network Watcher
@@ -55,7 +55,7 @@
               href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
         - name: Diagnostiquer un problème de routage
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: diagnose-vm-network-routing-problem-powershell.md
             - name: Azure CLI
               href: diagnose-vm-network-routing-problem-cli.md
@@ -63,7 +63,7 @@
           items:
             - name: Portail Azure
               href: network-watcher-connectivity-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md
             - name: Azure CLI
               href: network-watcher-connectivity-cli.md
@@ -75,7 +75,7 @@
               items:
                 - name: Portail Azure
                   href: network-watcher-packet-capture-manage-portal.md
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: network-watcher-packet-capture-manage-powershell.md
                 - name: Azure CLI
                   href: network-watcher-packet-capture-manage-cli.md
@@ -97,7 +97,7 @@
       items:
         - name: Configurer des journaux de flux NSG
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
               href: network-watcher-nsg-flow-logging-cli.md
@@ -124,7 +124,7 @@
               href: network-watcher-analyze-nsg-flow-logs-graylog.md
         - name: Afficher les groupes de sécurité réseau
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: network-watcher-security-group-view-powershell.md
             - name: Azure CLI
               href: network-watcher-security-group-view-cli.md
@@ -138,7 +138,7 @@
       items:
         - name: Résolution des problèmes
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Azure CLI
               href: network-watcher-troubleshoot-manage-cli.md
@@ -151,22 +151,14 @@
         - name: Diagnostiquer la connectivité locale via une passerelle VPN
           href: network-watcher-diagnose-on-premises-connectivity.md
     - name: Afficher la topologie du réseau
-      items:
-        - name: "Azure\_PowerShell"
-          href: network-watcher-topology-powershell.md
-        - name: Azure CLI
-          href: network-watcher-topology-cli.md
-        - name: Azure CLI 1.0
-          href: network-watcher-topology-cli-nodejs.md
-        - name: REST
-          href: network-watcher-topology-rest.md
+      href: view-network-topology.md
     - name: Déterminer la latence relative entre un emplacement et une région Azure
       href: view-relative-latencies.md
 - name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/network/watcher
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.network/#network_watcher'
     - name: Java
       href: /java/api/com.microsoft.azure.management.network

@@ -83,7 +83,7 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
 
    * Pour personnaliser le menu, cliquez avec le bouton droit sur le menu, puis sur **Personnaliser**.
    * **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
-   * **Tableau de bord**, **Tableau de bord du cluster** et **URL : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux. -**Secure Shell** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
+   * **Tableau de bord**, **Tableau de bord du cluster** et **URL : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux. -** Secure Shell** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
    * **Mise à l’échelle du cluster**: permet de modifier le nombre de nœuds de travail pour ce cluster.
    * **Supprimer**: supprime le cluster.
    * **Démarrage rapide** : affiche des informations qui vous aideront à prendre en main HDInsight.
@@ -277,7 +277,7 @@ La console de la requête HDInsight inclut les fonctionnalités suivantes :
 
     ![historique de travail de portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Cliquez sur **Nom de la requête** pour afficher les détails, notamment les propriétés du travail, la **requête du travail** et le **résultat du travail. Vous pouvez également télécharger la requête et la sortie sur votre station de travail.
+    Cliquez sur **Nom de la requête** pour afficher les détails, notamment les propriétés du travail, la **requête du travail** et le \*\*résultat du travail. Vous pouvez également télécharger la requête et la sortie sur votre station de travail.
 * **Explorateur de fichiers**: accédez au compte de stockage par défaut et aux comptes de stockage liés.
 
     ![parcourir l’explorateur de fichier de portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

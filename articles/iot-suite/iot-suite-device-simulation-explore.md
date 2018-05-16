@@ -1,6 +1,6 @@
 ---
 title: Prise en main de la solution de simulation d’appareil - Azure | Microsoft Docs
-description: La solution de simulation IoT Suite est un outil qui peut être utilisé pour faciliter le développement et le test d’une solution IoT. Le service de simulation constitue une offre autonome, que vous pouvez utiliser conjointement avec d’autres solutions préconfigurées ou avec vos propres solutions personnalisées.
+description: La solution de simulation d’accélérateur de solution IoT Suite est un outil qui peut être utilisé pour faciliter le développement et le test d’une solution IoT. Le service de simulation constitue une offre autonome, que vous pouvez utiliser avec d’autres accélérateurs de solution ou avec vos propres solutions personnalisées.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,15 +12,15 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7dfd56d06e180dd163fa84d4289e6daf4baefc51
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Présentation de la simulation d’appareil
 
-La simulation d’appareil Azure IoT est un outil qui peut être utilisé pour faciliter le développement et le test d’une solution IoT. La simulation d’appareil constitue une offre autonome, que vous pouvez utiliser conjointement avec d’autres solutions préconfigurées ou avec vos propres solutions personnalisées.
+La simulation d’appareil Azure IoT est un outil qui peut être utilisé pour faciliter le développement et le test d’une solution IoT. La simulation d’appareil constitue une offre autonome, que vous pouvez utiliser avec d’autres accélérateurs de solution ou avec vos propres solutions personnalisées.
 
 Ce didacticiel vous présente certaines des fonctionnalités de la simulation d’appareil. Il vous montre leur fonctionnement et vous permet de les utiliser pour tester vos propres solutions IoT.
 
@@ -39,7 +39,7 @@ Si vous n’avez pas encore déployé la simulation d’appareil, vous devez sui
 
 ## <a name="configuring-device-simulation"></a>Configuration de la simulation d’appareil
 
-Vous pouvez configurer et exécuter la simulation d’appareil intégralement à partir du tableau de bord. Ouvrez le tableau de bord à partir de la page [Solutions approvisionnées](https://www.azureiotsuite.com/) d’IoT Suite. Cliquez sur **Lancer** sous votre nouveau déploiement de simulation d’appareil.
+Vous pouvez configurer et exécuter la simulation d’appareil intégralement à partir du tableau de bord. Ouvrez le tableau de bord dans la page [Solutions approvisionnées](https://www.azureiotsuite.com/) de l’accélérateur de solution IoT. Cliquez sur **Lancer** sous votre nouveau déploiement de simulation d’appareil.
 
 ### <a name="target-iot-hub"></a>IoT Hub cible
 

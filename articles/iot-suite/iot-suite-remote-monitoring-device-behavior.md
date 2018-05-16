@@ -1,7 +1,7 @@
 ---
-title: "Comportement d’appareil simulé dans la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Cet article explique comment utiliser JavaScript pour définir le comportement d’un appareil simulé dans la solution de surveillance à distance."
-services: 
+title: Comportement d’appareil simulé dans la solution de surveillance à distance - Azure | Microsoft Docs
+description: Cet article explique comment utiliser JavaScript pour définir le comportement d’un appareil simulé dans la solution de surveillance à distance.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>Implémenter le comportement de modèle d’appareil
 
@@ -53,10 +53,10 @@ L’exemple suivant montre la définition de l’objet état de l’appareil pou
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ L’état de l’appareil simulé, tel que défini dans la section `InitialState
 L’exemple suivant montre le plan d’une fonction `main` type :
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,7 +192,7 @@ L’état de l’appareil simulé, tel que défini dans la section `InitialState
 L’exemple suivant montre le plan d’une fonction `main` type :
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
@@ -205,15 +205,18 @@ Le paramètre `context` possède les propriétés suivantes :
 
 Le paramètre `state` inclut l’état de l’appareil tel que géré par le service de simulation d’appareil.
 
-Il existe deux fonctions globales que vous pouvez utiliser pour aider à implémenter le comportement de la méthode :
+Le paramètre `properties` contient les propriétés de l’appareil qui sont écrites comme propriétés signalées dans le jumeau d’appareil IoT Hub.
+
+Il existe trois fonctions globales que vous pouvez utiliser pour aider à implémenter le comportement de la méthode :
 
 - `updateState` pour mettre à jour l’état conservé par le service de simulation.
+- `updateProperty` pour mettre à jour une propriété d’appareil unique.
 - `sleep` pour suspendre l’exécution pour simuler une tâche de longue durée.
 
 L’exemple suivant montre une version abrégée du script **IncreasePressure-method.js** utilisé par les appareils de refroidissement simulés :
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

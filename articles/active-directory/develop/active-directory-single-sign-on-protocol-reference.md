@@ -1,13 +1,14 @@
 ---
-title: "Protocole SAML d’authentification unique Azure | Microsoft Docs"
-description: "Cet article décrit le protocole SAML d’authentification unique dans Azure Active Directory"
+title: Protocole SAML d’authentification unique Azure | Microsoft Docs
+description: Cet article décrit le protocole SAML d’authentification unique dans Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 Cet article traite des demandes et réponses d’authentification SAML 2.0 prises en charge par Azure Active Directory (Azure AD) dans le cadre de l’authentification unique.
@@ -96,7 +97,7 @@ N’incluez pas d’élément `Signature` dans les éléments `AuthnRequest`, ca
 ### <a name="subject"></a>Objet
 Azure AD ignore l’élément `Subject` des éléments `AuthnRequest`.
 
-## <a name="response"></a>Réponse
+## <a name="response"></a>response
 Lorsqu’une demande d’authentification aboutit, Azure AD publie une réponse au service cloud. Exemple de réponse à une tentative réussie d’authentification :
 
 ```
@@ -142,7 +143,7 @@ Lorsqu’une demande d’authentification aboutit, Azure AD publie une réponse 
 </samlp:Response>
 ```
 
-### <a name="response"></a>Réponse
+### <a name="response"></a>response
 L’élément `Response` inclut le résultat de la demande d’autorisation. Azure AD définit les valeurs `ID`, `Version` et `IssueInstant` dans l’élément `Response`. Il définit également les attributs suivants :
 
 * `Destination` : lorsque l’authentification aboutit, il est défini sur l’élément `RedirectUri` du fournisseur de services (service cloud).
@@ -157,7 +158,7 @@ Exemple de réponse contenant l’élément Issuer :
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### <a name="status"></a>État
+### <a name="status"></a>Statut
 L’élément `Status` indique si l’authentification a abouti ou échoué. Il inclut l’élément `StatusCode` , qui lui-même contient un code ou un ensemble de codes imbriqués représentant l’état de la demande. Il inclut également l’élément `StatusMessage` , qui contient des messages d’erreur personnalisés générés pendant le processus d’authentification.
 
 <!-- TODO: Add a authentication protocol error reference -->

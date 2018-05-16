@@ -3,7 +3,7 @@ title: Plan de traitement des paiements Azure - Exigences de chiffrement
 description: Condition 4 de la norme PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 43f75ba9-cb4e-49ab-b3f4-09e48310bc18
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 3eb5b663558c2a68c13368b179ff942dd3c53716
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 6de3290fc2147e3c8ed63642b6e8470093898ef6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>Exigences de chiffrement pour les environnements conformes à la norme PCI DSS 
 ## <a name="pci-dss-requirement-4"></a>Condition 4 de la norme PCI DSS
@@ -48,12 +48,12 @@ Les informations sensibles doivent être chiffrées pendant leur transmission su
 > - Communications par satellite
 
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Le Contoso Webstore est une solution PaaS qui implémente un chiffrement renforcé pour le déploiement comme suit :<br /><br />Pour répondre aux exigences du chiffrement des données au repos, [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise les éléments suivants :<br /><br /><ul><li>[Chiffrement du service de stockage (SSE) Azure pour les données au repos](/azure/storage/storage-service-encryption)</li><li>SQL Database : une instance de SQL Database PaaS est utilisée pour illustrer les mesures de sécurité de base de données. Pour plus d’informations, consultez [Guide PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Utiliser Azure Key Vault permet un alignement sur les spécifications Microsoft Azure Government, PCI DSS et HIPAA.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Le Contoso Webstore est une solution PaaS qui implémente un chiffrement renforcé pour le déploiement comme suit :<br /><br />Pour répondre aux exigences du chiffrement des données au repos, [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise les éléments suivants :<br /><br /><ul><li>[Chiffrement du service de stockage (SSE) Azure pour les données au repos](/azure/storage/storage-service-encryption)</li><li>SQL Database : une instance de SQL Database PaaS est utilisée pour illustrer les mesures de sécurité de base de données. Pour plus d’informations, consultez [Guide PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Utiliser Azure Key Vault permet un alignement sur les spécifications Microsoft Azure Government, PCI DSS et HIPAA.|
 
 
 
@@ -61,12 +61,12 @@ Les informations sensibles doivent être chiffrées pendant leur transmission su
 
 **4.1.1** S’assurer que les réseaux sans fil, sur lesquels sont transmises les données de titulaires de carte ou qui sont connectés à l’environnement des données de titulaires de carte, utilisent les bonnes pratiques du secteur (par exemple, IEEE 802.11i) pour appliquer un chiffrement robuste pour l’authentification et la transmission.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les modes sans fil et SNMP ne sont pas implémentés dans la solution.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les modes sans fil et SNMP ne sont pas implémentés dans la solution.|
 
 
 
@@ -74,12 +74,12 @@ Les informations sensibles doivent être chiffrées pendant leur transmission su
 
 **4.2** Ne jamais envoyer de PAN non protégés à l’aide de technologies de messagerie pour les utilisateurs finaux (par exemple e-mail, messagerie instantanée, SMS, chat, etc.).
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Aucune solution de messagerie susceptible d’envoyer des données de numéro de compte principal non protégées n’est implémentée dans le Contoso Webstore.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Aucune solution de messagerie susceptible d’envoyer des données de numéro de compte principal non protégées n’est implémentée dans le Contoso Webstore.|
 
 
 
@@ -87,12 +87,12 @@ Les informations sensibles doivent être chiffrées pendant leur transmission su
 
 **4.3** Assurer que les politiques de sécurité et les procédures opérationnelles pour le chiffrement des données de titulaires de carte sont documentées, utilisées et connues de toutes les parties concernées.
 
-**Responsabilités :&nbsp;&nbsp;`Customer Only`**
+**Responsabilités :&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Fournisseur<br />(Microsoft&nbsp;Azure)** | Non applicable. |
-| **Client<br />(Plan PCI&#8209;DSS&nbsp;)** | Les clients sont responsables de la documentation et du chiffrement des transmissions contenant des données de titulaire de carte.|
+| **Client<br />(Plan&nbsp;PCI&#8209;DSS)** | Les clients sont responsables de la documentation et du chiffrement des transmissions contenant des données de titulaire de carte.|
 
 
 

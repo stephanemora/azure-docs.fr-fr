@@ -1,21 +1,21 @@
 ---
-title: "Mettre à jour un cluster Azure Container Service (ACS)"
-description: "Mettez à jour un cluster Azure Container Service (ACS)."
+title: Mettre à l’échelle un cluster Azure Kubernetes Service (AKS)
+description: Mettre à l’échelle un cluster Azure Kubernetes Service (AKS).
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 577fff2e659759647ffc7e96158ebcbe5a88ab25
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Mettre à jour un cluster Azure Container Service (ACS)
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Mettre à l’échelle un cluster Azure Kubernetes Service (AKS)
 
 Il est facile de mettre à l’échelle un cluster ACS vers un autre nombre de nœuds.  Sélectionnez le nombre souhaité de nœuds et exécutez la commande `az aks scale`.  En cas de diminution de l’échelle, les nœuds sont soigneusement [coordonnés et purgés][kubernetes-drain] afin de limiter les perturbations pour les applications en cours d’exécution.  En cas d’augmentation d’échelle, la commande `az` attend jusqu’à ce que les nœuds soient marqués `Ready` par le cluster Kubernetes.
 
@@ -27,7 +27,7 @@ Utilisez la commande `az aks scale` pour mettre à l’échelle les nœuds du cl
 az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
 ```
 
-Sortie :
+Output:
 
 ```json
 {

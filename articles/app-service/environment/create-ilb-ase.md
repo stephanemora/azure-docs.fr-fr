@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -63,6 +63,8 @@ Pour créer un ILB ASE :
 
 4. Sélectionnez ou créez un réseau virtuel.
 
+    * Si vous sélectionnez un nouveau réseau virtuel, vous pouvez spécifier un nom et un emplacement. Si vous envisagez d’héberger des applications Linux sur cet environnement ASE, seules les six régions suivantes sont prises en charge pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie et Asie du Sud-Est**. 
+
 5. Si vous sélectionnez un réseau virtuel existant, vous devez créer un sous-réseau pour accueillir l’ASE. Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute croissance éventuelle à venir de votre environnement ASE. Nous recommandons la taille `/25`, qui comprend 128 adresses et peut gérer un ASE de taille maximale. La taille minimale que vous pouvez sélectionner est `/28`. Selon les besoins de l’infrastructure, cette taille peut être mise à l’échelle jusqu’à un maximum de 3 instances.
 
     * Allez au-delà du nombre maximal par défaut de 100 instances dans vos plans App Service.
@@ -106,7 +108,7 @@ Si vous définissez **Type d’adresse IP virtuelle** sur **Interne**, le nom de
 
 Pour créer une application dans un ASE ILB, procédez de la même façon que pour créer une application dans un ASE normalement.
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Web + Mobile** > **Web** ou **Mobile** ou **API App**.
+1. Sur le Portail Azure, sélectionnez **Créer une ressource** > **Web + Mobile** > **Application web**.
 
 2. Entrez le nom de l’application.
 
@@ -114,9 +116,13 @@ Pour créer une application dans un ASE ILB, procédez de la même façon que po
 
 4. Sélectionnez ou créez un groupe de ressources.
 
-5. Sélectionnez ou créez un plan App Service. Si vous souhaitez créer un plan App Service, sélectionnez votre ASE en tant qu’emplacement. Sélectionnez le pool de workers dans lequel vous souhaitez créer votre plan App Service. Lorsque vous créez le plan App Service, sélectionnez votre ASE en tant qu’emplacement et pool de workers. Lorsque vous spécifiez le nom de l’application, le domaine sous le nom de votre application est remplacé par celui de votre ASE.
+5. Sélectionnez votre OS. 
 
-6. Sélectionnez **Créer**. Si vous voulez que l’application apparaisse sur votre tableau de bord, activez la  case à cocher **Épingler au tableau de bord**.
+    * Si vous souhaitez créer une application Linux à l’aide d’un conteneur Docker personnalisé, vous pouvez tout simplement utiliser votre propre conteneur en suivant ces instructions. 
+
+6. Sélectionnez ou créez un plan App Service. Si vous souhaitez créer un plan App Service, sélectionnez votre ASE en tant qu’emplacement. Sélectionnez le pool de workers dans lequel vous souhaitez créer votre plan App Service. Lorsque vous créez le plan App Service, sélectionnez votre ASE en tant qu’emplacement et pool de workers. Lorsque vous spécifiez le nom de l’application, le domaine sous le nom de votre application est remplacé par celui de votre ASE.
+
+7. Sélectionnez **Créer**. Si vous voulez que l’application apparaisse sur votre tableau de bord, activez la  case à cocher **Épingler au tableau de bord**.
 
     ![Création de plan App Service][2]
 

@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
+
 ## <a name="introduction"></a>Introduction
-Les requêtes dans Azure Stream Analytics sont exprimées dans un langage de requête de type SQL. Ces requêtes sont documentées dans le guide [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Informations de référence sur le langage de requête Stream Analytics). Cet article décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et mis à jour avec de nouveaux modèles de manière continue.
+Les requêtes dans Azure Stream Analytics sont exprimées dans un langage de requête de type SQL. Les constructions de langage sont documentées dans le guide [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Informations de référence sur le langage de requête Stream Analytics). 
+
+La conception des requêtes peut exprimer une logique directe simple pour déplacer les données d’événement d’un flux d’entrée vers une autre banque de données de sortie. Elle peut également effectuer une analyse enrichie temporelle et des critères spéciaux afin de calculer les agrégats sur différentes fenêtres de temps comme dans l’exemple TollApp. Vous pouvez joindre des données provenant de plusieurs entrées pour combiner des événements de diffusion en continu et effectuer des recherches sur les données de référence statiques pour enrichir les valeurs des événements. Vous pouvez également écrire des données vers plusieurs sorties.
+
+Cet article décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et mis à jour avec de nouveaux modèles de manière continue.
 
 ## <a name="query-example-convert-data-types"></a>Exemple de requête : Convertir des types de données
 **Description** : Définir les types des propriétés sur le flux d’entrée.
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Explication** : la première requête `max_power_during_last_3_mins` utilise la [fenêtre glissante](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) pour rechercher la valeur maximale du capteur de puissance pour chaque appareil, au cours des 3 dernières minutes. La seconde requête est jointe à la première pour rechercher la valeur de la puissance dans la fenêtre la plus récente, pertinente pour l’événement actuel. Une alerte est alors générée pour l’appareil sous réserve que les conditions soient remplies.
+**Explication** : la première requête `max_power_during_last_3_mins` utilise la [fenêtre glissante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) pour rechercher la valeur maximale du capteur de puissance pour chaque appareil, au cours des 3 dernières minutes. La seconde requête est jointe à la première pour rechercher la valeur de la puissance dans la fenêtre la plus récente, pertinente pour l’événement actuel. Une alerte est alors générée pour l’appareil sous réserve que les conditions soient remplies.
 
 
 ## <a name="get-help"></a>Obtenir de l’aide

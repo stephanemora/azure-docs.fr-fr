@@ -82,7 +82,7 @@ Power Query peut être installé à partir de [Microsoft Power Query pour Excel]
 7. Cliquez sur **OK** pour importer les données.
 8. Sélectionnez les colonnes **TraceLevel**, Rôle et **ComponentName**, puis cliquez sur la commande **Regroupement** dans le ruban.
 9. Cliquez sur **OK** dans la boîte de dialogue Regroupement.
-10. Cliquez sur** Appliquer et fermer**.
+10. Cliquez sur **Appliquer et fermer**.
 
 Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos besoins. Vous pouvez vouloir inclure d’autres colonnes (comme Message) afin d’approfondir les problèmes lorsqu’ils se produisent, mais le fait de sélectionner et de regrouper les colonnes décrites ci-dessus fournit un aperçu correct de ce qui se passe avec les services Hadoop. La même idée peut être appliquée aux tables setuplog et hadoopinstalllog.
 

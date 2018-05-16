@@ -11,16 +11,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser l’identité de service managée (préversion publique) dans App Service et Azure Functions
 
 > [!NOTE] 
 > L’identité de service managée pour App Service et Azure Functions est disponible en préversion. App Service sur Linux et Web App pour conteneurs ne sont pas pris en charge actuellement.
+
+
+> [!Important] 
+> Si vous migrez votre application entre différents abonnements/locataires, Managed Service Identity pour App Service et Azure Functions présentera un comportement anormal. L’application doit obtenir une nouvelle identité, et l’identité existante ne peut pas être supprimée correctement sans supprimer le site lui-même. Votre application doit être recréée avec une nouvelle identité, et les stratégies d’accès des ressources en aval doivent être mises à jour de manière à utiliser la nouvelle identité.
+
 
 Cette rubrique vous montre comment créer une identité d’application managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité de service managée issue d’Azure Active Directory permet à votre application d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur l’identité de service managée, consultez la [vue d’ensemble de l’identité de service managée](../active-directory/managed-service-identity/overview.md).
 

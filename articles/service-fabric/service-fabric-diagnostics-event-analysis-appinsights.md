@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse et visualisation d’événements avec Application Insights
 
@@ -32,7 +32,7 @@ Le rôle de cet article est de vous indiquer comment obtenir des informations d�
 
 ## <a name="monitoring-in-app-insights"></a>Surveillance dans Application Insights
 
-Application Insights s’intègre étroitement en standard à Service Fabric. Dans la page de vue d’ensemble, AI fournit des informations clés concernant votre service, telles que le temps de réponse et le nombre de requêtes traitées. Vous pouvez obtenir la liste des requêtes récentes dans votre application en cliquant sur le bouton « Rechercher » dans la partie supérieure de l’écran. En outre, la page qui s’affiche vous permet de visualiser les requêtes ayant échoué et de diagnostiquer les erreurs éventuelles.
+Application Insights bénéficie d’une expérience riche et prête à l’emploi pour une utilisation avec Service Fabric. Dans la page de vue d’ensemble, AI fournit des informations clés concernant votre service, telles que le temps de réponse et le nombre de requêtes traitées. Vous pouvez obtenir la liste des requêtes récentes dans votre application en cliquant sur le bouton « Rechercher » dans la partie supérieure de l’écran. En outre, la page qui s’affiche vous permet de visualiser les requêtes ayant échoué et de diagnostiquer les erreurs éventuelles.
 
 ![Vue d’ensemble d’AI](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

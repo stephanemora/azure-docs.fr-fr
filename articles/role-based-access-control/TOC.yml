@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: Journaux d’activité
       href: change-history-report.md
-    - name: Élever un accès administrateur locataire
+    - name: Élever l’accès d’administrateur général
       href: elevate-access-global-admin.md
     - name: Résolution des problèmes
       href: troubleshooting.md

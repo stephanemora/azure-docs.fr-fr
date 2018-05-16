@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
 
@@ -83,7 +83,7 @@ Pour vérifier vos autorisations d’abonnement :
 
    ![ajouter une application](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Fournissez un nom et une URL pour l’application. Sélectionnez **Application Web / API** pour le type d’application que vous souhaitez créer. Vous ne pouvez pas créer d’informations d’identification pour une [Application native](../active-directory/active-directory-application-proxy-native-client.md) ; par conséquent, ce type ne fonctionne pas pour une application automatisée. Après avoir défini les valeurs, sélectionnez **Créer**.
+1. Fournissez un nom et une URL pour l’application. Sélectionnez **Application Web / API** pour le type d’application que vous souhaitez créer. Vous ne pouvez pas créer d’informations d’identification pour une [Application native](../active-directory/manage-apps/application-proxy-configure-native-client-application.md) ; par conséquent, ce type ne fonctionne pas pour une application automatisée. Après avoir défini les valeurs, sélectionnez **Créer**.
 
    ![nommer l’application](./media/resource-group-create-service-principal-portal/create-app.png)
 

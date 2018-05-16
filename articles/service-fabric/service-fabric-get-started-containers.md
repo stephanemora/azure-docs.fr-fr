@@ -1,37 +1,38 @@
 ---
-title: "Créer une application de conteneur Microsoft Azure Service Fabric | Microsoft Docs"
-description: "Créez votre première application de conteneur Windows sur Microsoft Azure Service Fabric.  Concevez une image Docker avec une application Python, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric."
+title: Créer une application de conteneur Microsoft Azure Service Fabric | Microsoft Docs
+description: Créez votre première application de conteneur Windows sur Microsoft Azure Service Fabric. Concevez une image Docker avec une application Python, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: vturecek
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/19/2018
+ms.date: 4/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 20f9be1a0274b40a684fe12207cf9fe1f33969c8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-L’exécution d’une application existante dans un conteneur Windows sur un cluster Service Fabric ne nécessite aucune modification de votre application. Cet article vous accompagne dans la création d’une image Docker contenant une application web [Flask](http://flask.pocoo.org/) Python et le déploiement dans un cluster Service Fabric.  Vous allez également partager votre application en conteneur via [Azure Container Registry](/azure/container-registry/).  Cet article suppose une connaissance élémentaire de Docker. Pour en savoir plus sur Docker, consultez la [présentation de Docker](https://docs.docker.com/engine/understanding-docker/).
+L’exécution d’une application existante dans un conteneur Windows sur un cluster Service Fabric ne nécessite aucune modification de votre application. Cet article vous accompagne dans la création d’une image Docker contenant une application web [Flask](http://flask.pocoo.org/) Python et le déploiement dans un cluster Service Fabric. Vous allez également partager votre application en conteneur via [Azure Container Registry](/azure/container-registry/). Cet article suppose une connaissance élémentaire de Docker. Pour en savoir plus sur Docker, consultez la [présentation de Docker](https://docs.docker.com/engine/understanding-docker/).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Un ordinateur de développement exécutant :
 * Visual Studio 2015 ou Visual Studio 2017.
 * [Outils et SDK Service Fabric](service-fabric-get-started.md).
-*  Docker pour Windows.  [Obtenez Docker CE pour Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Après l’installation et le démarrage de Docker, cliquez avec le bouton droit de la souris sur l’icône de la barre d’état, puis sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows). Cette action est nécessaire pour exécuter des images Docker basées sur Windows.
+*  Docker pour Windows. [Obtenez Docker CE pour Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Après l’installation et le démarrage de Docker, cliquez avec le bouton droit de la souris sur l’icône de la barre d’état, puis sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows). Cette étape est nécessaire pour exécuter des images Docker basées sur Windows.
 
 Un cluster Windows avec au moins trois nœuds s’exécutant sur Windows Server 2016 avec conteneurs. [Créez un cluster](service-fabric-cluster-creation-via-portal.md) ou [essayez gratuitement Service Fabric](https://aka.ms/tryservicefabric).
 
@@ -48,7 +49,7 @@ Un registre dans Azure Container Registry. [Créez un registre de conteneurs](..
 ## <a name="define-the-docker-container"></a>Définir le conteneur Docker
 Créez une image basée sur [l’image Python](https://hub.docker.com/_/python/) située sur Docker Hub.
 
-Définissez votre conteneur Docker dans un fichier Dockerfile. Le fichier Dockerfile contient des instructions pour la configuration de l’environnement à l’intérieur de votre conteneur, le chargement de l’application que vous souhaitez exécuter et le mappage des ports. Le fichier Dockerfile est l’entrée de la commande `docker build`, qui crée l’image.
+Spécifiez votre conteneur Docker dans un fichier Dockerfile. Le fichier Dockerfile contient des instructions pour la configuration de l’environnement à l’intérieur de votre conteneur, le chargement de l’application que vous souhaitez exécuter et le mappage des ports. Le fichier Dockerfile est l’entrée de la commande `docker build`, qui crée l’image.
 
 Créez un répertoire vide et créez le fichier *Dockerfile* (sans extension de fichier). Ajoutez ce qui suit au fichier *Dockerfile* et enregistrez vos modifications :
 
@@ -77,13 +78,13 @@ CMD ["python", "app.py"]
 
 Pour plus d'informations, consultez les [références Dockerfile](https://docs.docker.com/engine/reference/builder/).
 
-## <a name="create-a-simple-web-application"></a>Créer une application web simple
-Créez une application web Flask écoutant le port 80 qui renvoie « Hello World! ».  Dans le même répertoire, créez le fichier *requirements.txt*.  Ajoutez ce qui suit et enregistrez vos modifications :
+## <a name="create-a-basic-web-application"></a>Créer une application web de base
+Créez une application web Flask écoutant le port 80 qui renvoie `Hello World!`. Dans le même répertoire, créez le fichier *requirements.txt*. Ajoutez ce qui suit et enregistrez vos modifications :
 ```
 Flask
 ```
 
-Créez également le fichier *app.py* et ajoutez ce qui suit :
+Créez également le fichier *app.py* et ajoutez l’extrait de code suivant :
 
 ```python
 from flask import Flask
@@ -107,7 +108,7 @@ Exécutez la commande `docker build` pour créer l’image qui exécute votre ap
 docker build -t helloworldapp .
 ```
 
-Cette commande crée la nouvelle image en suivant les instructions de votre fichier Dockerfile, et la nomme (balisage -t) « helloworldapp ». La création d’une image extrait l’image de base de Docker Hub et crée une image qui vient s’ajouter à votre application par-dessus l’image de base.  
+Cette commande crée l’image en suivant les instructions de votre fichier Dockerfile, et la nomme (balisage -t) `helloworldapp`. Pour générer une image conteneur, l’image de base est tout d’abord téléchargée depuis le Hub Docker auquel l’application est ajoutée. 
 
 Une fois la création terminée, exécutez la commande `docker images` pour afficher des informations sur la nouvelle image :
 
@@ -119,7 +120,7 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 ```
 
 ## <a name="run-the-application-locally"></a>Exécuter l’application localement
-Vérifiez votre image en local avant de l’envoyer dans le registre de conteneurs.  
+Vérifiez votre image en local avant de l’envoyer dans le registre de conteneurs. 
 
 Exécutez l'application :
 
@@ -134,7 +135,12 @@ Une fois le conteneur démarré, recherchez son adresse IP pour vous connecter �
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Connectez le conteneur en cours d’exécution.  Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée, par exemple « http://172.31.194.61 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
+Si cette commande ne retourne aucun résultat, exécutez la commande suivante et examinez l’élément **NetworkSettings**->**Réseaux** pour l’adresse IP :
+```
+docker inspect my-web-site
+```
+
+Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée, par exemple « http://172.31.194.61 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 Pour arrêter votre conteneur, exécutez :
 
@@ -175,14 +181,14 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Créer le service en conteneur dans Visual Studio
 Le kit de développement logiciel Service Fabric fournit un modèle de service pour vous aider à créer une application en conteneur.
 
-1. Démarrez Visual Studio.  Sélectionnez **Fichier** > **Nouveau** > **Projet**.
+1. Démarrez Visual Studio. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
 2. Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **OK**.
 3. Sélectionnez **Container** (Conteneur) dans la liste des **modèles de service**.
 4. Sous **Nom de l’image**, entrez « myregistry.azurecr.io/samples/helloworldapp », c’est-à-dire l’image que vous avez envoyée à votre référentiel de conteneurs.
 5. Donnez un nom à votre service et cliquez sur **OK**.
 
 ## <a name="configure-communication"></a>Configurer la communication
-Le service en conteneur a besoin d’un point de terminaison pour la communication. Ajoutez un élément `Endpoint` ainsi que le protocole, le port et le type au fichier ServiceManifest.xml. Dans cet article, le service en conteneur écoute le port 8081 :  Dans cet exemple, un port fixe 8081 est utilisé.  Si aucun port n’est spécifié, un port aléatoire de la plage de ports de l’application est choisi.  
+Le service en conteneur a besoin d’un point de terminaison pour la communication. Ajoutez un élément `Endpoint` ainsi que le protocole, le port et le type au fichier ServiceManifest.xml. Dans cet exemple, un port fixe 8081 est utilisé. Si aucun port n’est spécifié, un port aléatoire de la plage de ports de l’application est choisi. 
 
 ```xml
 <Resources>
@@ -192,7 +198,7 @@ Le service en conteneur a besoin d’un point de terminaison pour la communicati
 </Resources>
 ```
 
-En définissant un point de terminaison, Service Fabric publie le point de terminaison sur le service d’affectation de noms.  D’autres services qui s’exécutent dans le cluster peuvent résoudre ce conteneur.  Vous pouvez également effectuer la communication de conteneur à conteneur à l’aide du [proxy inversé](service-fabric-reverseproxy.md).  Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inversé et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement.
+En définissant un point de terminaison, Service Fabric publie le point de terminaison sur le service d’affectation de noms. D’autres services qui s’exécutent dans le cluster peuvent résoudre ce conteneur. Vous pouvez également effectuer la communication de conteneur à conteneur à l’aide du [proxy inversé](service-fabric-reverseproxy.md). Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inversé et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement.
 
 ## <a name="configure-and-set-environment-variables"></a>Configurer et définir des variables d’environnement
 Il est possible de spécifier des variables d’environnement pour chaque package de code dans le manifeste de service. Cette fonctionnalité est disponible pour tous les services, qu’ils soient déployés sous forme de conteneurs, de processus ou d’exécutables invités. Vous pouvez remplacer les valeurs de variable d’environnement dans le manifeste de l’application, ou les spécifier lors du déploiement, en tant que paramètres d’application.
@@ -219,7 +225,7 @@ Ces variables d’environnement peuvent être remplacées dans le manifeste de l
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Configuration du mappage des ports de conteneur aux ports hôtes et de la détection de conteneur à conteneur
-Configurez un port de l’hôte utilisé pour communiquer avec le conteneur. La liaison de port mappe le port sur lequel le service écoute, à l’intérieur du conteneur, à un port sur l’hôte. Ajoutez un élément `PortBinding` dans l’élément `ContainerHostPolicies` du fichier ApplicationManifest.xml.  Dans cet article, `ContainerPort` est 80 (le conteneur expose le port 80, tel que spécifié dans le fichier Dockerfile) et `EndpointRef` est « Guest1TypeEndpoint » (le point de terminaison défini précédemment dans le manifeste de service).  Les demandes entrantes pour le service sur le port 8081 sont mappées au port 80 dans le conteneur.
+Configurez un port de l’hôte utilisé pour communiquer avec le conteneur. La liaison de port mappe le port sur lequel le service écoute, à l’intérieur du conteneur, à un port sur l’hôte. Ajoutez un élément `PortBinding` dans l’élément `ContainerHostPolicies` du fichier ApplicationManifest.xml. Dans cet article, `ContainerPort` est 80 (le conteneur expose le port 80, tel que spécifié dans le fichier Dockerfile) et `EndpointRef` est « Guest1TypeEndpoint » (le point de terminaison défini précédemment dans le manifeste de service). Les demandes entrantes pour le service sur le port 8081 sont mappées au port 80 dans le conteneur.
 
 ```xml
 <ServiceManifestImport>
@@ -249,9 +255,9 @@ Configurez l’authentification au registre de conteneurs en ajoutant l’élém
 </ServiceManifestImport>
 ```
 
-Nous vous recommandons de chiffrer le mot de passe du référentiel à l’aide d’un certificat de chiffrement qui est déployé sur tous les nœuds du cluster. Lorsque Service Fabric déploie le package de service sur le cluster, le certificat de chiffrement est utilisé pour déchiffrer le texte chiffré.  Le cmdlet Invoke-ServiceFabricEncryptText est utilisé pour créer le texte chiffré du mot de passe, qui est ensuite ajouté au fichier ApplicationManifest.xml.
+Nous vous recommandons de chiffrer le mot de passe du référentiel à l’aide d’un certificat de chiffrement qui est déployé sur tous les nœuds du cluster. Lorsque Service Fabric déploie le package de service sur le cluster, le certificat de chiffrement est utilisé pour déchiffrer le texte chiffré. Le cmdlet Invoke-ServiceFabricEncryptText est utilisé pour créer le texte chiffré du mot de passe, qui est ensuite ajouté au fichier ApplicationManifest.xml.
 
-Le script suivant crée un nouveau certificat auto-signé et l’exporte vers un fichier PFX.  Le certificat est importé dans un coffre de clés existant, puis est déployé sur le cluster Service Fabric.
+Le script suivant crée un nouveau certificat auto-signé et l’exporte vers un fichier PFX. Le certificat est importé dans un coffre de clés existant, puis est déployé sur le cluster Service Fabric.
 
 ```powershell
 # Variables.
@@ -273,7 +279,7 @@ Select-AzureRmSubscription -SubscriptionId $subscriptionId
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
 | Export-PfxCertificate -FilePath $filepath -Password $certpwd
 
-# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
+# Import the certificate to an existing key vault. The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
@@ -319,7 +325,7 @@ Windows prend en charge deux modes d’isolation pour les conteneurs : Processu
    >
 
 ## <a name="configure-resource-governance"></a>Configurer la gouvernance des ressources
-La [gouvernance des ressources](service-fabric-resource-governance.md) limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes : mémoire, MemorySwap, CpuShares (poids relatif du processeur), MemoryReservationInMB, BlkioWeight (poids relatif de l’élément BlockIO).  Dans cet exemple, le package de service Guest1Pkg obtient un cœur sur les nœuds de cluster où il est placé.  Les limites de mémoire sont absolues, ce qui signifie que le package de code est limité à 1024 Mo de mémoire (avec une garantie de réservation identique). Les packages de code (conteneurs ou processus) ne sont pas en mesure d’allouer plus de mémoire que cette limite. Toute tentative en ce sens conduit à une exception de mémoire insuffisante. Pour pouvoir appliquer la limite de ressources, des limites de mémoire doivent être spécifiées pour tous les packages de code au sein d’un package de service.
+La [gouvernance des ressources](service-fabric-resource-governance.md) limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes : mémoire, MemorySwap, CpuShares (poids relatif du processeur), MemoryReservationInMB, BlkioWeight (poids relatif de l’élément BlockIO). Dans cet exemple, le package de service Guest1Pkg obtient un cœur sur les nœuds de cluster où il est placé. Les limites de mémoire sont absolues, ce qui signifie que le package de code est limité à 1024 Mo de mémoire (avec une garantie de réservation identique). Les packages de code (conteneurs ou processus) ne sont pas en mesure d’allouer plus de mémoire que cette limite. Toute tentative en ce sens conduit à une exception de mémoire insuffisante. Pour pouvoir appliquer la limite de ressources, des limites de mémoire doivent être spécifiées pour tous les packages de code au sein d’un package de service.
 
 ```xml
 <ServiceManifestImport>
@@ -332,7 +338,7 @@ La [gouvernance des ressources](service-fabric-resource-governance.md) limite le
 ```
 ## <a name="configure-docker-healthcheck"></a>Configurer le docker HEALTHCHECK 
 
-En démarrant la version 6.1, Service Fabric intègre automatiquement les événements [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) à son rapport d’intégrité du système. Cela signifie que si **HEALTHCHECK** est activé dans votre conteneur, Service Fabric générera un rapport d’intégrité chaque fois que l’état d’intégrité du conteneur changera comme indiqué par Docker. Un rapport d’intégrité **OK** apparaît dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lorsque *health_status* est *intègre* et  **AVERTISSEMENT** s’affiche lorsque *health_status* est *défectueux*. L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier **dockerfile** utilisé lors de la génération de l’image de conteneur. 
+En démarrant la version 6.1, Service Fabric intègre automatiquement les événements [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) à son rapport d’intégrité du système. Cela signifie que si **HEALTHCHECK** est activé dans votre conteneur, Service Fabric générera un rapport d’intégrité chaque fois que l’état d’intégrité du conteneur changera comme indiqué par Docker. Un rapport d’intégrité **OK** apparaît dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lorsque *health_status* est *intègre* et  **AVERTISSEMENT** s’affiche lorsque *health_status* est *défectueux*. L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur. 
 
 ![HealthCheckHealthy][3]
 
@@ -359,29 +365,29 @@ Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble
 ## <a name="deploy-the-container-application"></a>Déployer l’application de conteneur
 Enregistrez toutes les modifications et générez l’application. Pour publier votre application, cliquez avec le bouton droit de la souris sur **MyFirstContainer** dans l’Explorateur de solutions, puis sélectionnez **Publier**.
 
-Dans **Point de terminaison de connexion**, entrez le point de terminaison de gestion pour le cluster.  Par exemple : « containercluster.westus2.cloudapp.azure.com:19000 ». Vous trouverez le point de terminaison de connexion client dans le panneau d’aperçu de votre cluster dans le [portail Azure](https://portal.azure.com).
+Dans **Point de terminaison de connexion**, entrez le point de terminaison de gestion pour le cluster. Par exemple : « containercluster.westus2.cloudapp.azure.com:19000 ». Vous trouverez le point de terminaison de connexion client dans l’onglet Vue d’ensemble de votre cluster dans le [portail Azure](https://portal.azure.com).
 
 Cliquez sur **Publier**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) est un outil web dédié à l’inspection et à la gestion d’applications et de nœuds dans un cluster Service Fabric. Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/, puis suivez le déploiement de l’application.  L’application se déploie mais se trouve dans un état d’erreur jusqu’à ce que l’image soit téléchargée sur les nœuds du cluster (ce qui peut prendre du temps, selon la taille de l’image) : ![Erreur][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) est un outil web dédié à l’inspection et à la gestion d’applications et de nœuds dans un cluster Service Fabric. Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/, puis suivez le déploiement d’application. L’application se déploie mais se trouve dans un état d’erreur jusqu’à ce que l’image soit téléchargée sur les nœuds du cluster (ce qui peut prendre du temps, selon la taille de l’image) : ![Erreur][1]
 
 L’application est prête lorsqu’elle est à l’état ```Ready``` : ![Prête][2]
 
 Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com:8081. Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
-Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-cluster-delete.md).  Les [clusters d’essai](https://try.servicefabric.azure.com/) sont automatiquement supprimés après quelques heures.
+Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-cluster-delete.md). Les [clusters d’essai](https://try.servicefabric.azure.com/) sont automatiquement supprimés après quelques heures.
 
-Une fois l’image publiée dans le registre de conteneurs, vous pouvez supprimer l’image locale de votre ordinateur de développement :
+Une fois l’image envoyée (push) dans le registre de conteneurs, vous pouvez supprimer l’image locale de votre ordinateur de développement :
 
 ```
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="specify-os-build-version-specific-container-images"></a>Spécifiez les images de conteneur spécifiques à la version de build du système d’exploitation 
+## <a name="specify-os-build-specific-container-images"></a>Spécifier les images conteneur spécifiques au build du système d’exploitation 
 
-Les conteneurs Windows Server (mode d’isolation des processus) ne sont peut-être pas compatibles avec les versions plus récentes du système d’exploitation. Par exemple, les conteneurs Windows Server créés à l’aide de Windows Server 2016 ne fonctionnent pas sur Windows Server version 1709. Par conséquent, si les nœuds de cluster sont mis à jour vers la dernière version, les services de conteneur créés avec les versions antérieures du système d’exploitation peuvent échouer. Pour contourner ce problème avec la version 6.1 du runtime ou une version plus récente, Service Fabric prend en charge la spécification de plusieurs images du système d’exploitation par conteneur et les marque avec les versions de build du système d’exploitation (obtenues en exécutant `winver` sur une invite de commandes Windows).  Il est recommandé de d’abord mettre à jour les manifestes de l’application et de spécifier les remplacements d’image pour chaque version du système d’exploitation avant de mettre à jour le système d’exploitation sur les nœuds. L’extrait de code suivant montre comment spécifier plusieurs images de conteneur dans le manifeste d’application **ApplicationManifest.xml** :
+Les conteneurs Windows Server (mode d’isolation des processus) ne sont peut-être pas compatibles avec les versions plus récentes du système d’exploitation. Par exemple, les conteneurs Windows Server créés à l’aide de Windows Server 2016 ne fonctionnent pas sur Windows Server version 1709. Par conséquent, si les nœuds de cluster sont mis à jour vers la dernière version, les services de conteneur créés avec les versions antérieures du système d’exploitation peuvent échouer. Pour contourner ce problème avec la version 6.1 du runtime ou une version plus récente, Service Fabric prend en charge la spécification de plusieurs images du système d’exploitation par conteneur et les marque avec les versions de build du système d’exploitation (obtenues en exécutant `winver` sur une invite de commandes Windows). Mettez à jour les manifestes de l’application et spécifiez les remplacements d’image pour chaque version du système d’exploitation avant de mettre à jour le système d’exploitation sur les nœuds. L’extrait de code suivant montre comment spécifier plusieurs images de conteneur dans le manifeste d’application **ApplicationManifest.xml** :
 
 
 ```xml
@@ -405,7 +411,7 @@ La version de build pour WIndows Server 2016 est 14393, et la version de build p
    > Les fonctionnalités de marquage de la version de build du système d’exploitation sont disponibles uniquement pour Service Fabric sur Windows
    >
 
-Si le système d’exploitation sous-jacent sur la machine virtuelle est build 16299 (version 1709), Service Fabric choisit l’image de conteneur correspondant à cette version de Windows Server.  Si une image de conteneur non marquée est également fournie avec des images de conteneur marquées dans le manifeste d’application, Service Fabric traite l’image non marquée comme une image qui fonctionne sur plusieurs versions. Il est recommandé de marquer les images de conteneur explicitement.
+Si le système d’exploitation sous-jacent sur la machine virtuelle est build 16299 (version 1709), Service Fabric choisit l’image de conteneur correspondant à cette version de Windows Server. Si une image de conteneur non marquée est également fournie avec des images de conteneur marquées dans le manifeste d’application, Service Fabric traite l’image non marquée comme une image qui fonctionne sur plusieurs versions. Marquez les images conteneur de façon explicite, afin d’éviter tout problème pendant les mises à niveau.
 
 L’image conteneur non marquée sert de remplacement à celle fournie dans le fichier ServiceManifest. Ainsi l’image « myregistry.azurecr.io/samples/helloworldappDefault » remplace l’image ImageName « myregistry.azurecr.io/samples/helloworldapp » indiquée dans le fichier ServiceManifest.
 
@@ -509,7 +515,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurer l’intervalle de temps d’attente avant l’arrêt forcé du conteneur
 
-Vous pouvez configurer un intervalle de temps d’attente pour le runtime avant que le conteneur ne soit supprimé après le début de la suppression du service (ou d’un déplacement vers un autre nœud). Le fait de configurer l’intervalle de temps envoie la commande `docker stop <time in seconds>` au conteneur.   Pour plus d’informations, consultez [Arrêt du docker](https://docs.docker.com/engine/reference/commandline/stop/). L’intervalle de temps d’attente est spécifié dans la section `Hosting`. L’extrait de manifeste de cluster suivant montre comment définir l’intervalle d’attente :
+Vous pouvez configurer un intervalle de temps d’attente pour le runtime avant que le conteneur ne soit supprimé après le début de la suppression du service (ou d’un déplacement vers un autre nœud). Le fait de configurer l’intervalle de temps envoie la commande `docker stop <time in seconds>` au conteneur.  Pour plus d’informations, consultez [Arrêt du docker](https://docs.docker.com/engine/reference/commandline/stop/). L’intervalle de temps d’attente est spécifié dans la section `Hosting`. L’extrait de manifeste de cluster suivant montre comment définir l’intervalle d’attente :
 
 ```json
 {
@@ -528,7 +534,7 @@ L’intervalle de temps par défaut est défini sur 10 secondes. Étant donné 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurer le runtime pour supprimer les images conteneur inutilisées
 
-Vous pouvez configurer le cluster Service Fabric pour supprimer des images conteneur inutilisées à partir du nœud. Cette configuration permet à l’espace disque d’être rétabli si trop d’images conteneur sont présentes sur le nœud.  Pour activer cette fonctionnalité, mettez à jour la section `Hosting` du manifeste de cluster, comme indiqué dans l’extrait de code suivant : 
+Vous pouvez configurer le cluster Service Fabric pour supprimer des images conteneur inutilisées à partir du nœud. Cette configuration permet à l’espace disque d’être rétabli si trop d’images conteneur sont présentes sur le nœud. Pour activer cette fonctionnalité, mettez à jour la section `Hosting` du manifeste de cluster, comme indiqué dans l’extrait de code suivant : 
 
 
 ```json
@@ -549,12 +555,12 @@ Vous pouvez configurer le cluster Service Fabric pour supprimer des images conte
 } 
 ```
 
-Vous pouvez les spécifier les images qui ne doivent pas être supprimées à l’aide du paramètre `ContainerImagesToSkip`. 
+Vous pouvez spécifier les images qui ne doivent pas être supprimées à l’aide du paramètre `ContainerImagesToSkip`. 
 
 
 ## <a name="configure-container-image-download-time"></a>Configurer le temps de téléchargement de l’image de conteneur
 
-Par défaut, le runtime Service Fabric alloue un délai de 20 minutes pour télécharger et extraire les images de conteneur, qui fonctionne pour la majorité des images de conteneur. Pour les images de grande taille, ou lorsque la connexion réseau est lente, il peut être nécessaire d’augmenter le temps d’attente avant d’annuler le téléchargement et l’extraction de l’image. Cela peut être défini à l’aide de l’attribut **ContainerImageDownloadTimeout** dans la section **Hébergement** du manifeste de cluster, comme indiqué dans l’extrait de code suivant :
+Le runtime Service Fabric alloue 20 minutes pour télécharger et extraire les images conteneur, ce qui fonctionne pour la majorité d’entre elles. Pour les images de grande taille, ou lorsque la connexion réseau est lente, il peut être nécessaire d’augmenter le temps d’attente avant d’annuler le téléchargement et l’extraction de l’image. Ce délai peut être défini à l’aide de l’attribut **ContainerImageDownloadTimeout** dans la section **Hébergement** du manifeste de cluster, comme indiqué dans l’extrait de code suivant :
 
 ```json
 {
@@ -577,8 +583,25 @@ Pour aider à diagnostiquer les échecs de démarrage du conteneur, Service Fabr
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à conserver en cas d’échec. Si une valeur négative est spécifiée, tous les conteneurs en échec sont conservés. Quand l’attribut **ContainersRetentionCount** n’est pas spécifié, aucun conteneur n’est conservé. L’attribut **ContainersRetentionCount** prend également en charge les paramètres de l’application. Les utilisateurs peuvent ainsi spécifier des valeurs différentes pour les clusters de test et de production. Il est recommandé d’utiliser des contraintes de placement pour cibler le service de conteneur sur un nœud particulier lors de l’utilisation de cette fonctionnalité pour empêcher le service de conteneur de se déplacer vers d’autres nœuds. Tous les conteneurs conservés à l’aide de cette fonctionnalité doivent être supprimés manuellement.
+Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à conserver en cas d’échec. Si une valeur négative est spécifiée, tous les conteneurs en échec sont conservés. Quand l’attribut **ContainersRetentionCount** n’est pas spécifié, aucun conteneur n’est conservé. L’attribut **ContainersRetentionCount** prend également en charge les paramètres de l’application. Les utilisateurs peuvent ainsi spécifier des valeurs différentes pour les clusters de test et de production. Utilisez des contraintes de placement pour cibler le service conteneur sur un nœud particulier lors de l’utilisation de cette fonctionnalité pour empêcher le service conteneur de se déplacer vers d’autres nœuds. Tous les conteneurs conservés à l’aide de cette fonctionnalité doivent être supprimés manuellement.
 
+## <a name="start-the-docker-daemon-with-custom-arguments"></a>Démarrer le démon Docker avec des arguments personnalisés
+
+Avec la version 6.2 du runtime Service Fabric et versions supérieures, vous pouvez démarrer le démon Docker avec des arguments personnalisés. Lorsque des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument `--pidfile`. Par conséquent, `--pidfile` ne doit pas être transmis en tant qu’argument. En outre, le démon Docker de l’argument doit continuer à écouter le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric communique avec le démon. Les arguments personnalisés sont transmis dans le manifeste de cluster, dans la section **Hébergement** sous **ContainerServiceArguments**, comme indiqué dans l’extrait de code suivant : 
+ 
+
+```json
+{ 
+   "name": "Hosting", 
+        "parameters": [ 
+          { 
+            "name": "ContainerServiceArguments", 
+            "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
+          } 
+        ] 
+} 
+
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur l’exécution des [conteneurs sur Service Fabric](service-fabric-containers-overview.md).

@@ -1,68 +1,65 @@
 ---
-title: Exécuter des requêtes interactives sur un cluster Azure HDInsight Spark | Microsoft Docs
-description: Démarrage rapide Spark HDInsight pour créer un cluster Apache Spark dans HDInsight.
-keywords: démarrage rapide spark,spark interactif,requête interactive,hdinsight spark,azure spark
-services: hdinsight
-documentationcenter: ''
+title: 'Didacticiel : charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight | Microsoft Docs'
+description: Découvrez comment charger des données et exécuter des requêtes interactives sur des clusters Spark dans Azure HDInsight.
+services: azure-hdinsight
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/29/2017
+ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 05/07/2018
+ms.openlocfilehash: 63a876dc148129cd2a3eb93ed7ab6baf06a07c62
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Exécuter des requêtes interactives sur des clusters Spark dans HDInsight
+# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Didacticiel : charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
 
-Découvrez comment utiliser le bloc-notes Jupyter pour exécuter des requêtes interactives Spark SQL sur un cluster Spark. 
+Dans ce didacticiel, vous apprenez à créer une trame de données à partir d’un fichier CSV et comment exécuter des requêtes interactives SQL Spark sur un cluster Apache Spark dans Azure HDInsight. Dans Spark, une trame de données est une collection distribuée de données organisées en colonnes nommées. D’un point de vue conceptuel, une trame de données équivaut à une table d’une base de données relationnelle ou à une trame de données dans R/Python.
+ 
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
+> [!div class="checklist"]
+> * Créer une trame de données à partir d’un fichier CSV
+> * Exécuter des requêtes sur la trame de données
 
-Le [bloc-notes Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) est une application basée sur navigateur qui étend l’expérience interactive de la console au web. Spark sur HDInsight inclut également [Bloc-notes Zeppelin](apache-spark-zeppelin-notebook.md). Bloc-notes Jupyter est utilisé dans ce didacticiel.
-
-Les blocs-notes Jupyter des clusters HDInsight prennent également en charge trois noyaux : **PySpark**, **PySpark3**, et **Spark**. Le noyau **PySpark** est utilisé dans ce didacticiel. Pour plus d’informations sur les noyaux et les avantages liés à l’utilisation de**PySpark**, consultez [Utiliser les noyaux de blocs-notes Jupyter avec les clusters Apache Spark dans HDInsight](apache-spark-jupyter-notebook-kernels.md). Pour utiliser Blocs-notes Zeppelin, consultez [Utiliser Blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight](./apache-spark-zeppelin-notebook.md).
-
-Dans ce didacticiel, vous interrogez des données dans un fichier CSV. Vous devez d’abord charger ces données dans Spark comme une trame de données. Vous pouvez ensuite exécuter des requêtes sur la trame de données à l’aide du bloc-notes Jupyter. 
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 
-* **Un cluster Azure HDInsight Spark**. Pour obtenir des instructions, consultez [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* **Un bloc-notes Jupyter à l’aide de PySpark**. Pour obtenir des instructions, consultez [Créer un bloc-notes Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+* Effectuez [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Créer une trame de données à partir d’un fichier CSV
 
-Avec un SQLContext, les applications peuvent créer des trames de données à partir d’un RDD existant, d’une table Hive ou de sources de données. 
+Les applications peuvent créer des trames de données à partir d’un RDD (Resilient Distributed Dataset) existant, d’une table Hive ou de sources de données à l’aide de l’objet SQLContext. La capture d’écran suivante montre un instantané du fichier HVAC.csv utilisé dans ce didacticiel. Le fichier CSV est fourni avec tous les clusters HDInsight Spark. Les données capturent les variations de température de certains bâtiments.
+    
+![Instantané des données pour les requêtes Spark SQL interactives](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "instantané des données pour les requêtes Spark SQL interactives")
 
-**Pour créer une trame de données à partir d’un fichier CSV**
 
-1. Si vous n’en avez pas, créez un bloc-notes Jupyter à l’aide de PySpark. Pour obtenir des instructions, consultez [Créer un bloc-notes Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
-
+1. Ouvrez le bloc-notes Jupyter que vous avez créé dans la section des prérequis.
 2. Collez l’exemple de code suivant dans une cellule vide du bloc-notes, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
 
     ```PySpark
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
-    Lorsque vous utilisez le noyau PySpark pour créer un bloc-notes, les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous n’avez pas besoin de créer explicitement de contextes.
 
     Lorsque vous exécutez une requête interactive dans Jupyter, la fenêtre du navigateur web ou la légende d’onglet affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **PySpark** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
 
     ![État de la requête interactive Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "État de la requête interactive Spark SQL")
 
-3. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**) en exécutant le code suivant : le code n’extrait pas toutes les colonnes disponibles dans le fichier CSV. 
+3. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**). Le code n’extrait pas toutes les colonnes disponibles dans le fichier CSV. 
 
     ```PySpark
     # Create an RDD from sample data
     hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
     
-    # Create a schema for our data
+    # Create a schema for the data
     Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
     
     # Parse the data and create a schema
@@ -75,15 +72,14 @@ Avec un SQLContext, les applications peuvent créer des trames de données à pa
     dfw = DataFrameWriter(hvacTable)
     dfw.saveAsTable('hvac')
     ```
-    La capture d’écran suivante montre un instantané du fichier HVAC.csv. Le fichier CSV est fourni avec tous les clusters HDInsight Spark. Les données capturent les variations de température du bâtiment.
 
-    ![Instantané des données pour les requêtes Spark SQL interactives](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "instantané des données pour les requêtes Spark SQL interactives")
+    > [!NOTE]
+    > Lorsque vous utilisez le noyau PySpark pour créer un bloc-notes, les contextes SQL sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous n’avez pas besoin de créer explicitement de contextes.
+
 
 ## <a name="run-queries-on-the-dataframe"></a>Exécuter des requêtes sur la trame de données
 
 Une fois la table créée, vous pouvez exécuter une requête interactive sur les données.
-
-**Pour exécuter une requête**
 
 1. Exécutez le code suivant dans une cellule vide du bloc-notes :
 
@@ -92,9 +88,9 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
 
-   Étant donné que le noyau PySpark est utilisé dans le bloc-notes, vous pouvez maintenant exécuter directement une requête SQL interactive sur la table temporaire **hvac** que vous avez créée à l’aide de la méthode magique `%%sql`. Pour plus d’informations sur la méthode magique `%%sql` et d’autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Étant donné que le noyau PySpark est utilisé dans le bloc-notes, vous pouvez maintenant exécuter directement une requête SQL interactive sur la table temporaire **hvac**.
 
-   La sortie sous forme de tableau suivante s’affiche par défaut.
+   La sortie sous forme de tableau suivante s’affiche.
 
      ![Sortie sous forme de tableau d’un résultat de requête interactive Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Sortie sous forme de tableau d’un résultat de requête interactive Spark")
 
@@ -102,18 +98,28 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
     ![Résultat de requête interactive Spark sous forme graphique](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Résultat de requête interactive Spark sous forme graphique")
 
-10. Dans le menu **File** (Fichier) du bloc-notes, cliquez sur **Save and Checkpoint** (Enregistrer et point de contrôle). 
+10. Dans le menu **File** (Fichier) du bloc-notes, sélectionnez **Save and Checkpoint** (Enregistrer et point de contrôle). 
 
-11. Si vous démarrez le [didacticiel suivant](apache-spark-use-bi-tools.md) maintenant, laissez le bloc-notes ouvert. Dans le cas contraire, arrêtez le bloc-notes pour libérer les ressources de cluster : à partir du menu **File** (Fichier) du bloc-notes, cliquez sur **Close and Halt** (Fermer et arrêter).
+11. Si vous démarrez le [didacticiel suivant](apache-spark-use-bi-tools.md) maintenant, laissez le bloc-notes ouvert. Dans le cas contraire, arrêtez le bloc-notes pour libérer les ressources de cluster : dans le menu **File** (Fichier) du bloc-notes, sélectionnez **Close and Halt** (Fermer et arrêter).
 
-## <a name="next-step"></a>Étapes suivantes
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
+Avec HDInsight, vos données sont stockées dans Stockage Azure ou Azure Data Lake Store pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Si vous prévoyez de suivre le didacticiel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
 
-Dans cet article, vous avez appris comment exécuter des requêtes interactives dans Spark à l’aide du bloc-notes Jupyter. Passer à l’article suivant pour découvrir comment les données que vous avez enregistrées dans Spark peuvent être placées dans un outil analytique de BI tel que Power BI et Tableau. 
+Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 
+![Suppression du cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Suppression du cluster HDInsight")
+
+Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight Spark et le compte de stockage par défaut.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce didacticiel, vous avez appris à :
+
+* Créer une trame de données Spark.
+* Exécuter une requête SQL Spark sur la trame de données.
+
+Passez à l’article suivant pour découvrir comment les données que vous avez enregistrées dans Spark peuvent être placées dans un outil analytique décisionnel tel que Power BI. 
 > [!div class="nextstepaction"]
->[Spark BI utilisant des outils de visualisation de données avec Azure HDInsight](apache-spark-use-bi-tools.md)
-
-
-
+> [Analyser des données à l’aide d’outils décisionnels](apache-spark-use-bi-tools.md)
 

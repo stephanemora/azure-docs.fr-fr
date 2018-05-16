@@ -3,7 +3,7 @@ title: Plan de traitement des paiements Azure - Conditions d’accès physique
 description: Condition 9 de la norme PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 91595a69-e9ce-4f9c-8388-10224165d9c0
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: b702f3d3a06b1d47c2853ab51ccf4872441da03d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Conditions d’accès physique pour les environnements conformes à la norme PCI DSS 
 ## <a name="pci-dss-requirement-9"></a>Condition 9 de la norme PCI DSS

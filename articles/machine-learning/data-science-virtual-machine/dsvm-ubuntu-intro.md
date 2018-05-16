@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
-La machine virtuelle DSVM pour Linux est une image de machine virtuelle Ubuntu qui permet de passer facilement à l’apprentissage automatique, notamment l’apprentissage profond, dans Azure. Outils d’apprentissage profond :
+La machine virtuelle DSVM pour Linux est une image de machine virtuelle Ubuntu qui permet de passer facilement à l’apprentissage automatique, notamment l’apprentissage profond, dans Azure. Outils d’apprentissage approfondi :
 
-  * [Caffe](http://caffe.berkeleyvision.org/) : infrastructure d’apprentissage profond conçue pour la vitesse, l’expressivité et la modularité
+  * [Caffe](http://caffe.berkeleyvision.org/) : infrastructure d’apprentissage approfondi conçue pour la vitesse, l’expressivité et la modularité
   * [Caffe2](https://github.com/caffe2/caffe2) : version multiplateforme de Caffe
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) : kit de ressources logicielles d’apprentissage profond de Microsoft Research
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) : kit de ressources logicielles deep learning de Microsoft Research
   * [H2O](https://www.h2o.ai/) : plateforme Big Data open source et interface utilisateur graphique
   * [Keras](https://keras.io/) : API de réseau neuronal principal dans Python pour Theano et TensorFlow
-  * [MXNet](http://mxnet.io/) : bibliothèque d’apprentissage profond flexible et efficace avec de nombreuses liaisons de langage
-  * [NVIDIA DIGITS](https://developer.nvidia.com/digits) : système graphique qui simplifie les tâches d’apprentissage profond courantes
+  * [MXNet](http://mxnet.io/) : bibliothèque d’apprentissage approfondi flexible et efficace avec de nombreuses liaisons de langage
+  * [NVIDIA DIGITS](https://developer.nvidia.com/digits) : système graphique qui simplifie les tâches d’apprentissage approfondi courantes
   * [PyTorch](http://pytorch.org/) : bibliothèque Python globale avec prise en charge des réseaux dynamiques
   * [TensorFlow](https://www.tensorflow.org/) : bibliothèque open source de Google pour l’intelligence artificielle
   * [Theano](http://deeplearning.net/software/theano/) : bibliothèque Python pour définir, optimiser et évaluer efficacement les expressions mathématiques impliquant des tableaux multidimensionnels
@@ -96,7 +96,7 @@ Voici les étapes de création d’une instance de la machine virtuelle pour la 
    
    b. **Taille**:
    
-   * Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez **Afficher tout** pour afficher d’autres tailles de machines virtuelles. Sélectionnez une machine virtuelle de classe NC pour la formation à la GPU.
+   * Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez **Afficher tout** pour afficher d’autres tailles de machines virtuelles. Sélectionnez une machine virtuelle de classe NC ou ND pour la formation à la GPU. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/) répertorie les régions avec GPU.
    
    c. **Paramètres**:
    

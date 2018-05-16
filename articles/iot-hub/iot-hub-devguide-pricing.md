@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b0d2df078c59c7d261fd3231450ddfb2fdcd88e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informations sur les tarifs Azure IoT Hub
 
@@ -35,11 +35,11 @@ La [tarification d’Azure IoT Hub][lnk-pricing] fournit des informations géné
 | Messages Cloud vers appareil | Les messages envoyés avec succès sont facturés en blocs de 4 Ko ; par exemple, un message de 6 Ko est facturé 2 messages. |
 | Chargements de fichiers | Le transfert de fichiers vers Stockage Azure n’est pas mesuré par IoT Hub. Les messages de lancement et de complétion du transfert de fichiers sont facturés en tant que messages, par incréments de 4 Ko. Par exemple, le transfert d’un fichier de 10 Mo est facturé deux messages, en plus du coût de Stockage Azure. |
 | Méthodes directes | Les demandes réussies de méthodes sont facturées par blocs de 4 Ko, tandis que les réponses comportant des corps non vides sont elles aussi facturées par blocs de 4 Ko, en tant que messages supplémentaires. Les demandes dirigées vers des appareils déconnectés sont facturées en tant que messages, par blocs de 4 Ko. Par exemple, une méthode avec un corps de 6 Ko qui génère une réponse sans corps de l’appareil est facturée comme deux messages. Une méthode avec un corps de 6 Ko qui génère une réponse de 1 Ko de l’appareil est facturée comme deux messages pour la demande, plus un autre message pour la réponse. |
-| Lectures de jumeaux d’appareil | Les lectures de jumeaux d’appareil de l’appareil et du back-end de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un jumeau d’appareil de 6 Ko est facturée comme 12 messages. |
-| Mises à jour de jumeaux d’appareil (balises et propriétés) | Les mises à jour de jumeaux d’appareil à partir de l’appareil et du back-end de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un jumeau d’appareil de 6 Ko est facturée comme 12 messages. |
-| Requêtes de représentations d’appareil | Les requêtes sont facturées en tant que messages, en fonction de la taille du résultat, par blocs de 512 octets. |
+| Lectures de jumeaux de l’appareil et du module | Les lectures de jumeaux de l’appareil ou du module et du backend de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un jumeau de 6 Ko est facturée comme 12 messages. |
+| Mises à jour de jumeaux d’appareil ou de module (balises et propriétés) | Les mises à jour de jumeaux à partir de l’appareil ou du module et du backend de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un jumeau de 6 Ko est facturée comme 12 messages. |
+| Requêtes de jumeaux de l’appareil et du module | Les requêtes sont facturées en tant que messages, en fonction de la taille du résultat, par blocs de 512 octets. |
 | Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | Non facturé. |
-| Opérations de travaux par appareil | Les opérations de travaux (comme les mises à jour de jumeaux d’appareil et les méthodes) sont facturées normalement. Par exemple, un travail entraînant 1 000 appels de méthode avec des demandes de 1 Ko et des réponses à corps vide est facturé comme 1 000 messages. |
+| Opérations de travaux par appareil | Les opérations de travaux (comme les mises à jour de jumeaux et les méthodes) sont facturées normalement. Par exemple, un travail entraînant 1 000 appels de méthode avec des demandes de 1 Ko et des réponses à corps vide est facturé comme 1 000 messages. |
 
 > [!NOTE]
 > L’ensemble des tailles sont calculées en fonction de la taille en octets de la charge utile (le tramage de protocole est ignoré). Pour les messages qui ont des propriétés et un corps, la taille est calculée de manière agnostique du point de vue du protocole. Pour en savoir plus, consultez le [Guide du développeur de messages IoT Hub][lnk-message-size].

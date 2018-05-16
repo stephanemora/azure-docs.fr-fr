@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personnaliser les paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -25,7 +25,8 @@ Cet article vous explique comment personnaliser [les paramètres d’authentific
 
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
-* [Didacticiel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Didacticiel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Didacticiel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
 * [Comment configurer votre application pour utiliser une connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Comment configurer votre application pour utiliser une connexion Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Comment configurer votre application pour utiliser une connexion Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -148,4 +149,5 @@ Cliquez sur **Modifier**, modifiez la propriété suivante, puis cliquez sur **P
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout](app-service-web-tutorial-auth-aad.md)
+> [Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout (Linux)](containers/tutorial-auth-aad.md)

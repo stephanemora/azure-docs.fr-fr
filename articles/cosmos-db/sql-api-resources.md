@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Concepts clés et modèle de ressource hiérarchiques Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Cet article répond aux questions suivantes :
 * Quelles sont les différences entre les ressources définies par le système et celles définies par l’utilisateur ?
 * Comment adresser une ressource ?
 * Comment travailler avec des collections ?
-* Comment utiliser les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur ?
+* Comment utiliser les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur ?
 
 Dans la vidéo suivante, le responsable du programme Azure Cosmos DB, Andrew Liu, vous guide dans la découverte du modèle de ressource Azure Cosmos DB. 
 
@@ -58,7 +58,7 @@ Pour commencer à utiliser des ressources, vous devez [créer un compte de base 
 | Base de données |Une base de données est un conteneur logique de stockage de documents partitionné entre des collections. Elle sert également de conteneur pour les utilisateurs. |
 | Utilisateur |Espace de noms logique pour les autorisations d'étendue. |
 | Autorisation |Jeton d'autorisation associé à un utilisateur pour un accès à une ressource spécifique. |
-| Collection |Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Une collection est une entité facturable, où le [coût](performance-levels.md) est déterminé par le niveau de performances associé à la collection. Les collections peuvent couvrir une ou plusieurs partitions/serveurs et peuvent être mises à l’échelle pour gérer des volumes de stockage ou de débit quasi-illimités. |
+| Collection |Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Les collections peuvent couvrir une ou plusieurs partitions/serveurs et peuvent être mises à l’échelle pour gérer des volumes de stockage ou de débit quasi-illimités. |
 | Procédure stockée |Logique d’application écrite en JavaScript, inscrite auprès d’une collection et exécutée via des transactions au sein du moteur de base de données. |
 | Déclencheur |Logique d’application écrite en JavaScript exécutée avant ou après une opération d’insertion, de remplacement ou de suppression. |
 | Fonctions définies par l'utilisateur |Logique d'application écrite en JavaScript. Les fonctions définies par l’utilisateur permettent de modéliser un opérateur de requête personnalisé et ainsi d’étendre le langage de requête d’API SQL principal. |
@@ -166,14 +166,14 @@ Une base de données Cosmos DB est un conteneur logique d’une ou plusieurs col
 ![Compte de base de données et modèle hiérarchique de regroupements][2]  
 **Une base de données est un conteneur logique d’utilisateurs et de collections**
 
-Une base de données peut contenir un stockage de documents presque illimité partitionné dans des collections.
+Une base de données peut contenir un stockage de documents illimité partitionné dans des collections.
 
 ### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Mise à l’échelle élastique d’une base de données Azure Cosmos DB
 Une base de données Cosmos DB est flexible par défaut : elle peut aller de quelques Go à plusieurs pétaoctets de stockage de documents SSD et de débit approvisionné. 
 
 Contrairement à une base de données de SGBDR classique, une base de données Cosmos DB n’est pas étendue à un seul ordinateur. Avec Cosmos DB, vous pouvez créer plus de collections et/ou de bases de données à mesure que les besoins d’extensibilité de votre application augmentent. En effet, plusieurs applications principales de Microsoft utilisent Azure Cosmos DB à l’échelle du client, en créant des bases de données Azure Cosmos DB très volumineuses, contenant chacune des milliers de collections qui regroupent des téraoctets de stockage de documents. Vous pouvez augmenter ou réduire la taille d'une base de données en ajoutant ou en supprimant des collections pour répondre aux besoins d'extensibilité de vos applications. 
 
-Vous pouvez créer autant de collections que vous voulez dans une base de données, en fonction de l’offre. Chaque collection dispose d’un stockage SSD et d’un débit approvisionné pour vous en fonction du niveau de performances sélectionné.
+Vous pouvez créer autant de collections que vous voulez dans une base de données, en fonction de l’offre. Chaque collection ou ensemble de collections (dans une base de données) dispose d’un stockage SSD et d’un débit provisionné pour vous en fonction de l’offre sélectionnée.
 
 Une base de données Azure Cosmos DB est également un conteneur d’utilisateurs. De même, un utilisateur est un espace de noms logique pour un ensemble d’autorisations qui permet d’obtenir une autorisation et un accès affinés aux collections, documents et pièces jointes.  
 
@@ -183,7 +183,7 @@ Comme pour les autres ressources du modèle de ressource Azure Cosmos DB, les ba
 Une collection Cosmos DB est un conteneur pour vos documents JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Stockage de documents SSD flexible
-Une collection est intrinsèquement flexible : elle augmente ou diminue à mesure que vous ajoutez ou supprimez des documents. Les collections sont des ressources logiques. Elles peuvent s’étendre sur plusieurs partitions physiques ou serveurs. Le nombre de partitions dans une collection est déterminé par Cosmos DB en fonction de la taille de stockage et du débit approvisionné de votre collection. Chaque partition dans Azure Cosmos DB dispose d’une quantité fixe de stockage SSD associé. Elle est également répliquée pour offrir une haute disponibilité. La gestion des partitions est entièrement exécutée par Azure Cosmos DB. Vous n’avez pas à écrire du code complexe, ni à gérer vos partitions. Les collections Cosmos DB sont **pratiquement illimitées** en termes de débit et de stockage. 
+Une collection est intrinsèquement flexible : elle augmente ou diminue à mesure que vous ajoutez ou supprimez des documents. Les collections sont des ressources logiques. Elles peuvent s’étendre sur plusieurs partitions physiques ou serveurs. Le nombre de partitions assignées à une collection est déterminé par Cosmos DB en fonction de la taille de stockage et du débit provisionné pour la collection ou un ensemble de collections. Chaque partition dans Azure Cosmos DB dispose d’une quantité fixe de stockage SSD associé. Elle est également répliquée pour offrir une haute disponibilité. La gestion des partitions est entièrement exécutée par Azure Cosmos DB. Vous n’avez pas à écrire du code complexe, ni à gérer vos partitions. Les collections Cosmos DB sont **illimitées** en termes de débit et de stockage. 
 
 ### <a name="automatic-indexing-of-collections"></a>Indexation automatique des collections
 Azure Cosmos DB est un véritable système de base de données sans schéma. Il ne part pas du principe que vous utilisez des schémas et n'en réclame pas pour les documents JSON. Dès que vous ajoutez des documents à une collection, Azure Cosmos DB les indexe automatiquement et vous pouvez les interroger. L’indexation automatique de documents sans schéma ni index secondaire est une fonctionnalité clé d’Azure Cosmos DB. Elle est rendue possible par des techniques offrant une maintenance d’index structurée par des journaux, sans verrouillage et optimisée pour l’écriture. Azure Cosmos DB prend en charge des volumes soutenus d’écriture très rapides, tout en continuant de servir des requêtes cohérentes. Les stockages de documents et d'index permettent de calculer le stockage consommé par chaque collection. Vous pouvez contrôler le stockage et les compromis de performances associés à l'indexation en configurant la stratégie d'indexation d'une collection. 
@@ -222,7 +222,7 @@ En vertu de son engagement ferme vis-à-vis de JavaScript et JSON directement da
 * la mise en œuvre efficace simultanée du contrôle, de la récupération, de l'indexation automatique des graphiques d'objet JSON directement dans le moteur de base de données ;
 * L’expression naturelle du flux de contrôle, de l’étendue variable, de l’attribution et de l’intégration des primitives de gestion des exceptions au sein des transactions de base de données, directement dans le langage de programmation JavaScript
 
-La logique JavaScript enregistrée au niveau d'une collection peut alors émettre des opérations de base de données vers les documents d'une collection donnée. Azure Cosmos DB inclut implicitement les procédures stockées et les déclencheurs JavaScript dans des transactions ACID ambiantes, avec un isolement de capture instantanée dans les documents d’une collection. Lors de son exécution, si le code JavaScript lève une exception, toute la transaction est abandonnée. Le modèle de programmation obtenu est très simple, mais puissant. Les développeurs JavaScript obtiennent un modèle de programmation « durable » tout en continuant d'utiliser les constructions de langage et les primitives de bibliothèques qui leurs sont familières.   
+La logique JavaScript enregistrée au niveau d'une collection peut alors émettre des opérations de base de données vers les documents d'une collection donnée. Azure Cosmos DB inclut implicitement les procédures stockées et les déclencheurs JavaScript dans une transaction ACID ambiante, avec un isolement de capture instantanée dans les documents d’une collection. Lors de son exécution, si le code JavaScript lève une exception, toute la transaction est abandonnée. Le modèle de programmation obtenu est simple, mais puissant. Les développeurs JavaScript obtiennent un modèle de programmation « durable » tout en continuant d'utiliser les constructions de langage et les primitives de bibliothèques qui leurs sont familières.   
 
 La possibilité d'exécuter directement JavaScript dans le moteur de base de données au sein du même espace d'adressage que le pool de mémoires tampons permet une exécution performante et transactionnelle des opérations de base de données sur les documents d'une collection. De plus, l’engagement ferme du moteur de base de données Cosmos DB envers JSON et JavaScript élimine tout risque d’incohérence en matière d’impédance entre les systèmes de type d’application et la base de données.   
 
@@ -282,7 +282,7 @@ Les procédures stockées et les déclencheurs interagissent avec une collection
 Dans l’API SQL, les collections peuvent être facilement créées, supprimées, lues ou répertoriées avec les [API REST](/rest/api/cosmos-db/) ou l’un des [SDK clients](sql-api-sdk-dotnet.md). L’API SQL fournit toujours une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une collection. La suppression d'une collection garantit automatiquement que vous ne pouvez pas accéder aux documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l'utilisateur qu'elle contient.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
-Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d’application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction définie par l’utilisateur. Le code JavaScript d’une procédure stockée ou d’un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d’une collection. D'autre part, le code JavaScript dans une fonction définie par l'utilisateur ne peut pas insérer, remplacer ou supprimer des documents. Les fonctions définies par l'utilisateur énumèrent les documents du jeu de résultats d'une requête et produisent un autre jeu de résultats. Azure Cosmos DB applique aux architectures multilocataires une gouvernance des ressources stricte basée sur les réservations. Chaque procédure stockée, déclencheur ou fonction définie par l’utilisateur obtient un quantum fixe de ressources de systèmes d’exploitation pour effectuer ses tâches. De plus, les procédures stockées, les déclencheurs ou les fonctions définies par l’utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste rouge s’ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez inscrire ou désinscrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans une collection en utilisant les API REST.  Une fois inscrits, ils sont précompilés et stockés en tant que code d’octet et sont exécutés ultérieurement. La section suivante illustre l’utilisation du SDK JavaScript d’Azure Cosmos DB pour inscrire, désinscrire et exécuter une procédure stockée, un déclencheur ou une fonction définie par l’utilisateur. Le kit SDK JavaScript est un wrapper simple des [API REST](/rest/api/cosmos-db/). 
+Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d’application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction définie par l’utilisateur. Le code JavaScript d’une procédure stockée ou d’un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d’une collection. D'autre part, le code JavaScript dans une fonction définie par l'utilisateur ne peut pas insérer, remplacer ou supprimer des documents. Les fonctions définies par l'utilisateur énumèrent les documents du jeu de résultats d'une requête et produisent un autre jeu de résultats. Azure Cosmos DB applique aux architectures multilocataires une gouvernance des ressources stricte basée sur les réservations. Chaque procédure stockée, déclencheur ou fonction définie par l’utilisateur obtient un quantum fixe de ressources de systèmes d’exploitation pour effectuer ses tâches. De plus, les procédures stockées, les déclencheurs ou les fonctions définies par l’utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste rouge s’ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez inscrire ou désinscrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans une collection en utilisant les API REST.  Une fois inscrits, ils sont précompilés et stockés en tant que code d’octet et sont exécutés ultérieurement. La section suivante illustre l’utilisation du kit SDK JavaScript d’Azure Cosmos DB pour enregistrer, annuler l’enregistrement et exécuter une procédure stockée, un déclencheur et une fonction définie par l’utilisateur. Le kit SDK JavaScript est un wrapper simple des [API REST](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Enregistrement d'une procédure stockée
 L'enregistrement d'une procédure stockée crée une ressource de procédure stockée dans une collection via HTTP POST.  
@@ -322,7 +322,7 @@ L'exécution d'une procédure stockée s'effectue grâce à l'émission d'une in
         });
 
 ### <a name="unregistering-a-stored-procedure"></a>Annulation de l'enregistrement d'une procédure stockée
-Pour annuler l’enregistrement d’une procédure stockée, il suffit d’émettre une instruction HTTP DELETE sur une ressource de procédure stockée existante.   
+Pour annuler l’enregistrement d’une procédure stockée, émettez une instruction HTTP DELETE sur une ressource de procédure stockée existante.   
 
     client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
         .then(function (response) {
@@ -364,7 +364,7 @@ L'exécution d'un déclencheur s'effectue en spécifiant le nom d'un déclencheu
         });
 
 ### <a name="unregistering-a-pre-trigger"></a>Annulation de l'enregistrement d'un pré-déclencheur
-Pour annuler l’enregistrement d’un déclencheur, il suffit d’émettre une instruction HTTP DELETE sur une ressource de déclencheur existante.  
+Pour annuler l’enregistrement d’un déclencheur, émettez une instruction HTTP DELETE sur une ressource de déclencheur existante.  
 
     client.deleteTriggerAsync(createdPreTrigger._self);
         .then(function(response) {
@@ -415,7 +415,7 @@ Même si les extraits de code précédents ont montré l’inscription (POST), l
 ## <a name="documents"></a>Documents
 Vous pouvez insérer, remplacer, supprimer, lire, énumérer et interroger arbitrairement des documents JSON dans une collection. Azure Cosmos DB n’impose aucun schéma et ne requiert pas d’index secondaire pour prendre en charge l’interrogation des documents dans une collection. La taille maximale d’un document est de 2 Mo.   
 
-Étant donné qu’Azure Cosmos DB est un service de base de données véritablement ouvert, il n’invente pas de types de données spécialisés (par exemple, les valeurs de date et d’heure) ou d’encodage spécifique pour les documents JSON. Azure Cosmos DB ne nécessite aucune convention JSON spéciale pour codifier les relations entre les différents documents. La syntaxe SQL d’Azure Cosmos DB fournit des opérateurs de requête hiérarchiques et relationnels très puissants qui permettent d’interroger et de projeter des documents, sans annotation spécifique ni obligation de codifier des relations entre les documents à l’aide de propriétés distinctes.  
+Étant donné qu’Azure Cosmos DB est un service de base de données véritablement ouvert, il n’invente pas de types de données spécialisés (par exemple, les valeurs de date et d’heure) ou d’encodage spécifique pour les documents JSON. Azure Cosmos DB ne nécessite aucune convention JSON spéciale pour codifier les relations entre les différents documents. La syntaxe SQL d’Azure Cosmos DB fournit des opérateurs de requête hiérarchiques et relationnels puissants qui permettent d’interroger et de projeter des documents, sans annotation spécifique ni obligation de codifier des relations entre les documents à l’aide de propriétés distinctes.  
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire, énumérer et interroger facilement les documents en utilisant les API REST ou l’un des [SDK clients](sql-api-sdk-dotnet.md). La suppression d'un document libère instantanément le quota correspondant à toutes les pièces jointes imbriquées. Le niveau de cohérence de lecture des documents respecte la stratégie de cohérence du compte de base de données. Vous pouvez remplacer cette stratégie en fonction de la demande, selon les besoins de cohérence des données de votre application. Lors d'une interrogation de documents, la cohérence de lecture respecte le mode d'indexation défini pour la collection. Par « cohérence », on entend la stratégie de cohérence du compte. 
 
@@ -457,7 +457,7 @@ Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire
 ## <a name="permissions"></a>Autorisations
 Pour le contrôle des accès, les ressources telles que les comptes de base de données, les bases de données, les utilisateurs et les autorisations sont considérées comme des ressources *d’administration*, car elles nécessitent des privilèges d’administrateur. D'un autre côté, les ressources incluant les collections, les documents, les pièces jointes, les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur sont étendues sous une base de données et considérées comme des *ressources d'application*. Le modèle d’autorisation correspondant à ces deux types de ressources et aux rôles qui y accèdent (c’est-à-dire l’administrateur et l’utilisateur) définit deux types de *clés d’accès* : la *clé principale* et la *clé de ressource*. La clé principale appartient au compte de base de données et est fournie au développeur (ou à l'administrateur) qui approvisionne le compte de base de données. Cette clé principale ayant la sémantique d'administration, elle permet d'autoriser l'accès pour les ressources d'administration et d'application. Par contre, une clé de ressource est une clé d'accès granulaire qui permet d'accéder à une ressource d'application *spécifique* . Elle capture donc la relation entre l’utilisateur d’une base de données et les autorisations de l’utilisateur pour une ressource spécifique (comme une collection, un document, une pièce jointe, une procédure stockée, un déclencheur ou une fonction définie par l’utilisateur).   
 
-La seule façon d'obtenir une clé de ressource est de créer une ressource d'autorisation pour un utilisateur donné. Notez que pour créer ou récupérer une autorisation, une clé principale doit être présentée dans l'en-tête d'autorisation. Une ressource d’autorisation lie la ressource, son accès et l’utilisateur. Une fois la ressource d'autorisation créée, l'utilisateur doit simplement présenter la clé de ressource associée pour obtenir l'accès à la ressource correspondante. Ainsi, une clé de ressource peut être vue comme une représentation logique et compacte d'une ressource d'autorisation.  
+La seule façon d'obtenir une clé de ressource est de créer une ressource d'autorisation pour un utilisateur donné. Pour créer ou récupérer une autorisation, une clé principale doit être présentée dans l’en-tête d’autorisation. Une ressource d’autorisation lie la ressource, son accès et l’utilisateur. Une fois la ressource d'autorisation créée, l'utilisateur doit simplement présenter la clé de ressource associée pour obtenir l'accès à la ressource correspondante. Ainsi, une clé de ressource peut être vue comme une représentation logique et compacte d'une ressource d'autorisation.  
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire ou énumérer facilement les autorisations dans Azure Cosmos DB en utilisant des API REST ou l’un des SDK clients. Azure Cosmos DB fournit toujours une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une autorisation. 
 

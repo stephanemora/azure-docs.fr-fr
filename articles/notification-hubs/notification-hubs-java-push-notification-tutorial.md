@@ -1,24 +1,24 @@
 ---
 title: Utilisation de Notification Hubs avec Java
-description: "Découvrez comment utiliser Azure Notification Hubs à partir d’un serveur principal Java."
+description: Découvrez comment utiliser Azure Notification Hubs à partir d’un serveur principal Java.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Utilisation de Notification Hubs à partir de Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -58,7 +58,7 @@ Génération de :
     hub.setWindowsCredential(new WindowsCredential("sid","key"));
     hub = namespaceManager.createNotificationHub(hub);
 
- OU
+ Ou
 
     hub = new NotificationHub("connection string", "hubname");
 
@@ -102,9 +102,9 @@ De même, vous pouvez créer des inscriptions pour Android (GCM), Windows Phone 
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
     hub.createRegistration(reg);
 
-**Création d’inscriptions à l’aide du moèle registrationid + upsert**
+**Création d’inscriptions à l’aide du modèle createRegistrationId + upsert**
 
-Supprime les doublons dus à des réponses perdues, si les ID d’inscription sont stockées sur l’appareil :
+Supprime les doublons dus à des réponses perdues, si les ID d’inscription sont stockés sur l’appareil :
 
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -122,23 +122,27 @@ Supprime les doublons dus à des réponses perdues, si les ID d’inscription so
 
 * **Obtention d’une inscription unique :**
   
-    hub.getRegistration(regid);
+        hub.getRegistration(regid);
+
 * **Obtention de toutes les inscriptions du hub :**
   
-    hub.getRegistrations();
+        hub.getRegistrations();
+
 * **Obtention des inscriptions avec balise :**
   
-    hub.getRegistrationsByTag("myTag");
+        hub.getRegistrationsByTag("myTag");
+
 * **Obtention des inscriptions par canal :**
   
-    hub.getRegistrationsByChannel("devicetoken");
+        hub.getRegistrationsByChannel("devicetoken");
+
 
 Toutes les requêtes de collection prennent en charge les jetons $top et de continuation.
 
 ### <a name="installation-api-usage"></a>Utilisation de l’API d’installation
-L’API d’installation est un autre mécanisme de gestion des inscriptions. Au lieu de maintenir plusieurs inscriptions, ce qui n’est pas simple et peut facilement être mal effectué, il est possible d’utiliser un objet d’Installation UNIQUE. L’installation contient tout ce dont vous avez besoin : un canal Push (jeton d’appareil), des balises, des modèles, des vignettes secondaires (pour WNS et APN). Vous n’avez plus besoin d’appeler le service pour obtenir l’Id : il suffit de générer un GUID ou tout autre identificateur, de le conserver sur l’appareil et de l’envoyer à votre serveur principal avec le canal Push (jeton d’appareil). Sur le serveur principal, effectuez simplement un appel unique : CreateOrUpdateInstallation est entièrement idempotent. N’hésitez pas à réessayer si nécessaire.
+L’API d’installation est un autre mécanisme de gestion des inscriptions. Au lieu de maintenir plusieurs inscriptions, qui ne sont pas simples et peuvent facilement être mal effectuées, il est maintenant possible d’utiliser un objet d’installation UNIQUE. L’installation contient tout ce dont vous avez besoin : un canal Push (jeton d’appareil), des balises, des modèles, des vignettes secondaires (pour WNS et APN). Vous n’avez plus besoin d’appeler le service pour obtenir l’ID : il suffit de générer un GUID ou tout autre identificateur, de le conserver sur l’appareil et de l’envoyer à votre serveur principal avec le canal Push (jeton d’appareil). Sur le serveur principal, effectuez simplement un appel unique, CreateOrUpdateInstallation. Ce dernier étant totalement idempotent, n’hésitez pas à réessayer si nécessaire.
 
-L’exemple pour Amazon Kindle Fire ressemble à ceci :
+Voici un exemple pour Amazon Kindle Fire :
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
@@ -150,7 +154,7 @@ Si vous souhaitez le mettre à jour :
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-pour des scénarios avancés, nous avons des capacités de mise à jour partielle qui permettent de modifier uniquement des propriétés particulières de l’objet d’installation. La mise à jour partielle est un sous-ensemble d’opérations de correction JSON que vous pouvez exécuter sur l’objet de l’Installation.
+Pour des scénarios avancés, utilisez les capacités de mise à jour partielle qui permettent de modifier uniquement des propriétés particulières de l’objet d’installation. La mise à jour partielle est un sous-ensemble d’opérations de correction JSON que vous pouvez exécuter sur l’objet d’installation.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +165,9 @@ Supprimer l’Installation :
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, Patch et Delete sont cohérents avec Get. L’opération demandée va simplement à la file d’attente système lors de l’appel et est exécutée en arrière-plan. Notez que Get n’est pas conçu pour le scénario d’exécution principal, mais uniquement pour le débogage et le dépannage. Il est étroitement limité par le service.
+CreateOrUpdate, Patch et Delete sont cohérents avec Get. L’opération demandée rejoint simplement la file d’attente système lors de l’appel et est exécutée en arrière-plan. Get n’est pas conçu pour le scénario d’exécution principal, mais uniquement pour le débogage et le dépannage. Il est étroitement limité par le service.
 
-Le flux d’envoi pour les Installations est identique à celui des Inscriptions. Nous venons de créer une option pour la cible de notification de l’Installation particulière : utilisez simplement la balise "InstallationId:{desired-id}". Pour l’exemple ci-dessus, elle ressemblerait à ceci :
+Le flux d’envoi pour les Installations est identique à celui des Inscriptions. Pour cibler la notification sur l’installation particulière, utilisez simplement la balise « InstallationId:{desired-id} ». Dans ce cas, le code est :
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -176,7 +180,7 @@ Pour l’un des modèles :
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
 
 ### <a name="schedule-notifications-available-for-standard-tier"></a>planification des notifications (disponible pour le niveau STANDARD)
-Similaire à l’envoi ordinaire, mais avec un paramètre supplémentaire : scheduledTime indique quand la notification doit être remise. Le service accepte n’importe quel point dans le temps entre maintenant + 5 minutes et maintenant + 7 jours.
+Similaire à l’envoi ordinaire, mais avec un paramètre supplémentaire : scheduledTime, qui indique à quel moment la notification doit être remise. Le service accepte n’importe quel point dans le temps entre maintenant + 5 minutes et maintenant + 7 jours.
 
 **Planification d’une notification native Windows :**
 
@@ -186,7 +190,7 @@ Similaire à l’envoi ordinaire, mais avec un paramètre supplémentaire : sch
     hub.scheduleNotification(n, c.getTime());
 
 ### <a name="importexport-available-for-standard-tier"></a>Importation/exportation (disponible pour le niveau STANDARD)
-Il est parfois nécessaire d’effectuer une opération en bloc vis-à-vis des inscriptions. C’est généralement le cas pour l’intégration avec un autre système ou simplement pour un correctif massif pour mettre à jour les balises par exemple. Il est fortement déconseillé d’utiliser des flux Get/Update si cela concerne des milliers d’inscriptions. La fonction d’importation/exportation est conçue pour couvrir ce scénario. Vous fournissez un accès à un conteneur d’objets blob dans votre compte de stockage en tant que source de données entrantes et emplacement de sortie.
+Il est parfois nécessaire d’effectuer une opération en bloc vis-à-vis des inscriptions. C’est généralement le cas pour l’intégration avec un autre système ou simplement pour un correctif massif pour mettre à jour les balises par exemple. Il est déconseillé d’utiliser des flux Get/Update si cela concerne des milliers d’inscriptions. La fonction d’importation/exportation est conçue pour couvrir ce scénario. Vous fournissez un accès à un conteneur d’objets blob dans votre compte de stockage en tant que source de données entrantes et emplacement de sortie.
 
 **Envoi de la tâche d’exportation :**
 
@@ -217,7 +221,7 @@ Il est parfois nécessaire d’effectuer une opération en bloc vis-à-vis des i
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI avec signature SAP :** c’est l’URL d’un fichier blob ou d’un conteneur d’objets blob et d’un jeu de paramètres tels que les autorisations et l’heure d’expiration, ainsi que la signature de toutes ces opérations effectuées à l’aide de la clé SAP du compte. Le Kit de développement logiciel (SDK) Azure Storage Java dispose de nombreuses fonctionnalités, notamment la création de ce type d’URI. Vous pouvez également examiner la classe de test ImportExportE2E (à partir de l’emplacement github) qui possède une implémentation très basique et compacte de l’algorithme de signature.
+**URI avec signature SAP :** c’est l’URL d’un fichier blob ou d’un conteneur d’objets blob et d’un jeu de paramètres tels que les autorisations et l’heure d’expiration, ainsi que la signature de toutes ces opérations effectuées à l’aide de la clé SAP du compte. Le Kit de développement logiciel (SDK) Azure Storage Java dispose de nombreuses fonctionnalités, notamment la création de ce type d’URI. Autrement, vous pouvez simplement examiner la classe de test ImportExportE2E (à partir de l’emplacement github) qui possède une implémentation basique et compacte de l’algorithme de signature.
 
 ### <a name="send-notifications"></a>Envoi de notifications
 L’objet de Notification est simplement un corps avec des en-têtes. Certaines méthodes utilitaires vous aident à créer les objets de notifications natives et les modèles.
@@ -272,7 +276,7 @@ L’objet de Notification est simplement un corps avec des en-têtes. Certaines 
 L’exécution de votre code Java produit normalement une notification qui apparaît sur votre appareil cible.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cette rubrique, nous vous avons montré comment créer un client REST Java simple pour Notification Hubs. À ce stade, vous pouvez :
+Cette rubrique vous a montré comment créer un client REST Java simple pour Notification Hubs. À ce stade, vous pouvez :
 
 * Téléchargez la version complète du [Kit de développement logiciel (SDK) Java], qui contient l’ensemble du code du Kit de développement logiciel (SDK). 
 * Entraînez-vous avec les exemples :

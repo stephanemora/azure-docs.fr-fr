@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
 Protégez vos données en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. Lorsque vous restaurez un point de récupération, vous pouvez :
@@ -90,12 +90,12 @@ La restauration d’une machine virtuelle ou de tous les disques à partir de la
 
     Le panneau **Restaurer** indique que le point de restauration est défini.
 
-9. Si vous n’en êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration est sélectionné](#select-restore-point-for-restore), puis choisissez **Configuration de la restauration**. Le panneau **Configuration de la restauration** s’ouvre.
+9. Si vous n’en êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration est sélectionné](#select-a-restore-point-for-restore), puis choisissez **Configuration de la restauration**. Le panneau **Configuration de la restauration** s’ouvre.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Choisir une configuration de restauration de machine virtuelle
 Après avoir sélectionné le point de restauration, choisissez une configuration de restauration de machine virtuelle. Pour configurer la machine virtuelle restaurée, vous pouvez utiliser le portail Azure ou PowerShell.
 
-1. Si vous n’en êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration est sélectionné](#select-restore-point-for-restore), puis choisissez **Configuration de la restauration**. Le panneau **Configuration de la restauration** s’ouvre.
+1. Si vous n’en êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration est sélectionné](#select-a-restore-point-for-restore), puis choisissez **Configuration de la restauration**. Le panneau **Configuration de la restauration** s’ouvre.
 
     ![Assistant Configuration de restauration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Dans le panneau **Restaurer la configuration**, vous avez deux possibilités :

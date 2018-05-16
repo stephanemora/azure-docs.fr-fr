@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -44,7 +44,7 @@ Dans Visual Studio, le modèle de projet **Azure Functions** crée un projet de 
 > [!IMPORTANT]
 > Le processus de génération crée un fichier *function.json* pour chaque fonction. Ce fichier *function.json* n’est pas destiné à être directement modifié. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. Pour désactiver une fonction, utilisez l’attribut [Désactiver](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Par exemple, ajoutez un paramètre d’application booléen MY_TIMER_DISABLED, et appliquez `[Disable("MY_TIMER_DISABLED")]` à votre fonction. Vous pouvez ensuite activer et désactiver celle-ci en modifiant le paramètre d’application.
 
-### <a name="functionname-and-trigger-attributes"></a>Attribut FunctionName et attribut de déclencheur
+## <a name="methods-recognized-as-functions"></a>Méthodes reconnues en tant que fonctions
 
 Dans une bibliothèque de classes, une fonction est une méthode statique avec un attribut `FunctionName` et un attribut de déclencheur, comme illustré dans l’exemple suivant :
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-L’attribut `FunctionName` marque une méthode comme point d’entrée de la fonction. Le nom doit être unique dans le projet.
+L’attribut `FunctionName` marque une méthode comme point d’entrée de la fonction. Le nom doit être unique dans le projet. Les modèles de projets créent souvent une méthode nommée `Run`, mais le nom de la méthode peut être n’importe quel nom de méthode C# valide.
 
 L’attribut de déclencheur spécifie le type de déclencheur et lie les données d’entrée à un paramètre de méthode. L’exemple de fonction est déclenché par un message de file d’attente, qui est lui-même transmis à la méthode dans le paramètre `myQueueItem`.
 
-### <a name="additional-binding-attributes"></a>Attributs de liaison supplémentaires
+## <a name="method-signature-parameters"></a>Paramètres de signature de méthode
 
-Il est possible d’utiliser des attributs de liaison d’entrée et de sortie supplémentaires. L’exemple suivant modifie l’exemple précédent en ajoutant une liaison de file d’attente de sortie. La fonction écrit le message de file d’attente d’entrée dans un nouveau message de file d’attente dans une autre file d’attente.
+La signature de méthode peut contenir des paramètres autres que ceux utilisés avec l’attribut de déclencheur. Voici quelques-uns des paramètres supplémentaires que vous pouvez inclure :
+
+* des [liaisons d’entrée et de sortie](functions-triggers-bindings.md) marquées comme telles à l’aide d’attributs ;  
+* un paramètre `ILogger` ou `TraceWriter` de [journalisation](#logging) ;
+* un paramètre `CancellationToken` pour [l’arrêt approprié](#cancellation-tokens) ;
+* des paramètres [d’expressions de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns) pour obtenir des métadonnées de déclencheur.
+
+L’ordre des paramètres dans la signature de fonction n’a pas d’importance. Par exemple, vous pouvez placer les paramètres de déclencheur avant ou après les autres liaisons, de même que vous pouvez placer le paramètre de l’enregistreur d’événements avant ou après les paramètres de liaison ou de déclencheur.
+
+### <a name="output-binding-example"></a>Exemple de liaison de sortie
+
+L’exemple suivant modifie l’exemple précédent en ajoutant une liaison de file d’attente de sortie. La fonction écrit le message de file d’attente qui déclenche la fonction vers un nouveau message de file d’attente dans une autre file d’attente.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Ordre des paramètres
+Les articles de référence sur les liaisons ([Liaisons de stockage File d’attente Azure pour Azure Functions](functions-bindings-storage-queue.md), par exemple) décrivent les types de paramètre que vous pouvez utiliser avec les attributs de liaison de déclencheur, d’entrée ou de sortie.
 
-L’ordre des paramètres dans la signature de fonction n’a pas d’importance. Par exemple, vous pouvez placer les paramètres de déclencheur avant ou après les autres liaisons, de même que vous pouvez placer le paramètre de l’enregistreur d’événements avant ou après les paramètres de liaison ou de déclencheur.
+### <a name="binding-expressions-example"></a>Exemple d’expression de liaison
 
-### <a name="binding-expressions"></a>Expressions de liaison
-
-Vous pouvez utiliser des expressions de liaison dans les paramètres du constructeur d’attributs ainsi que dans les paramètres de la fonction. Par exemple, le code suivant permet d’obtenir le nom de la file d’attente à surveiller à partir d’un paramètre d’application, et de récupérer l’heure de création du message de file d’attente dans le paramètre `insertionTime`.
+Le code suivant permet d’obtenir le nom de la file d’attente à surveiller à partir d’un paramètre d’application, et de récupérer l’heure de création du message de file d’attente dans le paramètre `insertionTime`.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Pour plus d’informations, consultez la section **Modèles et expressions de liaison** dans [Déclencheurs et liaisons](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Conversion en function.json
+## <a name="autogenerated-functionjson"></a>Fichier function.json généré automatiquement
 
 Le processus de build crée un fichier *function.json* dans un dossier de fonction du dossier de build. Comme indiqué précédemment, ce fichier n’est pas destiné à être modifié directement. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. 
 
@@ -134,7 +141,7 @@ Le fichier *function.json* généré inclut une propriété `configurationSource
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Package NuGet de Microsoft.NET.Sdk.Functions
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 La génération du fichier *function.json* est effectuée par le package NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ Le package `Sdk` dépend également de [Newtonsoft.Json](http://www.nuget.org/pa
 
 Le code source de `Microsoft.NET.Sdk.Functions` est disponible dans le dépôt GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Version du runtime
+## <a name="runtime-version"></a>Version du runtime
 
 Visual Studio utilise les outils [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) pour exécuter les projets Functions. Ils constituent l’interface de ligne de commande du runtime Functions.
 

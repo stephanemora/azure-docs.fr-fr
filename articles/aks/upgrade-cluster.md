@@ -1,6 +1,6 @@
 ---
-title: Mise à jour d’un cluster Azure Container Service (AKS)
-description: Mise à jour d’un cluster Azure Container Service (AKS)
+title: Mise à jour d’un cluster Azure Kubernetes Service (AKS)
+description: Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 5f5cfc49bd7b5e1c06adf97bc6f6ba88fc81f77a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3fae465512501b0642d0215df7b73c9879a1a3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Mise à jour d’un cluster Azure Container Service (AKS)
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
-Service de conteneur Azure (ACS) facilite effectuer des tâches de gestion courantes, y compris la mise à niveau Kubernetes clusters.
+Azure Kubernetes Service (AKS) facilite effectuer des tâches de gestion courantes, y compris la mise à niveau Kubernetes clusters.
 
-## <a name="upgrade-an-aks-cluster"></a>Mettre à niveau un cluster ACS
+## <a name="upgrade-an-aks-cluster"></a>Mettre à niveau un cluster AKS
 
 Avant la mise à niveau d’un cluster, utilisez la commande `az aks get-upgrades` pour vérifier les versions de Kubernetes qui sont disponibles pour la mise à niveau.
 

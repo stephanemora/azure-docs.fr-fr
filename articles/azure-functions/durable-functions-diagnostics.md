@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostics dans Fonctions durables (Azure Functions)
 
@@ -28,7 +28,7 @@ Il existe plusieurs options permettant de diagnostiquer les problèmes avec [Fon
 
 [Application Insights](../application-insights/app-insights-overview.md) est la méthode recommandée pour les diagnostics et la surveillance dans Azure Functions. Il en va de même pour Fonctions durables. Pour obtenir une vue d’ensemble montrant comment tirer parti d’Application Insights dans votre application de fonction, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
-L’extension Fonctions durables d’Azure Functions émet également des *événements de suivi* vous permettent de suivre l’exécution de bout en bout d’une orchestration. Ces événements sont accessibles et interrogés à l’aide de l’outil [Application Insights Analytics](../application-insights/app-insights-analytics.md) dans le portail Azure.
+L’extension Fonctions durables d’Azure émet également des *événements de suivi* vous permettant de tracer l’exécution de bout en bout d’une orchestration. Ces événements sont accessibles et interrogés à l’aide de l’outil [Application Insights Analytics](../application-insights/app-insights-analytics.md) dans le portail Azure.
 
 ### <a name="tracking-data"></a>Suivi des données
 
@@ -68,7 +68,7 @@ Le niveau de détail des données de suivi transmises à Application Insights pe
 
 Par défaut, tous les événements de suivi sont transmis. Le volume de données peut être réduit en définissant `Host.Triggers.DurableTask` sur `"Warning"` ou `"Error"`. Dans ce cas, les événements de suivi seront uniquement transmis en cas de situation exceptionnelle.
 
-> [!WARNING]
+> [!NOTE]
 > Par défaut, les données de télémétrie Application Insights sont échantillonnées par le runtime Azure Functions pour éviter un transfert trop fréquent de données. Cela peut entraîner une perte des informations de suivi si de nombreux événements de cycle de vie se produisent sur une courte période. L’article sur [la surveillance d’Azure Functions](functions-monitoring.md#configure-sampling) explique comment configurer ce comportement.
 
 ### <a name="single-instance-query"></a>Requête d’instance unique
@@ -124,6 +124,8 @@ Le résultat est une liste d’ID d’instances et leur actuel état d’exécut
 
 Il est important de garder à l’esprit le comportement de réexécution de l’orchestrateur lors de l’écriture des journaux directement à partir d’une fonction d’orchestrateur. Par exemple, considérez la fonction d’orchestrateur suivante :
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -137,6 +139,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 Les données de journal obtenues se présentent comme suit :
@@ -181,6 +199,49 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+> [!NOTE]
+> La propriété `IsReplaying` n’est pas encore disponible dans JavaScript.
+
+## <a name="custom-status"></a>État personnalisé
+
+L’état d’orchestration personnalisé vous permet de définir une valeur d’état personnalisée pour votre fonction d’orchestrateur. Cet état est fourni par le biais de l’API de requête d’état HTTP ou l’API `DurableOrchestrationClient.GetStatusAsync`. L’état d’une orchestration personnalisée permet de surveiller plus précisément les fonctions d’orchestrateur. Par exemple, le code de fonction d’orchestrateur peut inclure les appels `DurableOrchestrationContext.SetCustomStatus` afin de mettre à jour la progression d’une opération de longue durée. Un client, comme une page web ou un autre système externe, peut ensuite interroger régulièrement les API de requête d’état HTTP pour en savoir plus sur l’état d’avancement. Voici un exemple de syntaxe utilisant `DurableOrchestrationContext.SetCustomStatus` :
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+Pendant l’exécution de l’orchestration, les clients externes peuvent récupérer cet état personnalisé :
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+Les clients obtiennent la réponse suivante : 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  La charge utile de l’état personnalisé est limitée à 16 Ko de texte JSON UTF-16, car elle doit pouvoir tenir dans une colonne de Stockage Table Azure. Vous pouvez utiliser un stockage externe si vous avez besoin d’une charge utile plus importante.
 
 ## <a name="debugging"></a>Débogage
 

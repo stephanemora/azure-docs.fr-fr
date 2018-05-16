@@ -1,9 +1,9 @@
 ---
-title: "Plan de traitement des paiements Azure - Conditions relatives à l’identité"
+title: Plan de traitement des paiements Azure - Conditions relatives à l’identité
 description: Condition 8 de la norme PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>Conditions relatives à l’identité pour les environnements conformes à la norme PCI DSS 
 ## <a name="pci-dss-requirement-8"></a>Condition 8 de la norme PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Identifier et authentifier l’accès aux composants du système**
 
 > [!NOTE]
-> Ces conditions ont été définies par le [Conseil des normes de sécurité PCI (Payment Card Industry)](https://www.pcisecuritystandards.org/pci_security/) dans le cadre de la [norme PCI DSS (PCI Data Security Standard) version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Pour obtenir des informations sur les procédures de test et des instructions pour chacune des conditions, reportez-vous à la documentation de la norme PCI DSS.
+> Ces conditions ont été définies par le [Conseil des normes de sécurité PCI (Payment Card Industry)](https://www.pcisecuritystandards.org/pci_security/) dans le cadre de la [norme PCI DSS (PCI Data Security Standard) version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Pour connaître les procédures de test et les directives de chaque condition, reportez-vous à la documentation de la norme PCI DSS.
 
 Affecter une identification (ID) unique à chaque personne bénéficiant d’un accès garantit que chaque personne est responsable de ses actions. Une fois la responsabilité établie, les actions effectuées sur les systèmes et les données critiques sont effectuées par des processus et des utilisateurs connus et autorisés.
 L’efficacité d’un mot de passe est en grande partie déterminée par la conception et l’implémentation du système d’authentification ; en particulier, le nombre de tentatives de saisie de mot de passe autorisées et les méthodes de sécurité mises en place pour protéger les mots de passe utilisateur au point d’entrée, lors de leur transmission et dans le stockage.

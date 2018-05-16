@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Tutoriel : Exécuter des applications dans Azure Container Service (ACS)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Exécuter des applications dans Azure Kubernetes Service (ACS)
 
 Dans ce didacticiel (quatrième d’une série de huit), un exemple d’application est déployé dans un cluster Kubernetes. Les étapes effectuées sont les suivantes :
 
@@ -30,7 +30,7 @@ Ce didacticiel suppose une compréhension élémentaire des concepts de Kubernet
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé. 
+Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé.
 
 Pour effectuer ce didacticiel, vous avez besoin du fichier manifeste Kubernetes `azure-vote-all-in-one-redis.yaml`. Ce fichier a été téléchargé avec le code source de l’application dans un didacticiel précédent. Vérifiez que vous avez cloné le référentiel et que vous avez modifié des répertoires dans le référentiel cloné.
 
@@ -89,7 +89,7 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Tester l’application
 
-Un [service Kubernetes][kubernetes-service] est créé et expose l’application à Internet. Ce processus peut prendre plusieurs minutes. 
+Un [service Kubernetes][kubernetes-service] est créé et expose l’application à Internet. Ce processus peut prendre plusieurs minutes.
 
 Pour surveiller la progression, utilisez la commande [kubectl get service][kubectl-get] avec l’argument `--watch`.
 
@@ -98,12 +98,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Au début, *EXTERNAL-IP* pour le service *azure-vote-front* apparaît *En attente*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Une fois que l’adresse *EXTERNAL-IP* est passée du statut *En attente* à *Adresse IP*, utilisez `CTRL-C` pour arrêter le processus de surveillance kubectl. 
+Une fois que l’adresse *EXTERNAL-IP* est passée du statut *En attente* à *Adresse IP*, utilisez `CTRL-C` pour arrêter le processus de surveillance kubectl.
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
@@ -119,14 +119,14 @@ Suivez ces étapes pour [autoriser l’accès via un secret Kubernetes](https://
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, l’application de vote Azure a été déployée sur un cluster Kubernetes dans ACS. Les tâches accomplies sont les suivantes :  
+Dans ce didacticiel, l’application de vote Azure a été déployée sur un cluster Kubernetes dans ACS. Les tâches accomplies sont les suivantes :
 
 > [!div class="checklist"]
 > * Téléchargement des fichiers manifeste Kubernetes
 > * Exécution de l’application dans Kubernetes
 > * Test de l’application
 
-Passez au didacticiel suivant pour en savoir plus sur la mise à l’échelle d’une application Kubernetes et de l’infrastructure Kubernetes sous-jacente. 
+Passez au didacticiel suivant pour en savoir plus sur la mise à l’échelle d’une application Kubernetes et de l’infrastructure Kubernetes sous-jacente.
 
 > [!div class="nextstepaction"]
 > [Mettre à l’échelle l’application et l’infrastructure Kubernetes][aks-tutorial-scale]

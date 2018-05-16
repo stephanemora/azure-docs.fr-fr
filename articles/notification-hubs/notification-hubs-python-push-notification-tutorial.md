@@ -1,24 +1,24 @@
 ---
 title: Utilisation de Notification Hubs avec Python
-description: "Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal Python."
+description: Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal Python.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 5640dd4a-a91e-4aa0-a833-93615bde49b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 32953bacb8fdb135d5f3e0e9324218d2a71b0818
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Utilisation de Notification Hubs à partir de Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -32,7 +32,7 @@ Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir 
 > 
 > 
 
-Dans cette rubrique, nous vous montrons comment :
+Cet article vous montre comment :
 
 * créer un client REST pour les fonctionnalités de Notification Hubs dans Python ;
 * envoyer des notifications à l’aide de l’interface de Python vers les API REST Notification Hub ; 
@@ -46,7 +46,7 @@ Vous pouvez suivre le [didacticiel de prise en main](notification-hubs-windows-s
 > 
 
 ## <a name="client-interface"></a>Interface client
-L'interface client principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx). Cela vous permet de traduire directement les didacticiels et les exemples actuellement disponibles sur ce site et fournis par la communauté sur Internet.
+L'interface client principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx). Cette interface vous permet de traduire directement les tutoriels et les exemples actuellement disponibles sur ce site et fournis par la communauté sur Internet.
 
 Tout le code est disponible dans l' [exemple de wrapper REST Python].
 
@@ -61,9 +61,9 @@ Pour envoyer une notification toast de Windows :
     hub.send_windows_notification(wns_payload)
 
 ## <a name="implementation"></a>Implémentation
-Si ce n'est déjà fait, suivez notre [didacticiel de prise en main] jusqu'à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
+Si ce n'est déjà fait, suivez le [tutoriel de prise en main] jusqu'à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
 
-Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l’implémentation Python des principales étapes requises pour accéder aux point de terminaison REST de Notification Hubs et envoyer des notifications :
+Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Cette section décrit l’implémentation Python des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs et envoyer des notifications :
 
 1. Analyse de la chaîne de connexion
 2. Génération du jeton d'autorisation
@@ -96,7 +96,7 @@ Voici la classe principale implémentant le client, dont le constructeur analyse
 
 ### <a name="create-security-token"></a>Création du jeton de sécurité
 Les détails concernant la création d'un jeton de sécurité sont disponibles [ici](http://msdn.microsoft.com/library/dn495627.aspx).
-Les méthodes suivantes doivent être ajoutées à la classe **NotificationHub** pour créer le jeton à partir de l'URI de la demande actuelle et des informations d'identification extraites de la chaîne de connexion.
+Ajoutez les méthodes suivantes à la classe **NotificationHub** pour créer le jeton à partir de l'URI de la demande actuelle et des informations d'identification extraites de la chaîne de connexion.
 
     @staticmethod
     def get_expiry():
@@ -149,7 +149,7 @@ Cette classe est un conteneur pour un corps de notification natif ou un ensemble
 
 Pour connaître toutes les options disponibles, reportez-vous à la [documentation sur les API REST de Notification Hubs](http://msdn.microsoft.com/library/dn495827.aspx) et aux formats spécifiques des plateformes de notification.
 
-Avec cette classe, nous pouvons à présent écrire les méthodes d'envoi des notifications à l'intérieur de la classe **NotificationHub** .
+Avec cette classe, écrivez les méthodes d'envoi des notifications à l'intérieur de la classe **NotificationHub**.
 
     def make_http_request(self, url, payload, headers):
         parsed_url = urllib.parse.urlparse(url)
@@ -257,10 +257,10 @@ Avec cette classe, nous pouvons à présent écrire les méthodes d'envoi des no
         nh = Notification("template", properties)
         self.send_notification(nh, tags)
 
-Les méthodes ci-dessus envoient une demande POST HTTP au point de terminaison /messages de votre hub de notification, avec le corps et les en-têtes corrects pour envoyer la notification.
+Ces méthodes envoient une demande POST HTTP au point de terminaison /messages de votre hub de notification, avec le corps et les en-têtes corrects pour envoyer la notification.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Utilisation de la propriété debug pour activer la journalisation détaillée
-L’activation de la propriété debug lors de l’initialisation du hub de notification permet de rédiger des informations de journalisation détaillées sur le vidage des requêtes et réponses HTTP, ainsi que le résultat détaillé de l’envoi des messages de notification. Nous avons récemment ajouté cette propriété appelée [propriété TestSend Notification Hubs](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) , qui retourne des informations détaillées sur le résultat de l'envoi de notification. Pour l’utiliser, réalisez une initialisation à l’aide de ce qui suit :
+L’activation de la propriété debug lors de l’initialisation du hub de notification permet de rédiger des informations de journalisation détaillées sur le vidage des requêtes et réponses HTTP, ainsi que le résultat détaillé de l’envoi des messages de notification. La [propriété TestSend Notification Hubs](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) retourne des informations détaillées sur le résultat de l'envoi de notification. Pour l’utiliser, réalisez une initialisation à l’aide du code suivant :
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
@@ -269,7 +269,7 @@ L’URL HTTP de demande d’envoi de hub de notification est ajoutée avec une c
 ## <a name="complete-tutorial"></a>Suivi du didacticiel
 Vous pouvez à présent terminer le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal Python.
 
-Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) :
+Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [tutoriel de prise en main]) :
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
@@ -324,7 +324,7 @@ L’exécution de votre code Python produit normalement une notification qui app
 ### <a name="enabling-debug-property"></a>Activation de la propriété debug
 Quand vous activez l'indicateur de débogage pendant l'initialisation de la classe NotificationHub, vous voyez un vidage détaillé des requêtes et réponses HTTP, ainsi que NotificationOutcome, comme suit, où vous pouvez comprendre quels en-têtes HTTP sont transmis dans la demande et quelle réponse HTTP a été reçue à partir du hub de notification : ![][1]
 
-Vous verrez un résultat détaillé de hub de notification, par exemple 
+Vous voyez un résultat détaillé de hub de notification, par exemple 
 
 * lorsque le message est envoyé au service de notification Push. 
   
@@ -341,7 +341,7 @@ Notez les en-têtes qui sont envoyés lorsque vous envoyez une notification toas
 ![][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Envoyer une notification indiquant une balise (ou une expression de balise)
-Notez l'en-tête HTTP de balises qui est ajouté à la requête HTTP (dans l'exemple ci-dessous, vous envoyez la notification uniquement aux inscriptions avec la charge utile « sports »)
+Notez l'en-tête HTTP de balises qui est ajouté à la requête HTTP (dans l'exemple ci-dessous, la notification est uniquement envoyée aux inscriptions avec la charge utile « sports »)
 
     hub.send_windows_notification(wns_payload, "sports")
 
@@ -371,15 +371,15 @@ Notez que l’en-tête HTTP de format change et que le corps de charge utile est
 ![][5]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cette rubrique, nous vous avons montré comment créer un client REST Python simple pour Notification Hubs. À ce stade, vous pouvez :
+Cet article a montré comment créer un client REST Python pour Notification Hubs. À ce stade, vous pouvez :
 
-* télécharger l'intégralité de l' [exemple de wrapper REST Python], qui contient tout le code ci-dessus ;
+* télécharger l'intégralité de l'[exemple de wrapper REST Python], qui contient tout le code de cet article ;
 * poursuivre l'apprentissage de la fonctionnalité de balisage de Notification Hubs dans le [didacticiel Nouvelles de dernière minute]
 * poursuivre l'apprentissage de la fonctionnalité des modèles de Notification Hubs dans le [didacticiel de localisation des dernières nouvelles]
 
 <!-- URLs -->
 [exemple de wrapper REST Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[tutoriel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [didacticiel Nouvelles de dernière minute]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [didacticiel de localisation des dernières nouvelles]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 

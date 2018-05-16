@@ -4,19 +4,17 @@ description: Ce document fournit une vue d’ensemble et des exemples détaillé
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensions Python Data Preparations
 Afin de combler les lacunes de fonctionnalité qui existent entre les fonctions intégrées, Azure Machine Learning Data Preparations offre des possibilités d’extension à plusieurs niveaux. Ce document décrit l’extensibilité via un script Python. 
@@ -24,14 +22,10 @@ Afin de combler les lacunes de fonctionnalité qui existent entre les fonctions 
 ## <a name="custom-code-steps"></a>Étapes de code personnalisé 
 Data Preparations comporte les étapes personnalisées suivantes, dans le cadre desquelles les utilisateurs peuvent écrire du code :
 
-* File Reader*
-* Writer*
 * Add Column
 * Advanced Filter
 * Transform Dataflow
 * Transform Partition
-
-*À l’heure actuelle, ces étapes ne sont pas prises en charge dans une exécution Spark.
 
 ## <a name="code-block-types"></a>Types de blocs de code 
 Pour chacune de ces étapes, nous prenons en charge deux types de blocs de code. Tout d’abord, nous prenons en charge une expression Python simple exécutée telle quelle. Deuxièmement, nous prenons en charge un module Python où nous appelons une fonction particulière avec une signature connue dans le code que vous fournissez.
@@ -158,74 +152,6 @@ Exemples
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>File Reader 
-### <a name="purpose"></a>Objectif 
-Le point d’extension File Reader vous permet de contrôler intégralement le processus de lecture d’un fichier dans un flux de données. Le système appelle votre code et transmet la liste des fichiers que vous devez traiter. Votre code doit créer et retourner un cadre de données Pandas. 
-
->[!NOTE]
->Ce point d’extension ne fonctionne pas dans Spark. 
-
-
-### <a name="how-to-use"></a>Utilisation 
-Vous accédez à ce point d’extension à partir de l’Assistant **Ouvrir la source de données**. Choisissez **Fichier** sur la première page, puis choisissez l’emplacement de votre fichier. Dans la page **Choisir les paramètres de fichier**, déroulez la liste **Type de fichier** et choisissez **Fichier personnalisé (Script)**. 
-
-Votre code reçoit un cadre de données Pandas nommé « df », qui contient des informations sur les fichiers que vous devez lire. Si vous choisissez d’ouvrir un répertoire qui contient plusieurs fichiers, le cadre de données contient plusieurs lignes.  
-
-Cette trame de données comporte les colonnes suivantes :
-
-- Path : fichier à lire.
-- PathHint : indique l’emplacement du fichier. Valeurs : Local, AzureBlobStorage et AzureDataLakeStorage.
-- AuthenticationType : type d’authentification utilisé pour accéder au fichier. Valeurs : None, SasToken et OAuthToken.
-- AuthenticationValue : contient la valeur None ou le jeton à utiliser.
-
-### <a name="syntax"></a>Syntaxe 
-Expression 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Module  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>Writer 
-### <a name="purpose"></a>Objectif 
-Le point d’extension Writer vous permet de contrôler intégralement le processus d’écriture de données à partir d’un flux de données. Le système appelle votre code et transmet un cadre de données. Votre code peut utiliser le cadre de données pour écrire des données comme vous le souhaitez. 
-
->[!NOTE]
->Le point d’extension Writer ne fonctionne pas dans Spark.
-
-
-### <a name="how-to-use"></a>Utilisation 
-Vous pouvez ajouter ce point d’extension à l’aide du bloc Write Dataflow (Script). Ce dernier est disponible dans le menu **Transformations** de niveau supérieur.
-
-### <a name="syntax"></a>Syntaxe 
-Expression
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Module
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Ce bloc d’écriture personnalisé peut apparaître au milieu d’une liste d’étapes. Si vous utilisez un Module, votre fonction d’écriture doit renvoyer le cadre de données qui constitue l’entrée vers l’étape qui suit. 
 
 ## <a name="add-column"></a>Add Column 
 ### <a name="purpose"></a>Objectif

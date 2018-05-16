@@ -1,12 +1,12 @@
 ---
-title: "Déployer votre passerelle Usine connectée - Azure | Microsoft Docs"
-description: "Comment déployer une passerelle sur Windows ou Linux pour activer la connectivité à la solution préconfigurée Usine connectée."
-services: 
+title: Déployer votre passerelle d’usine connectée - Azure | Microsoft Docs
+description: Comment déployer une passerelle sur Windows ou Linux pour activer la connectivité à l’accélérateur de solution d’usine connectée.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Déployer une passerelle de périmètre pour la solution préconfigurée Usine connectée sur Windows ou Linux
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Déployer une passerelle de périmètre pour l’accélérateur de solution d’usine connectée sur Windows ou Linux
 
-Vous avez besoin de deux composants logiciels pour déployer une passerelle de périmètre pour la solution préconfigurée *Usine connectée* :
+Vous avez besoin de deux composants logiciels pour déployer une passerelle de périmètre pour l’accélérateur de solution *d’usine connectée* :
 
-- Le *Proxy OPC* établit une connexion à Usine connectée. Le Proxy OPC établit une connexion à IoT Hub et attend les messages de contrôle et de commande du navigateur OPC intégré qui s’exécute sur le portail de la solution Usine connectée.
+- Le *proxy OPC* établit une connexion à la solution d’usine connectée. Le proxy OPC attend ensuite les messages de contrôle et de commande du navigateur OPC intégré qui s’exécute dans le portail de la solution d’usine connectée.
 
-- *L’Éditeur d’OPC* se connecte aux serveurs OPC UA locaux existants et transfère leurs messages de télémétrie à Usine connectée. Vous pouvez connecter un appareil classique OPC à l’aide de [l’adaptateur classique OPC pour OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+- *L’éditeur OPC* se connecte aux serveurs OPC UA locaux existants et transfère leurs messages de télémétrie à la solution d’usine connectée. Vous pouvez connecter un appareil classique OPC à l’aide de [l’adaptateur classique OPC pour OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Les deux composants sont open source et disponibles en tant que sources sur GitHub et en tant que conteneurs Docker sur DockerHub :
 
@@ -37,14 +37,14 @@ Les deux composants sont open source et disponibles en tant que sources sur GitH
 
 Aucune adresse IP publique ni aucun port entrant ouvert dans le pare-feu de la passerelle n’est nécessaire pour l’un ou l’autre des deux composants. Les composants Proxy OPC et Éditeur d’OPC utilisent uniquement le port sortant 443.
 
-Les étapes décrites dans cet article montrent comment déployer une passerelle de périmètre à l’aide de Docker sur Windows ou Linux. La passerelle permet de se connecter à la solution préconfigurée Usine connectée. Vous pouvez également utiliser les composants sans Usine connectée.
+Les étapes décrites dans cet article montrent comment déployer une passerelle de périmètre à l’aide de Docker sur Windows ou Linux. La passerelle active la connectivité à l’accélérateur de solution d’usine connectée. Vous pouvez également utiliser les composants sans la solution d’usine connectée.
 
 > [!NOTE]
 > Les deux composants peuvent être utilisés en tant que modules dans [Azure IoT Edge](https://github.com/Azure/iot-edge).
 
 ## <a name="choose-a-gateway-device"></a>Choisir un appareil de passerelle
 
-Si vous ne possédez pas encore d’appareil de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Pour obtenir la liste des passerelles compatibles avec la solution Usine connectée, consultez le [catalogue d’appareils Azure IoT](https://catalog.azureiotsuite.com/?q=opc). Suivez les instructions fournies avec la passerelle pour la configurer.
+Si vous ne possédez pas encore d’appareil de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Pour obtenir une liste d’appareils de passerelle compatibles avec la solution d’usine connectée, consultez le [catalogue d’appareils Azure IoT](https://catalog.azureiotsuite.com/?q=opc). Suivez les instructions fournies avec la passerelle pour la configurer.
 
 Vous pouvez aussi utiliser les instructions suivantes pour configurer manuellement un appareil de passerelle existant.
 
@@ -75,9 +75,9 @@ Pour plus d’informations, consultez le guide de référence sur le moteur Dock
 
 Avant d’installer les composants OPC, effectuez les étapes suivantes pour préparer votre environnement :
 
-1. Pour procéder au déploiement de passerelle, vous avez besoin de la chaîne de connexion **iothubowner** du hub IoT dans votre déploiement de la solution Usine connectée. Dans le [portail Azure](http://portal.azure.com/), accédez à votre hub IoT dans le groupe de ressources créé durant le déploiement de la solution Usine connectée. Cliquez sur **Stratégies d’accès partagé** pour accéder à la chaîne de connexion **iothubowner** :
+1. Pour terminer le déploiement de la passerelle, vous avez besoin de la chaîne de connexion **iothubowner** du hub IoT dans le déploiement de votre solution d’usine connectée. Dans le [portail Azure](http://portal.azure.com/), accédez à votre hub IoT dans le groupe de ressources créé durant le déploiement de la solution d’usine connectée. Cliquez sur **Stratégies d’accès partagé** pour accéder à la chaîne de connexion **iothubowner** :
 
-    ![Recherche de la chaîne de connexion de l’IoT Hub](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
+    ![Recherche de la chaîne de connexion IoT Hub](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
     Copiez la valeur **Clé primaire de la chaîne de connexion**.
 
@@ -119,7 +119,7 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - Chaque fois que le serveur OPC UA notifie l’Éditeur d’OPC d’une modification de données, la nouvelle valeur est envoyée à IoT Hub. Selon les paramètres de traitement par lot, l’Éditeur d’OPC peut accumuler les données avant de les envoyer à IoT Hub dans un lot.
 
-- Docker ne prend pas en charge la résolution de noms NetBIOS, mais uniquement la résolution de noms DNS. Si vous n’avez pas de serveur DNS sur le réseau, vous pouvez utiliser la solution de contournement indiquée dans l’exemple de ligne de commande précédent. L’exemple de ligne de commande précédent utilise le paramètre `--add-host` pour ajouter une entrée dans le fichier d’hôtes de conteneurs. Cette entrée permet d’effectuer une recherche de nom d’hôte pour le `<OpcServerHostname>` donné et de le résoudre en l’adresse IP `<IpAddressOfOpcServerHostname>` donnée.
+- Docker ne prend pas en charge la résolution de noms NetBIOS, mais uniquement la résolution de noms DNS. Si vous n’avez pas de serveur DNS sur le réseau, vous pouvez utiliser la solution de contournement indiquée dans l’exemple de ligne de commande précédent. L’exemple de ligne de commande précédent utilise le paramètre `--add-host` pour ajouter une entrée dans le fichier d’hôtes de conteneurs. Cette entrée permet d’effectuer une recherche de nom d’hôte pour le `<OpcServerHostname>` particulier et de le résoudre en l’adresse IP `<IpAddressOfOpcServerHostname>` donnée.
 
 - OPC UA utilise des certificats X.509 pour l’authentification et le chiffrement. Vous devez placer le certificat de l’Éditeur d’OPC sur le serveur OPC UA auquel vous vous connectez, afin qu’il approuve l’Éditeur d’OPC. Le magasin du certificat de l’Éditeur d’OPC se trouve dans le dossier `<SharedFolder>/CertificateStores`. Le certificat de l’Éditeur d’OPC se trouve dans le dossier `trusted/certs` du dossier `CertificateStores`.
 
@@ -143,33 +143,33 @@ Le Proxy OPC enregistre la chaîne de connexion pendant l’installation. Pour l
 
 ## <a name="enable-your-gateway"></a>Activer votre passerelle
 
-Effectuez les étapes suivantes pour activer votre passerelle dans la solution préconfigurée Usine connectée :
+Effectuez les étapes suivantes pour activer votre passerelle dans l’accélérateur de solution d’usine connectée :
 
-1. Quand les deux composants sont en cours d’exécution, accédez à la page **Connectez votre propre serveur OPC UA**du portail de solution Usine connectée. Cette page est uniquement disponible pour les administrateurs dans la solution. Entrez l’URL du point de terminaison du serveur de publication (opc.tcp://publisher:62222) et cliquez sur **Connecter**.
+1. Quand les deux composants sont en cours d’exécution, accédez à la page **Connectez votre propre serveur OPC UA** du portail de la solution d’usine connectée. Cette page est uniquement disponible pour les administrateurs dans la solution. Entrez l’URL du point de terminaison du serveur de publication (opc.tcp://publisher:62222) et cliquez sur **Connecter**.
 
-1. Établissez une relation d’approbation entre le portail Usine connectée et l’Éditeur d’OPC. Quand vous voyez un avertissement de certificat, cliquez sur **Continuer**. Un message d’erreur apparaît alors, indiquant que l’Éditeur d’OPC n’approuve pas le client web UA. Pour résoudre cette erreur, copiez le certificat du **client web UA** depuis le dossier `<SharedFolder>/CertificateStores/rejected/certs` vers le dossier `<SharedFolder>/CertificateStores/trusted/certs` sur la passerelle. Il est inutile de redémarrer la passerelle.
+1. Établissez une relation d’approbation entre le portail de la solution d’usine connectée et l’éditeur OPC. Quand vous voyez un avertissement de certificat, cliquez sur **Continuer**. Un message d’erreur apparaît alors, indiquant que l’Éditeur d’OPC n’approuve pas le client web UA. Pour résoudre cette erreur, copiez le certificat du **client web UA** depuis le dossier `<SharedFolder>/CertificateStores/rejected/certs` vers le dossier `<SharedFolder>/CertificateStores/trusted/certs` sur la passerelle. Il est inutile de redémarrer la passerelle.
 
 Vous pouvez désormais vous connecter à la passerelle à partir du cloud et ajouter des serveurs OPC UA à la solution.
 
 ## <a name="add-your-own-opc-ua-servers"></a>Ajouter vos propres serveurs OPC UA
 
-Pour ajouter vos propres serveurs OPC UA à la solution préconfigurée Usine connectée :
+Pour ajouter vos propres serveurs OPC UA à l’accélérateur de solution d’usine connectée :
 
-1. Accédez à la page **Connectez votre propre serveur OPC UA** du portail de solution Usine connectée.
+1. Accédez à la page **Connectez votre propre serveur OPC UA** du portail de la solution d’usine connectée.
 
     1. Démarrez le serveur OPC UA auquel vous souhaitez vous connecter. Assurez-vous que votre serveur OPC UA est accessible à partir de l’Éditeur OPC et du proxy OPC exécutés dans le conteneur (reportez-vous aux commentaires précédents sur la résolution des noms).
     1. Entrez l’URL du point de terminaison de votre serveur OPC UA (`opc.tcp://<host>:<port>`) et cliquez sur **Connexion**.
-    1. Durant la configuration de la connexion, une relation d’approbation entre le portail Usine connectée (client OPC UA) et le serveur OPC UA auquel vous essayez de vous connecter est établie. Dans le tableau de bord Usine connectée, un avertissement du type **Impossible de vérifier le certificat du serveur auquel vous souhaitez vous connecter** s’affiche. Quand vous voyez un avertissement de certificat, cliquez sur **Continuer**.
-    1. La configuration du certificat du serveur OPC UA auquel vous essayez de vous connecter est plus difficile à effectuer. Pour les serveurs OPC UA de type PC, il vous suffit généralement de confirmer une boîte de dialogue d’avertissement qui s’affiche dans le tableau de bord. Pour les systèmes de serveur OPC UA incorporés, consultez la documentation de votre serveur OPC UA pour connaître la procédure à suivre. Pour effectuer cette tâche, vous aurez peut-être besoin du certificat du client OPC UA du portail Usine connectée. Les administrateurs peuvent télécharger ce certificat à partir de la page **Connectez votre propre serveur OPC UA** :
+    1. Dans le cadre de la configuration de la connexion, une relation d’approbation entre le portail de la solution d’usine connectée (client OPC UA) et le serveur OPC UA auquel vous essayez de vous connecter est établie. Dans le tableau de bord de la solution d’usine connectée, un avertissement du type **Impossible de vérifier le certificat du serveur auquel vous souhaitez vous connecter** s’affiche. Quand vous voyez un avertissement de certificat, cliquez sur **Continuer**.
+    1. La configuration du certificat du serveur OPC UA auquel vous essayez de vous connecter est plus difficile à effectuer. Pour les serveurs OPC UA de type PC, il vous suffit généralement de confirmer une boîte de dialogue d’avertissement qui s’affiche dans le tableau de bord. Pour les systèmes de serveur OPC UA incorporés, consultez la documentation de votre serveur OPC UA pour connaître la procédure à suivre. Pour effectuer cette tâche, vous aurez peut-être besoin du certificat du client OPC UA du portail de la solution d’usine connectée. Les administrateurs peuvent télécharger ce certificat à partir de la page **Connectez votre propre serveur OPC UA** :
 
         ![Portail de la solution](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
-1. Naviguez dans l’arborescence de nœuds OPC UA de votre serveur OPC UA, cliquez avec le bouton droit sur les nœuds OPC pour envoyer les valeurs à Usine connectée, puis sélectionnez **Publier**.
+1. Naviguez dans l’arborescence de nœuds OPC UA de votre serveur OPC UA, cliquez avec le bouton droit sur les nœuds OPC voulus pour envoyer les valeurs à la solution d’usine connectée, puis sélectionnez **Publier**.
 
-1. Les données de télémétrie transitent maintenant à partir de la passerelle. Vous pouvez afficher les données de télémétrie dans la vue **Emplacements des usines** du portail de solution Usine connectée, sous **Nouvelle fabrique**.
+1. Les données de télémétrie transitent maintenant à partir de la passerelle. Vous pouvez voir les données de télémétrie dans la vue **Emplacements des usines** du portail de la solution d’usine connectée sous **New Factory** (Nouvelle usine).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’architecture de la solution préconfigurée Usine connectée, consultez la [présentation de la solution préconfigurée Usine connectée](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Pour en savoir plus sur l’architecture de l’accélérateur de solution d’usine connectée, consultez [Procédure pas à pas de l’accélérateur de solution d’usine connectée](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
 Découvrez [l’implémentation de référence de l’éditeur OPC](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

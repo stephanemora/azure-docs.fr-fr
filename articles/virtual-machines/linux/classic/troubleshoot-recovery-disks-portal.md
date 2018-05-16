@@ -1,23 +1,23 @@
 ---
-title: "Résoudre les problèmes d’une machine virtuelle Linux Azure classique en connectant le disque du système d’exploitation à une machine virtuelle de récupération | Microsoft Docs"
-description: "Apprenez à résoudre les problèmes d’une machine virtuelle Linux Azure classique en connectant le disque du système d’exploitation à une machine virtuelle de récupération"
+title: Résoudre les problèmes d’une machine virtuelle Linux Azure classique en connectant le disque du système d’exploitation à une machine virtuelle de récupération | Microsoft Docs
+description: Apprenez à résoudre les problèmes d’une machine virtuelle Linux Azure classique en connectant le disque du système d’exploitation à une machine virtuelle de récupération
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4b4ffe51a570c7cdf58a427b6c7e4271d8c6b283
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3f575b8b689ce97b202385e42b3f7854e883e36
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>Résoudre les problèmes d’une machine virtuelle Linux classique en connectant le disque du système d’exploitation à une machine virtuelle de récupération
 

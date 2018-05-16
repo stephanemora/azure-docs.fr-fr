@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -50,15 +50,15 @@ Pour plus d’informations sur la définition des paramètres, consultez [Consid
 
 ### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Option 1 : Utilisation de SAP avec transfert direct vers le stockage blob à partir d’Azure CDN
 
-Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est passé d’Azure CDN au serveur d’origine. Elle est prise en charge par **Azure CDN de Verizon** et **Azure CDN d’Akamai**. 
+Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est passé d’Azure CDN au serveur d’origine. Elle est prise en charge par les profils **Azure CDN Standard de Verizon** et **Azure CDN Standard d’Akamai**. 
  
 1. Sélectionnez un point de terminaison, sélectionnez **Règles de mise en cache**, puis sélectionnez **Mettre en cache chaque URL unique** dans la liste **Mise en cache de chaîne de requête**.
 
     ![Règles de mise en cache de CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
-2. Après avoir configuré SAP sur votre compte de stockage, utilisez le jeton SAP avec l’URL d’Azure CDN pour accéder au fichier. 
+2. Après avoir configuré SAP sur votre compte de stockage, vous devez utiliser le jeton SAP avec les URL du point de terminaison CDN et du serveur d’origine pour accéder au fichier. 
    
-   L’URL qui en résulte a le format suivant : `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   L’URL de point de terminaison CDN qui en résulte a le format suivant : `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    Par exemple :    
    ```
@@ -67,9 +67,9 @@ Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est pass�
    
 3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du serveur d’origine Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-security-token-using-a-rewrite-rule"></a>Option 2 : Jeton de sécurité CDN masqué à l’aide d’une règle de réécriture
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Option 2 : Jeton SAP CDN masqué à l’aide d’une règle de réécriture
  
-Avec cette option, vous pouvez sécuriser le stockage blob d’origine sans qu’un utilisateur Azure CDN ait besoin de recourir à un jeton SAP dans l’URL. Vous pouvez utiliser cette option si vous n’avez pas besoin de restrictions d’accès spécifiques pour le fichier, mais que vous voulez empêcher les utilisateurs d’accéder à l’origine du stockage directement afin d’accélérer le temps de déchargement d’Azure CDN. Cette option est disponible uniquement pour les profils **Azure CDN Premium de Verizon**. 
+Cette option est disponible uniquement pour les profils **Azure CDN Premium de Verizon**. Avec cette option, vous pouvez sécuriser le stockage blob sur le serveur d’origine. Vous pouvez utiliser cette option si vous n’avez pas besoin de restrictions d’accès spécifiques pour le fichier, mais que vous voulez empêcher les utilisateurs d’accéder à l’origine du stockage directement afin d’accélérer le temps de déchargement d’Azure CDN. Le jeton SAP, qui est inconnu de l’utilisateur, est nécessaire à quiconque accède aux fichiers dans le conteneur spécifié du serveur d’origine. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN.
  
 1. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL. La propagation des nouvelles règles prend environ 90 minutes.
 
@@ -80,7 +80,7 @@ Avec cette option, vous pouvez sécuriser le stockage blob d’origine sans qu�
    L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *storagedemo* :
    
    Source :   
-   `(/test/*.)`
+   `(/test/.*)`
    
    Destination :   
    ```
@@ -89,22 +89,21 @@ Avec cette option, vous pouvez sécuriser le stockage blob d’origine sans qu�
 
    ![Règle de réécriture d’URL de CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
-2. Une fois que la nouvelle règle devient active, vous pouvez accéder au fichier sur Azure CDN sans utiliser de jeton SAP dans l’URL, dans le format suivant : `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Une fois la nouvelle règle active, tous les utilisateurs peuvent accéder aux fichiers dans le conteneur spécifié sur le point de terminaison CDN, même s’ils n’utilisent pas de jeton SAP dans l’URL. Voici le format : `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Par exemple :    
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   Notez que toute personne peut désormais accéder aux fichiers sur le point de terminaison CDN, même si elle n’utilise pas de jeton SAP. 
 
 3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du serveur d’origine Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Option 3 : Utilisation de l’authentification de jeton de sécurité de CDN avec une règle de réécriture
 
-Cette option est la plus sécurisée et personnalisable. Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous devez avoir un profil **Azure CDN Premium de Verizon**. L’accès du client est basé sur les paramètres de sécurité que vous avez définis sur le jeton de sécurité. Toutefois, si la signature SAP devient non valide, Azure CDN ne peut plus revalider le contenu à partir du serveur d’origine.
+Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous devez avoir un profil **Azure CDN Premium de Verizon**. Cette option est la plus sécurisée et personnalisable. L’accès du client est basé sur les paramètres de sécurité que vous avez définis sur le jeton de sécurité. Une fois que vous aurez créé et configuré le jeton de sécurité, il sera nécessaire sur toutes les URL de point de terminaison CDN. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN. Si le jeton SAP devient non valide, Azure CDN ne peut plus revalider le contenu à partir du serveur d’origine.
 
 1. [Créez un jeton de sécurité Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) et activez-le à l’aide du moteur de règles pour le point de terminaison de CDN et du chemin où les utilisateurs peuvent accéder au fichier.
 
-   Une URL de jeton de sécurité présente le format suivant :   
+   Une URL de point de terminaison de jeton de sécurité a le format suivant :   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
    Par exemple :    
@@ -112,14 +111,14 @@ Cette option est la plus sécurisée et personnalisable. Pour utiliser l’authe
    https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
-   Les options de paramètres pour l’authentification de jeton de sécurité diffèrent de celles pour un jeton SAP. Si vous choisissez d’utiliser un délai d’expiration quand vous créez un jeton de sécurité, affectez-lui la même valeur que le délai d’expiration du jeton SAP. Cela garantit le caractère prévisible du délai d’expiration. 
+   Les options de paramètres pour l’authentification de jeton de sécurité diffèrent de celles pour un jeton SAP. Si vous choisissez d’utiliser un délai d’expiration quand vous créez un jeton de sécurité, vous devez lui affecter la même valeur que le délai d’expiration du jeton SAP. Cela garantit le caractère prévisible du délai d’expiration. 
  
 2. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL visant à activer l’accès du jeton SAP à tous les objets blob dans le conteneur. La propagation des nouvelles règles prend environ 90 minutes.
 
    L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *storagedemo* :
    
    Source :   
-   `(/test/*.)`
+   `(/test/.*)`
    
    Destination :   
    ```
@@ -128,7 +127,7 @@ Cette option est la plus sécurisée et personnalisable. Pour utiliser l’authe
 
    ![Règle de réécriture d’URL de CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
-3. Si vous renouvelez la signature SAP, mettez à jour la règle de réécriture d’URL avec le nouveau jeton SAP. 
+3. Si vous renouvelez la signature SAP, n’oubliez pas de mettre à jour la règle de réécriture d’URL avec le nouveau jeton SAP. 
 
 ## <a name="sas-parameter-considerations"></a>Considérations relatives aux paramètres SAP
 

@@ -12,21 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1ba02afa775343f496a2b5fec98699e593a330ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>Monitoring du cluster et de la plateforme
 
 Il est important d’effectuer une surveillance au niveau de la plateforme pour déterminer si votre matériel et votre cluster se comportent comme prévu. Même si Service Fabric peut garantir l’exécution continue d’une application pendant les pannes de matériel, vous devez toujours déterminer si une erreur se produit dans l’application ou dans l’infrastructure sous-jacente. Vous devez surveiller également vos clusters pour mieux planifier la capacité et aider à prendre les décisions concernant l’ajout ou la suppression de matériel.
 
-Service Fabric fournit les canaux de journal suivants prêts à l’emploi :
+Service Fabric expose plusieurs événements de plateforme structurée, comme des « [événements Service Fabric](service-fabric-diagnostics-events.md) », via EventStore et divers canaux de journaux prêts à l’emploi. 
 
-* **Opérationnel**  
+EventStore vous permet d’accéder aux événements de votre cluster par entité (entités comprenant clusters, nœuds, applications, services, partitions, réplicas et conteneurs) et les expose via les API REST et la bibliothèque de client Service Fabric. Utilisez EventStore pour surveiller vos clusters de développement/test et pour acquérir une compréhension instantanée de l’état de vos clusters de production. Pour en savoir plus, consultez [Vue d’ensemble d’EventStore](service-fabric-diagnostics-eventstore.md).
+
+Service Fabric fournit également les canaux de journaux suivants prêts à l’emploi pour configurer un pipeline pour surveiller vos clusters de production :
+
+* [**Opérationnel**](service-fabric-diagnostics-event-generation-operational.md)  
 Les opérations de haut niveau effectuées par Service Fabric et le cluster, notamment les événements de mise en ligne d’un nœud, de déploiement d’une nouvelle application ou d’annulation d’une mise à niveau.
 
 * **Opérationnel – Détaillé**  

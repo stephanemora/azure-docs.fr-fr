@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: c993e55193ffb140f6c3aabfa7626b501ab24b9d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
 
@@ -27,7 +27,7 @@ En outre, tous les clouds publics, y compris Azure, appliquent des frais de sort
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Géo-réplication de déploiements dans plusieurs régions
 
-Utilisez la fonction de [géo-réplication](container-registry-geo-replication.md) d’Azure Container Registry si vous déployez des conteneurs dans plusieurs régions. Si vous intervenez auprès de clients du monde entier à partir de centres de données locaux ou si votre équipe de développement se trouve sur différents sites, vous pouvez géo-répliquer votre registre pour en simplifier la gestion et réduire la latence. Actuellement en préversion, cette fonctionnalité est disponible avec les registres [Premium](container-registry-skus.md).
+Utilisez la fonction de [géo-réplication](container-registry-geo-replication.md) d’Azure Container Registry si vous déployez des conteneurs dans plusieurs régions. Si vous intervenez auprès de clients du monde entier à partir de centres de données locaux ou si votre équipe de développement se trouve sur différents sites, vous pouvez géo-répliquer votre registre pour en simplifier la gestion et réduire la latence. La géoréplication est disponible uniquement avec les registres [Premium](container-registry-skus.md).
 
 Pour savoir comment utiliser la géo-réplication, consultez le didacticiel en trois parties relatif à la [géoréplication dans Azure Container Registry](container-registry-tutorial-prepare-registry.md).
 

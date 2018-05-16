@@ -3,21 +3,21 @@ title: Utiliser des disques Azure avec AKS
 description: Utiliser des disques Azure avec AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b790213e19b9f2aaef74a3f670c89246f54fd6d7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes avec disques Azure
 
-Les applications basées sur des conteneurs doivent souvent consulter et conserver des données dans un volume de données externe. Les disques Azure peuvent être utilisés comme banque de données externe. Cet article explique comment utiliser un disque Azure comme volume Kubernetes dans un cluster Azure Container Service (AKS).
+Les applications basées sur des conteneurs doivent souvent consulter et conserver des données dans un volume de données externe. Les disques Azure peuvent être utilisés comme banque de données externe. Cet article explique comment utiliser un disque Azure comme volume Kubernetes dans un cluster Azure Kubernetes Service (AKS).
 
 Pour plus d’informations sur les volumes Kubernetes, consultez [Volumes Kubernetes][kubernetes-volumes].
 
@@ -38,7 +38,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Utilisez la commande [az disk create][az-disk-create] pour créer le disque Azure. 
+Utilisez la commande [az disk create][az-disk-create] pour créer le disque Azure.
 
 À l’aide de cet exemple, mettez à jour `--resource-group` avec le nom du groupe de ressources et `--name` avec le nom de votre choix.
 
@@ -58,7 +58,7 @@ Une fois que le disque a été créé, vous devriez voir une sortie similaire à
 
 ## <a name="mount-disk-as-volume"></a>Monter le disque en tant que volume
 
-Montez le disque Azure dans votre pod en configurant le volume dans les spécifications du conteneur. 
+Montez le disque Azure dans votre pod en configurant le volume dans les spécifications du conteneur.
 
 Créez un fichier nommé `azure-disk-pod.yaml` avec le contenu suivant. Mettez à jour `diskName` avec le nom du disque nouvellement créé, et `diskURI` avec l’ID du disque. Notez également la valeur de `mountPath`. Il s’agit du chemin du disque Azure qui a été monté dans le pod.
 

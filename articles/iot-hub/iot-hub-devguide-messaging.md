@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c1c3191ba198b56386f813b6f9d2588b895633c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50f95dc1af334468db25bce68f2ca00e0965a28b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Messagerie d’appareil-à-cloud et de cloud-à-appareil avec IoT Hub
 
@@ -31,7 +31,7 @@ Utilisez la messagerie IoT Hub pour communiquer avec vos appareils en :
 
 Les principales propriétés de la fonctionnalité de messagerie IoT Hub sont la fiabilité et la durabilité des messages. Ces propriétés activent la résilience de la connectivité intermittente côté appareils et des pics de chargement dans le traitement d’événements côté cloud. IoT Hub implémente *au moins une fois* des garanties de remise pour l’envoi de messages appareil-à-cloud et cloud-à-appareil.
 
-Pour obtenir une présentation des fonctionnalités IoT Hub, consultez les articles [Azure et IoT][lnk-azure-iot] et [Présentation du service Azure IoT Hub][lnk-iot-hub-overview].
+Pour obtenir une présentation des fonctionnalités IoT Hub, consultez la [Présentation du service Azure IoT Hub][lnk-iot-hub-overview].
 
 ## <a name="when-to-use-iot-hub-messaging"></a>Quand utiliser la messagerie IoT Hub
 

@@ -14,18 +14,18 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3c7fc83e379bcd1ad084d20555d9a82697cb5069
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
 Azure Cosmos DB est un service de base de données multimodèle mondialement distribué de Microsoft. En un clic, le service Azure Cosmos DB vous permet de faire évoluer en toute flexibilité et de façon indépendante le débit et le stockage sur n’importe quel nombre de régions géographiques Azure. Il offre des garanties en termes de débit, de latence, de disponibilité et de cohérence avec des [contrats SLA complets](https://aka.ms/acdbsla), ce qu’aucun autre service de base de données ne peut offrir. Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tous frais et engagements.
 
 > [!div class="nextstepaction"]
-> [Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
+> [Essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
 
 ![Azure Cosmos DB est le service de base de données distribué mondialement de Microsoft qui propose une augmentation de la taille des instances, une faible latence, cinq modèles de cohérence et des contrats SLA offrant des garanties complètes](./media/introduction/azure-cosmos-db.png)
 
@@ -43,7 +43,7 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
         * [API SQL](sql-api-introduction.md) : moteur de base de données JSON sans schéma avec de riches fonctions d’interrogation SQL.
         * [API MongoDB](mongodb-introduction.md) : service *MongoDB en tant que service* hautement évolutif, alimenté par la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications MongoDB existants.
         * [API Cassandra](cassandra-introduction.md) : service Cassandra en tant que service mondialement distribué, alimenté par la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications [Apache Cassandra](https://cassandra.apache.org/) existants.
-        * [API Gremlin (Graph)](graph-introduction.md) : service de base de données de graphe évolutif horizontalement, entièrement managé, qui facilite la création et l’exécution d’applications qui fonctionnent avec des jeux de données hautement connectés prenant en charge les API Open Graph (d’après la [spécification Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [API Gremlin](graph-introduction.md) : service de base de données de graphe évolutif horizontalement, entièrement managé, qui facilite la création et l’exécution d’applications qui fonctionnent avec des jeux de données hautement connectés prenant en charge les API Open Graph (d’après la [spécification Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
         * [API de table](table-introduction.md): service de base de données valeur-clé créé pour offrir des fonctionnalités Premium (par exemple, indexation automatique, faible latence garantie, distribution globale) aux applications de stockage de table Azure sans apporter de modifications aux applications.
         * Des modèles de données et des API supplémentaires seront bientôt disponibles.
 
@@ -97,7 +97,7 @@ Bien démarrer avec Azure Cosmos DB grâce à l’un de nos guides de démarrag
 * [Prise en main de l’API SQL Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Prise en main de l’API MongoDB Azure Cosmos DB](create-mongodb-nodejs.md)
 * [Prise en main de l’API Cassandra Azure Cosmos DB](create-cassandra-dotnet.md)
-* [Prise en main de l’API Graph Azure Cosmos DB](create-graph-dotnet.md)
+* [Prise en main de l’API Gremlin Azure Cosmos DB](create-graph-dotnet.md)
 * [Prise en main de l’API Table Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]

@@ -6,13 +6,13 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 179f7c46186762eed2f7f8ac90620ac2fec9caf3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recevoir des événements sur un point de terminaison HTTP
 
@@ -23,13 +23,14 @@ Cet article décrit comment [valider un point de terminaison HTTP](security-auth
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 * Vous aurez besoin d’une application de fonction avec une [fonction déclenchée via HTTP](../azure-functions/functions-create-generic-webhook-triggered-function.md).
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
-Si vous développez dans .Net, [ajoutez une dépendance](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à votre fonction pour le `Microsoft.Azure.EventGrid` [package Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Des Kits de développement logiciel (SDK) pour d’autres langues sont disponibles via la référence [Kits SDK de publication](./sdk-overview.md#publish-sdks). Ces packages contiennent les modèles des types d’événement natif comme `EventGridEvent`, `StorageBlobCreatedEventData` et `EventHubCaptureFileCreatedEventData`.
+Si vous développez dans .NET, [ajoutez une dépendance](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à votre fonction pour le [package Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) `Microsoft.Azure.EventGrid`. Des Kits de développement logiciel (SDK) pour d’autres langues sont disponibles via la référence [Kits SDK de publication](./sdk-overview.md#data-plane-sdks). Ces packages contiennent les modèles des types d’événement natif comme `EventGridEvent`, `StorageBlobCreatedEventData` et `EventHubCaptureFileCreatedEventData`.
 
-Pour ce faire, cliquez sur le lien « Afficher les fichiers » dans votre fonction Azure (volet le plus à droite dans le portail des fonctions Azure) et créez un fichier appelé project.json. Ajoutez le code suivant au fichier `project.json` et enregistrez-le :
+Cliquez sur le lien « Afficher les fichiers » dans votre fonction Azure (volet le plus à droite dans le portail des fonctions Azure) et créez un fichier appelé project.json. Ajoutez le code suivant au fichier `project.json` et enregistrez-le :
 
  ```json
 {
@@ -41,19 +42,17 @@ Pour ce faire, cliquez sur le lien « Afficher les fichiers » dans votre foncti
     }
    }
 }
-
 ```
 
 ![Package NuGet ajouté](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>Validation de point de terminaison
 
-La première chose à faire est de traiter les événements `Microsoft.EventGrid.SubscriptionValidationEvent`. Chaque fois qu’un nouvel abonnement à des événements est créé, Event Grid envoie un événement de validation au point de terminaison avec un `validationCode` dans la charge utile de données. Le point de terminaison est nécessaire pour reproduire cela dans le corps de réponse pour [prouver que le point de terminaison est valide et qu’il vous appartient](security-authentication.md#webhook-event-delivery). Si vous utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) au lieu d’une fonction déclenchée par un Webhook, la validation du point de terminaison est traitée pour vous.
+La première chose à faire est de traiter les événements `Microsoft.EventGrid.SubscriptionValidationEvent`. Chaque fois que quelqu’un s’abonne à un événement, Event Grid envoie un événement de validation au point de terminaison avec un `validationCode` dans la charge utile de données. Le point de terminaison est nécessaire pour reproduire cela dans le corps de réponse pour [prouver que le point de terminaison est valide et qu’il vous appartient](security-authentication.md#webhook-event-delivery). Si vous utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) au lieu d’une fonction déclenchée par un Webhook, la validation du point de terminaison est traitée pour vous. Si vous utilisez un service d’API tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir envoyer le code de validation par programmation. Pour ces services, vous pouvez manuellement valider l’abonnement à l’aide d’une URL de validation qui est envoyée dans l’événement de validation de l’abonnement. Copiez cette URL dans la propriété `validationUrl` et envoyez une demande GET par le biais d’un client REST ou de votre navigateur web.
 
-Pour traiter la validation d’abonnement, utilisez le code suivant :
+Pour envoyer le code de validation par programmation, utilisez le code suivant :
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -102,7 +101,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -122,7 +120,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### <a name="test-validation-response"></a>Tester la réponse de validation
@@ -130,7 +127,6 @@ module.exports = function (context, req) {
 Testez la fonction de réponse de validation en collant l’exemple d’événement dans le champ de test pour la fonction :
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -143,7 +139,6 @@ Testez la fonction de réponse de validation en collant l’exemple d’événem
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 Lorsque vous cliquez sur Exécuter, la sortie doit être 200 OK et `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` dans le corps :
@@ -152,10 +147,9 @@ Lorsque vous cliquez sur Exécuter, la sortie doit être 200 OK et `{"Validation
 
 ## <a name="handle-blob-storage-events"></a>Traiter les événements de stockage Blob
 
-Nous pouvons à présent étendre la fonction pour traiter `Microsoft.Storage.BlobCreated` :
+À présent, étendons la fonction pour traiter `Microsoft.Storage.BlobCreated` :
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -211,7 +205,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -245,7 +238,6 @@ module.exports = function (context, req) {
 Testez la nouvelle fonctionnalité de la fonction en plaçant un [événement de stockage Blob](./event-schema-blob-storage.md#example-event) dans le champ de test en exécutant :
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -269,23 +261,21 @@ Testez la nouvelle fonctionnalité de la fonction en plaçant un [événement de
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 Vous devez voir la sortie d’URL de blob dans le journal de la fonction :
 
 ![Journal de sortie](./media/receive-events/blob-event-response.png)
 
-Vous pouvez également tester cela en direct en créant un compte de stockage Blob ou un compte de stockage à usage général V2 (GPv2), [en ajoutant un abonnement à des événements](../storage/blobs/storage-blob-event-quickstart.md) et en définissant le point de terminaison sur l’URL de la fonction :
+Vous pouvez également effectuer le test en créant un compte de stockage Blob ou un compte de stockage à usage général V2 (GPv2), [en ajoutant un abonnement à des événements](../storage/blobs/storage-blob-event-quickstart.md) et en définissant le point de terminaison sur l’URL de la fonction :
 
 ![URL de la fonction](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>Traiter des événements personnalisés
 
-Enfin, étendons la fonction une fois de plus pour qu’elle puisse également traiter des événements personnalisés. Nous ajoutons une vérification pour notre propre événement `Contoso.Items.ItemReceived`. Votre code final doit ressembler à ceci :
+Enfin, étendons la fonction une fois de plus pour qu’elle puisse également traiter des événements personnalisés. Ajoutez une vérification pour l’événement `Contoso.Items.ItemReceived`. Votre code final doit ressembler à ceci :
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -354,7 +344,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -401,7 +390,6 @@ module.exports = function (context, req) {
 Enfin, testez que votre fonction étendue peut maintenant traiter votre type d’événement personnalisé :
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -415,12 +403,11 @@ Enfin, testez que votre fonction étendue peut maintenant traiter votre type d�
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 Vous pouvez également tester cette fonctionnalité en direct en [envoyant un événement personnalisé avec CURL à partir du portail](./custom-event-quickstart-portal.md) ou en [publiant vers une rubrique personnalisée](./post-to-custom-topic.md) à l’aide d’un service ou d’une application qui peut PUBLIER sur un point de terminaison tel que [Postman](https://www.getpostman.com/). Créez une rubrique personnalisée et un abonnement à des événements avec le point de terminaison défini en tant qu’URL de la fonction.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Explorer les [Kits SDK Event Grid de gestion et de publication](./sdk-overview.md)
 * Découvrez comment [publier vers une rubrique personnalisée](./post-to-custom-topic.md)

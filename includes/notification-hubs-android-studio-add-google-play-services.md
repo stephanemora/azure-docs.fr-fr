@@ -1,4 +1,20 @@
-1. Ouvrez le Gestionnaire du Kit de développement logiciel Android en cliquant sur l’icône de la barre d’outils d’Android Studio ou sur **Outils** -> **Android** -> **Gestionnaire du Kit de développement logiciel (SDK)** à partir du menu. Recherchez la version cible du Kit de développement logiciel (SDK) Android utilisé pour votre projet, ouvrez-la en cliquant sur **Afficher la page Détails du package** et choisissez **API Google** si elles ne sont pas déjà installées.
+---
+title: Fichier Include
+description: Fichier Include
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 04/05/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: 540c9775ae56798ce2d2d87fed4924244c31412f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/07/2018
+---
+1. Ouvrez le Gestionnaire du Kit de développement logiciel Android en cliquant sur l’icône de la barre d’outils d’Android Studio ou sur **Outils** > **Android** > **Gestionnaire du Kit de développement logiciel (SDK)** à partir du menu. Recherchez la version cible du Kit de développement logiciel (SDK) Android utilisé pour votre projet, ouvrez-la en cliquant sur **Afficher la page Détails du package** et choisissez **API Google** si elles ne sont pas déjà installées.
 2. Cliquez sur l’onglet **Outils SDK** . Si vous n’avez pas encore installé Google Play Service, cliquez sur **Services Google Play** comme indiqué ci-dessous. Cliquez ensuite sur **Appliquer** pour procéder à l’installation. 
    
     Notez le chemin du Kit de développement logiciel (SDK). Vous l’utiliserez à une étape suivante. 
@@ -10,7 +26,7 @@
 4. Ajoutez la ligne suivante sous *dépendances*: 
     
     ```java
-        compile 'com.google.android.gms:play-services-gcm:9.2.0'
+        compile 'com.google.android.gms:play-services-gcm:12.0.0'
     ```
 5. Cliquez sur l’icône **Synchronisation du projet avec les fichiers Gradle** dans la barre d’outils.
 6. Ouvrez **AndroidManifest.xml** et ajoutez cette balise à la balise *application* .

@@ -1,12 +1,12 @@
 ---
-title: "Détection avancée des menaces Azure | Microsoft Docs"
-description: "En savoir plus sur Identity Protection et ses fonctionnalités."
+title: Détection avancée des menaces Azure | Microsoft Docs
+description: En savoir plus sur Identity Protection et ses fonctionnalités.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 ## <a name="introduction"></a>Introduction
@@ -120,7 +120,7 @@ Le tableau de bord de la solution de sécurité et d’audit d’OMS est organis
 
 -   **Problèmes notables** : cette option vous permet d’identifier rapidement le nombre de problèmes actifs et leur gravité.
 
--   **Détections (préversion)** : cette option vous permet d’identifier les modèles d’attaque en visualisant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
+-   **Détections (préversion)**  : cette option vous permet d’identifier les modèles d’attaque en visualisant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
 
 -   **Informations sur les menaces** : cette option vous permet d’identifier les modèles d’attaque en visualisant le nombre total de serveurs présentant un trafic IP sortant malveillant, le type de menace malveillante et une carte indiquant l’origine de ces adresses IP.
 
@@ -133,7 +133,7 @@ Au cœur de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-a
 
 Les données sont collectées dans le référentiel à partir de sources connectées en configurant des sources de données et en ajoutant des solutions à votre abonnement.
 
-![abonnement](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![subscription](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Les sources de données et les solutions créeront chacune différents types d'enregistrements avec leur propre jeu de propriétés, mais elles peuvent toujours être analysées ensemble dans des requêtes vers le référentiel. Vous pouvez ainsi utiliser les mêmes outils et méthodes pour travailler avec différents types de données collectées par différentes sources.
 
@@ -165,7 +165,7 @@ Les chercheurs en sécurité de Microsoft sont constamment à l’affût des nou
 
 Azure Security Center peut donc rapidement mettre à jour ses algorithmes de détection, puisque les pirates sont à l’origine d’attaques innovantes de plus en plus sophistiquées. Cette approche permet de faire face à des menaces en pleine mutation.
 
-![Centre de sécurité](./media/azure-threat-detection/azure-threat-detection-fig9.jpg)
+![Security Center](./media/azure-threat-detection/azure-threat-detection-fig9.jpg)
 
 La détection des menaces d’Azure Security Center fonctionne en collectant automatiquement les informations de sécurité à partir de vos ressources Azure, du réseau et des solutions de partenaires connectées.  Elle analyse ces informations, en corrélant les données issues de plusieurs sources, pour identifier les menaces.
 Les alertes de sécurité, ainsi que les recommandations sur la façon de répondre à la menace, sont hiérarchisées dans Azure Security Center.
@@ -181,7 +181,7 @@ La télémétrie provient de plusieurs sources, telles qu’Azure, Office 365, 
 
 Les chercheurs reçoivent également les informations sur les menaces partagées par les principaux fournisseurs de services cloud et s’abonnent aux flux d’informations sur les menaces provenant de tiers. Azure Security Center peut utiliser ces informations pour vous alerter en cas de menaces provenant d’éléments malveillants connus. Voici quelques exemples :
 
--   **Utilisation de la puissance de Machine Learning** : Azure Security Center a accès à une grande quantité de données sur l’activité réseau cloud, qui peuvent être utilisées pour détecter les menaces ciblant vos déploiements Azure. Par exemple :
+-   **Utilisation de la puissance de Machine Learning** : Azure Security Center a accès à une grande quantité de données sur l’activité réseau cloud, qui peuvent être utilisées pour détecter les menaces ciblant vos déploiements Azure. Par exemple : 
 
 -   **Détection des attaques par force brute** : Machine Learning permet de créer un schéma historique des tentatives d’accès à distance, qui facilite la détection des attaques par force brute sur les ports SQL, RDP et SSH.
 

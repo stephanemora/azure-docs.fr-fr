@@ -3,19 +3,19 @@ title: Guide de démarrage rapide - Création de cluster Kubernetes dans le port
 description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans ACS avec le portail Azure.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/24/2018
+ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Démarrage rapide : Déployer un cluster Azure Container Service (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)
 
 Dans ce guide de démarrage rapide, vous allez déployer un cluster AKS à l’aide du portail Azure. Une application de plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est alors exécutée sur le cluster. Ceci fait, l’application est accessible via internet.
 
@@ -27,53 +27,43 @@ Ce guide de démarrage rapide suppose une compréhension élémentaire des conce
 
 Connectez-vous au portail Azure sur http://portal.azure.com.
 
-## <a name="create-service-principal"></a>Créer un principal du service
 
-Avant de créer le cluster AKS dans le portail Azure, vous devez créer un principal du service. Azure utilise ce principal du service pour gérer l’infrastructure associée au cluster AKS.
-
-Sélectionnez **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription d’application**.
-
-Entrez un nom pour l’application (n’importe quelle valeur). Pour le type d’application, sélectionnez **Application web/API**. Entrez une valeur pour **URL de connexion**. Il peut s’agir de n’importe quelle valeur dans un format URL valide, mais elle ne doit pas obligatoirement être un point de terminaison réel.
-
-Lorsque vous avez terminé, sélectionnez **Créer**.
-
-![Créer le principal du service 1](media/container-service-walkthrough-portal/create-sp-one.png)
-
-Sélectionnez l’inscription d’application nouvellement créée et notez l’ID d’application. Cette valeur est nécessaire lors de la création du cluster AKS.
-
-![Créer le principal du service 2](media/container-service-walkthrough-portal/create-sp-two.png)
-
-Ensuite, vous devez créer un mot de passe pour le principal du service. Sélectionnez **Tous les paramètres** > **Clés**, puis entrez une valeur pour la description de la clé. Sélectionnez une durée, qui correspond à la durée pendant laquelle le principal du service est valide.
-
-Cliquez sur **Enregistrer** et notez la valeur du mot de passe. Le mot de passe est nécessaire lors de la création d’un cluster AKS.
-
-![Créer le principal du service 3](media/container-service-walkthrough-portal/create-sp-three.png)
 
 ## <a name="create-aks-cluster"></a>Créer un cluster ACS
 
-Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Service - AKS (préversion)**.
+Choisissez **Créer une ressource** > recherchez **Kubernetes** > sélectionnez **Azure Kubernetes Service (préversion)** > **Créer**.
 
-Spécifiez un nom de cluster, un préfixe DNS, un nom de groupe de ressources, un emplacement et la version de Kubernetes pour le cluster. Prenez note du nom du cluster et du nom du groupe ressources. Vous en aurez besoin lors de la connexion au cluster.
+Suivez les étapes sous chaque en-tête du formulaire Créer un cluster AKS.
 
-Sélectionnez **OK** quand vous avez terminé.
+- **DÉTAILS DU PROJET** : sélectionnez un abonnement Azure et un groupe de ressources Azure (nouveau ou existant).
+- **DÉTAILS DU CLUSTER** : entrez le nom, la région, la version et le préfixe de nom DNS du cluster AKS.
+- **AUTHENTIFICATION** : utilisez un principal du service existant ou créez-en un nouveau. Si vous utilisez un nom de principal du service existant, indiquez l’ID client et la clé secrète associés.
+- **ÉCHELLE** : sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé. Sélectionnez également le nombre de nœuds à déployer dans le cluster. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
 
-![Créer le cluster AKS 1](media/container-service-walkthrough-portal/create-aks-portal-one.png)
+Sélectionnez **Suivant : Mise en réseau** lorsque vous avez terminé.
 
-Dans le formulaire de configuration, entrez ce qui suit :
+![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-1.png)
 
-- Nom d’utilisateur - nom donné aux comptes d’administration sur les nœuds de cluster.
-- Clé publique SSH : associée à la clé qui servira à accéder aux nœuds de cluster.
-- ID client du principal du service : ID d’application du principal du service que vous avez créé précédemment dans ce document.
-- Clé secrète client du principal du service : mot de passe du principal du service que vous avez créé précédemment dans ce document.
-- Nombre de nœuds : nombre de nœuds AKS à créer.
-- Taille de machine virtuelle de nœud : taille de machine virtuelle pour les nœuds AKS
-- Taille du disque du système d’exploitation : taille du disque du système d’exploitation des nœuds AKS.
+Configurez les options de mise en réseau suivantes :
 
-Sélectionnez **OK** quand vous avez terminé, puis à nouveau **OK** une fois la validation terminée.
+- **Routage des applications HTTP** : configure un contrôleur d’entrée intégré en activant la création automatique de noms DNS publics. Pour plus d’informations sur le routage HTTP, voir [DNS et routage HTTP AKS][http-routing].
+- **Configuration réseau** : choisissez entre la configuration réseau de base, à l’aide du plug-in [kubenet][kubenet] de Kubernetes, ou la configuration réseau avancée, avec [Azure CNI][azure-cni]. Pour plus d’informations sur les options de mise en réseau, voir [Vue d’ensemble de la mise en réseau AKS][aks-network].
 
-![Créer le cluster AKS 2](media/container-service-walkthrough-portal/create-aks-portal-two.png)
+Sélectionnez **Suivant : Monitoring** lorsque vous avez terminé.
 
-Après un court délai, le cluster AKS est déployé et prêt à être utilisé.
+![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-2.png)
+
+Lorsque vous déployez un cluster AKS, vous pouvez configurer Azure Container Insights de façon qu’il surveille l’intégrité du cluster AKS et des pods en cours d’exécution sur le cluster. Pour plus d’informations sur l’analyse du fonctionnement des conteneurs, voir [Analyser le fonctionnement d’Azure Kubernetes Service][aks-monitor].
+
+Sélectionnez **Oui** pour activer le monitoring du conteneur ; ensuite, sélectionnez un espace de travail Log Analytics existant ou créez-en un.
+
+Sélectionnez **Vérifier + créer**, puis **Créer** lorsque vous avez terminé.
+
+![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-3.png)
+
+Après un court délai, le cluster AKS est déployé et prêt à être utilisé. Accédez au groupe de ressources de cluster AKS et sélectionnez la ressource AKS : le tableau de bord du cluster AKS s’affiche.
+
+![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-5.png)
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 
@@ -82,11 +72,6 @@ Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de lig
 Ouvrez Cloud Shell à l’aide du bouton situé dans le coin supérieur droit du portail Azure.
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
-
-Spécifier l’abonnement (si ce n’est pas déjà fait)
-```azurecli-interactive
-az account set -s SUBSCRIPTION_NAME
-```
 
 Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes.
 
@@ -106,14 +91,14 @@ Output:
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     6m        v1.8.1
-aks-agentpool-14693408-1   Ready     agent     6m        v1.8.1
-aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
+aks-agentpool-11482510-0   Ready     agent     9m        v1.9.6
+aks-agentpool-11482510-1   Ready     agent     8m        v1.9.6
+aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans cet exemple, vous utilisez un manifeste afin de créer tous les objets nécessaires pour exécuter l’application Azure Vote.
+Les fichiers manifestes Kubernetes définissent un état souhaité pour un cluster, et en particulier les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Parmi eux figurent deux [déploiements Kubernetes][kubernetes-deployment] : un pour la composante frontale d’Azure Vote, l’autre pour une instance Redis. En outre, deux [services Kubernetes][kubernetes-service] sont créés, un service interne pour l’instance Redis et un service externe pour l’accès à l’application Azure Vote à partir d’Internet.
 
 Créez un fichier nommé `azure-vote.yaml` et copiez-y le code YAML suivant. Si vous travaillez dans Azure Cloud Shell, créez ce fichier à l’aide de vi ou de Nano, comme si vous travailliez sur un système virtuel ou physique.
 
@@ -195,7 +180,7 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>Test de l'application
 
-Lorsque l’application est exécutée, un [service Kubernetes][kubernetes-service] est créé, qui expose le serveur frontal de l’application à Internet. L’exécution de ce processus peut prendre plusieurs minutes.
+Lorsque l’application s’exécute, un [service Kubernetes][kubernetes-service] est créé pour exposer l’application à Internet. L’exécution de ce processus peut prendre plusieurs minutes.
 
 Pour surveiller la progression, utilisez la commande [kubectl get service][kubectl-get] avec l’argument `--watch`.
 
@@ -220,12 +205,24 @@ Accédez maintenant à l’adresse IP externe pour voir l’application Azure Vo
 
 ![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux
+
+Si le monitoring Container Insights a été activé, le tableau de bord du cluster AKS comporte des mesures d’intégrité sur le cluster AKS et sur les pods en cours d’exécution sur le cluster. Pour plus d’informations sur l’analyse du fonctionnement des conteneurs, voir [Analyser le fonctionnement d’Azure Kubernetes Service][aks-monitor].
+
+Pour afficher l’état actuel, la durée de fonctionnement et l’utilisation des ressources des blocs Azure Vote, revenez à la ressource AKS, sélectionnez **Analyser le fonctionnement du conteneur** > sélectionnez l’espace de noms **par défaut** > et sélectionnez **Conteneurs**. Ces données s’afficheront sur le Portail Azure au bout de quelques minutes.
+
+![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-6.png)
+
+Pour afficher les journaux du pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux**. Vous pourrez voir les flux stdout et stderr du conteneur.
+
+![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-7.png)
+
 ## <a name="delete-cluster"></a>Supprimer un cluster
 
-Lorsque vous n’avez plus besoin du cluster, supprimez le groupe de ressources de cluster, ce qui supprime toutes les ressources associées. Vous pouvez effectuer cette opération dans le portail Azure en sélectionnant le groupe de ressources et en cliquant sur le bouton Supprimer. Vous pouvez aussi exécuter la commande [az group delete][az-group-delete] dans Cloud Shell.
+Dès vous n’avez plus besoin du cluster, supprimez la ressource de cluster : toutes les ressources associées seront ainsi supprimées. Vous pouvez effectuer cette opération sur le Portail Azure en cliquant sur le bouton Supprimer sur le tableau de bord du cluster AKS. Vous pouvez aussi exécuter la commande [az aks delete][az-aks-delete] dans Cloud Shell.
 
 ```azurecli-interactive
-az group delete --name myAKSCluster --no-wait
+az aks delete --resource-group myAKSCluster --name myAKSCluster --no-wait
 ```
 
 ## <a name="get-the-code"></a>Obtenir le code
@@ -236,7 +233,7 @@ Dans ce guide de démarrage rapide, les images de conteneur, créées au préala
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé un cluster Kubernetes et vous y avez déployé une application de plusieurs conteneurs.
+Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs.
 
 Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au didacticiel sur le cluster Kubernetes.
 
@@ -245,15 +242,19 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az-group-delete]: /cli/azure/group#delete
+[az-aks-delete]: /cli/azure/aks#az-aks-delete
+[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-
-
+[http-routing]: ./http-application-routing.md

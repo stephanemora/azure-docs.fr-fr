@@ -1,12 +1,12 @@
 ---
-title: "Configurer la topologie d’usine connectée | Microsoft Docs"
-description: "Cet article explique comment configurer la topologie d’une solution préconfigurée d’usine connectée."
-services: 
+title: Configurer la topologie d’Usine connectée | Microsoft Docs
+description: Cet article explique comment configurer la topologie d’un accélérateur de solution Usine connectée.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>Configurer la solution préconfigurée d’usine connectée
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
 
-La solution préconfigurée d’usine connectée simule le tableau de bord d’une société fictive nommée Contoso. Cette société possède de nombreuses usines implantées dans le monde entier.
+L’accélérateur de solution Usine connectée simule le tableau de bord d’une société fictive nommée Contoso. Cette société possède de nombreuses usines implantées dans le monde entier.
 
-Cet article utilise Contoso comme exemple pour décrire comment configurer la topologie d’une solution d’usine connectée.
+Cet article utilise Contoso comme exemple pour décrire comment configurer la topologie d’une solution Usine connectée.
 
 ## <a name="simulated-factories-configuration"></a>Simulation de configuration d’usines
 
@@ -34,19 +34,19 @@ Chaque usine de Contoso possède des lignes de production se composant de trois 
 * Poste de test
 * Poste d’emballage
 
-Ces serveurs OPC UA possèdent des nœuds OPC UA et [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) envoie les valeurs de ces derniers à l’usine connectée. notamment :
+Ces serveurs OPC UA comprennent des nœuds OPC UA. [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) envoie les valeurs de ces nœuds à Usine connectée. notamment :
 
 * L’état opérationnel actuel, tel que la consommation d’énergie actuelle.
 * Des informations relatives à la production, telles que le nombre de produits fabriqués.
 
-Vous pouvez utiliser le tableau de bord pour explorer la topologie d’usine connectée de Contoso à partir d’une vue globale vers une vue détaillée de chaque poste. Le tableau de bord de l’usine connectée permet d’effectuer les actions suivantes :
+Vous pouvez utiliser le tableau de bord pour explorer la topologie d’usine connectée de Contoso à partir d’une vue globale vers une vue détaillée de chaque poste. Le tableau de bord d’Usine connectée permet d’effectuer les actions suivantes :
 
 * Visualiser les chiffres d’OEE et de KPI pour chaque couche de la topologie.
 * Visualiser les valeurs actuelles des nœuds OPC UA des postes.
 * Agréger les chiffres d’OEE et de KPI à partir du niveau de poste jusqu’au niveau global.
 * Visualiser les alertes et les actions à effectuer si les valeurs atteignent des seuils spécifiques.
 
-## <a name="connected-factory-topology"></a>Topologie d’usine connectée
+## <a name="connected-factory-topology"></a>Topologie d’Usine connectée
 
 La topologie des usines, des lignes de production et des postes est hiérarchique :
 
@@ -66,7 +66,7 @@ Chaque nœud de la topologie possède un ensemble commun de propriétés qui dé
 
 ## <a name="topology-configuration-file"></a>Fichier de configuration de la topologie
 
-Pour configurer les propriétés répertoriées dans la section précédente, la solution d’usine connectée utilise un fichier de configuration appelé [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+Pour configurer les propriétés répertoriées dans la section précédente, la solution Usine connectée utilise un fichier de configuration appelé [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 Ce fichier se trouve dans le code source de la solution situé dans le dossier `WebApp/Contoso/Topology`.
 
@@ -193,7 +193,7 @@ Les éléments `<factory_configuration>` et `<production_line_configuration>` po
   * **CallOpcMethod**: informations et paramètres de nœud de la méthode OPC UA à appeler au format « NodeId du nœud parent, NodeId de la méthode à appeler, URI du serveur OPC UA ».
   * **OpenWebPage** : URL à afficher dans la fenêtre du navigateur.
 
-`<opc_node_description>` contient des informations sur les nœuds de OPC UA d’un poste (serveur OPC UA). Les nœuds qui ne représentent aucun nœud OPC UA existant, mais qui sont utilisés comme stockage dans la logique de calcul de l’usine connectée sont également valides. Il possède les propriétés suivantes :
+`<opc_node_description>` contient des informations sur les nœuds de OPC UA d’un poste (serveur OPC UA). Les nœuds qui ne représentent aucun nœud OPC UA existant, mais qui sont utilisés comme stockage dans la logique de calcul d’Usine connectée, sont également valides. Il possède les propriétés suivantes :
 
 * **NodeId** (de type chaîne)
 
@@ -259,7 +259,7 @@ Les éléments `<factory_configuration>` et `<production_line_configuration>` po
 
   Définit l’ensemble des actions pouvant être prises en tant que réponse à une alerte maximale.
 
-Au niveau du poste, vous voyez également des objets **Simulation**. Ces objets sont uniquement utilisés pour configurer la simulation d’usine connectée et ne doivent pas servir à configurer une topologie réelle.
+Au niveau du poste, vous voyez également des objets **Simulation**. Ces objets sont uniquement utilisés pour configurer la simulation d’Usine connectée et ne doivent pas servir à configurer une topologie réelle.
 
 ## <a name="how-the-configuration-data-is-used-at-runtime"></a>Comment les données de configuration sont utilisées lors de l’exécution
 
@@ -267,7 +267,7 @@ Toutes les propriétés utilisées dans le fichier de configuration peuvent êtr
 
 ### <a name="visual-appearance"></a>Apparence visuelle
 
-Les propriétés de cette catégorie définissent l’apparence visuelle du tableau de bord de l’usine connectée. Voici quelques exemples :
+Les propriétés de cette catégorie définissent l’apparence visuelle du tableau de bord Usine connectée. Voici quelques exemples :
 
 * NOM
 * Description
@@ -282,18 +282,18 @@ L’application web gère un dictionnaire de données interne contenant des info
 
 ### <a name="oeekpi-computation"></a>Calcul de l’OEE/ du KPI
 
-Les valeurs de l’OEE/du KPI relatives à la simulation de l’usine connectée sont paramétrées par :
+Les valeurs de l’OEE/du KPI relatives à la simulation d’Usine connectée sont paramétrées par :
 
 * Les valeurs du nœud OPC UA à inclure dans le calcul.
 * Comment la valeur est calculée à partir des valeurs de télémétrie.
 
-L’usine connectée utilise les formules OEE telles que publiées par le site http://oeeindustrystandard.oeefoundation.org.
+L’Usine connectée utilise les formules OEE publiées par l’OEE Foundation : http://oeeindustrystandard.oeefoundation.org.
 
 Les objets du nœud OPC UA des postes activent le balisage pour une utilisation dans le calcul de l’OEE/du KPI. La propriété **Relevance** indique pour quelle valeur d’OEE/de KPI la valeur du nœud OPC UA doit être utilisée. La propriété **OpCode** définit la manière dont la valeur est incluse dans le calcul.
 
 ### <a name="alert-handling"></a>Gestion des alertes
 
-L’usine connectée prend en charge un mécanisme de génération d’alertes basé sur un seuil minimal/maximal simple. Il existe un certain nombre d’actions prédéfinies, que vous pouvez configurer en réponse à ces alertes. Les propriétés suivantes contrôlent ce mécanisme :
+L’Usine connectée prend en charge un mécanisme de génération d’alertes basé sur un seuil minimal/maximal simple. Il existe un certain nombre d’actions prédéfinies, que vous pouvez configurer en réponse à ces alertes. Les propriétés suivantes contrôlent ce mécanisme :
 
 * Maximale
 * Minimale
@@ -302,7 +302,7 @@ L’usine connectée prend en charge un mécanisme de génération d’alertes b
 
 ## <a name="correlating-to-telemetry-data"></a>Corrélation avec les données de télémétrie
 
-Pour certaines opérations, telles que la visualisation de la dernière valeur ou la création de requêtes Time Series Insight, l’application web a besoin d’un schéma d’adressage pour les données de télémétrie réceptionné. La télémétrie envoyée à la fabrique connectée doit également être stockées dans les structures de données internes. Les deux propriétés permettant ces opérations se situent au niveau du nœud OPC UA et de poste (serveur OPC UA) :
+Pour certaines opérations, telles que la visualisation de la dernière valeur ou la création de requêtes Time Series Insight, l’application web a besoin d’un schéma d’adressage pour les données de télémétrie réceptionné. Les données de télémétrie envoyées à l’Usine connectée doivent également être stockées dans des structures de données internes. Les deux propriétés permettant ces opérations se situent au niveau du nœud OPC UA et de poste (serveur OPC UA) :
 
 * **OpcUri**
 
@@ -312,13 +312,13 @@ Pour certaines opérations, telles que la visualisation de la dernière valeur o
 
   Identifie la valeur du nœud dans le serveur OPC UA. Le format de la propriété doit être tel que défini dans la spécification OPC UA. Dans les messages ingérés, cette propriété est envoyée en tant que **NodeId**.
 
-Consultez [cette](https://github.com/Azure/iot-edge-opc-publisher) page GitHub pour obtenir plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’usine connectée à l’aide d’OPC Publisher.
+Pour obtenir plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’Usine connectée avec OPC Publisher, consultez [cette page](https://github.com/Azure/iot-edge-opc-publisher) GitHub.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemple : mode de calcul de KPI1
 
 La configuration du fichier `ContosoTopologyDescription.json` contrôle la façon dont les valeurs de l’OEE/du KPI sont calculées. L’exemple suivant montre comment les propriétés de ce fichier contrôlent le calcul de KPI1.
 
-Dans l’usine connectée KPI1 est utilisée pour mesurer le nombre de produits fabriqués correctement au cours de la dernière heure. Chaque poste (serveur OPC UA) de la simulation d’usine connectée fournit un nœud OPC UA (`NodeId: "ns=2;i=385"`), qui fournit les données de télémétrie permettant de calculer ce KPI.
+Dans l’Usine connectée, KPI1 est utilisée pour mesurer le nombre de produits fabriqués au cours de la dernière heure. Chaque poste (serveur OPC UA) de la simulation d’Usine connectée fournit un nœud OPC UA (`NodeId: "ns=2;i=385"`), qui fournit les données de télémétrie permettant de calculer ce KPI.
 
 La configuration de ce nœud OPC UA ressemble à l’extrait de code suivant :
 
@@ -339,10 +339,10 @@ Cette configuration permet d’interroger les valeurs de télémétrie de ce nœ
 * La moyenne de toutes les valeurs.
 * La somme de toutes les valeurs pour toutes les paires **OpcUri** (**ApplicationUri**), **NodeId** uniques d’un intervalle de temps donné.
 
-L’une des caractéristiques de la valeur du nœud **NumberOfManufactureredProducts** est qu’elle ne peut qu’augmenter. Pour calculer le nombre de produits fabriqués dans l’intervalle de temps, l’usine connectée utilise la propriété **OpCode** **SubMaxMin**. Le calcul récupère la valeur minimale au début de l’intervalle de temps et la valeur maximale au terme de celui-ci.
+L’une des caractéristiques de la valeur du nœud **NumberOfManufactureredProducts** est qu’elle ne peut qu’augmenter. Pour calculer le nombre de produits fabriqués dans l’intervalle de temps, l’Usine connectée utilise la propriété **OpCode** **SubMaxMin**. Le calcul récupère la valeur minimale au début de l’intervalle de temps et la valeur maximale au terme de celui-ci.
 
 La propriété **OpCode** de la configuration configure la logique de calcul permettant de calculer le résultat de la différence entre la valeur minimale et la valeur maximale. Ces résultats sont ensuite cumulés de manière à remonter jusqu’au niveau (global) racine et affichés dans le tableau de bord.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Comme étape suivante, nous vous suggérons de découvrir comment [Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée](iot-suite-connected-factory-gateway-deployment.md).
+Comme étape suivante, nous vous suggérons de découvrir comment [Déployer une passerelle sur Windows ou Linux pour l’accélérateur de solution Usine connectée](iot-suite-connected-factory-gateway-deployment.md).

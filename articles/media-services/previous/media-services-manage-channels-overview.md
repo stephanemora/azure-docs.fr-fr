@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d71f9fc2b69e1a99b518c2317cccde712ab40fec
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
 
@@ -54,7 +54,7 @@ Un **canal** représente un pipeline de traitement du contenu vidéo en flux con
   > La méthode pass-through est le moyen le plus économique de diffuser des vidéos en continu si plusieurs événements vous concernent sur une longue période, et si vous avez déjà investi dans des encodeurs locaux. Consultez les détails de la [tarification](https://azure.microsoft.com/pricing/details/media-services/) .
   > 
   > 
-* Un encodeur live envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage live avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Le format RTP (MPEG-TS) est également pris en charge, à condition de disposer d’une connexion dédiée au centre de données Azure. Les encodeurs live suivants avec sortie RTMP fonctionnent avec des canaux de ce type : Telestream Wirecast, FMLE. Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur live envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage live avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Les encodeurs live suivants avec sortie RTMP fonctionnent avec des canaux de ce type : Telestream Wirecast, FMLE. Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
@@ -68,7 +68,7 @@ Le tableau suivant fournit un guide de comparaison des deux types de canaux pris
 | --- | --- | --- |
 | L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non  |OUI |
 | Résolution maximale, nombre de couches |1080p, 8 couches, plus de 60 i/s |720p, 6 couches, 30 i/s |
-| Protocoles d’entrée |RTMP, Smooth Streaming |RTMP, Smooth Streaming et RTP |
+| Protocoles d’entrée |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Prix |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct » |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) |
 | Durée maximale |24 x 7 |8 heures |
 | Prise en charge de l’insertion d’ardoises |Non  |OUI |

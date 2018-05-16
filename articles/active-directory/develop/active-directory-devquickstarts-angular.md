@@ -3,29 +3,31 @@ title: Bien démarrer avec Azure AD AngularJS | Microsoft Docs
 description: Création d’une application à page unique AngularJS qui s’intègre avec Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth.
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Bien démarrer avec Azure AD AngularJS
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) simplifie l’ajout d’appels API OAuth de connexion, de déconnexion et de sécurisation à vos applications à page unique.  Il permet à votre application d’authentifier les utilisateurs avec leurs comptes Windows Server Active Directory et de consommer une API web protégée par Azure AD, telle que l’API Office 365 ou Azure.
+Azure Active Directory (Azure AD) simplifie l’ajout d’appels API OAuth de connexion, de déconnexion et de sécurisation à vos applications à page unique. Il permet à votre application d’authentifier les utilisateurs avec leurs comptes Windows Server Active Directory et de consommer une API web protégée par Azure AD, telle que l’API Office 365 ou Azure.
 
 Pour les applications JavaScript s’exécutant dans un navigateur, Azure AD fournit la bibliothèque d’authentification Active Directory (ADAL) ou adal.js. adal.js a pour seule fonction de simplifier l’obtention des jetons d’accès pour votre application. Pour illustrer sa facilité d’utilisation, nous allons créer une application de liste des tâches AngularJS qui effectue les actions suivantes :
 
@@ -53,7 +55,7 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
 5. Suivez les invites et créez une application web et/ou API web :
   * **Nom** décrit votre application pour les utilisateurs.
   * L’**URL de connexion** est l’emplacement vers lequel Azure AD retourne les jetons. L’emplacement par défaut de cet exemple est `https://localhost:44326/`.
-6. Une fois l’inscription terminée, Azure AD affecte un ID d’application unique à votre application.  Copiez cette valeur dans l’onglet de l’application, car vous en aurez besoin dans les sections suivantes.
+6. Une fois l’inscription terminée, Azure AD affecte un ID d’application unique à votre application. Copiez cette valeur dans l’onglet de l’application, car vous en aurez besoin dans les sections suivantes.
 7. Adal.js utilise le flux implicite OAuth pour communiquer avec Azure AD. Vous devez activer ce flux pour votre application :
   1. Cliquez sur l’application et sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
   2. Recherchez la propriété `oauth2AllowImplicitFlow`. Affectez-lui la valeur `true`.
@@ -118,11 +120,11 @@ Adal.js s’intègre avec l’itinéraire AngularJS t les fournisseurs HTTP afin
     ```
 
 ## <a name="summary"></a>Résumé
-Vous disposez maintenant d’une application à page unique sécurisée qui peut connecter les utilisateurs et émettre un jeton porteur vers son API de serveur principal. Lorsqu’un utilisateur clique sur le lien **TodoList**, adal.js redirige automatiquement vers Azure AD pour la connexion, si nécessaire. En outre, adal.js joint automatiquement un jeton d’accès à toutes les demandes Ajax envoyées au serveur principal de l’application.  
+Vous disposez maintenant d’une application à page unique sécurisée qui peut connecter les utilisateurs et émettre un jeton porteur vers son API de serveur principal. Lorsqu’un utilisateur clique sur le lien **TodoList**, adal.js redirige automatiquement vers Azure AD pour la connexion, si nécessaire. En outre, adal.js joint automatiquement un jeton d’accès à toutes les demandes Ajax envoyées au serveur principal de l’application. 
 
 Les étapes ci-dessus sont le minimum requis pour générer une application à page unique à l’aide d’adal.js. Mais certaines autres fonctionnalités sont utiles dans application à page unique :
 
-* Pour émettre explicitement des demandes de connexion et de déconnexion, vous pouvez définir des fonctions dans vos contrôleurs qui appellent adal.js.  Dans `App/Scripts/homeCtrl.js` :
+* Pour émettre explicitement des demandes de connexion et de déconnexion, vous pouvez définir des fonctions dans vos contrôleurs qui appellent adal.js. Dans `App/Scripts/homeCtrl.js` :
 
     ```js
     ...
@@ -143,7 +145,7 @@ Les étapes ci-dessus sont le minimum requis pour générer une application à p
     ...
     ```
 
-* Il existe de nombreux scénarios dans lesquels vous souhaitez savoir si l’utilisateur est connecté ou non. Vous pouvez aussi utiliser l’objet `userInfo` pour rassembler ces informations.  Par exemple, dans `index.html`, vous pouvez afficher le bouton **Connexion** ou **Déconnexion** en fonction de l’état d’authentification :
+* Il existe de nombreux scénarios dans lesquels vous souhaitez savoir si l’utilisateur est connecté ou non. Vous pouvez aussi utiliser l’objet `userInfo` pour rassembler ces informations. Par exemple, dans `index.html`, vous pouvez afficher le bouton **Connexion** ou **Déconnexion** en fonction de l’état d’authentification :
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

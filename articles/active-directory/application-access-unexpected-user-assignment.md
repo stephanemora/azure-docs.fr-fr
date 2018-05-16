@@ -1,11 +1,11 @@
 ---
-title: "Guide pratique pour affecter des utilisateurs à des applications | Microsoft Docs"
-description: "Comprendre comment les utilisateurs sont affectés à une application dans votre client"
+title: Guide pratique pour affecter des utilisateurs à des applications | Microsoft Docs
+description: Comprendre comment les utilisateurs sont affectés à une application dans votre client
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6681131f24dd36ccc5881d50f3efdf9806b15c58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eff24ddcb02f4aa4cac28d722e73222ca2e686e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-assign-users-to-applications"></a>Guide pratique pour affecter des utilisateurs à des applications
 
@@ -58,4 +58,4 @@ Pour qu’un utilisateur puisse accéder à une application, il doit tout d’ab
 10. Un utilisateur [donne lui-même son consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) en se connectant à l’application
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gestion des applications avec Azure Active Directory](manage-apps/what-is-application-management.md)

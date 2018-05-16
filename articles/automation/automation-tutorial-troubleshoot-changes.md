@@ -1,7 +1,9 @@
 ---
-title: "Dépanner les modifications apportées à une machine virtuelle Azure | Microsoft Docs"
-description: "Utilisez Change Tracking pour dépanner celles apportées à une machine virtuelle Azure."
+title: Dépanner les modifications apportées à une machine virtuelle Azure | Microsoft Docs
+description: Utilisez Change Tracking pour dépanner celles apportées à une machine virtuelle Azure.
 services: automation
+ms.service: automation
+ms.component: change-inventory-management
 keywords: modification, suivi, automatisation
 author: jennyhunter-msft
 ms.author: jehunte
@@ -9,11 +11,11 @@ ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -30,7 +32,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Déclencher un événement
 > * Afficher les modifications
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -40,7 +43,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
+Connectez-vous au portail Azure sur http://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer le suivi des modifications et l’inventaire
 
@@ -109,7 +112,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\myfile.txt ».       |
+|Entrer le chemin     | Chemin dans lequel rechercher le fichier. Exemple : « c:\temp\myfile.txt ».       |
 
 ### <a name="add-a-linux-file"></a>Ajouter un fichier Linux
 

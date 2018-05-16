@@ -1,12 +1,12 @@
 ---
-title: "Procédure pas à pas pour la solution d’usine connectée - Azure | Microsoft Docs"
-description: "Description de la solution préconfigurée d’usine connectée Azure IoT et de son architecture."
-services: 
+title: Procédure pas à pas pour la solution Usine connectée - Azure | Microsoft Docs
+description: Description de l’accélérateur de solution Usine connectée Azure IoT et de son architecture.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65eb24cf5f995570b7b1752fc850b596209ea59a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procédure pas à pas de la solution préconfigurée d’usine connectée
+# <a name="connected-factory-solution-accelerator-walkthrough"></a>Procédure pas à pas de l’accélérateur de solution Usine connectée
 
-La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée IoT Suite est une implémentation d’une solution industrielle de bout en bout qui :
+L’[accélérateur de solution][lnk-preconfigured-solutions] Usine connectée est une implémentation de solution industrielle de bout en bout qui :
 
-* Se connecte à la fois aux appareils industriels simulés fonctionnant sur des serveurs OPC UA dans des lignes de production simulées et aux appareils fonctionnant sur des serveurs OPC UA réels. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
+* Se connecte à la fois aux appareils industriels simulés fonctionnant sur des serveurs OPC UA dans des lignes de production simulées et aux appareils fonctionnant sur des serveurs OPC UA réels. Pour plus d’informations sur l’UA OPC, consultez les [questions fréquentes (FAQ) relatives à Usine connectée](iot-suite-faq-cf.md).
 * Affiche les indicateurs de performance clé (KPI) opérationnels et les OEE de ces appareils et des lignes de production.
 * Montre comment une application basée sur le cloud peut être utilisée pour interagir avec les systèmes de serveur OPC UA.
 * Vous permet de connecter vos propres appareils de serveur OPC UA.
@@ -34,19 +34,19 @@ La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée 
 
 Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser] [ lnk-customize] pour répondre à vos propres exigences professionnelles.
 
-Cet article vous présente quelques éléments clés de la solution d’usine connectée pour vous permettre de comprendre son fonctionnement. Cet article décrit aussi le flux de données dans la solution. Ces connaissances vous aident à :
+Cet article vous présente quelques éléments clés de la solution Usine connectée pour vous permettre de comprendre son fonctionnement. Cet article décrit aussi le flux de données dans la solution. Ces connaissances vous aident à :
 
 * Résoudre les problèmes dans la solution.
 * Adapter la solution à vos besoins professionnels.
 * Concevoir votre propre solution IoT utilisant des services Azure.
 
-Pour plus d’informations, consultez le [FAQ sur l’usine connectée](iot-suite-faq-cf.md).
+Pour plus d’informations, consultez les [questions fréquentes (FAQ) relatives à Usine connectée](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Architecture logique
 
-Le schéma suivant décrit les composants logiques de la solution préconfigurée :
+Le diagramme suivant décrit les composants logiques de l’accélérateur de solution :
 
-![Architecture logique d’usine connectée][connected-factory-logical]
+![Architecture logique Usine connectée][connected-factory-logical]
 
 ## <a name="communication-patterns"></a>Modèles de communication
 
@@ -122,7 +122,7 @@ L’instance IoT Hub de la solution effectue également ce qui suit :
 La solution utilise le stockage d’objets blob Azure comme stockage sur disque pour la machine virtuelle et pour stocker les données de déploiement.
 
 ## <a name="web-app"></a>Application web
-L’application web déployée dans le cadre de la solution préconfigurée comprend un client OPC UA intégré, un système de traitement des alertes et de visualisation de télémétrie.
+L’application web déployée dans le cadre de l’accélérateur de solution comprend un client UA OPC intégré, un système de traitement des alertes et un système de visualisation de télémétrie.
 
 ## <a name="telemetry-data-flow"></a>Flux de données de télémétrie
 
@@ -162,17 +162,17 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
 
 9. Données au repos dans TSI.
 
-10. Les requêtes d’application web de fabrique connectée dans Azure App Service nécessitent des données de TSI.
+10. Les requêtes d’application web Usine connectée dans Azure App Service nécessitent des données de TSI.
     - Utilise des communications sécurisées TCP/TLS.
     - Cette étape est interne au centre de données.
 
-11. Le navigateur web se connecte à l’application web d’usine connectée.
-    - Affiche le tableau de bord de l’usine connectée.
+11. Le navigateur web se connecte à l’application web Usine connectée.
+    - Affiche le tableau de bord Usine connectée.
     - Se connecte via le protocole HTTPS.
-    - L’accès à l’application d’usine connectée nécessite l’authentification de l’utilisateur via Azure Active Directory.
-    - Tous les appels WepApi dans l’application d’usine connectée sont sécurisés par des jetons Anti-Forgery-Tokens.
+    - L’accès à l’application Usine connectée nécessite l’authentification de l’utilisateur par le biais d’Azure Active Directory.
+    - Tous les appels WepApi dans l’application Usine connectée sont sécurisés par des jetons anti-contrefaçon.
 
-12. Lors de mises à jour des données, l’application web de fabrique connectée envoie des données mises à jour au navigateur web.
+12. Lors des mises à jour des données, l’application web Usine connectée envoie des données mises à jour au navigateur web.
     - Utilise le protocole SignalR.
     - Sécurisé par TCP/TLS.
 
@@ -190,16 +190,16 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
     - Lit tous les périphériques connus de IoT Hub.
     - Utilise MQTT via Socket ou Secure Websocket.
 
-3. Le navigateur web se connecte à l’application web d’usine connectée et affiche le tableau de bord de l’usine connectée.
+3. Le navigateur web se connecte à l’application web Usine connectée et affiche le tableau de bord Usine connectée.
     - Utilise le protocole HTTPS.
     - Un utilisateur sélectionne un serveur UA OPC pour s’y connecter.
 
-4. L’application web de fabrique connectée établit une session UA OPC dans le serveur UA OPC sélectionné.
+4. L’application web Usine connectée établit une session UA OPC dans le serveur UA OPC sélectionné.
     - Utilise la pile UA OPC.
 
 5. Le transport de proxy OPC reçoit une requête de la pile UA OPC pour établir une connexion socket TCP au serveur UA OPC.
     - Il récupère la charge utile TCP et l’utilise telle quelle.
-    - Cette étape est interne à l’application web d’usine connectée.
+    - Cette étape est interne à l’application web Usine connectée.
 
 6. Le proxy OPC (composant client) cherche le l’appareil proxy OPC (composant serveur) dans le registre de l’appareil IoT Hub. Il appelle ensuite une méthode d’appareil à l’appareil proxy OPC (composant serveur) dans IoT Hub.
     - Utilise le protocole HTTPS via TCP/TLS pour chercher le proxy OPC.
@@ -215,29 +215,29 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
 
 10. Le socket du proxy OPC (composant serveur) reçoit la réponse.
     - Le proxy OPC envoie les données en tant que valeur renvoyée de la méthode d’appareil à IoT Hub et au proxy OPC (composant client).
-    - Ces données sont fournies à la pile UA OPC dans l’application d’usine connectée.
+    - Ces données sont fournies à la pile UA OPC dans l’application Usine connectée.
 
-11. L’application web de fabrique connectée renvoie le navigateur OPC UX enrichi avec les informations spécifiques à UA OPC qu’elle a reçu du serveur UA OPC, vers le navigateur web et les affiche.
-    - En naviguant dans l’espace d’adresse OPC et en appliquant les fonctions aux nœuds dans l’espace d’adresse OPC, le client UX du navigateur OPC utilise des appels AJAX via le protocole sécurisé HTTPS avec des jetons Anti-Forgery-Tokens pour obtenir des données de l’application web de fabrique connectée.
+11. L’application web Usine connectée renvoie le navigateur OPC UX enrichi avec les informations spécifiques d’UA OPC provenant du serveur UA OPC vers le navigateur web et les affiche.
+    - En naviguant dans l’espace d’adresse OPC et en appliquant les fonctions aux nœuds dans l’espace d’adresse OPC, le client UX du navigateur OPC utilise des appels AJAX par le biais du protocole sécurisé HTTPS avec des jetons anti-contrefaçon pour obtenir des données de l’application web Usine connectée.
     - Si nécessaire, le client utilise les communications détaillées de l’étape 4 à 10 pour échanger des informations avec le serveur UA OPC.
 
 > [!NOTE]
 > Le proxy OPC (composant serveur) et le proxy OPC (composant client) réalisent les étapes 4 à 10 pour tout trafic TCP relatifs aux communications UA OPC.
 
 > [!NOTE]
-> Pour le serveur UA OPC et la pile UA OPC au sein de l’application web d’usine connectée, les communications du proxy OPC sont transparentes et toutes les fonctionnalités de sécurité UA OPC pour l’authentification et le chiffrement s’appliquent.
+> Pour le serveur UA OPC et la pile UA OPC au sein de l’application web Usine connectée, les communications du proxy OPC sont transparentes et toutes les fonctionnalités de sécurité UA OPC pour l’authentification et le chiffrement s’appliquent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
+Vous pouvez poursuivre la prise en main des accélérateurs de solution IoT en lisant les articles suivants :
 
 * [Autorisations sur le site azureiotsuite.com][lnk-permissions]
-* [Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
+* [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator (Déployer une passerelle sur Windows ou Linux pour l’accélérateur de solution Usine connectée)](iot-suite-connected-factory-gateway-deployment.md)
 * [Implémentation de référence de l’éditeur OPC](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

@@ -1,25 +1,25 @@
 ---
-title: "Mise à niveau vers le proxy d’application Azure AD | Microsoft Docs"
-description: "Choisissez la meilleure solution de proxy si vous effectuez une mise à niveau à partir de Microsoft Forefront ou de Unified Access Gateway."
+title: Mise à niveau vers le proxy d’application Azure AD | Microsoft Docs
+description: Choisissez la meilleure solution de proxy si vous effectuez une mise à niveau à partir de Microsoft Forefront ou de Unified Access Gateway.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e6764a0eeb27b8bff24140ff2c12e9e66b06b48b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Comparer les solutions d’accès à distance
 
@@ -32,21 +32,21 @@ Ce tableau vous permettra de comparer les solutions Threat Management Gateway (T
 
 | Fonctionnalité | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Authentification par certificat | Oui | Oui | - | - |
-| Publier de manière sélective les applications de navigateur | Oui | Oui | Oui | Oui |
-| Préauthentification et authentification unique | Oui | Oui | Oui | Oui | 
-| Pare-feu de couche 2/3 | Oui | Oui | - | - |
-| Transférer des fonctionnalités de proxy | Oui | - | - | - |
-| Fonctionnalités VPN | Oui | Oui | - | - |
-| Prise en charge du protocole riche | - | Oui | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
-| Sert de serveur proxy AD FS | - | Oui | Oui | - |
-| Un portail pour l’accès de l’application | - | Oui | - | Oui |
-| Traduction du lien de corps de réponse | Oui | Oui | - | Oui | 
-| Authentification avec des en-têtes | - | Oui | - | Oui, avec PingAccess | 
-| Sécurité à l’échelle du cloud | - | - | - | Oui | 
-| Accès conditionnel | - | Oui | - | Oui |
-| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | Oui |
-| Aucune connexion entrante | - | - | - | Oui |
+| Authentification par certificat | OUI | OUI | - | - |
+| Publier de manière sélective les applications de navigateur | OUI | OUI | OUI | OUI |
+| Préauthentification et authentification unique | OUI | OUI | OUI | OUI | 
+| Pare-feu de couche 2/3 | OUI | OUI | - | - |
+| Transférer des fonctionnalités de proxy | OUI | - | - | - |
+| Fonctionnalités VPN | OUI | OUI | - | - |
+| Prise en charge du protocole riche | - | OUI | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
+| Sert de serveur proxy AD FS | - | OUI | OUI | - |
+| Un portail pour l’accès de l’application | - | OUI | - | OUI |
+| Traduction du lien de corps de réponse | OUI | OUI | - | OUI | 
+| Authentification avec des en-têtes | - | OUI | - | Oui, avec PingAccess | 
+| Sécurité à l’échelle du cloud | - | - | - | OUI | 
+| Accès conditionnel | - | OUI | - | OUI |
+| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | OUI |
+| Aucune connexion entrante | - | - | - | OUI |
 
 Pour la plupart des scénarios, nous vous recommandons d’utiliser la solution moderne de proxy d’application Azure AD. Le proxy d’application Web est uniquement recommandé dans les scénarios qui requièrent un serveur proxy pour AD FS, et que vous ne pouvez pas utiliser de domaines personnalisés dans Azure Active Directory. 
 
@@ -62,5 +62,5 @@ Le proxy d’application Azure AD offre des avantages uniques par rapport à des
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser le proxy d’application Azure AD pour offrir un accès à distance sécurisé aux applications locales](active-directory-application-proxy-get-started.md)
+- [Utiliser le proxy d’application Azure AD pour offrir un accès à distance sécurisé aux applications locales](manage-apps/application-proxy.md)
 - [Passer de Forefront TMG et UAG au proxy d’application](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

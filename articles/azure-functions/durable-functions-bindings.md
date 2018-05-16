@@ -1,12 +1,12 @@
 ---
 title: Liaisons pour Fonctions durables - Azure
-description: "Guide pratique pour utiliser des déclencheurs et des liaisons pour l’extension Fonctions durables pour Azure Functions."
+description: Guide pratique pour utiliser des déclencheurs et des liaisons pour l’extension Fonctions durables pour Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -36,17 +36,12 @@ Lorsque vous écrivez des fonctions d’orchestrateur dans des langages de scrip
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` est le nom de l’orchestration. Il s’agit de la valeur que les clients doivent utiliser lorsqu’ils souhaitent démarrer de nouvelles instances de cette fonction d’orchestrateur. Cette propriété est facultative. Si cette valeur n’est pas spécifiée, le nom de la fonction est utilisé.
-* `version` est une étiquette de version de l’orchestration. Les clients qui démarrent une nouvelle instance d’une orchestration doivent inclure l’étiquette de version correspondante. Cette propriété est facultative. Si elle n’est pas spécifiée, une chaîne vide est utilisée. Pour plus d’informations sur la gestion de versions, consultez [Gestion de versions](durable-functions-versioning.md).
-
-> [!NOTE]
-> La définition des valeurs pour les propriétés `orchestration` ou `version` n’est pas recommandée à ce stade.
 
 En interne, cette liaison de déclencheur interroge une série de files d’attente dans le compte de stockage par défaut pour l’application de la fonction. Ces files d’attente sont des détails d’implémentation internes de l’extension, et elles ne sont donc pas explicitement configurées dans les propriétés de liaison.
 
@@ -69,12 +64,11 @@ La liaison du déclencheur d’orchestration prend en charge à la fois les entr
 * **entrées** : les fonctions d’orchestration prennent uniquement en charge le type de paramètre [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Les entrées de désérialisation directement dans la signature de la fonction ne sont pas prises en charge. Le code doit utiliser la méthode [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) pour extraire des entrées de la fonction d’orchestrateur. Ces entrées doivent être de type JSON sérialisable.
 * **sorties** : les déclencheurs d’orchestration prennent en charge les valeurs de sortie ainsi que les entrées. La valeur de retour de la fonction sert à affecter la valeur de sortie et doit être de type JSON sérialisable. Si une fonction retourne `Task` ou `void`, une valeur `null` sera enregistrée comme sortie.
 
-> [!NOTE]
-> Les déclencheurs d’orchestration sont uniquement pris en charge en langage C# pour l’instant.
-
 ### <a name="trigger-sample"></a>Exemple de déclencheur
 
-Voici l’exemple d’une simple fonction d’orchestrateur « Hello World » en C# :
+Voici l’exemple d’une simple fonction d’orchestrateur « Hello World » :
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,17 +79,45 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (fonctions v2 uniquement)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> Les orchestrateurs JavaScript doivent utiliser `return`. La bibliothèque `durable-functions` prend en charge l’appel de la méthode `context.done`.
+
 La plupart des fonctions d’orchestrateur appellent des fonctions d’activité. Voici un exemple « Hello World » qui montre comment appeler une fonction d’activité :
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string name = await context.GetInput<string>();
+    string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (fonctions v2 uniquement)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>Déclencheurs d’activité
@@ -110,17 +132,12 @@ Si vous utilisez le portail Azure pour le développement, le déclencheur d’ac
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` est le nom de l’activité. Il s’agit de la valeur qu’utilisent les fonctions d’orchestrateur pour appeler cette fonction d’activité. Cette propriété est facultative. Si cette valeur n’est pas spécifiée, le nom de la fonction est utilisé.
-* `version` est une étiquette de version de l’activité. Les fonctions d’orchestrateur qui appellent une activité doivent inclure l’étiquette de version correspondante. Cette propriété est facultative. Si elle n’est pas spécifiée, une chaîne vide est utilisée. Pour plus d’informations, consultez [Gestion de versions](durable-functions-versioning.md).
-
-> [!NOTE]
-> La définition des valeurs pour les propriétés `activity` ou `version` n’est pas recommandée à ce stade.
 
 En interne, cette liaison de déclencheur interroge une file d’attente dans le compte de stockage par défaut pour l’application de la fonction. Cette file d’attente est un détail d’implémentation interne de l’extension, et elle n’est donc pas explicitement configurée dans les propriétés de liaison.
 
@@ -144,12 +161,11 @@ La liaison du déclencheur d’activité prend en charge à la fois les entrées
 * **sorties** : les fonctions d’activité prennent en charge les valeurs de sortie ainsi que les entrées. La valeur de retour de la fonction sert à affecter la valeur de sortie et doit être de type JSON sérialisable. Si une fonction retourne `Task` ou `void`, une valeur `null` sera enregistrée comme sortie.
 * **métadonnées** : les fonctions d’activité peuvent être liées à un paramètre `string instanceId` pour obtenir l’ID d’instance de l’orchestration parente.
 
-> [!NOTE]
-> Les déclencheurs d’activité ne sont actuellement pas pris en charge dans les fonctions Node.js.
-
 ### <a name="trigger-sample"></a>Exemple de déclencheur
 
-Voici l’exemple d’une simple fonction d’activité « Hello World » en C# :
+Voici l’exemple d’une simple fonction d’activité « Hello World » :
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,13 +176,69 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (fonctions v2 uniquement)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 Le type de paramètre par défaut pour la liaison `ActivityTriggerAttribute` est `DurableActivityContext`. Cependant, les déclencheurs d’activité prennent également en charge la liaison directe avec des types de paramètres sérialisables au format JSON (notamment les types primitifs). La même fonction peut donc être simplifiée comme suit :
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
+}
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (fonctions v2 uniquement)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
+```
+
+### <a name="passing-multiple-parameters"></a>Transmission de plusieurs paramètres 
+
+Il n’est pas possible de transmettre directement plusieurs paramètres à une fonction d’activité. Dans ce cas, il est recommandé de les transmettre dans un tableau d’objets ou d’utiliser des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples).
+
+Dans l’exemple suivant, de nouvelles fonctionnalités des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) sont ajoutées avec [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples) :
+
+```csharp
+[FunctionName("GetCourseRecommendations")]
+public static async Task<dynamic> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string major = "ComputerScience";
+    int universityYear = context.GetInput<int>();
+
+    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    // parse input for student's major and year in university 
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
 }
 ```
 
@@ -264,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Exemple Node.js
+#### <a name="javascript-sample"></a>Exemple JavaScript
 
-L’exemple suivant montre comment utiliser la liaison de client d’orchestration durable pour démarrer une nouvelle instance de fonction à partir d’une fonction de script Node.js :
+L’exemple suivant montre comment utiliser la liaison de client d’orchestration durable pour démarrer une nouvelle instance de fonction à partir d’une fonction JavaScript :
 
 ```js
 module.exports = function (context, input) {

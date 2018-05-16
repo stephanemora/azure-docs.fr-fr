@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations externes dans Fonctions durables (Azure Functions)
 
@@ -36,6 +36,9 @@ Lorsque la méthode `ContinueAsNew` est appelée, l’instance garde un message 
 
 > [!NOTE]
 > L’infrastructure des tâches durables conserve le même ID d’instance, mais crée en interne un nouvel *ID d’exécution* pour la fonction d’orchestrateur réinitialisée par `ContinueAsNew`. Cet ID d’exécution n’est généralement pas exposé en externe, mais il peut être utile d’en tenir compte lors du débogage de l’exécution d’orchestration.
+
+> [!NOTE]
+> La méthode `ContinueAsNew` n’est pas encore disponible dans JavaScript.
 
 ## <a name="periodic-work-example"></a>Exemple de travail périodique
 
@@ -60,7 +63,7 @@ La différence entre cet exemple et une fonction déclenchée par un minuteur es
 
 ## <a name="counter-example"></a>Exemple de compteur
 
-Voici un exemple simplifié de fonction *compteur* qui écoute en externe des événements d*’incrémentation* et de *décrémentation*.
+Voici un exemple simplifié de fonction *compteur* qui écoute en externe des événements d *’incrémentation* et de *décrémentation*.
 
 ```csharp
 [FunctionName("SimpleCounter")]

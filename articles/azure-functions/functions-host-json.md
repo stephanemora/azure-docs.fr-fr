@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Informations de référence sur le fichier host.json pour Azure Functions
 
@@ -142,6 +142,46 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](f
 |isEnabled|true|Active ou désactive l’échantillonnage.| 
 |maxTelemetryItemsPerSecond|5.|Seuil à partir duquel l’échantillonnage débute.| 
 
+## <a name="durabletask"></a>durableTask
+
+Paramètres de configuration de [Fonctions durables](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom du hub de tâches par défaut d’une application de fonction est **DurableFunctionsHub**. Pour en savoir plus, consultez la section relative aux [hubs de tâches](durable-functions-task-hubs.md).
+
+|Propriété  |Default | Description |
+|---------|---------|---------|
+|HubName|DurableFunctionsHub|D’autres noms de [hub de tâches](durable-functions-task-hubs.md) peuvent être utilisés pour isoler plusieurs applications Fonctions durables les unes des autres, même si elles s’appuient sur le même serveur principal de stockage.|
+|ControlQueueBatchSize|32|Nombre de messages à extraire de la file d’attente de contrôle en une seule fois.|
+|PartitionCount |4|Nombre de partitions pour la file d’attente de contrôle. Doit être un entier positif compris entre 1 et 16.|
+|ControlQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente de contrôle.|
+|WorkItemQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente des éléments de travail.|
+|MaxConcurrentActivityFunctions |10 fois le nombre de processeurs sur l’ordinateur actuel|Nombre maximal de fonctions d’activité pouvant être traitées simultanément sur une seule instance d’hôte.|
+|MaxConcurrentOrchestratorFunctions |10 fois le nombre de processeurs sur l’ordinateur actuel|Nombre maximal de fonctions d’activité pouvant être traitées simultanément sur une seule instance d’hôte.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|Nom du paramètre d’application qui contient la chaîne de connexion de stockage Azure utilisée pour gérer les ressources de stockage Azure sous-jacentes.|
+|TraceInputsAndOutputs |false|Valeur indiquant s’il faut tracer les entrées et sorties des appels de fonction. Lors du traçage d’événements d’exécution de fonctions, le nombre d’octets est inclus par défaut dans les entrées et les sorties sérialisées pour les appels de fonction. Cela fournit un minimum d’informations sur l’apparence des entrées et sorties sans encombrer les journaux ou exposer accidentellement des informations sensibles dans les journaux. La définition de cette propriété sur True amène la journalisation de la fonction par défaut à consigner la totalité du contenu des entrées et sorties de fonction.|
+|EventGridTopicEndpoint ||URL du point de terminaison de la rubrique personnalisée Azure Event Grid. Lorsque cette propriété est définie, les événements de notification du cycle de vie d’orchestration sont publiés sur ce point de terminaison.|
+|EventGridKeySettingName ||Nom du paramètre d’application contenant la clé utilisée pour l’authentification à l’aide de la rubrique personnalisée Azure Event Grid sur `EventGridTopicEndpoint`.
+
+Beaucoup sont destinés à l’optimisation des performances. Pour plus d’informations, consultez [Performances et mise à l’échelle](durable-functions-perf-and-scale.md).
+
 ## <a name="eventhub"></a>eventHub
 
 Paramètres de configuration pour les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs.md).
@@ -150,7 +190,7 @@ Paramètres de configuration pour les [déclencheurs et liaisons Event Hub](fun
 
 ## <a name="functions"></a>functions
 
-Liste des fonctions que l’hôte de travail exécute.  Un tableau vide désigne l’exécution de toutes les fonctions.  Utilisée uniquement pour une [exécution locale](functions-run-local.md). Dans les applications de fonction, utilisez la propriété *function.json* `disabled` plutôt que cette propriété dans *host.json*.
+Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne l’exécution de toutes les fonctions. Utilisée uniquement pour une [exécution locale](functions-run-local.md). Dans les applications de fonction, utilisez la propriété *function.json* `disabled` plutôt que cette propriété dans *host.json*.
 
 ```json
 {
@@ -299,21 +339,6 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-Nom du [hub de tâches](durable-functions-task-hubs.md) pour l’extension [Fonctions durables](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom du hub de tâches par défaut d’une application de fonction est **DurableFunctionsHub**. Pour en savoir plus, consultez la section relative aux [hubs de tâches](durable-functions-task-hubs.md).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

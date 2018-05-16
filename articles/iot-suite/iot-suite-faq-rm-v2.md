@@ -1,6 +1,6 @@
 ---
-title: Forum aux questions sur la surveillance à distance Azure IoT Suite | Microsoft Docs
-description: Forum aux questions sur la solution préconfigurée de surveillance à distance IoT Suite
+title: Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance | Microsoft Docs
+description: Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b0d6dbb567f66537c599d7ac3e4337988b3374c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1cc260710d025428a1ca77c41c104dc172447e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-remote-monitoring-preconfigured-solution"></a>Forum aux questions sur la solution préconfigurée de surveillance à distance IoT Suite
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
 
 Voir aussi le [FAQ](iot-suite-faq.md) général.
 
 ### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Combien coûte l’approvisionnement de la nouvelle solution de surveillance à distance ?
 
-La nouvelle solution préconfigurée offre deux options de déploiement :
+Le nouvel accélérateur de solution propose deux options de déploiement :
 
 * Une option *de base* conçue pour les développeurs à la recherche d’un coût de développement moindre ou de clients souhaitant créer une démonstration ou une preuve de concept.
 * Une option *standard* conçue pour les entreprises souhaitant déployer une infrastructure prête à l’emploi dans un environnement de production.
@@ -44,15 +44,11 @@ Chaque option de déploiement répond à des besoins différents. Le déploiemen
 
 Pour plus d’informations, consultez [Upgrade map key to see devices on a dynamic map (Mettre à niveau une clé de mappage pour voir les appareils sur un mappage dynamique)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Combien d’API Bing Maps gratuites puis-je configurer dans un abonnement ?
-
-Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - Niveau 1 pour les plans d’entreprise dans un abonnement Azure. La solution de surveillance à distance est configurée par défaut avec le plan Transactions internes - Niveau 1. Par conséquent, vous pouvez configurer au maximum deux solutions de surveillance à distance préconfigurées sans modification.
-
 ### <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
+Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
-* [Explorer les fonctionnalités de la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-explore.md)
-* [Présentation de la solution préconfigurée de maintenance prédictive](iot-suite-predictive-overview.md)
-* [Présentation de la solution préconfigurée d’usine connectée](iot-suite-connected-factory-overview.md)
+* [Explorer les fonctionnalités de l’accélérateur de solution de surveillance à distance](iot-suite-remote-monitoring-explore.md)
+* [Présentation de l’accélérateur de solution de maintenance prédictive](iot-suite-predictive-overview.md)
+* [Présentation de l’accélérateur de solution Usine connectée](iot-suite-connected-factory-overview.md)
 * [Sécurisation de l’Internet des objets de bout en bout](securing-iot-ground-up.md)

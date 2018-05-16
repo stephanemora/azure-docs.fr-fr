@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: fea9ccc53bd019039cf1e989d72db7a218e4517c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0bd023e73088897303fe0f9de47641cd6ea0389
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-iot-suite-connected-factory"></a>Présentation de la solution Usine connectée d’Azure IoT Suite
 
@@ -65,11 +65,11 @@ Usine connectée propose les fonctionnalités suivantes :
 ## <a name="customizability"></a>Possibilités de personnalisation
 
 - [Personnalisez](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) la solution en fonction de vos besoins professionnels.
-- Code source complet de la solution disponible sur GitHub. Consultez le référentiel sur la [solution préconfigurée Usine connectée](https://github.com/Azure/azure-iot-connected-factory).
+- Code source complet de la solution disponible sur GitHub. Consultez le dépôt sur la [solution préconfigurée Usine connectée](https://github.com/Azure/azure-iot-connected-factory).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la solution préconfigurée Usine connectée, consultez les articles suivants :
 
 * [Procédure pas à pas de la solution préconfigurée Usine connectée](iot-suite-connected-factory-sample-walkthrough.md)
-* [Déployer une passerelle de périmètre pour la solution préconfigurée Usine connectée sur Windows ou Linux]( iot-suite-connected-factory-gateway-deployment.md)
+* [Déployer une passerelle pour l’Usine connectée]( iot-suite-connected-factory-gateway-deployment.md)

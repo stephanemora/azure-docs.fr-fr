@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Qu’est-ce qu’un réseau de distribution de contenu sur Azure ?
 Un réseau de diffusion de contenu (CDN) est un réseau distribué de serveurs capables de fournir efficacement du contenu web aux utilisateurs. Il stocke le contenu en cache sur des serveurs Edge dans un point de présente (POP) proches des utilisateurs finaux afin de réduire la latence. 
@@ -50,7 +50,7 @@ Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page
 6. Si la durée de vie du fichier n'a pas expiré, le serveur Edge du point de présence renvoie le fichier directement depuis le cache. L’expérience utilisateur est en conséquence plus rapide et plus réactive.
 
 ## <a name="requirements"></a>Configuration requise
-Pour utiliser Azure CDN, vous devez posséder au moins un abonnement Azure. Vous devez aussi créer au moins un profil CDN, qui est une collection des points de terminaison du CDN. Chaque point de terminaison du CDN représente une configuration spécifique d’accès et de comportement de distribution de contenu. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d’autres critères. La [tarification Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) s’applique au niveau du profil CDN. Vous devez donc créer plusieurs profils CDN si vous souhaitez utiliser plusieurs niveaux de tarification.
+Pour utiliser Azure CDN, vous devez posséder au moins un abonnement Azure. Vous devez aussi créer au moins un profil CDN, qui est une collection des points de terminaison du CDN. Chaque point de terminaison du CDN représente une configuration spécifique d’accès et de comportement de distribution de contenu. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d’autres critères. La [tarification Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) s’applique au niveau du profil CDN. Vous devez donc créer plusieurs profils CDN si vous souhaitez utiliser plusieurs niveaux de tarification. Pour plus d’informations sur la structure de facturation d’Azure CDN, consultez [Understanding Azure CDN billing](cdn-billing.md) (Présentation de la facturation d’Azure CDN).
 
 ### <a name="limitations"></a>Limites
 Chaque abonnement Azure comprend des limites par défaut pour les ressources suivantes :
@@ -77,4 +77,5 @@ Pour obtenir la liste complète des fonctionnalités prises en charge par chaque
 - Gérez vos points de terminaison CDN via le [portail Microsoft Azure](https://portal.azure.com) ou avec [PowerShell](cdn-manage-powershell.md).
 - Apprenez à automatiser Azure CDN avec [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
 - Pour voir Azure CDN en action, regardez les [vidéos Azure CDN](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
+- Pour plus d’informations sur les dernières fonctionnalités d’Azure CDN, consultez le [blog d’Azure CDN](https://azure.microsoft.com/blog/tag/azure-cdn/).
 

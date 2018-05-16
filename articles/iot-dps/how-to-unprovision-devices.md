@@ -5,18 +5,18 @@ services: iot-dps
 keywords: ''
 author: bryanla
 ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement 
 
@@ -29,7 +29,7 @@ En règle générale, le déprovisionnement d’un appareil implique deux étape
    - Pour découvrir comment désinscrire un appareil, consultez la section [Révoquer l’accès des appareils à votre service de provisionnement dans le portail Azure](how-to-revoke-device-access-portal.md).
    - Pour découvrir comment révoquer l’accès des appareils par programmation à l’aide de l’un des SDK de service de provisionnement, consultez la page [Manage device enrollments with service SDKs](how-to-manage-enrollments-sdks.md) (Gérer les inscriptions d’appareils avec les SDK du service).
 
-2. Annulez l’inscription de l’appareil à votre instance IoT Hub, afin de prévenir les communications et les transferts de données à l’avenir. Là encore, vous pouvez désactiver temporairement ou supprimer définitivement l’entrée de l’appareil dans le registre des identités pour l’instance IoT Hub où il a été provisionné. Pour en savoir plus sur la désactivation, consultez la section [Disable devices](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) (Désactiver les appareils). Consultez la section relative à la gestion des appareils IoT pour votre ressource IoT Hub, dans le [portail Azure](https://portal.azure.com).
+2. Annulez l’inscription de l’appareil à votre instance IoT Hub, afin de prévenir les communications et les transferts de données à l’avenir. Là encore, vous pouvez désactiver temporairement ou supprimer définitivement l’entrée de l’appareil dans le registre des identités pour l’instance IoT Hub où il a été provisionné. Pour en savoir plus sur la désactivation, consultez la section [Disable devices](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) (Désactiver les appareils). Consultez la section relative à la gestion des appareils IoT pour votre ressource IoT Hub, dans le [portail Azure](https://portal.azure.com).
 
 Les étapes précises à suivre pour déprovisionner un appareil dépendent de son mécanisme d’attestation et de son entrée d’inscription au service d’approvisionnement. Les sections suivantes fournissent une vue d’ensemble du processus, en fonction du type d’inscription et d’attestation.
 

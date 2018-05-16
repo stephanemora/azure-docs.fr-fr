@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  
@@ -26,13 +26,13 @@ Le proxy d’application Azure Active Directory et Qlik Sense se sont associés 
 Le reste de ce scénario suppose que vous avez effectué les opérations suivantes :
  
 - Vous avez configuré [Qlik sens](https://community.qlik.com/docs/DOC-19822). 
-- [Vous avez installé un connecteur Proxy d’application](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [Vous avez installé un connecteur Proxy d’application](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Publier vos applications dans Azure 
 Pour publier QlikSense, vous devez publier deux applications dans Azure.  
 
 ### <a name="application-1"></a>1ère application : 
-Suivez ces étapes pour publier votre application. Pour obtenir plus de détails sur les étapes 1 à 8, consultez [Publier des applications avec le Proxy d’application Azure AD](application-proxy-publish-azure-portal.md). 
+Suivez ces étapes pour publier votre application. Pour obtenir plus de détails sur les étapes 1 à 8, consultez [Publier des applications avec le Proxy d’application Azure AD](manage-apps/application-proxy-publish-azure-portal.md). 
 
 
 1. Connectez-vous au portail Azure en tant qu’administrateur général. 
@@ -59,5 +59,5 @@ Votre application est maintenant prête à être testée. Accédez à l’URL ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Publiez des applications avec le proxy d’application](application-proxy-publish-azure-portal.md)
-- [Utilisation de connecteurs Proxy d’application](active-directory-application-proxy-connectors-azure-portal.md).
+- [Publiez des applications avec le proxy d’application](manage-apps/application-proxy-publish-azure-portal.md)
+- [Utilisation de connecteurs Proxy d’application](manage-apps/application-proxy-connector-groups.md).
