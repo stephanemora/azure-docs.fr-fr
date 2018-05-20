@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -31,23 +31,42 @@ Cet article explique comment utiliser des liaisons Stockage Blob Azure dans Azur
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> Les [comptes de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts) ne sont pas pris en charge pour les déclencheurs d’objet blob. Les déclencheurs de stockage d’objets blob nécessitent un compte de stockage à usage général. Pour les liaisons d’entrée et de sortie, vous pouvez utiliser des comptes de stockage d’objets blob uniquement.
-
 ## <a name="packages"></a>Packages
 
 Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> Utilisez le déclencheur Event Grid au lieu du déclencheur de stockage Blob pour les comptes de stockage blob uniquement, afin de bénéficier d’une scalabilité élevée ou pour éviter les délais de démarrage à froid. Pour plus d’informations, consultez la section **Déclencheur** suivante. 
+
 ## <a name="trigger"></a>Déclencheur
 
-Utilisez un déclencheur de stockage d’objets blob pour démarrer une fonction lors de la détection d’un objet blob nouveau ou mis à jour. Le contenu de l’objet blob est fourni comme entrée de la fonction.
+Le déclencheur de stockage Blob démarre une fonction lors de la détection d’un objet blob nouveau ou mis à jour. Le contenu de l’objet blob est fourni comme entrée de la fonction.
 
-> [!NOTE]
-> Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob après qu’une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour éviter ce délai initial, pensez à l’une des options suivantes :
-> - Utilisez un plan App Service avec le paramètre Toujours actif activé.
-> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un message de file d’attente qui contient le nom de l’objet blob. Pour un exemple, consultez [l’exemple de liaisons d’entrée d’objet blob plus loin dans cet article](#input---example).
+Le [déclencheur Event Grid](functions-bindings-event-grid.md) contient la prise en charge intégrée des [événements blob](../storage/blobs/storage-blob-event-overview.md) et peut également être utilisé pour démarrer une fonction lors de la détection d’un objet blob nouveau ou mis à jour. Pour obtenir un exemple, consultez le tutoriel [Redimensionnement d’image avec Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+
+Utilisez Event Grid au lieu du déclencheur de stockage Blob pour les scénarios suivants :
+
+* Comptes de stockage Blob uniquement
+* Scalabilité élevée
+* Délai de démarrage à froid
+
+### <a name="blob-only-storage-accounts"></a>Comptes de stockage Blob uniquement
+
+Les [comptes de stockage Blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts) sont pris en charge pour les liaisons d’entrée et de sortie, mais pas pour les déclencheurs blob. Les déclencheurs de stockage d’objets blob nécessitent un compte de stockage à usage général.
+
+### <a name="high-scale"></a>Scalabilité élevée
+
+La scalabilité élevée peut être définie comme des conteneurs qui contiennent plus de 100 000 objets blob ou des comptes de stockage avec plus de 100 mises à jour d’objets blob par seconde.
+
+### <a name="cold-start-delay"></a>Délai de démarrage à froid
+
+Si votre application de fonction est dans le plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Pour éviter ce délai de démarrage à froid, vous pouvez utiliser un plan App Service avec Always On activé, ou utilisez un type de déclencheur différent.
+
+### <a name="queue-storage-trigger"></a>Déclencheur de stockage de file d’attente
+
+En dehors d’Event Grid, une autre alternative au traitement des objets blob est le déclencheur de stockage de file d’attente, mais il n’intègre pas la prise en charge des événements blob. Vous devrez créer des messages de file d’attente pendant la création ou la mise à jour des objets blob. Pour obtenir un exemple qui suppose que vous avez procédé ainsi, consultez [l’exemple de liaison d’entrée d’objet blob plus loin dans cet article](#input---example).
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 

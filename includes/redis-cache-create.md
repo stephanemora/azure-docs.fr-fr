@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 55bc2bd4e065c301f11a5fc4d3b58aa443b83e2d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e035b49d9e386287baf67bba756f7b58a764acc5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **Créer une ressource** > **Bases de données** > **Cache Redis**.
 
@@ -24,7 +24,7 @@ Dans **Nouveau cache Redis**, configurez les paramètres du nouveau cache.
 | ------------ |  ------- | -------------------------------------------------- |
 | **Nom DNS** | Nom globalement unique | Le nom du cache doit être une chaîne de 1 à 63 caractères et contenir uniquement des chiffres, des lettres et le caractère `-` . Le nom du cache ne peut ni commencer ni se terminer par le caractère `-` et il n’accepte pas de caractères `-` consécutifs.  | 
 | **Abonnement** | Votre abonnement | Abonnement sous lequel est créé ce nouveau Cache Redis Azure. | 
-| **Groupe de ressources** |  *TestResourceGroup* | Nom du nouveau groupe de ressources dans lequel créer votre cache. En plaçant toutes les ressources d’une application dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources associées à l’application. | 
+| **Groupe de ressources** |  *TestResources* | Nom du nouveau groupe de ressources dans lequel créer votre cache. En plaçant toutes les ressources d’une application dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources associées à l’application. | 
 | **Lieu** | Est des États-Unis | Choisissez une [région](https://azure.microsoft.com/regions/) à proximité des autres services qui utilisent votre cache. |
 | **[Niveau tarifaire](https://azure.microsoft.com/pricing/details/cache/)** |  De base C0 (cache de 250 Mo) |  Le niveau tarifaire détermine la taille, les performances et les fonctionnalités disponibles pour le cache. Pour plus d’informations, consultez [Azure Redis Cache Overview](../articles/redis-cache/cache-overview.md) (Vue d’ensemble de Cache Redis Azure). |
 | **Épingler au tableau de bord** |  Volumes sélectionnés | Épinglez le nouveau cache à votre tableau de bord pour en faciliter la recherche. |

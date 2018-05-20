@@ -1,5 +1,5 @@
 ---
-title: Identité du service administré (MSI) pour Azure Active Directory
+title: Présentation de Managed Service Identity (MSI) pour les ressources Azure
 description: Vue d’ensemble de l’identité du service administré (MSI) pour les ressources Azure.
 services: active-directory
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: identity
-ms.date: 12/19/2017
-ms.author: skwan
-ms.openlocfilehash: 6b62baf1fdad6e08535b13f2ca461b00156a7f14
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.topic: overview
+ms.custom: mvc
+ms.date: 03/28/2018
+ms.author: daveba
+ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="managed-service-identity-msi-for-azure-resources"></a>Identité du service administré (MSI) pour les ressources Azure
+#  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Présentation de Managed Service Identity (MSI) pour les ressources Azure.
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -28,22 +28,55 @@ La gestion des informations d’identification qui doivent se trouver dans votre
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-Lorsque vous activez l’identité du service administré sur un service Azure, Azure crée automatiquement une identité pour l’instance de service dans l’abonné Azure AD utilisé par votre abonnement Azure.  En arrière-plan, Azure approvisionne les informations d’identification pour l’identité dans l’instance de service.  Votre code peut ensuite faire une demande locale pour obtenir des jetons d’accès pour les services qui prennent en charge l’authentification Azure AD.  Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service.  Si l’instance de service est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
+Il existe deux types d’identités Managed Service Identities : **celles affectées par le système** et **celles affectées par l’utilisateur**.
 
-Voici un exemple du fonctionnement de l’identité du service administré avec des machines virtuelles Azure.
+- Une **identité affectée par le système** est activée directement sur une instance de service Azure. Lorsque cette fonction est activée, Azure crée une identité pour l’instance de service dans le locataire Azure AD approuvé par l’abonnement de l’instance de service. Une fois l’identité créée, ses informations d’identification sont provisionnées sur l’instance de service. Le cycle de vie d’une identité affectée par le système est directement lié à l’instance de service Azure sur laquelle elle est activée. Si l’instance de service est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
+- Une **identité affectée par l’utilisateur** (préversion publique) est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité affectée par l’utilisateur est géré séparément du cycle de vie des instances de service Azure auxquelles elle est affectée.
 
-![Exemple d’identité du service administré d’une machine virtuelle](../media/msi-vm-imds-example.png)
+Par conséquent, votre code peut utiliser une identité affectée par le système ou par l’utilisateur, pour demander des jetons d’accès pour les services qui prennent en charge l’authentification Azure AD. Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service.
 
-1. Azure Resource Manager reçoit un message pour activer Managed Service Identity (MSI) sur une machine virtuelle.
+Voici un exemple du fonctionnement des identités affectées par le système avec des machines virtuelles Azure :
+
+![Exemple d’identité du service administré d’une machine virtuelle](overview/msi-vm-vmextension-imds-example.png)
+
+1. Azure Resource Manager reçoit une requête pour activer l’identité affectée par le système sur une machine virtuelle.
 2. Azure Resource Manager crée un principal de service dans Azure AD pour représenter l’identité de la machine virtuelle. Le principal de service est créé dans l’abonné Azure AD approuvé par cet abonnement.
-3. Azure Resource Manager configure les détails du principal du service pour la machine virtuelle dans Azure Instance Metadata Service de la machine virtuelle. Cette étape inclut la configuration de l’ID et du certificat du client utilisés pour obtenir des jetons d’accès à partir d’Azure AD. *Remarque : Le point de terminaison MSI IMDS consiste à remplacer le point de terminaison actuel de l’extension de machine virtuelle MSI. Pour plus d’informations sur cette modification, consultez la page des FAQ et des problèmes connus*
-4. Maintenant que l’identité du principal de service de la machine virtuelle est connue, elle peut accéder aux ressources Azure. Par exemple, si votre code doit appeler Azure Resource Manager, il vous faut ensuite attribuer le rôle approprié au principal de service de la machine virtuelle à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure AD.  Si votre code doit appeler Key Vault, cela signifie que vous devez accorder à votre code un accès au secret spécifique ou à la clé dans Key Vault.
-5. Votre code en cours d’exécution sur la machine virtuelle demande un jeton du point de terminaison MSI de Azure Instance Metadata Service (IMDS), uniquement accessible à partir de l’intérieur de la machine virtuelle : http://169.254.169.254/metadata/identity/oauth2/token. Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Par exemple, si vous souhaitez que votre code s’authentifie sur Azure Resource Manager, vous devez utiliser resource=https://management.azure.com/.
-6. Azure Instance Metadata demande un jeton d’accès à partir d’Azure AD, à l’aide de l’ID et du certificat du client pour la machine virtuelle. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
+3. Azure Resource Manager configure l’identité sur la machine virtuelle :
+    - Met à jour le point de terminaison d’identité Azure Instance Metadata Service avec l’ID client et le certificat du Principal de service.
+    - Provisionne l’extension de machine virtuelle MSI et ajoute l’ID client et le certificat du Principal de service. (fonctionnalité destinée à être déconseillée)
+4. Maintenant que la machine virtuelle possède une identité, nous utilisons ses informations du Principal de service pour accorder l’accès à la machine virtuelle aux ressources Azure. Par exemple, si votre code doit appeler Azure Resource Manager, il vous faut ensuite attribuer le rôle approprié au principal de service de la machine virtuelle à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure AD. Si votre code doit appeler Key Vault, cela signifie que vous devez accorder à votre code un accès au secret spécifique ou à la clé dans Key Vault.
+5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir de deux points de terminaison qui sont uniquement accessibles à partir de la machine virtuelle :
+
+    - Point de terminaison d’identité Azure Instance Metadata Service (IMDS) : http://169.254.169.254/metadata/identity/oauth2/token (recommandé)
+        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Par exemple, si vous souhaitez que votre code s’authentifie sur Azure Resource Manager, vous devez utiliser resource=https://management.azure.com/.
+        - Le paramètre de version d’API spécifie la version IMDS, utilisez api-version=2018-02-01 ou version ultérieure.
+    - Point de terminaison d’extension de machine virtuelle MSI : http://localhost:50342/oauth2/token (destiné à être déconseillé)
+        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Par exemple, si vous souhaitez que votre code s’authentifie sur Azure Resource Manager, vous devez utiliser resource=https://management.azure.com/.
+
+6. Un appel est passé à Azure AD pour demander un jeton d’accès comme indiqué à l’étape 5, à l’aide de l’ID client et du certificat configurés à l’étape 3. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
 7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
 
-Chaque service Azure qui prend en charge l’identité du service administré a sa propre méthode permettant à votre code d’obtenir un jeton d’accès. Consultez les didacticiels pour chaque service, afin de connaître la méthode spécifique pour obtenir un jeton.
+Dans le même diagramme, voici un exemple du fonctionnement d’une identité de service administré affectée par l’utilisateur avec des machines virtuelles Azure.
 
+1. Azure Resource Manager reçoit une requête pour créer une identité affectée par l’utilisateur.
+2. Azure Resource Manager crée un principal de service dans Azure AD pour représenter l’identité affectée par l’utilisateur. Le principal de service est créé dans l’abonné Azure AD approuvé par cet abonnement.
+3. Azure Resource Manager reçoit une requête pour configurer l’identité affectée par l’utilisateur sur une machine virtuelle :
+    - Met à jour le point de terminaison d’identité Azure Instance Metadata Service avec l’ID client et le certificat du Principal de service de l’identité affectée par l’utilisateur.
+    - Provisionne l’extension de machine virtuelle MSI et ajoute l’ID client et le certificat du Principal de service de l’identité affectée par l’utilisateur (destiné à être déconseillé).
+4. Maintenant que l’identité affectée par l’utilisateur a été créée, nous utilisons ses informations du Principal de service pour lui accorder l’accès aux ressources Azure. Par exemple, si votre code doit appeler Azure Resource Manager, alors il vous faut attribuer le rôle approprié au principal de service de l’identité affectée par l’utilisateur à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure AD. Si votre code doit appeler Key Vault, cela signifie que vous devez accorder à votre code un accès au secret spécifique ou à la clé dans Key Vault. Remarque : cette étape peut aussi être effectuée avant l’étape 3.
+5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir de deux points de terminaison qui sont uniquement accessibles à partir de la machine virtuelle :
+
+    - Point de terminaison d’identité Azure Instance Metadata Service (IMDS) : http://169.254.169.254/metadata/identity/oauth2/token (recommandé)
+        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Par exemple, si vous souhaitez que votre code s’authentifie sur Azure Resource Manager, vous devez utiliser resource=https://management.azure.com/.
+        - Le paramètre ID client spécifie l’identité pour laquelle le jeton est demandé. Cela est nécessaire pour lever l’ambiguïté lorsque plusieurs identités affectées par l’utilisateur se trouvent sur une même machine virtuelle.
+        - Le paramètre de version d’API spécifie la version IMDS, utilisez api-version=2018-02-01 ou version ultérieure.
+
+    - Point de terminaison d’extension de machine virtuelle MSI : http://localhost:50342/oauth2/token (destiné à être déconseillé)
+        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Par exemple, si vous souhaitez que votre code s’authentifie sur Azure Resource Manager, vous devez utiliser resource=https://management.azure.com/.
+        - Le paramètre ID client spécifie l’identité pour laquelle le jeton est demandé. Cela est nécessaire pour lever l’ambiguïté lorsque plusieurs identités affectées par l’utilisateur se trouvent sur une même machine virtuelle.
+6. Un appel est passé à Azure AD pour demander un jeton d’accès comme indiqué à l’étape 5, à l’aide de l’ID client et du certificat configurés à l’étape 3. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
+7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
+     
 ## <a name="try-managed-service-identity"></a>Essayer l’identité du service administré
 
 Essayez un didacticiel d’identité du service administré afin d’en savoir plus sur les scénarios de bout en bout pour l’accès à d’autres ressources Azure :
@@ -68,37 +101,12 @@ Essayez un didacticiel d’identité du service administré afin d’en savoir p
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Quels services Azure prennent en charge l’identité du service administré ?
 
-Les services Azure qui prennent en charge l’identité du service administré peuvent l’utiliser pour s’authentifier sur les services prenant en charge l’authentification Azure AD.  Nous sommes en train d’intégrer l’identité de service administré et l’authentification Azure AD sur Azure.  Vérifiez régulièrement cette page si des mises à jour sont disponibles.
-
-### <a name="azure-services-that-support-managed-service-identity"></a>Services Azure qui prennent en charge l’identité du service administré
-
-Les services Azure suivants prennent en charge l’identité du service administré.
-
-| de diffusion en continu | Statut | Date | Configuration | Obtention d’un jeton |
-| ------- | ------ | ---- | --------- | ----------- |
-| Machines virtuelles Azure | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[interface de ligne de commande Azure](qs-configure-cli-windows-vm.md)<br>[Modèles Microsoft Azure Resource Manager](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions<sup>1</sup> | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | VERSION PRÉLIMINAIRE | Novembre 2017 | [Portail Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Foundation](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-
-<sup>1</sup> Azure Functions prend en charge le code utilisateur pour utiliser une identité, mais des déclencheurs et des liaisons peuvent toujours nécessiter des chaînes de connexion.
-
-### <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
-
-Les services suivants prennent en charge l’authentification Azure AD et ont été testés avec les services clients qui utilisent l’identité du service administré.
-
-| de diffusion en continu | ID de ressource | Statut | Date | Attribuer l’accès |
-| ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Disponible | Septembre 2017 | [Portail Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[interface de ligne de commande Azure](howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net | Disponible | Septembre 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Disponible | Septembre 2017 | |
-| Azure SQL | https://database.windows.net | Disponible | Octobre 2017 | |
-| Hubs d'événements Azure | https://eventhubs.azure.net | Disponible | Décembre 2017 | |
-| Azure Service Bus | https://servicebus.azure.net | Disponible | Décembre 2017 | |
+Les identités gérées peuvent servir à l’authentification auprès des services prenant en charge l’authentification Azure AD. Pour obtenir la liste des services Azure qui prennent en charge Managed Service Identity, consultez l’article suivant :
+- [Services qui prennent en charge l’identité du service administré](services-support-msi.md)
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Combien coûte l’identité du service administré ?
 
-L’identité du service administré est fournie avec Azure Active Directory Free, qui est l’abonnement Azure par défaut.  L’identité du service administré n’engendre pas de coûts supplémentaires.
+L’identité du service administré est fournie avec Azure Active Directory Free, qui est l’abonnement Azure par défaut. L’identité du service administré n’engendre pas de coûts supplémentaires.
 
 ## <a name="support-and-feedback"></a>Support et commentaires
 
@@ -107,8 +115,9 @@ Nous sommes à votre écoute !
 * Posez des questions sur Stack Overflow avec la balise [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
 * Soumettez vos demandes de fonctionnalités ou vos commentaires sur le [forum de commentaires Azure AD pour les développeurs](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
+## <a name="next-steps"></a>Étapes suivantes
 
+Bien démarrer avec Azure Managed Service Identity grâce aux guides de démarrage rapide suivants :
 
-
-
-
+* [Utiliser une identité Managed Service Identity (MSI) de machine virtuelle Windows pour accéder à Resource Manager : machine virtuelle Windows](tutorial-windows-vm-access-arm.md)
+* [Utiliser une identité Managed Service Identity (MSI) de machine virtuelle Linux pour accéder à Azure Resource Manager : machine virtuelle Linux](tutorial-linux-vm-access-arm.md)

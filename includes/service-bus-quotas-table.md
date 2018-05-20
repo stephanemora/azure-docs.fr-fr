@@ -5,14 +5,14 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2018
+ms.date: 05/10/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3be379c2513fa20c1a84b547333a4ef2139bb45d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la présentation [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -20,7 +20,7 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 | --- | --- | --- | --- | --- |
 | Nombre maximal d’espaces de noms de base/standard par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms de base/standard supplémentaires sont rejetées par le portail. |100|
 | Nombre maximal d’espaces de noms premium par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms premium supplémentaires sont rejetées par le portail. |10 |
-| Taille de la file d’attente/rubrique |Entité |Définie lors de la création de la file d’attente/rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |1, 2, 3, 4 ou 5 GB.<br /><br />Si le [partitionnement](../articles/service-bus-messaging/service-bus-partitioning.md) est activé, la taille maximale de la file d’attente/rubrique est de 80 Go. |
+| Taille de la file d’attente/rubrique |Entité |Définie lors de la création de la file d’attente/rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |1, 2, 3, 4 ou 5 GB.<br /><br />Dans la référence SKU Premium, ainsi que Standard avec le [partitionnement](../articles/service-bus-messaging/service-bus-partitioning.md) activé, la taille maximale de file d’attente/rubrique est de 80 Go. |
 | Nombre de connexions simultanées sur un espace de noms |Espace de noms |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées. |NetMessaging : 1 000<br /><br />AMQP : 5 000 |
 | Nombre de demandes de réception simultanées sur une entité de file d’attente/rubrique/abonnement |Entité |Les demandes de réception suivantes sont rejetées et le code appelant reçoit une exception. Ce quota s’applique au nombre combiné d’opérations de réception simultanées sur tous les abonnements à une rubrique. |5 000 |
 | Nombre de rubriques/files d’attente par espace de noms de service |Espace de noms |Les requêtes suivantes de création de rubrique ou de file d’attente dans l’espace de noms de service sont rejetées. Par conséquent, en cas de configuration via le [portail Azure][Azure portal], un message d’erreur est généré. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |10 000<br /><br />Le nombre total de rubriques et de files d’attente dans un espace de noms de service doit être inférieur ou égal à 10 000.<br/>Cela ne s’applique pas à Premium, car toutes les entités sont partitionnées. |

@@ -3,17 +3,17 @@ title: Didacticiel Kubernetes sur Azure - Mettre à jour l’application
 description: Didacticiel AKS - Mettre à jour une application
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à jour une application dans Azure Kubernetes Service (AKS)
 
@@ -164,10 +164,10 @@ Dans ce didacticiel, nous avons mis à jour une application et nous avons déplo
 > * Envoi (push) de l’image conteneur à Azure Container Registry
 > * Déploiement de l’application mise à jour
 
-Passez au didacticiel suivant pour en savoir plus sur la surveillance de Kubernetes avec Log Analytics.
+Passez au didacticiel suivant pour en savoir plus sur la mise à niveau de Kubernetes vers une nouvelle version.
 
 > [!div class="nextstepaction"]
-> [Surveiller Kubernetes avec Log Analytics][aks-tutorial-monitor]
+> [Mettre à niveau Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +178,5 @@ Passez au didacticiel suivant pour en savoir plus sur la surveillance de Kuberne
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

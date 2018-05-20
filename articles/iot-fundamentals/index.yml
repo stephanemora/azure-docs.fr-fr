@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: 80c88340e31ef6650dee13819dda316b4d9bcb4d
-  ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+  ms.openlocfilehash: 0a5f1d482b0298ddd65746783e3744728b1a5da5
+  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/08/2018
+  ms.lasthandoff: 05/16/2018
 abstract:
   description: Bienvenue dans Microsoft Azure et l'Internet des objets (IoT) Azure IoT est une collection complète de services et solutions conçus pour vous aider à créer des applications IoT de bout en bout sur Azure. De solutions SaaS entièrement hébergées et administrées jusqu’à des offres PaaS distinctes et spécialisées, en passant par des technologies conçues pour créer une périphérie intelligente, Azure IoT offre un ensemble complet d’options et d’outils adaptés aux besoins de votre secteur d’activité et aux compétences de votre entreprise et de vos ressources.
 sections:
@@ -100,4 +100,4 @@ sections:
     - title: Langues
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Kits de développement logiciel (SDK) Azure IoT pour. Net,C,Java,Node.js, Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">Service IoT Hub Device Provisioning</a></p><p><a href="/rest/api/location-based-services-management/">Gestion de Maps</a></p><p><a href="/rest/api/location-based-services/">Maps fonctionnel</a></p><p><a href="/rest/api/time-series-insights-management/">Gestion de Time Series Insights</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>
+      html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">Service IoT Hub Device Provisioning</a></p><p><a href="/rest/api/maps-management/">Gestion de Maps</a></p><p><a href="/rest/api/maps/">Maps fonctionnel</a></p><p><a href="/rest/api/time-series-insights-management/">Gestion de Time Series Insights</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

@@ -283,6 +283,7 @@
 ### [Accès invité avec révisions d’accès](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [Gestion de l’accès utilisateur avec les révisions](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Gestion des programmes et des contrôles](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [Récupérer les résultats de la révision d’accès](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Sécuriser vos identités
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
@@ -336,7 +337,6 @@
 ### [Algorithme de hachage de signature de modification](active-directory-federation-sha256-guidance.md)
 
 ## [Résolution des problèmes](active-directory-troubleshooting-support-howto.md)
-### [Dépannage : l’élément « Active Directory » est manquant ou non disponible](active-directory-troubleshooting.md)
 
 ## Déploiement de la preuve de concept (POC) d’Azure AD
 ### [Manuel POC : Introduction](active-directory-playbook-intro.md)

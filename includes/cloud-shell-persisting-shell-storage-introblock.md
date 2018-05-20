@@ -18,6 +18,9 @@ Lorsque vous utilisez des paramètres de base et sélectionnez uniquement un abo
 
 Le partage de fichiers est monté comme un `clouddrive` dans votre répertoire `$Home`. Cette opération n’a lieu qu’une seule fois, car le partage de fichiers est automatiquement monté dans les sessions suivantes. 
 
+> [!NOTE]
+> Pour la sécurité, chaque utilisateur doit approvisionner son propre stockage.  Pour le contrôle d’accès en fonction du rôle (RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur.
+
 Dans Bash, le partage de fichiers contient également une image de 5 Go. Automatiquement créée pour vous, celle-ci conserve les données dans votre répertoire `$Home`. 
 
 ### <a name="use-existing-resources"></a>Utiliser les ressources existantes

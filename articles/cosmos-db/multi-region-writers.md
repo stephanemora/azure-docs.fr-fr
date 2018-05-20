@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2446fac7526015d11737529c26d54e910643b750
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Multimaître à une échelle globale avec Azure Cosmos DB 
  
@@ -22,6 +22,25 @@ Le développement d’applications distribuées à l’échelle mondiale qui ré
 ![Architecture multimaître](./media/multi-region-writers/multi-master-architecture.png)
 
 Avec la prise en charge du multimaître Azure Cosmos DB, vous pouvez effectuer des écritures sur des conteneurs de données (par exemple des collections, des graphes et des tables) distribués n’importe où dans le monde. Vous pouvez mettre à jour des données dans n’importe quelle région associée à votre compte de base de données. Ces mises à jour de données peuvent se propager de façon asynchrone. Outre un accès rapide et une faible latence d’écriture pour vos données, le multimaître fournit également une solution pratique aux problèmes de basculement et d’équilibrage de charge. En résumé, avec Azure Cosmos DB vous bénéficiez d’une latence d’écriture inférieure à 10 ms au 99e centile n’importe où dans le monde, d’une disponibilité d’écriture et de lecture de 99,999 % n’importe où dans le monde et de la possibilité de mettre à l’échelle le débit d’écriture et de lecture n’importe où dans le monde.   
+
+> [!IMPORTANT]
+> La prise en charge du multimaître est en préversion privée. Pour utiliser la préversion, [inscrivez-vous](#sign-up-for-multi-master-support) dès maintenant.
+
+## <a name="sign-up-for-multi-master-support"></a>S’inscrire pour la prise en charge du multimaître
+
+Si vous avez déjà un abonnement Azure, vous pouvez vous inscrire pour participer au programme de préversion du multimaître dans le portail Azure. Si vous débutez avec Azure, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free) qui vous donnera 12 mois d’accès à Azure Cosmos DB. Procédez comme suit pour demander l’accès au programme de préversion du multimaître.
+
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**.  
+
+2. Sur la page Nouveau compte, nommez votre compte Azure Cosmos DB, puis sélectionnez l’API, l’abonnement, le groupe de ressources et la localisation.  
+
+3. Ensuite, sélectionnez **Inscrivez-vous pour une préversion aujourd’hui** sous le champ de préversion du multimaître.  
+
+   ![S’inscrire pour la préversion du multimaître](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. Dans le volet **Inscrivez-vous pour une préversion aujourd’hui**, cliquez sur **OK**. Une fois que la demande est envoyée, l’état passe à **En attente d’approbation** dans le panneau de création du compte.  
+
+Après avoir soumis votre demande, vous recevrez par e-mail la notification indiquant que votre demande a été approuvée. En raison du volume élevé de demandes, vous devez recevoir une notification dans un délai d’une semaine. Vous n’avez pas besoin de créer un ticket de support pour effectuer la demande. Les demandes sont étudiées dans l’ordre dans lequel elles sont reçues.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Exemple simple d’architecture multimaître : publication de contenu  
 
@@ -93,7 +112,7 @@ Avec le multimaître, le défi est souvent que deux réplicas (ou plus) du même
 
 **Exemple** : Supposez que vous utilisez Azure Cosmos DB comme magasin de persistance pour une application de panier d’achat, et que cette application est déployée dans deux régions : États-Unis de l’Est et États-Unis de l’Ouest.  Supposez maintenant qu’un utilisateur à San Francisco ajoute un élément à son panier (par exemple un livre) tandis qu’à peu près au même moment un processus de gestion des stocks dans la région États-Unis de l’Est invalide un autre élément du panier (par exemple un nouveau téléphone) pour ce même utilisateur en réponse à une notification du fournisseur indiquant que la date de sortie a été différée. À l’instant T1, les enregistrements du panier dans les deux régions sont différents. La base de données utilisera son mécanisme de réplication et de résolution de conflit pour résoudre cette incohérence, et l’une des deux versions du panier finira par être sélectionnée. Avec l’heuristique de résolution de conflit la plus souvent appliquée par les bases de données multimaîtres (par exemple, la dernière écriture l’emporte), il est impossible à l’utilisateur ou à l’application de prédire quelle version sera sélectionnée. Dans les deux cas, des données sont perdues ou un comportement inattendu peut se produire. Si la version de la région Est est sélectionnée, la sélection par l’utilisateur d’un nouvel article (un livre) est perdue, et si la région Ouest est sélectionnée, l’article précédemment sélectionné (le téléphone) figure toujours dans le panier d’achat. Dans les deux cas, des informations sont perdues. Pour finir, tout autre processus inspectant le panier entre les instants T1 et T2 constatera également un comportement non déterministe. Par exemple, un processus en arrière-plan qui sélectionne l’entrepôt d’exécution et met à jour les frais d’expédition du panier produira des résultats qui seront en conflit avec le contenu final du panier. Si le processus s’exécute dans la région Ouest et que l’alternative 1 devient réalité, il calculera les frais d’expédition pour deux articles, même si le panier ne contiendra bientôt qu’un seul article, le livre. 
 
-Azure Cosmos DB implémente la logique de gestion des conflits d’écriture dans le moteur de base de données proprement dit. Azure Cosmos DB offre une **prise en charge de la résolution de conflit complète et flexible** en proposant plusieurs modèles de résolution de conflit, notamment Automatique (types de données répliqués sans conflit), Priorité à la dernière écriture, Personnalisé (procédure stockée) et Manuel. Les modèles de résolution de conflit fournissent des garanties d’exactitude et de cohérence, et ils évitent aux développeurs de devoir se soucier de la cohérence, de la disponibilité, des performances, de la latence de réplication et de combinaisons complexes d’événements en cas de géoréplication et de conflit d’écriture inter-régions.  
+Azure Cosmos DB implémente la logique de gestion des conflits d’écriture dans le moteur de base de données proprement dit. Azure Cosmos DB offre une **prise en charge de la résolution de conflit complète et flexible** en proposant plusieurs modèles de résolution de conflit, notamment Automatique (types de données répliqués sans conflit), Priorité à la dernière écriture et Personnalisé (procédure stockée). Les modèles de résolution de conflit fournissent des garanties d’exactitude et de cohérence, et ils évitent aux développeurs de devoir se soucier de la cohérence, de la disponibilité, des performances, de la latence de réplication et de combinaisons complexes d’événements en cas de géoréplication et de conflit d’écriture inter-régions.  
 
   ![Résolution de conflit multimaître](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
@@ -111,7 +130,7 @@ Dans cet article, vous avez découvert comment utiliser l’architecture multima
 
 * [Découvrez comment Azure Cosmos DB prend en charge la distribution à l’échelle mondiale](distribute-data-globally.md)  
 
-* [Découvrez-en plus le basculement manuel et automatique dans Azure Cosmos DB](regional-failover.md)  
+* [Découvrez-en plus le basculement automatique dans Azure Cosmos DB](regional-failover.md)  
 
 * [Découvrez-en plus sur la cohérence globale avec Azure Cosmos DB](consistency-levels.md)  
 

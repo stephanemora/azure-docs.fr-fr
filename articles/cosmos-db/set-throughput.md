@@ -11,17 +11,103 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: bede91ed3ffc456740a0eb63ed7a15278e99ebe2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 925167c6b4a7f173726ec094c2847a16ca3d0ef4
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB et de base de données
 
-Vous pouvez définir le débit de vos conteneurs Azure Cosmos DB ou d’un ensemble de conteneurs dans le portail Azure ou à l’aide des SDK clients. 
+Vous pouvez définir le débit d’un conteneur Azure Cosmos DB ou d’un ensemble de conteneurs à l’aide du portail Azure ou des SDK clients. Lorsque vous approvisionnez le débit pour un ensemble de conteneurs, tous ces conteneurs partagent le débit approvisionné. L’approvisionnement de débit pour des conteneurs individuels garantit la réservation du débit pour ce conteneur spécifique. D’un autre côté, l’approvisionnement de débit pour une base de données permet de partager le débit entre tous les conteneurs appartenant à cette base de données. Dans une base de données Azure Cosmos DB, vous pouvez avoir un ensemble de conteneurs qui partagent le débit, ainsi que des conteneurs avec un débit dédié. 
+
+Azure Cosmos DB allouera des partitions physiques pour héberger vos conteneurs en fonction du débit provisionné et répartira/rééquilibrera les données sur les partitions au fur et à mesure de leur croissance.
+
+Quand vous affectez le nombre de RU/s au niveau du conteneur, les conteneurs peuvent être créés comme ayant une taille *fixe* ou *illimitée*. Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Pour créer un conteneur illimité, vous devez spécifier un débit minimal de 1 000 RU/s et une [clé de partition](partition-data.md). Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). Le fait de sélectionner une clé de partition avec de nombreuses valeurs distinctes permet à Azure Cosmos DB de mettre à l’échelle votre conteneur/table/graphe et vos requêtes de façon uniforme. 
+
+Quand vous affectez le nombre de RU/s sur un ensemble de conteneurs, les conteneurs appartenant à cet ensemble sont traités comme des conteneurs *illimités* et vous devez spécifier une clé de partition.
+
+![Provisionnement d’unités de requête pour des conteneurs individuels et des ensembles de conteneurs](./media/request-units/provisioning_set_containers.png)
+
+Cet article vous guide lors de la configuration du débit à différents niveaux d’un compte Azure Cosmos DB. 
+
+## <a name="provision-throughput-by-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
+
+### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Approvisionner le débit pour un conteneur (collection/graphique/table)
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
+2. Dans le volet de navigation de gauche, sélectionnez **Toutes les ressources** et recherchez votre compte Azure Cosmos DB.  
+3. Vous pouvez configurer le débit lors de la création d’un conteneur (collection, graphique, table) ou mettre à jour le débit d’un conteneur existant.  
+4. Pour affecter le débit lors de la création d’un conteneur, ouvrez le panneau **Explorateur de données** et sélectionnez **Nouvelle collection** (nouveau graphique, nouvelle table pour d’autres API)  
+5. Remplissez le formulaire dans le panneau **Ajouter une collection**. Les champs de ce panneau sont décrits dans le tableau suivant :  
+
+   |**Paramètre**  |**Description**  |
+   |---------|---------|
+   |ID de base de données  |  Fournissez un nom unique pour identifier votre base de données. Une base de données est un conteneur logique d'une ou plusieurs collections. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères /, \\, # ou ?, ni d’espace de fin. |
+   |ID de la collection  | Fournissez un nom unique pour identifier votre collection. Les ID de collection sont soumis aux mêmes spécifications de caractères que les noms de base de données. |
+   |Capacité de stockage   | Cette valeur représente la capacité de stockage de la base de données. Lors de l’approvisionnement du débit d’une collection individuelle, la capacité de stockage peut être **fixe (10 Go)** ou **illimitée**. La capacité de stockage illimitée vous oblige à définir une clé de partition pour vos données.  |
+   |Throughput   | Chaque collection et chaque base de données peuvent avoir un débit en unités de requête par seconde.  Pour la capacité de stockage fixe, le débit minimal est de 400 unités de requête par seconde (RU/s), pour la capacité de stockage illimitée, le débit minimum est défini à 1000 RU/s.|
+
+6. Après avoir entré des valeurs pour ces champs, sélectionnez **OK** pour enregistrer les paramètres.  
+
+   ![Définir le débit pour une collection](./media/set-throughput/set-throughput-for-container.png)
+
+7. Pour mettre à jour le débit d’un conteneur existant, développez votre base de données et le conteneur, puis cliquez sur **Paramètres**. Dans la nouvelle fenêtre, entrez la nouvelle valeur de débit, puis sélectionnez **Enregistrer**.  
+
+   ![Mettre à jour le débit d’une collection](./media/set-throughput/update-throughput-for-container.png)
+
+### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Provisionner le débit pour un ensemble de conteneurs ou au niveau de la base de données
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
+2. Dans le volet de navigation de gauche, sélectionnez **Toutes les ressources** et recherchez votre compte Azure Cosmos DB.  
+3. Vous pouvez configurer le débit lors de la création d’une base de données ou mettre à jour le débit d’une base de données existante.  
+4. Pour affecter un débit lors de la création d’une base de données, ouvrez le panneau **Explorateur de données** et sélectionnez **Nouvelle base de données**  
+5. Spécifiez la valeur **ID de base de données**, cochez la case **Provisionner le débit**, puis configurez la valeur de débit. Une base de données peut être provisionnée avec une valeur de débit minimum de 50 000 RU/s.  
+
+   ![Définir le débit avec l’option Nouvelle base de données](./media/set-throughput/set-throughput-with-new-database-option.png)
+
+6. Pour mettre à jour le débit d’une base de données existante, développez votre base de données et le conteneur, puis cliquez sur **Mettre à l'échelle**. Dans la nouvelle fenêtre, entrez la nouvelle valeur de débit, puis sélectionnez **Enregistrer**.  
+
+   ![Mettre à jour le débit d’une base de données](./media/set-throughput/update-throughput-for-database.png)
+
+### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Provisionner le débit d’un ensemble de conteneurs ainsi que d’un conteneur individuel dans une base de données
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
+2. Dans le volet de navigation de gauche, sélectionnez **Toutes les ressources** et recherchez votre compte Azure Cosmos DB.  
+3. Créez une base de données et affectez-lui un débit. Ouvrez le panneau **Explorateur de données** et sélectionnez **Nouvelle base de données**  
+4. Spécifiez la valeur **ID de base de données**, cochez la case **Provisionner le débit**, puis configurez la valeur de débit. Une base de données peut être provisionnée avec une valeur de débit minimum de 50 000 RU/s.  
+
+   ![Définir le débit avec l’option Nouvelle base de données](./media/set-throughput/set-throughput-with-new-database-option.png)
+
+5. Créez ensuite une collection dans la base de données que vous avez créée à l’étape ci-dessus. Pour créer une collection, cliquez avec le bouton droit sur la base de données puis sélectionnez **Nouvelle collection**.  
+
+6. Dans le panneau **Ajouter une collection**, entrez un nom pour la collection et une clé de partition. Vous pouvez également configurer le débit pour ce conteneur spécifique. Si vous choisissez de ne pas affecter une valeur de débit, le débit affecté à la base de données est partagé avec la collection.  
+
+   ![Définir éventuellement le débit du conteneur](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+
+## <a name="considerations-when-provisioning-throughput"></a>Considérations relatives au provisionnement du débit
+
+Voici quelques éléments qui vous aideront à choisir une stratégie de réservation de débit.
+
+Privilégiez un approvisionnement du débit au niveau de la base de données (pour un l’ensemble des conteneurs) dans les cas suivants :
+
+* Vous disposez d’une dizaine de conteneurs ou plus et tout ou partie de ces conteneurs peuvent se partager le débit.  
+
+* Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement (par exemple des bases de données NoSQL ou relationnelles) vers Azure Cosmos DB et vous utilisez de nombreux conteneurs.  
+
+* Vous souhaitez prendre en compte les pics non planifiés dans les charges de travail en regroupant le débit au niveau de la base de données.  
+
+* Au lieu de définir le débit dans un conteneur individuel, vous préférez répartir le débit d’agrégat sur un ensemble de conteneurs au sein de la base de données.
+
+Approvisionnez le débit sur un conteneur individuel dans les cas suivants :
+
+* Vous avez moins de conteneurs Azure Cosmos DB.  
+
+* Vous souhaitez obtenir le débit garanti sur un conteneur donné soutenu par un contrat SLA.
+
+## <a name="throughput-ranges"></a>Plages de débit
 
 Le tableau suivant répertorie les débits disponibles pour les conteneurs :
 
@@ -48,35 +134,70 @@ Le tableau suivant répertorie les débits disponibles pour les conteneurs :
     </tbody>
 </table>
 
-## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Pour définir le débit à l’aide du portail Azure
-
-1. Dans une nouvelle fenêtre, ouvrez le [portail Azure](https://portal.azure.com).
-2. Dans la barre de gauche, cliquez sur **Azure Cosmos DB** ou sur **Tous les services** en bas, accédez à **Bases de données**, puis sélectionnez **Azure Cosmos DB**.
-3. Sélectionnez votre compte Azure Cosmos DB.
-4. Dans la nouvelle fenêtre, cliquez sur **Explorateur de données** dans le menu de navigation.
-5. Dans la nouvelle fenêtre, développez la base de données et le conteneur, puis cliquez sur **Scale & Settings** (Mise à l’échelle & paramètres).
-6. Dans la nouvelle fenêtre, tapez la nouvelle valeur de débit dans la zone **Débit**, puis cliquez sur **Enregistrer**.
-
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Pour définir le débit à l’aide de l’API SQL pour .NET
+## <a name="set-throughput-by-using-sql-api-for-net"></a>Définir le débit à l’aide de l’API SQL pour .NET
 
-L’extrait de code suivant récupère le débit actuel et le modifie en 500 UR/s. Pour l’exemple de code complet, voir le projet [CollectionManagement](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L188-L216) sur GitHub.
+L’extrait de code suivant permet de créer un conteneur avec 3 000 unités de requête par seconde à l’aide du SDK .NET de l’API SQL :
 
 ```csharp
-// Fetch the offer of the collection whose throughput needs to be updated
-// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 3000 });
+```
+
+L’extrait de code suivant permet de provisionner 100 000 unités de requête par seconde sur un ensemble de conteneurs à l’aide du SDK .NET de l’API SQL :
+
+```csharp
+// Provision 100,000 RU/sec at the database level. 
+// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
+// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
+Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+
+DocumentCollection sharedCollection1 = new DocumentCollection();
+sharedCollection1.Id = "sharedCollection1";
+sharedCollection1.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
+
+DocumentCollection sharedCollection2 = new DocumentCollection();
+sharedCollection2.Id = "sharedCollection2";
+sharedCollection2.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
+
+DocumentCollection dedicatedCollection = new DocumentCollection();
+dedicatedCollection.Id = "dedicatedCollection";
+dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
+```
+
+Azure Cosmos DB fonctionne sur un modèle de réservation de débit. Autrement dit, vous êtes facturé pour la quantité de débit *réservée*, quelle que soit la quantité activement *utilisée*. À mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire le nombre de RU réservées par le biais des SDK ou à l’aide du [portail Azure](https://portal.azure.com).
+
+Chaque conteneur, ou ensemble de conteneurs, est mappé à une ressource `Offer` dans Azure Cosmos DB, qui contient des métadonnées sur le débit provisionné. Vous pouvez modifier le débit alloué pour un conteneur en recherchant la ressource de l’offre correspondante, et en mettant à jour la valeur de débit. L’extrait de code suivant permet de changer le débit d’un conteneur pour passer à 5 000 unités de requête par seconde à l’aide du Kit SDK .NET :
+
+```csharp
+// Fetch the resource to be updated
+// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
-    .Where(r => r.ResourceLink == collection.SelfLink)    
-    .AsEnumerable()
-    .SingleOrDefault();
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
 
-// Set the throughput to the new value, for example 500 request units per second
-offer = new OfferV2(offer, 500);
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
 
-// Now persist these changes to the collection by replacing the original offer resource
+// Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
+
+La modification du débit n’a aucun impact sur la disponibilité de votre conteneur ou ensemble de conteneurs. Le nouveau débit réservé est généralement effectif quelques secondes après son application.
 
 <a id="set-throughput-java"></a>
 
@@ -122,7 +243,7 @@ Ensuite, exécutez la commande *getLastRequestStatistics*.
 }
 ```
 
-Ainsi, une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.
+Une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.
 
 > [!NOTE]
 > Si vous avez des types d’éléments qui varient considérablement en termes de taille et de nombre de propriétés indexées, enregistrez les frais d’unités de requête d’opérations applicables associés à chaque *type* d’élément standard.
@@ -136,7 +257,7 @@ La méthode la plus simple pour obtenir une estimation correcte des frais d’un
 ![Mesures du portail de l’API MongoDB][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API MongoDB
-Les applications qui dépassent le débit provisionné pour un conteneur ou un ensemble de conteneurs sont limitées jusqu’à ce que le taux de consommation tombe au-dessous du taux de débit provisionné. En cas de limitation, le serveur principal interrompra la requête de manière préemptive avec un code d’erreur `16500`-`Too Many Requests`. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur `Too Many Requests`. Si vous recevez de nombreux codes d’erreur`Too Many Requests`, vous pouvez considérer l’ajout d’une logique de nouvelle tentative dans vos routines de gestion des erreurs ou [augmenter le débit approvisionné pour le conteneur](set-throughput.md).
+Les applications qui dépassent le débit provisionné pour un conteneur ou un ensemble de conteneurs sont limitées jusqu’à ce que le taux de consommation tombe au-dessous du taux de débit provisionné. En cas de limitation, le serveur principal interrompra la requête avec un code d’erreur `16500`-`Too Many Requests`. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur `Too Many Requests`. Si vous recevez de nombreux codes d’erreur`Too Many Requests`, vous pouvez considérer l’ajout d’une logique de nouvelle tentative dans vos routines de gestion des erreurs ou [augmenter le débit approvisionné pour le conteneur](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Forum Aux Questions sur le débit
 
@@ -150,6 +271,8 @@ Il n’existe aucune extension d’API MongoDB pour définir le débit. Nous vou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’approvisionnement et la mise à l’échelle avec Cosmos DB, consultez [Partitioning and scaling with Cosmos DB (Partitionnement et mise à l’échelle avec Cosmos DB)](partition-data.md).
+* Pour en savoir plus sur l’estimation du débit et les unités de requête, consultez [Unités de requête et estimation du débit dans Azure Cosmos DB](request-units.md)
+
+* Pour plus d’informations sur l’approvisionnement et la mise à l’échelle avec Cosmos DB, consultez [Partitioning and scaling with Cosmos DB (Partitionnement et mise à l’échelle avec Cosmos DB)](partition-data.md).
 
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png

@@ -73,6 +73,16 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 4 - Déployer la gestion des API avec Service Fabric
           href: service-fabric-tutorial-deploy-api-management.md
+    - name: Créer un cluster autonome sur AWS
+      items:
+        - name: 1- Créer l’infrastructure réseau sur AWS
+          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 2- Configurer Service Fabric
+          href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+        - name: 3- Déployer une application sur le cluster
+          href: service-fabric-tutorial-standalone-install-an-application.md
+        - name: 4- Nettoyer votre cluster et supprimer l’infrastructure
+          href: service-fabric-tutorial-standalone-clean-up.md
 - name: Exemples
   items:
     - name: Exemples de code

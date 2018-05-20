@@ -25,7 +25,7 @@
           href: search-create-index-dotnet.md
         - name: Importer des données
           href: search-import-data-dotnet.md
-        - name: action
+        - name: Recherche
           href: search-query-dotnet.md
     - name: REST
       items:
@@ -33,13 +33,13 @@
           href: search-create-index-rest-api.md
         - name: Importer des données
           href: search-import-data-rest-api.md
-        - name: action
+        - name: Recherche
           href: search-query-rest-api.md
         - name: Tester avec les clients REST
           href: search-fiddler.md
 - name: Didacticiels
   items:
-    - name: Indexer avec la recherche cognitive
+    - name: Développement de recherche cognitive
       href: cognitive-search-tutorial-blob.md
     - name: Indexer Azure SQL Database
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: Planifier et concevoir
       items:
-        - name: Choisir une référence (SKU)
+        - name: Choisir un niveau
           href: search-sku-tier.md
         - name: Limites du service
           href: search-limits-quotas-capacity.md
-        - name: Évolutivité du service
+        - name: Allouer des partitions et des réplicas
           href: search-capacity-planning.md
         - name: Modèles de conception pour les architectures multi-locataires
           href: search-modeling-multitenant-saas-applications.md

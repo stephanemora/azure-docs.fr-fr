@@ -5,14 +5,14 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="write-accelerator"></a>Accélérateur des écritures
 L’Accélérateur des écritures est une fonctionnalité de disque des machines virtuelles Série M sur stockage Premium avec des Azure Managed Disks exclusivement. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. L’Accélérateur des écritures est particulièrement adapté lorsque les mises à jour du fichier journal doivent être conservées sur disque dans un système à hautes performances pour répondre aux besoins des bases de données modernes.
@@ -165,6 +165,21 @@ Vous pouvez activer l’Accélérateur des écritures sur le portail, en spécif
 
 ![Accélérateur des écritures sur le portail Azure](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+### <a name="enabling-through-azure-cli"></a>Activation par le biais d’Azure CLI
+Vous pouvez utiliser [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) pour activer l’accélérateur d’écriture. 
+
+Pour activer l’accélérateur d’écriture sur un disque existant, utilisez la commande ci-dessous, en remplaçant diskName, VMName et ResourceGroup par vos propres valeurs : 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+Pour attacher un disque alors que l’accélérateur d’écriture est activé, utilisez la commande ci-dessous avec vos valeurs :
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+Pour désactiver l’accélérateur d’écriture, définissez la propriété sur false : 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>Activation par le biais des API Rest
 Pour effectuer le déploiement à l’aide de l’API Rest Azure, vous devez installer Azure armclient

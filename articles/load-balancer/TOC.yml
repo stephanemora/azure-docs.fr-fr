@@ -49,7 +49,7 @@
 - name: Procédures
   items:
     - name: Créer un équilibrage de charge standard public et redondant dans une zone
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      href: load-balancer-get-started-internet-az-portal.md
       items:
         - name: Créer un équilibrage de charge standard public et redondant dans une zone (PowerShell)
           href: load-balancer-get-started-internet-az-powershell.md

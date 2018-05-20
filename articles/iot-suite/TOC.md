@@ -78,6 +78,7 @@
 #### [Node.js (générique)](iot-suite-connecting-devices-node.md)
 #### [Node.js sur Raspberry Pi](iot-suite-connecting-pi-node.md)
 #### [C sur Raspberry Pi](iot-suite-connecting-pi-c.md)
+#### [DevKit MX Chip AZ3166](iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 ### Concepts
 #### [Détails d’une implémentation de surveillance à distance](iot-suite-remote-monitoring-sample-walkthrough.md)
@@ -106,7 +107,7 @@
 ### [IoT Hub](/azure/iot-hub) 
 ### [Service IoT Hub Device Provisioning](/azure/iot-dps)
 ### [Kits de développement logiciel (SDK) IoT Service](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
-### [Maps](/azure/azure-maps) 
+### [Mappages](/azure/azure-maps) 
 ### [Time Series Insights](/azure/time-series-insights) 
 ## Edge 
 ### [IoT Edge](/azure/iot-edge) 

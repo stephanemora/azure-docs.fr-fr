@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemples d’implémentation d’une structure d’entreprise Azure
-Cette rubrique fournit des exemples montrant comment une entreprise peut implémenter les recommandations pour une [structure d’entreprise Azure](resource-manager-subscription-governance.md). Elle utilise une société fictive nommée Contoso pour illustrer les bonnes pratiques pour des scénarios courants.
+Cet article fournit des exemples montrant comment une entreprise peut implémenter les recommandations pour une [structure d’entreprise Azure](resource-manager-subscription-governance.md). Elle utilise une société fictive nommée Contoso pour illustrer les bonnes pratiques pour des scénarios courants.
 
 ## <a name="background"></a>Arrière-plan
-Contoso est une société présente dans le monde entier qui fournit des solutions de chaîne d’approvisionnement pour les clients de tous les domaines, d’un modèle « Logiciel en tant que Service » à un modèle de package déployé localement.  Elle développe des logiciels dans le monde entier avec des centres de développement principaux en Inde, aux États-Unis et au Canada.
+Contoso est une société présente dans le monde entier qui fournit des solutions de chaîne d’approvisionnement pour les clients de tous les domaines, d’un modèle Logiciel en tant que Service à un modèle de package déployé localement.  Elle développe des logiciels dans le monde entier avec des centres de développement principaux en Inde, aux États-Unis et au Canada.
 
 La partie ISV de la société est divisée en plusieurs unités commerciales indépendantes qui gèrent des produits dans une activité spécifique. Chaque unité commerciale a ses propres développeurs, chefs de produit et architectes.
 
 La division Enterprise Technology Services (ETS) fournit une fonctionnalité informatique centralisée et gère plusieurs centres de données dans lesquels les divisions hébergent leurs applications. Outre la gestion des centres de données, l’organisation ETS fournit et gère la collaboration centralisée (par exemple, les e-mails et les sites web) et les services de téléphonie/réseau. Elle gère également les charges de travail côté client pour les divisions commerciales plus petites qui ne disposent pas de personnel d’exploitation.
 
-Les personnes suivantes sont utilisées dans cette rubrique :
+Les personnes suivantes sont utilisées dans cet article :
 
 * Dave est l’administrateur Azure ETS.
 * Alice est la directrice du développement de la division Chaîne logistique Contoso.
 
-Contoso doit créer une application de métier et une application destinée aux clients. Elle a décidé d’exécuter les applications dans Azure. Dave lit la rubrique [Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md) et est maintenant prêt à appliquer les recommandations.
+Contoso doit créer une application de métier et une application destinée aux clients. Elle a décidé d’exécuter les applications dans Azure. Dave lit l’article [Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md) et est maintenant prêt à appliquer les recommandations.
 
 ## <a name="scenario-1-line-of-business-application"></a>Scénario 1 : application métier
 Contoso crée un système de gestion du code source (BitBucket) à utiliser par les développeurs dans le monde entier.  L’application utilise l’Infrastructure en tant que service (IaaS) pour l’hébergement et se compose de serveurs web et d’un serveur de base de données. Les développeurs accèdent aux serveurs dans leurs environnements de développement, mais ils n’ont pas besoin d’accéder aux serveurs dans Azure. Contoso ETS souhaite autoriser le propriétaire de l’application et l’équipe à gérer l’application. L’application est uniquement disponible sur le réseau d’entreprise de Contoso. Dave doit configurer l’abonnement pour cette application. L’abonnement hébergera également d’autres logiciels liés au développement à l’avenir.  
 
 ### <a name="naming-standards--resource-groups"></a>Normes d’attribution de noms et groupes de ressources
-Dave crée un abonnement pour prendre en charge des outils de développement qui sont communs à toutes les divisions. Il doit pouvoir affecter des noms explicites pour l’abonnement et les groupes de ressources (pour l’application et les réseaux). Il crée l’abonnement et les groupes de ressources suivants :
+Dave crée un abonnement pour prendre en charge des outils de développement qui sont communs à toutes les divisions. Dave doit pouvoir affecter des noms explicites pour l’abonnement et les groupes de ressources (pour l’application et les réseaux). Il crée l’abonnement et les groupes de ressources suivants :
 
 | Item | NOM | Description |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Dave attribue les rôles suivants pour l’abonnement :
 | Rôle | Affecté à | Description |
 | --- | --- | --- |
 | [Propriétaire](../role-based-access-control/built-in-roles.md#owner) |ID géré à partir de l’AD Contoso |Cet ID est contrôlé avec un accès Just in Time (JIT) par le biais de l’outil de gestion des identités de Contoso et garantit que l’accès propriétaire à l’abonnement est entièrement audité |
-| [Gestionnaire de sécurité](../role-based-access-control/built-in-roles.md#security-manager) |Service de gestion de la sécurité et des risques |Ce rôle permet aux utilisateurs de consulter l’Azure Security Center et l’état des ressources |
+| [Lecteur de sécurité](../role-based-access-control/built-in-roles.md#security-reader) |Service de gestion de la sécurité et des risques |Ce rôle permet aux utilisateurs de consulter l’Azure Security Center et l’état des ressources |
 | [Collaborateur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) |Équipe réseau |Ce rôle permet à l’équipe réseau de Contoso de gérer la connexion VPN de site à site et les réseaux virtuels |
 | *Rôle personnalisé* |Propriétaire de l’application |Dave crée un rôle qui permet de modifier les ressources au sein du groupe de ressources. Pour en savoir plus, consultez la rubrique [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/custom-roles.md) |
 
@@ -90,7 +90,7 @@ Il ajoute les [balises](resource-group-using-tags.md) suivantes aux groupes de r
 | BusinessUnit |**ETS** (la division associée à l’abonnement) |
 
 ### <a name="core-network"></a>Réseau principal
-L’équipe Contoso ETS en charge de la gestion de la sécurité des informations et des risques passe en revue le plan de migration des applications dans Azure proposé par Dave. Elle veut s’assurer que l’application n’est pas exposée sur internet.  Dave a également des applications de développeur qui seront déplacées vers Azure à l’avenir. Ces applications nécessitent des interfaces publiques.  Pour répondre à ces exigences, il fournit des réseaux virtuels internes et externes et un groupe de sécurité réseau pour limiter l’accès.
+L’équipe Contoso ETS en charge de la gestion de la sécurité des informations et des risques passe en revue le plan de migration des applications dans Azure proposé par Dave. Elle veut s’assurer que l’application n’est pas exposée sur Internet.  Dave a également des applications de développeur qui seront déplacées vers Azure à l’avenir. Ces applications nécessitent des interfaces publiques.  Pour répondre à ces exigences, il fournit des réseaux virtuels internes et externes et un groupe de sécurité réseau pour limiter l’accès.
 
 Il crée les ressources suivantes :
 
@@ -115,7 +115,7 @@ Dave n’a rien à automatiser pour cette application. Même s’il a créé un 
 ### <a name="azure-security-center"></a>Azure Security Center
 Le service de gestion des services informatiques Contoso doit rapidement identifier et gérer les menaces. Il doit également comprendre les problèmes éventuels.  
 
-Pour répondre à ces exigences, Dave active [l’Azure Security Center](../security-center/security-center-intro.md) et fournit l’accès au rôle Gestionnaire de sécurité.
+Pour répondre à ces exigences, Dave active [l’Azure Security Center](../security-center/security-center-intro.md) et fournit l’accès au rôle Lecteur de sécurité.
 
 ## <a name="scenario-2-customer-facing-app"></a>Scénario 2 : application destinée aux clients
 La direction de l’entreprise dans la division Chaîne logistique a identifié différentes possibilités d’accroître l’engagement auprès des clients de Contoso à l’aide d’une carte de fidélité. L’équipe d’Alice doit créer cette application et décide qu’Azure augmente la capacité à répondre aux besoins métier. Alice travaille avec Dave d’ETS pour configurer deux abonnements pour le développement et le fonctionnement de cette application.
@@ -137,7 +137,7 @@ Pour **l’abonnement de développement**, ils créent la stratégie suivante :
 | --- | --- | --- |
 | location |audit |Auditer la création de ressources dans n’importe quelle région |
 
-Elles ne limitent pas le type de référence (SKU) qu'un utilisateur peut créer pendant le développement et ne nécessitent pas de balises pour tout groupes de ressources ou toute ressource.
+Elles ne limitent pas le type de référence (SKU) qu'un utilisateur peut créer pendant le développement et ne nécessitent pas de balises pour tout groupe de ressources ou toute ressource.
 
 Pour **l’abonnement de production**, ils créent les stratégies suivantes :
 

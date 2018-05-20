@@ -3,16 +3,16 @@ title: Forum aux questions sur Azure Kubernetes Service
 description: Apporte des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -28,9 +28,7 @@ Cet article aborde les questions fréquemment posées sur Azure Kubernetes Servi
 - Est du Canada
 - Centre des États-Unis
 - Est des États-Unis
-- Asie du Sud-Est
 - Europe de l'Ouest
-- Ouest des États-Unis 2
 
 ## <a name="when-will-additional-regions-be-added"></a>Quand d’autres régions seront-elles ajoutées ?
 
@@ -62,7 +60,7 @@ Non, RBAC n’est actuellement pas pris en charge dans AKS mais sera bientôt di
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Puis-je déployer AKS dans mon réseau virtuel existant ?
 
-Non, cela n’est pas encore disponible, mais le sera bientôt.
+Oui, cette opération est prise en charge via la [fonctionnalité de mise en réseau avancée](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault est-il intégré à AKS ?
 
@@ -70,7 +68,7 @@ Non, mais cette intégration est planifiée. En attendant, essayez la solution [
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Puis-je exécuter des conteneurs Windows Server sur AKS ?
 
-Non, AKS ne fournit pas actuellement de nœuds d’agent basé sur Windows Server, vous ne pouvez donc pas exécuter de conteneurs Windows Server. Si vous avez besoin d’exécuter des conteneurs Windows Server sur Kubernetes dans Azure, consultez la [documentation sur acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Pour exécuter des conteneurs Windows Server, vous devez exécuter des nœuds Windows Server. Les nœuds Windows Server sont actuellement en [préversion privée](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Si vous avez besoin d’exécuter des conteneurs Windows Server sur Kubernetes dans Azure en dehors de la préversion, consultez la [documentation sur acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ?
 

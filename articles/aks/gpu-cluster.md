@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-gpus-on-aks"></a>Utiliser le GPU sur AKS
 
@@ -168,9 +168,9 @@ spec:
             path: /usr/local/nvidia
 ```
 
-Utilisez la commande [kubectl create][kubectl-create] pour exécuter le travail. Cette commande analyse le fichier manifeste et crée les objets Kubernetes définis.
+Utilisez la commande [kubectl apply][kubectl-apply] pour exécuter le travail. Cette commande analyse le fichier manifeste et crée les objets Kubernetes définis.
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -273,12 +273,12 @@ job "samples-tf-mnist-demo" deleted
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Intéressé par l’exécution de charges de travail Machine Learning sur Kubernetes ? Pour plus d’informations, consultez la documentation de Kubeflow.
+Intéressé par l’exécution de charges de travail Machine Learning sur Kubernetes ? Pour plus d’informations, consultez Kubeflow Labs.
 
 > [!div class="nextstepaction"]
-> [Guide de l’utilisateur de Kubeflow][kubeflow-docs]
+> [Kubeflow Labs][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
+[kubeflow-labs]: https://github.com/Azure/kubeflow-labs

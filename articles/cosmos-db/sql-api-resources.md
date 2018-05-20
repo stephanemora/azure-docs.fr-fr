@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Concepts clés et modèle de ressource hiérarchiques Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Comme l’illustre le schéma suivant, le **modèle de ressource** hiérarchique
 ![Modèle de ressource hiérarchique Azure Cosmos DB][1]  
 **Modèle de ressource hiérarchique**   
 
-Pour commencer à utiliser des ressources, vous devez [créer un compte de base de données](create-sql-api-dotnet.md) à l’aide de votre abonnement Azure. Un compte de base de données se compose d’un ensemble de **bases de données**. Chacune d’elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur, des documents et les **pièces jointes** associées. La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble **d’autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l’utilisateur.  
+Pour commencer à utiliser des ressources, vous devez [créer un compte de base de données](create-sql-api-dotnet.md) à l’aide de votre abonnement Azure. Un compte de base de données se compose d’un ensemble de **bases de données**. Chacune d’elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur, des documents et les pièces jointes associées**. La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble **d’autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l’utilisateur.  
 
 | Ressource | Description |
 | --- | --- |

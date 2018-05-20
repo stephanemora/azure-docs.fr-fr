@@ -1,25 +1,27 @@
 ---
-title: "Prise en main des applications à page unique .NET AngularJS Azure AD 2.0 | Microsoft Docs"
-description: "Génération d’une application à page unique AngularJS qui connecte les utilisateurs avec les comptes Microsoft personnels et les comptes professionnels ou scolaires."
+title: Prise en main des applications à page unique .NET AngularJS Azure AD 2.0 | Microsoft Docs
+description: Génération d’une application à page unique AngularJS qui connecte les utilisateurs avec les comptes Microsoft personnels et les comptes professionnels ou scolaires.
 services: active-directory
-documentationcenter: 
-author: jmprieur
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d1ddeb957096dc506bc76e1aac600eaa5bc2fbc
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Ajouter une connexion à une application AngularJS à une seule page - .NET
 Dans cet article, nous ajouterons la connexion avec des comptes Microsoft à une application AngularJS, à l’aide du point de terminaison v2.0 d’Azure Active Directory.  Le point de terminaison v2.0 vous permet d’effectuer une intégration unique dans votre application et d’authentifier les utilisateurs avec des comptes personnels et des comptes professionnels ou scolaires.
@@ -31,7 +33,7 @@ Cet exemple est une application à page unique de liste de tâches qui stocke le
 > 
 > 
 
-## <a name="download"></a>Télécharger
+## <a name="download"></a>Download
 Pour commencer, vous devez télécharger et installer Visual Studio.  Vous pouvez ensuite cloner ou [télécharger](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) une application squelette :
 
 ```

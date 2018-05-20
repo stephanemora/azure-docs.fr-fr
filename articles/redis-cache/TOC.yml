@@ -6,25 +6,25 @@
       href: cache-overview.md
 - name: Démarrages rapides
   items:
-    - name: ASP.NET
+    - name: Créer une application ASP.NET
       href: cache-web-app-howto.md
-    - name: .NET
+    - name: Créer une application .NET
       href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Nœud
+    - name: Créer une application Node.js
       href: cache-nodejs-get-started.md
-    - name: Java
+    - name: Créer une application Java
       href: cache-java-get-started.md
-    - name: Python
+    - name: Créer une application Python
       href: cache-python-get-started.md
 - name: Didacticiels
   items:
-    - name: Mise en cache de leaderboards
+    - name: Utiliser la mise en cache avec des leaderboards
       href: cache-web-app-cache-aside-leaderboard.md
 - name: Exemples
   items:
     - name: Exemples de Cache Redis
       href: cache-redis-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: cache-howto-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
@@ -100,7 +100,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=redis-cache'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.rediscache
     - name: Aperçu de l’interface Azure CLI
       href: /cli/azure/redis

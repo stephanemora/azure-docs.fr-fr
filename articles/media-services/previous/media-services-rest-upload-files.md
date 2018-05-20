@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 > [!div class="op_single_selector"]
@@ -88,11 +88,11 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
     ```
 4. À gauche de la fenêtre **Postman**, cliquez sur **1. Obtenir un jeton d’authentification AAD** -> **Obtenir un jeton Azure AD pour le principal du service**.
 
-    La partie de l’URL est remplie avec la variable d’environnement **AzureADSTSEndpoint** (la valeur que vous avez définie plus haut dans ce didacticiel).
-    
-5. Appuyez sur **Envoyer**.
+    La partie de l’URL est remplie avec la variable d’environnement **AzureADSTSEndpoint** (plus haut dans ce tutoriel, vous avez défini les valeurs des [variables d’environnement](#configure-the-environment) prenant en charge la [collection](#configure-the-collection)).
 
     ![Charger un fichier](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. Appuyez sur **Envoyer**.
 
     Vous pouvez voir la réponse qui contient « access_token ». Le script de « test » prend cette valeur et définit la variable d’environnement **AccessToken** (comme décrit ci-dessus). Si vous examinez vos variables d’environnement, vous voyez que cette variable contient à présent la valeur de jeton d’accès (jeton du porteur) qui est utilisée dans le reste des opérations. 
 

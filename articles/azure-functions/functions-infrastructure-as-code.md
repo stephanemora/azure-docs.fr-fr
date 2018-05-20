@@ -1,12 +1,12 @@
 ---
-title: "Automatiser le déploiement de ressources pour une application de fonction dans Azure Functions | Microsoft Docs"
-description: "Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application de fonction."
+title: Automatiser le déploiement de ressources pour une application de fonction dans Azure Functions | Microsoft Docs
+description: Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application de fonction.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure Functions, fonctions, architecture sans serveur, infrastructure sous forme code, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -56,7 +56,9 @@ Un compte de stockage Azure est nécessaire pour une application de fonction. Vo
 }
 ```
 
-En outre, les propriétés `AzureWebJobsStorage` et `AzureWebJobsDashboard` doivent être spécifiées comme paramètres d’application dans la configuration du site. Le runtime d’Azure Functions utilise la chaîne de connexion `AzureWebJobsStorage` pour créer des files d’attente internes. La chaîne de connexion `AzureWebJobsDashboard` est utilisée pour la connexion au stockage de table Azure et l’alimentation de l’onglet **Surveiller** du portail.
+En outre, la propriété `AzureWebJobsStorage` doit être spécifiée comme paramètre d’application dans la configuration du site. Si l’application de fonction n’utilise pas Application Insights pour l’analyse, elle doit également spécifier `AzureWebJobsDashboard` comme paramètre d’application.
+
+Le runtime d’Azure Functions utilise la chaîne de connexion `AzureWebJobsStorage` pour créer des files d’attente internes.  Lorsque Application Insights n’est pas activé, le runtime utilise la chaîne de connexion `AzureWebJobsDashboard` pour se connecter au stockage de table Azure et alimenter l’onglet **Surveiller** du portail.
 
 Ces propriétés sont spécifiées dans la collection `appSettings` de l’objet `siteConfig` :
 
@@ -260,7 +262,7 @@ Vous pouvez utiliser une des méthodes suivantes pour déployer votre modèle :
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Bouton Déployer dans Azure

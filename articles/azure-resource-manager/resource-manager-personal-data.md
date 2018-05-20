@@ -1,0 +1,77 @@
+---
+title: Données personnelles Azure Resource Manager | Microsoft Docs
+description: Découvrez comment gérer les données personnelles associées aux opérations Azure Resource Manager.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/14/2018
+ms.author: tomfitz
+ms.openlocfilehash: 5c176dd185a9d2a245045e9c954279506d713e5f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/14/2018
+---
+# <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gérer les données personnelles associées à Azure Resource Manager
+
+Pour éviter d’exposer des informations sensibles, supprimez toutes les informations personnelles que vous avez éventuellement fournies dans les déploiements, les groupes de ressources ou les balises. Azure Resource Manager propose des opérations qui vous permettent de gérer les données personnelles que vous avez éventuellement fournies dans les déploiements, les groupes de ressources ou les balises.
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+## <a name="delete-personal-data-in-deployment-history"></a>Supprimer les données personnelles de l’historique du déploiement
+
+Pour les déploiements, Resource Manager conserve les valeurs des paramètres et les messages d’état dans l’historique du déploiement. Ces valeurs sont conservées jusqu'à ce que vous supprimiez le déploiement de l’historique. Pour voir si vous avez fourni des données personnelles dans ces valeurs, consultez la liste des déploiements. Si vous trouvez des données personnelles, supprimez les déploiements de l’historique.
+
+Pour afficher la liste des **déploiements** dans l’historique, utilisez :
+
+* [Filtrer par groupe de ressources](/rest/api/resources/deployments/listbyresourcegroup)
+* [Get-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/Get-AzureRmResourceGroupDeployment)
+* [az group deployment list](/cli/azure/group/deployment#az-group-deployment-list)
+
+Pour supprimer des **déploiements** de l’historique, utilisez :
+
+* [Supprimer](/rest/api/resources/deployments/delete)
+* [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroupDeployment)
+* [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete)
+
+## <a name="delete-personal-data-in-resource-group-names"></a>Supprimer les données personnelles des noms de groupes de ressources
+
+Le nom du groupe de ressources persiste jusqu'à ce que vous supprimiez le groupe de ressources. Pour voir si vous avez fourni des données personnelles dans les noms, consultez la liste des groupes de ressources. Si vous trouvez des données personnelles, [déplacez les ressources](resource-group-move-resources.md) vers un nouveau groupe de ressources puis supprimez le groupe de ressources dont le nom contient des données personnelles.
+
+Pour répertorier les **groupes de ressources**, utilisez :
+
+* [Liste](/rest/api/resources/resourcegroups/list)
+* [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/Get-AzureRmResourceGroup)
+* [az group list](/cli/azure/group#az-group-list)
+
+Pour supprimer des **groupes de ressources**, utilisez :
+
+* [Supprimer](/rest/api/resources/resourcegroups/delete)
+* [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup)
+* [az group delete](/cli/azure/group#az-group-delete)
+
+## <a name="delete-personal-data-in-tags"></a>Supprimer des données personnelles dans des balises
+
+Les noms et les valeurs des balises persistent jusqu'à ce que vous supprimez ou modifiez la balise. Pour voir si vous avez fourni des données personnelles dans les balises, consultez la liste des balises. Si vous trouvez des données personnelles, supprimez les balises.
+
+Pour afficher la liste des **balises**, utilisez :
+
+* [Liste](/rest/api/resources/tags/list)
+* [Get-AzureRmTag](/powershell/module/azurerm.tags/get-azurermtag)
+* [az tag list](/cli/azure/tag#az-tag-list)
+
+Pour supprimer des **balises**, utilisez :
+
+* [Supprimer](/rest/api/resources/tags/delete)
+* [Remove-AzureRmTag](/powershell/module/azurerm.tags/remove-azurermtag)
+* [az tag delete](/cli/azure/tag#az-tag-delete)
+
+## <a name="next-steps"></a>Étapes suivantes
+* Pour une présentation d’Azure Resource Manager, consultez [Présentation de Resource Manager](resource-group-overview.md).

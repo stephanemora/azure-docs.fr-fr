@@ -1,33 +1,33 @@
 ---
-title: "Authentification unique auprès des applications avec le proxy d’application Azure AD | Microsoft Docs"
-description: "Activez l’authentification unique pour vos applications locales publiées avec le proxy d’application Azure AD dans le portail Azure."
+title: Authentification unique auprès des applications avec le proxy d’application Azure AD | Microsoft Docs
+description: Activez l’authentification unique pour vos applications locales publiées avec le proxy d’application Azure AD dans le portail Azure.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 501017ae416cc8aa473077c98ae0a213db749547
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 77e7288060abd2577867023a777eb3bdd4331e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Authentification unique avec mise au coffre des mots de passe par le biais du proxy d’application
 
 Le service Proxy d’application Azure Active Directory vous aide à améliorer la productivité en publiant des applications locales afin que les employés travaillant à distance puissent également y accéder. Dans le portail Azure, vous pouvez également configurer l’authentification unique auprès de ces applications. Vos utilisateurs n’ont qu’à s’authentifier auprès d’Azure AD pour accéder à votre application d’entreprise sans se reconnecter.
 
-Le proxy d’application prend en charge plusieurs [modes d’authentification unique](application-proxy-sso-overview.md). L’authentification par mot de passe est destinée aux applications qui utilisent une combinaison nom d’utilisateur/mot de passe pour l’authentification. Lorsque vous configurez l’authentification par mot de passe pour votre application, vos utilisateurs ne doivent se connecter à l’application locale qu’une seule fois. Azure Active Directory stocke ensuite les informations de connexion et les fournit automatiquement à l’application lorsque vos utilisateurs y accèdent à distance. 
+Le proxy d’application prend en charge plusieurs [modes d’authentification unique](manage-apps/application-proxy-single-sign-on.md). L’authentification par mot de passe est destinée aux applications qui utilisent une combinaison nom d’utilisateur/mot de passe pour l’authentification. Lorsque vous configurez l’authentification par mot de passe pour votre application, vos utilisateurs ne doivent se connecter à l’application locale qu’une seule fois. Azure Active Directory stocke ensuite les informations de connexion et les fournit automatiquement à l’application lorsque vos utilisateurs y accèdent à distance. 
 
-Vous devez avoir déjà publié et testé votre application avec le proxy d’application. Sinon, suivez les étapes de la rubrique [Publier des applications avec le Proxy d’application Azure AD](application-proxy-publish-azure-portal.md) avant de revenir ici. 
+Vous devez avoir déjà publié et testé votre application avec le proxy d’application. Sinon, suivez les étapes de la rubrique [Publier des applications avec le Proxy d’application Azure AD](manage-apps/application-proxy-publish-azure-portal.md) avant de revenir ici. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Configurer le stockage de mots de passe pour votre application
 
@@ -55,5 +55,5 @@ Accédez à l’URL externe que vous avez configurée pour l’accès à distanc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les autres façons d’implémenter l’[authentification unique avec le proxy d’application](application-proxy-sso-overview.md)
+- En savoir plus sur les autres façons d’implémenter l’[authentification unique avec le proxy d’application](manage-apps/application-proxy-single-sign-on.md)
 - En savoir plus sur les [considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD](application-proxy-security-considerations.md)

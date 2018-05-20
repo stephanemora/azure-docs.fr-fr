@@ -80,8 +80,6 @@ items:
         href: unique-keys.md
       - name: Base de données sans serveur
         href: serverless-computing-database.md
-      - name: Vue d’ensemble de BulkExecutor
-        href: bulk-executor-overview.md
       - name: Sécurité
         href: database-security.md
         items:
@@ -175,6 +173,8 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
+              - name: Gérer l’utilisation de l’Explorateur Stockage
+                href: storage-explorer.md
               - name: Requête
                 items:
                   - name: Exécuter des requêtes SQL
@@ -263,6 +263,8 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Ressources
             items:
+              - name: Gérer l’utilisation de l’Explorateur Stockage
+                href: storage-explorer.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Query Playground
@@ -325,8 +327,12 @@ items:
                 href: mongodb-indexing.md
               - name: "Visualiser vos données avec Power\_BI"
                 href: powerbi-visualize.md
+              - name: Gérer l’utilisation de l’Explorateur Stockage
+                href: storage-explorer.md
           - name: Ressources
             items:
+              - name: Gérer l’utilisation de l’Explorateur Stockage
+                href: storage-explorer.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documents API Graph
@@ -349,6 +355,8 @@ items:
             items:
               - name: Partitionnement dans Graph
                 href: graph-partitioning.md
+              - name: Gérer l’utilisation de l’Explorateur Stockage
+                href: storage-explorer.md
               - name: Integrate
                 items:
                   - name: Se connecter à Spark GraphX
@@ -359,6 +367,8 @@ items:
                 href: graph-sdk-dotnet.md
           - name: Ressources
             items:
+              - name: Gérer l’utilisation de l’Explorateur Stockage
+                href: storage-explorer.md
               - name: Extension de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documents API Table
@@ -415,6 +425,8 @@ items:
                 href: table-sdk-python.md
           - name: Ressources
             items:
+              - name: Gérer l’utilisation de l’Explorateur Stockage
+                href: storage-explorer.md
               - name: Présentation du Stockage de table
                 href: table-storage-overview.md
               - name: Guide de conception du stockage de tables
@@ -453,12 +465,20 @@ items:
         href: regional-failover.md
       - name: Journalisation de diagnostic
         href: logging.md
+      - name: Vue d’ensemble de BulkExecutor
+        href: bulk-executor-overview.md
       - name: Écritures et lectures rentables
         href: key-value-store-cost.md
       - name: Faire expirer les données automatiquement
         href: time-to-live.md
+      - name: Gérer à l’aide de PowerShell
+        href: manage-account-with-powershell.md
+      - name: Gérer l’utilisation de l’Explorateur Stockage
+        href: storage-explorer.md
   - name: Ressources
     items:
+      - name: Gérer l’utilisation de l’Explorateur Stockage
+        href: storage-explorer.md
       - name: Interroger un aide-mémoire
         href: query-cheat-sheet.md
       - name: "20\_jours de conseils"

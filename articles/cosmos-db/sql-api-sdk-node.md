@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Node.js Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="1.14.4"/>1.14.4</a>
+* Documentation npm mise à jour.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Support supplémentaire pour les nouvelles tentatives par défaut concernant les problèmes de connexion.
+* Support supplémentaire pour lire le flux de modification de la collection.
+* Bogue de cohérence de session fixe qui cause par intermittence le message « read session not available ».
+* Support supplémentaire pour les mesures de la requête.
+* Modification du nombre maximal de connexions à l’agent http.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Documentation mise à jour pour référencer Azure Cosmos DB au lieu d’Azure DocumentDB.
@@ -193,6 +203,8 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |3 mai 2018 |--- |
+| [1.14.3](#1.14.3) |3 mai 2018 |--- |
 | [1.14.2](#1.14.2) |21 décembre 2017 |--- |
 | [1.14.1](#1.14.1) |10 novembre 2017 |--- |
 | [1.14.0](#1.14.0) |9 novembre 2017 |--- |

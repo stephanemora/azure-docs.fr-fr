@@ -1,18 +1,18 @@
 ---
-title: "À propos du mappage réseau pour la réplication des machines virtuelles Hyper-V (avec VMM) dans Azure à l’aide de Site Recovery | Microsoft Docs"
-description: "Décrit la façon de configurer le mappage réseau pour la réplication des machines virtuelles Hyper-V managées dans des clouds VMM, avec Azure Site Recovery."
+title: À propos du mappage réseau pour la réplication des machines virtuelles Hyper-V (avec VMM) dans Azure à l’aide de Site Recovery | Microsoft Docs
+description: Décrit la façon de configurer le mappage réseau pour la réplication des machines virtuelles Hyper-V managées dans des clouds VMM, avec Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa596bf4941ac791fa1bc697399a4591d97ba68f
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Préparer le mappage réseau pour la réplication de machines virtuelles Hyper-V sur Azure
 
@@ -49,7 +49,7 @@ Le mappage réseau fonctionne de la façon détaillée ici.
 - Lorsque vous sélectionnez un réseau de machines virtuelles cible dans le cadre du mappage réseau dans Site Recovery, les clouds VMM sources qui utilisent le réseau de machines virtuelles source sont affichés, ainsi que les réseaux de machines virtuelles cibles disponibles sur les clouds cibles qui sont utilisés pour la protection.
 - Si le réseau cible est associé à plusieurs sous-réseaux et que l’un d’eux présente le même nom que le sous-réseau dans lequel se trouve la machine virtuelle source, la machine virtuelle de réplication est connectée à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 Voici un exemple permettant d’illustrer ce processus. Prenons l’exemple d’une entreprise ayant ouvert deux bureaux, l’un à New York et l’autre à Chicago.
 
@@ -58,7 +58,7 @@ Voici un exemple permettant d’illustrer ce processus. Prenons l’exemple d’
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappé au réseau VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Non mappé
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappé au réseau VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Non mappé
+ | | VMNetwork2-Chicago | Non mappé
 
 Dans cet exemple :
 

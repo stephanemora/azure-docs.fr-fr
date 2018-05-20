@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 84eabef06b4d2ad71e6d9a947a77589f9159e030
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connexion d’Operations Manager à Log Analytics
 Pour préserver vos investissements existants dans System Center Operations Manager et utiliser des fonctionnalités étendues avec Log Analytics, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics.  Cela vous permet de tirer parti des possibilités qu’offre Log Analytics, tout en continuant à utiliser Operations Manager pour :
@@ -77,9 +77,7 @@ Suivez les étapes ci-après pour configurer votre groupe d’administration Ope
 Si votre groupe d’administration Operations Manager est inscrit pour la première fois sur un espace de travail Log Analytics et si les serveurs d’administration doivent communiquer avec le service via un proxy ou un serveur de passerelle OMS, l’option permettant de spécifier la configuration du proxy pour le groupe d’administration n’est pas disponible dans la console Operations.  Le groupe d’administration doit être correctement inscrit auprès du service avant que cette option soit disponible.  Vous devez mettre à jour la configuration du proxy système à l’aide de Netsh sur le système à partir duquel vous exécutez la console Opérations pour configurer l’intégration et tous les serveurs d’administration du groupe d’administration.  
 
 1. Ouvrez une invite de commande avec élévation de privilèges.
-   a. Allez à **Démarrer** et entrez **cmd**.
-   b. Cliquez avec le bouton de droite sur **Invite de commande** et sélectionnez Exécuter en tant qu’administrateur**.
-2. Saisissez la commande suivante, puis appuyez sur **Entrée** :
+1. Saisissez la commande suivante, puis appuyez sur **Entrée** :
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -199,9 +197,9 @@ Il n’est pas facile de supprimer du groupe d’administration les packs d’ad
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-7. Dans le portail OMS, cliquez sur la vignette **Paramètres**.
-8. Sélectionnez **Sources connectées**.
-9. Dans le tableau sous la section System Center Operations Manager, le nom du groupe d’administration à supprimer de l’espace de travail doit s’afficher.  Sous la colonne **Dernières données**, cliquez sur **Supprimer**.  
+1. Ouvrez le menu **Paramètres avancés** de l’espace de travail Log Analytics dans le portail Azure.
+1. Sélectionnez **Sources connectées**, puis **System Center**.
+1. Le nom du groupe d’administration que vous souhaitez supprimer de l’espace de travail doit s’afficher.  Sous la colonne **Dernières données**, cliquez sur **Supprimer**.  
    
     > [!NOTE]
     > Le lien **Supprimer** ne sera pas disponible avant 14 jours si aucune activité n’est détectée à partir du groupe d’administration connecté.  

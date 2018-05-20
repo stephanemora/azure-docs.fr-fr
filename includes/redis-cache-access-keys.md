@@ -1,31 +1,28 @@
-Pour vous connecter à une instance Cache Redis Azure, vos clients de cache ont besoin du nom d’hôte, des ports et des clés du cache. Certains clients peuvent référencer ces éléments par des noms légèrement différents. Vous pouvez récupérer ces informations dans le portail Azure ou à l’aide des outils de ligne de commande tels qu’Azure CLI.
-
+---
+title: Fichier Include
+description: Fichier Include
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: wesmc
+ms.custom: include file
+ms.openlocfilehash: d1ae8e5dfbb1455d639e3e2119a4606a8c3a0047
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/28/2018
+---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Récupération du nom d’hôte, des ports et des clés d’accès à l’aide du portail Azure
-Pour récupérer le nom d’hôte, les ports et les clés d’accès à l’aide du portail Azure, [accédez](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) à votre cache dans le [portail Azure](https://portal.azure.com) et cliquez sur **Clés d’accès** et **Propriétés** dans le **menu Ressource**. 
 
-![Paramètres du cache Redis](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
+Lors de la connexion à une instance Cache Redis Azure, les clients de cache ont besoin du nom d’hôte, des ports et d’une clé pour le cache. Certains clients peuvent référencer ces éléments par des noms légèrement différents. Vous pouvez récupérer ces informations dans le portail Azure.
 
-### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Récupération du nom d’hôte, des ports et des clés d’accès à l’aide de l’interface de ligne de commande Azure
-Pour récupérer le nom d’hôte et les ports à l’aide d’Azure CLI 2.0, vous pouvez appeler [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), et pour récupérer les clés, vous pouvez appeler [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). Le script suivant appelle ces deux commandes et renvoie le nom d’hôte, les ports et les clés à la console.
+Pour récupérer les clés d’accès à l’aide du [portail Azure](https://portal.azure.com), accédez à votre cache, puis cliquez sur **Clés d’accès**. 
 
-```azurecli
-#/bin/bash
+![Clés du cache Redis](media/redis-cache-access-keys/redis-cache-keys.png)
 
-# Retrieve the hostname, ports, and keys for contosoCache located in contosoGroup
+Pour récupérer les informations relatives au nom d’hôte et aux ports, cliquez sur **Propriétés**.
 
-# Retrieve the hostname and ports for an Azure Redis Cache instance
-redis=($(az redis show --name contosoCache --resource-group contosoGroup --query [hostName,enableNonSslPort,port,sslPort] --output tsv))
+![Propriétés du cache Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 
-# Retrieve the keys for an Azure Redis Cache instance
-keys=($(az redis list-keys --name contosoCache --resource-group contosoGroup --query [primaryKey,secondaryKey] --output tsv))
-
-# Display the retrieved hostname, keys, and ports
-echo "Hostname:" ${redis[0]}
-echo "Non SSL Port:" ${redis[2]}
-echo "Non SSL Port Enabled:" ${redis[1]}
-echo "SSL Port:" ${redis[3]}
-echo "Primary Key:" ${keys[0]}
-echo "Secondary Key:" ${keys[1]}
-```
-
-Pour plus d’informations sur ce script, consultez [Obtenir le nom d’hôte, les ports et les clés pour Cache Redis Azure](../articles/redis-cache/scripts/cache-keys-ports.md). Pour plus d’informations sur Azure CLI 2.0, consultez [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) et [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

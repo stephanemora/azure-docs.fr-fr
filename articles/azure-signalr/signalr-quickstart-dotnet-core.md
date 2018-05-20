@@ -14,13 +14,15 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: 78e164b566194fcfe952e3ad59dd3d228f90d193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guide de démarrage rapide : créer une salle de conversation avec SignalR Service
+
+Le service Microsoft Azure SignalR est actuellement disponible en [version préliminaire publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure SignalR Service est un service Azure qui permet aux développeurs de créer facilement des applications web avec des fonctionnalités en temps réel. Ce service est basé sur [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
@@ -85,7 +87,7 @@ Dans cette section, vous allez ajouter l’outil [Secret Manager](https://docs.m
 
 1. Ajoutez une référence au package NuGet `Microsoft.Azure.SignalR` en exécutant la commande suivante :
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
 
 2. Exécutez la commande suivante pour restaurer les packages de votre projet.
 
@@ -96,7 +98,7 @@ Dans cette section, vous allez ajouter l’outil [Secret Manager](https://docs.m
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager servira uniquement à tester l’application web lorsqu’elle est hébergée localement. Dans un prochain tutoriel, vous allez déployer l’application web de conversation dans Azure. Une fois l’application web déployée dans Azure, vous allez utiliser un paramètre d’application au lieu de stocker la chaîne de connexion avec Secret Manager.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84e9e3b486e3c825e98530a30850e9f21ef41b91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 28c8ec09ad02e5c1175312f2735cd6f900f88cab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Python Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -46,12 +46,15 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 
-<tr><td>**Bien démarrer**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Python](sql-api-python-application.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Python](sql-api-python-application.md)</td></tr>
 
 <tr><td>**Plateforme actuellement prise en charge**</td><td>[Python 2.7](https://www.python.org/downloads/) et [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
+* Support supplémentaire pour les nouvelles tentatives par défaut concernant les problèmes de connexion.
+
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Documentation mise à jour pour référencer Azure Cosmos DB au lieu d’Azure DocumentDB.
 
@@ -138,6 +141,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit S
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |8 mai 2018 |--- |
 | [2.3.1](#2.3.1) |21 décembre 2017 |--- |
 | [2.3.0](#2.3.0) |10 novembre 2017 |--- |
 | [2.2.1](#2.2.1) |29 septembre 2017 |--- |

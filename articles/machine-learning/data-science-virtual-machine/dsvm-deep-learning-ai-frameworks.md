@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](http://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](http://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 
@@ -80,6 +80,7 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 | Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Caffe est installé dans `/opt/caffe`.    |
+| Comment basculer vers Python 2.7 ? | Exécutez `source activate root`. |
 | Liens vers des exemples      | Des exemples sont inclus dans `/opt/caffe/examples`.      |
 | Outils connexes sur la machine virtuelle DSVM      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?  
@@ -88,12 +89,15 @@ Utilisez X2Go pour vous connecter à votre machine virtuelle, puis démarrez un 
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Une nouvelle fenêtre de navigateur s’ouvre avec les exemples de bloc-notes.
 
-Les fichiers binaires sont installés dans /opt/caffe/build/install/bin. 
+Les fichiers binaires sont installés dans /opt/caffe/build/install/bin.
+
+La version installée de Caffe nécessite Python 2.7 et ne fonctionnera avec 3.5 Python activé par défaut. Exécutez `source activate root` pour basculer vers l’environnement Anaconda. 
 
 ## <a name="caffe2"></a>Caffe2
 

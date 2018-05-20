@@ -68,7 +68,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Azure CLI
       href: sql-database-cli-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: sql-database-powershell-samples.md
 - name: Concepts
   items:
@@ -104,6 +104,16 @@
       items:
         - name: Vue d'ensemble
           href: sql-database-security-overview.md
+        - name: Protection avancée contre les menaces
+          href: sql-advanced-threat-protection.md
+        - name: Découverte et classification des données
+          href: sql-database-data-discovery-and-classification.md
+        - name: Évaluation des vulnérabilités
+          href: sql-vulnerability-assessment.md
+        - name: Détection de menaces - SQL Database
+          href: sql-database-threat-detection.md
+        - name: Détection de menaces - instance gérée
+          href: sql-database-managed-instance-threat-detection.md
         - name: Règles de pare-feu
           href: sql-database-firewall-configure.md
         - name: Règles de réseau virtuel de pare-feu
@@ -120,18 +130,10 @@
           href: sql-database-auditing.md
         - name: Audit - Instance managée
           href: sql-database-managed-instance-auditing.md
-        - name: Détection de menaces - SQL Database
-          href: sql-database-threat-detection.md
-        - name: Détection de menaces - instance gérée
-          href: sql-database-managed-instance-threat-detection.md
         - name: Audit de table et TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Masquage des données dynamiques
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Évaluation des vulnérabilités
-          href: sql-vulnerability-assessment.md
-        - name: Découverte et classification des données
-          href: sql-database-data-discovery-and-classification.md
     - name: Continuité de l’activité
       items:
         - name: Vue d'ensemble
@@ -250,7 +252,7 @@
           href: sql-database-temporal-tables-retention-policy.md
         - name: Configurer In-Memory
           href: sql-database-in-memory-oltp-migration.md
-    - name: Développement d'applications
+    - name: Développement d’applications
       items:
         - name: Connectivité
           href: sql-database-libraries.md
@@ -440,7 +442,7 @@
               href: saas-multitenantdb-schema-management.md
             - name: 'Extraction, transformation et chargement (ETL) pour analyse'
               href: saas-multitenantdb-tenant-analytics.md
-    - name: Développement d'applications
+    - name: Développement d’applications
       items:
         - name: C et C ++
           href: sql-database-develop-cplusplus-simple.md
@@ -450,7 +452,7 @@
           href: sql-database-spark-connector.md
 - name: Informations de référence
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (base de données élastique)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'

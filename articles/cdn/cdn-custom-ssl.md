@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -40,11 +40,11 @@ Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisé
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> - Activez le protocole HTTPS sur votre domaine personnalisé.
-> - Utiliser un certificat géré par le CDN 
-> - Utiliser votre propre certificat
+> - activer le protocole HTTPS sur votre domaine personnalisé ;
+> - utiliser un certificat géré par le CDN ; 
+> - utiliser votre propre certificat ;
 > - Valider le domaine
-> - Désactivez le protocole HTTPS sur votre domaine personnalisé.
+> - désactiver le protocole HTTPS sur votre domaine personnalisé.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -75,13 +75,20 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 
 4. Sous Type de gestion de certificats, sélectionnez **CDN géré**.
 
-4. Sélectionnez **Activé** pour activer le protocole HTTPS.
+5. Sélectionnez **Activé** pour activer le protocole HTTPS.
 
     ![Statut HTTPS sur un domaine personnalisé](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. Faites [Valider le domaine](#validate-the-domain).
+
 
 ## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Option 2 : activer la fonctionnalité HTTPS avec votre propre certificat 
+
+> [!IMPORTANT]
+> Cette fonctionnalité n’est disponible qu’avec les profils **Azure CDN Standard fourni par Microsoft**. 
+>
  
+
 Vous pouvez utiliser votre propre certificat sur Azure CDN pour fournir du contenu via HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault. Azure Key Vault permet aux clients de stocker leurs certificats en toute sécurité. Le service Azure CDN tire parti de ce mécanisme sécurisé pour obtenir le certificat. Vous avez besoin d’effectuer quelques étapes supplémentaires pour utiliser votre propre certificat.
 
 ### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Étape 1 : préparer le compte et le certificat Azure Key Vault
@@ -90,9 +97,23 @@ Vous pouvez utiliser votre propre certificat sur Azure CDN pour fournir du conte
  
 2. Certificats Azure Key Vault : si vous disposez déjà d’un certificat, vous pouvez le charger directement vers votre compte Azure Key Vault. Vous pouvez également en créer un directement à l’aide d’Azure Key Vault à partir d’une des autorités de certification (CA) partenaires de ce coffre Azure Key Vault. 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>Étape 2 : accorder au coffre de clés l’accès à Azure CDN
+### <a name="step-2-register-azure-cdn"></a>Étape 2 : Inscrire Azure CDN
+
+Inscrivez Azure CDN comme application dans Azure Active Directory via PowerShell.
+
+1. Si nécessaire, installez [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) dans PowerShell sur votre ordinateur local.
+
+2. Dans PowerShell, exécutez la commande suivante :
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![Inscrire Azure CDN dans PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>Étape 3 : accorder au coffre de clés l’accès à Azure CDN
  
-Vous devez accorder l’autorisation d’Azure CDN pour accéder aux certificats (secrets) de votre compte Azure Key Vault.
+Accordez l’autorisation d’Azure CDN pour accéder aux certificats (secrets) de votre compte Azure Key Vault.
+
 1. Dans votre compte de coffre de clés, sous PARAMÈTRES, sélectionnez **Stratégies d’accès**, puis **Ajouter nouveau** pour créer une stratégie.
 
     ![Créer une stratégie d’accès](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -107,7 +128,7 @@ Vous devez accorder l’autorisation d’Azure CDN pour accéder aux certificats
 
     Azure CDN peut désormais accéder à ce coffre de clés et aux certificats (secrets) qui sont stockés dans ce coffre de clés.
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>Étape 3 : sélectionner le certificat pour Azure CDN à déployer
+### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>Étape 4 : sélectionner le certificat pour Azure CDN à déployer
  
 1. Revenez au portail Azure CDN et sélectionnez le profil et le point de terminaison CDN souhaités pour activer le protocole HTTPS personnalisé. 
 
@@ -127,16 +148,20 @@ Vous devez accorder l’autorisation d’Azure CDN pour accéder aux certificats
     - les versions disponibles du certificat. 
  
 5. Sélectionnez **Activé** pour activer le protocole HTTPS.
+  
+6. Lorsque vous utilisez votre propre certificat, la validation du domaine n’est pas nécessaire. Passez à [En attente de la propagation](#wait-for-propagation).
 
 
 ## <a name="validate-the-domain"></a>Valider le domaine
 
-Si vous avez déjà un domaine personnalisé en cours d’utilisation qui est mappé à votre point de terminaison personnalisé avec un enregistrement CNAME, passez à  
+Si vous avez déjà un domaine personnalisé en cours d’utilisation qui est mappé à votre point de terminaison personnalisé avec un enregistrement CNAME, ou si vous utilisez votre propre certificat, passez à  
 [Le domaine personnalisé est mappé à votre point de terminaison CDN](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Sinon, si l’entrée d’enregistrement CNAME pour votre point de terminaison n’existe plus ou s’il contient le sous-domaine cdnverify, passez à [Le domaine personnalisé n’est pas mappé à votre point de terminaison CDN](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>Le domaine personnalisé est mappé à votre point de terminaison CDN par un enregistrement CNAME
 
-Lors de l’ajout d’un domaine personnalisé à votre point de terminaison, vous avez créé un enregistrement CNAME dans la table DNS de votre registre de domaines à mapper au nom d’hôte de votre point de terminaison CDN. Si cet enregistrement CNAME existe toujours et qu’il ne contient pas le sous-domaine cdnverify, l’autorité de certification (AC) DigiCert l’utilise pour valider la propriété de votre domaine personnalisé. 
+Lors de l’ajout d’un domaine personnalisé à votre point de terminaison, vous avez créé un enregistrement CNAME dans la table DNS de votre registre de domaines à mapper au nom d’hôte de votre point de terminaison CDN. Si cet enregistrement CNAME existe toujours et qu’il ne contient pas le sous-domaine cdnverify, l’autorité de certification (AC) DigiCert l’utilise pour valider automatiquement la propriété de votre domaine personnalisé. 
+
+Si vous utilisez votre propre certificat, la validation du domaine n’est pas nécessaire.
 
 Votre enregistrement CNAME doit être au format suivant, où *Nom* est le nom de votre domaine personnalisé et *Valeur* est le nom d’hôte de votre point de terminaison CDN :
 

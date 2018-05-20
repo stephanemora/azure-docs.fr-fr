@@ -1,8 +1,8 @@
 ---
 title: Collecter et analyser les messages Syslog dans OMS Log Analytics | Microsoft Docs
-description: "Syslog est un protocole de journalisation d’événements commun à Linux. Cet article décrit comment configurer la collecte de messages Syslog dans Log Analytics et des détails des enregistrements qu’ils créent dans le référentiel OMS."
+description: Syslog est un protocole de journalisation d’événements commun à Linux. Cet article décrit comment configurer la collecte de messages Syslog dans Log Analytics et des détails des enregistrements qu’ils créent dans le référentiel OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Sources de données Syslog dans Log Analytics
 Syslog est un protocole de journalisation d’événements commun à Linux.  Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog.  Lorsque l’agent OMS pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent.  L’agent envoie ensuite le message à Log Analytics où un enregistrement correspondant est créé dans le référentiel OMS.  
@@ -31,10 +31,10 @@ Syslog est un protocole de journalisation d’événements commun à Linux.  Les
 ![Collecte de messages Syslog](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Configuration de Syslog
-L’agent OMS pour Linux collecte uniquement les événements avec les installations et les niveaux de gravité spécifiés dans sa configuration.  Vous pouvez configurer Syslog avec le portail OMS ou en gérant les fichiers de configuration sur vos agents Linux.
+L’agent OMS pour Linux collecte uniquement les événements avec les installations et les niveaux de gravité spécifiés dans sa configuration.  Vous pouvez configurer Syslog avec le portail Azure ou en gérant les fichiers de configuration sur vos agents Linux.
 
-### <a name="configure-syslog-in-the-oms-portal"></a>Configurer Syslog dans le portail OMS
-Configurez Syslog à partir du [menu Données dans Paramètres Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Cette configuration est remise au fichier de configuration sur chaque agent Linux.
+### <a name="configure-syslog-in-the-azure-portal"></a>Configurer Syslog dans le portail Azure
+Configurez Syslog à partir du [menu Données dans les paramètres avancés de Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Cette configuration est remise au fichier de configuration sur chaque agent Linux.
 
 Vous pouvez ajouter une nouvelle installation en tapant son nom et en cliquant sur **+**.  Pour chaque installation, seuls les messages avec les niveaux de gravité sélectionnés seront collectés.  Vérifiez les niveaux de gravité de l’installation que vous souhaitez collecter.  Vous ne pouvez pas fournir de critères supplémentaires pour filtrer les messages.
 
@@ -205,6 +205,6 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Nombre d’enregistrements Syslog par installation. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.
+* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
 * Utilisez les [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les données des enregistrements syslog dans des champs individuels.
 * [Configurez les agents Linux](log-analytics-linux-agents.md) pour qu’ils collectent d’autres types de données.

@@ -14,17 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Didacticiel : Authentification par le service Azure SignalR
 
+Le service Microsoft Azure SignalR est actuellement disponible en [version préliminaire publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Ce didacticiel s’appuie sur l’application de salle de conversation présentée dans le démarrage rapide. Si vous n’avez pas effectué l’exercice de [création de salle de conversation avec le service SignalR](signalr-quickstart-dotnet-core.md), exécutez-le dans un premier temps. 
 
-Dans ce didacticiel, vous allez découvrir comment implémenter votre propre authentification et l’intégrer dans le service Azure SignalR. 
+Dans ce didacticiel, vous allez découvrir comment implémenter votre propre authentification et l’intégrer dans le service Microsoft Azure SignalR. 
 
 L’authentification utilisée initialement dans l’application de salle de conversation du démarrage rapide est trop simple pour les scénarios concrets. L’application permet à chaque client de revendiquer son identité, et le serveur accepte cet état de fait. Cette approche n’est pas très utile dans les applications concrètes, où un utilisateur non autorisé pourrait usurper l’identité d’un autre utilisateur pour accéder à des données sensibles. 
 
@@ -581,7 +583,7 @@ Pour finir, vous devez mettre à jour l’**URL de la page d’accueil** et l’
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans ce démarrage rapide.
+Si vous envisagez d’exécuter le tutoriel suivant, vous pouvez conserver les ressources créées dans ce démarrage rapide.
 
 Sinon, si l’exemple d’application de démarrage rapide était votre dernière opération, vous pouvez supprimer les ressources Azure créées dans ce démarrage rapide afin d’éviter tout frais. 
 
@@ -592,7 +594,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom..**, saisissez le nom de votre groupe de ressources. Les instructions relatives à cet article utilisaient un groupe de ressources nommé *SignalRTestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions relatives à cet article utilisaient un groupe de ressources nommé *SignalRTestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
 
    
 ![Supprimer](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
@@ -604,9 +606,7 @@ Après quelques instants, le groupe de ressources et toutes les ressources qu’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez ajouté l’authentification avec OAuth afin de fournir une meilleure approche de l’authentification avec le service Azure SignalR. Pour en savoir plus sur l’utilisation d’Azure SignalR Server, accédez au didacticiel suivant, qui présente l’intégration avec Azure Functions.
+Dans ce didacticiel, vous avez ajouté l’authentification avec OAuth afin de fournir une meilleure approche de l’authentification avec le service Azure SignalR. Pour en savoir plus sur l’utilisation d’Azure SignalR Server, accédez aux exemples Azure CLI pour le service SignalR.
 
 > [!div class="nextstepaction"]
-> [Intégrer Azure Functions avec le service Azure SignalR](./signalr-integrate-functions.md)
-
-
+> [Exemples CLI Azure SignalR](./signalr-cli-samples.md)

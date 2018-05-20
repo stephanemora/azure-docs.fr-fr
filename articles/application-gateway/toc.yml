@@ -7,17 +7,17 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Diriger le trafic web - Portail
+    - name: Gérer le trafic web - Portail
       href: quick-create-portal.md
-    - name: Diriger le trafic web - PowerShell
+    - name: Gérer le trafic web - PowerShell
       href: quick-create-powershell.md
-    - name: Diriger le trafic web - Azure CLI
+    - name: Gérer le trafic web - Azure CLI
       href: quick-create-cli.md
 - name: Didacticiels
   items:
     - name: Gérer le trafic web
       href: tutorial-manage-web-traffic-cli.md
-    - name: Limiter le trafic web
+    - name: Activer le pare-feu d’applications web
       href: tutorial-restrict-web-traffic-cli.md
     - name: Sécuriser avec SSL
       href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
       href: cli-samples.md
 - name: Concepts
   items:
+    - name: Arrêt SSL
+      href: ssl-overview.md
+    - name: Vue d’ensemble des stratégies SSL
+      href: application-gateway-ssl-policy-overview.md
     - name: Pare-feu d’application web
       href: waf-overview.md
     - name: Routage d’URL
       href: url-route-overview.md
     - name: Hébergement de plusieurs sites
       href: multiple-site-overview.md
-    - name: Arrêt SSL
-      href: ssl-overview.md
-    - name: Redirection d’URL
+    - name: Prise en charge de la redirection
       href: redirect-overview.md
+    - name: Assistance multi-locataire
     - name: Surveillance de l’intégrité
       href: application-gateway-probe-overview.md
+    - name: Prise en charge de WebSocket
+      href: application-gateway-websocket.md
 - name: Procédures
   items:
     - name: Créer une passerelle Application Gateway
@@ -55,10 +60,20 @@
           href: create-vmss-template.md
         - name: Applications web - PowerShell
           href: create-web-app.md
-    - name: Activer l’arrêt SSL - Portail
+        - name: Configurer un équilibreur de charge interne
+          href: application-gateway-ilb.md
+    - name: Configurer l’arrêt SSL - Portail
       href: create-ssl-portal.md
     - name: Héberger plusieurs sites - Portail
       href: create-multiple-sites-portal.md
+    - name: Personnaliser les règles de pare-feu d’application web
+      items:
+        - name: Portail Azure
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: application-gateway-customize-waf-rules-cli.md
     - name: Rediriger le trafic externe
       items:
         - name: Azure PowerShell
@@ -111,6 +126,8 @@
           href: application-gateway-diagnostics.md
 - name: Informations de référence
   items:
+    - name: Règles CRS
+      href: application-gateway-crs-rulegroups-rules.md
     - name: Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

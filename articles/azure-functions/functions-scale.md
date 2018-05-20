@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -95,9 +95,7 @@ Dans le plan Consommation, le contrôleur de mise à l’échelle met automatiqu
 Quand vous utilisez le plan d’hébergement Consommation, les fichiers de code de fonction sont stockés dans des partages de fichiers Azure du compte de stockage principal de la fonction. Lorsque vous supprimez le compte de stockage principal de l’application de fonction, les fichiers de code de fonction sont supprimés et ne peuvent pas être récupérés.
 
 > [!NOTE]
-> Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les blobs sont traités immédiatement. Pour éviter ce délai initial, pensez à l’une des options suivantes :
-> - Utilisez l’application de fonction dans un plan App Service, avec le paramètre Toujours actif activé.
-> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un abonnement Event Grid ou un message de file d’attente qui contient le nom de l’objet blob. Pour obtenir un exemple, consultez les [exemples de liaison d’entrée d’objet blob](functions-bindings-storage-blob.md#input---example).
+> Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour éviter ce délai de démarrage à froid, utilisez un plan App Service avec Always On activé ou le déclencheur Event Grid. Pour plus d’informations, consultez [l’article de référence sur la liaison de déclencheur blob](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 

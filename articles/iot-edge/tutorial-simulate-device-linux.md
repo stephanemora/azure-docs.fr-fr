@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b7f0aa514cfffb8fb2ca76238a6a65a8e6443e56
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Déployer Azure IoT Edge sur un appareil simulé dans Linux ou MacOS : préversion
 
@@ -41,6 +41,7 @@ Ce didacticiel utilise votre ordinateur ou machine virtuelle comme un appareil I
      * _Notez que, sur certaines distributions (par exemple, Raspbian), vous devrez peut-être également mettre à niveau certains packages pip et installer les dépendances supplémentaires :_
      ```
      sudo pip install --upgrade setuptools pip
+     
      sudo apt-get install python2.7-dev libffi-dev libssl-dev
      ```
    * MacOS : `sudo easy_install pip`.

@@ -40,6 +40,8 @@
   items:
     - name: Activer la création de rubrique automatique
       href: apache-kafka-auto-create-topics.md
+    - name: Utiliser Kafka avec IoT Hub
+      href: apache-kafka-connector-iot-hub.md
     - name: Installer des applications HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
@@ -239,7 +241,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.hdinsight
     - name: REST
       href: /rest/api/hdinsight/

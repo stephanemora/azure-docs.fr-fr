@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 La famille de machines virtuelles de série B vous permet de choisir la taille de machine virtuelle vous offrant les performances de base nécessaires à votre charge de travail, avec la possibilité d’étendre jusqu’à 100 % les performances d’un processeur virtuel Intel® Broadwell E5-2673 v4 2.3 GHz ou Intel® Haswell 2.4 GHz E5-2673 v3.
 
@@ -58,7 +58,8 @@ Si je prends les 120 crédits cumulés lors des heures creuses et que je soustr
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q : La série B prend-elle en charge les disques de données de stockage Premium ?
 **R** : Oui, la série B prend en charge les disques de données de stockage Premium ?   
     
-
+### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>Q : Mon crédit restant est défini sur 0 après un redéploiement ou un arrêt/démarrage.
+**R** : lorsqu’une machine virtuelle est « REDÉPLOYÉE », c’est-à-dire lorsque la machine virtuelle se déplace vers un autre nœud, et que le crédit cumulé est perdu. Si la machine virtuelle est arrêtée/démarrée, mais reste sur le même nœud, la machine virtuelle conserve le crédit cumulé. Lorsque la machine virtuelle redémarre de zéro sur un nœud, elle obtient un crédit initial, de 240 minutes pour  Standard_B8ms.
 
     
 

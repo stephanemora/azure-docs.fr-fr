@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Créer une application blockchain dans Azure Blockchain Workbench
 
 Vous pouvez utiliser Azure Blockchain Workbench pour créer des applications blockchain qui représentent des flux de travail à plusieurs parties définis par une configuration et du code de contrat intelligent.
 
-Vous découvrirez comment effectuer les actions suivantes :
+Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Configurer une application blockchain
@@ -37,9 +37,11 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 Générons une application de base dans laquelle un demandeur envoie une requête et un répondeur envoie une réponse à la requête. Par exemple, une requête peut être : « Hello, comment allez-vous ? », et la réponse peut être : « Je vais très bien ! ». La requête et la réponse sont enregistrées sur le blockchain sous-jacent. 
 
+Suivez les étapes pour créer les fichiers d’application, ou vous pouvez [télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
+
 ## <a name="configuration-file"></a>Fichier de configuration
 
-Les métadonnées de configuration définissent les flux de travail généraux et le modèle d’interaction de l’application blockchain. Les métadonnées de configuration représentent les étapes de flux de travail et le modèle d’interaction de l’application blockchain.
+Les métadonnées de configuration définissent les workflows généraux et le modèle d’interaction de l’application blockchain. Les métadonnées de configuration représentent les étapes de flux de travail et le modèle d’interaction de l’application blockchain.
 
 1. Dans votre éditeur favori, créez un fichier nommé `HelloBlockchain.json`.
 2. Ajoutez le texte JSON suivant pour définir la configuration de l’application blockchain.
@@ -325,7 +327,7 @@ Ajoutez la fonction de constructeur à votre contrat dans votre fichier de code 
     }
 ```
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Fonctions
 
 Les fonctions sont les unités exécutables de logique métier dans un contrat. Les paramètres requis pour la fonction sont définis en tant que paramètres de fonction dans le fichier de configuration. Le nombre, l’ordre et le type des paramètres doivent correspondre dans les deux fichiers. Les fonctions sont associées à des transitions dans un flux de travail Blockchain Workbench dans le fichier de configuration. Une transition est une action effectuée pour passer à l’étape suivante du flux de travail d’une application tel que déterminé par le contrat.
 
@@ -399,4 +401,7 @@ Pour plus d’informations sur la gestion des utilisateurs dans Blockchain Workb
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez créé une application, essayez d’[utiliser une application blockchain](blockchain-workbench-use.md).
+Dans cet article sur les procédures, vous avez créé une application de demande et de réponse de base. Pour apprendre à utiliser l’application, passez à l’article suivant.
+
+> [!div class="nextstepaction"]
+> [Utilisation d’une application blockchain](blockchain-workbench-use.md)

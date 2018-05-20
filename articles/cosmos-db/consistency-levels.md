@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence des données paramétrables dans Azure Cosmos DB
 Azure Cosmos DB a été conçu dès le départ pour être distribué à l’échelle mondiale. Il offre des garanties de latence faible prévisible et plusieurs modèles de cohérence souples bien définis. Pour le moment, Azure Cosmos DB prend en charge cinq niveaux de cohérence : Fort, Obsolescence limitée, Session, Préfixe cohérent et Éventuel. Les termes « obsolescence limitée », « session », « préfixe cohérent » et « éventuelle » font référence à des modèles de « cohérence souple », qui fournissent un niveau de cohérence inférieur à celui de la cohérence forte (qui constitue le niveau de cohérence le plus élevé). 
@@ -44,7 +44,7 @@ Le tableau suivant illustre les garanties spécifiques que chaque niveau de coh�
 | Niveau de cohérence | Garanties |
 | --- | --- |
 | Remarque | Linéarisabilité. Garantit que les lectures retournent la version la plus récente d’un élément.|
-| Obsolescence limitée | Préfixe cohérent. Retard des lectures par rapport aux écritures par k préfixes ou un intervalle t |
+| Obsolescence limitée | Préfixe cohérent. Retard des lectures par rapport aux écritures par k préfixes ou un intervalle t au maximum |
 | session   | Préfixe cohérent. Lectures unitones, écritures unitones, lecture de vos écritures, l’écriture suit les lectures |
 | Préfixe cohérent | Les mises à jour retournées sont un préfixe de toutes les mises à jour, sans interruption |
 | Eventual (Éventuel)  | Lectures en désordre |

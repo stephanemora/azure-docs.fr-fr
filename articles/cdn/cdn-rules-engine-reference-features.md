@@ -4,7 +4,7 @@ description: Documentation de référence sur les fonctionnalités du moteur de 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cet article comprend les descriptions détaillées des fonctionnalités du [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -392,7 +392,7 @@ Configurez cette fonctionnalité en définissant les deux options suivantes :
 Option|Description
 --|--
 Chemin d’accès d’origine| Permet de définir le chemin d’accès relatif aux types de requêtes dont la clé de cache est réécrite. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière.
-Nouveau chemin d’accès|Permet de définir le chemin d’accès relatif pour la nouvelle clé de cache. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière. Ce chemin d’accès relatif peut être construit de manière dynamique via l’utilisation de variables HTTP
+Nouveau chemin d’accès|Permet de définir le chemin d’accès relatif pour la nouvelle clé de cache. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière. Ce chemin d’accès relatif peut être construit de manière dynamique au moyen de [variables HTTP](cdn-http-variables.md).
 **Comportement par défaut :** La clé de cache d’une requête est déterminée par l’URI de requête.
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
@@ -884,9 +884,9 @@ Une des actions suivantes peut être effectuée sur un en-tête de requête :
 
 Option|Description|Exemples
 -|-|-
-Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (Client) :** Value1 <br/> **Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value1Value2
-Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de requête (Client) :** Value1 <br/>**Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value2 <br/>
-Supprimer|Supprime l’en-tête de requête spécifié.|**Valeur d’en-tête de requête (Client) :** Value1 <br/> **Modifier la configuration de l’en-tête de requête Client :** supprime l’en-tête de requête en question. <br/>**Résultat :** l’en-tête de requête spécifié ne sera pas transféré vers le serveur d’origine.
+Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Valeur d’en-tête de requête (moteur de règles) :**<br/>Value2 <br/>**Nouvelle valeur d’en-tête de requête :** <br/>Value1Value2
+Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Valeur d’en-tête de requête (moteur de règles) :**<br/>Value2<br/>**Nouvelle valeur d’en-tête de requête :**<br/> Value2 <br/>
+Supprimer|Supprime l’en-tête de requête spécifié.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Modifier la configuration de l’en-tête de requête client :**<br/>supprime l’en-tête de requête en question.<br/>**Résultat :**<br/>l’en-tête de requête spécifié ne sera pas transféré vers le serveur d’origine.
 
 Informations essentielles :
 
@@ -922,9 +922,9 @@ Une des actions suivantes peut être effectuée sur un en-tête de réponse :
 
 Option|Description|Exemples
 -|-|-
-Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (Client) :** Value1 <br/> **Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value1Value2
-Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (Client) :** Value1 <br/>**Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value2 <br/>
-Supprimer|Supprime l’en-tête de réponse spécifiée.|**Valeur d’en-tête de réponse (Client) :** Value1 <br/> **Modifier la configuration de l’en-tête de réponse client :** supprime l’en-tête de réponse en question. <br/>**Résultat :** l’en-tête de requête spécifié ne sera pas transféré vers le demandeur.
+Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (client) :**<br />Value1<br/>**Valeur d’en-tête de réponse (moteur de règles) :**<br/>Value2<br/>**Nouvelle valeur d’en-tête de réponse :**<br/>Value1Value2
+Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (client) :**<br/>Value1<br/>**Valeur d’en-tête de réponse (moteur de règles) :**<br/>Value2 <br/>**Nouvelle valeur d’en-tête de réponse :**<br/>Value2 <br/>
+Supprimer|Supprime l’en-tête de réponse spécifiée.|**Valeur d’en-tête de réponse (client) :**<br/>Value1<br/>**Modifier la configuration de l’en-tête de réponse client :**<br/>supprime l’en-tête de réponse en question.<br/>**Résultat :**<br/>l’en-tête de réponse spécifié ne sera pas transféré vers le demandeur.
 
 Informations essentielles :
 
@@ -1234,31 +1234,31 @@ La configuration de cette fonctionnalité nécessite de définir les options sui
 Option|Description
 -|-
 Code|Sélectionnez le code de réponse qui sera renvoyé au demandeur.
-Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
-Destination| Définissez l’URL vers laquelle les requêtes ci-dessus seront redirigées. <br/> Construisez dynamiquement cette URL à l’aide des éléments suivants : <br/> - Un modèle d’expression régulière <br/>- Des variables HTTP <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. <br/> 
+Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/><br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
+Destination| Définissez l’URL vers laquelle les requêtes ci-dessus seront redirigées. <br/><br/> Construisez dynamiquement cette URL à l’aide des éléments suivants : <br/> - Un modèle d’expression régulière <br/>- [Variables HTTP](cdn-http-variables.md) <br/><br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. <br/> 
 Il est fortement recommandé d’utiliser une URL absolue. L’utilisation d’une URL relative peut rediriger les URL CDN vers un chemin d’accès non valide.
 
 **Exemple de scénario**
 
-Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge qui correspond à l’URL CDN de base suivante : http://marketing.azureedge.net/brochures
+Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge qui correspond à l’URL CDN de base suivante : http:\//marketing.azureedge.net/brochures
 
-Les requêtes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http://cdn.mydomain.com/resources
+Les requêtes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http:\//cdn.mydomain.com/resources
 
-Cette redirection d’URL peut être obtenue via la configuration suivante :![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Cette redirection d’URL peut être obtenue au moyen de la configuration suivante :![URL de redirection](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Points essentiels :**
 
 - La fonctionnalité Redirection d’URL définit les URL de requête à rediriger. Par conséquent, aucune condition de correspondance supplémentaire n’est requise. Bien que la condition de correspondance ait été définie en tant que « Toujours », seules les requêtes pointant vers le dossier « brochures » du serveur d’origine du client « marketing » s’afficheront. 
 - Toutes les requêtes correspondantes seront redirigées vers l’URL CNAME Edge définie dans l’option Destination. 
     - Exemple de scénario n°1 : 
-        - Exemple de requête (URL CDN) : http://marketing.azureedge.net/brochures/widgets.pdf 
-        - URL de la requête (après la redirection) : http://cdn.mydomain.com/resources/widgets.pdf  
+        - Exemple de requête (URL CDN) : http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - URL de requête (après redirection) : http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Exemple de scénario n°2 : 
-        - Exemple de requête (URL CNAME Edge) : http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL de la requête (après la redirection) : http://cdn.mydomain.com/resources/widgets.pdf
+        - Exemple de requête (URL CNAME Edge) : http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - URL de requête (après redirection) : http:\//cdn.mydomain.com/resources/widgets.pdf  Exemple de scénario
     - Exemple de scénario n°3 : 
-        - Exemple de requête (URL CNAME Edge) : http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - URL de la requête (après la redirection) : http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Exemple de requête (URL CNAME Edge) : http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - URL de requête (après redirection) : http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - La variable Request Scheme (%{scheme}) est utilisée dans l’option Destination, qui garantit que le schéma de la requête reste inchangé après la redirection.
 - Les segments d’URL qui ont été capturés à partir de la requête sont ajoutés à la nouvelle URL via « $1 ».
 
@@ -1276,23 +1276,23 @@ Informations essentielles :
 
 Option|Description
 -|-
- Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/>     - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance. 
- Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - Des variables HTTP <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. 
+ Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/><br/>  - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/><br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance. 
+ Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - [Variables HTTP](cdn-http-variables.md) <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. 
  Cette fonctionnalité permet aux points de présence de réécrire l’URL sans effectuer de redirection classique. Cela signifie que le demandeur reçoit un code de réponse identique à celui reçu si l’URL réécrite avait été demandée.
 
 **Exemple de scénario nº 1**
 
-Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge qui correspond à l’URL CDN de base suivante : http://marketing.azureedge.net/brochures/
+Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge qui correspond à l’URL CDN de base suivante : http:\//marketing.azureedge.net/brochures/
 
-Les requêtes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http://MyOrigin.azureedge.net/resources/
+Les requêtes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http:\//MyOrigin.azureedge.net/resources/
 
-Cette redirection d’URL peut être obtenue via la configuration suivante :![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Cette redirection d’URL peut être obtenue au moyen de la configuration suivante :![URL de redirection](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Exemple de scénario nº 2**
 
 Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge en majuscules vers son équivalent en minuscules à l’aide d’expressions régulières.
 
-Cette redirection d’URL peut être obtenue via la configuration suivante :![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Cette redirection d’URL peut être obtenue au moyen de la configuration suivante :![URL de redirection](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Points essentiels :**

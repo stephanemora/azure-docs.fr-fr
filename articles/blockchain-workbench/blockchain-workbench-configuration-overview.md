@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 5569a7608a61b4e79a03264e0ccf62682782264b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6318b6aafda972242239ce91abb0f67a15721e1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 
@@ -61,7 +61,7 @@ La logique métier d’une application peut être modélisée comme une machine 
 | StartState | Nom de l’état initial du workflow. | OUI |
 | properties | Collection d’[identificateurs](#identifiers). Représente des données qui peuvent être lues hors de la chaîne ou visualisées dans un outil d’expérience utilisateur. | OUI |
 | Constructeur | Définit les paramètres d’entrée pour la création d’une instance du workflow. | OUI |
-| Functions | Collection de [fonctions](#functions) qui peut être exécutée dans le workflow. | OUI |
+| Fonctions | Collection de [fonctions](#functions) qui peut être exécutée dans le workflow. | OUI |
 | États | Collection d’[états](#states) de workflow. | OUI |
 
 Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#configuration-file-example).
@@ -117,7 +117,7 @@ Définit les paramètres d’entrée pour une instance de workflow.
 
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Fonctions
 
 Définit les fonctions qui peuvent être exécutées dans le workflow.
 
@@ -491,5 +491,6 @@ L’exemple suivant définit une application demande-réponse de base dans laque
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Déployer Azure Blockchain Workbench](blockchain-workbench-deploy.md)
 

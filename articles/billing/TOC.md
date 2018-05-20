@@ -53,11 +53,19 @@
 ### [Désactivation de l’affichage des coûts d’entreprise](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Informations de référence
-## [Présentation de l’API](billing-usage-rate-card-overview.md)
-## [Présentation de l’API de création de rapports d’entreprise](billing-enterprise-api.md)
-## [Facturer REST](/rest/api/billing)
-## [Utilisation et RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [Solution partenaire : Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Présentation de l’API de facturation Azure](billing-usage-rate-card-overview.md)
+### [API REST de facturation Azure](https://docs.microsoft.com/rest/api/billing)
+### [Solution partenaire - Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## API d’Azure Consumption
+### [API REST d’Azure Consumption](https://docs.microsoft.com/rest/api/consumption) 
+### [API REST RateCard](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [Utilisation de l’API REST](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Présentation des rapports d’entreprise](billing-enterprise-api.md)
+### [API REST des rapports d’entreprise](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
+## Exemples de code de facturation
+### [Exemple de code de l’API Invoice](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [Exemple de code de l’API Usage](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [Exemple de code de l’API RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)

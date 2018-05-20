@@ -5,18 +5,18 @@ services: key-vault
 documentationcenter: ''
 author: barclayn
 manager: mbaldwin
-ms.assetid: ''
+ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4a765b314b9879877bb6ff926e4a6584456b7823
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Didacticiel : Configurer une application web Azure pour lire un secret dans le coffre de clés
 
@@ -74,7 +74,7 @@ La sortie de cette commande affiche les propriétés du coffre de clés que vous
 * **URI du coffre** : dans l’exemple, il s’agit de https://<YourKeyVaultName>.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 >[!IMPORTANT]
-> Si vous obtenez l’erreur Le paramètre « vault_name » doit être conforme au modèle suivant : « ^[a-zA-Z0-9-]{3,24}$ ». La valeur du paramètre -name n’était pas unique ou conforme à une chaîne composée de 3 à 24 caractères alphanumériques.
+> Si vous obtenez l’erreur Le paramètre « vault_name » doit être conforme au modèle suivant : ^[a-zA-Z0-9-]{3,24}$. La valeur du paramètre -name n’était pas unique ou conforme à une chaîne composée de 3 à 24 caractères alphanumériques.
 
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 

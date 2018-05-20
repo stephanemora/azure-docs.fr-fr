@@ -2,23 +2,22 @@
 title: Créer un travail Stream Analytics à l’aide du portail Azure | Microsoft Docs
 description: Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics, configurer des entrées et des sorties, et définir une requête.
 services: stream-analytics
-keywords: Stream analytics, travaux cloud, portail Azure, entrée de travail, sortie de travail, transformation de travail
-author: SnehaGunda
-ms.author: sngun
-ms.date: 03/16/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 05/11/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: c421ab96585da011cdaef9933ceb8a78ffe356a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure
 
-Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics. Dans ce guide de démarrage rapide, vous allez configurer un travail Stream Analytics qui lit des exemples de données de capteur et filtre les lignes qui contiennent une température moyenne supérieure à 100 toutes les 30 secondes. Dans cet article, vous allez lire les données à partir du stockage Blob, transformer les données et les réécrire dans un autre conteneur au sein du même stockage Blob.
+Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics. Dans ce guide de démarrage rapide, vous allez configurer un travail Stream Analytics qui lit des exemples de données de capteur et filtre les lignes qui contiennent une température moyenne supérieure à 100 toutes les 30 secondes. Dans cet article, vous allez lire les données à partir du stockage Blob, transformer les données et les réécrire dans un autre conteneur au sein du même stockage Blob. Le fichier de données d’entrée utilisé dans ce démarrage rapide contient des données statiques à des fins d’illustration uniquement. Dans un scénario réel, vous utilisez la diffusion en continu des données d’entrée pour un travail Stream Analytics.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -28,13 +27,13 @@ Ce guide de démarrage rapide vous explique comment créer un travail Stream Ana
 
 ## <a name="prepare-the-input-data"></a>Préparer les données d’entrée
 
-Avant de définir le travail Stream Analytics, vous devez préparer les données qui seront configurées en tant qu’entrée pour le travail. Exécutez les opérations suivantes pour préparer les données d’entrée requises pour le travail :
+Avant de définir le travail Stream Analytics, vous devez préparer les données qui seront configurées en tant qu’entrée pour le travail. Pour préparer les données d’entrée requises pour le travail, exécutez les opérations suivantes :
 
-1. Téléchargez les [exemples de données de capteur](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) à partir de GitHub. Les exemples de données contiennent des informations de capteur au format JSON suivant :  
+1. Téléchargez les [exemples de données de capteur](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) à partir de GitHub. Les exemples de données contiennent des informations de capteur au format JSON suivant :  
 
    ```json
    {
-     "time": "2016-01-26T21:18:52.0000000",
+     "time": "2018-01-26T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -42,29 +41,29 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    ```
 2. Connectez-vous au portail Azure.  
 
-3. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**. Dans le panneau de travail du compte de stockage, définissez le paramètre **Nom** sur « myasastorageaccount », le paramètre **Emplacement** sur « Ouest des États-Unis 2 », le paramètre **Groupe de ressources** sur « MyRG » (pour bénéficier de meilleures performances, hébergez le compte de stockage dans le même groupe de ressources que le travail Stream Analytics). Vous pouvez conserver les valeurs par défaut des autres paramètres.  
+3. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**. Dans la page de travail du compte de stockage, définissez le paramètre **Nom** sur « myasastorageaccount », le paramètre **Emplacement** sur « Ouest des États-Unis 2 », le paramètre **Groupe de ressources** sur « MyRG » (pour bénéficier de meilleures performances, hébergez le compte de stockage dans le même groupe de ressources que le travail Stream Analytics). Vous pouvez conserver les valeurs par défaut des autres paramètres.  
 
    ![Créer un compte de stockage](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
-4. À partir du panneau **Toutes les ressources**, recherchez le compte de stockage que vous avez créé à l’étape précédente. Ouvrez le panneau **Vue d’ensemble**, puis la vignette **Objets blob**.  
+4. À partir de la page **Toutes les ressources**, recherchez le compte de stockage que vous avez créé à l’étape précédente. Ouvrez la page **Vue d’ensemble**, puis la vignette **Objets blob**.  
 
-5. À partir du panneau **Service blob**, sélectionnez **Conteneur**, saisissez un **nom** pour votre conteneur, tel que *conteneur1*, définissez le paramètre **Niveau d’accès public** sur Blob (anonymous read access for blobs only) [Blob (accès en lecture anonyme pour les objets blob uniquement)] et sélectionnez **OK**.  
+5. À partir de la page **Service blob**, sélectionnez **Conteneur**, saisissez un **nom** pour votre conteneur, tel que *conteneur1*, définissez le paramètre **Niveau d’accès public** sur Blob (anonymous read access for blobs only) [Blob (accès en lecture anonyme pour les objets blob uniquement)] et sélectionnez **OK**.  
 
    ![Créez un conteneur.](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
-6. Accédez au conteneur que vous avez créé à l’étape précédente, sélectionnez **Télécharger** et téléchargez les données de capteur obtenues à l’étape 1.  
+6. Accédez au conteneur que vous avez créé à l’étape précédente. Sélectionnez **Charger** et chargez les données de capteur que vous avez obtenues à la première étape.  
 
    ![Charger les exemples de données dans le stockage blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Création d’un travail Stream Analytics
 
-1. Connectez-vous au portail Azure.  
+1. Connectez-vous au portail Azure.
 
 2. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.  
 
 3. Dans la liste des résultats, sélectionnez **Data+Analytics (Données+Analytics)** > **Travail Stream Analytics**.  
 
-4. Renseignez les informations suivantes dans le panneau du travail Stream Analytics :
+4. Renseignez les informations suivantes dans la page du travail Stream Analytics :
 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
@@ -91,7 +90,7 @@ Dans cette section, vous allez configurer le stockage Blob comme entrée pour le
 
 2. Sélectionnez **Entrées** > **Ajouter une entrée de flux** > **Stockage Blob**.  
 
-3. Indiquez les valeurs suivantes dans le panneau **Stockage Blob** :
+3. Indiquez les valeurs suivantes dans la page **Stockage Blob** :
 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
@@ -110,7 +109,7 @@ Dans cette section, vous allez configurer le stockage Blob comme entrée pour le
 
 2. Sélectionnez **Sorties > Ajouter > Stockage Blob**.  
 
-3. Indiquez les valeurs suivantes dans le panneau **Stockage Blob** :
+3. Indiquez les valeurs suivantes dans la page **Stockage Blob** :
 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
@@ -135,9 +134,9 @@ Dans cette section, vous allez configurer le stockage Blob comme entrée pour le
    dspl AS SensorName,
    Avg(temp) AS AvgTemperature
    INTO
-     MyBlobOutput
+     BlobOutput
    FROM
-     MyBlobInput TIMESTAMP BY time
+     BlobInput TIMESTAMP BY time
    GROUP BY TumblingWindow(second,30),dspl
    HAVING Avg(temp)>100
    ```
@@ -148,9 +147,9 @@ Dans cette section, vous allez configurer le stockage Blob comme entrée pour le
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Démarrer le travail Stream Analytics et observer le résultat
 
-1. Revenez au panneau de vue d’ensemble du travail et sélectionnez **Démarrer**.  
+1. Revenez à la page de vue d’ensemble du travail et sélectionnez **Démarrer**.
 
-2. Sous **Démarrage du travail**, sélectionnez **Personnalisée** pour le champ **Heure de démarrage**. Sélectionnez un jour avant la date de téléchargement du fichier dans le stockage Blob, car l’heure à laquelle le fichier a été téléchargé est antérieure à l’heure actuelle. Lorsque vous avez terminé, sélectionnez **Démarrer**.  
+2. Sous **Démarrage du travail**, sélectionnez **Personnalisée** pour le champ **Heure de démarrage**. Sélectionnez `2018-01-24` comme date de début, mais ne modifiez pas l’heure. Cette date de début est choisie car elle précède l’horodatage de l’événement à partir de l’échantillon de données. Lorsque vous avez terminé, sélectionnez **Démarrer**.
 
    ![Démarrage du travail](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
@@ -168,7 +167,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le trav
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé un travail Stream Analytics. Pour savoir comment configurer d’autres sources d’entrée et effectuer une détection en temps réel, passez à l’article suivant :
+Dans ce guide de démarrage rapide, vous avez déployé un travail Stream Analytics simple. Pour savoir comment configurer d’autres sources d’entrée et effectuer une détection en temps réel, passez à l’article suivant :
 
 > [!div class="nextstepaction"]
 > [Détection des fraudes en temps réel à l’aide d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

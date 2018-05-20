@@ -1,42 +1,50 @@
 # [Documentation ExpressRoute](index.md)
 
 # Vue d'ensemble
+
 ## [Présentation d’ExpressRoute](expressroute-introduction.md)
-## [Forum Aux Questions ExpressRoute](expressroute-faqs.md)
+
+# Didacticiels
+## [Créer et modifier un circuit](expressroute-howto-circuit-portal-resource-manager.md)
+## [Créer et modifier une configuration de l’homologation](expressroute-howto-routing-portal-resource-manager.md)
+## [Lier un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
+## [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-portal.md)
+
+# Concepts
+
 ## [Modèles de connectivité](expressroute-connectivity-models.md)
 ## [À propos des circuits et domaines de routage](expressroute-circuit-peerings.md)
 ## [Emplacements et partenaires](expressroute-locations.md)
 ### [Fournisseurs par emplacement](expressroute-locations-providers.md)
 ### [Emplacements par fournisseur](expressroute-locations.md)
 ## [À propos des passerelles de réseau virtuel pour ExpressRoute](expressroute-about-virtual-network-gateways.md)
-
-# Prise en main
 ## [Configuration requise](expressroute-prerequisites.md)
 ## [Flux de travail](expressroute-workflows.md)
 ## [Configuration requise du routage](expressroute-routing.md)
 ## [Configuration requise QoS](expressroute-qos.md)
 ## [À propos de la migration des circuits d’un déploiement classique vers Resource Manager](expressroute-move.md)
 
-# Procédure
+# Procédures
+
 ## Créer et modifier un circuit
-### [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+### [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [interface de ligne de commande Azure](howto-circuit-cli.md)
 ## Créer et modifier une configuration de l’homologation
-### [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
+### [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [interface de ligne de commande Azure](howto-routing-cli.md)
 ## Lier un réseau virtuel à un circuit ExpressRoute
-### [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [interface de ligne de commande Azure](howto-linkvnet-cli.md)
 ## [Configurer un réseau VPN de site à site via l’homologation Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Configurer une passerelle de réseau virtuel pour ExpressRoute
-### [Portail Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [Portail Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurer la coexistence de connexions de site à site et ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## Configurer des filtres de routage pour l’homologation Microsoft
-### [Portail Azure](how-to-routefilter-portal.md)
+### [Portail Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [interface de ligne de commande Azure](how-to-routefilter-cli.md)
 ## [Déplacer d’un appairage public vers l’appairage Microsoft](how-to-move-peering.md)
@@ -52,13 +60,11 @@
 ### [Lier un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 ### [Configurer la coexistence de connexions ExpressRoute et S2S](expressroute-howto-coexist-classic.md)
 ### [Ajouter une passerelle à un réseau virtuel](expressroute-howto-add-gateway-classic.md)
-
 ## Meilleures pratiques
 ### [Meilleures pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
 ### [Optimiser le routage](expressroute-optimize-routing.md)
 ### [Routage asymétrique](expressroute-asymmetric-routing.md)
 ### [NAT pour ExpressRoute](expressroute-nat.md)
-
 ## Résolution des problèmes
 ### [Vérification de la connectivité ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Résoudre les problèmes de performance réseau](expressroute-troubleshooting-network-performance.md)
@@ -67,19 +73,14 @@
 ### [Obtention de tables ARP (classique)](expressroute-troubleshooting-arp-classic.md)
 
 # Informations de référence
-## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+
+## [Azure PowerShell](/powershell/module/azurerm.network#expressroute)
 ## [interface de ligne de commande Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classique)](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Rubriques connexes
-## [Réseau virtuel](/azure/virtual-network/)
-## [Passerelle VPN](/azure/vpn-gateway/)
-## [Machines virtuelles](/azure/virtual-machines/)
-## [Équilibreur de charge](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
-
 # Ressources
+## [Forum Aux Questions ExpressRoute](expressroute-faqs.md)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Études de cas](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Blog sur la mise en réseau](https://azure.microsoft.com/blog/topics/networking/)

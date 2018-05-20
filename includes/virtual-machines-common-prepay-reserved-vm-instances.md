@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Prépayer les machines virtuelles avec des instances de machines virtuelles réservées
 
@@ -13,6 +13,7 @@ Prépayez les machines virtuelles et réalisez des économies avec les instances
 Vous pouvez acheter des instances de machines virtuelles réservées sur le [portail Azure](https://portal.azure.com). Pour acheter une instance de machine virtuelle réservée :
 -   Vous devez avoir un rôle de propriétaire pour au moins un abonnement Entreprise ou Paiement à l’utilisation.
 -   Pour les abonnements Entreprise, les achats de réservation doivent être activés dans le [portal EA](https://ea.azure.com).
+-   Pour le programme CSP, seuls les agents administrateurs ou les agents commerciaux peuvent acheter les réservations.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Acheter une instance de machine virtuelle réservée
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -50,3 +51,4 @@ Pour plus d’informations sur les instances de machine virtuelle réservées, v
 - [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Coûts des logiciels Windows non inclus dans les instances réservées](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Instances réservées dans le programme CSP de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)

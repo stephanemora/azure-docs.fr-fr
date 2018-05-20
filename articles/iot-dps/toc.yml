@@ -143,7 +143,7 @@
           href: /azure/time-series-insights
     - name: Edge
       items:
-        - name: "IoT\_Edge"
+        - name: IoT Edge
           href: /azure/iot-edge
         - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
@@ -155,6 +155,8 @@
       href: 'https://catalog.azureiotsuite.com/'
     - name: Centre de développement Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Demandes de données client
+      href: iot-dps-customer-data-requests.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Outil Device Explorer

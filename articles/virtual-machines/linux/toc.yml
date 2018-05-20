@@ -112,14 +112,6 @@
           href: disk-scalability-targets.md
         - name: Sauvegarde et récupération d’urgence pour les disques
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Comment activer l’accélérateur d’écriture
-          href: how-to-enable-write-accelerator.md
-        - name: Résoudre les problèmes de disques durs virtuels attachés
-          items:
-            - name: Erreurs de suppression de ressources de stockage
-              href: storage-resource-deletion-errors.md
-            - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
-              href: unexpected-reboots-attached-vhds.md
     - name: Mise en réseau
       href: network-overview.md
     - name: Applications de mise à l’échelle automatique
@@ -393,6 +385,8 @@
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Déployer des disques avec un modèle
           href: using-managed-disks-template-deployments.md
+        - name: Activer l’accélérateur d’écriture
+          href: how-to-enable-write-accelerator.md
         - name: Optimiser les performances
           href: optimization.md
           items:
@@ -500,6 +494,12 @@
               href: troubleshoot-recovery-disks.md
             - name: Portail Azure
               href: troubleshoot-recovery-disks-portal.md
+        - name: VHD attachés
+          items:
+            - name: Erreurs de suppression de ressources de stockage
+              href: storage-resource-deletion-errors.md
+            - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
+              href: unexpected-reboots-attached-vhds.md
 - name: Informations de référence
   items:
     - name: Azure CLI

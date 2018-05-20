@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/09/2018
 ms.author: babanisa
-ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 31af59fd7057bef6e427f08cef695688dc2111d1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utiliser le schéma CloudEvents avec Event Grid
 
@@ -23,6 +23,8 @@ CloudEvents simplifie l’interopérabilité grâce à un schéma d’événemen
 Plusieurs [collaborateurs](https://github.com/cloudevents/spec/blob/master/community/contributors.md), dont Microsoft, travaillent à l’élaboration de CloudEvents par le biais de la [Cloud Native Compute Foundation](https://www.cncf.io/). Il est disponible en version 0.1.
 
 Cet article décrit comment utiliser le schéma CloudEvents avec Event Grid.
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>Schéma CloudEvents
 
@@ -74,12 +76,6 @@ Pour plus d’informations, consultez la [spécification CloudEvents](https://gi
 
 Azure Event Grid prend en charge en préversion l’entrée et la sortie du format JSON CloudEvents dans les régions **États-Unis Centre-Ouest**, **Centre des États-Unis** et **Europe du Nord**.
 
-Pour utiliser CloudEvents, vous devez activer une extension pour Azure CLI :
-
-```azurecli
-az extension add –-name eventgrid
-```
-
 Vous pouvez utiliser Event Grid pour l’entrée et la sortie des événements dans le schéma CloudEvents. Vous pouvez utiliser CloudEvents pour des événements système, tels que les événements Stockage Blob et les événements IoT Hub, et des événements personnalisés. Il peut aussi transformer ces événements dans un sens ou dans l’autre.
 
 
@@ -99,6 +95,10 @@ Pour définir le schéma d’entrée d’une rubrique personnalisée sur CloudEv
 Pour créer une rubrique de grille d’événement, utilisez :
 
 ```azurecli
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
@@ -116,7 +116,7 @@ Pour créer un abonnement aux événements, utilisez :
 
 ```azurecli
 az eventgrid event-subscription create \
-  --name <event_subscription_name> \  
+  --name <event_subscription_name> \
   --topic-name <topic_name> \
   -g gridResourceGroup \
   --endpoint <endpoint_URL> \

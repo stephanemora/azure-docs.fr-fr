@@ -1,11 +1,11 @@
 ---
-title: "Créer un tableau de bord personnalisé dans Azure Log Analytics | Microsoft Docs"
-description: "Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d’afficher l’ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement."
+title: Créer un tableau de bord personnalisé dans Azure Log Analytics | Microsoft Docs
+description: Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d’afficher l’ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Créer un tableau de bord personnalisé à utiliser dans Log Analytics
 
 Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d’afficher l’ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement.
 
 >[!NOTE]
-> Si votre espace de travail a été mis à niveau pour utiliser le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), alors vous ne pouvez pas modifier votre vignette **Mon tableau de bord** existante. Si vous n’avez ajouté aucune vignette **Mon tableau de bord** à votre espace de travail, alors **Mon tableau de bord** n’apparaîtra pas dans votre espace de travail mis à niveau. 
+> Vous ne pouvez plus modifier votre page **Mon tableau de bord** existante. Cette fonction est en cours de dépréciation.
 
 ![Exemple de tableau de bord](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
