@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dce0114c19f6153d2cba789cdc00920d42834b2d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -205,7 +205,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 
 ## <a name="module-identity-properties"></a>Propriétés d’identité des modules
 
-Les identités des appareils sont représentées sous forme de documents JSON avec les propriétés suivantes :
+Les identités des modules sont représentées sous forme de documents JSON avec les propriétés suivantes :
 
 | Propriété | Options | Description |
 | --- | --- | --- |

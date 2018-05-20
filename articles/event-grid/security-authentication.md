@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d539475d376e2c3e38c2cbd38de0a10645fcabe4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -27,6 +27,8 @@ Azure Event Grid dispose de trois types d’authentification :
 Un Webhook constitue l’un des nombreux moyens de recevoir des événements provenant d’Azure Event Grid. Quand un nouvel événement est prêt, le Webhook Event Grid envoie une requête HTTP au point de terminaison HTTP configuré avec l’événement dans le corps.
 
 Lorsque vous inscrivez votre point de terminaison WebHook auprès d’Event Grid, le WebHook vous envoie une requête POST avec un code de validation simple pour prouver que vous êtes le propriétaire du point de terminaison. Votre application doit répondre en renvoyant le code de validation. Event Grid ne remet aucun événement aux points de terminaison WebHook qui n’ont pas été validés. Si vous utilisez un service d’API tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir envoyer le code de validation par programmation. Pour ces services, vous pouvez manuellement valider l’abonnement à l’aide d’une URL de validation qui est envoyée dans l’événement de validation de l’abonnement. Copiez cette URL et envoyez une demande GET par le biais d’un client REST ou de votre navigateur web.
+
+La validation manuelle est en préversion. Pour l’utiliser, vous devez installer l’[extension Event Grid](/cli/azure/azure-cli-extensions-list) pour [AZ CLI 2.0](/cli/azure/install-azure-cli). Vous pouvez l’installer avec `az extension add --name eventgrid`. Si vous utilisez l’API REST, assurez-vous d’utiliser `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Détails de validation
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 905e64d004c02db663634eb784cacf6fab805193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Créer un appareil simulé
 
@@ -226,7 +226,7 @@ Dans ce didacticiel, vous travaillez avec les projets Visual Studio **device-sim
 1. Pour cloner la version .NET du dépôt **storage-adapter**, exécutez la commande suivante :
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     Le service de simulation d’appareil utilise le service d’adaptateur de stockage pour se connecter au service Cosmos DB dans Azure. La solution de surveillance à distance stocke les données de configuration d’appareil simulé dans une base de données Cosmos DB.
@@ -259,7 +259,11 @@ Pour créer un type d’appareil dans le service de simulation d’appareil, le 
 
 1. Dans la section **Variables d’environnement**, modifiez la valeur de la variable **PCS\_IOTHUB\_CONNSTRING** pour qu’elle corresponde à la chaîne de connexion IoT Hub notée précédemment. Ensuite, enregistrez vos modifications.
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution **device-simulation**, puis choisissez **Définir les projets de démarrage**. Choisissez **Projet de démarrage unique** et sélectionnez **SimulationAgent**. Cliquez ensuite sur **OK**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **WebService**, choisissez **Propriétés**, puis **Déboguer**.
+
+1. Dans la section **Variables d’environnement**, modifiez la valeur de la variable **PCS\_IOTHUB\_CONNSTRING** pour qu’elle corresponde à la chaîne de connexion IoT Hub notée précédemment. Ensuite, enregistrez vos modifications.
+
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution **device-simulation**, puis choisissez **Définir les projets de démarrage**. Choisissez **Projet de démarrage unique** et sélectionnez **WebService**. Cliquez ensuite sur **OK**.
 
 1. Chaque type d’appareil a un fichier de modèle JSON et des scripts associés dans le dossier **Services/data/devicemodels**. Dans l’Explorateur de solutions, copiez les fichiers **Chiller** pour créer les fichiers **Lightbulb** comme indiqué dans le tableau suivant :
 
@@ -295,10 +299,12 @@ Le fichier **lightbulb-01.json** définit les caractéristiques du type, telles 
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -469,7 +475,7 @@ Pour limiter le nombre d’appareils simulés qui se connectent à la solution p
 
 Vous êtes maintenant prêt à tester votre nouveau type d’appareil d’éclairage simulé en exécutant le projet de simulation d’appareil localement.
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SimulationAgent**, choisissez **Déboguer**, puis **Démarrer une nouvelle instance**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **WebService**, choisissez **Déboguer**, puis sélectionnez **Démarrer une nouvelle instance**.
 
 1. Pour vérifier que les deux appareils simulés sont connectés à votre IoT Hub, ouvrez le portail Azure dans votre navigateur.
 
