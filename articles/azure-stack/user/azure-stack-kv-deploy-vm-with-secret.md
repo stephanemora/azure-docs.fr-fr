@@ -1,35 +1,43 @@
 ---
-title: "Déployer une machine virtuelle avec un mot de passe stocké de façon sécurisée sur Azure Stack | Microsoft Docs"
-description: "Découvrez comment déployer une machine virtuelle en utilisant un mot de passe stocké dans Azure Stack Key Vault"
+title: Déployer une machine virtuelle avec un mot de passe stocké de façon sécurisée sur Azure Stack | Microsoft Docs
+description: Découvrez comment déployer une machine virtuelle en utilisant un mot de passe stocké dans Azure Stack Key Vault
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Créer une machine virtuelle en récupérant le mot de passe stocké dans un coffre de clés
+# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Créer une machine virtuelle avec un mot de passe sécurisé stocké dans un coffre de clés Azure Stack
 
-Quand vous devez passer une valeur sécurisée lors d’un déploiement, comme un mot de passe, vous pouvez stocker cette valeur en tant que secret dans un coffre de clés Azure Stack et la référencer dans les modèles Azure Resource Manager. Ainsi, vous ne devez pas entrer manuellement le secret chaque fois que vous déployez les ressources ; vous pouvez aussi spécifier quels utilisateurs ou principaux du service peuvent accéder au secret. 
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Dans cet article, nous vous guidons à travers les étapes nécessaires pour déployer une machine virtuelle Windows dans Azure Stack en récupérant le mot de passe qui est stocké dans un coffre de clés. Ainsi, le mot de passe n’est jamais placé en texte brut dans le fichier des paramètres du modèle. Vous pouvez utiliser les étapes à partir du Kit de développement Azure Stack, ou à partir d’un client externe si vous êtes connecté via un VPN.
+Cet article décrit pas à pas le déploiement d’une machine virtuelle Windows Server avec un mot de passe stocké dans un coffre de clés Azure Stack. L’utilisation d’un mot de passe d’un coffre de clés est plus sûre que la transmission d’un mot de passe en texte brut.
 
-## <a name="prerequisites"></a>Composants requis
- 
-* Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.  
-* [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)  
+## <a name="overview"></a>Vue d'ensemble
+
+Vous pouvez stocker des valeurs, comme des mots de passe, en tant que secrets dans un coffre de clés Azure Stack. Après avoir créé un secret, vous pouvez le référencer dans des modèles Azure Resource Manager. L’utilisation de secrets avec Resource Manager offre les avantages suivants :
+
+* Vous n’avez pas à entrer manuellement un secret chaque fois que vous déployez une ressource.
+* Vous pouvez spécifier quels utilisateurs ou principaux du service peuvent accéder à un secret.
+
+## <a name="prerequisites"></a>Prérequis
+
+
+* Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
+* [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)
 * [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)
 
 Les étapes suivantes décrivent le processus nécessaire pour créer une machine virtuelle en récupérant le mot de passe stocké dans un coffre de clés :
@@ -37,6 +45,8 @@ Les étapes suivantes décrivent le processus nécessaire pour créer une machin
 1. Créez un secret de coffre de clés.
 2. Mettre à jour le fichier azuredeploy.parameters.json.
 3. Déployez le modèle.
+
+>[REMARQUE] Vous pouvez utiliser ces étapes à partir du Kit de développement Azure Stack, ou à partir d’un client externe si vous êtes connecté via un VPN.
 
 ## <a name="create-a-key-vault-secret"></a>Créer un secret Key Vault
 
@@ -74,7 +84,7 @@ Modifiez le fichier `azuredeploy.parameters.json` en fonction des valeurs de vot
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Mettre à jour le fichier azuredeploy.parameters.json
 
-Mettez à jour le fichier azuredeploy.parameters.json avec les valeurs de la machine virtuelle KeyVaultURI, secretName, adminUsername correspondant à votre environnement. Le fichier JSON suivant est un exemple de fichier de paramètres du modèle : 
+Mettez à jour le fichier azuredeploy.parameters.json avec les valeurs de la machine virtuelle KeyVaultURI, secretName, adminUsername correspondant à votre environnement. Le fichier JSON suivant est un exemple de fichier de paramètres du modèle :
 
 ```json
 {
@@ -114,13 +124,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+
 Une fois le modèle déployé, la sortie suivante est générée :
 
 ![Sortie du déploiement](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Déployer un exemple d’application avec Key Vault](azure-stack-kv-sample-app.md)
 
 [Déployer une machine virtuelle avec un certificat Key Vault](azure-stack-kv-push-secret-into-vm.md)
-
