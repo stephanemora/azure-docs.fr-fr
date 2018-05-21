@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architecture d’identité pour Azure Stack
 Avant de choisir un fournisseur d’identité à utiliser avec Azure Stack, vous devez comprendre les différences importantes entre les options d’Azure Active Directory (Azure AD) et les services de fédération Active Directory (AD FS). 
@@ -33,7 +33,7 @@ Le fournisseur d’identité que vous choisissez peut limiter vos options, dont 
 |------------------------------|----------|-------|
 |Connecté à Internet     |OUI       |Facultatif|
 |Prise en charge d’architecture mutualisée     |OUI       |Non       |
-|Syndication de Place de marché       |OUI       |Oui. Nécessite l’utilisation de l’outil [Syndication de Place de marché hors ligne](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity).|
+|Syndication de Place de marché       |OUI       |Oui. Nécessite l’utilisation de l’outil [Syndication de Place de marché hors ligne](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).|
 |Prise en charge de la bibliothèque d’authentification Active Directory (ADAL) |OUI |OUI|
 |Prise en charge des outils tels que Azure CLI, Visual Studio et PowerShell  |OUI |OUI|
 |Créer des principaux de service via le portail Azure     |OUI |Non |

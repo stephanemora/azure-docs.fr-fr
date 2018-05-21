@@ -4,7 +4,7 @@ description: Cet article détaille les meilleures pratiques en matière de sécu
 services: security
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d6d723f40cdc0382fa41a51eb32e7b59f0798627
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Meilleures pratiques en matière de sécurité réseau - Azure
 Microsoft Azure vous permet de connecter des machines virtuelles et des appliances à d’autres appareils en réseau, en les plaçant sur des réseaux virtuels Microsoft Azure. Un réseau virtuel Azure est une construction qui vous permet de connecter des cartes d’interface réseau virtuel à un réseau virtuel, afin de permettre des communications via TCP/IP entre les appareils fonctionnant sur le réseau. Les machines virtuelles Azure reliées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel Azure, ou des réseaux virtuels Azure différents, sur Internet ou sur vos réseaux locaux.
@@ -56,7 +56,7 @@ Comme vous le faites en local, vous devez segmenter l’espace d’adressage plu
 
 Le routage entre les sous-réseaux est effectué automatiquement. Il est donc inutile de configurer manuellement des tables de routage. Toutefois, par défaut, il n’y a aucun contrôle d’accès réseau entre les sous-réseaux que vous créez sur le réseau virtuel Azure. Pour créer des contrôles d’accès réseau entre les sous-réseaux, vous devrez placer un élément entre ces derniers.
 
-Pour ce faire, vous pouvez utiliser un [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) (NSG, Network Security Group). Un groupe de sécurité réseau est un simple appareil d’inspection des paquets, avec état, qui applique la méthode basée sur les 5 tuples (adresse IP source, port source, adresse IP de destination, port de destination et protocole de couche 4) pour créer des règles visant à autoriser ou refuser le trafic réseau. Vous pouvez autoriser ou refuser le trafic vers et depuis une ou plusieurs adresses IP, voire entre des sous-réseaux entiers, dans les deux directions.
+Pour ce faire, vous pouvez utiliser un [groupe de sécurité réseau](../virtual-network/security-overview.md) (NSG, Network Security Group). Un groupe de sécurité réseau est un simple appareil d’inspection des paquets, avec état, qui applique la méthode basée sur les 5 tuples (adresse IP source, port source, adresse IP de destination, port de destination et protocole de couche 4) pour créer des règles visant à autoriser ou refuser le trafic réseau. Vous pouvez autoriser ou refuser le trafic vers et depuis une ou plusieurs adresses IP, voire entre des sous-réseaux entiers, dans les deux directions.
 
 En gérant le contrôle d’accès réseau via des groupes de sécurité réseau, vous pouvez placer des ressources appartenant au même rôle ou à la même zone de sécurité dans leurs propres sous-réseaux. Prenons l’exemple d’une application simple à 3 couches : une couche web, une couche de logique d’application et une couche de base de données. Vous placez les machines virtuelles qui appartiennent à chacune de ces couches dans leurs propres sous-réseaux. Ensuite, vous utilisez les groupes de sécurité réseau pour contrôler le trafic entre les sous-réseaux :
 
@@ -64,7 +64,7 @@ En gérant le contrôle d’accès réseau via des groupes de sécurité réseau
 * Les machines virtuelles de la couche de logique d’application peuvent uniquement initier des connexions avec la couche de base de données et acceptent les connexions depuis la couche web seulement.
 * Quant aux machines virtuelles de la couche de base de données, elles ne peuvent pas initier de connexion avec des systèmes placés hors de leurs sous-réseaux et acceptent les connexions depuis la couche de logique d’application seulement.
 
-Pour en savoir plus sur les groupes de sécurité réseau et leur utilisation pour la segmentation logique de vos réseaux virtuels Azure, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+Pour en savoir plus sur les groupes de sécurité réseau et leur utilisation pour la segmentation logique de vos réseaux virtuels Azure, consultez [Présentation du groupe de sécurité réseau](../virtual-network/security-overview.md).
 
 ## <a name="control-routing-behavior"></a>Contrôle du comportement de routage
 Lorsque vous placez une machine virtuelle sur un réseau virtuel Azure, vous pouvez constater qu’elle peut se connecter à n’importe quelle autre machine virtuelle placée sur le même réseau virtuel Azure, même si les autres machines virtuelles se trouvent dans des sous-réseaux différents. Ce type de communication est rendu possible par une collection d’itinéraires système qui sont activés par défaut. Grâce à ces itinéraires par défaut, les machines virtuelles placées sur le même réseau virtuel Azure peuvent initier des connexions les unes avec les autres, ainsi qu’avec Internet (pour les communications sortantes vers Internet uniquement).
@@ -194,7 +194,7 @@ Nous vous recommandons d’utiliser Traffic Manager pour toute solution cloud qu
 
 Pour en savoir plus sur Azure Traffic Manager et son déploiement, consultez [Qu’est-ce que Traffic Manager ?](../traffic-manager/traffic-manager-overview.md).
 
-## <a name="disable-rdpssh-access-to-azure-virtual-machines"></a>Désactivation de l’accès RDP/SSH aux machines virtuelles Azure
+## <a name="disable-rdpssh-access-to-azure-virtual-machines"></a>Désactivation de l’accès RDP/SSH à Microsoft Azure Virtual Machines
 Il est possible d’atteindre les machines virtuelles Azure à l’aide des protocoles [RDP (Remote Desktop Protocol)](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) et [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell). Ces protocoles permettent de gérer des machines virtuelles à partir d’emplacements distants. Ils sont souvent utilisés par les centres de données informatiques.
 
 Cependant, ils peuvent être sources de problèmes de sécurité quand ils sont utilisés sur Internet. En effet, les utilisateurs malveillants peuvent recourir à des attaques par [force brute](https://en.wikipedia.org/wiki/Brute-force_attack) pour accéder aux machines virtuelles Azure. Lorsqu’ils y parviennent, ils peuvent utiliser votre machine virtuelle comme point de départ pour le piratage d’autres machines au sein de votre réseau virtuel Azure, voire attaquer des appareils mis en réseau en dehors d’Azure.
@@ -229,7 +229,7 @@ Pour en savoir plus sur Azure Security Center et son activation pour vos déploi
 ## <a name="securely-extend-your-datacenter-into-azure"></a>Extension sécurisée de votre centre de données dans Azure
 De nombreux départements informatiques cherchent à étendre leur infrastructure dans le cloud plutôt que de développer leurs centres de données locaux. Ce faisant, ils étendent l’infrastructure informatique existante dans le cloud public. En tirant parti de différentes options de connectivité entre locaux, il est possible de traiter vos réseaux virtuels Azure comme de simples sous-réseaux au sein de votre infrastructure de réseau local.
 
-Toutefois, les problèmes de planification et de conception doivent d’abord être résolus. C’est particulièrement important dans le domaine de la sécurité réseau. L’un des meilleurs moyens de comprendre comment aborder ce type de conception consiste à étudier de près un exemple spécifique.
+Toutefois, les problèmes de planification et de conception doivent d’abord être résolus. Ce traitement est particulièrement important dès lors qu’on parle de sécurité réseau. L’un des meilleurs moyens de comprendre comment aborder ce type de conception consiste à étudier de près un exemple spécifique.
 
 Microsoft a créé le [diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) et la documentation associée pour vous aider à comprendre à quoi ressemble une extension de centre de données de ce type. Il fournit un exemple d’implémentation de référence, que vous pouvez utiliser pour planifier et concevoir une extension de centre de données d’entreprise sécurisée dans le cloud. Nous vous recommandons de consulter ce document pour vous familiariser avec les composants clés d’une solution sécurisée.
 

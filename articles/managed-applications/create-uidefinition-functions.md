@@ -1,40 +1,40 @@
 ---
-title: "Fonctions CreateUiDefinition des applications gérées Azure | Microsoft Docs"
-description: "Décrit les fonctions à utiliser lors de l’élaboration de définitions d’interface utilisateur pour les applications gérées Azure"
-services: azure-resource-manager
+title: Fonctions CreateUiDefinition des applications gérées Azure | Microsoft Docs
+description: Décrit les fonctions à utiliser lors de l’élaboration de définitions d’interface utilisateur pour les applications gérées Azure
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="createuidefinition-functions"></a>Fonctions CreateUiDefinition
 Cette section contient les signatures pour toutes les fonctions prises en charge de CreateUiDefinition.
 
-Pour utiliser une fonction, encadrez la déclaration de crochets. Par exemple :
+Pour utiliser une fonction, encadrez la déclaration de crochets. Par exemple : 
 
 ```json
 "[function()]"
 ```
 
-Les chaînes et autres fonctions peuvent être référencées en tant que paramètres pour une fonction, mais les chaînes doivent être encadrées de guillemets simples. Par exemple :
+Les chaînes et autres fonctions peuvent être référencées en tant que paramètres pour une fonction, mais les chaînes doivent être encadrées de guillemets simples. Par exemple : 
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Le cas échéant, vous pouvez référencer les propriétés de la sortie d’une fonction à l’aide de l’opérateur point. Par exemple :
+Le cas échéant, vous pouvez référencer les propriétés de la sortie d’une fonction à l’aide de l’opérateur point. Par exemple : 
 
 ```json
 "[func().prop1]"
@@ -91,7 +91,7 @@ L’exemple suivant retourne `"ftw"`:
 "[substring('azure-ftw!!!1one', 6, 3)]"
 ```
 
-### <a name="replace"></a>replace
+### <a name="replace"></a>remplacer
 Retourne une chaîne dans laquelle toutes les occurrences de la chaîne spécifiée dans la chaîne actuelle sont remplacées par une autre chaîne.
 
 L’exemple suivant retourne `"Everything is awesome!"`:
@@ -100,7 +100,7 @@ L’exemple suivant retourne `"Everything is awesome!"`:
 "[replace('Everything is terrible!', 'terrible', 'awesome')]"
 ```
 
-### <a name="guid"></a>guid
+### <a name="guid"></a>GUID
 Génère une chaîne globale unique (GUID).
 
 L’exemple suivant peut retourner `"c7bc8bdc-7252-4a82-ba53-7c468679a511"` :
@@ -453,7 +453,7 @@ L’exemple suivant retourne `false`:
 "[and(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="or"></a>ou
+### <a name="or"></a>or
 Retourne `true` si au moins l’un des paramètres correspond à `true`. Cette fonction prend en charge plusieurs paramètres de type booléen uniquement.
 
 L’exemple suivant retourne `true`:
@@ -525,7 +525,7 @@ L’exemple suivant retourne `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>string
+### <a name="string"></a>chaîne
 Convertit le paramètre en chaîne. Cette fonction prend en charge les paramètres de tous les types de données JSON.
 
 L’exemple suivant retourne `"1"`:
@@ -552,7 +552,7 @@ L’exemple suivant retourne `"{"foo":"bar"}"`:
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>valeur booléenne
+### <a name="bool"></a>bool
 Convertit le paramètre en booléen. Cette fonction prend en charge les paramètres de type nombre, chaîne et booléen. Tout comme les booléens en JavaScript, toutes les valeurs, à l’exception de `0` ou `'false'`, retournent `true`.
 
 L’exemple suivant retourne `true`:
@@ -643,7 +643,7 @@ L’exemple suivant retourne `"https://portal.azure.com/"`:
 ```
 
 ## <a name="math-functions"></a>Fonctions mathématiques
-### <a name="add"></a>ajouter
+### <a name="add"></a>add
 Ajoute deux nombres et retourne le résultat.
 
 L’exemple suivant retourne `3`:

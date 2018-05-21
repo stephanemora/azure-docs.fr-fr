@@ -1,24 +1,24 @@
 ---
-title: "Gestionnaire des ressources de cluster Service Fabric : coût du déplacement | Microsoft Docs"
-description: "Présentation du coût du mouvement pour les services Service Fabric"
+title: 'Gestionnaire des ressources de cluster Service Fabric : coût du déplacement | Microsoft Docs'
+description: Présentation du coût du mouvement pour les services Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3063647671fea94da3ce635b887f6f0f7de89f70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-movement-cost"></a>Coût du déplacement de services
 L’un des facteurs que Service Fabric Cluster Resource Manager prend en compte pour déterminer les modifications à apporter à un cluster est leur coût. La notion de « coût » est mise en balance avec la capacité d’amélioration du cluster. Le coût est pris en compte lors du déplacement de services à des fins d’équilibrage, de défragmentation ou autres. L’objectif est de répondre aux exigences en limitant les perturbations et le coût. 
@@ -99,7 +99,7 @@ ClusterManifest.xml :
         </Section>
 ```
 
-via ClusterConfig.json pour les déploiements autonomes ou Template.json pour les clusters hébergés sur Azure :
+via ClusterConfig.json pour les déploiements autonomes ou Template.json pour les clusters hébergés sur Azure :
 
 ```json
 "fabricSettings": [

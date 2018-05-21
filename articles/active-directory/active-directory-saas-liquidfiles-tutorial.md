@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et LiquidFiles."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LiquidFiles.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: cccce8025522a4be99670aacadbeb0ea83147931
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c8c357c4a8d017699d83597766a93cbffeb5e8be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles
 
@@ -29,9 +29,10 @@ L’intégration de LiquidFiles avec Azure AD vous offre les avantages suivants 
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à LiquidFiles (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec LiquidFiles, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de LiquidFiles à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de LiquidFiles avec Azure AD, vous devez ajout
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **LiquidFiles**.
 
@@ -89,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec LiquidFiles
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test LiquidFiles](#creating-a-liquidfiles-test-user)** pour avoir un équivalent de Britta Simon dans LiquidFiles lié à la représentation de l’utilisateur Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **LiquidFiles**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_samlbase.png)
 
 3. Dans la section **Domaine et URL LiquidFiles**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YOUR_SERVER_URL>/saml/init`
 
@@ -121,15 +122,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT** du certificat.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-liquidfiles-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de LiquidFiles**, cliquez sur **Configurer LiquidFiles** pour ouvrir la fenêtre **Configurer l’authentification unique**. Copiez l’**URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_configure.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_configure.png)
  
 7. Connectez-vous à votre site d’entreprise LiquidFiles en tant qu’administrateur.
 
@@ -137,7 +138,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 9. Dans la page **Single Sign-On Configuration** (Configuration de l’authentification unique), procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-liquidfiles-tutorial/tutorial_single_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_single_01.png)
 
     a. Pour **Single Sign On Method** (Méthode d’authentification unique), sélectionnez **SAML 2**.
 
@@ -151,7 +152,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     f. Dans la zone de texte Authn Context (Contexte d’authentification), tapez la valeur **urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport**.
 
-    g. Cliquez sur **Save**.  
+    g. Cliquez sur **Enregistrer**.  
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -186,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-liquidfiles-test-user"></a>Création d’un utilisateur de test LiquidFiles
 
@@ -206,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **LiquidFiles**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -231,7 +232,7 @@ Lorsque vous cliquez sur la vignette LiquidFiles dans le volet d’accès, vous 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

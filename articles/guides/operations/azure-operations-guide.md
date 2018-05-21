@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
 
@@ -98,7 +98,7 @@ Services de stockage et de gestion des données :
 
 -   Stockage Azure (comprend les services Stockage Blob, Stockage File d’attente, Stockage Table et Stockage Fichier)
 
--   Base de données SQL Azure
+-   Azure SQL Database
 
 -   Azure Cosmos DB
 
@@ -509,7 +509,7 @@ De même, vous pouvez utiliser l’interface de ligne de commande Azure pour dé
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accès et sécurité des réseaux virtuels
 
-Vous pouvez aider à sécuriser les réseaux virtuels Azure à l’aide d’un groupe de sécurité réseau (NSG). Les groupes NSG contiennent des règles de liste de contrôle d’accès (ACL) qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Vous pouvez associer des NSG à des sous-réseaux ou à des instances de machine virtuelle individuelle au sein de ce sous-réseau. Lorsque vous associez un NSG à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. Qui plus est, vous pouvez limiter davantage le trafic vers une machine virtuelle individuelle par l’association directe d’un NSG avec la machine virtuelle. Pour plus d’informations, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../../virtual-network/virtual-networks-nsg.md).
+Vous pouvez aider à sécuriser les réseaux virtuels Azure à l’aide d’un groupe de sécurité réseau (NSG). Les groupes NSG contiennent des règles de liste de contrôle d’accès (ACL) qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Vous pouvez associer des NSG à des sous-réseaux ou à des instances de machine virtuelle individuelle au sein de ce sous-réseau. Lorsque vous associez un NSG à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. Qui plus est, vous pouvez limiter davantage le trafic vers une machine virtuelle individuelle par l’association directe d’un NSG avec la machine virtuelle. Pour plus d’informations, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
