@@ -1,29 +1,30 @@
 ---
-title: "Migrer du Kit de développement logiciel (SDK) Java vers Maven - Mettre à jour les anciennes applications Java d’Azure Service Fabric pour utiliser Maven | Microsoft Docs"
-description: "Mettez à jour les anciennes applications Java qui utilisaient le Kit de développement logiciel (SDK) Java Service Fabric, pour extraire des dépendances Java Service Fabric dans Maven. Une fois l’installation terminée, vos anciennes applications Java devraient pouvoir générer."
+title: Migrer du Kit de développement logiciel (SDK) Java vers Maven - Mettre à jour les anciennes applications Java d’Azure Service Fabric pour utiliser Maven | Microsoft Docs
+description: Mettez à jour les anciennes applications Java qui utilisaient le Kit de développement logiciel (SDK) Java Service Fabric, pour extraire des dépendances Java Service Fabric dans Maven. Une fois l’installation terminée, vos anciennes applications Java devraient pouvoir générer.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 7eac05c859440e868e1a207f0ba0d1bdf41e6e6b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 178d49a9481cec20da3e9418d9c104684f303267
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Mettez à jour votre précédente application Java Service Fabric pour extraire des bibliothèques Java dans Maven
 Nous avons récemment déplacé des binaires Java du Kit de développement logiciel (SDK) Java Service Fabric vers un hébergement Maven. Vous pouvez dorénavant utiliser le référentiel **mavencentral** pour extraire les dépendances Java récentes de Service Fabric. Ce démarrage rapide vous aide à mettre à jour vos applications Java existantes, créées plus tôt pour qu’elles fonctionnent avec le Kit de développement logiciel (SDK) Java Service Fabric, à l’aide du modèle Yeoman ou Eclipse, afin de les rendre compatibles avec le build basé sur Maven.
 
 ## <a name="prerequisites"></a>Prérequis
+
 1. Vous devez tout d’abord désinstaller le Kit de développement logiciel (SDK) Java existant.
 
   ```bash

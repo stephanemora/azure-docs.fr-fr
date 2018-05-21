@@ -1,12 +1,12 @@
 ---
-title: Gestion des disques Azure avec l’interface de ligne de commande Azure | Microsoft Docs
-description: Didacticiel - Gestion des disques Azure avec l’interface de ligne de commande Azure
+title: 'Didacticiel : gérer les disques Azure avec Azure CLI | Microsoft Docs'
+description: Avec ce didacticiel, vous allez apprendre à utiliser Azure CLI 2.0 afin de créer et gérer des disques Azure pour des machines virtuelles
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3153c57d6504346f6985823860623dc37977b79f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dff6af6a68dcc454877532c3d6f06cb86e6fe897
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-disks-with-the-azure-cli"></a>Gestion des disques Azure avec l’interface de ligne de commande Azure
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Didacticiel : gérer les disques Azure avec Azure CLI 2.0
 
 Les machines virtuelles utilisent des disques pour stocker leur système d’exploitation, leurs applications et leurs données. Lorsque vous créez une machine virtuelle, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel décrit le déploiement et la gestion des disques de machine virtuelle. Vous en apprendrez davantage sur les points suivants :
 
@@ -35,10 +35,9 @@ Les machines virtuelles utilisent des disques pour stocker leur système d’exp
 > * Redimensionnement des disques
 > * Captures instantanées de disque
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
 

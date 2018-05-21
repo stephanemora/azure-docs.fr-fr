@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec CloudPassage | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et CloudPassage."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec CloudPassage | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CloudPassage.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: b9d3329547b10d67c175c349fc643289823a3d81
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 412e2c46ba8dae19892b63899abbfc48ca6a82a8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Didacticiel : Intégration d’Azure Active Directory avec CloudPassage
 
@@ -27,11 +27,12 @@ L’intégration de CloudPassage dans Azure AD vous offre les avantages suivants
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à CloudPassage.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à CloudPassage (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec CloudPassage, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de CloudPassage à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de CloudPassage avec Azure AD, vous devez ajou
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **CloudPassage**.
 
@@ -86,10 +87,10 @@ Dans CloudPassage, affectez la valeur du **nom d’utilisateur** dans Azure AD 
 
 Pour configurer et tester l’authentification unique Azure AD avec CloudPassage, vous avez besoin de suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test CloudPassage](#creating-a-cloudpassage-test-user)** pour avoir un équivalent de Britta Simon dans CloudPassage qui soit lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,32 +101,32 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **CloudPassage**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_samlbase.png)
 
 3. Dans la section **Domaine et URL CloudPassage**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://portal.cloudpassage.com/saml/init/accountid`
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://portal.cloudpassage.com/saml/consume/accountid`. Vous pouvez obtenir la valeur de cet attribut en cliquant sur **SSO Setup documentation** dans la section **Single Sign-on Settings** de votre portail CloudPassage.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_05.png)
      
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe de support technique de CloudPassage](https://www.cloudpassage.com/company/contact/). 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_certificate.png) 
 
 5. Votre application CloudPassage attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre un exemple :
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_25.png) 
+   ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_25.png) 
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
@@ -137,9 +138,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_attribute_04.png)
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -149,25 +150,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_400.png)
     
 8. Dans la section **Configuration de CloudPassage** , cliquez sur **Configurer CloudPassage** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_configure.png) 
 
 9. Dans une autre fenêtre de navigateur Web, connectez-vous au site de votre entreprise CloudPassage en tant qu’administrateur.
 
 10. Dans le menu situé en haut, cliquez sur **Settings** puis sur **Site Administration**. 
    
-    ![Configurer l’authentification unique][12]
+    ![Configure Single Sign-On][12]
 
 11. Cliquez sur l’onglet **Authentication Settings** . 
    
-    ![Configurer l’authentification unique][13]
+    ![Configure Single Sign-On][13]
 
 12. Dans la section **Single Sign-On Settings** , procédez comme suit : 
    
-    ![Configurer l’authentification unique][14]
+    ![Configure Single Sign-On][14]
 
     a. Cochez la case **Activer l’authentification unique (SSO) (Documentation de configuration de l’authentification unique)**.
     
@@ -179,7 +180,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
   
     e. Ouvrez votre certificat téléchargé dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat X 509**.
   
-    f. Cliquez sur **Save**.
+    f. Cliquez sur **Enregistrer**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -213,7 +214,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-cloudpassage-test-user"></a>Création d’un utilisateur de test CloudPassage
 
@@ -259,7 +260,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **CloudPassage**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -284,7 +285,7 @@ Lorsque vous cliquez sur la vignette CloudPassage dans le volet d’accès, vous
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

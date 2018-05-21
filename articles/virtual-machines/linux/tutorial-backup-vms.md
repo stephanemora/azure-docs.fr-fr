@@ -1,6 +1,6 @@
 ---
-title: Sauvegarder des machines virtuelles Linux Azure | Microsoft Docs
-description: Protégez vos machines virtuelles Linux en les sauvegardant à l’aide d’Azure Backup.
+title: 'Didacticiel : sauvegarder des machines virtuelles Linux dans le portail Azure | Microsoft Docs'
+description: Avec ce didacticiel, vous allez apprendre à utiliser le portail Azure pour protéger vos machines virtuelles Linux avec le service Sauvegarde Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,20 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Sauvegarder des machines virtuelles Linux dans Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Didacticiel : sauvegarder et restaurer des fichiers pour des machines virtuelles Linux dans Azure
 
-Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Lorsque vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou seulement des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle Linux exécutant nginx. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Linux](quick-create-cli.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle Linux exécutant nginx. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Linux](quick-create-cli.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde de machine virtuelle
 > * Planifier une sauvegarde quotidienne
 > * Restaurer un fichier à partir d’une sauvegarde
-
-
 
 ## <a name="backup-overview"></a>Présentation de la sauvegarde
 
@@ -43,7 +41,7 @@ Une fois le transfert de données terminé, l’instantané est supprimé et un 
 
 
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
-Créez une simple sauvegarde quotidienne planifiée dans un coffre Recovery Services. 
+Créez une sauvegarde quotidienne planifiée dans un coffre Recovery Services :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 

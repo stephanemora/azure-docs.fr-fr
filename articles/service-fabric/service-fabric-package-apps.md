@@ -1,24 +1,24 @@
 ---
-title: "Empaqueter une application Azure Service Fabric | Microsoft Docs"
-description: "Découvrez comment empaqueter une application Service Fabric avant son déploiement dans un cluster."
+title: Empaqueter une application Azure Service Fabric | Microsoft Docs
+description: Découvrez comment empaqueter une application Service Fabric avant son déploiement dans un cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: mani-ramaswamy
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0db49b9bd50c640175292671f813d23d960b52e1
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 24cb1fd0666b404d92dfb803f55c850226ff59b6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 Cet article explique comment empaqueter une application Service Fabric et la préparer pour le déploiement.

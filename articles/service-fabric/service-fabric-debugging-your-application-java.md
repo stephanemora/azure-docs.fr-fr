@@ -1,24 +1,24 @@
 ---
-title: "Débogage de votre application Azure Service Fabric dans Eclipse | Microsoft Docs"
-description: "Améliorez la fiabilité et les performances de vos services en les développant et en procédant à leur débogage dans Eclipse sur un cluster de développement local."
+title: Débogage de votre application Azure Service Fabric dans Eclipse | Microsoft Docs
+description: Améliorez la fiabilité et les performances de vos services en les développant et en procédant à leur débogage dans Eclipse sur un cluster de développement local.
 services: service-fabric
 documentationcenter: .net
 author: suhuruli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: suhuruli;mikhegn
-ms.openlocfilehash: 023b878706abf524b5a7939492937a92151f6035
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: suhuruli
+ms.openlocfilehash: 0e9e816fa84816b1b5d12f066dc65aee7b4930f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Débogage de votre application Java Service Fabric avec Eclipse
 > [!div class="op_single_selector"]

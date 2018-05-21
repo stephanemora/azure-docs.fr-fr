@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire (préversion)
 
@@ -135,7 +135,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 
 - **Emplacement cible** : région cible utilisée pour la récupération d’urgence. Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery.
 
-- **Groupe de ressources cible** : groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement. Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ».
+- **Groupe de ressources cible** : groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement. Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». L’emplacement du groupe de ressources cible peut être n’importe quelle région à l’exception de la région dans laquelle vos machines virtuelles sources sont hébergées. 
 
 - **Réseau virtuel cible** : réseau dans la région cible où se trouvent les machines virtuelles après le basculement.
   Par défaut, Site Recovery crée un réseau virtuel (et des sous-réseaux) dans la région cible avec un suffixe « asr ».

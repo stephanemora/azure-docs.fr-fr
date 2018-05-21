@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](active-directory-aadconnect-get-started-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -45,13 +45,14 @@ Lorsque vous installez les services de synchronisation, vous pouvez laisser la s
 ### <a name="user-sign-in"></a>Connexion de l’utilisateur
 Après avoir installé les composants requis, vous êtes invité à sélectionner la méthode d’authentification unique de vos utilisateurs. Le tableau ci-après fournit une brève description des options disponibles. Pour une description complète des méthodes de connexion, consultez [Connexion de l’utilisateur](active-directory-aadconnect-user-signin.md).
 
-![Connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![Connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | Option d’authentification unique | Description |
 | --- | --- |
 | Synchronisation de hachage de mot de passe |Les utilisateurs peuvent se connecter aux services cloud Microsoft, comme Office 365, à l’aide du mot de passe qu’ils utilisent dans leur réseau local. Les mots de passe des utilisateurs sont synchronisés sur Azure, via un hachage de mot de passe, et l’authentification est effectuée dans le cloud. Pour plus d’informations, consultez [Synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md). |
 |Authentification directe|Les utilisateurs peuvent se connecter aux services cloud Microsoft, comme Office 365, à l’aide du mot de passe qu’ils utilisent dans leur réseau local.  Le mot de passe de l’utilisateur est ensuite transmis vers le contrôleur de domaine Active Directory local à valider.
 | Fédération avec AD FS |Les utilisateurs peuvent se connecter aux services cloud Microsoft, comme Office 365, à l’aide du mot de passe qu’ils utilisent dans leur réseau local.  Ils sont redirigés vers leur instance AD FS locale, la connexion et l’authentification étant effectuées en local. |
+| Fédération avec PingFederate|Les utilisateurs peuvent se connecter aux services cloud Microsoft, comme Office 365, à l’aide du mot de passe qu’ils utilisent dans leur réseau local.  Ils sont redirigés vers leur instance PingFederate locale, la connexion et l’authentification étant effectuées en local. |
 | Ne pas configurer |Aucune fonctionnalité de connexion utilisateur n’est installée ni configurée. Choisissez cette option si vous disposez déjà d’un serveur de fédération tiers ou d’une autre solution. |
 |Activer l'authentification unique|Cette option est disponible avec la synchronisation de mot de passe et l’authentification directe, et fournit une expérience d’authentification unique pour les utilisateurs du réseau d’entreprise. Pour plus d’informations, consultez [Authentification unique](active-directory-aadconnect-sso.md). </br>Notez que pour les clients AD FS, cette option n’est pas disponible car AD FS offre déjà le même niveau d’authentification unique.</br>
 
@@ -301,6 +302,39 @@ Lorsque vous sélectionnez le domaine à fédérer, Azure AD Connect vous fourni
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>Configuration de la fédération avec PingFederate
+La configuration de PingFederate avec Azure AD Connect s’effectue simplement en quelques clics. Pour pouvoir procéder à la configuration, vous devez disposer des éléments suivants.  En revanche, les prérequis suivants sont indispensables.
+- PingFederate 8.4 ou version ultérieure.  Pour plus d’informations, consultez [Intégration de PingFederate à Azure Active Directory et Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- Un certificat SSL pour le nom de service de fédération que vous prévoyez d’utiliser (par exemple, sts.contoso.com)
+
+### <a name="verify-the-domain"></a>Vérifier le domaine
+Après avoir sélectionné la fédération avec PingFederate, vous êtes invité à vérifier le domaine que vous voulez fédérer.  Sélectionnez le domaine dans la liste déroulante.
+
+![Vérification d’un domaine](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>Exporter les paramètres PingFederate
+
+
+PingFederate doit être configuré en tant que serveur de fédération pour chaque domaine Azure fédéré.  Cliquez sur le bouton Paramètres d’exportation et partagez ces informations avec votre administrateur PingFederate.  L’administrateur du serveur de fédération met à jour la configuration, puis fournit l’URL et le numéro de port du serveur PingFederate pour qu’Azure AD Connect puisse vérifier les paramètres de métadonnées.  
+
+![Vérification d’un domaine](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+Contactez votre administrateur PingFederate pour résoudre les éventuels problèmes de validation.  Voici un exemple de serveur PingFederate qui n’a pas de relation d’approbation valide avec Azure :
+
+![Trust](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>Vérifier la connectivité de fédération
+Azure AD Connect tente de valider les points de terminaison d’authentification récupérés à partir des métadonnées PingFederate de l’étape précédente.  Azure AD Connect tente d’abord de résoudre les points de terminaison à l’aide de vos serveurs DNS locaux.  Ensuite, une tentative de résolution des points de terminaison à l’aide d’un fournisseur DNS externe est effectuée.  Contactez votre administrateur PingFederate pour résoudre les éventuels problèmes de validation.  
+
+![Vérifier la connectivité](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>Vérifiez la connexion de fédération
+Enfin, vous pouvez vérifier le flux de connexion fédérée tout juste configuré en vous connectant au domaine fédéré. Lorsque cette opération réussit, la fédération avec PingFederate est correctement configurée.
+![Vérifier la connexion](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>Pages de configuration et de vérification
 La configuration se produit sur cette page.
 
@@ -308,6 +342,7 @@ La configuration se produit sur cette page.
 > Avant de poursuivre l’installation, si vous avez configuré la fédération, vérifiez que vous avez défini la fonction de [résolution de noms pour les serveurs de fédération](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 >
 >
+
 
 ![Prêt à configurer](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -336,8 +371,9 @@ Lorsque vous cliquez sur le bouton Vérifier, Azure AD Connect vérifie la confi
 
 ![Vérifier](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-Veuillez également vérifier les points suivants :
+Pour vérifier que l’authentification de bout en bout réussit, vous devez effectuer manuellement un ou plusieurs des tests suivants :
 
+* Une fois que la synchronisation est terminée, utilisez la tâche supplémentaire Vérifier la connexion fédérée dans Azure AD Connect pour vérifier l’authentification d’un compte d’utilisateur local de votre choix.
 * Validez la connexion du navigateur à partir d’un ordinateur joint au domaine sur l’intranet : connectez-vous à https://myapps.microsoft.com et vérifiez la connexion avec votre compte connecté. Le compte d’administrateur AD DS intégré n’est pas synchronisé et ne peut pas être utilisé pour la vérification.
 * Vérifiez que vous pouvez vous connecter à partir d’un appareil, depuis l’extranet. Sur un ordinateur personnel ou un appareil mobile, connectez-vous à https://myapps.microsoft.com et fournissez vos informations d’identification.
 * Valider la connexion à un client complet. Pour cela, connectez-vous à https://testconnectivity.microsoft.com, sélectionnez l’onglet **Office 365**, puis **Test d’authentification unique dans Office 365**.

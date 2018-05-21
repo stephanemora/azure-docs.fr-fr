@@ -3,17 +3,17 @@ title: Didacticiel Azure Container Service - Préparer l’ACR
 description: Didacticiel Azure Container Service - Préparer l’ACR
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f2520c79d5d5b1dcf13147b64bd98df78e6e2f37
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -93,7 +93,7 @@ Maintenant, marquez l’image `azure-vote-front` avec le loginServer du registre
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Une fois l’image marquée, exécutez [docker images] (https://docs.docker.com/engine/reference/commandline/images/) pour vérifier l’opération.
+Une fois le marquage effectué, exécutez [docker images] (https://docs.docker.com/engine/reference/commandline/images/) pour vérifier l’opération.
 
 ```bash
 docker images
@@ -153,7 +153,7 @@ v1
 
 Au terme de ce didacticiel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, cette image est déployée à partir d’ACR vers un cluster Kubernetes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, un registre de conteneurs Azure a été préparé pour une utilisation dans un cluster ACS Kubernetes. Les étapes suivantes ont été effectuées :
 

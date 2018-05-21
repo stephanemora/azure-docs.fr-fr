@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
+editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
-ms.author: ryanwi;aljo
-ms.openlocfilehash: 897370e48b4eb0db5c99c1102910c89f6f56cc23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: ryanwi
+ms.openlocfilehash: f9e3f190decdc907cf57a0235b9d7142081bd2f1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="scaling-service-fabric-clusters"></a>Mise à l’échelle de clusters Service Fabric
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les clusters peuvent potentiellement comporter des milliers de nœuds. Une fois que vous avez créé un cluster Service Fabric, vous pouvez le mettre à l’échelle horizontalement (modifier le nombre de nœuds) ou verticalement (modifier les ressources des nœuds).  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -37,7 +37,7 @@ Modifie les ressources (processeur, mémoire ou stockage) des nœuds du cluster.
 - Inconvénients : mise à l’échelle limitée, dans la mesure où l’augmentation des ressources sur les nœuds individuels est limitée. Des temps d’arrêt, car il vous faudra mettre hors ligne les machines physiques ou virtuelles afin d’ajouter ou de supprimer des ressources.
 
 ## <a name="scaling-an-azure-cluster-in-or-out"></a>Augmentation ou diminution de la taille des instances d’un cluster Azure
-Les jeux de mise à l’échelle de machine virtuelle sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que jeu. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un jeu de mise à l’échelle distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut ensuite faire l’objet d’une augmentation ou d’une diminution de la taille des instances de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. 
+Les jeux de mise à l’échelle de machine virtuelle sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que jeu. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut ensuite faire l’objet d’une augmentation ou d’une diminution de la taille des instances de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. 
 
 Lors de la mise à l’échelle d’un cluster Azure, gardez les instructions suivantes à l’esprit :
 - Les types de nœud principal exécutant des charges de travail de production doivent toujours comporter au moins cinq nœuds.

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
@@ -116,7 +116,7 @@ Ce rapport fournit les informations suivantes :
 >
 >
 
-## <a name="risky-ip-report"></a>Rapport de l’adresse IP risquée 
+## <a name="risky-ip-report-public-preview"></a>Rapport de l’adresse IP risquée (préversion publique)
 Les clients AD FS peuvent exposer des points de terminaison d’authentification par mot de passe à Internet pour fournir des services d’authentification permettant aux utilisateurs finaux d’accéder aux applications SaaS telles qu’Office 365. Dans ce cas, il est possible pour un mauvais acteur de tenter de se connecter à votre système AD FS pour deviner le mot de passe d’un utilisateur final et accéder aux ressources de l’application. AD FS fournit la fonctionnalité de verrouillage de compte extranet pour éviter ce type d’attaques depuis AD FS dans Windows Server 2012 R2. Si vous utilisez une version antérieure, nous vous recommandons vivement de mettre à niveau votre système AD FS vers Windows Server 2016. <br />
 En outre, il est possible qu’une seule adresse IP tente de se connecter plusieurs fois à la place de plusieurs utilisateurs. Dans ce cas, le nombre de tentatives par utilisateur peut se trouver sous le seuil pour la protection par verrouillage de compte dans AD FS. Azure AD Connect Health fournit désormais le « rapport d’adresse IP risquée » qui détecte cette condition et informe les administrateurs lorsque cela se produit. Voici les principaux avantages de ce rapport : 
 - Détection des adresses IP qui dépassent un seuil d’échecs de connexion basée sur mot de passe
@@ -152,10 +152,12 @@ Par exemple, l’élément de rapport ci-dessous indique que dans la fenêtre de
 > - Ce rapport d’alerte n’affiche pas les adresses IP Exchange ou les adresses IP privées. Elles sont tout de même incluses dans la liste d’exportation. 
 >
 
-
 ![portail Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>Télécharger le rapport d’adresse IP risquée
+### <a name="load-balancer-ip-addresses-in-the-list"></a>Adresses IP de l’équilibreur de charge dans la liste
+L’équilibreur de charge agrège les activités de connexion qui ont échoué et atteint le seuil d’alerte. Si vous voyez des adresses d’équilibreur de charge, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP cliente lorsqu’il transfère la requête au serveur proxy d’application web. Veuillez configurer correctement votre équilibreur de charge pour qu’il transfère l’adresse IP cliente. 
+
+### <a name="download-risky-ip-report"></a>Télécharger le rapport d’adresse IP risquée 
 Vous pouvez exporter la liste complète des adresses IP risquées des 30 derniers jours à l’aide de la fonctionnalité **Télécharger** du portail Connect Health Portal. Le résultat de l’exportation inclut tous les échecs de connexion à AD FS pour chaque fenêtre de temps de détection. Vous pouvez personnaliser les filtres après l’exportation. Outre les agrégations en surbrillance dans le portail, le résultat de l’exportation montre également plus de détails sur les activités de connexion ayant échoué par adresse IP :
 
 |  Élément de rapport  |  Description  | 
@@ -196,12 +198,14 @@ Si vous voyez des adresses d’équilibreur de charge, il est très probable que
 
 3. Que faire pour bloquer l’adresse IP ?  <br />
 Vous devez ajouter l’adresse IP malveillante identifiée dans le pare-feu ou la bloquer dans Exchange.   <br />
-Pour les services AD FS 2016 + 1803.C+ QFE, vous pouvez bloquer l’adresse IP directement dans AD FS. 
 
 4. Pourquoi ne vois-je aucun élément dans ce rapport ? <br />
    - Les activités de connexion ayant échoué ne dépassent pas les paramètres de seuil. 
    - Assurez-vous qu’aucune alerte vous avertissant que le service Health n’est pas à jour n’est active dans la liste des serveurs AD FS.  En savoir plus sur [la résolution de cette alerte](active-directory-aadconnect-health-data-freshness.md).
    - Les audits ne sont pas activés dans les batteries de serveurs AD FS.
+ 
+5. Pourquoi est-ce que je ne vois aucun accès au rapport ?  <br />
+L’autorisation Administrateur général ou [Lecteur Sécurité](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) est nécessaire. Contactez votre administrateur global pour obtenir l’accès.
 
 
 ## <a name="related-links"></a>Liens connexes
