@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Jira par résolution GmbH | Documents Microsoft"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et SSO SAML pour Jira de resolution GmbH."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Jira par résolution GmbH | Documents Microsoft'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SSO SAML pour Jira de resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a3224acd2376efca19a29576980b6a3ca6a9e99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0835d89786e2d389b845c8a4bdbbfb63c0bbcd3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Jira par résolution GmbH
 
@@ -29,9 +29,10 @@ L’intégration de SSO SAML pour Jira de resolution GmbH avec Azure AD offre le
 - Vous pouvez permettre à vos utilisateurs d’être automatiquement authentifiés auprès de SSO SAML pour Jira de resolution GmbH (authentification unique) avec leurs comptes Azure AD
 - Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec SSO SAML pour Jira de resolution GmbH, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de SSO SAML pour Jira de resolution GmbH à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de SSO SAML pour Jira de resolution GmbH dans A
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la boîte de dialogue de recherche, tapez **SSO SAML pour Jira de resolution GmbH**.
 
@@ -86,10 +87,10 @@ Dans SSO SAML pour Jira de resolution GmbH, affectez la valeur de **nom d’util
 
 Pour configurer et tester l’authentification unique Azure AD avec SSO SAML pour Jira de resolution GmbH, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test de SSO SAML pour Jira de resolution GmbH](#creating-a-saml-sso-for-jira-by-resolution-gmbh-test-user)**: pour avoir un équivalent de Britta Simon dans SSO SAML pour Jira de resolution GmbH qui soit lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Sur le portail Azure, dans la page intégration de l’application **SSO SAML pour Jira de resolution GmbH**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_samlbase.png)
 
 3. Dans la section **SSO SAML pour Jira de resolution GmbH**, si vous souhaitez configurer l’application en mode initié par le **fournisseur d’identité (IDP)**:
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_url_1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_url_1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -116,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_url_2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_url_2.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/samlsso`
      
@@ -125,47 +126,47 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/tutorial_general_400.png)
     
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail d’administration de SSO SAML pour Jira de resolution GmbH** en tant qu’administrateur.
 
 8. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon1.png)
 
 9. Vous êtes redirigé vers la page d’accès administrateur. Entrez le **mot de passe**, puis cliquez sur le bouton **Confirmer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon2.png)
 
 10. Sous l’onglet Modules complémentaires, cliquez sur **Find new add-ons** (Trouver de nouveaux modules complémentaires). Recherchez **SAML Single Sign On (SSO) for Jira**, puis cliquez sur le bouton **Install** pour installer le nouveau plug-in SAML.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon7.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon7.png)
 
 11. L’installation du plug-in démarre. Cliquez sur **Fermer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon8.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon8.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
 
 12. Cliquez sur **Gérer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
 13. Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
 14. Dans la page **SAML SingleSignOn Plugin Configuration** (Configuration du plug-in d’authentification unique SAML), cliquez sur le bouton **Add new IdP** (Ajouter un nouveau fournisseur d’identité) pour configurer les paramètres du fournisseur d’identité.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
 15. Dans la page **Choose your SAML Identity Provider** (Choisissez votre fournisseur d’identité SAML), effectuez les actions suivantes :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
     a. Définissez **Azure AD** comme type de fournisseurs d’identité.
     
@@ -177,11 +178,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
 16. Dans la page **Identity provider configuration** (Configuration du fournisseur d’identité), cliquez sur le bouton **Next** (Suivant).
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
 17. Dans la page **Import SAML IdP Metadata** (Importer les métadonnées du fournisseur d’identité SAML), effectuez les actions suivantes :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
     a. Cliquez sur le bouton **Load File** (Charger le fichier) et choisissez le fichier XML de métadonnées que vous avez téléchargé à l’étape 5.
 
@@ -193,19 +194,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
 18. Dans la page **User ID attribute and transformation** (Attribut d’ID d’utilisateur et transformation), cliquez sur le bouton **Next** (Suivant).
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
     
 19. Dans la page **User creation and update** (Création et mise à jour de l’utilisateur), cliquez sur **Save & Next** (Enregistrer et suivant) pour enregistrer les paramètres.   
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
     
 20. Dans la page **Test your settings** (Tester vos paramètres), cliquez sur **Skip test & configure manually** (ignorer le test et configurer manuellement) afin d’ignorer le test de l’utilisateur pour l’instant. Cette opération, qui requiert certains paramètres dans le portail Azure, sera effectuée à la section suivante. 
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
     
 21. Dans la boîte de dialogue **Skipping the test means...** (Ignorer le test signifie...), cliquez sur **OK**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -240,7 +241,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-saml-sso-for-jira-by-resolution-gmbh-test-user"></a>Création d’un utilisateur de test pour SSO SAML pour Jira de resolution GmbH
 
@@ -291,7 +292,7 @@ Dans cette section, vous activez Britta Simon pour utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **SSO SAML pour Jira de resolution GmbH**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -317,7 +318,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

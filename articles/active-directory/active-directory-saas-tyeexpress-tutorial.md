@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : intégration d’Azure Active Directory à T&E Express | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et T&E Express."
+title: 'Didacticiel : intégration d’Azure Active Directory à T&E Express | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et T&E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 09ce6851013e05859572bd00215a9f751db4ca53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8d3980b6169c8a9fc60c04e527814159082a46e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Didacticiel : Intégration d’Azure Active Directory à T&E Express
 
@@ -29,9 +29,10 @@ L’intégration de T&E Express à Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à T&E Express (via l’authentification unique) avec leur compte Azure AD
 - Vous pouvez gérer vos comptes de manière centralisée dans le portail de gestion Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à T&E Express, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de T&E Express à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de T&E Express à Azure AD, vous devez ajouter
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **T&E Express**.
 
@@ -86,10 +87,10 @@ Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme
 
 Pour configurer et tester l’authentification unique Azure AD avec T&E Express, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test T&amp;E Express](#creating-a-te-express-test-user)** : pour avoir un équivalent de Britta Simon dans T&amp;E Express lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail de gestion Azure, sur la page d’intégration de l’application **T&E Express**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_samlbase.png)
 
 3. Dans la section **Domaine et URL T&E Express**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
     a. Dans la zone de texte **Identificateur**, entrez la valeur `https://<domain>.tyeexpress.com`
 
@@ -119,21 +120,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_400.png)
 
 8. Pour configurer l’authentification unique du côté **T&E Express**, connectez-vous à l’application T&E Express sans authentification unique SAML à l’aide des informations d’identification d’administrateur.
 
 9. Sous l’onglet **Admin**, cliquez sur **Domaine SAML** pour ouvrir la page des paramètres SAML.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-tyeexpress-tutorial/tye-SAML.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tyeexpress-tutorial/tye-SAML.png)
 
 10. Changez l’option **Activar (Activer)** de **No (Non)** à **SI (Oui)**. Dans la zone de texte des **métadonnées du fournisseur d’identité**, collez les métadonnées XML que vous avez téléchargées à partir du portail Azure.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-tyeexpress-tutorial/tyeAdmin.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tyeexpress-tutorial/tyeAdmin.png)
 
 11. Cliquez sur le bouton **Guardar (Enregistrer)** pour enregistrer les paramètres. 
 
@@ -167,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-te-express-test-user"></a>Création d’un utilisateur de test T&E Express
 
@@ -201,13 +202,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à T&amp;E Express, procédez comme suit :**
 
-1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires et à **Applications d’entreprise** puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **T&E Express**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -232,7 +233,7 @@ Lorsque vous cliquez sur la mosaïque T&E Express dans le volet d’accès, vous
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,24 +1,24 @@
 ---
-title: "Fonctions de modèle Azure Resource Manager - numérique| Microsoft Docs"
-description: "Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des nombres."
+title: Fonctions de modèle Azure Resource Manager - numérique| Microsoft Docs
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des nombres.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Fonctions numériques pour les modèles Azure Resource Manager
 
@@ -42,18 +42,18 @@ Resource Manager fournit les expressions ci-après pour travailler avec des enti
 
 Retourne la somme des deux entiers fournis.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Oui |int |Premier nombre à ajouter. |
-|operand2 |Oui |int |Deuxième nombre à ajouter. |
+|operand1 |OUI |int |Premier nombre à ajouter. |
+|operand2 |OUI |int |Deuxième nombre à ajouter. |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Entier qui contient la somme des paramètres.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) suivant, vous ajoutez deux paramètres.
 
@@ -90,9 +90,9 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| addResult | int | 8 |
+| addResult | Int | 8 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -113,12 +113,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne l’index d’une boucle d’itération. 
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| loopName | Non | string | Nom de la boucle pour l’obtention de l’itération. |
-| Offset |Non |int |Le nombre à ajouter à la valeur d’itération de base zéro. |
+| loopName | Non  | chaîne | Nom de la boucle pour l’obtention de l’itération. |
+| Offset |Non  |int |Le nombre à ajouter à la valeur d’itération de base zéro. |
 
 ### <a name="remarks"></a>Remarques
 
@@ -130,7 +130,7 @@ Pour obtenir une description complète d’exemples d’utilisation de l’expre
 
 Pour obtenir un exemple d’utilisation de **copyIndex** afin de définir une variable, consultez [Variables](resource-group-authoring-templates.md#variables).
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 L’exemple suivant montre une boucle de copie ainsi que la valeur d’index incluse dans le nom. 
 
@@ -159,18 +159,18 @@ Entier représentant l’index actuel de l’itération.
 
 Retourne la division entière des deux entiers fournis.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre à diviser. |
-| operand2 |Oui |int |Le nombre utilisé pour diviser. Ne peut pas être 0. |
+| operand1 |OUI |int |Le nombre à diviser. |
+| operand2 |OUI |int |Le nombre utilisé pour diviser. Ne peut pas être 0. |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Entier représentant la division.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) suivant, vous divisez un paramètre par un autre paramètre.
 
@@ -207,9 +207,9 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| divResult | int | 2 |
+| divResult | Int | 2 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -230,16 +230,16 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cette fonction lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou entier |Valeur à convertir en nombre à virgule flottante. |
+| arg1 |OUI |chaîne ou entier |Valeur à convertir en nombre à virgule flottante. |
 
 ### <a name="return-value"></a>Valeur de retour
 Nombre à virgule flottante.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 L’exemple suivant montre comment utiliser float pour passer des paramètres à une application logique :
 
@@ -264,17 +264,17 @@ L’exemple suivant montre comment utiliser float pour passer des paramètres à
 
 Convertit la valeur spécifiée en entier.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Oui |chaîne ou entier |La valeur à convertir en entier. |
+| valueToConvert |OUI |chaîne ou entier |La valeur à convertir en entier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Nombre entier de la valeur convertie.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) suivant, vous convertissez la valeur de paramètre fournie par l’utilisateur en un entier.
 
@@ -301,9 +301,9 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| intResult | int | 4 |
+| intResult | Int | 4 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -324,17 +324,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Entier représentant la valeur maximale de la collection.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) suivant montre comment utiliser max avec un tableau et une liste d’entiers :
 
@@ -364,10 +364,10 @@ Entier représentant la valeur maximale de la collection.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5. |
+| intOutput | Int | 5. |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -383,22 +383,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="min" />
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 `min (arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Entier représentant la valeur minimale de la collection.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) suivant montre comment utiliser min avec un tableau et une liste d’entiers :
 
@@ -428,10 +428,10 @@ Entier représentant la valeur minimale de la collection.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -452,17 +452,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne le reste de la division entière des deux entiers fournis.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre à diviser. |
-| operand2 |Oui |int |Le nombre utilisé pour diviser, Ne peut pas être 0. |
+| operand1 |OUI |int |Le nombre à diviser. |
+| operand2 |OUI |int |Le nombre utilisé pour diviser, Ne peut pas être 0. |
 
 ### <a name="return-value"></a>Valeur de retour
 Entier représentant le reste.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) suivant, le reste de la division d’un paramètre par un autre paramètre est retourné.
 
@@ -499,9 +499,9 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| modResult | int | 1 |
+| modResult | Int | 1 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -522,18 +522,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne la multiplication des deux entiers fournis.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Premier nombre à multiplier. |
-| operand2 |Oui |int |Deuxième nombre à multiplier. |
+| operand1 |OUI |int |Premier nombre à multiplier. |
+| operand2 |OUI |int |Deuxième nombre à multiplier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Entier représentant la multiplication.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) suivant, vous multipliez un paramètre par un autre paramètre.
 
@@ -570,9 +570,9 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| mulResult | int | 15 |
+| mulResult | Int | 15 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -593,17 +593,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne la soustraction des deux entiers fournis.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre auquel est appliquée la soustraction. |
-| operand2 |Oui |int |Le nombre qui est soustrait. |
+| operand1 |OUI |int |Le nombre auquel est appliquée la soustraction. |
+| operand2 |OUI |int |Le nombre qui est soustrait. |
 
 ### <a name="return-value"></a>Valeur de retour
 Entier représentant la multiplication.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) suivant, vous soustrayez un paramètre d’un autre paramètre.
 
@@ -640,9 +640,9 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| subResult | int | 4 |
+| subResult | Int | 4 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 

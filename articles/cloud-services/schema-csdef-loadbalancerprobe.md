@@ -1,23 +1,23 @@
 ---
-title: "Déf. Azure Cloud Services Schéma LoadBalancerProbe | Microsoft Docs"
-ms.custom: 
+title: Déf. Azure Cloud Services Schéma LoadBalancerProbe | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: "14"
+caps.latest.revision: 14
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 31c974c5a4b9dc9cff882ff42b73ee023fc4ad9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services
 La sonde d’équilibreur de charge est une sonde d’intégrité définie par le client qui vérifie les points de terminaison UDP et les points de terminaison dans les instances de rôle. Le `LoadBalancerProbe` n’est pas un élément autonome ; il est associé au rôle web ou au rôle de travail dans un fichier de définition de service. Un `LoadBalancerProbe` peut être utilisé par plusieurs rôles.
@@ -58,10 +58,10 @@ L’élément `LoadBalancerProbe` définit la sonde d’intégrité pour un mod�
 
 Le tableau suivant décrit les attributs de l’élément `LoadBalancerProbe` :
 
-|Attribut|Type|Description|
+|Attribut|type|Description|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Obligatoire. Le nom de la sonde d’équilibreur de charge. Ce nom doit être unique.|
-| `protocol`          | `string` | Obligatoire. Spécifie le protocole du point de terminaison. Les valeurs possibles sont `http` ou `tcp`. Si `tcp` est spécifié, une réponse ACK est requise pour que la sonde réussisse. Si `http` est spécifié, une réponse 200 OK de l’URI spécifiée est requise pour que la sonde réussisse.|
+| `name`              | `string` | Requis. Le nom de la sonde d’équilibreur de charge. Ce nom doit être unique.|
+| `protocol`          | `string` | Requis. Spécifie le protocole du point de terminaison. Les valeurs possibles sont `http` ou `tcp`. Si `tcp` est spécifié, une réponse ACK est requise pour que la sonde réussisse. Si `http` est spécifié, une réponse 200 OK de l’URI spécifiée est requise pour que la sonde réussisse.|
 | `path`              | `string` | L’URI utilisée pour demander l’état d’intégrité de la machine virtuelle. `path` est nécessaire si `protocol` est défini sur `http`. Dans le cas contraire, il n’est pas autorisé.<br /><br /> Aucune valeur par défaut.|
 | `port`              | `integer` | facultatif. Le port de communication de la sonde. Il est facultatif pour tous les points de terminaison, car le même port sera ensuite utilisé pour la sonde. Vous pouvez également configurer un port différent pour leur détection. Les valeurs possibles sont comprises entre 1 et 65535, ces deux valeurs étant incluses.<br /><br /> La valeur par défaut est définie par le point de terminaison.|
 | `intervalInSeconds` | `integer` | facultatif. L’intervalle, en secondes, de fréquence de détection de l’état d’intégrité du point de terminaison. En règle générale, l’intervalle est légèrement inférieur à la moitié du délai d’expiration alloué (en secondes), ce qui permet d’utiliser deux sondes complètes avant de mettre l’instance hors rotation.<br /><br /> La valeur par défaut est 15, la valeur minimum 5.|
