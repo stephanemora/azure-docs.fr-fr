@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Zscaler Private Access Administrator | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Private Access Administrator."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Zscaler Private Access Administrator | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Private Access Administrator.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: bf0b7cbd8047dfdbc1a4503775e6d36f8e8a67c1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c3918e4b54d60d6f609e99e24ed2f4b2995bf80c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Private Access Administrator
 
@@ -30,9 +30,10 @@ L’intégration de Zscaler Private Access Administrator dans Azure AD vous offr
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Zscaler Private Access Administrator (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Zscaler Private Access Administrator, vous avez besoin des éléments suivants :
 
@@ -123,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
@@ -270,7 +271,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

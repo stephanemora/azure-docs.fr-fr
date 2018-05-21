@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
-ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL
 Avant la dernière version d’Azure AD Connect, la délégation administrative n’était pas prise en charge lors du déploiement de configurations nécessitant SQL.  Les utilisateurs qui souhaitent installer Azure AD Connect devaient disposer d’autorisations d’administrateur de serveur sur le serveur SQL.
@@ -42,7 +42,7 @@ Pour provisionner la base de données hors bande et installer Azure AD Connect a
 
 
 1.  Demandez à l’administrateur SQL de créer la base de données ADSync avec une séquence de classement insensible à la casse **(Latin1_General_CI_AS)**.  La base de données doit être nommée **ADSync**.  Le mode de récupération, le niveau de compatibilité et le type de relation contenant-contenu sont mis à jour avec les valeurs appropriées lors de l’installation d’Azure AD Connect.  Toutefois, la séquence de classement doit être définie correctement par l’administrateur SQL. Dans le cas contraire, Azure AD Connect va bloquer l’installation.  Pour effectuer une récupération, l’administrateur de base de données doit supprimer et recréer la base de données.</br>
-![Classement](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![Classement](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.  Accordez les autorisations suivantes à l’administrateur Azure AD Connect et au compte de service de domaine :
     - Connexion SQL 
     - Droits de **propriétaire de base de données (dbo)**  </br>
