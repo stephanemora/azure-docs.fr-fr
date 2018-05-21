@@ -1,24 +1,24 @@
 ---
-title: "Gérer la charge des microservices Azure à l’aide de mesures | Microsoft Docs"
-description: "Découvrez comment configurer et utiliser des mesures dans Service Fabric pour gérer la consommation des ressources de service."
+title: Gérer la charge des microservices Azure à l’aide de mesures | Microsoft Docs
+description: Découvrez comment configurer et utiliser des mesures dans Service Fabric pour gérer la consommation des ressources de service.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
 Les *mesures* sont les ressources qui intéressent vos services et qui sont fournies par les nœuds dans le cluster. Une mesure représente ce que vous souhaitez gérer afin d’améliorer ou de surveiller les performances de vos services. Par exemple, vous pourrez surveiller la consommation de mémoire pour savoir si votre service est surchargé. Vous pouvez également déterminer si le service peut être déplacé vers un autre emplacement où la mémoire est moins contrainte afin d’obtenir de meilleures performances.
@@ -32,11 +32,11 @@ Supposons que vous souhaitez commencer à écrire et à déployer votre service.
   - ReplicaCount - nombre total de réplicas avec état sur le nœud
   - Count - nombre de tous les objets de service (avec et sans état) sur le nœud
 
-| Mesure | Charge de l’instance sans état | Charge secondaire avec état | Charge principale avec état |
+| Métrique | Charge de l’instance sans état | Charge secondaire avec état | Charge principale avec état |
 | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |
 | ReplicaCount |0 |1 |1 |
-| Nombre |1 |1 |1 |
+| Count |1 |1 |1 |
 
 Pour les charges de travail de base, les mesures par défaut fournissent une distribution acceptable du travail dans le cluster. Dans l’exemple suivant, examinons ce qui se passe lorsque nous créons deux services et que nous utilisons les mesures par défaut pour l’équilibrage. Le premier est un service avec état présentant trois partitions et une taille de jeu de réplicas cible de trois. Le second est un service sans état présentant une partition et un nombre d’instances de trois.
 
@@ -141,7 +141,7 @@ Rappel : si vous voulez simplement utiliser les mesures par défaut, vous n’a
 À présent, passons en revue chacun de ces paramètres plus en détail et examinons leur impact sur le comportement.
 
 ## <a name="load"></a>charger
-La définition de mesures a pour but de représenter certaines charges. Une *charge* correspond à la quantité d’une mesure spécifique qui est consommée par une instance ou un réplica de service sur un nœud donné. La charge peut être configurée en presque n’importe quel point. Par exemple :
+La définition de mesures a pour but de représenter certaines charges. Une *charge* correspond à la quantité d’une mesure spécifique qui est consommée par une instance ou un réplica de service sur un nœud donné. La charge peut être configurée en presque n’importe quel point. Par exemple : 
 
   - La charge peut être définie lors de la création d’un service. Il s’agit d’une _charge par défaut_.
   - Les informations sur les mesures, notamment les charges par défaut, d’un service peuvent être mises à jour une fois le service créé. Il s’agit de la _mise à jour d’un service_. 

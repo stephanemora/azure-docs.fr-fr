@@ -27,7 +27,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
     - name: Modèles Resource Manager
       href: template-samples.md
@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: Procédures
   items:
-    - name: Planifier et concevoir
+    - name: Planification
       items:
         - name: Réseaux virtuels
           href: virtual-network-vnet-plan-design-arm.md
-        - name: Groupes de sécurité réseau
-          href: virtual-networks-nsg.md
     - name: Déployer
       items:
         - name: Groupes de sécurité réseau
@@ -77,13 +75,13 @@
               href: virtual-networks-create-nsg-arm-pportal.md
         - name: Tables de routage
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: tutorial-create-route-table-powershell.md
             - name: Azure CLI
               href: tutorial-create-route-table-cli.md
         - name: Points de terminaison de service
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: tutorial-restrict-network-access-to-resources-powershell.md
             - name: Azure CLI
               href: tutorial-restrict-network-access-to-resources-cli.md
@@ -91,7 +89,7 @@
           items:
             - name: Même mode de déploiement - même abonnement
               items:
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: tutorial-connect-virtual-networks-powershell.md
                 - name: Azure CLI
                   href: tutorial-connect-virtual-networks-cli.md
@@ -107,7 +105,7 @@
               items:
                 - name: Portail Azure
                   href: virtual-network-deploy-static-pip-arm-portal.md
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: virtual-network-deploy-static-pip-arm-ps.md
                 - name: Azure CLI
                   href: virtual-network-deploy-static-pip-arm-cli.md
@@ -115,13 +113,13 @@
               items:
                 - name: Portail Azure
                   href: virtual-networks-static-private-ip-arm-pportal.md
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: virtual-networks-static-private-ip-arm-ps.md
                 - name: Azure CLI
                   href: virtual-networks-static-private-ip-arm-cli.md
             - name: 'Créer des machines virtuelles : plusieurs interfaces réseau'
               items:
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Azure CLI
                   href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -129,13 +127,13 @@
               items:
                 - name: Portail Azure
                   href: virtual-network-multiple-ip-addresses-portal.md
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: virtual-network-multiple-ip-addresses-powershell.md
                 - name: Azure CLI
                   href: virtual-network-multiple-ip-addresses-cli.md
             - name: 'Créer des machines virtuelles : mise en réseau accélérée'
               items:
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: create-vm-accelerated-networking-powershell.md
                 - name: Azure CLI
                   href: create-vm-accelerated-networking-cli.md
@@ -210,13 +208,13 @@
           items:
             - name: Portail Azure
               href: virtual-network-nsg-troubleshoot-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: virtual-network-nsg-troubleshoot-powershell.md
         - name: Itinéraires
           items:
             - name: Portail Azure
               href: virtual-network-routes-troubleshoot-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: virtual-network-routes-troubleshoot-powershell.md
         - name: Test de débit
           href: virtual-network-bandwidth-testing.md
@@ -235,7 +233,7 @@
               items:
                 - name: Portail Azure
                   href: virtual-networks-create-vnet-classic-pportal.md
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: virtual-networks-create-vnet-classic-netcfg-ps.md
                 - name: Azure CLI
                   href: virtual-networks-create-vnet-classic-cli.md
@@ -251,13 +249,13 @@
                   href: virtual-networks-migrate-to-regional-vnet.md
         - name: Créer un groupe de sécurité réseau
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: virtual-networks-create-nsg-classic-ps.md
             - name: Azure CLI 1.0
               href: virtual-networks-create-nsg-classic-cli.md
         - name: Créer une table de routage
           items:
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: virtual-network-create-udr-classic-ps.md
             - name: Azure CLI
               href: virtual-network-create-udr-classic-cli.md
@@ -265,7 +263,7 @@
           items:
             - name: 'Créer des machines virtuelles : plusieurs interfaces réseau'
               items:
-                - name: "Azure\_PowerShell"
+                - name: Azure PowerShell
                   href: virtual-network-deploy-multinic-classic-ps.md
                 - name: Azure CLI
                   href: virtual-network-deploy-multinic-classic-cli.md
@@ -275,7 +273,7 @@
               items:
                 - name: "Adresses\_IP statiques"
                   items:
-                    - name: "Azure\_PowerShell"
+                    - name: Azure PowerShell
                       href: virtual-networks-reserved-private-ip.md
                     - name: Azure CLI
                       href: virtual-networks-static-private-ip-classic-cli.md
@@ -285,7 +283,7 @@
                   items:
                     - name: Portail Azure
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-                    - name: "Azure\_PowerShell"
+                    - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
         - name: Service cloud et sécurité réseau
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -302,7 +300,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/network
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/module/azurerm.network
     - name: .NET
       href: /api/overview/azure/virtual-network

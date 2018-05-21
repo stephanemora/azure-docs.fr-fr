@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Organiser les ressources avec des groupes d’administration
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Faites des économies grâce aux instances de machines virtuelles réservées
+    - name: Enregistrer avec des instances réservées Azure
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Prépayer les machines virtuelles avec des instances réservées
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Gérer des instances réservées
+          href: billing-manage-reserved-vm-instance.md
+        - name: Comprendre l’application de remise sur les instances réservées
+          href: billing-understand-vm-reservation-charges.md
+        - name: Comprendre l’utilisation des instances réservées pour le paiement à l’utilisation
+          href: billing-understand-reserved-instance-usage.md
+        - name: Comprendre l’utilisation des instances réservées pour l’Entreprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Réserver les coûts des instances Windows
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Limites et quotas
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Procédures
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Comprendre le mappage de mesure des services gratuits
           href: billing-understand-free-service-meter-mapping.md
-        - name: Coûts des instances de machines virtuelles réservées Windows
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Comprendre l’application de remise sur les instances de machines virtuelles réservées
-          href: billing-understand-vm-reservation-charges.md
         - name: Comprendre le plafond des dépenses
           href: billing-spending-limit.md
         - name: Configurer des alertes de facturation
           href: billing-set-up-alerts.md
         - name: Résoudre le solde dû
           href: billing-azure-subscription-past-due-balance.md
-        - name: Comprendre l’utilisation des instances réservées pour le paiement à l’utilisation
-          href: billing-understand-reserved-instance-usage.md
-        - name: Comprendre l’utilisation des instances réservées pour l’Entreprise
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Gérer les abonnements
       items:
         - name: Trouver l’abonnement ou le groupe d’administration
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Afficher les comptes de facturation
           href: billing-view-all-accounts.md
-    - name: Gérer des instances de machines virtuelles réservées
-      href: billing-manage-reserved-vm-instance.md
     - name: Résolution des problèmes
       items:
         - name: Problèmes d’inscription

@@ -1,6 +1,6 @@
 ---
-title: "Créer des machines virtuelles exécutant une pile SQL&#92;IIS&#92;.NET dans Azure | Microsoft Docs"
-description: Didacticiel - Installer une pile Azure SQL, IIS, .NET sur une machine virtuelle Windows.
+title: 'Tutoriel : Créer des machines virtuelles exécutant une pile SQL&#47;IIS&#47;.NET dans Azure | Microsoft Docs'
+description: Dans ce tutoriel, vous allez apprendre à installer la pile Azure SQL, IIS, .NET sur une machine virtuelle Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9fea933dd664955a0bc6f47db775fbc469fd684
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Installer une pile SQL&#92;IIS&#92;.NET dans Azure
+# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutoriel : Installer la pile SQL&#47;IIS&#47;.NET dans une machine virtuelle Windows avec Azure PowerShell
 
-Dans ce didacticiel, nous installons une pile SQL&#92;IIS&#92;.NET avec Azure PowerShell. Cette pile se compose de deux machines virtuelles exécutant Windows Server 2016 : une avec IIS et .NET, et l’autre avec SQL Server.
+Dans ce tutoriel, nous installons une pile SQL&#47;IIS&#47;.NET avec Azure PowerShell. Cette pile se compose de deux machines virtuelles exécutant Windows Server 2016 : une avec IIS et .NET, et l’autre avec SQL Server.
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle 
@@ -33,7 +33,7 @@ Dans ce didacticiel, nous installons une pile SQL&#92;IIS&#92;.NET avec Azure Po
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module AzureRM.Compute version 4.3.1 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM.Compute` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Si vous choisissez d’installer et d’utiliser PowerShell en local, ce tutoriel nécessite le module AzureRM.Compute version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM.Compute` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Créer une machine virtuelle IIS 
 

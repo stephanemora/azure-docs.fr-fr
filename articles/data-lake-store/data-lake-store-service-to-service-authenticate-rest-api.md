@@ -1,23 +1,21 @@
 ---
-title: "Authentification de service à service : API REST avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment procéder à une authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory à l’aide de l’API REST"
+title: 'Authentification de service à service : API REST avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs'
+description: Découvrez comment procéder à une authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory à l’aide de l’API REST
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 80934d3e5ded5c01e473f8450a3484d84c46e94e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 89a747fec08ad96c21429d2034eaf395e65566a4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>Authentification de service à service auprès de Data Lake Store à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -30,7 +28,8 @@ ms.lasthandoff: 01/10/2018
 
 Dans cet article, vous allez apprendre à utiliser l’API REST pour effectuer une authentification de service à service auprès d’Azure Data Lake Store. Pour plus d’informations sur l’authentification des utilisateurs finaux auprès d’Azure Data Lake Store à l’aide de l’API REST, consultez [Authentification des utilisateurs finaux auprès de Data Lake Store avec l’API REST](data-lake-store-end-user-authenticate-rest-api.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Créez une application « web » Azure Active Directory**. Vous devez avoir suivi la procédure [Authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
