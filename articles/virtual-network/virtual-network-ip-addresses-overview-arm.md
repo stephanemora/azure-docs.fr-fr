@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: d50333888592d2d3e13c40c07a7e58f8676df075
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -53,11 +53,15 @@ Les adresses IP publiques sont créées avec une adresse IPv4 et IPv6. Les adres
 
 Les adresses IP publiques sont créées avec l’une des références SKU suivantes :
 
+>[!IMPORTANT]
+> Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas joindre des machines virtuelles autonomes, des machines virtuelles dans une ressource de groupe à haute disponibilité ou des ressources de groupe de machines virtuelles identiques aux deux références SKU simultanément.  De nouvelles conceptions doivent être envisagées à l’aide des ressources de référence SKU Standard.  Veuillez consulter [Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
+
 #### <a name="basic"></a>De base
 
 Toutes les adresses IP publiques créées avant l’introduction de références SKU sont des adresses IP publiques de référence SKU de base. Depuis l’introduction des références SKU, vous avez la possibilité de spécifier quelle référence SKU attribuer à l’adresse IP publique. Les adresses de référence SKU de base sont :
 
 - Sont assignées à l’aide de la méthode d’allocation statique ou dynamique.
+- Ouvertes par défaut.  Il est recommandé d’utiliser des groupes de sécurité réseau, mais cela est facultatif pour restreindre le trafic entrant ou sortant.
 - Sont assignées aux ressources Azure acceptant une adresse IP publique, comme les interfaces réseau, les passerelles VPN, les passerelles Application Gateway et les équilibreurs de charge accessibles sur Internet.
 - Peuvent être assignées à une zone spécifique.
 - Ne sont pas redondantes dans une zone. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -67,17 +71,18 @@ Toutes les adresses IP publiques créées avant l’introduction de références
 Les adresses IP publiques de référence SKU standard :
 
 - Sont assignées à l’aide de la méthode d’allocation statique uniquement.
-- Peuvent être assignées à des interfaces réseau ou à des équilibreurs de charge standard accessibles sur Internet. Pour plus d’informations sur les références SKU de l’équilibreur de charge Azure, consultez [Référence SKU standard de l’équilibreur de charge Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Sont redondantes dans une zone par défaut. Peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Sont sécurisées par défaut et fermées au trafic entrant. Vous devez expliciter le trafic entrant autorisé sur liste verte avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).
+- Sont assignées à des interfaces réseau ou à des équilibreurs de charge standard publics. Pour plus d’informations sur les équilibreurs de charge standard, consultez [Équilibreur de charge Azure standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Sont redondantes dans une zone par défaut. Peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Quand vous assignez une adresse IP publique de référence SKU Standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups). La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.
+> La communication avec la ressource de référence SKU standard est possible uniquement si vous créez et associez un [groupe de sécurité réseau](security-overview.md#network-security-groups) et que vous autorisez explicitement le trafic entrant prévu.
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 
-L’allocation d’une adresse IP à la ressource d’une adresse IP publique est possible à l’aide de deux méthodes : *dynamique* ou *statique*. La méthode d’allocation par défaut est *dynamique*. Dans ce cas, une adresse IP n’est **pas** allouée au moment de sa création. Au lieu de cela, l’adresse IP publique est allouée lorsque vous démarrez (ou créez) la ressource associée (telle qu’une machine virtuelle ou un équilibreur de charge). L’adresse IP est libérée lorsque vous arrêtez (ou supprimez) la ressource. Après avoir été libérée de la ressource A, par exemple, l’adresse IP peut être assignée à une ressource différente. Si l’adresse IP est assignée à une ressource différente lorsque la ressource A est arrêtée, une adresse IP différente est assignée lors du redémarrage de la ressource A.
+Les adresses IP publiques de référence SKU de base et standard prennent en charge la méthode d’allocation *statique*.  La ressource est affectée à une adresse IP lors de sa création et l’adresse IP est libérée lorsque la ressource est supprimée.
 
-Pour vous assurer que l’adresse IP de la ressource associée ne change pas, vous pouvez définir explicitement à la méthode d’allocation sur *statique*. Une adresse IP statique est affectée immédiatement. L’adresse est libérée uniquement lorsque vous supprimez la ressource ou modifiez sa méthode d’allocation en *dynamique*.
+Les adresses IP publiques de référence SKU de base prennent également en charge la méthode d’allocation *dynamique*, qui est la méthode par défaut si aucune méthode d’allocation n’est spécifiée.  Si vous sélectionnez la méthode d’allocation *dynamique* pour une ressource d’adresse IP publique de base, l’adresse IP n’est **pas** allouée au moment de la création de la ressource.  L’adresse IP publique est allouée lorsque vous associez l’adresse IP publique à une machine virtuelle, ou lorsque vous placez la première instance de machine virtuelle dans le pool principal d’un équilibreur de charge de base.   L’adresse IP est libérée lorsque vous arrêtez (ou supprimez) la ressource.  Après avoir été libérée de la ressource A, par exemple, l’adresse IP peut être assignée à une ressource différente. Si l’adresse IP est assignée à une ressource différente lorsque la ressource A est arrêtée, une adresse IP différente est assignée lors du redémarrage de la ressource A. Si vous modifiez la méthode d’allocation d’une ressource d’adresse IP publique de base de *statique* à *dynamique*, l’adresse est libérée. Pour vous assurer que l’adresse IP de la ressource associée ne change pas, vous pouvez définir explicitement à la méthode d’allocation sur *statique*. Une adresse IP statique est affectée immédiatement.
 
 > [!NOTE]
 > Même lorsque vous définissez la méthode d’allocation sur *statique*, vous ne pouvez pas spécifier l’adresse IP réelle affectée à la ressource IP publique. Azure assigne l’adresse IP à partir d’un pool d’adresses IP disponibles dans l’emplacement Azure dans lequel la ressource est créée.
@@ -111,11 +116,11 @@ Vous pouvez associer une adresse IP publique créée avec l’une des deux [réf
 
 ### <a name="vpn-gateways"></a>Passerelles VPN
 
-Une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) connecte un réseau virtuel Azure (VNet) à d’autres réseaux virtuels Azure ou à un réseau local. Une adresse IP publique est assignée à une passerelle VPN pour lui permettre de communiquer avec le réseau distant. Vous pouvez affecter une adresse IP publique *dynamique* uniquement à une passerelle VPN.
+Une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) connecte un réseau virtuel Azure (VNet) à d’autres réseaux virtuels Azure ou à un réseau local. Une adresse IP publique est assignée à une passerelle VPN pour lui permettre de communiquer avec le réseau distant. Vous pouvez uniquement affecter une adresse IP publique de base *dynamique* à une passerelle VPN.
 
 ### <a name="application-gateways"></a>Passerelles d’application
 
-Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement affecter une adresse IP publique *dynamique* à une configuration frontale de passerelle d’application.
+Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement affecter une adresse IP publique de base *dynamique* à une configuration frontale de passerelle d’application.
 
 ### <a name="at-a-glance"></a>Aperçu
 Le tableau ci-dessous présente la propriété spécifique par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles (dynamique ou statique) utilisables.

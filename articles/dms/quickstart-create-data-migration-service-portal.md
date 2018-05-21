@@ -1,28 +1,28 @@
 ---
-title: "Créer une instance d’Azure Database Migration Service à l’aide du portail Azure | Microsoft Docs"
-description: "Utiliser le portail Azure pour créer une instance d’Azure Database Migration Service"
+title: Créer une instance d’Azure Database Migration Service à l’aide du portail Azure | Microsoft Docs
+description: Utiliser le portail Azure pour créer une instance d’Azure Database Migration Service
 services: database-migration
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/13/2017
-ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 05/01/2018
+ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 Dans ce démarrage rapide, vous allez utiliser le portail Azure pour créer une instance d’Azure Database Migration Service.  Une fois le service créé, vous pouvez l’utiliser pour migrer des données entre une instance locale de SQL Server et une base de données SQL Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 Ouvrez votre navigateur web, accédez au [portail Microsoft Azure](https://portal.azure.com/), puis saisissez vos informations de connexion au portail.
 
 Il s’ouvre par défaut sur le tableau de bord des services.
@@ -39,9 +39,9 @@ Avant de créer votre première instance Database Migration Service, vous devez 
 ![S’inscrire auprès du fournisseur de ressources](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Créer une instance du service
-1. Cliquez sur **+ Créer une ressource** pour créer une instance de Azure Database Migration Service, qui est actuellement en préversion.
+1. Cliquez sur **+ Créer une ressource** pour créer une instance d’Azure Database Migration Service.
 
-2. Recherchez « migration » sur la marketplace, sélectionnez **Azure Database Migration Service**, puis dans **Azure Database Migration Service (préversion)**, cliquez sur **Créer**.
+2. Recherchez « migration » sur la marketplace, sélectionnez **Azure Database Migration Service**, puis, dans l’écran **Azure Database Migration Service**, cliquez sur **Créer**.
 
 3. Sur l’écran **Database Migration Service** : 
 
