@@ -1,5 +1,5 @@
 ---
-title: "Présentation des machines virtuelles Azure Stack"
+title: Présentation des machines virtuelles Azure Stack
 description: En savoir plus sur les machines virtuelles Azure Stack
 services: azure-stack
 author: mattbriggs
@@ -8,41 +8,41 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Présentation des machines virtuelles Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 ## <a name="overview"></a>Vue d'ensemble
-Une machine virtuelle Azure Stack est un type de ressource informatique évolutive à la demande proposé par Azure Stack. En règle générale, une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
+Une machine virtuelle Azure Stack est un type de ressource informatique scalable à la demande que propose Azure Stack. En règle générale, une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
 
-Une machine virtuelle Azure Stack vous offre la souplesse de la virtualisation, sans devoir gérer les machines ou clusters individuellement. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
+Une machine virtuelle Azure Stack vous offre la souplesse de la virtualisation, sans qu’il soit nécessaire de gérer des clusters ou des machines individuelles. Vous devez cependant toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent sur celle-ci.
 
-Les machines virtuelles Azure Stack peuvent être utilisées de différentes manières. Par exemple : 
+Vous pouvez utiliser des machines virtuelles Azure Stack de différentes manières. Par exemple : 
 
 * **Développement et test** : les machines virtuelles Azure Stack permettent de créer rapidement et facilement un ordinateur avec une configuration spécifique requise pour encoder et tester une application.
 
 * **Applications dans le cloud** : la demande de votre application étant susceptible de fluctuer, il peut être économique de l’exécuter sur une machine virtuelle dans Azure Stack. Vous payez pour des machines virtuelles supplémentaires lorsque vous en avez besoin et vous les arrêtez le reste du temps.
 
-* **Centre de données étendu** : les machines virtuelles au sein d’un réseau virtuel Azure Stack peuvent être facilement connectées au réseau de votre organisation ou à Azure.
+* **Centre de données étendu** : les machines virtuelles au sein d’un réseau virtuel Azure Stack peuvent être facilement connectées au réseau de votre organisation ou à Azure.
 
-Le nombre de machines virtuelles utilisées par votre application peut varier (montée en puissance et augmentation de la charge) pour répondre à vos besoins.
+Les machines virtuelles utilisées par votre application peuvent augmenter en nombre (scale up) ou en taille (scale out) pour répondre à vos besoins.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>À quoi dois-je penser avant de créer une machine virtuelle ?
 
-Il existe toujours une multitude de considérations liées à la conception lorsque vous générez une infrastructure d’application dans Azure Stack. Il est important de réfléchir à ces aspects des machines virtuelles avant de commencer :
+Un grand nombre de considérations liées à la conception sont à prendre en compte quand vous créez une infrastructure d’application dans Azure Stack. Avant de commencer à créer votre infrastructure, il est important de réfléchir aux aspects suivants concernant les machines virtuelles :
 
-- le nom de vos ressources d’application,
-- la taille de la machine virtuelle,
-- le nombre maximal de machines virtuelles qui peuvent être créées,
-- le système d’exploitation de la machine virtuelle,
-- la configuration de la machine virtuelle après son démarrage 
-- et les ressources liées dont a besoin la machine virtuelle.
+* Les noms des ressources de votre application.
+* La taille de la machine virtuelle.
+* Le nombre maximal de machines virtuelles qui peuvent être créées.
+* Le système d’exploitation exécuté par la machine virtuelle.
+* La configuration de la machine virtuelle après son démarrage.
+* Les ressources liées nécessaires à la machine virtuelle.
 
 ### <a name="naming"></a>Dénomination
 
@@ -61,10 +61,9 @@ Votre abonnement comporte des limites de quota par défaut qui peuvent avoir un 
 ### <a name="operating-system-disks-and-images"></a>Images et disques du système d’exploitation
 
 Les machines virtuelles utilisent des disques durs virtuels pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation.
-Azure Stack fournit une place de marché à utiliser avec différentes versions et types de systèmes d’exploitation. Les images Marketplace sont identifiées par l’éditeur d’images, l’offre, la référence (SKU) et la version (la version est généralement spécifiée en dernier).
+Azure Stack fournit une place de marché à utiliser avec différentes versions et types de systèmes d’exploitation. Les images de la Place de marché sont identifiées par l’éditeur de l’image, l’offre, la référence SKU et la version (la version est généralement spécifiée en dernier).
 
 Le tableau suivant présente différents moyens de rechercher les informations relatives à une image :
-
 
 |Méthode|Description|
 |---------|---------|
@@ -112,7 +111,12 @@ Le tableau suivant fournit des informations pour vous aider à créer votre mach
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Comment gérer la machine virtuelle créée ?
 
-Les machines virtuelles peuvent être gérées à l’aide d’un portail sur navigateur, d’outils de ligne de commande avec prise en charge des scripts ou directement au moyen des API. Certaines tâches de gestion courantes que vous êtes susceptible d’effectuer récupèrent des informations sur une machine virtuelle, s’y connectent, gèrent la disponibilité et effectuent des sauvegardes.
+Vous pouvez gérer les machines virtuelles via un portail basé sur un navigateur, via des outils en ligne de commande avec prise en charge des scripts ou directement via des API. Voici quelques tâches de gestion classiques que vous pouvez effectuer :
+
+* Obtenir des informations sur une machine virtuelle
+* Se connecter à une machine virtuelle
+* Gérer la disponibilité
+* Faire des sauvegardes
 
 ### <a name="get-information-about-a-vm"></a>Obtenir des informations sur une machine virtuelle
 
@@ -122,7 +126,7 @@ Le tableau suivant indique différents moyens d’obtenir des informations sur u
 |Méthode|Description|
 |---------|---------|
 |Portail Azure Stack|Dans le menu Hub, cliquez sur Machines virtuelles, puis sélectionnez la machine virtuelle dans la liste. Sur la page de la machine virtuelle, vous pouvez consulter les informations de vue d’ensemble, fixer des valeurs et surveiller les métriques.|
-|Azure PowerShell|La gestion des machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations sur l’utilisation de PowerShell, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Azure PowerShell|La gestion des machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations sur l’utilisation de PowerShell, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |Kits de développement logiciel (SDK) client|L’utilisation de C# pour gérer les machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle
@@ -130,5 +134,5 @@ Le tableau suivant indique différents moyens d’obtenir des informations sur u
 Vous pouvez utiliser le bouton **Se connecter** dans le portail Azure Stack pour vous connecter à votre machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
 
+* [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)

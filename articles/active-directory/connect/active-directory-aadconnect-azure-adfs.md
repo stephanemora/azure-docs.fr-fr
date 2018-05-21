@@ -1,12 +1,12 @@
 ---
-title: "Services de fédération Active Directory dans Azure | Microsoft Docs"
-description: "Dans ce document, vous allez apprendre à déployer AD FS dans Azure pour bénéficier d’une haute disponibilité."
-keywords: "déployer AD FS dans azure, déployer azure adfs, azure adfs, azure ad fs, déployer adfs, déployer ad fs, adfs dans azure, déployer adfs dans azure, déployer AD FS dans azure, adfs azure, présentation d’AD FS, Azure, AD FS dans Azure, iaas, ADFS, déplacer adfs vers azure"
+title: Services de fédération Active Directory dans Azure | Microsoft Docs
+description: Dans ce document, vous allez apprendre à déployer AD FS dans Azure pour bénéficier d’une haute disponibilité.
+keywords: déployer AD FS dans azure, déployer azure adfs, azure adfs, azure ad fs, déployer adfs, déployer ad fs, adfs dans azure, déployer adfs dans azure, déployer AD FS dans azure, adfs azure, présentation d’AD FS, Azure, AD FS dans Azure, iaas, ADFS, déplacer adfs vers azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
@@ -214,7 +214,7 @@ Pour faire en sorte que les serveurs Web Application Proxy soient en mesure d’
 
 **7.2. Installation du rôle Web Application Proxy**
 
-Après avoir vérifié que les serveurs Web Application Proxy sont bien en mesure d’atteindre les serveurs AD FS situés derrière l’équilibreur de charge interne, vous pouvez installer les serveurs Web Application Proxy. Les serveurs Web Application Proxy ne doivent pas être joints au domaine. Installez les rôles Web Application Proxy sur les deux serveurs Web Application Proxy en sélectionnant le rôle Accès à distance. Le gestionnaire de serveurs vous guide dans l’installation du serveur WAP.
+Après avoir vérifié que les serveurs Web Application Proxy sont bien en mesure d’atteindre les serveurs AD FS situés derrière l’équilibreur de charge interne, vous pouvez installer les serveurs Web Application Proxy. Les serveurs Web Application Proxy n’ont pas besoin d’être joints au domaine. Installez les rôles Web Application Proxy sur les deux serveurs Web Application Proxy en sélectionnant le rôle Accès à distance. Le gestionnaire de serveurs vous guide dans l’installation du serveur WAP.
 Pour plus d’informations sur le déploiement de WAP, consultez la page [Installer et configurer le serveur proxy d’application web](https://technet.microsoft.com/library/dn383662.aspx).
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Déployer l’équilibreur de charge (public) accessible sur Internet

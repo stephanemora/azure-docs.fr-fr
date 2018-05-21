@@ -2,35 +2,29 @@
 title: Réinitialisation du mot de passe libre-service d’Azure AD à partir de l’écran de connexion Windows 10 | Microsoft Docs
 description: Configurer la réinitialisation de mot de passe Azure AD depuis l’écran de connexion Windows 10 et la fonction J’ai oublié mon code PIN
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
 Vous avez déjà déployé la fonction de réinitialisation de mot de passe libre-service d’Azure AD (SSPR), mais les utilisateurs continuent d’appeler le support technique lorsqu’ils oublient leur mot de passe. En effet, ils ne parviennent pas à accéder à un navigateur web pour accéder à la fonction SSPR.
 
-Avec la nouvelle mise à jour Windows 10 Fall Creators Update, les utilisateurs dotés d’appareils joints Azure AD ont accès à un lien Réinitialiser le mot de passe, affiché sur l’écran de connexion. Lorsqu’ils cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà.
+Avec la nouvelle mise à jour d’avril 2018 de Windows 10, les utilisateurs qui ont des appareils **joints à Azure AD** ou **joints à Azure AD hybrides** peuvent voir et utiliser un lien de réinitialisation de mot de passe sur leur écran de connexion. Lorsqu’ils cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà.
 
 Pour permettre aux utilisateurs de réinitialiser leur mot de passe Azure AD à partir de l’écran de connexion Windows 10, vous devez :
 
-* installer Windows 10 version 1709, ou une version plus récente du client [joint à Azure AD](../device-management-azure-portal.md).
+* Mise à jour d’avril 2018 de Windows 10 ou client plus récent [joint à Azure AD](../device-management-azure-portal.md) ou [joint à Azure AD hybride](../device-management-hybrid-azuread-joined-devices-setup.md).
 * activer la réinitialisation du mot de passe libre-service Azure AD.
 * Configurez et déployez le paramètre permettant d’activer le lien de réinitialisation du mot de passe via l’une des méthodes suivantes :
    * [Profil de configuration d’appareil Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ Pour permettre aux utilisateurs de réinitialiser leur mot de passe Azure AD à 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur **Azure Active Directory**.
 2. Accédez à **Utilisateurs et groupes** > **Tous les groupes** > **Nouveau groupe**
-3. Donnez un nom au groupe et, sous **Type d’appartenance**, choisissez **Affecté** 
+3. Donnez un nom au groupe et, sous **Type d’appartenance**, choisissez **Affecté**
    * Sous **Membres**, choisissez les appareils Windows 10 joints au domaine Azure Active Directory auxquels vous souhaitez appliquer la stratégie.
    * Cliquez sur **Sélectionner**
 4. Cliquez sur **Créer**
@@ -117,6 +111,7 @@ Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance, le 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
 * [Comment faire pour déployer la fonction SSPR ?](howto-sspr-deployment.md)

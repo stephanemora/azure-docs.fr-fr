@@ -1,9 +1,9 @@
 ---
-title: "Modèle de données de télémétrie d’Azure Application Insights : télémétrie des événements | Microsoft Docs"
-description: "Modèle de données Application Insights pour la télémétrie des événements"
+title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des événements | Microsoft Docs'
+description: Modèle de données Application Insights pour la télémétrie des événements
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: dc6ef1771f4f09b274f12606d1278e1f29c23103
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 4f6b5c35b65b4aff2dbe8dafbb2eb07d75c2382a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Télémétrie des événements : modèle de données Application Insights
 
@@ -24,7 +24,7 @@ Vous pouvez créer des éléments de télémétrie (dans [Application Insights](
 
 Sur le plan sémantique, les événements ne sont pas forcément corrélés aux requêtes. Toutefois, si la télémétrie des événements est utilisée correctement, elle est plus importante que les requêtes ou les traces. Les événements représentent la télémétrie métier et doivent faire l’objet d’un [échantillonnage](app-insights-api-filtering-sampling.md) distinct, moins agressif.
 
-## <a name="name"></a>Nom
+## <a name="name"></a>NOM
 
 Nom de l’événement. Pour permettre le regroupement approprié et des mesures utiles, limitez votre application afin qu’elle génère un petit nombre de noms d’événements distincts. Par exemple, n’utilisez pas un nom distinct pour chaque instance générée d’un événement.
 

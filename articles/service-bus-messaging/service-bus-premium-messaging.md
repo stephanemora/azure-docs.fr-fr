@@ -1,34 +1,34 @@
 ---
-title: "Vue d’ensemble des niveaux tarifaires de messagerie Azure Service Bus Premium et Standard | Microsoft Docs"
+title: Vue d’ensemble des niveaux tarifaires de messagerie Azure Service Bus Premium et Standard | Microsoft Docs
 description: Couches messagerie Service Bus Premium et Standard
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
 La messagerie Service Bus, qui comprend des entités telles que les files d’attente et les rubriques, associe des fonctionnalités de messagerie d’entreprise à une sémantique riche de publication et d’abonnement à l’échelle du cloud. La messagerie Service Bus sert d’infrastructure de communication à de nombreuses solutions cloud sophistiquées.
 
-La couche *Premium* de la messagerie Service Bus répond aux demandes couramment formulées par les clients concernant la mise à l’échelle, les performances et la disponibilité de leurs applications critiques. Bien qu’offrant des ensembles de fonctionnalités quasiment identiques, les deux couches de messagerie Service Bus sont conçues pour différents cas de figure.
+La couche *Premium* de la messagerie Service Bus répond aux demandes couramment formulées par les clients concernant la mise à l’échelle, les performances et la disponibilité de leurs applications critiques. Le niveau Premium est recommandé pour les scénarios de production. Bien qu’offrant des ensembles de fonctionnalités quasiment identiques, les deux couches de messagerie Service Bus sont conçues pour différents cas de figure.
 
 Les principales différences sont répertoriées dans le tableau suivant.
 
-| Premium | Standard |
+| Premium | standard |
 | --- | --- |
 | Débit élevé |Débit variable |
 | Performances prévisibles |Latence variable |
@@ -46,11 +46,7 @@ Les sections suivantes décrivent les quelques différences entre les couches de
 
 ### <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
-Les files d’attente et rubriques partitionnées sont prises en charge dans la messagerie Premium ; en fait ces entités sont toujours partitionnées (et ne peut pas être désactivées). Toutefois, les files d’attente et les rubriques partitionnées Premium ne fonctionnent pas de la même manière que dans les couches Standard de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire pour améliorer les performances. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à 2 partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. 
-
-Avec la messagerie Premium, lorsque vous spécifiez la taille d’une entité avec [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), cette taille est divisée de manière égale entre les 2 partitions, contrairement aux [entités partitionnées Standard](service-bus-partitioning.md#standard) dans lesquelles la taille totale correspond à 16 fois la taille spécifiée. 
-
-Pour plus d’informations sur le partitionnement, voir [Files d’attentes et rubriques partitionnées](service-bus-partitioning.md).
+Les files d’attente et les rubriques partitionnées ne sont pas prises en charge dans la messagerie Premium. Pour plus d’informations sur le partitionnement, voir [Files d’attentes et rubriques partitionnées](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entités Express
 
@@ -64,7 +60,7 @@ La prise en main de Premium Messaging est immédiate ; le processus est similai
 
 ![create-premium-namespace][create-premium-namespace]
 
-Vous pouvez également créer des [espaces de noms Premium à l’aide de modèles Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Vous pouvez également créer des [espaces de noms Premium à l’aide de modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

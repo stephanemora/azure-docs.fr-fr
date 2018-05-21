@@ -543,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: Se connecter à distance à la machine virtuelle du nœud de cluster
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: Mettre à niveau/migrer une référence SKU VMSS
+              href: service-fabric-update-vmss-sku.md
         - name: Clusters autonomes
           items:
             - name: Créer

@@ -1,9 +1,9 @@
 ---
-title: "Modèle de données de télémétrie d’Azure Application Insights : télémétrie des mesures | Microsoft Docs"
-description: "Modèle de données Application Insights pour la télémétrie des mesures"
+title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des mesures | Microsoft Docs'
+description: Modèle de données Application Insights pour la télémétrie des mesures
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 4139e3675e2202cc42b6b8d7ff7562e9c9d693bb
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 3feb1e79ba4e4666cbe9ffc77136520922728710
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Télémétrie des mesure : modèle de données Application Insights
 
@@ -70,7 +70,7 @@ Si la propriété personnalisée `CustomPerfCounter` d’une métrique est défi
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment utiliser [l’API Application Insights pour les événements et les mesures personnalisés](app-insights-api-custom-events-metrics.md#trackmetric).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).

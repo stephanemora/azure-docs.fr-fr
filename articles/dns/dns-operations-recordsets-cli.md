@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 05/15/2018
 ms.author: kumud
-ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d7a90cb46c25e4e01b89bbf4da563685e92a7249
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI 2.0
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur les enregistrements DNS dans Azure DNS, voir [Enr
 
 ## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 
-Pour créer un enregistrement DNS, utilisez la commande `az network dns record-set <record-type> set-record` (où `<record-type>` correspond au type d’enregistrement, c’est-à-dire a, srv, txt, etc.) Pour obtenir de l’aide, consultez l’article `az network dns record-set --help`.
+Pour créer un enregistrement DNS, utilisez la commande `az network dns record-set <record-type> add-record` (où `<record-type>` correspond au type d’enregistrement, c’est-à-dire a, srv, txt, etc.) Pour obtenir de l’aide, consultez l’article `az network dns record-set --help`.
 
 Lors de la création d’un enregistrement, vous devez spécifier le nom du groupe de ressources, le nom de la zone, le type d’enregistrement et les détails de l’enregistrement créé. Le nom du jeu d’enregistrements doit être un nom *relatif*, c’est-à-dire qu’il ne doit pas contenir le nom de la zone.
 
@@ -52,13 +52,13 @@ Si un jeu d’enregistrements est créé, une durée de vie (TTL) de 3600 est ut
 L’exemple suivant crée un enregistrement A appelé *www* dans la zone *contoso.com* du groupe de ressources *MyResourceGroup*. L’adresse IP de l’enregistrement A est *1.2.3.4*.
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 Pour créer un jeu d’enregistrements à l’extrémité de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "@" (guillemets compris) :
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>Créer un jeu d’enregistrements DNS
@@ -81,13 +81,13 @@ L’exemple suivant crée un jeu d’enregistrements avec deux entrées de méta
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-Après avoir créé un jeu d’enregistrements vide, les enregistrements peuvent être ajoutés à l’aide de `azure network dns record-set <record-type> set-record`, comme décrit dans [Création d’un enregistrement DNS](#create-a-dns-record).
+Après avoir créé un jeu d’enregistrements vide, les enregistrements peuvent être ajoutés à l’aide de `azure network dns record-set <record-type> add-record`, comme décrit dans [Création d’un enregistrement DNS](#create-a-dns-record).
 
 ## <a name="create-records-of-other-types"></a>Créer des enregistrements d’autres types
 
 À présent que nous avons vu en détail comment créer des enregistrements de type « A », les exemples suivants montrent comment créer des enregistrements d’autres types pris en charge par Azure DNS.
 
-Les paramètres utilisés pour spécifier les données de l’enregistrement varient selon le type de l’enregistrement. Par exemple, pour un enregistrement de type « A », vous spécifiez l’adresse IPv4 avec le paramètre `--ipv4-address <IPv4 address>`. Les paramètres pour chaque type d’enregistrement peuvent être spécifiés à l’aide de `az network dns record-set <record-type> set-record --help`.
+Les paramètres utilisés pour spécifier les données de l’enregistrement varient selon le type de l’enregistrement. Par exemple, pour un enregistrement de type « A », vous spécifiez l’adresse IPv4 avec le paramètre `--ipv4-address <IPv4 address>`. Les paramètres pour chaque type d’enregistrement peuvent être spécifiés à l’aide de `az network dns record-set <record-type> add-record --help`.
 
 Dans chaque cas, nous montrons comment créer un seul enregistrement. L’enregistrement est ajouté au jeu d’enregistrements existant, ou à un jeu d’enregistrements créé implicitement. Pour plus d’informations sur la création de jeux d’enregistrements et la définition explicite des paramètres de jeu d’enregistrements, consultez [Création d’un jeu d’enregistrements DNS](#create-a-dns-record-set).
 
@@ -96,7 +96,7 @@ Nous ne donnons pas d’exemple de création de jeu d’enregistrements SOA (Arc
 ### <a name="create-an-aaaa-record"></a>Créer un enregistrement AAAA
 
 ```azurecli
-az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
 ### <a name="create-an-caa-record"></a>Créer un enregistrement CAA
@@ -121,13 +121,13 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « @ » pour créer l’enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
 
 ```azurecli
-az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
+az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>Créer un enregistrement NS
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
 ```
 
 ### <a name="create-a-ptr-record"></a>Création d’un enregistrement PTR
@@ -135,7 +135,7 @@ az network dns record-set ns set-record --resource-group myresourcegroup --zone-
 Dans ce cas, « my-arpa-zone.com » indique la zone ARPA représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP.  Le nom d’enregistrement « 10 » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
 
 ```azurecli
-az network dns record-set ptr set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
+az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
 ```
 
 ### <a name="create-an-srv-record"></a>Création d’un enregistrement SRV
@@ -143,7 +143,7 @@ az network dns record-set ptr set-record --resource-group myresourcegroup --zone
 Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "@" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
 
 ```azurecli
-az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
+az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
 ```
 
 ### <a name="create-a-txt-record"></a>Création d’un enregistrement TXT
@@ -151,7 +151,7 @@ az network dns record-set srv set-record --resource-group myresourcegroup --zone
 L’exemple suivant montre comment créer un enregistrement TXT. Pour plus d’informations sur la longueur maximale de chaîne prise en charge dans les enregistrements TXT, voir [Enregistrements TXT](dns-zones-records.md#txt-records).
 
 ```azurecli
-az network dns record-set txt set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
+az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
 ```
 
 ## <a name="get-a-record-set"></a>Obtention d’un jeu d'enregistrements
@@ -184,7 +184,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>Ajouter un enregistrement à un jeu d’enregistrements existant
 
-Vous pouvez utiliser `az network dns record-set <record-type> set-record` à la fois pour créer un enregistrement dans un nouveau jeu d’enregistrements ou pour ajouter un enregistrement à un jeu d’enregistrements existant.
+Vous pouvez utiliser `az network dns record-set <record-type> add-record` à la fois pour créer un enregistrement dans un nouveau jeu d’enregistrements ou pour ajouter un enregistrement à un jeu d’enregistrements existant.
 
 Pour plus d’informations, consultez [Création d’un enregistrement DNS](#create-a-dns-record) et [Création d’enregistrements d’autres types](#create-records-of-other-types) ci-dessus.
 
@@ -194,7 +194,7 @@ Pour supprimer un enregistrement DNS d’un jeu d'enregistrements existant, util
 
 Cette commande supprime un enregistrement DNS d’un jeu d’enregistrements. Si le dernier enregistrement d’un jeu d’enregistrements est supprimé, le jeu d’enregistrements lui-même est également supprimé. Pour conserver le jeu d’enregistrements vide, utilisez l’option `--keep-empty-record-set`.
 
-Vous devez spécifier l’enregistrement à supprimer et la zone de laquelle il doit être supprimé, en utilisant les mêmes paramètres que lors de la création d’un enregistrement avec `az network dns record-set <record-type> set-record`. Ces paramètres sont décrits dans [Création d’un enregistrement DNS](#create-a-dns-record) et [Création d’enregistrements d’autres types](#create-records-of-other-types) ci-dessus.
+Vous devez spécifier l’enregistrement à supprimer et la zone de laquelle il doit être supprimé, en utilisant les mêmes paramètres que lors de la création d’un enregistrement avec `az network dns record-set <record-type> add-record`. Ces paramètres sont décrits dans [Création d’un enregistrement DNS](#create-a-dns-record) et [Création d’enregistrements d’autres types](#create-records-of-other-types) ci-dessus.
 
 L’exemple suivant supprime l’enregistrement A avec la valeur « 1.2.3.4 » du jeu d’enregistrements *www* dans la zone *contoso.com* du groupe de ressources *MyResourceGroup*.
 
@@ -213,7 +213,7 @@ Pour modifier un enregistrement existant de type A, AAAA, CAA, MX, NS, PTR, SRV 
 L’exemple suivant montre comment modifier un enregistrement « A », de l’adresse IP 1.2.3.4 à l’adresse IP 5.6.7.8 :
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
@@ -254,7 +254,7 @@ Notez que cela s’applique uniquement au jeu d’enregistrements NS défini à 
 L’exemple suivant montre comment ajouter un serveur de noms supplémentaire au jeu d’enregistrements NS défini à l’apex de la zone :
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Pour modifier la durée de vie (TTL) d’un jeu d’enregistrements

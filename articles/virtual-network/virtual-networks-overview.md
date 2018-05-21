@@ -17,15 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 072a4a483cb39a6f2827b6d5973ec544fd58d09c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
-Le réseau virtuel Azure permet à de nombreux types de ressources Azure, tels que les machines virtuelles (VM) Azure de communiquer en toute sécurité entre elles, avec Internet et avec les réseaux locaux. Le réseau virtuel Azure fournit les fonctionnalités clés suivantes : 
+Le réseau virtuel Azure permet à de nombreux types de ressources Azure, tels que les machines virtuelles (VM) Azure de communiquer en toute sécurité entre elles, avec Internet et avec les réseaux locaux. Le réseau virtuel Azure fournit les fonctionnalités clés suivantes :
 
 ## <a name="isolation-and-segmentation"></a>Isolement et segmentation
 
@@ -42,7 +42,7 @@ Toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers 
 
 Les ressources Azure communiquent en toute sécurité entre elles de l’une des manières suivantes :
 
-- **Avec un réseau virtuel** : vous pouvez déployer des machines virtuelles et plusieurs autres types de ressources Azure sur un réseau virtuel, comme des environnements Azure App Service et des groupes de machines virtuelles identiques Azure. Pour obtenir la liste complète des ressources Azure que vous pouvez déployer sur un réseau virtuel, consultez [Intégration des services de réseau virtuel](virtual-network-for-azure-services.md). 
+- **Via un réseau virtuel** : vous pouvez déployer des machines virtuelles et plusieurs autres types de ressources Azure sur un réseau virtuel, comme des environnements Azure App Service, Azure Kubernetes Service et des groupes de machines virtuelles identiques Azure. Pour obtenir la liste complète des ressources Azure que vous pouvez déployer sur un réseau virtuel, consultez [Intégration des services de réseau virtuel](virtual-network-for-azure-services.md). 
 - **Avec un point de terminaison de service de réseau virtuel**: étendez l’espace d’adressage privé de votre réseau virtuel et l’identité de votre réseau virtuel aux ressources du service Azure, tels que les comptes de stockage Azure et les bases de données SQL Azure, par le biais d’une connexion directe. Les points de terminaison de service vous permettent de sécuriser vos ressources critiques du service Azure pour un réseau virtuel uniquement. Pour plus d’informations, consultez [Présentation des points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md).
  
 ## <a name="communicate-with-on-premises-resources"></a>Communiquer avec les ressources locales

@@ -1,79 +1,79 @@
 ---
-title: Utiliser une stratégie Azure pour créer et gérer des stratégies afin d’appliquer la conformité de l’organisation | Microsoft Docs
+title: Utiliser Azure Policy pour créer et gérer des stratégies afin d’appliquer la conformité de l’organisation
 description: Utilisez une stratégie Azure pour appliquer des normes, se conformer aux réglementations de conformité et d’audit, maîtriser les coûts, garantir la sécurité et maintenir les performances, et imposer les principes de conception à l’échelle de l’entreprise.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
-ms.date: 04/19/2018
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: e50c2330c03e5fc36e608b672fe8390a1f19e99b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2e04e08d22890246e2b68a55d79e82864201ef9d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
-Il est important de comprendre comment créer et gérer des stratégies dans Azure pour rester conforme aux normes de votre entreprise et aux contrats de niveau de service. Dans ce didacticiel, vous allez découvrir comment utiliser Azure Policy pour effectuer certaines des tâches les plus courantes liées à la création, à l’affectation et à la gestion des stratégies dans votre organisation, notamment :
+Il est important de comprendre comment créer et gérer des stratégies dans Azure pour rester conforme aux normes de votre entreprise et aux contrats de niveau de service. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Policy pour effectuer certaines des tâches les plus courantes liées à la création, à l’affectation et à la gestion des stratégies dans votre organisation, notamment :
 
 > [!div class="checklist"]
-> * Affecter une stratégie pour appliquer une condition aux ressources que vous créez dans le futur
-> * Créer et affecter une définition d’initiative pour effectuer le suivi de la conformité de plusieurs ressources
-> * Résoudre une ressource non conforme ou refusée
-> * Implémenter une nouvelle stratégie dans l’ensemble de l’entreprise
+> - Affecter une stratégie pour appliquer une condition aux ressources que vous créez dans le futur
+> - Créer et affecter une définition d’initiative pour effectuer le suivi de la conformité de plusieurs ressources
+> - Résoudre une ressource non conforme ou refusée
+> - Implémenter une nouvelle stratégie dans l’ensemble de l’entreprise
 
-Si vous souhaitez affecter une stratégie pour identifier l’état actuel de la conformité de vos ressources existantes, consultez les articles de démarrage rapide qui passent en revue la marche à suivre. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous souhaitez affecter une stratégie pour identifier l’état actuel de la conformité de vos ressources existantes, consultez les articles de démarrage rapide qui passent en revue la marche à suivre. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="assign-a-policy"></a>Attribution d’une stratégie
 
-La première étape de l’application de la conformité avec une stratégie Azure consiste à affecter une définition de stratégie. Une définition de stratégie définit dans quelle condition une stratégie est appliquée et l’action à effectuer. Dans cet exemple, affectez une définition de stratégie intégrée appelée *Nécessiter SQL Server version 12.0* afin d’appliquer la condition selon laquelle toutes les bases de données SQL Server doivent être de version 12.0 pour être compatibles.
+La première étape de l’application de la conformité avec une stratégie Azure consiste à affecter une définition de stratégie. Une définition de stratégie définit dans quelle condition une stratégie est appliquée et l’action à effectuer. Dans cet exemple, affectez une définition de stratégie intégrée appelée *Exiger SQL Server version 12.0* afin d’appliquer la condition selon laquelle toutes les bases de données SQL Server doivent être de version 12.0 pour être compatibles.
 
-1. Lancez le service de la stratégie Azure dans le portail Azure en recherchant puis en sélectionnant **Stratégie** dans le volet gauche.
+1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en sélectionnant **Stratégie**.
 
-   ![Rechercher une stratégie](media/assign-policy-definition/search-policy.png)
+   ![Rechercher une stratégie](media/create-manage-policy/search-policy.png)
 
-2. Sélectionnez **Attributions** dans le volet gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
-3. Sélectionnez **Assigner une stratégie** en haut du volet **Affectations**.
+2. Sélectionnez **Affectations** du côté gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
+3. Sélectionnez **Assigner une stratégie** en haut de la page **Stratégie - Affectations**.
 
    ![Affecter une définition de stratégie](media/create-manage-policy/select-assign-policy.png)
 
-4. Dans la page **Assigner une stratégie**, cliquez sur le ![bouton de définition de stratégie](media/assign-policy-definition/definitions-button.png) situé en regard du champ **Stratégie** pour afficher la liste des définitions disponibles. Vous pouvez filtrer le **Type** de définition de stratégie sur *BuiltIn* pour les afficher dans leur ensemble et lire leurs descriptions.
+4. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur le bouton de sélection et en sélectionnant un abonnement (obligatoire) et un groupe de ressources (facultatif). Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée.  Cliquez ensuite sur **Sélectionner** au bas de la page **Étendue**.
 
-   ![Afficher les définitions de stratégie disponibles](media/create-manage-policy/open-policy-definitions.png)
+   Cet exemple utilise **l’abonnement Contoso**. Votre abonnement sera différent.
 
-5. Sélectionnez **Nécessitent SQL Server version 12.0**. Si vous ne la trouvez pas immédiatement, tapez **Nécessiter SQL Server version 12.0** dans la zone de recherche, puis appuyez sur ENTRÉE.
+5. Pour exclure un ou plusieurs groupes de ressources (si vous avez défini l’étendue sur un seul abonnement), ou des ressources spécifiques au sein d’un groupe de ressources (quelle que soit l’étendue définie), vous pouvez configurer des **exclusions** depuis l’affectation de la stratégie. Laissez cette zone vide pour l’instant.
+
+6. Sélectionnez le bouton de sélection **Définition de stratégie** pour ouvrir la liste des définitions disponibles. Vous pouvez filtrer le **Type** de définition de stratégie sur *BuiltIn* pour les afficher tous et lire leurs descriptions.
+
+7. Sélectionnez **Exiger SQL Server version 12.0**. Si vous ne la trouvez pas immédiatement, tapez **exiger sql server** dans la zone de recherche, puis appuyez sur Entrée ou cliquez en dehors de la zone de recherche. Cliquez sur **Sélectionner** au bas de la page **Définitions disponibles** une fois que vous avez trouvé et sélectionné la définition de stratégie.
 
    ![Rechercher une stratégie](media/create-manage-policy/select-available-definition.png)
 
-6. Le **nom** affiché est automatiquement renseigné, mais vous pouvez le modifier. Pour cet exemple, utilisez *Nécessiter SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur la façon dont cette affectation de stratégie s’assure que tous les serveurs SQL créés dans cet environnement utilisent la version 12.0.
+8. Le **nom de l’affectation** est automatiquement renseigné avec le nom de la stratégie que vous avez sélectionnée, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
 
-7. Définissez le niveau tarifaire sur **Standard** pour vous assurer que la stratégie soit appliquée aux ressources existantes.
-
-   Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Comme Azure Policy est en préversion, il n’existe pas encore de modèle de tarification publié. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
-
-8. Sélectionnez **l’étendue** : l’abonnement (ou le groupe de ressources) précédemment enregistré. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources.
-
-   L’abonnement **Azure Analytics Capacity Dev** est utilisé dans cet exemple. Votre abonnement sera différent.
-
-10. Sélectionnez **Attribuer**.
+9. Cliquez sur **Affecter**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implémenter une nouvelle stratégie personnalisée
 
 Maintenant que vous avez affecté une définition de stratégie intégrée, vous pouvez continuer avec Azure Policy. Créez une stratégie personnalisée pour réduire les coûts en veillant à ce que les machines virtuelles créées dans votre environnement ne puissent pas être dans la série G. De cette manière, à chaque fois qu’un utilisateur de votre organisation tente de créer une machine virtuelle dans la série G, la requête est refusée.
 
-1. Sélectionnez **Définition** sous **Création** dans le volet gauche.
+1. Sélectionnez **Définitions** sous **CRÉATION** dans la partie gauche de la page Azure Policy.
 
    ![Définition sous Création](media/create-manage-policy/definition-under-authoring.png)
 
-2. Sélectionnez **+ Définition de stratégie**.
+2. Sélectionnez **+ Définition de stratégie** en haut de la page. La page **Définition de stratégie** s’ouvre.
 3. Entrez les informations suivantes :
 
+   - Le groupe d’administration ou l’abonnement dans lequel la définition de stratégie est enregistrée. Sélectionnez-le à l’aide du bouton de sélection **Emplacement de définition**.
+
+     > [!NOTE]
+     > Si vous envisagez d’appliquer cette définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration qui contient les abonnements auxquels vous allez affecter la stratégie. Il en va de même pour une définition d’initiative.
+
    - Le nom de la définition de stratégie : *nécessite des références (SKU) de machines virtuelles inférieures à la série G*
-   - La description de l’objectif de la définition de stratégie : cette définition de stratégie impose que toutes les machines virtuelles créées dans cette étendue possèdent des références (SKU) inférieures à la série G afin de réduire le coût.
-   - Abonnement dans lequel réside la définition de stratégie. Dans ce cas, la définition de stratégie se trouve dans **Advisor Analytics Capacity Dev**. La liste de vos abonnements sera différente.
+   - La description de l’objectif de la définition de stratégie : *cette définition de stratégie impose que toutes les machines virtuelles créées dans cette étendue possèdent des références SKU inférieures à la série G afin de réduire le coût.*
    - Faites votre choix parmi les options existantes ou créez une catégorie pour cette définition de stratégie.
    - Copiez le code json suivant et mettez-le à jour selon vos besoins avec :
       - Les paramètres de la stratégie.
@@ -83,30 +83,29 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
     Le fichier json devrait ressembler à ce qui suit. Collez le code révisé dans le portail Azure.
 
     ```json
-{
-    "policyRule": {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/sku.name",
-            "like": "Standard_G*"
-          }
-        ]
-      },
-      "then": {
-        "effect": "deny"
-      }
+    {
+        "policyRule": {
+            "if": {
+                "allOf": [{
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines"
+                    },
+                    {
+                        "field": "Microsoft.Compute/virtualMachines/sku.name",
+                        "like": "Standard_G*"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
     }
-}
     ```
 
-    La valeur de la *propriété de champ* de la règle de stratégie doit être l’une des suivantes : Nom, Type, Emplacement, Balises ou un alias. Par exemple : `"Microsoft.Compute/VirtualMachines/Size"`.
+    La valeur de la propriété de *champ* de la règle de stratégie doit être l’une des suivantes : Nom, Type, Emplacement, Balises ou un alias. Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    Pour afficher d’autres exemples de code json, consultez l’article [Modèles pour Azure Policy](json-samples.md).
+    Pour consulter d’autres exemples de stratégie Azure, consultez [Modèles pour Azure Policy](json-samples.md).
 
 4. Sélectionnez **Enregistrer**.
 
@@ -115,39 +114,39 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
 Vous pouvez créer une stratégie avec l’API REST pour les définitions des stratégies. L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
 Pour créer une définition de stratégie, utilisez l’exemple suivant :
 
-```
+```http-interactive
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
-
 ```
+
 Incluez un texte de demande semblable à l’exemple suivant :
 
-```
+```json
 {
-  "properties": {
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+    "properties": {
+        "parameters": {
+            "allowedLocations": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of locations that can be specified when deploying resources",
+                    "strongType": "location",
+                    "displayName": "Allowed locations"
+                }
+            }
+        },
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters('allowedLocations')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
         }
-      }
-    },
-    "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "not": {
-          "field": "location",
-          "in": "[parameters('allowedLocations')]"
-        }
-      },
-      "then": {
-        "effect": "deny"
-      }
     }
-  }
 }
 ```
 
@@ -159,58 +158,56 @@ Vous pouvez créer une définition de stratégie en utilisant l’applet de comm
 
 Pour créer une définition de stratégie à partir d’un fichier, transmettez le chemin d’accès au fichier. Pour un fichier externe, utilisez l’exemple suivant :
 
-```
+```azurepowershell-interactive
 $definition = New-AzureRmPolicyDefinition `
-    -Name denyCoolTiering `
-    -DisplayName "Deny cool access tiering for storage" `
+    -Name 'denyCoolTiering' `
+    -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
 ```
 
 Pour un fichier local, utilisez l’exemple suivant :
 
-```
+```azurepowershell-interactive
 $definition = New-AzureRmPolicyDefinition `
-    -Name denyCoolTiering `
-    -Description "Deny cool access tiering for storage" `
-    -Policy "c:\policies\coolAccessTier.json"
+    -Name 'denyCoolTiering' `
+    -Description 'Deny cool access tiering for storage' `
+    -Policy 'c:\policies\coolAccessTier.json'
 ```
 
 Pour créer une définition de stratégie avec une règle en ligne, utilisez l’exemple suivant :
 
-```
-$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Storage/storageAccounts"
-      },
-      {
-        "field": "kind",
-        "equals": "BlobStorage"
-      },
-      {
-        "not": {
-          "field": "Microsoft.Storage/storageAccounts/accessTier",
-          "equals": "cool"
-        }
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
-  }
+```azurepowershell-interactive
+$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+    "if": {
+        "allOf": [{
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "field": "kind",
+                "equals": "BlobStorage"
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Storage/storageAccounts/accessTier",
+                    "equals": "cool"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }'
 ```
 
 Le résultat est stocké dans un objet `$definition` utilisé lors de l’attribution de la stratégie.
 L’exemple suivant crée une définition de stratégie qui inclut des paramètres :
 
-```
+```azurepowershell-interactive
 $policy = '{
     "if": {
-        "allOf": [
-            {
+        "allOf": [{
                 "field": "type",
                 "equals": "Microsoft.Storage/storageAccounts"
             },
@@ -231,21 +228,21 @@ $parameters = '{
     "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying storage accounts.",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+            "description": "The list of locations that can be specified when deploying storage accounts.",
+            "strongType": "location",
+            "displayName": "Allowed locations"
         }
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
-## <a name="view-policy-definitions"></a>Afficher les définitions de stratégie
+### <a name="view-policy-definitions-with-powershell"></a>Voir les définitions de stratégie avec PowerShell
 
 Pour afficher toutes les définitions de stratégie dans votre abonnement, utilisez la commande suivante :
 
-```
+```azurepowershell-interactive
 Get-AzureRmPolicyDefinition
 ```
 
@@ -267,142 +264,166 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 Vous pouvez créer une définition de stratégie à l’aide d’Azure CLI avec la commande de définition de stratégie.
 Pour créer une définition de stratégie avec une règle en ligne, utilisez l’exemple suivant :
 
-```
-az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Storage/storageAccounts"
-      },
-      {
-        "field": "kind",
-        "equals": "BlobStorage"
-      },
-      {
-        "not": {
-          "field": "Microsoft.Storage/storageAccounts/accessTier",
-          "equals": "cool"
-        }
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
-  }
+```azurecli-interactive
+az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
+    "if": {
+        "allOf": [{
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "field": "kind",
+                "equals": "BlobStorage"
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Storage/storageAccounts/accessTier",
+                    "equals": "cool"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }'
 ```
 
-## <a name="view-policy-definitions"></a>Afficher les définitions de stratégie
+### <a name="view-policy-definitions-with-azure-cli"></a>Voir les définitions de stratégie avec Azure CLI
 
 Pour afficher toutes les définitions de stratégie dans votre abonnement, utilisez la commande suivante :
 
-```
+```azurecli-interactive
 az policy definition list
 ```
 
 Elle renvoie toutes les définitions de stratégie disponibles, y compris les stratégies intégrées. Chaque stratégie est renvoyée au format suivant :
 
-```
-{                                                            
-  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
-  "displayName": "Allowed locations",
-  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
-  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
-  "policyRule": {
-    "if": {
-      "not": {
-        "field": "location",
-        "in": "[parameters('listOfAllowedLocations')]"
-      }
+```json
+{
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "displayName": "Allowed locations",
+    "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "policyRule": {
+        "if": {
+            "not": {
+                "field": "location",
+                "in": "[parameters('listOfAllowedLocations')]"
+            }
+        },
+        "then": {
+            "effect": "Deny"
+        }
     },
-    "then": {
-      "effect": "Deny"
-    }
-  },
-  "policyType": "BuiltIn"
+    "policyType": "BuiltIn"
 }
 ```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Créer et attribuer une définition d’initiative
 
-Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Vous créez une définition initiative pour vous assurer que les ressources dans l’étendue de la définition restent confirmes aux définitions de stratégie qui composent la définition d’initiative.  Consultez [Vue d’ensemble de la stratégie Azure](./azure-policy-introduction.md) pour plus d’informations sur les définitions d’initiative.
+Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Vous créez une définition initiative pour vous assurer que les ressources dans l’étendue de la définition restent confirmes aux définitions de stratégie qui composent la définition d’initiative.  Pour plus d’informations sur les définitions d’initiative, consultez [Vue d’ensemble d’Azure Policy](azure-policy-introduction.md).
 
 ### <a name="create-an-initiative-definition"></a>Créer une définition d’initiative
 
-1. Sélectionnez **Définitions** sous **Création** dans le volet gauche.
+1. Sélectionnez **Définitions** sous **CRÉATION** dans la partie gauche de la page Azure Policy.
 
    ![Sélectionner les définitions](media/create-manage-policy/select-definitions.png)
 
-2. Sélectionnez **Définition d’initiative** en haut de la page pour accéder au formulaire **Définition d’initiative**.
-3. Entrez le nom et la description de l’initiative.
-
-   Dans cet exemple, assurez-vous que les ressources sont conformes aux définitions de stratégie relatives à la sécurisation. Le nom de l’initiative serait donc **Garantir la sécurité**, et la description serait **Cette initiative a été créée pour gérer toutes les définitions de stratégie associées à la sécurisation des ressources**.
+2. Sélectionnez **+ Définition d’initiative** en haut de la page pour ouvrir la page **Définition d’initiative**.
 
    ![Définition d’initiative](media/create-manage-policy/initiative-definition.png)
 
-4. Parcourez la liste des **définitions disponibles** et sélectionnez la ou les définitions de stratégie à ajouter à cette initiative. Pour notre initiative **Garantir la sécurité**, **ajoutez** les définitions de stratégie intégrées suivantes :
+3. Utilisez le bouton de sélection **Emplacement de définition** pour sélectionner un abonnement afin de stocker la définition.
+
+4. Entrez le **nom** et la **description** de l’initiative.
+
+   Dans cet exemple, vérifiez que les ressources sont conformes aux définitions de stratégie relatives à la sécurisation. Le nom de l’initiative serait donc **Garantir la sécurité**, et la description **Cette initiative a été créée pour gérer toutes les définitions de stratégie associées à la sécurisation des ressources**.
+
+5. Pour **Catégorie**, choisissez une des options existantes ou créez une catégorie.
+
+6. Parcourez la liste des **définitions disponibles** (partie droite de la page **Définition d’initiative**) et sélectionnez les définitions de stratégie à ajouter à cette initiative. Pour l’initiative **Garantir la sécurité**, ajoutez les définitions de stratégie prédéfinies suivantes en cliquant sur **+** en regard des informations correspondantes ou en cliquant sur une ligne de définition de stratégie, puis sur l’option **+ Ajouter** dans la page de détails :
    - Nécessitent SQL Server version 12.0
-   - Analyser les applications web non protégées dans Security Center.
-   - Surveiller le réseau permissif dans l’ensemble du centre de sécurité.
-   - Surveiller la création de listes autorisées dans le centre de sécurité possibles pour les applications.
-   - Analyser les disques de machine virtuelle non chiffrés dans le centre de sécurité.
+   - [Preview]: Monitor unprotected web applications in Security Center.
+   - [Preview]: Monitor permissive network across in Security Center.
+   - [Preview]: Monitor possible app Whitelisting in Security Center.
+   - [Preview]: Monitor unencrypted VM Disks in Security Center.
+
+   Après avoir sélectionné la définition de stratégie dans la liste, celle-ci est ajoutée sous **STRATÉGIES ET PARAMÈTRES**.
 
    ![Définitions d’initiative](media/create-manage-policy/initiative-definition-2.png)
 
-   Après avoir sélectionné les définitions de stratégie dans la liste, vous les voyez sous **Stratégies et paramètres**, comme illustré dans l’image précédente.
-
-5. Utilisez **Emplacement de définition** pour sélectionner un abonnement afin de stocker la définition. Sélectionnez **Enregistrer**.
+7. Cliquez sur **Enregistrer**.
 
 ### <a name="assign-an-initiative-definition"></a>Attribuer une définition d’initiative
 
-1. Accédez à l’onglet **Définitions** sous **Création**.
-2. Recherchez la définition d’initiative **Garantir la sécurité** que vous avez créée.
-3. Sélectionnez la définition d’initiative, puis choisissez **Attribuer**.
+1. Sélectionnez **Définitions** sous **CRÉATION** dans la partie gauche de la page Azure Policy.
+2. Recherchez la définition d’initiative **Garantir la sécurité** que vous avez précédemment créée et sélectionnez-la.
+3. Sélectionnez **Affecter** en haut de la page pour ouvrir la page **Garantir la sécurité : affecter l’initiative**.
 
    ![Attribuer une définition](media/create-manage-policy/assign-definition.png)
 
-4. Remplissez le formulaire **Affectation** en entrant les informations de l’exemple suivant. Vous pouvez utiliser vos propres informations.
-   - Nom : affectation Garantir la sécurité
-   - Description : cette affectation d’initiative est personnalisée pour appliquer ce groupe de définitions de stratégie dans l’abonnement **Azure Advisor Capacity Dev**.
-   - Niveau tarifaire : Standard
-   - Étendue souhaitée pour cette affectation : **Azure Advisor Capacity Dev**. Vous pouvez choisir votre propre abonnement et groupe de ressources.
+   Vous pouvez également cliquer avec le bouton droit sur la ligne sélectionnée ou cliquer sur le bouton de sélection situé en fin de ligne pour faire apparaître un menu contextuel.  Sélectionnez ensuite **Affecter**.
 
-5. Sélectionnez **Attribuer**.
+   ![Clic droit sur une ligne](media/create-manage-policy/select-right-click.png)
+
+4. Renseignez la page **Garantir la sécurité : affecter l’initiative** en entrant les exemples d’informations suivants. Vous pouvez utiliser vos propres informations.
+
+   - Étendue : l’abonnement dans lequel vous avez enregistré l’initiative est la valeur par défaut.  Vous pouvez modifier l’étendue pour affecter l’initiative à un groupe de ressources à l’emplacement d’enregistrement de l’abonnement.
+   - Exclusions : configurez des ressources dans l’étendue de sorte à empêcher que l’affectation d’initiative leur soit appliquée.
+   - Nom de la définition d’initiative et de l’affectation : Garantir la sécurité (préremplie en tant que nom de l’initiative affectée).
+   - Description : cette affectation d’initiative est adaptée de sorte à appliquer ce groupe de définitions de stratégie.
+
+5. Cliquez sur **Affecter**.
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exempter une ressource non conforme ou refusée en utilisant l’exclusion
 
-Selon l’exemple ci-dessus, après avoir attribué la définition de stratégie pour demander SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la création d’un serveur SQL a été refusée en demandant une exclusion pour des ressources spécifiques. L’exclusion empêche principalement l’application des stratégies. Dans l’exemple suivant, n’importe quelle version du serveur SQL est autorisée. Une exclusion peut s’appliquer à un groupe de ressources. Vous pouvez également la restreindre à des ressources particulières.
+Selon l’exemple ci-dessus, après avoir attribué la définition de stratégie pour demander SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la création d’un serveur SQL a été refusée en créant une exclusion sur un seul groupe de ressources. L’exclusion empêche l’application de la stratégie (ou de l’initiative) à cette ressource. Dans l’exemple suivant, toutes les versions de serveur SQL sont autorisées dans un groupe de ressources unique. Une exclusion peut s’appliquer à un groupe de ressources ou à des ressources particulières.
 
-1. Sélectionnez **Attributions** dans le volet gauche.
+Un déploiement bloqué en raison d’une stratégie ou une initiative affectée est consultable à deux emplacements :
+
+- Sur le groupe de ressources ciblé par le déploiement : sélectionnez **Déploiements** dans la partie gauche de la page, puis cliquez sur le **nom du déploiement** qui a échoué. La ressource refusée présente un état _Interdit_. Pour déterminer la stratégie ou initiative et l’affectation qui a refusé la ressource, cliquez sur **Échec. Cliquez ici pour plus d’informations ->** dans la page Vue d’ensemble du déploiement. Une fenêtre s’ouvre dans la partie droite de la page pour présenter les informations d’erreur. Sous **Détails de l’erreur** figurent les GUID des objets de stratégie associés.
+
+   ![Déploiement refusé par l’affectation de stratégie](media/create-manage-policy/rg-deployment-denied.png)
+
+- Dans la page Azure Policy : sélectionnez **Conformité** dans la partie gauche de la page, puis cliquez sur la stratégie **Exiger SQL Server version 12.0**. Dans la page qui s’ouvre, vous pouvez observer une augmentation du nombre de **refus**. Sous l’onglet **Événements**, vous pouvez également observer le nom de la personne qui a tenté d’effectuer le déploiement refusé par la stratégie.
+
+   ![Vue d’ensemble de la conformité d’une stratégie affectée](media/create-manage-policy/compliance-overview.png)
+
+Dans cet exemple, Trent Baker, un des experts en virtualisation de Contoso effectue ce qu’il doit faire. Nous avons besoin de lui octroyer une exception, mais nous ne voulons pas qu’un groupe de ressources comporte des serveurs dont la version est autre que 12.0. Nous avons créé un groupe de ressources, **SQLServers_Excluded** et allons à présent lui octroyer une exception à cette affectation de stratégie.
+
+### <a name="update-assignment-with-exclusion"></a>Mettre à jour une affectation avec une exclusion
+
+1. Sélectionnez **Affectations** sous **CRÉATION** dans la partie gauche de la page Azure Policy.
 2. Parcourez toutes les affectations de stratégie, puis ouvrez l’affectation *Nécessiter SQL Server version 12.0*.
-3. **Sélectionnez** une exclusion pour les ressources dans les groupes de ressources dans lesquels vous essayez de créer le serveur SQL. Dans cet exemple, excluez Microsoft.Sql/servers/databases : *azuremetrictest/testdb* et *azuremetrictest/testdb2*.
+3. Définissez l’**exclusion** en cliquant sur le bouton de sélection et en sélectionnant le groupe de ressources à exclure, *SQLServers_Excluded* dans cet exemple.
 
    ![Exclusion d’une demande](media/create-manage-policy/request-exclusion.png)
 
-   Voici d’autres méthodes pour résoudre une ressource refusée : contacter la personne associée à la stratégie si vous avez une raison valable pour demander la création du serveur SQL, et modifier directement la stratégie si vous y avez accès.
+   > [!NOTE]
+   > En fonction de la stratégie et de son effet, l’exclusion peut également être octroyée à des ressources spécifiques au sein du groupe de ressources dans l’étendue de l’affectation. Comme un effet **Refuser** a été utilisé dans ce tutoriel, il ne serait pas judicieux de définir l’exclusion sur une ressource spécifique qui existe déjà.
 
-4. Cliquez sur **Affecter**.
+4. Cliquez sur **Sélectionner**, puis sur **Enregistrer**.
 
-Dans cette section, vous avez résolu le refus de votre tentative de création d’un serveur SQL en demandant une exclusion des ressources.
+Dans cette section, vous avez résolu le refus de tentative de création d’une version interdite de serveur SQL en créant une exclusion sur un seul groupe de ressources.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous prévoyez de continuer avec les didacticiels suivants, ne nettoyez pas les ressources créées dans ce guide. Sinon, procédez aux étapes suivantes pour supprimer toutes les affectations ou définitions créées ci-dessus :
+Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les étapes suivantes pour supprimer les affectations ou définitions créées ci-dessus :
 
-1. Sélectionnez **Définitions** (ou **Affectations** si vous tentez de supprimer une attribution) dans le volet gauche.
-2. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) que vous venez de créer.
-3. Cliquez sur les points de suspension à la fin de la définition ou de l’affectation, puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
+1. Sélectionnez **Définitions** (ou **Affectations** si vous essayez de supprimer une affectation) sous **CRÉATION** dans la partie gauche de la page Azure Policy.
+2. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) à supprimer.
+3. Cliquez avec le bouton droit sur la liste ou cliquez sur le bouton de sélection en fin de définition (ou d’affectation), puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez effectué avec succès les opérations suivantes :
 
 > [!div class="checklist"]
-> * Attribué une stratégie pour appliquer une condition aux ressources que vous créez dans le futur
-> * Créé et attribué une définition d’initiative pour effectuer le suivi de la conformité de plusieurs ressources
-> * Résolu une ressource non conforme ou refusée
-> * Implémenté une nouvelle stratégie dans l’ensemble de l’entreprise
+> - Attribué une stratégie pour appliquer une condition aux ressources que vous créez dans le futur
+> - Créé et attribué une définition d’initiative pour effectuer le suivi de la conformité de plusieurs ressources
+> - Résolu une ressource non conforme ou refusée
+> - Implémenté une nouvelle stratégie dans l’ensemble de l’entreprise
 
 Pour plus d’informations sur les structures des définitions de stratégie, consultez cet article :
 

@@ -1,6 +1,6 @@
 ---
-title: Migrer une base de données SQL Server vers Azure SQL Database à l’aide de DMS | Microsoft Docs
-description: Apprenez à migrer votre base de données SQL Server vers Azure SQL Database à l’aide de DMS.
+title: Migrer une base de données SQL Server vers Azure SQL Database à l’aide de DMA | Microsoft Docs
+description: Apprenez à migrer votre base de données SQL Server vers Azure SQL Database à l’aide de DMA.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,13 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migrer votre base de données SQL Server vers Azure SQL Database à l’aide de DMS
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrer votre base de données SQL Server vers Azure SQL Database à l’aide de DMA
 
 Le déplacement de votre base de données SQL Server vers une base de données Azure SQL Database unique est simple. Il vous suffit de créer une base de données SQL vide dans Azure, puis d’utiliser l’outil [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Data Migration Assistant) pour importer la base de données dans Azure. Pour plus d’options de migration, consultez [Migrer votre base de données SQL Server vers Azure SQL Database](sql-database-cloud-migrate.md).
 
@@ -47,13 +47,13 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 
-Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](sql-database-service-tiers.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL Database](sql-database-features.md). 
+Une base de données SQL Azure est créée avec un ensemble défini de [ressources de calcul et de stockage](sql-database-service-tiers-dtu.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL Database](sql-database-features.md). 
 
 Pour créer une base de données SQL vide, suivez la procédure suivante. 
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
-2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même**page.
+2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette** même page.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -88,9 +88,9 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 8. Acceptez les conditions d’utilisation de la préversion pour pouvoir utiliser l’option **Stockage de composants additionnels**. 
 
    > [!IMPORTANT]
-   > \* Les tailles de stockage supérieures à la quantité de stockage incluse sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > - Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Sud du Brésil, Canada Centre, Canada Est, États-Unis du Centre, France-Centre, Allemagne - Centre, Japon de l’Est, Japon de l’Ouest, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Asie du Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, US Gov Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
@@ -157,7 +157,7 @@ Effectuez les étapes suivantes pour utiliser **[Data Migration Assistant](https
    | Type de projet | Migration | Vous devez choisir entre évaluer votre base de données pour la migration, ou évaluer la base de données et effectuer la migration dans le cadre d’un même flux de travail |
    |Nom du projet|Didacticiel sur la migration| Nom descriptif |
    |Type du serveur source| SQL Server | Il s’agit de la seule source actuellement prise en charge. |
-   |Type du serveur cible| Base de données SQL Azure| Les options sont les suivantes : Azure SQL Database, SQL Server, SQL Server sur les machines virtuelles Azure |
+   |Type du serveur cible| Azure SQL Database| Les options sont les suivantes : Azure SQL Database, SQL Server, SQL Server sur les machines virtuelles Azure |
    |Étendue de la migration| Schéma et données| Les options sont les suivantes : Schéma et données, Schéma uniquement, Données uniquement |
    
    ![nouveau projet de data migration assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)

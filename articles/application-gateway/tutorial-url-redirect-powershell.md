@@ -1,26 +1,26 @@
 ---
-title: Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL - Azure PowerShell | Microsoft Docs
+title: Créer une passerelle d’application avec une redirection selon un chemin d’URL - Azure PowerShell
 description: Découvrez comment créer une passerelle d’application avec un trafic redirigé en fonction d’un chemin d’accès d’URL à l’aide d’Azure PowerShell.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.topic: article
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 85a684d4d988bdc01acdb3af3ddce028270cf105
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 3/23/2018
+ms.author: victorh
+ms.custom: mvc
+ms.openlocfilehash: 2db93eaf5dc038570a2b872118c06df68bb4c068
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure PowerShell
 
 Vous pouvez utiliser Azure PowerShell pour configurer des [règles de routage basé sur une URL](application-gateway-url-route-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
 
-Dans cet article, vous apprendrez comment :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Configurer le réseau
@@ -54,15 +54,18 @@ Créez les configurations de sous-réseau pour *myBackendSubnet* et *myAGSubnet*
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
+
 $agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.2.0/24
+
 New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $backendSubnetConfig, $agSubnetConfig
+
 New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -72,6 +75,12 @@ New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
+Dans cette section, vous créez des ressources qui prennent en charge la passerelle d’application avant de créer cette dernière. Les ressources que vous créez sont les suivantes :
+
+- *Configurations IP et port frontal* : associe le sous-réseau que vous avez créé précédemment pour la passerelle d’application et assigne un port à utiliser pour y accéder.
+- *Pool par défaut* : toutes les passerelles d’application doivent avoir au moins un pool backend de serveurs.
+- *Écouteur et règle par défaut* : l’écouteur par défaut écoute le trafic sur le port assigné et la règle par défaut envoie le trafic au pool par défaut.
+
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Créer les configurations IP et le port frontal
 
 Associez *myAGSubnet* que vous avez créé précédemment à la passerelle d’application à l’aide de [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Assignez *myAGPublicIPAddress* à la passerelle d’application à l’aide de [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Et vous pouvez créer le port HTTP à l’aide de [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
@@ -80,16 +89,21 @@ Associez *myAGSubnet* que vous avez créé précédemment à la passerelle d’a
 $vnet = Get-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
+
 $subnet=$vnet.Subnets[0]
+
 $pip = Get-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Name myAGPublicIPAddress
+
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet
+
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -PublicIPAddress $pip
+
 $frontendport = New-AzureRmApplicationGatewayFrontendPort `
   -Name myFrontendPort `
   -Port 80
@@ -101,7 +115,8 @@ Créez le pool principal par défaut nommé *appGatewayBackendPool* pour la pass
 
 ```azurepowershell-interactive
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
-  -Name appGatewayBackendPool 
+  -Name appGatewayBackendPool
+
 $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
   -Name myPoolSettings `
   -Port 80 `
@@ -122,6 +137,7 @@ $defaultlistener = New-AzureRmApplicationGatewayHttpListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendport
+
 $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
@@ -139,6 +155,7 @@ $sku = New-AzureRmApplicationGatewaySku `
   -Name Standard_Medium `
   -Tier Standard `
   -Capacity 2
+
 New-AzureRmApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG `
@@ -161,20 +178,25 @@ Vous pouvez ajouter des pools principaux à votre passerelle d’application en 
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
+
 Add-AzureRmApplicationGatewayBackendAddressPool `
   -ApplicationGateway $appgw `
-  -Name imagesBackendPool 
+  -Name imagesBackendPool
+
 Add-AzureRmApplicationGatewayBackendAddressPool `
   -ApplicationGateway $appgw `
   -Name videoBackendPool
+
 Add-AzureRmApplicationGatewayFrontendPort `
   -ApplicationGateway $appgw `
   -Name bport `
   -Port 8080
+
 Add-AzureRmApplicationGatewayFrontendPort `
   -ApplicationGateway $appgw `
   -Name rport `
   -Port 8081
+
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
@@ -188,26 +210,32 @@ Ajoutez les écouteurs nommés *backendListener* et *redirectedListener*, néces
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
+
 $backendPort = Get-AzureRmApplicationGatewayFrontendPort `
   -ApplicationGateway $appgw `
   -Name bport
+
 $redirectPort = Get-AzureRmApplicationGatewayFrontendPort `
   -ApplicationGateway $appgw `
   -Name rport
+
 $fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
   -ApplicationGateway $appgw
+
 Add-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw `
   -Name backendListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $backendPort
+
 Add-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw `
   -Name redirectedListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
-  -FrontendPort $redirectPort  
+  -FrontendPort $redirectPort
+
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
@@ -219,34 +247,42 @@ Les cartes de chemin d’accès URL spécifient que certaines URL sont acheminé
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
+
 $poolSettings = Get-AzureRmApplicationGatewayBackendHttpSettings `
   -ApplicationGateway $appgw `
   -Name myPoolSettings
+
 $imagePool = Get-AzureRmApplicationGatewayBackendAddressPool `
   -ApplicationGateway $appgw `
   -Name imagesBackendPool
+
 $videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
   -ApplicationGateway $appgw `
   -Name videoBackendPool
+
 $defaultPool = Get-AzureRmApplicationGatewayBackendAddressPool `
   -ApplicationGateway $appgw `
   -Name appGatewayBackendPool
+
 $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig `
   -Name imagePathRule `
   -Paths "/images/*" `
   -BackendAddressPool $imagePool `
   -BackendHttpSettings $poolSettings
+
 $videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig `
   -Name videoPathRule `
   -Paths "/video/*" `
   -BackendAddressPool $videoPool `
   -BackendHttpSettings $poolSettings
+
 Add-AzureRmApplicationGatewayUrlPathMapConfig `
   -ApplicationGateway $appgw `
   -Name urlpathmap `
   -PathRules $imagePathRule, $videoPathRule `
   -DefaultBackendAddressPool $defaultPool `
   -DefaultBackendHttpSettings $poolSettings
+
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
@@ -258,9 +294,11 @@ Vous pouvez configurer la redirection de l’écouteur en utilisant l’applet d
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
+
 $backendListener = Get-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw `
-  -Name backendListener 
+  -Name backendListener
+
 $redirectConfig = Add-AzureRmApplicationGatewayRedirectConfiguration `
   -ApplicationGateway $appgw `
   -Name redirectConfig `
@@ -268,6 +306,7 @@ $redirectConfig = Add-AzureRmApplicationGatewayRedirectConfiguration `
   -TargetListener $backendListener `
   -IncludePath $true `
   -IncludeQueryString $true
+
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
@@ -277,25 +316,31 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
+
 $poolSettings = Get-AzureRmApplicationGatewayBackendHttpSettings `
   -ApplicationGateway $appgw `
   -Name myPoolSettings
+
 $defaultPool = Get-AzureRmApplicationGatewayBackendAddressPool `
   -ApplicationGateway $appgw `
   -Name appGatewayBackendPool
+
 $redirectConfig = Get-AzureRmApplicationGatewayRedirectConfiguration `
   -ApplicationGateway $appgw `
   -Name redirectConfig
+
 $redirectPathRule = New-AzureRmApplicationGatewayPathRuleConfig `
   -Name redirectPathRule `
   -Paths "/images/*" `
   -RedirectConfiguration $redirectConfig
+
 Add-AzureRmApplicationGatewayUrlPathMapConfig `
   -ApplicationGateway $appgw `
   -Name redirectpathmap `
   -PathRules $redirectPathRule `
   -DefaultBackendAddressPool $defaultPool `
   -DefaultBackendHttpSettings $poolSettings
+
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
@@ -308,30 +353,37 @@ Les règles d’acheminement associent les cartes d’URL aux écouteurs que vou
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
+
 $backendlistener = Get-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw `
   -Name backendListener
+
 $redirectlistener = Get-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw `
   -Name redirectedListener
+
 $urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig `
   -ApplicationGateway $appgw `
   -Name urlpathmap
+
 $redirectPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig `
   -ApplicationGateway $appgw `
   -Name redirectpathmap
+
 Add-AzureRmApplicationGatewayRequestRoutingRule `
   -ApplicationGateway $appgw `
   -Name defaultRule `
   -RuleType PathBasedRouting `
   -HttpListener $backendlistener `
   -UrlPathMap $urlPathMap
+
 Add-AzureRmApplicationGatewayRequestRoutingRule `
   -ApplicationGateway $appgw `
   -Name redirectedRule `
   -RuleType PathBasedRouting `
   -HttpListener $redirectlistener `
   -UrlPathMap $redirectPathMap
+
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
@@ -343,18 +395,23 @@ Cet exemple crée trois groupes de machines virtuelles identiques prenant en cha
 $vnet = Get-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
+
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
+
 $backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool `
   -ApplicationGateway $appgw
+
 $imagesPool = Get-AzureRmApplicationGatewayBackendAddressPool `
   -Name imagesBackendPool `
   -ApplicationGateway $appgw
+
 $videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
   -Name videoBackendPool `
   -ApplicationGateway $appgw
+
 for ($i=1; $i -le 3; $i++)
 {
   if ($i -eq 1)
@@ -369,29 +426,35 @@ for ($i=1; $i -le 3; $i++)
   {
     $poolId = $videoPool.Id
   }
+
   $ipConfig = New-AzureRmVmssIpConfig `
     -Name myVmssIPConfig$i `
     -SubnetId $vnet.Subnets[1].Id `
     -ApplicationGatewayBackendAddressPoolsId $poolId
+
   $vmssConfig = New-AzureRmVmssConfig `
     -Location eastus `
     -SkuCapacity 2 `
     -SkuName Standard_DS2 `
     -UpgradePolicyMode Automatic
+
   Set-AzureRmVmssStorageProfile $vmssConfig `
     -ImageReferencePublisher MicrosoftWindowsServer `
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
     -ImageReferenceVersion latest
+
   Set-AzureRmVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
     -AdminPassword "Azure123456!" `
     -ComputerNamePrefix myvmss$i
+
   Add-AzureRmVmssNetworkInterfaceConfiguration `
     -VirtualMachineScaleSet $vmssConfig `
     -Name myVmssNetConfig$i `
     -Primary $true `
     -IPConfiguration $ipConfig
+
   New-AzureRmVmss `
     -ResourceGroupName myResourceGroupAG `
     -Name myvmss$i `
@@ -402,12 +465,13 @@ for ($i=1; $i -le 3; $i++)
 ### <a name="install-iis"></a>Installer IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)
 {
   $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss$i
+
   Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
@@ -442,9 +506,16 @@ Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant
 
 À présent, changez l’URL en http://&lt;ip-address&gt;:8081/images/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir le trafic redirigé vers le pool principal d’images à l’adresse http://&lt;ip-address&gt;:8080/images.
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroupAG
+```
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à effectuer les opérations suivantes :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer le réseau

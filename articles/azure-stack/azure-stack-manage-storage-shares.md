@@ -1,25 +1,25 @@
 ---
-title: "Gérer la capacité de stockage dans Azure Stack | Microsoft Docs"
-description: "Surveillez et gérez l’espace de stockage disponible pour Azure Stack."
+title: Gérer la capacité de stockage dans Azure Stack | Microsoft Docs
+description: Surveillez et gérez l’espace de stockage disponible pour Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.reviewer: jiahan
-ms.openlocfilehash: 749a02b38d6b074d4136bc7bb44910ee7c947b05
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: xiaofmao
+ms.openlocfilehash: da6bb00d7538c1a26e1ed4be29d3c882aa378e9e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack
 
@@ -56,7 +56,7 @@ Lorsqu’un partage manque d’espace libre et que les actions pour [récupérer
 - Pour plus d’informations sur l’utilisation du stockage d’objets blob dans Azure Stack par les utilisateurs locataires, consultez la section [Services de stockage Azure Stack](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
-### <a name="containers"></a>Conteneurs
+### <a name="containers"></a>Containers
 Les utilisateurs locataires créent des conteneurs qui sont ensuite utilisés pour stocker des données d’objet blob. Alors que l’utilisateur décide du conteneur dans lequel placer les objets blob, le service de stockage utilise un algorithme pour identifier le volume dans lequel placer le conteneur. En règle générale, l’algorithme choisit le volume contenant la plus grande quantité d’espace disponible.  
 
 Une fois qu’un objet blob a été placé dans un conteneur, il peut se développer pour utiliser plus d’espace. À mesure que vous ajoutez de nouveaux objets blob et que les objets blob existants se développent, l’espace disponible dans le volume de ce conteneur se réduit.  
@@ -136,50 +136,64 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
 1. Vérifiez qu’[Azure PowerShell est installé et configuré](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](http://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Examinez le conteneur pour connaître les données du partage que vous envisagez de migrer. Pour identifier les meilleurs conteneurs candidats pour la migration d’un volume, utilisez la cmdlet **Get-AzsStorageContainer** :
 
-    ```
-    $shares = Get-AzsStorageShare
-    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -Intent Migration
-    ```
+    ````PowerShell  
+    $farm_name = (Get-AzsStorageFarm)[0].name
+    $shares = Get-AzsStorageShare -FarmName $farm_name
+    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
+    ````
     Examinez ensuite $containers :
-    ```
+
+    ````PowerShell
     $containers
-    ```
+    ````
+
     ![Exemple : $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
 3.  Identifiez les meilleurs partages de destination pour contenir le conteneur que vous migrez :
-    ```
+
+    ````PowerShell
     $destinationshares = Get-AzsStorageShare -SourceShareName
     $shares[0].ShareName -Intent ContainerMigration
-    ```
-    Examinez ensuite $destinationshares :
-    ```
-    $destinationshares
-    ```    
-    ![Exemple : partages $destination](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+    ````
 
-4. Démarrez la migration d’un conteneur. Il s’agit d’un processus asynchrone. Si vous démarrez la migration des conteneurs supplémentaires avant la fin de la première migration, utilisez l’ID de travail pour suivre l’état de chaque migration.
-  ```
-  $jobId = Start-AzsStorageContainerMigration -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares[0].UncPath
-  ```
+    Examinez ensuite $destinationshares :
+
+    ````PowerShell $destinationshares
+    ````
+
+    ![Example: $destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+
+4. Start migration for a container. Migration is asynchronous. If you start migration of additional containers before the first migration completes, use the job id to track the status of each.
+
+  ````PowerShell
+  $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
+  ````
+
   Examinez ensuite $jobId. Dans l’exemple suivant, remplacez *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* par l’ID de travail que vous souhaitez examiner :
-  ```
+
+  ````PowerShell
   $jobId
   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ```
+  ````
+
 5. Utilisez l’ID de travail pour vérifier l’état du travail de migration. À la fin de la migration d’un conteneur, l’état **MigrationStatus** est défini sur **Terminé**.
-  ```
-  Get-AzsStorageContainerMigrationStatus -JobId $jobId
-  ```
+
+  ````PowerShell 
+  Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
+  ````
+
   ![Exemple : état de la migration](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  Vous pouvez annuler une tâche de migration en cours d’exécution. Les travaux de migration annulés sont traités de façon asynchrone. Vous pouvez suivre l’annulation à l’aide de $jobid :
 
-  ```
-  Stop-AzsStorageContainerMigration -JobId $jobId
-  ```
+  ````PowerShell
+  Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
+  ````
+
   ![Exemple : état de la restauration](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. Vous pouvez réexécuter la commande de l’étape 6 jusqu’à ce que l’état confirme que le travail de migration est **Annulé** :  
+
     ![Exemple : état Annulé](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Déplacer des disques de machine virtuelle

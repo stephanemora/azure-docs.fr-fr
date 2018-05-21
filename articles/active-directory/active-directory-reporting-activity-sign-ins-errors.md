@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory
 
@@ -67,14 +67,21 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |50058|Aucune information sur l’identité de l’utilisateur ne se trouve dans les informations d’identification indiquées ; l’utilisateur est introuvable dans le locataire ; une demande de connexion en mode silencieux a été envoyée, mais aucun utilisateur n’est connecté ou encore le service n’a pas pu authentifier l’utilisateur.|
 |50072|L’utilisateur doit s’inscrire pour l’authentification (interactive) du second facteur|
 |50074|L’utilisateur n’a pas réussi la vérification de l’authentification multifacteur.|
+|50076|L’utilisateur n’a pas réussi le test de l’authentification multifacteur (non interactif)|
 |50079|L’utilisateur doit s’inscrire pour l’authentification du second facteur.|
 |50089|La validation du jeton du flux a échoué en raison de l’expiration du jeton flux.|
 |50097|L’appareil n'est pas authentifié.|
 |50105|L’utilisateur connecté n’est pas affecté à un rôle pour cette application.|
+|50125|La connexion a été interrompue en raison d’une réinitialisation de mot de passe ou d’une entrée d’inscription de mot de passe|
 |50126|Nom d’utilisateur ou mot de passe non valides, ou nom d’utilisateur ou mot de passe locaux non valides.|
+|50127|L’utilisateur a besoin d’installer une application de répartiteur pour accéder à ce contenu.|
+|50129|L’appareil n’est pas rattaché à l’espace de travail. Un rattachement à l’espace de travail est nécessaire pour inscrire l’appareil.|
 |50131|Utilisation dans différentes erreurs d’accès conditionnel. Par exemple, état d’appareil Windows incorrect, demande bloquée en raison d’une activité suspecte, d’une stratégie d’accès et de décisions de stratégie de sécurité.|
 |50133|La session n’est pas valide en raison de l’expiration ou de la modification récente du mot de passe.|
-|50144|Le mot de passe Active Directory de l’utilisateur est arrivé à expiration.|
+|50140|L’utilisateur est invité à donner son consentement pour rester connecté sur l’appareil|
+|50144|Le mot de passe Active Directory de l’utilisateur est arrivé à expiration.|
+|53000|Une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme.|
+|53003|L’accès a été bloqué en raison de stratégies d’accès conditionnel.|
 |65 001|L’application X n’est pas autorisée à accéder à l’application Y, ou l’autorisation a été révoquée. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation à l’administrateur du locataire pour agir au nom de l’application Y pour la ressource Z.|
 |65005|La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a retourné une demande incorrecte ou la ressource est introuvable.|
 |70001|L’application nommée X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre demande d’authentification au locataire incorrect.|
@@ -98,8 +105,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |81013|Impossible de trouver l’objet utilisateur à partir des informations contenues dans le ticket Kerberos de l’utilisateur.|
 |90014|Utilisation dans différents cas lorsqu’un champ attendu est absent des informations d’identification.|
 |90093|Graphique retourné avec un code d’erreur interdit pour la demande.|
-
-
+|90094|Le consentement de l’administrateur est nécessaire.|
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus, voir [Rapports d’activité des connexions dans le portail Azure Active Directory](active-directory-reporting-activity-sign-ins.md).

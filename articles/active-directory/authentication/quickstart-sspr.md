@@ -2,25 +2,19 @@
 title: Démarrage rapide de réinitialisation de mot de passe libre-service - Azure Active Directory
 description: Déployer rapidement la réinitialisation de mot de passe en libre-service Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Déploiement rapide de la réinitialisation de mot de passe en libre-service Azure AD
 
@@ -33,11 +27,13 @@ Ce guide part du principe que vous avez déjà une version d’essai opérationn
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Activer la réinitialisation de mot de passe en libre-service (SSPR) pour votre locataire Azure AD
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. À partir de votre locataire Azure AD existant, sur le **Portail Azure** sous **Azure Active Directory** sélectionnez **Réinitialisation du mot de passe**.
 
 2. Sur la page **Propriétés**, sous **Réinitialisation de mot de passe en libre-service activée**, choisissez l’une des options suivantes :
    * **Aucun**: personne n’est en mesure d’utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service.
-   * **Sélectionné** : seuls les membres d’un groupe Azure AD que vous choisissez peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons de définir un groupe d’utilisateurs et d’utiliser ce paramètre lorsque vous déployez cette fonctionnalité pour une preuve de concept.
+   * **Sélectionné** : seuls les membres d’un groupe Azure AD que vous choisissez peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons de définir un groupe d’utilisateurs et d’utiliser ce paramètre lorsque vous déployez cette fonctionnalité pour une preuve de concept. L’imbrication de groupes de sécurité est prise en charge ici.
    * **Tout le monde** : tous les utilisateurs disposant d’un compte dans votre locataire Azure AD peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons d’utiliser ce paramètre lorsque vous êtes prêt à déployer cette fonctionnalité pour l’ensemble de votre locataire après avoir effectué une preuve de concept.
 
    > [!IMPORTANT]

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,9 +100,10 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur le pr
     - Clé de l'application
     - ID client
 
-2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait. L’administrateur AAD doit être un utilisateur AAD ou un groupe AAD, mais il ne peut pas être un principal de service. Vous devez effectuer cette étape pour qu’à l’étape suivante vous puissiez utiliser une identité AAD pour créer un utilisateur de base de données contenu pour le principal du service.
+2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait. L’administrateur AAD doit être un utilisateur AAD ou un groupe AAD, mais il ne peut pas être un principal de service. Vous devez effectuer cette étape pour qu’à l’étape suivante vous puissiez utiliser une identité AAD pour créer un utilisateur de base de données autonome pour le principal du service.
 
-3. **Créez un utilisateur de base de données contenu pour le principal du service** en vous connectant à la base de données à partir de laquelle ou sur laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données contenu [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. 
+  **Créez un utilisateur de base de données autonome pour le principal du service** en vous connectant à la base de données à partir de laquelle ou sur laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données autonome [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -111,7 +112,7 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur le pr
 4. **Accordez les autorisations requises par le principal du service** comme vous le feriez d’habitude pour les utilisateurs SQL, par exemple, en exécutant ce qui suit :
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. Dans ADF, configurez un service lié Azure SQL Database.
@@ -160,9 +161,10 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur une M
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** pour votre serveur SQL Azure sur le Portail Azure, si ce n’est pas déjà fait. L’administrateur AAD peut être un utilisateur AAD ou un groupe AAD. Si vous accordez au groupe avec MSI un rôle d’administrateur, ignorez les étapes 3 et 4 ci-dessous, car l’administrateur a un accès complet à la base de données.
+2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur SQL Azure sur le Portail Azure, si ce n’est pas déjà fait. L’administrateur AAD peut être un utilisateur AAD ou un groupe AAD. Si vous accordez au groupe avec MSI un rôle d’administrateur, ignorez les étapes 3 et 4 ci-dessous, car l’administrateur a un accès complet à la base de données.
 
-3. **Créez un utilisateur de base de données contenu pour le groupe AAD** en vous connectant à la base de données à partir de laquelle ou sur laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données contenu [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. 
+  **Créez un utilisateur de base de données autonome pour le groupe AAD** en vous connectant à la base de données à partir de laquelle ou sur laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données autonome [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
     ```sql
     CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
@@ -171,7 +173,7 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur une M
 4. **Accordez les autorisations requises par le groupe AAD** comme vous le feriez d’habitude pour les utilisateurs SQL, par exemple, en exécutant ce qui suit :
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. Dans ADF, configurez un service lié Azure SQL Database.

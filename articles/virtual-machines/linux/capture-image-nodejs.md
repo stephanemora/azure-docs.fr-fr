@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3b45f46197467dd7b83bd986604338e14daa8107
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Capturer une machine virtuelle Linux exécutée sur Azure
 Suivez les étapes décrites dans cet article pour généraliser et capturer votre machine virtuelle Linux Azure dans le modèle de déploiement Resource Manager. Lorsque vous généralisez la machine virtuelle, vous supprimez les informations personnelles de votre compte et vous préparez la machine virtuelle pour l’utiliser en tant qu’image. Ensuite, vous capturez une image généralisée du disque dur virtuel du système d’exploitation, les disques durs virtuels des disques de données attachés et un [modèle Resource Manager](../../azure-resource-manager/resource-group-overview.md) pour les nouveaux déploiements de machines virtuelles. Cet article explique comment capturer une image de machine virtuelle avec Azure CLI 1.0 pour une machine virtuelle utilisant des disques non gérés. Vous pouvez également [capturer une machine virtuelle utilisant Azure Managed Disks à l’aide d’Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les disques gérés sont traités par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker. Pour plus d’informations, voir la page [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Vue d’ensemble d’Azure Managed Disks). 
@@ -44,7 +44,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 * **Interface CLI Azure** : installez [l’interface CLI Azure](../../cli-install-nodejs.md) sur un ordinateur local.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Étape 1 : supprimer l’agent Linux Azure
-Commencez par exécuter la commande **waagent** avec le paramètre **deprovision** sur la machine virtuelle Linux. Cette commande supprime les fichiers et les données pour préparer la machine virtuelle à la généralisation. Pour plus d’informations, consultez le [Guide d’utilisation de l’agent Linux Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Commencez par exécuter la commande **waagent** avec le paramètre **deprovision** sur la machine virtuelle Linux. Cette commande supprime les fichiers et les données pour préparer la machine virtuelle à la généralisation. Pour plus d’informations, consultez le [Guide d’utilisation de l’agent Linux Azure](../extensions/agent-windows.md).
 
 1. Connectez-vous à votre machine virtuelle Linux en utilisant un client SSH.
 2. Dans la fenêtre SSH, tapez la commande suivante :

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8670de00e3ab66ec4a5fa5c0c340e38182fd1ffd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guide de démarrage rapide : créer son premier conteneur dans Azure Container Instances
 
@@ -21,7 +21,7 @@ Azure Container Instances facilite la création et la gestion de conteneurs Dock
 
 ![L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur][qs-powershell-01]
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -81,9 +81,9 @@ Une fois que le conteneur **ProvisioningState** passe à l’état `Succeeded`, 
 
 ![IIS déployé à l’aide d’Azure Container Instances affiché dans un navigateur][qs-powershell-01]
 
-## <a name="delete-the-container"></a>Supprimer un conteneur
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous avez fini d’utiliser le conteneur, vous pouvez le supprimer à l’aide de l’applet de commande [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] :
+Quand vous avez fini d’utiliser le conteneur, vous pouvez le supprimer avec l’applet de commande [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] :
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -91,7 +91,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce démarrage rapide, vous avez démarré un conteneur Windows prêt à l’emploi dans Azure Container Instances. Si vous voulez essayer de créer un conteneur par vous-même et de le déployer dans Azure Container Instances à l’aide d’Azure Container Registry, passez au didacticiel relatif à Azure Container Instances.
+Dans ce guide de démarrage rapide, vous avez créé une instance de conteneur Azure à partir d’une image dans le registre du Hub Docker public. Si vous voulez créer une image conteneur par vous-même et la déployer dans Azure Container Instances à partir d’un registre de conteneurs Azure privé, passez au tutoriel Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Didacticiel Azure Container Instances](./container-instances-tutorial-prepare-app.md)

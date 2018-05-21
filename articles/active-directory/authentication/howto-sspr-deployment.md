@@ -2,35 +2,31 @@
 title: Guide de déploiement de réinitialisation de mot de passe libre-service - Azure Active Directory
 description: Conseils pour réussir le lancement de la réinitialisation du mot de passe libre-service Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
 Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitialisation du mot de passe libre-service (SSPR) d’Azure Active Directory (Azure AD), les clients procèdent généralement comme suit :
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [Activez la réinitialisation du mot de passe dans votre répertoire](quickstart-sspr.md).
 2. [Configurez les autorisations Active Directory locales pour l’écriture différée du mot de passe](howto-sspr-writeback.md#active-directory-permissions).
 3. [Configurez l’écriture différée du mot de passe](howto-sspr-writeback.md#configure-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local.
 4. [Affectez et vérifiez les licences requises](concept-sspr-licensing.md).
-5. Décidez si vous souhaitez effectuer un déploiement progressif. Si vous souhaitez lancer progressivement la réinitialisation de mot de passe en libre-service, vous pouvez limiter l’accès à un groupe d’utilisateurs afin de piloter le programme avec un groupe spécifique. Pour effectuer le lancement pour un groupe spécifique, définissez le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Sélectionné** et sélectionnez le groupe de sécurité qui doit pouvoir utiliser la réinitialisation du mot de passe. 
+5. Décidez si vous souhaitez effectuer un déploiement progressif. Si vous souhaitez lancer progressivement la réinitialisation de mot de passe en libre-service, vous pouvez limiter l’accès à un groupe d’utilisateurs afin de piloter le programme avec un groupe spécifique. Pour effectuer le lancement pour un groupe spécifique, définissez le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Sélectionné** et sélectionnez le groupe de sécurité qui doit pouvoir utiliser la réinitialisation du mot de passe.  L’imbrication de groupes de sécurité est prise en charge ici.
 6. Remplissez les [Données d’authentification](howto-sspr-authenticationdata.md) nécessaires pour l’inscription de vos utilisateurs, telles que leur téléphone de bureau, téléphone mobile et adresse de messagerie.
 7. [Personnalisez l’expérience de connexion Azure AD pour inclure la marque de votre société](concept-sspr-customization.md).
 8. Apprenez à vos utilisateurs à utiliser la réinitialisation du mot de passe libre-service. Envoyez-leur des instructions pour leur montrer comment s’inscrire et comment réinitialiser leurs mots de passe.
@@ -66,6 +62,10 @@ Nombre de nos clients choisissent d’héberger une page web et de créer une en
 * Autres informations spécifiques à l’organisation
 
 Dans toutes vos communications par courrier électronique ou prospectus, vous pouvez inclure une URL de marque, facile à retenir que les utilisateurs peuvent suivre quand ils doivent utiliser les services. Pour votre bénéfice, nous avons créé une [page d’exemple de réinitialisation du mot de passe](https://github.com/ajamess/password-reset-page) que vous pouvez utiliser et personnaliser pour les besoins de votre organisation.
+
+## <a name="step-by-step-deployment-plan"></a>Plan de déploiement étape par étape
+
+Le groupe de produits Azure Active Directory a créé un [plan de déploiement étape par étape](https://aka.ms/SSPRDeploymentPlan) que les organisations peuvent utiliser en parallèle avec la documentation disponible sur ce site pour effectuer une étude de cas et un plan de déploiement de la réinitialisation de mot de passe en libre-service.
 
 ## <a name="use-enforced-registration"></a>Utilisation de l’inscription forcée
 
