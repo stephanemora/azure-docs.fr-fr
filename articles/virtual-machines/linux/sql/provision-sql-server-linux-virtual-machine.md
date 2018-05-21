@@ -1,22 +1,22 @@
 ---
-title: "Créer une machine virtuelle Linux SQL Server 2017 dans Azure | Microsoft Docs"
-description: "Ce didacticiel montre comment créer une machine virtuelle Linux SQL Server 2017 dans le portail Azure."
+title: Créer une machine virtuelle Linux SQL Server 2017 dans Azure | Microsoft Docs
+description: Ce didacticiel montre comment créer une machine virtuelle Linux SQL Server 2017 dans le portail Azure.
 services: virtual-machines-linux
 author: rothja
 ms.author: jroth
 manager: jhubbard
-ms.date: 10/25/2017
+ms.date: 05/11/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b86dd47c112c38bc65c045158787d19b470899a0
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure
 
@@ -34,6 +34,7 @@ Ce didacticiel présente les procédures suivantes :
 * [Configurer des connexions à distance](#remote)
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -71,7 +72,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Cliquez sur **OK**.
 
-1. Dans la fenêtre **Taille**, choisissez une taille pour votre machine. Pour voir d’autres tailles, sélectionnez **Afficher tout**. Pour en savoir plus sur les tailles de machines virtuelles, consultez [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+1. Dans la fenêtre **Taille**, choisissez une taille pour votre machine. Pour en savoir plus sur les tailles de machines virtuelles, consultez [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
     ![Choisir une taille de machine virtuelle](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -80,9 +81,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Cliquez sur **Sélectionner**.
 
-1. Dans la fenêtre **Paramètres**, vous pouvez effectuer des modifications des paramètres ou conserver ceux par défaut.
+1. Dans la fenêtre **Paramètres**, sélectionnez le port **SSH (22)** dans la liste **Sélectionner les ports entrants publics**. Cette opération est nécessaire dans ce guide de démarrage rapide pour établir une connexion à SQL Server et terminer la configuration. Si vous souhaitez vous connecter à distance à SQL Server, sélectionnez également **MS SQL (1433)** afin d’ouvrir le port 1433 pour les connexions sur Internet.
 
-1. Cliquez sur **OK**.
+   ![Ports entrants](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+
+1. Vous pouvez changer d’autres paramètres ou conserver ceux par défaut. Cliquez ensuite sur **OK**.
 
 1. Sur la page **Récapitulatif**, cliquez sur **Acheter** pour créer la machine virtuelle.
 
@@ -145,7 +148,10 @@ Plusieurs [packages](sql-server-linux-virtual-machines-overview.md#packages) SQL
 
 ## <a id="remote"></a> Configurer des connexions à distance
 
-Si vous avez besoin de vous connecter à distance à SQL Server sur la machine virtuelle Azure, vous devez configurer une règle entrante sur le groupe de sécurité réseau. La règle autorise le trafic sur le port qu’écoute SQL Server (port 1433 par défaut). Les étapes suivantes montrent comment utiliser le portail Azure. 
+Si vous avez besoin de vous connecter à distance à SQL Server sur la machine virtuelle Azure, vous devez configurer une règle entrante sur le groupe de sécurité réseau. La règle autorise le trafic sur le port qu’écoute SQL Server (port 1433 par défaut). Les étapes suivantes montrent comment utiliser le portail Azure.
+
+> [!TIP]
+> Si vous avez sélectionné le port entrant **MS SQL (1433)** dans les paramètres durant le provisionnement, ces changements ont été apportés pour vous. Vous pouvez passer à la section suivante pour configurer le pare-feu.
 
 1. Dans le portail, sélectionnez **Machines virtuelles**, puis sélectionnez votre machine virtuelle SQL Server.
 

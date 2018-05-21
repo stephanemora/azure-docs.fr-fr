@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Comment associer ou ajouter un abonnement Azure à Azure Active Directory
 
@@ -53,6 +51,8 @@ Tous les utilisateurs disposent d'un répertoire de base unique qui les authenti
 
     ![Capture d’écran affichant le sélecteur](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Comme les coffres de clés Azure dont vous disposez sont également affectés par un déplacement d’abonnement, [modifiez l’ID de locataire des coffres de clés](../key-vault/key-vault-subscription-move-fix.md) avant de reprendre les opérations.
 
 La modification du répertoire d’abonnement est une opération qui s’effectue au niveau du service. Elle n’affecte pas la propriété de facturation de l’abonnement, et l’administrateur de compte peut toujours changer l’administrateur du service dans le [Centre des comptes](https://account.azure.com/subscriptions). Si vous souhaitez supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md). 
 

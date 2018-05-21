@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c70db92d6071a295dfc329768ab8a0fd561f8ce5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 > [!NOTE]
@@ -67,7 +67,7 @@ Voici des exemples pour lesquels le conteneur est un bon choix :
 
 * **Opération lift-and-shift pour IIS** : si vous avez des applications [ASP.NET MVC](https://www.asp.net/mvc) et que vous souhaitez continuer à les utiliser, placez-les dans un conteneur au lieu de les migrer vers ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 * **Mélange de conteneurs et de microservices Service Fabric** : utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état pour les calculs les plus intenses du back-end.
-* **Réduction de l’impact des services de « voisins bruyants »** : vous pouvez utiliser la capacité de gouvernance des ressources des conteneurs pour limiter les ressources utilisées par un service sur un hôte. Si les services sont susceptibles de consommer un grand nombre de ressources et, de ce fait, d’affecter les performances d’autres services (opération de type requête exécutée sur le long terme, par exemple), vous pouvez envisager de les placer dans des conteneurs soumis à la gouvernance des ressources.
+* **Réduction de l’impact des services de « voisins bruyants »**  : vous pouvez utiliser la capacité de gouvernance des ressources des conteneurs pour limiter les ressources utilisées par un service sur un hôte. Si les services sont susceptibles de consommer un grand nombre de ressources et, de ce fait, d’affecter les performances d’autres services (opération de type requête exécutée sur le long terme, par exemple), vous pouvez envisager de les placer dans des conteneurs soumis à la gouvernance des ressources.
 
 ## <a name="service-fabric-support-for-containers"></a>Prise en charge des conteneurs par Service Fabric
 Service Fabric prend en charge le déploiement de conteneurs Docker sous Linux et de conteneurs Windows Server sous Windows Server 2016. Il gère également le mode d’isolation Hyper-V. 
