@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: ''
-ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Qu'est-ce qu’Azure IoT Edge - préversion
 
 Azure IoT Edge déplace l’analytique et la logique métier personnalisée du cloud vers les appareils, afin que votre organisation puisse se concentrer sur les perspectives commerciales plutôt que sur la gestion des données. Permettez à votre solution de mettre réellement à l’échelle en configurant votre logiciel IoT, en le déployant sur des appareils grâce à des conteneurs standard et en le surveillant à partir du cloud.
 
 >[!NOTE]
->Azure IoT Edge est uniquement disponible dans le niveau Standard d’IoT Hub. Pour plus d’informations sur les niveaux De base et Standard d’IoT Hub, consultez [Mettre à l’échelle votre solution IoT Hub](../iot-hub/iot-hub-scaling.md).
+>Azure IoT Edge est disponible dans les niveaux gratuit et standard d’IoT Hub. Le niveau gratuit est destiné aux tests et à l’évaluation uniquement. Pour plus d’informations sur les niveaux De base et Standard d’IoT Hub, consultez [Mettre à l’échelle votre solution IoT Hub](../iot-hub/iot-hub-scaling.md).
 
 L’analytique apporte de la valeur métier dans les solutions IoT, mais toutes les analyses ne doivent pas se trouver sur le cloud. Si vous souhaitez qu’un périphérique réponde aux situations d’urgence aussi rapidement que possible, vous pouvez utiliser la détection d’anomalies sur le périphérique lui-même. De même, si vous souhaitez réduire les coûts de bande passante et éviter de transférer des téraoctets de données brutes, vous pouvez effectuer l’agrégation et le nettoyage des données localement. Vous envoyez ensuite les informations sur le cloud. 
 

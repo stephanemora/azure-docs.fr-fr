@@ -1,12 +1,12 @@
 ---
-title: "Liste de contrôle de la sécurité des bases de données Azure | Microsoft Docs"
-description: "Cet article fournit un ensemble de listes de contrôle pour la sécurité des bases de données Azure."
+title: Liste de contrôle de la sécurité des bases de données Azure | Microsoft Docs
+description: Cet article fournit un ensemble de listes de contrôle pour la sécurité des bases de données Azure.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 37523506369ece144183dba76feb8b23b6c1acb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
 Pour aider à améliorer la sécurité, les bases de données Azure incluent un nombre de contrôles de sécurité intégrés que vous pouvez utiliser pour limiter et contrôler l’accès.
 
-Vous avez notamment vu les points suivants :
+Il s’agit des actions suivantes :
 
 -   Pare-feu qui vous permet de créer des [règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) limitant la connectivité par adresse IP
 -   Pare-feu au niveau du serveur accessible depuis le portail Azure

@@ -4,20 +4,21 @@ description: Cet article fournit une vue d’ensemble de l’utilisation d’Azu
 services: automation
 author: zjalexander
 ms.service: automation
+ms.component: update-management
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 84ec2a5852e6aaeb4b9fe6ef11924209d03fb54b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gérer les mises à jour Windows avec Azure Automation
 
 La gestion des mises à jour vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles.
-Dans ce didacticiel, vous allez découvrir comment évaluer rapidement l’état des mises à jour disponibles, planifier l’installation des mises à jour nécessaires et passer en revue les résultats des déploiements pour vérifier que les mises à jour sont appliquées correctement.
+Dans ce tutoriel, vous allez découvrir comment évaluer rapidement l’état des mises à jour disponibles, planifier l’installation des mises à jour nécessaires, passer en revue les résultats des déploiements et créer une alerte pour vérifier que les mises à jour sont appliquées correctement.
 
 Pour plus d’informations sur les prix, consultez [Tarification Automation pour la gestion des mises à jour](https://azure.microsoft.com/pricing/details/automation/)
 
@@ -26,6 +27,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour la gestion des mises à jour
 > * Afficher une évaluation des mises à jour
+> * Configurer les alertes
 > * Planifier un déploiement de mises à jour
 > * Afficher les résultats d’un déploiement
 
@@ -34,44 +36,39 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un abonnement Azure. Si vous n’en avez pas encore, vous pouvez [activer votre crédit Azure mensuel pour abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire pour obtenir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche d’observateur.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à intégrer.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse http://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Activer la gestion des mises à jour
 
-Pour ce didacticiel, vous devez d’abord activer la gestion des mises à jour pour votre machine virtuelle. Si vous avez déjà activé une autre solution d’automatisation pour une machine virtuelle, cette étape n’est pas nécessaire.
+Pour ce tutoriel, vous devez d’abord activer la gestion des mises à jour sur votre machine virtuelle.
 
-1. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste
-2. Dans le menu de gauche, sous la section **Opérations**, cliquez sur **Gestion des mises à jour**. La page **Activer la gestion des mises à jour** s’ouvre.
+1. Dans le portail Azure, dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste.
+2. Dans la page de la machine virtuelle, cliquez sur **Gestion des mises à jour** sous la section **Opérations**. La page **Activer la gestion des mises à jour** s’ouvre.
 
-Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle.
-La validation inclut la vérification de l’existence d’un espace de travail Log Analytics et d’un compte Automation lié, et si la solution est dans l’espace de travail.
+Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle. Cette validation inclut la vérification de l’existence d’un espace de travail Log Analytics et d’un compte Automation lié, et détermine si la solution de gestion des mises à jour se trouve dans l’espace de travail.
 
-Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme la gestion des mises à jour.
-L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
-Pour effectuer une action supplémentaire sur les machines virtuelles qui nécessitent des mises à jour, Azure Automation vous permet d’exécuter des runbooks sur les machines virtuelles, par exemple télécharger et appliquer des mises à jour.
+Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme la gestion des mises à jour. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
 Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un runbook Worker hybride Automation.
-Cet agent est utilisé pour communiquer avec la machine virtuelle et pour obtenir des informations sur l’état des mises à jour.
-
-Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
+Cet agent est utilisé pour communiquer avec Azure Automation et obtenir des informations sur l’état des mises à jour. L’agent nécessite que le port 443 soit ouvert pour communiquer avec le service Azure Automation et télécharger des mises à jour.
 
 Si l’intégration n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
 
 * Espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automation](./automation-offering-get-started.md)
+* [Compte Automation](./automation-offering-get-started.md)
 * Un [worker runbook hybride](./automation-hybrid-runbook-worker.md) est activé sur la machine virtuelle
 
 L’écran **Gestion des mises à jour** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
 
 ![Fenêtre Activer la solution de gestion des mises à jour](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
+L’activation de la solution peut prendre quelques minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
 Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées à Log Analytics.
 Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
@@ -88,9 +85,48 @@ Cliquez n’importe où sur la mise à jour pour ouvrir la fenêtre **Recherche 
 
 ![Afficher l’état des mises à jour](./media/automation-tutorial-update-management/logsearch.png)
 
+## <a name="configure-alerting"></a>Configurer les alertes
+
+Pendant cette étape, vous configurez une alerte pour être tenu informé des mises à jour qui ont été correctement déployées. L’alerte que vous créez repose sur une requête Log Analytics. Vous pouvez écrire des requêtes personnalisées pour que d’autres alertes couvrent d’autres scénarios. Dans le portail Azure, accédez à **Surveiller** et cliquez sur **Créer une alerte**. La page **Créer une règle** s’ouvre.
+
+Sous **1. Définir la condition de l’alerte**, cliquez sur **+ Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Log Analytics**. Choisissez votre espace de travail Log Analytics et cliquez sur **Terminé**.
+
+![Créer une alerte](./media/automation-tutorial-update-management/create-alert.png)
+
+Cliquez sur le bouton **+ Ajouter des critères** pour ouvrir la page **Configurer la logique du signal**. Choisissez **Recherche dans les journaux personnalisée** dans le tableau. Entrez la requête suivante dans la zone de texte **Requête de recherche**. Cette requête retourne le nom des ordinateurs et de l’exécution de mise à jour qui s’est déroulée dans le délai d’exécution spécifié.
+
+```loganalytics
+UpdateRunProgress
+| where InstallationStatus == 'Succeeded'
+| where TimeGenerated > now(-10m)
+| summarize by UpdateRunName, Computer
+```
+
+Entrez **1** comme **seuil** de la logique d’alerte. Lorsque vous avez terminé, cliquez sur **Terminé**.
+
+![Configurer la logique du signal](./media/automation-tutorial-update-management/signal-logic.png)
+
+Sous **2. Définir les détails de l’alerte**, donnez à l’alerte un nom convivial et une description. Affectez à l’option **Gravité** la valeur **Pour informations (gravité 2)** étant donné que l’alerte a trait à une exécution réussie.
+
+![Configurer la logique du signal](./media/automation-tutorial-update-management/define-alert-details.png)
+
+Sous **3. Définir un groupe d’actions**, cliquez sur **+ Nouveau groupe d’actions**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Il peut s’agir, sans s’y limiter, de notifications par e-mail, de runbooks, de webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+Dans la zone **Nom du groupe d’actions**, définissez un nom convivial et un nom court. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+
+Sous **Actions**, l’action porte un nom convivial comme **Notifications par e-mail**. Sous **TYPE D’ACTION**, sélectionnez **E-mail/SMS/Push/Voix**. Sous **DÉTAILS**, sélectionnez **Modifier les détails**.
+
+Dans la page **E-mail/SMS/Push/Voix**, attribuez un nom. Cochez la case **E-mail** et entrez une adresse e-mail valide à utiliser.
+
+![Configurer l’e-mail du groupe d’actions](./media/automation-tutorial-update-management/configure-email-action-group.png)
+
+Cliquez sur **OK** dans la page **E-mail/SMS/Push/Voix** pour la fermer, puis cliquez sur **OK** pour fermer la page **Ajouter un groupe d’actions**.
+
+Vous pouvez personnaliser l’objet de l’e-mail envoyé en cliquant sur **Objet de l’e-mail** sous **Personnaliser les actions** dans la page **Créer une règle**. Lorsque vous avez terminé, cliquez sur **Créer une règle d’alerte**. Ainsi est créée la règle qui vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié.
+
 ## <a name="schedule-an-update-deployment"></a>Planifier un déploiement de mises à jour
 
-Vous savez maintenant que des mises à jour sont manquantes pour votre machine virtuelle. Pour installer les mises à jour, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions.
+Maintenant que les alertes sont configurées, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions pour installer des mises à jour.
 Vous pouvez choisir les types de mises à jour à inclure dans le déploiement.
 Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
@@ -102,22 +138,24 @@ Planifiez un nouveau déploiement de mises à jour pour la machine virtuelle en 
 Dans l’écran **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
 * **Nom** : spécifiez un nom unique pour le déploiement de mises à jour.
+
+* **Système d’exploitation** : choisissez le système d’exploitation à cibler pour le déploiement de mises à jour.
+
 * **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
 
   Les types de classification sont les suivants :
 
-  * Mises à jour critiques
-  * Mises à jour de sécurité
-  * Correctifs cumulatifs
-  * Packs de fonctionnalités
-  * Service Packs
-  * Mises à jour de définitions
-  * Outils
-  * Mises à jour
+   |SE  |type  |
+   |---------|---------|
+   |Windows     | Mises à jour critiques</br>Mises à jour de sécurité</br>Correctifs cumulatifs</br>Packs de fonctionnalités</br>Service Packs</br>Mises à jour de définitions</br>Outils</br>Mises à jour        |
+   |Linux     | Mises à jour critiques et de sécurité</br>Autres mises à jour       |
 
-* **Paramètres de planification** : définissez l’heure sur 5 minutes à l’avenir. Vous pouvez également accepter la valeur par défaut, qui est de 30 minutes après l’heure actuelle.
-Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique.
-Sélectionnez **Récurrent** sous **Récurrence**. Conservez la valeur par défaut de 1 jour, cliquez sur **OK**. Cela configure une planification récurrente.
+   Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-update-management.md#update-classifications).
+
+* **Paramètres de planification** : permet d’ouvrir la page Paramètres de planification. L’heure de début par défaut est dans 30 minutes. Vous pouvez lui affecter la valeur 10 minutes à l’avenir.
+
+   Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique.
+   Sélectionnez **Une fois** sous **Récurrence**. Conservez la valeur par défaut de 1 jour, cliquez sur **OK**. Cela configure une planification récurrente.
 
 * **Fenêtre de maintenance (en minutes)** : conservez cette valeur par défaut. Vous pouvez spécifier la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
@@ -149,6 +187,10 @@ Cliquez sur la vignette **Sortie** pour voir le flux des tâches du runbook char
 
 Cliquez sur **Erreurs** pour afficher les informations détaillées sur les erreurs du déploiement.
 
+Une fois que votre déploiement de mises à jour a réussi, un e-mail similaire à l’illustration suivante est envoyé pour en témoigner.
+
+![Configurer l’e-mail du groupe d’actions](./media/automation-tutorial-update-management/email-notification.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
@@ -156,6 +198,7 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour la gestion des mises à jour
 > * Afficher une évaluation des mises à jour
+> * Configurer les alertes
 > * Planifier un déploiement de mises à jour
 > * Afficher les résultats d’un déploiement
 
