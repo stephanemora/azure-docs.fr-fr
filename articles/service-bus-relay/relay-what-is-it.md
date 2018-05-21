@@ -1,34 +1,36 @@
 ---
-title: "Présentation Qu’est-ce qu’Azure Relay et pourquoi l’utiliser | Microsoft Docs"
-description: "Présentation d’Azure Relay"
+title: Présentation Qu’est-ce qu’Azure Relay et pourquoi l’utiliser | Microsoft Docs
+description: Présentation d’Azure Relay
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
 
 Le service Azure Relay facilite les applications hybrides en offrant la possibilité d’exposer les services qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise. Azure Relay prend en charge une grande variété de protocoles de transport et normes de services web.
 
-Le service de relais prend en charge le trafic unidirectionnel standard, le trafic de demande/réponse et le trafic d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point. 
+Le service de relais prend en charge le trafic unidirectionnel standard, le trafic de demande/réponse et le trafic d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point.
 
 Dans le modèle de transfert de données par relais, un service local se connecte au service de relais via un port sortant et crée un socket bidirectionnel pour la communication liée à des adresses de rendez-vous spécifiques. Le client peut ensuite communiquer avec le service local en envoyant le trafic vers le service de relais ciblant l’adresse de rendez-vous. Le service de relais « relaie » ensuite les données au service local via le socket bidirectionnel dédié à chaque client. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
 
-Les principaux éléments de fonctionnalité d’Azure Relay sont la communication bidirectionnelle, non mise en mémoire tampon à travers les limites du réseau avec limitation de type TCP, la découverte de point de terminaison, l’état de la connectivité et la sécurité des points de terminaison superposés. Les fonctionnalités d’Azure Relay diffèrent des technologies d’intégration au niveau du réseau telles que le réseau VPN, car le relais peut être limité à un point de terminaison d’application unique sur un ordinateur unique, alors que la technologie VPN est beaucoup plus intrusive, car elle repose sur la modification de l’environnement réseau.
+Les principaux éléments de fonctionnalité d’Azure Relay sont la communication bidirectionnelle, non mise en mémoire tampon à travers les limites du réseau avec limitation de type TCP, la découverte de point de terminaison, l’état de la connectivité et la sécurité des points de terminaison superposés.
+
+Les fonctionnalités d’Azure Relay diffèrent des technologies d’intégration au niveau du réseau telles que le réseau VPN, car le relais peut être limité à un point de terminaison d’application unique sur un ordinateur unique, alors que la technologie VPN est beaucoup plus intrusive, car elle repose sur la modification de l’environnement réseau.
 
 Azure Relay comprend deux fonctionnalités :
 
@@ -48,7 +50,9 @@ Les connexions hybrides et relais WCF permettent une connexion sécurisée aux a
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
 
-La fonctionnalité de [connexions hybrides Azure Relay](relay-hybrid-connections-protocol.md) est une évolution de protocole ouvert sécurisé des fonctionnalités existantes du relais, qui peut être implémentée sur n’importe quelle plateforme et dans n’importe quel langage incluant une fonctionnalité WebSocket de base, ce qui comprend explicitement l’API WebSocket dans les navigateurs web courants. Les connexions hybrides sont basées sur HTTP et WebSockets.
+La fonctionnalité de connexions hybrides Azure Relay est une évolution de protocole ouvert sécurisé des fonctionnalités existantes de relais, qui peut être implémentée sur n’importe quelle plateforme et dans n’importe quel langage. Les connexions hybrides peuvent relayer des WebSockets, ainsi que des requêtes et des réponses HTTP(S). Ces fonctionnalités sont compatibles avec l’API WebSocket dans les navigateurs web courants. Les connexions hybrides sont basées sur HTTP et WebSockets.
+
+Le protocole est entièrement documenté dans le [guide du protocole Connexions hybrides](relay-hybrid-connections-protocol.md), permettant l’utilisation du relais Connexions hybrides avec pratiquement n’importe quelle bibliothèque WebSockets pour n’importe quel langage et runtime.
 
 ### <a name="service-history"></a>Historique des services
 
@@ -70,6 +74,8 @@ Lorsque la connexion au relais est établie, les clients peuvent échanger des m
 
 * [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)
-* [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Prise en main de Node](relay-hybrid-connections-node-get-started.md)
+* [Bien démarrer avec Websockets .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Bien démarrer avec les requêtes HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+* [Bien démarrer avec Websockets Node](relay-hybrid-connections-node-get-started.md)
+* [Bien démarrer avec les requêtes HTTP Node](relay-hybrid-connections-http-requests-node-get-started.md)
 

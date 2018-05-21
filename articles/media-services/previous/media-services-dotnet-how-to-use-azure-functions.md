@@ -52,7 +52,7 @@ La fonction, définie dans cet article, suppose que les variables d’environnem
 
 **AMSClientId** : ID client d’application Azure AD.
 
-**AMSClientId** : clé secrète client d’application Azure AD.
+**AMSClientSecret** : clé secrète client d’application Azure AD.
 
 **StorageConnection** : connexion au stockage du compte associé au compte Media Services. Cette valeur est utilisée dans le fichier **function.json** et le fichier **run.csx** (décrits ci-après).
 
