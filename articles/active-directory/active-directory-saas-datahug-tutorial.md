@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel : Intégration d'Azure Active Directory avec Datahug | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Datahug."
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Datahug.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e032aee88a430fe8ac5fa37229f1eee6fc04f710
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 929b63ea3d78aafe6b96af40b9dce4decbd295b1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Didacticiel : Intégration d’Azure Active Directory avec Datahug
 
@@ -29,9 +29,10 @@ L’intégration de Datahug avec Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Datahug (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Datahug, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Datahug depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Datahug dans Azure AD, vous devez ajouter D
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Datahug**.
 
@@ -86,10 +87,10 @@ Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comm
 
 Pour configurer et tester l’authentification unique Azure AD avec Datahug, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d'un utilisateur test Datahug](#creating-a-datahug-test-user)** pour avoir un équivalent de Britta Simon dans Datahug lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Datahug**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_samlbase.png)
 
 3. Dans la section **Domaines et URL Datahug**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_ur1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_ur1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://apps.datahug.com/identity/<uniqueID>`
 
@@ -116,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_url2.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://apps.datahug.com/`
      
@@ -125,11 +126,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_certificate.png) 
 
 6.  Vérifiez **« Afficher les paramètres avancés de signature de certificat »** et procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_cert.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_cert.png)
 
     a. Dans **Option de signature**, sélectionnez **Signer l’assertion SAML**.
     
@@ -137,11 +138,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_general_400.png)
     
-8. Dans la section **Configuration de Datahug** , cliquez sur **Configurer Datahug** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+8. Dans la section **Configuration de Datahug** , cliquez sur **Configurer Datahug** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** à partir de la section **Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_configure.png) 
 
 9. Pour configurer l’authentification unique côté **Datahug**, vous devez envoyer le **XML de métadonnées**, **l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** téléchargés à [l’équipe de support Datahug](http://datahug.com/about/contact-us/). Ils effectuent les réglages nécessaires sur l’application pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -178,7 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-datahug-test-user"></a>Création d’un utilisateur de test Datahug
 
@@ -219,7 +220,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Datahug**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -243,7 +244,7 @@ Lorsque vous cliquez sur la vignette Datahug dans le volet d’accès, vous ête
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

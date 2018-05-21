@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -95,7 +95,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un ré
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 
-Un [groupe de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md) contient une liste des règles de liste de contrôle d’accès qui autorise ou rejette le trafic réseau vers les sous-réseaux, les cartes d’interface réseau ou les deux. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des cartes d’interface réseau connectées à un sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles de liste de contrôle d’accès s’appliquent à toutes les machines virtuelles présentes dans ce sous-réseau. En outre, le trafic vers une carte d’interface réseau peut être limité par l’association directe d’un groupe de sécurité réseau à une carte d’interface réseau.
+Un [groupe de sécurité réseau](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) contient une liste des règles de liste de contrôle d’accès qui autorise ou rejette le trafic réseau vers les sous-réseaux, les cartes d’interface réseau ou les deux. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des cartes d’interface réseau connectées à un sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles de liste de contrôle d’accès s’appliquent à toutes les machines virtuelles présentes dans ce sous-réseau. En outre, le trafic vers une carte d’interface réseau peut être limité par l’association directe d’un groupe de sécurité réseau à une carte d’interface réseau.
 
 Les groupes de sécurité réseau contiennent deux ensembles de règles : les règles de trafic entrant et les règles de trafic sortant. La priorité d’une règle doit être unique dans chaque ensemble. Chaque règle possède des propriétés relatives au protocole, aux plages de ports de destination et source, aux préfixes d’adresse, à la direction du trafic, à la priorité et au type d’accès. 
 
@@ -103,7 +103,7 @@ Tous les groupes de ressources réseau contiennent un ensemble de règles par d�
 
 Lorsque vous associez un groupe de sécurité réseau à une carte réseau, les règles d’accès réseau du groupe de sécurité réseau sont appliquées uniquement à cette carte d’interface réseau. Si un groupe de sécurité réseau est appliqué à une seule carte d’interface réseau sur une machine virtuelle comprenant plusieurs cartes d’interface réseau, il n’affecte pas le trafic lié aux autres cartes d’interface réseau. Vous pouvez associer différents groupes de sécurité réseau à une carte d’interface réseau (ou une machine virtuelle, selon le modèle de déploiement) et au sous-réseau auquel une carte d’interface réseau ou une machine virtuelle est liée. La priorité est donnée en fonction de la direction du trafic.
 
-Veillez à [planifier](../articles/virtual-network/virtual-networks-nsg.md#planning) vos groupes de sécurité réseau lorsque vous planifiez vos machines virtuelles et votre réseau virtuel.
+Veillez à [planifier](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) vos groupes de sécurité réseau lorsque vous planifiez vos machines virtuelles et votre réseau virtuel.
 
 Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un groupe de sécurité réseau.
 
@@ -126,7 +126,7 @@ Lorsque vous créez un équilibrage de charge, vous devez également prendre en 
 - **Pool d’adresses principal** : adresses IP qui sont associées à la carte d’interface réseau vers laquelle la charge est distribuée.
 - **Règles de traduction d’adresses réseau** : définissent le trafic entrant qui transite via l’adresse IP frontale et qui est distribué à l’adresse IP principale.
 - **Règles d’équilibrage de charge** : mappent une combinaison donnée d’adresses IP et de ports frontaux vers un ensemble de combinaisons d’adresses IP et de port principaux. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle est une combinaison d’une adresse IP et d’un port frontaux et d’une adresse IP et d’un port principaux associés aux machines virtuelles.
-- **[Sondes](../articles/load-balancer/load-balancer-custom-probe-overview.md)** : surveillent l’intégrité des machines virtuelles. Lorsqu’une sonde ne répond pas, l’équilibrage de charge n’envoie plus de nouvelles connexions aux machines virtuelles défaillantes. Les connexions existantes ne sont pas affectées et les nouvelles connexions sont envoyées aux machines virtuelles saines.
+- **[Sondes](../articles/load-balancer/load-balancer-custom-probe-overview.md)**  : surveillent l’intégrité des machines virtuelles. Lorsqu’une sonde ne répond pas, l’équilibrage de charge n’envoie plus de nouvelles connexions aux machines virtuelles défaillantes. Les connexions existantes ne sont pas affectées et les nouvelles connexions sont envoyées aux machines virtuelles saines.
 
 Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un équilibrage de charge accessible sur Internet.
 
