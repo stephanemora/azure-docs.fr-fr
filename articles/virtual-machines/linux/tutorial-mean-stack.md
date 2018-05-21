@@ -1,6 +1,6 @@
 ---
-title: Créer une pile MEAN sur une machine virtuelle Linux dans Azure | Microsoft Docs
-description: Découvrez comment créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure.
+title: 'Didacticiel : déployer une pile MEAN sur une machine virtuelle Linux dans Azure | Microsoft Docs'
+description: Avec ce didacticiel, vous allez apprendre à créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
 
 Ce didacticiel montre comment implémenter une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure. La pile MEAN que vous créez permet l’ajout, la suppression et le référencement de livres dans une base de données. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -36,7 +36,7 @@ Ce didacticiel montre comment implémenter une pile MongoDB, Express, AngularJS 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Créer une machine virtuelle Linux
@@ -323,7 +323,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Ouvrez un navigateur web à l’adresse que vous avez enregistrée pour la machine virtuelle. Par exemple, *http://13.72.77.9:3300*. Un résultat similaire à cette page doit s’afficher :
+2. Ouvrez un navigateur web à l’adresse que vous avez enregistrée pour la machine virtuelle. Par exemple : *http://13.72.77.9:3300*. Un résultat similaire à cette page doit s’afficher :
 
     ![Enregistrement de livre](media/tutorial-mean/meanstack-init.png)
 

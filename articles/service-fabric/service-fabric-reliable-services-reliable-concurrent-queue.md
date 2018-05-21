@@ -1,6 +1,6 @@
 ---
 title: ReliableConcurrentQueue dans Azure Service Fabric
-description: "ReliableConcurrentQueue est une file d’attente à débit élevé qui permet des mises en file d’attente et retraits de file d’attente parallèles."
+description: ReliableConcurrentQueue est une file d’attente à débit élevé qui permet des mises en file d’attente et retraits de file d’attente parallèles.
 services: service-fabric
 documentationcenter: .net
 author: sangarg
@@ -9,16 +9,16 @@ editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Présentation de ReliableConcurrentQueue dans Azure Service Fabric
 Une file d’attente simultanée fiable est une file d’attente asynchrone, transactionnelle et répliquée, qui permet d’effectuer des opérations de mise en file d’attente et de retrait de file d’attente avec un niveau élevé de simultanéité. Elle est conçue pour offrir un débit élevé et une latence faible en assouplissant la séquence stricte de premier entré, premier sorti fournie par une [file d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx), et fournit à la place un classement selon le principe de l’effort optimal.

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/24/2018
 ms.author: daredis
-ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Sécuriser votre base de données SQL Azure
 
@@ -107,7 +107,7 @@ Pour garantir une connexion sécurisée et chiffrée entre une application clien
 - demander une connexion chiffrée ;
 - ne pas faire confiance au certificat du serveur. 
 
-Cela établit une connexion à l’aide du protocole TLS (Transport Layer Security) et réduit le risque d’attaques de l’intercepteur. Vous pouvez obtenir des chaînes de connexion correctement configurées pour votre base de données SQL pour les pilotes clients pris en charge à partir du portail Azure, comme indiqué dans cette capture d’écran pour ADO.net.
+Cela établit une connexion à l’aide du protocole TLS (Transport Layer Security) et réduit le risque d’attaques de l’intercepteur. Vous pouvez obtenir des chaînes de connexion correctement configurées pour votre base de données SQL pour les pilotes clients pris en charge à partir du portail Azure, comme indiqué dans cette capture d’écran pour ADO.net. Pour plus d’informations sur le protocole TLS et la connectivité, consultez [Considérations relatives au protocole TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**.
 

@@ -9,16 +9,16 @@ editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 037138f68e5c18822e4d7b3fa47591411e8a2407
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d5d6ac87db18815aa945d6964338626365b08e64
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Avantages des Reliable Actors dans Service Fabric
 Le service Reliable Actors permet à un client d’énumérer des métadonnées concernant les acteurs hébergés par le service. Le service d’acteur est un service avec état partitionné. L’énumération est donc effectuée par partition. Étant donné que chaque partition peut contenir de nombreux acteurs, l’énumération est renvoyée sous la forme d’un ensemble de résultats paginés. Les pages sont traitées en boucle jusqu’à ce qu’elles aient toutes été lues. L’exemple suivant montre comment créer une liste de tous les acteurs actifs dans une partition d’un service d’acteur :

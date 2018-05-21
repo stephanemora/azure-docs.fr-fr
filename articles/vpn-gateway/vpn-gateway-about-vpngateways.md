@@ -7,7 +7,7 @@ author: cherylmc
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
+Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -28,9 +28,9 @@ Une passerelle VPN est un type spécifique de passerelle de réseau virtuel qui 
 
 ## <a name="whatis"></a>Qu’est-ce qu’une passerelle de réseau virtuel ?
 
-Une passerelle de réseau virtuel est composée de deux ou plusieurs machines virtuelles déployées sur un sous-réseau spécifique, appelé *sous-réseau de la passerelle*. Les machines virtuelles qui se trouvent dans le sous-réseau de la passerelle sont créées lors de la création de la passerelle de réseau virtuel. Les machines virtuelles de la passerelle de réseau virtuel sont configurées de manière à contenir les tables de routage et les services de passerelle spécifiques de la passerelle. Vous ne pouvez pas configurer directement les machines virtuelles qui font partie de la passerelle de réseau virtuel et vous ne devez jamais déployer de ressources supplémentaires sur le sous-réseau de la passerelle.
+Une passerelle de réseau virtuel est composée d’au moins deux machines virtuelles déployées sur un sous-réseau spécifique que vous créez, appelé *sous-réseau de la passerelle*. Les machines virtuelles qui se trouvent dans le sous-réseau de la passerelle sont créées lors de la création de la passerelle de réseau virtuel. Les machines virtuelles de la passerelle de réseau virtuel sont configurées de manière à contenir les tables de routage et les services de passerelle spécifiques de la passerelle. Vous ne pouvez pas configurer directement les machines virtuelles qui font partie de la passerelle de réseau virtuel et vous ne devez jamais déployer de ressources supplémentaires sur le sous-réseau de la passerelle.
 
-La création d’une passerelle VPN peut prendre jusqu’à 45 minutes. Lors de la création d’une passerelle VPN, les machines virtuelles de passerelle sont déployées dans le sous-réseau de la passerelle et configurées avec les paramètres que vous avez spécifiés. Après avoir créé une passerelle VPN, vous pouvez créer une connexion de tunnel IPsec/IKE VPN entre cette passerelle VPN et une autre (de réseau virtuel à réseau virtuel), ou créer une connexion de tunnel IPsec/IKE VPN intersite entre la passerelle VPN et un périphérique VPN local (de site à site). Vous pouvez également créer une connexion VPN de point à site (VPN sur IKEv2 ou SSTP), ce qui vous permet de vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple une salle de conférence ou votre domicile.
+La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes. Lors de la création d’une passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées sur le sous-réseau de la passerelle et configurées avec les paramètres que vous spécifiez. L’un des paramètres que vous configurez est le type de passerelle. Le type de passerelle « vpn » spécifie que le type de passerelle de réseau virtuel créé est une passerelle VPN. Après avoir créé une passerelle VPN, vous pouvez créer une connexion de tunnel IPsec/IKE VPN entre cette passerelle VPN et une autre (de réseau virtuel à réseau virtuel), ou créer une connexion de tunnel IPsec/IKE VPN intersite entre la passerelle VPN et un périphérique VPN local (de site à site). Vous pouvez également créer une connexion VPN de point à site (VPN sur IKEv2 ou SSTP), ce qui vous permet de vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple une salle de conférence ou votre domicile.
 
 ## <a name="configuring"></a>Configuration d’une passerelle VPN
 

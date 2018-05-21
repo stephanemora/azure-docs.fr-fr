@@ -1,24 +1,24 @@
 ---
-title: "Déployer votre appareil StorSimple 8000 dans le portail Azure | Microsoft Docs"
-description: "Décrit les procédures et meilleures pratiques de déploiement de l’appareil StorSimple 8000 exécutant les mises à jour Update 3 et ultérieures, et du service StorSimple Device Manager."
+title: Déployer votre appareil StorSimple 8000 dans le portail Azure | Microsoft Docs
+description: Décrit les procédures et meilleures pratiques de déploiement de l’appareil StorSimple 8000 exécutant les mises à jour Update 3 et ultérieures, et du service StorSimple Device Manager.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Déployer votre appareil StorSimple local (Update 3 et ultérieure)
 
@@ -33,7 +33,7 @@ Les informations contenues dans ces didacticiels supposent que vous avez passé 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. Nous vous recommandons de consulter la liste de contrôle de configuration avant de commencer. Le processus de déploiement et de configuration peut prendre du temps.
 
 > [!NOTE]
-> Les informations de déploiement StorSimple publiées sur le site web Microsoft Azure s’appliquent aux appareils StorSimple de la série 8000 uniquement. Pour obtenir des informations complètes sur les appareils de la série 7000, consultez la page : [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Pour plus d’informations sur le déploiement de la série 7000, consultez le [Guide de démarrage rapide du système StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
+> Les informations de déploiement StorSimple publiées sur le site web Microsoft Azure s’appliquent aux appareils StorSimple de la série 8000 uniquement. Pour obtenir des informations complètes sur les appareils de la série 7000, consultez la page : [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Pour plus d’informations sur le déploiement de la série 7000, consultez le [Guide de démarrage rapide du système StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
 ## <a name="deployment-steps"></a>Étapes du déploiement
@@ -195,6 +195,19 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI d’un hôte Windows ex
 Pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre appareil StorSimple, procédez comme suit dans le portail Azure.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>Afficher le diagramme de brochage pour le câblage série destiné à StorSimple
+Le diagramme de brochage suivant peut être utilisé pour le câblage de la console série StorSimple.
+
+Dans le cas présent, le connecteur femelle DB9 est P1 et le connecteur 3,5 mm est P2.
+
+![Diagramme de brochage 1 pour le câblage de console série StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+L’extrémité de la prise stéréo correspond à PIN 3 RX, le milieu correspond à PIN 2 TX et la base correspond à PIN 1 GND, comme indiqué dans le diagramme suivant.
+
+![Diagramme de brochage 2 pour le câblage de console série StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configurer StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).

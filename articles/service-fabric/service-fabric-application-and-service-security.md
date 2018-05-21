@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: a84e42d3a0254c90bfad2d54eda1aa8e5e35650a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sécurité des applications et des services Service Fabric
 Une architecture de microservices peut présenter de [nombreux avantages](service-fabric-overview-microservices.md). Cependant, la gestion de la sécurité des microservices représente un défi autrement plus complexe que celui constitué par la gestion de la sécurité des applications monolithiques traditionnelles. 
@@ -37,7 +37,7 @@ Si les services sont accessibles directement, un service d’authentification, c
 
 Pour ASP.NET Core, le mécanisme principal [d’authentification des utilisateurs](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) est le système d’appartenance ASP.NET Core Identity. ASP.NET Core Identity stocke les informations utilisateur (notamment les revendications, les rôles et les informations de connexion) dans un magasin de données configuré par le développeur. ASP.NET Core Identity prend en charge l’authentification à 2 facteurs.  Les fournisseurs d’authentification externes sont également pris en charge, ce qui permet aux utilisateurs de se connecter à l’aide de processus d’authentification existants, comme ceux de Microsoft, Google, Facebook ou Twitter. 
 
-### <a name="authorization"></a>Autorisation
+### <a name="authorization"></a>Authorization
 Après l’authentification, les services doivent autoriser l’accès utilisateur ou déterminer ce qu’un utilisateur est autorisé à faire. Ce processus permet à un service d’autoriser uniquement les utilisateurs authentifiés à accéder aux API. L’autorisation est orthogonale et indépendante de l’authentification, qui est le processus permettant d’identifier un utilisateur. L’authentification peut créer une ou plusieurs identités pour l’utilisateur actuel.
 
 [L’autorisation ASP.NET Core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) peut être basée sur les rôles d’utilisateurs ou sur une stratégie personnalisée pouvant inclure l’inspection de revendications ou autres méthodes heuristiques.

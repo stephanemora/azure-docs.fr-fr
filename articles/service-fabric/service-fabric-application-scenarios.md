@@ -1,24 +1,24 @@
 ---
-title: "Scénarios et conception d’applications | Microsoft Docs"
-description: "Vue d'ensemble des catégories d'applications cloud dans Service Fabric. Traite de la conception d’applications à l’aide de services avec ou sans état"
+title: Scénarios et conception d’applications | Microsoft Docs
+description: Vue d'ensemble des catégories d'applications cloud dans Service Fabric. Traite de la conception d’applications à l’aide de services avec ou sans état
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0a9b24704a91d6a6893937b4ee03765fb05f092
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-scenarios"></a>Scénarios d'applications Service Fabric
 Azure Service Fabric offre une plateforme d’infrastructure fiable et flexible qui vous permet d’écrire et d’exécuter de nombreux types de services et d’applications d’entreprise. Ces applications et microservices peuvent être sans état ou avec état, et font l’objet d’un équilibrage des ressources entre les machines virtuelles pour optimiser l’efficacité. L'architecture unique de Service Fabric vous permet d'exécuter dans vos applications des traitements d'événement, des transactions parallèles, des calculs en mémoire et des analyses de données pratiquement en temps réel. Vous pouvez facilement augmenter ou réduire l’échelle de vos applications (vraiment dehors ou dedans), en fonction de vos besoins en ressources.

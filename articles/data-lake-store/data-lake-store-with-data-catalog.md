@@ -9,21 +9,20 @@ editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Référencer des données de Data Lake Store dans Azure Data Catalog
 Dans cet article, vous allez découvrir comment intégrer Azure Data Lake Store à Azure Data Catalog, pour rendre vos données détectable au sein d’une organisation en l’intégrant à Data Catalog. Pour plus d’informations sur le catalogage des données, consultez [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Pour comprendre les scénarios dans lesquels vous pouvez utiliser Data Catalog, consultez [Scénarios courants d’Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

@@ -1,24 +1,24 @@
 ---
-title: "Intégration de Service Fabric Cluster Resource Manager et de Service Fabric Management | Microsoft Docs"
-description: "Vue d’ensemble des points d’intégration entre Cluster Resource Manager et Service Fabric Management."
+title: Intégration de Service Fabric Cluster Resource Manager et de Service Fabric Management | Microsoft Docs
+description: Vue d’ensemble des points d’intégration entre Cluster Resource Manager et Service Fabric Management.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Intégration de Cluster Resource Manager à la gestion de cluster Service Fabric
 Service Fabric Cluster Resource Manager n’actionne pas les mises à niveau dans Service Fabric, mais il y participe. La première manière dont Cluster Resource Manager aide à la gestion consiste à suivre l’état souhaité du cluster et des services qu’il contient. Cluster Resource Manager envoie des rapports d’intégrité lorsqu’il ne peut pas placer le cluster dans la configuration souhaitée. Par exemple, si la capacité est insuffisante, Cluster Resource Manager envoie des avertissements d’intégrité et des erreurs indiquant le problème. Le fonctionnement des mises à niveau est un autre composant de l’intégration. Cluster Resource Manager modifie légèrement son comportement pendant les mises à niveau.  
@@ -113,7 +113,7 @@ La mise en liste de blocage n’est pas une condition permanente. Après quelque
 
 Face à toutes ces contraintes, vous vous dites peut-être : « Ce qui compte avant tout dans mon système, ce sont les contraintes de domaine d’erreur. Pour être certain que la contrainte de domaine d’erreur va bien être respectée, je vais enfreindre les autres contraintes ».
 
-Les contraintes peuvent être configurées avec différents niveaux de priorité, Ces composants sont les suivants :
+Les contraintes peuvent être configurées avec différents niveaux de priorité, Ces règles sont les suivantes :
 
    - « stricte » (0)
    - « souple » (1)

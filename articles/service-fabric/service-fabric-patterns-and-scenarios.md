@@ -1,24 +1,24 @@
 ---
-title: "Modèles et scénarios Azure Service Fabric | Microsoft Docs"
-description: "Découvrez les meilleures pratiques et des modèles réutilisables et éprouvés pour concevoir, développer et exploiter vos microservices sur Service Fabric."
+title: Modèles et scénarios Azure Service Fabric | Microsoft Docs
+description: Découvrez les meilleures pratiques et des modèles réutilisables et éprouvés pour concevoir, développer et exploiter vos microservices sur Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d5aa75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b385c10df61e9719d95b29b60e0f92766b2637
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 5c2cd38001a9645011bbab84cff3b9366aa64b1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Modèles et scénarios Service Fabric
 Si vous souhaitez créer des microservices à grande échelle à l’aide d’Azure Service Fabric, découvrez les conseils des experts qui ont conçu et créé cette plateforme en tant que service (PaaS). Prenez en main l’architecture appropriée, puis apprenez à optimiser les ressources de votre application. Le cours [Modèles et meilleures pratiques pour Service Fabric](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) répond aux questions fréquemment posées par les clients du monde réel sur les scénarios et domaines d’application de Service Fabric.

@@ -1,24 +1,24 @@
 ---
-title: "Communication de service avec ASP.NET Core | Microsoft Docs"
-description: "Découvrez comment utiliser ASP.NET Core dans Reliable Services avec et sans état."
+title: Communication de service avec ASP.NET Core | Microsoft Docs
+description: Découvrez comment utiliser ASP.NET Core dans Reliable Services avec et sans état.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Reliable Services de Service Fabric
 
@@ -63,9 +63,9 @@ Une instance du service Reliable Service est représentée par votre classe de s
 Les modèles d’utilisation des implémentations `ICommunicationListener` pour Kestrel et HttpSys dans les packages NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` sont similaires, mais ces implémentations effectuent des actions légèrement différentes propres à chaque serveur web. 
 
 Les deux écouteurs de communications fournissent un constructeur qui accepte les arguments suivants :
- - **`ServiceContext serviceContext`** : objet `ServiceContext` qui contient des informations sur le service en cours d’exécution.
- - **`string endpointName`** : nom d’une configuration `Endpoint` dans le fichier ServiceManifest.xml. C’est essentiellement là que les deux écouteurs de communication diffèrent : HttpSys **nécessite** une configuration `Endpoint`, contrairement à Kestrel.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : expression lambda que vous implémentez dans laquelle vous créez et retournez un `IWebHost`. Vous pouvez ainsi configurer `IWebHost` comme vous le feriez normalement dans une application ASP.NET Core. L’expression lambda fournit une URL, qui est générée pour vous en fonction des options d’intégration de Service Fabric que vous utilisez et de la configuration `Endpoint` que vous fournissez. Cette URL peut ensuite être modifiée ou utilisée telle quelle pour démarrer le serveur web.
+ - **`ServiceContext serviceContext`**  : objet `ServiceContext` qui contient des informations sur le service en cours d’exécution.
+ - **`string endpointName`**  : nom d’une configuration `Endpoint` dans le fichier ServiceManifest.xml. C’est essentiellement là que les deux écouteurs de communication diffèrent : HttpSys **nécessite** une configuration `Endpoint`, contrairement à Kestrel.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**  : expression lambda que vous implémentez dans laquelle vous créez et retournez un `IWebHost`. Vous pouvez ainsi configurer `IWebHost` comme vous le feriez normalement dans une application ASP.NET Core. L’expression lambda fournit une URL, qui est générée pour vous en fonction des options d’intégration de Service Fabric que vous utilisez et de la configuration `Endpoint` que vous fournissez. Cette URL peut ensuite être modifiée ou utilisée telle quelle pour démarrer le serveur web.
 
 ## <a name="service-fabric-integration-middleware"></a>Intergiciel (middleware) d’intégration à Service Fabric
 Le paquet NuGet `Microsoft.ServiceFabric.Services.AspNetCore` inclut la méthode d’extension `UseServiceFabricIntegration` sur `IWebHostBuilder` qui ajoute l’intergiciel (middleware) prenant en charge Service Fabric. Cet intergiciel (middleware) configure l’élément `ICommunicationListener` Kestrel ou HttpSys pour inscrire une URL de service unique auprès de Service Fabric Naming Service, puis valide les requêtes des clients pour s’assurer qu’ils se connectent au service approprié. Cela est nécessaire dans un environnement hôte partagé comme Service Fabric, où plusieurs applications web peuvent s’exécuter sur une même machine physique ou virtuelle, mais n’utilisent pas de noms d’hôte uniques, pour empêcher les clients de se connecter par erreur à un service incorrect. Ce scénario est décrit plus en détail dans la section suivante.

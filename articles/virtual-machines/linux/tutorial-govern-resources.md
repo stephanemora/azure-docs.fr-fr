@@ -1,6 +1,6 @@
 ---
-title: Gouvernance de machines virtuelles Azure à l’aide d’Azure CLI | Microsoft Docs
-description: 'Didacticiel : apprenez à gérer des machines virtuelles Azure en appliquant le contrôle d’accès en fonction du rôle (RBAC), des stratégies, des verrous et des balises avec Azure CLI'
+title: 'Didacticiel : régir les machines virtuelles Azure à l’aide d’Azure CLI 2.0 | Microsoft Docs'
+description: Avec ce didacticiel, vous allez apprendre à utiliser Azure CLI 2.0 afin de gérer les machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des balises
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,22 +10,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>Gouvernance de machines virtuelles à l’aide d’Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Didacticiel : en savoir plus sur la gouvernance de machines virtuelles Linux avec Azure CLI 2.0
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pour installer et utiliser l’interface CLI localement, consultez [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Installer Azure CLI 2.0).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Comprendre l’étendue
 
