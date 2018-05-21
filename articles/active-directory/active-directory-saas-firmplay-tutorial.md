@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à FirmPlay - Employee Advocacy for Recruiting | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et FirmPlay - Employee Advocacy for Recruiting."
+title: 'Didacticiel : Intégration d’Azure Active Directory à FirmPlay - Employee Advocacy for Recruiting | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FirmPlay - Employee Advocacy for Recruiting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: e1381f2273ee961a4b72dede8cf8e017814ba909
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b154901d2e31f493c32e47bd331cc2d4e9fdc1a4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Didacticiel : Intégration d’Azure Active Directory à FirmPlay - Employee Advocacy for Recruiting
 
@@ -27,11 +27,12 @@ L’intégration de FirmPlay - Employee Advocacy for Recruiting dans Azure AD vo
 
 - Vous pouvez contrôler dans Azure AD qui a accès à FirmPlay - Employee Advocacy for Recruiting.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à FirmPlay - Employee Advocacy for Recruiting (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes de manière centralisée dans le Portail de gestion Azure.
+- Vous pouvez gérer vos comptes de manière centralisée dans le portail de gestion Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à FirmPlay - Employee Advocacy for Recruiting, vous avez besoin des éléments suivants :
 
@@ -50,7 +51,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de FirmPlay - Employee Advocacy for Recruiting à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -61,17 +62,17 @@ Pour configurer l’intégration de FirmPlay - Employee Advocacy for Recruiting 
 
 **Pour ajouter FirmPlay - Employee Advocacy for Recruiting à partir de la galerie, procédez comme suit :**
 
-1. Dans le **[Portail de gestion Azure](https://portal.azure.com)**, dans le panneau de navigation gauche, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le panneau de navigation gauche du **[Portail de gestion Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **FirmPlay - Employee Advocacy for Recruiting**.
 
@@ -91,10 +92,10 @@ Pour ce faire, affectez la valeur du champ **nom d’utilisateur** d’Azure AD 
 
 Pour configurer et tester l’authentification unique Azure AD avec FirmPlay - Employee Advocacy for Recruiting, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** pour disposer d’un équivalent de Britta Simon dans FirmPlay - Employee Advocacy for Recruiting associé à sa représentation Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -105,44 +106,44 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail de gestion Azure, sur la page d’intégration de l’application **FirmPlay - Employee Advocacy for Recruiting**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_01.png)
 
 3. Dans la section **FirmPlay - Employee Advocacy for Recruiting Domain and URLs** (Domaine et URL FirmPlay - Employee Advocacy for Recruiting), dans la zone de texte **URL de connexion**, entrez une URL respectant le modèle suivant : `https://<your-subdomain>.firmplay.com/`
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_02.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_02.png)
 
     > [!NOTE] 
     > Notez qu’il ne s’agit pas de la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Contactez [l’équipe de support de FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) pour obtenir cette valeur. 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Créer un certificat**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
 
 5. Dans la boîte de dialogue **Créer un certificat**, cliquez sur l’icône de calendrier et sélectionnez une **date d’expiration**. Ensuite, cliquez sur le bouton **Enregistrer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_general_300.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_general_300.png)
 
 6. Dans la section **Certificat de signature SAML**, sélectionnez **Activer le nouveau certificat** et cliquez sur **Enregistrer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_04.png)
 
 7. Dans la fenêtre contextuelle **Certificat de substitution**, cliquez sur **OK**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_general_400.png)
 
 8. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (base64)** puis enregistrez le fichier du certificat sur votre ordinateur. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_05.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_05.png) 
 
 9. Dans la section **FirmPlay - Employee Advocacy for Recruiting Configuration** (Configuration de FirmPlay - Employee Advocacy for Recruiting), cliquez sur **Configure FirmPlay - Employee Advocacy for Recruiting** (Configurer FirmPlay - Employee Advocacy for Recruiting) pour ouvrir la boîte de dialogue **Configurer l’authentification**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_06.png) 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_07.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_07.png)
 
 10. Pour obtenir la configuration de l’authentification unique pour votre application, contactez [l’équipe de support de FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) et fournissez-lui les éléments suivants : 
 
@@ -184,7 +185,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**. 
+    d. Cliquez sur **Créer**. 
 
 
 
@@ -201,13 +202,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à FirmPlay - Employee Advocacy for Recruiting, procédez comme suit :**
 
-1. Dans le Portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, allez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires et à **Applications d’entreprise** puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **FirmPlay - Employee Advocacy for Recruiting**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_50.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_50.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -235,7 +236,7 @@ Lorsque vous cliquez sur la mosaïque FirmPlay - Employee Advocacy for Recruitin
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

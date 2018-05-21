@@ -1,8 +1,8 @@
 ---
-title: "Exporter un modèle Azure Resource Manager | Microsoft Docs"
-description: "Utilisez Azure Resource Manage pour exporter un modèle à partir d’un groupe de ressources existant."
+title: Exporter un modèle Azure Resource Manager | Microsoft Docs
+description: Utilisez Azure Resource Manage pour exporter un modèle à partir d’un groupe de ressources existant.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ac553a3608df41548f845e27c545ff63886e37c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exporter un modèle Azure Resource Manager à partir de ressources existantes
 Cet article vous montre comment exporter un modèle Resource Manager à partir de ressources actuelles de votre abonnement. Vous pouvez utiliser ce modèle généré pour obtenir une meilleure compréhension de la syntaxe de modèle.

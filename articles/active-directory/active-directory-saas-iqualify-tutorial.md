@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à iQualify LMS | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et iQualify LMS."
+title: 'Didacticiel : Intégration d’Azure Active Directory à iQualify LMS | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iQualify LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6f8a7b7fd155a6ad0df7cb1f9026b4acca2401cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 341f2175d283c08496534f3ac0d946dd8671f63c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Didacticiel : Intégration d’Azure Active Directory à iQualify LMS
 
@@ -28,11 +28,12 @@ L’intégration d’iQualify LMS avec Azure AD vous offre les avantages suivan
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à iQualify LMS.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à iQualify LMS (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec iQualify LMS, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’iQualify LMS à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +85,10 @@ Dans iQualify LMS, affectez la valeur du **nom d’utilisateur** dans Azure AD 
 
 Pour configurer et tester l’authentification unique Azure AD avec iQualify LMS, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test iQualify LMS](#create-an-iqualify-lms-test-user)** pour avoir un équivalent de Britta Simon dans iQualify LMS lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -124,7 +125,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans Domaine et URL iQualify LMS](./media/active-directory-saas-iqualify-tutorial/tutorial_iqualify_url1.png)
 
-    Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant :
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
     | |
     |--|--|
     | Environnement de production : `https://<yourorg>.iqualify.com/login` |
@@ -135,7 +136,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application iQualify LMS attend les assertions Security Assertion Markup Language (SAML) à afficher dans un format spécifique. Configurez les revendications et gérez les valeurs des attributs dans la section **Attributs utilisateur** de la page d’intégration de l’application iQualify LMS, comme illustré dans la capture d’écran suivante :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-iqualify-tutorial/atb.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, effectuez les étapes suivantes pour chaque ligne indiquée dans le tableau ci-dessous :
     
@@ -148,9 +149,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-iqualify-tutorial/atb2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb2.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-iqualify-tutorial/atb3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb3.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -290,7 +291,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : intégration d’Azure Active Directory avec Kintone | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kintone."
+title: 'Didacticiel : intégration d’Azure Active Directory avec Kintone | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kintone.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 6a222d14115342592cf53980b5980222a89d0265
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b2fd0038a192e2ff3d2caef42170372449efc10d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Didacticiel : intégration d’Azure Active Directory avec Kintone
 
@@ -27,11 +27,12 @@ Intégrer Kintone avec Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler l’accès à Kintone
 - Vous pouvez autoriser la connexion automatique à Kintone (via l’authentification unique) pour vos utilisateurs avec leur compte Azure AD
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Kintone, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Kintone à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Kintone avec Azure AD, vous devez ajouter K
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, entrez **Kintone**.
 
@@ -86,10 +87,10 @@ Dans Kintone, assigner la valeur du **nom d’utilisateur** dans Azure AD comme
 
 Pour configurer et tester l’authentification unique Azure AD avec Kintone, vous devez compléter les blocs de construction suivants :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Kintone](#creating-a-kintone-test-user)** pour avoir un équivalent de Britta Simon dans Kintone lié à la représentation d’un utilisateur Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Kintone**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_samlbase.png)
 
 3. Dans la section **Domaine et URL Kintone**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.kintone.com`
 
@@ -123,15 +124,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/tutorial_general_400.png)
 
 6. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration Kintone**, cliquez sur **Configurer Kintone**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **Kintone** en tant qu’administrateur.
 
@@ -161,7 +162,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     
     c. Cliquez sur **Parcourir** pour charger le certificat téléchargé.
     
-    d. Cliquez sur **Save**.
+    d. Cliquez sur **Enregistrer**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -196,7 +197,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-kintone-test-user"></a>Création d’un utilisateur de test Kintone
 
@@ -229,7 +230,7 @@ Dans le cas de Kintone, l’approvisionnement est une tâche manuelle.
    
     a. Dans les zones de texte correspondantes, entrez un **Nom d’affichage**, un **Nom de connexion**, un **Nouveau mot de passe**, confirmez-le dans **Confirmer le mot de passe**, entrez ainsi une **adresse e-mail** et d’autres détails d’un compte AAD valide à provisionner.
  
-    b. Cliquez sur **Save**.
+    b. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
 > Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Kintone fourni par ce service pour approvisionner des comptes d’utilisateurs Azure Active Directory.
@@ -248,7 +249,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Kintone**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -273,7 +274,7 @@ En cliquant sur la vignette Kintone dans le Panneau d’accès, vous allez en pr
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

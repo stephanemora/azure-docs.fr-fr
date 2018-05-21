@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c14d2082854fe88df9d1139c619b061699e443aa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 995759cf4831deedc642c0850603947b22ee1222
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -44,11 +44,11 @@ Les accélérateurs de solution IoT prennent en charge les suites de chiffrement
 ## <a name="see-also"></a>Voir aussi
 Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
-* [Présentation de l’accélérateur de solution de maintenance prédictive][lnk-predictive-overview]
+* [Présentation des accélérateurs de solution de maintenance prédictive][lnk-predictive-overview]
 * [Questions fréquentes (FAQ) sur les accélérateurs de solution IoT][lnk-faq]
 
 Pour en savoir plus sur la sécurité d’IoT Hub, consultez la rubrique [Contrôler l’accès à IoT Hub][lnk-devguide-security] du guide du développeur IoT Hub.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

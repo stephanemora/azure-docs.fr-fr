@@ -1,24 +1,24 @@
 ---
-title: "Fonctions de modèle Azure Resource Manager - logiques | Documents Microsoft"
-description: "Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour déterminer les valeurs logiques."
+title: Fonctions de modèle Azure Resource Manager - logiques | Documents Microsoft
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour déterminer les valeurs logiques.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
 
@@ -37,10 +37,10 @@ Vérifie si les deux valeurs de paramètres sont true.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -74,10 +74,10 @@ Retourne **True** si les valeurs sont true ; sinon, renvoie **False**.
 
 La sortie de l’exemple précédent est :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | true |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -97,11 +97,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit le paramètre en valeur booléenne.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
+| arg1 |OUI |chaîne ou entier |La valeur à convertir en booléen. |
 
 ### <a name="return-value"></a>Valeur de retour
 Valeur booléenne de la valeur convertie.
@@ -138,11 +138,11 @@ Valeur booléenne de la valeur convertie.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| trueString | Bool | true |
+| trueString | Bool | True |
 | falseString | Bool | False |
-| trueInt | Bool | true |
+| trueInt | Bool | True |
 | falseInt | Bool | False |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -164,11 +164,11 @@ Retourne une valeur indiquant si une condition est true ou false.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| condition |Oui |booléenne |La valeur pour vérifier si c’est true. |
-| trueValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
-| falseValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
+| condition |OUI |booléenne |La valeur pour vérifier si c’est true. |
+| trueValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
+| falseValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -245,10 +245,10 @@ Vous pouvez utiliser cette fonction pour définir de manière conditionnelle une
 
 La sortie de l’exemple précédent est :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| yesOutput | String | yes |
-| noOutput | String | no |
+| yesOutput | Chaîne | Oui |
+| noOutput | Chaîne | no |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -269,9 +269,9 @@ Convertit la valeur booléenne à sa valeur opposée.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La valeur à convertir. |
+| arg1 |OUI |booléenne |La valeur à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -305,10 +305,10 @@ Retourne **True** lorsque le paramètre est **False**. Retourne **False** lorsqu
 
 La sortie de l’exemple précédent est :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | true |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -341,9 +341,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 La sortie de l’exemple précédent est :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | true |
+| checkNotEquals | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -357,17 +357,17 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
-## <a name="or"></a>ou
+## <a name="or"></a>or
 `or(arg1, arg2)`
 
 Vérifie si l’une des valeurs du paramètre est true.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -401,10 +401,10 @@ Retourne **True** si la valeur est true ; sinon, **False**.
 
 La sortie de l’exemple précédent est :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | true |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :

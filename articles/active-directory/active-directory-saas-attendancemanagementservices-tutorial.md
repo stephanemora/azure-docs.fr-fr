@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Attendance Management Services avec Azure Active Directory | Microsoft Azure"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Attendance Management Services."
+title: 'Didacticiel : Intégration d’Attendance Management Services avec Azure Active Directory | Microsoft Azure'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Attendance Management Services.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fcbbabe80c3ff4b5a18904637cb227499da6829
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: abf882d7b06083080ad5cb3c2a20390a76a48139
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Didacticiel : Intégration d’Attendance Management Services avec Azure Active Directory
 
@@ -30,9 +30,10 @@ L’intégration d’Attendance Management Services avec Azure AD vous offre le
 - Vous pouvez permettre à vos utilisateurs de se connecter automatiquement à Attendance Management Services (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Attendance Management Services avec Azure AD, vous avez besoin des éléments suivants :
 
@@ -115,7 +116,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -250,7 +251,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
