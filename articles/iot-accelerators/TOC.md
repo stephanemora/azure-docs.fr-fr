@@ -47,48 +47,48 @@
 ### [Procédure pas à pas de l’accélérateur de solution de maintenance prédictive](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## Fabrique connectée
-### [Qu’est-ce qu’une fabrique connectée ?](../iot-suite/iot-suite-connected-factory-features.md)
-### [Présentation de la solution de fabrique connectée](../iot-suite/iot-suite-connected-factory-overview.md)
-### [Procédure pas à pas de la solution de fabrique connectée](../iot-suite/iot-suite-connected-factory-sample-walkthrough.md)
+### [Qu’est-ce qu’une fabrique connectée ?](iot-accelerators-connected-factory-features.md)
+### [Présentation de la solution de fabrique connectée](iot-accelerators-connected-factory-overview.md)
+### [Procédure pas à pas de la solution de fabrique connectée](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Simulation d’appareil
-### [Déployer une simulation d’appareil](../iot-suite/iot-suite-device-simulation-deploy.md)
-### [Explorer une simulation d’appareil](../iot-suite/iot-suite-device-simulation-explore.md)
+### [Déployer une simulation d’appareil](iot-accelerators-device-simulation-deploy.md)
+### [Explorer une simulation d’appareil](iot-accelerators-device-simulation-explore.md)
 
 # Procédures
 ## Surveillance à distance
-### [Effectuer la surveillance avancée](../iot-suite/iot-suite-remote-monitoring-monitor.md)
+### [Effectuer la surveillance avancée](iot-accelerators-remote-monitoring-monitor.md)
 ### [Utiliser les règles pour détecter les problèmes](iot-accelerators-remote-monitoring-automate.md)
-### [Intégrer des données SIM](../iot-suite/iot-suite-remote-monitoring-telefonica-sim.md)
-### [Gestion de vos appareils](../iot-suite/iot-suite-remote-monitoring-manage.md)
-### [Résoudre les problèmes de l’appareil](../iot-suite/iot-suite-remote-monitoring-maintain.md)
-### [Comprendre le schéma de modèle d’appareil](../iot-suite/iot-suite-remote-monitoring-device-schema.md)
-### [Comprendre le comportement de modèle d’appareil](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [Créer un appareil simulé](../iot-suite/iot-suite-remote-monitoring-test.md)
-### [Visualiser des données avec PowerBI](../iot-suite/iot-suite-integrate-data-powerbi.md)
+### [Intégrer des données SIM](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [Gestion de vos appareils](iot-accelerators-remote-monitoring-manage.md)
+### [Résoudre les problèmes de l’appareil](iot-accelerators-remote-monitoring-maintain.md)
+### [Comprendre le schéma de modèle d’appareil](iot-accelerators-remote-monitoring-device-schema.md)
+### [Comprendre le comportement de modèle d’appareil](iot-accelerators-remote-monitoring-device-behavior.md)
+### [Créer un appareil simulé](iot-accelerators-remote-monitoring-test.md)
+### [Visualiser des données avec PowerBI](iot-accelerators-integrate-data-powerbi.md)
 ### [Personnaliser l’interface utilisateur de la solution](iot-accelerators-remote-monitoring-customize.md)
-### [Personnaliser et de redéployer un microservice](../iot-suite/iot-suite-microservices-example.md)
+### [Personnaliser et de redéployer un microservice](iot-accelerators-microservices-example.md)
 ### [Déployer à l’aide de l’interface CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Déployer localement](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [Visualiser des données avec Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
-### [Intégrer avec Data Lake](../iot-suite/iot-suite-integrate-data-lake.md)
+### [Intégrer avec Data Lake](iot-accelerators-integrate-data-lake.md)
 ### Connecter un appareil physique
-#### [C sur Windows](../iot-suite/iot-suite-connecting-devices.md)
-#### [C sur Linux](../iot-suite/iot-suite-connecting-devices-linux.md)
-#### [Node.js (générique)](../iot-suite/iot-suite-connecting-devices-node.md)
-#### [Node.js sur Raspberry Pi](../iot-suite/iot-suite-connecting-pi-node.md)
-#### [C sur Raspberry Pi](../iot-suite/iot-suite-connecting-pi-c.md)
+#### [C sur Windows](iot-accelerators-connecting-devices.md)
+#### [C sur Linux](iot-accelerators-connecting-devices-linux.md)
+#### [Node.js (générique)](iot-accelerators-connecting-devices-node.md)
+#### [Node.js sur Raspberry Pi](iot-accelerators-connecting-pi-node.md)
+#### [C sur Raspberry Pi](iot-accelerators-connecting-pi-c.md)
 #### [DevKit MX Chip AZ3166](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Concepts
-#### [Détails d’une implémentation de surveillance à distance](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Détails d’une implémentation de surveillance à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 #### [Choix d’architecture de surveillance à distance](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Fabrique connectée
-### [Déployer une passerelle pour fabrique connectée](../iot-suite/iot-suite-connected-factory-gateway-deployment.md)
-### [Personnaliser une fabrique connectée](../iot-suite/iot-suite-connected-factory-customize.md)
+### [Déployer une passerelle pour fabrique connectée](iot-accelerators-connected-factory-gateway-deployment.md)
+### [Personnaliser une fabrique connectée](iot-accelerators-connected-factory-customize.md)
 ### [Utiliser le serveur de publication OPC pour fabrique connectée](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Configurer la fabrique connectée](../iot-suite/iot-suite-connected-factory-configure.md)
+### [Configurer la fabrique connectée](iot-accelerators-connected-factory-configure.md)
 ## [Autorisations sur azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
 
 # Informations de référence
@@ -118,8 +118,8 @@
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
-## [FORUM AUX QUESTIONS](../iot-suite/iot-suite-faq.md)
-## [FAQ sur la surveillance à distance](../iot-suite/iot-suite-faq-rm-v2.md)
-## [Questions fréquentes (FAQ) sur l’Usine connectée](../iot-suite/iot-suite-faq-cf.md)
+## [FORUM AUX QUESTIONS](iot-accelerators-faq.md)
+## [FAQ sur la surveillance à distance](iot-accelerators-faq-rm-v2.md)
+## [Questions fréquentes (FAQ) sur l’Usine connectée](iot-accelerators-faq-cf.md)
 ## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Parcours d’apprentissage sur les accélérateurs de solution IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
