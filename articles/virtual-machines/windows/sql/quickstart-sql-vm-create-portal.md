@@ -1,6 +1,6 @@
 ---
-title: "Créer une machine virtuelle Windows SQL Server dans le portail | Microsoft Docs"
-description: "Ce didacticiel montre comment créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure."
+title: Créer une machine virtuelle Windows SQL Server dans le portail | Microsoft Docs
+description: Ce didacticiel montre comment créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
-ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
 
@@ -72,11 +72,9 @@ Dans la fenêtre **Informations de base** , fournissez les informations suivante
 
 ## <a name="choose-virtual-machine-size"></a>Choisir la taille de machine virtuelle
 
-Lors de l’étape de **Dimensionnement**, choisissez une taille de machine virtuelle dans la fenêtre **Choisir une taille**. La fenêtre affiche d’abord les tailles de machine virtuelle recommandées en fonction de l’image que vous avez sélectionnée. 
+1. Lors de l’étape de **Dimensionnement**, choisissez une taille de machine virtuelle dans la fenêtre **Choisir une taille**.
 
-1. Cliquez sur **Afficher tout** pour voir toutes les tailles de machine disponibles.
-
-1. Pour ce guide de démarrage rapide, sélectionnez **D2S_V3**. Le portail affiche le coût mensuel estimé de la machine pour une utilisation continue (les frais de licence SQL Server ne sont pas inclus). Notez que pour l’édition Developer, aucun frais de licence SQL Server supplémentaire ne vous sera demandé. Pour plus d’informations concernant la tarification, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+   Pour ce guide de démarrage rapide, sélectionnez **D2S_V3**. Le portail affiche le coût mensuel estimé de la machine pour une utilisation continue (les frais de licence SQL Server ne sont pas inclus). Notez que pour l’édition Developer, aucun frais de licence SQL Server supplémentaire ne vous sera demandé. Pour plus d’informations concernant la tarification, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
    > [!TIP]
    > La taille de machine **D2S_V3** permet de faire des économies tout en effectuant des tests. En revanche, pour les charges de travail de production, consultez les tailles de machine et la configuration recommandées dans l’article [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
@@ -85,7 +83,14 @@ Lors de l’étape de **Dimensionnement**, choisissez une taille de machine virt
 
 ## <a name="configure-optional-features"></a>Configurer des fonctionnalités facultatives
 
-Dans la fenêtre **Paramètres**, cliquez sur **OK** pour sélectionner les valeurs par défaut.
+1. Dans la fenêtre **Paramètres**, sélectionnez le port **RDP (3389)** dans la liste **Sélectionner les ports entrants publics** si vous voulez vous connecter via Bureau à distance à la machine virtuelle.
+
+   ![Ports entrants](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > Vous pouvez sélectionner le port **MS SQL (1433)** pour accéder à distance à SQL Server. Ce n’est cependant pas nécessaire, car l’étape **Paramètres SQL Server** offre également cette option. Si vous sélectionnez le port 1433 à ce stade, il sera ouvert quelles que soient vos sélections dans l’étape **Paramètres SQL Server**.
+
+1. Cliquez sur **OK** pour enregistrer vos modifications et continuer.
 
 ## <a name="sql-server-settings"></a>Paramètres de SQL Server
 

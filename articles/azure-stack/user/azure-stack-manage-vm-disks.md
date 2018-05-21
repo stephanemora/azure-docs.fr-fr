@@ -1,69 +1,86 @@
 ---
-title: "Gérer les disques de machine virtuelle dans Azure Stack | Microsoft Docs"
-description: "Approvisionnez les disques des machines virtuelles d’Azure Stack."
+title: Gérer les disques de machine virtuelle dans Azure Stack | Microsoft Docs
+description: Provisionnez des disques pour des machines virtuelles dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>Stockage de disques de machine virtuelle pour Azure Stack
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Provisionner le stockage sur disque de machines virtuelles dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Azure Stack prend en charge l’utilisation des [disques non gérés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) d’une machine virtuelle en tant que disque de système d’exploitation (SE) et disque de données. Pour utiliser des disques non gérés, vous allez créer un [compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), puis stocker les disques en tant qu’objets blob de pages dans des conteneurs au sein du compte de stockage. Ces disques sont alors désignés en tant que disques de machine virtuelle.
+Cet article décrit comment provisionner le stockage sur disque de machines virtuelles avec le portail Azure ou avec PowerShell.
 
-Pour améliorer les performances et réduire les coûts de gestion du système Azure Stack, nous vous recommandons de placer chaque disque de machine virtuelle dans un conteneur distinct. Un conteneur doit contenir un disque du système d’exploitation ou un disque de données, mais pas les deux en même temps. Toutefois, il n’existe aucune restriction empêchant de placer les deux disques dans le même conteneur.
+## <a name="overview"></a>Vue d'ensemble
 
-Si vous ajoutez un ou plusieurs disques de données à une machine virtuelle, pensez à utiliser les conteneurs supplémentaires comme emplacement de stockage de ces disques. À l’instar du disque de données, le disque du système d’exploitation des machines virtuelles supplémentaires doit être dans son propre conteneur distinct.
+Azure Stack prend en charge l’utilisation de [disques non managés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) sur les machines virtuelles à la fois comme disque de système d’exploitation et comme disque de données.
 
-Lorsque vous créez plusieurs machines virtuelles, vous pouvez réutiliser un même compte de stockage pour chaque nouvelle machine virtuelle. Seuls les conteneurs que vous créez doivent être uniques.  
+Pour utiliser des disques non managés, vous créez un [compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour stocker les disques. Les disques que vous créez sont appelés « disques de machine virtuelle » et sont stockés dans des conteneurs, dans le compte de stockage.
 
-Pour ajouter des disques à une machine virtuelle, utilisez le portail de l’utilisateur ou PowerShell.
+### <a name="best-practice-guidelines"></a>Conseils de bonnes pratiques
+
+Pour améliorer les performances et réduire les coûts globaux, nous vous recommandons de placer chaque disque de machine virtuelle dans un conteneur distinct. Un conteneur doit contenir un disque du système d’exploitation ou un disque de données, mais pas les deux en même temps. (Rien ne vous empêche cependant de placer les deux types de disque dans le même conteneur.)
+
+Si vous ajoutez un ou plusieurs disques de données à une machine virtuelle, utilisez des conteneurs supplémentaires comme emplacement de stockage de ces disques. Le disque du système d’exploitation pour des machines virtuelles supplémentaires doit également se trouver dans son propre conteneur distinct.
+
+Quand vous créez plusieurs machines virtuelles, vous pouvez réutiliser le même compte de stockage pour chaque nouvelle machine virtuelle. Seuls les conteneurs que vous créez doivent être uniques.
+
+### <a name="adding-new-disks"></a>Ajout de nouveaux disques
+
+Le tableau suivant est un récapitulatif de la façon d’ajouter des disques avec le portail et avec PowerShell.
 
 | Méthode | Options
 |-|-|
-|[Portail de l’utilisateur](#use-the-portal-to-add-additional-disks-to-a-vm)|- Ajoutez de nouveaux disques de données à une machine virtuelle qui a été approvisionnée précédemment. Les nouveaux disques sont créés par Azure Stack. </br> </br>- Ajoutez un fichier .vhd existant en tant que disque à une machine virtuelle qui a été approvisionnée précédemment. Pour ce faire, vous devez tout d’abord préparer et charger le fichier .vhd vers Azure Stack. |
+|[Portail de l’utilisateur](#use-the-portal-to-add-additional-disks-to-a-vm)|- Ajouter de nouveaux disques de données à une machine virtuelle existante. Les nouveaux disques sont créés par Azure Stack. </br> </br>- Ajouter un fichier de disque (.vhd) existant à une machine virtuelle déjà provisionnée. Pour cela, vous devez d’abord préparer le .vhd, puis charger le fichier sur Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - Créez une machine virtuelle en utilisant un disque de système d’exploitation, et ajoutez parallèlement un ou plusieurs disques de données à cette machine virtuelle. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Utiliser le portail pour ajouter des disques à une machine virtuelle
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>Ajouter des disques supplémentaires à une machine virtuelle à l’aide du portail
-Par défaut, lorsque vous utilisez le portail pour créer une machine virtuelle pour la plupart des éléments du marketplace, seul un disque de système d’exploitation est créé. Les disques créés par Azure sont appelés des disques gérés.
+Par défaut, quand vous utilisez le portail pour créer une machine virtuelle pour la plupart des éléments de la Place de marché, seul le disque du système d’exploitation est créé.
 
-Une fois que vous avez approvisionné une machine virtuelle, vous pouvez utiliser le portail pour ajouter un disque de données nouveau ou existant à cette machine virtuelle. Chaque disque supplémentaire doit être placé dans un conteneur distinct. Les disques que vous ajoutez à une machine virtuelle sont appelés des disques non gérés.
+Après avoir créé une machine virtuelle, vous pouvez utiliser le portail pour :
+* Créer un disque de données et l’attacher à la machine virtuelle.
+* Charger un disque de données existant et l’attacher à la machine virtuelle.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>Utiliser le portail pour attacher un nouveau disque de données à une machine virtuelle
+Chaque disque non managé que vous ajoutez doit être placé dans un conteneur distinct.
 
-1.  Dans le portail, sélectionnez **Machines virtuelles**.    
+>[!NOTE]
+>Les disques créés et gérés par Azure sont appelés [disques managés](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Utiliser le portail pour créer et attacher un disque de données
+
+1.  Dans le portail, choisissez **Machines virtuelles**.    
     ![Exemple : tableau de bord de machine virtuelle](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Sélectionnez une machine virtuelle qui a déjà été approvisionnée.   
     ![Exemple : sélectionner une machine virtuelle dans le tableau de bord](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Pour la machine virtuelle, cliquez sur **Disques** > **Attacher un nouveau disque**.       
+3.  Pour la machine virtuelle, sélectionnez **Disques** > **Attacher un nouveau disque**.       
     ![Exemple : attacher un disque à la machine virtuelle](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  Dans le volet **Attacher un nouveau disque**, cliquez sur **Emplacement**. Par défaut, l’emplacement est défini sur le conteneur qui renferme le disque du système d’exploitation.      
+4.  Dans le volet **Attacher un nouveau disque**, sélectionnez **Emplacement**. Par défaut, l’emplacement est défini sur le conteneur qui renferme le disque du système d’exploitation.      
     ![Exemple : définir l’emplacement de disque](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Sélectionnez le **compte de stockage** à utiliser. Sélectionnez ensuite le **Conteneur** dans lequel vous souhaitez placer le disque de données. Dans la page **Conteneurs**, vous pouvez créer un conteneur si vous le souhaitez. Vous pouvez ensuite modifier l’emplacement du nouveau disque et le définir sur son propre conteneur. Si vous utilisez un conteneur distinct pour chaque disque, vous répartissez le positionnement du disque de données, ce qui peut améliorer les performances. Pour enregistrer la sélection, cliquez sur **Sélectionner**.     
+5.  Sélectionnez le **compte de stockage** à utiliser. Sélectionnez ensuite le **Conteneur** dans lequel vous souhaitez placer le disque de données. Dans la page **Conteneurs**, vous pouvez créer un conteneur si vous le souhaitez. Vous pouvez ensuite modifier l’emplacement du nouveau disque et le définir sur son propre conteneur. Si vous utilisez un conteneur distinct pour chaque disque, vous répartissez le positionnement du disque de données, ce qui peut améliorer les performances. Pour enregistrer la sélection, choisissez **Sélectionner**.     
     ![Exemple : sélectionner un conteneur](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  Dans la page **Attacher un nouveau disque**, mettez à jour les paramètres **Nom**, **Type**, **Taille** et **Mise en cache de l’hôte** du disque. Cliquez ensuite sur **OK** pour enregistrer la configuration du nouveau disque de la machine virtuelle.  
+6.  Dans la page **Attacher un nouveau disque**, mettez à jour les paramètres **Nom**, **Type**, **Taille** et **Mise en cache de l’hôte** du disque. Sélectionnez ensuite **OK** pour enregistrer la configuration du nouveau disque de la machine virtuelle.  
     ![Exemple : attachement de disque terminé](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Après qu’Azure Stack a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **DISQUES DE DONNÉES**.   
@@ -71,27 +88,28 @@ Une fois que vous avez approvisionné une machine virtuelle, vous pouvez utilise
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Ajouter un disque de données existant à une machine virtuelle
+
 1.  [Préparez un fichier .vhd](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) à utiliser comme disque de données pour une machine virtuelle. Chargez ce fichier .vhd vers un compte de stockage que vous utilisez avec la machine virtuelle à laquelle vous souhaitez attacher le fichier .vhd.
 
   Pour stocker le fichier .vhd, pensez à utiliser un conteneur autre que le conteneur du disque du système d’exploitation.   
   ![Exemple : charger un fichier VHD](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Une fois que le fichier .vhd est chargé, vous êtes prêt à attacher le disque dur virtuel (VHD) à une machine virtuelle. Dans le menu de gauche, cliquez sur **Machines virtuelles**.  
+2.  Une fois que le fichier .vhd est chargé, vous êtes prêt à attacher le disque dur virtuel (VHD) à une machine virtuelle. Dans le menu de gauche, sélectionnez **Machines virtuelles**.  
  ![Exemple : sélectionner une machine virtuelle dans le tableau de bord](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  Sélectionnez la machine virtuelle dans la liste.    
+3.  Choisissez la machine virtuelle dans la liste.    
   ![Exemple : sélectionner une machine virtuelle dans le tableau de bord](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  Dans la page de la machine virtuelle, cliquez sur **Disques** > **Attacher un disque existant**.   
+4.  Dans la page correspondant à la machine virtuelle, sélectionnez **Disques** > **Attacher un disque existant**.   
   ![Exemple : attacher un disque existant](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  Dans la page **Attacher un disque existant**, cliquez sur **Fichier VHD**. La page **Comptes de stockage** s’ouvre.    
+5.  Dans la page **Attacher un disque existant**, sélectionnez **Fichier VHD**. La page **Comptes de stockage** s’ouvre.    
   ![Exemple : sélectionner un fichier VHD](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  Sous **Comptes de stockage**, sélectionnez le compte à utiliser, puis un conteneur qui renferme le fichier .vhd que vous avez chargé précédemment. Sélectionnez le fichier .vhd, puis cliquez sur **Sélectionner** pour enregistrer la sélection.    
+6.  Sous **Comptes de stockage**, sélectionnez le compte à utiliser, puis choisissez un conteneur qui contient le fichier .vhd que vous avez précédemment chargé. Sélectionnez le fichier .vhd, puis choisissez **Sélectionner** pour enregistrer la sélection.    
   ![Exemple : sélectionner un conteneur](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  Sous **Attacher un disque existant**, le fichier que vous avez sélectionné est répertorié sous **Fichier VHD**. Mettez à jour le paramètre **Mise en cache de l’hôte** du disque, puis cliquez sur **OK** pour enregistrer la configuration du nouveau disque de la machine virtuelle.    
+7.  Sous **Attacher un disque existant**, le fichier que vous avez sélectionné est répertorié sous **Fichier VHD**. Mettez à jour le paramètre **Mise en cache de l’hôte** du disque, puis sélectionnez **OK** pour enregistrer la configuration du nouveau disque de la machine virtuelle.    
   ![Exemple : attacher le fichier VHD](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Après qu’Azure Stack a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.   
