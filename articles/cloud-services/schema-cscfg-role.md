@@ -1,23 +1,23 @@
 ---
-title: "Schéma de rôle Azure Cloud Services | Microsoft Docs"
-ms.custom: 
+title: Schéma de rôle Azure Cloud Services | Microsoft Docs
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
-caps.latest.revision: "12"
+caps.latest.revision: 12
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: c25e7d139c7b7fd7c5da6bde8cfb9050eec8a88e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f5c657bb80ad0788bcc3dd19d962b3f21afa4a8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Schéma de rôle de configuration d’Azure Cloud Services
 
@@ -46,14 +46,14 @@ La table suivante décrit les attributs de l’élément `Role`.
 
 | Attribut | Description |
 | --------- | ----------- |
-| name   | Obligatoire. Indique le nom du rôle. Il doit correspondre au nom spécifié pour le rôle dans le fichier de définition de service.|
+| Nom   | Requis. Indique le nom du rôle. Il doit correspondre au nom spécifié pour le rôle dans le fichier de définition de service.|
 | vmName | facultatif. Indique le nom DNS d’une machine virtuelle. Ce nom ne peut pas comprendre plus de 10 caractères.|
 
 La table suivante décrit les éléments enfants de l’élément `Role`.
 
 | Élément | Description |
 | ------- | ----------- |
-| Instances | Obligatoire. Spécifie le nombre d’instances à déployer pour le rôle. Ce nombre est défini par un entier pour l’attribut `count`.|
+| Instances | Requis. Spécifie le nombre d’instances à déployer pour le rôle. Ce nombre est défini par un entier pour l’attribut `count`.|
 | Paramètre   | facultatif. Spécifie un nom de paramètre et une valeur dans une collection de paramètres pour un rôle. Le nom du paramètre est défini par une chaîne pour l’attribut `name`, et la valeur du paramètre est définie par une chaîne pour l’attribut `value`.|
 | Certificat | facultatif. Spécifie le nom, l’empreinte et l’algorithme d’un certificat de service qui doit être associé au rôle. Le nom du certificat est défini par une chaîne pour l’attribut `name`. L’empreinte de certificat est défini par une chaîne de caractères hexadécimaux ne comportant aucun espace pour l’attribut `thumbprint`. Les caractères hexadécimaux doivent être représentés à l’aide des chiffres et de caractères alphanumériques en majuscules. L’algorithme du certificat est défini par une chaîne pour l’attribut `thumbprintAlgorithm`.|
 

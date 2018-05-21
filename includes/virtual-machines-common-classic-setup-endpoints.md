@@ -1,4 +1,19 @@
-
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: cfe675ca269a69c7c2bfa67638acd0afbcd1c8ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/20/2018
+---
 Chaque point de terminaison possède un *port public* et un *port privé* :
 
 * Le port public est utilisé par l'équilibreur de charge Azure pour écouter le trafic entrant dans la machine virtuelle à partir d'Internet.
@@ -6,7 +21,7 @@ Chaque point de terminaison possède un *port public* et un *port privé* :
 
 Les valeurs par défaut pour le protocole IP et les ports TCP ou UDP pour des protocoles réseau bien connus sont fournies lorsque vous créez des points de terminaison avec le portail Azure. Pour les points de terminaison personnalisés, vous devrez spécifier le protocole IP correct (TCP ou UDP) et les ports publics et privés. Pour distribuer le trafic entrant au hasard entre plusieurs machines virtuelles, vous devrez créer un jeu d'équilibrage de la charge composé de plusieurs points de terminaison.
 
-Après avoir créé un point de terminaison, vous pouvez utiliser une liste de contrôle d’accès (ACL) pour définir des règles permettant d’autoriser ou de refuser le trafic entrant vers le port public du point de terminaison en fonction de son adresse IP source. Toutefois, si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
+Après avoir créé un point de terminaison, vous pouvez utiliser une liste de contrôle d’accès (ACL) pour définir des règles permettant d’autoriser ou de refuser le trafic entrant vers le port public du point de terminaison en fonction de son adresse IP source. Toutefois, si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/security-overview.md).
 
 > [!NOTE]
 > La configuration du pare-feu pour les machines virtuelles Azure s’effectue automatiquement pour les ports associés aux points de terminaison de connectivité à distance qu’Azure configure automatiquement. Pour les ports spécifiés pour tous les autres points de terminaison, aucune configuration n'est effectuée automatiquement pour le pare-feu de la machine virtuelle. Lorsque vous créez un point de terminaison pour la machine virtuelle, vous devez vous assurer que le pare-feu de la machine autorise également le trafic du protocole et le port privé correspondant à la configuration du point de terminaison. Pour configurer le pare-feu, consultez la documentation ou l’aide en ligne du système d’exploitation utilisé sur la machine virtuelle.
@@ -19,7 +34,7 @@ Après avoir créé un point de terminaison, vous pouvez utiliser une liste de c
 3. Dans le groupe **Paramètres**, cliquez sur **Points de terminaison**. La page **Points de terminaison** répertorie tous les points de terminaison actuels de la machine virtuelle. (Cet exemple est une machine virtuelle Windows. Par défaut, une machine virtuelle Linux affiche un point de terminaison pour SSH.)
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Points de terminaison](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 4. Dans la barre de commandes au-dessus des entrées de point de terminaison, cliquez sur **Ajouter**.
 5. Sur la page **Ajouter un point de terminaison**, tapez le nom du point de terminaison dans **Nom**.
@@ -39,7 +54,7 @@ Pour définir l'ensemble des ordinateurs qui peuvent envoyer du trafic, l'ACL su
 >
 >
 
-Si la machine virtuelle se trouve dans un réseau virtuel Azure, nous vous recommandons d’utiliser les groupes de sécurité réseau à la place des ACL. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
+Si la machine virtuelle se trouve dans un réseau virtuel Azure, nous vous recommandons d’utiliser les groupes de sécurité réseau à la place des ACL. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/security-overview.md).
 
 1. Si ce n’est pas déjà fait, connectez-vous au portail Azure.
 2. Cliquez sur **Machines virtuelles**, puis sur le nom de la machine virtuelle à configurer.

@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Suivre les opérations asynchrones Azure
 Certaines opérations REST Azure s'exécuteront de façon asynchrone car l’opération ne peut pas être effectuée rapidement. Cette rubrique explique comment effectuer le suivi de l’état des opérations asynchrones via les valeurs retournées dans la réponse.  
@@ -191,7 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Si la demande est toujours en cours d’exécution, vous recevez un code d’état 202. Si la demande est terminée, vous recevez un code d’état 200, et le corps de la réponse contient les propriétés du compte de stockage qui a été créé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d'informations sur chaque opération REST, consultez la [documentation de l'API REST](/rest/api/).
 * Pour plus d’informations sur le déploiement de modèles via l'API REST de Resource Manager, consultez [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](resource-group-template-deploy-rest.md).

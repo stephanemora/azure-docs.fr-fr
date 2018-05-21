@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -57,7 +57,7 @@ Les serveurs Analysis Services Azure peuvent être créés dans les [régions Az
 
 | Amérique | Europe | Asie-Pacifique |
 |----------|--------|--------------|
-|  Sud du Brésil<br> Centre du Canada<br> Est des États-Unis 2<br> Centre-Nord des États-Unis<br> États-Unis - partie centrale méridionale<br> Centre-Ouest des États-Unis<br> États-Unis de l’Ouest | Europe du Nord<br> Sud du Royaume-Uni<br> Europe de l'Ouest |   Sud-est de l’Australie<br> Est du Japon<br> Asie du Sud-Est<br> Inde occidentale  |
+|  Sud du Brésil<br> Centre du Canada<br> Est des États-Unis<br> Est des États-Unis 2<br> Centre-Nord des États-Unis<br> Centre des États-Unis<br> États-Unis - partie centrale méridionale<br> Centre-Ouest des États-Unis<br> États-Unis de l’Ouest<br> Ouest des États-Unis 2 | Europe du Nord<br> Sud du Royaume-Uni<br> Europe de l'Ouest |   Sud-est de l’Australie<br> Est du Japon<br> Asie du Sud-Est<br> Inde occidentale  |
 
 De nouvelles régions continuent d’être ajoutées, alors la liste peut être incomplète. Vous choisissez un emplacement lorsque vous créez votre serveur dans le portail Azure ou à l’aide des modèles Azure Resource Manager. Pour optimiser au mieux vos performances, choisissez l’emplacement le plus proche de votre plus grande base d’utilisateurs. Garantissez-vous une [haute disponibilité](analysis-services-bcdr.md) en déployant vos modèles sur des serveurs redondants dans plusieurs régions.
 

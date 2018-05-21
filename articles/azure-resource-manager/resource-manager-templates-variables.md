@@ -1,6 +1,6 @@
 ---
-title: "Variables du modèle Azure Resource Manager | Microsoft Docs"
-description: "Explique comment définir des variables dans des modèles Azure Resource Manager suivant une syntaxe JSON déclarative."
+title: Variables du modèle Azure Resource Manager | Microsoft Docs
+description: Explique comment définir des variables dans des modèles Azure Resource Manager suivant une syntaxe JSON déclarative.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8d9f227ad1f450cf6cdfca1dafb1b51bc6f6c9f9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Section Variables des modèles Azure Resource Manager
 Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Il est inutile de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ Les articles ci-dessous constituent de bons points de départ pour les personnes
 | Guide des articles |  |
 |:---:| --- |
 | Présentation des problèmes de gestion d’application résolus par Azure AD |[Gestion des applications avec Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
-| Vue d’ensemble des différentes fonctionnalités dans Azure AD liées à l’activation de l’authentification unique, à la définition des personnes pouvant accéder aux applications et à la façon dont les utilisateurs lancent des applications |[Accès aux applications et authentification unique dans Azure Active Directory](active-directory-appssoaccess-whatis.md) |
+| Vue d’ensemble des différentes fonctionnalités dans Azure AD liées à l’activation de l’authentification unique, à la définition des personnes pouvant accéder aux applications et à la façon dont les utilisateurs lancent des applications |[Accès aux applications et authentification unique dans Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
 | Examen des différentes étapes de l’intégration des applications à Azure AD |[Intégration d’applications dans Azure Active Directory](manage-apps/plan-an-application-integration.md)<br /><br />[Activation de l’authentification unique pour les applications SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gestion de l’accès aux applications](active-directory-managing-access-to-apps.md) |
 | Explication technique de la représentation des applications dans Azure AD |[Comment et pourquoi les applications sont ajoutées à Azure AD](active-directory-how-applications-are-added.md) |
 
@@ -52,8 +52,8 @@ L’authentification unique permet aux utilisateurs d’accéder à différentes
 
 | Guide des articles |  |
 |:---:| --- |
-| Introduction à la fédération et à d’autres types d’authentification |[Authentification unique avec Azure AD](active-directory-appssoaccess-whatis.md) |
-| Des milliers d’applications SaaS pré-intégrées à Azure AD avec des étapes de configuration de l’authentification unique simplifiées |[Prise en main de la galerie d’applications Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Liste complète des applications pré-intégrées qui prennent en charge la fédération](active-directory-saas-tutorial-list.md)<br /><br />[Comment ajouter votre application à la galerie d’applications Azure AD](active-directory-app-gallery-listing.md) |
+| Introduction à la fédération et à d’autres types d’authentification |[Authentification unique avec Azure AD](manage-apps/what-is-single-sign-on.md) |
+| Des milliers d’applications SaaS pré-intégrées à Azure AD avec des étapes de configuration de l’authentification unique simplifiées |[Prise en main de la galerie d’applications Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Liste complète des applications pré-intégrées qui prennent en charge la fédération](active-directory-saas-tutorial-list.md)<br /><br />[Comment ajouter votre application à la galerie d’applications Azure AD](active-directory-app-gallery-listing.md) |
 | Plus de 150 didacticiels d’application sur la configuration de l’authentification unique pour les applications telles que [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), et bien plus encore |[Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Comment configurer et personnaliser manuellement votre configuration de l’authentification unique |[Configuration de l'authentification unique fédérée pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Comment personnaliser les revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md) |
 | Guide de dépannage pour les applications fédérées qui utilisent le protocole SAML |[Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ Pour activer l’authentification unique pour les applications qui ne prennent p
 
 | Guide des articles |  |
 |:---:| --- |
-| Introduction au fonctionnement de l’authentification unique par mot de passe et brève vue d’ensemble technique |[Authentification unique par mot de passe avec Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| Introduction au fonctionnement de l’authentification unique par mot de passe et brève vue d’ensemble technique |[Authentification unique par mot de passe avec Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Résumé des scénarios relatifs au partage de compte et résolution de ces problèmes par Azure AD |[Partage de comptes avec Azure AD](active-directory-sharing-accounts.md) |
 | Modifier automatiquement le mot de passe pour certaines applications à intervalles réguliers |[Substitution de mot de passe automatique (version préliminaire)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Guides de déploiement et de dépannage pour la version Internet Explorer de l’extension de gestion de mot de passe Azure AD |[Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)<br /><br />[Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -183,11 +183,11 @@ Grâce au volet d’accès Azure AD, les utilisateurs finaux peuvent lancer leur
 
 | Guide des articles |  |
 |:---:| --- |
-| Comparaison des différentes options de déploiement d’applications avec authentification unique pour les utilisateurs |[Déploiement d’applications Azure AD intégrées pour les utilisateurs](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| Comparaison des différentes options de déploiement d’applications avec authentification unique pour les utilisateurs |[Déploiement d’applications Azure AD intégrées pour les utilisateurs](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | Vue d’ensemble du volet d’accès et des applications MyApp mobiles équivalentes |[Introduction au volet d’accès et aux applications MyApp](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Comment accéder aux applications Azure AD depuis le site web Office 365 |[Utilisation du lanceur d’applications Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Comment accéder aux applications Azure AD depuis l’application mobile Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Comment accéder aux applications Azure AD à l’aide de liens ciblés pour lancer l’authentification unique |[Établissement de liens d’authentification directs vers vos applications](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Comment accéder aux applications Azure AD à l’aide de liens ciblés pour lancer l’authentification unique |[Établissement de liens d’authentification directs vers vos applications](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Le volet d’accès est disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

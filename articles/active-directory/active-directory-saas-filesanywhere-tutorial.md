@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec FilesAnywhere | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et FilesAnywhere."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec FilesAnywhere | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FilesAnywhere.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ca017dbfe35d291083c66f41868fd425e74a602
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ad92a3edf8fac79bc9eaa3b4a641b5a03eb4ebe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Didacticiel : Intégration d’Azure Active Directory à FilesAnywhere
 
@@ -29,9 +29,10 @@ L’intégration de FilesAnywhere dans Azure AD vous offre les avantages suivant
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à FilesAnywhere (via l’authentification unique) avec leur compte Azure AD
 - Vous pouvez gérer vos comptes de manière centralisée dans le portail de gestion Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à FilesAnywhere, vous avez besoin des éléments suivants :
 
@@ -50,7 +51,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de FilesAnywhere à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -67,11 +68,11 @@ Pour configurer l’intégration de FilesAnywhere à Azure AD, vous devez ajoute
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **FilesAnywhere**.
 
@@ -94,7 +95,7 @@ Pour configurer et tester l’authentification unique Azure AD avec FilesAnywhe
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test FilesAnywhere](#creating-a-filesanywhere-test-user)** pour avoir un équivalent de Britta Simon dans FilesAnywhere qui soit lié à la représentation Azure AD associée.
-3. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+3. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 4. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -105,15 +106,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail de gestion Azure, sur la page d’intégration de l’application **FilesAnywhere**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_samlbase.png)
 
 3. Dans la section **Domaines et URL FilesAnywhere**, si vous souhaitez configurer l’application en **Mode initié par IDP**, suivez les étapes ci-dessous :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
     a. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
 > [!NOTE]
@@ -121,7 +122,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Domaine et URL FilesAnywhere**, si vous souhaitez configurer l’application en **Mode initié par SP**, procédez comme suit :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url1.png)
 
     a. Cliquez sur l’option **Afficher les paramètres d’URL avancés**.
 
@@ -132,7 +133,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Votre application FilesAnywhere attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_attribute.png)
     
     Lorsque les utilisateurs s’inscrivent avec FilesAnywhere, ils obtiennent la valeur d’attribut **clientid** auprès de [l’équipe FilesAnywhere](mailto:support@FilesAnywhere.com). Vous devez ajouter l’attribut « ID Client » avec la valeur unique fournie par FilesAnywhere. Tous les attributs présentés ci-dessus sont requis.
     > [!NOTE] 
@@ -147,9 +148,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_04.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -159,17 +160,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_general_400.png)
 
 8. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_certificate.png) 
 
 9. Dans la section **Configuration de FilesAnywhere** , cliquez sur **Configurer FilesAnywhere** pour ouvrir la fenêtre **Configurer l’authentification**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configure.png) 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
 10. Pour obtenir la configuration d’authentification unique complète pour votre application du côté FilesAnywhere, contactez [l’équipe de support technique de FilesAnywhere](mailto:support@FilesAnywhere.com) et fournissez-lui le certificat de signature de jetons SAML et l’URL d’authentification unique.
 
@@ -202,7 +203,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**. 
+    d. Cliquez sur **Créer**. 
 
 
 
@@ -219,13 +220,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à FilesAnywhere, procédez comme suit :**
 
-1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires et à **Applications d’entreprise** puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **FilesAnywhere**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -253,7 +254,7 @@ Lorsque vous cliquez sur la vignette FilesAnywhere dans le volet d’accès, vou
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

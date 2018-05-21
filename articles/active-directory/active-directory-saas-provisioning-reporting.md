@@ -1,8 +1,8 @@
 ---
-title: "Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur Azure Active Directory pour les applications SaaS | Documents Microsoft"
-description: "Découvrez comment vérifier l’état des tâches d’approvisionnement automatique de comptes d’utilisateur et comment résoudre les problèmes d’approvisionnement d’utilisateurs individuels."
+title: Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur Azure Active Directory pour les applications SaaS | Documents Microsoft
+description: Découvrez comment vérifier l’état des tâches d’approvisionnement automatique de comptes d’utilisateur et comment résoudre les problèmes d’approvisionnement d’utilisateurs individuels.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: d2ec1b25e39717fb2411d35e3b0a9f5eb3a977be
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1527e8fe28d395a77d7b3c1535e40fe59df1baba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur
 
@@ -117,13 +117,13 @@ Le cas d’usage le plus courant des journaux d’audit de l’approvisionnement
 Pour optimiser la lisibilité dans le portail Azure, sélectionnez le bouton **Colonnes**, puis choisissez les colonnes suivantes :
 
 * **Date** : indique la date à laquelle l’événement s’est produit.
-* **Cible(s)** : indique le nom de l’application et l’ID de l’utilisateur qui font l’objet de l’événement.
+* **Cible(s)**  : indique le nom de l’application et l’ID de l’utilisateur qui font l’objet de l’événement.
 * **Activité** : indique le type d’activité, comme décrit précédemment.
 * **Statut** : indique si l’événement a réussi ou non.
 * **Raison du statut** : résumé de ce qui s’est passé dans le cadre de l’événement d’approvisionnement.
 
 
-## <a name="troubleshooting"></a>résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Le rapport de synthèse sur l’approvisionnement et les journaux d’audit jouent un rôle clé pour aider les administrateurs à résoudre différents problèmes d’approvisionnement de comptes d’utilisateur.
 
@@ -133,4 +133,4 @@ Pour obtenir des instructions basées sur un scénario concernant la manière de
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)

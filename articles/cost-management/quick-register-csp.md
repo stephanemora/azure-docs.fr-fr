@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 839f99153e0b7458d205c1afb61a05c75cbe0fb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>S’inscrire au programme pour les partenaires CSP et afficher les données de coût
 
@@ -60,7 +60,7 @@ Par défaut, l’API Espace partenaires est accessible uniquement aux fournisseu
 
 Pour activer l’accès pour les clients ou partenaires CSP indirects, suivez les étapes décrites dans [Créer une inscription d’évaluation](#create-a-trial-registration) pour configurer une inscription d’évaluation. Effectuez les étapes suivantes pour segmenter les données CSP indirectes à l’aide de groupes d’entités Cloudyn. Ensuite, assignez les autorisations utilisateur appropriées pour les groupes d’entités.
 
-1. Créez un groupe d’entités avec les informations fournies dans [Créer des entités](tutorial-user-access.md#create-entities).
+1. Créez un groupe d’entités avec les informations fournies dans [Créer des entités](tutorial-user-access.md#create-and-manage-entities).
 2. Suivez les étapes fournies dans [Assigning subscriptions to Cost Entities (Affectation d’abonnements à des entités de coût)](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associez le compte du client CSP indirect et ses abonnements Azure à l’entité que vous avez créée.
 3. Suivez les étapes fournies dans [Créer un utilisateur avec un accès administrateur](tutorial-user-access.md#create-a-user-with-admin-access) pour créer un compte d’utilisateur avec un accès administrateur. Ensuite, vérifiez que le compte d’utilisateur dispose d’un accès administrateur aux entités spécifiques que vous avez créées pour le compte indirect.
 

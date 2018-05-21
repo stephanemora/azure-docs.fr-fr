@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à TINFOIL SECURITY | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et TINFOIL SECURITY."
+title: 'Didacticiel : Intégration d’Azure Active Directory à TINFOIL SECURITY | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TINFOIL SECURITY.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 7794564396c2ade8ba45b9f2b1238f304f6b3921
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 96d7b75078fd1075d17d70ee677f28ba1bbb1576
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Didacticiel : Intégration d’Azure Active Directory à TINFOIL SECURITY
 
@@ -28,11 +28,12 @@ L’intégration de TINFOIL SECURITY à Azure AD vous fait bénéficier des avan
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à TINFOIL SECURITY.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à TINFOIL SECURITY (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à TINFOIL SECURITY, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter TINFOIL SECURITY depuis la galerie
 2. Configurer et tester l’authentification unique Azure AD
@@ -64,11 +65,11 @@ Pour configurer l’intégration de TINFOIL SECURITY à Azure AD, vous devez ajo
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **TINFOIL SECURITY**, sélectionnez **TINFOIL SECURITY** à partir du volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
@@ -83,10 +84,10 @@ Dans TINFOIL SECURITY, affectez la valeur du **nom d’utilisateur** dans Azure 
 
 Pour configurer et tester l’authentification unique Azure AD avec TINFOIL SECURITY, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test TINFOIL SECURITY](#create-a-tinfoil-security-test-user)** pour avoir un équivalent de Britta Simon dans TINFOIL SECURITY lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -97,7 +98,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **TINFOIL SECURITY**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
@@ -105,7 +106,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 3. Dans la section **Domaine et URL TINFOIL SECURITY**, l’utilisateur n’aura pas à effectuer les étapes que l’application a déjà intégrées préalablement à Azure.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
 
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT**.
@@ -136,7 +137,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Bouton Enregistrer](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_400.png)
 
-7. Dans la section **Configuration de TINFOIL SECURITY**, cliquez sur **Configurer TINFOIL SECURITY** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+7. Dans la section **Configuration de TINFOIL SECURITY**, cliquez sur **Configurer TINFOIL SECURITY** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configuration de TINFOIL SECURITY](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_configure.png) 
 
@@ -146,7 +147,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Tableau de bord](./media/active-directory-saas-tinfoil-security-tutorial/ic798971.png "Tableau de bord")
 
-10. Cliquez sur **Security**.
+10. Cliquez sur **Sécurité**.
    
     ![Sécurité](./media/active-directory-saas-tinfoil-security-tutorial/ic798972.png "Sécurité")
 
@@ -164,7 +165,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
   
     e. Copiez la valeur de l’**ID de votre compte** et collez-la dans la zone de texte **Valeur de l’attribut** située sous la section **Ajouter un attribut** du portail Azure.
    
-    f. Cliquez sur **Save**.
+    f. Cliquez sur **Enregistrer**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -199,7 +200,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-tinfoil-security-test-user"></a>Créer un utilisateur de test TINFOIL SECURITY
 
@@ -255,7 +256,7 @@ Lorsque vous cliquez sur la vignette TINFOIL SECURITY dans le volet d’accès, 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

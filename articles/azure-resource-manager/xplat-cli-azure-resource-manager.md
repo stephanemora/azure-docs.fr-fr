@@ -1,27 +1,27 @@
 ---
-title: "Gestion des ressources avec l’interface CLI Azure | Microsoft Docs"
-description: "Utiliser l’interface de ligne de commande Azure (CLI) pour gérer les groupes et les ressources Azure"
-editor: 
+title: Gestion des ressources avec l’interface CLI Azure | Microsoft Docs
+description: Utiliser l’interface de ligne de commande Azure (CLI) pour gérer les groupes et les ressources Azure
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure
 
-Dans cet article, vous allez apprendre à gérer vos solutions avec Azure CLI et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cet article se concentre sur les tâches de gestion. Vous allez :
+Dans cet article, vous allez apprendre à gérer vos solutions avec Azure CLI et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cet article traite en particulier des tâches de gestion. Vous allez effectuer les étapes suivantes :
 
 1. Créer un groupe de ressources
 2. Ajouter une ressource au groupe de ressources
