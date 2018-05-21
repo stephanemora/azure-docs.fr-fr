@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -37,9 +37,9 @@ Chaque service est accessible via un compte de stockage. Pour commencer, consult
 
 ## <a name="blob-storage"></a>Stockage d'objets blob
 
-Le Stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le Stockage Blob est optimisé pour stocker de grandes quantités de données non structurées, telles que des données texte ou binaires. 
+Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées, telles que des données texte ou binaires. 
 
-Le Stockage Blob est idéal pour :
+Le stockage Blob est idéal pour :
 
 * Mise à disposition d’images ou de documents directement dans un navigateur.
 * Stockage de fichiers pour un accès distribué.
@@ -47,7 +47,7 @@ Le Stockage Blob est idéal pour :
 * Stockage de données pour la sauvegarde et la restauration, la récupération d’urgence et l’archivage.
 * Stockage des données pour l’analyse par un service local ou hébergé par Azure.
 
-Les objets du Stockage Blob sont accessibles n’importe où dans le monde via HTTP ou HTTPS. Les utilisateurs ou applications clientes peuvent accéder aux objets blob via des URL, l’[API REST Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), ou une bibliothèque cliente Stockage Azure. Les bibliothèques clientes de stockage sont disponibles dans plusieurs langages, tels que [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/) et [Ruby](http://azure.github.io/azure-storage-ruby).
+Les objets du stockage Blob sont accessibles n’importe où dans le monde via HTTP ou HTTPS. Les utilisateurs ou applications clientes peuvent accéder aux objets blob via des URL, l’[API REST Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) ou une bibliothèque de client Stockage Azure. Les bibliothèques clientes de stockage sont disponibles dans plusieurs langages, tels que [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/) et [Ruby](http://azure.github.io/azure-storage-ruby).
 
 Pour plus d’informations sur le Stockage Blob, consultez [Introduction to object storage on Azure](../blobs/storage-blobs-introduction.md) (Présentation du stockage d’objets sur Azure).
 
@@ -179,7 +179,7 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 * [API REST des services de stockage](https://docs.microsoft.com/rest/api/storageservices/)
 * [Bibliothèque cliente de stockage pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Bibliothèque cliente de stockage pour Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Bibliothèque cliente de stockage pour Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Bibliothèque cliente de stockage pour Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Bibliothèque cliente de stockage pour Python](https://github.com/Azure/azure-storage-python)
 * [Bibliothèque cliente de stockage pour PHP](https://github.com/Azure/azure-storage-php)
 * [Bibliothèque cliente de stockage pour Ruby](https://github.com/Azure/azure-storage-ruby)

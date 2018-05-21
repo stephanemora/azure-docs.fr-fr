@@ -1,12 +1,12 @@
 ---
-title: Azure Security Center et machines virtuelles Linux dans Azure | Documents Microsoft
-description: Apprenez-en davantage sur la sécurité de votre machine virtuelle Linux Azure avec Azure Security Center.
+title: 'Didacticiel : utiliser Azure Security Center pour les machines virtuelles Linux dans Azure | Microsoft Docs'
+description: Avec ce didacticiel, vous allez découvrir les fonctionnalités Azure Security Center pour mieux protéger et sécuriser vos machines virtuelles Linux dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Surveiller la sécurité des machines virtuelles à l’aide d’Azure Security Center
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Linux
 
 Azure Security Center peut vous aider à acquérir une meilleure visibilité des pratiques de sécurité de vos ressources Azure. Azure Security Center assure une surveillance intégrée de la sécurité. Il peut détecter des menaces qui sans cela pourraient passer inaperçues. Ce didacticiel décrit Azure Security Center et comment effectuer les opérations suivantes :
  
@@ -30,7 +30,7 @@ Azure Security Center peut vous aider à acquérir une meilleure visibilité des
 > * Configurer la collecte de données
 > * Définir des stratégies de sécurité
 > * Afficher et résoudre des problèmes d’intégrité de configuration
-> * Examiner les menaces détectées  
+> * Examiner les menaces détectées
 
 ## <a name="security-center-overview"></a>Vue d’ensemble de Security Center
 

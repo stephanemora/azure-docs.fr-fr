@@ -1,27 +1,27 @@
 ---
-title: Didacticiel de version préliminaire des synonymes dans la Recherche Azure | Microsoft Docs
-description: Ajoutez la fonctionnalité de version préliminaire des synonymes à un index dans la Recherche Azure.
+title: Didacticiel des synonymes dans la Recherche Azure | Microsoft Docs
+description: Ajoutez la fonctionnalité des synonymes à un index dans la Recherche Azure.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0f082397f832883b272a2ca38850a340b618adde
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonym-preview-c-tutorial-for-azure-search"></a>Didacticiel C# des synonymes (version préliminaire) pour la Recherche Azure
+# <a name="synonym-c-tutorial-for-azure-search"></a>Didacticiel C# des synonymes pour la Recherche Azure
 
 Les synonymes développent une requête en faisant correspondre les termes considérés comme sémantiquement équivalents à l’expression entrée. Par exemple, vous souhaiterez peut-être que le terme « voiture » vous permette de trouver des documents contenant les mots « automobile » ou « véhicule ».
 
 Dans la Recherche Azure, les synonymes sont définis dans une *carte de synonymes*, via des *règles de mappage* qui associent des termes équivalents. Vous pouvez créer plusieurs cartes de synonymes, les valider en tant que ressources du service disponible pour tout index, et ensuite référencer ceux que vous souhaitez utiliser au niveau du champ. Au moment de la requête, outre la recherche dans un index, la Recherche Azure effectue une recherche dans une carte de synonymes, si une carte est spécifiée dans les champs utilisés dans la requête.
 
 > [!NOTE]
-> La fonctionnalité de synonymes est actuellement en version préliminaire et prise en charge uniquement dans les dernières versions d’API et de Kit de développement logiciel (SDK) préliminaires (api-version=2016-09-01-Preview, SDK version 4.x-preview). Il n’existe aucune prise en charge sur le portail Azure pour l’instant. Les API de versions préliminaires ne sont pas soumises à un contrat SLA, et les fonctionnalités peuvent changer ; par conséquent, nous ne recommandons pas de les utiliser dans des applications de production.
+> La fonctionnalité des synonymes est prise en charge dans les dernières versions de l’API et du Kit de développement logiciel (SDK) (version de l’API : 2017-11-11 ; version du SDK : 5.0.0). Il n’existe aucune prise en charge sur le portail Azure pour l’instant. Si la prise en charge des synonymes par le portail Azure peut vous être utile, donnez-nous votre avis sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ La configuration requise du didacticiel est la suivante :
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Service Recherche Azure](search-create-service-portal.md)
-* [Version préliminaire de la bibliothèque Microsoft.Azure.Search .NET](https://aka.ms/search-sdk-preview)
+* [Bibliothèque .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
 * [Comment utiliser la Recherche Azure à partir d’une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Vue d'ensemble

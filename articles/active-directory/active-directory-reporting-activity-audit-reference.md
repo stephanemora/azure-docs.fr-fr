@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -343,7 +343,7 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Ressource|Émettre un id_token pour l’application|
 
 
-## <a name="core-directory"></a>Annuaire principal
+## <a name="core-directory"></a>Répertoire principal
 
 |Catégorie d’audit|Activité|
 |---|---|
@@ -547,7 +547,7 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 
 
-## <a name="self-service-group-management"></a>Gestion des groupes en libre-service
+## <a name="self-service-group-management"></a>Gestion des groupes en libre service
 
 |Catégorie d’audit|Activité|
 |---|---|

@@ -1,6 +1,6 @@
 ---
-title: Didacticiel sur les groupes à haute disponibilité pour les machines virtuelles Linux dans Azure | Microsoft Docs
-description: Découvrez les groupes à haute disponibilité pour les machines virtuelles Linux dans Azure.
+title: 'Didacticiel : haute disponibilité pour les machines virtuelles Linux dans Azure | Microsoft Docs'
+description: Avec ce didacticiel, vous allez apprendre à utiliser Azure CLI 2.0 pour déployer des machines virtuelles hautement disponibles dans les groupes à haute disponibilité
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -16,14 +16,13 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d317ec8136ad7a36381239593c3a53c40f897845
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-use-availability-sets"></a>Utilisation des groupes à haute disponibilité
-
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Didacticiel : créer et déployer des machines virtuelles hautement disponibles avec Azure CLI 2.0
 
 Ce didacticiel explique comment améliorer la disponibilité et la fiabilité de vos solutions de machine virtuelle sur Azure en utilisant une fonctionnalité appelée Groupes à haute disponibilité. Les groupes à haute disponibilité veillent à ce que les machines virtuelles que vous déployez sur Azure soient distribuées sur plusieurs clusters matériels isolés. Leur utilisation garantit qu’en cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et que votre solution globale reste disponible et opérationnelle.
 
@@ -34,10 +33,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer une machine virtuelle dans un groupe à haute disponibilité
 > * Vérifier les tailles de machines virtuelles disponibles
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="availability-set-overview"></a>Vue d’ensemble des groupes à haute disponibilité
 
@@ -50,16 +48,13 @@ Utilisez des groupes à haute disponibilité quand vous souhaitez déployer des 
 
 ## <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
-Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). Dans cet exemple, nous définissons le nombre de domaines de mise à jour et d’erreur sur *2* pour le groupe à haute disponibilité nommé *myAvailabilitySet* dans le groupe de ressources *myResourceGroupAvailability*.
+Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). Dans cet exemple, le nombre de domaines de mise à jour et d’erreur est défini sur *2* pour le groupe à haute disponibilité nommé *myAvailabilitySet* au sein du groupe de ressources *myResourceGroupAvailability*.
 
-Créez un groupe de ressources.
+Commencez par créer un groupe de ressources avec [az group create](/cli/azure/group#az-group-create), puis créez le groupe à haute disponibilité :
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
-```
 
-
-```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -67,44 +62,44 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Les groupes à haute disponibilité vous permettent d’isoler des ressources dans des domaines d’erreur et des domaines de mise à jour. Un **domaine d’erreur** représente une collection isolée comportant un serveur, un réseau et des ressources de stockage. Dans l’exemple précédent, nous indiquons que nous voulons que notre groupe à haute disponibilité soit distribué sur au moins deux domaines d’erreur lors du déploiement de nos machines virtuelles. Nous indiquons également que nous souhaitons que notre groupe à haute disponibilité soit réparti sur deux **domaines de mise à jour**.  Deux domaines de mise à jour garantissent que, quand Azure effectue des mises à jour logicielles, nos ressources de machines virtuelles sont isolées, ce qui évite que tous les logiciels en cours d’exécution sous notre machine virtuelle soient mis à jour au même moment.
+Les groupes à haute disponibilité vous permettent d’isoler des ressources dans des domaines d’erreur et des domaines de mise à jour. Un **domaine d’erreur** représente une collection isolée comportant un serveur, un réseau et des ressources de stockage. Dans l’exemple précédent, le groupe à haute disponibilité est distribué sur deux domaines d’erreur au minimum lors du déploiement des machines virtuelles. Le groupe à haute disponibilité est également distribué sur deux **domaines de mise à jour**. Deux domaines de mise à jour garantissent que, au moment où Azure effectue des mises à jour logicielles, les ressources des machines virtuelles sont isolées, ce qui évite la mise à jour simultanée de tous les logiciels en cours d’exécution sur la machine virtuelle.
 
 
 ## <a name="create-vms-inside-an-availability-set"></a>Créer des machines virtuelles dans un groupe à haute disponibilité
 
-Vous devez créer des machines virtuelles au sein du groupe à haute disponibilité pour vous assurer qu’elles sont correctement réparties dans le matériel. Vous ne pouvez pas ajouter une machine virtuelle existante à un groupe à haute disponibilité après sa création. 
+Vous devez créer des machines virtuelles au sein du groupe à haute disponibilité pour vous assurer qu’elles sont correctement réparties dans le matériel. Il est impossible d’ajouter une machine virtuelle existante à un groupe à haute disponibilité après sa création.
 
-Lorsque vous créez une machine virtuelle à l’aide de la commande [az vm create](/cli/azure/vm#az_vm_create), vous spécifiez le nom du groupe à haute disponibilité à l’aide du paramètre `--availability-set`.
+Quand une machine virtuelle est créée à l’aide de la commande [az vm create](/cli/azure/vm#az_vm_create), utilisez le paramètre `--availability-set` pour spécifier le nom du groupe à haute disponibilité.
 
-```azurecli-interactive 
+```azurecli-interactive
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+     --image UbuntuLTS \
      --admin-username azureuser \
      --generate-ssh-keys \
      --no-wait
-done 
+done
 ```
 
-Nous avons à présent deux machines virtuelles à l’intérieur du groupe à haute disponibilité que nous venons de créer. Ces machines virtuelles se trouvant dans le même groupe à haute disponibilité, Azure veille à ce que celles-ci et toutes leurs ressources (dont les disques de données) soient distribuées sur des éléments matériels isolés. Cette distribution contribue à assurer une disponibilité sensiblement plus importante de notre solution globale de machine virtuelle.
+Le groupe à haute disponibilité comporte désormais deux machines virtuelles. Ces machines virtuelles se trouvant dans le même groupe à haute disponibilité, Azure veille à ce que celles-ci et toutes leurs ressources (dont les disques de données) soient distribuées sur des éléments matériels isolés. Cette distribution contribue à assurer une disponibilité sensiblement plus importante de la solution globale de machine virtuelle.
 
-Si vous examinez le groupe à haute disponibilité dans le portail en accédant à Groupes de ressources > myResourceGroupAvailability > myAvailabilitySet, vous devez voir la façon dont les machines virtuelles sont réparties entre les deux domaines d’erreur et de mise à jour.
+La distribution du groupe à haute disponibilité peut être affichée dans le portail sur Groupes de ressources > myResourceGroupAvailability > myAvailabilitySet. Les machines virtuelles sont distribuées sur les deux domaines d’erreur et de mise à jour, comme indiqué dans l’exemple suivant :
 
 ![Groupe à haute disponibilité dans le portail](./media/tutorial-availability-sets/fd-ud.png)
 
-## <a name="check-for-available-vm-sizes"></a>Vérifier les tailles de machines virtuelles disponibles 
+## <a name="check-for-available-vm-sizes"></a>Vérifier les tailles de machines virtuelles disponibles
 
-Vous pouvez ajouter ultérieurement d’autres machines virtuelles au groupe à haute disponibilité, mais vous devez connaître les tailles des machines virtuelles qui sont disponibles sur le matériel.  Utilisez [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) pour répertorier toutes les tailles disponibles sur le cluster matériel pour le groupe à haute disponibilité.
+Des machines virtuelles supplémentaires peuvent être ajoutées au groupe à haute disponibilité ultérieurement, lorsque les tailles de machine virtuelle sont disponibles sur le matériel. Utilisez [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) afin de répertorier toutes les tailles disponibles sur le cluster matériel pour le groupe à haute disponibilité :
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
-     --output table  
+     --output table
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -120,4 +115,3 @@ Passez au didacticiel suivant pour en savoir plus sur les groupes de machines vi
 
 > [!div class="nextstepaction"]
 > [Créer un groupe de machines virtuelles identiques](tutorial-create-vmss.md)
-

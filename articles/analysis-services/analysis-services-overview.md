@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Vue d’ensemble de Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services fournit sur le cloud des données de modélisation de qualité professionnelle. Il s’agit d’une plateforme en tant que service (PaaS) entièrement gérée et intégrée aux services de plateforme de données Azure. 
 
-Analysis Services vous permet de regrouper et combiner des données provenant de plusieurs sources, de définir des mesures et de sécuriser vos données dans un seul modèle de données sémantique approuvé. Le modèle de données offre à vos utilisateurs un moyen plus simple et plus rapide de parcourir d’importants volumes de données avec des applications clientes telles que Power BI, Excel, Reporting Services, ainsi que des applications tierces et personnalisées.
+Analysis Services vous permet de regrouper et combiner des données provenant de plusieurs sources de données, de définir des mesures et de sécuriser vos données dans un seul modèle de données sémantique approuvé. Le modèle de données offre à vos utilisateurs un moyen plus simple et plus rapide de parcourir d’importants volumes de données avec des applications clientes telles que Power BI, Excel, Reporting Services, ainsi que des applications tierces et personnalisées.
 
 ![Sources de données](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -134,4 +134,5 @@ Vous avez des suggestions ou des demandes de fonctionnalités ? Veillez à lais
 Vous avez des suggestions concernant la documentation ? Vous pouvez ajouter des commentaires à l’aide de Livefyre en bas de chaque article.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous en savez plus sur Azure Analysis Services, il est temps de commencer. Découvrez comment [créer un serveur](analysis-services-create-server.md) dans Azure. Lorsque votre serveur est prêt, parcourez le [Didacticiel Adventure Works](tutorials/aas-adventure-works-tutorial.md) pour apprendre à créer un modèle tabulaire entièrement fonctionnel et le déployer sur votre serveur.
+Découvrez comment [créer un serveur](analysis-services-create-server.md) dans Azure.   
+Une fois qu’un serveur est créé, [ajoutez un exemple de modèle](analysis-services-create-sample-model.md).   

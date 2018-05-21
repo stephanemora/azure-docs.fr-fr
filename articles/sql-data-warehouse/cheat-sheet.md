@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Aide-mémoire pour Azure SQL Data Warehouse
 Cet aide-mémoire vous procure des conseils et des bonnes pratiques à suivre pour créer vos solutions Azure SQL Data Warehouse. Avant de démarrer, découvrez chaque étape en détail dans la section [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Modèles et anti-modèles de charges de travail Azure SQL Data Warehouse), qui définit sans ambiguïté SQL Data Warehouse.
@@ -34,7 +34,7 @@ Le fait de bien déterminer le type des opérations à l’avance vous aide à o
 
 ## <a name="data-migration"></a>Migration des données
 
-Commencez par charger vos données dans [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) ou le stockage Blob Azure. Ensuite, utilisez PolyBase pour charger vos données dans une table de mise en lots dans SQL Data Warehouse. Utilisez la configuration suivante :
+Commencez par charger vos données dans [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou le stockage Blob Azure. Ensuite, utilisez PolyBase pour charger vos données dans une table de mise en lots dans SQL Data Warehouse. Utilisez la configuration suivante :
 
 | Conception | Recommandation |
 |:--- |:--- |
@@ -43,7 +43,7 @@ Commencez par charger vos données dans [Azure Data Lake Store](https://docs.mic
 | Partitionnement | Aucun |
 | Classe de ressources | largerc ou xlargerc |
 
-En savoir plus sur la [migration des données], le [chargement des données] et le [processus ELT (extraire, charger et transformer)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+En savoir plus sur la [migration des données], le [chargement des données] et le [processus ELT (extraire, charger et transformer)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## <a name="distributed-or-replicated-tables"></a>Tables répliquées ou distribuées
 
@@ -78,7 +78,7 @@ L’indexation sert à accélérer la lecture des tables. Selon vos besoins, vou
 **Conseils :**
 * En plus d’un index cluster, vous pouvez ajouter un index non cluster à une colonne souvent utilisée comme filtre. 
 * Gérez avec attention la mémoire pour une table avec un index columnstore cluster. Quand vous chargez des données, l’utilisateur (ou la requête) doit pouvoir disposer d’une large classe de ressources. Ainsi, vous empêchez la suppression et la création de nombreux petits groupes de lignes compressés.
-* Le niveau Calcul optimisé peut avoir un index columnstore cluster.
+* Avec Gen2, les tables CCI sont mises en cache localement sur les nœuds de calcul afin d’optimiser les performances.
 * Avec un index columnstore cluster, vous pouvez observer une exécution moins rapide en raison de la faible compression de vos groupes de lignes. Dans ce cas, essayez de régénérer ou de réorganiser votre index columnstore cluster. Prévoyez au moins 100 000 lignes par groupe de lignes compressé. L’idéal est d’avoir un million de lignes dans un groupe de lignes.
 * Selon la fréquence et la taille du chargement incrémentiel, il peut être utile d’automatiser la réorganisation ou la regénération de vos index. Un nettoyage est toujours conseillé.
 * Faites preuve de stratégie lors de la suppression d’un groupe de lignes. De quelle taille sont les groupes de ligne ouverts ? Quelle quantité de données prévoyez-vous de charger dans les jours à venir ?
@@ -111,7 +111,7 @@ SQL Data Warehouse utilise des groupes de ressources pour allouer de la mémoire
 
 Si vous remarquez que les requêtes prennent trop de temps, vérifiez que vos utilisateurs ne se trouvent pas dans des grandes classes de ressources. Les grandes classes de ressources consomment beaucoup d’emplacements de concurrence. Elles peuvent aussi entraîner la mise en file d’attente d’autres requêtes.
 
-Enfin, si vous utilisez le niveau Calcul optimisé, chaque classe de ressources obtient 2,5 fois plus de mémoire que pour le niveau Élastique optimisé.
+Enfin, avec SQL Data Warehouse Gen2, chaque classe de ressource obtient 2,5 fois plus de mémoire qu’avec Gen1.
 
 Découvrez plus en détail comment utiliser les [classes de ressources et la concurrence].
 

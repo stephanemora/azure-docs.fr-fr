@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Utiliser Draft avec Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ L’interface CLI Draft est un client qui s’exécute sur votre système de dé
 > [!NOTE]
 > Si vous avez installé une version de Draft antérieure à 0.12, vous devez tout d’abord supprimer Draft de votre cluster à l’aide de `helm delete --purge draft`, puis supprimer votre configuration locale en exécutant `rm -rf ~/.draft`. Si vous êtes sur MacOS, exécutez `brew upgrade draft`.
 
-Pour installer l’interface CLI Draft sur un Mac, utilisez `brew`. Pour connaître les autres options d’installation, consultez le [guide d’installation de Draft][install-draft].
+Pour installer l’interface CLI Draft sur un Mac, utilisez `brew`. Pour connaître les autres options d’installation, consultez le [guide d’installation de Draft][draft-documentation].
 
 ```console
 brew tap azure/draft
@@ -289,7 +289,6 @@ Pour plus d’informations sur l'utilisation de Draft, consultez la documentatio
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 

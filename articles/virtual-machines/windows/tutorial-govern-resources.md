@@ -1,6 +1,6 @@
 ---
-title: Régir des machines virtuelles Azure à l’aide d’Azure PowerShell | Microsoft Docs
-description: 'Didacticiel : gérer des machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des balises avec Azure PowerShell'
+title: 'Didacticiel : régir des machines virtuelles Azure à l’aide d’Azure PowerShell | Microsoft Docs'
+description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell afin de gérer les machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des balises
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,16 +10,17 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.custom: mvc
+ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-powershell"></a>Gouvernance de machines virtuelles avec Azure PowerShell
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Didacticiel : en savoir plus sur la gouvernance de machines virtuelles Linux avec Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 

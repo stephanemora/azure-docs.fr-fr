@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
 Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.
@@ -38,7 +38,7 @@ Le reste de cet article décrit les cas d’usage spécifiques tels que les clus
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Créer un cluster Service Fabric avec des disques de données associés
-Chaque [type de nœud](../service-fabric/service-fabric-cluster-nodetypes.md) d’un cluster [Service Fabric](/azure/service-fabric) exécuté dans Azure est alimenté par un groupe de machines virtuelles identiques.  En vous appuyant sur un modèle Azure Resource Manager, vous pouvez associer des disques de données aux groupes identiques constituant le cluster Service Fabric. Vous pouvez utiliser un [modèle existant](https://github.com/Azure-Samples/service-fabric-cluster-templates) comme point de départ. Dans le modèle, incluez une section _dataDisks_ dans l’élément _storageProfile_ des ressources _Microsoft.Compute/virtualMachineScaleSets_, puis déployez-le. Dans l’exemple suivant, un disque de données de 128 Go est associé :
+Chaque [type de nœud](../service-fabric/service-fabric-cluster-nodetypes.md) d’un cluster [Service Fabric](/azure/service-fabric) exécuté dans Azure est alimenté par un groupe de machines virtuelles identiques.  Avec un modèle Azure Resource Manager, vous pouvez associer des disques de données aux groupes identiques constituant le cluster Service Fabric. Vous pouvez utiliser un [modèle existant](https://github.com/Azure-Samples/service-fabric-cluster-templates) comme point de départ. Dans le modèle, incluez une section _dataDisks_ dans l’élément _storageProfile_ des ressources _Microsoft.Compute/virtualMachineScaleSets_, puis déployez-le. Dans l’exemple suivant, un disque de données de 128 Go est associé :
 
 ```json
 "dataDisks": [
@@ -91,21 +91,12 @@ Pour préparer automatiquement les disques de données dans un cluster Linux, aj
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Ajout de disques de données pré-remplis à un groupe identique existant 
-> En ajoutant des disques à un modèle de groupe identique existant, le disque est donc toujours vide à la création. Ce scénario inclut aussi les nouvelles instances créées par le groupe identique. Ce comportement se produit car la définition du groupe identique contient un disque de données vide. Afin de créer des disques de données préremplis pour un modèle de groupe identique existant, vous pouvez choisir une des deux options suivantes :
-
-* Copier des données à partir de la machine virtuelle de l’instance 0 vers les disques de données dans les autres machines virtuelles en exécutant un script personnalisé.
-* Créer une image gérée avec le disque du système d’exploitation et le disque de données (avec les données requises), et créer un nouveau groupe identique avec l’image. De cette manière, chaque nouvelle machine virtuelle créée dispose d’un disque de données dans la définition du groupe identique. Étant donné que cette définition fait référence à une image avec un disque de données qui dispose de données personnalisées, chaque machine virtuelle sur le groupe identique comporte ces modifications.
-
-> Vous trouverez ici comme créer une image personnalisée : [Créer une image gérée d’une machine virtuelle généralisée dans Azure](/azure/virtual-machines/windows/capture-image-resource/) 
-
-> L’utilisateur doit capturer la machine virtuelle de l’instance 0 qui possède les données requises, puis utiliser le VHD pour définir l’image.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Ajout de disques de données préremplis dans un groupe identique existant
+Les disques de données spécifiés dans le modèle de groupe identique sont toujours vides. Toutefois, vous pouvez attacher un disque de données existant à une machine virtuelle spécifique dans un groupe identique. Cette fonctionnalité est disponible en préversion, et des exemples sont présentés sur [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Si vous souhaitez propager les données sur toutes les machines virtuelles du groupe identique, vous pouvez dupliquer votre disque de données et l’attacher à chaque machine virtuelle du groupe identique, vous pouvez créer une image personnalisée qui contient les données et configurer le groupe identique à partir de cette image personnalisée, ou vous pouvez utiliser Azure Files ou une offre de stockage de données similaire.
 
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 La prise en charge des disques gérés Azure et des disques de données associés de groupe identique ests disponible dans les versions [ _2016-04-30-preview_ ](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) et ultérieures de l’APi Microsoft.Compute.API.
-
-Dans l’implémentation initiale de la prise en charge des disques associés pour les groupes identiques, vous ne pouvez pas associer ou dissocier des disques de données à/de machines virtuelles individuelles dans un groupe identique.
 
 La prise en charge du portail Azure pour les disques de données associés dans des groupes identiques est initialement limitée. Selon vos besoins, vous pouvez utiliser des modèles Azure, la CLI, PowerShell, des kits de développement logiciel (SDK) et l’API REST pour gérer les disques associés.
 

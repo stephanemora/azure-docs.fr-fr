@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Paramètres de configuration de la passerelle VPN pour Azure Stack
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>SKU de passerelle
 Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez les références SKU qui répondent à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service.
 
->[!NOTE]
-> Les réseaux virtuels classiques doivent continuer à utiliser les anciennes références SKU. Pour en savoir plus sur les anciennes références SKU de passerelle, consultez la section [Working with virtual network gateway SKUs (old)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy) (Utilisation des références SKU de passerelle de réseau virtuel (anciennes).
-
 Azure Stack propose les références SKU de passerelle VPN suivantes :
 
 |   | Débit de passerelle VPN |Tunnels IPsec max de passerelle VPN |
 |-------|-------|-------|
 |**Référence De base**  | 100 Mbits/s  | 10    |
 |**Référence Standard**           | 100 Mbits/s  | 10    |
-|**Référence Hautes performances** | 200 Mbits/s    | 30    |
+|**Référence Hautes performances** | 200 Mbits/s    | 5. |
 
 ### <a name="resizing-gateway-skus"></a>Redimensionnement des références SKU de passerelle
 Azure Stack ne prend pas en charge un redimensionnement des références SKU entre les références SKU héritées prises en charge.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Lorsque vous créez la passerelle de réseau virtuel d’une configuration de passerelle VPN, vous devez spécifier un type de VPN. Le type de VPN que vous choisissez dépend de la topologie de connexion que vous souhaitez créer.  Un type VPN peut également dépendre du matériel utilisé. Les configurations S2S nécessitent un périphérique VPN. Certains périphériques VPN seront ne prennent en charge qu’un certain type de VPN.
 
 > [!IMPORTANT]  
-> À ce stade, Azure Stack prend uniquement en charge le type de VPN basé sur un itinéraire. Si votre appareil prend en charge uniquement les VPN basés sur les stratégies, les connexions à ces appareils à partir de Azure Stack ne sont pas prises en charge.
+> À ce stade, Azure Stack prend uniquement en charge le type de VPN basé sur un itinéraire. Si votre appareil prend en charge uniquement les VPN basés sur les stratégies, les connexions à ces appareils à partir de Azure Stack ne sont pas prises en charge.  En outre, pour le moment, Azure Stack ne prend pas en charge l’utilisation des sélecteurs de trafic basé sur les stratégies pour les passerelles basées sur le routage, car les configurations de stratégies IPSec/IKE personnalisées ne sont pas encore prises en charge.
 
 - **PolicyBased** : *(pris en charge par Azure, mais pas par Azure Stack)* Les VPN basés sur des stratégies chiffrent et acheminent les paquets par le biais des tunnels IPsec. Ces derniers s’appuient sur les stratégies IPsec configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel Azure Stack. La stratégie (ou le sélecteur de trafic) est généralement définie en tant que liste d’accès dans les configurations du périphérique VPN.
 
-- **RouteBased**: les VPN basés sur un itinéraire utilisent des « itinéraires » dans l’adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie (ou le sélecteur de trafic) des VPN basés sur un itinéraire est configurée comme universelle (ou en caractères génériques). Le VPN de type basé sur un itinéraire a pour valeur RouteBased.
+- **RouteBased**: les VPN basés sur un itinéraire utilisent des « itinéraires » dans l’adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. Par défaut, la stratégie (ou le sélecteur de trafic) des VPN basés sur le routage est configurée comme universelle (ou en caractères génériques) et elle ne peut pas être modifiée. Le VPN de type basé sur un itinéraire a pour valeur RouteBased.
 
 L’exemple PowerShell suivant spécifie le -VpnType en tant que RouteBased. Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
 
@@ -110,7 +107,7 @@ Le tableau suivant répertorie la configuration requise pour les passerelles VPN
 |--|--|--|--|--|
 | **Connectivité de site à site (connectivité S2S)** | Non pris en charge | Configuration de VPN basé sur les itinéraires | Configuration de VPN basé sur les itinéraires | Configuration de VPN basé sur les itinéraires |
 | **Méthode d’authentification**  | Non pris en charge | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  |   
-| **Nombre maximal de connexions de site à site**  | Non pris en charge | 10 | 10| 30|
+| **Nombre maximal de connexions de site à site**  | Non pris en charge | 10 | 10| 5.|
 |**Prise en charge de routage actif (BGP)** | Non pris en charge | Non pris en charge | Prise en charge | Prise en charge |
 
 ### <a name="gateway-subnet"></a>Sous-réseau de passerelle
@@ -160,7 +157,7 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |Version IKE |IKEv2 |
 |Chiffrement et algorithmes de hachage (Chiffrement)     | GCMAES256|
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
-|Durée de vie de l’AS (durée)  | 27 700 secondes |
+|Durée de vie de l’AS (durée)  | 27 000 secondes |
 |Durée de vie de l’AS (octets) | 819,200       |
 |PFS (Perfect Forward Secrecy) |PFS2048 |
 |Détection d’homologue mort | Prise en charge|  

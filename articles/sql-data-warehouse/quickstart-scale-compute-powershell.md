@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell
 
@@ -55,19 +55,19 @@ Recherchez le nom de la base de données, le nom du serveur et le groupe de ress
 Suivez ces étapes pour rechercher des informations sur l’emplacement de votre entrepôt de données.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Bases de données SQL** dans la page de gauche du portail Azure.
-3. Sélectionnez **mySampleDataWarehouse** dans la page **Bases de données SQL**. L’entrepôt de données s’ouvre.
+2. Cliquez sur **Entrepôts de données SQL Data Warehouse** sur la page de gauche du portail Azure.
+3. Sélectionnez **mySampleDataWarehouse** sur la page **Entrepôts de données SQL Data Warehouse**. L’entrepôt de données s’ouvre.
 
     ![Nom du serveur et groupe de ressources](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. Notez le nom de l’entrepôt de données qui sera utilisé comme nom de base de données. N’oubliez pas qu’un entrepôt de données est un type de base de données. Notez également le nom du serveur et le groupe de ressources. Vous les utiliserez dans les commandes de suspension et de reprise.
-5. Si votre serveur est foo.database.windows.net, utilisez uniquement la première partie comme nom du serveur dans les applets de commande PowerShell. Dans l’image précédente, le nom complet est newserver-20171113.database.windows.net. Nous utilisons **newserver-20171113** comme nom de serveur dans l’applet de commande PowerShell.
+5. Si votre serveur est foo.database.windows.net, utilisez uniquement la première partie comme nom du serveur dans les applets de commande PowerShell. Dans l’image précédente, le nom complet est newserver-20171113.database.windows.net. Nous utilisons **newserver-20180430** comme nom de serveur dans la cmdlet PowerShell.
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
 
 Dans SQL Data Warehouse, vous pouvez augmenter ou réduire les ressources de calcul en ajustant les unités Data Warehouse Unit. Le guide [Créer et connecter – Portail](create-data-warehouse-portal.md) a permis de créer **mySampleDataWarehouse** et de l’initialiser avec 400 DWU. Les étapes suivantes ajustent les DWU pour **mySampleDataWarehouse**.
 
-Pour modifier les unités de l’entrepôt de données (DWU), utilisez l’applet de commande PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). L’exemple suivant définit les unités de l’entrepôt de données sur DW300 pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **myResourceGroup** sur le serveur  **mynewserver-20171113**.
+Pour modifier les unités de l’entrepôt de données (DWU), utilisez l’applet de commande PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). L’exemple suivant définit les unités de l’entrepôt de données sur DW300 pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **myResourceGroup** sur le serveur **mynewserver-20180430**.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -75,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>Vérifiez l’état de l’entrepôt de données
 
-Pour afficher l’état actuel de l’entrepôt de données, utilisez l’applet de commande PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). Il obtient l’état de la base de données **mySampleDataWarehouse** dans le groupe de ressources **myResourceGroup** et le serveur **mynewserver-20171113.database.windows.net**.
+Pour afficher l’état actuel de l’entrepôt de données, utilisez l’applet de commande PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). Il obtient l’état de la base de données **mySampleDataWarehouse** dans le groupe de ressources **myResourceGroup** et le serveur **mynewserver-20180430.database.windows.net**.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse

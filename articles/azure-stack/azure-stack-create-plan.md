@@ -1,25 +1,25 @@
 ---
-title: "Créer un plan dans Azure Stack | Microsoft Docs"
-description: "En tant qu’administrateur cloud, créez un plan permettant aux abonnés d’approvisionner des machines virtuelles."
+title: Créer un plan dans Azure Stack | Microsoft Docs
+description: En tant qu’administrateur cloud, créez un plan permettant aux abonnés d’approvisionner des machines virtuelles.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 04/23/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 5eefca3541ae9f73514f80b0f8df9e5027600f87
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: b1bfff16c4f51a9fa53204930df78cbd2cf19b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Créer un plan dans Azure Stack
 
@@ -27,44 +27,36 @@ ms.lasthandoff: 02/21/2018
 
 Les [plans](azure-stack-key-features.md) regroupent un ou plusieurs services. En tant que fournisseur, vous pouvez créer des plans à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans et les services qu’elles comprennent. Cet exemple montre comment créer un plan comprenant les fournisseurs de ressources de stockage, réseau et de calcul. Ce plan donne aux abonnés la possibilité d’approvisionner des machines virtuelles.
 
-1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external). Entrez les informations d’identification du compte que vous avez créé à l’étape 5 de la section [Exécuter le script PowerShell](azure-stack-run-powershell-script.md).
+1. Connectez-vous au portail d’administration d’Azure Stack (https://adminportal.local.azurestack.external)).
 
-2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, cliquez sur **Nouveau** > **Plans + offres clients** > **Plan**.
+2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, sélectionnez **Nouveau** > **Offres + Plans** > **Plan**.  
+   ![Sélectionner un plan](media/azure-stack-create-plan/select-plan.png)
 
-   ![](media/azure-stack-create-plan/image01.png)
-3. Sur le panneau **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les locataires voient. Seul l’administrateur peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer le plan en tant que ressource Azure Resource Manager.
+3. Dans le volet **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les utilisateurs voient. Seul l’administrateur peut voir le nom de la ressource, qui est le nom utilisé par les administrateurs pour utiliser le plan comme une ressource Azure Resource Manager.  
+   ![Spécifier les détails](media/azure-stack-create-plan/plan-name.png)
 
-   ![](media/azure-stack-create-plan/image02.png)
-4. Créez un **Groupe de ressources** ou sélectionnez-en un qui servira de conteneur pour le plan.
+4. Créez un **Groupe de ressources** ou sélectionnez-en un qui servira de conteneur pour le plan.  
+   ![Spécifier le groupe de ressources](media/azure-stack-create-plan/resource-group.png)
 
-   ![](media/azure-stack-create-plan/image02a.png)
-5. Cliquez sur **Services**, sélectionnez **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**, puis cliquez sur **Sélectionner**.
+5. Sélectionnez **Services**, puis cochez la case pour **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**. Choisissez ensuite **Sélectionner** pour enregistrer la configuration. Les cases à cocher s’affichent lorsque la souris pointe sur chaque option.  
+   ![Sélectionner des services](media/azure-stack-create-plan/services.png)
 
-   ![](media/azure-stack-create-plan/image03.png)
-6. Cliquez sur **Quotas** et sur **Microsoft.Storage (local)**, puis sélectionnez le quota par défaut ou cliquez sur **Créer un quota** pour personnaliser le quota.
+6. Sélectionnez **Quotas**, **Microsoft.Storage (local)**, puis choisissez le quota par défaut ou sélectionnez **Créer un quota** pour personnaliser le quota.  
+   ![Quotas](media/azure-stack-create-plan/quotas.png)
 
-   ![](media/azure-stack-create-plan/image04.png)
-7. Si vous créez un quota, entrez un nom pour le quota > définissez ses valeurs > cliquez sur **OK** > cliquez sur le nom du nouveau quota.
+7. Si vous créez un quota, entrez un **Nom** pour le quota > spécifiez ses valeurs > sélectionnez **OK**. Le volet **Créer un quota** se ferme.
+   ![Nouveau quota](media/azure-stack-create-plan/new-quota.png)
 
-   ![](media/azure-stack-create-plan/image06.png)
-8. Cliquez sur **Microsoft.Network (local)**, puis sélectionnez le quota par défaut ou cliquez sur **Créer un quota** pour le personnaliser.
+   Vous sélectionnez ensuite le nouveau quota que vous avez créé. La sélection du quota permet de l’assigner et ferme le volet de sélection.  
+   ![Assigner le quota](media/azure-stack-create-plan/assign-quota.png)
 
-    ![](media/azure-stack-create-plan/image07.png)
-9. Si vous créez un quota, tapez un nom pour le quota > définissez ses valeurs > cliquez sur **OK** > cliquez sur le nom du nouveau quota.
+8. Répétez les étapes 6 et 7 pour créer et assigner des quotas pour **Microsoft.Network (local)** et **Microsoft.Compute (local)**.  Lorsque des quotas ont été assignés aux trois services, ils apparaissent comme dans l’image suivante.  
+   ![Affectations de quota terminées](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-    ![](media/azure-stack-create-plan/image08.png)
-10. Cliquez sur **Microsoft.Compute (local)**, puis sélectionnez le quota par défaut ou cliquez sur **Créer un quota** pour le personnaliser.
-
-    ![](media/azure-stack-create-plan/image09.png)
-11. Si vous créez un quota, tapez un nom pour le quota > définissez ses valeurs > cliquez sur **OK** > cliquez sur le nom du nouveau quota.
-
-    ![](media/azure-stack-create-plan/image10.png)
-12. Sur le panneau **Quotas**, cliquez sur **OK**, puis, sur le panneau **Nouveau plan**, cliquez sur **Créer** pour créer le plan.
-
-    ![](media/azure-stack-create-plan/image11.png)
-13. Pour voir votre nouveau plan, cliquez sur **Toutes les ressources**, puis recherchez-le et cliquez sur son nom.
-
-    ![](media/azure-stack-create-plan/image12.png)
+9. Dans le volet **Quotas**, choisissez **OK** puis, dans le volet **Nouveau plan**, choisissez **Créer** pour créer le plan.  
+    ![Créer le plan](media/azure-stack-create-plan/create.png)
+10. Pour voir votre nouveau plan, sélectionnez **Toutes les ressources**, puis recherchez le plan et sélectionnez son nom. Si votre liste de ressources est longue, utilisez **Rechercher** pour retrouver votre plan par nom.  
+   ![Vérifier le plan](media/azure-stack-create-plan/plan-overview.png)
 
 ### <a name="next-steps"></a>Étapes suivantes
 [Créer une offre](azure-stack-create-offer.md)

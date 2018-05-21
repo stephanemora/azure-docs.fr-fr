@@ -1,12 +1,12 @@
 ---
-title: "Azure Site Recovery deployment planner pour le déploiement de VMware vers Azure| Microsoft Docs"
-description: "Cet article décrit l’analyse d’un rapport généré de Azure Site Recovery Deployment Planner pour le déploiement de VMware vers Azure."
+title: Azure Site Recovery deployment planner pour le déploiement de VMware vers Azure| Microsoft Docs
+description: Cet article décrit l’analyse d’un rapport généré de Azure Site Recovery Deployment Planner pour le déploiement de VMware vers Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2d44d8410734193ba8b7fdda3134727d9064340c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport de Azure Site Recovery Deployment Planner
 Le rapport Microsoft Excel généré contient les feuilles suivantes :
@@ -37,13 +37,13 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 
 **Average number of disks per compatible virtual machine** : le nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
 
-**Average disk size (GB)** : la taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
+**Average disk size (GB)**  : la taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
 
-**Desired RPO (minutes)** : l’objectif de point de récupération par défaut ou la valeur transmise pour le paramètre DesiredRPO au moment de la génération de rapport pour estimer la bande passante requise.
+**Desired RPO (minutes)**  : l’objectif de point de récupération par défaut ou la valeur transmise pour le paramètre DesiredRPO au moment de la génération de rapport pour estimer la bande passante requise.
 
-**Desired bandwidth (Mbps)** : la valeur que vous avez transmise pour le paramètre Bandwidth au moment de la génération de rapport pour estimer le RPO réalisable.
+**Desired bandwidth (Mbps)**  : la valeur que vous avez transmise pour le paramètre Bandwidth au moment de la génération de rapport pour estimer le RPO réalisable.
 
-**Observed typical data churn per day (GB)** : l’activité moyenne des données observée tous les jours de profilage. Ce nombre est utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de processus supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
+**Observed typical data churn per day (GB)**  : l’activité moyenne des données observée tous les jours de profilage. Ce nombre est utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de processus supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
 
 ## <a name="recommendations"></a>Recommandations
 
@@ -198,19 +198,19 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **Storage Account** : le nom utilisé par le préfixe du compte de stockage suggéré.
 
-**R/W IOPS (with Growth Factor)** : les opérations d’E/S par seconde de lecture/écriture de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 pour cent par défaut). Notez que les E/S par seconde en lecture/écriture d’une machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
+**Peak R/W IOPS (with Growth Factor)** : opérations d’E/S par seconde de lecture/écriture de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que les E/S par seconde en lecture/écriture d’une machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Data Churn in Mbps (with Growth Factor)** : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
+**Peak Data Churn in Mbps (with Growth Factor)** : taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
 
 **Azure VM Size** : la taille de machine virtuelle d’Azure Cloud Services mappée idéale pour cette machine virtuelle locale. Le mappage est basé sur la mémoire, le nombre de disques/cœurs/cartes réseau de la machine virtuelle locale, et les E/S par seconde en lecture/écriture. La recommandation est toujours la plus petite taille de machine virtuelle Azure qui correspond à toutes les caractéristiques des machines virtuelles locales.
 
 **Number of Disks** : le nombre total de disques de machines virtuelles (VMDK) sur la machine virtuelle.
 
-**Disk size (GB)** : la taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
+**Disk size (GB)**  : la taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
 
 **Cores** : le nombre de cœurs de processeur de la machine virtuelle.
 
-**Memory (MB)** : la mémoire RAM de la machine virtuelle.
+**Memory (MB)**  : la mémoire RAM de la machine virtuelle.
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
@@ -250,17 +250,17 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 * L’activité totale des données par jour dépasse la limite d’activité des données prise en charge de 2 To par serveur de processus.
 
 
-**Peak R/W IOPS (with Growth Factor)** : les opérations d’E/S par seconde de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 pour cent par défaut). Notez que les E/S par seconde en lecture/écriture de la machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
+**Peak R/W IOPS (with Growth Factor)**  : les opérations d’E/S par seconde de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 pour cent par défaut). Notez que les E/S par seconde en lecture/écriture de la machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Peak Data Churn in Mbps (with Growth Factor)** : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (par défaut : 30 pour cent). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
+**Peak Data Churn in Mbps (with Growth Factor)**  : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (par défaut : 30 pour cent). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
 
 **Number of Disks** : le nombre total de disques de machines virtuelles (VMDK) sur la machine virtuelle.
 
-**Disk size (GB)** : la taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
+**Disk size (GB)**  : la taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
 
 **Cores** : le nombre de cœurs de processeur de la machine virtuelle.
 
-**Memory (MB)** : la quantité de RAM sur la machine virtuelle.
+**Memory (MB)**  : la quantité de RAM sur la machine virtuelle.
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 

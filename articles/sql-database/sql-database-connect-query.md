@@ -8,17 +8,19 @@ ms.service: sql-database
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/24/2018
 ms.author: carlrab
-ms.openlocfilehash: ddb714d9fb3c750d6cebdb0d94b894dce6dab897
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ec39c5ad0771c2bc78655e52c58949db6e9b3353
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Démarrage rapide : se connecter à Azure SQL Database et interroger la base de données
 
-Le tableau suivant contient des liens vers des exemples Azure expliquant comment se connecter à une base de données SQL Azure et l’interroger.
+Le document suivant contient des liens vers des exemples Azure expliquant comment se connecter à une base de données SQL Azure et l’interroger. Il contient également des recommandations pour la sécurité de niveau transport.
+
+## <a name="quickstarts"></a>Démarrages rapides
 
 | |  |
 |---|---|
@@ -36,4 +38,18 @@ Le tableau suivant contient des liens vers des exemples Azure expliquant comment
 |[Ruby](sql-database-connect-query-ruby.md)|Ce démarrage rapide explique comment utiliser Ruby pour créer un programme en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.|
 |||
 
+## <a name="tls-considerations-for-sql-database-connectivity"></a>Considérations relatives au protocole TLS pour la connectivité de SQL Database
+Le protocole TLS (Transport Layer Security) est utilisé par tous les pilotes fournis et pris en charge par Microsoft pour la connexion à Azure SQL Database. Aucune configuration spéciale n’est nécessaire. Pour l’ensemble des connexions à SQL Server ou à Azure SQL Database, nous recommandons que toutes les applications définissent les configurations suivantes ou leurs équivalents :
 
+ - **Encrypt = On**
+ - **TrustServerCertificate = Off**
+
+Certains systèmes utilisent des mots clés différents, mais équivalents pour ces configurations. Ces configurations garantissent que le pilote du client vérifie l’identité du certificat TLS provenant du serveur.
+
+Nous vous recommandons également de désactiver les protocoles TLS 1.1 et 1.0 sur le client si vous devez respecter la norme de sécurité des données de l’industrie des cartes de paiement (PCI - DSS).
+
+Les pilotes autres que Microsoft peuvent ne pas utiliser le protocole TLS par défaut. Cela peut être un facteur à prendre en compte lors de la connexion à Azure SQL Database. Il se peut que les applications présentent des pilotes incorporés qui ne permettent pas de contrôler ces paramètres de connexion. Nous vous recommandons d’examiner la sécurité de ces pilotes et applications avant de les utiliser sur les systèmes qui interagissent avec des données sensibles.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d’informations sur l’architecture de connectivité, consultez [Architecture de connectivité Azure SQL Database](sql-database-connectivity-architecture.md).

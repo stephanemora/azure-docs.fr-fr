@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Créer, interroger et filtrer un index Recherche Azure dans le portail
 
@@ -111,7 +111,7 @@ Vous disposez maintenant d’un index de recherche prêt à être interrogé. **
 
    ![Commandes d’index et d’API][6]
 
-3. Dans la barre de commandes, cliquez sur **Définir l’API de version** pour découvrir les API REST disponibles. Les versions d’évaluation des API vous permettent d’accéder à de nouvelles fonctionnalités non encore mises à la disposition du grand public. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2016-09-01), sauf spécification contraire. 
+3. Dans la barre de commandes, cliquez sur **Définir l’API de version** pour découvrir les API REST disponibles. Les versions d’évaluation des API vous permettent d’accéder à de nouvelles fonctionnalités non encore mises à la disposition du grand public. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2017-11-11), sauf spécification contraire. 
 
     > [!NOTE]
     > [L’API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/search-documents) et la [bibliothèque .NET](search-howto-dotnet-sdk.md#core-scenarios) sont totalement équivalents, mais **l’Explorateur de recherche** ne gère que les appels REST. Il accepte à la fois la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et la [syntaxe de l’analyseur de requêtes complètes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans les opérations [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
