@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Architecture de l’accélérateur de solution de surveillance à distance
 
-[L’accélérateur de solution](iot-suite-what-are-solution-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](iot-suite-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
+[L’accélérateur de solution](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
 
 Cet article vous familiarise avec les éléments clés de la solution de surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
@@ -33,7 +33,7 @@ Cet article vous familiarise avec les éléments clés de la solution de surveil
 
 ## <a name="logical-architecture"></a>Architecture logique
 
-Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution de surveillance à distance dans [l’architecture IoT](iot-suite-what-is-azure-iot.md) :
+Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution de surveillance à distance dans [l’architecture IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) :
 
 ![Architecture logique](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Si vous souhaitez consulter le code source et la documentation de développement
 * [Accélérateur de solution de surveillance à distance avec Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Architecture de l’accélérateur de solution de surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
 
-Pour plus d’informations sur la conception de l’accélérateur de solution de surveillance à distance, consultez [Personnaliser l’accélérateur de solution](iot-suite-remote-monitoring-customize.md).
+Pour plus d’informations sur la conception de l’accélérateur de solution de surveillance à distance, consultez [Personnaliser l’accélérateur de solution](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

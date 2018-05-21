@@ -9,16 +9,16 @@ editor: hrushib
 ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b8d81e713bce8cdbb2c8000c740b16553620fe7f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cfbc0e6ca255bd005bb6e4cc381a9121347fe227
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
 > [!div class="op_single_selector"]
@@ -223,7 +223,7 @@ FailureError            :
 ## <a name="preview-limitation-caveats"></a>Afficher un aperçu des limitations/mises en garde
 - Pas d’intégration de Service Fabric aux applets de commande PowerShell.
 - Pas de prise en charge de l’interface CLI Service Fabric.
-- Pas de prise en charge de la purge de sauvegarde automatisée. Nettoyage manuel des sauvegardes requis.
+- Pas de prise en charge du vidage de sauvegarde automatisé. Nettoyage manuel des sauvegardes obligatoire.
 - Pas de prise en charge des clusters Service Fabric sur Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes

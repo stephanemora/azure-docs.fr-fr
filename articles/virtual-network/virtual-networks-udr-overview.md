@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -118,12 +118,12 @@ Le nom affiché et référencé pour les types de tronçon suivants diffère ent
 
 Une passerelle de réseau local peut échanger les itinéraires avec une passerelle de réseau virtuel Azure à l’aide du protocole de passerelle frontière (BGP). L’utilisation du protocole BGP avec une passerelle de réseau virtuel Azure dépend du type que vous avez sélectionné lorsque vous avez créé la passerelle. Si le type que vous avez sélectionné était :
 
-- **ExpressRoute** : vous devez utiliser le protocole BGP pour publier les itinéraires locaux vers le routeur de périphérie Microsoft. Vous ne pouvez pas créer d’itinéraires définis par l’utilisateur pour forcer l’acheminement du trafic vers la passerelle de réseau virtuel ExpressRoute si vous déployez une passerelle de réseau virtuel avec le type ExpressRoute. Vous pouvez utiliser des itinéraires définis par l’utilisateur pour forcer l’acheminement du trafic provenant d’ExpressRoute vers, par exemple, une appliance virtuelle réseau. 
+- **ExpressRoute** : vous devez utiliser le protocole BGP pour publier les itinéraires locaux vers le routeur de périphérie Microsoft. Vous ne pouvez pas créer d’itinéraires définis par l’utilisateur pour forcer l’acheminement du trafic vers la passerelle de réseau virtuel ExpressRoute si vous déployez une passerelle de réseau virtuel avec le type ExpressRoute. Vous pouvez utiliser des routes définies par l’utilisateur pour forcer l’acheminement du trafic provenant d’ExpressRoute vers, par exemple, une appliance virtuelle réseau.
 - **VPN** : vous pouvez éventuellement utiliser le protocole BGP. Pour plus d’informations, consultez [BGP avec les connexions VPN de site à site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, un itinéraire distinct est ajouté à la table de routage de tous les sous-réseaux d’un réseau virtuel pour chaque préfixe publié. L’itinéraire est ajouté avec *Passerelle de réseau virtuel* comme source et type de tronçon suivant. 
 
-Vous pouvez désactiver la propagation des itinéraires BGP sur un sous-réseau à l’aide d’une propriété sur une table de routage. Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, les itinéraires ne sont pas ajoutés à la table de routage de tous les sous-réseaux pour lesquels la propagation BGP est désactivée. La connectivité avec les connexions VPN est obtenue à l’aide d’itinéraires personnalisés (#custom-routes) avec un tronçon suivant de type VPN. Pour plus d’informations, consultez l’article décrivant [comment désactiver la propagation des itinéraires BGP](/manage-route-table#create-a-route-table.md).
+Vous pouvez désactiver la propagation des itinéraires BGP sur un sous-réseau à l’aide d’une propriété sur une table de routage. Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, les itinéraires ne sont pas ajoutés à la table de routage de tous les sous-réseaux pour lesquels la propagation BGP est désactivée. La connectivité avec les connexions VPN est obtenue à l’aide d’itinéraires personnalisés (#custom-routes) avec un tronçon suivant de type VPN. Pour plus d’informations, consultez l’article décrivant [comment désactiver la propagation des itinéraires BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Comment Azure choisit un itinéraire
 
@@ -258,5 +258,5 @@ La table de routage du *Sous-réseau2* contient tous les itinéraires par défau
 - [Créer une table de routage définie par l’utilisateur avec des itinéraires et une appliance virtuelle de réseau](tutorial-create-route-table-portal.md)
 - [Configurer BGP pour une passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Utiliser le protocole BGP avec ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Afficher tous les itinéraires pour un sous-réseau](virtual-network-routes-troubleshoot-portal.md). Une table de routage définie par l’utilisateur vous montre uniquement les itinéraires définis par l’utilisateur, et n’affiche pas les itinéraires par défaut et BGP pour un sous-réseau. L’affichage de tous les itinéraires affiche les itinéraires par défaut, BGP et définis par l’utilisateur pour le sous-réseau auquel une interface réseau appartient.
-- [Déterminer le type de tronçon suivant](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre une machine virtuelle et une adresse IP de destination. La fonctionnalité de tronçon suivant d’Azure Network Watcher vous permet de déterminer si le trafic a quitté un sous-réseau et s’il est en cours de routage vers la destination escomptée.
+- [Afficher tous les itinéraires pour un sous-réseau](virtual-network-routes-troubleshoot-portal.md). Une table de routage définie par l’utilisateur vous montre uniquement les routes définies par l’utilisateur, et n’affiche pas les routes par défaut et BGP pour un sous-réseau. L’affichage de tous les itinéraires affiche les itinéraires par défaut, BGP et définis par l’utilisateur pour le sous-réseau auquel une interface réseau appartient.
+- [Déterminer le type de tronçon suivant](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre une machine virtuelle et une adresse IP de destination. La fonctionnalité de tronçon suivant d’Azure Network Watcher vous permet de déterminer si le trafic a quitté un sous-réseau et s’il est en cours de routage vers la destination escomptée.
