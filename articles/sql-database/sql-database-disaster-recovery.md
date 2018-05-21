@@ -3,18 +3,18 @@ title: Récupération d’urgence de SQL Database | Microsoft Docs
 description: Découvrez comment récupérer une base de données en cas de panne d’un centre de données régional grâce aux fonctionnalités de géoréplication active et de géorestauration du service Azure SQL Database.
 services: sql-database
 author: anosov1960
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6ac4b26e1b014da792791ca657c9f51230a135b5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 Le service Base de données SQL Azure offre les fonctionnalités suivantes pour la récupération après une panne :

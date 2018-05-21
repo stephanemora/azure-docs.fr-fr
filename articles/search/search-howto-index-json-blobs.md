@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
 Cet article explique comment configurer un indexeur d’objets blob Recherche Azure pour extraire le contenu structuré d’objets blob JSON dans Stockage Blob Azure.
@@ -23,7 +23,7 @@ Les objets blob JSON dans Stockage Blob Azure se composent généralement d’un
 | Document JSON | parsingMode | Description | Disponibilité |
 |--------------|-------------|--------------|--------------|
 | Un seul par objet blob | `json` | Analyse les objets blob JSON comme un bloc de texte unique. Chaque objet blob JSON devient un document Recherche Azure unique. | Généralement disponible dans les API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) et [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Plusieurs par objet blob | `jsonArray` | Analyse un tableau JSON dans l’objet blob, où chaque élément du tableau devient un document Recherche Azure distinct.  | En préversion, dans [REST api-version=`2016-09-01-Preview`](search-api-2016-09-01-preview.md) et [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Plusieurs par objet blob | `jsonArray` | Analyse un tableau JSON dans l’objet blob, où chaque élément du tableau devient un document Recherche Azure distinct.  | En préversion, dans [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) et [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Les API en préversion sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
@@ -116,7 +116,7 @@ Vous pouvez également opter pour la fonctionnalité en préversion des tableaux
 
 Pour un tableau JSON, la requête de l’indexeur utilise l’API en préversion et l’analyseur `jsonArray`. Il s’agit des deux seules exigences spécifiques aux tableaux pour l’indexation d’objets blob JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -129,6 +129,8 @@ Pour un tableau JSON, la requête de l’indexeur utilise l’API en préversion
     }
 
 Là encore, notez que les mappages de champs ne sont pas nécessaires. Étant donné un index avec les champs « id » et « text », l’indexeur d’objets blob peut déduire le mappage correct sans une liste de mappage de champs.
+
+<a name="nested-json-arrays"></a>
 
 ### <a name="nested-json-arrays"></a>Tableaux JSON imbriqués
 Que se passe-t-il si vous souhaitez indexer un tableau d’objets JSON, mais que ce tableau est imbriqué quelque part dans le document ? Vous pouvez choisir la propriété qui contient le tableau à l’aide de la propriété de configuration `documentRoot` . Par exemple, si vos objets blob ressemblent à ceci :

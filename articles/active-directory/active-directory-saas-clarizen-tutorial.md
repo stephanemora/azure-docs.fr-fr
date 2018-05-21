@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Clarizen | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clarizen."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Clarizen | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Didacticiel : Intégration d’Azure Active Directory à Clarizen
 
@@ -32,9 +32,10 @@ Selon le scénario considéré dans ce didacticiel, vous allez exécuter deux t�
 1. Ajoutez Clarizen à partir de la galerie.
 2. Configurez et testez l’authentification unique Azure AD.
 
-Pour plus d’informations sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour plus d’informations sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour configurer l’intégration d’Azure AD à Clarizen, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
@@ -153,7 +154,7 @@ Activez l’authentification unique Azure AD dans le Portail Azure et configurez
 
     e. Sélectionnez **Use POST**.
 
-    f. Cliquez sur **Save**.
+    f. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans le Portail Azure, créez un utilisateur de test appelé Britta Simon.
@@ -182,7 +183,7 @@ Dans le Portail Azure, créez un utilisateur de test appelé Britta Simon.
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur de la zone **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
 
 ### <a name="create-a-clarizen-test-user"></a>Créer un utilisateur de test Clarizen
 Pour permettre aux utilisateurs Azure AD de se connecter à Clarizen, vous devez approvisionner des comptes d’utilisateurs. Dans le cas de Clarizen, l’approvisionnement est une tâche manuelle.
@@ -203,7 +204,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Clarizen, vous devez
 
     a. Dans la zone **Email** (E-mail), tapez l’adresse e-mail du compte de Britta Simon.
 
-    b. Cliquez sur **Inviter**.
+    b. Cliquez sur **Invite**.
 
     > [!NOTE]
     > Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
@@ -243,7 +244,7 @@ Lorsque vous cliquez sur la vignette Clarizen dans le volet d’accès, vous dev
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
