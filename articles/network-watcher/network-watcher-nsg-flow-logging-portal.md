@@ -1,113 +1,163 @@
 ---
-title: Gérer les journaux de flux des groupes de sécurité réseau avec Azure Network Watcher | Microsoft Docs
-description: Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher
+title: Enregistrer le flux du trafic réseau vers et depuis une machine virtuelle - Didacticiel - Portail Azure | Microsoft Docs
+description: Découvrez comment enregistrer le flux du trafic réseau vers et depuis une machine virtuelle à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
+tags: azure-resource-manager
+Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 04/30/2018
 ms.author: jdial
-ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gérer les journaux de flux des groupes de sécurité réseau sur le Portail Azure
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : enregistrer le trafic réseau vers et depuis une machine virtuelle à l’aide du portail Azure
 
-> [!div class="op_single_selector"]
-> - [Portail Azure](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [API REST](network-watcher-nsg-flow-logging-rest.md)
+Un groupe de sécurité réseau (NSG) permet de filtrer le trafic entrant vers une machine virtuelle ainsi que le trafic sortant qui en provient. Vous pouvez enregistrer le trafic réseau qui transite par un groupe de sécurité réseau à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
-Les journaux de flux des groupes de sécurité réseau correspondent à une fonctionnalité de Network Watcher qui permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces journaux de flux, écrits au format JSON, fournissent des informations importantes, notamment : 
+> [!div class="checklist"]
+> * Créer une machine virtuelle avec un groupe de sécurité réseau
+> * Activer Network Watcher et inscrire le fournisseur Microsoft.Insights
+> * Activer un journal de flux de trafic pour un groupe de sécurité réseau à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher
+> * Télécharger les données enregistrées
+> * Afficher les données enregistrées
 
-- les flux entrants et sortants, règle par règle ;
-- la carte réseau à laquelle s’applique le flux ;
-- cinq informations sur le flux (adresse IP source ou de destination, port source ou de destination, protocole) ;
-- des informations indiquant si le trafic a été autorisé ou refusé.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Pour effectuer les étapes décrites dans cet article, vous devez déjà disposer des ressources suivantes :
+1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter** ou **Ubuntu Server 17.10 VM**.
+3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-- Un Network Watcher existant. Pour créer un Network Watcher, consultez [Créer une instance Network Watcher](network-watcher-create.md).
-- Un groupe de ressources existant avec une machine virtuelle valide. Si vous n’avez pas de machine virtuelle, consultez Créer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+    |Paramètre|Valeur|
+    |---|---|
+    |NOM|myVm|
+    |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Abonnement| Sélectionnez votre abonnement.|
+    |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
+    |Lieu| Sélectionnez **Est des États-Unis**.|
+
+4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
+5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
+6. Sous **Créer** dans le **résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle. Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Attendez la fin du déploiement de la machine virtuelle avant d’effectuer les étapes restantes.
+
+La création de la machine virtuelle ne nécessite que quelques minutes. Ne passez pas aux étapes restantes tant que la création de la machine virtuelle n’est pas terminée. Pendant que le portail crée la machine virtuelle, il crée également un groupe de sécurité réseau nommé **myVm-nsg** et l’associe à l’interface réseau de la machine virtuelle.
+
+## <a name="enable-network-watcher"></a>Activer Network Watcher
+
+Si vous avez déjà un observateur réseau activé dans la région États-Unis de l’Est, passez à l’étape [Inscription du fournisseur Insights](#register-insights-provider).
+
+1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
+2. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **Est des États-Unis**, comme illustré dans l’image suivante :
+
+    ![Activer Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
+
+3. Sélectionnez **Activer Network Watcher**.
 
 ## <a name="register-insights-provider"></a>Inscription du fournisseur Insights
 
-Pour que la journalisation du flux fonctionne correctement, le fournisseur **Microsoft.Insights** doit être inscrit. Pour inscrire le fournisseur, suivez les étapes ci-dessous : 
+L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**. Pour inscrire le fournisseur, procédez comme suit :
 
-1. Accédez à **Abonnements**, puis sélectionnez l’abonnement pour lequel vous souhaitez activer les journaux de flux. 
-2. Sur le panneau **Abonnement**, sélectionnez **Fournisseurs de ressources**. 
-3. Étudiez la liste des fournisseurs et vérifiez que le fournisseur **microsoft.insights** est inscrit. Sinon, sélectionnez **Inscrire**.
+1. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone Filtre, entrez *Abonnements*. Quand la mention **Abonnements** apparaît dans les résultats de la recherche, sélectionnez-la.
+2. Dans la liste des abonnements, sélectionnez l’abonnement pour lequel vous souhaitez activer le fournisseur.
+3. Sous **PARAMÈTRES**, sélectionnez **Fournisseurs de ressources**.
+4. Vérifiez que la zone **ÉTAT** correspondant au fournisseur **microsoft.insights** est définie sur **Inscrit**, comme illustré dans l’image qui suit. Si l’état est **Non inscrit**, sélectionnez **Inscrire** à droite du fournisseur.
 
-![Afficher les fournisseurs][providers]
+    ![Inscrire un fournisseur](./media/network-watcher-nsg-flow-logging-portal/register-provider.png)
 
-## <a name="enable-flow-logs"></a>Activer les journaux des flux
+## <a name="enable-nsg-flow-log"></a>Activer le journal de flux NSG
 
-Ces étapes vous guident tout au long du processus d’activation des journaux de flux sur un groupe de sécurité réseau.
+1. Les données du journal de flux NSG sont écrites dans un compte Stockage Azure. Pour créer un compte Stockage Azure, sélectionnez **+Créer une ressource** en haut à gauche du portail.
+2. Sélectionnez **Stockage**, puis **Compte de stockage - blob, fichier, table, file d’attente**.
+3. Entrez ou sélectionnez les informations suivantes, acceptez les autres valeurs par défaut, puis sélectionnez **Créer**.
 
-### <a name="step-1"></a>Étape 1
+    | Paramètre        | Valeur                                                        |
+    | ---            | ---   |
+    | NOM           | Contenant 3 à 24 caractères et uniquement des chiffres et des lettres minuscules, il doit être unique dans tous les comptes Stockage Azure.                                                               |
+    | Lieu       | Sélectionnez **Est des États-Unis**.                                           |
+    | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
 
-Accédez à une instance de Network Watcher, puis sélectionnez **Journaux de flux des NSG**.
+    La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage.
+4. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
+5. Sous **JOURNAUX**, sélectionnez **Journaux de flux NSG**, comme illustré dans l’image suivante :
 
-![Vue d’ensemble des journaux de flux][1]
+    ![Groupes de sécurité réseau](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
-### <a name="step-2"></a>Étape 2
+6. Dans la liste des groupes de sécurité réseau, sélectionnez le groupe de sécurité réseau nommé **myVm-nsg**.
+7. Sous **Paramètres des journaux de flux**, sélectionnez **Activé**.
+8. Sélectionnez le compte de stockage que vous avez créé à l’étape 3.
+9. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
 
-Sélectionnez un groupe de sécurité réseau dans la liste.
+## <a name="download-flow-log"></a>Télécharger le journal de flux
 
-![Vue d’ensemble des journaux de flux][2]
+1. Dans Network Watcher, dans le portail, sélectionnez **Journaux de flux NSG** sous **JOURNAUX**.
+2. Sélectionnez **Vous pouvez télécharger les journaux de flux à partir de comptes de stockage configurés** comme illustré sur l’image suivante :
 
-### <a name="step-3"></a>Étape 3 : 
+  ![Télécharger des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
-Dans le panneau **Paramètres des journaux de flux**, réglez l’état sur **Activé**, puis configurez un compte de stockage. Sélectionnez un compte de stockage existant qui a **Tous les réseaux** (par défaut) sélectionné sous **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage. Une fois un compte de stockage sélectionné, sélectionnez **OK**, puis sélectionnez **Enregistrer**.
+3. Sélectionnez le compte de stockage que vous avez configuré à l’étape 2 [Activer le journal de flux NSG](#enable-nsg-flow-log).
+4. Sous **SERVICE BLOB**, sélectionnez **Conteneurs**, puis le conteneur **insights-logs-networksecuritygroupflowevent**, comme illustré sur l’image suivante :
 
-![Vue d’ensemble des journaux de flux][3]
+    ![Sélectionner un conteneur](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
+5. Parcourez l’arborescence des dossiers jusqu’à accéder au fichier PT1H.json comme illustré sur l’image suivante :
 
-## <a name="download-flow-logs"></a>Télécharger des journaux de flux
+    ![Fichier journal](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-Les journaux des flux sont enregistrés dans un compte de stockage. Téléchargez vos journaux de flux pour les afficher.
+    Les fichiers journaux sont écrits dans une arborescence des dossiers qui suit la convention d’affectation de noms suivante : https://{NomCompteStockage}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{IDAbonnement}/RESOURCEGROUPS/{NomGroupeRessources}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NomNSG}/y={année}/m={mois}/d={
 
-### <a name="step-1"></a>Étape 1
+6. our}/h={heure}/m=00/macAddress={AdresseMac}/PT1H.jsonSélectionnez **...** à droite du fichier PT1H.json, puis **Télécharger**.
 
-Pour télécharger des journaux de flux, sélectionnez **Vous pouvez télécharger les journaux de flux à partir de comptes de stockage configurés**. Cette étape vous amène sur une vue du compte de stockage qui vous permet de choisir les journaux à télécharger.
+## <a name="view-flow-log"></a>Afficher le journal de flux
 
-![Paramètres des journaux de flux][4]
+Le texte JSON suivant est un exemple de ce que vous verrez dans le fichier PT1H.json pour chaque flux pour lequel des données sont enregistrées :
 
-### <a name="step-2"></a>Étape 2
+```json
+{
+    "time": "2018-05-01T15:00:02.1713710Z",
+    "systemId": "<Id>",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 1,
+        "flows": [{
+            "rule": "UserRule_default-allow-rdp",
+            "flows": [{
+                "mac": "000D3A170C69",
+                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
+            }]
+        }]
+    }
+}
+```
 
-Accédez au compte de stockage approprié. Ensuite, sélectionnez **Conteneurs** > **insights-journal-networksecuritygroupflowevent**.
+La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de l’interface réseau qui a été créée lors de la création de la machine virtuelle. Les informations séparées par des virgules dans **flowTuples** sont les suivantes :
 
-![Paramètres des journaux de flux][5]
-
-### <a name="step-3"></a>Étape 3 :
-
-Accédez à l’emplacement du journal de flux, sélectionnez-le, puis sélectionnez **Télécharger**.
-
-![Paramètres des journaux de flux][6]
-
-Pour plus d’informations sur la structure du journal, consultez la page [Vue d’ensemble des journaux de flux des groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
+| Exemple de données | Ce que représentent les données   | Explication                                                                              |
+| ---          | ---                    | ---                                                                                      |
+| 1525186745   | Horodatage             | Indique la date et l’heure du flux au format UNIX EPOCH. Dans l’exemple précédent, la date est convertie au 1 mai 2018 à 14:59:05 (GMT).                                                                                    |
+| 192.168.1.4  | Adresse IP source      | Adresse IP source dont provient le flux.
+| 10.0.0.4     | Adresse IP de destination | Adresse IP de destination du flux. 10.0.0.4 est l’adresse IP privée de la machine virtuelle que vous avez créée à l’étape [Créer une machine virtuelle](#create-a-vm).                                                                                 |
+| 55960        | Port source            | Port source dont provient le flux.                                           |
+| 3389         | Port de destination       | Port de destination du flux. Comme le trafic était destiné au port 3389, la règle nommée **UserRule_default-allow-rdp** dans le fichier journal a traité le flux.                                                |
+| T            | Protocole               | Indique si le protocole du flux était TCP (T) ou UDP (U).                                  |
+| I            | Direction              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
+| A            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).                                           |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [visualiser vos journaux de flux des NSG avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
-[2]: ./media/network-watcher-nsg-flow-logging-portal/figure2.png
-[3]: ./media/network-watcher-nsg-flow-logging-portal/figure3.png
-[4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
-[5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
-[6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+Dans ce didacticiel, vous avez appris à activer la journalisation d’un flux de trafic pour un groupe de sécurité réseau. Vous avez également découvert comment télécharger et afficher les données enregistrées dans un fichier. Les données brutes du fichier JSON peuvent être difficiles à interpréter. Pour visualiser les données, vous pouvez utiliser Network Watcher [Traffic Analytics](traffic-analytics.md), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) et d’autres outils.
