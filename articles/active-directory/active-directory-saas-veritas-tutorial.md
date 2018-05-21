@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Veritas Enterprise Vault.cloud SSO."
+title: 'Didacticiel : intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Veritas Enterprise Vault.cloud SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a60df7f743c893305f0b3b4aba05505e761f505d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Didacticiel : intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO
 
@@ -29,9 +29,10 @@ L’intégration du logiciel Veritas Enterprise Vault.cloud SSO à Azure AD vous
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Veritas Enterprise Vault.cloud SSO (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Veritas Enterprise Vault.cloud SSO, vous avez besoin des éléments suivants :
 
@@ -139,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de Veritas Enterprise Vault.cloud SSO**, cliquez sur **Configurer Veritas Enterprise Vault.cloud SSO** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+6. Dans la section **Configuration de Veritas Enterprise Vault.cloud SSO**, cliquez sur **Configurer Veritas Enterprise Vault.cloud SSO** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_configure.png) 
 
@@ -223,7 +224,7 @@ Lorsque vous cliquez sur la vignette Veritas Enterprise Vault.cloud SSO dans le 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

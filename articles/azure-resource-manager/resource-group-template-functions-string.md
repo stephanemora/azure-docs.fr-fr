@@ -1,24 +1,24 @@
 ---
-title: "Fonctions de modèle Azure Resource Manager - chaîne | Microsoft Docs"
-description: "Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des chaînes."
+title: Fonctions de modèle Azure Resource Manager - chaîne | Microsoft Docs
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des chaînes.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 
@@ -62,11 +62,11 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 
 Retourne la représentation en base 64 de la chaîne d'entrée.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_entrée |Oui |string |La valeur à retourner sous la forme d’une représentation en base64. |
+| chaîne_entrée |OUI |chaîne |La valeur à retourner sous la forme d’une représentation en base64. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -115,10 +115,10 @@ Une chaîne contenant la représentation en base64.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Chaîne | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -140,11 +140,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit une représentation en base64 en un objet JSON.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Oui |string |La représentation en base64 à convertir en un objet JSON. |
+| base64Value |OUI |chaîne |La représentation en base64 à convertir en un objet JSON. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -193,10 +193,10 @@ Un objet JSON.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Chaîne | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -218,11 +218,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit une représentation en base64 en une chaîne.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Oui |string |La représentation en base64 à convertir en une chaîne. |
+| base64Value |OUI |chaîne |La représentation en base64 à convertir en une chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -271,10 +271,10 @@ Une chaîne de la valeur base64 convertie.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Chaîne | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -296,12 +296,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou combine plusieurs tableaux et retourne le tableau concaténé.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou tableau |La première valeur pour la concaténation. |
-| arguments supplémentaires |Non |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
+| arg1 |OUI |chaîne ou tableau |La première valeur pour la concaténation. |
+| arguments supplémentaires |Non  |chaîne |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
 
 ### <a name="return-value"></a>Valeur de retour
 Chaîne ou tableau de valeurs concaténées.
@@ -332,9 +332,9 @@ Chaîne ou tableau de valeurs concaténées.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -385,7 +385,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | return | Tableau | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -408,12 +408,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Vérifie si un tableau contient une valeur, un objet contient une clé ou une chaîne contient une sous-chaîne.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
-| itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
+| conteneur |OUI |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
+| itemToFind |OUI |chaîne ou entier |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -474,13 +474,13 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| stringTrue | Bool | true |
+| stringTrue | Bool | True |
 | stringFalse | Bool | False |
-| objectTrue | Bool | true |
+| objectTrue | Bool | True |
 | objectFalse | Bool | False |
-| arrayTrue | Bool | true |
+| arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -502,11 +502,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit une valeur en un URI de données.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Oui |string |Valeur à convertir en URI de données. |
+| stringToConvert |OUI |chaîne |Valeur à convertir en URI de données. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -546,10 +546,10 @@ Une chaîne formatée en tant qu’URI de données.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Chaîne | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Chaîne | Hello, World! |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -570,11 +570,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit une valeur formatée en URI de données en chaîne.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Oui |string |Valeur d’URI de données à convertir. |
+| dataUriToConvert |OUI |chaîne |Valeur d’URI de données à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -614,10 +614,10 @@ Chaîne contenant la valeur convertie.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Chaîne | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Chaîne | Hello, World! |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -638,11 +638,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Détermine si un tableau, un objet ou une chaîne est vide.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
+| itemToTest |OUI |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -691,11 +691,11 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | true |
-| objectEmpty | Bool | true |
-| stringEmpty | Bool | true |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -716,12 +716,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Détermine si une chaîne se termine par une valeur. La comparaison respecte la casse.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -767,13 +767,13 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| startsTrue | Bool | true |
+| startsTrue | Bool | True |
 | startsCapTrue | Bool | true |
 | startsFalse | Bool | False |
-| endsTrue | Bool | true |
-| endsCapTrue | Bool | true |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -795,11 +795,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne le premier caractère de la chaîne ou le premier élément du tableau.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -836,10 +836,10 @@ Chaîne du premier caractère ou type (chaîne, entier, tableau ou objet) du pre
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | Chaîne | one |
+| stringOutput | Chaîne | O |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -853,18 +853,18 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
-## <a name="guid"></a>guid
+## <a name="guid"></a>GUID
 
 `guid (baseString, ...)`
 
 Crée une valeur sous la forme d’un identificateur global unique basé sur les valeurs fournies comme paramètres.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Oui |string |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
-| paramètres supplémentaires le cas échéant |Non |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
+| baseString |OUI |chaîne |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
+| paramètres supplémentaires le cas échéant |Non  |chaîne |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
 
@@ -943,12 +943,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne la première position d’une valeur dans une chaîne. La comparaison respecte la casse.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -990,13 +990,13 @@ Entier qui représente la position de l’élément à rechercher. La valeur est
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
+| firstT | Int | 0 |
 | lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1017,11 +1017,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne le dernier caractère de la chaîne ou le dernier élément du tableau.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1058,10 +1058,10 @@ Chaîne du dernier caractère ou type (chaîne, entier, tableau ou objet) du der
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | Chaîne | three |
+| stringOutput | Chaîne | e |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1082,12 +1082,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne la dernière position d’une valeur dans une chaîne. La comparaison respecte la casse.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1129,13 +1129,13 @@ Entier qui représente la dernière position de l’élément à rechercher. La 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
+| firstT | Int | 0 |
 | lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1156,11 +1156,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne le nombre de caractères dans une chaîne ou le nombre d’éléments dans un tableau.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
+| arg1 |OUI |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1204,10 +1204,10 @@ Un entier.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13. |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1228,13 +1228,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la gauche jusqu’à ce que la longueur totale spécifiée ait été atteinte.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| valeur_à_remplir |Oui |chaîne ou entier |Valeur à aligner à droite. |
-| longueur_totale |Oui |int |Nombre total de caractères de la chaîne renvoyée. |
-| caractère_de_remplissage |Non |caractère unique |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
+| valeur_à_remplir |OUI |chaîne ou entier |Valeur à aligner à droite. |
+| longueur_totale |OUI |int |Nombre total de caractères de la chaîne renvoyée. |
+| caractère_de_remplissage |Non  |caractère unique |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
 
 Si la chaîne d’origine est plus longue que le nombre de caractères de remplissage, aucun caractère n’est ajouté.
 
@@ -1268,9 +1268,9 @@ Chaîne avec au moins le nombre de caractères spécifié.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Chaîne | 0000000123 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1286,18 +1286,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="replace" />
 
-## <a name="replace"></a>replace
+## <a name="replace"></a>remplacer
 `replace(originalString, oldString, newString)`
 
 Renvoie une nouvelle chaîne dans laquelle toutes les instances d’une chaîne ont été remplacées par une autre.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_initiale |Oui |string |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
-| oldString |Oui |string |Chaîne à supprimer de la chaîne initiale. |
-| newString |Oui |string |Chaîne à ajouter à la place de la chaîne supprimée. |
+| chaîne_initiale |OUI |chaîne |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
+| oldString |OUI |chaîne |Chaîne à supprimer de la chaîne initiale. |
+| newString |OUI |chaîne |Chaîne à ajouter à la place de la chaîne supprimée. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1333,10 +1333,10 @@ Chaîne contenant les caractères remplacés.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| firstOutput | Chaîne | 1231231234 |
+| secodeOutput | Chaîne | 123-123-xxxx |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1357,12 +1357,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne une chaîne avec tous les caractères après le nombre spécifié de caractères, ou un tableau avec tous les éléments après le nombre spécifié d’éléments.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
+| numberToSkip |OUI |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1414,10 +1414,10 @@ Tableau ou chaîne.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Chaîne | two three |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1438,12 +1438,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’entrée séparées par les délimiteurs spécifiés.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_entrée |Oui |string |Chaîne à fractionner. |
-| delimiter |Oui |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
+| chaîne_entrée |OUI |chaîne |Chaîne à fractionner. |
+| delimiter |OUI |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1486,7 +1486,7 @@ Tableau de chaînes.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | firstOutput | Tableau | ["one", "two", "three"] |
 | secondOutput | Tableau | ["one", "two", "three"] |
@@ -1510,12 +1510,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Détermine si une chaîne commence par une valeur. La comparaison respecte la casse.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |chaîne |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |chaîne |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1561,13 +1561,13 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| startsTrue | Bool | true |
+| startsTrue | Bool | True |
 | startsCapTrue | Bool | true |
 | startsFalse | Bool | False |
-| endsTrue | Bool | true |
-| endsCapTrue | Bool | true |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -1584,16 +1584,16 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="string" />
 
-## <a name="string"></a>string
+## <a name="string"></a>chaîne
 `string(valueToConvert)`
 
 Convertit la valeur spécifiée en chaîne.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Oui | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
+| valueToConvert |OUI | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1648,11 +1648,11 @@ Chaîne de la valeur convertie.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | Chaîne | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | Chaîne | ["a","b","c"] |
+| intOutput | Chaîne | 5. |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1673,13 +1673,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne une sous-chaîne qui commence à la position de caractère spécifiée et qui contient le nombre de caractères spécifié.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_analyser |Oui |string |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
-| index_début |Non |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
-| length |Non |int |Le nombre de caractères de la sous-chaîne. Doit faire référence à un emplacement au sein de la chaîne. |
+| chaîne_à_analyser |OUI |chaîne |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
+| index_début |Non  |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
+| length |Non  |int |Le nombre de caractères de la sous-chaîne. Doit faire référence à un emplacement au sein de la chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1724,9 +1724,9 @@ La fonction échoue lorsque la sous-chaîne s’étend au-delà de la fin de la 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| substringOutput | String | two |
+| substringOutput | Chaîne | two |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1747,12 +1747,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne une chaîne avec le nombre spécifié de caractères à partir du début de la chaîne, ou un tableau avec le nombre spécifié d’éléments à partir du début du tableau.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
+| numberToTake |OUI |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1804,10 +1804,10 @@ Tableau ou chaîne.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["one", "two"] |
-| stringOutput | String | sur |
+| stringOutput | Chaîne | sur |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1828,11 +1828,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit la chaîne spécifiée en minuscules.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_modifier |Oui |string |La valeur à convertir en minuscules. |
+| chaîne_à_modifier |OUI |chaîne |La valeur à convertir en minuscules. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1868,10 +1868,10 @@ Chaîne convertie en minuscules.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | Chaîne | one two three |
+| toUpperOutput | Chaîne | ONE TWO THREE |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1892,11 +1892,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convertit la chaîne spécifiée en majuscules.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_modifier |Oui |string |La valeur à convertir en majuscules. |
+| chaîne_à_modifier |OUI |chaîne |La valeur à convertir en majuscules. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1932,10 +1932,10 @@ Chaîne convertie en majuscules.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | Chaîne | one two three |
+| toUpperOutput | Chaîne | ONE TWO THREE |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1956,11 +1956,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Supprime tous les espaces de début et de fin de la chaîne indiquée.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Oui |string |La valeur à supprimer. |
+| stringToTrim |OUI |chaîne |La valeur à supprimer. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1992,9 +1992,9 @@ Chaîne sans les premiers et derniers caractères d’espace.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| return | String | one two three |
+| return | Chaîne | one two three |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -2015,12 +2015,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Crée une chaîne de hachage déterministe basée sur les valeurs fournies en tant que paramètres. 
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Oui |string |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
-| paramètres supplémentaires le cas échéant |Non |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
+| baseString |OUI |chaîne |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
+| paramètres supplémentaires le cas échéant |Non  |chaîne |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
 
@@ -2104,12 +2104,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Oui |string |La chaîne d’URI de base. |
-| relativeUri |Oui |string |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
+| baseUri |OUI |chaîne |La chaîne d’URI de base. |
+| relativeUri |OUI |chaîne |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
 
 La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez `http://contoso.com/resources/azuredeploy.json` comme paramètre baseUri, l’URI de base résultant est `http://contoso.com/resources/`.
 
@@ -2156,11 +2156,11 @@ L’exemple suivant montre comment créer un lien vers un modèle imbriqué en f
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -2181,11 +2181,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Encode un URI.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Oui |string |Valeur à encoder. |
+| stringToEncode |OUI |chaîne |Valeur à encoder. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -2224,11 +2224,11 @@ Chaîne de la valeur encodée de l’URI.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -2249,11 +2249,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne une chaîne de la valeur encodée de l’URI.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Oui |string |Valeur encodée de l’URI à convertir en une chaîne. |
+| uriEncodedString |OUI |chaîne |Valeur encodée de l’URI à convertir en une chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -2292,11 +2292,11 @@ Chaîne décodée de la valeur encodée de l’URI.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 

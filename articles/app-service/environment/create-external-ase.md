@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: debfff03ea9a4de4fb2cd69779d58709a6a3a34f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe #
 
@@ -170,7 +170,7 @@ Lorsque vous créez un environnement App Service autonome, celui-ci est vide. M�
 
 5. Sélectionnez le réseau virtuel et l’emplacement. Vous pouvez créer un réseau virtuel ou sélectionner un réseau virtuel existant : 
 
-    * Si vous sélectionnez un nouveau réseau virtuel, vous pouvez spécifier un nom et un emplacement. Si vous envisagez d’héberger des applications Linux sur cet environnement ASE, seules les 6 régions suivantes sont prises en charge pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie et Asie du Sud-Est.** 
+    * Si vous sélectionnez un nouveau réseau virtuel, vous pouvez spécifier un nom et un emplacement. Si vous envisagez d’héberger des applications Linux sur cet environnement ASE, seules les six régions suivantes sont prises en charge pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie et Asie du Sud-Est**. 
     
     * Le nouveau réseau virtuel se voit affecter la plage d’adresses 192.168.250.0/23 et un sous-réseau nommé default. Le sous-réseau reçoit la plage d’adresses 192.168.250.0/24. Vous pouvez uniquement sélectionner un réseau virtuel Resource Manager. La sélection du **type d’adresse IP virtuelle** détermine si votre environnement App Service est accessible directement à partir d’Internet (externe) ou s’il utilise un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service Environment][MakeILBASE]. 
 
@@ -207,7 +207,7 @@ Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnem
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

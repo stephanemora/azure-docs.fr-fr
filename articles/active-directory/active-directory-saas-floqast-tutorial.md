@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à FloQast | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et FloQast."
+title: 'Didacticiel : Intégration d’Azure Active Directory à FloQast | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FloQast.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: db254c7e0f200b447ef6d0b299080a7a542c235a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Didacticiel : Intégration d’Azure Active Directory à FloQast
 
@@ -30,9 +30,10 @@ L’intégration de FloQast à Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à FloQast (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à FloQast, vous avez besoin des éléments suivants :
 
@@ -142,7 +143,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur, et suivez les étapes suivantes :
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_certificate.png)
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_certificate.png)
 
     a. Cochez **Afficher les paramètres avancés de signature de certificat**.
 
@@ -235,7 +236,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

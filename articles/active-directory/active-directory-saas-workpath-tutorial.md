@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel : Intégration d'Azure Active Directory à Workpath | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workpath."
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workpath.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 70aea0bc84b7aea47ec9b51fc46e502e93690db3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab0c407def62f89691a1989a869902d356c5bdc8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Didacticiel : Intégration d’Azure Active Directory à Workpath | Microsoft Docs
 
@@ -27,11 +27,12 @@ L’intégration de Workpath dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Workpath
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Workpath (par le biais de l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes depuis un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Workpath, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Workpath à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Workpath à Azure AD, vous devez ajouter Wo
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Workpath**.
 
@@ -86,10 +87,10 @@ Dans Workpath, assignez la valeur de **nom d’utilisateur** dans Azure AD comm
 
 Pour configurer et tester l’authentification unique Azure AD avec Workpath, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Workpath](#creating-a-workpath-test-user)** pour avoir un équivalent de Britta Simon dans Workpath lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Workpath**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_samlbase.png)
 
 3. Dans la section **Domaines et URL Workpath**, si vous souhaitez configurer l’application en Mode initié par **IDP**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
@@ -116,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.workpath.com/ `
 
@@ -125,7 +126,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application Workpath attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple de cette configuration. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_attributes.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_attributes.png)
     
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -136,11 +137,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_attribute_04.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_attribute_05.png)
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
 
@@ -151,15 +152,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_certificate.png) 
 
 8. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_general_400.png)
 
 9. Dans la section **Configuration de Workpath**, cliquez sur **Configurer Workpath** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_configure.png) 
 
 10. Pour configurer l’authentification unique côté **Workpath**, vous devez envoyer le **XML de métadonnées**, **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** téléchargés à [l’équipe de support Workpath](https://help.workpath.com). 
 
@@ -196,7 +197,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-workpath-test-user"></a>Création d’un utilisateur de test Workpath
 
@@ -217,7 +218,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Workpath**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -243,7 +244,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

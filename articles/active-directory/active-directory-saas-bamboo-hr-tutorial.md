@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à BambooHR | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et BambooHR."
+title: 'Didacticiel : Intégration d’Azure Active Directory à BambooHR | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BambooHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Didacticiel : Intégration d’Azure Active Directory à BambooHR
 
@@ -30,9 +30,10 @@ L’intégration de BambooHR à Azure AD offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à BambooHR par le biais de l’authentification unique (SSO) avec leur compte Azure AD.
 - Vous pouvez centraliser la gestion de vos comptes à un seul emplacement : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à BambooHR, vous avez besoin des éléments suivants :
 
@@ -109,7 +110,7 @@ Dans cette section, vous activez l’authentification unique (SSO) Azure AD dans
  
 4. Sous **Certificat de signature SAML**, sélectionnez **Certificat (en base64)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
 5. Sélectionnez **Enregistrer**.
 
@@ -239,7 +240,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,24 +1,24 @@
 ---
-title: "Fonctions de modèle Azure Resource Manager - comparaison| Microsoft Docs"
-description: "Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour comparer des valeurs."
+title: Fonctions de modèle Azure Resource Manager - comparaison| Microsoft Docs
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour comparer des valeurs.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 364a271d84f9abfe99c7c674a6c504ce94318ac9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Fonctions de comparaison pour les modèles Azure Resource Manager
 
@@ -35,12 +35,12 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 
 Vérifie si deux valeurs sont égales.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
-| arg2 |Oui |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
+| arg1 |OUI |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
+| arg2 |OUI |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -65,7 +65,7 @@ La fonction equals est souvent utilisée avec l’élément `condition` pour tes
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) suivant vérifie que les différents types de valeurs sont égaux. Toutes les valeurs par défaut retournent la valeur True.
 
@@ -132,12 +132,12 @@ La fonction equals est souvent utilisée avec l’élément `condition` pour tes
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
 | checkArrays | Bool | True |
-| checkObjects | Bool | true |
+| checkObjects | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -170,9 +170,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 La sortie de l’exemple précédent est :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | true |
+| checkNotEquals | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -191,18 +191,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Vérifie si la première valeur est supérieure à la deuxième valeur.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur à ». |
-| arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « supérieur à ». |
+| arg2 |OUI |entier ou chaîne |Seconde valeur pour la comparaison « supérieur à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Retourne **True** si la première valeur est supérieure à la seconde ; sinon, renvoie **False**.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) suivant vérifie si une valeur est supérieure à l’autre.
 
@@ -245,10 +245,10 @@ Retourne **True** si la première valeur est supérieure à la seconde ; sinon,
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
-| checkStrings | Bool | true |
+| checkStrings | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -267,18 +267,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Vérifie si la première valeur est supérieure ou égale à la deuxième valeur.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur ou égal à ». |
-| arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur ou égal à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « supérieur ou égal à ». |
+| arg2 |OUI |entier ou chaîne |Seconde valeur pour la comparaison « supérieur ou égal à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Retourne **True** si la première valeur est supérieure ou égale à la seconde ; sinon, renvoie **False**.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) suivant vérifie si une valeur est supérieure ou égale à l’autre.
 
@@ -321,10 +321,10 @@ Retourne **True** si la première valeur est supérieure ou égale à la seconde
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
-| checkStrings | Bool | true |
+| checkStrings | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -343,18 +343,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Vérifie si la première valeur est inférieure à la deuxième valeur.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |OUI |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Retourne **True** si la première valeur est inférieure à la seconde ; sinon, renvoie **False**.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) suivant vérifie si une valeur est inférieure à l’autre.
 
@@ -397,7 +397,7 @@ Retourne **True** si la première valeur est inférieure à la seconde ; sinon,
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -419,18 +419,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Vérifie si la première valeur est inférieure ou égale à la deuxième valeur.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
 Retourne **True** si la première valeur est inférieure ou égale à la seconde ; sinon, renvoie **False**.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) suivant vérifie si une valeur est inférieure ou égale à l’autre.
 
@@ -473,7 +473,7 @@ Retourne **True** si la première valeur est inférieure ou égale à la seconde
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b004bec7c022662a1c90f54079af4fd25c84fab
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 04a0335a819c835248e7a18afe36acf13e100fb3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Didacticiel : Intégration d’Azure Active Directory avec Springer Link
 
@@ -30,7 +30,7 @@ L’intégration de Springer Link avec Azure AD offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Springer Link (via l’authentification unique) avec leurs comptes Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     Dans la zone de texte **URL de connexion**, entrez l’URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton de copie pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes. 
+5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes. 
 
     ![Lien Téléchargement de certificat](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_certificate.png)    
 
@@ -200,7 +200,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

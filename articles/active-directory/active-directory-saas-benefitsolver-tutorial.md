@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Benefitsolver."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Benefitsolver.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a254f1696d60d825f637b6aa37d05cf95b318a25
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
 
@@ -30,9 +30,10 @@ L’intégration de Benefitsolver à Azure AD vous offre les avantages suivants�
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Benefitsolver (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Benefitsolver, vous avez besoin des éléments suivants :
 
@@ -144,7 +145,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
@@ -238,7 +239,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
