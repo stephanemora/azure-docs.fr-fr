@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7b604f9a26fc4c9a2c76a28ca01d066fe1640718
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Prise en main de Microsoft Power BI Embedded
 
@@ -48,7 +48,7 @@ Voici quelques exemples vous permettant de vous lancer. Pour une procédure pas 
 Créez la capacité Power BI Embedded dans Microsoft Azure pour déplacer votre application vers l’environnement de production. Pour savoir comment créer de la capacité, voir [Créer de la capacité Power BI Embedded dans le portail Azure](create-capacity.md).
 
 > [!IMPORTANT]
-> Étant donné que les jetons d’incorporation sont destinés uniquement à des tests de développement, le nombre de jetons d’incorporation qu’un compte principal Power BI peut générer est limité. Une [capacité doit être achetée](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) pour des scénarios d’incorporation de production. Il n’existe aucune limite à la génération de jetons d’incorporation quand une capacité est achetée.
+> Étant donné que les jetons d’incorporation sont destinés uniquement à des tests de développement, le nombre de jetons d’incorporation qu’un compte principal Power BI peut générer est limité. Une [capacité doit être achetée](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) pour des scénarios d’incorporation de production. Il n’existe aucune limite à la génération de jetons d’incorporation quand une capacité est achetée. Accédez à [Obtenir les fonctionnalités disponibles](https://msdn.microsoft.com/en-us/library/mt846473.aspx) pour rechercher l’utilisation incorporée actuelle en pourcentage.
 
 Gérez votre capacité dans le portail d’administration Power BI. Affectez le composant d’affectation de l’espace de travail pour faciliter la gestion de vos espaces de travail d’application. Pour en savoir plus, voir [Gérer les capacités dans Power BI Premium et Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

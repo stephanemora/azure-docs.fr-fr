@@ -1,24 +1,24 @@
 ---
-title: "Intégrer des solutions de sécurité dans Azure Security Center | Microsoft Docs"
-description: "Découvrez comment Azure Security Center s’intègre avec les partenaires pour améliorer la sécurité globale de vos ressources Azure."
+title: Intégrer des solutions de sécurité dans Azure Security Center | Microsoft Docs
+description: Découvrez comment Azure Security Center s’intègre avec les partenaires pour améliorer la sécurité globale de vos ressources Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
-ms.author: yurid
-ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 05/04/2018
+ms.author: terrylan
+ms.openlocfilehash: ac1e49400f32194ada319f23b5233cc81de02a02
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -32,7 +32,7 @@ Security Center simplifie l’activation des solutions de sécurité intégrées
 
 Actuellement, les solutions de sécurité intégrées comprennent :
 
-- Protection de point de terminaison ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender et Protocole d’inscription de certificats simple (SCEP))
+- Protection de point de terminaison ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, McAfee, Windows Defender et Protocole d’inscription de certificats simple (SCEP))
 - Pare-feu d’applications web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Pare-feu de nouvelle génération ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) et [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Évaluation des vulnérabilités ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
@@ -44,8 +44,8 @@ L’expérience d’intégration protection de point de terminaison peut varier 
 | Windows Defender (logiciel anti-programme malveillant de Microsoft)                  | Windows Server 2016                   | Non, intégré au système d’exploitation           | OUI                       |
 | System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via l’extension                | OUI                       |
 | Trend Micro : toutes les versions         | Gamme Windows Server                 | Via l’extension                | OUI                       |
-| Symantec v12.1.1100+                     | Gamme Windows Server                 | Non                            | OUI                        |
-| MacAfee                           | Gamme Windows Server                 | Non                            | Non                         |
+| Symantec v12.1.1100+              | Gamme Windows Server                 | Non                            | OUI                       |
+| McAfee v10+                       | Gamme Windows Server                 | Non                            | OUI                       |
 | Kaspersky                         | Gamme Windows Server                 | Non                            | Non                         |
 | Sophos                            | Gamme Windows Server                 | Non                            | Non                         |
 
@@ -65,7 +65,7 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
 1. Connectez-vous au [Portail Azure](https://azure.microsoft.com/features/azure-portal/).
 
-2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
+2. Dans le **menu Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
   ![Vue d’ensemble de Security Center](./media/security-center-partner-integration/overview.png)
 
@@ -86,7 +86,7 @@ Consultez [gestion des solutions partenaires connectées](security-center-partne
 Security Center découvre automatiquement les solutions exécutées dans Azure mais qui ne sont pas connectées à Security Center. Elles sont ensuite affichées dans la section **Solutions découvertes**. Cela inclut les solutions Azure, telles que [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), ainsi que les solutions partenaires.
 
 > [!NOTE]
-> La fonctionnalité des solutions découvertes est disponible pour le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
+> Le niveau Standard de Security Center est requis au niveau de l’abonnement pour la fonctionnalité de découverte des solutions. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security.
 >
 >
 
