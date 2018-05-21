@@ -1,9 +1,9 @@
 ---
-title: "Modèle de données de télémétrie d’Azure Application Insights : télémétrie des requêtes | Microsoft Docs"
-description: "Modèle de données Application Insights pour la télémétrie des requêtes"
+title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des requêtes | Microsoft Docs'
+description: Modèle de données Application Insights pour la télémétrie des requêtes
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0073f38097ffbebd669754eac5f2d48a620941bf
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: e0bdaf132474d8e5eaac6a9c65093d27d673d343
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des requêtes : modèle de données Application Insights
 
@@ -24,7 +24,7 @@ Un élément de télémétrie de demande (dans [Application Insights](app-insigh
 
 La télémétrie des requêtes prend en charge le modèle d’extensibilité standard en utilisant des propriétés (`properties`) et des mesures (`measurements`) personnalisées.
 
-## <a name="name"></a>Nom
+## <a name="name"></a>NOM
 
 Le nom de la requête représente le chemin de code utilisé pour traiter la requête. La valeur de faible cardinalité permet de mieux regrouper les requêtes. Pour les requêtes HTTP, elle représente la méthode HTTP et le modèle de chemin d’URL comme `GET /values/{id}` sans la valeur `id` réelle.
 
@@ -50,7 +50,7 @@ Source de la requête. Il s’agit par exemple de la clé d’instrumentation de
 
 Longueur maximale : 1024 caractères
 
-## <a name="duration"></a>Durée
+## <a name="duration"></a>Duration
 
 Durée de la requête au format : `DD.HH:MM:SS.MMMMMM`. Doit être positive et inférieure à `1000` jours. Ce champ est obligatoire car la télémétrie des requêtes représente l’opération avec un début et une fin.
 

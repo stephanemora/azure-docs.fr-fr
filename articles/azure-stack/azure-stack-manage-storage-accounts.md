@@ -10,16 +10,16 @@ ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/22/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.reviewer: anirudha
-ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 2ae2b628b2e61893a5289151c3b405e7412e7d13
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
@@ -29,13 +29,13 @@ La liste des comptes de stockage de la région peut être affichée dans Azure S
 
 1. Dans un navigateur Internet, accédez à https://adminportal.local.azurestack.external.
 2. Connectez-vous au portail d’administration d’Azure Stack comme opérateur cloud (en utilisant les informations d’identification que vous avez fournies lors du déploiement)
-3. Dans le tableau de bord par défaut, recherchez la liste **Gestion des régions** et cliquez sur la région que vous voulez explorer, par exemple **(local**).
+3. Dans le tableau de bord par défaut, recherchez la liste **Gestion des régions** et sélectionnez la région à explorer, par exemple **(local**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Ensuite, dans le volet de l’administrateur du fournisseur de ressources de stockage, faites défiler jusqu’à l’onglet **Comptes de stockage** et cliquez sur celui-ci.
+5. Ensuite, dans le volet de l’administrateur du fournisseur de ressources de stockage, faites défiler jusqu’à l’onglet **Comptes de stockage** et sélectionnez-le.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,12 +52,12 @@ Si vous êtes intéressé par un compte de stockage particulier, vous pouvez **f
 
 **Pour filtrer les comptes :**
 
-1. Cliquez sur **Filtrer** en haut du volet.
+1. Sélectionnez **Filtrer** en haut du volet.
 2. Dans le volet Filtrer, vous pouvez spécifier un **nom de compte**, un **ID d’abonnement ou un **statut** pour affiner la liste des comptes de stockage à afficher. Utilisez-les pour filtrer selon vos besoins.
-3. Cliquez sur **Update**. La liste est normalement actualisée en conséquence.
+3. Sélectionnez **Update**. La liste est normalement actualisée en conséquence.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. Pour réinitialiser le filtre : cliquez sur **Filtrer**, effacez les sélections et mettez à jour la liste.
+4. Pour réinitialiser le filtre, sélectionnez **Filtrer**, effacez les sélections, puis mettez à jour la liste.
 
 La zone de texte de recherche (en haut du volet de la liste de comptes de stockage) vous permet de mettre en surbrillance le texte sélectionné dans la liste des comptes. Vous pouvez l’utiliser lorsque le nom complet ou l’ID n’est pas facilement disponible.
 
@@ -66,7 +66,7 @@ Vous pouvez utiliser ici du texte libre pour rechercher le compte qui vous inté
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Accéder aux détails du compte
-Une fois que vous avez trouvé les comptes qui vous intéressent, vous pouvez cliquer sur un compte particulier pour afficher certains détails. Un nouveau volet s’ouvre avec les informations détaillées du compte, comme le type du compte, l’heure de création, l’emplacement, etc.
+Une fois que vous avez trouvé les comptes qui vous intéressent, vous pouvez sélectionner un compte particulier pour afficher certains détails. Un nouveau volet s’ouvre avec les informations détaillées du compte, comme le type du compte, l’heure de création, l’emplacement, etc.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
@@ -78,13 +78,13 @@ Dans Azure Stack, il existe un moyen simple de le faire :
 1. Accédez à la liste de comptes de stockage. Pour plus d’informations, consultez [Rechercher un compte de stockage](#find) dans cette rubrique.
 2. Localisez ce compte particulier dans la liste. Il peut être nécessaire de filtrer.
 3. Vérifiez l’*état* du compte. Il doit être **Supprimé**.
-4. Cliquez sur le compte pour ouvrir le volet des détails du compte.
-5. En haut de ce volet, recherchez le bouton **Récupérer** et cliquez sur celui-ci.
-6. Cliquez sur **Oui** pour confirmer.
+4. Sélectionnez le compte pour ouvrir le volet des détails du compte.
+5. En haut de ce volet, recherchez le bouton **Récupérer** et sélectionnez-le.
+6. Sélectionnez **Oui** pour confirmer.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. La récupération est maintenant *en cours... Attendez* un message indiquant que la récupération est effective.
-   Vous pouvez aussi cliquer sur l’icône « cloche » en haut du portail pour voir des indications sur la progression.
+   Vous pouvez aussi sélectionner l’icône « cloche » en haut du portail pour voir des indications sur la progression.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
@@ -105,10 +105,10 @@ Le paramètre de période de conservation permet à un opérateur cloud de spéc
 
 1. Dans un navigateur Internet, accédez à https://adminportal.local.azurestack.external.
 2. Connectez-vous au portail d’administration d’Azure Stack comme opérateur cloud (en utilisant les informations d’identification que vous avez fournies lors du déploiement)
-3. Dans le tableau de bord par défaut, recherchez la liste **Gestion des régions** et cliquez sur la région que vous voulez explorer, par exemple **(local**).
+3. Dans le tableau de bord par défaut, recherchez la liste **Gestion des régions** et sélectionnez la région à explorer, par exemple **(local**).
 4. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
-5. Cliquez sur **Paramètres** en haut pour ouvrir le volet des paramètres.
-6. Cliquez sur **Configuration**, puis changez la valeur de la période de conservation.
+5. Sélectionnez **Paramètres** en haut pour ouvrir le volet des paramètres.
+6. Sélectionnez **Configuration**, puis modifiez la valeur de la période de conservation.
 
    Définissez le nombre de jours et enregistrez-le.
    
@@ -123,8 +123,8 @@ Vous pouvez récupérer de la capacité en utilisant le portail ou PowerShell.
 
 **Pour récupérer de la capacité en utilisant le portail :**
 1. Accédez au volet des comptes de stockage. Consultez [Rechercher un compte de stockage](#find).
-2. Cliquez sur **Récupérer de l’espace** en haut du volet.
-3. Lisez le message, puis cliquez sur **OK**.
+2. Sélectionnez **Récupérer de l’espace** en haut du volet.
+3. Lisez le message, puis sélectionnez **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
 4. Attendez la notification de la réussite de l’opération. Utilisez l’icône de cloche sur le portail.
@@ -139,84 +139,20 @@ Vous pouvez aussi utiliser PowerShell pour remplacer explicitement la période d
 1. Vérifiez qu’Azure PowerShell est installé et configuré. Dans le cas contraire, suivez ces instructions : 
    * Pour installer la dernière version d’Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
    Pour plus d’informations sur les applets de commande Azure Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
-2. Exécutez l’applet de commande suivante :
+2. Exécutez les applets de commande suivantes :
 
 > [!NOTE]
-> Si vous exécutez cette cmdlet, vous supprimez définitivement le compte et son contenu. Il n’est pas récupérable. Utilisez cette option avec précaution.
+> Si vous exécutez ces applets de commande, vous supprimez définitivement le compte et son contenu. Il n’est pas récupérable. Utilisez cette option avec précaution.
 
+```PowerShell  
+    $farm_name = (Get-AzsStorageFarm)[0].name
+    Start-AzsReclaimStorageCapacity -FarmName $farm_name
+````
 
-        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
-
-
-Pour plus d’informations, consultez la [documentation PowerShell Azure Stack.](https://msdn.microsoft.com/library/mt637964.aspx)
+Pour plus d’informations, consultez la [documentation Azure Stack PowerShell](https://msdn.microsoft.com/library/mt637964.aspx).
  
 
-## <a name="migrate-a-container"></a>Migrer un conteneur
-En raison d’une utilisation inégale du stockage par les locataires, un opérateur cloud peut constater qu’un ou plusieurs partages de locataire sous-jacent utilisent plus d’espace que d’autres. Si cela se produit, l’opérateur cloud peut essayer de libérer de l’espace sur le partage trop sollicité en migrant manuellement des conteneurs d’objets blob vers un autre partage. 
+## <a name="next-steps"></a>Étapes suivantes
 
-Vous devez utiliser PowerShell pour migrer des conteneurs.
-> [!NOTE]
->La migration de conteneurs d’objets blob ne prend pas en charge la migration dynamique et est actuellement une opération hors connexion. Pendant la migration et jusqu’à ce qu’elle soit terminée, les objets blob sous-jacents de ce conteneur ne peuvent pas être utilisés et sont « hors connexion ». 
-
-**Pour migrer des conteneurs en utilisant PowerShell :**
-
-1. Vérifiez qu’Azure PowerShell est installé et configuré. Dans le cas contraire, suivez ces instructions :
-    * Pour installer la dernière version d’Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Pour plus d’informations sur les applets de commande Azure Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
-2. Obtenez le nom de la batterie de serveurs : 
-      
-      `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Obtenez les partages : 
-
-   `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
-
-4. Obtenez les conteneurs d’un partage donné. Notez que les paramètres Count et Intent sont facultatifs :
-            
-   `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
-
-   Examinez ensuite $containers :
-
-   `$containers`
-
-    ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Obtenez les meilleurs partages de destination pour la migration du conteneur :
-
-    `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
-
-    Examinez ensuite $destinationshares :
-
-    `$destinationshares`
-
-    ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Lancez la migration d’un conteneur. Notez qu’il s’agit d’une implémentation asynchrone : vous pouvez donc boucler dans tous les conteneurs d’un partage et en suivre l’état en utilisant l’ID de tâche retourné.
-
-    `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
-
-    Examiner ensuite $jobId :
-
-   ```
-   $jobId
-   d1d5277f-6b8d-4923-9db3-8bb00fa61b65
-   ```
-7. Vérifiez l’état de la tâche de migration par son ID de tâche. Une fois la migration du conteneur terminée, MigrationStatus est défini sur « Terminé ».
-
-    `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image15.png)
-
-8. Vous pouvez annuler une tâche de migration en cours d’exécution. Il s’agit à nouveau d’une opération asynchrone, qui peut être suivie en utilisant $jobid :
-
-    `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
-
-    ![](media/azure-stack-manage-storage-accounts/image16.png)
-
-    Vous pouvez aussi vérifier les états de l’annulation de la migration :
-
-    `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image17.png)
-
-
-
-
-  
-  
+ - Pour plus d’informations sur la gestion des autorisations, consultez [Gérer le contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md).
+ - Pour plus d’informations sur la gestion de la capacité de stockage pour Azure Stack, consultez [Gérer la capacité de stockage pour Azure Stack](azure-stack-manage-storage-shares.md).

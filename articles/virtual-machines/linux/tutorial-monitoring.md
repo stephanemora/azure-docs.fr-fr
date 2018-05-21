@@ -1,6 +1,6 @@
 ---
-title: Surveiller et mettre à jour des machines virtuelles Linux dans Azure | Microsoft Docs
-description: Découvrez comment surveiller les diagnostics de démarrage et les métriques de performances, et gérer les mises à jour de package sur une machine virtuelle Linux dans Azure
+title: 'Didacticiel : surveiller et mettre à jour des machines virtuelles Linux dans Azure | Microsoft Docs'
+description: Avec ce didacticiel, vous allez apprendre à surveiller les diagnostics de démarrage et les métriques de performances, et à gérer les mises à jour de package sur une machine virtuelle Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d5fb239ffd6a957cbb088bf4843819e2c886cee8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Comment surveiller et mettre à jour une machine virtuelle Linux dans Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Linux dans Azure
 
 Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement, vous pouvez consulter les diagnostics de démarrage et les métriques de performances, et gérer les mises à jour de package. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -39,7 +39,7 @@ Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement,
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Créer une machine virtuelle
 
@@ -222,7 +222,7 @@ Planifier un nouveau déploiement de mises à jour pour la machine virtuelle en 
 
   ![Écran Paramètres de planification des mises à jour](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
 
-* **Fenêtre de maintenance (en minutes)** : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Cela permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
+* **Fenêtre de maintenance (en minutes)**  : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Cela permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
 Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer** ; vous revenez ensuite au tableau de bord des états.
 Notez que le tableau **Planifié** montre la planification de déploiement que vous avez créée.

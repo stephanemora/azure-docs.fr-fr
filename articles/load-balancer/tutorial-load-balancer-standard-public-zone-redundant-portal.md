@@ -1,39 +1,50 @@
 ---
-title: Équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure | Microsoft Docs
-description: Créer un équilibreur de charge standard avec frontend redondant dans une zone pour équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure
+title: 'Didacticiel : Équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure | Microsoft Docs'
+description: Ce didacticiel montre comment créer un équilibreur de charge standard avec frontend redondant dans une zone pour équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/18
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: ad476922342844a908961960407eb344711932f5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge des machines virtuelles entre des zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
-Cet article détaille les étapes de la création d’un équilibreur de charge standard public avec un frontend redondant dans une zone pour obtenir une redondance de zone sans dépendance sur plusieurs enregistrements DNS. L’adresse IP unique d’un serveur frontal dans un équilibreur de charge standard est automatiquement redondante dans une zone. Avec une adresse IP unique et un frontend redondant dans une zone pour votre équilibreur de charge, vous pouvez maintenant atteindre toutes les machines virtuelles d’un réseau virtuel au sein d’une région parmi toutes les zones de disponibilité. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier. Avec la redondance dans une zone, une ou plusieurs zones de disponibilité peuvent échouer sans empêcher le chemin de données de survivre dans la mesure où une seule zone de la région reste saine. 
+L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Ce didacticiel détaille les étapes à suivre pour créer un équilibreur de charge standard public qui équilibre la charge des machines virtuelles entre des zones de disponibilité. Vous pouvez ainsi protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier. Avec la redondance dans une zone, une ou plusieurs zones de disponibilité peuvent échouer sans empêcher le chemin de données de survivre tant qu’une zone de la région reste intègre. Vous allez apprendre à effectuer les actions suivantes :
+
+> [!div class="checklist"]
+> * Créer un équilibreur de charge standard
+> * Créer des groupes de sécurité réseau pour définir des règles applicables au trafic entrant
+> * Créer des machines virtuelles redondantes dans une zone déployées dans plusieurs zones et les attacher à un équilibreur de charge
+> * Créer une sonde d’intégrité d’équilibreur de charge
+> * Créer des règles de trafic pour l’équilibrage de charge
+> * Créer un site IIS de base
+> * Afficher un équilibrage de charge en action
 
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec un équilibreur de charge standard, voir [Équilibreur de charge standard et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com).
+Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
 
-## <a name="create-a-public-standard-load-balancer"></a>Créer un équilibreur de charge standard public
+## <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
 
 L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez une nouvelle adresse IP publique en créant l’équilibreur de charge, celle-ci est automatiquement configurée comme version de référence standard et est également automatiquement redondante dans une zone.
 
@@ -51,9 +62,11 @@ L’équilibreur de charge standard prend uniquement en charge une adresse IP pu
 
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-Dans cette section, vous créez un réseau virtuel ainsi que des machines virtuelles dans des zones différentes (zone 1, zone 2 et zone 3) pour la région à ajouter au pool principal de votre équilibreur de charge, puis vous installez IIS sur les machines virtuelles afin de tester l’équilibreur de charge redondant dans une zone. Ainsi, si une zone échoue, la sonde d’intégrité de la machine virtuelle de la même zone échoue, et le trafic continue à être pris en charge par les machines virtuelles dans les autres zones.
+Dans cette section, vous allez créer un réseau virtuel, des machines virtuelles dans différentes zones de la région, puis installer IIS sur les machines virtuelles afin de tester l’équilibreur de charge redondant dans une zone. Ainsi, si une zone échoue, la sonde d’intégrité de la machine virtuelle de la même zone échoue, et le trafic continue à être pris en charge par les machines virtuelles dans les autres zones.
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+Créez un réseau virtuel pour le déploiement de vos serveurs principaux.
+
 1. Sur le côté gauche de l’écran, cliquez sur **Créer une ressource** > **Réseau** > **Réseau virtuel** et entrez ces valeurs pour le réseau virtuel :
     - *myVNet* : pour le nom du réseau virtuel.
     - *myResourceGroupLBAZ* : pour le nom du groupe de ressources existant
@@ -64,6 +77,8 @@ Dans cette section, vous créez un réseau virtuel ainsi que des machines virtue
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
+Créez un groupe de sécurité réseau pour définir les connexions entrantes vers votre réseau virtuel.
+
 1. Sur le côté gauche de l’écran, cliquez sur **Créer une ressource**, dans la zone de recherche tapez *Groupe de sécurité réseau* et dans la page du groupe de sécurité réseau, cliquez sur **Créer**.
 2. Dans la page Création d’un groupe de sécurité réseau, entrez ces valeurs :
     - *myNetworkSecurityGroup* : pour le nom du groupe de sécurité réseau.
@@ -71,9 +86,9 @@ Dans cette section, vous créez un réseau virtuel ainsi que des machines virtue
    
 ![Créez un réseau virtuel](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
-### <a name="create-nsg-rules"></a>Créer les règles du groupe de sécurité réseau
+### <a name="create-network-security-group-rules"></a>Créer des règles pour le groupe de sécurité réseau
 
-Dans cette section, vous créez des règles du groupe de sécurité réseau pour autoriser les connexions entrantes à l’aide de HTTP et RDP en utilisant le portail Azure.
+Dans cette section, vous allez créer des règles pour le groupe de sécurité réseau à l’aide du portail Azure afin d’autoriser les connexions entrantes via les protocoles HTTP et RDP.
 
 1. Dans le portail Azure, cliquez sur **Toutes les ressources** dans le menu de gauche, puis recherchez et cliquez sur **myNetworkSecurityGroup** qui se trouve dans le groupe de ressources **myResourceGroupLBAZ**.
 2. Sous **Paramètres**, cliquez sur **Règles de sécurité entrantes**, puis sur **Ajouter**.
@@ -84,8 +99,8 @@ Dans cette section, vous créez des règles du groupe de sécurité réseau pour
     - *TCP* : pour **Protocole**
     - *Allow* : pour **Action**
     - *100* pour **Priorité**
-    - *myHTTPRule* pour le nom
-    - *Allow HTTP* pour la description
+    - *myHTTPRule* : pour le nom de la règle de l’équilibreur de charge.
+    - *Allow HTTP* : pour la description de la règle de l’équilibreur de charge.
 4. Cliquez sur **OK**.
  
  ![Créez un réseau virtuel](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
@@ -99,8 +114,9 @@ Dans cette section, vous créez des règles du groupe de sécurité réseau pour
     - *myRDPRule* pour le nom
     - *Allow RDP* pour la description
 
-
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
+
+Dans différentes zones (zone 1, zone 2 et zone 3) de la région, créez des machines virtuelles qui peuvent jouer le rôle de serveurs principaux pour l’équilibreur de charge.
 
 1. Sur le côté gauche de l’écran, cliquez sur **Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter** et entrez ces valeurs pour la machine virtuelle :
     - *myVM1* : pour le nom de la machine virtuelle.        
@@ -140,17 +156,17 @@ Dans cette section, vous créez des règles du groupe de sécurité réseau pour
 
 ## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
 
-Dans cette section, vous configurez les paramètres de l’équilibreur de charge pour un pool d’adresses principal et une sonde d’intégrité et spécifiez l’équilibreur de charge et les règles NAT.
+Dans cette section, vous allez configurer les paramètres de l’équilibreur de charge pour un pool d’adresses principal et une sonde d’intégrité, puis spécifier les règles de l’équilibreur de charge et NAT.
 
 
 ### <a name="create-a-backend-address-pool"></a>Créer un pool d’adresses principal
 
-Pour distribuer le trafic vers les machines virtuelles, un pool d’adresses principal contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Créez le pool d’adresses principal *myBackendPool* pour inclure *VM1* et *VM2*.
+Pour distribuer le trafic vers les machines virtuelles, un pool d’adresses principal contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Créez le pool d’adresses principal *myBackendPool* pour inclure *VM1*, *VM2* et *VM3*.
 
 1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myLoadBalancer** dans la liste des ressources.
 2. Cliquez sur **Paramètres**, sur **Pools principaux**, puis sur **Ajouter**.
 3. Sur la page **Ajouter un pool principal**, procédez comme suit :
-    - Pour nom, tapez *myBackEndPool, comme nom du pool principal.
+    - Tapez *myBackEndPool* comme nom du pool principal.
     - Pour **Réseau virtuel**, dans le menu déroulant, cliquez sur **myVNet**
     - Pour **Machine virtuelle**, dans le menu déroulant, cliquez sur **myVM1**.
     - Pour **Adresse IP**, dans le menu déroulant, cliquez sur l’adresse IP de myVM1.
@@ -200,6 +216,8 @@ Une règle d’équilibrage de charge est utilisée pour définir la distributio
 2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. La page par défaut du serveur Web IIS s’affiche sur le navigateur.
 
       ![Serveur Web IIS](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+Pour visualiser la distribution du trafic par l’équilibreur de charge entre les machines virtuelles des différentes zones, vous pouvez forcer l’actualisation de votre navigateur web.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

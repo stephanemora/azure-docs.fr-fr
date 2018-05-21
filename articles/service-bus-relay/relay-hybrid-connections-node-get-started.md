@@ -1,30 +1,30 @@
 ---
-title: Prise en main des connexions hybrides Azure Relay dans Node | Microsoft Docs
-description: "Écrivez une application console Node.js pour les connexions hybrides Azure Relay."
+title: Bien démarrer avec les WebSockets de connexions hybrides Azure Relay dans Node | Microsoft Docs
+description: Écrire une application console Node.js pour des WebSockets de connexions hybrides Azure Relay
 services: service-bus-relay
 documentationcenter: node
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
 ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 1e0b76b96029e1a7ed84f1c8cd895090e8acbc6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Prise en main des connexions hybrides Relay
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans Node
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Ce tutoriel présente les [connexions hybrides Azure Relay](relay-what-is-it.md#hybrid-connections) et explique comment utiliser Node.js pour créer une application cliente qui envoie des messages à une application d’écouteur correspondante. 
+Ce tutoriel présente la fonctionnalité Websocket de [connexions hybrides Azure Relay](relay-what-is-it.md#hybrid-connections) et montre comment utiliser Node.js pour créer une application cliente qui envoie des messages Websockets à une application d’écouteur correspondante.
 
 ## <a name="what-will-be-accomplished"></a>Les opérations que nous allons effectuer
 
@@ -36,6 +36,7 @@ Ce tutoriel présente les [connexions hybrides Azure Relay](relay-what-is-it.md#
 4. Écrire une application de console de client pour envoyer des messages.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 1. [Node.js](https://nodejs.org/en/).
 2. Un abonnement Azure.
