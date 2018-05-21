@@ -1,73 +1,167 @@
 ---
-title: Surveiller les connexions réseau avec Azure Network Watcher - Portail Azure | Microsoft Docs
-description: Apprenez à surveiller la connectivité réseau avec Azure Network Watcher à l’aide du portail Azure.
+title: Tutoriel sur la surveillance de la communication réseau - Portail Azure | Microsoft Docs
+description: Découvrez comment surveiller la communication réseau entre deux machines virtuelles à l’aide de la fonctionnalité de surveillance de connexion Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
+tags: azure-resource-manager
+Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 04/27/2018
 ms.author: jdial
-ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: mvc
+ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Surveiller les connexions réseau avec Azure Network Watcher à l’aide du portail Azure
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
-Découvrez comment utiliser le contrôle de la connexion pour surveiller la connectivité réseau entre une machine virtuelle Azure et une adresse IP. Le contrôle de la connexion assure la surveillance entre les ports et les adresses IP source et de destination. Le contrôle de la connexion permet des scénarios tels que l’analyse de la connectivité d’une machine virtuelle d’un réseau virtuel à une machine virtuelle exécutant SQL Server dans un réseau virtuel identique ou différent, sur le port 1433. Le contrôle de la connexion fournit la latence de la connexion en tant que métrique Azure Monitor, enregistrée toutes les 60 secondes. Il fournit également une topologie tronçon par tronçon et identifie les problèmes de configuration ayant un impact sur votre connexion.
+Il peut être essentiel pour votre organisation que la communication soit efficace entre une machine virtuelle et un point de terminaison comme une autre machine virtuelle. Parfois, des modifications de configuration sont introduites et mettent en péril cette communication. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
-## <a name="prerequisites"></a>Prérequis
+> [!div class="checklist"]
+> * Créer deux machines virtuelles
+> * Surveiller la communication entre des machines virtuelles avec la fonctionnalité de surveillance de connexion de Network Watcher
+> * Diagnostiquer un problème de communication entre deux machines virtuelles et apprendre à le résoudre
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Vous devez respecter les prérequis suivants avant d’effectuer les étapes décrites dans cet article :
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-* Une instance de Network Watcher dans la région pour laquelle vous voulez surveiller une connexion. Si vous n’en avez pas déjà une, vous pouvez en créer une en suivant les étapes indiquées dans [Créer une instance Azure Network Watcher](network-watcher-create.md).
-* Une machine virtuelle à partir de laquelle procéder au contrôle. Pour découvrir comment créer une machine virtuelle, consultez les articles relatifs à la création d’une machine virtuelle [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-* Avoir installé l’extension `AzureNetworkWatcherExtension` dans la machine virtuelle dont vous souhaitez effectuer la surveillance d’une connexion. Pour installer l’extension dans une machine virtuelle Windows, consultez [Extension de machine virtuelle Agent Azure Network Watcher pour Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) et pour l’installer dans une machine virtuelle Linux, consultez [Extension de machine virtuelle Agent Azure Network Watcher pour Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). L’extension n’est pas requise sur le point de terminaison de destination que vous souhaitez surveiller.
+Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure 
+## <a name="create-vms"></a>Créer des machines virtuelles
 
-Connectez-vous au [Portail Azure](http://portal.azure.com).
+Créez deux machines virtuelles.
+
+### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
+
+1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+2. Sélectionnez **Compute**, puis un système d’exploitation. Dans ce tutoriel, **Windows Server 2016 Datacenter** est utilisé.
+3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
+
+    |Paramètre|Valeur|
+    |---|---|
+    |NOM|myVm1|
+    |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Abonnement| Sélectionnez votre abonnement.|
+    |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
+    |Lieu| Sélectionnez **Est des États-Unis**.|
+
+4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
+5. Sous **Paramètres**, sélectionnez **Extensions**. Sélectionnez **Ajouter une extension**, puis **Agent Network Watcher pour Windows**, comme l’illustre l’image suivante :
+
+    ![Extension Agent Network Watcher](./media/connection-monitor/nw-agent-extension.png)
+
+6. Sous **Agent Network Watcher pour Windows**, sélectionnez **Créer**, sous **Installer l’extension**, sélectionnez **OK**, puis sous **Extensions**, sélectionnez **OK**.
+7. Acceptez les valeurs par défaut des autres **paramètres**, puis sélectionnez **OK**.
+8. Sous **Créer** dans le **résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
+
+### <a name="create-the-second-vm"></a>Créer la seconde machine virtuelle
+
+Réeffectuez les étapes indiquées dans [Créer la première machine virtuelle](#create-the-first-vm), avec les modifications suivantes :
+
+|Étape|Paramètre|Valeur|
+|---|---|---|
+| 1 | Sélectionnez **Machine virtuelle Ubuntu Server 17.10**. |                                                                         |
+| 3 | NOM                              | myVm2                                                                   |
+| 3 | Type d'authentification               | Collez votre clé publique SSH ou sélectionnez **Mot de passe**, puis entrez un mot de passe. |
+| 3 | Groupe de ressources                    | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.                 |
+| 6. | Extensions                        | **Agent réseau pour Linux**                                             |
+
+Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Attendez la fin du déploiement de la machine virtuelle avant d’effectuer les étapes restantes.
 
 ## <a name="create-a-connection-monitor"></a>Créer un moniteur de connexion
 
-Les étapes suivantes permettent de contrôler la connexion à une machine virtuelle de destination sur les ports 80 et 1433 :
+Créez un moniteur de connexion pour surveiller la communication sur le port TCP 22 entre *myVm1* et *myVm2*.
 
 1. Dans la partie gauche du portail, sélectionnez **Tous les services**.
 2. Entrez *network watcher* dans la zone **Filtre**. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 3. Sous **SURVEILLANCE**, sélectionnez **Contrôle de la conversion**.
 4. Sélectionnez **Ajouter**.
-5. Entrez ou sélectionnez les informations appropriées à la connexion à contrôler, puis sélectionnez **Ajouter**. Dans l’exemple illustré dans l’image suivante, la connexion contrôlée est établie entre la machine virtuelle *MultiTierApp0* et la machine virtuelle *Database0* via le port 80 :
+5. Entrez ou sélectionnez les informations appropriées à la connexion à contrôler, puis sélectionnez **Ajouter**. Dans l’exemple illustré par l’image suivante, la connexion surveillée est celle entre la machine virtuelle *myVm1* et la machine virtuelle *myVm2* sur le port 22 :
+
+    | Paramètre                  | Valeur               |
+    | ---------                | ---------           |
+    | NOM                     | myVm1-myVm2(22)     |
+    | Source                   |                     |
+    | Machine virtuelle          | myVm1               |
+    | Destination              |                     |
+    | Sélectionnez une machine virtuelle |                     |
+    | Machine virtuelle          | myVm2               |
+    | Port                     | 22                  |
 
     ![Ajouter un contrôle de la connexion](./media/connection-monitor/add-connection-monitor.png)
 
-    La surveillance commence. Le moniteur de connexion procède à un sondage toutes les 60 secondes.
-6. Effectuez de nouveau l’étape 5 en spécifiant les mêmes machines virtuelles source et de destination, ainsi que les valeurs suivantes :
-    
-    |Paramètre  |Valeur          |
-    |---------|---------      |
-    |NOM     | AppToDB(1433) |
-    |Port     | 1433          |
+## <a name="view-a-connection-monitor"></a>Afficher un moniteur de connexion
 
-## <a name="view-connection-monitoring"></a>Afficher le contrôle de la connexion
+1. Effectuez les étapes 1 à 3 dans [Créer un contrôle de la connexion](#create-a-connection-monitor) pour afficher le contrôle de la connexion. La liste des moniteurs de connexion existants apparaît comme l’illustre l’image suivante :
 
-1. Effectuez les étapes 1 à 3 dans [Créer un contrôle de la connexion](#create-a-connection-monitor) pour afficher le contrôle de la connexion.
-2. L’image suivante affiche les détails de la connexion *AppToDB(80)*. L’**État** est accessible. L’**Affichage graphique** montre le **temps d’aller-retour moyen** et le **% d’échecs des sondes**. Le graphique fournit des informations tronçon par tronçon et indique qu’aucun problème n’impacte l’accessibilité de la destination.
+    ![Moniteurs de connexion](./media/connection-monitor/connection-monitors.png)
 
-    ![Affichage du graphique](./media/connection-monitor/view-graph.png)
+2. Sélectionnez le moniteur qui porte le nom **myVm1-myVm2(22)**, comme l’illustre l’image précédente, pour en voir les détails, comme l’illustre l’image suivante :
 
-3. L’affichage de la connexion *AppToDB(1433)*, illustrée dans l’image suivante, indique que pour les mêmes machines virtuelles source et de destination, l’état est inaccessible sur le port 1433. La **Vue de grille** dans ce scénario fournit les informations tronçon par tronçon et le problème ayant un impact sur l’accessibilité. Dans ce cas, une règle du Groupe de sécurité réseau bloque tout le trafic sur le port 1433 sur le second tronçon.
+    ![Détails du moniteur](./media/connection-monitor/vm-monitor.png)
 
-    ![Affichage de grille](./media/connection-monitor/view-grid.png)
+    Notez les informations suivantes :
+
+    | Item                     | Valeur                      | Détails                                                     |
+    | ---------                | ---------                  |--------                                                     |
+    | Statut                   | Accessible                  | Vous permet de savoir si le point de terminaison est accessible ou non.|
+    | DURÉE MOY. DES BOUCLES          | Vous indique la durée des boucles pour établir la connexion, en millisecondes. Le moniteur de connexion sonde la connexion toutes les 60 secondes, pour que vous puissiez surveiller la latence au fil du temps.                                         |
+    | Hops                     | Le moniteur de connexion vous indique les tronçons entre les deux points de terminaison. Dans cet exemple, la connexion est établie entre deux machines virtuelles du même réseau virtuel, donc il n’y a qu’un seul tronçon, à l’adresse IP 10.0.0.5. S’il existe un système ou des itinéraires personnalisés qui acheminent le trafic entre les machines virtuelles par le biais d’une passerelle VPN ou d’une appliance de réseau virtuel, par exemple, d’autres tronçons sont répertoriés.                                                                                                                         |
+    | STATUT                   | Les coches vertes de chaque point de terminaison vous indiquent qu’il est sain.    ||
+
+## <a name="view-a-problem"></a>Voir un problème
+
+Par défaut, Azure permet la communication sur tous les ports entre les machines virtuelles du même réseau virtuel. Au fil du temps, une personne de votre organisation ou vous-même pouvez remplacer les règles par défaut d’Azure, par inadvertance, et ainsi entraîner un échec de communication. Procédez comme suit pour créer un problème de communication, puis reconsultez le moniteur de connexion :
+
+1. Dans la zone de recherche située en haut du portail, entrez *myResourceGroup*. Quand le groupe de ressources **myResourceGroup** apparaît dans les résultats de recherche, sélectionnez-le.
+2. Sélectionnez le groupe de sécurité réseau **myVm2-nsg**.
+3. Sélectionnez **Règles de sécurité de trafic entrant**, puis **Ajouter**, comme l’illustre l’image suivante :
+
+    ![Règles de sécurité de trafic entrant](./media/connection-monitor/inbound-security-rules.png)
+
+4. La règle par défaut qui autorise la communication entre toutes les machines virtuelles d’un réseau virtuel porte le nom **AllowVnetInBound**. Créez une règle avec une priorité supérieure (numéro inférieur) à la règle **AllowVnetInBound** qui refuse les communications entrantes sur le port 22. Sélectionnez ou entrez les informations suivantes, acceptez les valeurs par défaut restantes, puis sélectionnez **Ajouter** :
+
+    | Paramètre                 | Valeur          |
+    | ---                     | ---            |
+    | Plages de ports de destination | 22             |
+    | Action                  | Deny           |
+    | Priorité                | 100            |
+    | NOM                    | DenySshInbound |
+
+5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)**. Les résultats sont à présent différents, comme l’illustre l’image suivante :
+
+    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault .png)
+
+    Vous pouvez voir que la colonne d’état contient un point d’exclamation rouge pour l’interface réseau **myvm2529**.
+
+6. Pour découvrir pourquoi l’état a changé, sélectionnez 10.0.0.5, dans l’image précédente. Le moniteur de connexion vous informe que la raison de l’échec de communication est : *Trafic bloqué en raison de la règle de groupe de sécurité réseau suivante : UserRule_DenySshInbound*.
+
+    Si vous ne saviez pas que quelqu’un avait implémenté la règle de sécurité que vous avez créée à l’étape 4, vous apprendriez du moniteur de connexion que cette règle est la cause du problème de communication. Vous pourriez alors la modifier, la remplacer ou la supprimer pour rétablir la communication entre les machines virtuelles.
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que toutes les ressources qu’il contient :
+
+1. Entrez *myResourceGroup* dans le champ **Recherche** en haut du portail. Quand **myResourceGroup** apparaît dans les résultats de la recherche, sélectionnez-le.
+2. Sélectionnez **Supprimer le groupe de ressources**.
+3. Entrez *myResourceGroup* dans **TAPER NOM DU GROUPE DE RESSOURCES :** puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en [créant une capture de paquets déclenchée par alerte](network-watcher-alert-triggered-packet-capture.md).
-- Déterminez si certains types de trafic sont autorisés au sein ou en dehors de votre machine virtuelle en [vérifiant le flux IP](diagnose-vm-network-traffic-filtering-problem.md).
+Dans ce tutoriel, vous avez appris à surveiller une connexion entre deux machines virtuelles. Vous avez appris qu’une règle de groupe de sécurité réseau empêchait la communication avec une machine virtuelle. Pour connaître toutes les différentes réponses qu’un moniteur de connexion peut retourner, consultez les [types de réponse](network-watcher-connectivity-overview.md#response). Vous pouvez également surveiller une connexion entre une machine virtuelle, un nom de domaine complet, un URI ou une adresse IP.
+
+À un moment donné, vous constaterez peut-être que les ressources d’un réseau virtuel ne sont pas en mesure de communiquer avec celles d’autres réseaux connectés par une passerelle de réseau virtuel Azure. Passez au tutoriel suivant pour apprendre à diagnostiquer un problème lié à une passerelle de réseau virtuel.
+
+> [!div class="nextstepaction"]
+> [Diagnostiquer des problèmes de communication entre réseaux](diagnose-communication-problem-between-networks.md)

@@ -1,6 +1,6 @@
 ---
 title: Diagnostics et surveillance des performances pour les acteurs | Microsoft Docs
-description: "Cet article décrit les fonctionnalités de diagnostic et de surveillance des performances dans le runtime Reliable Actors de Service Fabric, notamment les événements et les compteurs de performances émis par celui-ci."
+description: Cet article décrit les fonctionnalités de diagnostic et de surveillance des performances dans le runtime Reliable Actors de Service Fabric, notamment les événements et les compteurs de performances émis par celui-ci.
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 5fbef8a3fb32f4bc47856ef6c6b459ae389dd541
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostics et surveillance des performances pour Reliable Actors
 Le runtime Reliable Actors émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) et les [compteurs de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Ils fournissent des informations sur le fonctionnement du runtime et permettent de résoudre les problèmes et de surveiller les performances.
@@ -148,8 +148,8 @@ Le runtime Reliable Actors émet les événements suivants liés à l' [activati
 
 | Nom de l'événement | ID de l’événement | Level | Mot clé | Description |
 | --- | --- | --- | --- | --- |
-| ActorActivated |5 |Informations |0x1 |Un acteur a été activé. |
-| ActorDeactivated |6 |Informations |0x1 |Un acteur a été désactivé. |
+| ActorActivated |5. |Informations |0x1 |Un acteur a été activé. |
+| ActorDeactivated |6. |Informations |0x1 |Un acteur a été désactivé. |
 
 Le runtime Reliable Actors publie les compteurs de performances suivants liés à l’activation et à la désactivation d'acteur.
 
