@@ -1,11 +1,11 @@
 ---
-title: "Ajouter une API manuellement à l’aide du portail Azure | Microsoft Docs"
+title: Ajouter une API manuellement à l’aide du portail Azure | Microsoft Docs
 description: Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour ajouter une API manuellement.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 9426839f88daece1bb688a2079b7854ccaebdc57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement 
 
@@ -27,16 +27,17 @@ Si vous souhaitez importer une API existante, consultez la section [Rubriques co
 
 Dans cet article, nous créons une API vide et spécifions [httpbin.org](http://httpbin.org) (un service de test public) en tant qu’API de serveur principal.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-Effectuez le démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+
+Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-an-api"></a>Création d'une API
 
 1. Sélectionnez **API** sous **Gestion des API**.
-2. Dans le menu de gauche, cliquez sur **+ Ajouter l’API**.
+2. Dans le menu de gauche, cliquez sur **Ajouter l’API**.
 3. Sélectionnez **API vide** dans la liste.
 
     ![API vide](media/add-api-manually/blank-api.png)
@@ -47,10 +48,10 @@ Effectuez le démarrage rapide suivant : [Créer une instance du service Gestion
     |**Name**|**Valeur**|**Description**|
     |---|---|---|
     |**Nom complet**|« *API vide* » |Ce nom s’affiche dans le portail des développeurs.|
-    |**URL du service Web** (facultatif)| « *http://httpbin.org* »| Si vous souhaitez simuler une API, vous pouvez ne rien entrer. <br/>Ici, nous entrons [http://httpbin.org](http://httpbin.org). Il s’agit d’un service de test public. <br/>Si vous souhaitez importer une API qui est mappée à un serveur principal automatiquement, consultez l’une des rubriques dans la section [Rubriques connexes](#related-topics).|
+    |**URL du service Web** (facultatif)| "*http://httpbin.org*"| Si vous souhaitez simuler une API, vous pouvez ne rien entrer. <br/>Dans ce cas, nous entrons [http://httpbin.org](http://httpbin.org). Il s’agit d’un service de test public. <br/>Si vous souhaitez importer une API qui est mappée à un serveur principal automatiquement, consultez l’une des rubriques dans la section [Rubriques connexes](#related-topics).|
     |**Modèle d’URL**|« *HTTPS* »|Ici, même si le serveur principal a un accès HTTP non sécurisé, nous spécifions un accès APIM HTTPS sécurisé au serveur principal. <br/>Ce type de scénario (HTTPS vers HTTP) est appelé arrêt du protocole HTTPS. Vous pouvez le faire si votre API existe dans un réseau virtuel (dans lequel vous savez que l’accès est sécurisé même si HTTPS n’est pas utilisé). <br/>Vous souhaiterez peut-être utiliser « l’arrêt du protocole HTTPS » pour effectuer un enregistrement sur des cycles de processeur.|
     |**URL suffix** (Suffixe de l’URL)|« *hbin* »| Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.|
-    |**Produits**|« *Illimité* » |Publiez l’API en l’associant à un produit. Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.<br/><br/>Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs par le biais du portail des développeurs. <br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API dans ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.<br/><br/> Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits : **Starter** et **Illimité**.| 
+    |**Produits**|« *Illimité* » |Publiez l’API en l’associant à un produit. Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.<br/><br/>Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.<br/><br/> Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits : **Starter** et **Illimité**.| 
 5. Sélectionnez **Créer**.
 
 À ce stade, vous ne disposez d’aucune opération dans APIM qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas via l’APIM, vous obtenez une erreur **404**. 
@@ -61,7 +62,7 @@ Effectuez le démarrage rapide suivant : [Créer une instance du service Gestion
 
 ## <a name="add-and-test-an-operation"></a>Ajouter et tester une opération
 
-Cette section montre comment ajouter une opération « /get » afin de la mapper à l’opération « http://httpbin.org/get » du serveur principal.
+Cette section montre comment ajouter une opération « /get » afin de la mapper sur l’opération « http://httpbin.org/get » du serveur backend.
 
 ### <a name="add-the-operation"></a>Ajouter l’opération
 
@@ -79,11 +80,11 @@ Testez l’opération dans le portail Azure. Vous pouvez également la tester da
 2. Sélectionnez **FetchData**.
 3. Appuyez sur **Envoyer**.
 
-La réponse que l’opération « http://httpbin.org/get » génère s’affiche. Si vous souhaitez transformer vos opérations, consultez [Transform and protect your API](transform-api.md) (Transformer et protéger votre API).
+La réponse que l’opération « http://httpbin.org/get » génère s’affiche. Si vous souhaitez transformer vos opérations, consultez [Transform and protect your API](transform-api.md) (Transformer et protéger votre API).
 
 ## <a name="add-and-test-a-parameterized-operation"></a>Ajouter et tester une opération paramétrable
 
-Cette section montre comment ajouter une opération qui accepte un paramètre. Ici, nous mappons l’opération à « http://httpbin.org/status/200 ».
+Cette section montre comment ajouter une opération qui accepte un paramètre. Dans ce cas, nous mappons l’opération sur « http://httpbin.org/status/200 ».
 
 ### <a name="add-the-operation"></a>Ajouter l’opération
 
@@ -101,7 +102,7 @@ Testez l’opération dans le portail Azure.  Vous pouvez également la tester d
 2. Sélectionnez **GetStatus**. Par défaut, la valeur de code est définie sur « *200* ». Vous pouvez la modifier pour tester d’autres valeurs. Par exemple, tapez « *418* ».
 3. Appuyez sur **Envoyer**.
 
-    La réponse que l’opération « http://httpbin.org/status/200 » génère s’affiche. Si vous souhaitez transformer vos opérations, consultez [Transform and protect your API](transform-api.md) (Transformer et protéger votre API).
+    La réponse que l’opération « http://httpbin.org/status/200 » génère s’affiche. Si vous souhaitez transformer vos opérations, consultez [Transform and protect your API](transform-api.md) (Transformer et protéger votre API).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

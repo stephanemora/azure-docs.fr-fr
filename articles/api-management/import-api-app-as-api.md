@@ -1,11 +1,11 @@
 ---
-title: "Importer une application API en tant qu’API avec le portail Azure | Microsoft Docs"
-description: "Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour importer une application API en tant qu’API."
+title: Importer une application API en tant qu’API avec le portail Azure | Microsoft Docs
+description: Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour importer une application API en tant qu’API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: d0e1aa6763d96b5a84bbc5fba7dcae690c051eb3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importer une application API en tant qu’API
 
@@ -30,10 +30,11 @@ Dans cet article, vous apprendrez comment :
 > * Tester l’API dans le portail Azure
 > * Tester l’API dans le portail des développeurs
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-+ Effectuez le démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
-+ Assurez-vous que votre abonnement contient une application API. Pour plus d’informations, consultez [App Service Documentation][https://docs.microsoft.com/azure/app-service/]
+
++ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Assurez-vous que votre abonnement contient une application API. Pour plus d’informations, consultez [Documentation App Service][https://docs.microsoft.com/azure/app-service/]
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,7 +51,7 @@ Dans cet article, vous apprendrez comment :
 5. Ajoutez un suffixe d’URL d’API. Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.
 6. Publiez l’API en l’associant à un produit. Dans ce cas, le produit « *Illimité* » est utilisé.  Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.
 
-    Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs par le biais du portail des développeurs. Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API dans ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.
+    Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.
 
     Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
 
@@ -93,4 +94,4 @@ Vous pouvez également appeler des opérations depuis le **portail des développ
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Transformer et protéger une API publiée](transform-api.md)
+> [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)

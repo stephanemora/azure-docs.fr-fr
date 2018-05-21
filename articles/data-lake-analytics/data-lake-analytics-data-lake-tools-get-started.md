@@ -1,5 +1,5 @@
 ---
-title: Développer des scripts U-SQL à l’aide de Data Lake Tools pour Visual Studio | Microsoft Docs
+title: Prise en main d’Azure Data Lake Analytics à l’aide de Visual Studio | Microsoft Docs
 description: Découvrez comment installer Data Lake Tools pour Visual Studio et développer et tester des scripts U-SQL.
 services: data-lake-analytics
 documentationcenter: ''
@@ -12,19 +12,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/28/2017
+ms.date: 05/02/2018
 ms.author: saveenr, yanacai
-ms.openlocfilehash: b94c035083a00867139b6c58bc8b2ded08e970b0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d0974e3258e0def09fe12d348180dcedf216401c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Développer des scripts U-SQL à l’aide des outils Data Lake pour Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
 Découvrez comment utiliser Visual Studio pour créer des comptes Azure Data Lake Analytics, définir des travaux dans [U-SQL](data-lake-analytics-u-sql-get-started.md) et envoyer des travaux au service Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
+
+>[!IMPORTANT]
+>
+>En prévision du nouveau Règlement général sur la protection des données (RGPD) qui entrera en vigueur le 25 mai 2018, il est recommandé que les utilisateurs d’Azure Data Lake Tools pour Visual Studio passent à la version 2.3.3000.4 ou une version ultérieure. Cette version inclut des modifications basées sur des exigences de protection des données plus récentes. Notez que les versions précédentes ne sont plus disponibles au téléchargement et sont dépréciées. 
+>
+>**Que dois-je faire ?**
+>
+>1. Veillez à utiliser une version d’Azure Data Lake Tools pour Visual Studio antérieure à 2.3.3000.4. 
+>   
+>   ![Vérifier la version de l’outil](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-about-data-lake.png)
+> 
+>2. Si votre version est antérieure à 2.3.3000.4, mettez à jour Azure Data Lake Tools pour Visual Studio par le biais du centre de téléchargement : 
+>    - [Pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Pour Visual Studio 2013 et 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
 
 ## <a name="prerequisites"></a>Prérequis

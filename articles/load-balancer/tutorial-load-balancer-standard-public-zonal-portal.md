@@ -1,29 +1,41 @@
 ---
-title: Équilibrer la charge de machines virtuelles à l’intérieur d’une zone - Portail Azure | Microsoft Docs
-description: Créer un équilibreur de charge standard avec frontend zonal pour équilibrer la charge de machines virtuelles dans une zone de disponibilité à l’aide du portail Azure
+title: 'Didacticiel : équilibrer la charge de machines virtuelles à l’intérieur d’une zone - Portail Azure | Microsoft Docs'
+description: Ce didacticiel montre comment créer un équilibreur de charge standard avec frontend zonal pour équilibrer la charge de machines virtuelles dans une zone de disponibilité à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 41a33436cb0d2c4c2bbfef4888bb704c62e2b91e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: mvc
+ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
+# <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Didacticiel : équilibrer la charge de machines virtuelles dans une zone de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
-Cet article décrit les étapes de création d’un [équilibreur de charge standard](https://aka.ms/azureloadbalancerstandard) public avec un frontend zonal utilisant une adresse IP publique standard dans le portail Azure. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
+Ce didacticiel décrit les étapes de création d’un [équilibreur de charge standard](https://aka.ms/azureloadbalancerstandard) public avec un frontend zonal utilisant une adresse IP publique standard dans le portail Azure. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique. Vous allez apprendre à effectuer les actions suivantes :
+
+> [!div class="checklist"]
+> * Créer un équilibreur de charge standard Azure Load Balancer avec un frontend zonal
+> * Créer des groupes de sécurité réseau pour définir des règles applicables au trafic entrant
+> * Créer des machines virtuelles zonales et les attacher à un équilibreur de charge
+> * Créer une sonde d’intégrité d’équilibreur de charge
+> * Créer des règles de trafic pour l’équilibrage de charge
+> * Créer un site IIS de base
+> * Afficher un équilibrage de charge en action
+
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec un équilibreur de charge standard, voir [Équilibreur de charge standard et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
 Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure CLI](load-balancer-standard-public-zonal-cli.md).
