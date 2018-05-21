@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : intégration d’Azure Active Directory avec Learning Seat LMS | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Learning Seat LMS."
+title: 'Didacticiel : intégration d’Azure Active Directory avec Learning Seat LMS | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Learning Seat LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 478bd4fdc23b1f9944237bbf97c7454a8d30e6bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38b9f017fee4cf0d6905bb20848145386ac6df2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Didacticiel : intégration d’Azure Active Directory à Learning Seat LMS
 
@@ -27,11 +27,12 @@ L’intégration de Learning Seat LMS dans Azure AD vous offre les avantages sui
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Learning Seat LMS
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Learning Seat LMS (via l’authentification unique) avec leurs comptes Azure AD
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Learning Seat LMS, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Learning Seat LMS à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Learning Seat LMS à Azure AD, vous devez a
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, entrez **Learning Seat LMS**.
 
@@ -85,10 +86,10 @@ Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme val
 
 Pour configurer et tester l'authentification unique Azure AD avec Learning Seat LMS, vous devez suivre les blocs élémentaires suivants :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Learning Seat LMS](#creating-a-learnconnect-test-user)** : pour avoir un équivalent de Britta Simon dans Learning Seat LMS lié à la représentation de l’utilisateur Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -99,15 +100,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Learning Seat LMS**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
 
 3. Dans la section **Domaines et URL Learning Seat LMS**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.learningseatlms.com`
 
@@ -115,7 +116,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.learningseatlms.com`
      
@@ -124,11 +125,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
 
 7. Pour configurer l’authentification unique du côté de **Learning Seat LMS**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Learning Seat](http://help.learningseatlms.com/help).
 
@@ -165,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-learning-seat-lms-test-user"></a>Création d’un utilisateur de test Learning Seat LMS
 
@@ -185,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Learning Seat LMS**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -210,7 +211,7 @@ Lorsque vous cliquez sur la vignette Learning Seat LMS dans le volet d’accès,
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

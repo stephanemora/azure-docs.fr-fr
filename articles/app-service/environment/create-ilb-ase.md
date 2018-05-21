@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 72ba97727fd4de1c419091475f14427065790cc7
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -244,7 +244,7 @@ Pour en savoir plus sur la configuration de votre ASE ILB avec un dispositif WA
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

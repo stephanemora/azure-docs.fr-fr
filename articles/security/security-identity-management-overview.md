@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fournit une authentification unique à des milliers d’applications cloud (SaaS) et assure un accès aux applications web que vous exécutez en local.
@@ -56,7 +56,7 @@ Non seulement les utilisateurs n’ont plus besoin de gérer plusieurs noms d’
 En savoir plus :
 
 * [Présentation de l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Intégrer l’authentification unique Azure Active Directory aux applications SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy inversé

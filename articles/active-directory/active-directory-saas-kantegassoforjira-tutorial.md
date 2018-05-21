@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kantega SSO pour JIRA."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kantega SSO pour JIRA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: dd3c97a753b67ab27033d32c3990c9b096287069
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 26fba3a5f6dc0d4887ea631390524a1327d15809
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA
 
@@ -27,11 +27,12 @@ L’intégration de Kantega SSO pour JIRA avec Azure AD offre les avantages suiv
 
 - Vous pouvez contrôler dans Azure AD qui a accès à Kantega SSO pour JIRA.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Kantega SSO pour JIRA (authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Kantega SSO pour JIRA, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Kantega SSO pour JIRA à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Kantega SSO pour JIRA dans Azure AD, vous de
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Kantega SSO pour JIRA**.
 
@@ -89,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Kantega SSO
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Kantega SSO pour JIRA](#creating-a-kantega-sso-for-jira-test-user)** pour avoir un équivalent de Britta Simon dans Kantega SSO pour JIRA qui soit lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Sur le portail Azure, dans la page d’intégration de l’application **Kantega SSO pour JIRA**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_samlbase.png)
 
 3. En mode initié **IDP**, dans la section **Domaine et URL Kantega SSO pour JIRA**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -116,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. En mode initié **SP**, activez **Afficher les paramètres d’URL avancés**, puis procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -125,49 +126,49 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_400.png)
     
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre serveur local JIRA en tant qu’administrateur.
 
 8. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon1.png)
 
 9. Sous l’onglet Modules complémentaires, cliquez sur **Find new add-ons** (Trouver de nouveaux modules complémentaires). Recherchez **Kantega SSO for JIRA (SAML & Kerberos)**, puis cliquez sur le bouton **Installer** pour installer le nouveau plug-in SAML.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon2.png)
 
 10. L’installation du plug-in démarre.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon3.png)
 
 11. Une fois l’installation terminée. Cliquez sur **Fermer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon33.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon33.png)
 
 12. Cliquez sur **Gérer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon34.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon34.png)
     
 13. Le nouveau plug-in est répertorié sous **INTÉGRATIONS**. Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon35.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon35.png)
 
 14. Dans la section **SAML**. Dans le menu déroulant **Ajouter le fournisseur d’identité**, sélectionnez **Azure Active Directory (Azure AD)**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon4.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon4.png)
 
 15. Sélectionnez le niveau d’abonnement **De base**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon5.png)     
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon5.png)     
 
 16. Dans la section **Propriétés de l’application**, procédez comme suit : 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon6.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon6.png)
 
     a. Copiez la valeur **URI ID d'application** et utilisez-la en tant que **Identifier, Reply URL, and Sign-On URL** (Identificateur, URL de réponse et URL de connexion) dans la section **Domaine et URL Kantega SSO pour JIRA** du portail Azure.
 
@@ -175,7 +176,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 17. Dans la section **Metadata import** (Importation des métadonnées), procédez comme suit : 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon7.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon7.png)
 
     a. Sélectionnez **Metadata file on my computer** (Fichier de métadonnées sur mon ordinateur), puis chargez le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
 
@@ -183,7 +184,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 18. Dans la section **Name and SSO location** (Nom et emplacement de l’authentification unique), procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon8.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon8.png)
     
     a. Ajoutez le nom du fournisseur d’identité dans la zone de texte **Identity provider name** (Nom du fournisseur d’identité) (par exemple, Azure AD).
 
@@ -191,11 +192,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 19. Vérifiez le certificat de signature, puis cliquez sur **Suivant**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon9.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon9.png)
 
 20. Dans la section **JIRA user accounts** (Comptes d’utilisateur JIRA), procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon10.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon10.png)
 
     a. Sélectionnez **Create users in JIRA’s internal Directory if needed** (Créer des utilisateurs dans l’annuaire interne de JIRA si nécessaire) et saisissez le nom de groupe approprié pour les utilisateurs (il peut s’agir de plusieurs groupes séparés par des virgules).
 
@@ -203,11 +204,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 21. Cliquez sur **Terminer**.   
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon11.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon11.png)
 
 22. Dans la section **Known domains for Azure AD** (Domaines connus pour Azure AD), procédez comme suit : 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon12.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon12.png)
 
     a. Sélectionnez **Known domains** (Domaines connus) dans le volet gauche de la page.
 
@@ -248,7 +249,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-kantega-sso-for-jira-test-user"></a>Création d’un utilisateur de test Kantega SSO pour JIRA
 
@@ -294,7 +295,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Kantega SSO pour JIRA**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -320,7 +321,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

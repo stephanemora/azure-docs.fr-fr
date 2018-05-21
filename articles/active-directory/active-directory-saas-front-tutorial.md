@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Front | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Front."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Front | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Front.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 96a091af6d8a29b2c6257087889d0c19825467b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cc4499043ed7fbff964549fe56ecee641f7eadf3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Didacticiel : Intégration d’Azure Active Directory avec Front
 
@@ -28,11 +28,12 @@ L’intégration de Front dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Front.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Front (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Front, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Front depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +85,10 @@ Dans Front, assignez la valeur de **nom d’utilisateur** dans Azure AD comme v
 
 Pour configurer et tester l’authentification unique Azure AD avec Front, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test Front](#create-a-front-test-user)** pour avoir un équivalent de Britta Simon dans Front lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -106,7 +107,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 3. Dans la section **Front Domain and URLs** (Domaine et URL Front), procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.frontapp.com`
 
@@ -117,15 +118,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
 6. Dans la section **Configuration de Front** , cliquez sur **Configurer Front** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
 7. Connectez-vous à votre client Front en tant qu’administrateur.
 
@@ -193,7 +194,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-front-test-user"></a>Créer un utilisateur de test Front
 
@@ -203,7 +204,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans F
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Front.
 
-![Attribuer le rôle d’utilisateur][200] 
+![Attribuer le rôle utilisateur][200] 
 
 **Pour affecter Britta Simon à Front, procédez comme suit :**
 
@@ -238,7 +239,7 @@ Lorsque vous cliquez sur la vignette Front dans le volet d’accès, vous devez 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

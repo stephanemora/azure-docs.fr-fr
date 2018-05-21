@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à CS Stars | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et CS Stars."
+title: 'Didacticiel : Intégration d’Azure Active Directory à CS Stars | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CS Stars.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 1f3ff326d2a8ac5118180b5da1b45fa9e94c4d8a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 567e9cf3a58a1a38dcc1288bd5c61db9aeb5fc41
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Didacticiel : Intégration d’Azure Active Directory avec CS Stars
 
@@ -27,11 +27,12 @@ L’intégration de CS Stars dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à CS Stars.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à CS Stars (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec CS Stars, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de CS Stars à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de CS Stars avec Azure AD, vous devez ajouter 
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, saisissez **CS Stars**.
 
@@ -89,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec CS Stars, v
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test CS Stars](#creating-a-cs-stars-test-user)** pour avoir un équivalent de Britta Simon dans CS Stars lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **CS Stars**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_samlbase.png)
 
 3. Dans la section **Domaine et URL CS Stars**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.csstars.com/enterprise/default.cmdx?ssoclient=<uniqueid>`
 
@@ -119,7 +120,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -161,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-cs-stars-test-user"></a>Création d’un utilisateur de test CS Stars
 
@@ -183,7 +184,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **CS Stars**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -208,7 +209,7 @@ Lorsque vous cliquez sur la vignette CS Stars dans le volet d’accès, vous dev
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

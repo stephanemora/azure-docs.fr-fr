@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Fuze | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Fuze."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Fuze | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Fuze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 436fa7d8532d55d3a285917b278fd0adeab7fd7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 18379b26a52551c95ad8a8a5661f0adb76aa9497
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Didacticiel : Intégration d’Azure Active Directory avec Fuze
 
@@ -29,9 +29,10 @@ L’intégration de Fuze dans Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Fuze (par authentification unique) avec leur compte Azure AD
 - Vous pouvez gérer vos comptes de manière centralisée dans le portail de gestion Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Fuze, vous avez besoin des éléments suivants :
 
@@ -50,7 +51,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Fuze depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -67,11 +68,11 @@ Pour configurer l’intégration de Fuze avec Azure AD, vous devez ajouter Fuze
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Fuze**.
 
@@ -91,10 +92,10 @@ Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme va
 
 Pour configurer et tester l’authentification unique Azure AD avec Fuze, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Fuze](#creating-a-fuze-test-user)** pour avoir un équivalent de Britta Simon dans Fuze lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -105,25 +106,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail de gestion Azure, sur la page d’intégration de l’application **Fuze**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_01.png)
 
 3. Dans la section **Domaine et URL Fuze**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_020.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_020.png)
     
     Dans la zone de texte **URL de connexion**, tapez l’URL de connexion suivante : `https://www.thinkingphones.com/jetspeed/portal/`
 
 4.  Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-fuze-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-fuze-tutorial/tutorial_general_400.png)
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier xml sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_05.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_05.png) 
 
 6. Pour configurer l’authentification unique du côté **Fuze**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Fuze](https://www.fuze.com/support). Ils effectueront les réglages nécessaires pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -157,7 +158,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**. 
+    d. Cliquez sur **Créer**. 
 
 
 ### <a name="creating-a-fuze-test-user"></a>Création d’un utilisateur de test Fuze
@@ -172,13 +173,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Fuze, procédez comme suit :**
 
-1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires et à **Applications d’entreprise** puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **Fuze**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_50.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_50.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -205,7 +206,7 @@ Lorsque vous cliquez sur la vignette Fuze dans le volet d’accès, vous devez �
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

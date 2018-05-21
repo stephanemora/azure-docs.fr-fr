@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à MaxxPoint | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et MaxxPoint."
+title: 'Didacticiel : Intégration d’Azure Active Directory à MaxxPoint | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et MaxxPoint.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: b353573938f77455b62b4a0019ba6baf0665bac3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9368abc5694fc52b8cad2d5cc9faafecf853004d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Didacticiel : Intégration d’Azure Active Directory à MaxxPoint
 
@@ -29,9 +29,10 @@ L’intégration de MaxxPoint à Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à MaxxPoint (par le biais de l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes depuis un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à MaxxPoint, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de MaxxPoint à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -64,11 +65,11 @@ Pour configurer l’intégration de MaxxPoint à Azure AD, vous devez ajouter M
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter la nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **MaxxPoint**.
 
@@ -87,10 +88,10 @@ Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme va
 
 Pour configurer et tester l’authentification unique Azure AD avec MaxxPoint, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test MaxxPoint](#creating-a-maxxpoint-test-user)** pour avoir un équivalent de Britta Simon dans MaxxPoint lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -101,19 +102,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **MaxxPoint**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
 
 3. Dans la section **MaxxPoint Domain and URLs** (Domaines et URL MaxxPoint), si vous souhaitez configurer l’application en **IDP initiated mode** (Mode initié par IDP), vous n’avez aucune opération à effectuer.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_02.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_02.png)
     
 4. Dans la section **MaxxPoint Domain and URLs** (Domaines et URL MaxxPoint), si vous souhaitez configurer l’application en **SP initiated mode** (Mode initié par SP), procédez comme suit :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_03.png)
 
     a. Cliquez sur l’option **Afficher les paramètres d’URL avancés**.
 
@@ -124,11 +125,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png)
 
 7. Pour configurer SSO en fonction de votre application, appelez l’équipe d’assistance de MaxxPoint au **888-728-0950**. Elle vous expliquera comment procéder pour envoyer le fichier **Metadonnées XML** téléchargé. 
 
@@ -164,7 +165,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**. 
+    d. Cliquez sur **Créer**. 
 
 ### <a name="creating-a-maxxpoint-test-user"></a>Création d’un utilisateur de test MaxxPoint
 
@@ -184,7 +185,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **MaxxPoint**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_50.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_50.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -210,7 +211,7 @@ Lorsque vous cliquez sur la mosaïque MaxxPoint dans le volet d’accès, vous d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

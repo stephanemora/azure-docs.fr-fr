@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Mise en réseau Azure
 
@@ -120,7 +120,7 @@ L’illustration suivante montre une application multiniveau sur Internet qui ut
 
 Vous pouvez filtrer le trafic vers et à partir des ressources Azure à l’aide des options suivantes :
 
-- **Réseau :** vous pouvez implémenter des groupes de sécurité réseau Azure (NSG) pour filtrer le trafic entrant et sortant des ressources Azure. Chaque groupe de sécurité réseau contient une ou plusieurs règles de trafic entrant et sortant. Chaque règle spécifie les adresses IP source, les adresses IP de destination, le port et le protocole avec lequel le trafic est filtré. Les groupes de sécurité réseau peuvent être appliqués à des sous-réseaux individuels et des machines virtuelles individuelles. Pour en savoir plus sur les groupes de sécurité réseau, consultez l’article [Présentation des groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Réseau :** vous pouvez implémenter des groupes de sécurité réseau Azure (NSG) pour filtrer le trafic entrant et sortant des ressources Azure. Chaque groupe de sécurité réseau contient une ou plusieurs règles de trafic entrant et sortant. Chaque règle spécifie les adresses IP source, les adresses IP de destination, le port et le protocole avec lequel le trafic est filtré. Les groupes de sécurité réseau peuvent être appliqués à des sous-réseaux individuels et des machines virtuelles individuelles. Pour en savoir plus sur les groupes de sécurité réseau, consultez l’article [Présentation des groupes de sécurité réseau](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Application :** avec une passerelle Application Gateway et le pare-feu d’applications web, vous pouvez protéger vos applications web contre les vulnérabilités et failles. Des exemples courants sont les attaques par injection SQL, les scripts intersites et les en-têtes mal formés. Application Gateway filtre ce trafic et l’empêche d’atteindre vos serveurs web. Vous pouvez configurer les règles que vous souhaitez activer. La possibilité de configurer les stratégies de négociation SSL est fournie pour permettre de désactiver certaines stratégies. Pour en savoir plus sur le pare-feu d’applications web, consultez l’article [Pare-feu d’applications web](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 Si vous avez besoin d’une fonctionnalité réseau qu’Azure ne fournit pas, ou que vous souhaitez utiliser des applications réseau que vous utilisez en local, vous pouvez implémenter les produits dans les machines virtuelles et les connecter à votre réseau virtuel. La [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) contient plusieurs machines virtuelles différentes préconfigurées avec des applications réseau que vous utilisez peut-être actuellement. Ces machines virtuelles préconfigurées sont généralement appelées appliances virtuelles réseau (NVA). Les NVA sont disponibles avec des applications comme les pare-feu et l’optimisation du réseau étendu.

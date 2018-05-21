@@ -17,17 +17,18 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b18f568fdeead10fadad0e403ce0ca7fe4b3213a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne
 Vous pouvez télécharger votre facture à partir du [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou la faire envoyer par courrier électronique. Pour télécharger votre utilisation quotidienne, accédez au [Centre des comptes Azure](https://account.azure.com/Subscriptions). Seuls certains rôles (l’administrateur de compte par exemple) sont autorisés à obtenir les informations de facturation et d’utilisation. Pour en savoir plus sur l’accès aux informations de facturation, consultez [Manage access to Azure billing using roles](billing-manage-access.md) (Utiliser des rôles pour gérer l’accès à la facturation Azure).
 
->[!NOTE]
->Cet article ne s’applique pas aux clients Contrat Entreprise (EA). Si vous êtes client EA, vos factures sont directement envoyées aux administrateurs de l’inscription.
+Cet article ne s’applique pas aux clients Contrat Entreprise (EA). Si vous êtes client EA, vos factures sont directement envoyées aux administrateurs de l’inscription.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obtenir votre facture par e-mail (.pdf)
 Vous pouvez choisir de configurer des destinataires supplémentaires qui recevront votre facture Azure par e-mail. Cette fonctionnalité n’est peut-être pas disponible pour certains abonnements tels que les offres de support, les contrats Entreprise ou Azure dans Open.

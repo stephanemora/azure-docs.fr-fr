@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c5be53f06e009cb2d5180e43318c8670139a68db
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aa3366810a40b004fe510cb2909f8da0f3513ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Intégrer Azure Active Directory dans Palo Alto Networks - Admin UI
 
@@ -30,7 +30,7 @@ L’intégration d’Azure AD dans Palo Alto Networks - Admin UI vous offre les 
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Palo Alto Networks - Admin UI (via l’authentification unique ou SSO) avec leur compte Azure AD.
 - Vous pouvez centraliser la gestion de vos comptes à un seul emplacement : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS dans Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS dans Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -313,7 +313,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

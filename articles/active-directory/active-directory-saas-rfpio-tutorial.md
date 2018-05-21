@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à RFPIO | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et RFPIO."
+title: 'Didacticiel : Intégration d’Azure Active Directory à RFPIO | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RFPIO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 57bb448f1bb858d15a7ecaad5a9ba797f5d7d85e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 915b6f9c96bc8dbab54e770340acf795df92a3fb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Didacticiel : Intégration d’Azure Active Directory à RFPIO
 
@@ -29,9 +29,10 @@ L’intégration de RFPIO dans Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à RFPIO (par authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec RFPIO, vous avez besoin des éléments suivants :
 
@@ -63,11 +64,11 @@ Pour configurer l’intégration de RFPIO avec Azure AD, vous devez ajouter RFP
 
 2. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, saisissez **RFPIO**.
 
@@ -100,19 +101,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **RFPIO**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
 3. Dans la section **Domaines et URL RFPIO**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
 
     a. Dans la zone de texte **Identificateur**, saisissez l’URL : `https://www.rfpio.com`
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
 
     b. Cliquez sur **Afficher les paramètres d’URL avancés**.
 
@@ -120,39 +121,39 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** : 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url2.png)
 
     Dans la zone de texte **URL d’authentification**, saisissez l’URL : `https://www.app.rfpio.com`
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_general_400.png)
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous au site web **RFPIO** en tant qu’administrateur.
 
 8. Cliquez sur la liste déroulante située en bas à gauche.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
 9. Cliquez sur **Paramètres de l’organisation**. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
 10. Cliquez sur **FONCTIONNALITÉS ET INTÉGRATION**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app4.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app4.png)
 
 11. Dans **Configuration SAML SSO**, cliquez sur **Modifier**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app3.png)
 
 12. Dans cette section, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app5.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app5.png)
     
     a. Copiez le contenu du **fichier XML de métadonnées téléchargé** et collez-le dans le champ **Configuration de l’identité**.
 
@@ -198,7 +199,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-rfpio-test-user"></a>Créer un utilisateur de test RFPIO
 
@@ -211,23 +212,23 @@ Dans le cas de RFPIO, l’approvisionnement se fait manuellement.
 
 2. Cliquez sur la liste déroulante située en bas à gauche.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
 3. Cliquez sur **Paramètres de l’organisation**. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
 4. Cliquez sur **MEMBRES DE L’ÉQUIPE**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app6.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app6.png)
 
 5. Cliquez sur **AJOUTER DES MEMBRES**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app7.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app7.png)
 
 6. Dans la section **Ajouter de nouveaux membres**. Procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/app8.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app8.png)
 
     a. Entrez l’**adresse e-mail** dans le champ **Entrer une adresse e-mail par ligne**.
 
@@ -252,7 +253,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **RFPIO**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -278,7 +279,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur les procédures d’intégration des applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

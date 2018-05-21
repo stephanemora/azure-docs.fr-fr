@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: c41a1057bb87c70362477d221b69ca3f5137dec4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
@@ -162,7 +162,6 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir tous les paramètres de réseau virtuel et de sous-réseau, consultez [Gérer des réseaux virtuels](manage-virtual-network.md) et [Gérer les sous-réseaux virtuels](virtual-network-manage-subnet.md). Vous disposez de différentes options pour l’utilisation de réseaux virtuels et de sous-réseaux dans un environnement de production afin de répondre à différentes exigences.
-- Pour filtrer le trafic de sous-réseau entrant et sortant, créez des [groupes de sécurité réseau](virtual-networks-nsg.md) et appliquez-les à des sous-réseaux.
 - Créez une machine virtuelle [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou une machine virtuelle [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json), puis connectez-la à un réseau virtuel existant.
 - Pour connecter deux réseaux virtuels situés dans un même emplacement Azure, créez une [homologation de réseaux virtuels](create-peering-different-deployment-models.md) entre les réseaux virtuels. Vous pouvez apparier un réseau virtuel (Resource Manager) à un réseau virtuel (Classic), mais vous ne pouvez pas créer une homologation entre deux réseaux virtuels (Classic).
 - Connectez le réseau virtuel à un réseau local en utilisant un circuit [Passerelle VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

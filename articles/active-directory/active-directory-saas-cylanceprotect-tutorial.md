@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 406ff51e98e1816e1bd041d364313ee2a7b52ca3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Didacticiel : intégration d’Azure Active Directory à CylancePROTECT
 
@@ -30,7 +30,7 @@ L’intégration de CylancePROTECT à Azure AD vous offre les avantages suivants
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à CylancePROTECT (via l’authentification unique) avec leurs comptes Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -85,7 +85,7 @@ Pour configurer et tester l’authentification unique Azure AD avec CylancePROTE
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test CylancePROTECT](#create-a-cylanceprotect-test-user)** : pour avoir un équivalent de Britta Simon dans CylancePROTECT lié à la représentation Azure AD de l’utilisateur.
+3. **[Créer un utilisateur de test CylancePROTECT](#create-a-cylanceprotect-test-user)**  : pour avoir un équivalent de Britta Simon dans CylancePROTECT lié à la représentation Azure AD de l’utilisateur.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
@@ -220,7 +220,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

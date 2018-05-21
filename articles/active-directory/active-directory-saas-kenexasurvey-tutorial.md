@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : intégration d’Azure Active Directory à IBM Kenexa Survey Enterprise | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et IBM Kenexa Survey Enterprise."
+title: 'Didacticiel : intégration d’Azure Active Directory à IBM Kenexa Survey Enterprise | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IBM Kenexa Survey Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88e0072adeeebaf6c9e964db28a45f6fe038fddf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Didacticiel : intégration d’Azure Active Directory à IBM Kenexa Survey Enterprise
 
@@ -29,9 +29,10 @@ L’intégration du logiciel IBM Kenexa Survey Enterprise à Azure AD vous offre
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à IBM Kenexa Survey Enterprise en utilisant une authentification unique (SSO) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
-Pour plus d’informations sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour plus d’informations sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à IBM Kenexa Survey Enterprise, vous avez besoin des éléments suivants :
 
@@ -164,7 +165,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>Créer un utilisateur de test IBM Kenexa Survey Enterprise
 
@@ -176,7 +177,7 @@ Pour créer des utilisateurs dans le système IBM Kenexa Survey Enterprise et ma
 
 Dans cette section, vous allez autoriser l’utilisateur Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à IBM Kenexa Survey Enterprise.
 
-![Attribuer le rôle d’utilisateur][200] 
+![Attribuer le rôle utilisateur][200] 
 
 Pour affecter l’utilisateur Britta Simon à IBM Kenexa Survey Enterprise, procédez comme suit :
 
@@ -211,7 +212,7 @@ Lorsque vous cliquez sur la vignette **IBM Kenexa Survey Enterprise** dans le pa
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

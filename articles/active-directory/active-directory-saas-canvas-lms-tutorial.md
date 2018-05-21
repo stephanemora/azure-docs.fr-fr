@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Canvas Lms | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Canvas LMS."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Canvas Lms | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Canvas LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ae007ee34f1dc997db2d7ca8267ba2522e0eb687
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56fe4679448fec1db67f826ff70cf8768699e507
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Didacticiel : Intégration d’Azure Active Directory à Canvas LMS
 
@@ -27,11 +27,12 @@ L’intégration de Canvas dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Canvas
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Canvas (via l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Canvas, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Canvas à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Canvas à Azure AD, vous devez ajouter Canv
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Canvas**.
 
@@ -86,10 +87,10 @@ Dans Canvas, affectez la valeur du **nom d’utilisateur** indiquée dans Azure�
 
 Pour configurer et tester l’authentification unique Azure AD avec Canvas, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Canvas](#creating-a-canvas-test-user)** pour avoir dans Canvas un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Canvas**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
 
 3. Dans la section **Domaine et URL Canvas**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant-name>.instructure.com`
 
@@ -119,15 +120,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
  
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT** du certificat.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration Canvas**, cliquez sur **Configurer Canvas** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de modification de mot de passe, l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
  
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Canvas en tant qu’administrateur.
 
@@ -246,7 +247,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **Canvas**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -272,7 +273,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec Cisco Spark | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory Cisco Spark."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Cisco Spark | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory Cisco Spark.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c7ee96abacffc6599187ded9a5049cc3bf672e0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4307904e87bdf9a0361a7fb143e87ae3a662f18e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Didacticiel : Intégration d’Azure Active Directory avec Cisco Spark
 
@@ -27,11 +27,12 @@ L’intégration de Cisco Spark avec Azure AD offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Cisco Spark.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Cisco Spark (authentification unique) avec leurs comptes Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Cisco Spark, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Cisco Spark à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Cisco Spark à Azure AD, vous devez ajouter
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Cisco Spark**.
 
@@ -86,10 +87,10 @@ Dans Cisco Spark, assignez la valeur de **nom d’utilisateur** dans Azure AD c
 
 Pour configurer et tester l’authentification unique Azure AD avec Cisco Spark, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Cisco Spark](#creating-a-cisco-spark-test-user)** pour avoir un équivalent de Britta Simon dans Cisco Spark, lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Cisco Spark**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_samlbase.png)
 
 3. Dans la section **Domaine et URL Cisco Spark**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_url.png)
 
     a. Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://web.ciscospark.com/#/signin`
 
@@ -119,11 +120,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_certificate.png) 
 
 5. L’application Cisco Spark s’attend à ce que les assertions SAML contiennent des attributs spécifiques. Configurez les attributs suivants pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_07.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_07.png) 
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
@@ -133,9 +134,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_attribute_04.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -145,19 +146,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_general_400.png)
 
 8. Connectez-vous à [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) (Gestion de la collaboration dans le cloud Cisco) avec vos informations d’identification d’administrateur complètes.
 
 9. Sélectionnez **Settings** (Paramètres), puis, dans la section **Authentication** (Authentification), cliquez sur **Modify** (Modifier).
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_10.png)
     
 10. Sélectionnez **intégrer un fournisseur d’identité tiers. (Avancé)** et accédez à l’écran suivant.
 
 11. Dans la page **Import Idp Metadata** -(Importer les métadonnées Idp), glissez-déposez le fichier de métadonnées Azure AD sur la page, ou utilisez l’option d’explorateur de fichiers pour localiser et charger le fichier de métadonnées Azure AD. Ensuite, sélectionnez **Require certificate signed by a certificate authority in Metadata (more secure)** (Exiger un certificat signé par une autorité de certification dans les métadonnées (plus sûr)), puis cliquez sur **Next** (Suivant). 
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_11.png)
 
 12. Sélectionnez **Test SSO Connection** (Tester la connexion SSO), puis, quand un nouvel onglet de navigateur s’ouvre, et authentifiez-vous auprès d’Azure AD en vous connectant.
 
@@ -196,7 +197,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-cisco-spark-test-user"></a>Création d’un utilisateur de test Cisco Spark
 
@@ -206,13 +207,13 @@ Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Ci
 
 2. Cliquez sur **Utilisateurs**, puis sur **Gérer les utilisateurs**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
 
 3. Dans la fenêtre **Manage User** (Gérer l’utilisateur), sélectionnez **Manually add or modify users** (Ajouter ou modifier manuellement des utilisateurs), puis cliquez sur **Next** (Suivant).
 
 4. Sélectionnez **Names and Email address** (Noms et adresse de messagerie). Ensuite, complétez la zone de texte comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
     
     a. Dans la zone de texte **First Name**, tapez **Britta**. 
     
@@ -238,7 +239,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Cisco Spark**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -263,7 +264,7 @@ Lorsque vous cliquez sur la vignette Cisco Spark dans le volet d’accès, vous 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

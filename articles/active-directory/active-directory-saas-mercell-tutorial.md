@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 60432e18c9496ff6fc5431fcd7b73aa5f4c9696c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e83e7072415fddaa58c300b8acbfcad02da0cd95
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Didacticiel : Intégration d’Azure Active Directory à Mercell
 
@@ -30,7 +30,7 @@ L’intégration de Mercell à Azure AD vous offre les avantages suivants :
 - Vous pouvez permettre à vos utilisateurs de se connecter automatiquement à Mercell (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -109,7 +109,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     Dans la zone de texte **Identificateur**, tapez l’URL : `https://my.mercell.com/`
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton de copie pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
     
     ![Configure Single Sign-On](./media/active-directory-saas-mercell-tutorial/tutorial_metadataurl.png)
      
@@ -197,7 +197,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

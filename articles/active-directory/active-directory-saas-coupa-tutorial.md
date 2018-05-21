@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Coupa | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Coupa."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Coupa | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Coupa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 30149f181d8b0ebdc1ae6820da5d561f3a942fa3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3e87502cbcdb0eff4310ad154083c7682d752e13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Didacticiel : Intégration d’Azure Active Directory à Coupa
 
@@ -28,11 +28,12 @@ L’intégration de Coupa dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Coupa.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Coupa (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l'intégration d'Azure AD avec Coupa, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Coupa à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +85,10 @@ Dans Coupa, affectez la valeur du **nom d’utilisateur** dans Azure AD comme va
 
 Pour configurer et tester l'authentification unique Azure AD avec Coupa, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test Coupa](#create-a-coupa-test-user)** pour avoir un équivalent de Britta Simon dans Coupa lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -141,7 +142,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     c. Cliquez sur **Parcourir** pour charger les métadonnées téléchargées à partir du portail Azure.
     
-    d. Cliquez sur **Save**.
+    d. Cliquez sur **Enregistrer**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +194,7 @@ Pour se connecter à Coupa, les utilisateurs d’Azure AD doivent être approvis
    
    ![Utilisateurs](./media/active-directory-saas-coupa-tutorial/ic791908.png "Utilisateurs")
 
-3. Cliquez sur **Create**.
+3. Cliquez sur **Créer**.
    
    ![Create Users](./media/active-directory-saas-coupa-tutorial/ic791909.png "Create Users")
 
@@ -252,7 +253,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

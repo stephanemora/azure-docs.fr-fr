@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Prise en main de la sécurité de Microsoft Azure
 
@@ -136,7 +136,7 @@ Vous pouvez placer vos machines virtuelles sur les [réseaux virtuels Azure](htt
 
 Vous pouvez utiliser les technologies de réseau virtuel Azure ci-après pour contribuer à sécuriser les communications sur votre réseau virtuel :
 
-* [**Groupes de sécurité réseau (NSG)**](../virtual-network/virtual-networks-nsg.md). Vous pouvez utiliser un NSG pour contrôler le trafic vers une ou plusieurs instances de machine virtuelle dans votre réseau virtuel. Un groupe de sécurité réseau contient les règles de contrôle d’accès qui autorisent ou refusent le trafic en fonction de la direction du trafic, du protocole, de l’adresse et du port source ainsi que de l’adresse et du port de destination.
+* [**Groupes de sécurité réseau (NSG)**](../virtual-network/security-overview.md). Vous pouvez utiliser un NSG pour contrôler le trafic vers une ou plusieurs instances de machine virtuelle dans votre réseau virtuel. Un groupe de sécurité réseau contient les règles de contrôle d’accès qui autorisent ou refusent le trafic en fonction de la direction du trafic, du protocole, de l’adresse et du port source ainsi que de l’adresse et du port de destination.
 * [**Routage défini par l’utilisateur**](../virtual-network/virtual-networks-udr-overview.md). Vous pouvez contrôler le routage des paquets par le biais d’une appliance virtuelle en créant des itinéraires définis par l’utilisateur qui redirigent vers une appliance de sécurité de réseau virtuel le prochain tronçon de paquets circulant vers un sous-réseau spécifique.
 * [**Transfert IP**](../virtual-network/virtual-networks-udr-overview.md). Une appliance de sécurité de réseau virtuel doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous activez le transfert IP pour cette machine virtuelle.
 * [**Tunneling forcé**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet généré par vos machines virtuelles dans un réseau virtuel vers votre emplacement local par le biais d’un tunnel VPN site à site à des fins d’inspection et d’audit.

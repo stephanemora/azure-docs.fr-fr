@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Sequr | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sequr."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Sequr | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sequr.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 8a2984bc2c77e9d92d4236b01c21912c27e167f9
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f3e245f609d96cc247f10ef3c184b7fe1de53756
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Didacticiel : Intégration d’Azure Active Directory à Sequr
 
@@ -30,9 +30,10 @@ L’intégration de Sequr dans Azure AD offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Sequr (par authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Sequr, vous avez besoin des éléments suivants :
 
@@ -120,13 +121,13 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
      
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-sequr-tutorial/tutorial_general_400.png)
     
-7. Dans la section **Configuration de Sequr**, cliquez sur **Configurer Sequr** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+7. Dans la section **Configuration de Sequr**, cliquez sur **Configurer Sequr** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configuration de Sequr](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_configure.png)
 
@@ -231,7 +232,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

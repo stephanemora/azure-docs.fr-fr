@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Mobile Xpense | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mobile Xpense."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Mobile Xpense | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mobile Xpense.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 3beea4dc7889d84ba2724b9b4ebf88d2fae3a284
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 95d4f97104df3a196aa3d0660cf5fca0ee3d89b8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Didacticiel : Intégration d’Azure Active Directory à Mobile Xpense
 
@@ -30,9 +30,10 @@ L’intégration de Mobile Xpense à Azure AD vous procure les avantages suivant
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Mobile Xpense (par le biais de l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Mobile Xpense, vous avez besoin des éléments suivants :
 
@@ -123,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
@@ -210,7 +211,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

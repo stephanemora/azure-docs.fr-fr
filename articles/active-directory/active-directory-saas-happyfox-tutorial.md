@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : intégration d’Azure Active Directory dans HappyFox | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et HappyFox."
+title: 'Didacticiel : intégration d’Azure Active Directory dans HappyFox | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HappyFox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.openlocfilehash: f8b35f88af0ba7a0dbcf254f4db588e8e0ef9e2c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21515b85812a3cf0b345154d2582d7236ab28d3c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Didacticiel : intégration d’Azure Active Directory dans HappyFox
 
@@ -27,11 +27,12 @@ L’intégration de HappyFox dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à HappyFox
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à HappyFox (par le biais de l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes depuis un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec HappyFox, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de HappyFox à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de HappyFox dans Azure AD, vous devez ajouter 
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **HappyFox**.
 
@@ -86,10 +87,10 @@ Dans HappyFox, affectez la valeur de **nom d’utilisateur** dans Azure AD comm
 
 Pour configurer et tester l’authentification unique Azure AD avec HappyFox, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test HappyFox](#creating-a-happyfox-test-user)** pour avoir un équivalent de Britta Simon dans HappyFox lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **HappyFox**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_samlbase.png)
 
 3. Dans la section **Domaine et URL HappyFox**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.happyfox.com/`
 
@@ -119,35 +120,35 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (Base64)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de HappyFox** , cliquez sur **Configurer HappyFox** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+6. Dans la section **Configuration de HappyFox** , cliquez sur **Configurer HappyFox** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_configure.png) 
 
 7. Connectez-vous au portail du personnel HappyFox et accédez à **Manage** (Gérer), puis cliquez sur l’onglet **Integrations** (Intégrations).
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/header.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/header.png) 
 
 8. Dans l’onglet Integrations (Intégrations), cliquez sur **Configure** (Configurer) sous **SAML Integration** (Intégration SAML) pour ouvrir les paramètres d’authentification unique.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/configure.png) 
 
 9. Dans la section de configuration SAML, collez l’**URL d’authentification unique SAML** que vous avez copiée à partir du portail Azure dans la zone de texte **URL cible d’authentification unique**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/targeturl.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/targeturl.png)
 
 10. Ouvrez le certificat téléchargé à partir du portail Azure dans le Bloc-notes et collez son contenu dans la section **IdP Signature** (Signature IdP).
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/cert.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/cert.png)
 
 11. Cliquez sur le bouton **Enregistrer les paramètres**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/savesettings.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/savesettings.png)
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -182,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-happyfox-test-user"></a>Création d’un utilisateur de test HappyFox
 
@@ -202,7 +203,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **HappyFox**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -233,7 +234,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 
