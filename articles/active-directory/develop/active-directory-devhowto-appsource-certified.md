@@ -17,11 +17,11 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) est une destination pour les utilisateurs professionnels permettant de découvrir, d’essayer et de gérer des applications SaaS métier (applications SaaS autonomes et module complémentaire pour des produits SaaS Microsoft existant).
@@ -43,7 +43,7 @@ Pour activer une architecture mutualisée sur votre application :
 Pour plus d’informations sur l’architecture mutualisée, consultez : [Comment connecter un utilisateur Azure Active Directory (AD) à l’aide du modèle d’application mutualisée](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### <a name="single-tenant-applications"></a>Applications à locataire unique
-Les applications qui acceptent uniquement les connexions des utilisateurs d’une instance Azure Active Directory définie sont appelées *applications à locataire unique*. Les utilisateurs externes (y compris les comptes professionnels ou scolaires d’autres organisations ou les comptes personnels) peuvent se connecter à une application à locataire unique après l’ajout de chaque utilisateur en tant que *compte invité* à l’instance Azure Active Directory auprès de laquelle l’application est inscrite. Vous pouvez ajouter des utilisateurs en tant que comptes invités à Azure Active Directory via la [*collaboration Azure AD B2B*](../active-directory-b2b-what-is-azure-ad-b2b.md), et cela peut être effectué [par programmation](../active-directory-b2b-code-samples.md). Lorsque vous ajoutez un utilisateur en tant que compte invité à Azure Active Directory, un e-mail d’invitation est envoyé à l’utilisateur, qui doit accepter l’invitation en cliquant sur le lien présent dans cet e-mail. Les invitations qui sont envoyées à un utilisateur supplémentaire dans une organisation hôte qui est également membre de l’organisation partenaire ne doit pas accepter d’invitation pour se connecter.
+Les applications qui acceptent uniquement les connexions des utilisateurs d’une instance Azure Active Directory définie sont appelées *applications à locataire unique*. Les utilisateurs externes (y compris les comptes professionnels ou scolaires d’autres organisations ou les comptes personnels) peuvent se connecter à une application à locataire unique après l’ajout de chaque utilisateur en tant que *compte invité* à l’instance Azure Active Directory auprès de laquelle l’application est inscrite. Vous pouvez ajouter des utilisateurs en tant que comptes invités à Azure Active Directory via la [*collaboration Azure AD B2B*](../b2b/what-is-b2b.md), et cela peut être effectué [par programmation](../b2b/code-samples.md). Lorsque vous ajoutez un utilisateur en tant que compte invité à Azure Active Directory, un e-mail d’invitation est envoyé à l’utilisateur, qui doit accepter l’invitation en cliquant sur le lien présent dans cet e-mail. Les invitations qui sont envoyées à un utilisateur supplémentaire dans une organisation hôte qui est également membre de l’organisation partenaire ne doit pas accepter d’invitation pour se connecter.
 
 Les applications à locataire unique peuvent activer l’expérience *Me contacter*, mais si vous souhaitez activer l’expérience d’essai gratuit/d’un simple clic qu’AppSource recommande, activez l’architecture mutualisée de votre application à la place.
 

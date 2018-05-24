@@ -9,11 +9,11 @@ ms.author: philmea
 ms.date: 04/29/2018
 ms.topic: article
 ms.service: iot-suite
-ms.openlocfilehash: c7ddac84a16520d6bc4c4eeb845206f84e6edd80
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 09a54e9cb1c6f063e878fd42c42699a906b60c7b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualiser les données de surveillance à distance avec Time Series Insights
 
@@ -24,7 +24,7 @@ Un opérateur peut étendre davantage la visualisation des données prête à l�
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
-* Tutoriel [Déployer la solution préconfigurée de surveillance à distance](/iot-suite/iot-suite-remote-monitoring-deploy)
+* Tutoriel [Déployer la solution préconfigurée de surveillance à distance](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Créer un groupe de consommateurs
 
