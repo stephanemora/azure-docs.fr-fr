@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à SuccessFactors | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et SuccessFactors."
+title: 'Didacticiel : Intégration d’Azure Active Directory à SuccessFactors | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SuccessFactors.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: b9545599b4ac02927c38931777a3cee623a4e940
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 63ee7f7a08d16048eb3f0672cac4c2f41a3ed0f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Didacticiel : Intégration d’Azure Active Directory à SuccessFactors
 
@@ -28,11 +28,12 @@ L’intégration de SuccessFactors dans Azure AD vous offre les avantages suivan
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à SuccessFactors.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SuccessFactors (authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à SuccessFactors, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de SuccessFactors à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +85,10 @@ Dans SuccessFactors, affectez la valeur du **user name** dans Azure AD au **Use
 
 Pour configurer et tester l’authentification unique Azure AD avec SuccessFactors, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test SuccessFactors](#create-a-successfactors-test-user)** pour avoir un équivalent de Britta Simon dans SuccessFactors lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -116,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
     | `https://<companyname>.successfactors.eu/<companyname>`|
     | `https://<companyname>.sapsf.eu`|
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -148,7 +149,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -156,7 +157,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
     
 6. Dans la section **Configuration SuccessFactors**, cliquez sur **Configurer SuccessFactors** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre **Portail d’administration SuccessFactors** en tant qu’administrateur.
     
@@ -212,7 +213,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 12. Suivez ces étapes si vous souhaitez que les noms d’utilisateur de connexion ne respectent pas la casse.
    
-    ![Configurer l’authentification unique][29]
+    ![Configure Single Sign-On][29]
     
     a. Accédez à **Company Settings** (Paramètres de l’entreprise) (en bas).
    
@@ -305,7 +306,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

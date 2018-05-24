@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec ScaleX Enterprise | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et ScaleX Enterprise."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec ScaleX Enterprise | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ScaleX Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: f83d817647a5339176260bfcf73005045f9ead54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 94c30d39a5d72a022dd77d65141f1af679cf3dd3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory avec ScaleX Enterprise
 
@@ -27,11 +27,12 @@ L’intégration du logiciel ScaleX Enterprise à Azure AD vous offre les avanta
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à ScaleX Enterprise
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à ScaleX Enterprise (via l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes depuis un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez Qu’est-ce que l’accès aux applications et l’authentification unique avec [Azure Active Directory](active-directory-appssoaccess-whatis.md) ?
+Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez Qu’est-ce que l’accès aux applications et l’authentification unique avec [Azure Active Directory](manage-apps/what-is-single-sign-on.md) ?
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à ScaleX Enterprise, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de ScaleX Enterprise à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de ScaleX Enterprise à Azure AD, vous devez aj
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, entrez **ScaleX Enterprise**.
 
@@ -86,10 +87,10 @@ Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme
 
 Pour configurer et tester l’authentification unique Azure AD avec ScaleX Enterprise, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)** pour avoir un équivalent de Britta Simon dans ScaleX Enterprise, lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **ScaleX Enterprise**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
 3. Dans la section **Domaines et URL ScaleX Enterprise**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP**:
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez la valeur au format suivant : `https://platform.rescale.com/saml2/<company id>/`
 
@@ -116,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://platform.rescale.com/saml2/<company id>/sso/`
      
@@ -125,27 +126,27 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Votre application ScaleX s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à modifier des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. Cliquez sur la case **Afficher et modifier tous les autres attributs utilisateur** pour ouvrir les attributs personnalisés.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
     
     a. Cliquez avec le bouton droit sur l’attribut **name** et cliquez sur Supprimer.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/delete_attribute_name.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/delete_attribute_name.png)
 
     b. Cliquez sur l’attribut **emailaddress** pour ouvrir la fenêtre Modifier l’attribut. Modifiez sa valeur de **user.mail** en **user.userprincipalname** et cliquez sur OK.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_400.png)
     
 7. Dans la section **Configuration de ScaleX Enterprise** , cliquez sur **Configurer ScaleX Enterprise** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** à partir de la section **Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
 8. Pour configurer l’authentification unique sur **ScaleX Enterprise**, connectez-vous au site web ScaleX Enterprise de votre société en tant qu’administrateur.
 
@@ -154,15 +155,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Contoso est simplement un exemple. Ce doit être le nom réel de votre société. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
 
 10. Sélectionnez **Intégrations** dans le menu supérieur, puis **Authentification unique**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/admin_sso.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/admin_sso.png) 
 
 11. Remplissez le formulaire comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/scalex_admin_save.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/scalex_admin_save.png) 
     
     a. Sélectionnez **Créer n’importe quel utilisateur pouvant s’authentifier avec l’authentification unique.**
 
@@ -213,7 +214,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-scalex-enterprise-test-user"></a>Création d’un utilisateur de test ScaleX Enterprise
 
@@ -233,7 +234,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **ScaleX Enterprise**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -259,7 +260,7 @@ Cliquez sur la mosaïque ScaleX Enterprise dans le volet d’accès pour vous co
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

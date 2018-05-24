@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 2333a56cd9369cb66c4944304472462d2f2f7511
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7109820acceadd7c6c5b66dc6ceebbc2ed141ab0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Didacticiel : Intégration d’Azure Active Directory à Hightail
 
@@ -29,7 +29,7 @@ L’intégration de Hightail à Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Hightail (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_400.png)
 
-8. Dans la section **Configuration de Hightail** , cliquez sur **Configurer Hightail** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+8. Dans la section **Configuration de Hightail** , cliquez sur **Configurer Hightail** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_configure.png) 
 
@@ -277,7 +277,7 @@ Quand vous cliquez sur la vignette Hightail dans le volet d’accès, vous devez
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/30/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 38ed7040c4f1497192c8c37887dc6281aa7935ea
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 32ff8621eb446f9bcc45398173f47b761b929ac5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Créer et déployer votre premier modèle Azure Resource Manager
 Cette rubrique vous guide tout au long des étapes de création de votre premier modèle Azure Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](resource-group-overview.md). Si vous disposez de ressources existantes et que vous souhaitez créer un modèle pour ces ressources, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).

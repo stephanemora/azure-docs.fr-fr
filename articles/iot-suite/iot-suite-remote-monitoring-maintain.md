@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 99cf9e341edf0acee434e2d01f6346291cbcea5a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Dépanner et corriger les problèmes d’un appareil
 
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="use-the-maintenance-dashboard"></a>Utiliser le tableau de bord de maintenance
 

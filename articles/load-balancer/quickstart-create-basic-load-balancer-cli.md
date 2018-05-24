@@ -1,27 +1,29 @@
 ---
-title: Créer un équilibreur de charge public - Azure CLI | Microsoft Docs
-description: Apprendre à créer un équilibreur de charge public à l’aide de Azure CLI
+title: 'Démarrage rapide : créer un équilibreur de charge public - Azure CLI | Microsoft Docs'
+description: Ce guide de démarrage rapide montre comment créer un équilibreur de charge public à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
+Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2017
+ms.date: 03/19/2018
 ms.author: kumud
-ms.openlocfilehash: f2ba819c2341b2e481c2cfa5d5231f4cd5b6295b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI 2.0
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Démarrage rapide : créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI 2.0
 
 Ce démarrage rapide vous montre comment créer un équilibreur de charge Azure. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Ubuntu, puis vous équilibrez la charge d’une application web entre les deux.
 

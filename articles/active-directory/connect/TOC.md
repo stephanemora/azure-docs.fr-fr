@@ -29,7 +29,11 @@
 ## [Gestion d’Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renouveler les certificats pour O365 et Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)](active-directory-aadconnectfed-ssl-update.md)
-### [Activer l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Options de l'appareil](active-directory-azure-ad-connect-device-options.md)
+#### [Activer l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md)
+#### [Tâches post-configuration de jointure Azure AD hybrides](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [Options d’authentification unique de l’utilisateur](active-directory-aadconnect-user-signin.md)
 #### [Authentification unique transparente](active-directory-aadconnect-sso.md)
 ##### [Démarrage rapide](active-directory-aadconnect-sso-quick-start.md)

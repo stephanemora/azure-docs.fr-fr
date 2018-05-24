@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4fe3c9d3a603ef822a53031d0fda866efc4aaded
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d6b94e1a2d002459089730fc5b47cca33ca55f20
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Didacticiel : Intégration d’Azure Active Directory à Bambu by Sprout Social
 
@@ -29,7 +29,7 @@ L’intégration de Bambu by Sprout Social à Azure AD vous offre les avantages 
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Bambu by Sprout Social (via l’authentification unique) avec leurs comptes Azure AD
 - Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -216,7 +216,7 @@ Lorsque vous cliquez sur la vignette Bambu by Sprout Social dans le volet d’ac
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

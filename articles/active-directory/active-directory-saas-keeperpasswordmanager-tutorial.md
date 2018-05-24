@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Keeper Password Manager & Digital Vault | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Keeper Password Manager & Digital Vault."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Keeper Password Manager & Digital Vault | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Keeper Password Manager & Digital Vault.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 79ef85e14f36153c086d9e9ae889fa9a51d065db
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c76edea4498e32363a3a4952056e69c012bd468
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Didacticiel : Intégration d’Azure Active Directory à Keeper Password Manager & Digital Vault
 
@@ -27,11 +27,12 @@ L’intégration de Keeper Password Manager & Digital Vault à Azure AD vous of
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Keeper Password Manager & Digital Vault.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Keeper Password Manager & Digital Vault (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Keeper Password Manager & Digital Vault, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Keeper Password Manager & Digital Vault à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de Keeper Password Manager & Digital Vault à A
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Keeper Password Manager & Digital Vault**.
 
@@ -86,10 +87,10 @@ Dans Keeper Password Manager & Digital Vault, assignez la valeur de **nom d’ut
 
 Pour configurer et tester l’authentification unique Azure AD avec Keeper Password Manager & Digital Vault, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Keeper Password Manager &amp; Digital Vault](#creating-a-keeperpasswordmanager-test-user)** : pour avoir un équivalent de Britta Simon dans Keeper Password Manager &amp; Digital Vault lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+3. **[Création d’un utilisateur de test Keeper Password Manager &amp; Digital Vault](#creating-a-keeperpasswordmanager-test-user)**  : pour avoir un équivalent de Britta Simon dans Keeper Password Manager &amp; Digital Vault lié à la représentation Azure AD associée.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Keeper Password Manager & Digital Vault**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_samlbase.png)
 
 3. Dans la section **Domaine et URL Keeper Password Manager & Digital Vault**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
@@ -121,15 +122,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_general_400.png)
     
 6. Dans la section **Configuration de Keeper Password Manager & Digital Vault**, cliquez sur **Configurer Keeper Password Manager & Digital Vault** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Keeper Password Manager & Digital Vault**, suivez les instructions fournies dans le [guide de prise en charge de Keeper](https://keepersecurity.com/assets/pdf/SettingupAzurewithKeeperSSOConnect.pdf).
 
@@ -166,11 +167,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-keeper-password-manager--digital-vault-test-user"></a>Création d’un utilisateur de test Keeper Password Manager & Digital Vault
 
-Pour se connecter à Keeper Password Manager & Digital Vault, les utilisateurs d’Azure AD doivent être approvisionnés dans Keeper Password Manager & Digital Vault. L’application prend en charge la configuration d’utilisateur juste-à-temps, et après authentification, les utilisateurs sont créés automatiquement dans l’application. Si vous voulez configurer des utilisateurs manuellement, vous pouvez contacter le [support de Keeper](https://keepersecurity.com/contact.html).
+Pour se connecter à Keeper Password Manager & Digital Vault, les utilisateurs d’Azure AD doivent être approvisionnés dans Keeper Password Manager & Digital Vault. L’application prend en charge la configuration d’utilisateur juste à temps, et après authentification, les utilisateurs sont créés automatiquement dans l’application. Si vous voulez configurer des utilisateurs manuellement, vous pouvez contacter le [support de Keeper](https://keepersecurity.com/contact.html).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -186,7 +187,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **Keeper Password Manager & Digital Vault**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -211,7 +212,7 @@ Lorsque vous cliquez sur la vignette Keeper Password Manager & Digital Vault dan
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
