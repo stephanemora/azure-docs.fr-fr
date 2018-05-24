@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358657"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Utiliser l’extension de Code Visual Studio pour créer un modèle Azure Resource Manager
 Cet article vous indique les avantages liés à l’installation et à l’utilisation de l’extension des outils Azure Resource Manager dans Visual Studio Code. Vous pouvez créer des modèles Resource Manager dans VS Code sans l’extension, mais cette dernière fournit des options de saisie semi-automatique qui simplifient le développement de modèles. Des fonctions de modèle, des paramètres et des variables sont disponibles dans le modèle.

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: 4b8b8dba357db38424b86399672f4143c8c56a5f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d088223aa2ea40d5bb9cf0e492e87ef054d86348
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365359"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure
 Ce document est conçu pour vous aider à utiliser Azure Security Center afin de gérer et résoudre les alertes de sécurité.
@@ -80,7 +81,7 @@ Dans ce cas, les alertes qui ont été déclenchées concernent une activité su
 
 Vous trouverez plus d’informations sur l’événement dans le champ **Description**. Ces informations permettent d’en savoir plus sur ce qui a déclenché l’alerte de sécurité, sur la ressource cible, sur l’adresse IP source (le cas échéant) et sur la manière de remédier au problème.  Dans certains cas, l’adresse IP source est vide (non disponible), car certains journaux d’événements Windows de la sécurité n’incluent pas l’adresse IP.
 
-La correction suggérée par Security Center dépend de l’alerte de sécurité. Dans certains cas, vous pouvez être amené à utiliser d’autres fonctionnalités Azure pour appliquer la correction recommandée. Par exemple, pour cette attaque, la correction consiste à mettre sur liste noire l’adresse IP à l’origine de l’attaque à l’aide d’une règle de [liste de contrôle d’accès (ACL) réseau](../virtual-network/virtual-networks-acl.md) ou de [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md). Pour plus d’informations sur les différents types d’alertes, consultez l’article [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md)(Alertes de sécurité par type dans Azure Security Center).
+La correction suggérée par Security Center dépend de l’alerte de sécurité. Dans certains cas, vous pouvez être amené à utiliser d’autres fonctionnalités Azure pour appliquer la correction recommandée. Par exemple, pour cette attaque, la correction consiste à mettre sur liste noire l’adresse IP à l’origine de l’attaque à l’aide d’une règle de [liste de contrôle d’accès (ACL) réseau](../virtual-network/virtual-networks-acl.md) ou de [groupe de sécurité réseau](../virtual-network/security-overview.md#security-rules). Pour plus d’informations sur les différents types d’alertes, consultez l’article [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md)(Alertes de sécurité par type dans Azure Security Center).
 
 > [!NOTE]
 > Security Center a sorti avec les versions préliminaires limitées un nouvel ensemble de moyens de détection qui exploitent les enregistrements d’audit, une infrastructure d’audit courante, pour détecter des comportements malveillants sur les machines Linux. [Envoyez-nous](mailto:ASC_linuxdetections@microsoft.com) un e-mail avec vos ID d’abonnement pour joindre la version préliminaire.

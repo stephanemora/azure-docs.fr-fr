@@ -1,21 +1,22 @@
 ---
-title: "Surveiller les modifications d’une machine virtuelle - Azure Event Grid et Azure Logic Apps | Microsoft Docs"
-description: "Vérifier les modifications de configuration dans des machines virtuelles (VM) à l’aide d’Azure Event Grid et Azure Logic Apps"
-keywords: "applications logiques, grilles d’événements, machine virtuelle, VM"
+title: Surveiller les modifications d’une machine virtuelle - Azure Event Grid et Azure Logic Apps | Microsoft Docs
+description: Vérifier les modifications de configuration dans des machines virtuelles (VM) à l’aide d’Azure Event Grid et Azure Logic Apps
+keywords: applications logiques, grilles d’événements, machine virtuelle, VM
 services: logic-apps
 author: ecfan
 manager: anneta
-ms.assetid: 
+ms.assetid: ''
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303111"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
@@ -39,7 +40,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * ajouter une condition qui recherche spécifiquement les modifications apportées à la machine virtuelle ;
 > * envoyer un e-mail en cas de modification de la machine virtuelle.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 * Un compte de messagerie sur [n’importe quel fournisseur de messagerie pris en charge par Azure Logic Apps](../connectors/apis-list.md), par exemple Outlook Office 365, Outlook.com ou Gmail, pour envoyer les notifications. Ce didacticiel utilise Outlook Office 365.
 

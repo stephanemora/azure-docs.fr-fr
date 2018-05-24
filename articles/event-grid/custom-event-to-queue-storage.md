@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300830"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
 

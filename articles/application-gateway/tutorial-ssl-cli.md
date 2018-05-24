@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c52eb99d76253298af858ed8748929874896523
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c548bd4e9373e7871ddcd8e04c5992b303e0e6bb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355931"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Tutoriel : créer une passerelle d’application avec arrêt SSL à l’aide d’Azure CLI
 
@@ -28,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer une passerelle d’application avec le certificat
 > * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
 
-Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure PowerShell](tutorial-ssl-powershell.md).
+Si vous préférez, vous pouvez effectuer ce didacticiel en utilisant [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -148,7 +149,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 

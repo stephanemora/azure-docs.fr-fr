@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a24c826ffdd3e368b6b16f6e78fbafc50c54b1e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 362967ca9ed9e246f39a6f8ceae4783d1e2cbf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361163"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Accéder à un laboratoire de classe dans Azure Lab Services
 Cet article décrit comment accéder à un laboratoire de classe, se connecter à la machine virtuelle du laboratoire et arrêter la machine virtuelle. 
@@ -51,7 +52,7 @@ Sélectionnez **Arrêter** sur la vignette qui représente le laboratoire de cla
 ## <a name="next-steps"></a>Étapes suivantes
 Commencez à configurer un laboratoire à l’aide d’Azure Lab Services :
 
-- [Configurer un laboratoire de salle de classe](how-to-manage-classroom-labs.md)
+- [Configurer un laboratoire de classe](how-to-manage-classroom-labs.md)
 - [Configurer un laboratoire personnalisé](tutorial-create-custom-lab.md)
 
  

@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: df70322a2d6562fce8da17fde652dd0dfbfcaec4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362241"
 ---
 # <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire personnalisé à l’aide de Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire personnalisé en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
