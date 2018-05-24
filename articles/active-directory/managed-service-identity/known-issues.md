@@ -8,27 +8,24 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Un programme de préversion privée est-il disponible pour les fonctionnalités et intégrations MSI à venir ?
-
-Oui. Si vous souhaitez vous inscrire pour le programme de préversion privée, [rendez-vous sur notre page d’inscription](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI est-il compatible avec Azure Cloud Services ?
 
@@ -53,7 +50,7 @@ En cas d’utilisation de MSI avec des machines virtuelles, nous vous encourageo
 
 L’extension de machine virtuelle MSI reste utilisable aujourd’hui ; toutefois, nous utiliserons désormais par défaut le point de terminaison IMDS. L’utilisation de l’extension de machine virtuelle MSI sera prochainement déconseillée. 
 
-Pour plus d’informations sur Azure Instance Metadata Service, consultez la [documentation d’IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Pour plus d’informations sur Azure Instance Metadata Service, consultez la [documentation d’IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quelles sont les distributions de Linux prises en charge ?
 
@@ -91,7 +88,7 @@ Lorsque l’identité du service administré est activée sur une machine virtue
 
 L’extension de machine virtuelle Identité du service administré ne prend actuellement pas en charge la possibilité d’exporter son schéma vers un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer l’identité du service administré sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples dans [Configurer une identité du service administré d’une machine virtuelle à l’aide d’un modèle](qs-configure-template-windows-vm.md).
 
-Lorsque la fonctionnalité d’exportation de schéma sera disponible pour l’extension de machine virtuelle MSI, elle sera répertoriée dans [Exportation des groupes de ressources contenant des extensions de machine virtuelle](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+Lorsque la fonctionnalité d’exportation de schéma sera disponible pour l’extension de machine virtuelle MSI, elle sera répertoriée dans [Exportation des groupes de ressources contenant des extensions de machine virtuelle](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Le panneau de configuration n’apparaît pas dans le portail Azure
 
@@ -122,3 +119,16 @@ Une fois que la machine virtuelle est démarrée, la balise peut être supprimé
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-identities"></a>Problèmes connus avec les identités affectées par l’utilisateur
+
+- Les affectations d’identité affectées par l’utilisateur sont uniquement disponibles pour les machines virtuelles et VMSS. IMPORTANT : les affectations d’identité affectées par l’utilisateur seront modifiées dans les mois à venir.
+- Dupliquer les identités affectées par l’utilisateur sur la même machine virtuelle/VMSS entraîne la défaillance de la machine virtuelle/VMSS. Cela inclut les identités qui sont ajoutées avec une casse différente. par ex. MyUserAssignedIdentity et myuserassignedidentity. 
+- L’approvisionnement de l’extension de machine virtuelle sur une machine virtuelle peut échouer en raison d’échecs de recherche DNS. Redémarrez la machine virtuelle, puis réessayez. 
+- Ajouter une identité affectée par l’utilisateur « inexistante » entraîne la défaillance de la machine virtuelle. 
+- La création d’une identité affectée par l’utilisateur avec des caractères spéciaux (tels qu’un trait de soulignement) dans le nom n’est pas prise en charge.
+- Les noms d’identité affectés par l’utilisateur sont limités à 24 caractères pour le scénario de bout en bout. Les identités affectées par l’utilisateur avec des noms de plus de 24 caractères ne pourront pas être affectées.  
+- Lors de l’ajout d’une deuxième identité affectée par l’utilisateur, l’ID de client n’est peut-être pas disponible pour les demandes de jetons pour l’extension de machine virtuelle. Pour résoudre le problème, redémarrez l’extension de machine virtuelle MSI avec les commandes deux bash suivantes :
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- Lorsqu’une machine virtuelle dispose d’une identité affectée par l’utilisateur, mais d’aucune affectée par le système, l’interface utilisateur du portail indique que MSI est désactivé. Pour activer l’identité affectée par le système, utilisez un modèle Azure Resource Manager, une interface de ligne de commande Azure ou un Kit de développement logiciel (SDK).

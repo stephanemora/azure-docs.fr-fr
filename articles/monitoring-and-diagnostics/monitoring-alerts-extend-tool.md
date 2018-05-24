@@ -11,16 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Comment étendre (copier) des alertes d’OMS à Azure
 À compter du **14 mai 2018**, les alertes configurées dans [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) seront étendues à Azure pour tous les clients les utilisant. Les alertes étendues à Azure se comportent de la même façon que dans OMS. Les fonctionnalités de surveillance restent intactes. Étendre les alertes créées dans OMS à Azure offre de nombreux avantages. Pour plus d’informations sur les avantages et la procédure d’extension des alertes d’OMS à Azure, consultez la page [Étendre les alertes d’OMS à Azure](monitoring-alerts-extend.md).
+
+> [!NOTE]
+> À compter du 14 mai 2018, Microsoft commence le processus d’extension automatique des alertes vers Azure. Tous les espaces de travail et alertes ne seront pas étendus ce jour ; Microsoft commencera à étendre les alertes automatiquement en tranches lors des semaines à venir. Par conséquent, vos alertes dans le portail OMS ne seront pas étendues automatiquement à Azure immédiatement le 14 mai 2018 et l’utilisateur peut toujours manuellement étendre ses alertes à l’aide des détails des options ci-dessous.
 
 Les clients qui souhaitent déplacer immédiatement leurs alertes d’OMS vers Azure peuvent le faire à l’aide de l’une des options indiquées.
 
@@ -221,7 +224,7 @@ Enfin, si l’extension à Azure de toutes les alertes de l’espace de travail 
 ```
 
 ## <a name="troubleshooting"></a>Résolution de problèmes 
-Pendant le processus d’extension des alertes d’OMS à Azure, des problèmes occasionnels peuvent se produire empêchant le système de créer les [Groupes d’actions](monitoring-action-groups.md)nécessaires. Dans ce cas, un message d’erreur s’affiche dans le portail OMS via la bannière dans la section Alerte et dans l’appel GET effectué à l’API.
+Pendant le processus d’extension des alertes d’OMS à Azure, des problèmes occasionnels peuvent se produire empêchant le système de créer les [Groupes d’actions](monitoring-action-groups.md) nécessaires. Dans ce cas, un message d’erreur s’affiche dans le portail OMS via la bannière dans la section Alerte et dans l’appel GET effectué à l’API.
 
 Vous trouverez ci-dessous les étapes de correction pour chaque erreur :
 1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'** (Erreur : l’abonnement n’est pas inscrit pour utiliser l’espace de noms ’microsoft.insights’) : ![page Paramètres d’alerte du portail OMS affichant le message d’erreur d’inscription](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
@@ -236,6 +239,14 @@ Vous trouverez ci-dessous les étapes de correction pour chaque erreur :
     a. Le verrou d’étendue est activé, et empêche toute nouvelle modification à l’abonnement ou au groupe de ressources contenant l’espace de travail Log Analytics (OMS) ; le système ne peut pas étendre les alertes (copie) à Azure et créer les groupes d’actions nécessaires.
     
     b. Pour résoudre cette erreur, supprimez le verrou *Lecture seule* sur votre abonnement ou groupe de ressources contenant l’espace de travail à l’aide du portail Azure, de Powershell, d’Azure CLI ou d’API. Pour en savoir plus, consultez l’article sur [l’utilisation du verrouillage des ressources](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Une fois l’erreur résolue en suivant les étapes indiquées dans cet article, OMS étendra vos alertes à Azure lors de l’exécution planifiée du jour suivant ; aucune action ou initiation n’est nécessaire.
+
+3. **Error: Policy is present at subscription/resource group level** (Erreur : une stratégie est présente au niveau de l’abonnement/groupe de ressources): ![Page Paramètres d’alerte du portail OMS affichant le message d’erreur de la stratégie](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Une fois la [Stratégie Azure](../azure-policy/azure-policy-introduction.md) activée, restreignant toute nouvelle ressource à l’abonnement ou au groupe de ressources contenant l’espace de travail Log Analytics (OMS) ; le système ne peut pas étendre les alertes (copie) à Azure et créer les groupes d’actions nécessaires.
+    
+    b. Pour résoudre cela, modifiez la stratégie à l’origine de l’erreur *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, ce qui empêche la création de nouvelles ressources sur votre abonnement ou groupe de ressources contenant l’espace de travail. À l’aide du portail Azure, de PowerShell, d’Azure CLI ou de l’API, vous pouvez auditer les actions pour trouver la stratégie à l’origine de la défaillance. Pour plus d’informations, consultez l’article sur [l’affichage des journaux d’activité pour auditer les actions](../azure-resource-manager/resource-group-audit.md). 
     
     c. Une fois l’erreur résolue en suivant les étapes indiquées dans cet article, OMS étendra vos alertes à Azure lors de l’exécution planifiée du jour suivant ; aucune action ou initiation n’est nécessaire.
 

@@ -1,23 +1,23 @@
 ---
 title: Élément de l’interface utilisateur FileUpload Azure | Microsoft Docs
 description: Décrit l’élément d’interface utilisateur Microsoft.Common.FileUpload pour le Portail Azure.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bfde11a189348472942248a6b90fd5ef1b5a1c89
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 591fe2222c54aad50acc378be7f3399518a8087e
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.FileUpload
 Contrôle qui permet à un utilisateur de spécifier un ou plusieurs fichiers à charger.

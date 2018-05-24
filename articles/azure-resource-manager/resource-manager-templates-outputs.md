@@ -1,6 +1,6 @@
 ---
-title: "Sorties de modèles Azure Resource Manager | Microsoft Docs"
-description: "Explique comment définir des sorties dans des modèles Azure Resource Manager suivant une syntaxe JSON déclarative."
+title: Sorties de modèles Azure Resource Manager | Microsoft Docs
+description: Explique comment définir des sorties dans des modèles Azure Resource Manager suivant une syntaxe JSON déclarative.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Section outputs des modèles Azure Resource Manager
 Dans la section des sorties, vous spécifiez des valeurs retournées à partir du déploiement. Par exemple, vous pouvez retourner l'URI d'accès à une ressource déployée.
@@ -57,7 +57,7 @@ Par exemple, vous pouvez définir l’adresse IP sur un équilibreur de charge e
 }
 ```
 
-Vous ne pouvez pas utiliser la fonction `reference` dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour retourner les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
+Vous ne pouvez pas utiliser la fonction `reference` dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
 
 ## <a name="available-properties"></a>Propriétés disponibles
 

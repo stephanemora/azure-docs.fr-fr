@@ -1,23 +1,24 @@
 ---
-title: "Configurer l’identité du service administré sur une machine virtuelle Azure à l’aide du portail Azure"
-description: "Instructions détaillées sur la configuration de l’identité du service administré (MSI) sur une machine virtuelle Azure, à l’aide du portail Azure."
+title: Configurer l’identité du service administré sur une machine virtuelle Azure à l’aide du portail Azure
+description: Instructions détaillées sur la configuration de l’identité du service administré (MSI) sur une machine virtuelle Azure, à l’aide du portail Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 2e28688fed5a361e3d94c3dc27faea81bfe1a276
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 62b8504f5c10f338539d263bb231cf96eb405ba6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurer l’identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure
 
@@ -25,52 +26,61 @@ ms.lasthandoff: 03/08/2018
 
 L’identité du service administré fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
-Dans cet article, vous allez apprendre à activer et supprimer l’identité du service administré d’une machine virtuelle Azure, à l’aide du portail Azure.
+Dans cet article, vous allez apprendre à activer et désactiver l’identité affectée au système d’une machine virtuelle Azure, à l’aide du portail Azure. L’affectation et la suppression des identités affectées par l’utilisateur à partir de machines virtuelles Azure ne sont actuellement pas prises en charge via le portail Azure.
+
+> [!NOTE]
+> Actuellement, les opérations d’identité affectées par l’utilisateur ne sont pas prises en charge via le portail Azure. Revenez ultérieurement pour des mises à jour. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md).
+- Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
-## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Activer l’identité du service administré lors de la création d’une machine virtuelle Azure
+## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Identité de service gérée lors de la création d’une machine virtuelle Azure
 
-Au moment de rediger cet article, l’activation de l’identité du service administré lors de la création d’une machine virtuelle dans le portail Azure n’est pas prise en charge. Consultez plutôt l’un des articles de démarrage rapide de création de machine virtuelle suivants pour créer une machine virtuelle :
+Actuellement, la création de machines virtuelles via le portail Azure ne prend pas en charge les opérations Managed Service Identity. Consultez plutôt l’un des articles de démarrage rapide de création de machine virtuelle suivants pour créer une machine virtuelle :
 
 - [Créer une machine virtuelle Windows avec le portail Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Créer une machine virtuelle Linux avec le portail Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
 
 Passez ensuite à la section suivante pour plus d’informations sur l’activation de l’identité du service administré sur la machine virtuelle.
 
-## <a name="enable-msi-on-an-existing-azure-vm"></a>Activer l’identité du service administré sur une machine virtuelle Azure existante
+## <a name="enable-managed-service-identity-on-an-existing-azure-vm"></a>Activer l’identité de service administré sur une machine virtuelle Azure existante
 
-Si vous avez une machine virtuelle qui a été initialement approvisionnée sans identité du service administré :
+Pour activer l’identité système affectée sur une machine virtuelle qui a été initialement configurée sans :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles ».
 
-2. Accédez à la machine virtuelle souhaitée.
+2. Accédez à la machine virtuelle souhaitée et sélectionnez la page « Configuration ».
 
-2. Cliquez sur la page « Configuration », activez l’identité du service administré sur la machine virtuelle en sélectionnant « Oui » sous « Identité du service administré », puis cliquez sur **Enregistrer**. Cette opération peut durer 60 secondes ou plus :
+3. Activez l’identité affectée au système sur la machine virtuelle en sélectionnant « Oui » sous « Identité du service administré », puis cliquez sur **Enregistrer**. Cette opération peut durer 60 secondes ou plus :
+
+    > [!NOTE]
+    > Actuellement, l’ajout d’une identité à une machine virtuelle n’est pas pris en charge via le portail Azure.
 
    ![Capture d’écran de la page Configuration](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
-## <a name="remove-msi-from-an-azure-vm"></a>Supprimer l’identité du service administré d’une machine virtuelle Azure
+## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Supprimer l’identité de service administré d’une machine virtuelle Azure
 
-Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité du service administré :
+Si vous disposez d’une machine virtuelle qui ne nécessite l’identité affectée du système :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte associé à l’abonnement Azure qui contient la machine virtuelle. Vérifiez également que votre compte appartient à un rôle qui vous donne des autorisations en écriture sur la machine virtuelle, comme « Contributeur de machines virtuelles ».
 
-2. Accédez à la machine virtuelle souhaitée.
+2. Accédez à la machine virtuelle souhaitée et sélectionnez la page « Configuration ».
 
-3. Cliquez sur la page « Configuration », supprimez l’identité du service administré à partir de la machine virtuelle en sélectionnant « Non » sous « Identité du service administré », puis cliquez sur **Enregistrer**. Cette opération peut durer 60 secondes ou plus :
+3. Désactivez l’identité affectée au système sur la machine virtuelle en sélectionnant « Non » sous « Identité du service administré », puis cliquez sur Enregistrer. Cette opération peut durer 60 secondes ou plus :
+
+    > [!NOTE]
+    > Actuellement, l’ajout d’une identité à une machine virtuelle n’est pas pris en charge via le portail Azure.
 
    ![Capture d’écran de la page Configuration](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Contenu connexe
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
+- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble](overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - À l’aide du portail Azure, accordez à l’identité du service administré d’une machine virtuelle Azure [un accès à une autre ressource Azure](howto-assign-access-portal.md).
 
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.

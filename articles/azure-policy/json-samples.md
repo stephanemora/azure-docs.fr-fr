@@ -1,5 +1,5 @@
 ---
-title: Exemples de modèles de stratégie | Microsoft Docs
+title: Exemples de modèles de stratégie
 description: Exemples JSON pour Azure Policy
 services: azure-policy
 documentationcenter: ''
@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 458ce4fb77f501d5feba4cf732fe3ce9a49f9c21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="templates-for-azure-policy"></a>Modèles pour Azure Policy
 
@@ -79,6 +79,9 @@ Le tableau suivant inclut des liens vers des modèles json pour Azure Policy. Ce
 | [Types de ressources autorisés](scripts/allowed-res-types.md) | Garantit que seuls les types de ressources approuvés sont déployés. Spécifiez un tableau de types de ressources qui sont autorisés.  |
 | [Références SKU de compte de stockage autorisées](scripts/allowed-stor-acct-skus.md) | Exige que les comptes de stockage utilisent une référence SKU approuvée. Spécifiez un tableau de références SKU approuvées. |
 | [Appliquer la balise et sa valeur par défaut](scripts/apply-tag-def-val.md) | Ajoute le nom et la valeur d’une balise spécifiée, si cette balise n’est pas fournie. Spécifiez les nom et valeur de balise à appliquer.  |
+| [Audit du chiffrement de la base de données SQL](scripts/sql-database-encryption-audit.md) | Vérifie si la base de données SQL n’a pas de chiffrement transparent des données activé. |
+| [Audit des paramètres d’audit de SQL Server](scripts/sql-server-audit.md) | Effectue l’audit de SQL Server pour déterminer si les paramètres d’audit sont activés. |
+| [Appliquer le chiffrement Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Refuse les comptes Data Lake Store n’ayant pas de chiffrement activé. |
 | [Imposer une balise et sa valeur](scripts/enforce-tag-val.md) | Exige un nom et une valeur de balise spécifiée. Spécifiez les nom et valeur de balise à imposer.  |
 | [Types de ressources non autorisés](scripts/not-allowed-res-type.md) | Empêche le déploiement de types de ressources spécifiés. Spécifiez un tableau des types de ressources à bloquer.  |
 | [Exiger SQL Server version 12.0](scripts/req-sql-12.md) | Oblige les serveurs SQL Server à utiliser la version 12.0.  |
