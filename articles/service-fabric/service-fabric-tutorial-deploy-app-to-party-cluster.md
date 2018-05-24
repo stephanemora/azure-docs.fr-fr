@@ -3,8 +3,8 @@ title: Déployer une application Azure Service Fabric sur un cluster | Microsoft
 description: Apprenez à déployer une application sur un cluster à partir de Visual Studio.
 services: service-fabric
 documentationcenter: .net
--author: rwike77
--manager: msfussell
+author: rwike77
+manager: msfussell
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: f75a05e965a025a3041036679ac06cfe4f1ec8d7
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 4716cacf840dcf7a372923e29f758dbdc82fbf51
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208877"
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Didacticiel : déployer une application sur un cluster Service Fabric dans Azure
 Deuxième d’une série, ce didacticiel vous montre comment déployer une application Azure Service Fabric sur un nouveau cluster dans Azure directement depuis Visual Studio.
@@ -82,7 +83,7 @@ Sélectionnez le menu déroulant correspondant au **point de terminaison de conn
     
 ![Boîte de dialogue Publier](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
     
-Dans la boîte de dialogue **Créer le cluster**, modifiez les paramètres suivants :
+Dans la boîte de dialogue **Créer un cluster**, modifiez les paramètres suivants :
 
 1. Spécifiez le nom de votre cluster dans le champ **Nom du cluster**, ainsi que l’abonnement et l’emplacement à utiliser.
 2. Facultatif : vous pouvez modifier le nombre de nœuds. Par défaut, vous disposez de trois nœuds, qui est le minimum requis pour tester des scénarios Service Fabric.

@@ -10,22 +10,23 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 203dc3d604e56366fb1c1df9b6494fe74e6909e0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 921c68b6743749f9976d99d20a6c47311006f570
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356050"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutoriel : créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 
-Vous pouvez utiliser Azure CLI pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans ce tutoriel, vous définissez des pools d’adresses backend à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce tutoriel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
+Vous pouvez utiliser Azure CLI pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans ce tutoriel, vous définissez des pools d’adresses principaux à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Configurer le réseau
 > * Créer une passerelle Application Gateway
-> * Créer des écouteurs backend
+> * Créer des écouteurs principaux
 > * Créer des règles d’acheminement
 > * Créer des groupes de machines virtuelles identiques avec les pools principaux
 > * Créer un enregistrement CNAME dans votre domaine
@@ -33,7 +34,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 ![Exemple de routage multisite](./media/tutorial-multiple-sites-cli/scenario.png)
 
 
-Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Si vous préférez, vous pouvez effectuer ce didacticiel en utilisant [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -214,7 +215,7 @@ for i in `seq 1 2`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 
 done
@@ -254,12 +255,12 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer le réseau
 > * Créer une passerelle Application Gateway
-> * Créer des écouteurs backend
+> * Créer des écouteurs principaux
 > * Créer des règles d’acheminement
 > * Créer des groupes de machines virtuelles identiques avec les pools principaux
 > * Créer un enregistrement CNAME dans votre domaine

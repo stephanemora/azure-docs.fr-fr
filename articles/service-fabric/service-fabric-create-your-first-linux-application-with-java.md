@@ -1,11 +1,11 @@
 ---
-title: "Créer une application Azure Service Fabric Reliable Actors Java sur Linux | Microsoft Docs"
-description: "Découvrez comment créer et déployer une application Java Service Fabric Reliable Actors en cinq minutes."
+title: Créer une application Azure Service Fabric Reliable Actors Java sur Linux | Microsoft Docs
+description: Découvrez comment créer et déployer une application Java Service Fabric Reliable Actors en cinq minutes.
 services: service-fabric
 documentationcenter: java
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 01f085a7ec69780fe3558c6892e254ed3a7e2fb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205686"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
 > [!div class="op_single_selector"]
@@ -31,6 +32,7 @@ ms.lasthandoff: 02/09/2018
 Ce guide de démarrage rapide vous aide à créer votre première application Azure Service Fabric Java dans un environnement de développement Linux en quelques minutes.  Lorsque vous aurez terminé, vous disposerez d’une simple application de service unique Java exécutée sur le cluster de développement local.  
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, installez le Kit de développement logiciel (SDK), l’interface de ligne de commande Service Fabric, Yeoman, configurez l’environnement de développement Java, puis configurez un cluster de développement dans votre [environnement de développement Linux](service-fabric-get-started-linux.md). Si vous utilisez Mac OS X, vous pouvez [configurer un environnement de développement sur Mac à l’aide de Docker](service-fabric-get-started-mac.md).
 
 Installez aussi l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
@@ -59,7 +61,7 @@ Les règles suivantes, qui se rapportent aux interfaces d’acteur, sont importa
 * Les méthodes d’interface d'acteur ne doivent pas avoir de paramètres de sortie, de paramètres de référence ou de paramètres facultatifs.
 * Les interfaces génériques ne sont pas prises en charge.
 
-## <a name="create-the-application"></a>Création de l’application
+## <a name="create-the-application"></a>Création de l'application
 Une application Service Fabric contient un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Le générateur que vous avez installé lors de la dernière section facilite la création de votre premier service et vous aide à ajouter de nouveaux services ultérieurement.  Vous pouvez également créer, générer et déployer des applications Java Service Fabric à l’aide d’un plug-in d’Eclipse. Consultez les instructions de [création et déploiement de votre première application Java à l’aide d’Eclipse](service-fabric-get-started-eclipse.md). Pour ce démarrage rapide, utilisez Yeoman pour créer une application avec un service unique qui stocke et obtient une valeur de compteur.
 
 1. Saisissez ``yo azuresfjava`` dans un terminal.
@@ -215,7 +217,7 @@ L’application générée se déploie de la même manière qu’une autre appli
 
 Vous pourrez retrouver les paramètres de ces commandes dans les manifestes générés au sein du package d’application.
 
-Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer ](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Démarrer le client de test et effectuer un basculement
