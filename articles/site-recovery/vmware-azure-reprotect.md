@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotéger des machines depuis Azure vers un site local
 
@@ -39,6 +39,8 @@ Si vous avez utilisé un modèle pour créer vos machines virtuelles, assurez-vo
 - Vérifiez que vous ouvrez les ports suivants pour le basculement et la restauration automatique.
 
     ![Ports pour le basculement et la restauration automatique](./media/vmware-azure-reprotect/failover-failback.png)
+
+- Vous pouvez consulter toutes les conditions requises sur les ports et la liste des URL approuvées [ici](vmware-azure-deploy-configuration-server.md#prerequisites)
 
 ## <a name="deploy-a-process-server-in-azure"></a>Déployer un serveur de processus dans Azure
 
@@ -77,7 +79,7 @@ Une fois que vous avez créé un serveur cible maître, effectuez les étapes su
     - Le volume de rétention par défaut pour Windows est le volume R.
     - Le volume de rétention par défaut pour Linux est /mnt/retention.
 - Vous devez ajouter un nouveau lecteur si vous utilisez une machine de serveur de configuration /un serveur de processus existant ou un serveur de traitement ou de mise à l’échelle/une machine de serveur cible maître. Le nouveau lecteur doit respecter les conditions ci-dessus. Si le lecteur de rétention n’est pas présent, il n’apparaît pas dans la liste de sélection déroulante sur le portail. Une fois que vous avez ajouté un lecteur au serveur cible maître local, 15 minutes sont nécessaires pour que le lecteur apparaisse dans la sélection sur le portail. Vous pouvez également actualiser le serveur de configuration si le lecteur n’apparaît pas au bout de 15 minutes.
-- Installez les outils VMware sur le serveur cible maître. Sans les outils VMware, les magasins de données sur l’hôte ESXi du serveur cible maître ne peuvent pas être détectés.
+- Installez les outils VMware ou open-vm-tools sur le serveur maître cible. Sans les outils, les magasins de données sur l’hôte ESXi du serveur cible maître ne peuvent pas être détectés.
 - Définissez le paramètre `disk.EnableUUID=true` dans les paramètres de configuration de la machine virtuelle cible maître dans VMware. Si cette ligne n’existe pas, ajoutez-la. Ce paramètre est nécessaire pour fournir un UUID cohérent au disque de machine virtuelle (VMDK) et lui assurer ainsi un montage correct.
 - Au moins une banque de données VMFS doit être attachée à l’hôte ESX sur lequel la cible maître est créée. S’il n’y en a aucun, l’entrée **Banque de données** sur la page de reprotection sera vide et vous ne pouvez pas continuer.
 - Le serveur cible maître ne peut pas avoir de captures instantanées sur les disques. S’il existe des captures instantanées, l’opération de reprotection et de restauration automatique échoue.

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à RedBrick Health | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et RedBrick Health."
+title: 'Didacticiel : Intégration d’Azure Active Directory à RedBrick Health | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RedBrick Health.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 598592d87cf6471a431dab89d19c5e8beb48e661
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 8d51d516d8716c0ac07bc851210733d352c47b6a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Didacticiel : Intégration d’Azure Active Directory à RedBrick Health
 
@@ -30,9 +30,10 @@ L’intégration de RedBrick Health à Azure AD vous offre les avantages suivant
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à RedBrick Health (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à RedBrick Health, vous avez besoin des éléments suivants :
 
@@ -154,7 +155,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
@@ -245,7 +246,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

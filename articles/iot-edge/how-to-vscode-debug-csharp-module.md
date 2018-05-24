@@ -1,6 +1,6 @@
 ---
-title: Utiliser Visual Studio Code pour déboguer un module C# avec Azure IoT Edge | Microsoft Docs
-description: Déboguez un module C# avec Azure IoT Edge dans Visual Studio Code.
+title: Débogage des modules C# avec Azure IoT Edge | Microsoft Docs
+description: Utiliser Visual Studio Code pour déboguer un module C# avec Azure IoT Edge dans Visual Studio Code.
 services: iot-edge
 keywords: ''
 author: shizn
@@ -9,18 +9,21 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 035cb129bc3933c10f430b593226108f5d160972
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Utiliser Visual Studio Code pour déboguer un module C# avec Azure IoT Edge
-Cet article fournit des instructions détaillées pour l’utilisation de [Visual Studio Code](https://code.visualstudio.com/) comme principal outil de développement pour déboguer vos modules Azure IoT Edge.
+Cet article fournit des instructions détaillées pour l’utilisation de [Visual Studio (VS) Code](https://code.visualstudio.com/) comme principal outil de développement pour déboguer vos modules Azure IoT Edge.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Windows ou Linux comme machine de développement. Votre appareil IoT Edge peut être un autre appareil physique, ou vous pouvez simuler votre appareil IoT Edge sur votre machine de développement.
+
+> [!NOTE]
+> Vous pouvez uniquement déboguer du module C# dans les conteneurs linux-amd64.
 
 Avant de suivre les instructions de cet article, effectuez les étapes décrites dans [Développer une solution IoT Edge comportant plusieurs modules dans Visual Studio Code](tutorial-multiple-modules-in-vscode.md). Après cela, vous devez disposer des éléments suivants :
 - Un registre Docker local en cours d’exécution sur votre machine de développement. Il est recommandé d’utiliser un registre Docker local pour le prototype et à des fins de test. Vous pouvez mettre à jour le registre de conteneurs dans le fichier `module.json` de chaque dossier du module.
@@ -33,18 +36,17 @@ Avant de suivre les instructions de cet article, effectuez les étapes décrites
 
 2. Regénérez votre solution. Dans la palette de commandes de VS Code, saisissez et exécutez la commande **Edge : générer la solution IoT Edge**.
 
-3. Dans l’explorateur des appareils Azure IoT Hub, cliquez avec le bouton droit sur un ID d’appareil IoT Edge, puis sélectionnez **Créer un déploiement pour un appareil Edge**. Sélectionnez `deployment.json` sous le dossier `config`. Vous pouvez alors constater la bonne création du déploiement avec un ID de déploiement dans le terminal intégré de VS Code.
+3. Dans l’explorateur des appareils Azure IoT Hub, cliquez avec le bouton droit sur un ID d’appareil IoT Edge, puis sélectionnez **Créer un déploiement pour un appareil Edge**. Sélectionnez le fichier `deployment.json` dans le dossier `config`. Vous pouvez alors constater la bonne création du déploiement avec un ID de déploiement dans le terminal intégré de VS Code.
 
-> [!NOTE]
-> Vous pouvez consulter l’état de votre conteneur dans l’explorateur du Docker VS Code ou en exécutant la commande `docker images` dans le terminal.
+Vous pouvez consulter l’état de votre conteneur dans l’explorateur du Docker VS Code ou en exécutant la commande `docker images` dans le terminal.
 
 ## <a name="start-debugging-c-module-in-vs-code"></a>Commencer le débogage du module C# dans VS Code
-1. VS Code conserve les informations de configuration du débogage dans un fichier `launch.json` situé dans un dossier `.vscode` de votre espace de travail. Ce fichier `launch.json` a été généré lors de la création d’une nouvelle solution IoT Edge. Il sera mis à jour chaque fois que vous ajouterez un nouveau module prenant en charge le débogage. Accédez à l’affichage du débogage et sélectionnez le fichier de configuration du débogage correspondant.
+1. VS Code conserve les informations de configuration du débogage dans un fichier `launch.json` situé dans un dossier `.vscode` de votre espace de travail. Ce fichier `launch.json` a été généré lorsque vous avez créé une nouvelle solution IoT Edge. Il se met à jour chaque fois que vous ajoutez un nouveau module qui prend en charge le débogage. Accédez à l’affichage du débogage et sélectionnez le fichier de configuration du débogage correspondant.
     ![Sélectionnez la configuration du débogage](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
 2. Accédez à `program.cs`. Ajoutez un point d’arrêt dans ce fichier.
 
-3. Cliquez sur le bouton Démarrer le débogage ou appuyez sur **F5**, puis sélectionnez le processus à attacher.
+3. Cliquez sur le bouton **Démarrer le débogage** ou appuyez sur **F5**, puis sélectionnez le processus à attacher.
 
 4. Dans l’affichage de débogage de VS Code, les variables apparaissent dans le volet situé à gauche. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à LinkedIn Elevate | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et LinkedIn Elevate."
+title: 'Didacticiel : Intégration d’Azure Active Directory à LinkedIn Elevate | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LinkedIn Elevate.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 5b46323dc487bbc714c2306ed006afffe8c1bb6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3e82cf4ccdc09cd6505994f9db952ac718342bf2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Didacticiel : Intégration d’Azure Active Directory à LinkedIn Elevate
 
@@ -29,9 +29,10 @@ L’intégration de LinkedIn Elevate à Azure AD vous offre les avantages suivan
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à LinkedIn Elevate (via l’authentification unique) avec leur compte Azure AD
 - Vous pouvez gérer vos comptes de manière centralisée dans le portail de gestion Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec LinkedIn Elevate, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de LinkedIn Elevate à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de LinkedIn Elevate à Azure AD, vous devez aj
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, entrez **LinkedIn Elevate**. Dans le volet de résultats, cliquez sur **LinkedIn Elevate** pour ajouter l’application.
 
@@ -82,10 +83,10 @@ Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme va
 
 Pour configurer et tester l’authentification unique Azure AD avec LinkedIn Elevate, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test LinkedIn Elevate](#creating-a-linkedin-elevate-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -96,25 +97,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail de gestion Azure, sur la page d’intégration de l’application **LinkedIn Elevate**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedin_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedin_01.png)
 
 3. Dans une autre fenêtre de navigateur web, connectez-vous à votre client LinkedIn Elevate en tant qu’administrateur.
 
 4. Dans le **Centre des comptes**, cliquez sur **Paramètres globaux** sous **Paramètres**. En outre, sélectionnez **Elevate - Test AAD Elevate** dans la liste déroulante.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_01.png)
 
 5. Cliquez sur **OU cliquez ici pour charger et copier des champs du formulaire** et copiez **ID d’entité** et **URL ACS**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_03.png)
 
 6. Dans le portail Azure, sous **Domaines et URL LinkedIn Elevate**, suivez les étapes ci-dessous si vous souhaitez configurer le SSO en mode **Initié par IDP**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_01.png)
 
     a. Dans la zone de texte **Identificateur**, entrez **l’ID d’entité** copié à partir de LinkedIn Portal 
 
@@ -124,11 +125,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_02.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_02.png) 
     
 8. Votre application LinkedIn Elevate attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML . La capture d’écran suivante montre un exemple : La valeur par défaut pour **Identificateur d’utilisateur** est **user.userprincipalname**, mais LinkedIn Elevate s’attend à ce qu’elle soit mappée sur l’adresse de messagerie de l’utilisateur. Pour cela, vous pouvez utiliser l’attribut **user.mail** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/updateusermail.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/updateusermail.png)
 
 9. Dans **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** et définissez les attributs. Vous devez ajouter une autre revendication nommée **service**, et la valeur doit être mappée à **user.department**.
 
@@ -149,19 +150,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 10. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedinElevate_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedinElevate_certificate.png) 
 
-11. Cliquez sur **Save**.
+11. Cliquez sur **Enregistrer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_400.png)
 
 12. Accédez à la section **Paramètres de l’administrateur LinkedIn**. Téléchargez le fichier XML que vous venez de télécharger à partir du portail Azure en cliquant sur l’option Télécharger fichier XML.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_metadata_03.png)
 
 13. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passera de **Non connecté** à **Connecté**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le Portail de gestion Azure.
@@ -192,7 +193,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**. 
+    d. Cliquez sur **Créer**. 
 
 ### <a name="creating-a-linkedin-elevate-test-user"></a>Création d’un utilisateur test LinkedIn Elevate
 
@@ -208,13 +209,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à LinkedIn Elevate, procédez comme suit :**
 
-1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires et à **Applications d’entreprise** puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **LinkedIn Elevate**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedinElevate_0001.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedinElevate_0001.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -240,7 +241,7 @@ Lorsque vous cliquez sur la mosaïque LinkedIn Elevate dans le volet d’accès,
 
 * [Didacticiel : Configuration de LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

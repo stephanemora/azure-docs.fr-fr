@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-the-access-panel"></a>Présentation du volet d’accès
 
@@ -50,9 +50,7 @@ Vous pouvez accéder au volet d’accès en accédant à `http://myapps.microsof
 
 Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation en ajoutant le domaine de votre organisation à l’URL (par exemple, `http://myapps.microsoft.com/<your domain>.com`).
 
-Vous pouvez utiliser n’importe quel nom de domaine actif ou vérifié ayant été configuré dans votre portail Azure, comme illustré ici :
-
-![Nom de domaine Jouets Wingtip][2]  
+Vous pouvez utiliser n’importe quel nom de domaine actif ou vérifié ayant été configuré dans votre portail Azure, comme illustré ici : ![Nom de domaine Jouets Wingtip][2]  
 
 Distribuez l’URL à tous les utilisateurs qui se connectent aux applications intégrées à Azure AD.
 
@@ -62,7 +60,7 @@ Pour accéder au volet d’accès, vous devez être authentifié via un compte p
 
 Si vous disposez d’un abonnement Azure ou Office 365 et que vous utilisez le portail Azure ou une application Office 365, vous pouvez afficher la liste des applications sans avoir à vous reconnecter. Si vous n’êtes pas authentifié, vous êtes invité à vous connecter à l’aide du nom d’utilisateur et du mot de passe correspondant à votre compte dans Azure AD. Si votre organisation a configuré la fédération, la saisie du nom d’utilisateur suffit.
 
-Une fois authentifié, vous pouvez interagir avec les applications que l’administrateur a intégrées à l’annuaire. Pour découvrir comment intégrer des applications à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Une fois authentifié, vous pouvez interagir avec les applications que l’administrateur a intégrées à l’annuaire. Pour découvrir comment intégrer des applications à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="web-browser-requirements"></a>Configuration requise du navigateur web
 
@@ -75,7 +73,7 @@ L’extension du panneau d’accès est actuellement disponible pour :
 - **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 
 - **Chrome** : sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
-- **Internet Explorer 8, 9, 10, 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
+- **Internet Explorer 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
 
 ## <a name="my-apps-secure-sign-in-extension"></a>Extension de connexion sécurisée à Mes applications
 Pour vous connecter à l’authentification unique avec mot de passe, vous devez utiliser l’extension. Une fois que l’extension est installée, vous pouvez vous y connecter pour activer des fonctionnalités supplémentaires en sélectionnant **Connectez-vous pour commencer**. 
@@ -83,10 +81,15 @@ Pour vous connecter à l’authentification unique avec mot de passe, vous devez
 - Vous pouvez vous connecter à une application directement à l’aide de l’**URL de connexion** de l’application. Lorsque vous utilisez l’URL de l’application, l’extension détecte l’action et vous offre la possibilité de vous connecter à partir de l’extension.
 - Vous pouvez lancer une des vos applications à partir du panneau d’accès à l’aide de la fonctionnalité de *recherche rapide* de l’extension. 
 - L’extension vous présente les trois dernières applications que vous avez lancées dans la section **Récemment utilisé**.
+- Vous pouvez utiliser les URL internes de la société à distance via le [Proxy d’application](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Les fonctionnalités supplémentaires sont disponibles uniquement pour Edge, Chrome et Firefox.
 >
+Vous pouvez télécharger l’extension directement à partir des sites suivants :
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Si vous utilisez une URL de Mes applications autre que `https://myapps.microsoft.com`, configurez votre URL par défaut en procédant comme suit :
 1. *Sans être* connecté à l’extension, cliquez avec le bouton droit sur l’icône de l’extension.
@@ -94,6 +97,12 @@ Si vous utilisez une URL de Mes applications autre que `https://myapps.microsoft
 3. Sélectionnez votre URL par défaut.
 4. Sélectionnez l’icône de l’extension.
 5. Sélectionnez **Connectez-vous pour commencer**.
+
+Pour utiliser les URL internes de la société à distance à l’aide de l’extension, procédez comme suit :
+1. [Configurez le proxy d’application](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) sur votre client.
+2. [Publiez l’application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) et l’URL via le proxy d’application.
+3. Installez l’extension et connectez-vous-y en sélectionnant Connectez-vous pour commencer.
+4. Vous pouvez désormais accéder à l’URL interne de la société même à distance.
 
 ## <a name="mobile-app-support"></a>Prise en charge des applications mobiles
 
@@ -206,7 +215,7 @@ Par exemple, si une application est configurée pour authentifier les utilisateu
  
 - Pour découvrir comment intégrer une application SaaS à Azure AD, consultez la [liste des didacticiels sur l’intégration d’applications SaaS](active-directory-saas-tutorial-list.md).
  
-- Pour en savoir plus sur la gestion des applications avec Azure AD, consultez l’[introduction à l’authentification unique et à la gestion de l’accès aux applications avec Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- Pour en savoir plus sur la gestion des applications avec Azure AD, consultez l’[introduction à l’authentification unique et à la gestion de l’accès aux applications avec Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  
 - Pour plus d’informations sur l’approvisionnement des utilisateurs, consultez [Automatiser l’approvisionnement et l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md).
 

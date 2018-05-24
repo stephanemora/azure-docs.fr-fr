@@ -3,24 +3,22 @@ title: Qu’est-ce que l’accès aux applications et l’authentification uniqu
 description: Utilisez Azure Active Directory pour activer l’authentification unique pour toutes les applications web et SaaS dont vous avez besoin.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
+ms.component: users-groups-roles
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e1bd45027ea9c3dbffc642afedc4e478c96bffe7
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
 Avec l’authentification unique, vous pouvez accéder à toutes les applications et toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte utilisateur. Une fois connecté, vous pouvez accéder à toutes les applications dont vous avez besoin sans devoir vous authentifier à nouveau (par exemple, taper un mot de passe).
@@ -75,7 +73,7 @@ Dans les deux cas, les informations d’identification sont stockées sous forme
 L’authentification unique par mot de passe s’appuie sur une extension de navigateur pour récupérer de façon sécurisée les informations sur l’application et sur l’utilisateur à partir d’Azure AD et les appliquer au service. La plupart des applications SaaS tierces prises en charge par Azure AD prennent en charge cette fonctionnalité.
 
 Pour l’authentification unique par mot de passe, les navigateurs de l’utilisateur final peuvent être :
-* Internet Explorer 8, 9, 10, 11 -- sur Windows 7 ou version ultérieure
+* Internet Explorer 11 sur Windows 7 ou version ultérieure
 * Edge sur Windows 10 Édition anniversaire ou version ultérieure 
 * Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
 * Firefox 26.0 ou ultérieur -- sur Windows XP SP2 ou ultérieur, et sur Mac OS X 10.6 ou ultérieur
@@ -193,7 +191,7 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Détection des applications cloud non approuvées avec Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+* [Détection des applications cloud non approuvées avec Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 * [Introduction à la gestion de l'accès aux applications](active-directory-managing-access-to-apps.md)
 * [Comparaison des capacités de gestion des identités externes dans Azure AD](active-directory-b2b-compare-external-identities.md)
 

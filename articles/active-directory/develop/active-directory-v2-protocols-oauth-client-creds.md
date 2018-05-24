@@ -1,28 +1,30 @@
 ---
-title: "Azure AD v2.0 permet d’accéder aux ressources sécurisées sans aucune intervention de l’utilisateur | Microsoft Docs"
-description: "Créez des applications web à l’aide de la mise en œuvre du protocole d’authentification OAuth 2.0 d’Azure AD."
+title: Azure AD v2.0 permet d’accéder aux ressources sécurisées sans aucune intervention de l’utilisateur | Microsoft Docs
+description: Créez des applications web à l’aide de la mise en œuvre du protocole d’authentification OAuth 2.0 d’Azure AD.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
-Vous pouvez utiliser [l’octroi des informations d’identification du client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), parfois appelé *OAuth à deux branches* pour accéder à des ressources hébergées sur le web à l’aide de l’identité d’une application. Ce type d'octroi est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l'interaction immédiate d’un utilisateur. Ces types d’application sont souvent appelés *démons* (daemons) ou *comptes de service*.
+Vous pouvez utiliser [l’octroi des informations d’identification du client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) spécifié dans RFC 6749, parfois appelé *OAuth à deux branches* pour accéder à des ressources hébergées sur le web à l’aide de l’identité d’une application. Ce type d'octroi est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l'interaction immédiate d’un utilisateur. Ces types d’application sont souvent appelés *démons* (daemons) ou *comptes de service*.
 
 > [!NOTE]
 > Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
@@ -60,7 +62,7 @@ Pour utiliser les autorisations d’application dans votre application, effectue
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
 1. Accédez à votre application dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou [créez une application](active-directory-v2-app-registration.md), si ce n’est déjà fait. Vous devez utiliser au moins une clé secrète d’application lorsque vous créez votre application.
-2. Recherchez la section **Autorisations directes pour les applications** puis ajoutez les autorisations dont votre application a besoin.
+2. Recherchez la section **Autorisations pour Microsoft Graph**, puis ajoutez les **autorisations d’application** nécessaires à votre application.
 3. **Enregistrez** l’inscription de l’application.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recommandé : connectez l’utilisateur à votre application
@@ -90,9 +92,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
-| locataire |Requis |Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être au format GUID ou sous forme de nom convivial. Si vous ne savez pas à quel client appartient l’utilisateur et si vous souhaitez lui permettre de se connecter avec n’importe quel client, utilisez `common`. |
-| client_id |Requis |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| redirect_uri |Requis |L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL, et peut avoir des segments de chemin d’accès supplémentaires. |
+| locataire |Obligatoire |Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être au format GUID ou sous forme de nom convivial. Si vous ne savez pas à quel client appartient l’utilisateur et si vous souhaitez lui permettre de se connecter avec n’importe quel client, utilisez `common`. |
+| client_id |Obligatoire |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
+| redirect_uri |Obligatoire |L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL, et peut avoir des segments de chemin d’accès supplémentaires. |
 | state |Recommandé |Une valeur incluse dans la requête, qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 
 À ce stade, Azure AD impose que seul un administrateur de client peut se connecter pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations directes d’application demandées pour votre application dans le portail d’inscription des applications.
@@ -130,11 +132,14 @@ Une fois que vous avez acquis l’autorisation nécessaire pour votre applicatio
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : demande de jeton d’accès avec un secret partagé
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&grant_type=client_credentials
 ```
 
 ```
@@ -143,28 +148,34 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
-| client_id |Requis |L’ID d’application que le [portail d'inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| scope |Requis |La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
-| client_secret |Requis |La clé secrète que vous avez créée pour votre application dans le portail d’inscription des applications. |
-| grant_type |Requis |Doit être `client_credentials`. |
+| locataire |Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
+| client_id |Obligatoire |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
+| scope |Obligatoire |La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
+| client_secret |Obligatoire |La clé secrète que vous avez créée pour votre application dans le portail d’inscription des applications. |
+| grant_type |Obligatoire |Doit être `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : demande de jeton d’accès avec un certificat
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
 ```
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
-| client_id |Requis |L’ID d’application que le [portail d'inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| scope |Requis |La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
+| locataire |Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
+| client_id |Obligatoire |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
+| scope |Obligatoire |La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
 | client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion |required | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la rubrique traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
-| grant_type |Requis |Doit être `client_credentials`. |
+| grant_type |Obligatoire |Doit être `client_credentials`. |
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
 

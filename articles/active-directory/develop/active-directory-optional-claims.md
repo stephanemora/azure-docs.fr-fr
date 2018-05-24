@@ -2,23 +2,25 @@
 title: Découvrez comment fournir des revendications facultatives à votre application Azure AD | Microsoft Docs
 description: Guide pour l’ajout de revendications personnalisées ou supplémentaires aux jetons web JSON (JWT) et SAML 2.0 émis par Azure Active Directory.
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Revendications facultatives dans Azure AD (préversion)
 
@@ -65,7 +67,9 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `fwd`                      | Adresse IP.  Ajoute l’adresse IPv4 d’origine du client demandeur (quand il se trouve sur un réseau virtuel).                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Pays de l’utilisateur.                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Pays du locataire de ressource.                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | Statut du compte utilisateur dans le client.  Si l’utilisateur est membre du client, la valeur est `0`.  S’il est un invité, la valeur est `1`.  | JWT, SAML | | |
 | `upn`                      | Revendication UserPrincipalName.  Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité. | JWT, SAML  |           | Propriétés supplémentaires : <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>Revendications facultatives v2.0
 Ces revendications sont toujours incluses dans les jetons v1.0, mais elles sont supprimées des jetons v2.0 sauf demande contraire.  Ces revendications s’appliquent uniquement aux jetons web JSON (jetons d’ID et jetons d’accès).  
 

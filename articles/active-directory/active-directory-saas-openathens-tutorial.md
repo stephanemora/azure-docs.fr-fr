@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à OpenAthens | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et OpenAthens."
+title: 'Didacticiel : Intégration d’Azure Active Directory à OpenAthens | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OpenAthens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Didacticiel : Intégration d’Azure Active Directory à OpenAthens
 
@@ -30,9 +30,10 @@ L’intégration d’OpenAthens dans Azure AD vous offre les avantages suivants�
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à OpenAthens (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à OpenAthens, vous avez besoin des éléments suivants :
 
@@ -45,7 +46,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous ne disposez pas d’un environnement d’essai Azure AD, vous pouvez [obtenir un essai gratuit d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’OpenAthens à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -224,7 +225,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * Vous trouverez une liste de didacticiels sur l’intégration des applications SaaS à Azure Active Directory à la page [Intégration des applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md).
-* Pour en savoir plus sur l’accès aux applications et l’authentification unique avec Azure Active Directory, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+* Pour en savoir plus sur l’accès aux applications et l’authentification unique avec Azure Active Directory, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 

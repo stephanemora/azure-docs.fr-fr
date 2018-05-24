@@ -3,20 +3,23 @@ title: Exécution d'un Runbook dans Azure Automation
 description: Décrit les détails du traitement d'un Runbook dans Azure Automation.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 05/08/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 74ee26b961a765276aaa1f0bf17603f22bc8dd20
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: a6a429b85e0d7522e5840a0ad020d12f4f4d471e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
 Lorsque vous démarrez un Runbook dans Azure Automation, une tâche est créée. Une tâche est une instance d'exécution unique d'un Runbook. Un travail Azure Automation est assigné pour exécuter chaque tâche. Même si les travaux sont partagés par plusieurs comptes Azure, les tâches des différents comptes Automation sont isolées les unes des autres. Vous n'avez pas le contrôle du travail qui traite la demande de votre tâche. Un même Runbook peut avoir plusieurs tâches s'exécutant à la fois. L’environnement d’exécution pour les travaux du même compte Automation peut être réutilisé. Lorsque vous affichez la liste des Runbooks du portail Azure, vous voyez l'état de toutes les tâches démarrées pour chaque Runbook. Vous pouvez afficher la liste des tâches de chaque Runbook pour en assurer le suivi de l'état. Pour obtenir une description des différents états des tâches, consultez [États des tâches](#job-statuses).
+
+[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
 Le diagramme suivant illustre le cycle de vie d’une tâche de Runbook pour des [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) et des [Runbooks de flux de travail PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -88,13 +91,31 @@ Vous pouvez utiliser [Get-AzureRmAutomationJob](https://msdn.microsoft.com/libra
 
 Les exemples de commandes suivants récupèrent le dernier travail d’un exemple de runbook et affichent son état, les valeurs fournies pour les paramètres du runbook ainsi que la sortie du travail.
 
-```powershell-interactive
+```azurepowershell-interactive
 $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
 –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
 $job.Status
 $job.JobParameters
 Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
+```
+
+L’exemple suivant récupère la sortie d’une tâche spécifique et retourne chaque enregistrement. Dans le cas de la survenue d’une exception pour un des enregistrements, l’exception est écrite au lieu de la valeur. Cela est utile, car les exceptions peuvent fournir des informations supplémentaires qui ne peuvent normalement pas être enregistrées au cours de la sortie.
+
+```azurepowershell-interactive
+$output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
+foreach($item in $output)
+{
+    $fullRecord = Get-AzureRmAutomationJobOutputRecord -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -JobId <jobID> -Id $item.StreamRecordId
+    if ($fullRecord.Type -eq "Error")
+    {
+        $fullRecord.Value.Exception
+    }
+    else
+    {
+    $fullRecord.Value
+    }
+}
 ```
 
 ## <a name="get-details-from-activity-log"></a>Obtenir les détails du journal d’activité

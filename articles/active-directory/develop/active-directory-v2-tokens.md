@@ -3,23 +3,25 @@ title: Informations de référence sur les jetons Azure Active Directory v2.0�
 description: Types de jeton et de revendication émis par le point de terminaison Azure AD v2.0
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: hirsin
+ms.date: 04/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informations de référence sur les jetons Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 émet plusieurs types de jeton de sécurité dans chaque [flux d’authentification](active-directory-v2-flows.md). Ces informations de référence décrivent le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
@@ -49,7 +51,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> Pour vous entraîner, inspectez les revendications de l’exemple de jeton d’ID, puis collez-le dans [calebb.net](http://calebb.net/).
+> Pour vous entraîner, inspectez les revendications de l’exemple de jeton d’ID, puis collez-le dans [jwt.ms](http://jwt.ms/).
 >
 >
 
@@ -69,8 +71,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Nom |`name` |`Babe Ruth` |La revendication de nom fournit une valeur explicite qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Adresse de messagerie principale associée au compte d’utilisateur, le cas échéant. Sa valeur est mutable et peut changer au fil du temps. L’étendue `email` est requise afin de recevoir cette revendication. |
 | nom d’utilisateur par défaut |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Nom d’utilisateur principal qui représente l’utilisateur dans le point de terminaison v2.0. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation. L’étendue `profile` est requise afin de recevoir cette revendication. |
-| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource et qu’il peut servir de clé dans les tables de base de données. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, nous vous recommandons d’utiliser cette valeur dans un système d’autorisation général. Toutefois, l’objet est un identificateur par paire ; il est unique à un ID d’application donné.  Par conséquent, si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet.  Ceci peut être souhaitable ou non en fonction de vos besoins d’architecture et de confidentialité. |
-| ID d’objet |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur.  Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`.  Cela signifie qu’il peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph.  Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné.  `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
+| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource et qu’il peut servir de clé dans les tables de base de données. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, nous vous recommandons d’utiliser cette valeur dans un système d’autorisation général. Toutefois, l’objet est un identificateur par paire ; il est unique à un ID d’application donné. Par conséquent, si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Ceci peut être souhaitable ou non en fonction de vos besoins d’architecture et de confidentialité. |
+| ID d’objet |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Cela signifie qu’il peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph. Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné. `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
 
 ### <a name="access-tokens"></a>Jetons d’accès
 
@@ -83,7 +85,7 @@ Les jetons d’actualisation sont des jetons de sécurité que votre application
 
 Les jetons d’actualisation prennent en charge plusieurs ressources. Un jeton d’actualisation reçu au cours d’une demande de jeton pour une ressource peut être échangé contre des jetons d’accès à une ressource complètement différente.
 
-Pour recevoir une actualisation dans une réponse de jeton, votre application doit demander et se voir accorder l’étendue `offline_acesss`. Pour en savoir plus sur l’étendue `offline_access`, consultez [l’article sur le consentement et les étendues](active-directory-v2-scopes.md).
+Pour recevoir une actualisation dans une réponse de jeton, votre application doit demander et se voir accorder l’étendue `offline_access`. Pour en savoir plus sur l’étendue `offline_access`, consultez [l’article sur le consentement et les étendues](active-directory-v2-scopes.md).
 
 Les jetons d’actualisation sont, et seront toujours, entièrement opaques pour votre application. Émis par le point de terminaison Azure AD v2.0, ils ne peuvent être inspectés et interprétés que par le point de terminaison v2.0. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière. Les jetons d’actualisation peuvent être rendus non valides à tout moment pour diverses raisons (voir [Révocation de jetons](active-directory-token-and-claims.md#token-revocation)). Pour savoir si un jeton d’actualisation est valide, votre application doit tenter de l’échanger en faisant une demande de jeton auprès du point de terminaison v2.0. C'est la seule façon de faire.
 
@@ -123,7 +125,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-Ce document de métadonnées est un objet JSON qui contient diverses informations utiles, comme l’emplacement des différents points de terminaison nécessaires pour effectuer l’authentification OpenID Connect.  Le document comprend également un *jwks_uri*, qui indique l’emplacement du jeu des clés publiques utilisées pour signer les jetons. Le document JSON situé dans le jwks_uri contient toutes les informations de clés publiques qui sont actuellement utilisées. Votre application peut utiliser la revendication `kid` de l’en-tête du jeton JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton. Elle procède ensuite à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
+Ce document de métadonnées est un objet JSON qui contient diverses informations utiles, comme l’emplacement des différents points de terminaison nécessaires pour effectuer l’authentification OpenID Connect. Le document comprend également un *jwks_uri*, qui indique l’emplacement du jeu des clés publiques utilisées pour signer les jetons. Le document JSON situé dans le jwks_uri contient toutes les informations de clés publiques qui sont actuellement utilisées. Votre application peut utiliser la revendication `kid` de l’en-tête du jeton JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton. Elle procède ensuite à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
 
 La procédure de validation des signatures n’est pas indiquée dans ce document. De nombreuses bibliothèques open source sont disponibles pour vous aider à ce sujet.
 

@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0 et le protocole OpenID Connect | Microsoft Do
 description: Créez des applications web à l’aide de l’implémentation v2.0 du protocole d’authentification OpenID Connect d’Azure AD.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 04/18/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 et le protocole OpenID Connect
 OpenID Connect est un protocole d’authentification basé sur OAuth 2.0 que vous pouvez utiliser pour connecter de façon sécurisée un utilisateur à une application Web. En utilisant l’implémentation du point de terminaison v2.0 d’OpenID Connect, vous pouvez ajouter l’accès à la connexion et aux API à vos applications web. Dans cet article, nous vous montrerons comment effectuant cette opération, quel que soit le langage. Nous vous expliquerons comment envoyer et recevoir des messages HTTP sans utiliser de bibliothèque open source Microsoft.
@@ -42,6 +44,9 @@ OpenID Connect décrit un document de métadonnées qui contient la plupart des 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+> [!TIP] 
+> Essayez ! Cliquez sur [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) pour voir la configuration des clients `common`. 
+>
 
 `{tenant}` peut prendre une des quatre valeurs :
 
@@ -52,7 +57,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 | `consumers` |Seuls les utilisateurs avec un compte personnel Microsoft peuvent se connecter à l’application. |
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` |Seuls les utilisateurs avec un compte professionnel ou scolaire d'un client Azure AD spécifique peuvent se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur GUID du client peut être utilisé. |
 
-Les métadonnées représentent un simple document JavaScript Objet Notation (JSON). Consultez l’extrait suivant pour obtenir un exemple. Le contenu de l'extrait de code est décrit en détail dans les [spécifications d’OpenID Connect](https://openid.net).
+Les métadonnées représentent un simple document JavaScript Objet Notation (JSON). Consultez l’extrait suivant pour obtenir un exemple. Le contenu de l'extrait de code est décrit en détail dans les [spécifications d’OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```
 {
@@ -78,6 +83,9 @@ Lorsque votre application web a besoin d’authentifier l’utilisateur, elle p
 * Le paramètre `response_type` doit inclure `id_token`.
 * La demande doit inclure le paramètre `nonce` .
 
+> [!IMPORTANT]
+> Afin de demander un jeton d’ID correctement, l’inscription de l’application dans le [portail d’inscription](https://apps.dev.microsoft.com) doit avoir **[l’Octroi implicite](active-directory-v2-protocols-implicit.md)** activé pour le client web. S’il n’est pas activé, une erreur `unsupported_response` est renvoyée : « la valeur fournie pour le paramètre d’entrée ’response_type’ n’est pas autorisée pour ce client. La valeur attendue est ’code’ »
+
 Par exemple : 
 
 ```
@@ -94,8 +102,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur sera redirigé vers https://localhost/myapp/, avec un jeton d’ID dans la barre d’adresse. Notez que cette requête utilise `response_mode=query` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur sera redirigé vers https://localhost/myapp/, avec un jeton d’ID dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
@@ -107,11 +115,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
 | scope |Obligatoire |Une liste d’étendues séparées par des espaces. Pour OpenID Connect, vous devez inclure l’étendue `openid`, qui correspond à l’autorisation de connexion dans l’interface utilisateur de consentement. Vous pouvez inclure d’autres étendues dans cette requête pour solliciter le consentement. |
 | nonce |Obligatoire |Une valeur incluse dans la requête, générée par l’application, qui sera intégrée dans la valeur id_token résultant en tant que revendication. L’application peut vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique, aléatoire pouvant être utilisé pour identifier l’origine de la requête. |
-| response_mode |Recommandé |Spécifie la méthode à utiliser pour envoyer le code d’autorisation résultant à votre application. Peut être `query`, `form_post` ou `fragment`. Pour les applications web, nous vous recommandons d’utiliser `response_mode=form_post` pour garantir le transfert le plus sécurisé des jetons à votre application. |
+| response_mode |Recommandé |Spécifie la méthode à utiliser pour envoyer le code d’autorisation résultant à votre application. Peut être `form_post` ou `fragment`. Pour les applications web, nous vous recommandons d’utiliser `response_mode=form_post` pour garantir le transfert le plus sécurisé des jetons à votre application. |
 | state |Recommandé |Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les attaques par falsification de requête intersites](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | prompt |Facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont `login`, `none` et `consent`. La revendication `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. La revendication `prompt=none` a l'effet inverse. Cette valeur garantit qu'aucune invite interactive d'aucune sorte n'est présentée à l'utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison v2.0 renvoie une erreur. La revendication `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth une fois que l’utilisateur se connecte. La boîte de dialogue invite l’utilisateur à accorder des autorisations à l’application. |
 | login_hint |Facultatif |Vous pouvez utiliser ce paramètre pour remplir au préalable le champ réservé au nom d’utilisateur et à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`. |
-| domain_hint |Facultatif |Cette valeur peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par courrier électronique auquel l’utilisateur doit se soumettre sur la page de connexion v2.0, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton d'ID. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, utilisez `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`. |
+| domain_hint |Facultatif |Cette valeur peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par courrier électronique auquel l’utilisateur doit se soumettre sur la page de connexion v2.0, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton d'ID. Si la valeur de revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad` (le client consommateur de compte Microsoft), utilisez `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`. |
 
 À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison v2.0 vérifie que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope` . Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, le point de terminaison v2.0 lui demande de corriger ce manquement. Vous pouvez en savoir plus sur les [autorisations consentements et applications mutualisées](active-directory-v2-scopes.md).
 
@@ -190,12 +198,12 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Paramètre | Condition | Description |
 | ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | Recommandé | URL vers laquelle l’utilisateur est redirigé après sa déconnexion. Si le paramètre n’est pas inclus, un message générique généré par le point de terminaison v2.0 s’affiche. Cette URL doit correspondre exactement à l’un des URI de redirection inscrits pour votre application dans le portail d’inscription des applications.  |
+| post_logout_redirect_uri | Recommandé | URL vers laquelle l’utilisateur est redirigé après sa déconnexion. Si le paramètre n’est pas inclus, un message générique généré par le point de terminaison v2.0 s’affiche. Cette URL doit correspondre exactement à l’un des URI de redirection inscrits pour votre application dans le portail d’inscription des applications. |
 
 ## <a name="single-sign-out"></a>Authentification unique
-Lorsque vous redirigez l’utilisateur vers `end_session_endpoint`, le point de terminaison v2.0 efface la session de l’utilisateur dans le navigateur. Toutefois, l’utilisateur peut rester connecté à d’autres applications qui utilisent des comptes Microsoft pour s’authentifier. Pour permettre à ces applications de déconnecter simultanément l’utilisateur, le point de terminaison v2.0 envoie une requête HTTP GET au paramètre `LogoutUrl` inscrit de toutes les applications auxquelles l’utilisateur est actuellement connecté. Les applications doivent répondre à cette requête en effaçant toute session qui identifie l’utilisateur et en renvoyant une réponse `200`.  Si vous souhaitez prendre en charge la déconnexion unique dans votre application, vous devez implémenter ce paramètre `LogoutUrl` dans le code de votre application.  Vous pouvez définir le paramètre `LogoutUrl` à partir du portail d’inscription des applications.
+Lorsque vous redirigez l’utilisateur vers `end_session_endpoint`, le point de terminaison v2.0 efface la session de l’utilisateur dans le navigateur. Toutefois, l’utilisateur peut rester connecté à d’autres applications qui utilisent des comptes Microsoft pour s’authentifier. Pour permettre à ces applications de déconnecter simultanément l’utilisateur, le point de terminaison v2.0 envoie une requête HTTP GET au paramètre `LogoutUrl` inscrit de toutes les applications auxquelles l’utilisateur est actuellement connecté. Les applications doivent répondre à cette requête en effaçant toute session qui identifie l’utilisateur et en renvoyant une réponse `200`. Si vous souhaitez prendre en charge la déconnexion unique dans votre application, vous devez implémenter ce paramètre `LogoutUrl` dans le code de votre application. Vous pouvez définir le paramètre `LogoutUrl` à partir du portail d’inscription des applications.
 
-## <a name="protocol-diagram-token-acquisition"></a>Schéma de protocole : Acquisition de jeton
+## <a name="protocol-diagram-access-token-acquisition"></a>Schéma de protocole : Acquisition de jeton d’accès
 Beaucoup d’applications web nécessitent une connexion de l’utilisateur, puis un accès au service web pour le compte de cet utilisateur à l’aide d’OAuth. Ce scénario utilise OpenID Connect pour l’authentification de l’utilisateur tout en récupérant un code d’autorisation vous permettant d'obtenir des jetons d’accès si vous utilisez le flux de code d’autorisation OAuth.
 
 Le flux complet de connexion OpenID Connect et d’acquisition des jetons ressemble à l'exemple du diagramme suivant. Nous décrirons en détail chaque étape dans les sections suivantes de cet article.
@@ -212,7 +220,7 @@ GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
-&response_mode=form_post                              // 'query', 'form_post', or 'fragment'
+&response_mode=form_post                              // 'form_post' or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
 offline_access%20                                         
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
@@ -221,8 +229,8 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur est redirigé vers https://localhost/myapp/, avec un jeton d’ID et un code dans la barre d’adresse. Notez que cette requête utilise `response_mode=query` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur est redirigé vers https://localhost/myapp/, avec un jeton d’ID et un code dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

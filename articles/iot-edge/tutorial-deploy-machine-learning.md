@@ -9,17 +9,17 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d0a508f6430bd97e7c76aee686f4837acf246ad3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6062d8193ce8cf7edaff3187f5c0f7dd9968658b
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Déployer Azure Machine Learning en tant que module IoT Edge - version préliminaire
 
-Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce didacticiel vous guide à travers le déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir de données de capteur sur l’appareil IoT Edge simulé que vous avez créé dans les didacticiels [Déployer Azure IoT Edge sur un appareil simulé sous Windows][lnk-tutorial1-win] ou [Linux][lnk-tutorial1-lin]. 
+Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce didacticiel vous guide à travers le déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir de données de capteur sur l’appareil IoT Edge simulé que vous avez créé dans les didacticiels [Déployer Azure IoT Edge sur un appareil simulé sous Windows][lnk-tutorial1-win] ou [Linux][lnk-tutorial1-lin].
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes : 
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un module Azure Machine Learning
@@ -27,7 +27,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déployer un module Azure Machine Learning sur votre appareil Azure IoT Edge
 > * Afficher les données générées
 
-Le module Azure Machine Learning que vous créez dans ce didacticiel lit les données de l’environnement générées par votre appareil et étiquette les messages comme étant anormaux ou pas. 
+Le module Azure Machine Learning que vous créez dans ce didacticiel lit les données de l’environnement générées par votre appareil et étiquette les messages comme étant anormaux ou pas.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,21 +35,21 @@ Le module Azure Machine Learning que vous créez dans ce didacticiel lit les don
 * L’appareil Azure IoT Edge que vous avez créé dans le démarrage rapide ou le premier didacticiel.
 * La chaîne de connexion IoT Hub pour l’IoT Hub auquel votre appareil IoT Edge se connecte.
 * Un compte Azure Machine Learning. Pour créer un compte, suivez les instructions de la page [Créer des comptes Azure Machine Learning et installer Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Vous n’avez pas besoin d’installer l’application Workbench dans le cadre de ce didacticiel. 
-* Gestion des modules pour Azure ML sur votre ordinateur. Pour configurer votre environnement et créer un compte, suivez les instructions de la page [Configuration de la gestion des modèles](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
+* Gestion des modules pour Azure ML sur votre ordinateur. Pour configurer votre environnement et créer un compte, suivez les instructions de la page [Configuration de la gestion des modèles](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
-Le module Azure Machine Learning ne prend pas en charge les processeurs ARM. 
+Le module Azure Machine Learning ne prend pas en charge les processeurs ARM.
 
 ## <a name="create-the-azure-ml-container"></a>Créer le conteneur Azure ML
-Dans cette section, vous allez télécharger les fichiers de modèles entraînés et les convertir en un conteneur Azure ML.  
+Dans cette section, vous allez télécharger les fichiers de modèles entraînés et les convertir en un conteneur Azure ML.
 
-Sur l’ordinateur exécutant la Gestion des modules pour Azure ML, téléchargez et enregistrez [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) et [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl), que vous trouverez dans le kit de ressources Azure ML IoT sur GitHub. Ces fichiers définissent le modèle d’apprentissage de la machine entraînée qui sera déployé sur l’appareil IoT Edge. 
+Sur l’ordinateur exécutant la Gestion des modules pour Azure ML, téléchargez et enregistrez [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) et [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl), que vous trouverez dans le kit de ressources Azure ML IoT sur GitHub. Ces fichiers définissent le modèle d’apprentissage de la machine entraînée qui sera déployé sur l’appareil IoT Edge.
 
 Utilisez le modèle entraîné pour créer un conteneur qui pourra être déployé sur des appareils IoT Edge. Utilisez la commande suivante pour :
 
    * enregistrer votre modèle
    * Créez un manifeste.
    * créer une image de conteneur Docker nommée *machinelearningmodule*
-   * déployer l’image vers un cluster Azure Container Service (AKS).
+   * déployer l’image vers un cluster Azure Kubernetes Service (AKS).
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
@@ -73,12 +73,12 @@ Ajoutez les informations d’identification pour votre registre au runtime Edge 
 
 Linux :
    ```cmd
-   sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+   sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
    ```
 
 Windows :
    ```cmd
-   iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+   iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
    ```
 
 ## <a name="run-the-solution"></a>Exécuter la solution
@@ -97,7 +97,7 @@ Windows :
     1. Dans le champ **Image**, saisissez l’adresse de votre image, par exemple `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Sélectionnez **Enregistrer**.
 1. Revenez à l’étape **Ajouter des modules** et sélectionnez **Suivant**.
-1. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Le premier itinéraire transmet les messages du capteur de température au module Machine Learning le point de terminaison « amlInput », le point de terminaison utilisé par tous les modules Azure Machine Learning. Le deuxième itinéraire transmet les messages du module Machine Learning à IoT Hub. Dans cet itinéraire, « amlOutput » correspond au point de terminaison utilisé par tous les modules Azure Machine Learning pour transmettre des données, et « $upstream » signifie IoT Hub. 
+1. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Le premier itinéraire transmet les messages du capteur de température au module Machine Learning le point de terminaison « amlInput », le point de terminaison utilisé par tous les modules Azure Machine Learning. Le deuxième itinéraire transmet les messages du module Machine Learning à IoT Hub. Dans cet itinéraire, « amlOutput » correspond au point de terminaison utilisé par tous les modules Azure Machine Learning pour transmettre des données, et « $upstream » signifie IoT Hub.
 
     ```json
     {
@@ -106,24 +106,24 @@ Windows :
             "machineLearningToIoTHub": "FROM /messages/modules/machinelearningmodule/outputs/amlOutput INTO $upstream"
         }
     }
-    ``` 
+    ```
 
-1. Sélectionnez **Suivant**. 
-1. À l’étape **Vérifier le modèle**, sélectionnez **Envoyer**. 
+1. Sélectionnez **Suivant**.
+1. À l’étape **Vérifier le modèle**, sélectionnez **Envoyer**.
 1. Revenez à la page de détails de l’appareil et sélectionnez **Actualiser**.  Le nouveau module **machinelearningmodule** devrait apparaître en cours d’exécution avec les modules **tempSensor** et Runtime IoT Edge.
 
 ## <a name="view-generated-data"></a>Afficher les données générées
 
-Vous pouvez afficher les messages appareil-à-cloud envoyés par votre appareil IoT Edge à l’aide de [l’explorateur IoT Hub](https://github.com/azure/iothub-explorer) ou l’extension du kit IoT Azure pour Visual Studio Code. 
+Vous pouvez afficher les messages appareil-à-cloud envoyés par votre appareil IoT Edge à l’aide de [l’explorateur IoT Hub](https://github.com/azure/iothub-explorer) ou l’extension du kit IoT Azure pour Visual Studio Code.
 
-1. Dans Visual Studio Code, sélectionnez **Appareils IoT Hub**. 
-2. Sélectionnez **...**, puis **Définir la chaîne de connexion IoT Hub** dans le menu. 
+1. Dans Visual Studio Code, sélectionnez **Appareils IoT Hub**.
+2. Sélectionnez **...**, puis **Définir la chaîne de connexion IoT Hub** dans le menu.
 
    ![Menu plus Appareils IoT Hub](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Dans la zone de texte qui s’ouvre en haut de la page, entrez la chaîne de connexion iothubowner de votre hub IoT. Votre appareil IoT Edge devrait apparaître dans la liste Appareils IoT Hub.
 4. Sélectionnez à nouveau **...**, puis **Commencer le monitoring du message D2C**.
-5. Observez les messages en provenance de tempSensor toutes les cinq secondes. Le corps du message contient une propriété appelée **anomalie** qu’offre le machinelearningmodule avec la valeur true ou false. La propriété **AzureMLResponse** contient la valeur « OK » si le modèle a été exécuté correctement. 
+5. Observez les messages en provenance de tempSensor toutes les cinq secondes. Le corps du message contient une propriété appelée **anomalie** qu’offre le machinelearningmodule avec la valeur true ou false. La propriété **AzureMLResponse** contient la valeur « OK » si le modèle a été exécuté correctement.
 
    ![Réponse d’Azure ML dans le corps du message](./media/tutorial-deploy-machine-learning/ml-output.png)
 

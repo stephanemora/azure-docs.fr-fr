@@ -1,8 +1,8 @@
 ---
 title: Profiler des applications web dynamiques sur Azure avec Application Insights Profiler | Microsoft Docs
-description: "Identifiez le chemin réactif dans le code de votre serveur web avec un profileur de faible encombrement."
+description: Identifiez le chemin réactif dans le code de votre serveur web avec un profileur de faible encombrement.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiler des applications web dynamiques sur Azure avec Application Insights
 
-*Cette fonctionnalité d’Azure Application Insights est généralement disponible pour la fonctionnalité Web Apps d’Azure App Service et est en version préliminaire pour les ressources de calcul Azure.*
+*Cette fonctionnalité d’Azure Application Insights est généralement disponible pour la fonctionnalité Web Apps d’Azure App Service et est en version préliminaire pour les ressources de calcul Azure. Pour plus d’informations concernant [l’utilisation du profileur local](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 Cet article traite du temps passé dans chaque méthode de votre application web dynamique lorsque vous utilisez [Application Insights](app-insights-overview.md). L’outil Application Insights Profiler affiche les profils détaillés des requêtes dynamiques qui ont été prises en charge par votre application. Profiler met en évidence le *chemin réactif* qui utilise le plus de temps. Les requêtes avec différents temps de réponse sont profilées par échantillonnage. À l’aide de diverses techniques, vous pouvez réduire la charge qui est associée à l’application.
 
@@ -63,7 +63,7 @@ Pour plus d’informations, consultez la [version préliminaire de Profiler pour
 
 ## <a name="view-profiler-data"></a>Afficher les données du profileur
 
-Vérifiez que votre application reçoit le trafic. Si vous faites une expérience, vous pouvez générer des requêtes pour votre application web à l’aide des [tests de performances Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Si vous venez d’activer Profiler, vous pouvez exécuter un bref test de charge durant environ 15 minutes, ce qui doit générer des traces du profileur. Si Profiler est déjà activé depuis un moment, notez qu’il s’exécute de manière aléatoire deux fois par heure pendant une durée de deux minutes. Nous vous suggérons d’exécuter le test de charge sur une durée d’une heure pour vous assurer d’obtenir des échantillons de traces du profileur.
+Vérifiez que votre application reçoit le trafic. Si vous faites une expérience, vous pouvez générer des requêtes pour votre application web à l’aide des [tests de performances Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Si vous venez d’activer Profiler, vous pouvez exécuter un bref test de charge durant environ 15 minutes, ce qui doit générer des traces du profileur. Si Profiler est déjà activé depuis un moment, notez qu’il s’exécute de manière aléatoire deux fois par heure pendant une durée de deux minutes. Nous vous suggérons d’exécuter le test de charge sur une durée d’une heure pour vous assurer d’obtenir des échantillons de traces du profileur.
 
 Une fois que votre application reçoit du trafic, accédez au volet **Performances**, sélectionnez **Prendre des mesures** pour afficher les traces du profileur, puis sélectionnez le bouton **Traces du profileur**.
 

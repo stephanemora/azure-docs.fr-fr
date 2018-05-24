@@ -9,11 +9,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: billmath
-ms.openlocfilehash: f450747cac06a416950efc6c37c1058c1cb40775
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4e6cf3bb4a691380a5fe22f5afdf749b40f15ef3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="synchronizing-guest-user-accounts-that-use-email-for-sign-in-preview"></a>Synchronisation des comptes d’utilisateur des utilisateurs invités qui utilisent une adresse e-mail pour se connecter (préversion)
 
@@ -37,7 +37,7 @@ Cette section contient une liste des conditions préalables et des hypothèses q
 - Azure AD Connect 1.1.524.0 ou une version ultérieure
 - Domaine vérifié pour définir l’UPN du cloud des utilisateurs externes (exemple : bmcontoso.com).
 - Service FS (Federation Service) pour authentifier les utilisateurs externes. Si vous utilisez AD FS, il doit s’agir de la version 2012 R2 ou ultérieure
-- MSOL PowerShell v1.1 est installé sur un ordinateur afin de contrôler les paramètres de fédération. Pour plus d’informations, consultez [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+- MSOL PowerShell v1.1 est installé sur un ordinateur afin de contrôler les paramètres de fédération. Pour plus d’informations, consultez [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 
 ### <a name="assumptions"></a>Hypothèses 
@@ -45,7 +45,7 @@ Cette section contient une liste des conditions préalables et des hypothèses q
 Ce document repose sur les hypothèses suivantes :
 - vous avez configuré un service FS qui authentifie correctement les utilisateurs.
 - les utilisateurs externes peuvent s’authentifier à l’aide de leur adresse e-mail externe.
-- - l’utilisation d’un autre ID de connexion a été paramétrée et configurée. Les utilisateurs peuvent s’authentifier à l’aide de leur autre ID. Pour plus d’informations sur la configuration d’un autre ID avec AD FS, consultez [La configuration des ID de connexion alternatif](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+- - l’utilisation d’un autre ID de connexion a été paramétrée et configurée. Les utilisateurs peuvent s’authentifier à l’aide de leur autre ID. Pour plus d’informations sur la configuration d’un autre ID avec AD FS, consultez [La configuration des ID de connexion alternatif](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## <a name="task-1--prepare-the-environment"></a>Tâche 1 : Préparer l’environnement
 La tâche suivante consiste à rassembler des informations pour que vous soyez prêt à commencer la synchronisation de vos comptes externes afin qu’ils puissent se connecter à l’aide d’un autre ID, comme l’attribut de messagerie.
@@ -139,7 +139,7 @@ Utilisez la procédure suivante pour configurer Azure AD Connect.
 ## <a name="task-3--federation"></a>Tâche 3 : Fédération
 La tâche suivante consiste à rassembler des informations sur quelques éléments que vous devez mettre en place pour que le scénario fonctionne.
 
-Vous pouvez vérifier vos paramètres de fédération avec Azure à l’aide d’Azure AD PowerShell. Ce document utilise la version 1.1 de MSOL PowerShell. Vous pouvez installer cette version [ici](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+Vous pouvez vérifier vos paramètres de fédération avec Azure à l’aide d’Azure AD PowerShell. Ce document utilise la version 1.1 de MSOL PowerShell. Vous pouvez installer cette version [ici](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 ### <a name="verify-the-federation-settings"></a>Vérification des paramètres de fédération
 Utilisez la procédure suivante pour vérifier les paramètres de fédération.
@@ -180,6 +180,6 @@ Pour vérifier que tout fonctionne correctement, vous devez vous connecter à un
 ![Success](media/active-directory-aadconnect-guest-sync/guest12.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
-- [Configuration d’un ID de connexion alternatif](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
+- [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](../../active-directory/b2b/user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
+- [Configuration d’un ID de connexion alternatif](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Azure AD Connect : Historique de publication des versions](active-directory-aadconnect-version-history.md)

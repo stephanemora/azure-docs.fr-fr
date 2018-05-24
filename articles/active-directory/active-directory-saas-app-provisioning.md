@@ -1,11 +1,11 @@
 ---
 title: Attribution automatique des utilisateurs dans les applications SaaS dans Azure AD | Microsoft Docs
-description: "Cette introduction explique comment utiliser Azure AD pour approvisionner, annuler l’approvisionnement et mettre à jour de façon continue des comptes d’utilisateurs dans diverses applications SaaS tierces."
+description: Cette introduction explique comment utiliser Azure AD pour approvisionner, annuler l’approvisionnement et mettre à jour de façon continue des comptes d’utilisateurs dans diverses applications SaaS tierces.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Qu’est-ce que l’attribution automatique des utilisateurs dans les applications SaaS ?
@@ -80,7 +80,7 @@ Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise e
 
 La configuration du service d’approvisionnement Azure AD pour une application sélectionnée commence dans le **[portail Azure](https://portal.azure.com)**. Dans la section **Azure Active Directory > Applications d’entreprise**, sélectionnez **Ajouter**, **All** (Toutes), puis sélectionnez l’une des options suivantes selon votre scénario :
 
-* Toutes les applications de la section **Applications recommandées** prennent en charge l’approvisionnement automatique. Consultez la [liste des didacticiels d’applications pour l’approvisionnement des utilisateurs] active-directory-saas-didacticiel-list.md) pour en obtenir davantage.
+* Toutes les applications de la section **Applications recommandées** prennent en charge l’approvisionnement automatique. Consultez la [[liste des didacticiels d’applications pour l’approvisionnement des utilisateurs]](active-directory-saas-tutorial-list.md) pour en obtenir davantage.
 
 * Utilisez l’option Application ne figurant pas dans la galerie pour les intégrations SCIM personnalisées
 
@@ -176,7 +176,7 @@ Le travail d’approvisionnement sera supprimé de la mise en quarantaine après
 
 Les performances seront différentes selon que votre travail d’approvisionnement effectue une synchronisation initiale ou une synchronisation incrémentielle.
 
-Pour les synchronisations initiales, le temps nécessaire dépendra directement du nombre d’utilisateurs, de groupes et de membres du groupe présents dans le système source. Des systèmes source très petits comptant des centaines d’objets peuvent effectuer des synchronisations initiales en quelques minutes. À l’inverse, les synchronisations initiales des systèmes source avec des centaines de milliers, voire des millions d’objets combinés peuvent prendre beaucoup de temps.
+Pour les synchronisations initiales, le temps nécessaire dépendra directement du nombre d’utilisateurs, de groupes et de membres du groupe présents dans le système source. Des systèmes source très petits comptant des centaines d’objets peuvent effectuer des synchronisations initiales en quelques minutes. À l’inverse, les synchronisations initiales des systèmes source avec des centaines de milliers, voire des millions d’objets combinés prendront plus de temps.
 
 Pour les synchronisations incrémentielles, le temps nécessaire dépend du nombre de modifications détectées dans ce cycle de synchronisation. S’il existe moins de 5 000 modifications d’appartenance au groupe ou d’utilisateur détectées, elles peuvent souvent être synchronisées en 40 minutes. 
 
@@ -220,4 +220,5 @@ Contactez-nous via le [forum des commentaires sur Azure Active Directory](https:
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
+* [Plan de déploiement pas à pas pour l’approvisionnement d’utilisateurs sortants d’une application](https://aka.ms/userprovisioningdeploymentplan)
 

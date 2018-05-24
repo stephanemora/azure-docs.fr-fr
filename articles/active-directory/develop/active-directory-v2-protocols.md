@@ -1,32 +1,33 @@
 ---
-title: "En savoir plus sur les protocoles d’autorisation pris en charge par Azure AD v2.0 | Microsoft Docs"
+title: En savoir plus sur les protocoles d’autorisation pris en charge par Azure AD v2.0 | Microsoft Docs
 description: Un guide sur les protocoles pris en charge par le point de terminaison Azure AD v2.0.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 04/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c6031bb135c48a8d58f61c3c96bf18e817809ba
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>Protocoles v2.0 - OAuth 2.0 et OpenID Connect
-Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0.  Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles.  Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant ou en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos bibliothèques open source.
-<!-- TODO: Need link to libraries above -->
+Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant ou en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos [bibliothèques open source](active-directory-v2-libraries.md).
 
 > [!NOTE]
-> Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0.  Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
+> Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
 >
 >
 
@@ -35,13 +36,13 @@ Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concern�
 
 ![Rôles OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
 
-* Le **serveur d’autorisation** est le point de terminaison v2.0.  Il est chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources et l’émission de jetons.  Il est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties des flux.
-* Le **propriétaire de la ressource** est généralement l'utilisateur final.  Il s’agit de la partie détentrice des données, qui a le pouvoir d’autoriser les tierces parties à accéder à ces données ou à cette ressource.
-* Le **Client OAuth** est votre application, identifiée par son ID d'application.  Il s’agit généralement de la partie avec laquelle l’utilisateur final interagit ; elle demande des jetons provenant du serveur d’autorisation.  Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
-* Le **serveur de ressources** héberge la ressource ou les données.  Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès porteurs pour garantir l’octroi de l’accès à une ressource.
+* Le **serveur d’autorisation** est le point de terminaison v2.0. Il est chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources et l’émission de jetons. Il est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties des flux.
+* Le **propriétaire de la ressource** est généralement l'utilisateur final. Il s’agit de la partie détentrice des données, qui a le pouvoir d’autoriser les tierces parties à accéder à ces données ou à cette ressource.
+* Le **Client OAuth** est votre application, identifiée par son ID d'application. Il s’agit généralement de la partie avec laquelle l’utilisateur final interagit ; elle demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
+* Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès porteurs pour garantir l’octroi de l’accès à une ressource.
 
 ## <a name="app-registration"></a>Inscription d’application
-Toutes les applications qui utilisent le point de terminaison v2.0 doivent être inscrites à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) avant de pouvoir interagir à l’aide d’OAuth ou d’OpenID Connect.  Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
+Toutes les applications qui utilisent le point de terminaison v2.0 doivent être inscrites à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) avant de pouvoir interagir à l’aide d’OAuth ou d’OpenID Connect. Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 
 * un **ID d’application** qui identifie de manière unique votre application ;
 * un **URI de redirection** ou un **identificateur de package** pouvant être utilisé pour diriger des réponses vers votre application ;
@@ -64,7 +65,7 @@ Où le `{tenant}` peut prendre l’une de quatre valeurs différentes :
 | `common` |Permet aux utilisateurs avec des comptes Microsoft personnels et des comptes professionnels/scolaires Azure Active Directory de se connecter à l’application. |
 | `organizations` |Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires Azure Active Directory de se connecter à l’application. |
 | `consumers` |Permet uniquement aux utilisateurs avec des comptes personnels Microsoft (MSA) de se connecter à l’application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` |Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires d’un client Azure Active Directory spécifique de se connecter à l’application.  Le nom de domaine convivial du client Azure AD ou l’identificateur guid du client peut être utilisé. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` |Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires d’un client Azure Active Directory spécifique de se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur guid du client peut être utilisé. |
 
 Pour plus d’informations sur la façon d’interagir avec ces points de terminaison, choisissez un type particulier d’application ci-dessous.
 
@@ -74,7 +75,7 @@ L’implémentation d’OAuth 2.0 et d’OpenID Connect par v2.0 utilise massive
 Pour plus d’informations sur les différents types de jetons utilisés dans le point de terminaison v2.0, consultez la page de [Référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md).
 
 ## <a name="protocols"></a>Protocoles
-Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous.  Chacun d’eux correspond à un scénario d’authentification particulier.  Si vous avez besoin d’aide pour déterminer le flux qui vous convient, consultez les [types d’applications que vous pouvez créer avec le point de terminaison v2.0](active-directory-v2-flows.md).
+Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer le flux qui vous convient, consultez les [types d’applications que vous pouvez créer avec le point de terminaison v2.0](active-directory-v2-flows.md).
 
 * [Génération d’une application mobile et native avec OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 * [Génération d’applications web avec Open ID Connect](active-directory-v2-protocols-oidc.md)

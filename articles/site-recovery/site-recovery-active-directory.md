@@ -1,19 +1,19 @@
 ---
-title: "Protéger Active Directory et DNS avec Azure Site Recovery | Documents Microsoft"
-description: "Cet article décrit comment implémenter une solution de récupération d’urgence pour Active Directory à l’aide d’Azure Site Recovery."
+title: Protéger Active Directory et DNS avec Azure Site Recovery | Documents Microsoft
+description: Cet article décrit comment implémenter une solution de récupération d’urgence pour Active Directory à l’aide d’Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utiliser Azure Site Recovery pour protéger Active Directory et DNS
 
@@ -58,16 +58,16 @@ Pour la machine virtuelle hébergeant le contrôleur de domaine ou le DNS, dans 
 Créez un contrôleur de domaine sur le site secondaire. Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le nom du même domaine que celui utilisé sur le site principal. Vous pouvez utiliser le composant logiciel enfichable **Sites et services Active Directory** pour configurer les paramètres sur l'objet du lien de sites auquel les sites sont ajoutés. En configurant des paramètres sur un lien de sites, vous pouvez contrôler le moment auquel la réplication a lieu entre au moins deux sites, ainsi que sa fréquence. Pour plus d’informations, voir [Planification de la réplication entre sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Protection de site vers Azure
-Commencez par [créer un contrôleur de domaine de réplication dans un réseau virtuel Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine que celui utilisé sur le site principal.
+Commencez par créer un contrôleur de domaine de réplication dans un réseau virtuel Azure. Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine que celui utilisé sur le site principal.
 
-Ensuite, [reconfigurez le serveur DNS pour le réseau virtuel](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) afin de l’utiliser dans Azure.
+Ensuite, reconfigurez le serveur DNS pour le réseau virtuel afin de l’utiliser dans Azure.
 
 ![Réseau Azure](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Protection Azure vers Azure
-Commencez par [créer un contrôleur de domaine de réplication dans un réseau virtuel Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine que celui utilisé sur le site principal.
+Commencez par créer un contrôleur de domaine de réplication dans un réseau virtuel Azure. Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le même nom de domaine que celui utilisé sur le site principal.
 
-Ensuite, [reconfigurez le serveur DNS pour le réseau virtuel](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) afin de l’utiliser dans Azure.
+Ensuite, reconfigurez le serveur DNS pour le réseau virtuel afin de l’utiliser dans Azure.
 
 ## <a name="test-failover-considerations"></a>Considérations en matière de test de basculement
 Pour éviter tout impact sur les charges de travail de production, le test de basculement est effectué dans un réseau isolé du réseau de production.

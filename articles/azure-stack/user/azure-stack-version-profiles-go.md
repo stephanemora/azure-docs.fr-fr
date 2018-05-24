@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilisez des profils de version des API avec Go dans Azure Stack
 
@@ -35,7 +33,7 @@ Un profil est une combinaison de différents types de ressources dans différent
 Dans le kit de développement logiciel (SDK) Go, les profils sont disponibles sous les profils/chemin d’accès, leur version étant au format **YYYY-MM-DD**. Actuellement, le dernier profil de version Azure Stack est **2017-03-09**. Pour importer un service donné depuis un profil, vous devez importer le module correspondant depuis le profil. Par exemple, pour importer le service **Compute** depuis le profil **2017-03-09** :
 
 ````go
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compute" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
 ## <a name="install-azure-sdk-for-go"></a>Installer le Kit de développement logiciel Microsoft Azure SDK pour Go
@@ -63,7 +61,8 @@ Le Kit de développement logiciel (SDK) Go dépend des modules Azure Go-AutoRest
 Pour exécuter un exemple de code Go sur Azure Stack :
   1. Installez le Kit de développement logiciel (SDK) Azure pour Go et ses dépendances. Pour obtenir des instructions, consultez la section précédente, [Installer le Kit de développement logiciel Microsoft Azure SDK pour Go](#install-azure-sdk-for-go).
   2. Obtenir les informations de métadonnées du point de terminaison du Gestionnaire des ressources. Le point de terminaison retourne un fichier JSON avec les informations requises pour exécuter votre code Go.
-  > [!note]  
+
+  > [!Note]  
   > Le **ResourceManagerUrl** dans le Kit de développement Azure Stack (ASDK) est : `https://management.local.azurestack.external/`  
   > Le **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Pour extraire les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -129,7 +128,7 @@ L’agent d’autorisation doit être défini comme l’agent d’autorisation p
 
 Cette section présente une méthode courante pour obtenir des jetons de l’agent d’autorisation sur Azure Stack en utilisant les informations d’identification du client :
 
-  1. Si un principal de service disposant du rôle de propriétaire sur l’abonnement est disponible, ignorez cette étape. Sinon, créez un principal de service [instructions]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) et attribuer-lui un rôle de « propriétaire » s’étendant à votre abonnement [instructions]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Enregistrez l’ID d’application du principal du service et le secret. 
+  1. Si un principal de service disposant du rôle de propriétaire sur l’abonnement est disponible, ignorez cette étape. Sinon, créez un principal de service [instructions]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) et attribuer-lui un rôle de « propriétaire » s’étendant à votre abonnement [instructions]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Enregistrez l’ID d’application du principal du service et le secret. 
 
   2. Importez le package **adal** à partir de Go-AutoRest dans votre code. 
   
@@ -178,7 +177,8 @@ Cette section présente une méthode courante pour obtenir des jetons de l’age
 ## <a name="example"></a>Exemples
 
 Cette section présente un exemple de code Go pour créer un réseau virtuel sur Azure Stack. Pour obtenir des exemples complets de Kit de développement logiciel (SDK) Go, consultez le [référentiel d’exemples de Kit de développement logiciel (SDK) Go Azure](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Les exemples Azure Stack sont disponibles sous hybride/ chemin d’accès à l’intérieur des dossiers de service du référentiel.
-> [!note]  
+
+> [!Note]  
 > Pour exécuter le code dans cet exemple, vérifiez que le fournisseur de ressources **Réseau** de l’abonnement utilisé est répertorié comme **inscrit**. Pour le vérifier, recherchez l’abonnement dans le portail Azure Stack et cliquez sur **fournisseurs de ressources.**
 
 1. Importez les packages requis dans votre code. Vous devez utiliser le dernier profil disponible sur Azure Stack pour importer le module de réseau. 
@@ -196,7 +196,7 @@ Cette section présente un exemple de code Go pour créer un réseau virtuel sur
   )
   ````
 
-2. Définissez les variables d’environnement. Notez que pour créer un réseau virtuel, vous devez disposer d’un groupe de ressources. 
+2. Définissez les variables d’environnement. Pour créer un réseau virtuel, vous devez disposer d’un groupe de ressources. 
 
   ````go
   var (

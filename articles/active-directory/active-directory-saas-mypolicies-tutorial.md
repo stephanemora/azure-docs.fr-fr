@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec myPolicies | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et myPolicies."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec myPolicies | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et myPolicies.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 39c2acb24f1c15af9ab0c8698e9590fb0e032113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22bc26190971ef8ceed409a70d45be5e049d7401
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Didacticiel : Intégration d’Azure Active Directory avec myPolicies
 
@@ -29,9 +29,10 @@ L’intégration de myPolicies avec Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à myPolicies (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec myPolicies, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de myPolicies à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de myPolicies à Azure AD, vous devez ajouter m
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **myPolicies**.
 
@@ -89,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec myPolicies, 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test myPolicies](#creating-a-mypolicies-test-user)** pour avoir un équivalent de Britta Simon dans myPolicies lié à la représentation de l’utilisateur Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **myPolicies**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_samlbase.png)
 
 3. Dans la section **Domaine et URL myPolicies**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tenantname>.mypolicies.com/`
 
@@ -119,7 +120,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. L’application myPolicies s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple : 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_attribute.png)
 
 5. Dans la section **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** pour développer les attributs. Dans chacun des attributs affichés, procédez comme suit :
 
@@ -128,11 +129,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | givenname | user.givenname |
     | surname | user.surname |
     | emailaddress | user.mail |
-    | name | user.userprincipalname |
+    | Nom | user.userprincipalname |
     
     a. Cliquez sur l’attribut pour ouvrir la boîte de dialogue **Modifier l’attribut**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_attribute_05.png)
     
     b. Supprimez la valeur de l’URL dans **Espace de noms**.
     
@@ -140,15 +141,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_general_400.png)
 
-8. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration de myPolicies**, cliquez sur **Configurer myPolicies**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+8. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration de myPolicies**, cliquez sur **Configurer myPolicies**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_configure.png) 
 
 9. Pour configurer l’authentification unique côté **myPolicies**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’URL du service d’authentification unique SAML** à [l’équipe de support technique myPolicies](mailto:support@mypolicies.com). 
 
@@ -185,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-mypolicies-test-user"></a>Création d’un utilisateur de test myPolicies
 
@@ -205,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **myPolicies**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -231,7 +232,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

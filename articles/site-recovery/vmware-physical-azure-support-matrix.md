@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a7e0455d92635b7767227685b622bdae303f9621
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice de support pour la réplication des machines virtuelles VMware et des serveurs physiques vers Azure
 
@@ -22,14 +22,14 @@ Cet article répertorie les composants et les paramètres pris en charge pour la
 
 **Scénario** | **Détails**
 --- | ---
-Machines virtuelles VMware | Réplication de machines virtuelles VMware locales dans Azure. Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.
+Machines virtuelles VMware | Réplication de machines virtuelles VMware locales dans Azure. Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Serveurs physiques | Réplication de serveurs physiques Windows/Linux locaux dans Azure. Vous pouvez déployer ce scénario dans le portail Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Serveurs de virtualisation locaux
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 ou 5.5, ou vSphere 6.5, 6.0 ou 5.5 | Nous vous recommandons d’utiliser une instance de serveur vCenter.<br/><br/> Nous vous recommandons d’héberger les hôtes vSphere et les serveurs vCenter dans le même réseau que le serveur de traitement. Par défaut, les composants du serveur de traitement s’exécutent sur le serveur de configuration. Vous devrez donc opter pour le réseau dans lequel vous installez le serveur de configuration, à moins que vous n’installiez un serveur de traitement dédié. 
+VMware | vCenter Server 6.5, 6.0 ou 5.5, ou vSphere 6.5, 6.0 ou 5.5 | Nous vous recommandons d’utiliser une instance de serveur vCenter.<br/><br/> Nous vous recommandons d’héberger les hôtes vSphere et les serveurs vCenter dans le même réseau que le serveur de traitement. Par défaut, les composants du serveur de traitement s’exécutent sur le serveur de configuration. Vous devrez donc opter pour le réseau dans lequel vous installez le serveur de configuration, à moins que vous n’installiez un serveur de traitement dédié.
 Physique | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Serveur de configuration Site Recovery
@@ -38,19 +38,19 @@ Le serveur de configuration est une machine locale qui exécute les composants d
 
 **Composant** | **Configuration requise**
 --- |---
-Cœurs d’unité centrale | 8 
+Cœurs d’unité centrale | 8
 RAM | 12 Go
 Nombre de disques | 3 disques<br/><br/> Les disques comprennent le disque du système d’exploitation, le disque de cache du serveur de traitement et le lecteur de rétention pour la restauration automatique.
 Espace disque libre | 600 Go d’espace requis pour le cache du serveur de traitement.
 Espace disque libre | 600 Go d’espace requis pour le lecteur de rétention.
-Système d’exploitation  | Windows Server 2012 R2 ou Windows Server 2016 | 
-Paramètres régionaux du système d’exploitation | Anglais (en-us) 
+Système d’exploitation  | Windows Server 2012 R2 ou Windows Server 2016 |
+Paramètres régionaux du système d’exploitation | Anglais (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") doit être installé.
 Rôles Windows Server | N’activez pas les éléments suivants : <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 Stratégies de groupe| N’activez pas les éléments suivants : <br> - Empêcher l’accès à l’invite de commandes <br> - Empêcher l’accès aux outils de modification du Registre <br> - Logique de confiance pour les pièces jointes <br> - Activer l’exécution des scripts <br> [En savoir plus](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Assurez-vous d’effectuer les tâches suivantes :<br/><br/> - Vérifier l’absence d’un site web par défaut préexistant <br> - Activer [l’authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Vérifier qu’aucune application/aucun site web préexistants n’écoutent le port 443<br>
-Type de carte réseau | VMXNET3 (en cas de déploiement comme machine virtuelle VMware) 
-Type d’adresse IP | statique 
+Type de carte réseau | VMXNET3 (en cas de déploiement comme machine virtuelle VMware)
+Type d’adresse IP | statique
 Ports | 443 utilisé pour l’orchestration du canal de contrôle<br>9443 utilisé pour le transport de données
 
 ## <a name="replicated-machines"></a>Machines répliquées
@@ -75,14 +75,15 @@ Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 
 
 **Version prise en charge** | **Version du service Mobilité Azure Site Recovery** | **Version du noyau** |
 --- | --- | --- |
-14.04 LTS | 9.11 | 3.13.0-24-generic à 3.13.0-128-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-91-generic, |
 14.04 LTS | 9.12 | 3.13.0-24-generic à 3.13.0-132-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic à 3.13.0-137-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-104-generic |
 14.04 LTS | 9.14 | 3.13.0-24-generic à 3.13.0-142-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-116-generic |
-LTS 16.04 | 9.11 | 4.4.0-21-generic à 4.4.0-91-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-32-generic |
+14.04 LTS | 9.15 | 3.13.0-24-generic à 3.13.0-144-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-119-generic |
 LTS 16.04 | 9.12 | 4.4.0-21-generic à 4.4.0-96-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-35-generic |
 LTS 16.04 | 9.13 | 4.4.0-21-generic à 4.4.0-104-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic |
 LTS 16.04 | 9.14 | 4.4.0-21-generic à 4.4.0-116-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-36-generic,<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1011-azure |
+LTS 16.04 | 9.15 | 4.4.0-21-generic à 4.4.0-119-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-38-generic,<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1012-azure |
+
 
 
 ### <a name="debian-kernel-versions"></a>Versions du noyau Debian
@@ -90,8 +91,8 @@ LTS 16.04 | 9.14 | 4.4.0-21-generic à 4.4.0-116-generic,<br/>4.8.0-34-generic �
 
 **Version prise en charge** | **Version du service Mobilité Azure Site Recovery** | **Version du noyau** |
 --- | --- | --- |
-Debian 7 | 9.14 | 3.2.0-4-amd64 à 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14 | 3.16.0-4-amd64 à 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.14, 9.15 | 3.2.0-4-amd64 à 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64 à 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.5-amd64 |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Stockage invité/système de fichiers Linux
@@ -100,7 +101,6 @@ Debian 8 | 9.14 | 3.16.0-4-amd64 à 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0
 --- | ---
 Systèmes de fichiers | ext3, ext4, XFS.
 Gestionnaire de volume | LVM2.
-Logiciel multichemin | Mappeur d’appareil.
 Dispositif de stockage paravirtualisé | Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 Unités de bloc d’entrée et de sortie en file d’attente | Non pris en charge.
 Serveurs physiques avec le contrôleur de stockage HP CCISS | Non pris en charge.
@@ -138,14 +138,17 @@ Plusieurs cartes réseau | OUI
 Adresses IP réservées | OUI
 IPv4 | OUI
 Conserver l’adresse IP source | OUI
-Points de terminaison du service Réseau virtuel Azure<br/><br/> (Pare-feu et réseaux virtuels du Stockage Azure) | Non 
+Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI
+Mise en réseau accélérée | Non 
 
 ## <a name="storage"></a>Stockage
 **Composant** | **Pris en charge**
 --- | ---
 Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
-Hôte SAN (ISCSI) | OUI
+Hôte SAN (iSCSI/FC) | OUI
+vSAN hôte | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
 Multipath hôte (MPIO) | Oui, testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON
+Volumes virtuels hôtes (VVols) | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
 VMDK invité/serveur | OUI
 EFI/UEFI invité/serveur| Partiellement (migration vers Azure pour les machines virtuelles VMware et Windows Server 2012, et versions ultérieures, uniquement) </br></br> Consultez la remarque au bas de la table
 Disque de cluster partagé invité/serveur | Non 
@@ -160,7 +163,7 @@ Volume invité/serveur avec disque à bandes > 4 To <br><br/>Gestion des volumes
 Invité/serveur - Espaces de stockage | Non 
 Ajout/retrait à chaud de disque d’Invité/de serveur | Non 
 Invité/serveur - Exclure le disque | OUI
-Multipath invité/serveur (MPIO) | N/A
+Multipath invité/serveur (MPIO) | Non 
 
 > [!NOTE]
 > Les machines virtuelles VMware à démarrage UEFI exécutant Windows Server 2012 ou une version ultérieure peuvent être migrées vers Azure. Les restrictions suivantes s’appliquent :
@@ -183,7 +186,7 @@ Objets blob de blocs | Non
 Chiffrement au repos (Storage Service Encryption)| OUI
 Stockage Premium | OUI
 Service Import/Export | Non 
-Points de terminaison du service Réseau virtuel<br/><br/> Pare-feu et réseaux virtuels de stockage configurés dans le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication) | Non 
+Pare-feu et réseaux virtuels de stockage Azure configurés dans le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication) | Non 
 Comptes de stockage v2 à usage général (niveaux chaud et froid) | Non 
 
 ## <a name="azure-compute"></a>Calcul Azure
@@ -200,16 +203,16 @@ Les machines virtuelles locales que vous répliquez vers Azure doivent respecter
 
 **Composant** | **Configuration requise** | **Détails**
 --- | --- | ---
-Système d’exploitation invité | Vérifiez les [systèmes d’exploitation pris en charge](#replicated machines). | La vérification est mise en échec en cas de défaut de prise en charge. 
-Architecture du système d’exploitation invité | 64 bits. | La vérification est mise en échec en cas de défaut de prise en charge. 
-Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. | La vérification est mise en échec en cas de défaut de prise en charge. 
+Système d’exploitation invité | Vérifiez les [systèmes d’exploitation pris en charge](#replicated machines). | La vérification est mise en échec en cas de défaut de prise en charge.
+Architecture du système d’exploitation invité | 64 bits. | La vérification est mise en échec en cas de défaut de prise en charge.
+Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. | La vérification est mise en échec en cas de défaut de prise en charge.
 Nombre de disques du système d’exploitation | 1 | La vérification est mise en échec en cas de défaut de prise en charge.  
 Nombre de disques de données | 64 ou moins. | La vérification est mise en échec en cas de défaut de prise en charge.  
-Taille de disque de données | Jusqu’à 4 095 Go | La vérification est mise en échec en cas de défaut de prise en charge. 
-Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. | 
-Disque dur virtuel partagé | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge. 
-Disque FC | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge. 
-BitLocker | Non pris en charge. | Vous devez désactiver BitLocker avant d’activer la réplication pour une machine. | 
+Taille de disque de données | Jusqu’à 4 095 Go | La vérification est mise en échec en cas de défaut de prise en charge.
+Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
+Disque dur virtuel partagé | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.
+Disque FC | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.
+BitLocker | Non pris en charge. | Vous devez désactiver BitLocker avant d’activer la réplication pour une machine. |
 nom de la machine virtuelle | De 1 et 63 caractères.<br/><br/> Uniquement des lettres, des chiffres et des traits d’union.<br/><br/> Le nom de la machine doit commencer et se terminer par une lettre ou un chiffre. |  Mettez à jour la valeur dans les propriétés de machine de Site Recovery.
 
 

@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notes de publication
       items:
-        - name: "mise à jour\_1804"
-          href: azure-stack-update-1804.md
         - name: "mise à jour\_1803"
           href: azure-stack-update-1803.md
         - name: "mise à jour\_1802"
           href: azure-stack-update-1802.md
         - name: mise à jour 1712
           href: azure-stack-update-1712.md
+        - name: mise à jour 1711
+          href: azure-stack-update-1711.md
 - name: Démarrages rapides
   expanded: true
   items:

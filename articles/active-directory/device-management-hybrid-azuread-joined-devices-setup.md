@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -84,8 +84,20 @@ Assurez-vous que les URL suivantes sont accessibles à partir d’ordinateurs au
 
 - https://device.login.microsoftonline.com
 
-Si votre organisation requiert un accès à Internet via un proxy sortant, elle doit implémenter la détection automatique de proxy web (WPAD) pour permettre aux ordinateurs Windows 10 de s’inscrire à Azure AD.
+- STS de votre organisation (domaines fédérés)
 
+Si ce n’est pas déjà fait, le STS de votre organisation (pour les domaines fédérés) doit être inclus dans les paramètres intranet locaux de l’utilisateur.
+
+Si votre organisation envisage d’utiliser l’authentification unique transparente, les URL suivantes doivent être accessibles à partir des ordinateurs au sein de votre organisation, et ils doivent également être ajoutés à la zone intranet locale de l’utilisateur :
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- En outre, le paramètre suivant doit être activé dans la zone intranet de l’utilisateur : « Autoriser les mises à jour de la barre d’état via le script ».
+
+
+Si votre organisation requiert un accès à Internet via un proxy sortant, vous devez implémenter la détection automatique de proxy web (WPAD) pour permettre aux ordinateurs Windows 10 de s’inscrire à Azure AD.
 
 ## <a name="configuration-steps"></a>Configuration
 
@@ -502,7 +514,7 @@ La stratégie ci-après doit être définie sur la valeur **Tous** : **Les utili
 
 ### <a name="configure-on-premises-federation-service"></a>Configurer le service de fédération local 
 
-Votre service de fédération local doit prendre en charge l’émission des revendications **authenticationmehod** et **wiaormultiauthn** lors de la réception d’une demande d’authentification auprès de la partie de confiance Azure AD qui contient un paramètre resouce_params avec une valeur encodée comme indiqué ci-dessous :
+Votre service de fédération local doit prendre en charge l’émission des revendications **authenticationmethod** et **wiaormultiauthn** lors de la réception d’une demande d’authentification auprès de la partie de confiance Azure AD qui contient un paramètre resouce_params avec une valeur encodée comme indiqué ci-dessous :
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
@@ -550,8 +562,6 @@ Une fois que vous avez exécuté les étapes requises, les appareils joints à u
 ### <a name="remarks"></a>Remarques
 
 - Vous pouvez utiliser un objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine. **Si vous ne souhaitez pas que ces appareils soient automatiquement inscrits auprès d’Azure AD ou si vous souhaitez contrôler leur inscription**, vous devez déployer la stratégie de groupe. Pour cela, désactivez l’inscription automatique pour tous les appareils, puis effectuez les étapes de configuration. Une fois la configuration terminée, et lorsque vous êtes prêt à effectuer les tests, vous devez déployer la stratégie de groupe en activant l’inscription automatique uniquement pour les appareils de test, puis pour les appareils de votre choix.
-
-- La mise à jour de novembre 2015 de Windows 10 effectue automatiquement la jonction à Azure AD **uniquement** si l’objet de stratégie de groupe de lancement est défini.
 
 - Pour un lancement des ordinateurs Windows de bas niveau, vous pouvez déployer un [package Windows Installer](#windows-installer-packages-for-non-windows-10-computers) sur les ordinateurs que vous sélectionnez.
 

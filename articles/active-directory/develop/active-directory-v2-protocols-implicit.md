@@ -3,23 +3,25 @@ title: Sécuriser les applications à page unique à l’aide du flux implicite 
 description: Création d’applications web à l’aide de l’implémentation v2.0 d’Azure AD du flux implicite pour les applications à page unique.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 04/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b855dcaae99e16aa21a0e19ad37d933cb18c678a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 07fbda30cdc76e5e4e82b79954d0b0a56e032b50
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocoles v2.0 - Applications à page unique utilisant le flux implicite
 Le point de terminaison v2.0 vous permet de connecter des utilisateurs dans vos applications à page unique avec des comptes personnels et professionnels/scolaires de Microsoft. Les applications à page unique et autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent des problématiques spécifiques liées à l’authentification :
@@ -28,14 +30,14 @@ Le point de terminaison v2.0 vous permet de connecter des utilisateurs dans vos 
 * De nombreux serveurs d’autorisation et fournisseurs d’identité ne prennent pas en charge les demandes CORS.
 * Chacune des redirections à partir de l’application du navigateur plein écran perturbe de manière assez importante l’expérience utilisateur.
 
-Pour ces applications (AngularJS, Ember.js, React.js, etc.), Azure AD prend en charge le flux d’octroi implicite OAuth 2.0.  Le flux implicite est décrit dans la [spécification OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.2).  Il permet notamment à l’application d’obtenir des jetons d’Azure AD sans échanger les informations d’identification du serveur principal.  L’application peut alors connecter l’utilisateur, maintenir la session et obtenir des jetons pour d’autres API web, le tout dans le code JavaScript client.  Quelques points de sécurité importants sont à prendre en compte lorsque vous utilisez le flux implicite, particulièrement en ce qui concerne l’emprunt d’identité du [client](http://tools.ietf.org/html/rfc6749#section-10.3) et de [l’utilisateur](http://tools.ietf.org/html/rfc6749#section-10.3).
+Pour ces applications (AngularJS, Ember.js, React.js, etc.), Azure AD prend en charge le flux d’octroi implicite OAuth 2.0. Le flux implicite est décrit dans la [spécification OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.2). Il permet notamment à l’application d’obtenir des jetons d’Azure AD sans échanger les informations d’identification du serveur principal. L’application peut alors connecter l’utilisateur, maintenir la session et obtenir des jetons pour d’autres API web, le tout dans le code JavaScript client. Quelques points de sécurité importants sont à prendre en compte lorsque vous utilisez le flux implicite, particulièrement en ce qui concerne l’emprunt d’identité du [client](http://tools.ietf.org/html/rfc6749#section-10.3) et de [l’utilisateur](http://tools.ietf.org/html/rfc6749#section-10.3).
 
-Si vous souhaitez recourir au flux implicite et à Azure AD pour ajouter de l’authentification à votre application JavaScript, nous vous recommandons d’utiliser notre bibliothèque JavaScript open source, [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js).  Pour vous aider à commencer, nous mettons [ici](active-directory-appmodel-v2-overview.md#getting-started) à votre disposition quelques didacticiels AngularJS.  
+Si vous souhaitez recourir au flux implicite et à Azure AD pour ajouter de l’authentification à votre application JavaScript, nous vous recommandons d’utiliser notre bibliothèque JavaScript open source, [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js). Pour vous aider à commencer, nous mettons [ici](active-directory-appmodel-v2-overview.md#getting-started) à votre disposition quelques didacticiels AngularJS. 
 
 Toutefois, si vous préférez ne pas utiliser de bibliothèque dans votre application à page unique et envoyer vous-même des messages de protocole, suivez la procédure générale ci-dessous.
 
 > [!NOTE]
-> Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0.  Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
+> Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -46,6 +48,9 @@ Le flux de connexion entièrement implicite ressemble à ceci. Chacune des étap
 
 ## <a name="send-the-sign-in-request"></a>Envoyer la requête de connexion
 Pour connecter initialement l’utilisateur à votre application, vous pouvez envoyer une demande d’autorisation [OpenID Connect](active-directory-v2-protocols-oidc.md) et obtenir un élément `id_token` à partir du point de terminaison v2.0 :
+
+> [!IMPORTANT]
+> Afin de demander un jeton d’ID correctement, l’inscription de l’application dans le [portail d’inscription](https://apps.dev.microsoft.com) doit avoir **[l’Octroi implicite](active-directory-v2-protocols-implicit.md)** activé pour le client web. S’il n’est pas activé, une erreur `unsupported_response` est renvoyée : « la valeur fournie pour le paramètre d’entrée ’response_type’ n’est pas autorisée pour ce client. La valeur attendue est ’code’ »
 
 ```
 // Line breaks for legibility only
@@ -68,19 +73,20 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client.  Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
-| client_id |required |L’ID d’application que le portail d’inscription ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) a assigné à votre application. |
-| response_type |required |Doit inclure `id_token` pour la connexion à OpenID Connect.  Il peut également inclure l’élément response_type `token`. L’utilisation de l’élément `token` permet ici à votre application de recevoir immédiatement un jeton d’accès à partir du point de terminaison d’autorisation sans avoir à exécuter une deuxième requête sur le point de terminaison d’autorisation. Si vous utilisez l’élément response_type `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
+| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
+| client_id |required |L’ID d’application que le portail d’inscription ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) a affecté à votre application. |
+| response_type |required |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure l’élément response_type `token`. L’utilisation de l’élément `token` permet ici à votre application de recevoir immédiatement un jeton d’accès à partir du point de terminaison d’autorisation sans avoir à exécuter une deuxième requête sur le point de terminaison d’autorisation. Si vous utilisez l’élément response_type `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
 | redirect_uri |recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
 | scope |required |Une liste d’étendues séparées par des espaces. Pour OpenID Connect, vous devez inclure l’étendue `openid`, qui correspond à l’autorisation de connexion dans l’interface utilisateur de consentement. Vous pouvez également, si vous le souhaitez, inclure les `email`étendues`profile` [ ou ](active-directory-v2-scopes.md) permettant d’accéder à des données utilisateur supplémentaires. Vous pouvez aussi inclure d’autres étendues dans cette requête pour solliciter le consentement sur diverses ressources. |
 | response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Doit être `fragment` pour le flux implicite. |
-| state |recommandé |Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix.  Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
-| nonce |required |Une valeur incluse dans la requête, générée par l’application, qui sera intégrée dans le jeton id_token résultant en tant que revendication.  L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique, aléatoire pouvant être utilisé pour identifier l’origine de la requête. |
-| prompt |facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none » et « consent ».  `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique.  Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu'aucune invite interactive d'aucune sorte n'est présentée à l'utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison v2.0 renvoie une erreur.  `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
+| state |recommandé |Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
+| nonce |required |Une valeur incluse dans la requête, générée par l’application, qui sera intégrée dans le jeton id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique, aléatoire pouvant être utilisé pour identifier l’origine de la requête. |
+| prompt |facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none » et « consent ». `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu'aucune invite interactive d'aucune sorte n'est présentée à l'utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison v2.0 renvoie une erreur. `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
 | login_hint |facultatif |Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`. |
-| domain_hint |facultatif |Peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par courrier électronique auquel l’utilisateur doit se soumettre sur la page de connexion v2.0, ce qui améliore légèrement l’expérience utilisateur.  Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton id_token.  Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`.  Sinon, utilisez `domain_hint=organizations`. |
+| domain_hint |facultatif |Peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par courrier électronique auquel l’utilisateur doit se soumettre sur la page de connexion v2.0, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton id_token. Si la valeur de revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad` (le client consommateur de compte Microsoft), vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`. |
 
-À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification.  Le point de terminaison v2.0 garantit également que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope` .  Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, le point de terminaison lui demande de corriger ce manquement.  Les détails sur les [autorisations, les consentements et les applications mutualisées sont disponibles ici](active-directory-v2-scopes.md).
+
+À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison v2.0 garantit également que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope` . Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, le point de terminaison lui demande de corriger ce manquement. Les détails sur les [autorisations, les consentements et les applications mutualisées sont disponibles ici](active-directory-v2-scopes.md).
 
 Une fois que l’utilisateur a procédé à l’authentification et accordé son consentement, le point de terminaison v2.0 renvoie une réponse à votre application à l’élément `redirect_uri` indiqué, à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
 
@@ -102,8 +108,8 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | access_token |Inclus si `response_type` inclut `token`. Jeton d’accès demandé par l’application, dans ce cas Microsoft Graph. Le jeton d’accès ne doit pas être décodé ou inspecté ; il peut être traité comme une chaîne opaque. |
 | token_type |Inclus si `response_type` inclut `token`. Sera toujours `Bearer`. |
 | expires_in |Inclus si `response_type` inclut `token`. Indique, en secondes, la durée de validité du jeton pour la mise en cache. |
-| scope |Inclus si `response_type` inclut `token`.  Indique la ou les étendues pour lesquelles le jeton access_token sera valide. |
-| id_token |Le jeton id-token que l’application a demandé. Vous pouvez utiliser ce jeton id_token pour vérifier l’identité de l’utilisateur et démarrer une session avec lui.  Pour obtenir plus de détails sur les jetons id_token et leur contenu, consultez la page de [référence des jetons de point de terminaison v2.0](active-directory-v2-tokens.md). |
+| scope |Inclus si `response_type` inclut `token`. Indique la ou les étendues pour lesquelles le jeton access_token sera valide. |
+| id_token |Le jeton id-token que l’application a demandé. Vous pouvez utiliser ce jeton id_token pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour obtenir plus de détails sur les jetons id_token et leur contenu, consultez la page de [référence des jetons de point de terminaison v2.0](active-directory-v2-tokens.md). |
 | state |Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
 
 #### <a name="error-response"></a>Réponse d’erreur
@@ -121,12 +127,12 @@ error=access_denied
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
 ## <a name="validate-the-idtoken"></a>Valider le jeton id_token
-La réception du jeton id_token ne suffit pas à authentifier l’utilisateur. Vous devez valider la signature du jeton id_token et vérifier la conformité des revendications du jeton par rapport à la configuration requise de votre application.  Le point de terminaison v2.0 utilise les [jetons web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
+La réception du jeton id_token ne suffit pas à authentifier l’utilisateur. Vous devez valider la signature du jeton id_token et vérifier la conformité des revendications du jeton par rapport à la configuration requise de votre application. Le point de terminaison v2.0 utilise les [jetons web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
-Vous pouvez décider de valider l’élément `id_token` dans le code du client, mais une pratique courante consiste à envoyer l’élément `id_token` vers un serveur principal, afin d’y appliquer la validation.  Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications.  Pour plus d’informations, consultez la page de [référence sur les jetons v2.0](active-directory-v2-tokens.md), notamment les sections [Validation des jetons](active-directory-v2-tokens.md#validating-tokens) et [Informations importantes sur la substitution des clés de signature](active-directory-v2-tokens.md#validating-tokens).  Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
+Vous pouvez décider de valider l’élément `id_token` dans le code du client, mais une pratique courante consiste à envoyer l’élément `id_token` vers un serveur principal, afin d’y appliquer la validation. Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [référence sur les jetons v2.0](active-directory-v2-tokens.md), notamment les sections [Validation des jetons](active-directory-v2-tokens.md#validating-tokens) et [Informations importantes sur la substitution des clés de signature](active-directory-v2-tokens.md#validating-tokens). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
 <!--TODO: Improve the information on this-->
 
-En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires.  Voici quelques validations courantes :
+En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
 
 * S’assurer que l’utilisateur/l’organisation s’est inscrit pour l’application.
 * S’assurer que l’utilisateur dispose de l’autorisation/des privilèges appropriés.
@@ -134,12 +140,12 @@ En fonction de votre scénario, vous pouvez également valider des revendication
 
 Pour plus d’informations sur les revendications dans un jeton id_token, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md).
 
-Une fois que vous avez complètement validé le jeton id_token, vous pouvez démarrer une session avec l’utilisateur et utiliser les revendications du jeton id_token pour récupérer les informations sur l’utilisateur dans votre application.  Ces informations peuvent être utilisées pour l’affichage, les enregistrements, les autorisations, etc.
+Une fois que vous avez complètement validé le jeton id_token, vous pouvez démarrer une session avec l’utilisateur et utiliser les revendications du jeton id_token pour récupérer les informations sur l’utilisateur dans votre application. Ces informations peuvent être utilisées pour l’affichage, les enregistrements, les autorisations, etc.
 
 ## <a name="get-access-tokens"></a>Obtenir des jetons d’accès
-Maintenant que vous avez connecté l’utilisateur dans votre application à page unique, vous pouvez obtenir des jetons d’accès afin d’appeler des API web sécurisées à l’aide d’Azure AD, comme [Microsoft Graph](https://graph.microsoft.io).  Même si vous avez déjà reçu un jeton utilisant l’élément response_type `token`, vous pouvez utiliser cette méthode pour acquérir des jetons vers des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
+Maintenant que vous avez connecté l’utilisateur dans votre application à page unique, vous pouvez obtenir des jetons d’accès afin d’appeler des API web sécurisées à l’aide d’Azure AD, comme [Microsoft Graph](https://graph.microsoft.io). Même si vous avez déjà reçu un jeton utilisant l’élément response_type `token`, vous pouvez utiliser cette méthode pour acquérir des jetons vers des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
 
-Dans le flux normal OpenID Connect/OAuth, il vous faut transmettre une requête au point de terminaison `/token` v2.0.  Toutefois, le point de terminaison v2.0 ne prend pas en charge les demandes CORS. Dès lors, il est hors de question d’effectuer des appels AJAX afin d’obtenir et d’actualiser des jetons.  Au lieu de cela, vous pouvez utiliser le flux implicite d’un iFrame masqué afin d’obtenir de nouveaux jetons pour d’autres API web : 
+Dans le flux normal OpenID Connect/OAuth, il vous faut transmettre une requête au point de terminaison `/token` v2.0. Toutefois, le point de terminaison v2.0 ne prend pas en charge les demandes CORS. Dès lors, il est hors de question d’effectuer des appels AJAX afin d’obtenir et d’actualiser des jetons. Au lieu de cela, vous pouvez utiliser le flux implicite d’un iFrame masqué afin d’obtenir de nouveaux jetons pour d’autres API web : 
 
 ```
 // Line breaks for legibility only
@@ -166,19 +172,19 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client.  Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
+| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
 | client_id |required |L’ID d’application que le portail d’inscription ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) a assigné à votre application. |
-| response_type |required |Doit inclure `id_token` pour la connexion à OpenID Connect.  Il peut inclure d’autres types de réponses, comme `code`. |
-| redirect_uri |recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification.  Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
-| scope |required |Une liste d’étendues séparées par des espaces.  Pour obtenir des jetons, incluez toutes les [étendues](active-directory-v2-scopes.md) dont vous avez besoin pour la ressource concernée. |
-| response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application.  Peut être `query`, `form_post` ou `fragment`. |
-| state |recommandé |Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton.  Il peut s’agir d’une chaîne du contenu de votre choix.  Une valeur unique générée de manière aléatoire est généralement utilisée pour empêcher les falsifications de requête intersite.  La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
-| nonce |required |Une valeur incluse dans la requête, générée par l’application, qui sera intégrée dans le jeton id_token résultant en tant que revendication.  L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons.  La valeur est généralement une valeur unique, aléatoire pouvant être utilisé pour identifier l’origine de la requête. |
+| response_type |required |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut inclure d’autres types de réponses, comme `code`. |
+| redirect_uri |recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
+| scope |required |Une liste d’étendues séparées par des espaces. Pour obtenir des jetons, incluez toutes les [étendues](active-directory-v2-scopes.md) dont vous avez besoin pour la ressource concernée. |
+| response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Peut être `query`, `form_post` ou `fragment`. |
+| state |recommandé |Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour empêcher les falsifications de requête intersite. La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
+| nonce |required |Une valeur incluse dans la requête, générée par l’application, qui sera intégrée dans le jeton id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique, aléatoire pouvant être utilisé pour identifier l’origine de la requête. |
 | prompt |required |Pour actualiser et obtenir des jetons dans un iframe masqué, vous devez utiliser `prompt=none` pour vous assurer que l’iframe ne se bloque pas sur la page de connexion v2.0 et renvoie immédiatement des résultats. |
 | login_hint |required |Pour actualiser et obtenir des jetons dans un iframe masqué, vous devez inclure dans cet indicateur le nom d’utilisateur de l’utilisateur afin de faire la distinction entre plusieurs sessions que l’utilisateur pourrait ouvrir à un moment précis. Vous pouvez extraire le nom d’utilisateur à partir d’une précédente connexion à l’aide de la revendication `preferred_username`. |
-| domain_hint |required |Peut être `consumers` ou `organizations`.  Pour actualiser et obtenir des jetons dans un iframe masqué, vous devez inclure le paramètre domain_hint dans la demande.  Vous devez extraire la revendication `tid` du jeton id_token d’une précédente connexion pour déterminer la valeur à utiliser.  Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`.  Sinon, utilisez `domain_hint=organizations`. |
+| domain_hint |required |Peut être `consumers` ou `organizations`. Pour actualiser et obtenir des jetons dans un iframe masqué, vous devez inclure le paramètre domain_hint dans la demande. Vous devez extraire la revendication `tid` du jeton id_token d’une précédente connexion pour déterminer la valeur à utiliser. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`. |
 
-Grâce au paramètre `prompt=none` , cette requête va immédiatement réussir ou échouer, avant de revenir vers votre application.  Une réponse correcte sera envoyée à votre application, à l’`redirect_uri` indiqué, à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
+Grâce au paramètre `prompt=none` , cette requête va immédiatement réussir ou échouer, avant de revenir vers votre application. Une réponse correcte sera envoyée à votre application, à l’`redirect_uri` indiqué, à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
 
 #### <a name="successful-response"></a>Réponse correcte
 Une réponse correcte utilisant `response_mode=fragment` se présente ainsi :
@@ -201,7 +207,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | scope |Les étendues de validité du jeton d’accès. |
 
 #### <a name="error-response"></a>Réponse d’erreur
-Les réponses d’erreur peuvent également être envoyées à l’élément `redirect_uri` , de manière à ce que l’application puisse les traiter de manière appropriée.  Dans le cas de `prompt=none`, une erreur se présentera généralement ainsi :
+Les réponses d’erreur peuvent également être envoyées à l’élément `redirect_uri` , de manière à ce que l’application puisse les traiter de manière appropriée. Dans le cas de `prompt=none`, une erreur se présentera généralement ainsi :
 
 ```
 GET https://localhost/myapp/#
@@ -214,7 +220,7 @@ error=user_authentication_required
 | error |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
-Si vous recevez cette erreur dans la requête iFrame, l’utilisateur doit se connecter de nouveau de manière interactive, ceci pour récupérer un nouveau jeton.  Vous êtes invité à gérer ce cas de la manière la plus appropriée pour votre application.
+Si vous recevez cette erreur dans la requête iFrame, l’utilisateur doit se connecter de nouveau de manière interactive, ceci pour récupérer un nouveau jeton. Vous êtes invité à gérer ce cas de la manière la plus appropriée pour votre application.
 
 ## <a name="validating-access-tokens"></a>Validation des jetons d’accès
 
@@ -227,10 +233,10 @@ Quand vous recevez un access_token, veillez à valider la signature du jeton, ai
 Pour plus d’informations sur les revendications se trouvant dans le jeton d’accès, consultez l’article [Informations de référence sur les jetons Azure Active Directory v2.0](active-directory-v2-tokens.md)
 
 ## <a name="refreshing-tokens"></a>Actualisation des jetons
-Les `id_token` et les `access_token` expirant après une courte période, votre application doit être préparée à les actualiser de manière régulière.  Pour actualiser chaque type de jeton, vous pouvez exécuter la requête iFrame ci-dessus à l’aide du paramètre `prompt=none` afin de contrôler le comportement d’Azure AD.  Si vous souhaitez recevoir un nouvel élément `id_token`, veillez à utiliser `response_type=id_token` et `scope=openid`, ainsi qu’un paramètre `nonce`.
+L’octroi implicite ne fournit pas de jetons d’actualisation. Les `id_token` et les `access_token` expirant après une courte période, votre application doit être préparée à les actualiser de manière régulière. Pour actualiser chaque type de jeton, vous pouvez exécuter la requête iFrame ci-dessus à l’aide du paramètre `prompt=none` afin de contrôler le comportement d’Azure AD. Si vous souhaitez recevoir un nouvel élément `id_token`, veillez à utiliser `response_type=id_token` et `scope=openid`, ainsi qu’un paramètre `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
-Le `end_session_endpoint` OpenIdConnect permet à votre application d’envoyer une requête au point de terminaison v2.0 afin d’arrêter une session utilisateur et d’effacer les cookies définis par le point de terminaison v2.0.  Pour déconnecter complètement un utilisateur d’une application web, votre application doit mettre fin à sa propre session avec l’utilisateur (généralement en vidant un cache de jeton ou en supprimant les cookies), puis rediriger le navigateur vers :
+Le `end_session_endpoint` OpenIdConnect permet à votre application d’envoyer une requête au point de terminaison v2.0 afin d’arrêter une session utilisateur et d’effacer les cookies définis par le point de terminaison v2.0. Pour déconnecter complètement un utilisateur d’une application web, votre application doit mettre fin à sa propre session avec l’utilisateur (généralement en vidant un cache de jeton ou en supprimant les cookies), puis rediriger le navigateur vers :
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -238,5 +244,5 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client.  Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
+| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
 | post_logout_redirect_uri | recommandé | URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Cette valeur doit correspondre à l’un des URI de redirection inscrits pour l’application. Si elle n’est pas incluse, le point de terminaison v2.0 affiche un message générique. |

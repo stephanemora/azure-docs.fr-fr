@@ -1,25 +1,27 @@
 ---
-title: "Types d’application pour le point de terminaison Azure Active Directory v2.0 | Microsoft Docs"
-description: "Les types d’applications et de scénarios pris en charge par le point de terminaison Azure Active Directory v2.0."
+title: Types d’application pour le point de terminaison Azure Active Directory v2.0 | Microsoft Docs
+description: Les types d’applications et de scénarios pris en charge par le point de terminaison Azure Active Directory v2.0.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Types d’application pour le point de terminaison Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 prend en charge l’authentification pour de multiples architectures d’application modernes, toutes basées sur des protocoles industriels standard [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Cet article décrit les types d’application que vous pouvez générer à l’aide d’Azure AD v2.0, quelle que soit votre plateforme ou langage par défaut. Les informations contenues dans cet article sont conçues pour vous aider à comprendre les scénarios de haut niveau avant de [commencer à travailler avec le code](active-directory-appmodel-v2-overview.md#getting-started).
@@ -95,7 +97,7 @@ Une API web peut recevoir des jetons d’accès de tous types d’applications, 
 
 Pour savoir comment sécuriser une API web avec des jetons d’accès OAuth2, consultez les exemples de code d’API Web de notre [section Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
 
-Dans de nombreux cas, les API web doivent également envoyer des demandes à d’autres API web en aval, sécurisées par Azure Active Directory.  Pour ce faire, elles peuvent utiliser le flux **Au nom de** d’Azure AD, qui permet d’échanger un jeton d’accès entrant contre un autre jeton d’accès à utiliser pour les demandes sortantes.  Le flux Au nom de du point de terminaison v2.0 est détaillé [ici](active-directory-v2-protocols-oauth-on-behalf-of.md).
+Dans de nombreux cas, les API web doivent également envoyer des demandes à d’autres API web en aval, sécurisées par Azure Active Directory. Pour ce faire, elles peuvent utiliser le flux **Au nom de** d’Azure AD, qui permet d’échanger un jeton d’accès entrant contre un autre jeton d’accès à utiliser pour les demandes sortantes. Le flux Au nom de du point de terminaison v2.0 est détaillé [ici](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Applications mobiles et natives
 Les applications installées sur un appareil, comme les applications de bureau et les applications mobiles nécessitent bien souvent un accès à des services principaux ou à des API web, qui stockent les données et exécutent des fonctions pour le compte d’un utilisateur. Ces applications peuvent ajouter des fonctionnalités de connexion et d’autorisation à des services principaux à l’aide du [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
@@ -120,4 +122,4 @@ Dans ce flux, l’application interagit directement avec le point de terminaison
 
 ![Flux d’authentification d’applications démons](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Pour créer une application démon, consultez la documentation sur les informations d’identification des clients dans la section [Mise en route](active-directory-appmodel-v2-overview.md#getting-started) ou consultez [cet exemple d’application .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Pour créer une application démon, consultez la [documentation sur les informations d’identification des clients](active-directory-v2-protocols-oauth-client-creds.md) ou consultez un [exemple d’application .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec Opal | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Opal."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Opal | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Opal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e82d7bf5c453196357b9fa83aa9c8d68c6968f9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 9aed2a2fc80872af984bba7e9c4e88fa6fb8f5e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Didacticiel : Intégration d’Azure Active Directory à Opal
 
@@ -30,9 +30,10 @@ L’intégration d’Opal dans Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Opal (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Opal, vous avez besoin des éléments suivants :
 
@@ -142,7 +143,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
  
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-opal-tutorial/tutorial_opal_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-opal-tutorial/tutorial_opal_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
@@ -229,7 +230,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

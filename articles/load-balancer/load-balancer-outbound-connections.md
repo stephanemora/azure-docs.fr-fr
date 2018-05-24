@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -40,11 +40,11 @@ Il existe plusieurs [scénarios sortants](#scenarios). Vous pouvez éventuelleme
 
 Azure Load Balancer et les ressources associées sont définis explicitement quand vous utilisez [Azure Resource Manager](#arm).  Actuellement, Azure offre trois méthodes différentes pour obtenir une connexion sortante pour les ressources Azure Resource Manager. 
 
-| Scénario | Méthode | Description |
-| --- | --- | --- |
-| [1. Machine virtuelle avec une adresse IP publique de niveau d’instance (avec ou sans Load Balancer)](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé |Azure utilise l’adresse IP publique affectée à la configuration IP de la carte d’interface réseau de l’instance. L’instance a tous les ports éphémères disponibles. |
-| [2. Équilibreur de charge public associé à une machine virtuelle (aucune adresse IP publique de niveau d’instance sur l’instance)](#lb) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) en utilisant des frontends Load Balancer |Azure partage l’adresse IP publique des frontends Load Balancer publics avec plusieurs adresses IP privées. Azure utilise les ports éphémères des frontends pour la traduction d’adresse de port. |
-| [3. Machine virtuelle autonome (sans Load Balancer, sans adresse IP publique de niveau d’instance)](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec plusieurs adresses IP privées du groupe à haute disponibilité, puis utilise les ports éphémères de cette adresse IP publique. Il s’agit d’un scénario de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. |
+| Scénario | Méthode | Protocoles IP | Description |
+| --- | --- | --- | --- |
+| [1. Machine virtuelle avec une adresse IP publique de niveau d’instance (avec ou sans Load Balancer)](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la configuration IP de la carte d’interface réseau de l’instance. L’instance a tous les ports éphémères disponibles. |
+| [2. Équilibreur de charge public associé à une machine virtuelle (aucune adresse IP publique de niveau d’instance sur l’instance)](#lb) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) en utilisant des frontends Load Balancer | TCP, UDP |Azure partage l’adresse IP publique des frontends Load Balancer publics avec plusieurs adresses IP privées. Azure utilise les ports éphémères des frontends pour la traduction d’adresse de port. |
+| [3. Machine virtuelle autonome (sans Load Balancer, sans adresse IP publique de niveau d’instance)](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec plusieurs adresses IP privées du groupe à haute disponibilité, puis utilise les ports éphémères de cette adresse IP publique. Il s’agit d’un scénario de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. |
 
 Si vous voulez empêcher une machine virtuelle de communiquer avec des points de terminaison en dehors d’Azure dans l’espace d’adressage IP public, vous pouvez utiliser des groupes de sécurité réseau (NSG) pour bloquer l’accès comme il se doit. La section [Empêchement des connexions sortantes](#preventoutbound) traite de façon plus détaillée des groupes de sécurité réseau. Les conseils sur la conception, l’implémentation et la gestion d’un réseau virtuel sans accès sortant n’entrent pas dans le cadre de cet article.
 
@@ -119,7 +119,7 @@ Lorsque vous utilisez [Équilibreur de charge standard avec zones de disponibili
 
 ### <a name="pat"></a>Masquage de la traduction d’adresses réseau sources du port (traduction d’adresse de port)
 
-Lorsqu’une ressource Load Balancer publique est associée à des instances de machine virtuelle, la source de chaque connexion sortante est réécrite. La source est réécrite depuis l’espace d’adressage IP privé du réseau virtuel dans l’adresse IP publique frontend de l’équilibreur de charge. Dans l’espace d’adressage IP public, le 5-tuple du flux (adresse IP source, port source, protocole de transport IP, adresse IP de destination, port de destination) doit être unique.  
+Lorsqu’une ressource Load Balancer publique est associée à des instances de machine virtuelle, la source de chaque connexion sortante est réécrite. La source est réécrite depuis l’espace d’adressage IP privé du réseau virtuel dans l’adresse IP publique frontend de l’équilibreur de charge. Dans l’espace d’adressage IP public, le 5-tuple du flux (adresse IP source, port source, protocole de transport IP, adresse IP de destination, port de destination) doit être unique.  L’usurpation de ports SNAT est utilisable avec les protocoles TCP et UDP IP.
 
 Des ports éphémères (ports SNAT) sont utilisés à cette fin après réécriture de l’adresse IP privée source, car plusieurs flux proviennent d’une même adresse IP publique. 
 
@@ -168,11 +168,11 @@ Les allocations de ports SNAT sont spécifiques au protocole de transport IP (TC
 
 - Si le client et le serveur envoient tous deux un paquet FIN/ACK, le port SNAT est mis à disposition après un délai de 240 secondes.
 - Si une instance RST est visible, le port SNAT est mis à disposition après un délai de 15 secondes.
-- Le délai d’inactivité a été atteint.
+- le délai d’inactivité a été atteint
 
 ### <a name="udp-snat-port-release"></a>Mis à disposition du port UDP SNAT
 
-- Le délai d’inactivité a été atteint.
+- le délai d’inactivité a été atteint
 
 ## <a name="problemsolving"></a> Résolution des problèmes 
 
@@ -243,6 +243,7 @@ Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrit
 
 ## <a name="limitations"></a>Limites
 - DisableOutboundSnat n’est pas disponible en tant qu’option lors de la configuration d’une règle d’équilibrage de charge dans le portail.  Utilisez les outils REST, modèle ou client à la place.
+- Les rôles de travail web sans un réseau virtuel et d’autres services Microsoft peuvent être accessibles lorsque seul un équilibreur de charge standard interne est utilisé en raison d’un effet secondaire du fonctionnement des services de pre-réseau virtuel et des services d’autres plateformes. Vous ne devez pas compter sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peut changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

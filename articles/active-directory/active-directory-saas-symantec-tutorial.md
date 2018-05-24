@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Symantec Web Security Service (WSS) | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Symantec Web Security Service (WSS)."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Symantec Web Security Service (WSS) | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Symantec Web Security Service (WSS).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 35427941a084e6750d66ccd3e135d7eef1767c6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0dc75a1091c56ddbbffcd54047b2465ece231254
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Didacticiel : Intégration d’Azure Active Directory à Symantec Web Security Service (WSS)
 
@@ -32,9 +32,10 @@ L’intégration de Symantec Web Security Service (WSS) à Azure AD vous fait b�
 
 - Activer l’application des règles de stratégie au niveau de l’utilisateur et du groupe définies dans votre compte WSS.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Symantec Web Security Service (WSS), vous avez besoin des éléments suivants :
 
@@ -51,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous allez configurer votre instance Azure AD pour activer l’authentification unique sur WWS à l’aide des informations d’identification de l’utilisateur final définies dans votre compte Azure AD.
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de l’application Symantec Web Security Service (WSS) à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -87,10 +88,10 @@ Dans Symantec Web Security Service (WSS), affectez la valeur du **nom d’utilis
 
 Pour configurer et tester l’authentification unique Azure AD auprès de Symantec Web Security Service (WSS), vous avez besoin de suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test Symantec Web Security Service (WSS)](#create-a-symantec-web-security-service-wss-test-user)** pour avoir dans Symantec Web Security Service (WSS) un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -111,7 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique Domaine et URL Symantec Web Security Service (WSS)](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
 
-    a. Dans la zone de texte **Identificateur**, saisissez l’URL : `https://saml.threatpulse.net:8443/saml/saml_realm`
+    a. Dans la zone de texte **Identificateur**, tapez l’URL : `https://saml.threatpulse.net:8443/saml/saml_realm`
 
     b. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
@@ -161,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-symantec-web-security-service-wss-test-user"></a>Créer un utilisateur de test Symantec Web Security Service (WSS)
 
@@ -174,7 +175,7 @@ Dans cette section, vous créez un utilisateur appelé Britta Simon dans Symante
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Symantec Web Security Service (WSS).
 
-![Attribuer le rôle d’utilisateur][200] 
+![Attribuer le rôle utilisateur][200] 
 
 **Pour affecter Britta Simon à Symantec Web Security Service (WSS), procédez comme suit :**
 
@@ -209,7 +210,7 @@ Une fois que vous avez configuré votre navigateur web pour le trafic de proxy W
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

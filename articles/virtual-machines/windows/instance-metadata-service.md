@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b3ecddbfdc37bc58294dff41b62e0505b90ca940
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -36,7 +36,7 @@ Le service est disponible dans toutes les régions Azure mises à la disposition
 
 Régions                                        | Disponibilité ?                                 | Versions prises en charge
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | Mise à la disposition générale   | 2017-04-02, 2017-08-01, 2017-12-01
+[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | Mise à la disposition générale   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Mise à la disposition générale | 2017-04-02,2017-08-01
 [Azure Chine](https://www.azure.cn/)                                                           | Mise à la disposition générale | 2017-04-02,2017-08-01
 [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | Mise à la disposition générale | 2017-04-02,2017-08-01
@@ -307,6 +307,7 @@ subnet/prefix | Préfixe de sous-réseau, par exemple 24 | 2017-04-02
 ipv6/ipAddress | Adresse IPv6 locale de la machine virtuelle | 2017-04-02 
 macAddress | Adresse MAC de la machine virtuelle | 2017-04-02 
 scheduledevents | Consultez [Événements planifiés](scheduled-events.md). | 2017-08-01
+identité | (Préversion) Managed Service Identity. Consulter [Obtenir un jeton d’accès](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemples de scénarios d’utilisation  
 
@@ -392,6 +393,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>Forum Aux Questions

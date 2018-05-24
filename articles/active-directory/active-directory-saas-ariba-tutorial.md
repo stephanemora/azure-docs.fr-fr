@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Ariba | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Ariba."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Ariba | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Ariba.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 167bef10b696866a9034314c383468744ebf637b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aedb8f761a16cc438a1ad6473728e29b270c3919
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Didacticiel : Intégration d’Azure Active Directory à Ariba
 
@@ -27,11 +27,12 @@ L’intégration d’Ariba dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Ariba.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Ariba (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Ariba, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’Ariba à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration d’Ariba à Azure AD, vous devez ajouter Arib
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Ariba**.
 
@@ -89,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Ariba, vous
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Ariba](#creating-an-ariba-test-user)** pour avoir dans Ariba un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,15 +101,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Ariba**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_samlbase.png)
 
 3. Dans la section **Domaine et URL Ariba**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_url.png)
 
     a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.sourcing.ariba.com` ou `https://<subdomain>.supplier.ariba.com`.
 
@@ -120,11 +121,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (Base64)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-ariba-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ariba-tutorial/tutorial_general_400.png)
 
 6. Pour configurer SSO en fonction de votre application, appelez l’équipe du support technique d’Ariba au **1-866-218-2155**. Elle vous expliquera comment procéder pour lui envoyer le fichier **Certificat (Base64)** téléchargé.  
  
@@ -185,7 +186,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **Ariba**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -209,7 +210,7 @@ Lorsque vous cliquez sur la vignette Ariba dans le volet d’accès, vous devez 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 
