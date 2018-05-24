@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e6bf1962115c4ee9212ae73eb98f664efa3b6a2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Effectuer une surveillance avancée à l’aide de la solution de surveillance à distance
 
@@ -38,7 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Choisir les appareils à afficher
 
@@ -116,7 +116,7 @@ Ce didacticiel vous a montré comment utiliser la page **Tableau de bord** pour 
 
 La surveillance de vos appareils n’ayant plus de secrets pour vous, nous vous suggérons de découvrir les opérations suivantes :
 
-* [Détecter les problèmes à l’aide de règles de seuil](./iot-suite-remote-monitoring-automate.md)
+* [Détecter les problèmes à l’aide de règles de seuil](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md)
 * [Gérer et configurer vos appareils](./iot-suite-remote-monitoring-manage.md)
 * [Dépanner et corriger les problèmes d’un appareil](./iot-suite-remote-monitoring-maintain.md)
 * [Tester votre solution avec des appareils simulés](iot-suite-remote-monitoring-test.md)

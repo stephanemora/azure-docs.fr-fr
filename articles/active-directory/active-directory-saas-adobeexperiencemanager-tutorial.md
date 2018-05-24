@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Adobe Experience Manager | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adobe Experience Manager."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Adobe Experience Manager | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adobe Experience Manager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c366e314b77cd3344a90826b22b96a45e35b0b4e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: d63ee16df9b49517c93cdc405cd2525f578d2a7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Experience Manager
 
@@ -30,9 +30,10 @@ L’intégration d’Adobe Experience Manager à Azure AD vous offre les avantag
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Adobe Experience Manager avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Adobe Experience Manager, vous avez besoin des éléments suivants :
 
@@ -123,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, sélectionnez **Certificat (Base64)**. Ensuite, enregistrez le fichier de certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
 
 6. Pour ouvrir la fenêtre sur la configuration de l’authentification unique dans la section relative à la configuration d’Adobe Experience Manager, sélectionnez **Configurer Adobe Experience Manager**. Copiez **l’URL de service de connexion SAML**, **l’ID d’entité SAML** et **l’ID de déconnexion** à partir de la section Référence rapide.
 
@@ -281,7 +282,7 @@ Pour plus d’informations sur le volet d’accès, consultez la page [Présenta
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

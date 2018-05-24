@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : configurer Dropbox pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dropbox for Business."
+title: 'Didacticiel : configurer Dropbox pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dropbox for Business.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bdac910b5011237e26a39f3e45f3e7ad6176bc83
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Didacticiel : configurer Dropbox for Business pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Dropbox for Business et Azure AD permettant d’approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Dropbox for Business.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -96,5 +97,5 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](active-directory-saas-dropboxforbusiness-tutorial.md)

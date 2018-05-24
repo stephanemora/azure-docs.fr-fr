@@ -1,24 +1,24 @@
 ---
-title: "Fonctions de modèle Azure Resource Manager - déploiement| Microsoft Docs"
-description: "Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement."
+title: Fonctions de modèle Azure Resource Manager - déploiement| Microsoft Docs
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
 
@@ -95,7 +95,7 @@ Vous pouvez utiliser deployment() pour établir une liaison à un autre modèle 
 }
 ```  
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) suivant retourne l’objet de déploiement :
 
@@ -156,11 +156,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être défini dans la section parameters du modèle.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |Oui |string |Nom du paramètre à retourner. |
+| nom_paramètre |OUI |chaîne |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -186,7 +186,7 @@ En général, vous utilisez les paramètres pour définir les valeurs de la ress
 ]
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) suivant montre une utilisation simplifiée de la fonction parameters.
 
@@ -245,13 +245,13 @@ En général, vous utilisez les paramètres pour définir les valeurs de la ress
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | String | option 1 |
-| intOutput | int | 1 |
+| stringOutput | Chaîne | option 1 |
+| intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Tableau | [1, 2, 3] |
-| crossOutput | String | option 1 |
+| crossOutput | Chaîne | option 1 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -272,11 +272,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne la valeur de la variable. Le nom de variable spécifié doit être défini dans la section variables du modèle.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |Oui |String |Nom de la variable à retourner. |
+| variableName |OUI |Chaîne |Nom de la variable à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -306,7 +306,7 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
 ],
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) suivant retourne différentes valeurs de variables.
 
@@ -348,11 +348,11 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | Chaîne | myVariable |
 | exampleOutput2 | Tableau | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
+| exampleOutput3 | Chaîne | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :

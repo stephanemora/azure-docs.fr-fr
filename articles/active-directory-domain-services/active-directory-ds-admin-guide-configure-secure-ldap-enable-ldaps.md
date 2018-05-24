@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 
@@ -105,7 +105,7 @@ Le tableau suivant illustre un exemple de groupe de sécurité réseau que vous 
 
 ![Exemple de groupe de sécurité réseau pour l’accès LDAP sécurisé via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**Plus d’informations** - [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+**Plus d’informations** - [Groupes de sécurité réseau](../virtual-network/security-overview.md).
 
 <br>
 
@@ -128,5 +128,5 @@ Si vous ne parvenez toujours pas à vous connecter au domaine managé à l’aid
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 * [Gérer la stratégie de groupe sur un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
+* [Groupes de sécurité réseau](../virtual-network/security-overview.md)
 * [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestion de l’authentification unique pour les applications d’entreprise
 
-Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer les paramètres d’authentification uniques pour les applications d’entreprise. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation. Cet article s’applique particulièrement aux applications qui ont été ajoutées à partir de la [Galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer les paramètres d’authentification uniques pour les applications d’entreprise. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation. Cet article s’applique particulièrement aux applications qui ont été ajoutées à partir de la [Galerie d’applications Azure Active Directory](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Recherche de vos applications dans le portail
 Vous pouvez afficher et gérer toutes les applications d’entreprise qui sont configurées pour l’authentification unique dans le portail Azure. Les applications figurent dans la section **Tous les services** &gt; **Applications d’entreprise** du portail. 
@@ -43,7 +43,7 @@ L’**Authentification unique** commence par un menu **Mode**, qui permet de con
 * **Authentification par mot de passe** : cette option est disponible si Azure AD prend en charge le remplissage de formulaire de mot de passe pour cette application.
 * **Authentification liée** : précédemment appelée « Authentification unique existante », cette option permet aux administrateurs de placer un lien vers cette application dans le panneau d’accès Azure AD ou le lanceur d’applications Office 365 de leurs utilisateurs.
 
-Pour plus d’informations sur ces modes, voir [Fonctionnement de l’authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Pour plus d’informations sur ces modes, voir [Fonctionnement de l’authentification unique avec Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>Authentification basée sur SAML
 L’option **Authentification basée sur SAML** est divisée en quatre sections :
@@ -79,12 +79,12 @@ Le menu volant **Configurer l’application** propose de nouvelles instructions 
 ![Documents incorporés](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Authentification par mot de passe
-Si l’application le prend en charge, la sélection du mode d’authentification unique par mot de passe et du bouton **Enregistrer** configure instantanément ce type d’authentification pour l’application. Pour plus d’informations sur le déploiement de l’authentification unique par mot de passe, voir [Fonctionnement de l’authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Si l’application le prend en charge, la sélection du mode d’authentification unique par mot de passe et du bouton **Enregistrer** configure instantanément ce type d’authentification pour l’application. Pour plus d’informations sur le déploiement de l’authentification unique par mot de passe, voir [Fonctionnement de l’authentification unique avec Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Authentification par mot de passe](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Authentification liée
-Si l’application le prend en charge, la sélection du mode d’authentification unique lié vous permet d’entrer l’URL de redirection à utiliser par le panneau d’accès Azure AD ou Office 365 lorsqu’un utilisateur clique sur cette application. Pour plus d’informations sur l’authentification unique liée (précédemment appelée Authentification unique existante), voir [Fonctionnement de l’authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Si l’application le prend en charge, la sélection du mode d’authentification unique lié vous permet d’entrer l’URL de redirection à utiliser par le panneau d’accès Azure AD ou Office 365 lorsqu’un utilisateur clique sur cette application. Pour plus d’informations sur l’authentification unique liée (précédemment appelée Authentification unique existante), voir [Fonctionnement de l’authentification unique avec Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Authentification liée](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

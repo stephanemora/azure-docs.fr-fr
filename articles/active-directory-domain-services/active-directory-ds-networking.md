@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
@@ -95,7 +95,7 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 
 
 ## <a name="network-security-groups"></a>Network Security Group
-Un [groupe de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise ou rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
+Un [groupe de sécurité réseau (NSG)](../virtual-network/security-overview.md) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise ou rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Exemple de groupe de sécurité réseau pour les réseaux virtuels avec Azure AD Domain Services
 Le tableau suivant illustre un exemple de groupe de sécurité réseau que vous pouvez configurer pour un réseau virtuel avec un domaine managé Azure AD Domain Services. Cette règle autorise le trafic entrant au travers des ports nécessaires pour garantir que votre domaine managé reste corrigé, mis à jour et peut être surveillé par Microsoft. La règle « DenyAll » par défaut s’applique à tout autre trafic entrant en provenance d’internet.
@@ -141,5 +141,5 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 ## <a name="related-content"></a>Contenu connexe
 * [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Groupes de sécurité réseau Azure](../virtual-network/virtual-networks-nsg.md)
+* [Groupes de sécurité réseau Azure](../virtual-network/security-overview.md)
 * [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

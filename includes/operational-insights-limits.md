@@ -5,14 +5,14 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 Les limites suivantes s’appliquent aux ressources Log Analytics par abonnement :
 
@@ -39,5 +39,5 @@ Les limites suivantes s’appliquent à chaque espace de travail Log Analytics�
 | Catégorie | limites | Commentaires
 | --- | --- | --- |
 | API du collecteur de données | La taille maximale d’une publication est de 30 Mo<br>La taille maximale des valeurs de champ est de 32 Ko | Fractionner les volumes plus importants en plusieurs publications<br>Les champs de plus de 32 Ko de champs sont tronqués. |
-| API de recherche | 5 000 enregistrements renvoyés pour des données non agrégées<br>500 000 enregistrements pour des données agrégées | La recherche de données agrégées inclut la commande `measure`
+| API de recherche | 5 000 enregistrements renvoyés pour des données non agrégées<br>500 000 enregistrements pour des données agrégées | La recherche de données agrégées inclut la commande `summarize`
  

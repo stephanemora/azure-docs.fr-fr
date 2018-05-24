@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 271b090468dee306dc0bf2567aeff08eb0526642
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Node.js Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/10/2018
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence de l’API Node.js](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**Documentation de l’API**</td><td>[Documentation de référence de l’API Node.js](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
 
 <tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d’installation](http://azure.github.io/azure-documentdb-node/)</td></tr>
 

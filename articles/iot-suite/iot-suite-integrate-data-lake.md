@@ -9,11 +9,11 @@ description: Découvrez comment intégrer la solution de surveillance à distanc
 +ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
-ms.openlocfilehash: 701dd51d13ec1880f23c48cc5e8b368b15d0deca
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 75ad9e9ac79dca4db902d7e72511a384dd769463
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de surveillance à distance à Azure Data Lake Store
 
@@ -26,11 +26,11 @@ Dans cette procédure, vous allez utiliser une tâche Azure Stream Analytics pou
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
-* Tutoriel [Déployer la solution préconfigurée de surveillance à distance](/iot-suite/iot-suite-remote-monitoring-deploy).
+* Tutoriel [Déployer la solution préconfigurée de surveillance à distance](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
   * La solution de surveillance à distance déploie le hub IoT et la tâche Azure Stream Analytics utilisés dans cet article dans votre abonnement Azure.
-* [Déployer un service Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal)
+* [Déployer un service Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store doit être déployé sur la même région que votre solution de surveillance à distance.
-  * [Créez un dossier](/data-lake-store/data-lake-store-get-started-portal#createfolder) nommé « streaming » dans votre compte.
+  * [Créez un dossier](/data-lake-store/data-lake-store-get-started-portal.md#createfolder) nommé « streaming » dans votre compte.
 
 ## <a name="create-a-consumer-group"></a>Créer un groupe de consommateurs
 
@@ -127,7 +127,7 @@ Azure Stream Analytics utilise un langage de requête de type SQL pour spécifie
 
 1. Sous l’onglet Vue d’ensemble, cliquez sur **Modifier la requête**.
 
-    ![Modifier la requête](media/iot-suite-integrate-data-lake/stream-analytics-edit-query.png)
+    ![Edit Query](media/iot-suite-integrate-data-lake/stream-analytics-edit-query.png)
 
 1. Dans l’éditeur de requête, remplacez les espaces réservés [YourOutputAlias] et [YourInputAlias] par les valeurs précédemment définies.
 
@@ -145,17 +145,17 @@ Azure Stream Analytics utilise un langage de requête de type SQL pour spécifie
 1. Cliquez sur **Enregistrer**.
 1. Cliquez sur **Oui** pour accepter les modifications.
 
-## <a name="start-the-stream-analytics-job"></a>Démarrer le travail Stream Analytics
+## <a name="start-the-stream-analytics-job"></a>Démarrage de la tâche Stream Analytics
 
 1. Sous l’onglet Vue d’ensemble, cliquez sur **Démarrer**.
 
-    ![Démarrer le travail Stream Analytics](media/iot-suite-integrate-data-lake/stream-analytics-start.png)
+    ![Démarre une tâche Stream Analytics.](media/iot-suite-integrate-data-lake/stream-analytics-start.png)
 
 1. Sous l’onglet Démarrer le travail, cliquez sur **Personnalisé**.
 
 1. Définissez une heure personnalisée pour revenir en arrière de quelques heures et récupérer les données à partir du moment où votre appareil a démarré le streaming.
 
-1. Cliquez sur **Démarrer**.
+1. Cliquez sur **Start**.
 
     ![Choisir une date personnalisée](media/iot-suite-integrate-data-lake/stream-analytics-start-custom.png)
 

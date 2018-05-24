@@ -1,24 +1,24 @@
 ---
-title: "Déploiement d’applications Azure Service Fabric | Microsoft Docs"
-description: "Comment déployer et supprimer des applications dans Service Fabric avec PowerShell."
+title: Déploiement d’applications Azure Service Fabric | Microsoft Docs
+description: Comment déployer et supprimer des applications dans Service Fabric avec PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cd3c97bc95fb7ccfaa0dbf2d7ca76ae598a4b320
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 0fa7bd1135c099f853b9a3bb66661c0a57a0f7eb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Déployer et supprimer des applications avec PowerShell
 > [!div class="op_single_selector"]
@@ -178,7 +178,7 @@ Exécutez l’applet de commande [Register-ServiceFabricApplicationType](/powers
 Lorsqu’un package a précédemment été copié dans le magasin d’images, l’opération d’inscription spécifie le chemin d’accès relatif dans le magasin d’images.
 
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
@@ -212,7 +212,7 @@ Si un package a été copié dans le magasin d’images, vous devez le supprimer
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
 ```
 
-## <a name="create-the-application"></a>Création de l’application
+## <a name="create-the-application"></a>Création de l'application
 Vous pouvez instancier une application à partir de n’importe quelle version de type d’application correctement inscrite à l’aide de l’applet de commande [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps). Le nom de chaque application doit commencer par le schéma *« fabric: »* et être unique pour chaque instance d’application. Les éventuels services par défaut définis dans le manifeste de l’application du type de l’application cible sont également créés.
 
 ```powershell

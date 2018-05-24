@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Sedgwick CMS | Microsoft Docs"
-description: "Découvrez comment configurer l'authentification unique entre Azure Active Directory et Sedgwick CMS."
+title: 'Didacticiel : Intégration d’Azure Active Directory à Sedgwick CMS | Microsoft Docs'
+description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et Sedgwick CMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: a704026dfe39457212f4237435c997996656db8f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c088319aedb4fecc8f46ad636cfd6cf5fa7b7c0a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Didacticiel : Intégration d’Azure Active Directory à Sedgwick CMS
 
@@ -30,9 +30,10 @@ L’intégration de Sedgwick CMS dans Azure AD offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Sedgwick CMS (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à Sedgwick CMS, vous avez besoin des éléments suivants :
 
@@ -126,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-sedgwickcms-tutorial/tutorial_sedgwickcms_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-sedgwickcms-tutorial/tutorial_sedgwickcms_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -213,7 +214,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 

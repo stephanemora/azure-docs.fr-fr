@@ -1,8 +1,8 @@
 ---
-title: "Didacticiel : Configurer Asana pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Asana."
+title: 'Didacticiel : Configurer Asana pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Asana.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: sakula
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Didacticiel : Configurer Asana pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à suivre dans Asana et Azure Active Directory (Azure AD) pour attribuer et désattribuer automatiquement des comptes d’utilisateurs d’Azure AD vers Asana.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -100,5 +101,5 @@ Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gérer l’attribution de comptes d’utilisateurs pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](active-directory-saas-asana-tutorial.md)

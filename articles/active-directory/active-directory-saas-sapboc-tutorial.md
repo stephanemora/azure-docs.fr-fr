@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec SAP Business Object Cloud | Microsoft Docs)"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Business Object Cloud."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec SAP Business Object Cloud | Microsoft Docs)'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Business Object Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a56a892ac3b28c4e90ec2ea6360da3d2eff2581
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Business Object Cloud
 
@@ -30,9 +30,10 @@ Intégrer SAP Business Object Cloud avec Azure AD vous offre les avantages s
 - Vous pouvez connecter automatiquement vos utilisateurs à SAP Business objet Cloud à l’aide de l’authentification unique et d’un compte utilisateur Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à SAP Business Object Cloud, vous avez besoin des éléments suivants :
 
@@ -50,7 +51,7 @@ Recommandations pour tester les étapes de ce didacticiel :
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
 
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajoutez SAP Business Object Cloud depuis la galerie.
 2. Configurez et testez l’authentification unique Azure AD.
@@ -252,7 +253,7 @@ Pour assigner Britta Simon à SAP Business Object Cloud :
 
 2. Dans la liste des applications, sélectionnez **SAP Business Object Cloud**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
@@ -281,7 +282,7 @@ Pour plus d’informations sur le volet d’accès, consultez la page [Présenta
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

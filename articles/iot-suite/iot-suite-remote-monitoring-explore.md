@@ -1,24 +1,24 @@
 ---
-title: "Bien démarrer avec la solution de surveillance à distance - Azure | Microsoft Docs"
-description: "Ce didacticiel utilise des scénarios simulés pour introduire la solution préconfigurée de surveillance à distance. Ces scénarios sont créés quand vous déployez la solution préconfigurée de surveillance à distance pour la première fois."
-services: 
+title: Bien démarrer avec la solution de surveillance à distance - Azure | Microsoft Docs
+description: Ce tutoriel utilise des scénarios simulés pour présenter l’accélérateur de solution de surveillance à distance. Ces scénarios sont créés quand vous déployez l’accélérateur de solution de surveillance à distance pour la première fois.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 6a38098dc2bbcfc6ff59b9f8c96d1e947c637ab1
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/18/2018
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorer les fonctionnalités de la solution préconfigurée de surveillance à distance
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Explorer les fonctionnalités de l’accélérateur de solution de surveillance à distance
 
 Ce didacticiel vous montre les fonctionnalités clés de la solution de surveillance à distance. À cette fin, le didacticiel présente les scénarios client courants à l’aide d’une application IoT simulée pour une société appelée Contoso.
 
@@ -28,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 > * Visualiser et filtrer les appareils sur le tableau de bord
-> * Répondre à une alarme
+> * Répondre à une alerte
 > * Mettre à jour le microprogramme de vos appareils
 > * Organiser vos ressources
 > * Arrêter et démarrer les appareils simulés
@@ -39,23 +39,24 @@ La vidéo suivante offre une présentation pas à pas de la solution de surveill
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour effectuer ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez effectuer le didacticiel [Déployer la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Exemple de déploiement IoT Contoso
 
 Vous pouvez utiliser l’exemple de déploiement IoT Contoso pour comprendre les scénarios de base que la solution de surveillance à distance fournit prêts à l’emploi. Ces scénarios sont basés sur des déploiements IoT réels. Vous allez très probablement choisir de personnaliser la solution de surveillance à distance en fonction de vos besoins, mais l’exemple Contoso vous permet d’apprendre les notions de base.
 
 > [!NOTE]
-> Si vous avez utilisé l’interface CLI pour déployer la solution préconfigurée, le fichier `deployment-{your deployment name}-output.json` contient des informations sur le déploiement, telles que l’URL d’accès à l’exemple déployé.
+> Si vous avez utilisé l’interface CLI pour déployer l’accélérateur de solution, le fichier `deployment-{your deployment name}-output.json` va contenir des informations sur le déploiement, telles que l’URL d’accès à l’exemple déployé.
 
 L’exemple Contoso provisionne un ensemble d’appareils simulés et de règles pour agir sur ces derniers. Une fois que vous avez compris les scénarios de base, vous pouvez continuer à explorer d’autres fonctionnalités de la solution dans [Effectuer une surveillance des appareils avancée à l’aide de la solution de surveillance à distance](iot-suite-remote-monitoring-monitor.md).
 
 Contoso est une société qui gère de nombreuses ressources dans différents environnements. Contoso souhaite exploiter la puissance des applications IoT cloud pour surveiller et gérer à distance plusieurs ressources à partir d’une application centralisée. Les sections suivantes récapitulent la configuration initiale de l’exemple Contoso :
 
 > [!NOTE]
-> La démonstration Contoso est une manière parmi d’autres de provisionner des appareils simulés et de créer des règles. D’autres options de provisionnement incluent la création de vos propres appareils personnalisés. Pour en savoir plus sur la façon de créer vos propres règles et des appareils, consultez [Gérer et configurer vos appareils](iot-suite-remote-monitoring-manage.md) et [Détecter les problèmes à l’aide de règles de seuil](iot-suite-remote-monitoring-automate.md).
+> La démonstration Contoso est une manière parmi d’autres de provisionner des appareils simulés et de créer des règles. D’autres options de provisionnement incluent la création de vos propres appareils personnalisés. Pour en savoir plus sur la façon de créer vos propres règles et des appareils, consultez [Gérer et configurer vos appareils](iot-suite-remote-monitoring-manage.md) et [Détecter les problèmes à l’aide de règles de seuil](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 
 ### <a name="contoso-devices"></a>Appareils Contoso
 
@@ -67,7 +68,7 @@ Le tableau suivant récapitule les types d’appareils provisionnés :
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller (Refroidisseur)            | Temperature, Humidity, Pressure (Température, Humidité, Pression)            | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Floor, Campus (Emplacement, Étage, Campus) | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure (Redémarrage, Mise à jour du microprogramme, Déclenchement de la soupape de sécurité, Augmentation de la pression)                          |
 | Prototyping device (Appareil de prototypage) | Temperature, Pressure, Geo-location (Température, Pression, Géolocalisation)        | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Mode (Emplacement, Mode)          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase (Redémarrage, Mise à jour du microprogramme, Déplacement de l’appareil, Arrêt de l’appareil, Relâchement de la température, Augmentation de la température) |
-| Engine (Moteur)             | Tank fuel level, Coolant sensor, Vibration (Niveau du réservoir de carburant, Capteur du liquide de refroidissement, Vibration) | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Floor, Campus (Emplacement, Étage, Campus) | Restart, Firmware Update, Empty tank, Fill tank (Redémarrage, Mise à jour du microprogramme, Vidage du réservoir, Remplissage du réservoir)                                              |
+| Engine (Moteur)             | Tank fuel level, Coolant sensor, Vibration (Niveau du réservoir de carburant, Capteur du liquide de refroidissement, Vibration) | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Floor, Campus (Emplacement, Étage, Campus) | Firmware Update, Empty tank, Fill tank (Mise à jour du microprogramme, Vidage du réservoir, Remplissage du réservoir)                                              |
 | Truck (Camion)              | Geo-location, Speed, Cargo temperature (Géolocalisation, Vitesse, Température de la cargaison)     | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Load (Emplacement, Chargement)          | Lower cargo temperature, Increase cargo temperature, Firmware update (Réduction de la température de la cargaison, Augmentation de la température de la cargaison, Mise à jour du microprogramme)                         |
 | Elevator (Élévateur)           | Floor, Vibration, Temperature (Étage, Vibration, Température)              | Type, Firmware version, Model, Geo-location (Type, Version du microprogramme, Modèle, Géolocalisation) | Location, Campus (Emplacement, Campus)        | Stop elevator, Start elevator, Firmware update (Arrêt de l’élévateur, Démarrage de l’élévateur, Mise à jour du microprogramme)                                               |
 
@@ -88,43 +89,35 @@ Les opérateurs chez Contoso connaissent les seuils qui déterminent si un appar
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Exploiter l’exemple de déploiement Contoso
 
-Vous venez de voir la configuration initiale dans l’exemple Contoso. Les sections suivantes décrivent les trois scénarios dans l’exemple de Contoso qui illustrent la façon dont un opérateur peut utiliser la solution préconfigurée.
+Vous venez de voir la configuration initiale dans l’exemple Contoso. Les sections suivantes décrivent les trois scénarios dans l’exemple Contoso, qui illustrent la façon dont un opérateur peut utiliser l’accélérateur de solution.
 
-## <a name="respond-to-a-pressure-alarm"></a>Répondre à une alarme de pression
+## <a name="respond-to-a-pressure-alert"></a>Répondre à une alerte de pression
 
-Ce scénario montre comment identifier une alarme déclenchée par un appareil de refroidissement et réagir à celle-ci. Le refroidisseur se trouve à Redmond, dans l’édifice 43, à l’étage 2.
+Ce scénario montre comment identifier une alerte déclenchée par un appareil de refroidissement et réagir à celle-ci. Le refroidisseur se trouve à Redmond, dans l’édifice 43, à l’étage 2.
 
-En tant qu’opérateur, vous voyez dans le tableau de bord une alarme liée à la pression d’un refroidisseur. Vous pouvez effectuer un panoramique et un zoom avant sur la carte pour afficher plus de détails.
+En tant qu’opérateur, vous voyez dans le tableau de bord une alerte liée à la pression d’un refroidisseur. Vous pouvez effectuer un panoramique et un zoom avant sur la carte pour afficher plus de détails.
 
-1. Dans la page **Tableau de bord**, dans la grille **System Alarms** (Alarmes système), vous pouvez voir l’alarme **Chiller pressure too high** (Pression de refroidissement trop élevée). Le refroidisseur est également mis en surbrillance sur la carte :
+1. Dans la page **Tableau de bord**, dans la grille **Alertes**, vous pouvez voir l’alerte **Chiller pressure too high** (Pression de refroidissement trop élevée). Le refroidisseur est également mis en surbrillance sur la carte :
 
-    ![Tableau de bord affichant l’alarme de pression et l’appareil sur la carte](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
+    ![Tableau de bord affichant l’alerte de pression et l’appareil sur la carte](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-1. Pour afficher les détails de l’appareil et les données de télémétrie, cliquez sur le refroidisseur en surbrillance sur la carte. Les données de télémétrie montrent un pic de pression :
+1. Pour accéder à la page **Maintenance**, choisissez **Maintenance** dans le menu de navigation. Dans la page **Maintenance**, vous pouvez afficher les détails de la règle qui a déclenché l’alerte de pression de refroidissement.
 
-    ![Choisir un appareil sur la carte pour afficher les détails correspondants](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
+1. La liste d’alertes montre le nombre de fois où l’alerte a été déclenchée, si elle a fait l’objet d’un accusé de réception, et si elle est ouverte ou fermée :
 
-1. Fermer **Détails de l’appareil**.
+    ![Page Maintenance affichant la liste des alertes qui ont été déclenchées](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Pour accéder à la page **Maintenance**, choisissez **Maintenance** dans le menu de navigation.
+1. La dernière alerte de la liste est la plus récente. Cliquez sur l’alerte **Chiller Pressure Too High** (Pression de refroidissement trop élevée) pour afficher les appareils et les données de télémétrie associés. Les données de télémétrie montrent des pics de pression pour le refroidisseur :
 
-Dans la page **Maintenance**, vous pouvez afficher les détails de la règle qui a déclenché l’alarme de pression de refroidissement.
+    ![Page Maintenance affichant les données de télémétrie de l’alerte sélectionnée](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
-1. La liste des notifications affiche le nombre de fois où l’alarme s’est déclenchée, d’accusés de réception et d’alarmes ouvertes et fermées :
+Vous avez désormais identifié le problème qui a déclenché l’alerte, ainsi que l’appareil associé. En tant qu’opérateur, vous devez ensuite accuser réception de l’alerte et résoudre le problème.
 
-    ![Page Maintenance affichant la liste des alarmes qui ont été déclenchées](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
+1. Pour indiquer que vous travaillez à la résolution de l’alerte, définissez **Alert status** (État de l’alerte) sur **Acknowledged** (Réception confirmée) :
 
-1. La première alarme dans la liste est la plus récente. Cliquez sur l’alarme **Chiller Pressure Too High** (Pression de refroidissement trop haute) pour afficher les appareils et les données de télémétrie associés. Les données de télémétrie montrent des pics de pression pour le refroidisseur :
+    ![Sélectionner l’alerte et accuser réception de celle-ci](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-    ![Page Maintenance affichant les données de télémétrie de l’alarme sélectionnée](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
-
-Vous avez désormais identifié le problème qui a déclenché l’alarme, ainsi que l’appareil associé. En tant qu’opérateur, vous devez ensuite accuser réception de l’alarme et résoudre le problème.
-
-1. Pour indiquer que vous travaillez maintenant sur l’alarme, définissez **Alarm status** (État de l’alarme) sur **Acknowledged** (Réception confirmée) :
-
-    ![Sélectionner l’alarme et accuser réception de celle-ci](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
-
-1. Pour agir sur le refroidisseur, sélectionnez-le, puis choisissez **Planifier**. Sélectionnez **EmergencyValveRelease**, ajoutez un nom de tâche **ChillerPressureRelease**, puis choisissez **Appliquer**. Ces paramètres créent un travail qui s’exécute immédiatement :
+1. Pour agir sur le refroidisseur, sélectionnez-le, puis choisissez **Travaux**. Sélectionnez **Run method** (Exécuter la méthode), puis **EmergencyValveRelease**, ajoutez le nom de tâche **ChillerPressureRelease**, puis choisissez **Appliquer**. Ces paramètres créent un travail qui s’exécute immédiatement :
 
     ![Sélectionner l’appareil et planifier une action](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
@@ -134,13 +127,13 @@ Vous avez désormais identifié le problème qui a déclenché l’alarme, ainsi
 
 Enfin, vérifiez que les valeurs de télémétrie issues du refroidisseur sont revenues à la normale.
 
-1. Pour afficher la grille des alarmes, accédez à la page **Tableau de bord**.
+1. Pour afficher la grille des alertes, accédez à la page **Tableau de bord**.
 
-1. Pour afficher les données de télémétrie d’appareil, sélectionnez l’appareil auquel est associée l’alarme d’origine sur la carte et vérifiez qu’il refonctionne normalement.
+1. Pour afficher les données de télémétrie de l’appareil, sélectionnez l’appareil auquel est associée l’alerte d’origine sur la carte, et vérifiez qu’il refonctionne normalement.
 
-1. Pour fermer l’incident, accédez à la page **Maintenance**, sélectionnez l’alarme et définissez l’état sur **Fermé** :
+1. Pour fermer l’incident, accédez à la page **Maintenance**, sélectionnez l’alerte, puis définissez l’état sur **Fermé** :
 
-    ![Sélectionner et fermer l’alarme](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
+    ![Sélectionner et fermer l’alerte](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## <a name="update-device-firmware"></a>Mettre à jour le microprogramme de l’appareil
 
@@ -159,7 +152,7 @@ Pour effectuer les tâches de gestion d’appareil nécessaires, utilisez la pag
 
     ![Sélectionner un appareil dans la page des appareils](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Cliquez sur le bouton **Planifier**, puis choisissez **Firmware update** (Mise à jour de microprogramme). Renseignez les champs **Job name** (Nom de la tâche) et **Firmware Version** (Version du microprogramme) et **Firmware URI** (URI du microprogramme). Choisissez **Apply** (Appliquer) pour que le travail s’exécute maintenant :
+1. Cliquez sur le bouton **Travaux**, choisissez **Run method** (Exécuter la méthode), puis sélectionnez **FirmwareUpdate** (Mise à jour du microprogramme). Renseignez les champs **Job name** (Nom de la tâche) et **Firmware Version** (Version du microprogramme) et **Firmware URI** (URI du microprogramme). Choisissez **Appliquer** pour que le travail s’exécuter maintenant :
 
     ![Planifier la mise à jour du microprogramme sur l’appareil](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
@@ -176,17 +169,18 @@ Vous pouvez utiliser la page **Maintenance** pour suivre l’exécution du trava
 
 1. Recherchez l’événement associé au travail que vous avez créé. Vérifiez que le processus de mise à jour du microprogramme a été correctement lancé.
 
-Vous pouvez créer un filtre pour vérifier correctement la mise à jour de la version du microprogramme.
+<!-- 05/01 broken 
+You can create a filter to verify the firmware version updated correctly.
 
-1. Pour créer un filtre, accédez à la page **Appareil** et sélectionnez **Gérer les filtres** :
+1. To create a filter, navigate to the **Devices** page and select **Manage device groups**:
 
-    ![Gérer les filtres d’appareils](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Créez un filtre qui inclut uniquement les appareils dotés de la nouvelle version du microprogramme :
+1. Create a filter that includes only devices with the new firmware version:
 
-    ![Créer le filtre d’appareils](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
+    ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. Retournez à la page **Appareils** et vérifiez que l’appareil dispose de la nouvelle version du microprogramme.
+1. Return to the **Devices** page and verify that the device has the new firmware version. -->
 
 ## <a name="organize-your-assets"></a>Organiser vos ressources
 
@@ -203,7 +197,7 @@ Vous pouvez créer des noms d’étiquette à utiliser avec les appareils.
 
     ![Afficher tous les appareils](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
-1. Sélectionnez les appareils **Trucks** (Camions) et **Prototyping** (Prototypage). Sélectionnez ensuite **Étiquette** :
+1. Sélectionnez les appareils **Trucks** (Camions) et **Prototyping** (Prototypage). Ensuite, choisissez **Travaux** :
 
     ![Sélectionner les appareils prototypage et camion](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
@@ -211,19 +205,19 @@ Vous pouvez créer des noms d’étiquette à utiliser avec les appareils.
 
     ![Ajouter une étiquette aux appareils prototypage et camion](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
-1. Sélectionnez les appareils **Chiller** (Refroidisseur), **Elevator** (Élévateur), et **Engine** (Moteur). Sélectionnez ensuite **Étiquette** :
+1. Sélectionnez les appareils **Chiller** (Refroidisseur), **Elevator** (Élévateur), et **Engine** (Moteur). Ensuite, choisissez **Travaux** :
 
     ![Sélectionner les appareils refroidisseur, moteur et élévateur](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Choisissez **Étiquette**, puis créez une étiquette appelée **FieldService** avec comme valeur **SmartBuilding**. Choisissez un nom pour le travail. Cliquez ensuite sur **Enregistrer** :
+1. Choisissez **Étiquette**, puis créez une étiquette appelée **FieldService** avec comme valeur **SmartBuilding**. Choisissez un nom pour le travail. Cliquez alors sur **Appliquer** :
 
     ![Ajouter une étiquette aux appareils refroidisseur, moteur et élévateur](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 Vous pouvez utiliser les valeurs des étiquettes pour créer des filtres.
 
-1. Dans la page **Appareils**, choisissez **Gérer les filtres** :
+1. Dans la page **Appareils**, choisissez **Manage device groups** (Gérer les groupes d’appareils) :
 
-    ![Gérer les filtres d’appareils](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Gérer les groupes d’appareils](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. Créez un filtre qui utilise le nom d’étiquette **FieldService** et la valeur **SmartBuilding**. Enregistrez le filtre sous le nom **Smart Building**.
 
@@ -237,9 +231,17 @@ Vous pouvez utiliser le menu Paramètres pour arrêter les appareils simulés. C
 
 1. Choisissez l’icône **Paramètres**.
 
-1. Activez ou désactivez le bouton bascule **En cours d’exécution** :
+1. Cliquez sur le bouton pour activer ou désactiver la **simulation** :
 
     ![Menu Paramètres](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## <a name="customize-the-ui"></a>Personnaliser l’interface utilisateur
+
+Dans le menu Paramètres, vous pouvez appliquer des personnalisations de base à l’accélérateur de solution de surveillance à distance. Vous pouvez :
+
+- Basculer entre le thème clair et le thème foncé
+- Modifier le nom de la solution
+- Charger un logo personnalisé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -247,7 +249,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 > * Visualiser et filtrer les appareils sur le tableau de bord
-> * Répondre à une alarme
+> * Répondre à une alerte
 > * Mettre à jour le microprogramme de vos appareils
 > * Organiser vos ressources
 > * Arrêter et démarrer les appareils simulés
@@ -256,5 +258,5 @@ La solution de surveillance à distance n’ayant plus de secrets pour vous, nou
 
 * [Surveillez vos appareils](./iot-suite-remote-monitoring-monitor.md).
 * [Gérez vos appareils](./iot-suite-remote-monitoring-manage.md).
-* [Automatisez votre solution avec des règles](./iot-suite-remote-monitoring-automate.md).
+* [Automatisez votre solution avec des règles](./../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Gérez votre solution](./iot-suite-remote-monitoring-maintain.md).

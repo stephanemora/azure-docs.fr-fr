@@ -1,12 +1,12 @@
 ---
-title: "Migrer IoT Hub Azure vers les paramètres de diagnostic | Microsoft Docs"
-description: "Découvrez comment mettre à jour Azure IoT Hub pour utiliser les paramètres de diagnostic Azure plutôt que la surveillance des opérations pour surveiller l’état des opérations sur votre hub IoT en temps réel."
+title: Migrer IoT Hub Azure vers les paramètres de diagnostic | Microsoft Docs
+description: Découvrez comment mettre à jour Azure IoT Hub pour utiliser les paramètres de diagnostic Azure plutôt que la surveillance des opérations pour surveiller l’état des opérations sur votre hub IoT en temps réel.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: kgremban
-ms.openlocfilehash: 2716f397ad0e7abfdcd397340da8fa8116a172db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a46f6798a71c93ed769ae68877e72801d45b74a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrer votre IoT Hub de la surveillance des opérations vers les paramètres de diagnostic
 
@@ -46,9 +46,9 @@ Les schémas de surveillance des opérations et de paramètres de diagnostic var
 
 De plus, les paramètres de diagnostic offrent un suivi pour cinq nouvelles catégories. Une fois que vous avez mis à jour les applications pour le schéma existant, ajoutez aussi les nouvelles catégories :
 
-- Opérations jumelles cloud-à-appareil
+- Opérations jumelles cloud à appareil
 - Opérations jumelles appareil-à-cloud
-- Requêtes jumelles
+- Requêtes de jumeaux
 - Opérations de travaux
 - Méthodes directes
 
@@ -61,5 +61,5 @@ Pour plus de détails sur les structures de schéma spécifiques, consultez [Pr�
 [lnk-opsmon]: iot-hub-operations-monitoring.md
 [lnk-diagnostics-settings]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [lnk-diagnostics-schema]: iot-hub-monitor-resource-health.md#understand-the-logs
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md
