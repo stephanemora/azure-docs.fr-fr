@@ -13,12 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/07/2018
-ms.author: ryanwi,mikhegn
-ms.openlocfilehash: 20600eda935d15b0554f6184b41caa45ee42fd14
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: ryanwi
+ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207483"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Didacticiel : déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -158,7 +159,7 @@ Lorsque vous créez le cluster, choisissez une référence SKU qui prend en char
     3. Sélectionnez l’onglet **Certificat**. Dans cet onglet, tapez un mot de passe à utiliser pour sécuriser le certificat de votre cluster. Ce certificat aide à sécuriser votre cluster. Vous pouvez aussi modifier le chemin vers l’emplacement où vous voulez enregistrer le certificat. Visual Studio peut aussi importer le certificat pour vous, car il s’agit d’une étape nécessaire à la publication de l’application dans le cluster.
     4. Sélectionnez l’onglet **Détail de la machine virtuelle**. Spécifiez le mot de passe que vous voulez utiliser pour les machines virtuelles qui forment le cluster. Le nom d’utilisateur et le mot de passe peuvent être utilisés pour se connecter aux machines virtuelles à distance. Vous devez aussi sélectionner une taille de machine virtuelle et pouvez changer l’image de la machine virtuelle si nécessaire.
     5. Dans l’onglet **Avancé**, indiquez le port de l’application à ouvrir dans l’équilibreur de charge lorsque le cluster est déployé. Dans l’Explorateur de solutions, ouvrez FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml.  Le port du serveur frontal web est répertorié dans **Point de terminaison**.  Vous pouvez aussi ajouter une clé Application Insights existante à utiliser pour y diriger les fichiers de journal des applications.
-    6. Quand vous avez terminé les modifications des paramètres, sélectionnez le bouton **Créer**. 
+    6. Une fois la modification des paramètres terminée, cliquez sur le bouton **Créer**. 
 5. La création prend plusieurs minutes, la fenêtre de sortie vous informe lorsque le cluster est complètement créé.
     
 

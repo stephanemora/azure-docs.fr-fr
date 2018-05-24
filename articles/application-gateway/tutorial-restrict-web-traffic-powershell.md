@@ -11,11 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2e0179de980d130dcbbb2bacac244d5dc61a5e0e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356271"
 ---
 # <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Limiter le trafic web avec un pare-feu d’applications web à l’aide d’Azure PowerShell
 
@@ -77,8 +78,8 @@ $pip = New-AzureRmPublicIpAddress `
 Dans cette section, vous créez des ressources qui prennent en charge la passerelle d’application, puis vous la créez ainsi qu’un WAF. Les ressources que vous créez sont les suivantes :
 
 - *Configurations IP et port frontend* : associe le sous-réseau que vous avez créé précédemment pour la passerelle d’application et assigne un port à utiliser pour y accéder.
-- *Pool par défaut* : toutes les passerelles d’application doivent avoir au moins un pool backend de serveurs.
-- *Écouteur et règle par défaut* : l’écouteur par défaut écoute le trafic sur le port assigné et la règle par défaut envoie le trafic au pool par défaut.
+- *Pool par défaut* : toutes les passerelles d’application doivent avoir au moins un pool principal de serveurs.
+- *Écouteur et règle par défaut* : l’écouteur par défaut écoute le trafic sur le port assigné et la règle par défaut envoie le trafic au pool par défaut.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Créer les configurations IP et le port frontal
 
@@ -224,7 +225,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>Installer IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss

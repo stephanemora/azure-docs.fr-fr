@@ -10,15 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8c87206f75114cb3947d57180f570f8defaf41ea
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 411baa24cc796a40f83e8530ab797f3e377ee5f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356237"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutoriel - Acheminer le trafic web selon l’URL à l’aide d’Azure CLI
 
-Vous pouvez utiliser Azure CLI pour configurer l’acheminement du trafic web vers des pools de serveurs évolutifs spécifiques selon l’URL utilisée pour accéder à votre application. Dans ce tutoriel, vous créez une [passerelle d’application Azure](application-gateway-introduction.md) avec trois pools backend à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Chaque pool backend a un usage spécifique comme les données courantes, les images et la vidéo.  L’acheminement du trafic vers des pools distincts garantit que vos clients obtiennent les informations dont ils ont besoin lorsqu’ils en ont besoin.
+Vous pouvez utiliser Azure CLI pour configurer l’acheminement du trafic web vers des pools de serveurs évolutifs spécifiques selon l’URL utilisée pour accéder à votre application. Dans ce tutoriel, vous créez une [passerelle d’application Azure](application-gateway-introduction.md) avec trois pools backend à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Chaque pool backend a un usage spécifique comme les données courantes, les images et la vidéo.  Avec l’acheminement du trafic vers des pools distincts, vos clients ont la garantie d’obtenir les informations dont ils ont besoin lorsqu’ils en ont besoin.
 
 Pour activer l’acheminement du trafic, vous créez des [règles d’acheminement](application-gateway-url-route-overview.md) assignées à des écouteurs qui écoutent des ports spécifiques pour veiller à ce que le trafic web arrive sur les serveurs appropriés dans les pools.
 
@@ -27,12 +28,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Configurer le réseau
 > * Créer des écouteurs, un mappage de chemins d’URL et des règles
-> * Créer des pools backend évolutifs
+> * Créer des pools backend scalables
 
 
 ![Exemple d’acheminement d’URL](./media/tutorial-url-route-cli/scenario.png)
 
-Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure PowerShell](tutorial-url-route-powershell.md).
+Si vous préférez, vous pouvez effectuer ce didacticiel en utilisant [Azure PowerShell](tutorial-url-route-powershell.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -94,7 +95,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- La création de la passerelle d’application peut prendre plusieurs minutes. Une fois la passerelle d’application créée, vous pouvez voir ses nouvelles fonctionnalités :
+ La création de la passerelle d’application peut prendre plusieurs minutes. Une fois la passerelle d’application créée, vous pouvez voir ces nouvelles fonctionnalités :
 
 - *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses backend.
 - *appGatewayBackendHttpSettings* : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication.
@@ -227,7 +228,7 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 

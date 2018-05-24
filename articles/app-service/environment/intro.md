@@ -14,11 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6be6bb3b6b75b278a7c28307d93d6273c5bb18d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 447445ace41bb6b4677a75f5324368b269f938ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355234"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
  
@@ -30,7 +31,7 @@ L’environnement Azure App Service est une fonctionnalité d’Azure App Servic
 * Applications web Linux (en préversion)
 * Conteneurs Docker (en préversion)
 * Applications mobiles
-* Functions
+* Fonctions
 
 Les environnements App Service (ASE) conviennent aux charges de travail d’application qui nécessitent :
 
@@ -93,7 +94,7 @@ Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASE
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

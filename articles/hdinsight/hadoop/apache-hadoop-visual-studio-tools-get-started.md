@@ -1,9 +1,9 @@
 ---
-title: "Se connecter à Azure HDInsight avec Data Lake Tools pour Visual Studio | Microsoft Docs"
-description: "Découvrez comment installer et utiliser Data Lake Tools pour Visual Studio pour vous connecter aux clusters Hadoop dans Azure HDInsight et exécuter des requêtes Hive."
-keywords: "outils Hadoop,requête hive,Visual Studio,Hadoop Visual Studio"
+title: Se connecter à Azure HDInsight avec Data Lake Tools pour Visual Studio | Microsoft Docs
+description: Découvrez comment installer et utiliser Data Lake Tools pour Visual Studio pour vous connecter aux clusters Hadoop dans Azure HDInsight et exécuter des requêtes Hive.
+keywords: outils Hadoop,requête hive,Visual Studio,Hadoop Visual Studio
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: afd40d75bb9c5fd3170a4da215925244994d7749
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1707a681315fbb53f21df95664188463968bb855
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202473"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Utiliser Data Lake Tools pour Visual Studio pour se connecter à Azure HDInsight et exécuter des requêtes Hive
 

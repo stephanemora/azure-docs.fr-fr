@@ -2,18 +2,19 @@
 title: Utiliser Azure Policy pour créer et gérer des stratégies afin d’appliquer la conformité de l’organisation
 description: Utilisez une stratégie Azure pour appliquer des normes, se conformer aux réglementations de conformité et d’audit, maîtriser les coûts, garantir la sécurité et maintenir les performances, et imposer les principes de conception à l’échelle de l’entreprise.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e04e08d22890246e2b68a55d79e82864201ef9d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 1d13c5c0099b8e4c9ed83221edf6a2ee92fc3c8e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194867"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -31,20 +32,20 @@ Si vous souhaitez affecter une stratégie pour identifier l’état actuel de la
 
 La première étape de l’application de la conformité avec une stratégie Azure consiste à affecter une définition de stratégie. Une définition de stratégie définit dans quelle condition une stratégie est appliquée et l’action à effectuer. Dans cet exemple, affectez une définition de stratégie intégrée appelée *Exiger SQL Server version 12.0* afin d’appliquer la condition selon laquelle toutes les bases de données SQL Server doivent être de version 12.0 pour être compatibles.
 
-1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en sélectionnant **Stratégie**.
+1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
 
    ![Rechercher une stratégie](media/create-manage-policy/search-policy.png)
 
 2. Sélectionnez **Affectations** du côté gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
-3. Sélectionnez **Assigner une stratégie** en haut de la page **Stratégie - Affectations**.
+3. Sélectionnez **Assigner une stratégie** en haut de la page**Stratégie - Affectations**.
 
    ![Affecter une définition de stratégie](media/create-manage-policy/select-assign-policy.png)
 
-4. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur le bouton de sélection et en sélectionnant un abonnement (obligatoire) et un groupe de ressources (facultatif). Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée.  Cliquez ensuite sur **Sélectionner** au bas de la page **Étendue**.
+4. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un abonnement (obligatoire) et un groupe de ressources (facultatif). Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée.  Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
 
    Cet exemple utilise **l’abonnement Contoso**. Votre abonnement sera différent.
 
-5. Pour exclure un ou plusieurs groupes de ressources (si vous avez défini l’étendue sur un seul abonnement), ou des ressources spécifiques au sein d’un groupe de ressources (quelle que soit l’étendue définie), vous pouvez configurer des **exclusions** depuis l’affectation de la stratégie. Laissez cette zone vide pour l’instant.
+5. Si vous voulez exclure un ou plusieurs groupes de ressources (si vous avez défini l’étendue seulement pour l’abonnement), ou des ressources spécifiques au sein d’un groupe de ressources (dans l’une ou l’autre définition d’étendue), vous pouvez configurer des **Exclusions** pour l’affectation de la stratégie. Laissez cette zone vide pour l’instant.
 
 6. Sélectionnez le bouton de sélection **Définition de stratégie** pour ouvrir la liste des définitions disponibles. Vous pouvez filtrer le **Type** de définition de stratégie sur *BuiltIn* pour les afficher tous et lire leurs descriptions.
 
@@ -52,7 +53,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    ![Rechercher une stratégie](media/create-manage-policy/select-available-definition.png)
 
-8. Le **nom de l’affectation** est automatiquement renseigné avec le nom de la stratégie que vous avez sélectionnée, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
+8. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
 
 9. Cliquez sur **Affecter**.
 

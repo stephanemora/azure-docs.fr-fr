@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336549"
 ---
 # <a name="azure-active-directory-faq"></a>Forum Aux Questions sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -175,7 +176,7 @@ Pour plus d'informations, consultez les pages suivantes :
 * Authentification directe pour les applications fédérées
 * Liens ciblés vers des applications fédérées, avec mot de passe ou des applications existantes
 
-Pour plus d’informations, voir [Déploiement d’applications Azure AD intégrées pour les utilisateurs](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Pour plus d’informations, voir [Déploiement d’applications Azure AD intégrées pour les utilisateurs](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **Q : Par quels moyens Azure AD active-t-il l’authentification et l’authentification unique pour la connexion aux applications ?**
@@ -186,7 +187,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 * [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md)
 * [Protocoles d’authentification Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Fonctionnement de l’authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Fonctionnement de l’authentification unique avec Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **Q : Puis-je ajouter des applications si l’exécution s’effectue en local ?**

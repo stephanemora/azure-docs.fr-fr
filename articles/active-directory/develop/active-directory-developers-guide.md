@@ -16,15 +16,16 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257547"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory pour les développeurs
 
-Azure Active Directory (Azure AD) est un service d’identité cloud qui permet aux développeurs de créer des applications qui connectent de façon sécurisée les utilisateurs disposant d’un compte Microsoft professionnel ou scolaire. Azure AD prend en charge les développeurs qui créent des applications monolocataires et métier, ainsi que les développeurs qui souhaitent développer des applications multilocataires. En plus de la connexion basique, Azure AD permet également aux applications d’appeler des API Microsoft comme [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) et des API personnalisées reposant sur la plateforme Azure AD. Cette documentation explique comment ajouter une prise en charge Azure AD à votre application par le biais de protocoles standard du secteur, comme OAuth 2.0 et OpenID Connect.
+Azure Active Directory (Azure AD) est un service d’identité cloud qui permet aux développeurs de créer des applications qui connectent de façon sécurisée les utilisateurs disposant d’un compte Microsoft professionnel ou scolaire. Azure AD prend en charge les développeurs qui créent des applications à locataire unique et métiers, ainsi que les développeurs qui souhaitent développer des applications multi-locataires. En plus de la connexion basique, Azure AD permet également aux applications d’appeler des API Microsoft comme [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) et des API personnalisées reposant sur la plateforme Azure AD. Cette documentation explique comment ajouter une prise en charge Azure AD à votre application par le biais de protocoles standard du secteur, comme OAuth 2.0 et OpenID Connect.
 
 > [!NOTE]
 > Le contenu de cette page traite en grande partie du point de terminaison Azure AD v1.0, qui prend seulement en charge les comptes Microsoft professionnels ou scolaires. Si vous voulez vous connecter à des comptes Microsoft consommateurs ou personnels, consultez les informations sur le [point de terminaison Azure AD v2.0](active-directory-appmodel-v2-overview.md). Le point de terminaison Azure AD v2.0 offre une expérience de développement unifiée pour les applications devant connecter des utilisateurs avec des comptes Azure AD (professionnels et scolaires) et des comptes Microsoft personnels.
@@ -55,7 +56,6 @@ Ces indications vous guident pas à pas dans l’exécution des tâches les plus
 |[Inscription de l’application](active-directory-integrating-applications.md)           | Comment inscrire une application dans Azure AD. |
 |[Applications multilocataires](active-directory-devhowto-multi-tenant-overview.md)    | Comment connecter n’importe quel compte professionnel Microsoft. |
 |[Protocoles OAuth et OpenID Connect](active-directory-protocols-openid-connect-code.md)| Comment connecter des utilisateurs et appeler des API web en utilisant les protocoles d’authentification de Microsoft. |
-|[Guides supplémentaires](active-directory-developers-guide-index.md#guides)        |  Une liste des guides disponibles pour Azure AD. |
 |  |  |
 
 ## <a name="reference-topics"></a>Rubriques de référence
@@ -66,7 +66,6 @@ Les articles suivants fournissent des informations détaillées sur les API, les
 | [Bibliothèques d’authentification](active-directory-authentication-libraries.md)   | Vue d’ensemble des bibliothèques et des kits de développement logiciel fournis par Azure AD. |
 | [Exemples de code](active-directory-code-samples.md)                                  | Une liste de tous les exemples de code Azure AD. |
 | [Glossaire](active-directory-dev-glossary.md)                                      | Terminologie et définitions des termes utilisés dans cette documentation. |
-| [Rubriques de référence supplémentaires](active-directory-developers-guide-index.md#reference)| Une liste des rubriques de référence disponibles pour Azure AD. |
 |  |  |
 
 
