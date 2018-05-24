@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notes de publication
       items:
+        - name: "mise à jour\_1804"
+          href: azure-stack-update-1804.md
         - name: "mise à jour\_1803"
           href: azure-stack-update-1803.md
         - name: "mise à jour\_1802"
           href: azure-stack-update-1802.md
         - name: mise à jour 1712
           href: azure-stack-update-1712.md
-        - name: mise à jour 1711
-          href: azure-stack-update-1711.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -156,7 +156,9 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Sauvegarde d’Azure Stack
               href: azure-stack-backup-back-up-azure-stack.md
-            - name: Récupérer des données suites à une perte catastrophique
+            - name: Fichiers et applications de sauvegarde sur Azure Stack
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
+            - name: Récupérer des données suite à une perte catastrophique
               href: azure-stack-backup-recover-data.md
             - name: Meilleures pratiques en matière de sauvegarde
               href: azure-stack-backup-best-practices.md
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: Notes de publication d’App Service sur Azure Stack Update 1
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: Notes de publication d’App Service sur Azure Stack Update 2
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: Renseigner le Marketplace
           items:
             - name: Présentation de la Place de marché
