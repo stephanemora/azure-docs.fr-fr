@@ -15,11 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: e5b289b2be982653461c4f5b933e1ec444fa9716
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894242"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
 L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -29,12 +30,13 @@ Vous êtes un nouvel utilisateur d’Azure ? [Créer un compte Azure gratuit](ht
 ## <a name="what-configurations-and-versions-are-available"></a>Quelles sont les configurations et les versions disponibles ?
 La Place de Marché Azure met à disposition des images pour les dernières versions principales : Visual Studio 2017 et Visual Studio 2015. Pour chaque version principale figurent la version initialement publiée (RTW) et les versions mises à jour les plus récentes. Pour chacune de ces versions, il existe des éditions Visual Studio Enterprise et Visual Studio Community. Ces images sont actualisées au moins chaque mois pour inclure les dernières mises à jour Visual Studio et Windows. Bien que les noms des images restent identiques, la description de chaque image inclut la version de produit installée et la date de création de l’image.
 
-| Version commerciale              | Éditions            | Version du produit     |
-|:-----------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017 - Dernière version (15.5) |    Enterprise, Community     |      Version 15.6.0     |
-|         Visual Studio 2017 - RTW           |    Enterprise, Community     |      Version 15.0.10    |
-|   Visual Studio 2015 - Dernière version (Update 3)   |    Enterprise, Community     |  Version 14.0.25431.01  |
-|         Visual Studio 2015 - RTW           |              Aucun            | (Expiration pour maintenance) |
+| Version commerciale                                              | Éditions                     |     Version du produit     |
+|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017 : Dernière version (15.7)                    |    Enterprise, Community     |      Version 15.7.0     |
+| Visual Studio 2017 : Dernière préversion (Version 15.8, Preview 1) |    Enterprise, Community     |      Version 15.8.1     |
+|         Visual Studio 2017 - RTW                              |    Enterprise, Community     |      Version 15.0.13    |
+|   Visual Studio 2015 - Dernière version (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01  |
+|         Visual Studio 2015 - RTW                              |             Aucun             | (Expiration pour maintenance) |
 
 > [!NOTE]
 > Conformément à la politique de maintenance de Microsoft, la version initialement publiée (RTW) de Visual Studio 2015 a expiré pour la maintenance. Par conséquent, Visual Studio 2015 Update 3 est la seule version restante proposée pour la ligne de produits Visual Studio 2015.
@@ -94,7 +96,7 @@ Le spectre des environnements de développement est énorme, et la création d�
 
 En bref, utilisez l’outil de préparation système (Sysprep) et arrêtez la machine virtuelle en cours d’exécution, puis capturez *(Figure 1)* la machine virtuelle en tant qu’image par le biais de l’interface utilisateur du portail Azure. Azure enregistre le fichier `.vhd` qui contient l’image dans le compte de stockage de votre choix. Ensuite, la nouvelle image apparaîtra en tant que ressource d’image dans la liste des ressources de votre abonnement.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figure 1) Capturer une image par le biais de l’interface utilisateur du portail Azure.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figure 1) Capturer une image par le biais de l’interface utilisateur du Portail Azure.*</center>
 
 Pour plus d’informations, consultez [Créer une image managée d’une machine virtuelle généralisée dans Azure](/azure/virtual-machines/windows/capture-image-resource).
 

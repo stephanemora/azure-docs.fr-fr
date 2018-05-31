@@ -1,11 +1,11 @@
 ---
-title: "Limiter l’accès par le biais d’un point de terminaison accessible sur Internet dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Restreindre l’accès via un point de terminaison accessible sur Internet**."
+title: Limiter l’accès par le biais d’un point de terminaison accessible sur Internet dans Azure Security Center | Microsoft Docs
+description: Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Limiter l'accès par le biais d'un point de terminaison accessible sur Internet**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363051"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restreindre l’accès via des points de terminaison accessibles sur Internet dans le Centre de sécurité Azure
 Le Centre de sécurité Azure vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos groupes de sécurité réseau (NSG) possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Un accès « total » peut permettre aux pirates d’accéder à vos ressources. Le Centre de sécurité vous recommande de modifier ces règles de trafic entrant afin de restreindre l’accès aux adresses IP source qui en ont réellement besoin.
@@ -44,20 +45,20 @@ Cette recommandation est générée pour n’importe quel port non web avec une 
 
    ![Règles de sécurité de trafic entrant][4]
 
-   Notez que vous pouvez également sélectionner **Règles par défaut** pour afficher l’ensemble de règles par défaut de tous les groupes de sécurité réseau. Les règles par défaut ne peuvent pas être supprimées, mais comme une priorité plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. En savoir plus sur les [règles par défaut](../virtual-network/virtual-networks-nsg.md#default-rules).
+   Notez que vous pouvez également sélectionner **Règles par défaut** pour afficher l’ensemble de règles par défaut de tous les groupes de sécurité réseau. Les règles par défaut ne peuvent pas être supprimées, mais comme une priorité plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. En savoir plus sur les [règles par défaut](../virtual-network/security-overview.md#default-security-rules).
 
    ![Règles par défaut][5]
-5. Dans le panneau **AllowWeb**, modifiez les propriétés de la règle de trafic entrant pour que la valeur **Source** affiche une adresse IP ou un bloc d’adresses IP. Pour en savoir plus sur les propriétés de la règle de trafic entrant, consultez [Règles de groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+5. Dans le panneau **AllowWeb**, modifiez les propriétés de la règle de trafic entrant pour que la valeur **Source** affiche une adresse IP ou un bloc d’adresses IP. Pour en savoir plus sur les propriétés de la règle de trafic entrant, consultez [Règles de groupe de sécurité réseau](../virtual-network/security-overview.md#security-rules).
 
    ![Modifier une règle de trafic entrant][6]
 
 ## <a name="see-also"></a>Voir aussi
 Cet article vous a montré comment implémenter la recommandation du Centre de sécurité Azure « Restreindre l’accès via un point de terminaison accessible sur Internet ». Pour plus d’informations sur l’activation de groupes de sécurité et de règles, consultez les rubriques suivantes :
 
-* [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
-* [Gestion des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Présentation du groupe de sécurité réseau](../virtual-network/security-overview.md)
+* [Gérer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md)
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md): découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md): découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.

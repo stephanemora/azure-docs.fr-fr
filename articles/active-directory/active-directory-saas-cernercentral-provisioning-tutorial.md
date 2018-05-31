@@ -1,8 +1,8 @@
 ---
-title: "Didacticiel : configurer Cerner Central pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer Azure Active Directory pour approvisionner automatiquement des utilisateurs dans une liste de Cerner Central."
+title: 'Didacticiel : configurer Cerner Central pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer Azure Active Directory pour approvisionner automatiquement des utilisateurs dans une liste de Cerner Central.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337110"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Didacticiel : configurer Cerner Central pour l’approvisionnement automatique d’utilisateurs
 
@@ -26,6 +27,7 @@ Ce didacticiel vous montre les étapes à effectuer dans Cerner Central et Azure
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -57,7 +59,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 Cette section vous explique comment connecter votre instance d’Azure AD à la liste d’utilisateurs Cerner Central par le biais de l’API d’approvisionnement de comptes d’utilisateur SCIM Cerner, et comment configurer le service d’approvisionnement afin de créer, mettre à jour et désactiver des comptes d’utilisateur assignés dans Cerner Central en fonction des assignations d’utilisateurs et de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Cerner Central en suivant les instructions fournies dans le portail Azure (https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que ces deux fonctionnalités se complètent. Pour plus d’informations, consultez le [didacticiel dédié à l’authentification unique dans Cerner Central](active-directory-saas-cernercentral-tutorial.md).
+> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Cerner Central en suivant les instructions fournies dans le Portail Azure (https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que ces deux fonctionnalités se complètent. Pour plus d’informations, consultez le [didacticiel dédié à l’authentification unique dans Cerner Central](active-directory-saas-cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Pour configurer l’approvisionnement automatique de comptes d’utilisateur sur Cerner Central dans Azure AD :
@@ -67,27 +69,27 @@ Pour approvisionner des comptes d’utilisateur sur Cerner Central, vous devez d
 
 1.  La première étape consiste à s’assurer que les personnes gérant l’intégration Cerner et Azure AD disposent d’un compte CernerCare, qui est requis afin d’accéder à la documentation nécessaire pour suivre les instructions. Si besoin est, utilisez les URL ci-dessous pour créer des comptes CernerCare dans chaque environnement applicable.
 
-   * Bac à sable : https://sandboxcernercare.com/accounts/create
+   * Bac à sable : https://sandboxcernercare.com/accounts/create
 
-   * Production : https://cernercare.com/accounts/create  
+   * Production : https://cernercare.com/accounts/create  
 
 2.  Vous devez ensuite créer un compte système pour Azure AD. Utilisez les instructions ci-dessous afin de demander un compte système pour vos environnements de bac à sable et de production.
 
-   * Instructions : https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instructions : https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Bac à sable : https://sandboxcernercentral.com/system-accounts/
+   * Bac à sable : https://sandboxcernercentral.com/system-accounts/
 
-   * Production : https://cernercentral.com/system-accounts/
+   * Production : https://cernercentral.com/system-accounts/
 
 3.  Générez ensuite un jeton du porteur OAuth pour chacun de vos comptes système. Pour ce faire, procédez comme suit.
 
-   * Instructions : https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instructions : https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Bac à sable : https://sandboxcernercentral.com/system-accounts/
+   * Bac à sable : https://sandboxcernercentral.com/system-accounts/
 
-   * Production : https://cernercentral.com/system-accounts/
+   * Production : https://cernercentral.com/system-accounts/
 
-4. Enfin, vous devez acquérir des ID de domaine de liste d’utilisateurs pour le bac à sable et les environnements de production dans Cerner afin de terminer la configuration. Pour plus d’informations à ce sujet, consultez : https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Enfin, vous devez acquérir des ID de domaine de liste d’utilisateurs pour le bac à sable et les environnements de production dans Cerner afin de terminer la configuration. Pour plus d’informations sur la procédure d’acquisition, consultez la page : https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
 5. Vous pouvez maintenant configurer Azure AD afin d’approvisionner des comptes d’utilisateur sur Cerner. Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
@@ -103,9 +105,9 @@ Pour approvisionner des comptes d’utilisateur sur Cerner Central, vous devez d
 
    * Dans le champ **URL de locataire**, entrez une URL au format ci-dessous, en remplaçant « User-Roster-Realm-ID » par l’ID de domaine que vous avez obtenu à l’étape 4.
 
-> Bac à sable : https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Bac à sable : https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Production : https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Production : https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * Dans le champ **Jeton secret**, entrez le jeton du porteur OAuth que vous avez généré à l’étape 3, puis cliquez sur **Tester la connexion**.
 
@@ -130,7 +132,7 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 * [Cerner Central: Publishing identity data using Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD) (Cerner Central : Publication des données d’identité à l’aide d’Azure AD)
 * [Tutorial: Configuring Cerner Central for single sign-on with Azure Active Directory](active-directory-saas-cernercentral-tutorial.md) (Didacticiel : Configuration de Cerner Central pour l’authentification unique avec Azure Active Directory)
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

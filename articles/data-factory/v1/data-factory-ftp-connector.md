@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7799eeb65a109a6ff517d50bb9603fe83f80ed14
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769877"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,6 +76,9 @@ Le tableau suivant décrit les éléments JSON spécifiques pour un service FTP 
 | port |Spécifiez le port sur lequel le serveur FTP écoute. |Non  |21 |
 | enableSsl |Indiquez si vous souhaitez utiliser FTP sur un canal SSL/TLS. |Non  |true |
 | enableServerCertificateValidation |Indiquez si vous souhaitez activer la validation des certificats SSL lors de l’utilisation de FTP sur un canal SSL/TLS. |Non  |true |
+
+>[!NOTE]
+>Le connecteur FTP prend en charge l’accès au serveur FTP avec aucun chiffrement ou le chiffrement SSL/TLS explicite ; Il ne prend pas en charge le chiffrement SSL/TLS implicite.
 
 ### <a name="use-anonymous-authentication"></a>Utiliser une authentification anonyme
 

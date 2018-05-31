@@ -10,11 +10,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193282"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -67,9 +68,9 @@ Le tableau suivant montre plusieurs propriétés, accessibles par le biais de Tr
 
 ![Authentification unique](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
+## <a name="vcore-based-purchasing-model-preview"></a>Modèle d’achat vCore (en préversion)
 
-Le modèle d’achat basé sur des vCores vous assure flexibilité, contrôle et transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Le modèle vCore permet également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Le modèle d’achat basé vCore (préversion) vous assure flexibilité, contrôle et transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Le modèle vCore permet également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Un vCore est l’UC logique qui permet de choisir parmi plusieurs générations de matériel.
 - Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz.
@@ -186,7 +187,7 @@ Azure Database Migration Service est un service entièrement géré conçu pour 
 L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Blob Azure. Les sauvegardes stockées dans Azure Storage Blob peuvent être directement restaurées dans Managed Instance. Pour restaurer une base de données SQL existante dans une instance gérée, vous pouvez :
 
 - Utiliser [Database Migration Service (DMS)](/sql/dma/dma-overview). Pour suivre un tutoriel, consultez [Effectuer une migration vers une instance gérée à l’aide d’Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) pour effectuer une restauration à partir d’un fichier de sauvegarde de base de données.
-- Utiliser la [commande T-SQL RESTORE](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+- Utiliser la [commande T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Pour suivre un tutoriel montrant comment restaurer le fichier de sauvegarde de base de données Wide World Importers - Standard, consultez [Restaurer un fichier de sauvegarde dans une instance gérée](sql-database-managed-instance-restore-from-backup-tutorial.md). Ce tutoriel vous montre que vous devez charger un fichier de sauvegarde dans Stockage Blob Azure et le sécuriser à l’aide d’une clé de signature d’accès partagé (SAP).
   - Pour plus d’informations sur la restauration à partir d’une URL, consultez [Restauration native à partir d’une URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 - [Importer depuis un fichier BACPAC](sql-database-import.md)

@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5da8c747fb8f89ff627cad74bacf0753bb3484ad
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6f9b2b04c3bdfc02065e2a01e1975d734a5f53ac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358980"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l’aide de balises
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/14/2018
 
 ## <a name="powershell"></a>PowerShell
 
-Les exemples de cet article nécessitent la version 3.0 ou ultérieure d’Azure PowerShell. Si vous n’avez pas la version 3.0, vous devez [mettre à jour votre version](/powershell/azureps-cmdlets-docs/) à l’aide de PowerShell Gallery ou de Web Platform Installer.
+Les exemples de cet article nécessitent la version 6.0 ou ultérieure d’Azure PowerShell. Si vous ne disposez pas de la version 6.0 ou ultérieure, [mettez à jour votre version](/powershell/azure/install-azurerm-ps).
 
 Pour afficher les balises existantes pour un *groupe de ressources*, utilisez :
 
@@ -48,7 +49,7 @@ Environment                    Test
 Pour afficher les balises existantes pour une *ressource dont l’ID de ressource est spécifié*, utilisez :
 
 ```powershell
-(Get-AzureRmResource -ResourceId {resource-id}).Tags
+(Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 Alternativement, pour afficher les balises existantes pour une *ressource dont le nom et le groupe de ressources sont spécifiés*, utilisez :
@@ -60,13 +61,19 @@ Alternativement, pour afficher les balises existantes pour une *ressource dont l
 Pour obtenir *les groupes de ressources contenant une balise spécifique*, utilisez :
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 Pour obtenir *les ressources contenant une balise spécifique*, utilisez :
 
 ```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+```
+
+Pour obtenir *les ressources contenant un nom de balise spécifique*, utilisez :
+
+```powershell
+(Get-AzureRmResource -TagName Dept).Name
 ```
 
 Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes.
@@ -81,7 +88,7 @@ Pour ajouter des balises à un *groupe de ressources avec des balises existantes
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
-$tags += @{Status="Approved"}
+$tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
@@ -96,7 +103,7 @@ Pour ajouter des balises à une *ressource avec des balises existantes*, utilise
 
 ```powershell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.tags += @{Status="Approved"}
+$r.Tags.Add("Status", "Approved") 
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
@@ -106,7 +113,7 @@ Pour appliquer toutes les balises d’un groupe de ressources à ses ressources 
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -115,16 +122,21 @@ Pour appliquer toutes les balises d’un groupe de ressources à ses ressources 
 ```powershell
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-        foreach ($key in $group.Tags.Keys)
+        if ($resourcetags)
         {
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-        $resourcetags += $group.Tags
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
@@ -134,7 +146,6 @@ Pour supprimer toutes les balises, utilisez une table de hachage vide :
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -257,7 +268,7 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. La stratégie que vous définissez peut exiger que toutes les ressources aient une valeur pour une balise en particulier. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../azure-policy/azure-policy-introduction.md).
+* Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. La stratégie que vous définissez peut exiger que toutes les ressources aient une valeur pour une balise en particulier. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../azure-policy/azure-policy-introduction.md)
 * Pour plus d’informations sur l’utilisation d’Azure PowerShell lors du déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 * Si vous n’avez jamais utilisé l’interface CLI Azure pour le déploiement de ressources, consultez [Utiliser l’interface CLI Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](resource-group-portal.md).  

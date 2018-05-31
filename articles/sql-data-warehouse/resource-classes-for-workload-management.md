@@ -1,45 +1,109 @@
 ---
 title: Classes de ressources pour la gestion des charges de travail - Azure SQL Data Warehouse | Microsoft Docs
-description: "Conseils d’utilisation des classes de ressources pour gérer la concurrence et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse."
+description: Conseils d’utilisation des classes de ressources pour gérer la concurrence et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/26/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192779"
 ---
-# <a name="resource-classes-for-workload-management"></a>Classes de ressources pour la gestion des charges de travail
-Conseils d’utilisation des classes de ressources pour gérer le nombre de requêtes concurrentes exécutées simultanément et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse.
+# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestion des charges de travail avec des classes de ressources dans Azure SQL Data Warehouse
+Conseils d’utilisation des classes de ressources pour gérer la mémoire et la concurrence pour les requêtes dans votre solution Azure SQL Data Warehouse.  
  
 ## <a name="what-is-workload-management"></a>Qu’est-ce que la gestion des charges de travail ?
-La gestion des charges de travail permet d’optimiser les performances globales de toutes les requêtes. Une charge de travail bien paramétrée exécute les requêtes et les opérations de chargement avec efficacité, que celles-ci nécessitent beaucoup de ressources système ou exigent de nombreuses entrées et sorties. 
+La gestion des charges de travail permet d’optimiser les performances globales de toutes les requêtes. Une charge de travail bien paramétrée exécute les requêtes et les opérations de chargement avec efficacité, que celles-ci nécessitent beaucoup de ressources système ou exigent de nombreuses entrées et sorties.  SQL Data Warehouse fournit des fonctionnalités de gestion des charges de travail pour les environnements multi-utilisateurs. Un entrepôt de données n’est pas destiné à des charges de travail mutualisées.
 
-SQL Data Warehouse fournit des fonctionnalités de gestion des charges de travail pour les environnements multi-utilisateurs. Un entrepôt de données n’est pas destiné à des charges de travail mutualisées.
+La capacité de performances d’un entrepôt de données est déterminée par les [unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+
+- Pour afficher les limites de mémoire et de concurrence pour tous les profils de performances, consultez [Limites de mémoire et de concurrence](memory-and-concurrency-limits.md).
+- Pour ajuster la capacité de performances, vous pouvez [l’augmenter ou la réduire](quickstart-scale-compute-portal.md).
+
+La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière. Dans la suite de cet article, nous présentons les classes de ressources et expliquons comment les ajuster.
 
 ## <a name="what-are-resource-classes"></a>Que sont les classes de ressources ?
-Les classes de ressources sont des limites de ressources prédéfinies qui régissent l’exécution des requêtes. SQL Data Warehouse limite les ressources de calcul pour chaque requête en fonction de la classe de ressources. 
+La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière.  Les classes de ressources sont des limites de ressources prédéterminées dans Azure SQL Data Warehouse, qui régissent les ressources de calcul et la concurrence lors de l’exécution des requêtes. Les classes de ressources peuvent vous aider à gérer votre charge de travail en définissant des limites pour le nombre de requêtes qui s’exécutent simultanément et pour les ressources de calcul qui leur sont respectivement attribuées. Il faut faire un compromis entre la mémoire et la concurrence.
 
-Les classes de ressources vous aident à gérer les performances globales de la charge de travail de votre entrepôt de données. Une utilisation efficace des classes de ressources vous aide à gérer votre charge de travail en définissant des limites applicables au nombre de requêtes qui s’exécutent simultanément et de ressources de calcul attribuées à chaque requête. 
+- Des classes de ressources plus petites réduisent la mémoire maximale par requête, mais augmentent la simultanéité.
+- Des classes de ressources plus grandes augmentent la mémoire maximale par requête, mais réduisent la simultanéité. 
 
-- Des classes de ressources plus petites utilisent moins de ressources de calcul mais permettent une concurrence plus importante de requêtes globales
-- Des classes de ressources plus grandes fournissent davantage de ressources de calcul mais restreignent la concurrence des requêtes
+Il existe deux types de classes de ressources :
 
-Les classes de ressources sont conçues pour des activités de gestion et de manipulation de données. Certaines requêtes très complexes sont également bénéficiaires de jointures et de tris volumineux qui ont pour effet que le système exécute les requêtes en mémoire plutôt qu’en les déversant sur un disque.
+- Les classes de ressources statiques, qui sont bien adaptées pour la concurrence accrue sur un jeu de données de taille fixe.
+- Les classes de ressources dynamiques, qui sont bien adaptées pour les jeux de données dont la taille augmente et dont les performances s’améliorent à mesure que le niveau de service monte en puissance.   
 
-Les instructions suivantes sont régies par des classes de ressources :
+Les classes de ressources utilisent des emplacements de concurrence pour mesurer la consommation des ressources.  Les [emplacements de concurrence](#concurrency-slots) sont expliqués plus loin dans cet article. 
+
+- Pour afficher l’utilisation des ressources pour les classes de ressources, consultez [Limites de mémoire et de concurrence](memory-and-concurrency-limits.md#concurrency-maximums).
+- Pour ajuster la classe de ressources, vous pouvez exécuter la requête sous un autre utilisateur ou modifier l’appartenance [de l’utilisateur actuel à une classe de ressources](#change-a-users-resource-class). 
+
+### <a name="static-resource-classes"></a>Classes de ressources statiques
+Les classes de ressources statiques allouent la même quantité de mémoire, mesurée en [unités d’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md), quel que soit le niveau de performance actuel. Étant donné que la mémoire allouée aux requêtes est la même quel que soit le niveau de performance, une [augmentation de l’échelle de l’entrepôt de données](quickstart-scale-compute-portal.md) permet l’exécution d’un plus grand nombre de requêtes au sein d’une classe de ressources.  Les classes de ressources statiques sont idéales si le volume de données est connu et constant.
+
+Les classes de ressources statiques sont implémentées avec ces rôles de base de données prédéfinis :
+
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
+
+### <a name="dynamic-resource-classes"></a>Classes de ressources dynamiques
+Les classes de ressources dynamiques allouent une quantité de mémoire variable en fonction du niveau de service actuel. Alors que les classes de ressources statiques conviennent dans les situations de concurrence accrue et pour les volumes de données statiques, les classes de ressources dynamiques sont mieux adaptées pour une quantité de données croissante ou variable.  Lors de l’augmentation de l’échelle du niveau de service, vos requêtes obtiennent automatiquement davantage de mémoire.  
+
+Les classes de ressources dynamiques sont implémentées avec les rôles de base de données prédéfinis suivants :
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc 
+
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Les classes de ressources dynamiques Gen2 sont véritablement dynamiques
+Certains détails des classes de ressources dynamiques sur Gen1 rendent la compréhension de leur comportement plus complexe :
+
+- La classe de ressources smallrc fonctionne avec un modèle de mémoire fixe comme une classe de ressources statiques.  Les requêtes smallrc n’obtiennent pas dynamiquement plus de mémoire quand le niveau de service augmente.
+- Quand les niveaux de service changent, la concurrence de requêtes disponible peut augmenter ou diminuer.
+- La mise à l’échelle des niveaux de services n’engendre pas une modification proportionnelle de la mémoire allouée aux mêmes classes de ressources.
+
+Sur **Gen2 uniquement**, les classes de ressources dynamiques sont véritablement dynamiques concernant les points mentionnés ci-dessus.  La nouvelle règle est 3-10-22-70 pour les allocations de pourcentage de mémoire pour les classes de ressources small-medium-large-xlarge, **quel que soit le niveau de service**.  Le tableau ci-dessous présente les détails consolidés des pourcentages d’allocation de mémoire et le nombre minimal de requêtes simultanées qui s’exécutent, quel que soit le niveau de service.
+
+| Classe de ressources | Pourcentage de mémoire | Nombre minimal de requêtes simultanées |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | 3 %                | 32                     |
+| mediumrc       | 10%               | 10                     |
+| largerc        | 22 %               | 4                      |
+| xlargerc       | 70 %               | 1                      |
+
+
+### <a name="default-resource-class"></a>Classe de ressources par défaut
+Par défaut, chaque utilisateur appartient à la classe de ressources dynamiques **smallrc**. 
+
+La classe de ressources de l’administrateur de service est fixe et ne peut pas être modifiée.  L’administrateur de service est l’utilisateur créé pendant le processus d’approvisionnement.
+
+> [!NOTE]
+> Les utilisateurs ou groupes définis en tant qu’administrateur Active Directory sont également administrateurs de service.
+>
+>
+
+## <a name="resource-class-operations"></a>Opérations de ressources de classe
+
+Les classes de ressources sont conçues pour améliorer les performances de gestion et de manipulation de données. Les requêtes complexes peuvent également bénéficier d’une exécution sous une classe de ressource de grande taille. Par exemple, les performances des requêtes pour un grand nombre de jointures et de tris peuvent être améliorées lorsque la classe de ressources est suffisamment grande pour permettre l’exécution de la requête dans la mémoire.
+
+### <a name="operations-governed-by-resource-classes"></a>Opérations régies par des classes de ressources
+
+Les opérations suivantes sont régies par des classes de ressources :
 
 * INSERT-SELECT, UPDATE, DELETE
 * SELECT (lors de l’interrogation des tables d’utilisateur)
@@ -56,50 +120,7 @@ Les instructions suivantes sont régies par des classes de ressources :
 > 
 > 
 
-## <a name="static-and-dynamic-resource-classes"></a>Classes de ressources statiques et dynamiques
-
-Il existe deux types de classes de ressources : statiques et dynamiques.
-
-- Les **classes de ressources statiques** allouent la même quantité de mémoire, quel que soit le niveau de service actuel, qui est mesuré en nombre de [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Cette allocation statique signifie que, sur des niveaux de service plus élevés, vous pouvez exécuter davantage de requêtes dans chaque classe de ressources.  Les classes de ressources statiques sont nommées staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70 et staticrc80. Ces classes de ressources sont idéalement adaptées aux solutions qui augmentent la classe de ressources pour obtenir des ressources de calcul supplémentaires.
-
-- Les **classes de ressources dynamiques** allouent une quantité de mémoire qui varie en fonction du niveau de service en cours. Lors de l’augmentation de l’échelle du niveau de service, vos requêtes obtiennent automatiquement davantage de mémoire. Les classes de ressources dynamiques sont nommées smallrc, mediumrc, largerc et xlargerc. Ces classes de ressources sont idéalement adaptées aux solutions qui augmentent l’échelle de calcul pour obtenir des ressources supplémentaires. 
-
-Les divers [niveaux de performance](performance-tiers.md) utilisent les mêmes noms de classe de ressources, mais ont des [spécifications de mémoire et de concurrence](performance-tiers.md) différentes. 
-
-
-## <a name="assigning-resource-classes"></a>Attribution de classes de ressources
-
-Les classes de ressources sont implémentées en assignant des utilisateurs à des rôles de base de données. Quand un utilisateur exécute une requête, celle-ci est exécutée avec la classe de ressources de l’utilisateur. Par exemple, quand un utilisateur est membre du rôle de base de données smallrc ou staticrc10, ses requêtes s’exécutent avec de petites quantités de mémoire. Quand un utilisateur de base de données est membre des rôles de base de données xlargerc ou staticrc80, ses requêtes s’exécutent avec de grandes quantités de mémoire. 
-
-Pour augmenter la classe de ressources d’un utilisateur, utilisez la procédure stockée [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-Pour réduire la classe de ressources, utilisez [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-```
-
-La classe de ressources de l’administrateur de service est fixe et ne peut pas être modifiée.  L’administrateur de service est l’utilisateur créé pendant le processus d’approvisionnement.
-
-> [!NOTE]
-> Les utilisateurs ou groupes définis en tant qu’administrateur Active Directory sont également administrateurs de service.
->
->
-
-### <a name="default-resource-class"></a>Classe de ressources par défaut
-Par défaut, chaque utilisateur appartient à la petite classe de ressources, **smallrc**. 
-
-### <a name="resource-class-precedence"></a>Précédence de classe de ressources
-Les utilisateurs peuvent être membres de plusieurs classes de ressources. Quand un utilisateur appartient à plus d’une classe de ressources :
-
-- les classes de ressources dynamiques ont la précédence sur les classes de ressources statiques. Par exemple, si un utilisateur est membre des classes de ressources mediumrc (dynamique) et staticrc80 (statique), les requêtes s’exécutent avec la classe de ressources mediumrc.
-- Les classes de ressources plus grandes ont la précédence sur les classes de ressources plus petites. Par exemple, si un utilisateur est membre des classes de ressources mediumrc et largerc, les requêtes s’exécutent avec la classe de ressources largerc. De même, si un utilisateur est membre des classes de ressources staticrc20 et statirc80, les requêtes s’exécutent avec les allocations de ressources de staticrc80.
-
-### <a name="queries-exempt-from-resource-classes"></a>Requêtes exemptes de classes de ressources
+### <a name="operations-not-governed-by-resource-classes"></a>Opérations non régies par des classes de ressources
 Certaines requêtes s’exécutent toujours dans la classe de ressources smallrc, même si l’utilisateur est membre d’une classe de ressources plus grande. Ces requêtes exemptes ne sont pas prises en compte pour la limite de concurrence. Par exemple, si la limite de concurrence est définie sur 16, de nombreux utilisateurs peuvent sélectionner des vues système sans que cela ait d’incidence sur les emplacements de concurrence disponibles.
 
 Les instructions suivantes sont exemptes de classes de ressources et s’exécutent toujours dans smallrc :
@@ -127,6 +148,46 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
+## <a name="concurrency-slots"></a>Emplacements de concurrence
+Les emplacements de concurrence sont pratiques pour suivre les ressources disponibles pour l’exécution des requêtes. Il sont comparables à des tickets que vous achetez afin de réserver des sièges pour assister à un concert dont le nombre de places est limité. Le nombre total d’emplacements de concurrence par entrepôt de données est déterminé par le niveau de service. Avant que son exécution puisse démarrer, une requête doit pouvoir réserver suffisamment d’emplacements de concurrence. Une fois terminée, la requête libère ses emplacements de concurrence.  
+
+- Une requête s’exécutant avec 10 emplacements de concurrence peut accéder à 5 fois plus de ressources de calcul qu’une requête s’exécutant avec 2 emplacements de concurrence.
+- Si chaque requête nécessite 10 emplacements de concurrence alors que 40 sont disponibles, seules 4 requêtes peuvent s’exécuter simultanément.
+ 
+Seules ds requêtes régies par des ressources consomment des emplacements de concurrence. Les requêtes système et certaines requêtes triviales ne consomment pas d’emplacements. Le nombre exact d’emplacements de concurrence consommés est déterminé par la classe de ressources de la requête.
+
+## <a name="view-the-resource-classes"></a>Afficher les classes de ressources
+
+Les classes de ressources sont implémentées sous forme de rôles de base de données prédéfinis. Il existe deux types de classes de ressources : statiques et dynamiques. Pour afficher une liste des classes de ressources, utilisez la requête suivante :
+
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
+
+## <a name="change-a-users-resource-class"></a>Modifier la classe de ressources d’un utilisateur
+
+Les classes de ressources sont implémentées en assignant des utilisateurs à des rôles de base de données. Quand un utilisateur exécute une requête, celle-ci est exécutée avec la classe de ressources de l’utilisateur. Par exemple, quand un utilisateur est membre du rôle de base de données smallrc ou staticrc10, ses requêtes s’exécutent avec de petites quantités de mémoire. Quand un utilisateur de base de données est membre des rôles de base de données xlargerc ou staticrc80, ses requêtes s’exécutent avec de grandes quantités de mémoire. 
+
+Pour augmenter la classe de ressources d’un utilisateur, utilisez la procédure stockée [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
+
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser';
+```
+
+Pour réduire la classe de ressources, utilisez [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+
+```sql
+EXEC sp_droprolemember 'largerc', 'loaduser';
+```
+
+## <a name="resource-class-precedence"></a>Précédence de classe de ressources
+Les utilisateurs peuvent être membres de plusieurs classes de ressources. Quand un utilisateur appartient à plus d’une classe de ressources :
+
+- les classes de ressources dynamiques ont la précédence sur les classes de ressources statiques. Par exemple, si un utilisateur est membre des classes de ressources mediumrc (dynamique) et staticrc80 (statique), les requêtes s’exécutent avec la classe de ressources mediumrc.
+- Les classes de ressources plus grandes ont la précédence sur les classes de ressources plus petites. Par exemple, si un utilisateur est membre des classes de ressources mediumrc et largerc, les requêtes s’exécutent avec la classe de ressources largerc. De même, si un utilisateur est membre des classes de ressources staticrc20 et statirc80, les requêtes s’exécutent avec les allocations de ressources de staticrc80.
+
 ## <a name="recommendations"></a>Recommandations
 Nous recommandons de créer un utilisateur dédié à l’exécution d’un type spécifique d’opérations de requête ou de chargement. Accordez ensuite à cet utilisateur une classe de ressources permanente au lieu de modifier fréquemment la classe de ressources. Étant donné que les classes de ressources statiques offrent un plus grand contrôle global de la charge de travail, nous suggérons également de les utiliser en priorité avant d’envisager l’utilisation de classes de ressources dynamiques.
 
@@ -153,7 +214,7 @@ Pour ajuster les performances, utilisez des classes de ressources différentes. 
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Exemple de code pour rechercher la classe de ressources optimale
  
-Vous pouvez utiliser la procédure stockée suivante pour déterminer la concurrence et l’allocation de mémoire par classe de ressources pour un SLO donné et la classe de ressources optimale pour les opérations ICC sur une table ICC non partitionnée pour une classe de ressources donnée :
+Vous pouvez utiliser la procédure stockée suivante sur **Gen1 uniquement** pour déterminer la concurrence et l’allocation de mémoire par classe de ressources pour un SLO donné et la classe de ressources optimale pour les opérations ICC sur une table ICC non partitionnée pour une classe de ressources donnée :
 
 Cette procédure stockée vise à :  
 1. Déterminer la concurrence et l’allocation de mémoire par classe de ressources pour un SLO donné. L’utilisateur doit fournir la valeur NULL pour le schéma et le nom de table, comme indiqué dans cet exemple.  
@@ -184,6 +245,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> Les valeurs définies dans cette version de la procédure stockée s’appliquent uniquement à Gen1.
+>
+>
 
 L’instruction suivante crée la Table1 utilisée dans les exemples précédents.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -250,7 +315,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -262,7 +327,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )

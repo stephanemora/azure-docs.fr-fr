@@ -1,28 +1,24 @@
 ---
 title: Sauvegarde et restauration d’Azure SQL Data Warehouse – instantanés, géoredondants | Microsoft Docs
-description: Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des sauvegardes d’entrepôt de données pour restaurer votre entrepôt de données à un point de restauration dans la région primaire, ou des sauvegardes géo-redondantes pour restaurer dans une autre région géographique.
+description: Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des sauvegardes d’entrepôts de données pour restaurer votre entrepôt de données à un point de restauration dans la région primaire. Utilisez des sauvegardes géoredondantes pour restaurer dans une autre région géographique.
 services: sql-data-warehouse
-documentationcenter: ''
-author: barbkess
-manager: jhubbard
-editor: ''
-ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.custom: backup-restore
-ms.date: 03/22/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: e909cb6f31d8bc677d9dfd267dab242eb99f42df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187597"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
-Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des sauvegardes d’entrepôt de données pour restaurer votre entrepôt de données à un point de restauration dans la région primaire, ou des sauvegardes géo-redondantes pour restaurer dans une autre région géographique. 
+Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des sauvegardes d’entrepôts de données pour restaurer votre entrepôt de données à un point de restauration dans la région primaire. Utilisez des sauvegardes géoredondantes pour restaurer dans une autre région géographique. 
 
 ## <a name="what-is-backup-and-restore"></a>La sauvegarde et la restauration, qu’est-ce que c’est ?
 Une *sauvegarde d’entrepôt de données* est une copie de votre base de données que vous pouvez utiliser pour restaurer un entrepôt de données.  Comme SQL Data Warehouse est un système distribué, une sauvegarde d’entrepôt de données est constituée de nombreux fichiers qui sont stockés dans le stockage Azure. Une sauvegarde de l’entrepôt de données inclut des instantanés de bases de données locales et des géosauvegardes de toutes les bases de données et les fichiers qui sont associés à un entrepôt de données. 
@@ -60,9 +56,9 @@ Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une ca
 > 
 
 ## <a name="geo-backups"></a>Géosauvegardes
-SQL Data Warehouse effectue une géosauvegarde une fois par jour vers un [centre de données couplé](../best-practices-availability-paired-regions.md). Le RPO pour une géo-restauration est de 24 heures. Vous pouvez restaurer la géosauvegarde sur le serveur dans la région associée géographiquement. Une géosauvegarde vous garantit de pouvoir restaurer un entrepôt de base de données dans le cas où vous ne pouvez pas accéder aux captures instantanées de votre région primaire.
+SQL Data Warehouse effectue une géosauvegarde une fois par jour vers un [centre de données couplé](../best-practices-availability-paired-regions.md). Le RPO pour une géo-restauration est de 24 heures. Vous pouvez restaurer la géo-sauvegarde sur un serveur dans n’importe quelle autre région où SQL Data Warehouse est pris en charge. Une géosauvegarde vous garantit de pouvoir restaurer un entrepôt de base de données dans le cas où vous ne pouvez pas accéder aux captures instantanées de votre région primaire.
 
-Les géosauvegardes sont activées par défaut. Si votre entrepôt de données est optimisé pour l’élasticité, vous pouvez les [désactiver](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) si vous le souhaitez. Vous ne pouvez pas désactiver les géosauvegardes avec le niveau de performance optimisé pour le calcul.
+Les géosauvegardes sont activées par défaut. Si votre entrepôt de données est de type Gen1, vous pouvez les [désactiver](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) si vous le souhaitez. Vous ne pouvez pas désactiver les géosauvegardes pour Gen2, car la protection des données est une garantie intégrée.
 
 ## <a name="backup-costs"></a>Coûts de sauvegarde
 Vous remarquerez que la facture Azure a un élément de ligne pour le Stockage Premium Azure et un élément de ligne pour le stockage géoredondant. Les frais de Stockage Premium sont le coût total pour le stockage de vos données dans la région primaire, ce qui inclut les instantanés.  Les frais géoredondants couvrent le coût du stockage des géosauvegardes.  

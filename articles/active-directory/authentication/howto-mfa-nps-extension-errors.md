@@ -1,25 +1,21 @@
 ---
 title: Résolution des codes d’erreur liés à l’extension NPS pour Azure MFA | Microsoft Docs
-description: Découvrez comment résoudre les problèmes liés à l’extension NPS pour Azure Multi-Factor Authentication avec des solutions spécifiques aux messages d’erreur courants
+description: Obtenir de l’aide pour résoudre les problèmes liés à l’extension NPS pour Azure Multi-Factor Authentication
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867663"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
@@ -86,7 +82,7 @@ Si vous rencontrez l’une de ces erreurs, nous vous recommandons de [contacter 
 | ---------- | ------------- |
 | **InvalidParameter** | Request ne doit pas être null |
 | **InvalidParameter** | ObjectId ne doit pas être null ou vide pour ReplicationScope : {0} |
-| **InvalidParameter** | La longueur de CompanyName \{0} \ dépasse la longueur maximale autorisée {{1} |
+| **InvalidParameter** | La longueur de CompanyName \{0} \ dépasse la longueur maximale autorisée {1} |
 | **InvalidParameter** | UserPrincipalName ne doit pas être null ou vide |
 | **InvalidParameter** | Le TenantId fourni n’est pas dans le bon format |
 | **InvalidParameter** | SessionId ne doit pas être null ou vide |

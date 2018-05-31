@@ -1,25 +1,21 @@
 ---
 title: Utiliser les serveurs NPS existants pour exploiter les fonctionnalités d’Azure MFA | Microsoft Docs
-description: L’extension de serveur NPS (Network Policy Server) pour Azure Multi-Factor Authentication est une solution simple permettant d’ajouter des fonctionnalités de vérification en deux étapes basées sur le cloud à votre infrastructure d’authentification existante.
+description: Ajouter des fonctionnalités de vérification en deux étapes basées sur le cloud à votre infrastructure d’authentification existante
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 05/01/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
-ms.author: joflore
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868328"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -118,9 +114,9 @@ Lorsque vous déployez l’extension NPS, utilisez ces facteurs pour déterminer
 
 Vous pouvez [désactiver les méthodes d’authentification non prises en charge](howto-mfa-mfasettings.md#selectable-verification-methods) dans Azure.
 
-### <a name="enable-users-for-mfa"></a>Autoriser des utilisateurs à utiliser MFA
+### <a name="register-users-for-mfa"></a>Inscrire des utilisateurs pour l’authentification MFA
 
-Avant de déployer l’extension NPS complète, vous devez activer l’authentification MFA pour les utilisateurs pour lesquels vous souhaitez effectuer la vérification en deux étapes. De manière plus immédiate, pour tester l’extension lorsque vous la déployez, il vous faut au moins un compte de test entièrement inscrit pour Multi-Factor Authentication.
+Avant de déployer et d’utiliser l’extension NPS, les utilisateurs qui effectueront la vérification en deux étapes doivent être inscrits pour l’authentification MFA. De manière plus immédiate, pour tester l’extension lorsque vous la déployez, il vous faut au moins un compte de test entièrement inscrit pour Multi-Factor Authentication.
 
 Pour créer un compte de test, suivez la procédure suivante :
 1. Connectez-vous à [https://aka.ms/mfasetup](https://aka.ms/mfasetup) avec un compte de test. 

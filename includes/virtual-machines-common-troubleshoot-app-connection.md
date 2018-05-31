@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371267"
+---
 Plusieurs raisons peuvent expliquer le fait que vous ne puissiez pas démarrer ou vous connecter à une application exécutée sur une machine virtuelle Azure. Parmi elles figurent le fait que l’application ne s’exécute pas ou ne surveille pas les ports attendus, que le port d’écoute soit bloqué ou que les règles réseau ne transmettent pas correctement le trafic à l’application. Cet article décrit une approche méthodique permettant d’identifier et de corriger le problème.
 
 Si vous rencontrez des problèmes de connexion à votre machine virtuelle à l’aide de RDP ou de SSH, consultez l’un des articles suivants :
@@ -99,7 +116,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
   
   * Vérifiez que la configuration de la règle NAT de trafic entrant de la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
   * Assurez-vous que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes.
-  * Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md)
+  * Pour plus d’informations, consultez l’article de [présentation des groupes de sécurité réseau](../articles/virtual-network/security-overview.md).
 
 Si la machine virtuelle ou le point de terminaison est membre d’un jeu à charge équilibrée :
 

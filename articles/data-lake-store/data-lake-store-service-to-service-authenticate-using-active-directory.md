@@ -1,8 +1,8 @@
 ---
-title: "Authentification de service à service : Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment authentifier le service à service auprès de Data Lake Store à l’aide d’Azure Active Directory"
+title: 'Authentification de service à service : Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs'
+description: Découvrez comment authentifier le service à service auprès de Data Lake Store à l’aide d’Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771311"
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory
 > [!div class="op_single_selector"]
@@ -35,7 +36,8 @@ En raison de ces deux options, votre application est fournie avec un jeton OAuth
 
 Cet article traite de la création d’une **application web Azure AD pour l’authentification de service à service**. Pour obtenir des instructions sur la configuration de l’application Azure AD pour l’authentification de l’utilisateur final, consultez [Authentification d’utilisateur final auprès de Data Lake Store à l’aide d’Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * Un abonnement Azure. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Étape 1 : Créer une application web Active Directory
@@ -77,6 +79,9 @@ Quand vous vous connectez par programmation, vous avez besoin de l’ID de votre
 7. Dans le panneau **Ajouter un accès personnalisé**, cliquez sur **OK**. Le groupe récemment créé, avec les autorisations associées, est répertorié dans le panneau **Accès**.
    
     ![Affecter des autorisations à un groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Affecter des autorisations à un groupe")
+
+> [!NOTE]
+> Si vous comptez limiter votre application Azure Active Directory à un dossier spécifique, vous devez également donner à cette même application Azure Active Directory l’autorisation **Exécuter** à la racine pour permettre la création du fichier via le Kit de développement logiciel (SDK) .NET.
 
 > [!NOTE]
 > Si vous souhaitez utiliser les SDK pour créer un compte Data Lake Store, vous devez affecter l’application web Azure AD en tant que rôle au groupe de ressources dans lequel vous créez le compte Data Lake Store.

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309604"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -38,7 +39,8 @@ L’échantillonnage réduit les coûts du trafic et des données, et vous aide 
 ## <a name="types-of-sampling"></a>Types d’échantillonnage
 Il existe trois autres méthodes d’échantillonnage :
 
-* **échantillonnage adaptatif** ajuste automatiquement le volume de données de télémétrie envoyées à partir du Kit de développement logiciel (SDK) dans votre application ASP.NET. À partir du SDK v 2.0.0-beta3, il s’agit de la méthode d’échantillonnage par défaut. L’échantillonnage adaptatif n’est disponible que pour la télémétrie ASP.NET côté serveur. 
+* **échantillonnage adaptatif** ajuste automatiquement le volume de données de télémétrie envoyées à partir du Kit de développement logiciel (SDK) dans votre application ASP.NET. À partir du SDK v 2.0.0-beta3, il s’agit de la méthode d’échantillonnage par défaut. L’échantillonnage adaptatif n’est disponible que pour la télémétrie ASP.NET côté serveur. Pour les applications Asp.NET Core qui ciblent l’infrastructure complète, l’échantillonnage adaptatif est disponible à partir de la version 1.0.0 du Kit de développement logiciel (SDK) Microsoft.ApplicationInsights.AspNetCore. Pour les applications Asp.NET Core qui ciblent NetCore, l’échantillonnage adaptatif est disponible à partir de la version 2.2.0-beta1 du Kit de développement logiciel (SDK) Microsoft.ApplicationInsights.AspNetCore.
+
 * **L’échantillonnage à débit fixe** réduit le volume de données de télémétrie envoyées par votre serveur ASP.NET ou Java et par le navigateur de vos utilisateurs. Vous définissez le débit. Le client et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
 * **L’échantillonnage d’ingestion** fonctionne dans le portail Azure. Il ignore certaines données de télémétrie provenant de votre application, à une fréquence d’échantillonnage que vous définissez. Le trafic des données de télémétrie reçu de votre application n’est pas réduit, mais cela vous permet de respecter votre quota mensuel. L’avantage principal de l’échantillonnage d’ingestion est que vous pouvez définir la fréquence d’échantillonnage sans avoir à redéployer votre application et qu’il fonctionne uniformément pour tous les clients et serveurs. 
 
@@ -335,7 +337,7 @@ La fonctionnalité d’échantillonnage à débit fixe du Kit SDK ASP.NET à par
 
 L’algorithme d’échantillonnage sélectionne les éléments de télémétrie à supprimer et ceux à conserver (qu’ils se trouvent dans le Kit de développement logiciel ou le service Application Insights). La décision d’échantillonnage est fondée sur plusieurs règles visant à préserver l’intégrité de tous les points de données reliés entre eux, en conservant dans Application Insights une expérience de diagnostic qui demeure exploitable et fiable, même avec un jeu de données réduit. En cas d’échec d’une requête, par exemple, si votre application envoie d’autres éléments de télémétrie (tels que les exceptions et les traces enregistrées à partir de cette requête), l’échantillonnage ne fractionnera ni cette requête ni les autres éléments de télémétrie. Il les conservera ou supprimera ensemble. C’est pourquoi, lorsque vous examinez les détails de la requête dans Application Insights, la requête s’affichera toujours avec les éléments de télémétrie qui lui sont associés. 
 
-Pour les applications qui définissent « l’utilisateur » (autrement dit, les applications Web les plus courantes), la décision d’échantillonnage est basée sur le hachage de l’identifiant utilisateur, ce qui signifie que tous les éléments de télémétrie associés à n’importe quel utilisateur spécifique seront soit conservés soit supprimés. Pour les types d’applications qui ne définissent pas les utilisateurs (tels que les services Web), la décision d’échantillonnage repose sur l’identifiant d’opération de la requête. Enfin, pour les éléments de télémétrie qui ne sont associés ni à un identifiant utilisateur ni à un identifiant d’opération (par exemple, pour des éléments de télémétrie signalés à partir de threads asynchrones sans contexte http), l’échantillonnage capturera simplement un pourcentage d’éléments de télémétrie de chaque type. 
+La décision d’échantillonnage repose sur l’identifiant d’opération de la requête, ce qui signifie que tous les éléments de télémétrie appartenant à une opération particulière sont conservés ou supprimés. Pour les éléments de télémétrie qui ne sont pas associés à un identifiant d’opération (par exemple, pour des éléments de télémétrie signalés à partir de threads asynchrones sans contexte http), l’échantillonnage capturera simplement un pourcentage d’éléments de télémétrie de chaque type. Avant la version 2.5.0-beta2 du Kit de développement logiciel (SDK) .NET et la version 2.2.0-beta3 du Kit de développement logiciel (SDK) ASP.NET Core, la décision d’échantillonnage reposait sur le hachage de l’identifiant utilisateur pour les applications qui définissent « l’utilisateur » (autrement dit, les applications Web les plus courantes). Pour les types d’applications qui ne définissaient pas les utilisateurs (tels que les services Web), la décision d’échantillonnage reposait sur l’identifiant d’opération de la requête.
 
 Lorsque les données de télémétrie vous sont restituées, le service Application Insights ajuste les mesures en fonction du même pourcentage d’échantillonnage que celui utilisé au moment de la collecte, de manière à compenser les points de données manquants. Par conséquent, lorsqu’ils consultent les données de télémétrie dans Application Insights, les utilisateurs constatent des approximations correctes d’un point de vue statistique et très proches des chiffres réels.
 

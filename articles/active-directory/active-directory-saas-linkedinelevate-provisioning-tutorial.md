@@ -1,8 +1,8 @@
 ---
-title: "Didacticiel : configurer LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur LinkedIn Elevate."
+title: 'Didacticiel : configurer LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur LinkedIn Elevate.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: af922aaae21ab87c7e8d9354bcbae64fc97c6f02
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0e390cb76888960dbc52c1c5015d1cb9a6c169c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345773"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Didacticiel : configurer LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs
 
@@ -26,6 +27,7 @@ ms.lasthandoff: 02/09/2018
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans LinkedIn Elevate et Azure AD pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers LinkedIn Elevate. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -98,7 +100,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 11)  Renseignez les champs suivants sous **Informations d’identification de l’administrateur** :
 
-* Dans l’**URL de locataire**, entrez https://api.linkedin.com.
+* Dans le champ **URL de locataire**, entrez https://api.linkedin.com.
 
 * Dans le champ **Jeton secret**, entrez le jeton d’accès que vous avez généré à l’étape 1, puis cliquez sur **Tester la connexion**.
 
@@ -124,4 +126,4 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)

@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a0646bad9f440fc1e7d0bbdfae5bd2a23156c52f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189681"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
@@ -22,7 +23,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 ## <a name="workload-management"></a>Gestion des charges de travail
 | Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour un SQL Data Warehouse unique | [Niveau de performance](memory-and-concurrency-limits.md#performance-tiers) Optimisé pour l’élasticité : DW6000<br></br>[Niveau de performance](memory-and-concurrency-limits.md#performance-tiers) Optimisé pour le calcul : DW30000c |
+| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour un SQL Data Warehouse unique | Gen1 : DW6000<br></br>Gen2 : DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
 | Connexion de base de données |Sessions simultanées ouvertes |1 024<br/><br/>Chacune des 1024 sessions actives peut envoyer des requêtes à une base de données SQL Data Warehouse en même temps. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
