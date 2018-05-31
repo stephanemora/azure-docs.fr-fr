@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777550"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Surveillance des applications et des ressources Azure
 
@@ -60,7 +61,7 @@ L’analyse principale assure la surveillance essentielle et obligatoire des res
 
 Les métriques fournissent des statistiques sur les performances pour différentes ressources, voire pour le système d’exploitation à l’intérieur d’une machine virtuelle. Vous pouvez afficher ces données avec un des explorateurs dans le portail Azure et créer des alertes en fonction de leurs mesures. Azure Monitor fournit les pipelines de mesures les plus rapides (de 5 minutes à 1 minute), vous devez ainsi l’utiliser pour les notifications et les alertes critiques de temps.
 
-Vous pouvez également envoyer ces mesures et journaux Azure Log Analytics à des fins d’analyse détaillée et d’identification des tendances ou créer des règles d’alertes afin d’être informé des problèmes critiques issus de cette analyse de façon proactive.  
+Vous pouvez également envoyer ces mesures et journaux à Azure Log Analytics à des fins d’analyse détaillée et d’identification des tendances, ou créer des règles d’alerte supplémentaires afin de recevoir une notification proactive si cette analyse provoque un problème critique.  
 
 > [!NOTE]
 > L’envoi à Log Analytics de métriques multidimensionnels au moyen des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportés en tant que métriques dimensionnels uniques aplatis, et agrégés entre les valeurs de la dimension.

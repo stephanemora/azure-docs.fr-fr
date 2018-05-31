@@ -1,5 +1,5 @@
 ---
-title: Configurer une application web Azure pour lire un secret dans le coffre de clés | Microsoft Docs
+title: 'Configurer une application web Azure pour lire un secret dans le coffre de clés : didacticiel | Microsoft Docs'
 description: Didacticiel Configurer une application ASP.NET Core pour lire un secret dans le coffre de clés
 services: key-vault
 documentationcenter: ''
@@ -8,19 +8,20 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305172"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Didacticiel : Configurer une application web Azure pour lire un secret dans le coffre de clés
 
-Dans ce didacticiel, vous passez en revue les étapes nécessaires pour qu’une application web Azure puisse lire les informations dans le coffre de clés à l’aide d’identités de service managées. Vous allez apprendre à effectuer les actions suivantes :
+Dans ce didacticiel, vous allez passer en revue les étapes nécessaires pour qu’une application web Azure puisse lire les informations dans un coffre de clés à l’aide d’identités de service managées. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Création d’un coffre de clés.
@@ -48,24 +49,22 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
 Le groupe de ressources que vous venez de créer est utilisé tout au long de ce didacticiel.
 
 ## <a name="create-an-azure-key-vault"></a>Créer un Azure Key Vault
 
-Ensuite, vous créez un coffre de clés dans le groupe de ressources créé à l’étape précédente. Vous devez fournir certaines informations :
-
->[!NOTE]
-> Bien que « ContosoKeyVault » soit utilisé comme le nom de notre coffre de clés dans ce didacticiel, vous devez utiliser un nom unique.
+Ensuite, vous créez un coffre de clés dans le groupe de ressources créé à l’étape précédente. Bien que « ContosoKeyVault » soit utilisé comme le nom du coffre de clés dans ce didacticiel, vous devez utiliser un nom unique. Fournissez les informations suivantes :
 
 * Nom du coffre **ContosoKeyVault**.
 * Nom du groupe de ressources **ContosoResourceGroup**.
 * Emplacement **Est des États-Unis**.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
 La sortie de cette commande affiche les propriétés du coffre de clés que vous venez de créer. Notez les deux propriétés ci-dessous :
@@ -78,20 +77,20 @@ La sortie de cette commande affiche les propriétés du coffre de clés que vous
 
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 
-## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret dans le coffre de clés
+## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret au coffre de clés
 
-Nous allons ajouter un secret pour montrer comment cela fonctionne. Vous pouvez stocker une chaîne de connexion SQL ou toute autre information que vous devez conserver en toute sécurité mais que vous devez rendre disponible à votre application. Dans ce didacticiel, le mot de passe sera appelé **AppSecret** et y stocke la valeur de **MySecret**.
+Nous allons ajouter un secret pour montrer comment cela fonctionne. Vous pouvez stocker une chaîne de connexion SQL ou toute autre information que vous devez conserver en toute sécurité mais que vous devez rendre disponible à votre application. Dans ce didacticiel, le mot de passe sera appelé **AppSecret** et stocke la valeur de **MySecret**.
 
 Tapez les commandes ci-dessous pour créer un secret dans Key Vault, appelé **AppSecret** et qui va stocker la valeur **MySecret** :
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 Pour afficher sous forme de texte brut la valeur contenue dans le secret :
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
 Cette commande affiche les informations du secret, y compris l’URI. Après ces étapes, vous devez avoir un URI pointant vers un secret dans Azure Key Vault. Notez ces informations. Vous en aurez besoin dans une étape ultérieure.
@@ -212,8 +211,8 @@ Deux packages NuGet doivent être installés pour votre application web. Pour le
 ## <a name="publish-the-web-application-to-azure"></a>Publier l’application web dans Azure
 
 1. Au-dessus de l’éditeur, sélectionnez **WebKeyVault**.
-2. Sélectionnez **Publier**.
-3. Sélectionnez **Publier** à nouveau.
+2. Sélectionnez **Publier** puis **Démarrer**.
+3. Créer un nouvel **App Service**, puis sélectionnez **Publier**.
 4. Sélectionnez **Créer**.
 
 >[!IMPORTANT]
@@ -227,11 +226,11 @@ Azure Key Vault permet de stocker en toute sécurité des informations d’ident
 2. Exécutez la commande assign-identity pour créer l’identité de cette application :
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->Cela revient à accéder au portail et à régler **Managed Service Identity** sur **Activer** dans les propriétés de l’application web.
+>L’exécution de cette commande revient à accéder au portail et à régler **Managed Service Identity** sur **Activer** dans les propriétés de l’application web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Accorder des droits à l’identité de l’application
 
@@ -241,16 +240,16 @@ az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegro
 2. Sélectionnez **Stratégies d’accès**.
 3. Sélectionnez **Nouveau**, puis dans la section **Autorisations du secret**, sélectionnez **Affichage** et **Liste**.
 4. Sélectionnez **Sélectionner le principal** et ajoutez l’identité de l’application. Elle aura le même nom que l’application.
-5. Choisissez **OK**.
+5. Choisissez **Ok**.
 
-Maintenant votre compte dans Azure et l’identité de l’application ont le droit de lire des informations dans Azure Key Vault. Si vous actualisez la page, la page d’accueil du site doit s’afficher. Si vous sélectionnez **À propos**, vous voyez la valeur que vous avez stockée dans Azure Key Vault.
+Maintenant votre compte dans Azure et l’identité de l’application ont le droit de lire des informations dans Azure Key Vault. Quand vous actualisez la page, la page d’accueil du site doit s’afficher. Si vous sélectionnez **À propos de**, vous voyez la valeur que vous avez stockée dans Key Vault.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Pour supprimer un groupe de ressources et toutes ses ressources, utilisez la commande **az group delete**.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>Étapes suivantes

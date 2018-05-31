@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304917"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Démarrage rapide : créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI 2.0
 
@@ -61,7 +62,7 @@ Cette section explique en détail comment créer et configurer les composants su
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
 
-Créez un équilibreur de charge Azure public à l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create), nommé **myLoadBalancer**, qui inclut un pool frontal nommé **myFrontEndPool**, un pool principal nommé **myBackEndPool** qui est associé à l’adresse IP publique **myPublicIP** créée à l’étape suivante.
+Créez un équilibreur de charge Azure public à l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) nommé **myLoadBalancer**, qui inclut un pool frontal nommé **myFrontEndPool**, un pool principal nommé **myBackEndPool** qui est associé à l’adresse IP publique **myPublicIP** créée à l’étape précédente.
 
 ```azurecli-interactive
   az network lb create \
@@ -262,4 +263,7 @@ Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce démarrage rapide, vous avez créé un équilibreur de charge, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Pour en savoir plus sur les équilibreurs de charge et leurs ressources associées, consultez les articles de procédures.
+Dans ce démarrage rapide, vous avez créé un équilibreur de charge de base, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels qui lui sont consacrés.
+
+> [!div class="nextstepaction"]
+> [Didacticiels Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

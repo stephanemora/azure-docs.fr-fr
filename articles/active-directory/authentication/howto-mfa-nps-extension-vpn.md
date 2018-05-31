@@ -1,26 +1,21 @@
 ---
 title: Intégrer VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) | Microsoft Docs
-description: Cet article décrit l’intégration de votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, intégration VPN, Azure Active Directory, extension de serveur NPS
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: Intégrez votre infrastructure VPN à Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Microsoft Azure.
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 15d69c6b964c0efdc5578d09c5dea8dde85df83f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cfdb89ae833dc2450a4670a84af305f1caa10591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869510"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 

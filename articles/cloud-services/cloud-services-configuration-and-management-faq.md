@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070496"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -34,6 +35,7 @@ Cet article comprend des questions fréquentes sur les problèmes de configurati
 - [Comment générer une demande de signature de certificat sans se connecter à l’instance via le protocole RDP ?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Le certificat de gestion de mon service cloud arrive à expiration. Comment le renouveler ?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Comment automatiser l’installation d’un certificat SSL principal et d’un certificat intermédiaire (.p7b) ?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Qu’est l’objectif du certificat « Microsoft Azure Service Management pour MachineKey » ?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Surveillance et journalisation**
 
@@ -103,6 +105,10 @@ Vous pouvez utiliser les commandes PowerShell suivantes pour renouveler vos cert
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Comment automatiser l’installation d’un certificat SSL principal et d’un certificat intermédiaire (.p7b) ?
 
 Vous pouvez automatiser cette tâche à l’aide d’un script de démarrage (batch/cmd/PowerShell) et enregistrer ce script de démarrage dans le fichier de définition de service. Ajoutez le script de démarrage et le certificat (fichier .p7b) dans le dossier de projet du même répertoire du script de démarrage.
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qu’est l’objectif du certificat « Microsoft Azure Service Management pour MachineKey » ?
+
+Ce certificat est utilisé pour chiffrer les clés de machine sur les rôles web Azure. Pour plus d’informations, consultez ces conseils [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Pour plus d’informations, consultez les articles suivants :
 - [Comment configurer et exécuter des tâches de démarrage pour un service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

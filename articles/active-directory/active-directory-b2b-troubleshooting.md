@@ -2,25 +2,20 @@
 title: Résolution des problèmes d’Azure Active Directory B2B Collaboration | Microsoft Docs
 description: Solutions pour les problèmes courants liés à Azure Active Directory B2B Collaboration
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3ced3319087091242d1250a98cb5baddb7bb1832
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928589"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
 
@@ -84,16 +79,4 @@ Si ce scénario est important pour vous, vous pouvez supprimer l’API qui envoi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les autres articles sur la collaboration B2B d'Azure AD :
-
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-admin-add-users.md)
-* [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-iw-add-users.md)
-* [Éléments de l’e-mail d’invitation de B2B Collaboration](active-directory-b2b-invitation-email.md)
-* [Utilisation d’une invitation B2B Collaboration](active-directory-b2b-redemption-experience.md)
-* [Attribution de licences Azure AD B2B Collaboration](active-directory-b2b-licensing.md)
-* [Questions fréquemment posées (FAQ) sur Azure Active Directory B2B Collaboration](active-directory-b2b-faq.md)
-* [API et personnalisation d’Azure Active Directory B2B Collaboration](active-directory-b2b-api.md)
-* [Authentification multifacteur pour les utilisateurs B2B Collaboration](active-directory-b2b-mfa-instructions.md)
-* [Ajouter des utilisateurs B2B Collaboration sans invitation](active-directory-b2b-add-user-without-invite.md)
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+- [Obtention de la prise en charge pour B2B Collaboration](active-directory-b2b-support.md)

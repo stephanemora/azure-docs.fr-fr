@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301605"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Didacticiel : Autoriser l’accès aux données de gestion des coûts
 
@@ -27,7 +28,8 @@ Quand vous avez inscrit votre contrat ou compte Azure, un compte avec l’autori
 > [!div class="checklist"]
 > * Créer un utilisateur avec un accès administrateur
 > * Créer un utilisateur avec un accès utilisateur
-> * Créer des entités
+> * Créer et gérer des entités
+
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -57,11 +59,11 @@ En principe, les utilisateurs ayant besoin d’accéder à des données de gesti
 
 Pour visionner un didacticiel vidéo sur l’ajout d’utilisateurs, consultez [Ajout d’utilisateurs à Azure Cost Management](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Créer des entités
+## <a name="create-and-manage-entities"></a>Créer et gérer des entités
 
-Quand vous définissez la hiérarchie des entités de coût, une meilleure pratique consiste à identifier la structure de votre organisation.
+Quand vous définissez la hiérarchie des entités de coût, une meilleure pratique consiste à identifier la structure de votre organisation. Des entités vous permettent de segmenter des dépenses par comptes ou abonnements individuels. Vous créez des entités de coût pour créer des groupes logiques afin de gérer et suivre les dépenses. Au fur et à mesure que vous créez l’arborescence, réfléchissez à la façon dont vous souhaitez ou devez afficher leurs coûts ventilés par unités commerciales, centres de coûts, environnements et services des ventes. L’arborescence des entités dans Cloudyn est flexible en raison de l’héritage des entités.
 
-Au fur et à mesure que vous créez l’arborescence, réfléchissez à la façon dont vous souhaitez ou devez afficher leurs coûts ventilés par unités commerciales, centres de coûts, environnements et services des ventes. L’arborescence des entités dans Cloudyn est flexible en raison de l’héritage des entités. Les abonnements individuels à vos comptes cloud sont liés à des entités spécifiques. Les entités sont par conséquent mutualisées. Vous pouvez autoriser des utilisateurs spécifiques à accéder uniquement à leur branche de l’entreprise à l’aide d’entités. Cela permet d’isoler les données, même à travers de grandes divisions d’une entreprise, comme des filiales. L’isolement des données facilite en outre la gouvernance.  
+Les abonnements individuels à vos comptes cloud sont liés à des entités spécifiques. Vous pouvez associer une entité à un abonnement ou un compte de fournisseur de services cloud. Les entités sont par conséquent mutualisées. Vous pouvez autoriser des utilisateurs spécifiques à accéder uniquement à leur branche de l’entreprise à l’aide d’entités. Cela permet d’isoler les données, même à travers de grandes divisions d’une entreprise, comme des filiales. L’isolement des données facilite en outre la gouvernance.  
 
 Quand vous avez inscrit votre contrat ou compte Azure sur Cloudyn, vos données de ressources Azure, notamment les données d’utilisation, de performances, de facturation et de balise de vos abonnements ont été copiées dans votre compte Cloudyn. Vous devez toutefois créer manuellement l’arborescence des entités. Si vous avez ignoré l’inscription à Azure Resource Manager, seules les données de facturation et quelques rapports de ressources sont disponibles dans le portail Cloudyn.
 
@@ -75,6 +77,23 @@ En regard de **Entities (Entités)**, cliquez sur **Add Entity (Ajouter une enti
 
 Quand vous avez terminé, **enregistrez** l’entité.
 
+### <a name="entity-access-levels"></a>Niveaux d’accès d’entité
+
+Les niveaux d’accès d’entité associés à un accès utilisateur vous permettent de définir quel type d’actions sont disponibles dans le portail Cloudyn.
+
+- **Entreprise** : offre la possibilité de créer et de gérer des entités de coût enfants.
+- **Enterprise + Cost Allocation** (Entreprise + Répartition des coûts) : offre la possibilité de créer et gérer des entités de coûts enfants, y compris la répartition des coûts pour les comptes consolidés.
+- **Enterprise, Cost based on parent cost allocation** (Entreprise, coûts basés sur la répartition des coûts parents) : offre la possibilité de créer et de gérer des entités de coûts enfants. Les coûts du compte sont basés sur le modèle de répartition des coûts parents.
+- **Custom Dashboards Only** (Tableaux de bord personnalisés uniquement) : permet à l’utilisateur de voir uniquement des tableaux de bord personnalisés prédéfinis.
+- **Dashboards Only** (Tableaux de bord uniquement) : permet à l’utilisateur de voir uniquement des tableaux de bord.
+
+### <a name="create-a-cost-entity-hierarchy"></a>Créer une hiérarchie d’entité de coût
+
+Pour créer une hiérarchie d’entité de coût, vous devez disposer d’un compte avec l’accès Entreprise ou Enterprise + Cost Allocation (Entreprise + Répartition des coûts).
+
+Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Cloud Accounts** (Comptes cloud). L’arborescence **Entités** est affichée dans le volet gauche. Si nécessaire, développez l’arborescence de l’entité afin que vous puissiez afficher l’entité que vous souhaitez associer à un compte.  Vos comptes de fournisseur de services de cloud sont affichés sur les onglets dans le volet droit. Sélectionnez un onglet et cliquez sur un compte/abonnement à l’entité, faites-le glisser et déposez-le. La zone **Déplacer** vous informe que le compte a été déplacé. Cliquez sur **OK**.
+
+Vous pouvez également associer plusieurs comptes à une entité. Sélectionnez les comptes, puis cliquez sur **Déplacer**. Dans la zone Move Accounts (Déplacer les comptes), sélectionnez l’entité dans laquelle vous souhaitez déplacer le compte, puis cliquez sur **Enregistrer**. La zone Move Accounts (Déplacer les comptes) vous invite à vérifier que vous souhaitez déplacer les comptes. Cliquez sur **Oui**, puis sur **OK**.
 
 Pour visionner un didacticiel vidéo sur la création d’une hiérarchie d’entités de coût, consultez [Création d’une hiérarchie d’entités de coût dans Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
 
@@ -87,7 +106,8 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Créer un utilisateur avec un accès administrateur
 > * Créer un utilisateur avec un accès utilisateur
-> * Créer des entités
+> * Créer et gérer des entités
+
 
 Si vous n’avez pas déjà activé l’accès de l’API Azure Resource Manager pour vos comptes, consultez l’article suivant.
 

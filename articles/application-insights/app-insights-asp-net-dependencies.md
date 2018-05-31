@@ -1,6 +1,6 @@
 ---
-title: "Suivi des dépendances dans Azure Application Insights | Microsoft Docs"
-description: "Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
+title: Suivi des dépendances dans Azure Application Insights | Microsoft Docs
+description: Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010462"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : suivi des dépendances
 Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
@@ -131,7 +132,7 @@ Accédez à une occurrence d’une demande ayant échoué et examinez les évén
 
 ![Cliquez sur un type de demande, cliquez sur l’instance pour obtenir une vue différente de la même instance, cliquez dessus pour obtenir des informations relatives à l’exception.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
-## <a name="analytics"></a>Analyse
+## <a name="analytics"></a>Analytics
 Vous pouvez suivre les dépendances dans le [langage de requête Log Analytics](https://docs.loganalytics.io/). Voici quelques exemples.
 
 * Rechercher les appels de dépendances ayant échoué :
@@ -200,9 +201,12 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 *La requête SQL n’est pas affichée en entier.*
 
-* Effectuez une mise à niveau vers la dernière version du Kit de développement logiciel (SDK). Si votre version de .NET est inférieur à 4.6 :
-  * Hôte IIS : installez l’[Agent Application Insights](app-insights-monitor-performance-live-website-now.md) sur les serveurs hôtes.
-  * Application web Azure : ouvrez l’onglet Application Insights dans le panneau de configuration de l’application web et installez Application Insights.
+* Mettez à niveau vers la dernière version stable du SDK Application Insights.
+
+ Si votre version de .NET est inférieur à 4.6 :
+
+* Hôte IIS : installez l’[Agent Application Insights](app-insights-monitor-performance-live-website-now.md) sur les serveurs hôtes.
+* Application web Azure : ouvrez l’onglet Application Insights dans le panneau de configuration de l’application web et installez Application Insights.
 
 ## <a name="video"></a>Vidéo
 

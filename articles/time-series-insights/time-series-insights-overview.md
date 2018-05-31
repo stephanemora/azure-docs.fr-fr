@@ -11,17 +11,18 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 01/26/2018
-ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941531"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Qu’est-ce que Azure Time Series Insights ?
 
 Time Series Insights est pensé pour le stockage, la visualisation et l’interrogation de grandes quantités de données de série chronologique, comme celles générées par les appareils IoT.  Si vous souhaitez stocker, gérer, interroger ou visualiser des données de série chronologique dans le cloud, Time Series Insights est probablement la solution que vous cherchez.  
 
-![Organigramme Time Series Insights] (media/overview/time-series-insights-flowchart.png)
+![Organigramme Time Series Insights](media/overview/time-series-insights-flowchart.png)
 
 Time Series Insights a quatre tâches principales :
 
@@ -68,7 +69,7 @@ La prise en main prend moins de 5 minutes.
 4.  Consultez vos données en quelques minutes avec l’Explorateur Time Series Insights.
 
 ## <a name="time-series-insights-explorer"></a>Explorateur Time Series Insights
-Ce diagramme illustre un exemple de données de série chronologique Time Series Insights affichées au moyen de l’Explorateur : ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
+Ce diagramme illustre un exemple de données de série chronologique Time Series Insights affichées au moyen de l’Explorateur : ![Time Series Insights explorer](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
  - [Découvrir l’Explorateur Time Series Insights dans un environnement de démonstration](./time-series-quickstart.md)

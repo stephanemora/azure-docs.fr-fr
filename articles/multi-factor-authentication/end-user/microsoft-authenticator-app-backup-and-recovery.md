@@ -14,11 +14,12 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 0b76d2debb9814188e5551252e52bd0dae38eb50
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896263"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator
 **S’applique à :**
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/23/2018
 L’application Microsoft Authenticator sauvegarde les informations d’identification de votre compte et les paramètres de l’application associée, comme l’ordre de vos comptes, dans le cloud. Après la sauvegarde, vous pouvez également utiliser l’application pour récupérer vos informations sur un nouvel appareil, ce qui évite de se retrouver bloqué ou d’avoir à recréer des comptes.
 
 >[!IMPORTANT]
-> Vous avez besoin d’un compte Microsoft personnel et d’un compte iCloud pour chaque emplacement de stockage de sauvegarde. Mais dans cet emplacement de stockage, vous pouvez sauvegarder plusieurs comptes. Par exemple, vous pouvez avoir un compte personnel, un compte scolaire et un compte tiers comme Facebook, Google ou autre.<br><br>Seules les informations d’identification de votre compte sont stockées, c’est-à-dire votre nom d’utilisateur et le code de vérification de compte à 8 chiffres qui est indispensable pour vous identifier auprès de l’application Microsoft Authenticator. Nous ne stockons aucune autre information liée à vos comptes, notamment des adresses e-mail ou des fichiers. De plus, nous n’associons pas et ne partageons pas vos comptes de quelque manière que ce soit, avec un autre produit ou service. Enfin, votre administrateur informatique n’aura accès à aucune information sur ces comptes.
+> Vous avez besoin d’un compte Microsoft personnel et d’un compte iCloud pour chaque emplacement de stockage de sauvegarde. Mais dans cet emplacement de stockage, vous pouvez sauvegarder plusieurs comptes. Par exemple, vous pouvez avoir un compte personnel, un compte scolaire et un compte tiers comme Facebook, Google ou autre.<br><br>Seules les informations d’identification de votre compte personnel et tiers sont stockées, c’est-à-dire votre nom d’utilisateur et le code de vérification de compte qui est indispensable pour vous identifier. Nous ne stockons aucune autre information liée à vos comptes, notamment des adresses e-mail ou des fichiers. De plus, nous n’associons pas et ne partageons pas vos comptes de quelque manière que ce soit, avec un autre produit ou service. Enfin, votre administrateur informatique n’aura accès à aucune information sur ces comptes.
 
 ## <a name="back-up-your-account-credentials"></a>Sauvegarder les informations d’identification de votre compte
 Pour pouvoir sauvegarder vos informations d’identification, vous devez avoir à la fois :
@@ -104,4 +105,4 @@ Maintenant que vous avez sauvegardé et récupéré les informations d’identif
 
 - [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
-- [Azure Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)
+- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

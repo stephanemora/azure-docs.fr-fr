@@ -3,8 +3,8 @@ title: Créer une machine virtuelle Azure avec mise en réseau accélérée| Doc
 description: Apprenez à créer une machine virtuelle Linux avec mise en réseau accélérée.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,23 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/02/2018
-ms.author: jdial
+ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0f7f389df96f38bea3634bf712af3f9bf4bdde09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893947"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
 
-> [!IMPORTANT] 
-> Les machines virtuelles doivent être créées en activant la mise en réseau accélérée. Cette fonctionnalité ne peut pas être activée sur les machines virtuelles existantes. Procédez comme suit pour activer la mise en réseau accélérée :
->   1. Supprimez la machine virtuelle.
->   2. Recréez une machine virtuelle en activant la mise en réseau accélérée.
->
-
-Ce didacticiel explique comment créer une machine virtuelle Linux avec mise en réseau accélérée. Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui améliore considérablement les performances de mise en réseau. Cette voie hautement performante court-circuite l’hôte à partir du chemin d’accès aux données, réduisant ainsi la latence, l’instabilité et l’utilisation du processeur pour servir les charges de travail réseau les plus exigeantes sur les types de machines virtuelles pris en charge. L’illustration suivante montre la communication entre deux machines virtuelles avec ou sans mise en réseau accélérée :
+Ce didacticiel explique comment créer une machine virtuelle Linux avec mise en réseau accélérée. Pour créer une machine virtuelle Windows avec accélération réseau, consultez [Créer une machine virtuelle Windows avec accélération réseau](create-vm-accelerated-networking-powershell.md). Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui améliore considérablement les performances de mise en réseau. Cette voie hautement performante court-circuite l’hôte à partir du chemin d’accès aux données, réduisant ainsi la latence, l’instabilité et l’utilisation du processeur pour servir les charges de travail réseau les plus exigeantes sur les types de machines virtuelles pris en charge. L’illustration suivante montre la communication entre deux machines virtuelles avec ou sans mise en réseau accélérée :
 
 ![Opérateurs de comparaison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -46,29 +41,39 @@ Les avantages d’une mise en réseau accélérée s’appliquent uniquement à 
 * **Utilisation réduite du processeur :** ignorer le commutateur virtuel dans l’hôte réduit l’utilisation du processeur pour le traitement du trafic réseau.
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-* **Ubuntu 16.04** : version 4.11.0-1013 ou une version du noyau supérieure
-* **SLES 12 SP3** : version 4.4.92-6.18 ou une version ultérieure du noyau
-* **RHEL 7.4** : version 7.4: 7.4.2017120423 ou une version du noyau supérieure
-* **CentOS 7.4** : version 7.4: 7.4.20171206 ou une version du noyau supérieure
+Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure : 
+* **Ubuntu 16.04** 
+* **SLES 12 SP3** 
+* **RHEL 7.4**
+* **CentOS 7.4**
+* **CoreOS Linux**
+* **Debian « Stretch » with backports kernel**
+* **Oracle Linux 7.4**
 
-## <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
-La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (4 processeurs virtuels ou plus). Dans des instances du type D/DSv3 ou E/ESv3 qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 8 processeurs virtuels.  Les séries acceptées sont : D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 et Ms/Mms. 
+## <a name="limitations-and-constraints"></a>Limitations et restrictions
+
+### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
+La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Ces séries prises en charge sont : D/DSv2 et F/Fs
+
+Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Les séries acceptées sont : D/DSv3, D/ESv3, Fsv2 et Ms/Mms.
 
 Pour plus d’informations sur les instances de machine virtuelle, consultez la section [Tailles des machines virtuelles Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="regions"></a>Régions
+### <a name="regions"></a>Régions
 Disponible dans toutes les régions Azure publiques ainsi que dans les clouds Azure Government.
 
-## <a name="limitations"></a>Limites
-Les limitations suivantes existent lors de l’utilisation de cette fonctionnalité :
+### <a name="network-interface-creation"></a>Création d’interfaces réseau 
+La mise en réseau accélérée ne peut être activée que pour une nouvelle carte réseau. Elle ne peut pas être activée pour une carte réseau existante.
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Activation de l’accélération réseau sur une machine virtuelle en cours d’exécution
+Une taille de machine virtuelle prise en charge sans accélération réseau peut avoir cette fonctionnalité activée unique lorsqu’elle est arrêtée et désallouée.  
+### <a name="deployment-through-azure-resource-manager"></a>Déploiement via Azure Resource Manager
+Aucun déploiement des machines virtuelles (classiques) n’est possible avec la mise en réseau accélérée.
 
-* **Création d’interface réseau :** la mise en réseau accélérée ne peut être activée que pour une nouvelle carte réseau. Elle ne peut pas être activée pour une carte réseau existante.
-* **Création de machine virtuelle :** une carte réseau avec mise en réseau accélérée activée ne peut être attachée à une machine virtuelle que lors de la création de celle-ci. Une carte réseau ne peut pas être attachée à une machine virtuelle existante. Si la machine virtuelle est ajoutée à un groupe à haute disponibilité, la mise en réseau accélérée doit être également activée sur toutes les machines virtuelles de ce groupe.
-* **Déploiement via Azure Resource Manager uniquement :** aucun déploiement des machines virtuelles (classiques) n’est possible avec la mise en réseau accélérée.
+## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée Azure
 
 Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide de l’interface CLI d’Azure, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Au moment de la création d’une machine virtuelle dans le portail, sous **Paramètres**, sélectionnez **Activé** sous **Mise en réseau accélérée**. L’option permettant d’activer la mise en réseau accélérée n’apparaît pas dans le portail, sauf si vous avez sélectionné un [système d’exploitation pris en charge](#supported-operating-systems) et une [taille de machine virtuelle](#supported-vm-instances). Une fois la machine virtuelle créée, vous devez suivre les instructions de [Confirmer l’activation de la mise en réseau accélérée](#confirm-that-accelerated-networking-is-enabled).
 
-## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
 Installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login). Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVm*.
 
@@ -78,7 +83,7 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 az group create --name myResourceGroup --location centralus
 ```
 
-Vous devez sélectionner une région de Linux prise en charge et répertoriée dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Sélectionnez une région de Linux prise en charge et répertoriée dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un sous-réseau :
 
@@ -91,7 +96,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
+### <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L’exemple suivant crée un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
 
 ```azurecli
@@ -117,7 +122,7 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-## <a name="create-a-network-interface-with-accelerated-networking"></a>Créer une interface réseau avec mise en réseau accélérée
+### <a name="create-a-network-interface-with-accelerated-networking"></a>Créer une interface réseau avec mise en réseau accélérée
 
 Créez une adresse IP publique avec la commande [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Une adresse IP publique n’est pas nécessaire si vous ne prévoyez pas d’accéder à l’ordinateur virtuel depuis Internet. Par contre, elle l’est pour procéder selon les étapes mentionnées dans cet article.
 
@@ -140,8 +145,8 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nic"></a>Créer une machine virtuelle et attacher la carte réseau
-Lorsque vous créez la machine virtuelle, spécifiez la carte réseau que vous avez générée avec `--nics`. Vous devez sélectionner une taille et une distribution répertoriées dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+### <a name="create-a-vm-and-attach-the-nic"></a>Créer une machine virtuelle et attacher la carte réseau
+Lorsque vous créez la machine virtuelle, spécifiez la carte réseau que vous avez générée avec `--nics`. Sélectionnez une taille et une distribution répertoriées dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée *myVM* avec l’image UbuntuLTS et une taille qui prend en charge la mise en réseau accélérée (*Standard_DS4_v2*) :
 
@@ -173,7 +178,7 @@ Une fois que la machine virtuelle est créée, une sortie similaire à la sortie
 }
 ```
 
-## <a name="confirm-that-accelerated-networking-is-enabled"></a>Confirmer l’activation de la mise en réseau accélérée
+### <a name="confirm-that-accelerated-networking-is-enabled"></a>Confirmer l’activation de la mise en réseau accélérée
 
 Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle. Remplacez `<your-public-ip-address>` par l’adresse IP publique affectée à la machine virtuelle que vous avez créée, puis remplacez *azureuser* si vous avez utilisé une valeur différente pour `--admin-username` au moment de la création de la machine virtuelle.
 
@@ -210,3 +215,84 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 La mise en réseau accélérée est maintenant activée pour votre machine virtuelle.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Activer l’accélération réseau sur des machines virtuelles existantes
+Si vous avez créé une machine virtuelle sans accélération réseau, il est possible d’activer cette fonctionnalité sur une machine virtuelle existante.  La machine virtuelle doit prendre en charge la mise en réseau accélérée en respectant les conditions préalables suivantes qui sont également présentées ci-dessus :
+
+* La machine virtuelle doit être d’une taille prise en charge pour l’accélération réseau
+* La machine virtuelle doit être une image de la galerie Azure prise en charge (et une version de noyau prise en charge pour Linux)
+* Toutes les machines virtuelles dans un groupe à haute disponibilité doivent être arrêtées ou désallouées avant d’activer l’accélération réseau sur une carte réseau
+
+### <a name="individual-vms--vms-in-an-availability-set"></a>Machines virtuelles individuelles & machines virtuelles dans un groupe à haute disponibilité
+Arrêtez/désallouez d’abord la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe :
+
+```azurecli
+az vm deallocate \
+    --resource-group myResourceGroup \
+    --name myVM
+```
+
+Important : si votre machine virtuelle a été créée individuellement, sans groupe à haute disponibilité, vous devez seulement arrêter/désallouer la machine virtuelle individuelle pour activer l’accélération réseau.  Si votre machine virtuelle a été créée avec un groupe à haute disponibilité, toutes les machines virtuelles dans le groupe à haute disponibilité doivent être arrêtées et désallouées avant d’activer l’accélération réseau sur les cartes réseau. 
+
+Une fois arrêtée, activez l’accélération réseau sur la carte réseau de votre machine virtuelle :
+
+```azurecli
+az network nic update \
+    --name myVM -n myNic \
+    --resource-group myResourceGroup \
+    --accelerated-networking true
+```
+
+Redémarrez votre machine virtuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe et vérifiez que l’accélération réseau est activée : 
+
+```azurecli
+az vm start --resource-group myResourceGroup \
+    --name myVM
+```
+
+### <a name="vmss"></a>VMSS
+Un VMSS fonctionne un peu différemment, mais suit le même flux de travail.  Tout d’abord, arrêtez les machines virtuelles :
+
+```azurecli
+az vmss deallocate \
+    --name myvmss \
+    --resource-group myrg
+```
+
+Une fois que les machines virtuelles sont arrêtées, mettez à jour la propriété Mise en réseau accélérée sous l’interface réseau :
+
+```azurecli
+az vmss update --name myvmss \
+    --resource-group myrg \
+    --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
+```
+
+Veuillez noter qu’un VMSS a des mises à niveau de machines virtuelles qui s’appliquent à l’aide de trois paramètres différents : manuelle, automatique et propagée.  Dans ces instructions, la stratégie est définie sur automatique afin que le VMSS récupère les modifications immédiatement après le redémarrage.  Pour la définir sur automatique afin que les modifications soient immédiatement prises en compte : 
+
+```azurecli
+az vmss update \
+    --name myvmss \
+    --resource-group myrg \
+    --set upgradePolicy.mode="automatic"
+```
+
+Enfin, redémarrez le VMSS :
+
+```azurecli
+az vmss start \
+    --name myvmss \
+    --resource-group myrg
+```
+
+Après redémarrage, attendez que les mises à niveau se terminent, mais une fois cela fait, la fonction virtuelle s’affiche à l’intérieur de la machine virtuelle.  (Vérifiez que vous utilisez un système d’exploitation et des tailles de machine virtuelle pris en charge.)
+
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Redimensionnement des machines virtuelles existantes avec mise en réseau accélérée
+
+Les machines virtuelles avec accélération réseau peuvent être redimensionnées uniquement en machines virtuelles qui prennent en charge l’accélération réseau.  
+
+Une machine virtuelle avec l’accélération réseau activée ne peut pas être redimensionnée en une instance de machine virtuelle qui ne prend pas en charge l’accélération réseau par une opération de redimensionnement.  Au lieu de cela, pour redimensionner une de ces machines virtuelles : 
+
+* Arrêtez/désallouez la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité/VMSS, arrêtez/désallouez toutes les machines virtuelles du groupe/VMSS.
+* La mise en réseau accélérée doit être désactivée sur la carte réseau de la machine virtuelle, ou dans le cas d’un groupe à haute disponibilité/VMSS, toutes les machines virtuelles dans le groupe/VMSS.
+* Une fois que l’accélération réseau est désactivée, vous pouvez déplacer la machine virtuelle/le groupe à haute disponibilité/le VMSS vers une nouvelle taille qui ne prend pas en charge l’accélération réseau et redémarrer.  
+

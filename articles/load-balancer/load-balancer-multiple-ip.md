@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2fbf7bd736a59cbcd6231fa8325a084f54927467
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261453"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -121,7 +122,7 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adres
 
 4. Sélectionnez l’équilibreur de charge (**mylb**) auquel vous souhaitez ajouter le pool d’adresses IP frontal.
 
-5. Sous **Paramètres**, sélectionnez **Frontend Pools (Pools frontaux)**. Dans le volet suivant, en haut, sélectionnez **Ajouter**.
+5. Sous **Paramètres**, sélectionnez **Configuration d’adresses IP frontales**. Dans le volet suivant, en haut, sélectionnez **Ajouter**.
 
 6. Entrez le nom de votre adresse IP frontale (par exemple, **contosofe** ou **fabrikamfe**).
 
@@ -129,7 +130,7 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adres
 
 8. Créez la deuxième adresse IP frontale en répétant les <a href="#step3-3">étapes 3</a> à <a href="#step3-7">7</a> de cette section.
 
-Une fois le pool frontal configuré, les adresses IP s’affichent dans les paramètres **Pool frontal** de votre équilibreur de charge. 
+Une fois le pool frontal configuré, les adresses IP s’affichent dans les paramètres **de configuration IP du frontal** de votre équilibreur de charge. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Étape 4 : Configurer le pool principal
 
@@ -173,7 +174,7 @@ Configurez une sonde d’intégrité pour votre équilibreur de charge :
 
 Pour chaque site web (contoso.com et fabrikam.com), configurez les règles d’équilibrage de charge :
     
-1. <a name="step6-1"></a>Dans **Paramètres**, sélectionnez **Sonde d’intégrité**. Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
+1. <a name="step6-1"></a>Sous **Paramètres**, sélectionnez ** Règles d’équilibrage de charge**. Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
 
 2. Dans **Nom**, entrez le nom de la règle d’équilibrage de charge (par exemple, **HTTPc** pour contoso.com ou **HTTPf** pour fabrikam.com).
 

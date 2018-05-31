@@ -1,37 +1,39 @@
 ---
-title: Solutions Office 365 dans Operations Management Suite (OMS) | Documents Microsoft
-description: "Cet article fournit des détails sur la configuration et l’utilisation de la solution Office 365 dans OMS.  Il inclut une description détaillée des enregistrements d’Office 365 créés dans le Log Analytics."
+title: Solution de gestion Office 365 dans Azure | Microsoft Docs
+description: Cet article donne des informations sur la configuration et l’utilisation de la solution Office 365 dans Azure.  Il inclut une description détaillée des enregistrements d’Office 365 créés dans le Log Analytics.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777846"
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Solutions Office 365 dans Operations Management Suite (OMS)
+# <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
 ![Logo Office 365](media/oms-solution-office-365/icon.png)
 
-La solution Office 365 pour Operations Management Suite (OMS) vous permet de surveiller votre environnement Office 365 dans Log Analytics.  
+La solution de gestion Office 365 vous permet d’effectuer le monitoring de votre environnement Office 365 dans Log Analytics.
 
 - Surveillez les activités des utilisateurs dans vos comptes Office 365 pour analyser les modèles d’utilisation ainsi que pour identifier les tendances de comportement. Par exemple, vous pouvez extraire des scénarios d’utilisation spécifiques, tels que les fichiers partagés en dehors de votre organisation ou les sites SharePoint les plus populaires.
 - Analysez les activités d’administrateur pour effectuer le suivi des modifications de configuration ou d’opérations de privilèges élevés.
 - Détectez et analysez le comportement des utilisateurs indésirables, qui peut être personnalisé pour les besoins de votre organisation.
 - Présentation d’audit et de conformité. Par exemple, vous pouvez surveiller les opérations d’accès aux fichiers sur des fichiers confidentiels, ce qui peut vous aider dans le processus d’audit et de conformité.
-- Effectuez le dépannage opérationnel à l’aide de la recherche OMS en haut des données d’activité Office 365 de votre organisation.
+- Effectuez un dépannage opérationnel à l’aide des [Recherches dans les journaux](../log-analytics/log-analytics-log-search.md) en haut des données d’activité Office 365 de votre organisation.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Les conditions suivantes sont requises avant l’installation et la configuration de cette solution.
 
 - Abonnement à Office 365 organisationnel.
@@ -47,7 +49,7 @@ Cette solution n’installe aucun pack d’administration dans les groupes d’a
 ## <a name="configuration"></a>Configuration
 Une fois [la solution Office 365 ajoutée à votre abonnement](../log-analytics/log-analytics-add-solutions.md), vous devez la connecter à votre abonnement Office 365.
 
-1. Ajoutez la solution de gestion des alertes à votre espace de travail OMS en suivant la procédure décrite dans [Ajouter des solutions](../log-analytics/log-analytics-add-solutions.md).
+1. Ajoutez la solution Alert Management à votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions](../log-analytics/log-analytics-add-solutions.md).
 2. Dans le portail OMS, accédez à **Paramètres**.
 3. Sous **Sources connectées**, sélectionnez **Office 365**.
 4. Cliquez sur **Connecter Office 365**.<br>![Connectez-vous à Office 365](media/oms-solution-office-365/configure.png)
@@ -63,8 +65,8 @@ La solution Office 365 ne récupère pas des données à partir des [agents OMS]
 Office 365 envoie une [notification webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) avec des données détaillées pour le Log Analytics à chaque fois qu’un enregistrement est créé.
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
-Quand vous ajoutez la solution Office 365 à votre espace de travail OMS, la vignette **Office 365** est ajoutée à votre tableau de bord OMS. Cette mosaïque affiche une valeur et une représentation graphique du nombre d’ordinateurs de votre environnement et leur conformité de mise à jour.<br><br>
-![Vignette du résumé Office 365](media/oms-solution-office-365/tile.png)  
+Quand vous ajoutez la solution Office 365 à votre espace de travail Log Analytics, la vignette **Office 365** est ajoutée à votre tableau de bord. Cette mosaïque affiche une valeur et une représentation graphique du nombre d’ordinateurs de votre environnement et leur conformité de mise à jour.<br><br>
+![Vignette de résumé Office 365](media/oms-solution-office-365/tile.png)  
 
 Cliquez sur la vignette **Office 365** pour ouvrir le tableau de bord **Office 365**.
 
@@ -91,7 +93,7 @@ Les propriétés suivantes sont communes à tous les enregistrements d’Office 
 
 | Propriété | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| type | *OfficeActivity* |
 | ClientIP | L’adresse IP du terminal qui a été utilisée lorsque l’activité a été enregistrée. L’adresse IP s’affiche au format d’adresse IPv4 ou IPv6. |
 | OfficeWorkload | Service d’Office 365 auquel fait référence l’enregistrement.<br><br>AzureActiveDirectory<br>Microsoft Exchange<br>SharePoint|
 | Opération | Le nom de l’activité utilisateur ou administrateur.  |
@@ -100,7 +102,7 @@ Les propriétés suivantes sont communes à tous les enregistrements d’Office 
 | ResultStatus | Indique si l’action (spécifiée dans la propriété Operation) a réussi ou non. Les valeurs possibles sont Réussie, Partiellement réussie ou Échec. Pour l’activité de l’administrateur Exchange, la valeur est True ou False. |
 | UserId | L’UPN (nom d’utilisateur principal) de l’utilisateur qui a exécuté l’action enregistrée dans l’enregistrement ; par exemple, my_name@my_domain_name. Notez que les enregistrements pour l’activité exécutée par les comptes système (tels que SHAREPOINT\system ou NTAUTHORITY\SYSTEM) sont également inclus. | 
 | UserKey | Un autre ID pour l’utilisateur identifié dans la propriété UserId.  Par exemple, cette propriété est remplie par l’ID unique du passeport (PUID) pour les événements exécutés par les utilisateurs dans SharePoint, OneDrive entreprise et Exchange. Cette propriété peut également spécifier la même valeur que la propriété UserID pour les événements qui se produisent dans d’autres services et les événements exécutés par des comptes système|
-| UserType | Le type d’utilisateur qui a effectué l’opération.<br><br>Admin<br>Application<br>DcAdmin<br>Standard <br>Réservé<br>ServicePrincipal<br>System |
+| UserType | Le type d’utilisateur qui a effectué l’opération.<br><br>Admin<br>Application<br>DcAdmin<br>Normal<br>Réservé<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Base Azure Active Directory
@@ -275,7 +277,7 @@ Ces enregistrements sont créés en réponse aux opérations de fichiers dans Sh
 
 
 
-## <a name="sample-log-searches"></a>Exemples de recherches de journaux
+## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements de mises à jour collectés par cette solution.
 
 | Requête | Description |
@@ -288,15 +290,15 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si votre solution Office 365 ne collecte pas les données comme prévu, vérifiez son état dans le portail OMS sur **Paramètres** -> **Sources connectées** -> **Office 365**. La table suivante décrit chaque état.
 
-| État | Description |
+| Statut | Description |
 |:--|:--|
-| Actif | L’abonnement Office 365 est actif et la charge de travail est correctement connectée à votre espace de travail OMS. |
-| Pending | L’abonnement Office 365 est actif mais la charge de travail est correctement connectée à votre espace de travail OMS. La première fois que vous vous connectez à l’abonnement Office 365, les charges de travail seront à cet état jusqu'à ce qu’ils soient correctement connectés. Patientez 24 heures pour les charges de travail pour passer à l’état Actif. |
-| Inactif | L’abonnement à Office 365 est dans un état inactif. Vérifiez votre page d’administrateur d’Office 365 pour plus d’informations. Après avoir activé votre abonnement Office 365, supprimez la liaison à partir de votre espace de travail OMS et liez-le à nouveau pour commencer à recevoir des données. |
+| Actif | L’abonnement Office 365 est actif, et la charge de travail correctement connectée à votre espace de travail Log Analytics. |
+| Pending | L’abonnement Office 365 est actif, mais la charge de travail n’est pas encore connectée à votre espace de travail Log Analytics. La première fois que vous vous connectez à l’abonnement Office 365, les charges de travail seront à cet état jusqu'à ce qu’ils soient correctement connectés. Patientez 24 heures pour les charges de travail pour passer à l’état Actif. |
+| Inactif | L’abonnement à Office 365 est dans un état inactif. Vérifiez votre page d’administrateur d’Office 365 pour plus d’informations. Après avoir activé votre abonnement Office 365, dissociez-le de votre espace de travail Log Analytics et liez-le à nouveau pour commencer à recevoir des données. |
 
 
 

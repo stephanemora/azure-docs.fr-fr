@@ -11,17 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200550"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
-
->[!NOTE]
->Cette fonctionnalité est en version préliminaire publique.
->
 
 La personnalisation de la langue dans Azure Active Directory B2C (Azure AD B2C) permet à votre stratégie de prendre en charge plusieurs langues pour répondre aux besoins de votre client.  Microsoft fournit les traductions en [36 langues](#supported-languages), mais vous pouvez également fournir vos propres traductions pour n’importe quelle langue. Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages.  
 
@@ -49,7 +46,7 @@ En activant la personnalisation de la langue sur une stratégie, vous pouvez con
 5. Lisez les informations dans la boîte de dialogue, puis sélectionnez **Oui**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Sélectionnez les langues activées dans votre parcours utilisateur. 
-Activez un ensemble de langues dans lesquelles votre parcours utilisateur peut être traduit lorsque le paramètre `ui_locales` n’est pas fourni.
+Activez un ensemble de langues dans lesquelles votre parcours utilisateur peut être traduit lorsque le navigateur le demande sans paramètre `ui_locales`.
 1. Vérifiez que la personnalisation de la langue est activée dans votre stratégie, comme vu précédemment.
 2. Dans la page **Modifier une stratégie**, sélectionnez **Personnalisation de la langue**.
 3. Sélectionnez une langue que vous souhaitez prendre en charge.
@@ -102,7 +99,7 @@ Remplacez `<ExtensionAttribute>` par le nom de votre attribut utilisateur person
 Remplacez `<ExtensionAttributeValue>` par la nouvelle chaîne à afficher.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Fournir la liste des valeurs à l’aide de LocalizedCollections
-Si vous souhaitez fournir une liste définie de valeurs pour les réponses, vous devez créer un attribut `LocalizedCollections`.  Un élément `LocalizedCollections` est un tableau de paires `Name` et `Value`. Pour ajouter `LocalizedCollections`, utilisez le format suivant :
+Si vous souhaitez fournir une liste définie de valeurs pour les réponses, vous devez créer un attribut `LocalizedCollections`.  Un élément `LocalizedCollections` est un tableau de paires `Name` et `Value`. L’ordre des éléments sera l’ordre dans lequel ils apparaissent.  Pour ajouter `LocalizedCollections`, utilisez le format suivant :
 
 ```JSON
 {
@@ -153,9 +150,9 @@ Vous pouvez charger la page dans `fr`. La page extrait le contenu HTML et CSS à
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Ajouter des paramètres régionaux personnalisés
+## <a name="add-custom-languages"></a>Ajouter des langues personnalisées
 
-Vous pouvez également ajouter des langues pour lesquelles Microsoft ne fournit pas encore de traductions. Vous devrez fournir les traductions pour toutes les chaînes de la stratégie.
+Vous pouvez également ajouter des langues pour lesquelles Microsoft ne fournit pas encore de traductions. Vous devrez fournir les traductions pour toutes les chaînes de la stratégie.  Les codes de langues et de paramètres régionaux se limitent à ceux de la norme ISO 639-1. 
 
 1. Dans la page **Modifier une stratégie**, sélectionnez **Personnalisation de la langue**.
 2. Sélectionnez **Ajouter une langue personnalisée** en haut de la page.
@@ -165,6 +162,10 @@ Vous pouvez également ajouter des langues pour lesquelles Microsoft ne fournit 
 6. Sélectionnez **Activer** et votre stratégie peut désormais afficher cette langue pour votre utilisateur.
 7. Enregistrez la langue.
 
+>[!IMPORTANT]
+>Vous devez activer les langues personnalisées ou charger des langues de substitution pour celles-ci avant de pouvoir enregistrer.
+>
+
 ## <a name="additional-information"></a>Informations supplémentaires
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Étiquettes de personnalisation de l’interface utilisateur de la page comme remplacements
@@ -172,7 +173,7 @@ Lorsque vous activez la personnalisation de la langue, les modifications précé
 ### <a name="up-to-date-translations"></a>Traductions à jour
 Microsoft s’engage à fournir des traductions à jour pour que vous puissiez les utiliser. Nous ne cessons d’améliorer nos traductions pour qu’elles soient conformes à vos attentes. Microsoft identifiera les bogues et les modifications dans la terminologie globale et créera les mises à jour qui s’adapteront en toute transparence à votre parcours utilisateur.
 ### <a name="support-for-right-to-left-languages"></a>Prise en charge des langues s’écrivant de droite à gauche
-Microsoft n’assure actuellement pas la prise en charge des langues s’écrivant de droite à gauche. Si vous avez besoin de cette fonctionnalité, votez pour elle sur [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft n’assure actuellement pas la prise en charge des langues s’écrivant de droite à gauche. Pour cela, vous pouvez utiliser des paramètres régionaux personnalisés et modifier la manière dont les chaînes sont affichées à l’aide de CSS.  Si vous avez besoin de cette fonctionnalité, votez pour elle sur [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traductions des fournisseurs d’identité de réseaux sociaux
 Microsoft fournit le paramètre OIDC `ui_locales` pour les connexions aux réseaux sociaux. Mais certains fournisseurs d’identité de réseaux sociaux, notamment Facebook et Google, ne les respectent pas. 
 ### <a name="browser-behavior"></a>Comportement du navigateur
