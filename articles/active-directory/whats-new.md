@@ -14,14 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a947de3ad821d4cd65e579357e3c779e8623435
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159866"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -39,6 +40,217 @@ Azure AD bénéficie d’améliorations en continu. Pour vous informer des déve
 -   Modifications planifiées
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement.
+
+
+## <a name="april-2018"></a>Avril 2018
+ 
+
+
+### <a name="azure-ad-b2c-access-token-are-ga"></a>Les jetons d’accès Azure AD B2C sont en disponibilité générale
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** B2C, Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+
+Vous pouvez maintenant accéder à l’API web sécurisée par Azure AD B2C à l’aide de jetons d’accès. La fonctionnalité passe de la préversion publique à la disponibilité générale. L’interface utilisateur pour configurer les applications Azure AD B2C et les API web a été améliorée et d’autres améliorations mineures ont été apportées.
+ 
+Pour plus d’informations, consultez [Azure AD B2C : demande de jetons d’accès](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-access-tokens).
+
+
+---
+ 
+
+### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>Test de la configuration de l’authentification unique pour les applications SAML
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** SSO
+ 
+
+Lors de la configuration d’applications d’authentification unique SAML, vous êtes en mesure de tester l’intégration dans la page de configuration. Si vous rencontrez une erreur pendant la connexion, vous pouvez fournir l’erreur dans l’expérience de test et Azure AD vous fournit des étapes permettant de résoudre le problème spécifique.
+
+Pour plus d'informations, consultez les pages suivantes :
+
+- [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+- [Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+
+
+---
+ 
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>La fonctionnalité Conditions d’utilisation Azure AD propose à présent des rapports par utilisateur
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** conditions d’utilisation  
+**Fonctionnalité de produit :** conformité
+ 
+
+Les administrateurs peuvent à présent sélectionner des conditions d’utilisation données et afficher tous les utilisateurs qui ont accepté les conditions d’utilisation, ainsi que la date et l’heure de leur consentement.
+
+
+Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+ 
+
+---
+ 
+### <a name="azure-ad-connect-health-risky-ip-for-ad-fs-extranet-lockout-protection"></a>Azure AD Connect Health : adresse IP à risque pour la protection par verrouillage Extranet AD FS 
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** autres  
+**Fonctionnalité de produit :** surveillance et création de rapports
+ 
+
+Connect Health prend maintenant en charge la capacité de détecter des adresses IP qui dépassent un seuil d’échecs de connexion U/P (utilisateur/mot de passe) sur une base horaire ou quotidienne. Voici les fonctionnalités fournies par cette fonctionnalité :
+
+- Rapport complet indiquant l’adresse IP et le nombre d’échecs de connexion généré sur une base horaire/quotidienne avec un seuil personnalisable.
+- Alertes par e-mail indiquant quand une adresse IP spécifique a dépassé le seuil d’échecs de connexion U/P sur une base horaire/quotidienne.
+- Option de téléchargement pour effectuer une analyse détaillée des données
+
+
+Pour plus d’informations, consultez [Rapports sur les adresses IP à risque](https://aka.ms/aadchriskyip).
+
+ 
+
+---
+ 
+
+### <a name="easy-app-config-with-metadata-file-or-url"></a>Configuration d’applications facilitée avec l’URL ou le fichier de métadonnées
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** SSO
+ 
+
+Dans la page Applications d’entreprise, les administrateurs peuvent charger un fichier de métadonnées SAML pour l’authentification unique SAML pour les applications AAD, que celles-ci soient incluses ou non dans la galerie.
+
+En outre, vous pouvez utiliser l’URL des métadonnées de fédération d’application Azure AD pour configurer l’authentification unique avec l’application ciblée.
+
+Pour plus d’informations, consultez la page [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).
+ 
+
+---
+ 
+
+### <a name="azure-ad-terms-of-use-now-generally-available"></a>Fonctionnalité Conditions d’utilisation Azure AD maintenant à la disposition générale
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** conditions d’utilisation  
+**Fonctionnalité de produit :** conformité
+ 
+
+La fonctionnalité Conditions d’utilisation Azure AD est passée de la préversion publique à la disposition générale.
+
+Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+ 
+
+---
+ 
+
+### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** B2B  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+
+Vous pouvez maintenant spécifier les organisations partenaires avec lesquelles vous voulez partager et collaborer dans Azure AD B2B Collaboration. Pour ce faire, vous pouvez choisir de créer une liste de domaines autorisés ou refusés spécifiques. Lorsqu’un domaine est bloqué à l’aide de ces fonctionnalités, les employés ne peuvent plus envoyer d’invitations aux personnes de ce domaine.
+
+Cela vous permet de contrôler l’accès à vos ressources, tout en permettant une expérience fluide pour les utilisateurs approuvés.
+
+Cette fonctionnalité B2B Collaboration est disponible pour tous les clients Azure Active Directory. Elle peut servir conjointement avec les fonctionnalités Azure AD Premium, telles que la protection des identités et l’accès conditionnel pour un contrôle plus précis qui permet de savoir quand et de quelle façon les utilisateurs professionnels externes se connectent et obtiennent un accès.
+
+Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
+
+ 
+
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nouvelles applications fédérées disponibles dans la galerie Azure AD App
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** intégration de tierce partie
+ 
+
+En avril 2018, nous avons ajouté les 13 nouvelles applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
+
+
+
+Criterion HCM, [FiscalNote](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fiscalnote-tutorial), [Secret Server (On-Premises)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-secretserver-on-premises-tutorial), [Dynamic Signal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-dynamicsignal-tutorial), [mindWireless](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mindwireless-tutorial), [OrgChart Now](https://docs.microsoft.com/azure/active-directory/active-directory-saas-orgchartnow-tutorial), [Ziflow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ziflow-tutorial), [AppNeta Performance Monitor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-appneta-tutorial), [Elium](https://docs.microsoft.com/azure/active-directory/active-directory-saas-elium-tutorial) , [Fluxx Labs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fluxxlabs-tutorial), [Cisco Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ciscocloud-tutorial), Shelf, [SafetyNet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-safetynet-tutorial)
+
+
+
+ La liste des tutoriels disponibles figure ici : [https://aka.ms/appstutorial](https://aka.ms/appstutorial).
+
+Pour en savoir plus, consultez [Afficher votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+
+
+ 
+
+---
+ 
+### <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications-public-preview"></a>Octroyer aux utilisateurs B2B dans Azure AD l’accès à vos applications locales (préversion publique)
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** B2B  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+
+Si votre organisation utilise des fonctionnalités d’Azure Active Directory (Azure AD) B2B Collaboration pour inviter des utilisateurs d’organisations partenaires à votre instance Azure AD, vous pouvez à présent fournir à ces utilisateurs B2B un accès aux applications locales. Ces applications locales peuvent utiliser l’authentification basée sur SAML ou l’authentification Windows intégrée (IWA) avec la délégation contrainte Kerberos (KCD).
+
+Pour plus d’informations, consultez [Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises)
+ 
+
+---
+ 
+### <a name="get-sso-integration-tutorials-from-the-azure-marketplace"></a>Accéder à des tutoriels sur l’intégration de l’authentification unique dans la Place de marché Azure
+
+**Type :** fonctionnalité modifiée  
+**Catégorie de service :** autres  
+**Fonctionnalité de produit :** intégration de tierce partie
+ 
+
+Si une application qui est répertoriée dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) prend en charge l’authentification unique SAML, en cliquant sur **Obtenir maintenant**, vous accédez au tutoriel sur l’intégration associé à cette application. 
+
+
+---
+
+### <a name="faster-performance-of-azure-ad-automatic-user-provisioning-to-saas-applications"></a>Amélioration des performances de l’attribution automatique d’utilisateurs Azure AD auprès des applications SaaS
+
+**Type :** fonctionnalité modifiée  
+**Catégorie de service :** approvisionnement d’application  
+**Fonctionnalité de produit :** intégration de tierce partie
+ 
+
+Auparavant, les clients qui utilisaient les connecteurs d’attribution d’utilisateurs Azure Active Directory pour les applications SaaS (Salesforce, ServiceNow et Box par exemple) pouvaient rencontrer une baisse de performances si leurs locataires Azure AD contenaient plus de 100 000 utilisateurs et groupes combinés et s’ils utilisaient les attributions de groupes et d’utilisateurs pour déterminer les utilisateurs à attribuer.
+
+Le 2 avril, de très importantes améliorations des performances ont été déployées sur le service d’attribution Azure AD. Celles-ci réduisent considérablement le temps nécessaire pour effectuer les synchronisations initiales entre Azure Active Directory et les applications SaaS cibles.
+
+
+Par conséquent, de nombreux clients pour lesquels les synchronisations initiales aux applications nécessitaient plusieurs jours ou ne se terminaient jamais effectuent maintenant cette opération en quelques minutes ou heures.
+
+Pour plus d’informations, consultez [Que se passe-t-il pendant l’approvisionnement ?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning#what-happens-during-provisioning).
+
+---
+ 
+
+### <a name="self-service-password-reset-from-windows-10-lock-screen-for-hybrid-azure-ad-joined-machines"></a>Réinitialisation de mot de passe en libre-service à partir de l’écran de verrouillage Windows 10 pour les ordinateurs joints à une version hybride d’Azure AD
+
+**Type :** fonctionnalité modifiée  
+**Catégorie de service :** réinitialisation de mot de passe en libre-service  
+**Fonctionnalité de produit :** authentification utilisateur
+ 
+
+Nous avons mis à jour la fonctionnalité Windows 10 SSPR pour prendre en charge les ordinateurs qui sont joints à des environnements Azure AD hybrides. Cette fonctionnalité disponible dans Windows 10 RS4 permet aux utilisateurs de réinitialiser leur mot de passe à partir de l’écran de verrouillage d’un ordinateur Windows 10. Les utilisateurs qui sont activés et inscrits pour la réinitialisation de mot de passe en libre-service peuvent utiliser cette fonctionnalité.
+
+Pour plus d’informations, consultez [Réinitialisation de mot de passe Azure AD depuis l’écran de connexion](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows).
+ 
+
+---
+
+
 
 ## <a name="march-2018"></a>Mars 2018
  
@@ -362,7 +574,7 @@ Pour plus d’informations, consultez [Personnalisation des revendications émis
 
 Pour simplifier le déploiement d’application et réduire votre charge administrative, nous prenons désormais en charge la possibilité de publier des applications à l’aide de caractères génériques. Pour publier une application générique, vous pouvez suivre le flux de publication d’application standard, mais utiliser un caractère générique dans les URL internes et externes.
 
-Pour plus d’informations, consultez [Applications génériques dans le proxy d’application Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard).
+Pour plus d’informations, consultez [Applications génériques dans le proxy d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-wildcard).
 
  
 
@@ -521,7 +733,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** conditions d’utilisation  
-**Fonctionnalité de produit :** gouvernance
+**Fonctionnalité de produit :** conformité
  
 
 Lorsque les conditions d’utilisation s’affichent, vous pouvez maintenant cliquer sur **Des problèmes d’affichage ? Cliquez ici**. Ce lien ouvre les conditions d’utilisation en mode natif sur votre appareil. Quelle que soit la taille de police dans le document ou la taille d’écran de l’appareil, vous pouvez effectuer un zoom avant et lire le document selon vos besoins. 
@@ -656,7 +868,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** conditions d’utilisation  
-**Fonctionnalité de produit :** gouvernance/conformité
+**Fonctionnalité de produit :** conformité
  
 Vous pouvez maintenant accéder au Panneau d’accès et afficher les conditions d’utilisation que vous avez précédemment acceptées.
 
@@ -707,7 +919,7 @@ Pour plus d’informations, consultez [Fewer login prompts: The new “Keep me s
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** conditions d’utilisation  
-**Fonctionnalité de produit :** gouvernance/conformité
+**Fonctionnalité de produit :** conformité
  
 Une option destinée aux administrateurs oblige les utilisateurs à développer les conditions d’utilisation avant de les accepter.
 
@@ -864,7 +1076,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 **Type :** nouvelle fonctionnalité    
 **Catégorie de service :** conditions d’utilisation  
-**Fonctionnalité de produit :** gouvernance/conformité
+**Fonctionnalité de produit :** conformité
 
 
 
@@ -1154,7 +1366,7 @@ Pour en savoir plus, consultez [Référence pour la génération de rapports d�
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** conditions d’utilisation  
-**Fonctionnalité de produit :** gouvernance/conformité  
+**Fonctionnalité de produit :** conformité  
 
 
 
@@ -1197,7 +1409,7 @@ Pour plus d’informations, consultez [PIM pour les ressources Azure (préversio
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** révisions d’accès  
-**Fonctionnalité de produit :** gouvernance/conformité  
+**Fonctionnalité de produit :** conformité  
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Authentification directe - Conformité RGPD | Microsoft Docs'
+title: Confidentialité des utilisateurs et authentification directe Azure Active Directory | Microsoft Docs
 description: Cet article traite de l’authentification directe Azure Active Directory (Azure AD) et de la conformité RGPD.
 services: active-directory
 keywords: Authentification directe Azure AD Connect, RGPD, composants requis pour Azure AD, SSO, Authentification unique
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 21874c961163e3efba45c2ee8557c03135987f95
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150621"
 ---
-# <a name="azure-active-directory-pass-through-authentication-gdpr-compliance"></a>Authentification directe Azure Active Directory : Conformité RGPD
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Confidentialité des utilisateurs et authentification directe Azure Active Directory
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
-
-En mai 2018, une loi européenne relative à la confidentialité, le [Règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), va entrer en vigueur. Le règlement RGPD établit de nouvelles règles que doivent respecter les sociétés, les administrations, les ONG et d’autres organisations qui proposent des biens et services aux personnes de l’Union européenne ou qui collectent et analysent des données liées aux résidents de l’Union européenne. Le règlement RGPD s’applique, quel que soit votre pays de résidence. 
-
-Microsoft met à disposition des produits et des services permettant de mieux répondre aux exigences du règlement RGPD. Pour plus d’informations sur la stratégie Microsoft Privacy, consultez le [Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 
 L’authentification directe Azure AD crée les types de journaux suivants, qui peuvent contenir des informations EUII :
 
@@ -35,9 +35,9 @@ L’authentification directe Azure AD crée les types de journaux suivants, qui 
 - Fichiers journaux des traces de l’Agent d’authentification
 - Fichiers journaux des événements Windows
 
-La conformité RGPD pour l’authentification directe peut être obtenue de deux manières :
+La confidentialité des utilisateurs pour l’authentification directe peut être obtenue de deux manières :
 
-1.  Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des installations.
+1.  Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des installations
 2.  En garantissant qu’aucune donnée n’est conservée plus de 48 heures
 
 Nous recommandons vivement la deuxième option, car elle est plus facile à implémenter et à gérer. Voici les instructions pour chaque type de journal :
@@ -104,4 +104,5 @@ Pour planifier une exécution de ce script toutes les 48 heures, effectuez les 
 Si l’enregistrement d’audit est activé, ce produit peut générer des journaux de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
+* [Lire la politique de confidentialité Microsoft sur le Centre de confidentialité](https://www.microsoft.com/trustcenter)
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.

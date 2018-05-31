@@ -1,21 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: Documentation préliminaire pour la fonction Synonymes (version préliminaire) exposée dans l’API REST Azure Search.
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Utiliser des synonymes pour étendre la portée d’une requête de recherche
 authors: mhko
-services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 07/07/2016
+ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 612bf30281703bd9cdec3a904f27df8e7dba3641
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186901"
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Synonymes dans Azure Search (version préliminaire)
+# <a name="synonyms-in-azure-search"></a>Synonymes dans Recherche Azure
 
 Dans les moteurs de recherche, les synonymes associent des termes équivalents qui élargissent implicitement l’étendue d’une requête, sans que l’utilisateur ait à fournir le terme. Par exemple, si l’on considère le terme « chien » et les associations de synonymes « canin » et « chiot », tous les documents contenant « chien », « canin » ou « chiot » seront pris en compte dans la requête.
 
@@ -23,7 +23,7 @@ Dans Azure Search, l’expansion des synonymes est effectuée au moment de la re
 
 ## <a name="feature-availability"></a>Disponibilité des fonctionnalités
 
-La fonctionnalité de synonymes est actuellement en version préliminaire et prise en charge uniquement dans les dernières versions d’API préliminaires (api-version=2016-09-01-Preview). Il n’existe aucune prise en charge sur le portail Azure pour l’instant. Comme la version de l’API est spécifiée dans la requête, il est possible de combiner les API mises à la disposition générale (GA) et les API en version préliminaire disponibles dans la même application. Cependant, les API de versions préliminaires ne sont pas soumises à un contrat SLA, et les fonctionnalités peuvent changer ; par conséquent, nous ne recommandons pas de les utiliser dans des applications de production.
+La fonctionnalité des synonymes est prise en charge dans la dernière version de l’API (version de l’API : 2017-11-11). Il n’existe aucune prise en charge sur le portail Azure pour l’instant.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Guide pratique pour utiliser des synonymes dans Azure Search
 
@@ -43,11 +43,11 @@ L’incorporation de synonymes dans votre application de recherche est un proces
 
 Les cartes de synonymes sont téléchargées sur le service via une requête POST ou PUT. Chaque règle doit être délimitée par le caractère de nouvelle ligne ('\n'). Vous pouvez définir jusqu'à 5 000 règles par carte de synonymes dans un service gratuit et 10 000 règles dans toutes les autres références (SKU). Chaque règle peut avoir jusqu'à 20 extensions.
 
-Dans cette version préliminaire, les cartes de synonymes doivent être au format Apache Solr décrit ci-dessous. Si vous disposez d’un dictionnaire de synonymes existant dans un autre format et souhaitez l’utiliser directement, faites-le-nous savoir sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Les cartes de synonymes doivent être au format Apache Solr décrit ci-dessous. Si vous disposez d’un dictionnaire de synonymes existant dans un autre format et souhaitez l’utiliser directement, faites-le-nous savoir sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 Vous pouvez créer une nouvelle carte de synonymes à l’aide d’une requête HTTP POST, comme dans l’exemple suivant :
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -60,7 +60,7 @@ Vous pouvez créer une nouvelle carte de synonymes à l’aide d’une requête 
 
 Vous pouvez également utiliser une requête PUT en spécifiant le nom de la carte de synonymes sur l'URI. Si la carte de synonymes n'existe pas, elle est créée.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -86,24 +86,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Répertorier les cartes de synonymes de votre service.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obtenir une carte de synonymes pour votre service.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Supprimer une carte de synonymes de votre service.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configurez un champ pouvant faire l’objet d’une recherche pour utiliser la carte de synonymes dans la définition d’index.
 
 Une nouvelle propriété de champ **synonymMaps** permet de spécifier une carte de synonymes à utiliser pour un champ pouvant faire l’objet d’une recherche. Les cartes de synonymes sont des ressources de niveau de service et peuvent être référencées selon n’importe quel champ d’index dans le service.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -138,7 +138,7 @@ Une nouvelle propriété de champ **synonymMaps** permet de spécifier une carte
 **synonymMaps** peut être spécifié pour les champs pouvant faire l’objet d’une recherche de type « Edm.String » ou « Collection(Edm.String) ».
 
 > [!NOTE]
-> Dans cette version préliminaire, vous pouvez uniquement utiliser une carte de synonymes par champ. Si vous souhaitez utiliser plusieurs cartes de synonymes, faites-le-nous savoir sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Vous ne pouvez utiliser qu’une carte de synonymes par champ. Si vous souhaitez utiliser plusieurs cartes de synonymes, faites-le-nous savoir sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>Impact des synonymes sur les autres fonctionnalités de recherche
 

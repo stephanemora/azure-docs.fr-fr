@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770619"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Conditions dans l’accès conditionnel Azure Active Directory 
 
@@ -38,24 +39,32 @@ Une stratégie d’accès conditionnel combine une condition à des contrôles d
 
 ![Contrôle](./media/active-directory-conditional-access-conditions/61.png)
 
-Cet article vous donne une vue d’ensemble des conditions et de la façon dont elles sont utilisées dans une stratégie d’accès conditionnel. 
 
+Les conditions que vous n’avez pas configurées dans une stratégie d’accès conditionnel ne sont pas appliquées. Certaines conditions sont [obligatoires](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) pour appliquer une stratégie d’accès conditionnel à un environnement. 
+
+Cet article vous donne une vue d’ensemble des conditions et de la façon dont elles sont utilisées dans une stratégie d’accès conditionnel. 
 
 ## <a name="users-and-groups"></a>Utilisateurs et groupes
 
 La condition d’utilisateurs et de groupes est obligatoire dans une stratégie d’accès conditionnel. Dans votre stratégie, vous pouvez soit sélectionner **Tous les utilisateurs** soit sélectionner des utilisateurs et groupes spécifiques.
 
-![Contrôle](./media/active-directory-conditional-access-conditions/02.png)
+![Contrôle](./media/active-directory-conditional-access-conditions/111.png)
 
 Lorsque vous sélectionnez :
 
-- **Tous les utilisateurs**, votre stratégie est appliquée à tous les utilisateurs dans l’annuaire. Cela inclut les utilisateurs invités.
+- **Tous les utilisateurs**, votre stratégie est appliquée à tous les utilisateurs de l’annuaire. Cela inclut les utilisateurs invités.
 
-- **Sélectionnez les utilisateurs et les groupes**, vous pouvez cibler des ensembles d’utilisateurs spécifiques. Par exemple, vous pouvez sélectionner un groupe qui contient tous les membres du département Ressources humaines, lorsque vous avez une application RH sélectionnée en tant qu’application cloud. 
+- Lorsque vous **sélectionnez des utilisateurs et des groupes**, vous pouvez définir les options suivantes :
 
-- Un groupe, qui peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés.
+    - **Tous les utilisateurs invités** : vous permet de cibler une stratégie sur des utilisateurs invités B2B. Cette condition recherche tous les comptes d’utilisateur dont l’attribut *userType* a la valeur *invité*. Vous pouvez utiliser ce paramètre quand une stratégie doit être appliquée dès que le compte est créé dans un flux d’invitation dans Azure AD.
 
-Vous pouvez également exclure des utilisateurs ou groupes spécifiques d’une stratégie. Les comptes de service sont un cas d’utilisation courant si votre stratégie met en œuvre l’authentification multifacteur. 
+    - **Rôles d’annuaire** : vous permet de cibler une stratégie selon l’attribution de rôle d’un utilisateur. Cette condition prend en charge les rôles d’annuaire comme *administrateur général* ou *administrateur de mots de passe*.
+
+    - **Utilisateurs et groupes** : vous permet de cibler des ensembles d’utilisateurs spécifiques. Par exemple, vous pouvez sélectionner un groupe qui contient tous les membres du département Ressources humaines, lorsque vous avez une application RH sélectionnée en tant qu’application cloud.
+
+Un groupe, qui peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés.
+
+Vous pouvez également exclure des utilisateurs ou groupes spécifiques d’une stratégie. Les comptes de service sont un cas d’utilisation courant si votre stratégie met en œuvre l’authentification multifacteur (MFA). 
 
 Le ciblage d’ensembles spécifiques d’utilisateurs est utile pour le déploiement d’une nouvelle stratégie. Dans une nouvelle stratégie, vous devez cibler uniquement un ensemble initial d’utilisateurs pour valider le comportement de stratégie. 
 
@@ -104,7 +113,18 @@ La plateforme d’appareils se caractérise par le système d’exploitation qui
 Pour obtenir la liste complète des plateformes d’appareils prises en charge, consultez [Condition de plateforme d’appareil](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Un cas d’usage commun pour cette condition est une stratégie qui limite l’accès à vos applications cloud aux [appareils de confiance](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Pour d’autres scénarios, y compris les conditions de plateforme d’appareil, consultez [Accès conditionnel basé sur les applications Azure Active Directory](active-directory-conditional-access-mam.md).
+Un cas d’usage commun pour cette condition est une stratégie qui limite l’accès à vos applications cloud aux [appareils gérés](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Pour d’autres scénarios, y compris les conditions de plateforme d’appareil, consultez [Accès conditionnel basé sur les applications Azure Active Directory](active-directory-conditional-access-mam.md).
+
+
+
+## <a name="device-state"></a>État de l’appareil
+
+La condition d’état de l’appareil permet d’exclure des appareils joints à Azure AD hybrides marqués comme conformes d’une stratégie d’accès conditionnel. Cette exclusion s’avère utile quand une stratégie doit s’appliquer uniquement à des appareils non gérés pour des raisons de renforcement de la sécurité des sessions. Par exemple, appliquez uniquement le contrôle de session Microsoft Cloud App Security quand un appareil n’est pas géré. 
+
+
+![Conditions](./media/active-directory-conditional-access-conditions/112.png)
+
+Pour bloquer l’accès des appareils non gérés, vous devez implémenter un [accès conditionnel en fonction de l’appareil](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## <a name="locations"></a>Emplacements

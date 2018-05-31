@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194686"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
 
 Cet article définit la liste des opérations basées sur les requêtes-réponses de Microsoft Azure Service Bus. Ces informations sont basées sur la première ébauche d’AMQP Management Version 1.0.  
   
-Pour obtenir un guide détaillé sur le protocole AMQP 1.0 au niveau des câbles qui explique comment Service Bus implémente la spécification technique AMQP OASIS et s’appuie sur celle-ci, consultez le [Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs][Guide du protocole AMQP 1.0].  
+Pour obtenir un guide détaillé sur le protocole AMQP 1.0 au niveau des câbles qui explique comment Service Bus implémente la spécification technique AMQP OASIS et s’appuie sur celle-ci, consultez le [Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs][Guide du protocole AMQP 1.0].  
   
 ## <a name="concepts"></a>Concepts  
   
@@ -69,7 +70,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Transférer un message de demande  
 
 Transfère un message de demande.  
-  
+Un état de transaction peut être ajouté pour les opérations prenant en charge la transaction.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +81,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Recevoir un message de réponse  
@@ -195,7 +201,7 @@ Le mappage représentant un message doit contenir les entrées suivantes :
   
 ### <a name="schedule-message"></a>Message de planification  
 
-Messages de planification.  
+Messages de planification. Cette opération prend en charge la transaction.
   
 #### <a name="request"></a>Requête  
 
@@ -217,8 +223,9 @@ Le mappage représentant un message doit contenir les entrées suivantes :
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |message-id|chaîne|OUI|`amqpMessage.Properties.MessageId` comme chaîne|  
-|session-id|chaîne|OUI|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|chaîne|OUI|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|chaîne|Non |`amqpMessage.Properties.GroupId as string`|  
+|partition-key|chaîne|Non |`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via-partition-key|chaîne|Non |`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |Message|tableau d’octets|OUI|Message codé en filaire AMPQ 1.0.|  
   
 #### <a name="response"></a>response  
@@ -537,6 +544,85 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|chaîne|Non |Description de l’état.|  
   
+### <a name="get-rules"></a>Obtenir les règles
+
+#### <a name="request"></a>Requête
+
+Le message de requête doit inclure les propriétés d’application suivantes :
+
+|Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
+|---------|----------------|--------------|--------------------|  
+|operation|chaîne|OUI|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|Non |Délai d’expiration du serveur de l’opération en millisecondes.|  
+
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
+  
+|Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
+|---------|----------------|--------------|--------------------|  
+|top|int|OUI|Le nombre de règles à extraire dans la page.|  
+|skip|int|OUI|Le nombre de règles à ignorer. Définit l’index de départ (+1) dans la liste des règles. | 
+
+#### <a name="response"></a>response
+
+Le message de réponse inclut les propriétés suivantes :
+
+|Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
+|règles| tableau de mappage|OUI|Tableau de règles. Chaque règle est représentée par un mappage.|
+
+Chaque entrée de mappage dans le tableau inclut les propriétés suivantes :
+
+|Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|tableau d’objets décrits|OUI|`com.microsoft:rule-description:list` avec le code AMQP décrit 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` est un tableau d’objets décrits. Le tableau inclut les éléments suivants :
+
+|Index|Type de valeur|Obligatoire|Contenu de la valeur|  
+|---------|----------------|--------------|--------------------|  
+| 0 | tableau d’objets décrits | OUI | `filter` comme indiqué ci-dessous. |
+| 1 | tableau d’objet décrit | OUI | `ruleAction` comme indiqué ci-dessous. |
+| 2 | chaîne | OUI | nom de la règle. |
+
+`filter` peut être d’un des types suivants :
+
+| Nom du descripteur | Code du descripteur | Valeur |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtre SQL |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtre de corrélation |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | Filtre True représentant 1=1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | Filtre False représentant 1=0 |
+
+`com.microsoft:sql-filter:list` est un tableau décrit qui inclut :
+
+|Index|Type de valeur|Obligatoire|Contenu de la valeur|  
+|---------|----------------|--------------|--------------------|  
+| 0 | chaîne | OUI | Expression de filtre SQL |
+
+`com.microsoft:correlation-filter:list` est un tableau décrit qui inclut :
+
+|Index (s’il existe)|Type de valeur|Contenu de la valeur|  
+|---------|----------------|--------------|--------------------|  
+| 0 | chaîne | ID de corrélation : |
+| 1 | chaîne | ID de message |
+| 2 | chaîne | À |
+| 3 | chaîne | Adresse de réponse |
+| 4 | chaîne | Étiquette |
+| 5. | chaîne | ID de la session |
+| 6. | chaîne | ID de session de réponse|
+| 7 | chaîne | Type de contenu |
+| 8 | Mappage | Mappage des propriétés définies de l’application |
+
+`ruleAction` peut être d’un des types suivants :
+
+| Nom du descripteur | Code du descripteur | Valeur |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Action de règle vide - aucune action de règle présente |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Actions de règle SQL |
+
+`com.microsoft:sql-rule-action:list` est un tableau d’objets décrits dont la première entrée est une chaîne qui contient l’expression de l’action de règle SQL.
+
 ## <a name="deferred-message-operations"></a>Opérations relatives aux messages différés  
   
 ### <a name="receive-by-sequence-number"></a>Recevoir par numéro de séquence  
@@ -583,7 +669,7 @@ Le mappage représentant un message doit contenir les entrées suivantes :
   
 ### <a name="update-disposition-status"></a>Mettre à jour le statut de disposition  
 
-Met à jour le statut de disposition des messages différés.  
+Met à jour le statut de disposition des messages différés. Cette opération prend en charge les transactions.
   
 #### <a name="request"></a>Requête  
 
@@ -617,10 +703,10 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 
 Pour en savoir plus sur AMQP et Service Bus, consultez les liens suivants :
 
-* [Vue d’ensemble d’AMQP de Service Bus]
-* [Guide du protocole AMQP 1.0]
-* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]
+* [Vue d’ensemble du protocole AMQP de Service Bus]
+* [Guide du protocole AMQP 1.0]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
 
-[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
-[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]: https://msdn.microsoft.com/library/dn574799.asp
+[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
+[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.asp

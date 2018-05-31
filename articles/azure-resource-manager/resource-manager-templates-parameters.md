@@ -1,6 +1,6 @@
 ---
-title: "Section des paramètres des modèles Azure Resource Manager | Microsoft Docs"
-description: "Décrit la section des paramètres des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative."
+title: Section des paramètres des modèles Azure Resource Manager | Microsoft Docs
+description: Décrit la section des paramètres des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359201"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Section des paramètres des modèles Azure Resource Manager
 C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Il est inutile de fournir des paramètres dans votre modèle, mais sans les paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
@@ -90,8 +91,8 @@ L’exemple précédent a seulement illustré quelques-unes des propriétés que
 | allowedValues |Non  |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
 | minValue |Non  |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
 | maxValue |Non  |Valeur maximale pour les paramètres de type int. Cette valeur est inclusive. |
-| minLength |Non  |Valeur minimale pour les paramètres de type string, secureString et array. Cette valeur est inclusive. |
-| maxLength |Non  |Valeur maximale pour les paramètres de type string, secureString et array. Cette valeur est inclusive. |
+| minLength |Non  |Valeur minimale pour les paramètres de type string, securestring et array. Cette valeur est inclusive. |
+| maxLength |Non  |Valeur maximale pour les paramètres de type string, securestring et array. Cette valeur est inclusive. |
 | description |Non  |Description du paramètre qui apparaît aux utilisateurs dans le portail. |
 
 ## <a name="template-functions-with-parameters"></a>Fonctions de modèle avec des paramètres
@@ -225,7 +226,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
    }
    ```
 
-* Utilisez **SecureString** pour tous les mots de passe et secrets. Si vous transmettez des données sensibles dans un objet JSON, utilisez le type **secureObject**. Il est impossible de lire les paramètres du modèle dont le type est secureString ou secureObject après le déploiement de la ressource. 
+* Utilisez **securestring** pour tous les mots de passe et les clés secrètes. Si vous transmettez des données sensibles dans un objet JSON, utilisez le type **secureObject**. Il est impossible de lire les paramètres du modèle dont le type est securestring ou secureobject après le déploiement de la ressource. 
    
    ```json
    "parameters": {

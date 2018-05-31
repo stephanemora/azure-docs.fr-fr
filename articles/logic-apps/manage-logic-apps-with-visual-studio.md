@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: db847d5fa3d5f5b2b2f0293f1756226870a8b47e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362180"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -47,7 +48,7 @@ Même si vous pouvez créer, modifier, gérer et déployer des applications logi
     Vous pouvez télécharger et installer les outils Azure Logic Apps directement à partir de Visual Studio Marketplace ou en apprendre davantage sur <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">l’installation de cette extension dans Visual Studio</a>. 
     Veillez à redémarrer Visual Studio après l’installation.
 
-* Accès au web lors de l’utilisation du Concepteur d’application logique intégré
+* Accès au web lors de l’utilisation du concepteur Logic Apps intégré
 
   Le Concepteur requiert une connexion Internet pour créer des ressources dans Azure et pour lire les propriétés et les données à partir de connecteurs dans votre application logique. 
   Par exemple, si vous utilisez le connecteur Dynamics CRM Online, le Concepteur recherche les propriétés par défaut et personnalisées disponibles dans votre instance CRM.
@@ -85,7 +86,7 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 
   ![Ouvrir l’application logique déployée à partir du portail Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Une fois que l’application logique s’ouvre dans le Concepteur d’application logique, au bas du Concepteur, vous pouvez choisir **Mode Code** pour examiner la structure de définition d’application logique sous-jacente. 
+   Une fois l’application logique ouverte dans Logic Apps, au bas du concepteur, vous pouvez choisir **Mode Code** pour examiner la structure de définition d’application logique sous-jacente. 
    Pour créer un modèle de déploiement pour l’application logique, apprenez à [télécharger un modèle Azure Resource Manager](#download-logic-app) pour cette application logique. Découvrez-en plus sur les [modèles Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 <a name="download-logic-app"></a>

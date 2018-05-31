@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353872"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installer l’extension de navigateur du volet d’accès
 
@@ -83,6 +84,12 @@ Vous pouvez également télécharger l’extension pour Chrome et Edge directeme
    3. Recherchez une application disponible dans le portail Mes applications.
    4. Dans la liste des résultats de la recherche, sélectionnez l’application.  
        Les trois dernières applications que vous avez utilisées sont affichées dans la liste de raccourcis **Récemment utilisé**.
+       
+* Pour utiliser à distance les URL internes de la société, suivez les étapes ci-dessous :
+    1. [Configurez le proxy d’application](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) sur votre client.
+    2. [Publiez l’application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) et l’URL via le proxy d’application.
+    3. Installez l’extension et connectez-vous-y en sélectionnant Connectez-vous pour commencer.
+    4. Vous pouvez à présent accéder à l’URL interne de la société, même à distance.
 
 > [!NOTE]
 > Les options précédentes sont disponibles uniquement pour Edge, Chrome et Firefox.
@@ -118,4 +125,4 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 -   Traces Fiddler
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+[Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)

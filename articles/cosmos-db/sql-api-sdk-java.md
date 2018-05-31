@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360146"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Java Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -54,6 +55,22 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Ajout de la prise en charge de l’index unique.
+* Possibilité de limiter la taille du jeton de continuation dans les options de flux.
+* Correction d’un bogue dans la sérialisation Json (timestamp).
+* Correction d’un bogue dans la sérialisation Json (enum).
+* Dépendance à com.fasterxml.jackson.core:jackson-databind mise au niveau de version 2.9.5.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* Amélioration du regroupement de connexions pour le mode Direct.
+* Amélioration de la prérécupération pour la requête multipartitionnelle sans clause OrderBy.
+* Amélioration de la génération d’UUID.
+* Amélioration de la logique de cohérence de session.
+* Ajout de la prise en charge de multipolygones.
+* Ajout de la prise en charge des statistiques de plage de clés de partition pour la collecte.
+* Correction d’un bogue dans la prise en charge de plusieurs régions.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Amélioration des performances de la sérialisation Json.
@@ -184,6 +201,8 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |16 mai 2018 |--- |
+| [1.16.0](#1.16.0) |15 mars 2018 |--- |
 | [1.15.0](#1.15.0) |14 novembre 2017 |--- |
 | [1.14.0](#1.14.0) |28 octobre 2017 |--- |
 | [1.13.0](#1.13.0) |25 août 2017 |--- |

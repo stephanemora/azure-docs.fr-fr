@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366886"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès Juste à temps à la machine virtuelle
 
@@ -33,7 +34,7 @@ L’accès Juste à temps à la machine virtuelle peut être utilisé pour verro
 
 Les attaques par force brute ciblent généralement les ports de gestion cible pour accéder à une machine virtuelle. S’il réussit, un attaquant peut prendre le contrôle sur la machine virtuelle et créer une brèche dans votre environnement.
 
-Pour réduire l’exposition aux attaques par force brute, vous pouvez limiter la durée d’ouverture d’un port. Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent uniquement être ouverts lorsque vous êtes connecté à la machine virtuelle, par exemple pour effectuer des tâches de maintenance ou de gestion. Lorsque la fonctionnalité Juste à temps est activée, Security Center utilise les règles du [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) qui restreignent l’accès aux ports de gestion afin d’éviter qu’ils ne soient la cible d’attaquants.
+Pour réduire l’exposition aux attaques par force brute, vous pouvez limiter la durée d’ouverture d’un port. Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent uniquement être ouverts lorsque vous êtes connecté à la machine virtuelle, par exemple pour effectuer des tâches de maintenance ou de gestion. Quand la fonctionnalité juste-à-temps est activée, Security Center utilise des règles de [groupe de sécurité réseau](../virtual-network/security-overview.md#security-rules) qui limitent l’accès aux ports de gestion pour qu’ils ne soient pas la cible d’attaquants.
 
 ![Scénario Juste à temps][1]
 
@@ -41,7 +42,7 @@ Pour réduire l’exposition aux attaques par force brute, vous pouvez limiter l
 
 Lorsque la fonctionnalité Juste à temps est activée, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlés par la solution Juste à temps.
 
-Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur a les autorisations [Contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournissent un accès en écriture sur la machine virtuelle. S’il dispose d’une autorisation en écriture, la requête est approuvée et Security Center configure automatiquement les groupes de sécurité réseau afin d’autoriser le trafic entrant vers les ports de gestion pendant la durée que vous avez spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent.
+Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur a les autorisations [Contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournissent un accès en écriture sur la machine virtuelle. S’il dispose d’une autorisation en écriture, la requête est approuvée et Security Center configure automatiquement les Groupes de sécurité réseau (NSG) afin d’autoriser le trafic entrant vers les ports sélectionnés pendant la durée spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent.
 
 > [!NOTE]
 > L’accès Juste à temps à la machine virtuelle Security Center prend en charge uniquement les machines virtuelles déployées par le biais d’Azure Resource Manager. Pour en savoir plus sur les modèles de déploiement de type Classic et Resource Manager, consultez [Déploiement Azure Resource Manager et déploiement Classic](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -119,6 +120,16 @@ Pour demander l’accès à une machine virtuelle :
 
 4. Sous **Demander l’accès**, configurez pour chaque machine virtuelle les ports à ouvrir, ainsi que l’adresse IP source vers laquelle le port est ouvert, et la fenêtre de temps pendant laquelle le port est ouvert. Vous pouvez demander l’accès uniquement aux ports configurés dans la stratégie Juste à temps. Chaque port dispose d’un délai maximal autorisé issu de la stratégie Juste à temps.
 5. Sélectionnez **Ports ouverts**.
+
+> [!NOTE]
+> Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur a les autorisations [Contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournissent un accès en écriture sur la machine virtuelle. S’il dispose d’autorisations en écriture, la demande est approuvée.
+>
+>
+
+> [!NOTE]
+> Si un utilisateur demande l’accès alors qu’il se trouve derrière un proxy, l’option « Mon IP » risque de ne pas fonctionner. Il peut se révéler nécessaire de définir la plage complète de l’organisation.
+>
+>
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Modification d’une stratégie d’accès Juste à temps
 

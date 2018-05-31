@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150343"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 La fonctionnalité de synchronisation d’Azure AD Connect comprend deux composants :
@@ -56,7 +57,7 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | DeviceWriteback |[Azure AD Connect : Activation de l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect Sync : extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
-| PasswordSync |[Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| PasswordSync |[Implémenter la synchronisation de hachage de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Version préliminaire : Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Non pris en charge pour le moment. |
 
@@ -88,7 +89,7 @@ Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide 
 
 Pour plus d’informations, voir [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/kb/2523192).
 
-L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName lorsqu’il est modifié en local et que vous utilisez la synchronisation de mot de passe. Si vous utilisez la fédération, cette fonctionnalité n’est pas prise en charge.
+L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName quand il est modifié en local et que vous utilisez la synchronisation de hachage de mot de passe. Si vous utilisez la fédération, cette fonctionnalité n’est pas prise en charge.
 
 Cette fonctionnalité est activée par défaut pour les répertoires Azure AD nouvellement créés. Vous pouvez voir si cette fonctionnalité est activée en exécutant :  
 

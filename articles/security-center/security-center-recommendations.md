@@ -1,11 +1,11 @@
 ---
-title: "Gestion des recommandations de sécurité dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité."
+title: Gestion des recommandations de sécurité dans Azure Security Center | Microsoft Docs
+description: Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364248"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestion des recommandations de sécurité dans le Centre de sécurité Azure
 Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
@@ -39,7 +40,7 @@ Dans la section [Définition des stratégies de sécurité dans Azure Security C
 * activer la collecte des données ;
 * choisir les recommandations à afficher dans le cadre de votre stratégie de sécurité.
 
-Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le Transparent Data Encryption de bases de données SQL et les pare-feu d’applications web.  [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
+Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/security-overview.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de bases de données SQL et les pare-feu d’applications web.  [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
 
 ### <a name="monitor-recommendations"></a>Suivi des recommandations
 Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La vignette **Recommandations** sous **Vue d’ensemble** vous permet de connaître le nombre total de recommandations fournies par Security Center.

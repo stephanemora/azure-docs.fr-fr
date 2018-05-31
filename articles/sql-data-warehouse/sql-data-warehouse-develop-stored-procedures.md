@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5659e8f29d87c48c447a5cb81c836b0be9dabd45
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ad8a599065a44469a3151813972b3d2561782c6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774656"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Utilisation de procédures stockées dans SQL Data Warehouse
 Conseils relatifs à l’implémentation de procédures stockées dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
@@ -76,7 +77,6 @@ Il s'agit de :
 * Procédures stockées numérotées
 * Procédures stockées étendues
 * Procédures stockées CLR
-* 
 * Option de chiffrement
 * Option de réplication
 * Paramètres table
@@ -86,5 +86,5 @@ Il s'agit de :
 * Instruction RETURN
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md).
+Pour obtenir des conseils supplémentaires, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md).
 

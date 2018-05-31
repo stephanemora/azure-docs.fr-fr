@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d5a9f2ba68574ba8cb99b01ce426ec77a5eecd3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363959"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>FAQ du Centre de sécurité Azure
 Cette FAQ répond aux questions concernant Azure Security Center, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
@@ -51,16 +52,18 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 Pour plus d’informations sur les rôles et les actions autorisées dans Security Center, consultez l’article [Permissions in Azure Security Center (Autorisations dans Azure Security Center)](security-center-permissions.md).
 
 ## <a name="data-collection"></a>Collecte des données
-Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez à Security Center pour la première fois, la collecte des données est activée sur toutes les machines virtuelles de votre abonnement. Vous pouvez également activer la collecte de données dans la stratégie Security Center.
+Azure Security Center collecte des données à partir de vos machines virtuelles Azure et ordinateurs autres qu’Azure pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse.
 
 ### <a name="how-do-i-disable-data-collection"></a>Comment désactiver la collecte des données ?
-Si vous utilisez le niveau Gratuit d’Azure Security Center, vous pouvez désactiver la collecte de données à partir des machines virtuelles à tout moment. La collecte de données est obligatoire pour les abonnements du niveau Standard. Vous pouvez désactiver la collecte de données pour un abonnement dans la stratégie de sécurité. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie**.)  Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre et affiche une option permettant de désactiver la **collecte des données**.
+L’approvisionnement automatique est désactivé par défaut. Vous pouvez désactiver l’approvisionnement automatique à partir des ressources à tout moment en désactivant ce paramètre dans la stratégie de sécurité. L’approvisionnement automatique est fortement recommandé si vous souhaitez obtenir des alertes de sécurité et des recommandations sur les mises à jour système, les vulnérabilités du système d’exploitation et la protection du point de terminaison.
+
+Pour désactiver la collecte des données, [connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Sélectionner une stratégie**. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique. Lorsque vous sélectionnez un abonnement, **Stratégie de sécurité - Collecte de données** s’ouvre. Sous **Auto provisioning** (Approvisionnement automatique), sélectionnez **Off** (Désactivé).
 
 ### <a name="how-do-i-enable-data-collection"></a>Comment activer la collecte des données ?
-Vous pouvez activer la collecte des données pour votre abonnement Azure dans la stratégie de sécurité. Pour activer la collecte de données. [Connectez-vous au portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Security Center**, puis **Stratégie**. Définissez **Collecte de données** sur **Activée**.
+Vous pouvez activer la collecte des données pour votre abonnement Azure dans la stratégie de sécurité. Pour activer la collecte de données. [Connectez-vous au portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie de sécurité**. Sélectionnez l’abonnement pour lequel vous souhaitez activer l’approvisionnement automatique. Lorsque vous sélectionnez un abonnement, **Stratégie de sécurité - Collecte de données** s’ouvre. Sous **Auto provisioning** (Approvisionnement automatique), sélectionnez **On** (Activé).
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Que se passe-t-il quand la collecte des données est activée ?
-Une fois la collecte de données activée, Microsoft Monitoring Agent est automatiquement configuré sur toutes les machines virtuelles existantes et nouvelles prises en charge qui sont déployées dans l’abonnement.
+Lorsque l’approvisionnement automatique est activé, Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 L’agent active l’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Les nouveaux processus créés sur la machine virtuelle sont enregistrés par le journal des événements et analysés par les services de détection Security Center. Pour plus d’informations sur les détails enregistrés pour chaque nouveau processus, consultez [Description des champs 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). L’agent collecte également les événements 4688 créés sur la machine virtuelle et les stocke dans la recherche.
 
@@ -87,7 +90,7 @@ Pour savoir comment configurer une stratégie de sécurité, consultez [Définit
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Quand des failles de sécurité potentielles sont identifiées, des recommandations sont créées. Les recommandations vous guident tout au long du processus de configuration du contrôle. Voici quelques exemples :
 
 * Approvisionnement d’un logiciel anti-programme malveillant pour identifier et supprimer les programmes malveillants
-* Configuration de [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) et de règles pour contrôler le trafic vers les machines virtuelles
+* [Groupes de sécurité réseau](../virtual-network/security-overview.md) et règles pour contrôler le trafic vers les machines virtuelles
 * Approvisionnement d’un pare-feu d’applications web pour se défendre des attaques ciblant vos applications web
 * Déploiement de mises à jour système manquantes
 * Correction des configurations de système d’exploitation qui ne suivent pas les recommandations

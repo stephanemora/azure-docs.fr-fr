@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158986"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :
@@ -58,7 +59,7 @@ Le [compte](#active-directory-account) destiné à la lecture et à l’écritur
 
 | Autorisation | Utilisé pour |
 | --- | --- |
-| <li>Répliquer les changements d’annuaires</li><li>Répliquer les changements d’annuaire Tout |Synchronisation de mot de passe |
+| <li>Répliquer les changements d’annuaires</li><li>Répliquer les changements d’annuaire Tout |Synchronisation de hachage de mot de passe |
 | Toutes les propriétés en lecture/écriture Utilisateur |Importation et Exchange hybride |
 | Toutes les propriétés en lecture/écriture iNetOrgPerson |Importation et Exchange hybride |
 | Toutes les propriétés en lecture/écriture Groupe |Importation et Exchange hybride |
@@ -87,7 +88,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Fonctionnalité | Autorisations |
 | --- | --- |
 | Fonctionnalité msDS-ConsistencyGuid |Autorisations en écriture sur l’attribut msDS-ConsistencyGuid documentées dans [Principes de conception Azure AD Connect - Utilisation de msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Synchronisation de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
+| Synchronisation de hachage de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
 | Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../authentication/howto-sspr-writeback.md) pour les utilisateurs. |

@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187672"
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
 Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure.
@@ -34,7 +35,7 @@ Vous pouvez tirer parti des outils open source comme [cheetah](https://github.co
 ## <a name="resource-limitations"></a>Limitations des ressources
 La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : la gouvernance des ressources et l’application de limites.
 
-* Pour en savoir plus, voir [Limites de ressources Microsoft Azure SQL Database](sql-database-service-tiers.md).
+* Plus d’informations : [Limites du modèle de ressource DTU Azure SQL Database](sql-database-dtu-resource-limits.md) et [Limites du modèle de ressource vCore Azure SQL Database (préversion)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Sécurité
 La base de données SQL Azure fournit des ressources permettant de limiter l’accès, de protéger les données et de surveiller les activités sur une base de données SQL.

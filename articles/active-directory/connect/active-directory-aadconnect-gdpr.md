@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect et règlement général sur la protection des données (RGPD) | Microsoft Docs
+title: Azure AD Connect et confidentialité des utilisateurs | Microsoft Docs
 description: Ce document explique comment obtenir la conformité RGPD avec Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -11,36 +11,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149387"
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>Conformité à RGPD et Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>Confidentialité des utilisateurs et Azure AD Connect 
 
-En mai 2018, une loi européenne relative à la confidentialité, le [Règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), va entrer en vigueur. Le règlement RGPD établit de nouvelles règles que doivent respecter les sociétés, les administrations, les ONG et d’autres organisations qui proposent des biens et services aux personnes de l’Union européenne ou qui collectent et analysent des données liées aux résidents de l’Union européenne. Le règlement RGPD s’applique, quel que soit votre pays de résidence. 
-
-Microsoft met à disposition des produits et des services permettant de mieux répondre aux exigences du règlement RGPD. Pour plus d’informations sur la stratégie Microsoft Privacy, consultez le [Centre de confidentialité](https://www.microsoft.com/trustcenter).
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->Cet article porte sur Azure AD Connect et sur la conformité au règlement RGPD.  Pour plus d’informations sur Azure AD Connect Health et sur la conformité au règlement RGPD, [cliquez ici](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+>Cet article porte sur Azure AD Connect et la confidentialité des utilisateurs.  Pour plus d’informations sur Azure AD Connect Health et la confidentialité des utilisateurs, consultez [cet article](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-La conformité au règlement général sur la protection des données des installations Azure AD Connect peut être obtenue de deux manières :
+La confidentialité des utilisateurs pour les installations Azure AD Connect peut être obtenue de deux manières :
 
 1.  Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des installations
 2.  En garantissant qu’aucune donnée n’est conservée plus de 48 heures
 
 L’équipe Azure AD Connect recommande la deuxième option, car elle est beaucoup plus facile à implémenter et à tenir à jour.
 
-Un serveur de synchronisation Azure AD Connect stocke les données suivantes, qui sont concernées par la conformité RGPD :
+Un serveur de synchronisation Azure AD Connect stocke les données de confidentialité utilisateur suivantes :
 1.  Données relatives à un individu stockées dans la **base de données Azure AD Connect**
 2.  Données stockées dans les fichiers du **Journal des événements Windows** qui peuvent contenir des informations sur un individu
 3.  Données stockées dans les **fichiers journaux de l’installation Azure AD Connect** qui peuvent contenir des informations sur un individu
 
-Pour être conforme au règlement RGPD, les clients Azure AD Connect doivent respecter les directives suivantes :
+Les clients Azure AD Connect doivent respecter les directives suivantes lors de la suppression de données utilisateur :
 1.  Supprimer régulièrement le contenu du dossier où se trouvent les fichiers journaux de l’installation Azure AD Connect (au moins toutes les 48 heures)
 2.  Ce produit peut également créer des journaux d’événements.  Pour plus d’informations sur les journaux d’événements, consultez [cette documentation](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
@@ -82,5 +81,5 @@ Suivez les étapes ci-dessous pour planifier l’exécution de ce script toutes 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-- [Azure AD Connect Health et RGPD](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
+* [Lire la politique de confidentialité Microsoft sur le Centre de confidentialité](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect Health et confidentialité des utilisateurs](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

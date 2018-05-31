@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bba9f62a78dea4db1d88f877029796739b023e46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365200"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
 
@@ -46,7 +47,7 @@ Lorsque vous créez une machine virtuelle SQL Server avec une image de galerie, 
 
 Pour une sécurité optimale, choisissez l’option la plus restrictive dans votre scénario. Par exemple, si vous exécutez une application qui accède à SQL Server sur la même machine virtuelle, **Local** constitue l’option la plus sûre. Si vous exécutez une application Azure qui requiert un accès à SQL Server, l’option **Privé** sécurise les communications vers SQL Server uniquement dans le [réseau virtuel Azure](../../../virtual-network/virtual-networks-overview.md) spécifié. Si vous avez besoin d’un accès **Public** (Internet) à la machine virtuelle SQL Server, assurez-vous de bien suivre les autres meilleures pratiques présentées dans cette rubrique afin de réduire votre surface d’exposition aux attaques.
 
-Les options sélectionnées dans le portail utilisent les règles de sécurité du trafic entrant sur les machines virtuelles [Groupe de sécurité réseau](../../../virtual-network/virtual-networks-nsg.md) pour autoriser ou refuser le trafic réseau vers votre machine virtuelle. Vous pouvez modifier ou créer de nouvelles règles de groupe de sécurité réseau entrantes pour autoriser le trafic vers le port SQL Server (1433, par défaut). Vous pouvez également spécifier des adresses IP spécifiques qui sont autorisées à communiquer sur ce port.
+Les options sélectionnées dans le portail utilisent les règles de sécurité du trafic entrant sur les machines virtuelles [Groupe de sécurité réseau](../../../virtual-network/security-overview.md) (NSG) pour autoriser ou refuser le trafic réseau vers votre machine virtuelle. Vous pouvez modifier ou créer de nouvelles règles de groupe de sécurité réseau entrantes pour autoriser le trafic vers le port SQL Server (1433, par défaut). Vous pouvez également spécifier des adresses IP spécifiques qui sont autorisées à communiquer sur ce port.
 
 ![Règles de groupe de sécurité réseau](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 

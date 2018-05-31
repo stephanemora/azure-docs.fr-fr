@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366060"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
 
@@ -54,8 +55,13 @@ W=12 semaines (84 jours), M=12 mois (365 jours), Y=10 ans (3 650 jours), WeekOfY
 
 
  
-Si vous deviez modifier la stratégie ci-dessus et définir W=0 (aucune sauvegarde hebdomadaire), la cadence des copies de sauvegarde pourrait être modifiée comme indiqué dans le tableau ci-dessus par les dates en surbrillance. La quantité de stockage nécessaire pour conserver ces sauvegardes diminuerait en conséquence. Remarque : les copies LTR sont créées par le service de stockage Azure. Ainsi, le processus de copie n’a aucun impact sur les performances de la base de données existante.
-Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage.   Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. 
+Si vous deviez modifier la stratégie ci-dessus et définir W=0 (aucune sauvegarde hebdomadaire), la cadence des copies de sauvegarde pourrait être modifiée comme indiqué dans le tableau ci-dessus par les dates en surbrillance. La quantité de stockage nécessaire pour conserver ces sauvegardes diminuerait en conséquence. 
+
+> [!NOTE]
+1. Les copies LTR sont créées par le service de stockage Azure. Ainsi, le processus de copie n’a aucun impact sur les performances de la base de données existante.
+2. La stratégie s’applique aux sauvegardes futures. Par exemple, si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. 
+3. Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage.   Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurer la rétention des sauvegardes à long terme
 

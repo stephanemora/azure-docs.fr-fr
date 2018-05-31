@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362037"
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Déployer Azure Stream Analytics en tant que module IoT Edge - version préliminaire
 
@@ -58,7 +59,7 @@ Il vous faut un compte de Stockage Azure pour fournir un point de terminaison qu
 
 1. Dans le portail Azure, accédez à **Créer une ressource**, entrez **Compte de stockage** dans la zone de recherche, puis sélectionnez **Compte de stockage : blob, fichier, table, file d’attente**.
 
-2. Dans le volet **Créer un compte de stockage**, entrez un nom pour votre compte de stockage, sélectionnez le même emplacement que celui où votre IoT Hub est stocké, puis sélectionnez **Créer**. Notez le nom. Il sera utile plus tard.
+2. Dans le volet **Créer un compte de stockage**, entrez un nom pour votre compte de stockage, sélectionnez le même emplacement que celui où votre IoT Hub est stocké, sélectionnez le même groupe de ressources que celui de votre IoT Hub, puis sélectionnez **Créer**. Notez le nom. Il sera utile plus tard.
 
     ![Créez un compte de stockage.][1]
 
@@ -85,32 +86,25 @@ Il vous faut un compte de Stockage Azure pour fournir un point de terminaison qu
 
 3. Sélectionnez **Créer**.
 
-4. Dans le travail créé, sous **Topologie du travail**, sélectionnez **Entrées**, puis **Ajouter**.
-
-5. Dans le volet **Nouvelle entrée**, procédez comme suit :
-
-    a. Dans la zone **Alias d’entrée**, entrez **température**.
-    
-    b. Dans la zone **Type de source**, sélectionnez **Flux de données**.
-    
-    c. Dans les autres champs, utilisez les valeurs par défaut.
+4. Dans le travail créé, sous **Topologie du travail**, ouvrez **Entrées**.
 
    ![Entrée Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Sélectionnez **Créer**.
+5. Sélectionnez **Ajouter une entrée de flux**, puis sélectionnez **Edge Hub**.
 
-7. Sous **Topologie du travail**, sélectionnez **Sorties**, puis **Ajouter**.
+5. Dans le volet **Nouvelle entrée**, saisissez **température** comme alias d’entrée. 
 
-8. Dans le volet **Nouvelle sortie**, procédez comme suit :
+6. Sélectionnez **Enregistrer**.
 
-    a. Dans la zone **Alias de sortie**, tapez **alerte**.
-    
-    b. Dans les autres champs, utilisez les valeurs par défaut. 
-    
-    c. Sélectionnez **Créer**.
+7. Sous **Topologie du travail**, ouvrez **Sorties**.
 
    ![Sortie Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Sélectionnez **Ajouter**, puis sélectionnez **Edge Hub**.
+
+8. Dans le volet **Nouvelle sortie**, saisissez **alerte** comme alias de sortie. 
+
+9. Sélectionnez **Créer**.
 
 9. Sous **Topologie du travail**, sélectionnez **Requête**, puis remplacez le texte par défaut par la requête suivante :
 

@@ -5,26 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.reviewer: efemmano
+ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358963"
 ---
 # <a name="using-the-azure-stack-portal"></a>Utilisation du portail Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-En tant que consommateur des services Azure Stack, vous pouvez utiliser le portail Azure Stack pour vous abonner à des offres publiques et utiliser les services proposés par le biais de ces offres. Si vous avez déjà utilisé le portail Azure, l’interface utilisateur vous semblera familière.
+Vous pouvez utiliser le portail Azure Stack pour vous abonner à des offres publiques et utiliser les services proposés par le biais de ces offres. Si vous avez déjà utilisé le portail Azure global, le fonctionnement du site vous semblera familier.
 
 ## <a name="access-the-portal"></a>Accéder au portail
 
@@ -41,7 +41,7 @@ Le tableau de bord contient un ensemble de vignettes par défaut. Vous pouvez cl
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Créer un abonnement et parcourir les ressources disponibles
  
-Si vous n’avez pas déjà un abonnement, la première chose à faire est de s’abonner à une offre. Après cela, vous pouvez parcourir les ressources disponibles. Pour rechercher et créer des ressources, utilisez l’une des approches suivantes :
+Si vous n’avez pas encore d’abonnement, la première chose à faire est de vous abonner à une offre. Après cela, vous pouvez parcourir les ressources disponibles. Pour rechercher et créer des ressources, utilisez l’une des approches suivantes :
 
 - Cliquez sur la vignette **Place de marché** du tableau de bord.
 - Dans la vignette **Toutes les ressources**, cliquez sur **Créer des ressources**.
@@ -60,15 +60,15 @@ Si vous avez besoin d’aide pour savoir comment utiliser les services disponibl
     Nous vous suggérons en particulier de consulter les articles suivants pour commencer :
 
     - [Considérations importantes : utilisation de services ou création d’applications pour Azure Stack](azure-stack-considerations.md)
-    - La section « Utiliser les services » de la documentation comporte un article « Considérations » pour chacun des services. La page « Considérations » décrit les différences entre le service proposé dans Azure et le service équivalent dans Azure Stack. Pour obtenir un exemple, voir [Considérations relatives aux machines virtuelles](azure-stack-vm-considerations.md). D’autres informations peuvent figurer dans la section « Utiliser les services » propre à Azure Stack.
+    - La section **Utiliser les services** de la documentation comporte un article sur les considérations pour chaque service. La page relative aux considérations décrit les différences entre le service proposé dans Azure et le service équivalent dans Azure Stack. Pour obtenir un exemple, voir [Considérations relatives aux machines virtuelles](azure-stack-vm-considerations.md). D’autres informations propres à Azure Stack peuvent figurer dans la section **Utiliser les services**.
      
       Vous pouvez utiliser la documentation Azure en tant que référence générale pour un service, mais devez avoir conscience de ces différences. Comprenez que les liens de documentation dans la vignette **Tutoriels de prise en main** pointent sur la documentation Azure.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Si vous avez besoin d’une assistance supplémentaire, contactez votre organisation ou votre fournisseur de services pour obtenir de l’aide.
+Si vous avez besoin d’assistance, contactez votre organisation ou votre fournisseur de services pour obtenir de l’aide.
 
-Si vous utilisez le Kit de développement Azure Stack, le [Forum sur Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) est la seule source d’assistance.
+Si vous utilisez le Kit de développement Azure Stack, le [Forum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) est la seule source d’assistance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

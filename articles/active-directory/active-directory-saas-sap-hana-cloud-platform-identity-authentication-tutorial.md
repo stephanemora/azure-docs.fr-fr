@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à SAP Cloud Platform Identity Authentication | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Cloud Platform Identity Authentication."
+title: 'Didacticiel : Intégration d’Azure Active Directory à SAP Cloud Platform Identity Authentication | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Cloud Platform Identity Authentication.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e7cc1df5e550dec62869c2a6f68cdc2a84167142
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Cloud Platform Identity Authentication
 
@@ -30,9 +31,10 @@ Quand vous intégrez SAP Cloud Platform Identity Authentication avec Azure AD, v
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement aux applications SAP avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec SAP Cloud Platform Identity Authentication, vous avez besoin des éléments suivants :
 
@@ -126,21 +128,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     ![Boîte de dialogue Authentification unique](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Si vous souhaitez configurer l’application en mode initié par le **fournisseur d’identité (IDP)**, dans la section **Domaine et URL SAP Cloud Platform Identity Authentication**, dans la zone **Identificateur**, tapez une URL au format suivant : `https://<entity-id>.accounts.ondemand.com`.  
+3. Si vous souhaitez configurer l’application en mode initié par **IDP**, dans la section **Domaine et URL SAP Cloud Platform Identity Authentication**, procédez comme suit :  
 
     ![Informations d’authentification unique pour Domaine et URL SAP Cloud Platform Identity Authentication](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > Cette valeur n’est pas réelle. Mettez-la à jour avec l’identificateur réel. Contactez [l’équipe de support du client SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) pour obtenir cette valeur. Si vous ne comprenez pas cette valeur, lisez la documentation SAP Cloud Platform Identity Authentication relative à la [configuration du locataire SAML 2.0](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+    a. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. Si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service**, sélectionnez **Afficher les paramètres d’URL avancés**. 
+    b. Dans la zone **URL de réponse**, tapez une URL au format suivant : `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html). Si vous ne comprenez pas la valeur d’identificateur, lisez la documentation SAP Cloud Platform Identity Authentication relative à la [configuration du locataire SAML 2.0](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+
+4. Si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service**, sélectionnez **Afficher les paramètres d’URL avancés**.
 
     ![Informations d’authentification unique pour Domaine et URL SAP Cloud Platform Identity Authentication](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    Dans la zone **URL de connexion**, tapez une URL au format suivant : `https://<entity-id>.accounts.ondemand.com/admin`.
+    Dans la zone **URL de connexion**, tapez une URL au format suivant : `{YOUR BUSINESS APPLICATION URL}`.
 
-    > [!NOTE] 
-    > Cette valeur n’est pas réelle. Mettez-la à jour avec l’URL de connexion réelle. Contactez [l’équipe de support du client SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) pour obtenir cette valeur.
+    > [!NOTE]
+    > Cette valeur n’est pas la valeur réelle. Mettez-la à jour avec l’URL de connexion réelle. Utilisez l’URL de connexion spécifique de votre application métier. En cas de doute, contactez [l’équipe du support technique de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html).
 
 5. Dans la section **Certificat de signature SAML**, sélectionnez **XML des métadonnées**. Ensuite, enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -274,7 +280,7 @@ Pour plus d’informations sur le volet d’accès, consultez la page [Présenta
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -289,4 +295,3 @@ Pour plus d’informations sur le volet d’accès, consultez la page [Présenta
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

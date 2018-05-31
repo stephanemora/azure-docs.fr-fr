@@ -1,12 +1,12 @@
 ---
-title: "Télémétrie Azure Stack | Microsoft Docs"
-description: "’Décrit comment configurer les paramètres de télémétrie à l’aide de PowerShell."
+title: Télémétrie Azure Stack | Microsoft Docs
+description: ’Décrit comment configurer les paramètres de télémétrie à l’aide de PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29734629"
 ---
 # <a name="azure-stack-telemetry"></a>Télémétrie Azure Stack
 
@@ -92,7 +93,7 @@ Les niveaux de télémétrie sont cumulés et répartis dans quatre niveaux (0 �
  - Les attributs du stockage, tels que le nombre de disques, le type et la taille.
 - Une **fonction de télémétrie**, y compris le pourcentage d’événements chargés, supprimés et la dernière heure de chargement.
 - Des **informations relatives à la qualité** qui permettent à Microsoft de comprendre les performances d’Azure Stack. Par exemple, le nombre d’alertes critiques sur une configuration matérielle spécifique.
-- **Des données de compatibilité qui aident à identifier les fournisseurs de ressources installés sur un système et une machine virtuelle et à identifier les problèmes de compatibilité potentiels.
+- \*\*Des données de compatibilité qui aident à identifier les fournisseurs de ressources installés sur un système et une machine virtuelle et à identifier les problèmes de compatibilité potentiels.
 
 **2 (Amélioré)**. Informations supplémentaires, y compris : comment le système d’exploitation et les autres services Azure Stack sont utilisés, comment ils fonctionnent, données de fiabilité avancées et données issues des niveaux de base et de sécurité. 
 

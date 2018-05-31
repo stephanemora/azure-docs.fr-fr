@@ -9,11 +9,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 87cd4c565a7429ffb7096034823a1f5ff49df195
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1fe162beca258fe8ec3d03ce2844c1abe3176dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188971"
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gérer les ressources pour une base de données unique dans Azure SQL Database
 
@@ -109,6 +110,6 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les niveaux de service, les niveaux de performance et les quantités de stockage, consultez [Niveaux de service](sql-database-service-tiers.md).
+- Pour en savoir plus sur les niveaux de service, les niveaux de performance et les quantités de stockage, consultez [[Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md).
 - Pour en savoir plus sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 - En savoir plus sur [l’abonnement Azure et les limites, quotas et contraintes des services](../azure-subscription-service-limits.md)

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359983"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accélération de site dynamique via Azure CDN
 
@@ -33,7 +34,7 @@ Les fonctionnalités **Azure CDN d’Akamai** et **Azure CDN de Verizon** offren
 >   
 > Pour les profils **CDN Azure fournis par Verizon**, il n’est pas possible de modifier l’optimisation d’un point de terminaison CDN après sa création.
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Configuration d’un point de terminaison CDN pour accélérer la distribution de fichiers dynamiques
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuration d’un point de terminaison CDN pour accélérer la distribution de fichiers dynamiques
 
 Pour configurer un point de terminaison CDN afin d’optimiser la remise de fichiers dynamiques, vous pouvez utiliser le portail Azure, les API REST ou l’un des Kits de développement logiciel (SDK) client pour faire la même chose par programmation. 
 

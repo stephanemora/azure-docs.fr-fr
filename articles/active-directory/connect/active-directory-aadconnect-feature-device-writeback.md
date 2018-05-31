@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect : Activation de l’écriture différée des appareils | Microsoft Docs"
-description: "Ce document explique comment activer l’écriture différée des appareils à l’aide d’Azure AD Connect"
+title: 'Azure AD Connect : Activation de l’écriture différée des appareils | Microsoft Docs'
+description: Ce document explique comment activer l’écriture différée des appareils à l’aide d’Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: femila
 editor: curtand
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c813be558df9dc3bdfd9850402b9458f1fdf971a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353810"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de l’écriture différée des appareils
 > [!NOTE]
 > L’écriture différée sur appareil nécessite un abonnement Azure AD Premium.
->
->
+> 
+> 
 
 La documentation suivante fournit des informations sur l’activation de la fonctionnalité d’écriture différée des appareils dans Azure AD Connect. L’écriture différée des appareils est utilisée dans les scénarios suivants :
 
@@ -34,75 +35,52 @@ Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux 
 
 > [!IMPORTANT]
 > <li>Les appareils doivent se trouver dans la même forêt que les utilisateurs. Étant donné que les appareils doivent être réécrits dans une seule forêt, cette fonctionnalité ne prend pas en charge un déploiement à plusieurs forêts d’utilisateurs pour l’instant.</li>
-> <li>Vous ne pouvez ajouter qu’un seul objet de configuration d’enregistrement d’appareil à la forêt Active Directory locale. Cette fonctionnalité n’est pas compatible avec une topologie dans laquelle le domaine Active Directory local est synchronisé à plusieurs annuaires Azure AD.</li>
->
+> <li>Vous ne pouvez ajouter qu’un seul objet de configuration d’enregistrement d’appareil à la forêt Active Directory locale. Cette fonctionnalité n’est pas compatible avec une topologie dans laquelle le domaine Active Directory local est synchronisé à plusieurs annuaires Azure AD.</li>> 
 
 ## <a name="part-1-install-azure-ad-connect"></a>1re partie : Installer Azure AD Connect
-1. Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. Microsoft recommande de commencer par synchroniser correctement tous les utilisateurs et groupes avant d’activer l’écriture différée des appareils.
+Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. Microsoft recommande de commencer par synchroniser correctement tous les utilisateurs et groupes avant d’activer l’écriture différée des appareils.
 
-## <a name="part-2-prepare-active-directory"></a>Partie 2 : Préparer Active Directory
-Utilisez les étapes suivantes pour préparer l’utilisation de l’écriture différée des appareils.
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2nde partie : Activer la réécriture d’appareil dans Azure AD Connect
+1. Réexécutez l’Assistant d’installation. Sur la page Tâches supplémentaires, sélectionnez **Configurer les options de l’appareil**, puis cliquez sur **Suivant**. 
 
-1. À partir de l’ordinateur sur lequel est installé Azure AD Connect, lancez PowerShell en mode élevé.
-2. Si le module Active Directory PowerShell n’est PAS installé, installez les outils d’administration de serveur distant qui contiennent le module AD PowerShell ainsi que dsacls.exe qui est requis pour l’exécution du script. Exécutez la commande suivante :
+    ![Tâche Configurer les options de l’appareil](./media/active-directory-aadconnect-feature-device-writeback/deviceoptions.png)
 
-   ``` powershell
-   Add-WindowsFeature RSAT-AD-Tools
-   ```
+    >[!NOTE]
+    > La nouvelle tâche Configurer les options de l’appareil est uniquement disponible dans la version 1.1.819.0 et dans les versions ultérieures.
 
-3. Si le module Azure Active Directory PowerShell n’est PAS installé, téléchargez-le et installez-le à partir du [Module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Ce composant a une dépendance à l’assistant de connexion, qui est installé avec Azure AD Connect.  
-4. Avec les informations d’identification d’administrateur d’entreprise, exécutez les commandes suivantes, puis quittez PowerShell.
+2. Sur la page Options de l’appareil, sélectionnez **Configurer la réécriture d’appareil**. L’option **Désactiver la réécriture d’appareil** n’est accessible que si la réécriture d’appareil a été activée. Cliquez sur **Suivant** pour passer à la page suivante de l’Assistant.
+    ![Choix de l’opération d’appareil](./media/active-directory-aadconnect-feature-device-writeback/configuredevicewriteback1.png)
 
-   ``` powershell
-   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
-   ```
-
-   ``` powershell
-   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
-   ```
-
-Les informations d’identification d’administrateur d’entreprise sont requises, car des modifications à l’espace de noms de configuration sont nécessaires. Un administrateur de domaine ne dispose pas des autorisations suffisantes.
-
-![Powershell pour l’activation de l’écriture différée des appareils](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)  
-
-Description :
-
-* Si elles n’existent pas, des conteneurs et des objets sont créés et configurés sous CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-* Si elles existent, des conteneurs et des objets sont créés et configurés sous CN=RegisteredDevices,[domain-dn]. Les objets d’appareil seront créés dans ce conteneur.
-* Définit les autorisations nécessaires sur le compte Azure AD Connector pour gérer des appareils sur votre Active Directory.
-* Ne doit s’exécuter que sur une seule forêt, même si Azure AD Connect est installé sur plusieurs forêts.
-
-Paramètres :
-
-* DomainName : domaine Active Directory où les objets d’appareil seront créés. Remarque : tous les appareils pour une forêt Active Directory donnée seront créés dans un domaine unique.
-* AdConnectorAccount : compte Active Directory qui servira à Azure AD Connect pour gérer des objets dans le répertoire. C'est le compte utilisé par la synchronisation Azure AD Connect pour se connecter à AD. Si vous avez procédé à l'installation à l'aide de paramètres Express, c'est le compte précédé de MSOL_.
-
-## <a name="part-3-enable-device-writeback-in-azure-ad-connect"></a>3ème partie : Activer l’écriture différée des appareils dans Azure AD Connect
-Utilisez la procédure suivante pour activer l’écriture différée des appareils dans Azure AD Connect.
-
-1. Réexécutez l’Assistant d’installation. Sélectionnez **Personnalisation des options de synchronisation** à partir de la page Tâches supplémentaires et cliquez sur **Suivant**.
-   ![Installation personnalisée - Personnaliser les options de synchronisation](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
-2. Sur la page Fonctionnalités facultatives, l’écriture différée des appareils ne sera plus grisée. Notez que si les étapes de préparation d’Azure AD Connect ne sont pas terminées, l’écriture différée des appareils sera grisée sur la page Fonctionnalités facultatives. Cochez la case correspondant à l’écriture différée des appareils, puis cliquez sur **Suivant**. Si la case à cocher est toujours décochée, consultez la [section de résolution des problèmes](#the-writeback-checkbox-is-still-disabled).
-   ![Installation personnalisée - Fonctionnalités facultatives de l’écriture différée des appareils](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3. Dans la page de l’écriture différée, vous verrez le domaine fourni en tant que forêt d’écriture différée d’appareil par défaut.
-   ![Installation personnalisée - Forêt cible de l’écriture différée des appareils](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
-4. Terminez l’installation de l’Assistant sans autre modification de la configuration. Si nécessaire, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-5. Si vous avez activé le [filtrage](active-directory-aadconnectsync-configure-filtering.md) dans Azure AD Connect, vérifiez que le conteneur nouvellement créé, CN=RegisteredDevices est inclus dans votre étendue.
+   ![Installation personnalisée - Forêt cible de l’écriture différée des appareils](./media/active-directory-aadconnect-feature-device-writeback/writebackforest.png)
 
-## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>Partie 4 : Vérifier la synchronisation des appareils avec Active Directory
-L’écriture différée des appareils doit désormais fonctionner correctement. Sachez que la réécriture des objets d’appareil dans AD peut prendre jusqu’à 3 heures. Pour vérifier que vos appareils sont correctement synchronisés, procédez comme suit après la fin de la synchronisation :
+4. La page **Conteneur d’appareil** offre la possibilité de préparer Active Directory à l’aide de l’une des deux options disponibles :
+
+    a. **Fourniture des informations d’identification de l’administrateur d’entreprise** : si les informations d’identification de l’administrateur d’entreprise sont fournies pour la forêt dans laquelle les appareils doivent être réécrits, Azure AD Connect prépare automatiquement la forêt lors de la configuration de la réécriture d’appareil.
+
+    b. **Téléchargement d’un script PowerShell** : Azure AD Connect génère automatiquement un script PowerShell pouvant préparer Active Directory à la réécriture d’appareil. Si les informations d’identification de l’administrateur d’entreprise ne peuvent pas être fournies dans Azure AD Connect, il est recommandé de télécharger le script PowerShell. Fournissez le script PowerShell téléchargé **CreateDeviceContainer.psq** à l’administrateur d’entreprise de la forêt dans laquelle les appareils seront réécrits.
+    ![Préparation de la forêt Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicecontainercreds.png)
+    
+    Les opérations effectuées dans le cadre de la préparation de la forêt Active Directory sont les suivantes :
+    * Si elles n’existent pas, des conteneurs et des objets sont créés et configurés sous CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+    * Si elles existent, des conteneurs et des objets sont créés et configurés sous CN=RegisteredDevices,[domain-dn]. Les objets d’appareil seront créés dans ce conteneur.
+    * Définit les autorisations nécessaires sur le compte Azure AD Connector pour gérer des appareils sur votre Active Directory.
+    * Ne doit s’exécuter que sur une seule forêt, même si Azure AD Connect est installé sur plusieurs forêts.
+
+## <a name="verify-devices-are-synchronized-to-active-directory"></a>Vérifier la synchronisation des appareils avec Active Directory
+L’écriture différée des appareils doit désormais fonctionner correctement. Sachez que la réécriture des objets d’appareil dans AD peut prendre jusqu’à 3 heures.  Pour vérifier que vos appareils sont correctement synchronisés, procédez comme suit après la fin des règles de synchronisation :
 
 1. Lancez le Centre d’administration Active Directory.
-2. Développez RegisteredDevices au sein du domaine configuré en [Partie 2](#part-2-prepare-active-directory).  
+2. Développez RegisteredDevices au sein du domaine en cours de fédération.
 
-   ![Active Directory - Appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
-   
-3. Les appareils enregistrés actuels sont répertoriés à cet emplacement.  
+   ![Active Directory - Appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
 
-   ![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)  
+3. Les appareils enregistrés actuels sont répertoriés à cet emplacement.
+
+   ![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Activer l’accès conditionnel
-   Des instructions détaillées pour activer ce scénario sont disponibles dans [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md)
+Des instructions détaillées pour activer ce scénario sont disponibles dans [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>La case à cocher de l'écriture différée est toujours désactivée.
@@ -117,8 +95,7 @@ Commençons par le début :
   * Ouvrez l’onglet **Connecteurs** .
   * Trouvez le connecteur de type services de domaine Active Directory et sélectionnez-le.
   * Sous **Actions**, sélectionnez **Propriétés**.
-  * Accédez à **Se connecter à la forêt Active Directory**. Vérifiez que le nom de domaine et le nom d’utilisateur spécifiés sur cet écran correspondent au compte fourni pour le script.  
-  
+  * Accédez à **Se connecter à la forêt Active Directory**. Vérifiez que le nom de domaine et le nom d’utilisateur spécifiés sur cet écran correspondent au compte fourni pour le script.
     ![Compte de connecteur dans Sync Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Vérifiez la configuration dans Active Directory :
@@ -151,3 +128,4 @@ Vérifiez la configuration dans Active Directory :
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+

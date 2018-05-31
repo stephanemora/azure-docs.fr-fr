@@ -4,13 +4,14 @@ description: Décrit comment évaluer un grand nombre de machines locales avec l
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 05/18/2018
 ms.author: raynew
-ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365329"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
@@ -34,13 +35,13 @@ Planifiez vos découvertes et vos évaluations en fonction des contraintes suiva
 | Découverte  | 1 500             |
 | Évaluation | 1 500             |
 
-<!-- 
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+<!--
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
 - If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
 - If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
       -->
 
 ## <a name="plan-multiple-discoveries"></a>Planifier plusieurs découvertes
@@ -89,6 +90,14 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
 
 3. Vérifiez que le hachage généré correspond aux paramètres suivants.
 
+    Pour OVA version 1.0.9.8
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
     Pour OVA version 1.0.9.7
 
     **Algorithme** | **Valeur de hachage**
@@ -113,30 +122,6 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Pour OVA version 1.0.8.59
-
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Pour OVA version 1.0.8.49
-
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Pour OVA version 1.0.8.40 :
-
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Créer la machine virtuelle collector
 
 Importez le fichier téléchargé dans vCenter Server :
@@ -150,7 +135,7 @@ Importez le fichier téléchargé dans vCenter Server :
 4. Dans **Host/Cluster** (Hôte/Cluster), spécifiez l’hôte ou le cluster sur lequel s’exécute la machine virtuelle collector.
 5. Dans Storage (Stockage), spécifiez la destination de stockage pour la machine virtuelle collector.
 6. Dans **Disk Format** (Format de disque), spécifiez le type de disque et la taille.
-7. Dans **Network Mapping** (Mappage réseau), spécifiez le réseau auquel se connectera la machine virtuelle collector. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées vers Azure. 
+7. Dans **Network Mapping** (Mappage réseau), spécifiez le réseau auquel se connectera la machine virtuelle collector. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées vers Azure.
 8. Validez les paramètres, puis sélectionnez **Finish (Terminer)**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identifier l’ID et la clé de chaque projet
@@ -158,13 +143,13 @@ Importez le fichier téléchargé dans vCenter Server :
 Si vous avez plusieurs projets, identifiez l’ID et la clé de chacun d’eux. Vous avez besoin de la clé lorsque vous exécutez le collecteur pour découvrir les machines virtuelles.
 
 1. Dans le projet, sélectionnez **Démarrage** > **Découvrir et évaluer** > **Découvrir des machines**.
-2. Dans **Copier les informations d’identification du projet**, copiez l’ID et la clé du projet. 
+2. Dans **Copier les informations d’identification du projet**, copiez l’ID et la clé du projet.
     ![Copier les informations d’identification du projet](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ## <a name="set-the-vcenter-statistics-level"></a>Définir le niveau de statistiques de vCenter
-Voici la liste des compteurs de performances dont les données ont été collectées lors de la découverte. Par défaut, les compteurs sont disponibles à différents niveaux dans vCenter Server. 
+Voici la liste des compteurs de performances dont les données ont été collectées lors de la découverte. Par défaut, les compteurs sont disponibles à différents niveaux dans vCenter Server.
 
-Nous vous recommandons de définir le niveau commun le plus élevé (niveau 3) pour les statistiques, afin que les données de tous les compteurs soient correctement collectées. Si vCenter est défini sur un niveau inférieur, il se peut que seuls quelques compteurs voient l’intégralité de leurs données collectées, les autres étant définis sur 0. L’évaluation peut donc afficher des données incomplètes. 
+Nous vous recommandons de définir le niveau commun le plus élevé (niveau 3) pour les statistiques, afin que les données de tous les compteurs soient correctement collectées. Si vCenter est défini sur un niveau inférieur, il se peut que seuls quelques compteurs voient l’intégralité de leurs données collectées, les autres étant définis sur 0. L’évaluation peut donc afficher des données incomplètes.
 
 Le tableau ci-dessous répertorie également les résultats d’évaluation qui sont impactés si les données d’un compteur particulier ne sont pas collectées.
 
@@ -204,7 +189,7 @@ Pour chaque découverte à effectuer, vous devez exécuter le collecteur afin de
 5.  Dans **Specify vCenter Server details** (Spécifier les informations vCenter Server), procédez aux étapes suivantes :
     - Spécifiez le nom (FQDN) ou l’adresse IP de l’instance vCenter Server.
     - Dans **User name** (Nom d’utilisateur) et **Password** (Mot de passe), spécifiez les informations d’identification du compte en lecture seule que le collecteur doit utiliser pour découvrir les machines virtuelles dans vCenter Server.
-    - Dans **Select scope** (Sélectionner une étendue), sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. L’étendue ne doit pas contenir plus de 1 000 machines virtuelles. 
+    - Dans **Select scope** (Sélectionner une étendue), sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. L’étendue ne doit pas contenir plus de 1 000 machines virtuelles.
 
 6.  Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collecteur. Dans la page **Vue d’ensemble** du projet, sélectionnez **Découvrir des machines**, puis copiez les valeurs.  
 7.  Dans **View collection progress** (Afficher la progression de la collecte), surveillez le processus de découverte et vérifiez que les métadonnées collectées à partir des machines virtuelles appartiennent à l’étendue spécifiée. Le collecteur fournit une durée approximative de la découverte.
@@ -212,7 +197,7 @@ Pour chaque découverte à effectuer, vous devez exécuter le collecteur afin de
 
 ### <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
 
-La durée de la découverte varie selon le nombre de machines virtuelles découvertes. En règle générale, pour 100 machines virtuelles, la découverte prend environ une heure après exécution du collecteur. 
+La durée de la découverte varie selon le nombre de machines virtuelles découvertes. En règle générale, pour 100 machines virtuelles, la découverte prend environ une heure après exécution du collecteur.
 
 1. Dans le projet Azure Migrate, sélectionnez **Gérer** > **Machines**.
 2. Vérifiez que les machines virtuelles que vous souhaitez découvrir apparaissent dans le portail.

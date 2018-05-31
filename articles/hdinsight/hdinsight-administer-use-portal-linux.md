@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361969"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
 
@@ -68,7 +69,7 @@ Vous devez spécifier un abonnement Azure lorsque vous créez un cluster HDInsig
     1. Connectez-vous au [Portail Azure](https://portal.azure.com).
     2. Cliquez sur **Groupes de ressources** dans le menu de gauche pour répertorier les groupes de ressources.
     3. Cliquez sur le groupe de ressources que vous souhaitez utiliser pour la création de votre cluster HDInsight.
-    4. Cliquez sur **Contrôle d’accès (IAM)**et vérifiez que vous (ou le groupe auquel vous appartenez) avez au moins un accès Collaborateur au groupe de ressources.
+    4. Cliquez sur **Contrôle d’accès (IAM)** et vérifiez que vous (ou le groupe auquel vous appartenez) avez au moins un accès Collaborateur au groupe de ressources.
 
 Si l’erreur NoRegisteredProviderFound ou MissingSubscriptionRegistration s’affiche, consultez la page [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -87,7 +88,7 @@ Si l’erreur NoRegisteredProviderFound ou MissingSubscriptionRegistration s’a
 
     **Menu de gauche :**
     * **Journaux d’activité** : affiche et interroge les journaux d’activité.
-    * **Contrôle d’accès (IAM)** : utilise les attributions de rôle.  Consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
+    * **Contrôle d’accès (IAM)**  : utilise les attributions de rôle.  Consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
     * **Balises** : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée **projet**, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
     * **Diagnostiquer et résoudre les problèmes** : affiche les informations de dépannage.
     * **Verrous** : permet d’ajouter un verrou pour empêcher la modification ou la suppression du cluster.
@@ -125,7 +126,7 @@ Si l’erreur NoRegisteredProviderFound ou MissingSubscriptionRegistration s’a
    * **Source de données par défaut**: système de fichiers de cluster par défaut.
    * **Taille des nœuds de travail** : taille de machine virtuelle des nœuds de travail sélectionnée.
    * **Taille du nœud principal** : taille de machine virtuelle des nœuds principaux sélectionnée.
-   * **Réseau virtuel** : nom du réseau virtuel et du sous-réseau sur lesquels le cluster est déployé, si vous en avez sélectionné un au moment du déploiement.
+   * **Réseau virtuel** : nom du réseau virtuel sur lesquel le cluster est déployé, si vous en avez sélectionné un au moment du déploiement.
 
 ## <a name="delete-clusters"></a>Suppression des clusters
 La suppression d’un cluster ne supprime pas le compte de stockage par défaut ni les comptes de stockage liés. Vous pouvez recréer le cluster en utilisant les mêmes comptes de stockage et les mêmes metastores. Il est recommandé d’utiliser un nouveau conteneur d’objets blob par défaut quand vous recréez le cluster.

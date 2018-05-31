@@ -1,11 +1,11 @@
 ---
-title: "Activation de groupes de sécurité réseau dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation de l’Azure Security Center **Activer des groupes de sécurité réseau**."
+title: Activation de groupes de sécurité réseau dans Azure Security Center | Microsoft Docs
+description: Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activer des groupes de sécurité réseau**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
 ms.service: security-center
 ms.devlang: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c0ad4a0e1a5f4f2fd6def4f29599e2e55eb1a9d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364452"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Activation de groupes de sécurité réseau dans Azure Security Center
-Azure Security Center vous recommande d’activer un groupe de sécurité réseau si aucun n’est encore activé. Les groupes de sécurité réseau contiennent des règles de liste de contrôle d’accès qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle. Pour en savoir plus, consultez l’article [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
+Azure Security Center vous recommande d’activer un groupe de sécurité réseau si aucun n’est encore activé. Les groupes de sécurité réseau contiennent des règles de liste de contrôle d’accès qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle. Pour en savoir plus, consultez l’article [Présentation du groupe de sécurité réseau](../virtual-network/security-overview.md)
 
 Si vous n’avez pas activé de groupe de sécurité réseau, Azure Security Center vous envoie deux recommandations : activer des groupes de sécurité réseau sur des sous-réseaux et activer des groupes de sécurité réseau sur des machines virtuelles. Vous choisissez à quel niveau, à quel sous-réseau ou à quelle machine virtuelle appliquer des groupes de sécurité réseau.
 
@@ -47,8 +48,8 @@ Si vous créez un groupe de sécurité réseau, suivez les étapes indiquées da
 ## <a name="see-also"></a>Voir aussi
 Cet article vous a montré comment implémenter la recommandation de Security Center « Activer des groupes de sécurité réseau » pour des sous-réseaux ou des machines virtuelles. Pour plus d’informations sur l’activation de groupes de sécurité, consultez les rubriques suivantes :
 
-* [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
-* [Gestion des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Présentation du groupe de sécurité réseau](../virtual-network/security-overview.md)
+* [Gérer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md)
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 

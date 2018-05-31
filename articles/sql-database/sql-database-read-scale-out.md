@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: sashan
-ms.openlocfilehash: 6e82b851f7dc7e2b8c7fe996bff843c8f10f2978
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185424"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule (version préliminaire)
 
@@ -21,11 +22,13 @@ La **lecture du Scale-out** offre la possibilité d’équilibrer les charges de
 
 ## <a name="overview-of-read-scale-out"></a>Vue d’ensemble de la lecture du Scale-out
 
-Chaque base de données du niveau Premium ([modèle d’achat basé sur des unités DTU](sql-database-service-tiers.md#dtu-based-purchasing-model)) ou du niveau Critique pour l’entreprise ([modèle d’achat basé sur vCore](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) est automatiquement configurée avec plusieurs réplicas AlwaysON pour prendre en charge le contrat SLA de disponibilité. Ces réplicas sont configurés avec le même niveau de performances que le réplica en lecture-écriture utilisé par les connexions normales de base de données. La fonctionnalité **Lecture du Scale-out** vous permet d’équilibrer les charges de travail en lecture seule de la base de données SQL à l’aide de la capacité des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette manière, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. La fonctionnalité est conçue pour les applications incluant des charges de travail en lecture seule logiquement séparées, telles que des analyses, et pourrait par conséquent obtenir des gains de performance à l’aide de cette capacité supplémentaire sans aucun coût supplémentaire.
+Chaque base de données du niveau Premium ([modèle d’achat DTU](sql-database-service-tiers-dtu.md)) ou du niveau Critique pour l’entreprise ([modèle d’achat vCore](sql-database-service-tiers-vcore.md) (préversion)) est automatiquement configurée avec plusieurs réplicas AlwaysON pour prendre en charge le contrat SLA de disponibilité. Ces réplicas sont configurés avec le même niveau de performances que le réplica en lecture-écriture utilisé par les connexions normales de base de données. La fonctionnalité **Lecture du Scale-out** vous permet d’équilibrer les charges de travail en lecture seule de la base de données SQL à l’aide de la capacité des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. La fonctionnalité est conçue pour les applications incluant des charges de travail en lecture seule séparées logiquement, comme des analyses, et peut par conséquent obtenir des avantages en termes de performance en utilisant cette capacité sans frais supplémentaires.
 
 Pour utiliser la fonctionnalité de lecture du Scale-out avec une base de données particulière, vous devez l’activer explicitement lors de la création de la base de données, ou ultérieurement en modifiant sa configuration à l’aide de PowerShell en appelant les applets de commande [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [ New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou via l’API REST de Azure Resource Manager à l’aide de la méthode [Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate). 
 
 Une fois la lecture du Scale Out activée pour une base de données, les applications se connectant à cette base de données seront dirigées vers le réplica en lecture-écriture ou un réplica en lecture seule de cette base de données en fonction de la propriété `ApplicationIntent` configurée dans la chaîne de connexion de l’application. Pour plus d’informations sur la propriété `ApplicationIntent`, consultez [Spécification de l’intention de l’application](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+
+Si la lecture du Scale Out est désactivée ou si vous définissez la propriété ReadScale dans un niveau de service non pris en charge, toutes les connexions sont dirigées vers le réplica en lecture-écriture, indépendamment de la propriété `ApplicationIntent`.
 
 > [!NOTE]
 > Durant la préversion, le magasin de données des requêtes et les événements étendus ne sont pas pris en charge sur les réplicas en lecture seule.
@@ -54,6 +57,12 @@ L’une des chaînes de connexion suivantes connecte le client à un réplica en
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+Vous pouvez vérifier si vous êtes connecté à un réplica en lecture seule en exécutant la requête suivante. Elle retourne READ_ONLY en cas de connexion à un réplica en lecture seule.
+
+```SQL
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Activer et désactiver la lecture du Scale-out à l’aide d’Azure PowerShell

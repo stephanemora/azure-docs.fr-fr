@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309468"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -53,7 +54,7 @@ Les pools backend peuvent être composés de cartes d’interface réseau, de gr
 
 **Q. Dans quelles régions le service est-il disponible ?**
 
-Application Gateway est disponible dans toutes les régions de la version globale d’Azure. Il est également disponible dans [Azure en Chine](https://www.azure.cn/) et [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/).
+Application Gateway est disponible dans toutes les régions de la version globale d’Azure. Il est également disponible dans [Azure en Chine](https://www.azure.cn/) et [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
 
 **Q. S’agit-il d’un déploiement dédié à mon abonnement ou est-il partagé entre les clients ?**
 
@@ -178,6 +179,11 @@ Non, mais Application Gateway a une mesure de débit qui peut être utilisée po
 **Q. Est-ce que les opérations de montée/descente en puissance effectuées manuellement interrompent le service ?**
 
 Aucune interruption de service n’a lieu, les instances sont réparties entre les domaines de mise à niveau et les domaines d’erreur.
+
+**Q. Application Gateway prend-elle en charge le drainage de connexion ?**
+
+Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Ainsi, les connexions existantes continueront d’être envoyés à leur destination précédente jusqu'à ce que cette connexion soit fermée ou qu’un délai configurable expire. Notez que ce drainage de connexion attend uniquement la fin des connexions actuellement en transit. Application Gateway ne connaît pas l’état de la session d’application.
+
 
 **Q. Puis-je passer d’une taille d’instance moyenne à une taille d’instance grande sans interruption de service ?**
 
@@ -329,4 +335,4 @@ La raison la plus courante est le blocage de l’accès au serveur principal par
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Application Gateway, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+Pour en savoir plus sur Application Gateway, consultez [Qu’est-ce qu’Azure Application Gateway ?](overview.md)
