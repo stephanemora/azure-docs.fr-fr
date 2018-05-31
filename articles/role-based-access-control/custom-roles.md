@@ -6,121 +6,176 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2017
+ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c886655f0f9469b742532fa940519176a773ad41
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161054"
 ---
-# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure
-Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](role-assignments-powershell.md), de [l’interface de ligne de commande Azure](role-assignments-cli.md) et de [l’API REST](role-assignments-rest.md). Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un client Azure AD et peuvent être partagés entre les abonnements.
+# <a name="create-custom-roles-in-azure"></a>Créer des rôles personnalisés dans Azure
 
-Chaque locataire peut créer jusqu’à 2 000 rôles personnalisés. 
+Si les [rôles intégrés](built-in-roles.md) ne répondent pas à vos besoins d’accès, vous pouvez créer vos propres rôles personnalisés. Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un locataire Azure Active Directory (Azure AD) et peuvent être partagés entre les abonnements. Vous pouvez créer des rôles personnalisés à l’aide d’Azure PowerShell, de l’interface de ligne de commande Azure et de l’API REST. Cet article décrit un exemple qui initie à la création de rôles personnalisés à l’aide de PowerShell et de l’interface de ligne de commande Azure.
 
-Voici un exemple de rôle personnalisé pour surveiller et redémarrer des machines virtuelles :
+## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Créer un rôle personnalisé pour ouvrir des demandes de support à l’aide de PowerShell
+
+Pour créer un rôle personnalisé, vous pouvez prendre un rôle prédéfini pour commencer, le modifier puis créer un nouveau rôle. Pour cet exemple, le rôle intégré [Lecteur](built-in-roles.md#reader) est personnalisé pour créer un rôle personnalisé nommé « Reader support tickets access level ». Il permet à l’utilisateur de consulter tous les éléments de l’abonnement, ainsi que d’ouvrir des demandes de support.
+
+> [!NOTE]
+> Les deux seuls rôles intégrés qui autorisent un utilisateur à ouvrir des demandes de support sont [Propriétaire](built-in-roles.md#owner) et [Contributeur](built-in-roles.md#contributor). Pour pouvoir ouvrir des demandes de support, un utilisateur doit avoir un rôle au niveau de l’étendue de l’abonnement, car toutes les demandes de prise en charge sont créées sur la base d’un abonnement Azure.
+
+Dans PowerShell, utilisez la commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) pour exporter le rôle [Lecteur](built-in-roles.md#reader) au format JSON.
+
+```azurepowershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
+```
+
+Voici la sortie JSON pour le rôle [Lecteur](built-in-roles.md#reader). Un rôle est généralement composé de trois sections principales : `Actions`, `NotActions` et `AssignableScopes`. Dans la section `Actions`, toutes les opérations autorisées pour ce rôle sont répertoriées. Pour exclure des opérations d’`Actions`, vous les ajoutez à `NotActions`. Vous calculez les autorisations effectives en soustrayant les opérations `NotActions` des opérations `Actions`.
 
 ```json
 {
-  "Name": "Virtual Machine Operator",
-  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
-    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
-  ]
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
 }
 ```
-## <a name="actions"></a>Actions
-La propriété **Actions** d’un rôle personnalisé spécifie les opérations Azure auxquelles le rôle accorde l’accès. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Les chaînes d’opération sont au format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Les chaînes d’opération contenant des caractères génériques (\*) accordent l’accès à toutes les opérations qui correspondent à la chaîne d’opération. Exemple :
 
-* `*/read` accorde l’accès aux opérations de lecture pour tous les types de ressources de l’ensemble des fournisseurs de ressources Azure.
-* `Microsoft.Compute/*` accorde l’accès à l’ensemble des opérations pour tous les types de ressources dans le fournisseur de ressources Microsoft.Compute.
-* `Microsoft.Network/*/read` accorde l’accès aux opérations de lecture pour tous les types de ressources dans le fournisseur de ressources Microsoft.Network d’Azure.
-* `Microsoft.Compute/virtualMachines/*` accorde l’accès à toutes les opérations des machines virtuelles et ses types de ressources enfants.
-* `Microsoft.Web/sites/restart/Action` autorise le redémarrage des sites web.
+Vous modifiez ensuite la sortie JSON pour créer votre rôle personnalisé. Dans ce cas, pour créer des tickets de support, l’opération `Microsoft.Support/*` doit être ajoutée. Chaque action est mise à disposition à partir d’un fournisseur de ressources. Pour obtenir une liste des opérations pour un fournisseur de ressources, vous pouvez utiliser la commande [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) ou consulter [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md).
 
-Utilisez `Get-AzureRmProviderOperation` (dans PowerShell) ou `azure provider operations show` (dans l’interface de ligne de commande Azure) pour répertorier les opérations des fournisseurs de ressources Azure. Vous pouvez également utiliser ces commandes pour vérifier qu’une chaîne d’opération est valide et pour développer les chaînes d’opération génériques.
+Enfin, le rôle doit obligatoirement contenir les ID d’abonnement explicites où il est utilisé. Les ID d’abonnement sont répertoriés sous la section `AssignableScopes`. Sans ceux-ci, vous ne serez pas autorisé à importer le rôle dans votre abonnement.
 
-```powershell
-Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
+Enfin, vous devez définir la propriété `IsCustom` sur `true` pour spécifier qu’il s’agit d’un rôle personnalisé.
 
-Get-AzureRMProviderOperation Microsoft.Network/*
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
 ```
 
-![Capture d’écran PowerShell - Get-AzureRMProviderOperation](./media/custom-roles/1-get-azurermprovideroperation-1.png)
+Pour créer le rôle personnalisé, vous utilisez la commande [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) et fournissez le fichier de définition de rôle JSON mis à jour.
+
+```azurepowershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+Une fois la commande [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) exécutée, le nouveau rôle personnalisé est disponible dans le portail Azure et peut être attribué aux utilisateurs.
+
+![capture d’écran d’un rôle personnalisé importé dans le portail Azure](./media/custom-roles/18.png)
+
+![capture d’écran de l’attribution d’un rôle importé personnalisé à un utilisateur dans le même annuaire](./media/custom-roles/19.png)
+
+![capture d’écran d’autorisations pour un rôle importé personnalisé](./media/custom-roles/20.png)
+
+Les utilisateurs auxquels ce rôle personnalisé est attribué peuvent créer des demandes de support.
+
+![capture d’écran d’un rôle personnalisé créant des demandes de support](./media/custom-roles/21.png)
+
+Les utilisateurs auxquels ce rôle personnalisé est attribué ne peuvent pas effectuer d’autres actions, telles que créer des machines virtuelles ou créer des groupes de ressources.
+
+![capture d’écran d’un rôle personnalisé ne pouvant pas créer de machines virtuelles](./media/custom-roles/22.png)
+
+![capture d’écran d’un rôle personnalisé ne pouvant pas créer de nouveaux groupes de ressources](./media/custom-roles/23.png)
+
+## <a name="create-a-custom-role-to-open-support-requests-using-azure-cli"></a>Créer un rôle personnalisé pour ouvrir des demandes de support à l’aide d’Azure CLI
+
+Les étapes pour créer un rôle personnalisé à l’aide d’Azure CLI sont similaires à celles de PowerShell, à l’exception la sortie JSON qui est différente.
+
+Pour cet exemple, vous pouvez prendre le rôle intégré [Lecteur](built-in-roles.md#reader) pour commencer. Pour répertorier les actions du rôle [Lecteur](built-in-roles.md#reader), utilisez la commande [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
-azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
-
-azure provider operations show "Microsoft.Network/*"
+az role definition list --name "Reader" --output json
 ```
 
-![Capture d’écran de l’interface de ligne de commande Azure ; les opérations du fournisseur azure affichent « Microsoft.Compute/virtualMachines/\*/action » ](./media/custom-roles/1-azure-provider-operations-show.png)
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": [],
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
 
-## <a name="notactions"></a>NotActions
-Utilisez la propriété **NotActions** si l’ensemble des opérations que vous souhaitez autoriser est plus facile à définir en excluant les opérations restreintes. L’accès accordé par un rôle personnalisé est déterminé par l’élimination des opérations **NotActions** des opérations **Actions**.
+Créez un fichier JSON au format suivant. L’opération `Microsoft.Support/*` a été ajoutée dans la section `Actions` afin que cet utilisateur puisse ouvrir des demandes de support tout en continuant à être lecteur. Vous devez ajouter dans la section `AssignableScopes` l’ID de l’abonnement dans lequel ce rôle sera utilisé.
 
-> [!NOTE]
-> Si un utilisateur se voit attribuer un rôle qui exclut une opération dans **NotActions**et un second rôle qui accorde l’accès à cette même opération, il est autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
->
->
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-## <a name="assignablescopes"></a>AssignableScopes
-La propriété **AssignableScopes** du rôle personnalisé spécifie les étendues (abonnements, groupes de ressources ou ressources) au sein desquelles le rôle personnalisé peut être affecté. Vous pouvez rendre le rôle personnalisé disponible uniquement dans les abonnements ou les groupes de ressources qui le nécessitent afin de ne pas surcharger l’expérience utilisateur pour le reste des abonnements ou des groupes de ressources.
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
+```
 
-Voici des exemples d’étendues assignables valides :
+Pour créer le rôle personnalisé, utilisez la commande [az role definition create](/cli/azure/role/definition#az_role_definition_create).
 
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” : le rôle peut être affecté dans deux abonnements.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” : le rôle peut être affecté dans un seul abonnement.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network” : le rôle peut uniquement être affecté dans le groupe de ressources Network.
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
+```
 
-> [!NOTE]
-> Vous devez utiliser au moins un abonnement, groupe de ressources ou ID de ressource.
->
->
+Le nouveau rôle personnalisé est désormais disponible dans le portail Azure, et le processus d’attribution est le même que dans la section PowerShell précédente.
 
-## <a name="custom-roles-access-control"></a>Contrôle d’accès des rôles personnalisés
-La propriété **AssignableScopes** du rôle personnalisé contrôle également les personnes autorisées à afficher, modifier et supprimer le rôle.
+![Capture d’écran du portail Azure montrant le rôle personnalisé créé à l’aide d’Azure CLI 1.0](./media/custom-roles/26.png)
 
-* Qui peut créer un rôle personnalisé ?
-    Les propriétaires (et les administrateurs de l’accès utilisateur) d’abonnements, de groupes de ressources et de ressources peuvent créer des rôles personnalisés utilisables au sein de ces étendues.
-    L’utilisateur qui crée le rôle doit être en mesure d’effectuer l’opération `Microsoft.Authorization/roleDefinition/write` dans l’ensemble des étendues **AssignableScopes** du rôle.
-* Qui peut modifier un rôle personnalisé ?
-    Les propriétaires (et les administrateurs de l’accès utilisateur) d’abonnements, de groupes de ressources et de ressources peuvent modifier des rôles personnalisés au sein de ces étendues. Les utilisateurs doivent pouvoir effectuer l’opération `Microsoft.Authorization/roleDefinition/write` dans l’ensemble des étendues **AssignableScopes** d’un rôle personnalisé.
-* Qui peut afficher des rôles personnalisés ?
-    Tous les rôles intégrés dans le contrôle d’accès en fonction du rôle Azure permettent d’afficher les rôles pouvant être affectés. Les utilisateurs qui peuvent effectuer l’opération `Microsoft.Authorization/roleDefinition/read` dans une étendue sont autorisés à afficher les rôles RBAC pouvant être affectés dans cette étendue.
 
 ## <a name="see-also"></a>Voir aussi
-* [Contrôle d’accès en fonction du rôle Azure](role-assignments-portal.md): découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
-* Pour obtenir la liste des opérations disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md).
-* Découvrez comment gérer l’accès avec :
-  * [PowerShell](role-assignments-powershell.md)
-  * [interface de ligne de commande Azure](role-assignments-cli.md)
-  * [API REST](role-assignments-rest.md)
-* [RBAC : rôles intégrés](built-in-roles.md): obtenez des informations sur les rôles fournis en standard dans RBAC.
+- [Comprendre les définitions de rôles](role-definitions.md)
+- [Gestion du contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](role-assignments-powershell.md)
+- [Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure](role-assignments-cli.md)
+- [Gérer le contrôle d’accès en fonction du rôle à l’aide de l’API REST](role-assignments-rest.md)

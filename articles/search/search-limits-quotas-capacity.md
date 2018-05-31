@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203390"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [provisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base** ou **Standard**.
@@ -44,10 +45,13 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Nombre maximal d’index |3 |5 ou 15 |50 |200 |200 |1 000 par partition ou 3 000 par service |
 | Nombre maximal de champs par index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |
-| Nombre maximal de profils de score par index |100 |100 |100 |100 |100 |100 |
+| Nombre maximal de [générateurs de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |
+| Nombre maximal de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |
 | Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> La limite des services De base créés après fin 2017 a augmenté et atteint 15 index, sources de données et indexeurs. Celle des services créés avant est à 5. Le niveau De base est la seule référence soumise à une limite inférieure de 100 champs par index.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Limites du document 
 
@@ -87,12 +91,13 @@ Pour réduire la taille du document, pensez à exclure de la requête les donné
 
 ## <a name="indexer-limits"></a>Limites de l’indexeur
 
-La limite des services De base créés après fin 2017 a augmenté à 15 index, sources de données et indexeurs.
+La limite des services De base créés après 2017 a augmenté pour atteindre 15 index, sources de données, compétences et indexeurs.
 
 | Ressource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |N/A |
 | Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |N/A |
+| Compétences maximales <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |
 | Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A |
 | Durée maximale d’exécution | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |
@@ -103,6 +108,8 @@ La limite des services De base créés après fin 2017 a augmenté à 15 index, 
 <sup>2</sup> La limite des services De base créés après fin 2017 a augmenté pour atteindre 15 index, sources de données et indexeurs. Celle des services créés avant est à 5.
 
 <sup>3</sup> Les services S3 HD ne comprennent pas de prise en charge de l’indexeur.
+
+<sup>4</sup> Nombre maximal de 30 compétences par group de compétences.
 
 ## <a name="queries-per-second-qps"></a>Requêtes par seconde
 

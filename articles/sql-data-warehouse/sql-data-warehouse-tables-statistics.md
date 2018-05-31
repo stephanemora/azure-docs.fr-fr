@@ -7,14 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011762"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Création, mise à jour de statistiques sur des tables dans Azure SQL Data Warehouse
 Recommandations et exemples pour la création et la mise à jour de statistiques d’optimisation des requêtes sur des tables dans Azure SQL Data Warehouse.
@@ -22,24 +23,46 @@ Recommandations et exemples pour la création et la mise à jour de statistiques
 ## <a name="why-use-statistics"></a>Pourquoi utiliser des statistiques ?
 Plus Azure SQL Data Warehouse connaît vos données, plus il peut exécuter des requêtes sur celles-ci rapidement. La collecte de statistiques sur vos données et leur chargement dans SQL Data Warehouse est l’une des actions les plus importantes pour optimiser vos requêtes. En effet, l’optimiseur de requête SQL Data Warehouse est un optimiseur basé sur les coûts. Il compare le coût de différents plans de requête, puis choisit le plan avec le coût le plus bas, qui est le plus souvent celui dont l’exécution est la plus rapide. Par exemple, si l’optimiseur estime que la date que vous filtrez dans votre requête va renvoyer une ligne, il peut choisir un plan différent s’il estime que la date sélectionnée va renvoyer 1 million de lignes.
 
-Actuellement, la création et la mise à jour des statistiques sont des processus manuels, mais simples à réaliser.  Vous serez bientôt en mesure de créer et mettre à jour automatiquement les statistiques sur des colonnes uniques et des index.  En utilisant les informations suivantes, vous pouvez considérablement automatiser la gestion des statistiques sur vos données. 
+## <a name="automatic-creation-of-statistics"></a>Création automatique de statistiques
+Quand la création automatique de statistiques est activée, AUTO_CREATE_STATISTICS, SQL Data Warehouse analyse les requêtes utilisateur entrantes où des statistiques de colonne unique sont créées pour les colonnes dépourvues de statistiques. L’optimiseur de requête crée des statistiques sur des colonnes individuelles dans le prédicat de requête ou la condition de jointure afin d’améliorer les estimations de cardinalité pour le plan de requête. La création automatique de statistiques est activée par défaut.
 
-## <a name="scenarios"></a>Scénarios
-La création de statistiques échantillonnées sur chaque colonne est un bon moyen de bien démarrer. Les statistiques obsolètes entraînent des performances de requêtes non optimales. Cependant, la mise à jour des statistiques sur toutes les colonnes à mesure que vos données augmentent peut solliciter la mémoire. 
+Vous pouvez vérifier si elle est configurée pour votre entrepôt de données en exécutant la commande suivante :
 
-Voici quelques recommandations pour différents scénarios :
-| **Scénario** | Recommandation |
-|:--- |:--- |
-| **Prise en main** | Mettre à jour toutes les colonnes après la migration vers SQL Data Warehouse |
-| **Colonne la plus importante pour les statistiques** | Clé de distribution par hachage |
-| **Deuxième colonne la plus importante pour les statistiques** | Clé de partition |
-| **Autres colonnes importantes pour les statistiques** | Date, opérations JOIN fréquentes, GROUP BY, HAVING et WHERE |
-| **Fréquence des mises à jour des statistiques**  | Classique : quotidienne <br></br> Après le chargement ou la transformation de données |
-| **Échantillonnage** |  Moins de 1 milliard de lignes, utiliser le taux d’échantillonnage par défaut (20 pour cent) <br></br> Avec des tables contenant plus de 1 milliard de lignes, des statistiques sur une plage de 2 pour cent représentent un taux correct |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+Si la propriété AUTO_CREATE_STATISTICS n’est pas configurée pour votre entrepôt de données, nous vous recommandons de l’activer en exécutant la commande suivante :
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+Les instructions SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE et EXPLAIN déclenchent la création automatique de statistiques quand elles contiennent une jointure ou que la présence d’un prédicat est détectée. 
+
+> [!NOTE]
+> La création automatique de statistiques ne porte pas sur les tables temporaires ou externes.
+> 
+
+La création automatique de statistiques étant effectuée de façon synchrone, les performances des requêtes risquent de subir une légère détérioration si des statistiques n’ont pas déjà été créées pour vos colonnes. La création de statistiques peut prendre quelques secondes sur une seule colonne selon la taille de la table. Pour éviter de mesurer une détérioration des performances, en particulier dans le cadre d’une évaluation des performances, vous devez vous assurer que les statistiques ont été créées en exécutant la charge de travail du test d’évaluation avant de profiler le système.
+
+> [!NOTE]
+> La création de statistiques est également journalisée dans [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) sous un contexte utilisateur différent.
+> 
+
+Quand des statistiques automatiques sont créées, elles prennent la forme suivante : _WA_Sys_<ID de colonne de 8 chiffres en notation hexadécimale>_<ID de table de 8 chiffres en notation hexadécimale>. Vous pouvez voir les statistiques qui ont déjà été créées en exécutant la commande suivante :
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>Mettre à jour les statistiques
 
 Une meilleure pratique consiste à mettre à jour les statistiques sur les colonnes de date à chaque fois qu’une date est ajoutée. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes. À l’inverse, vous n’aurez peut-être jamais à mettre à jour les statistiques d’une colonne de pays dans une table des clients, car la distribution des valeurs change rarement. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données indique un seul pays et si vous importez des données d’un nouveau pays, ce qui entraîne donc le stockage de données de plusieurs pays, il est nécessaire de mettre à jour les statistiques de la colonne de pays.
+
+Voici certaines recommandations pour la mise à jour des statistiques :
+
+| **Fréquence des mises à jour des statistiques** | Classique : quotidienne <br></br> Après le chargement ou la transformation de vos données | | **Échantillonnage** | Moins de 1 milliard de lignes, utilisez l’échantillonnage par défaut (20 %) <br></br> Avec des tables contenant plus de 1 milliard de lignes, des statistiques sur une plage de 2 pour cent représentent un taux correct |
 
 L’une des premières questions que vous devez vous poser quand vous dépannez une requête est la suivante : **« Les statistiques sont-elles à jour ? »**
 

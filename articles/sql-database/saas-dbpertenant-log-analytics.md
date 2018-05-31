@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942052"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurer et utiliser Log Analytics avec une application SaaS SQL Database multilocataire
 
@@ -65,8 +66,8 @@ Les scripts et le code de l’application de base de données mutualisée SaaS W
 
 Log Analytics est un service distinct qui doit être configuré. Log Analytics collecte des données de journaux, de télémétrie et les métriques dans un espace de travail Log Analytics. Tout comme les autres ressources dans Azure, un espace de travail Log Analytics doit être créé. L’espace de travail ne doit pas être créé dans le même groupe de ressources que les applications qu’il surveille, même si cela est souvent l’option la plus logique. Pour l’application Wingtip Tickets, utilisez un groupe de ressources unique pour vous assurer que l’espace de travail est supprimé avec l’application.
 
-1. Dans PowerShell ISE, ouvrez *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\**Demo-LogAnalytics.ps1***.
-2. Pour exécuter le script, appuyez sur F5.
+1. Dans PowerShell ISE, ouvrez *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
+2. Pour exécuter le script, appuyez sur la touche F5.
 
 Vous pouvez maintenant ouvrir Log Analytics dans le portail Azure ou le portail Operations Management Suite. Il faut compter quelques minutes pour que les données de télémétrie soient collectées dans l’espace de travail Log Analytics et deviennent visibles. Plus vous laisserez de temps au système pour rassembler des données de diagnostic, plus l’expérience sera intéressante. 
 
