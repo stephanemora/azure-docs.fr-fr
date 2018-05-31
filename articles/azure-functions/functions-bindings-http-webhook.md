@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356322"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
 
@@ -37,11 +38,13 @@ Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.E
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>Déclencheur
 
 Le déclencheur HTTP vous permet d’appeler une fonction avec une requête HTTP. Vous pouvez utiliser un déclencheur HTTP pour générer des API serverless et répondre aux webhooks. 
 
-Par défaut, un déclencheur HTTP répond à la requête avec un code d’état HTTP 200 OK et un corps vide. Pour modifier la réponse, configurez une [liaison de sortie HTTP](#http-output-binding).
+Par défaut, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x. Pour modifier la réponse, configurez une [liaison de sortie HTTP](#http-output-binding).
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 
@@ -54,7 +57,7 @@ Consultez l’exemple propre à un langage particulier :
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
-L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP. Notez que la valeur renvoyée est utilisée pour la liaison de sortie, mais qu’aucun attribut de valeur renvoyée n’est requis.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -85,15 +88,29 @@ public static async Task<HttpResponseMessage> Run(
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici le fichier *function.json* :
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
@@ -145,15 +162,25 @@ public class CustomObject {
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction F#](functions-reference-fsharp.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici le fichier *function.json* :
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
@@ -201,15 +228,25 @@ Vous avez besoin d’un fichier `project.json` qui utilise NuGet pour référenc
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici le fichier *function.json* :
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
@@ -222,7 +259,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -261,15 +298,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 L’exemple suivant montre une liaison de déclencheur de webhook dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. Cette fonction enregistre les commentaires relatifs aux problèmes GitHub.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici le fichier *function.json* :
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
@@ -301,15 +348,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 L’exemple suivant montre une liaison de déclencheur de webhook dans un fichier *function.json* et une [fonction F#](functions-reference-fsharp.md) qui utilise la liaison. Cette fonction enregistre les commentaires relatifs aux problèmes GitHub.
 
-Voici les données de liaison dans le fichier *function.json* :
+Voici le fichier *function.json* :
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
@@ -345,11 +402,21 @@ Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
@@ -384,7 +451,6 @@ Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger-
 ## <a name="trigger---configuration"></a>Déclencheur - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `HttpTrigger`.
-
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
@@ -470,13 +536,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -547,35 +613,24 @@ Le fichier [host.json](functions-host-json.md) contient les paramètres qui cont
 
 ## <a name="output"></a>Sortie
 
-Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison requiert un déclencheur HTTP, et vous permet de personnaliser la réponse associée à la demande du déclencheur. Si aucune liaison de sortie HTTP n’est spécifiée, un déclencheur HTTP retourne HTTP 200 OK avec un corps vide. 
+Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison requiert un déclencheur HTTP, et vous permet de personnaliser la réponse associée à la demande du déclencheur. Si une liaison de sortie HTTP n’est pas fournie, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x.
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
-Pour les bibliothèques de classes C#, il n’existe aucune propriété de configuration de liaison propre à la sortie. Pour envoyer une réponse HTTP, choisissez un type de retour de fonction `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
-
-Pour les autres langages, une liaison de sortie HTTP est définie en tant qu’objet JSON dans le tableau `bindings` de function.json, comme dans l’exemple suivant :
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Pour les bibliothèques de classes C#, aucune propriété d’attribut ne correspond à ces propriétés *function.json*. 
 
 |Propriété  |Description  |
 |---------|---------|
 | **type** |Cette propriété doit être définie sur `http`. |
 | **direction** | Cette propriété doit être définie sur `out`. |
-|**name** | Nom de variable utilisé dans le code de fonction pour la réponse. |
+|**name** | Nom de variable utilisé dans le code de fonction pour la réponse, ou `$return` pour utiliser la valeur renvoyée. |
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
-Vous pouvez utiliser le paramètre de sortie pour répondre à l’appelant HTTP ou Webhook. Vous pouvez également utiliser les modèles de réponse de la norme du langage. Par obtenir des exemples de réponse, consultez l’[exemple de déclencheur](#trigger---example) et l’[exemple de webhook](#trigger---webhook-example).
+Pour envoyer une réponse HTTP, utilisez les modèles de réponse standard du langage. Dans un script C# ou C#, choisissez le type de retour de fonction `HttpResponseMessage` ou `Task<HttpResponseMessage>`. En C#, aucun attribut de valeur renvoyée n’est requis.
+
+Par obtenir des exemples de réponse, consultez l’[exemple de déclencheur](#trigger---example) et l’[exemple de webhook](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
+[En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

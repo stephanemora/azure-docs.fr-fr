@@ -1,6 +1,6 @@
 ---
-title: Créer des alertes de journal d’activité et les gérer avec la nouvelle expérience Alertes (préversion) dans Azure Monitor | Microsoft Docs
-description: Cet article donne des informations sur la création d’alertes de journal d’activité avec l’onglet Alertes (préversion) sous Azure Monitor. Il décrit en détail la nouvelle expérience utilisateur de cette fonctionnalité.
+title: Créer des alertes de journal d’activité et les gérer avec la nouvelle expérience d’alertes dans Azure Monitor | Microsoft Docs
+description: Cet article donne des informations sur la façon de créer des alertes de journal d’activité sous l’onglet Alertes dans Azure Monitor.
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202818"
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Créer des alertes de journal d’activité avec la nouvelle expérience Alertes (préversion)
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Créer des alertes de journal d’activité avec la nouvelle expérience d’alertes
 
 Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte.
 
-Elles concernent les ressources Azure. Pour les créer, il est possible d’utiliser un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Il explique ensuite comment utiliser le Portail Azure pour configurer une alerte sur des événements du journal d’activité dans [Alertes Azure (préversion)](monitoring-overview-unified-alerts.md).
+Elles concernent les ressources Azure. Pour les créer, il est possible d’utiliser un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Il explique ensuite comment utiliser le portail Azure pour configurer une alerte sur des événements du journal d’activité dans [Alertes Azure](monitoring-overview-unified-alerts.md).
 
 En général, les alertes de journal d’activité permettent de recevoir une notification en cas de modification particulière des ressources de l’abonnement Azure, souvent à l’échelle d’un groupe de ressources ou d’une ressource en particulier. Par exemple, vous pouvez demander à être informé lorsqu’une machine virtuelle de **myProductionResourceGroup** (exemple de groupe de ressources) est supprimée, ou que de nouveaux rôles sont attribués à l’un des utilisateurs de votre abonnement.
 
@@ -46,11 +47,11 @@ Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des
 Pour en savoir plus sur les notifications d’intégrité du service, consultez [Recevoir des alertes de journal d’activité sur les notifications d’intégrité du service](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>Nouveautés de la préversion Alertes pour les journaux d’activité
+## <a name="whats-new-in-alerts-for-activity-logs"></a>Nouveautés des alertes pour les journaux d’activité
 
-[Alertes Azure (aperçu)](monitoring-overview-unified-alerts.md) offre désormais une meilleure expérience utilisateur pour les alertes de journal d’activité. Avec cette [expérience optimisée](monitoring-overview-unified-alerts.md), vous pouvez à présent :
+[Alertes Azure](monitoring-overview-unified-alerts.md) offre désormais une meilleure expérience utilisateur pour les alertes de journal d’activité. Avec cette [expérience optimisée](monitoring-overview-unified-alerts.md), vous pouvez à présent :
 
-- [Créer](#create-an-alert-rule-for-an-activity-log) et [gérer](#view-and-manage-activity-log-alert-rules) les règles d’alerte de journal d’activité sur le panneau **Monitor** > **Alertes (préversion)**. En savoir plus sur les [Journaux d’activité](monitoring-overview-activity-logs.md).
+- [Créer](#create-an-alert-rule-for-an-activity-log) et [gérer](#view-and-manage-activity-log-alert-rules) les règles d’alerte de journal d’activité à partir du panneau **Analyse** > **Alertes**. En savoir plus sur les [Journaux d’activité](monitoring-overview-activity-logs.md).
 
 - **Nouvelles options pour la cible des alertes** : à la création d’une règle d’alerte de journal d’activité, il est maintenant possible de sélectionner une ressource cible, un groupe de ressources ou un abonnement.
 
@@ -68,8 +69,8 @@ Pour en savoir plus sur les notifications d’intégrité du service, consultez 
 
 Procédez comme suit :
 
-1. Sur le Portail Azure, sélectionnez **Monitor** > **Alertes (préversion)**.
-2. Cliquez sur **Nouvelle règle d’alerte** en haut de la fenêtre **Alertes (préversion)**.
+1. Dans le portail Azure, sélectionnez **Surveiller** > **Alertes**.
+2. Cliquez sur **Nouvelle règle d’alerte** en haut de la fenêtre **Alertes**.
 
      ![nouvelle règle d'alerte](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +131,7 @@ Procédez comme suit :
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Afficher et gérer les règles d’alerte de journal d’activité
 
-1. Sur le Portail Azure, cliquez sur **Monitor** > **Alertes (préversion)**, puis sur **Gérer les règles** en haut à gauche de la fenêtre.
+1. Dans le portail Azure, cliquez sur **Surveiller** > **Alertes**, puis sur **Gérer les règles** en haut à gauche de la fenêtre.
 
     ![ gérer les règles d’alerte](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

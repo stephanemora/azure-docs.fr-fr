@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359524"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -55,6 +56,18 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* Ajout de la prise en charge de la stratégie d’index unique.
+* Ajout de la possibilité de limiter la taille du jeton de continuation de réponse dans les options de flux.
+* Ajout de la prise en charge de la division de partition dans une requête portant sur plusieurs partitions.
+* Correction d’un bogue lié à la sérialisation de timestamp Json ([github n°32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Correction d’un bogue lié à la sérialisation d’énumération Json.
+* Correction d’un bogue lié à la gestion des documents d’une taille de 2 Mo ([github n°33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Mise à niveau de la dépendance com.fasterxml.jackson.core:jackson-databind vers 2.9.5 en raison d’un bogue ([jackson-databind: github n°1 599](https://github.com/FasterXML/jackson-databind/issues/1599)).
+* Mise à niveau de la dépendance rxjava-extras vers 0.8.0.17 en raison d’un bogue ([rxjava-extras: github n°30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Mise à jour de la description des métadonnées du fichier pom en fonction du reste de la documentation.
+* Amélioration de la syntaxe ([github n°41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github n°40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Ajout de la prise en charge de la contre-pression dans la requête.
 * Ajout de la prise en charge de l’ID de plage de clés de partition dans la requête.
@@ -79,6 +92,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |18 mai 2018|--- |
 | [1.0.1](#1.0.1) |20 avril 2018|--- |
 | [1.0.0](#1.0.0) |27 février 2018|--- |
 

@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209706"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrer des machines virtuelles Azure vers une autre région
 
@@ -103,7 +104,7 @@ Le nouveau coffre est ajouté à la zone **Tableau de bord** dans **Toutes les r
 ## <a name="select-the-source"></a>Sélectionner la source
 
 1. Dans Coffres Recovery Services, cliquez sur **ConsotoVMVault** > **+Répliquer**.
-2. Dans **Source**, sélectionnez **Azure - PREVIEW**.
+2. Dans **Source**, sélectionnez **Azure**.
 3. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 4. Sélectionnez le modèle de déploiement Resource Manager. Sélectionnez ensuite **Groupe de ressources source**.
 5. Cliquez sur **OK** pour enregistrer les paramètres.
@@ -116,7 +117,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
 1. Dans le portail Azure, sélectionnez **Machines virtuelles**.
 2. Sélectionnez la machine virtuelle que vous souhaitez migrer. Cliquez ensuite sur **OK**.
-3. Dans **Paramètres**, cliquez sur **Récupération d’urgence (préversion)**.
+3. Dans **Paramètres**, cliquez sur **Récupération d’urgence**.
 4. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication.
 5. Pour ce didacticiel, acceptez les autres paramètres par défaut.
 6. Cliquez sur **Activer la réplication**. Cette opération démarre un travail consistant à activer la réplication pour la machine virtuelle.
