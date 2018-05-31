@@ -2,20 +2,26 @@
 title: 'Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service : Azure AD'
 description: Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service d’Azure AD
 services: active-directory
-ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
+keywords: ''
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: d3e43d3484d321c93b4ac3b0e2b947b69af5d2c6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.assetid: ''
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/11/2018
+ms.author: joflore
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: b6f201c7c4aab477b2dbd7462653494f956ecc61
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869952"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159900"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 

@@ -1,9 +1,9 @@
 ---
-title: "Exporter vers Power BI à partir d’Azure Application Insights | Microsoft Docs"
-description: "Les requêtes Analytics peuvent être affichées dans Power BI."
+title: Exporter vers Power BI à partir d’Azure Application Insights | Microsoft Docs
+description: Les requêtes Analytics peuvent être affichées dans Power BI.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869051"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
-[Power BI](http://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque appareil bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](app-insights-overview.md).
+[Power BI](http://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](app-insights-overview.md).
 
 Pour exporter des données d’Application Insights vers Power BI, nous vous recommandons trois méthodes. Vous pouvez les utiliser séparément ou ensemble.
 
@@ -102,7 +103,7 @@ Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Capture d’écran de Power BI Desktop, avec le changement de titre mis en surbrillance](./media/app-insights-export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Vous pouvez rencontrer des erreurs liées aux informations d’identification ou à la taille du jeu de données. Voici quelques informations sur la manière de gérer ces erreurs.
 

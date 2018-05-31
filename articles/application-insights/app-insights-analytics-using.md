@@ -1,9 +1,9 @@
 ---
-title: "Utilisation d’Analytics, le puissant outil de recherche d’Azure Application Insights | Microsoft Docs"
-description: "Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. "
+title: Utilisation d’Analytics, le puissant outil de recherche d’Azure Application Insights | Microsoft Docs
+description: 'Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869884"
 ---
 # <a name="using-analytics-in-application-insights"></a>Utilisation d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
