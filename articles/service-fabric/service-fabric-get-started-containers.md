@@ -12,13 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/18/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366526"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
@@ -199,6 +200,8 @@ Le service en conteneur a besoin d’un point de terminaison pour la communicati
 ```
 
 En définissant un point de terminaison, Service Fabric publie le point de terminaison sur le service d’affectation de noms. D’autres services qui s’exécutent dans le cluster peuvent résoudre ce conteneur. Vous pouvez également effectuer la communication de conteneur à conteneur à l’aide du [proxy inversé](service-fabric-reverseproxy.md). Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inversé et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement.
+
+Le service est à l’écoute sur un port spécifique (8081 dans cet exemple). Lorsque l’application est déployée sur un cluster dans Azure, le cluster et l’application s’exécutent derrière un équilibreur de charge Azure. Le port de l’application doit être ouvert dans l’équilibreur de charge Azure afin que le trafic entrant puisse accéder au service.  Vous pouvez ouvrir ce port dans l’équilibreur de charge Azure en vous aidant d’un [script PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) ou en intervenant dans le [portail Azure](https://portal.azure.com).
 
 ## <a name="configure-and-set-environment-variables"></a>Configurer et définir des variables d’environnement
 Il est possible de spécifier des variables d’environnement pour chaque package de code dans le manifeste de service. Cette fonctionnalité est disponible pour tous les services, qu’ils soient déployés sous forme de conteneurs, de processus ou d’exécutables invités. Vous pouvez remplacer les valeurs de variable d’environnement dans le manifeste de l’application, ou les spécifier lors du déploiement, en tant que paramètres d’application.

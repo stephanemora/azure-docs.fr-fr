@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à TrackVia | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et TrackVia."
+title: 'Didacticiel : Intégration d’Azure Active Directory à TrackVia | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TrackVia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: f0b0a2f29a1c14477fcd52e03fdfc47fee728c78
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Didacticiel : Intégration d’Azure Active Directory à TrackVia
 
@@ -30,9 +31,10 @@ L’intégration de TrackVia à Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à TrackVia (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à TrackVia, vous avez besoin des éléments suivants :
 
@@ -121,16 +123,27 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Pour configurer l’authentification unique côté **TrackVia**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe de support TrackVia](mailto:support@trackvia.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Dans la section **Configuration de TrackVia**, cliquez sur **Configurer TrackVia** pour ouvrir la fenêtre **Configurer la connexion**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**.
+
+    ![Configuration de TrackVia](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise TrackVia en tant qu’administrateur.
+
+9. Cliquez sur les paramètres **Mon compte** de TrackVia, puis sélectionnez l’onglet **Authentification unique** et suivez les étapes ci-dessous :
+
+    ![Configuration de TrackVia](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. Dans la zone de texte **ID d’entité du fournisseur d’identité**, collez la valeur **ID d’entité SAML** copiée sur le Portail Azure.
+
+    b. Sélectionnez **Choisir un fichier** pour charger le fichier de métadonnées que vous avez téléchargé sur le Portail Azure.
+
+    c. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -210,9 +223,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -227,4 +238,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

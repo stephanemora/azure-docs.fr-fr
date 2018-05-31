@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 09a1bfc47cd048e371575f80933f5bfd0116bf8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 131f147e2c445e8cfef12288d4d0d29f6fd7fe01
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32167549"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Copier des données de Xero à l’aide d’Azure Data Factory (version bêta)
 
@@ -55,7 +56,7 @@ Les propriétés prises en charge pour le service lié Xero sont les suivantes :
 | Type | La propriété de type doit être définie sur **Xero** | OUI |
 | host | Le point de terminaison du serveur Xero (`api.xero.com`).  | OUI |
 | consumerKey | Clé de consommateur associée à l’application Xero. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| privateKey | La clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero, consultez [Créer une paire de clés publique/privée](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n), voir l’exemple ci-dessous.<br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| privateKey | La clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero, consultez [Créer une paire de clés publique/privée](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Remarque : pour **générer privatekey.pem avec numbits 512** à l’aide de `openssl genrsa -out privatekey.pem 512` ; 1024 n’est pas pris en charge. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n), voir l’exemple ci-dessous.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte est requis dans le certificat de serveur et doit correspondre au nom d’hôte du serveur lors de la connexion via le protocole SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |

@@ -13,16 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6f184ac0b2af3a66affecd1a3a9c247a96e616f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bfd4738797a98fda85053e689e539b93fb6d1b74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364316"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Didacticiel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure CLI 2.0
+
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -35,31 +37,22 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
+Si vous choisissez d’installer et d’utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.32 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
-Pour aider à créer des règles de mise à l’échelle automatique, définissez des paramètres pour votre ID d’abonnement, groupe de ressources, nom de groupe identique, et emplacement :
-
-```azurecli-interactive
-sub=$(az account show --query id -o tsv)
-resourcegroup_name="myResourceGroup"
-scaleset_name="myScaleSet"
-location_name="eastus"
-```
 
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create) comme suit :
 
 ```azurecli-interactive
-az group create --name $resourcegroup_name --location $location_name
+az group create --name myResourceGroup --location eastus
 ```
 
 Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#create). L’exemple suivant crée un groupe identique avec *2* instances, et génère des clés SSH si elles n’existent pas :
 
 ```azurecli-interactive
 az vmss create \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
   --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --instance-count 2 \
@@ -67,177 +60,59 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-
 ## <a name="define-an-autoscale-profile"></a>Définir un profil de mise à l’échelle automatique
-Les règles de mise à l’échelle automatique sont déployées en tant que JSON (JavaScript Object Notation) avec Azure CLI 2.0. Nous allons examiner chaque partie de ce profil de mise à l’échelle automatique, puis créer un exemple complet.
 
-Le début du profil de mise à l’échelle automatique définit les capacités par défaut, minimale et maximale du groupe identique. L’exemple suivant définit les capacités par défaut et minimale de *2* instances de machine virtuelle, et la capacité maximale de *10* :
-
-```json
-{
-  "name": "autoscale rules",
-  "capacity": {
-    "minimum": "2",
-    "maximum": "10",
-    "default": "2"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-out"></a>Créer une règle pour l’augmentation automatique
-Si la demande de votre application augmente, la charge sur les instances de machine virtuelle dans votre groupe identique augmente. Si cette augmentation de la charge est cohérente, au lieu d’une brève demande, vous pouvez configurer des règles de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle dans le groupe identique. Lorsque ces instances de machine virtuelle sont créées et que vos applications sont déployées, le groupe identique commence à distribuer le trafic vers les instances via l’équilibreur de charge. Vous contrôlez les métriques à surveiller, telles que l’usage du processeur ou du disque, la durée pendant laquelle la charge de l’application doit respecter un seuil donné, et le nombre d’instances de machine virtuelle à ajouter au groupe identique.
-
-Créons une règle qui augmente le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est supérieure à 70 % pendant 5 minutes. Lorsque la règle se déclenche, le nombre d’instances de machine virtuelle est majoré de trois unités.
-
-Les paramètres suivants sont utilisés pour cette règle :
-
-| Paramètre         | Explication                                                                                                         | Valeur           |
-|-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | Métrique de performances à surveiller et sur laquelle appliquer des actions de groupe identique.                                                   | Percentage CPU  |
-| *timeGrain*       | Fréquence à laquelle les métriques sont collectées à des fins d’analyse.                                                                   | 1 minute        |
-| *timeAggregation* | Définit la manière dont les métriques collectées doivent être agrégées à des fins d’analyse.                                                | Moyenne         |
-| *timeWindow*      | Temps de surveillance avant que les valeurs de métrique et de seuil soient comparées.                                   | 5 minutes       |
-| *operator*        | Opérateur utilisé pour comparer les données de métrique au seuil.                                                     | Supérieur à    |
-| *threshold*       | Valeur qui amène la règle de mise à l’échelle automatique à déclencher une action.                                                      | 70 %             |
-| *direction*       | Définit si le groupe identique doit être augmenté ou réduit lorsque la règle s’applique.                                              | Augmenter        |
-| *type*            | Indique que le nombre d’instances de machine virtuelle doit être modifié par une certaine valeur.                                    | Nombre de modifications    |
-| *value*           | Nombre d’instances de machine virtuelle à ajouter ou à supprimer lorsque la règle s’applique.                                             | 3               |
-| *cooldown*        | Temps d’attente avant que la règle soit appliquée à nouveau afin que les actions de mise à l’échelle automatique aient le temps de porter effet. | 5 minutes       |
-
-L’exemple suivant définit la règle pour augmenter le nombre d’instances de machine virtuelle. Le paramètre *metricResourceUri* utilise les variables précédemment définies pour l’ID d’abonnement, le nom du groupe de ressources et le nom du groupe identique :
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "GreaterThan",
-    "threshold": 70
-  },
-  "scaleAction": {
-    "direction": "Increase",
-    "type": "ChangeCount",
-    "value": "3",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-in"></a>Créer une règle pour la diminution automatique
-Au cours d’une soirée ou d’un week-end, la demande de votre application peut diminuer. Si cette charge réduite est constante pendant un certain temps, vous pouvez configurer des règles de mise à l’échelle automatique pour réduire le nombre d’instances de machine virtuelle dans le groupe identique. Cette action de diminution du nombre d’instances a pour effet de réduire le coût d’exécution de votre groupe identique, car vous seul exécutez le nombre d’instances requis pour répondre à la demande en cours.
-
-Créez une autre règle qui diminue le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est inférieure à 30 % pendant 5 minutes. L’exemple suivant définit la règle pour diminuer de une unité le nombre d’instances de machine virtuelle. Le paramètre *metricResourceUri* utilise les variables précédemment définies pour l’ID d’abonnement, le nom du groupe de ressources et le nom du groupe identique :
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "LessThan",
-    "threshold": 30
-  },
-  "scaleAction": {
-    "direction": "Decrease",
-    "type": "ChangeCount",
-    "value": "1",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>Appliquer des règles de mise à l’échelle automatique à un groupe identique
-L’étape finale consiste à appliquer le profil et les règles de mise à l’échelle automatique à votre groupe identique. Votre groupe identique peut ensuite augmenter ou diminuer automatiquement en fonction de la demande de l’application. Appliquez le profil de mise à l’échelle automatique à l’aide de la commande [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) comme suit. Le JSON complet suivant utilise le profil et les règles indiquées dans les sections précédentes :
+Pour activer la mise à l’échelle automatique sur un groupe identique, vous devez d’abord définir un profil de mise à l’échelle automatique. Ce profil définit les capacités par défaut, minimale et maximale du groupe identique. Ces limites vous permettent de contrôler le coût en évitant de créer des instances de machine virtuelle en continu et d’équilibrer les performances acceptables sur un nombre minimal d’instances qui restent dans un événement de diminution du nombre d’instances. Créez un profil de mise à l’échelle automatique [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). L’exemple suivant définit les capacités par défaut et minimale de *2* instances de machine virtuelle, et la capacité maximale de *10* :
 
 ```azurecli-interactive
-az monitor autoscale-settings create \
-    --resource-group $resourcegroup_name \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "'$location_name'",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "autoscale by percentage based on CPU usage",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "3",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'"
-    }'
+az monitor autoscale create \
+  --resource-group myResourceGroup \
+  --resource myScaleSet \
+  --resource-type Microsoft.Compute/virtualMachineScaleSets \
+  --name autoscale \
+  --min-count 2 \
+  --max-count 10 \
+  --count 2
 ```
 
+## <a name="create-a-rule-to-autoscale-out"></a>Créer une règle pour l’augmentation automatique
 
-## <a name="generate-cpu-load-on-scale-set"></a>Générer une charge du processeur sur un groupe identique
+Si la demande de votre application augmente, la charge sur les instances de machine virtuelle dans votre groupe identique augmente. Si cette augmentation de la charge est cohérente, au lieu d’une brève demande, vous pouvez configurer des règles de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle dans le groupe identique. Lorsque ces instances de machine virtuelle sont créées et que vos applications sont déployées, le groupe identique commence à distribuer le trafic vers les instances via l’équilibreur de charge. Vous contrôlez les métriques à surveiller, telles que l’usage du processeur ou du disque, la durée pendant laquelle la charge de l’application doit respecter un seuil donné, et le nombre d’instances de machine virtuelle à ajouter au groupe identique.
+
+Créons avec [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) une règle qui augmente le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est supérieure à 70 % pendant 5 minutes. Lorsque la règle se déclenche, le nombre d’instances de machine virtuelle est majoré de trois unités.
+
+```azurecli-interactive
+az monitor autoscale rule create \
+  --resource-group myResourceGroup \
+  --autoscale-name autoscale \
+  --condition "Percentage CPU > 70 avg 5m" \
+  --scale out 3
+```
+
+## <a name="create-a-rule-to-autoscale-in"></a>Créer une règle pour la diminution automatique
+
+Au cours d’une soirée ou d’un week-end, la demande de votre application peut diminuer. Si cette charge réduite est constante pendant un certain temps, vous pouvez configurer des règles de mise à l’échelle automatique pour réduire le nombre d’instances de machine virtuelle dans le groupe identique. Cette action de diminution du nombre d’instances a pour effet de réduire le coût d’exécution de votre groupe identique, car vous seul exécutez le nombre d’instances requis pour répondre à la demande en cours.
+
+Créez avec [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) une autre règle qui réduit le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est inférieure à 30 % pendant 5 minutes. L’exemple suivant définit la règle pour diminuer d’une unité le nombre d’instances de machine virtuelle :
+
+```azurecli-interactive
+az monitor autoscale rule create \
+  --resource-group myResourceGroup \
+  --autoscale-name autoscale \
+  --condition "Percentage CPU < 30 avg 5m" \
+  --scale in 1
+```
+
+## <a name="generate-cpu-load-on-scale-set"></a>Générer une charge d’UC sur un groupe identique
+
 Pour tester les règles de mise à l’échelle automatique, générez des charges du processeur sur les instances de machine virtuelle dans le groupe identique. Cette charge du processeur simulée provoque la mise à l’échelle automatique afin d’entraîner une montée en puissance et l’augmentation du nombre d’instances de machine virtuelle. Comme la charge du processeur simulée est ensuite diminuée, les règles de mise à l’échelle automatique réduisent le nombre d’instances de machine virtuelle.
 
 Tout d’abord, affichez l’adresse et les ports à connecter aux instances de machine virtuelle d’un groupe identique avec la commande [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) :
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name
+  --resource-group myResourceGroup \
+  --name myScaleSet
 ```
 
 L’exemple de sortie suivant affiche le nom de l’instance, l’adresse IP publique de l’équilibreur de charge et le numéro de port où les règles de traduction d’adresse réseau (NAT) transfèrent le trafic :
@@ -299,12 +174,13 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Surveiller les règles actives de mise à l’échelle automatique
-Pour surveiller le nombre d’instances de machine virtuelle dans votre groupe identique, utilisez **watch**. Les règles de mise à l’échelle automatique prennent 5 minutes pour commencer le processus de montée en puissance en réponse à la charge d’UC générée par **stress** sur chacune des instances de machine virtuelle :
+
+Pour surveiller le nombre d’instances de machine virtuelle dans votre groupe identique, utilisez **watch**. Les règles de mise à l’échelle automatique prennent 5 minutes pour commencer le processus de scale-out en réponse à la charge d’UC générée par **stress** sur chacune des instances de machine virtuelle :
 
 ```azurecli-interactive
 watch az vmss list-instances \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
   --output table
 ```
 
@@ -315,31 +191,31 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
-           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  4f92f350-2b68-464f-8a01-e5e590557955
-           2  True                  eastus      myScaleSet_2  Succeeded            MYRESOURCEGROUP  d734cd3d-fb38-4302-817c-cfe35655d48e
-           4  True                  eastus      myScaleSet_4  Creating             MYRESOURCEGROUP  061b4c90-0d73-49fc-a066-19eab0b3d95c
-           5  True                  eastus      myScaleSet_5  Creating             MYRESOURCEGROUP  4beff8b9-4e65-40cb-9652-43899309da27
-           6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           1  True                  eastus      myScaleSet_1  Succeeded            myResourceGroup  4f92f350-2b68-464f-8a01-e5e590557955
+           2  True                  eastus      myScaleSet_2  Succeeded            myResourceGroup  d734cd3d-fb38-4302-817c-cfe35655d48e
+           4  True                  eastus      myScaleSet_4  Creating             myResourceGroup  061b4c90-0d73-49fc-a066-19eab0b3d95c
+           5  True                  eastus      myScaleSet_5  Creating             myResourceGroup  4beff8b9-4e65-40cb-9652-43899309da27
+           6  True                  eastus      myScaleSet_6  Creating             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 Une fois que **stress** s’arrête sur les instances initiales de machine virtuelle, la charge d’UC moyenne retourne à la normale. Lorsque 5 autres minutes ont passé, les règles de mise à l’échelle automatique diminuent le nombre d’instances de machine virtuelle. La diminution commence par la suppression des instances de machine virtuelle disposant des ID les plus élevés. Lorsqu’un groupe identique utilise des groupes à haute disponibilité ou des zones de disponibilité, les actions d’échelle sont réparties uniformément entre les instances de machine virtuelle. La sortie d’exemple suivante montre une instance de machine virtuelle supprimée lors de la diminution automatique :
 
 ```bash
-           6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           6  True                  eastus      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 Fermez *watch* avec `Ctrl-c`. Le groupe identique continue à diminuer toutes les 5 minutes et supprime une instance de machine virtuelle jusqu’à ce que la quantité minimale d’instances (2) soit atteinte.
 
-
 ## <a name="clean-up-resources"></a>Supprimer des ressources
+
 Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group#az_group_delete). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive
-az group delete --name $resourcegroup_name --yes --no-wait
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce didacticiel, vous avez appris à mettre automatiquement à l’échelle un groupe identique avec Azure CLI 2.0 :
 
 > [!div class="checklist"]

@@ -10,11 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191517"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans le portail Azure
 
@@ -74,13 +75,13 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 6. Cliquez sur **Niveau de performances** pour spécifier la configuration des performances de l’entrepôt de données.
 
-7. Pour ce didacticiel, sélectionnez le niveau de performances **Optimisé pour l’élasticité**. Par défaut, le curseur est défini sur **DW400**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
+7. Sélectionnez **Gen2** pour ce tutoriel. Par défaut, le curseur est défini sur **DW1000c**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
 
     ![configurer les performances](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Cliquez sur **Appliquer**.
 
-9. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes. 
+9. Maintenant que vous avez rempli le formulaire SQL Data Warehouse, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes. 
 
     ![cliquer sur créer](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -96,7 +97,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 > SQL Data Warehouse communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 >
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le nom de serveur complet (par exemple **mynewserver-20171113.database.windows.net**) et fournit des options pour poursuivre la configuration. 
+1. Une fois le déploiement terminé, cliquez sur **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Entrepôts de données SQL Data Warehouse**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20180430.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
 2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants. Pour ouvrir les paramètres du serveur, cliquez sur le nom du serveur.
 
@@ -127,8 +128,8 @@ Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de don
 Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utiliserez le nom complet du serveur par la suite pour vous connecter au serveur.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20171113.database.windows.net. 
+2. Sélectionnez **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur votre entrepôt de données dans la page **Entrepôts de données SQL Data Warehouse**. 
+3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20180430.database.windows.net. 
 
     ![informations de connexion](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -143,7 +144,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
    | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
-   | Nom du serveur | Nom complet du serveur | Voici un exemple : **mynewserver-20171113.database.windows.net**. |
+   | Nom du serveur | Nom complet du serveur | Voici un exemple : **mynewserver-20180430.database.windows.net**. |
    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification configuré dans ce didacticiel. |
    | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
    | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
@@ -197,7 +198,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 2. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 
-3. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20171113.database.windows.net** dans l’image précédente, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
+3. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20180430.database.windows.net** dans l’image précédente, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
 
 4. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
 

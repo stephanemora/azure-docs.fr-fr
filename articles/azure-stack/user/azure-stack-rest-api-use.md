@@ -1,53 +1,60 @@
 ---
 title: Utilisation de l’API Azure Stack | Microsoft Docs
-description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API sur Azure Stack.
+description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API auprès d’Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.reviewer: sijuman
-ms.openlocfilehash: 3523f86791a3bf437cbd21ba4df5afc0cd1955fd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.reviewer: thoroet
+ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359109"
 ---
-<!--  cblackuk and charliejllewellyn -->
+<!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>Utiliser l’API Azure Stack
 
-Vous pouvez utiliser l’API Azure Stack pour automatiser les opérations comme la syndication des éléments de la Place de marché.
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Le processus nécessite l’authentification de votre client par rapport au point de terminaison de connexion Microsoft Azure. Le point de terminaison renvoie un jeton. Fournissez le jeton dans l’en-tête de chacune des requêtes transmises à l’API Azure Stack. Azure utilise OAuth2.0.
+Vous pouvez utiliser l’interface de programmation d’application (API) Azure Stack pour automatiser des opérations comme la syndication d’éléments de Place de marché.
 
-Cet article fournit des exemples simples spécifiques à Azure Stack, utilisant l’utilitaire curl. Cette rubrique aborde le processus de récupération d’un jeton pour accéder à l’API Azure Stack. La plupart des langages proposent des bibliothèques Oauth 2.0, qui prennent en charge de lourdes tâches de gestion des jetons et de manipulation des tâches, comme l’actualisation des jetons.
+L’API exige que votre client s’authentifie auprès du point de terminaison de connexion Microsoft Azure. Le point de terminaison renvoie un jeton à utiliser dans l’en-tête de chacune des requêtes transmises à l’API Azure Stack. Microsoft Azure utilise Oauth 2.0.
 
-L’examen du processus complet d’utilisation de l’API REST Azure Stack avec un client REST générique comme curl peut faciliter la compréhension des requêtes sous-jacentes, et permet d’anticiper le contenu reçu dans la charge utile de la réponse.
+Cet article fournit des exemples qui utilisent l’utilitaire **cURL** pour créer des requêtes Azure Stack. L’application, cURL, est un outil en ligne de commande disposant d’une bibliothèque pour le transfert de données. Ces exemples abordent le processus de récupération d’un jeton pour accéder à l’API Azure Stack. La plupart des langages de programmation proposent des bibliothèques Oauth 2.0, qui prennent en charge de lourdes tâches de gestion des jetons et de manipulation des tâches, comme l’actualisation des jetons.
 
-Cet article ne traite pas de l’ensemble des options disponibles pour la récupération des jetons comme la connexion interactive ou la création d’ID d’application dédiés. Pour plus d’informations, consultez les [informations de référence sur l’API REST Azure](https://docs.microsoft.com/rest/api/).
+Examinez l’ensemble du processus d’utilisation de l’API REST Azure Stack avec un client REST générique, comme **cURL**, pour mieux comprendre les requêtes sous-jacentes et voir ce que vous pouvez attendre du contenu reçu dans une charge utile de réponse.
+
+Cet article ne traite pas de l’ensemble des options disponibles pour la récupération des jetons comme la connexion interactive ou la création d’ID d’application dédiés. Pour obtenir des informations sur ces sujets, consultez [Informations de référence sur l’API REST Azure](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Récupérer un jeton d’Azure
 
-Créez un *corps* de demande à l’aide du type de contenu x-www-form-urlencoded afin d’obtenir un jeton d’accès. Exécutez la commande POST afin de publier votre requête sur le point de terminaison de connexion et d’authentification Azure REST.
-```
+Créez un corps de demande mis en forme à l’aide du type de contenu x-www-form-urlencoded afin d’obtenir un jeton d’accès. Exécutez la commande POST afin de publier votre requête sur le point de terminaison de connexion et d’authentification Azure REST.
+
+### <a name="uri"></a>URI
+
+```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
 L’élément **Tenant ID** est soit :
 
-- Votre domaine client, comme fabrikam.onmicrosoft.com
-- Votre ID client, comme 8eaed023-2b34-4da1-9baa-8bc8c9d6a491
-- La valeur par défaut des clés indépendantes du client : common
+ - Votre domaine de locataire, par exemple `fabrikam.onmicrosoft.com`
+ - Votre ID de locataire, par exemple `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - La valeur par défaut des clés indépendantes du locataire : `common`
 
 ### <a name="post-body"></a>Corps de publication
-```
+
+```bash  
 grant_type=password
 &client_id=1950a258-227b-4e31-a9cf-717495945fc2
 &resource=https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -58,30 +65,28 @@ grant_type=password
 
 Pour chaque valeur :
 
-  **grant_type**
-  
-  Le type de schéma d’authentification que vous vous apprêtez à utiliser. Dans cet exemple, la valeur est la suivante :
-  ```
-  password
-  ```
+ - **grant_type**  
+    Le type de schéma d’authentification que vous vous apprêtez à utiliser. Dans cet exemple, la valeur est `password`
 
-  **resource**
+ - **resource**  
+    La ressource à laquelle le jeton accède. Pour rechercher la ressource, interrogez le point de terminaison des métadonnées d’administration Azure Stack. Examinez la section **audiences**.
 
-  La ressource à laquelle le jeton accède. Pour rechercher la ressource, interrogez le point de terminaison des métadonnées d’administration Azure Stack. Examinez la section **audiences**.
+ - **Point de terminaison d’administration Azure Stack**  
+    ```
+    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+    ```
 
-  Point de terminaison d’administration Azure Stack :
-  ```
-  https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-  ```
- > [!NOTE]  
- > Si vous êtes un administrateur tentant d’accéder à l’API locataire, vous devez vous assurer d’utiliser le point de terminaison client, par exemple https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011
-  
-  Par exemple, avec le Kit de développement Azure Stack :
-  ```
-  curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-  ```
- 
+  > [!NOTE]  
+  > Si vous êtes un administrateur tentant d’accéder à l’API locataire, vous devez veiller à utiliser le point de terminaison de locataire, par exemple : `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+
+  Par exemple, avec le Kit de développement Azure Stack comme point de terminaison :
+
+    ```bash
+    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+    ```
+
   Réponse :
+
   ```
   {
   "galleryEndpoint":"https://adminportal.local.azurestack.external:30015/",
@@ -95,6 +100,7 @@ Pour chaque valeur :
   ```
 
 ### <a name="example"></a>Exemples
+
   ```
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
   ```
@@ -102,11 +108,13 @@ Pour chaque valeur :
   **client_id**
 
   Cette valeur est codée en dur sur une valeur par défaut :
+
   ```
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
   D’autres options sont disponibles pour des scénarios spécifiques :
+
   
   | Application | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
@@ -117,8 +125,9 @@ Pour chaque valeur :
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
   **nom d’utilisateur**
-  
-  Le compte Azure Stack AAD, par exemple :
+
+  Par exemple, le compte Azure Stack AAD :
+
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
@@ -126,10 +135,11 @@ Pour chaque valeur :
   **mot de passe**
 
   Le mot de passe administrateur Azure Stack AAD
-  
+
 ### <a name="example"></a>Exemples
 
 Demande :
+
 ```
 curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token" \
 -H "Content-Type: application/x-www-form-urlencoded" \
@@ -141,6 +151,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 ```
 
 Réponse :
+
 ```
 {
   "token_type": "Bearer",
@@ -156,15 +167,17 @@ Réponse :
 
 ## <a name="api-queries"></a>Requêtes d’API
 
-Une fois que vous avez obtenu votre jeton d’accès, vous devez l’ajouter en tant qu’en-tête à chacune de vos requêtes d’API. Pour ce faire, vous devez créer un en-tête **authorization** avec la valeur : `Bearer <access token>`. Par exemple : 
+Une fois que vous avez obtenu votre jeton d’accès, vous devez l’ajouter comme en-tête à chacune de vos requêtes d’API. Pour ce faire, vous devez créer un en-tête **authorization** avec la valeur : `Bearer <access token>`. Par exemple : 
 
 Demande :
-```
+
+```bash  
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
 Réponse :
-```
+
+```bash  
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B
 id : /subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8
 subscriptionId : 800c4168-3eb1-406b-a4ca-919fe7ee42e8
@@ -188,16 +201,19 @@ Le chemin d’accès spécifie la ressource ou la collection de ressources, et p
 La chaîne fournit des paramètres simples supplémentaires, comme la version d’API ou les critères de sélection des ressources.
 
 ## <a name="azure-stack-request-uri-construct"></a>Construction de l’URI de requête Azure Stack
+
 ```
-{URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version} 
+{URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
 ### <a name="uri-syntax"></a>Syntaxe d’URI
+
 ```
-https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version} 
+https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
 ### <a name="query-uri-example"></a>Exemple d’URI de requête
+
 ```
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```

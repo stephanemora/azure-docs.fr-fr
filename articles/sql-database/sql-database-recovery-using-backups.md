@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192762"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
 SQL Database fournit trois options pour la récupération de base de données à l’aide des [sauvegardes de base de données automatisées](sql-database-automated-backups.md) et des [sauvegardes depuis la rétention à long terme](sql-database-long-term-retention.md). Vous pouvez effectuer une restauration à partir d’une sauvegarde de base de données vers :
@@ -97,7 +98,7 @@ Vous pouvez restaurer une base de données supprimée à l’heure de suppressio
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour récupérer une base de données supprimée pendant sa [période de rétention](sql-database-service-tiers.md) à l’aide du portail Azure, ouvrez la page de votre serveur et dans la zone des opérations, cliquez sur **Bases de données supprimées**.
+Pour récupérer une base de données supprimée pendant sa [période de rétention basée sur des DTU](sql-database-service-tiers-dtu.md) ou [période de rétention basée sur des vCores](sql-database-service-tiers-vcore.md) à l’aide du portail Azure, ouvrez la page de votre serveur et dans la zone des opérations, cliquez sur **Bases de données supprimées**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -123,7 +124,7 @@ La restauration dans le temps sur un géo-réplica secondaire n’est pas prise 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour effectuer une géorestauration d’une base de données lors de sa [période de rétention](sql-database-service-tiers.md) à l’aide du portail Azure, ouvrez la page des bases de données SQL, puis cliquez sur **Ajouter**. Dans la zone de texte **Sélectionner une source**, sélectionnez **Sauvegarde**. Spécifiez la sauvegarde à partir de laquelle effectuer la récupération dans la région et sur le serveur de votre choix. 
+Pour effectuer une géorestauration d’une base de données lors de sa [période de rétention basée sur des DTU](sql-database-service-tiers-dtu.md) ou [période de rétention basée sur des vCores](sql-database-service-tiers-vcore.md) à l’aide du portail Azure, ouvrez la page des bases de données SQL, puis cliquez sur **Ajouter**. Dans la zone de texte **Sélectionner une source**, sélectionnez **Sauvegarde**. Spécifiez la sauvegarde à partir de laquelle effectuer la récupération dans la région et sur le serveur de votre choix. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Exécution par programme d’une récupération à l’aide des sauvegardes automatisées
 Comme indiqué précédemment, en plus du Portail Azure, la récupération de la base de données peut être effectuée par programme à l’aide d’Azure PowerShell ou de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles.

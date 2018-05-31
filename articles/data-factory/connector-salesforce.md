@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176896"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -288,7 +289,7 @@ Vous pouvez récupérer des données à partir de rapports Salesforce en spécif
 Pour interroger les enregistrements supprimés de manière réversible dans la Corbeille Salesforce, vous pouvez spécifier **« IsDeleted = 1 »** dans votre requête. Par exemple : 
 
 * Pour interroger uniquement les enregistrements supprimés, spécifiez « select \* from MyTable__c **where IsDeleted= 1**. »
-* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**. »
+* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**. »
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Récupérer des données à l’aide d’une clause where sur la colonne DateTime
 

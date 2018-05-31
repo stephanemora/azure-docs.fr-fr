@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Authentification unique fluide - Conformité RGPD | Microsoft Docs'
+title: Confidentialité des utilisateurs et authentification unique fluide Azure AD | Microsoft Docs
 description: Cet article traite de l’authentification unique fluide Azure Active Directory (Azure AD) et de la conformité RGPD.
 services: active-directory
 keywords: Qu’est-ce qu’Azure AD Connect, RGPD, Composants requis pour Azure AD, SSO, Authentification unique
@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149525"
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Authentification unique fluide Azure AD - Conformité RGPD
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Confidentialité des utilisateurs et authentification unique fluide Azure AD
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 
-En mai 2018, une loi européenne relative à la confidentialité, le [Règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), va entrer en vigueur. Le règlement RGPD établit de nouvelles règles que doivent respecter les sociétés, les administrations, les ONG et d’autres organisations qui proposent des biens et services aux personnes de l’Union européenne ou qui collectent et analysent des données liées aux résidents de l’Union européenne. Le règlement RGPD s’applique, quel que soit votre pays de résidence. 
-
-Microsoft met à disposition des produits et des services permettant de mieux répondre aux exigences du règlement RGPD. Pour plus d’informations sur la stratégie Microsoft Privacy, consultez le [Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 
 L’authentification unique fluide Azure AD crée le type de journal suivant, qui peut contenir des informations EUII :
 
 - Fichiers journaux des traces Azure AD Connect
 
-La conformité RGPD pour l’authentification unique fluide est accessible de deux manières :
+La conformité de la confidentialité des utilisateurs pour l’authentification unique fluide est accessible de deux manières :
 
 1.  Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des installations
 2.  En garantissant qu’aucune donnée n’est conservée plus de 48 heures
@@ -65,6 +65,6 @@ Pour en savoir plus sur les exigences RGPD relatives à Azure AD Connect, consul
 Si l’enregistrement d’audit est activé, ce produit peut générer des journaux de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
+* [Lire la politique de confidentialité Microsoft sur le Centre de confidentialité](https://www.microsoft.com/trustcenter)
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

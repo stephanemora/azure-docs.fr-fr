@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : configurer Salesforce pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Salesforce."
+title: 'Didacticiel : configurer Salesforce pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3997d913525b44f154ca1e989ee1880308b82096
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344250"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Didacticiel : configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
 
@@ -25,11 +26,16 @@ L’objectif de ce didacticiel est de montrer les étapes à effectuer dans Sale
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un client Azure Active Directory.
-*   Vous devez posséder un abonné valide pour les éditions Salesforce for Work ou Salesforce for Education. Vous pouvez utiliser un compte d’essai gratuit pour chaque service.
-*   Un compte d’utilisateur dans Salesforce avec les autorisations d’administrateur d’équipe.
+*   Un client Azure Active Directory
+*   Un locataire Salesforce.com
+
+>[!IMPORTANT] 
+>Si vous utilisez un compte d’essai Salesforce.com, vous ne pouvez pas configurer l’approvisionnement automatique des utilisateurs. Les comptes d’essai n’ont pas l’accès d’API requis tant qu’ils ne sont pas achetés. Vous pouvez contourner cette limitation en utilisant un [compte de développeur](https://developer.salesforce.com/signup) gratuit pour suivre ce didacticiel.
+
+Si vous utilisez un environnement Salesforce Sandbox, veuillez consulter la page [Didacticiel : intégration d’Azure Active Directory à Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Assigner des utilisateurs à Salesforce
 
@@ -89,7 +95,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton secret**.
 
-11. L’**URL de locataire** doit être entrée si l’instance de Salesforce se trouve sur Salesforce Government Cloud. Dans le cas contraire, elle est facultative. Entrez l’URL de locataire en utilisant le format https://votre-instance.my.salesforce.com, où vous devez remplacer votre-instance par le nom de votre instance Salesforce.
+11. L’**URL de locataire** doit être entrée si l’instance de Salesforce se trouve sur Salesforce Government Cloud. Dans le cas contraire, elle est facultative. Entrez l’URL de locataire en utilisant le format https://your-instance.my.salesforce.com, où vous devez remplacer your-instance par le nom de votre instance Salesforce.
 
 12. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Salesforce.
 
@@ -112,5 +118,5 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

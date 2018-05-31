@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 452ed1de0588b380747edaa44dd0cc3805c51392
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ea65c9c1f69c8eec77eb498a5963b0d77ce57f1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32155205"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gérer les profils de version des API dans Azure Stack
 
@@ -38,19 +37,32 @@ Cette rubrique vous aide à :
 ## <a name="summary-of-api-profiles"></a>Résumé des profils d’API
 
 - Les profils d’API représentent un ensemble de fournisseurs de ressources Azure et leurs versions d’API.
-- Les profils d’API ont été créés pour les développeurs. Ils leur servent à générer des modèles utilisables sur plusieurs clouds Azure. Ils sont conçus pour répondre à vos besoins en vous offrant des interfaces compatibles et stables.
+- Les profils d’API ont été créés pour les développeurs. Ils leur servent à générer des modèles utilisables sur plusieurs clouds Azure. Ils sont conçus pour répondre à vos besoins en vous offrant une interface compatible et stable.
 - La mise en production des profils intervient quatre fois par an.
 - Les trois conventions d’appellation des profils sont les suivantes :
     - **le plus récent**  
         Versions d’API les plus récentes publiées dans Azure.
     - **yyyy-mm-dd-hybrid**  
-    Version publiée tous les semestres. Elle se concentre sur la cohérence et la stabilité d’un cloud à l’autre.
+    Version publiée tous les semestres. Elle se concentre sur la cohérence et la stabilité d’un cloud à l’autre. Ce profil vise à assurer une compatibilité optimale avec Azure Stack. 
     - **yyyy-mm-dd-profile**  
     Version se situant entre celle offrant une stabilité optimale et celle proposant les fonctionnalités les plus récentes.
 
+### <a name="api-profiles-and-azure-stack-compatibility"></a>Profils d’API et compatibilité avec Azure Stack
+
+Les profils d’API les plus récents ne sont pas compatibles avec Azure Stack. Les conventions d’affectation de noms vous aideront à déterminer quels profils utiliser dans vos solutions Azure Stack.
+
+**La plus récente**  
+Ce profil répertorie les dernières versions d’API mises à jour proposées dans Azure global. Ces versions ne sont pas compatibles avec Azure Stack. Il s’agit du profil qui présente le plus grand nombre de changements cassants. Ce profil ne vise pas la stabilité et la compatibilité avec les autres clouds. Si vous souhaitez utiliser les versions d’API les plus récentes, choisissez ce profil.
+
+**Yyyy-mm-dd-hybrid**  
+Ce profil est publié deux fois par an, en mars et en septembre. Il garantit une stabilité et une compatibilité optimales avec les autres clouds. Il cible les environnements Azure global et Azure Stack. Les versions d’API Azure répertoriées dans ce profil sont les mêmes que celles disponibles dans Azure Stack. Utilisez ce profil si vous souhaitez développer des solutions cloud hybrides.
+
+**yyyy-mm-dd-profile**  
+Ce profil pour Azure global est publié deux fois par an, en juin et en décembre. Ce profil n’est pas compatible avec Azure Stack. Il présente de nombreux changements cassants. Même s’il offre aussi une stabilité optimale et les fonctionnalités les plus récentes, il n’est pas identique au profil « La plus récente ». La différence entre les deux est que le profil « La plus récente » propose toujours les toutes dernières versions des API, quelle que soit la date de publication des API. Si une nouvelle version de l’API Compute est créée demain, par exemple, cette version sera aussitôt proposée dans le profil « La plus récente », mais pas dans le profil « yyyy-mm-dd-profile » qui aura été créé avant. Ce profil fournit les dernières versions mises à jour ayant été publiées avant juin ou décembre.
+
 ## <a name="azure-resource-manager-api-profiles"></a>Profils d’API Azure Resource Manager
 
-Azure Stack n’utilise pas la version d’API la plus récente proposée dans la version générale d’Azure. Au moment où vous créez votre propre solution, vous devez rechercher la version d’API pour chaque fournisseur de ressources dans Azure qui est compatible avec Azure Stack.
+Azure Stack n’utilise pas les versions d’API les plus récentes disponibles dans Azure global. Au moment où vous créez votre propre solution, vous devez rechercher la version d’API pour chaque fournisseur de ressources dans Azure qui est compatible avec Azure Stack.
 
 Plutôt que d’effectuer des recherches sur chaque fournisseur de ressources et sur chacune des versions spécifiques prises en charge par Azure Stack, vous pouvez utiliser un profil d’API. Le profil spécifie un ensemble de fournisseurs de ressources et de versions d’API. Le SDK, ou un outil intégré au SDK, vous oriente vers la version d’API cible indiquée dans le profil. Avec les profils d’API, vous pouvez spécifier une version de profil qui s’applique à tout un modèle. Puis, au moment de l’exécution, Azure Resource Manager sélectionne la version appropriée de la ressource.
 
@@ -67,14 +79,13 @@ En tant que développeur, vous pouvez ainsi vous concentrer sur l’écriture de
 Il existe des exemples de code pour vous aider à intégrer votre solution et votre langage par défaut à Azure Stack à l’aide des profils. Actuellement, vous pouvez trouver des conseils et des exemples pour les langages suivants :
 
 - **PowerShell**  
-Le module **AzureRM.Bootstrapper**, disponible via PowerShell Gallery, fournit les cmdlets PowerShell nécessaires pour utiliser des profils de version d’API.  
-Pour plus d’informations, consultez [Utiliser des profils de version d’API pour PowerShell](azure-stack-version-profiles-powershell.md).
+Le module **AzureRM.Bootstrapper**, disponible via PowerShell Gallery, fournit les cmdlets PowerShell nécessaires pour utiliser des profils de version d’API. Pour plus d’informations, consultez [Utiliser des profils de version d’API pour PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI 2.0**  
-Vous pouvez mettre à jour la configuration de votre environnement pour utiliser le profil de version d’API spécifique à Azure Stack.  
-Pour plus d’informations, consultez [Utiliser les profils de version d’API pour Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+Vous pouvez mettre à jour la configuration de votre environnement pour utiliser le profil de version d’API spécifique à Azure Stack. Pour plus d’informations, consultez [Utiliser les profils de version d’API pour Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
-Dans le SDK GO, un profil est une combinaison de différents types de ressources dans différentes versions provenant de différents services. Les profils sont disponibles sous les profils/chemin d’accès, leur version étant au format **YYYY-MM-DD**.  
-Pour plus d’informations, consultez [Utiliser des profils de version d’API pour GO](azure-stack-version-profiles-go.md).
+Dans le SDK GO, un profil est une combinaison de différents types de ressources dans différentes versions provenant de différents services. Les profils sont disponibles sous les profils/chemin d’accès, leur version étant au format **YYYY-MM-DD**. Pour plus d’informations, consultez [Utiliser des profils de version d’API pour GO](azure-stack-version-profiles-go.md).
+- **Ruby**  
+Le kit SDK Ruby pour le Gestionnaire des ressources Azure Stack fournit des outils pour vous aider à créer et gérer votre infrastructure. Les fournisseurs de ressources du SDK incluent le calcul, les réseaux virtuels et le stockage avec le langage Ruby. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Ruby](azure-stack-version-profiles-ruby.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md)
