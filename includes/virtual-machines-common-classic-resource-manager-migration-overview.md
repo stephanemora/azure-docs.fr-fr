@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371335"
+---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager
 Cet article décrit la manière dont nous activons les ressources IaaS (infrastructure as a service) de l’environnement Classic pour les modèles de déploiement de Resource Manager. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Nous décrivons en détail comment connecter des ressources dans les deux modèles de déploiement qui coexistent dans votre abonnement en utilisant des passerelles intersites de réseau virtuel.
 
@@ -93,7 +110,7 @@ Les configurations non prises en charge actuellement sont les suivantes.
 | Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge actuellement. |
 | Calcul | Services cloud qui contiennent plus d’un groupe à haute disponibilité ou des groupes à haute disponibilité multiples. |Non pris en charge actuellement. Placez les machines virtuelles dans le même groupe à haute disponibilité avant la migration. |
 | Calcul | Machine virtuelle avec l’extension Azure Security Center | Azure Security Center installe automatiquement les extensions sur vos machines virtuelles pour contrôler leur sécurité et déclencher des alertes. Ces extensions sont généralement installées automatiquement si la stratégie d’Azure Security Center est activée sur l’abonnement. Pour migrer les machines virtuelles, désactivez la stratégie du centre de sécurité sur l’abonnement, ce qui supprimera l’extension de surveillance Security Center des machines virtuelles. |
-| Calcul | Machine virtuelle avec une extension de sauvegarde ou de capture instantanée | Ces extensions sont installées sur une machine virtuelle configurée avec le service Sauvegarde Azure. Pour migrer ces machines virtuelles, suivez les instructions données [ici](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
+| Calcul | Machine virtuelle avec une extension de sauvegarde ou de capture instantanée | Ces extensions sont installées sur une machine virtuelle configurée avec le service Sauvegarde Azure. Alors que la migration de ces machines virtuelles n’est pas prise en charge, suivez les instructions mentionnées [ici](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) pour conserver les sauvegardes qui ont été effectuées avant la migration.  |
 | Réseau |Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail |Non pris en charge actuellement. Placez les rôles Web/de travail dans leur propre réseau virtuel avant la migration. Une fois que le réseau virtuel classique a migré, le réseau virtuel Azure Resource Manager qui a migré peut être appairé avec le réseau virtuel classique pour obtenir une configuration similaire à celle d’avant.|
 | Réseau | Circuits Express Route classiques |Non pris en charge actuellement. Ces circuits doivent migrer vers Azure Resource Manager avant le début de la migration IaaS. Pour en savoir plus, consultez [Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Réseaux virtuels contenant des environnements App Service |Non pris en charge actuellement. |

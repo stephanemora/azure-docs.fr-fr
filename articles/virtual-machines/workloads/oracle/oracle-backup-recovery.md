@@ -1,13 +1,13 @@
 ---
-title: "Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure | Microsoft Docs"
-description: "Découvrez comment sauvegarder et récupérer une base de données Oracle Database 12c dans votre environnement Azure."
+title: Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure | Microsoft Docs
+description: Découvrez comment sauvegarder et récupérer une base de données Oracle Database 12c dans votre environnement Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193102"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure
 
@@ -138,7 +139,7 @@ La sauvegarde cohérente avec les applications est une nouvelle fonctionnalité 
 
 1. Téléchargez le fichier JSON.
 
-    Téléchargez VMSnapshotScriptPluginConfig.json à partir de https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Le fichier doit comporter un contenu du type suivant :
+    Téléchargez le fichier VMSnapshotScriptPluginConfig.json à partir de https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Le fichier doit comporter un contenu du type suivant :
 
     ```azurecli
     {
@@ -262,7 +263,7 @@ La sauvegarde cohérente avec les applications est une nouvelle fonctionnalité 
     # /etc/azure/post_script.sh
     ```
 
-Pour plus d’informations, consultez [Sauvegarde cohérente avec les applications pour les machines virtuelles Linux](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
+Pour plus d’informations, consultez [Sauvegarde cohérente avec les applications pour les machines virtuelles Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Étape 5 : utilisation d’archivages Azure Recovery Services pour sauvegarder la machine virtuelle

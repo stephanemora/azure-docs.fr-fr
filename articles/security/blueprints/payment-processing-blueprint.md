@@ -3,7 +3,7 @@ title: Solution Blueprint Sécurité et conformité Azure - Environnements de tr
 description: Solution Blueprint Sécurité et conformité Azure - Environnements de traitement des paiement conformes à la norme PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895484"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Solution Blueprint Sécurité et conformité Azure - Environnements de traitement des paiement conformes à la norme PCI DSS
 
@@ -43,7 +44,7 @@ L’architecture de base est constituée des éléments suivants :
 - **Modèles de déploiement**. Dans ce déploiement, des [modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) sont utilisés pour déployer automatiquement les composants de l’architecture dans Microsoft Azure, en spécifiant des paramètres de configuration pendant l’installation.
 - **Scripts de déploiement automatisé**. Ces scripts permettent de déployer la solution de bout en bout. Les scripts sont constitués des éléments suivants :
     - Un script de configuration de l’installation des modules et de configuration de [l’administrateur général](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) est utilisé pour installer et vérifier que les modules PowerShell et rôles d’administrateur général nécessaires sont configurés correctement.
-    - Un script PowerShell d’installation est utilisé pour déployer la solution de bout en bout, qui est fournie sous la forme d’un fichier .zip et d’un fichier .bacpac contenant une application web de démonstration prête à l’emploi, avec un [exemple de base de données SQL](https://github.com/Microsoft/azure-sql-security-sample). . Le code source de cette solution est disponible pour réviser le [ référentiel de code de solution Blueprint][code-repo]. 
+    - Un script PowerShell d’installation est utilisé pour déployer la solution de bout en bout, qui est fournie sous la forme d’un fichier .zip et d’un fichier .bacpac contenant une application web de démonstration prête à l’emploi, avec un [exemple de base de données SQL](https://github.com/Microsoft/azure-sql-security-sample). . Le code source de cette solution est disponible à la révision dans le [référentiel de code Blueprint][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagramme architectural
 
@@ -130,7 +131,7 @@ Cette solution a utilisé les services Azure suivants. Les informations détaill
 >- Application web Azure
 >- Azure Automation
 >- Runbooks Azure Automation
->- DNS Azure
+>- Azure DNS
 >- Réseau virtuel Azure
 >- Machine virtuelle Azure
 >- Groupe de ressources et stratégies Azure
@@ -189,7 +190,7 @@ L’architecture protège les données au repos à l’aide du chiffrement, de l
 
 Pour répondre aux exigences du chiffrement des données au repos, l’ensemble du [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise le [chiffrement du service de stockage](/azure/storage/storage-service-encryption).
 
-#### <a name="azure-sql-database"></a>Base de données SQL Azure
+#### <a name="azure-sql-database"></a>Azure SQL Database
 
 L’instance Azure SQL Database utilise les mesures suivantes pour la sécurité des bases de données :
 
@@ -299,7 +300,7 @@ Le déploiement par défaut est destiné à fournir des recommandations Security
 
 ## <a name="deploy-the-solution"></a>Déployer la solution
 
-Les composants qui permettent de déployer cette solution sont disponibles dans le [dépôt de code du plan PCI][code-repo]. Pour déployer l’architecture de base, vous devez effectuer plusieurs étapes à l’aide de Microsoft PowerShell v5. Pour vous connecter au site web, vous devez fournir un nom de domaine personnalisé (par exemple, contoso.com). Vous pouvez le spécifier à l’aide du commutateur `-customHostName` de l’étape 2. Pour plus d’informations, consultez [Acheter un nom de domaine personnalisé pour Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Vous n’avez pas besoin d’un nom de domaine personnalisé pour déployer et exécuter la solution. Toutefois, sans ce nom, vous ne pourrez pas vous connecter au site web à des fins de démonstration.
+Les composants permettant de déployer cette solution sont disponibles dans le [référentiel de code Blueprint PCI][code-repo]. Pour déployer l’architecture de base, vous devez effectuer plusieurs étapes à l’aide de Microsoft PowerShell v5. Pour vous connecter au site web, vous devez fournir un nom de domaine personnalisé (par exemple, contoso.com). Vous pouvez le spécifier à l’aide du commutateur `-customHostName` de l’étape 2. Pour plus d’informations, consultez [Acheter un nom de domaine personnalisé pour Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Vous n’avez pas besoin d’un nom de domaine personnalisé pour déployer et exécuter la solution. Toutefois, sans ce nom, vous ne pourrez pas vous connecter au site web à des fins de démonstration.
 
 Les scripts ajoutent des utilisateurs de domaine au locataire Azure AD que vous spécifiez. Nous vous recommandons de créer un locataire Azure AD que vous utiliserez à des fins de test.
 
@@ -384,11 +385,3 @@ La solution a été évaluée par Coalfire Systems, Inc. (évaluateurs de sécur
 - Tous les noms de clients, enregistrements de transactions et autres données associées de cette page sont fictifs. Ils ont été créés pour les besoins de cette architecture de base et sont fournis à titre d’exemple uniquement. Toute association ou lien sont purement involontaires ou fortuits.  
 - Cette solution a été développée conjointement par Microsoft et Avyan Consulting, et est disponible avec une [Licence MIT](https://opensource.org/licenses/MIT).
 - Cette solution a été évaluée par Coalfire, l’auditeur PCI-DSS de Microsoft. Le [document relatif à l’évaluation de conformité PCI](https://aka.ms/pciblueprintcrm32) est une évaluation indépendante, réalisée par une tierce partie, de la solution et de ses composants. 
-
-### <a name="document-authors"></a>Auteurs du document
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Dépôt de code"

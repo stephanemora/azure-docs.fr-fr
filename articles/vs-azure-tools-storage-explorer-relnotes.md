@@ -14,17 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779003"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
-Cet article contient les notes de publication de l’Explorateur Stockage Azure 0.9.6 (préversion), ainsi que celles des versions précédentes.
+Cet article contient les notes de version de l’Explorateur Stockage Azure 1.0.0, ainsi que celles des versions précédentes.
 
 [L’Explorateur Stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données du Stockage Azure sur Windows, maOS et Linux.
+
+## <a name="version-100"></a>Version 1.0.0
+16/04/2018
+
+### <a name="download-azure-storage-explorer-100"></a>Téléchargez l’Explorateur Stockage Azure 1.0.0
+- [Explorateur Stockage Azure 1.0.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 1.0.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 1.0.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nouveau
+* Authentification améliorée qui permet à l’Explorateur Stockage d’utiliser le même magasin de comptes que Visual Studio 2017. Pour utiliser cette fonctionnalité, vous devez vous reconnecter à vos comptes et redéfinir vos abonnements filtrés.
+* Pour les comptes Azure Stack soutenus par AAD, l’Explorateur Stockage récupère à présent les abonnements Azure Stack lorsque l’option Target Azure Stack (Cibler Azure Stack) est activée. Vous n’avez plus besoin de créer un environnement de connexion personnalisée.
+* Plusieurs raccourcis ont été ajoutés pour accélérer la navigation. Il s’agit notamment de l’activation/de la désactivation de divers panneaux et du basculement d’un éditeur à l’autre. Pour plus d’informations, consultez le menu Affichage.
+* Les commentaires sur l’Explorateur Stockage sont maintenant actifs sur GitHub. Vous pouvez accéder à notre page Problèmes en cliquant sur le bouton Commentaires dans la partie inférieure gauche ou en accédant à [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). N’hésitez pas à effectuer des suggestions, à signaler des problèmes, à poser des questions ou à laisser toute autre forme de commentaires.
+* Si vous rencontrez des problèmes de certificat SSL et que vous ne parvenez pas à trouver le certificat qui pose problème, vous pouvez maintenant lancer l’Explorateur Stockage à partir de la ligne de commande avec l’indicateur `--ignore-certificate-errors`. Une fois lancé avec cet indicateur, l’Explorateur Stockage ignore les erreurs de certificat SSL.
+* Il existe à présent une option Télécharger dans le menu contextuel pour les éléments blob et de fichier.
+* Prise en charge améliorée de l’accessibilité et des lecteurs d’écrans. Si vous vous appuyez sur des fonctionnalités d’accessibilité, consultez notre [documentation à ce sujet](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) pour plus d’informations.
+* L’Explorateur Stockage utilise à présent Electron 1.8.3
+
+### <a name="breaking-changes"></a>Dernières modifications
+* L’Explorateur Stockage a basculé vers une nouvelle bibliothèque d’authentification. Dans le cadre du basculement vers la bibliothèque, vous devez vous reconnecter à vos comptes et redéfinir vos abonnements filtrés.
+* La méthode utilisée pour chiffrer les données sensibles a changé. Pour cette raison, il se peut que certains de vos éléments Accès rapide doivent être rajoutés et/ou que certaines de vos ressources doivent être rattachées.
+
+### <a name="fixes"></a>Correctifs
+* Pour certains utilisateurs, un message d’erreur « Résolution impossible » interrompait les opérations de chargement ou téléchargement de blobs effectuées par certains utilisateurs. Ce problème a été résolu.
+* Si une connexion était nécessaire avec l’utilisation d’un lien direct, le fait de cliquer sur l’invite « Se connecter » ouvrait une boîte de dialogue vide. Ce problème a été résolu.
+* Sur Linux, si l’Explorateur Stockage ne peut pas démarrer en raison d’un arrêt du processus GPU, vous êtes à présent informé de l’incident, vous recevez l’instruction d’utiliser le commutateur --disable-gpu et l’Explorateur Stockage redémarre automatiquement avec le commutateur activé.
+* Les stratégies d’accès non valides étaient difficiles à identifier dans la boîte de dialogue Stratégies d’accès. Les ID de stratégie d’accès non valides sont maintenant indiqués en rouge pour plus de visibilité.
+* Le journal d’activité avait parfois de grandes zones avec des espaces vides entre les différentes parties d’une activité. Ce problème a été résolu.
+* Dans l’éditeur de requête de table, si vous laissiez une clause timestamp dans un état non valide puis que vous tentiez de modifier une autre clause, l’éditeur se figeait. L’éditeur restaure maintenant la clause timestamp sur son dernier état valide lorsqu’une modification dans une autre clause est détectée.
+* Si vous vous interrompiez lors de la saisie de votre requête de recherche dans l’arborescence, la recherche commençait et le focus disparaissait de la zone de texte. Maintenant, vous devez démarrer explicitement la recherche en appuyant sur la touche « Entrée » ou en cliquant sur le bouton de lancement de la recherche.
+* La commande Get Shared Access Signature (Obtenir une signature d’accès partagé) était parfois désactivée lors d’un clic avec le bouton droit sur un fichier situé dans un partage de fichiers. Ce problème a été résolu.
+* Si le nœud d’arbre de ressource avec le focus était filtré lors de la recherche, vous ne pouviez pas accéder via la touche tabulation à l’arborescence de la ressource et vous deviez utiliser les touches de direction pour parcourir l’arborescence de la ressource. Maintenant, si le nœud d’arbre de ressource ayant le focus est masqué, le premier nœud dans l’arborescence de la ressource a automatiquement le focus.
+* Un séparateur supplémentaire était parfois visible dans la barre d’outils de l’éditeur. Ce problème a été résolu.
+* La zone de texte de barre de navigation dépassait parfois. Ce problème a été résolu.
+* Les éditeurs d’objets blob et de partage de fichiers étaient parfois constamment actualisés lors du chargement simultané de nombreux fichiers. Ce problème a été résolu.
+* La fonctionnalité de statistiques des dossiers n’avait aucune utilité dans la vue de gestion des instantanés du partage de fichiers. Elle est maintenant désactivée.
+* Sur Linux, le menu Fichier n’apparaissait pas. Ce problème a été résolu.
+* Lors du chargement d’un dossier vers un partage de fichiers, par défaut, seul le contenu du dossier était chargé. Le comportement par défaut est maintenant de charger le contenu du dossier dans le dossier correspondant dans le partage de fichiers.
+* L’ordre des boutons de plusieurs boîtes de dialogue était inversé. Ce problème a été résolu.
+* Divers correctifs liés à la sécurité.
+
+### <a name="known-issues"></a>Problèmes connus
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». Cela est dû au fait que nous utilisions la solution de contournement du filtre Annuler décrite ici. 
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre ordinateur :
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur :
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versions précédentes
+
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
+* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Version 0.9.6
 28/02/2018
@@ -66,30 +162,6 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versions précédentes
-
-* [Version 0.9.5](#version-095)
-* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
-* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Version 0.9.5
 02/06/2018

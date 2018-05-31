@@ -2,7 +2,7 @@
 title: FAQ sur les rapports Azure Active Directory | Microsoft Docs
 description: FAQ sur les rapports Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a39183e65306ddc7cb81825b7abf27677339a3ba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067008"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
 
@@ -26,7 +27,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) par programmation les rapports d’audit Azure AD et les rapports d’utilisation des applications intégrées dans nos systèmes de création de rapports. Que dois-je utiliser à présent ?**
 
-**R :** Consultez notre [documentation de référence sur les API](https://developer.microsoft.com/graph/) pour savoir comment utiliser les nouvelles API dans le but d’accéder aux [rapports d’activité](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Ce point de terminaison comporte deux rapports (un d’audit et un autre sur les connexions) qui fournissent toutes les données dont vous disposiez dans l’ancien point de terminaison d’API. Ce nouveau point de terminaison comporte également un rapport sur les connexions, relatif à la licence Azure AD Premium, que vous pouvez utiliser pour obtenir des informations sur l’utilisation des applications, l’utilisation des appareils et les connexions utilisateur.
+**R :** Consultez la [documentation de référence sur les API](https://developer.microsoft.com/graph/) pour savoir comment utiliser les nouvelles API dans le but d’accéder aux [rapports d’activité](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Ce point de terminaison comporte deux rapports (un d’audit et un autre sur les connexions) qui fournissent toutes les données dont vous disposiez dans l’ancien point de terminaison d’API. Ce nouveau point de terminaison comporte également un rapport sur les connexions, relatif à la licence Azure AD Premium, que vous pouvez utiliser pour obtenir des informations sur l’utilisation des applications, l’utilisation des appareils et les connexions utilisateur.
 
 
 --- 
@@ -39,7 +40,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Quelle est la rétention des données des journaux d’activité (audit et connexions) sur le Portail Azure ?** 
 
-**R :** Les clients de la version gratuite bénéficient de 7 jours de données. Toutefois, en passant à une licence Azure AD Premium 1 ou Premium 2, ils peuvent accéder à 30 jours de données. Pour plus d’informations sur la rétention des rapports, consultez [Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md).
+**R :** Consultez [Pendant combien de temps les données collectées sont stockées ?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) pour la réponse à cette question.
 
 --- 
 
@@ -124,6 +125,6 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Que signifie l’événement à risque « Connexion avec un risque supplémentaire détectée » ?**
 
-**R :** Pour vous donner une idée de toutes les connexions à risque dans votre environnement, nous montrons l’événement à risque « Connexion avec un risque supplémentaire détectée » pour les connexions considérées comme présentant un risque en raison de détections propres aux abonnés d’Azure Active Directory Identity Protection.
+**R :** Pour vous donner une idée de toutes les connexions à risque dans votre environnement, « Connexion avec un risque supplémentaire détectée » fonctionne comme un conteneur de connexions pour les détections propres aux abonnés d’Azure Active Directory Identity Protection.
 
 ---

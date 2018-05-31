@@ -1,9 +1,9 @@
 ---
-title: "Référence des paramètres d’itinérance Windows 10 | Microsoft Docs"
-description: "Liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10."
+title: Référence des paramètres d’itinérance Windows 10 | Microsoft Docs
+description: Liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10.
 services: active-directory
-keywords: "Enterprise State Roaming, Cloud windows"
-documentationcenter: 
+keywords: Enterprise State Roaming, Cloud windows
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159075"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
 Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
@@ -29,10 +30,10 @@ Consultez le tableau suivant pour obtenir un récapitulatif des périphériques 
 
 | Type de compte et fonctionnement | Bureau | Mobile |
 | --- | --- | --- |
-| Azure Active Directory : synchronisation |Oui |Non |
-| Azure Active Directory : sauvegarde/restauration |Non |Non |
-| Compte Microsoft : synchronisation |Oui |Oui |
-| Compte Microsoft : sauvegarde/restauration |Non |Oui |
+| Azure Active Directory : synchronisation |OUI |Non  |
+| Azure Active Directory : sauvegarde/restauration |Non  |Non  |
+| Compte Microsoft : synchronisation |OUI |OUI |
+| Compte Microsoft : sauvegarde/restauration |Non  |OUI |
 
 ## <a name="what-is-backup"></a>Qu’est-ce qu’une sauvegarde ?
 En règle générale, les paramètres Windows se synchronisent par défaut, cependant, certains paramètres sont simplement sauvegardés, notamment la liste des applications installées sur un périphérique. La sauvegarde est destinée uniquement aux appareils mobiles et n’est pas disponible pour les utilisateurs d’Enterprise State Roaming. La sauvegarde utilise un compte Microsoft et stocke les paramètres et données d’application dans OneDrive. Si, sur le périphérique , un utilisateur désactive la synchronisation avec l’application Settings, les données de l’application normalement synchronisées se transforment en simple sauvegarde. Les données de sauvegarde sont uniquement accessibles via l’opération de restauration lors de la première utilisation d’un nouvel appareil. Les sauvegardes peuvent être désactivées via les paramètres du périphérique et peuvent être gérées et supprimées via le compte OneDrive de l’utilisateur.
@@ -47,11 +48,15 @@ Les groupes de paramètres suivants sont disponibles pour les utilisateurs finau
 * Options d’ergonomie : Narrateur, Loupe, Clavier visuel 
 * Autres paramètres Windows : consultez les détails de Paramètres Windows
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 La synchronisation de groupes de paramètres pour le navigateur Microsoft Edge (favoris, liste de lecture) peut être activée ou désactivée par les utilisateurs finaux dans le menu Paramètres du navigateur Microsoft Edge.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+Pour Windows 10 version 1803 ou ultérieure, la synchronisation de groupe de paramètres Internet Explorer (Favoris, URL saisies) peut être activée ou désactivée par les utilisateurs finaux via l’option de menu Paramètres d’Internet Explorer. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Détails des Paramètres Windows
 Dans le tableau qui suit, les autres entrées de la colonne Groupe de paramètres font référence aux paramètres pouvant être désactivés en accédant à Paramètres > Comptes > Synchroniser vos paramètres > Autres Paramètres Windows. 
@@ -69,25 +74,25 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Bluetooth**: tous les paramètres Bluetooth |X |X | |
 | **Invite de commandes** : paramètres Defaults de l’invite de commandes |sync |X | |
 | **Informations d’identification**: stockage sécurisé des informations d’identification |sync |sync |password |
-| **Date, heure et région**: horaire automatique (synchronisation Internet) |sync |sync |language |
-| **Date, heure et région**: 24 heures |sync |X |language |
-| **Date, heure et région**: date et heure |sync |X |language |
-| **Date, heure et région**: fuseau horaire | |X |language |
-| **Date, heure et région**: heure d’été |sync |X |language |
-| **Date, heure et région**: pays/région |sync |X |language |
-| **Date, heure et région**: premier jour de la semaine |sync |X |language |
-| **Date, heure et région**: format régional (paramètres régionaux) |sync |X |language |
-| **Date, heure et région**: date courte |sync |X |language |
-| **Date, heure et région**: date longue |sync |X |language |
+| **Date, heure et région**: horaire automatique (synchronisation Internet) |sync |sync |Langage |
+| **Date, heure et région**: 24 heures |sync |X |Langage |
+| **Date, heure et région**: date et heure |sync |X |Langage |
+| **Date, heure et région**: fuseau horaire | |X |Langage |
+| **Date, heure et région**: heure d’été |sync |X |Langage |
+| **Date, heure et région**: pays/région |sync |X |Langage |
+| **Date, heure et région**: premier jour de la semaine |sync |X |Langage |
+| **Date, heure et région**: format régional (paramètres régionaux) |sync |X |Langage |
+| **Date, heure et région**: date courte |sync |X |Langage |
+| **Date, heure et région**: date longue |sync |X |Langage |
 | **Date, heure et région**: heure courte |sync |X |language |
-| **Date, heure et région**: heure complète |sync |X |language |
+| **Date, heure et région**: heure complète |sync |X |Langage |
 | **Personnalisation du bureau**: thème du bureau (arrière-plan, couleur système, sons système par défaut, écran de veille) |sync |X |Thème |
 | **Personnalisation du bureau**: papier peint en diaporama |sync |X |Thème |
 | **Personnalisation du bureau**: paramètres de la barre des tâches (position, masquage automatique, etc.) |sync |X |Thème |
 | **Personnalisation du bureau**: disposition de l’écran d’accueil |X |backup | |
 | **Appareils**: imprimantes partagées auxquelles vous êtes connectées |X |X |Autres |
-| **Navigateur Microsoft Edge**: liste de lecture |sync |sync |Interne |
-| **Navigateur Microsoft Edge**: favoris |sync |sync |Interne |
+| **Navigateur Edge**: liste de lecture |sync |sync |Interne |
+| **Navigateur Edge**: favoris |sync |sync |Interne |
 | **Navigateur Edge** : sites les plus consultés <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Navigateur Edge** : URL entrées <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Navigateur Edge** : paramètres de la barre des favoris <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
@@ -115,27 +120,27 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Clavier**: activer un oui rémanent (désactivé par défaut) |sync |X |options d’ergonomie |
 | **Clavier**: activer les clés de filtre (désactivé par défaut) |sync |X |options d’ergonomie |
 | **Clavier**: activer les touches bascules (désactivé par défaut) |sync |X |options d’ergonomie |
-| **Internet Explorer**: langue du domaine : chinois (CHS) QWERTY – activer l’apprentissage automatique |sync |X |language |
-| **Langue**: QWERTY CHS - activer le classement de candidats dynamique |sync |X |language |
-| **Langue**: QWERTY CHS - jeu de caractères chinois simplifié |sync |X |language |
-| **Langue**: QWERTY CHS - jeu de caractères chinois traditionnel |sync |X |language |
+| **Internet Explorer**: langue du domaine : chinois (CHS) QWERTY – activer l’apprentissage automatique |sync |X |Langage |
+| **Langue**: QWERTY CHS - activer le classement de candidats dynamique |sync |X |Langage |
+| **Langue**: QWERTY CHS - jeu de caractères chinois simplifié |sync |X |Langage |
+| **Langue**: QWERTY CHS - jeu de caractères chinois traditionnel |sync |X |Langage |
 | **Langue**: QWERTY CHS - pinyin approximatif |sync |backup |Langage |
 | **Langue**: QWERTY CHS - paires approximatives |sync |backup |Langage |
-| **Langue**: QWERTY CHS - pinyin complet |sync |X |language |
-| **Langue**: QWERTY CHS - pinyin double |sync |X |language |
-| **Langue**: QWERTY CHS - lecture de correction automatique |sync |X |language |
-| **Langue**: QWERTY CHS - touche bascule C/E, MAJ |sync |X |language |
-| **Langue**: QWERTY CHS - touche bascule C/E, Ctrl |sync |X |language |
-| **Langue**: WUBI CHS - mode de saisie de caractère unique |sync |X |language |
+| **Langue**: QWERTY CHS - pinyin complet |sync |X |Langage |
+| **Langue**: QWERTY CHS - pinyin double |sync |X |Langage |
+| **Langue**: QWERTY CHS - lecture de correction automatique |sync |X |Langage |
+| **Langue**: QWERTY CHS - touche bascule C/E, MAJ |sync |X |Langage |
+| **Langue**: QWERTY CHS - touche bascule C/E, Ctrl |sync |X |Langage |
+| **Langue**: WUBI CHS - mode de saisie de caractère unique |sync |X |Langage |
 | **Langue**: WUBI CHS - afficher le codage de candidats restant |sync |X |language |
 | **Langue**: WUBI CHS - émission d’un bip sonore lorsque le codage des 4 coins est non valide |sync |X |Langage |
-| **Langue** : Bopomofo CHS - inclure CJK Ext-A |sync |X |language |
-| **Langue**: IME japonais - frappe prédictive et mots personnalisés |sync |sync |language |
-| **Langue**: coréen (KOR) IME |X |X |language |
-| **Langue**: reconnaissance d’écriture manuscrite |X |X |language |
-| **Langue**: profil de langue |sync |backup |language |
-| **Langue**: vérification orthographique et mise en évidence des fautes d’orthographe |sync |backup |language |
-| **Langue**: liste de claviers |sync |backup |language |
+| **Langue** : Bopomofo CHS - inclure CJK Ext-A |sync |X |Langage |
+| **Langue**: IME japonais - frappe prédictive et mots personnalisés |sync |sync |Langage |
+| **Langue**: coréen (KOR) IME |X |X |Langage |
+| **Langue**: reconnaissance d’écriture manuscrite |X |X |Langage |
+| **Langue**: profil de langue |sync |backup |Langage |
+| **Langue**: vérification orthographique et mise en évidence des fautes d’orthographe |sync |backup |Langage |
+| **Langue**: liste de claviers |sync |backup |Langage |
 | **Écran de verrouillage**: tous les paramètres de verrouillage |X |X | |
 | **Loupe**: activer ou désactiver (bascule maître) |X |X |options d’ergonomie |
 | **Loupe**: activer ou désactiver les couleurs d’inversion (désactivé par défaut) |sync |X |options d’ergonomie |
@@ -158,16 +163,16 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Options d’ergonomie**: supprimer des images d’arrière-plan (désactivé par défaut) |sync |X |options d’ergonomie |
 | **Alimentation et mise en veille**: tous les paramètres |X |X | |
 | **Personnalisation de l’écran d’accueil** : couleur d’accentuation (téléphone uniquement) |X |sync |Thème |
-| **Frappe**: dictionnaire |sync |backup |language |
-| **Frappe**: correction automatique du mot mal orthographié |sync |backup |language |
-| **Frappe**: mettre en surbrillance les mots mal orthographiés |sync |backup |language |
-| **Frappe**: afficher les suggestions de texte en cours de frappe |sync |backup |language |
-| **Frappe**: ajouter un espace après la sélection d’une suggestion de texte |sync |backup |language |
-| **Frappe**: ajouter un point après un double-clic sur la barre d’espace |sync |backup |language |
-| **Frappe**: mettre une majuscule sur la première lettre de chaque phrase |sync |backup |language |
-| **Frappe**: utiliser des lettres majuscules lorsque je double-clique sur la touche Maj |sync |backup |language |
-| **Frappe**: les touches émettent des sons pendant la frappe |sync |backup |language |
-| **Frappe**: données de personnalisation pour le clavier tactile |sync |backup |language |
+| **Frappe**: dictionnaire |sync |backup |Langage |
+| **Frappe**: correction automatique du mot mal orthographié |sync |backup |Langage |
+| **Frappe**: mettre en surbrillance les mots mal orthographiés |sync |backup |Langage |
+| **Frappe**: afficher les suggestions de texte en cours de frappe |sync |backup |Langage |
+| **Frappe**: ajouter un espace après la sélection d’une suggestion de texte |sync |backup |Langage |
+| **Frappe**: ajouter un point après un double-clic sur la barre d’espace |sync |backup |Langage |
+| **Frappe**: mettre une majuscule sur la première lettre de chaque phrase |sync |backup |Langage |
+| **Frappe**: utiliser des lettres majuscules lorsque je double-clique sur la touche Maj |sync |backup |Langage |
+| **Frappe**: les touches émettent des sons pendant la frappe |sync |backup |Langage |
+| **Frappe**: données de personnalisation pour le clavier tactile |sync |backup |Langage |
 | **Wi-Fi**: profils Wi-Fi (WPA uniquement) |sync |sync |Mot de passe |
 
 ###### <a name="footnote-1"></a>Note de bas de page 1

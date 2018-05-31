@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/2/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: cec2ab862a34a8753601dfeef3081ae9e9ca9fd9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 63e87c59a2e560b5a78708482c2ed89f5f8fb127
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257901"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Utilisation de l’API REST Azure Blockchain Workbench 
 
@@ -26,12 +27,14 @@ L’API REST Azure Blockchain Workbench permet aux développeurs et aux professi
 * Répertorier les actions disponibles d’un contrat
 * Exécuter une action pour un contrat
 
+Les exemples d’applications blockchain utilisés dans les scénarios peuvent être [téléchargés sur GitHub](https://github.com/Azure-Samples/blockchain). 
+
 ## <a name="list-applications"></a>Liste des applications
 
 Une fois qu’un utilisateur s’est connecté au client blockchain, la première tâche consiste à récupérer toutes les applications Blockchain Workbench qui lui sont associées. Dans ce scénario, l’utilisateur a accès à deux applications :
 
-1.  Asset Transfer
-2.  Refrigerated Transportation
+1.  [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md) (Transfert d’actifs)
+2.  [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md) (Transport frigorifique)
 
 Utilisez [l’API Applications GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) :
 
@@ -74,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Répertorier les flux de travail d’une application
 
-Une fois qu’un utilisateur sélectionne l’application blockchain applicable (dans ce cas, Asset Transfer), le client blockchain récupère tous les flux de travail correspondant. Les utilisateurs peuvent alors sélectionner le flux de travail applicable avant de se voir proposer toutes les instances de contrat intelligent pour ce flux. Chaque application blockchain possède un ou plusieurs flux de travail, et chaque flux de travail possède zéro instance de contrat ou des instances de contrat intelligent. Au moment de la création d’applications clientes blockchain, nous recommandons d’ignorer le flux d’expérience utilisateur. En effet, cela permet aux utilisateurs de sélectionner le flux de travail approprié lorsqu’il existe uniquement un flux de travail pour l’application blockchain. Dans ce cas, Asset Transfer ne possède qu’un seul flux de travail, également appelé Asset Transfer.
+Une fois qu’un utilisateur sélectionne l’application blockchain applicable (dans ce cas, **Asset Transfer**), le client blockchain récupère tous les flux de travail correspondants. Les utilisateurs peuvent alors sélectionner le flux de travail applicable avant de se voir proposer toutes les instances de contrat intelligent pour ce flux. Chaque application blockchain possède un ou plusieurs flux de travail, et chaque flux de travail possède zéro instance de contrat ou des instances de contrat intelligent. Au moment de la création d’applications clientes blockchain, nous recommandons d’ignorer le flux d’expérience utilisateur. En effet, cela permet aux utilisateurs de sélectionner le flux de travail approprié lorsqu’il existe uniquement un flux de travail pour l’application blockchain. Dans ce cas, **Asset Transfer** n’a qu’un seul flux de travail, également appelé **Asset Transfer**.
 
 Utilisez [l’API Applications Workflows GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) :
 
@@ -106,7 +109,7 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Répertorier les instances de contrat intelligent d’un flux de travail
 
-Une fois qu’un utilisateur sélectionne le flux de travail applicable (dans ce cas, Asset Transfer), le client blockchain récupère toutes les instances de contrat intelligent pour le flux de travail spécifié. Vous pouvez utiliser ces informations pour afficher toutes les instances de contrat intelligent pour le flux de travail et permettre ainsi aux utilisateurs d’approfondir chacune des instances de contrat intelligent indiquées. Dans cet exemple, imaginons qu’un utilisateur souhaite intervenir et ainsi interagir avec l’une des instances de contrat intelligent.
+Une fois qu’un utilisateur sélectionne le flux de travail applicable (dans ce cas, **Asset Transfer**), le client blockchain récupère toutes les instances de contrat intelligent pour le flux de travail spécifié. Vous pouvez utiliser ces informations pour afficher toutes les instances de contrat intelligent pour le flux de travail et permettre ainsi aux utilisateurs d’approfondir chacune des instances de contrat intelligent indiquées. Dans cet exemple, imaginons qu’un utilisateur souhaite intervenir et ainsi interagir avec l’une des instances de contrat intelligent.
 
 Utilisez [l’API Contracts GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget) :
 

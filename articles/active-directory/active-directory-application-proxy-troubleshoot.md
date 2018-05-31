@@ -1,25 +1,26 @@
 ---
-title: "Résoudre les problèmes du proxy d’application | Microsoft Docs"
-description: "Explique comment résoudre les erreurs dans le proxy d’application Azure AD."
+title: Résoudre les problèmes du proxy d’application | Microsoft Docs
+description: Explique comment résoudre les erreurs dans le proxy d’application Azure AD.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 838bdccb06e5763d33f63208cb6f941a55778b32
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155811"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 Si des erreurs se produisent dans l’accès à une application publiée ou dans la publication d’applications, vérifiez les options suivantes pour voir si le proxy d’application Microsoft Azure Active Directory fonctionne correctement :
@@ -27,14 +28,14 @@ Si des erreurs se produisent dans l’accès à une application publiée ou dans
 * Ouvrez la console Services Windows et vérifiez que le service **Connecteur de proxy d’application Microsoft AAD** est activé et en cours d’exécution. Vous pouvez également consulter la page de propriétés du service Proxy d’application, comme le montre l’image suivante :   
   ![Capture d’écran de la fenêtre Propriétés du connecteur de proxy d’application Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Ouvrez l’Observateur d’événements et recherchez les événements du proxy d’application sous **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** > **Admin**.
-* Si nécessaire, des journaux plus détaillés sont disponibles [en activant les journaux de session du connecteur de proxy d’application](application-proxy-understand-connectors.md#under-the-hood).
+* Si nécessaire, des journaux plus détaillés sont disponibles [en activant les journaux de session du connecteur de proxy d’application](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 Pour plus d’informations sur l’outil de dépannage d’Azure AD, consultez [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Outil de dépannage pour valider la configuration requise pour la mise en réseau d’un connecteur).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>La page ne s’affiche pas correctement
 Vous pouvez rencontrer des problèmes d’affichage ou de fonctionnement de votre application sans recevoir de message d’erreur spécifique. Cela peut se produire si vous avez publié le chemin d’accès de l’article, mais que l’application requiert un contenu qui se trouve en dehors de ce chemin d’accès.
 
-Par exemple, si vous publiez le chemin d’accès https://yourapp/app mais que l’application appelle les images dans https://yourapp/media, celles-ci ne seront pas restituées. Assurez-vous que vous publiez l’application en utilisant le niveau du chemin d’accès le plus élevé pour inclure tous les contenus pertinents. Dans le présent exemple, ce serait http://yourapp/.
+Par exemple, si vous publiez le chemin d’accès https://yourapp/app mais que l’application appelle les images dans https://yourapp/media, celles-ci ne seront pas restituées. Assurez-vous que vous publiez l’application en utilisant le niveau du chemin d’accès le plus élevé pour inclure tous les contenus pertinents. Dans cet exemple, il s’agirait de http://yourapp/.
 
 Si vous modifiez votre chemin d’accès pour inclure le contenu référencé, mais que les utilisateurs doivent quand même accéder à un lien plus détaillé du chemin d’accès, consultez le billet du blog intitulé [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Définir le bon lien pour les applications Application Proxy dans le panneau d’accès Azure AD et le lanceur d’applications Office 365).
 
@@ -50,7 +51,7 @@ Une fois l’erreur de connecteur identifiée dans le journal des événements, 
 
 | Error | Étapes recommandées |
 | ----- | ----------------- |
-| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « Une ou plusieurs erreurs se sont produites. » | Si vous avez fermé la fenêtre d’inscription sans vous connecter à Azure AD, réexécutez l’Assistant Connecteur et inscrivez le connecteur. <br><br> Si la fenêtre d’inscription s’ouvre puis ferme immédiatement sans vous permettre de vous connecter, vous recevrez probablement cette erreur. Cette erreur se produit quand il existe une erreur réseau sur votre système. Assurez-vous qu’il est possible de se connecter à partir d’un navigateur à un site web public et que les ports sont ouverts comme spécifié dans les [conditions préalables du proxy d’application](active-directory-application-proxy-enable.md). |
+| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « Une ou plusieurs erreurs se sont produites. » | Si vous avez fermé la fenêtre d’inscription sans vous connecter à Azure AD, réexécutez l’Assistant Connecteur et inscrivez le connecteur. <br><br> Si la fenêtre d’inscription s’ouvre puis ferme immédiatement sans vous permettre de vous connecter, vous recevrez probablement cette erreur. Cette erreur se produit quand il existe une erreur réseau sur votre système. Assurez-vous qu’il est possible de se connecter à partir d’un navigateur à un site web public et que les ports sont ouverts comme spécifié dans les [conditions préalables du proxy d’application](manage-apps/application-proxy-enable.md). |
 | L’erreur est présentée en clair dans la fenêtre d’inscription. Impossible de poursuivre | Si cette erreur se produit et que la fenêtre se ferme, cela signifie que vous avez saisi un nom d’utilisateur ou un mot de passe incorrect. Réessayez. |
 | Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « AADSTS50059 : pas d’informations d’identification de locataire trouvées dans la demande ou déduites des informations d’identification fournies. Échec de la recherche selon l’URI du principal du service. | Vous essayez de vous connecter en utilisant un compte Microsoft mais pas un domaine qui fait partie de l’ID d’organisation du répertoire auquel vous tentez d’accéder. Assurez-vous que l’administrateur fait partie du même nom de domaine que le domaine du locataire. Par exemple, si le domaine Azure AD est contoso.com, l’administrateur doit être admin@contoso.com. |
 | Impossible de récupérer la stratégie d’exécution actuelle pour l’exécution de scripts PowerShell. | En cas d’échec de l’installation du connecteur, vérifiez que la stratégie d’exécution de PowerShell n’est pas désactivée. <br><br>1. Ouvrez l’Éditeur de stratégie de groupe.<br>2. Accédez à **Configuration ordinateur** > **Modèles d’administration** > **Composants Windows** > **Windows PowerShell** et double-cliquez sur **Activer l’exécution des scripts**.<br>3. Cette stratégie d’exécution peut être définie sur **Non configuré** ou **Activé**. Si elle est définie sur **Activé**, vérifiez que sous Options, la stratégie d’exécution est définie sur **Autoriser les scripts locaux et les scripts signés distants** ou sur **Autoriser tous les scripts**. |
@@ -87,10 +88,10 @@ Cette liste comprend des erreurs que vos utilisateurs finaux peuvent rencontrer 
 Si vous rencontrez une erreur ou un problème avec le proxy d’application Azure AD qui ne figure pas dans ce guide de dépannage, veuillez nous contacter. Envoyez un message électronique à notre [équipe de commentaires](mailto:aadapfeedback@microsoft.com) comportant les détails de l’erreur qui s’est produite.
 
 ## <a name="see-also"></a>Voir aussi
-* [Activation du proxy d’application Azure AD](active-directory-application-proxy-enable.md)
-* [Publiez des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
-* [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-* [Activer l’accès conditionnel](application-proxy-enable-remote-access-sharepoint.md)
+* [Activation du proxy d’application Azure AD](manage-apps/application-proxy-enable.md)
+* [Publiez des applications avec le proxy d’application](manage-apps/application-proxy-publish-azure-portal.md)
+* [Activer l’authentification unique](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Activer l’accès conditionnel](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

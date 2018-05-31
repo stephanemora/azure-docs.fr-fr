@@ -1,18 +1,19 @@
 ---
-title: "Approvisionner des pools Azure Batch à partir d’images personnalisées | Microsoft Docs"
-description: "Vous pouvez créer un pool Batch à partir d’une image personnalisée pour approvisionner les nœuds qui contiennent les logiciels et les données dont vous avez besoin pour votre application. Les images personnalisées sont un moyen efficace de configurer les nœuds de calcul pour exécuter vos charges de travail Batch."
+title: Approvisionner des pools Azure Batch à partir d’images personnalisées | Microsoft Docs
+description: Vous pouvez créer un pool Batch à partir d’une image personnalisée pour approvisionner les nœuds qui contiennent les logiciels et les données dont vous avez besoin pour votre application. Les images personnalisées sont un moyen efficace de configurer les nœuds de calcul pour exécuter vos charges de travail Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158610"
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image personnalisée managée pour créer un pool de machines virtuelles 
 
@@ -35,12 +36,13 @@ Le recours à une image personnalisée configurée pour votre scénario peut off
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 - **Une ressource d’image managée**. Pour créer un pool de machines virtuelles à l’aide d’une image personnalisée, vous devez créer une ressource d’image managée dans le même abonnement et la même région Azure que le compte Batch. Pour connaître les options de préparation d’image managée, consultez la section suivante.
 - **Authentification Azure Active Directory (AAD)**. L’API du client Batch doit utiliser l’authentification AAD. La prise en charge d’Azure Batch pour AAD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md).
 
     
 ## <a name="prepare-a-custom-image"></a>Préparer une image personnalisée
-Vous pouvez préparer une image managée à partir d’un disque dur virtuel, à partir d’une machine virtuelle Azure avec des disques managés, ou à partir d’une capture instantanée de machine virtuelle. 
+Vous pouvez préparer une image managée à partir d’un disque dur virtuel, à partir d’une machine virtuelle Azure avec des disques managés, ou à partir d’une capture instantanée de machine virtuelle. Pour Batch, nous vous recommandons de créer une image managée à partir d’une machine virtuelle avec des disques managés ou un instantané de machine virtuelle. L’image managée et la ressource sous-jacente doivent exister pour faire monter les pools en puissance. Elles peuvent être supprimées une fois que le pool est supprimé. 
 
 Lors de la préparation de votre image, gardez à l’esprit les points suivants :
 

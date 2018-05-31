@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072047"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure
 
@@ -79,6 +80,11 @@ Vous pouvez également généraliser une machine virtuelle Linux à l’aide de 
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Libération de la machine virtuelle et définition de l’état sur généralisé
+
+> [!IMPORTANT] 
+> Vous ne pouvez pas ajouter, modifier ou supprimer des étiquettes sur une machine virtuelle une fois qu’elle est marquée comme généralisée. Si vous souhaitez ajouter une étiquette à la machine virtuelle, assurez-vous d’ajouter les étiquettes avant de les marquer comme généralisées.
+> 
+
 1. Libérez les ressources de la machine virtuelle.
    
     ```powershell

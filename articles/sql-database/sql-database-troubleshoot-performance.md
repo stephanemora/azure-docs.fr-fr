@@ -11,11 +11,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: v-shysun
-ms.openlocfilehash: 440f3bf41cd2dcedf964e7476323d7b3a1527624
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 710d517621cb9d4d9d2e9bf29e4facf7d75ab481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187807"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
@@ -49,8 +50,8 @@ Vous pouvez également laisser Azure SQL Database [optimiser automatiquement les
 
 ## <a name="improving-database-performance-with-more-resources"></a>Amélioration des performances de base de données avec davantage de ressources
 
-Enfin, si aucun élément ne peut être modifié pour améliorer les performances de votre base de données, vous pouvez modifier la quantité de ressources disponibles dans Azure SQL Database. Vous pouvez assigner davantage de ressources en modifiant le [niveau de service](sql-database-service-tiers.md) d’une base de données autonome ou augmenter les unités de débit de base de données élastiques d’un pool élastique à tout moment.
-1. Pour les bases de données autonomes, vous pouvez [Modifier les niveaux de service](sql-database-service-tiers.md) à la demande pour améliorer les performances de la base de données.
+Enfin, si aucun élément ne peut être modifié pour améliorer les performances de votre base de données, vous pouvez modifier la quantité de ressources disponibles dans Azure SQL Database. Vous pouvez assigner davantage de ressources en modifiant le [niveau de service DTU](sql-database-service-tiers-dtu.md) d’une base de données autonome ou augmenter les unités de débit de base de données élastiques d’un pool élastique à tout moment. Ou, si vous utilisez le [modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md), vous pouvez changer le niveau de service ou augmenter les ressources allouées à votre base de données. 
+1. Pour les bases de données autonomes, vous pouvez [modifier les niveaux de service](sql-database-service-tiers-dtu.md) ou [calculer les ressources](sql-database-service-tiers-vcore.md) à la demande pour améliorer les performances de la base de données.
 2. S’il existe plusieurs bases de données, envisagez d’utiliser des [pools élastiques](sql-database-elastic-pool-guidance.md) pour une mise à l’échelle automatique des ressources.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Régler et refactoriser le code d’une application ou d’une base de données

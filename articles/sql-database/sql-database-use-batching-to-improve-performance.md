@@ -9,11 +9,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194969"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 Les opérations de traitement par lots sur la base de données SQL Azure améliorent considérablement les performances et l’évolutivité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
@@ -32,9 +33,9 @@ L’un des avantages associés à l’utilisation de la base de données SQL est
 La première partie de ce document examine différentes techniques de traitement par lots pour les applications .NET qui utilisent la base de données SQL. Les deux dernières sections décrivent des recommandations et des scénarios de traitement par lots.
 
 ## <a name="batching-strategies"></a>Stratégies de traitement par lots
-### <a name="note-about-timing-results-in-this-topic"></a>Remarque relative aux résultats de minutage fournis dans cette rubrique
+### <a name="note-about-timing-results-in-this-article"></a>Remarque relative aux résultats de minutage fournis dans cet article
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant le nouveau [niveau de service](sql-database-service-tiers.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
+> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant les nouveaux [niveaux de service DTU](sql-database-service-tiers-dtu.md) ou [niveaux de service vCore](sql-database-service-tiers-vcore.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
 > 
 > 
 
@@ -209,7 +210,7 @@ La copie en bloc SQL est une autre façon d’insérer de grandes quantités de 
         }
     }
 
-Il existe quelques cas où la copie en bloc est préférable à l’utilisation des paramètres table. Consultez le tableau de comparaison des paramètres table aux opérations BULK INSERT dans la rubrique [Paramètres table](https://msdn.microsoft.com/library/bb510489.aspx).
+Il existe quelques cas où la copie en bloc est préférable à l’utilisation des paramètres table. Consultez le tableau de comparaison des paramètres table aux opérations BULK INSERT dans l’article [Paramètres table](https://msdn.microsoft.com/library/bb510489.aspx).
 
 Les résultats des tests ad hoc suivants montrent les performances du traitement par lots avec **SqlBulkCopy** en millisecondes.
 
@@ -309,7 +310,7 @@ Dans nos tests, il n’y avait généralement aucun avantage à fractionner les 
 > 
 > 
 
-Vous pouvez voir que, pour 1 000 lignes, on obtient les meilleures performances en les soumettant toutes en même temps. D’autres tests (qui ne sont pas présentés ici) ont révélé un faible gain de performances en divisant un lot de 10 000 lignes en deux lots de 5 000. Mais le schéma de table pour ces tests étant relativement simple, vous devriez effectuer les tests sur vos données et tailles de lot spécifiques afin de vérifier ces résultats.
+Vous pouvez voir que, pour 1 000 lignes, on obtient les meilleures performances en les soumettant toutes en même temps. D’autres tests (qui ne sont pas présentés ici) ont révélé un faible gain de performances en divisant un lot de 10000 lignes en deux lots de 5000. Mais le schéma de table pour ces tests étant relativement simple, vous devriez effectuer les tests sur vos données et tailles de lot spécifiques afin de vérifier ces résultats.
 
 Autre facteur à prendre en compte : si le lot total devient trop volumineux, la base de données SQL risque de subir des limitations et de refuser de valider le lot. Pour de meilleurs résultats, testez votre scénario spécifique afin de déterminer s’il comporte une taille de lot idéale. Faites en sorte que la taille de lot puisse être configurée pendant l’exécution afin de permettre des modifications rapides compte tenu des performances ou des erreurs obtenues.
 
@@ -592,7 +593,7 @@ Ensuite, créez une procédure stockée ou écrivez du code qui utilise l’inst
 Pour plus d’informations, consultez la documentation et les exemples fournis pour l’instruction MERGE. Bien que la même tâche puisse être effectuée dans un appel de procédure stockée en plusieurs étapes avec des opérations INSERT et UPDATE distinctes, l’instruction MERGE est plus efficace. Le code de base de données peut également construire des appels Transact-SQL qui utilisent directement l’instruction MERGE sans nécessiter deux appels de base de données pour les opérations INSERT et UPDATE.
 
 ## <a name="recommendation-summary"></a>Résumé des recommandations
-La liste suivante fournit un résumé des recommandations relatives au traitement par lots présentées dans cette rubrique :
+La liste suivante fournit un résumé des recommandations relatives au traitement par lots présentées dans cet article :
 
 * Utilisez la mise en mémoire tampon et le traitement par lots pour améliorer les performances et l’évolutivité des applications de base de données SQL.
 * Tenez compte des compromis entre mise en mémoire tampon/traitement par lots et résilience. Lors de la défaillance d’un rôle, le risque de perte d’un lot non traité de données critiques peut contrebalancer le gain de performances du traitement par lots.

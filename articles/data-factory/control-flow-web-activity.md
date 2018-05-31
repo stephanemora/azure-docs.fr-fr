@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770755"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder. 
@@ -78,6 +79,16 @@ linkedServices | Liste des services liés transmise au point de terminaison. | T
 
 > [!NOTE]
 > Les points de terminaison REST que l’activité web appelle doivent retourner une réponse de type JSON. Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur.
+
+Le tableau suivant affiche la configuration requise pour le contenu JSON :
+
+| Type de valeur | Corps de la demande | Response body |
+|---|---|---|
+|Objet JSON | Prise en charge | Prise en charge |
+|Tableau JSON | Prise en charge <br/>(À l’heure actuelle, les tableaux JSON ne fonctionnent pas en raison d’un bogue. Un correctif est en cours.) | Non pris en charge |
+| Valeur JSON | Prise en charge | Non pris en charge |
+| Type non-JSON | Non pris en charge | Non pris en charge |
+||||
 
 ## <a name="authentication"></a>Authentification
 

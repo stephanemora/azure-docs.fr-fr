@@ -1,20 +1,21 @@
 ---
-title: "Créer et publier une application managée du catalogue de services Azure | Microsoft Docs"
-description: "Montre comment créer une application managée Azure destinée aux membres de votre organisation."
+title: Créer et publier une application managée du catalogue de services Azure | Microsoft Docs
+description: Montre comment créer une application managée Azure destinée aux membres de votre organisation.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305308"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publier une application managée pour une utilisation interne
 
@@ -55,7 +56,7 @@ Ajoutez le code JSON suivant à votre fichier. Il définit les paramètres pour 
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -138,7 +139,7 @@ Ajoutez le code JSON suivant au fichier.
 }
 ```
 
-Enregistrez le fichier createUIDefinition.json.
+Enregistrez le fichier createUiDefinition.json.
 
 ## <a name="package-the-files"></a>Empaqueter les fichiers
 
@@ -152,8 +153,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +173,9 @@ L’étape suivante consiste à sélectionner un groupe d’utilisateurs ou une 
 
 Vous avez besoin de l’ID d’objet du groupe d’utilisateurs à utiliser pour gérer les ressources. 
 
-![Obtenir l’ID de groupe](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>Obtenir l’ID de définition de rôle
 
@@ -203,21 +205,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Créer l’application gérée à l’aide du portail
+## <a name="create-the-managed-application"></a>Créer l’application managée
+
+Vous pouvez déployer l’application managée via le portail, PowerShell ou Azure CLI.
+
+### <a name="powershell"></a>PowerShell
+
+Pour commencer, nous allons utiliser PowerShell pour déployer l’application managée.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+Votre application managée et votre infrastructure managée existent maintenant dans l’abonnement.
+
+### <a name="portal"></a>Portail
 
 Maintenant, nous allons utiliser le portail pour déployer l’application managée. Vous voyez l’interface utilisateur que vous avez créée dans le package.
 
-1. Accédez au portail Azure. Sélectionnez **+Nouveau** et recherchez **catalogue de services**.
+1. Accédez au portail Azure. Sélectionnez **+ Créer une ressource**, puis recherchez **catalogue de services**.
 
-   ![Rechercher catalogue de services](./media/publish-service-catalog-app/select-new.png)
+   ![Rechercher catalogue de services](./media/publish-service-catalog-app/create-new.png)
 
 1. Sélectionnez **Application managée du catalogue de services**.
 
-   ![Sélectionner Catalogue de services](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Sélectionner Catalogue de services](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Sélectionnez **Créer**.
 
@@ -229,15 +259,15 @@ Maintenant, nous allons utiliser le portail pour déployer l’application manag
 
 1. Fournissez les informations de base nécessaires pour l’application managée. Spécifiez l’abonnement et un nouveau groupe de ressources devant contenir l’application managée. Sélectionnez **Ouest-Centre des États-Unis** comme emplacement. Lorsque vous avez terminé, sélectionnez **OK**.
 
-   ![Spécifier les paramètres de l’application managée](./media/publish-service-catalog-app/provide-basics.png)
+   ![Spécifier les paramètres de l’application managée](./media/publish-service-catalog-app/add-basics.png)
 
 1. Fournissez des valeurs propres aux ressources de l’application managée. Lorsque vous avez terminé, sélectionnez **OK**.
 
-   ![Fournir des paramètres de ressources](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Fournir des paramètres de ressources](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. Le modèle valide les valeurs que vous avez fournies. Si la validation aboutit, sélectionnez **OK** pour commencer le déploiement.
 
-   ![Valider l’application managée](./media/publish-service-catalog-app/validate.png)
+   ![Valider l’application managée](./media/publish-service-catalog-app/view-summary.png)
 
 Une fois le déploiement terminé, l’application managée existe dans un groupe de ressources nommé applicationGroup. Le compte de stockage existe dans un groupe de ressources nommé applicationGroup plus une valeur de chaîne de hachage.
 

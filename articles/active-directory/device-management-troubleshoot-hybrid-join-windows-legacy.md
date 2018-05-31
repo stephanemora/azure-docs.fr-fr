@@ -11,18 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770738"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
-Cette rubrique s’applique uniquement aux appareils suivants : 
+Cet article s’applique uniquement aux appareils suivants : 
 
 - Windows 7 
 - Windows 8.1 
@@ -33,7 +34,7 @@ Cette rubrique s’applique uniquement aux appareils suivants :
 
 Pour Windows 10 ou Windows Server 2016, consultez la page [Dépanner des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory](device-management-troubleshoot-hybrid-join-windows-current.md).
 
-Cette rubrique suppose que vous avez [configuré les appareils hybrides joints à Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md) de façon à prendre en charge les scénarios suivants :
+Cet article suppose que vous avez [configuré des appareils hybrides joints à Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md) de façon à prendre en charge les scénarios suivants :
 
 - Accès conditionnel basé sur les appareils
 
@@ -45,7 +46,7 @@ Cette rubrique suppose que vous avez [configuré les appareils hybrides joints �
 
 
 
-Cette rubrique vous fournit des conseils sur la façon de résoudre les problèmes potentiels.  
+Cet article vous fournit des conseils sur la façon de résoudre les problèmes potentiels.  
 
 **Bon à savoir :** 
 
@@ -53,15 +54,17 @@ Cette rubrique vous fournit des conseils sur la façon de résoudre les problèm
 
 - L’inscription / jointure d’appareils initiale est configurée pour effectuer une tentative à l’ouverture de session ou au verrouillage / déverrouillage. Un délai de cinq minutes peut être déclenché par une tâche du Planificateur de tâches. 
 
-- La réinstallation du système d’exploitation de même qu’une désinscription / réinscription manuelle sont susceptibles de créer une nouvelle inscription sur Azure AD et d’aboutir à plusieurs entrées sous l’onglet d’informations UTILISATEUR sur le Portail Azure. 
+- La réinstallation du système d’exploitation ou des réinscriptions manuelles sont susceptibles de créer une nouvelle inscription sur Azure AD, et ainsi d’aboutir à plusieurs entrées sous l’onglet d’informations UTILISATEUR dans le portail Azure. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Étape 1 : Récupérer l’état de l’inscription 
 
 **Pour vérifier l’état de l’inscription :**  
 
-1. Ouvrez une invite de commandes en tant qu’administrateur. 
+1. Connectez-vous avec le compte d’utilisateur qui a effectué une jointure à Azure AD hybride.
 
-2. Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Ouvrez une invite de commandes en tant qu’administrateur. 
+
+3. Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 Cette commande affiche une boîte de dialogue qui vous donne plus de détails sur l’état de la jonction.
 
@@ -84,16 +87,11 @@ Si la jointure Azure AD hybride n’a pas réussi, la boîte de dialogue vous fo
     
     Cette situation peut se produire pour différentes raisons :
     
-    1. Si l’utilisateur connecté n’est pas un utilisateur de domaine (par exemple, un utilisateur local). La jointure Azure AD hybride sur les appareils de bas niveau est uniquement prise en charge pour les utilisateurs de domaine.
+    - L’utilisateur connecté n’est pas un utilisateur de domaine (par exemple, un utilisateur local). La jointure Azure AD hybride sur les appareils de bas niveau est uniquement prise en charge pour les utilisateurs de domaine.
     
-    2. Si, pour une raison quelconque, Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Cette impossibilité peut avoir plusieurs motifs, par exemple s’il existe des problèmes de connectivité réseau sortante vers les URL Azure AD (vérifier les prérequis), ou lorsque MFA est activé/configuré pour l’utilisateur, mais que WIAORMUTLIAUTHN n’est pas configuré au niveau du serveur de fédération (vérifier les étapes de configuration). Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, empêchant ainsi Autoworkplace.exe d’obtenir un jeton sans assistance.
+    - Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Ce problème est peut-être dû à des problèmes de connectivité réseau sortante aux URL Azure AD (vérifiez les prérequis). Il peut également être lié au fait que l’authentification multifacteur (MFA) est activée/configurée pour l’utilisateur alors que WIAORMUTLIAUTHN n’est pas configuré sur le serveur de fédération (vérifiez les étapes de configuration). Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, ce qui empêche **autoworkplace.exe** d’obtenir un jeton sans assistance.
     
-    3. Si l’organisation utilise l’authentification unique transparente Azure AD, l’URL ci-après ne figure pas dans les paramètres intranet Internet Explorer de l’appareil :
-    
-       - https://autologon.microsoftazuread-sso.com
-
-    
-       et le paramètre « Autoriser les mises à jour de la barre d’état via le script » doit être activé pour la zone Intranet.
+    - Votre organisation utilise l’authentification unique Azure AD sans interruption, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` ne sont pas présents dans les paramètres intranet Internet Explorer de l’appareil et l’option **Autoriser les mises à jour de la barre d’état via le script** n’est pas activée pour la zone Intranet.
 
 - Un quota a été atteint.
 
@@ -107,7 +105,7 @@ Vous pouvez également trouver les informations d’état dans le journal des é
   
 **Voici les causes les plus courantes d’échec d’une jointure Azure AD hybride :** 
 
-- Votre ordinateur n’est pas sur le réseau interne de l’entreprise ou un réseau privé virtuel sans connexion à un contrôleur de domaine Active Directory local.
+- Votre ordinateur n’est ni connecté au réseau interne de votre organisation, ni à un VPN avec une connexion à votre contrôleur de domaine AD local.
 
 - Vous êtes connecté à votre ordinateur avec un compte d’ordinateur local. 
 
@@ -115,7 +113,7 @@ Vous pouvez également trouver les informations d’état dans le journal des é
 
   - Le serveur de fédération a été configuré pour prendre en charge **WIAORMULTIAUTHN**. 
 
-  - Il n’existe aucun objet de point de connexion de service qui pointe vers le nom de votre domaine vérifié dans Azure AD dans la forêt Active Directory à laquelle l’ordinateur appartient.
+  - La forêt de votre ordinateur n’a aucun objet de point de connexion de service qui pointe vers votre nom de domaine vérifié dans Azure AD. 
 
   - Un utilisateur a atteint la limite d’appareils. 
 

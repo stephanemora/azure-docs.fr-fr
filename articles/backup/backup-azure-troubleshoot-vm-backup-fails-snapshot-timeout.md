@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196761"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
 
@@ -194,21 +195,6 @@ Ce problème est propre aux machines virtuelles gérées, pour lesquelles l’ut
 
 #### <a name="solution"></a>Solution
 
-Pour résoudre le problème, suivez les étapes ci-dessous afin de supprimer la collection de points de restauration : <br>
- 
-1. Supprimez le verrou du groupe de ressources dans lequel se trouve la machine virtuelle. 
-2. Installez ARMClient à l’aide de Chocolatey : <br>
-   https://github.com/projectkudu/ARMClient
-3. Connectez-vous à ARMClient : <br>
-    `.\armclient.exe login`
-4. Récupérez la collection de points de restauration correspondant à la machine virtuelle : <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Exemple : `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Supprimez la collection de points de restauration : <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. La sauvegarde planifiée suivante crée automatiquement une collection de points de restauration et de nouveaux points de restauration.
-
- 
-Le problème se reproduira si vous verrouillez à nouveau le groupe de ressources. 
+Pour résoudre ce problème, supprimez le verrou du groupe de ressources et laissez le service Sauvegarde Azure effacer la collection de points de récupération et les captures instantanées sous-jacentes lors de la prochaine sauvegarde.
+Lorsque vous avez terminé, vous pouvez remettre le verrou sur le groupe de ressources de la machine virtuelle. 
 

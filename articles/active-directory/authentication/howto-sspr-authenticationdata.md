@@ -2,25 +2,20 @@
 title: Exigences en matière de données Azure AD SSPR | Microsoft Docs
 description: Exigences en matière de données pour la réinitialisation du mot de passe en libre-service Azure AD et comment les satisfaire
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257585"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
@@ -39,16 +34,27 @@ Pour que tout fonctionne correctement, les numéros de téléphone doivent être
 
 Si vous utilisez les paramètres par défaut dans Azure AD Connect, les mappages suivants sont effectués :
 
-| Active Directory local | Azure AD | Informations de contact de l’authentification Azure AD |
-| --- | --- | --- |
-| telephoneNumber | Téléphone de bureau | Autre téléphone |
-| mobile | Téléphone mobile | Téléphone |
+| Active Directory local | Azure AD |
+| --- | --- |
+| telephoneNumber | Téléphone de bureau |
+| mobile | Téléphone mobile |
 
-Ces champs peuvent être vides jusqu'à ce qu’un utilisateur confirme ses données d’authentification.
+Lorsqu’un utilisateur confirme son numéro de téléphone mobile, le champ Téléphone situé sous Informations de contact d’authentification dans Azure AD est également renseigné avec ce numéro.
 
-Comme le montre la capture d’écran suivante, un administrateur global peut définir manuellement les informations de contact d’authentification de l’utilisateur.
+## <a name="authentication-contact-info"></a>Informations de contact d’authentification
+
+Comme le montre la capture d’écran suivante, un administrateur général peut définir manuellement les informations de contact d’authentification de l’utilisateur.
 
 ![Contact][Contact]
+
+Si le champ Téléphone est renseigné et si l’option Téléphone mobile est activée dans la stratégie SSPR, l’utilisateur voit ce numéro dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe. 
+
+Le champ Autre téléphone n’est pas utilisé pour la réinitialisation du mot de passe.
+
+Si le champ Adresse e-mail est renseigné et si l’option Adresse e-mail est activée dans la stratégie SSPR, l’utilisateur voit cette adresse e-mail dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe.
+
+Si le champ Autre adresse de messagerie est renseigné et si l’option Adresse e-mail est activée dans la stratégie SSPR, l’utilisateur **ne voit pas** cette adresse e-mail dans la page d’inscription de réinitialisation du mot de passe. Toutefois, il la voit lors du flux de travail de réinitialisation du mot de passe. 
+
 
 ## <a name="security-questions-and-answers"></a>Questions et réponses de sécurité
 

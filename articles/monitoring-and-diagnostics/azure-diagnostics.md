@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble des diagnostics Azure | Microsoft Docs"
-description: "Utilisation des diagnostics Azure pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic dans Cloud Services, Virtual Machines et Service Fabric"
+title: Vue d’ensemble des diagnostics Azure | Microsoft Docs
+description: Utilisation des diagnostics Azure pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic dans Cloud Services, Virtual Machines et Service Fabric
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
 ms.service: multiple
 ms.workload: na
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0231a6c1d78818b948bb24d0c406fb2f2da17a0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32169133"
 ---
 # <a name="what-is-azure-diagnostics"></a>Que sont les diagnostics Azure ?
-Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et les rôles de travail Azure Cloud Service, Azure Virtual Machines sous Microsoft Windows et Service Fabric. Les autres services Azure ont leurs propres diagnostics distincts.
+Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](monitoring-overview.md). 
 
 ## <a name="data-you-can-collect"></a>Données que vous pouvez collecter
 Les diagnostics Azure peuvent collecter les types de données suivants :
@@ -38,16 +39,13 @@ Les diagnostics Azure peuvent collecter les types de données suivants :
 | Journaux d'erreurs personnalisés |Journaux créés par votre application ou service |
 | Journaux d’infrastructure Azure Diagnostic |Informations au sujet des diagnostics eux-mêmes |
 
-L’extension des diagnostics Azure peut transférer ces données vers un compte de stockage Azure ou l’envoyer à des services tels qu’[Application Insights](../application-insights/app-insights-cloudservices.md). Ces données peuvent servir au débogage et à la résolution des problèmes, à mesurer les performances, à suivre l'utilisation des ressources, à analyser le trafic et à prévoir et analyser la capacité.
+L’extension des diagnostics Azure peut transférer ces données vers un compte de stockage Azure ou les envoyer à [Application Insights](../application-insights/app-insights-cloudservices.md). Vous pouvez aussi les diffuser en continu à [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), ce qui vous permet ensuite de les envoyer à des services de monitoring non Azure. Ces données peuvent servir au débogage et à la résolution des problèmes, à mesurer les performances, à suivre l'utilisation des ressources, à analyser le trafic et à prévoir et analyser la capacité.
 
 ## <a name="versioning"></a>Contrôle de version
 Voir [Historique de contrôle de version des diagnostics Azure](azure-diagnostics-versioning-history.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Choisissez le service sur lequel vous voulez collecter des diagnostics et utilisez les articles suivants pour commencer. Utilisez les liens des diagnostics Azure généraux comme référence pour des tâches spécifiques.
-
-## <a name="web-apps"></a>Web Apps
-Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations équivalentes sur [Web Apps](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Cloud Services avec les diagnostics Azure
 * Si vous utilisez Visual Studio, consultez [Utilisation de Visual Studio pour suivre une application Cloud Services](../vs-azure-tools-debug-cloud-services-virtual-machines.md) pour commencer. Sinon, voir

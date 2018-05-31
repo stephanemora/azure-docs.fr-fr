@@ -7,14 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 3e6c7c70acbfde9d82d40c884711db8e9eb6946a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777489"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connexion de Cosmos DB à Recherche Azure à l’aide d’indexeurs
 
@@ -74,7 +75,7 @@ Cet article explique comment le faire à l’aide de l’API REST. Si vous optez
 ## <a name="step-1-create-a-data-source"></a>Étape 1 : Création d’une source de données
 Pour créer une source de données, effectuez un POST :
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -147,7 +148,7 @@ Créez un index Azure Search cible si vous n'en possédez pas déjà un. Vous po
 
 L'exemple suivant crée un index avec un champ ID et un champ Description :
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -193,7 +194,7 @@ Assurez-vous que le schéma de votre index cible est compatible avec le schéma 
 
 Une fois l'index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -212,7 +213,7 @@ Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un 
 ### <a name="running-indexer-on-demand"></a>Exécution de l’indexeur à la demande
 En plus de l'exécution périodique planifiée, un indexeur peut également être appelé à la demande :
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -224,7 +225,7 @@ Vous pouvez surveiller l’état de l’indexeur dans le portail ou à l’aide 
 ### <a name="getting-indexer-status"></a>Obtention de l’état de l’indexeur
 Vous pouvez récupérer l'historique d'état et d'exécution d'un indexeur :
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 La réponse contient l'état d'intégrité global de l'indexeur, le dernier appel de l'indexeur (ou celui en cours), ainsi que l'historique des appels récents de l'indexeur.
@@ -272,7 +273,7 @@ Si vous utilisez une requête personnalisée, assurez-vous que la propriété `_
 
 <a name="IncrementalProgress"></a>
 ### <a name="incremental-progress-and-custom-queries"></a>Progression incrémentielle et requêtes personnalisées
-Dans le cas où l’exécution de l’indexeur est interrompue par des échecs passagers ou un dépassement du délai d’exécution, une progression incrémentielle pendant une indexation veille à ce que l’indexeur puisse reprendre là il en était lors de sa dernière exécution, afin de ne pas avoir à tout réindexer depuis le début. Ceci est particulièrement important lors de l’indexation de grandes collections. 
+Dans le cas où l’exécution de l’indexeur est interrompue par des défaillances passagères ou un dépassement du délai d’exécution, la progression incrémentielle pendant l’indexation permet à l’indexeur de reprendre là il en était lors de sa dernière exécution, plutôt que d’avoir à tout réindexer depuis le début. Ceci est particulièrement important lors de l’indexation de grandes collections. 
 
 Pour activer la progression incrémentielle lors de l’utilisation d’une requête personnalisée, assurez-vous que votre requête classe les résultats par la colonne `_ts`. Ceci permet de créer des points de contrôle périodiques dont Azure Search se sert pour proposer la progression incrémentielle en cas d’erreurs.   
 
@@ -298,7 +299,7 @@ Si vous utilisez une requête personnalisée, assurez-vous que la propriété r�
 
 L'exemple suivant crée une source de données avec des conseils pour une stratégie de suppression en douceur :
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bc88140bf1adea49ff4bc76667d30a379f829bbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360119"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données MySQL sur Microsoft Azure Stack
 
@@ -117,7 +118,7 @@ Vous pouvez :
 Voici un exemple que vous pouvez exécuter à partir de l’invite de PowerShell. Veillez à modifier les informations de compte et les mots de passe si nécessaire :
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -179,6 +180,8 @@ Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le 
 | **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
 | **AcceptLicense** | Ignore l’invite à accepter la licence GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer une base de données tant que la référence n’a pas été créée.
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Vérifier le déploiement à l’aide du portail Azure Stack
 
@@ -212,6 +215,10 @@ Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le 
     - Une capacité de base de données
     - La sauvegarde automatique
     - La réservation de serveurs hautes performances pour des services individuels
+
+
+  > [!IMPORTANT]
+  > Vous ne pouvez pas mélanger des serveurs autonomes avec des instances Always On dans la même référence SKU. Toute tentative de mélange de types après l’ajout du premier serveur d’hébergement entraîne une erreur.
  
 
 Le nom de la référence SKU doit refléter les propriétés afin que les locataires puissent placer leurs bases de données de manière appropriée. Tous les serveurs d’hébergement d’une référence SKU doivent avoir les mêmes capacités.
@@ -219,8 +226,7 @@ Le nom de la référence SKU doit refléter les propriétés afin que les locata
 ![Créer une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer une base de données tant que la référence n’a pas été créée.
+
 
 
 ## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>Créer sa première base de données MySQL pour tester son déploiement

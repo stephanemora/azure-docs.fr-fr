@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 45856f759b7d11a7712a032a00d2d1a4fb2043d2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7c512e0f54cbf8a99c9a1650d0c612333f199ce0
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012847"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents 
 
@@ -33,9 +34,9 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models.md) |Identique|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models-subscriptions.md) |Différent|
 
-Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Si vous avez besoin de connecter des réseaux virtuels tous deux créés par le biais du modèle de déploiement classique, vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. 
+Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Si vous avez besoin de connecter des réseaux virtuels tous deux créés par le biais du modèle de déploiement classique, vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 
-Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region). 
+Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region). Il est recommandé de vous familiariser avec les [exigences et contraintes de l’appairage](virtual-network-manage-peering.md#requirements-and-constraints) avant d’appairer des réseaux virtuels.
 
 Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de commande](#cli) (CLI) Azure, Azure [PowerShell](#powershell) ou un [modèle Azure Resource Manager](#template) pour créer une homologation de réseaux virtuels. Sélectionnez l’un des liens d’outils précédents pour accéder directement à la procédure permettant de créer une homologation de réseaux virtuels à l’aide de l’outil de votre choix.
 

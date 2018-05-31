@@ -1,11 +1,11 @@
 ---
-title: "Créer une sonde personnalisée - Passerelle Azure Application Gateway - PowerShell classic | Microsoft Docs"
-description: "Apprendre à créer une sonde personnalisée pour Application Gateway en utilisant PowerShell dans le modèle de déploiement classique"
+title: Créer une sonde personnalisée - Passerelle Azure Application Gateway - PowerShell classic | Microsoft Docs
+description: Apprendre à créer une sonde personnalisée pour Application Gateway en utilisant PowerShell dans le modèle de déploiement classique
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201944"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Créer une sonde personnalisée pour Azure Application Gateway (classique) en utilisant PowerShell
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 12/21/2017
 Dans cet article, une sonde personnalisée est ajoutée à une passerelle d’application existante à l’aide de PowerShell. Les sondes personnalisées sont utiles pour les applications qui ont une page de contrôle d’intégrité spécifique ou pour les applications qui ne fournissent pas de réponse correcte dans l’application web par défaut.
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](application-gateway-create-probe-ps.md).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -39,7 +40,7 @@ Dans cet article, une sonde personnalisée est ajoutée à une passerelle d’ap
 
 Pour créer une passerelle d’application :
 
-1. Créez une ressource de passerelle d’application.
+1. Créez une ressource Application Gateway.
 2. Créez un fichier XML de configuration ou un objet de configuration.
 3. Validez la configuration de la ressource Application Gateway nouvellement créée.
 
@@ -60,7 +61,7 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous avez le choix entre Small, Medium et Large.
+> La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous avez le choix entre Small, Medium et Large.
 > 
 > 
 
@@ -149,7 +150,7 @@ Les paramètres de configuration sont :
 
 |Paramètre|Description|
 |---|---|
-|**Nom** |Nom de référence de la sonde personnalisée. |
+|**Name** |Nom de référence de la sonde personnalisée. |
 * **Protocole** | Protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).|
 | **Hôte** et **Chemin** | Chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l’instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.|
 | **Intervalle** | Configure les vérifications d’intervalle de sonde en secondes.|
