@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941851"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Comment utiliser les diagnostics de démarrage pour résoudre les problèmes des machines virtuelles Linux dans Azure
 
@@ -48,9 +49,14 @@ Ces deux fonctionnalités sont prises en charge par les Machines Virtuelles Azur
  
     ![Gestionnaire de ressources](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Configurez l’option de surveillance afin de sélectionner le compte de stockage dans lequel vous souhaitez placer ces fichiers de diagnostic.
+2. Dans **Paramètres**, activez la fonctionnalité **Diagnostics de démarrage**, puis sélectionnez le compte de stockage dans lequel vous souhaitez placer ces fichiers de diagnostic.
  
-    ![Créer une machine virtuelle](./media/boot-diagnostics/screenshot4.jpg)
+    ![Créer une machine virtuelle](./media/boot-diagnostics/create-storage-account.png)
+
+    > [!NOTE]
+    > La fonctionnalité Diagnostics de démarrage ne prend pas en charge le compte de stockage Premium. Si vous utilisez le compte de stockage Premium pour la fonctionnalité Diagnostics de démarrage, vous pouvez recevoir l’erreur StorageAccountTypeNotSupported lorsque vous démarrez la machine virtuelle. 
+    >
+    > 
 
 3. Si vous déployez à partir d’un modèle Azure Resource Manager, accédez à votre ressource de machine virtuelle et ajoutez la section de profil des diagnostics. Pensez à utiliser l’en-tête de version d’API « 2015-06-15 ».
 
@@ -74,11 +80,19 @@ Ces deux fonctionnalités sont prises en charge par les Machines Virtuelles Azur
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Mettre à jour une machine virtuelle existante
+Pour déployer un exemple de machine virtuelle alors que les diagnostics de démarrage sont activés, consultez notre référentiel ici.
 
-Pour activer les diagnostics de démarrage via le portail, vous pouvez également mettre à jour une machine virtuelle existante à partir du portail. Sélectionnez l’option de diagnostics de démarrage et enregistrez. Redémarrez la machine virtuelle pour appliquer les modifications.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Activer la fonctionnalité Diagnostics de démarrage sur la machine virtuelle existante 
 
-![Mettre à jour une machine virtuelle existante](./media/boot-diagnostics/screenshot5.png)
+Pour activer la fonctionnalité Diagnostics de démarrage sur une machine virtuelle existante, procédez comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez la machine virtuelle.
+2. Dans **Support et dépannage**, sélectionnez **Diagnostics de démarrage** > **Paramètres**, définissez l’état sur **Activé**, puis sélectionnez un compte de stockage. 
+4. Assurez-vous que l’option Diagnostics de démarrage est sélectionnée, puis enregistrez la modification.
+
+    ![Mettre à jour une machine virtuelle existante](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Redémarrez la machine virtuelle pour appliquer les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

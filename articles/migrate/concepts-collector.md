@@ -4,14 +4,15 @@ description: Fournit une vue d’ensemble de l’appliance Collecteur et indique
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777829"
 ---
 # <a name="collector-appliance"></a>Appliance Collecteur
 
@@ -89,7 +90,7 @@ Le Collecteur doit être synchronisé avec le serveur de temps Internet pour que
 
 Le service Azure Migrate Collector doit être en cours d’exécution sur la machine. Ce service est lancé automatiquement au démarrage de la machine. S’il ne s’exécute pas, vous pouvez démarrer le service *Azure Migrate Collector* dans le Panneau de configuration. Le service Collecteur est chargé de se connecter au serveur vCenter, de collecter les métadonnées et les données de performance des machines et de les envoyer au service.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 Le module PowerShell de VMware PowerCLI doit être installé pour que le Collecteur puisse communiquer avec le serveur vCenter et rechercher les détails des machines et leurs données de performances. Le module PowerShell est automatiquement téléchargé et installé dans le cadre de la vérification des conditions requises. Le téléchargement automatique nécessite que quelques URL figurent dans la liste verte, faute de quoi vous devez fournir cet accès en les inscrivant sur la liste verte ou en installant le module manuellement.
 
@@ -103,7 +104,7 @@ Pour installer le module manuellement, procédez comme suit :
 
 Le Collecteur doit se connecter au serveur vCenter Server et être en mesure d’interroger les machines virtuelles, leurs métadonnées et leurs compteurs de performances. Ces données sont utilisées par le projet pour calculer une évaluation.
 
-1. Pour la connexion au serveur vCenter Server, un compte en lecture seule disposant des autorisations indiquées dans le tableau suivant peut être utilisé pour exécuter la détection. 
+1. Pour la connexion au serveur vCenter Server, un compte en lecture seule disposant des autorisations indiquées dans le tableau suivant peut être utilisé pour exécuter la détection.
 
     |Tâche  |Rôle/compte requis  |Autorisations  |
     |---------|---------|---------|
@@ -118,13 +119,13 @@ Le Collecteur doit se connecter au serveur vCenter Server et être en mesure d�
 > Seules les versions vCenter Server 5.5, 6.0 et 6.5 sont officiellement prises en charge.
 
 > [!IMPORTANT]
-> Nous vous recommandons de définir le niveau commun le plus élevé (niveau 3) pour les statistiques, afin que les données de tous les compteurs soient correctement collectées. Si vCenter est défini sur un niveau inférieur, il se peut que seuls quelques compteurs voient l’intégralité de leurs données collectées, les autres étant définis sur 0. L’évaluation peut donc afficher des données incomplètes. 
+> Nous vous recommandons de définir le niveau commun le plus élevé (niveau 3) pour les statistiques, afin que les données de tous les compteurs soient correctement collectées. Si vCenter est défini sur un niveau inférieur, il se peut que seuls quelques compteurs voient l’intégralité de leurs données collectées, les autres étant définis sur 0. L’évaluation peut donc afficher des données incomplètes.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Sélection de l’étendue de la détection
 
 Une fois connecté au serveur vCenter, vous pouvez sélectionner une étendue de détection. La sélection d’une étendue permet de détecter toutes les machines virtuelles à partir du chemin d’inventaire vCenter spécifié.
 
-1. L’étendue peut être un centre de données, un dossier ou un hôte ESXi. 
+1. L’étendue peut être un centre de données, un dossier ou un hôte ESXi.
 2. Vous ne pouvez sélectionner qu’une étendue à la fois. Pour sélectionner plusieurs machines virtuelles, vous pouvez effectuer une détection, puis redémarrer le processus de détection avec une nouvelle étendue.
 3. Vous ne pouvez sélectionner qu’une étendue ayant *moins de 1 500 machines virtuelles*.
 
@@ -141,14 +142,15 @@ Une fois que la détection est démarrée, les machines virtuelles vCenter sont 
 
 ### <a name="what-data-is-collected"></a>Quelles sont les données collectées ?
 
-Le travail de collecte détecte les métadonnées statiques suivantes sur les machines virtuelles sélectionnées. 
+Le travail de collecte détecte les métadonnées statiques suivantes sur les machines virtuelles sélectionnées.
 
 1. Nom d’affichage de machine virtuelle (sur vCenter)
 2. Chemin d’accès de l’inventaire de machine virtuelle (hôte/dossier dans vCenter)
 3. Adresse IP
 4. Adresse MAC
+5. Système d’exploitation
 5. Nombre de cœurs, disques, cartes réseau
-6. Tailles de RAM, de disque
+6. Taille de la mémoire, taille des disques
 7. Compteurs de performances de la machine virtuelle, du disque et du réseau indiqués dans le tableau ci-dessous.
 
 Le tableau ci-dessous répertorie les compteurs de performances qui sont collectés et répertorie également les résultats d’évaluation qui sont affectés si un compteur particulier n’est pas collecté.
@@ -190,7 +192,7 @@ Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans
 2. Pour vous assurer que le correctif logiciel téléchargé est sécurisé, ouvrez la fenêtre de commande d’administrateur et exécutez la commande suivante pour générer le hachage du fichier ZIP. Le hachage généré doit correspondre au hachage mentionné pour la version spécifique :
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Copiez le fichier zip sur la machine virtuelle du collecteur Azure Migrate (appliance collecteur).
 4. Cliquez avec le bouton droit sur le fichier zip et sélectionnez Tout extraire.

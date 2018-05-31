@@ -1,24 +1,21 @@
 ---
 title: Configurer Azure Multi-Factor Authentication | Microsoft Docs
-description: Cet article décrit comment configurer les paramètres d’Azure Multi-Factor Authentication pour les rapports, les alertes de fraude, les contournements à usage unique, les messages vocaux personnalisés, la mise en cache, les adresses IP approuvées et les mots de passe d’application.
+description: Cet article explique comment configurer les paramètres Azure Multi-Factor Authentication sur le portail Azure.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: f587800d3b1d205107b6c8091ca424b01b9e67e6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869799"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
