@@ -9,11 +9,12 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072165"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 L’audit de bases de données SQL Azure suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
@@ -73,11 +74,11 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
     ![Volet de navigation][3]
 5. Pour ouvrir le panneau **Stockage des journaux d’audit**, sélectionnez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux seront enregistrés, puis sélectionnez la période de rétention. Les anciens journaux seront supprimés. Cliquez ensuite sur **OK**.
-   >[!TIP]
-   >Pour tirer le meilleur parti des modèles des rapports d’audit, utilisez le même compte de stockage pour toutes les bases de données auditées.
+    >[!TIP]
+    >Pour tirer le meilleur parti des modèles des rapports d’audit, utilisez le même compte de stockage pour toutes les bases de données auditées.
 
     <a id="storage-screenshot"></a>![Volet de navigation][4]
-6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec PowerShell ou l’API REST.
+6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec des [applets de commande PowerShell](#subheading-7) ou [l’API REST](#subheading-9).
 7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](sql-database-threat-detection-get-started.md).
 8. Cliquez sur **Enregistrer**.
 
@@ -149,8 +150,8 @@ Avec les bases de données géorépliquées, lorsque vous activez l’audit dans
    * L’audit Objet blob doit être activé sur la *base de données primaire elle-même*, et non pas sur le serveur.
    * Une fois que l’audit d’objets blob est activé sur la base de données primaire, il est également activé sur la base de données secondaire.
 
-     >[!IMPORTANT]
-     >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. Il est conseillé d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
+    >[!IMPORTANT]
+    >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. Il est conseillé d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
 <br>
 
 ### <a id="subheading-6">Régénération des clés de stockage</a>
@@ -169,33 +170,41 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 * Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-   > [!IMPORTANT]
-   > Azure SQL Database stocke 4 000 caractères de données pour des champs caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
+    > [!IMPORTANT]
+    > Azure SQL Database stocke 4 000 caractères de données pour des champs caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
 
-* Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
-   * **Stockage Premium** n’est actuellement  **pas pris en charge** par l’ajout d’objets blob.
-   * Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
+* Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure :
+    * **Stockage Premium** n’est actuellement  **pas pris en charge** par l’ajout d’objets blob.
+    * Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gérer l’audit de base de données SQL avec Azure PowerShell
+* La stratégie d’audit par défaut inclut toutes les actions et l’ensemble suivant de groupes d’actions, qui feront l’audit de toutes les requêtes et procédures stockées exécutées sur la base de données, ainsi que des connexions réussies et échouées :
 
-* **Applets de commande PowerShell**:
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    Vous pouvez configurer l’audit pour différents types d’actions et groupes d’actions à l’aide de PowerShell, comme décrit dans la section [Gérer l’audit de base de données SQL avec Azure PowerShell](#subheading-7).
 
-   Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+## <a id="subheading-7"></a>Gérer l’audit de base de données SQL avec Azure PowerShell
 
-## <a name="manage-sql-database-auditing-using-rest-api"></a>Gérer l’audit de base de données SQL à l’aide de l’API REST
+**Applets de commande PowerShell**:
 
-* **API REST - Audit d’objets blob** :
+* [Créer ou mettre à jour une stratégie d’audit d’objets blob de base de données (Set-AzureRMSqlDatabaseAuditing)][105]
+* [Créer ou mettre à jour une stratégie d’audit d’objets blob de serveur (Set-AzureRMSqlServerAuditing)][106]
+* [Obtenir une stratégie d’audit de base de données (Get-AzureRMSqlDatabaseAuditing)][101]
+* [Obtenir une stratégie d’audit d’objets blob serveur (Get-AzureRMSqlServerAuditing)][102]
 
-   * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a id="subheading-9"></a>Gérer l’audit de base de données SQL à l’aide de l’API REST
+
+**API REST - Audit d’objets blob** :
+
+* [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -204,8 +213,9 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

@@ -9,11 +9,12 @@ ms.custom: load & move data
 ms.date: 04/01/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 7653f0953241fa0b4a1780075641fc3fe5570a23
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 30e89ea940b25e8db4a1203e966000981c47abc9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894039"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exporter une base de données SQL Azure dans un fichier BACPAC
 
@@ -97,3 +98,4 @@ $exportStatus
 * Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Server, consultez [Importer un fichier BACPCAC dans une base de données SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 * Pour en savoir plus sur l’exportation d’un fichier BACPAC à partir d’une base de données SQL Server, consultez [Exporter une application de la couche Données](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) et [Migrer votre première base de données](sql-database-migrate-your-sql-server-database.md).
 * Si vous exportez depuis SQL Server avant de procéder à la migration vers Azure SQL Database, consultez [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
+* Pour savoir comment gérer et partager les clés de stockage et signatures d’accès partagé en toute sécurité, consultez le [Guide de sécurité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

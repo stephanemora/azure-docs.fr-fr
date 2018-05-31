@@ -1,5 +1,5 @@
 ---
-title: Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure | Microsoft Docs
+title: Effectuer le monitoring des tâches dans Azure Data Lake Analytics avec le Portail Azure | Microsoft Docs
 description: 'Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics. '
 services: data-lake-analytics
 documentationcenter: ''
@@ -14,42 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14b1f4ec9dff78e4b5d2480755a4b1f2579ec135
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33884777"
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Résoudre les erreurs des travaux Azure Data Lake Analytics à l’aide du portail Azure
-Découvrez comment utiliser le portail Azure pour résoudre les erreurs des travaux Data Lake Analytics.
-
-Dans ce didacticiel, vous allez identifier un problème de fichier source manquant et utiliser le portail Azure pour résoudre le problème.
-
-## <a name="submit-a-data-lake-analytics-job"></a>Envoyer le travail Analytique Data Lake
-
-Envoyer la tâche U-SQL suivante :
-
-```
-@searchlog =
-   EXTRACT UserId          int,
-           Start           DateTime,
-           Region          string,
-           Query           string,
-           Duration        int?,
-           Urls            string,
-           ClickedUrls     string
-   FROM "/Samples/Data/SearchLog.tsv1"
-   USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-   TO "/output/SearchLog-from-adls.csv"
-   USING Outputters.Csv();
-```
-    
-Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, alors qu’il devrait s’agir de **/Samples/Data/SearchLog.tsv**.
-
-
-## <a name="troubleshoot-the-job"></a>Résolution des problèmes
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Effectuer le monitoring des tâches dans Azure Data Lake Analytics avec le Portail Azure
 
 **Pour voir tous les travaux**
 
@@ -81,5 +53,4 @@ Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, a
 ## <a name="see-also"></a>Voir aussi
 * [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md)
 * [Prise en main d’Analytique Data Lake à l’aide d’Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Prise en main d’Analytique Data Lake Azure et U-SQL à l’aide de Visual Studio.](data-lake-analytics-u-sql-get-started.md)
 * [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)

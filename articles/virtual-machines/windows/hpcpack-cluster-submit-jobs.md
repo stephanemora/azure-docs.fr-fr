@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166367"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Envoyer des travaux HPC à partir d'un ordinateur local vers un cluster HPC Pack déployé dans Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -30,9 +31,9 @@ Configurez un ordinateur client local pour envoyer des travaux vers un cluster [
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : nous vous recommandons d’utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) ou un [script Azure PowerShell](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) pour déployer le nœud principal et le cluster. Vous avez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
+* **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : nous vous recommandons d’utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour déployer le nœud principal et le cluster. Vous avez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows ou Windows Server qui peut exécuter des utilitaires clients HPC Pack (voir [Configuration requise](https://technet.microsoft.com/library/dn535781.aspx)). Si vous souhaitez uniquement utiliser le portail web de HPC Pack ou l’API REST pour envoyer des travaux, vous pouvez utiliser l’ordinateur client de votre choix.
-* **Support d’installation du HPC Pack** : pour installer les utilitaires du client HPC Pack, le package d’installation gratuit de la dernière version du HPC Pack (HPC Pack 2012 R2) est disponible dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Veillez à télécharger la même version du HPC Pack qui est installée sur la machine virtuelle du nœud principal.
+* **Support d’installation du HPC Pack** : pour installer les utilitaires du client HPC Pack, le package d’installation gratuit de la dernière version du HPC Pack est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56360). Veillez à télécharger la même version du HPC Pack qui est installée sur la machine virtuelle du nœud principal.
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Étape 1 : Installer et configurer les composants web sur le nœud principal
 Pour activer une interface REST afin d’envoyer des travaux au cluster via HTTPS, assurez-vous que les composants web HPC Pack sont configurés sur le nœud principal HPC Pack. Si ce n’est pas encore fait, installez les composants web en exécutant le fichier d’installation HpcWebComponents.msi. Ensuite, configurez les composants en exécutant le script HPC PowerShell **Set-hpcwebcomponents.ps1**.
@@ -40,7 +41,7 @@ Pour activer une interface REST afin d’envoyer des travaux au cluster via HTTP
 Pour obtenir des procédures détaillées, consultez [Installer les composants web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Certains modèles de démarrage rapide Azure pour HPC Pack installent et configurent automatiquement les composants web. Si vous utilisez le [script de déploiement du HPC Pack IaaS](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) pour créer le cluster, vous pouvez éventuellement installer et configurer les composants web dans le cadre du déploiement.
+> Certains modèles de démarrage rapide Azure pour clusters HPC Pack installent et configurent automatiquement les composants web.
 > 
 > 
 
@@ -82,7 +83,7 @@ Pour obtenir des procédures détaillées, consultez [Installer les composants w
     ```
 
 ## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Étape 2 : Installer les utilitaires clients HPC Pack sur un ordinateur local
-Si vous souhaitez installer les utilitaires du client HPC Pack sur votre ordinateur, téléchargez les fichiers d’installation (installation complète) de HPC Pack à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Au début de l’installation, choisissez l’option d’installation des **utilitaires du client HPC Pack**.
+Si vous souhaitez installer les utilitaires du client HPC Pack sur votre ordinateur, téléchargez les fichiers d’installation (installation complète) de HPC Pack à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56360). Au début de l’installation, choisissez l’option d’installation des **utilitaires du client HPC Pack**.
 
 Pour utiliser les outils clients du HPC Pack pour envoyer des travaux à la machine virtuelle du nœud principal, vous devez également exporter un certificat à partir du nœud principal et l’installer sur l’ordinateur client. Le certificat doit être au format .CER.
 

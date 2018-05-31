@@ -1,24 +1,25 @@
 ---
-title: "Télécharger les outils Azure Stack à partir de GitHub | Microsoft Docs"
-description: "Découvrez comment télécharger les outils nécessaires pour utiliser Azure Stack."
+title: Télécharger les outils Azure Stack à partir de GitHub | Microsoft Docs
+description: Découvrez comment télécharger les outils nécessaires pour utiliser Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 219fd8e4e164df8c3002044719a90a7be56a9edf
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: thoroet
+ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075287"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Télécharger les outils Azure Stack à partir de GitHub
 
@@ -53,13 +54,10 @@ Le dépôt **AzureStack-Tools** contient des modules PowerShell qui prennent en 
 | Fonctionnalités | Description | Qui peut utiliser ce module ? |
 | --- | --- | --- |
 | [Fonctionnalités de cloud](user/azure-stack-validate-templates.md) | Utilisez ce module pour obtenir les fonctionnalités cloud d’un cloud. Par exemple, en utilisant ce module, vous pouvez obtenir les fonctionnalités de cloud telles que la version d’API et les ressources Azure Resource Manager. Vous pouvez également obtenir les extensions de machine virtuelle pour Azure Stack et les clouds Azure à l’aide de ce module. | Les opérateurs et les utilisateurs de cloud |
-| [Administration de calcul Azure Stack](azure-stack-add-vm-image.md) | Utilisez ce module pour ajouter ou supprimer une image de machine virtuelle dans la Place de Marché Azure Stack. | Les opérateurs de cloud |
-| [Administration de l’infrastructure Azure Stack](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Utilisez ce module pour gérer les machines virtuelles, les alertes, les mises à jour, etc. de l’infrastructure Azure Stack. |  Les opérateurs de cloud|
 | [Stratégie Resource Manager pour Azure Stack](user/azure-stack-policy-module.md) | Utilisez ce module pour configurer un abonnement Azure ou un groupe de ressources Azure avec la même gestion des versions et la même disponibilité de service qu’Azure Stack. | Les opérateurs et les utilisateurs de cloud |
 | [Inscription auprès d’Azure](azure-stack-register.md) | Utilisez ce module pour inscrire votre instance de Kit de développement auprès d’Azure. Une fois l’inscription effectuée, vous pouvez télécharger les éléments de Place de Marché à partir d’Azure et les utiliser dans Azure Stack. | Les opérateurs de cloud |
 | [Déploiement Azure Stack](azure-stack-run-powershell-script.md) | Utilisez ce module pour préparer l’ordinateur hôte Azure Stack au déploiement et au redéploiement à l’aide de l’image de disque dur virtuel (VHD) Azure Stack. | Les opérateurs de cloud|
-| [Connexion à Azure Stack](azure-stack-connect-powershell.md) | Utilisez ce module pour vous connecter à une instance d’Azure Stack par le biais de PowerShell et pour configurer la connectivité VPN à Azure Stack. | Les opérateurs et les utilisateurs de cloud |
-| [Administration des services Azure Stack](azure-stack-create-offer.md) | Utilisez ce module pour créer une offre de locataire par défaut avec des quotas illimités parmi les services de calcul, de réseau, Stockage Azure et Key Vault.   | Les opérateurs de cloud|
+| [Connexion à Azure Stack](azure-stack-connect-powershell.md) | Ce module permet de configurer la connectivité VPN avec Azure Stack. | Les opérateurs et les utilisateurs de cloud |
 | [Validateur de modèle](user/azure-stack-validate-templates.md) | Utilisez ce module pour vérifier si un modèle existant ou nouveau peut être déployé sur Azure Stack. | Les opérateurs et les utilisateurs de cloud|
 
 

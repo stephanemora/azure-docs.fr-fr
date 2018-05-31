@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936668"
 ---
 # <a name="azure-stack-1802-update"></a>Mise à jour 1802 d’Azure Stack
 
@@ -85,6 +86,8 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 - **Améliorations du contrôle d’accès en fonction du rôle** : vous pouvez maintenant utiliser le contrôle d’accès en fonction du rôle pour déléguer des autorisations à des groupes d’utilisateurs universels lorsqu’Azure Stack est déployé avec AD FS. Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez [Gérer le contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md).
 
 - **La prise en charge est ajoutée pour plusieurs domaines d’erreur**.  Pour plus d’informations, consultez [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack) (Haute disponibilité pour Azure Stack).
+
+- **Prise en charge des mises à niveau de la mémoire physique** - Vous pouvez maintenant augmenter la capacité de mémoire du système Azure Stack intégré après le déploiement initial. Pour plus d’informations, consultez [Gérer la capacité de mémoire physique pour Azure Stack](azure-stack-manage-storage-physical-memory-capacity.md).
 
 - **Divers correctifs** pour les performances, la stabilité, la sécurité et le système d’exploitation utilisé par Azure Stack.
 

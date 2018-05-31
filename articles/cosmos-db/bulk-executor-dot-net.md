@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887240"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilisation de la bibliothèque .NET BulkExecutor pour effectuer des opérations en bloc dans Azure Cosmos DB
 
-Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque .NET BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents vers des collections Azure Cosmos DB. Ce tutoriel fait appel à un exemple d’application .NET qui importe en bloc des documents générés de manière aléatoire dans une collection Azure Cosmos DB. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques.
+Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque .NET BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents vers des collections Azure Cosmos DB. Pour en savoir plus sur la bibliothèque BulkExecutor et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Ce tutoriel fait appel à un exemple d’application .NET qui importe en bloc des documents générés de manière aléatoire dans une collection Azure Cosmos DB. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +32,7 @@ Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque .NE
 
 * Créez un compte d’API SQL Azure Cosmos DB en suivant les étapes décrites dans la section [Créer un compte de base de données](create-sql-api-dotnet.md#create-a-database-account) de l’article de démarrage rapide .NET. 
 
-## <a name="clone-the-sample-application"></a>Cloner l’exemple d’application
+## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
 Nous allons maintenant passer à l’utilisation de code en téléchargeant des exemples d’applications .NET à partir de GitHub. Ces applications effectuent des opérations en bloc sur des données Azure Cosmos DB. Pour cloner les applications, ouvrez une invite de commandes, accédez au répertoire où vous souhaitez les copier, puis exécutez la commande suivante :
 

@@ -1,30 +1,34 @@
 ---
-title: "Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory | Microsoft Docs"
-description: "Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory"
+title: Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory | Microsoft Docs
+description: Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155794"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Référence d’API de création de rapports sur l’activité de connexion Azure Active Directory
-Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de création de rapports Azure Active Directory.  
-La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données des rapports sur l’activité de connexion à l’aide de code ou d’outils associés.
-Cette rubrique a pour but de vous fournir des informations de référence sur **l’API de création de rapports sur l’activité de connexion**.
+
+> [!TIP] 
+> Consultez la nouvelle API Microsoft Graph pour les [rapports](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), qui va remplacer cette API. 
+
+Cet article fait partie d’un ensemble d’articles relatifs à l’API de création de rapports Azure Active Directory (Azure AD). La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données d’audit à l’aide de code ou d’outils associés.
+Cet article a pour but de vous fournir des informations de référence sur **l’API d’audit**.
 
 Consultez l'article :
 
@@ -47,13 +51,14 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ```
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour accéder à ce rapport via l’API de création de rapports, vous devez disposer des éléments suivants :
 
-* Une [édition Azure Active Directory Premium P1 ou P2](active-directory-editions.md)
+* Une [édition Azure Active Directory Premium P1 ou P2](active-directory-whatis.md)
 * Avoir respecté la [configuration requise pour accéder à l’API de création de rapports Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Accès à l’API
-Vous pouvez soit accéder à cette API via [l’Afficheur Graph](https://graphexplorer2.cloudapp.net) , soit par programme à l’aide, par exemple, de PowerShell. Pour que PowerShell puisse interpréter correctement la syntaxe de filtre OData utilisée dans les appels REST Graph AAD, vous devez utiliser le caractère accent grave (`) pour « échapper » au caractère $. Le caractère accent grave sert de [caractère d’échappement de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), ce qui permet à PowerShell d’effectuer une interprétation littérale du caractère $ et de ne pas le confondre avec un nom de variable PowerShell (par exemple : $filter).
+Vous pouvez soit accéder à cette API via [l’Afficheur Graph](https://graphexplorer2.cloudapp.net) , soit par programme à l’aide, par exemple, de PowerShell. Pour que PowerShell puisse interpréter correctement la syntaxe de filtre OData utilisée dans les appels REST Graph AAD, vous devez utiliser le caractère accent grave (`) pour « échapper » le caractère $. Le caractère accent grave sert de [caractère d’échappement de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), ce qui permet à PowerShell d’effectuer une interprétation littérale du caractère $ et de ne pas le confondre avec un nom de variable PowerShell (par exemple : $filter).
 
 Cette rubrique porte sur l’Afficheur Graph. Pour obtenir un exemple PowerShell, consultez ce [script PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -64,10 +69,9 @@ Vous pouvez accéder à cette API à l’aide de l’URI de base suivant :
 
 
 
-En raison du volume de données, cette API est limitée à un million d’enregistrements retournés. 
+En raison du volume de données, cette API est limitée à un 1 000 000 d’enregistrements retournés. 
 
-Cet appel renvoie les données par lots. Chaque lot comporte un maximum de 1 000 enregistrements.  
-Pour obtenir le lot d’enregistrements suivant, cliquez sur le lien Suivant. Obtenez les informations du [jeton d’évitement](https://msdn.microsoft.com/library/dd942121.aspx) dans le premier jeu d’enregistrements retournés. Le jeton d’évitement se trouve à la fin du jeu de résultats.  
+Cet appel renvoie les données par lots. Chaque lot comporte un maximum de 1 000 enregistrements. Pour obtenir le lot d’enregistrements suivant, cliquez sur le lien Suivant. Obtenez les informations du [jeton d’évitement](https://msdn.microsoft.com/library/dd942121.aspx) dans le premier jeu d’enregistrements retournés. Le jeton d’évitement se trouve à la fin du jeu de résultats.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
