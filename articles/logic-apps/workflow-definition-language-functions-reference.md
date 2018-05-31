@@ -1,9 +1,9 @@
 ---
 title: Fonctions du langage de définition du flux de travail - Azure Logic Apps | Microsoft Docs
-description: En savoir plus sur les fonctions que vous pouvez utiliser dans les définitions du flux de travail des applications logiques
+description: En savoir plus sur les fonctions de création d’applications logiques avec le langage de définition de flux de travail
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182249"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886610"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Informations de référence des fonctions du langage de définition du flux de travail pour Azure Logic Apps
 
-Cet article décrit les fonctions que vous pouvez utiliser lorsque vous créez des flux de travail avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Pour en savoir plus sur les définitions d’application logique, consultez [Schéma du langage de définition du flux de travail pour Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md). 
+Cet article décrit les fonctions que vous pouvez utiliser lorsque vous créez des flux de travail avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Pour en savoir plus sur les fonctions dans les définitions d’application logique, consultez [Schéma du langage de définition du flux de travail pour Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > Dans la syntaxe des définitions de paramètres, un point d’interrogation (?) affiché après un paramètre signifie que ce paramètre est facultatif. Par exemple, consultez [getFutureTime()](#getFutureTime).
@@ -358,7 +358,7 @@ Et retourne ce résultat : `"2018-03-15T00:15:00.0000000Z"`
 
 ## <a name="addproperty"></a>addProperty
 
-Ajoute une propriété et sa valeur, ou une paire nom-valeur, à un objet JSON et retourne l’objet mis à jour. Si l’objet existe déjà lors de l’exécution, la fonction génère une erreur.
+Ajouter une propriété et sa valeur, ou paire nom-valeur, à un objet JSON et renvoyer l’objet mis à jour. Si l’objet existe déjà lors de l’exécution, la fonction génère une erreur.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -752,7 +752,7 @@ bool(0)
 Et retournent les résultats suivants : 
 
 * Premier exemple : `true` 
-* Deuxième exemple : `false`
+* Second exemple : `false`
 
 <a name="coalesce"></a>
 
@@ -845,7 +845,7 @@ Plus précisément, cette fonction agit sur ces types de collection :
 
 | Valeur de retour | type | Description | 
 | ------------ | ---- | ----------- | 
-| true ou false | Booléen | Retourne la valeur true lorsque l’élément est trouvé. Retourne la valeur false lorsque l’élément est introuvable. |
+| true ou false | Booléen | Retourne la valeur true lorsque l’élément est trouvé. Retourne la valeur false lorsqu’elle est introuvable. |
 |||| 
 
 *Exemple 1*
@@ -1331,13 +1331,13 @@ div(10, 5)
 div(11, 5)
 ```
 
-Et retournent ce résultat : `2`
+Et retourne ce résultat : `2`
 
 <a name="encodeUriComponent"></a>
 
 ## <a name="encodeuricomponent"></a>encodeUriComponent
 
-Retourne une version encodée sous forme d’URI d’une chaîne en remplaçant les caractères non sécurisés pour les URL par des caractères d’échappement. Pensez à utiliser la fonction [uriComponent()](#uriComponent) plutôt que la fonction `encodeUriComponent()`. Bien que les deux fonctions fonctionnent de manière identique, `uriComponent()` est préféré.
+Retourne une version encodée sous forme d’URI d’une chaîne en remplaçant les caractères non sécurisés pour les URL par des caractères d’échappement. Pensez à utiliser la fonction [uriComponent()](#uriComponent) plutôt que la fonction `encodeUriComponent()`. Bien que les deux fonctions agissent de manière identique, la fonction `uriComponent()` est préférée.
 
 ```
 encodeUriComponent('<value>')
@@ -1749,7 +1749,7 @@ greater('apple', 'banana')
 Et retournent les résultats suivants : 
 
 * Premier exemple : `true`
-* Deuxième exemple : `false`
+* Second exemple : `false`
 
 <a name="greaterOrEquals"></a>
 
@@ -1786,7 +1786,7 @@ greaterOrEquals('apple', 'banana')
 Et retournent les résultats suivants : 
 
 * Premier exemple : `true`
-* Deuxième exemple : `false`
+* Second exemple : `false`
 
 <a name="guid"></a>
 
@@ -2193,7 +2193,7 @@ length('abcd')
 length([0, 1, 2, 3])
 ```
 
-Et retournent ce résultat : `4`
+Et retourne ce résultat : `4`
 
 <a name="less"></a>
 
@@ -2230,7 +2230,7 @@ less('banana', 'apple')
 Et retournent les résultats suivants : 
 
 * Premier exemple : `true`
-* Deuxième exemple : `false`
+* Second exemple : `false`
 
 <a name="lessOrEquals"></a>
 
@@ -2267,13 +2267,13 @@ lessOrEquals('apply', 'apple')
 Et retournent les résultats suivants : 
 
 * Premier exemple : `true`
-* Deuxième exemple : `false`
+* Second exemple : `false`
 
 <a name="listCallbackUrl"></a>
 
 ## <a name="listcallbackurl"></a>listCallbackUrl
 
-Retourne « l’URL de rappel » qui appelle un déclencheur ou une action. Cette fonction fonctionne uniquement avec les déclencheurs et actions pour les types de connecteur **HttpWebhook** et **ApiConnectionWebhook**, mais pas les types **Manual**, **Recurrence**, **HTTP** ni **APIConnection**. 
+Renvoyer l’« URL de rappel » qui appelle un déclencheur ou une action. Cette fonction fonctionne uniquement avec les déclencheurs et actions pour les types de connecteur **HttpWebhook** et **ApiConnectionWebhook**, mais pas les types **Manual**, **Recurrence**, **HTTP** ni **APIConnection**. 
 
 ```
 listCallbackUrl()
@@ -2321,7 +2321,7 @@ max(1, 2, 3)
 max([1, 2, 3])
 ```
 
-Et retournent ce résultat : `3`
+Et retourne ce résultat : `3`
 
 <a name="min"></a>
 
@@ -2354,7 +2354,7 @@ min(1, 2, 3)
 min([1, 2, 3])
 ```
 
-Et retournent ce résultat : `1`
+Et retourne ce résultat : `1`
 
 <a name="mod"></a>
 
@@ -2426,7 +2426,7 @@ Et retournent les résultats suivants :
 
 ## <a name="multipartbody"></a>multipartBody
 
-Retourne le corps correspondant à une partie spécifique dans la sortie d’une action qui comporte plusieurs parties.
+Renvoyer le corps correspondant à une partie spécifique de la sortie d’une action qui comporte plusieurs parties.
 
 ```
 multipartBody('<actionName>', <index>)
@@ -2543,7 +2543,7 @@ Et retournent les résultats suivants :
 
 ## <a name="parameters"></a>parameters
 
-Retourne la valeur d’un paramètre décrit dans la définition de votre application logique. 
+Renvoyer la valeur d’un paramètre décrit dans la définition de votre application logique. 
 
 ```
 parameters('<parameterName>')
@@ -3213,7 +3213,7 @@ trigger()
 
 ## <a name="triggerbody"></a>triggerBody
 
-Retourne la sortie `body` d’un déclencheur lors de l’exécution. Raccourci de `trigger().outputs.body`. Voir [trigger()](#trigger). 
+Renvoyer la sortie `body` d’un déclencheur lors de l’exécution. Raccourci de `trigger().outputs.body`. Voir [trigger()](#trigger). 
 
 ```
 triggerBody()
@@ -3306,7 +3306,7 @@ triggerMultipartBody(<index>)
 
 ## <a name="triggeroutputs"></a>triggerOutputs
 
-Retourne la sortie d’un déclencheur lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON. Raccourci de `trigger().outputs`. Voir [trigger()](#trigger). 
+Renvoyer la sortie d’un déclencheur lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON. Raccourci de `trigger().outputs`. Voir [trigger()](#trigger). 
 
 ```
 triggerOutputs()
@@ -3382,7 +3382,7 @@ Et retourne ce résultat : `[1, 2, 3, 10, 101]`
 
 ## <a name="uricomponent"></a>uriComponent
 
-Retourne une version encodée sous forme d’URI d’une chaîne en remplaçant les caractères non sécurisés pour les URL par des caractères d’échappement. Utilisez cette fonction plutôt que la fonction [encodeUriComponent()](#encodeUriComponent). Bien que les deux fonctions fonctionnent de manière identique, `uriComponent()` est préféré.
+Retourne une version encodée sous forme d’URI d’une chaîne en remplaçant les caractères non sécurisés pour les URL par des caractères d’échappement. Utilisez cette fonction plutôt que la fonction [encodeUriComponent()](#encodeUriComponent). Bien que les deux fonctions agissent de manière identique, la fonction `uriComponent()` est préférée.
 
 ```
 uriComponent('<value>')
@@ -3477,7 +3477,7 @@ Et retourne ce résultat : `"https://contoso.com"`
 
 ## <a name="urihost"></a>uriHost
 
-Retourne la valeur `host` pour un URI.
+Renvoyer la valeur `host` pour un URI (Uniform Resource Identifier).
 
 ```
 uriHost('<uri>')
@@ -3507,7 +3507,7 @@ Et retourne ce résultat : `"www.localhost.com"`
 
 ## <a name="uripath"></a>uriPath
 
-Retourne la valeur `path` pour un URI. 
+Renvoyer la valeur `path` pour un URI (Uniform Resource Identifier). 
 
 ```
 uriPath('<uri>')
@@ -3537,7 +3537,7 @@ Et retourne ce résultat : `"/catalog/shownew.htm"`
 
 ## <a name="uripathandquery"></a>uriPathAndQuery
 
-Retourne les valeurs `path` et `query` pour un URI.
+Renvoyer les valeurs `path` et `query` pour un URI (Uniform Resource Identifier).
 
 ```
 uriPathAndQuery('<uri>')
@@ -3567,7 +3567,7 @@ Et retourne ce résultat : `"/catalog/shownew.htm?date=today"`
 
 ## <a name="uriport"></a>uriPort
 
-Retourne la valeur `port` pour un URI.
+Renvoyer la valeur `port` pour un URI (Uniform Resource Identifier).
 
 ```
 uriPort('<uri>')
@@ -3597,7 +3597,7 @@ Et retourne ce résultat : `8080`
 
 ## <a name="uriquery"></a>uriQuery
 
-Retourne la valeur `query` pour un URI.
+Renvoyer la valeur `query` pour un URI (Uniform Resource Identifier).
 
 ```
 uriQuery('<uri>')
@@ -3627,7 +3627,7 @@ Et retourne ce résultat : `"?date=today"`
 
 ## <a name="urischeme"></a>uriScheme
 
-Retourne la valeur `scheme` pour un URI.
+Renvoyer la valeur `scheme` pour un URI (Uniform Resource Identifier).
 
 ```
 uriScheme('<uri>')
@@ -3700,7 +3700,7 @@ Et retourne ce résultat : `"Sunday, April 15, 2018"`
 
 ## <a name="variables"></a>variables
 
-Retourne la valeur d’une variable spécifiée. 
+Renvoyer la valeur d’une variable spécifiée. 
 
 ```
 variables('<variableName>')
@@ -3730,7 +3730,7 @@ Et retourne ce résultat : `20`
 
 ## <a name="workflow"></a>flux de travail
 
-Retourne tous les détails sur le flux de travail proprement dit pendant l’exécution. 
+Renvoyer tous les détails sur le flux de travail proprement dit pendant l’exécution. 
 
 ```
 workflow().<property>

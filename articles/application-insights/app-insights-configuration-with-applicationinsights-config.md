@@ -3,8 +3,7 @@ title: Référence sur ApplicationInsights.config - Azure | Microsoft Docs
 description: Activez ou désactivez les modules de collecte de données et ajoutez des compteurs de performances et d’autres paramètres.
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
-editor: mrbullwinkle
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: mbullwin; olegan
+ms.openlocfilehash: 670600d4370be0b675c71d1c6cf09b17c7bd2597
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158559"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869068"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier de configuration permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
