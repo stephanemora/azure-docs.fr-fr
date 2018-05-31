@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311129"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199022"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limites de quota pour Azure Data Lake Analytics
 
@@ -33,29 +33,33 @@ Si vous souhaitez aller au-delà de cette limite, vous pouvez essayer ces option
 * choisissez une autre région le cas échéant
 * contactez le support technique Azure en [ouvrant un ticket de support](#increase-maximum-quota-limits) afin de demander une augmentation du quota.
 
-## <a name="adla-account-limits"></a>Limites des comptes ADLA
+## <a name="default-adla-account-limits"></a>Limites par compte ADLA par défaut
 
-**Nombre maximal d’unités Analytics par compte :**  250
+**Nombre maximal d’unités Analytics par compte :** 32
 
 Il s’agit du nombre maximal d’unités Analytics pouvant s’exécuter simultanément dans votre compte. Si le nombre total d’unités Analytics exécutées dans l’ensemble des tâches dépasse cette limite, les tâches les plus récentes sont automatiquement placées dans la file d’attente. Par exemple : 
 
-* Si une seule tâche est exécutée avec 250 unités Analytics, lorsque vous envoyez une deuxième tâche, celle-ci est placée dans la file d’attente jusqu’à ce que la première tâche soit terminée.
-* Si vous avez déjà cinq tâches en cours d’exécution et que chacune utilise 50 unités Analytics, lorsque vous envoyez une sixième tâche nécessitant 20 unités Analytics, celle-ci est placée dans la file d’attente jusqu’à ce que les 20 unités Analytics soient disponibles.
+* Si une seule tâche est exécutée avec 32 unités Analytics, lorsque vous envoyez une deuxième tâche, celle-ci est placée dans la file d’attente jusqu’à ce que la première tâche soit terminée.
+* Si vous avez déjà quatre tâches en cours d’exécution et que chacune utilise 8 unités Analytics, lorsque vous envoyez une cinquième tâche nécessitant 8 unités Analytics, celle-ci est placée dans la file d’attente jusqu’à ce que les 8 unités Analytics soient disponibles.
+
+**Nombre maximal d’unités Analytics par tâche :** 32
+
+Il s’agit du nombre maximal par défaut d’unités Analytics pouvant être assignées à chaque tâche individuelle dans votre compte. Les tâches auxquelles est assigné un nombre supérieur à cette limite sont rejetées, à moins que l’expéditeur soit concerné par une stratégie de calcul (limite d’envoi de travaux) qui lui accorde davantage d’unités Analytics par tâche. La limite supérieure de cette valeur correspond à la limite d’unités Analytics pour le compte.
 
 **Nombre maximal de tâches U-SQL simultanées par compte :** 20
 
 Il s’agit du nombre maximal de tâches pouvant s’exécuter simultanément dans votre compte. Au-dessus de cette valeur, les tâches les plus récentes sont automatiquement placées dans la file d’attente.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>Ajuster les limites de quota ADLA par compte
+## <a name="adjust-adla-account-limits"></a>Ajuster les limites par compte ADLA
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Choisissez un compte ADLA existant.
 3. Cliquez sur **Propriétés**.
-4. Ajustez les valeurs **Parallélisme** et **Tâches simultanées** selon vos besoins.
-
-    ![Page du portail Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. Ajustez les valeurs **Nombre maximal d’unités Analytics**, **Nombre maximal de travaux en cours d’exécution** et **Limites d’envoi de travaux** en fonction de vos besoins.
 
 ## <a name="increase-maximum-quota-limits"></a>Augmenter les limites de quota maximales
+
+Vous trouverez plus d’informations sur les limites d’Azure dans la [documentation sur les limites spécifiques au service Azure](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Ouvrez une demande de support dans le portail Azure.
 
