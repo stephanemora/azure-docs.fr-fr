@@ -1,229 +1,355 @@
 ---
 title: Actions et déclencheurs de workflow - Azure Logic Apps | Microsoft Docs
-description: En savoir plus sur les déclencheurs et les actions pour la création de workflows automatisés et de processus avec des applications logiques
+description: En savoir plus sur les déclencheurs et les actions dans les définitions de workflow pour Azure Logic Apps
 services: logic-apps
-author: divyaswarnkar
-manager: anneta
+author: kevinlam1
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
-ms.date: 10/13/2017
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: reference
+ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886780"
 ---
-# <a name="triggers-and-actions-for-logic-app-workflows"></a>Déclencheurs et actions pour les workflows d’application logique
+# <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Déclencheurs et actions pour les définitions de workflow dans Azure Logic Apps
 
-Toutes les applications logiques commencent par un déclencheur suivi d’actions. Cet article décrit les types de déclencheurs et d’actions que vous pouvez utiliser pour créer des intégrations de système et automatiser les flux de travail ou processus métier en générant des applications logiques. 
-  
-## <a name="triggers-overview"></a>Vue d’ensemble des déclencheurs 
+Dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), tous les workflows d’applications logiques commencent avec des déclencheurs suivis d’actions. Cet article décrit les déclencheurs et les actions que vous pouvez utiliser pour créer des applications logiques afin d’automatiser les workflows ou processus métier dans vos solutions d’intégration. Vous pouvez créer des applications logiques visuellement avec le Concepteur d’applications logiques ou en créant directement les définitions de workflow sous-jacentes avec le [langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md). Vous pouvez utiliser le portail Azure ou Visual Studio. Découvrez la [tarification pour les déclencheurs et les actions](../logic-apps/logic-apps-pricing.md).
 
-Toutes les applications logiques commencent par un déclencheur, qui spécifie les appels qui peuvent démarrer l’exécution d’une application logique. Voici les types de déclencheurs que vous pouvez utiliser :
+<a name="triggers-overview"></a>
+
+## <a name="triggers-overview"></a>Vue d’ensemble des déclencheurs
+
+Toutes les applications logiques commencent par un déclencheur, qui définit les appels qui peuvent instancier et démarrer un workflow d’application logique. Voici les types de déclencheurs que vous pouvez utiliser :
 
 * Un déclencheur d’*interrogation*, qui vérifie le point de terminaison HTTP d’un service à intervalles réguliers
 * Un déclencheur d’*émission* (Push), qui appelle l’[API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows)
-  
-Tous les déclencheurs contiennent ces éléments de niveau supérieur :  
+ 
+Tous les déclencheurs ont ces éléments de niveau supérieur, bien que certains soient facultatifs :  
   
 ```json
-"<myTriggerName>": {
-    "type": "<triggerType>",
-    "inputs": { <callSettings> },
-    "recurrence": {  
-        "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-        "interval": "<recurrence-interval-based-on-frequency>"
-    },
-    "conditions": [ <array-with-required-conditions> ],
-    "splitOn": "<property-used-for-creating-runs>",
-    "operationOptions": "<options-for-operations-on-the-trigger>"
+"<triggerName>": {
+   "type": "<triggerType>",
+   "inputs": { "<trigger-behavior-settings>" },
+   "recurrence": { 
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "conditions": [ <array-with-required-conditions> ],
+   "splitOn": "<property-used-for-creating-runs>",
+   "operationOptions": "<optional-trigger-operations>"
 }
 ```
 
-## <a name="trigger-types-and-inputs"></a>Types et entrées relatifs aux déclencheurs  
+*Obligatoire*
 
-Chaque type de déclencheur a une interface différente et des *entrées* différentes qui définissent son comportement. 
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*nom_déclencheur*> | Objet JSON | Nom du déclencheur, qui est un objet décrit au format JSON (Javascript Objet Notation).  | 
+| type | Chaîne | Type de déclencheur, par exemple « Http » ou « ApiConnection ». | 
+| inputs | Objet JSON | Entrées du déclencheur qui définissent son comportement. | 
+| recurrence | Objet JSON | Fréquence et intervalle qui décrivent la fréquence d’activation du déclencheur. |  
+| frequency | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week » ou « Month » | 
+| interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le déclencheur s’active en fonction de l’unité de fréquence. <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
+|||| 
+
+*Facultatif*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| [conditions](#trigger-conditions) | Tableau | Une ou plusieurs conditions qui déterminent s’il faut exécuter le workflow. | 
+| [splitOn](#split-on-debatch) | Chaîne | Expression qui fractionne (ou *dégroupe*) des éléments de tableau dans plusieurs instances de workflow à des fins de traitement. Cette option est disponible pour les déclencheurs qui retournent un tableau, et uniquement quand vous travaillez directement en mode code. | 
+| [operationOptions](#trigger-operation-options) | Chaîne | Certains déclencheurs offrent des options supplémentaires qui vous permettent de changer le comportement par défaut du déclencheur. | 
+||||| 
+
+## <a name="trigger-types-and-details"></a>Types et détails relatifs aux déclencheurs  
+
+Chaque type de déclencheur a une interface et des entrées différentes qui définissent son comportement. 
 
 | Type de déclencheur | Description | 
 | ------------ | ----------- | 
-| **Périodicité** | Se déclenche selon une planification définie. Vous pouvez définir une date et une heure ultérieures pour déclencher ce déclencheur. Selon la fréquence, vous pouvez également spécifier des heures et des jours d’exécution du workflow. | 
-| **Requête**  | Transforme votre application logique en un point de terminaison que vous pouvez appeler, également connu en tant que déclencheur « manuel ». | 
-| **HTTP** | Vérifie ou *interroge* un point de terminaison web HTTP. Le point de terminaison HTTP doit être conforme à un contrat de déclenchement spécifique, soit en utilisant un modèle asynchrone « 202 », soit en renvoyant un tableau. | 
-| **ApiConnection** | Interroge comme un déclencheur HTTP, mais utilise des [API gérées par Microsoft](../connectors/apis-list.md). | 
-| **HTTPWebhook** | Transforme votre application logique en un point de terminaison pouvant être appelé, comme le déclencheur de **requête**, mais appelle une URL spécifiée pour l’inscription et la désinscription. |
-| **ApiConnectionWebhook** | Fonctionne comme le déclencheur **HTTPWebhook**, mais utilise des API gérées par Microsoft. | 
+| [**Recurrence**](#recurrence-trigger) | Se déclenche selon une planification définie. Vous pouvez définir une date et une heure ultérieures pour déclencher ce déclencheur. Selon la fréquence, vous pouvez également spécifier des heures et des jours d’exécution du workflow. | 
+| [**Request**](#request-trigger)  | Transforme votre application logique en point de terminaison que vous pouvez appeler, également connu en tant que déclencheur « manuel ». Par exemple, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**HTTP**](#http-trigger) | Vérifie ou *interroge* un point de terminaison web HTTP. Le point de terminaison HTTP doit être conforme à un contrat de déclencheur spécifique, soit en utilisant un modèle asynchrone « 202 », soit en retournant un tableau. | 
+| [**ApiConnection**](#apiconnection-trigger) | Fonctionne comme le déclencheur HTTP, mais utilise des [API managées par Microsoft](../connectors/apis-list.md). | 
+| [**HTTPWebhook**](#httpwebhook-trigger) | Fonctionne comme le déclencheur Request, mais appelle une URL spécifiée pour l’inscription et la désinscription. |
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Fonctionne comme le déclencheur HTTPWebhook, mais utilise des [API managées par Microsoft](../connectors/apis-list.md). | 
 ||| 
-
-Pour plus d’informations, consultez [Langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 <a name="recurrence-trigger"></a>
 
 ## <a name="recurrence-trigger"></a>Déclencheur recurrence  
 
-Ce déclencheur s’exécute en fonction de la périodicité et de la planification que vous spécifiez et offre un moyen simple d’exécuter régulièrement un workflow. 
+Ce déclencheur s’active en fonction de la périodicité et de la planification que vous spécifiez. Il offre un moyen simple d’exécuter régulièrement un workflow. 
 
-Voici un exemple de déclencheur de récurrence de base qui s’exécute quotidiennement :
+Voici la définition du déclencheur :
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+"Recurrence": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month",
+      "interval": <recurrence-interval-based-on-frequency>,
+      "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+      "timeZone": "<time-zone>",
+      "schedule": {
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "hours": [ <one-or-more-hour-marks> ], 
+         // Applies only when frequency is Day or Week. Separate values with commas.
+         "minutes": [ <one-or-more-minute-marks> ], 
+         // Applies only when frequency is Week. Separate values with commas.
+         "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
+      }
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
+}
+```
+*Obligatoire*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| Recurrence | Objet JSON | Nom du déclencheur, qui est un objet décrit au format JSON (Javascript Objet Notation).  | 
+| type | Chaîne | Type de déclencheur, à savoir « Recurrence ». | 
+| inputs | Objet JSON | Entrées du déclencheur qui définissent son comportement. | 
+| recurrence | Objet JSON | Fréquence et intervalle qui décrivent la fréquence d’activation du déclencheur. |  
+| frequency | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week » ou « Month » | 
+| interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le déclencheur s’active en fonction de l’unité de fréquence. <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
+|||| 
+
+*Facultatif*
+
+| Nom de l'élément | type | Description | 
+| ------------ | ---- | ----------- | 
+| startTime | Chaîne | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
+| timeZone | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
+| hours | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
+| minutes | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
+| weekDays | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Lundi », « Mardi », « Mercredi », « Jeudi », « Vendredi », « Samedi » et « Dimanche » | 
+| accès concurrentiel | Objet JSON | Pour les déclencheurs récurrents et d’interrogation, cet objet spécifie le nombre maximal d’instances de workflow qui peuvent s’exécuter en même temps. Utilisez cette valeur pour limiter les requêtes reçues par les systèmes backend. <p>Par exemple, cette valeur définit la limite d’accès concurrentiel à 10 instances : `"concurrency": { "runs": 10 }` | 
+| operationOptions | Chaîne | L’option `singleInstance` indique que le déclencheur est activé uniquement quand toutes les exécutions actives sont terminées. Consultez [Déclencheurs : activer uniquement au terme de toutes les exécutions actives](#single-instance). | 
+|||| 
+
+*Exemple 1*
+
+Ce déclencheur de périodicité de base s’active tous les jours :
+
+```json
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Vous pouvez également planifier une date et une heure de début pour déclencher le déclencheur. Par exemple, pour démarrer un rapport hebdomadaire tous les lundis, vous pouvez planifier le démarrage de l’application logique un lundi spécifique, comme dans cet exemple : 
+*Exemple 2*
+
+Vous pouvez définir une date et une heure de début pour activer le déclencheur. Ce déclencheur de périodicité démarre à la date spécifiée, puis s’active tous les jours :
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": "1",
-        "startTime": "2017-09-18T00:00:00Z"
-    }
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1,
+      "startTime": "2017-09-18T00:00:00Z"
+   }
 }
 ```
 
-Voici la définition de ce déclencheur :
+*Exemple 3*
 
-```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "second|minute|hour|day|week|month",
-        "interval": <recurrence-interval-based-on-frequency>,
-        "schedule": {
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ <one-or-more-hour-marks> ], 
-            // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ <one-or-more-minute-marks> ], 
-            // Applies only when frequency is Week. Separate values with commas.
-            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
-        },
-        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
-        "timeZone": "<specify-time-zone>"
-    }
-}
-```
-
-| Nom de l'élément | Obligatoire | type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| frequency | OUI | Chaîne | L’unité de temps pour la fréquence à laquelle le déclencheur se déclenche. Utilisez une seule de ces valeurs : « second » (seconde), « minute », « hour » (heure), « day » (jour), « week » (semaine) ou « month » (mois). | 
-| interval | OUI | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>Voici les intervalles minimum et maximum : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
-| timeZone | Non  | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
-| startTime | Non  | Chaîne | Spécifiez la date et l’heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, alors spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique). Ou, spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
-| weekDays | Non  | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Lundi », « Mardi », « Mercredi », « Jeudi », « Vendredi », « Samedi » et « Dimanche » | 
-| hours | Non  | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
-| minutes | Non  | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » comme marque de minute et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
-||||| 
-
-Par exemple, ce déclencheur de périodicité spécifie que votre application logique s’exécute toutes les semaines chaque lundi à 10h30, 12h30 et 14h30 heure standard du Pacifique, et il ne commence pas avant le 9 septembre 2017 à 14h :
+Ce déclencheur de périodicité commence le 9 septembre 2017 à 14h00, et il s’active tous les lundis à 10h30, 12h30 et 14h30 Heure standard du Pacifique :
 
 ``` json
 "myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Week",
-        "interval": 1,
-        "schedule": {
-            "hours": [
-                10,
-                12,
-                14
-            ],
-            "minutes": [
-                30
-            ],
-            "weekDays": [
-                "Monday"
-            ]
-        },
-       "startTime": "2017-09-07T14:00:00",
-       "timeZone": "Pacific Standard Time"
-    }
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "hours": [ 10, 12, 14 ],
+         "minutes": [ 30 ],
+         "weekDays": [ "Monday" ]
+      },
+      "startTime": "2017-09-07T14:00:00",
+      "timeZone": "Pacific Standard Time"
+   }
 }
 ```
 
-Pour plus d’informations et pour obtenir des exemples sur la périodicité et l’heure de début pour ce déclencheur, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière).
+Pour plus d’informations et pour obtenir des exemples pour ce déclencheur, consultez [Créer et planifier l’exécution régulière de tâches](../connectors/connectors-native-recurrence.md).
 
-## <a name="request-trigger"></a>Déclencheur de requête
+<a name="request-trigger"></a>
 
-Ce déclencheur joue un rôle de point de terminaison que vous pouvez utiliser pour appeler votre application logique via une requête HTTP. Un déclencheur request se présente comme dans cet exemple :  
-  
+## <a name="request-trigger"></a>Déclencheur Request
+
+Ce déclencheur fait en sorte que votre application logique puisse être appelée en créant un point de terminaison qui peut accepter des requêtes HTTP entrantes. Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl` dans l’[API REST de service de workflow](https://docs.microsoft.com/rest/api/logic/workflows). Pour découvrir comment utiliser ce déclencheur en tant que point de terminaison HTTP, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md).
+
+```json
+"manual": {
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "relativePath": "<relative-path-for-accepted-parameter>",
+      "schema": {
+         "type": "object",
+         "properties": { 
+            "<propertyName>": {
+               "type": "<property-type>"
+            }
+         },
+         "required": [ "<required-properties>" ]
+      }
+   }
+}
+```
+
+*Obligatoire*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| manual | Objet JSON | Nom du déclencheur, qui est un objet décrit au format JSON (Javascript Objet Notation).  | 
+| Type | Chaîne | Type de déclencheur, à savoir « Request ». | 
+| kind | Chaîne | Type de requête, à savoir « Http ». | 
+| inputs | Objet JSON | Entrées du déclencheur qui définissent son comportement. | 
+|||| 
+
+*Facultatif*
+
+| Nom de l'élément | type | Description | 
+| ------------ | ---- | ----------- | 
+| method | Chaîne | Méthode que les requêtes doivent utiliser pour appeler le déclencheur : « GET », « PUT », « POST », « PATCH », « DELETE » ou « HEAD ». |
+| relativePath | Chaîne | Chemin relatif pour le paramètre accepté par l’URL de votre point de terminaison HTTP. | 
+| schema | Objet JSON | Schéma JSON qui décrit et valide la charge utile, ou les entrées, que le déclencheur reçoit de la requête entrante. Ce schéma permet aux actions de workflow ultérieures de connaître les propriétés à référencer. | 
+| properties | Objet JSON | Une ou plusieurs propriétés dans le schéma JSON qui décrivent la charge utile. | 
+| required | Tableau | Une ou plusieurs propriétés qui nécessitent des valeurs. | 
+|||| 
+
+*Exemple*
+
+Ce déclencheur de requête spécifie qu’une requête entrante utilise la méthode HTTP POST pour appeler le déclencheur et un schéma qui valide l’entrée de la requête entrante : 
+
 ```json
 "myRequestTrigger": {
-    "type": "Request",
-    "kind": "Http",
-    "inputs": {
-        "schema": {
-            "type": "Object",
-            "properties": {
-                "myInputProperty1": { "type" : "string" },
-                "myInputProperty2": { "type" : "number" }
+   "type": "Request",
+   "kind": "Http",
+   "inputs": {
+      "method": "POST",
+      "schema": {
+         "type": "Object",
+         "properties": {
+            "customerName": {
+               "type": "String"
             },
-            "required": [ "myInputProperty1" ]
-        }
-    }
+            "customerAddress": { 
+               "type": "Object",
+               "properties": {
+                  "streetAddress": {
+                     "type": "String"
+                  },
+                  "city": {
+                     "type": "String"
+                  }
+               }
+            }
+         }
+      }
+   }
 } 
 ```
 
-Ce déclencheur dispose d’une propriété facultative appelée `schema` :
-  
-| Nom de l'élément | Obligatoire | type | Description |
-| ------------ | -------- | ---- | ----------- |
-| schema | Non  | Object | Schéma JSON qui valide la requête entrante. Utile pour aider les étapes de workflow suivantes à déterminer les propriétés auxquelles faire référence. | 
-||||| 
-
-Pour appeler ce déclencheur en tant que point de terminaison, vous devez appeler l’API `listCallbackUrl`. Consultez [API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows).
+<a name="http-trigger"></a>
 
 ## <a name="http-trigger"></a>Déclencheur HTTP  
 
-Le déclencheur interroge un point de terminaison spécifique et vérifie la réponse pour déterminer si le workflow doit être exécuté. Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un appel HTTP : 
+Ce déclencheur interroge un point de terminaison spécifié et vérifie la réponse. La réponse détermine si le workflow doit s’exécuter ou non. L’objet JSON `inputs` inclut et exige les paramètres `method` et `uri` nécessaires à la construction de l’appel HTTP :
 
-| Nom de l'élément | Obligatoire | type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
-| URI | OUI| Chaîne | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
-| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
-| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
-||||| 
-
-Une *stratégie de nouvelle tentative* s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
-  
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": <recurrence-interval-based-on-frequency>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
-Le déclencheur HTTP nécessite que l’API HTTP se conforme à un modèle spécifique pour fonctionner correctement avec votre application logique. Le déclencheur reconnaît ces propriétés :  
+*Obligatoire*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| HTTP | Objet JSON | Nom du déclencheur, qui est un objet décrit au format JSON (Javascript Objet Notation).  | 
+| Type | Chaîne | Type de déclencheur, à savoir « Http ». | 
+| inputs | Objet JSON | Entrées du déclencheur qui définissent son comportement. | 
+| method | OUI | Chaîne | Méthode HTTP pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE » ou « HEAD ». | 
+| URI | OUI| Chaîne | URL du point de terminaison HTTP ou HTTPS vérifié ou interrogé par le déclencheur. <p>Taille de chaîne maximale : 2 Ko | 
+| recurrence | Objet JSON | Fréquence et intervalle qui décrivent la fréquence d’activation du déclencheur. |  
+| frequency | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week » ou « Month » | 
+| interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le déclencheur s’active en fonction de l’unité de fréquence. <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
+|||| 
+
+*Facultatif*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| queries | Objet JSON | Paramètres de requête que vous souhaitez inclure avec l’URL. <p>Par exemple, cet élément ajoute la chaîne de requête `?api-version=2015-02-01` à l’URL : <p>`"queries": { "api-version": "2015-02-01" }` <p>Résultat : `https://contoso.com?api-version=2015-02-01` | 
+| headers | Objet JSON | Un ou plusieurs en-têtes à envoyer avec la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Objet JSON | Charge utile (données) à envoyer au point de terminaison. | 
+| authentification | Objet JSON | Méthode que la requête entrante doit utiliser pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). Au-delà de Scheduler, la propriété `authority` est prise en charge. Si vous ne spécifiez aucune valeur, la valeur par défaut est `https://login.windows.net`, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
+| retryPolicy | Objet JSON | Cet objet permet de personnaliser le comportement de nouvelle tentative pour les erreurs intermittentes qui ont des codes d’état 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| concurrency | Objet JSON | Pour les déclencheurs récurrents et d’interrogation, cet objet spécifie le nombre maximal d’instances de workflow qui peuvent s’exécuter en même temps. Utilisez cette valeur pour limiter les requêtes reçues par les systèmes backend. <p>Par exemple, cette valeur définit la limite d’accès concurrentiel à 10 instances : <p>`"concurrency": { "runs": 10 }` | 
+| operationOptions | Chaîne | L’option `singleInstance` indique que le déclencheur est activé uniquement quand toutes les exécutions actives sont terminées. Consultez [Déclencheurs : activer uniquement au terme de toutes les exécutions actives](#single-instance). | 
+|||| 
+
+Pour fonctionner correctement avec votre application logique, le déclencheur HTTP nécessite que l’API HTTP soit conforme à un modèle spécifique. Le déclencheur HTTP reconnaît ces propriétés :  
   
-| response | Obligatoire | Description | 
+| Réponse | Obligatoire | Description | 
 | -------- | -------- | ----------- |  
-| Code d’état | OUI | Le code d’état 200 (« OK ») entraîne une exécution. Les autres codes d’état ne déclenchent pas d’exécution. | 
+| Code d’état | OUI | Le code d’état « 200 OK » démarre une exécution. Les autres codes d’état ne démarrent pas d’exécution. | 
 | En-tête Retry-after | Non  | Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison. | 
 | En-tête Location | Non  | URL à appeler lors du prochain intervalle d’interrogation. Si aucune valeur n’est spécifiée, l’URL d’origine est utilisée. | 
 |||| 
 
-Voici quelques exemples de comportements pour les différents types de requêtes :
-  
-| Response code | Retry after (Réessayer après) | Comportement | 
-| ------------- | ----------- | -------- | 
+*Exemples de comportements pour différentes requêtes*
+
+| Code d’état | Réessayer après | Comportement | 
+| ----------- | ----------- | -------- | 
 | 200 | {aucune} | Exécutez le workflow et vérifiez de nouveau pour obtenir plus de données après la périodicité définie. | 
 | 200 | 10 secondes | Exécutez le workflow et vérifiez de nouveau pour obtenir plus de données après 10 secondes. |  
 | 202 | 60 secondes | Ne pas déclencher le workflow. La prochaine tentative se produit dans une minute conformément à la périodicité définie. Si la périodicité définie est inférieure à une minute, l’en-tête retry-after est prioritaire. Dans le cas contraire, la périodicité définie est utilisée. | 
@@ -231,181 +357,314 @@ Voici quelques exemples de comportements pour les différents types de requêtes
 | 500 | {aucune}| Erreur de serveur, ne pas exécuter le workflow. Si aucune valeur `retryPolicy` n’est définie, la stratégie par défaut est utilisée. Une fois que le nombre de nouvelles tentatives a été atteint, le déclencheur vérifie de nouveau pour obtenir plus de données après la périodicité définie. | 
 |||| 
 
-Voici les sorties de déclencheur HTTP : 
-  
-| Nom de l'élément | type | Description |
+### <a name="http-trigger-outputs"></a>Sorties du déclencheur HTTP
+
+| Nom de l'élément | Type | Description |
 | ------------ | ---- | ----------- |
-| headers | Object | En-têtes de la réponse HTTP | 
-| body | Object | Corps de la réponse HTTP | 
+| headers | Objet JSON | En-têtes de la réponse HTTP. | 
+| body | Objet JSON | Corps de la réponse HTTP. | 
 |||| 
 
 <a name="apiconnection-trigger"></a>
 
 ## <a name="apiconnection-trigger"></a>Déclencheur APIConnection  
 
-Dans les fonctionnalités de base, ce déclencheur fonctionne comme le déclencheur HTTP. Cependant, les paramètres d’identification de l’action sont différents. Voici un exemple :    
-  
+Ce déclencheur fonctionne comme le [déclencheur HTTP](#http-trigger), mais il utilise [des API managées par Microsoft](../connectors/apis-list.md). Par conséquent, ces paramètres diffèrent. 
+
+Voici la définition du déclencheur, mais comme de nombreuses sections sont facultatives, son comportement dépend de l’inclusion des sections :
+
 ```json
-"myDailyReportTrigger": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://myarticles.example.com/"
-            }
-        },
-        "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
-        }
-    },  
-    "method": "POST",
-    "body": {
-        "category": "myCategory"
-    }
+"<APIConnectionTriggerName>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "<managed-API-endpoint-URL>"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         },
+      },
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
-| Nom de l'élément | Obligatoire | type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| host | OUI | Object | Passerelle hébergée et ID de l’application d’API | 
-| method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
-| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
-| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). | 
-||||| 
+*Obligatoire*
 
-Pour l’objet `host`, voici les propriétés :  
-  
-| Nom de l'élément | Obligatoire | Description | 
-| ------------ | -------- | ----------- | 
-| api runtimeUrl | OUI | Point de terminaison de l’API gérée | 
-| connection name |  | Nom de la connexion API gérée utilisée par le workflow. Doit faire référence à un paramètre nommé `$connection`. |
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| *APIConnectionTriggerName* | Objet JSON | Nom du déclencheur, qui est un objet décrit au format JSON (Javascript Objet Notation).  | 
+| Type | Chaîne | Type de déclencheur, à savoir « ApiConnection ». | 
+| inputs | Objet JSON | Entrées du déclencheur qui définissent son comportement. | 
+| host | Objet JSON | Objet JSON qui décrit la passerelle hôte et l’ID de l’API managée. <p>L’objet JSON `host` a les éléments suivants : `api` et `connection` | 
+| api | Objet JSON | URL de point de terminaison de l’API managée : <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
+| connection | Objet JSON | Nom de la connexion d’API managée utilisée par le workflow, qui doit inclure une référence à un paramètre nommé `$connection`. <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
+| method | Chaîne | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » ou « HEAD ». | 
+| recurrence | Objet JSON | Fréquence et intervalle qui décrivent la fréquence d’activation du déclencheur. |  
+| frequency | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week » ou « Month » | 
+| interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le déclencheur s’active en fonction de l’unité de fréquence. <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
 |||| 
 
-Une *stratégie de nouvelle tentative* s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
-  
+*Facultatif*
+
+| Nom de l'élément | type | Description | 
+| ------------ | ---- | ----------- | 
+| queries | Objet JSON | Paramètres de requête que vous souhaitez inclure avec l’URL. <p>Par exemple, cet élément ajoute la chaîne de requête `?api-version=2015-02-01` à l’URL : <p>`"queries": { "api-version": "2015-02-01" }` <p>Résultat : `https://contoso.com?api-version=2015-02-01` | 
+| headers | Objet JSON | Un ou plusieurs en-têtes à envoyer avec la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Objet JSON | Objet JSON qui décrit la charge utile (données) à envoyer à l’API managée. | 
+| authentification | Objet JSON | Méthode qu’une requête entrante doit utiliser pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | Objet JSON | Cet objet permet de personnaliser le comportement de nouvelle tentative pour les erreurs intermittentes qui ont des codes d’état 4xx ou 5xx : <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| concurrency | Objet JSON | Pour les déclencheurs récurrents et d’interrogation, cet objet spécifie le nombre maximal d’instances de workflow qui peuvent s’exécuter en même temps. Utilisez cette valeur pour limiter les requêtes reçues par les systèmes backend. <p>Par exemple, cette valeur définit la limite d’accès concurrentiel à 10 instances : `"concurrency": { "runs": 10 }` | 
+| operationOptions | Chaîne | L’option `singleInstance` indique que le déclencheur est activé uniquement quand toutes les exécutions actives sont terminées. Consultez [Déclencheurs : activer uniquement au terme de toutes les exécutions actives](#single-instance). | 
+||||
+
+*Exemple*
+
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"Create_daily_report": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "https://myReportsRepo.example.com/"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>'].name"
+         }     
+      },
+      "method": "POST",
+      "body": {
+         "category": "statusReports"
+      }  
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Voici les sorties d’un déclencheur APIConnection :
-  
-| Nom de l'élément | type | Description |
+### <a name="apiconnection-trigger-outputs"></a>Sorties du déclencheur APIConnection
+ 
+| Nom de l'élément | Type | Description |
 | ------------ | ---- | ----------- |
-| headers | Object | En-têtes de la réponse HTTP | 
-| body | Object | Corps de la réponse HTTP | 
+| headers | Objet JSON | En-têtes de la réponse HTTP. | 
+| body | Objet JSON | Corps de la réponse HTTP. | 
 |||| 
 
-Apprenez-en davantage sur la [tarification des déclencheurs de connexion d’API](../logic-apps/logic-apps-pricing.md#triggers).
+<a name="httpwebhook-trigger"></a>
 
 ## <a name="httpwebhook-trigger"></a>Déclencheur HTTPWebhook  
 
-Ce déclencheur fournit un point de terminaison de la même manière que le déclencheur `Request`, mais le déclencheur HTTPWebhook appelle également une URL spécifique à des fins d’inscription et de désinscription. Un déclencheur HTTPWebhook peut se présenter comme suit :
+Ce déclencheur fonctionne comme le [déclencheur Request](#request-trigger), en créant un point de terminaison qui peut être appelé pour votre application logique. Toutefois, ce déclencheur appelle également une URL de point de terminaison spécifiée pour l’inscription ou la désinscription d’un abonnement. Vous pouvez spécifier les limites d’un déclencheur Webhook de la même manière que les [limites asynchrones HTTP](#asynchronous-limits). 
+
+Voici la définition du déclencheur, mais comme de nombreuses sections sont facultatives, son comportement dépend des sections que vous incluez ou omettez :
 
 ```json
-"myAppsSpotTrigger": {
+"HTTP_Webhook": {
     "type": "HttpWebhook",
     "inputs": {
         "subscribe": {
             "method": "POST",
-            "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": {},
+            "uri": "<subscribe-to-endpoint-URL>",
+            "headers": { "<headers-for-request>" },
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {},
             "retryPolicy": {}
         },
         "unsubscribe": {
             "method": "POST",
-            "url": "https://pubsubhubbub.appspot.com/subscribe",
+            "url": "<unsubscribe-from-endpoint-URL>",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {}
         }
     },
-    "conditions": []
 }
 ```
 
-La plupart de ces sections sont facultatives, et le comportement du déclencheur HTTPWebhook varie selon les sections que vous renseignez ou omettez. Voici les propriétés du déclencheur HTTPWebhook :
-  
-| Nom de l'élément | Obligatoire | Description | 
-| ------------ | -------- | ----------- |  
-| subscribe | Non  | Spécifie la requête sortante à appeler lorsque le déclencheur est créé et effectue l’inscription initiale. | 
-| unsubscribe | Non  | Spécifie la requête sortante à appeler lorsque le déclencheur est supprimé. | 
+*Obligatoire*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| HTTP_Webhook | Objet JSON | Nom du déclencheur, qui est un objet décrit au format JSON (Javascript Objet Notation).  | 
+| Type | Chaîne | Type de déclencheur, à savoir « HttpWebhook ». | 
+| inputs | Objet JSON | Entrées du déclencheur qui définissent son comportement. | 
+| subscribe | Objet JSON| Requête sortante à appeler pour effectuer l’inscription initiale quand le déclencheur est créé. Cet appel se produit afin que le déclencheur puisse commencer à écouter les événements sur le point de terminaison. Pour plus d’informations, consultez [subscribe et unsubscribe](#subscribe-unsubscribe). | 
+| method | Chaîne | Méthode HTTP utilisée pour la requête d’abonnement : « GET », « PUT », « POST », « PATCH », « DELETE » ou « HEAD ». | 
+| URI | Chaîne | URL du point de terminaison où envoyer la requête d’abonnement. | 
 |||| 
 
-Vous pouvez spécifier les limites d’un déclencheur Webhook de la même manière que les [limites asynchrones HTTP](#asynchronous-limits). Voici plus d’informations sur les actions `subscribe` et `unsubscribe` :
+*Facultatif*
 
-* `subscribe` est appelée afin que le déclencheur puisse commencer à écouter les événements. Cet appel sortant démarre avec les mêmes paramètres que les actions HTTP standard. Cet appel est effectué lorsque le workflow change de quelque façon, par exemple lorsque les informations d’identification sont remplacées ou les paramètres d’entrée du déclencheur modifiés. 
-  
-  Pour prendre cet appel en charge, la fonction `@listCallbackUrl()` retourne une URL unique pour ce déclencheur spécifique dans le workflow. Cette URL représente l’identificateur unique des points de terminaison qui utilisent l’API REST du service.
-  
-* `unsubscribe` est automatiquement appelée lorsqu’une opération rend ce déclencheur non valide, notamment dans les opérations suivantes :
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| unsubscribe | Objet JSON | Requête sortante à appeler automatiquement pour annuler l’abonnement quand une opération rend le déclencheur non valide. Pour plus d’informations, consultez [subscribe et unsubscribe](#subscribe-unsubscribe). | 
+| method | Chaîne | Méthode HTTP à utiliser pour la requête d’annulation : « GET », « PUT », « POST », « PATCH », « DELETE » ou « HEAD ». | 
+| URI | Chaîne | URL du point de terminaison où envoyer la requête d’annulation. | 
+| body | Objet JSON | Objet JSON qui décrit la charge utile (données) pour la requête d’abonnement ou d’annulation. | 
+| authentification | Objet JSON | Méthode qu’une requête entrante doit utiliser pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | Objet JSON | Cet objet permet de personnaliser le comportement de nouvelle tentative pour les erreurs intermittentes qui ont des codes d’état 4xx ou 5xx : <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+|||| 
 
-  * Suppression ou désactivation du déclencheur. 
-  * Suppression ou désactivation du workflow. 
-  * Suppression ou désactivation de l’inscription. 
-  
-  Les paramètres de cette fonction sont les mêmes que ceux du déclencheur HTTP.
+*Exemple*
 
-Voici les sorties du déclencheur HTTPWebhook et le contenu de la requête entrante :
-  
-| Nom de l'élément | type | Description |
+```json
+"myAppSpotTrigger": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "headers": {},
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      }
+   },
+}
+```
+
+<a name="subscribe-unsubscribe"></a>
+
+### <a name="subscribe-and-unsubscribe"></a>`subscribe` et `unsubscribe`
+
+L’appel `subscribe` est effectué quand le workflow change de quelque façon, par exemple quand les informations d’identification sont renouvelées ou les paramètres d’entrée du déclencheur modifiés. L’appel utilise les mêmes paramètres que les actions HTTP standard. 
+ 
+L’appel `unsubscribe` se produit automatiquement quand une opération rend le déclencheur HTTPWebhook non valide, par exemple :
+
+* Suppression ou désactivation du déclencheur. 
+* Suppression ou désactivation du workflow. 
+* Suppression ou désactivation de l’inscription. 
+
+Pour prendre en charge de ces appels, la fonction `@listCallbackUrl()` retourne une « URL de rappel » unique pour ce déclencheur. Cette URL représente un identificateur unique des points de terminaison qui utilisent l’API REST du service. Les paramètres de cette fonction sont les mêmes que ceux du déclencheur HTTP.
+
+### <a name="httpwebhook-trigger-outputs"></a>Sorties du déclencheur HTTPWebhook
+
+| Nom de l'élément | Type | Description |
 | ------------ | ---- | ----------- |
-| headers | Object | En-têtes de la réponse HTTP | 
-| body | Object | Corps de la réponse HTTP | 
+| headers | Objet JSON | En-têtes de la réponse HTTP. | 
+| body | Objet JSON | Corps de la réponse HTTP. | 
 |||| 
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+## <a name="apiconnectionwebhook-trigger"></a>Déclencheur ApiConnectionWebhook
+
+Ce déclencheur fonctionne comme le [déclencheur HTTPWebhook](#httpwebhook-trigger), mais il utilise des [API managées par Microsoft](../connectors/apis-list.md). 
+
+Voici la définition du déclencheur :
+
+```json
+"<ApiConnectionWebhookTriggerName>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },        
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "queries": "<query-parameters>"
+   }
+}
+```
+
+*Obligatoire*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*ApiConnectionWebhookTriggerName*> | Objet JSON | Nom du déclencheur, qui est un objet décrit au format JSON (Javascript Objet Notation).  | 
+| Type | Chaîne | Type de déclencheur, à savoir « ApiConnectionWebhook ». | 
+| inputs | Objet JSON | Entrées du déclencheur qui définissent son comportement. | 
+| host | Objet JSON | Objet JSON qui décrit la passerelle hôte et l’ID de l’API managée. <p>L’objet JSON `host` a les éléments suivants : `api` et `connection` | 
+| connection | Objet JSON | Nom de la connexion d’API managée utilisée par le workflow, qui doit inclure une référence à un paramètre nommé `$connection`. <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
+| body | Objet JSON | Objet JSON qui décrit la charge utile (données) à envoyer à l’API managée. | 
+| NotificationUrl | Chaîne | Retourne une « URL de rappel » unique pour ce déclencheur, utilisable par l’API managée. | 
+|||| 
+
+*Facultatif*
+
+| Nom de l'élément | Type | Description | 
+| ------------ | ---- | ----------- | 
+| queries | Objet JSON | Paramètres de requête que vous souhaitez inclure avec l’URL. <p>Par exemple, cet élément ajoute la chaîne de requête `?folderPath=Inbox` à l’URL : <p>`"queries": { "folderPath": "Inbox" }` <p>Résultat : `https://<managed-API-URL>?folderPath=Inbox` | 
+|||| 
+
+<a name="trigger-conditions"></a>
 
 ## <a name="triggers-conditions"></a>Déclencheurs : conditions
 
-Pour n’importe quel déclencheur, vous pouvez utiliser une ou plusieurs conditions pour déterminer si le workflow doit s’exécuter ou non. Dans cet exemple, le rapport se déclenche uniquement lorsque le paramètre `sendReports` du workflow est défini sur true. 
+Pour n’importe quel déclencheur, vous pouvez inclure un tableau avec une ou plusieurs conditions qui déterminent si le workflow doit s’exécuter ou non. Dans cet exemple, le déclencheur de rapport s’active uniquement quand le paramètre `sendReports` du workflow a la valeur true. 
 
 ```json
 "myDailyReportTrigger": {
-    "type": "Recurrence",
-    "conditions": [ 
-        {
-            "expression": "@parameters('sendReports')"
-        } 
-    ],
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+   "type": "Recurrence",
+   "conditions": [ {
+      "expression": "@parameters('sendReports')"
+   } ],
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Enfin, les conditions peuvent faire référence au code d’état du déclencheur. Par exemple, vous pouvez lancer un workflow uniquement lorsque votre site web renvoie un code d’état 500 :
-  
+En outre, les conditions peuvent référencer le code d’état du déclencheur. Par exemple, supposez que vous souhaitez démarrer un workflow uniquement quand votre site web retourne un code d’état « 500 » :
+
 ``` json
-"conditions": [ 
-    {  
-      "expression": "@equals(triggers().code, 'InternalServerError')"  
-    }  
-]  
+"conditions": [ {
+   "expression": "@equals(triggers().code, 'InternalServerError')"  
+} ]  
 ```  
 
 > [!NOTE]
-> Par défaut, un déclencheur est activé uniquement lors de la réception une réponse « 200 OK ». Lorsqu’une expression fait référence au code d’état du déclencheur de quelque façon, le comportement par défaut du déclencheur est remplacé. Par conséquent, si vous souhaitez que le déclencheur s’active avec plusieurs codes d’état (par exemple, le code d’état 200 et code d’état 201), vous devez inclure cette instruction en tant que condition : 
+> Par défaut, un déclencheur est activé uniquement lors de la réception une réponse « 200 OK ». Lorsqu’une expression fait référence au code d’état du déclencheur de quelque façon, le comportement par défaut du déclencheur est remplacé. Par conséquent, si vous souhaitez que le déclencheur s’active pour plusieurs codes d’état (par exemple, le code d’état 200 et le code d’état 201), vous devez inclure cette instruction en tant que condition : 
 >
 > `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## <a name="triggers-process-an-array-with-multiple-runs"></a>Déclencheurs : traiter un tableau avec plusieurs exécutions
+## <a name="triggers-split-an-array-into-multiple-runs"></a>Déclencheurs : Fractionner un tableau en plusieurs exécutions
 
 Si votre déclencheur renvoie un tableau à traiter pour votre application logique, il arrive qu’une boucle « for each » prenne trop de temps pour traiter chaque élément du tableau. Au lieu de cela, vous pouvez utiliser la propriété **SplitOn** dans votre déclencheur pour *décomposer* le tableau. 
 
@@ -442,7 +701,7 @@ Comme votre application logique a uniquement besoin du contenu de `Rows`, vous p
     "type": "Http",
     "recurrence": {
         "frequency": "Second",
-        "interval": "1"
+        "interval": 1
     },
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
@@ -476,21 +735,36 @@ Votre définition de workflow peut désormais utiliser `@triggerBody().name` pou
     }
 }
 ```
-  
-## <a name="triggers-fire-only-after-all-active-runs-finish"></a>Déclencheurs : activer uniquement au terme de toutes les exécutions actives
 
-Vous pouvez configurer les déclencheurs de périodicité afin qu’ils se déclenchent uniquement lorsque toutes les exécutions actives sont terminées. Pour configurer ce paramètre, définissez la propriété `operationOptions` sur `singleInstance` :
+<a name="trigger-operation-options"></a>
+
+## <a name="triggers-operation-options"></a>Déclencheurs : Options d’opérations
+
+Ces déclencheurs offrent des options supplémentaires qui vous permettent de changer le comportement par défaut du déclencheur.
+
+| Déclencheur | Option d’opération | Description |
+|---------|------------------|-------------|
+| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | Active le déclencheur seulement une fois que toutes les exécutions actives sont terminées. |
+||||
+
+<a name="single-instance"></a>
+
+### <a name="triggers-fire-only-after-active-runs-finish"></a>Déclencheurs : activer uniquement au terme de toutes les exécutions actives
+
+Pour les déclencheurs pour lesquels vous pouvez définir la périodicité, vous pouvez spécifier que le déclencheur soit activé uniquement quand toutes les exécutions actives sont terminées. Si une périodicité planifiée a lieu alors qu’une exécution d’instance du workflow est encore en cours, le déclencheur attend la périodicité planifiée suivante avant d’effectuer une nouvelle vérification. Par exemple : 
 
 ```json
-"myTrigger": {
-    "type": "Http",
-    "inputs": { },
-    "recurrence": { },
+"myRecurringTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+    },
     "operationOptions": "singleInstance"
 }
 ```
 
-Si une périodicité planifiée a lieu alors qu’une exécution d’instance du workflow est encore en cours, le déclencheur attend l’intervalle de périodicité planifié suivant pour effectuer une nouvelle vérification.
+<a name="actions-overview"></a>
 
 ## <a name="actions-overview"></a>Vue d’ensemble des actions
 
@@ -548,12 +822,12 @@ Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un
 | ------------ | -------- | ---- | ----------- | 
 | method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
 | URI | OUI| Chaîne | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
-| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| queries | Non  | Objet JSON | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Objet JSON | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Objet JSON | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Objet JSON | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Non  | Chaîne | Définit l’ensemble de comportements spéciaux à substituer. | 
-| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
+| Authentification | Non  | Objet JSON | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
 ||||| 
 
 Les actions HTTP et ApiConnection prennent en charge les *stratégies de nouvelle tentative*. Une stratégie de nouvelle tentative s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
@@ -649,15 +923,15 @@ Cette action référence un connecteur géré par Microsoft, ce qui requiert une
 
 | Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| host | OUI | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
+| host | OUI | Objet JSON | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
 | method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
 | chemin d’accès | OUI | Chaîne | Chemin de l’opération d’API | 
-| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| queries | Non  | Objet JSON | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Objet JSON | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Objet JSON | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Objet JSON | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Non  | Chaîne | Définit l’ensemble de comportements spéciaux à substituer. | 
-| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| Authentification | Non  | Objet JSON | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 Une stratégie de nouvelle tentative s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
@@ -703,14 +977,14 @@ L’action APIConnectionWebhook fait référence à un connecteur géré par Mic
 
 | Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| host | OUI | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
+| host | OUI | Objet JSON | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
 | chemin d’accès | OUI | Chaîne | Chemin de l’opération d’API | 
-| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| queries | Non  | Objet JSON | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Objet JSON | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Objet JSON | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Objet JSON | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Non  | Chaîne | Définit l’ensemble de comportements spéciaux à substituer. | 
-| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| Authentification | Non  | Objet JSON | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Action de réponse  
@@ -794,9 +1068,9 @@ Cette action vous permet de représenter et d’appeler une [fonction Azure](../
 | ------------ | -------- | ---- | ----------- |  
 | function id | OUI | Chaîne | ID de ressource de la fonction Azure que vous souhaitez appeler. | 
 | method | Non  | Chaîne | Méthode HTTP utilisée pour appeler la fonction. Si elle n’est pas spécifiée, « POST » est la méthode par défaut. | 
-| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
+| queries | Non  | Objet JSON | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Objet JSON | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Objet JSON | Représente la charge utile envoyée au point de terminaison. | 
 |||||
 
 Lorsque vous enregistrez votre application logique, le moteur Logic Apps effectue des contrôles sur la fonction référencée :
@@ -853,7 +1127,7 @@ Par exemple, pour arrêter une exécution avec l’état `Failed`, procédez com
 | NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | OUI | Chaîne | État de l’exécution cible, `Failed` ou `Cancelled` |
-| runError | Non  | Object | Détails de l’erreur. Pris en charge uniquement lorsque `runStatus` a la valeur `Failed`. |
+| runError | Non  | Objet JSON | Détails de l’erreur. Pris en charge uniquement lorsque `runStatus` a la valeur `Failed`. |
 | runError code | Non  | Chaîne | Code d’erreur de l’exécution |
 | runError message | Non  | Chaîne | Message d’erreur de l’exécution | 
 ||||| 
@@ -990,9 +1264,9 @@ Pour attendre jusqu’à un moment spécifique, vous pouvez utiliser cet exemple
 
 | Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| until | Non  | Object | Durée d’attente basée sur un point dans le temps | 
+| until | Non  | Objet JSON | Durée d’attente basée sur un point dans le temps | 
 | until timestamp | OUI | Chaîne | Point dans le temps au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) où l’attente expire | 
-| interval | Non  | Object | Durée d’attente basée sur l’unité et le nombre d’intervalles | 
+| interval | Non  | Objet JSON | Durée d’attente basée sur l’unité et le nombre d’intervalles | 
 | interval unit | OUI | Chaîne | Unité de temps. Utilisez une seule de ces valeurs : « second » (seconde), « minute », « hour » (heure), « day » (jour), « week » (semaine) ou « month » (mois). | 
 | interval count | OUI | Entier  | Nombre entier positif représentant le nombre d’unités d’intervalle utilisées pour la durée d’attente | 
 ||||| 
@@ -1029,9 +1303,9 @@ Cette action vous permet d’imbriquer un workflow. Le moteur Logic Apps effectu
 | ------------ | -------- | ---- | ----------- |  
 | host id | OUI | Chaîne| ID de ressource du workflow que vous souhaitez appeler | 
 | host triggerName | OUI | Chaîne | Nom du déclencheur que vous souhaitez appeler | 
-| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
+| queries | Non  | Objet JSON | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Objet JSON | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Objet JSON | Représente la charge utile envoyée au point de terminaison. | 
 ||||| 
 
 Les sorties de cette action sont basées sur ce que vous avez défini pour l’action `Response` pour le workflow enfant. Si le workflow enfant ne définit pas une action `Response`, les sorties sont vides.
@@ -1042,7 +1316,7 @@ Pour faciliter le contrôle de l’exécution de workflow, les actions de collec
 
 ## <a name="if-action"></a>Action If
 
-En tant qu’instruction conditionnelle, cette action vous permet d’évaluer une condition et d’exécuter une branche spécifique si l’expression évaluée présente la valeur true. Si la condition est vérifiée (true), elle est marquée comme Réussite. Les actions qui se trouvent dans les objets `actions` ou `else` renvoient les valeurs suivantes :
+En tant qu’instruction conditionnelle, cette action vous permet d’évaluer une condition et d’exécuter une branche spécifique si l’expression évaluée présente la valeur true. Si la condition est vérifiée (true), elle est marquée avec l’état « Réussite ». Les actions qui se trouvent dans les objets `actions` ou `else` renvoient les valeurs suivantes :
 
 * Réussite, lorsqu’elles sont exécutées et qu’elles réussissent
 * Échec, lorsqu’elles sont exécutées et qu’elles échouent
@@ -1076,9 +1350,9 @@ En savoir plus sur les [instructions conditionnelles dans les applications logiq
 
 | NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
-| actions | OUI | Object | Actions internes à exécuter quand `expression` prend la valeur `true` | 
+| actions | OUI | Objet JSON | Actions internes à exécuter quand `expression` prend la valeur `true` | 
 | expression | OUI | Chaîne | Expression à évaluer. |
-| else | Non  | Object | Actions internes à exécuter quand `expression` prend la valeur `false` |
+| else | Non  | Objet JSON | Actions internes à exécuter quand `expression` prend la valeur `false` |
 ||||| 
 
 Par exemple : 
@@ -1133,14 +1407,14 @@ En tant qu’instruction de basculement, cette action effectue différentes acti
    "type": "Switch",
    "expression": "<evaluate-this-object-expression-token>",
    "cases": {
-      "myCase1" : {
-         "actions" : {
+      "myCase1": {
+         "actions": {
            "myAction1": {}
          },
          "case": "<result1>"
       },
       "myCase2": {
-         "actions" : {
+         "actions": {
            "myAction2": {}
          },
          "case": "<result2>"
@@ -1158,10 +1432,10 @@ En tant qu’instruction de basculement, cette action effectue différentes acti
 | NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | expression | OUI | Chaîne | Objet, expression ou jeton à évaluer | 
-| cas | OUI | Object | Contient les ensembles d’actions internes qui s’exécutent en fonction du résultat de l’expression. | 
+| cas | OUI | Objet JSON | Contient les ensembles d’actions internes qui s’exécutent en fonction du résultat de l’expression. | 
 | cas | OUI | Chaîne | Valeur de correspondance avec le résultat | 
-| actions | OUI | Object | Actions internes qui s’exécutent pour le cas qui correspond au résultat de l’expression | 
-| default | Non  | Object | Actions internes qui s’exécutent si aucun cas ne correspond au résultat | 
+| actions | OUI | Objet JSON | Actions internes qui s’exécutent pour le cas qui correspond au résultat de l’expression | 
+| default | Non  | Objet JSON | Actions internes qui s’exécutent si aucun cas ne correspond au résultat | 
 ||||| 
 
 Par exemple : 
@@ -1172,13 +1446,13 @@ Par exemple :
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
       "Case": {
-         "actions" : {
+         "actions": {
            "Send_an_email": {...}
          },
          "case": "Approve"
       },
       "Case_2": {
-         "actions" : {
+         "actions": {
            "Send_an_email_2": {...}
          },
          "case": "Reject"
@@ -1219,7 +1493,7 @@ Cette action en boucle effectue une itération dans un tableau et exécute des a
 
 | NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
-| actions | OUI | Object | Actions internes à exécuter dans la boucle | 
+| actions | OUI | Objet JSON | Actions internes à exécuter dans la boucle | 
 | foreach | OUI | Chaîne | Tableau dans lequel effectuer l’itération | 
 | operationOptions | Non  | Chaîne | Spécifie les options de l’opération pour personnaliser le comportement. Prend actuellement en charge uniquement `Sequential` pour les itérations exécutées de manière séquentielle où le comportement par défaut est parallèle. |
 ||||| 
@@ -1279,9 +1553,9 @@ Cette action en boucle exécute des actions internes jusqu’à ce qu’une cond
 
 | NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
-| actions | OUI | Object | Actions internes à exécuter dans la boucle | 
+| actions | OUI | Objet JSON | Actions internes à exécuter dans la boucle | 
 | expression | OUI | Chaîne | Expression à évaluer après chaque itération. | 
-| limit | OUI | Object | Les limites de la boucle. Doit définir au moins une limite. | 
+| limit | OUI | Objet JSON | Les limites de la boucle. Doit définir au moins une limite. | 
 | count | Non  | Entier  | La limite du nombre d’itérations à effectuer | 
 | timeout | Non  | Chaîne | La limite de délai d’expiration au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie la durée pendant laquelle la boucle doit s’exécuter |
 ||||| 
@@ -1332,7 +1606,7 @@ Cette action vous permet de logiquement regrouper les actions d’un workflow. U
 
 | NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- |  
-| actions | OUI | Object | Actions internes à exécuter dans l’étendue |
+| actions | OUI | Objet JSON | Actions internes à exécuter dans l’étendue |
 ||||| 
 
 ## <a name="next-steps"></a>Étapes suivantes

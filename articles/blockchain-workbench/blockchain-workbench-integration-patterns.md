@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0fe4816dbafc28974796c7d9cd307b04fdb9d6d4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a6a44e30fe58617b43c5491a72fc882015bc9591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886061"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modèles d’intégration de contrat intelligent
 
@@ -213,7 +214,7 @@ L’intégration de données est bien connue :
 
 ## <a name="storage-integration"></a>Intégration d’un stockage
 
-Plusieurs scénarios peuvent nécessiter l’intégration de fichiers attestables. Pour diverses raisons, il ne sera pas inapproprié de placer des fichiers sur un blockchain. Au lieu de cela, une approche courante consiste à effectuer un hachage unidirectionnel par rapport à un fichier et à partager ce hachage sur un registre distribué. Une réexécution du hachage à tout moment doit retourner le même résultat. Si le fichier est modifié, même s’il ne s’agit que d’un seul pixel dans une image, le hachage retournera une valeur différente.
+Plusieurs scénarios peuvent nécessiter l’intégration de fichiers attestables. Pour diverses raisons, il ne sera pas inapproprié de placer des fichiers sur un blockchain. Au lieu de cela, vous pouvez adopter l’approche courante qui consiste à effectuer un hachage cryptographique (par exemple, SHA-256) sur un fichier et à partager ce hachage sur un registre distribué. Une réexécution du hachage à tout moment doit retourner le même résultat. Si le fichier est modifié, même s’il ne s’agit que d’un seul pixel dans une image, le hachage retournera une valeur différente.
 
 ![Intégration d’un stockage](media/blockchain-workbench-integration-patterns/storage-integration.png)
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176284"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
 
@@ -39,12 +40,11 @@ Voici un autre exemple similaire d’utilisation et de résumé des coûts. Cet 
 
 ## <a name="new-pricing-model"></a>Nouveau modèle de tarification
 
-Un nouveau modèle de tarification de surveillance a été publié en avril 2018. Il inclut une tarification en fonction de l’utilisation, adaptée au cloud. Vous payez uniquement ce que vous utilisez, sans engagement par nœud. Les détails du nouveau modèle de tarification sont disponibles pour les [alertes, mesures, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) et [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+Un [nouveau modèle tarifaire de surveillance a été publié](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) en avril 2018.  Il inclut une tarification en fonction de la consommation, adaptée au cloud. Vous payez uniquement ce que vous utilisez, sans engagement par nœud. Les détails du nouveau modèle de tarification sont disponibles pour [alertes, mesures, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) et [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-Pour les clients qui ont commencé à utiliser Log Analytics ou Application Insights après le 2 avril 2018, le nouveau modèle de tarification est la seule option. Pour les clients qui ont déjà utilisé ces services, la transition vers le nouveau modèle de tarification est facultative.
+Pour les clients ayant intégré Log Analytics ou Application Insights après le 2 avril 2018, le nouveau modèle de tarification est la seule option. Pour les clients qui ont déjà utilisé ces services, la transition vers le nouveau modèle de tarification est facultative.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Évaluation de l’impact du nouveau modèle de tarification
-
 Le nouveau modèle de tarification aura un impact différent sur chaque client en fonction des modèles d’utilisation de la surveillance. Pour les clients qui utilisaient Log Analytics ou Application Insights avant le 2 avril 2018, la page **Utilisation et estimation des coûts** dans Azure Monitor estime les modifications de coûts en cas de transition vers le nouveau modèle de tarification. Elle propose une méthode pour effectuer la transition d’un abonnement vers le nouveau modèle. Pour la plupart des clients, le nouveau modèle de tarification sera avantageux. Pour les clients utilisant généralement une grande quantité de données ou se trouvant dans des régions avec des coûts plus élevés, cela peut ne pas être le cas.
 
 Pour afficher l’estimation des coûts des abonnements que vous avez choisis sur la page **Utilisation et estimation des coûts**, cliquez sur la bannière bleue en haut de la page. Il est préférable de procéder abonnement par abonnement, car c’est à ce niveau que le nouveau modèle de tarification peut être adopté.
@@ -71,11 +71,30 @@ Une autre modification est apportée aux données ingérées dans Log Analytics 
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nouveau modèle de tarification et droits applicables à l’abonnement à Operations Management Suite
 
-Les clients qui ont acheté Microsoft Operations Management Suite E1 et E2 peuvent bénéficier des droits d’ingestion des données par nœud pour [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) et [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Pour que ces droits applicables aux espaces de travail Log Analytics ou aux ressources Application Insights puissent être reçus dans un abonnement donné, le modèle de tarification de cet abonnement doit rester dans le modèle de tarification antérieur à avril 2018. C’est ici que le niveau tarifaire « Par nœud (OMS) » de Log Analytics et les plans tarifaires « Entreprise » d’Application Insights sont disponibles. En fonction du nombre de nœuds de la suite que votre organisation a achetés, la transition de certains abonnements vers le nouveau modèle de tarification peut toujours se révéler avantageuse. Toutefois, cette approche doit faire l’objet d’une étude approfondie.
+Les clients ayant acheté Microsoft Operations Management Suite E1 et E2 peuvent bénéficier des droits d’ingestion des données par nœud pour [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) et [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Pour que ces droits applicables aux espaces de travail Log Analytics ou aux ressources Application Insights puissent être reçus dans un abonnement donné : 
+
+- Le modèle tarifaire de cet abonnement doit rester dans le modèle tarifaire antérieur à avril 2018.
+- Les espaces de travail Log Analytics doivent utiliser le niveau tarifaire « Par nœud (OMS) ».
+- Les ressources Application Insights doivent utiliser le plan tarifaire « Entreprise ».
+
+En fonction du nombre de nœuds de la suite que votre organisation a achetés, le transfert de certains abonnements vers le nouveau modèle tarifaire pourrait se révéler avantageux, mais cette approche doit faire l’objet d’une étude approfondie. En règle générale, il convient de rester simplement dans le modèle antérieur à avril 2018 comme décrit ci-dessus.
+
+> [!WARNING]
+> Si votre organisation a acheté Microsoft Operations Management Suite E1 et E2, il est généralement préférable de conserver vos abonnements dans le modèle tarifaire antérieur à avril 2018. 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Modifications lorsque vous passez au nouveau modèle de tarification
 
-Lorsqu’un abonnement est basculé vers le nouveau modèle de tarification, le niveau tarifaire de chaque Log Analytics est remplacé par un niveau par Go et tout est migré vers le nouveau plan (appelé « pargo2018 » dans Azure Resource Manager). Ce basculement change aussi les ressources Application Insights dans le plan Entreprise en plan De base. L’estimation des coûts montre les effets de ces modifications.
+Le nouveau modèle tarifaire ramène les options tarifaires Log Analytics et Application Insights à un seul niveau (ou plan). Le transfert d’un abonnement vers le nouveau modèle tarifaire :
+
+- Remplace le niveau tarifaire de chaque abonnement à Log Analytics par un nouveau niveau Par Go (appelé « pergb2018 » dans Azure Resource Manager)
+- Associe le plan De base à toute ressource Application Insights figurant dans le plan Entreprise
+
+L’estimation des coûts montre les effets de ces modifications.
+
+> [!WARNING]
+> Remarque importante : Si vous utilisez Azure Resource Manager ou PowerShell pour déployer [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) dans un abonnement, vous êtes passé au nouveau modèle tarifaire. Si vous spécifiez un plan/niveau tarifaire autre que « pergb2018 » pour Log Analytics ou « De base » pour Application Insights, l’opération réussit, **mais elle utilise uniquement le plan/niveau tarifaire valide** au lieu de se solder par un échec en raison de la spécification d’un plan/niveau tarifaire non valide. 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>Transition vers le nouveau modèle de tarification
 

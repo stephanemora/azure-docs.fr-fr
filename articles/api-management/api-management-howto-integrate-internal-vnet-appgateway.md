@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 9a6e63e95b833c960356b82a19127ec91a791b98
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936103"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway 
 
@@ -299,7 +300,7 @@ L’exemple suivant crée une règle simple pour le chemin d’accès « /echo/
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Si le chemin d’accès ne correspond aux règles de chemins d’accès que nous voulons activer dans Gestion des API, la configuration de mappage des chemins de règles configure également un pool d’adresses de serveurs principaux par défaut nommé **dummyBackendPool**. Par exemple, http://api.contoso.net/calc/* permet d’accéder à **dummyBackendPool**, car il est défini comme pool par défaut pour le trafic sans correspondance.
+Si le chemin d’accès ne correspond aux règles de chemins d’accès que nous voulons activer dans Gestion des API, la configuration de mappage des chemins de règles configure également un pool d’adresses de serveurs principaux par défaut nommé **dummyBackendPool**. Par exemple, http://api.contoso.net/calc/sum permet d’accéder à **dummyBackendPool**, car il est défini comme pool par défaut pour le trafic sans correspondance.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting

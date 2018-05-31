@@ -1,9 +1,9 @@
 ---
-title: "Résolution des problèmes : analyse de l’utilisation dans Azure Application Insights"
-description: "Guide de résolution des problèmes : analyse de l’utilisation des sites et des applications avec Application Insights."
+title: 'Résolution des problèmes : analyse de l’utilisation dans Azure Application Insights'
+description: 'Guide de résolution des problèmes : analyse de l’utilisation des sites et des applications avec Application Insights.'
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867566"
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Dépannage de l’analyse de l’utilisation dans Application Insights
 Vous avez des questions concernant les [outils d’analyse de l’utilisation dans Application Insights](app-insights-usage-overview.md) : [Utilisateurs, Sessions, Événements](app-insights-usage-segmentation.md), [Entonnoirs](usage-funnels.md), [Flux d’utilisateurs](app-insights-usage-flows.md), [Rétention](app-insights-usage-retention.md) ou Cohortes ? Voici quelques réponses.
@@ -37,7 +38,7 @@ Les outils d’analyse de l’utilisation ne prennent actuellement pas en charge
 ## <a name="naming-events"></a>Nommage d’événements
 **Mon application a des milliers de noms d’affichages de page et d’événements personnalisés différents. Il est difficile de les différencier, et les outils d’analyse de l’utilisation s’avèrent souvent inutiles dans ce sens. Comment puis-je résoudre ces problèmes de nommage ?**
 
-Les noms d’affichages de page et d’événements personnalisés sont utilisés par les outils d’analyse de l’utilisation. C’est pourquoi il est crucial de nommer correctement les événements pour obtenir des valeurs exploitables de ces outils. L’objectif est de rechercher un juste milieu entre utiliser trop peu de noms très génériques (« bouton sur lequel un clic a été effectué ») et utiliser trop de noms très spécifiques (« bouton d’édition sur lequel un clic a été effectué sur http://www.contoso.com/index »).
+Les noms d’affichages de page et d’événements personnalisés sont utilisés par les outils d’analyse de l’utilisation. C’est pourquoi il est crucial de nommer correctement les événements pour obtenir des valeurs exploitables de ces outils. L’objectif est de rechercher un juste milieu entre utiliser trop peu de noms très génériques (« Clic sur le bouton ») et utiliser trop de noms très spécifiques (« Clic sur le bouton d’édition sur http://www.contoso.com/index »).
 
 Pour modifier les noms d’affichages de page ou d’événements personnalisés envoyés par votre application, vous devez modifier le code source de l’application, puis redéployer cette dernière. **Toutes les données de télémétrie dans Application Insights sont stockées pendant 90 jours, et elles ne peuvent pas être supprimées**. Par conséquent, le renommage d’événements ne prendra entièrement effet qu’après 90 jours. Durant les 90 jours suivant le renommage, les anciens et les nouveaux noms d’événements apparaîtront dans vos données de télémétrie. Veillez donc à gérer correctement les requêtes et à en informer vos équipes en conséquence.
 

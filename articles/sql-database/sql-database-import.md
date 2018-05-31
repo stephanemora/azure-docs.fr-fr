@@ -9,11 +9,12 @@ ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd9554a18775cf98f4415ebd5d4b0d52edc53718
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894181"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importer un fichier BACPAC dans une nouvelle base de données SQL Azure
 
@@ -113,6 +114,8 @@ Vous pouvez également utiliser ces assistants :
 * Pour vous connecter et interroger une base de données SQL importée, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 * Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Pour une description du processus complet de migration d’une base de données SQL Server, y compris les recommandations relatives aux performances, consultez [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
+* Pour savoir comment gérer et partager les clés de stockage et signatures d’accès partagé en toute sécurité, consultez le [Guide de sécurité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide). 
 
 
+  
 

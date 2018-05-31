@@ -1,11 +1,11 @@
 ---
-title: "Créer une sonde personnalisée - Passerelle Application Gateway Azure - Portail Azure | Microsoft Docs"
-description: "Découvrez comment créer une sonde personnalisée pour Application Gateway à l’aide du portail"
+title: Créer une sonde personnalisée - Passerelle Application Gateway Azure - Portail Azure | Microsoft Docs
+description: Découvrez comment créer une sonde personnalisée pour Application Gateway à l’aide du portail
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 45737c1c378ec56a5e2bedec8c1f7b7bc7ba6225
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203905"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
 
@@ -50,10 +51,10 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
 
   |**Paramètre** | **Valeur** | **Détails**|
   |---|---|---|
-  |**Nom**|customProbe|Cette valeur est le nom convivial de la sonde à laquelle vous pouvez accéder dans le portail.|
+  |**Name**|customProbe|Cette valeur est le nom convivial de la sonde à laquelle vous pouvez accéder dans le portail.|
   |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité.|
   |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom d’hôte utilisé pour la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle.|
-  |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http://contoso.com, utilisez simplement « / ». |
+  |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin d’accès par défaut de http://contoso.com, utilisez simplement « / ». |
   |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
   |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible.|
   |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs nécessaires pour marquer l’instance comme étant défaillante. Un seuil de 0 signifie qu’en cas d’échec de contrôle d’intégrité, le serveur principal est immédiatement identifié comme défaillant.|

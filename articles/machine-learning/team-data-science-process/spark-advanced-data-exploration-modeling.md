@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778340"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modélisation et exploration avancées des données avec Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -1413,7 +1414,7 @@ Utilisez `unpersist()` pour supprimer les objets mis en cache en mémoire.
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-**Imprimez le chemin des fichiers de modèle à utiliser dans le bloc-notes de consommation. ** Pour consommer et évaluer un jeu de données indépendant, vous devez copier et coller ces noms de fichiers dans le bloc-notes de consommation.
+\*\*Imprimez le chemin des fichiers de modèle à utiliser dans le bloc-notes de consommation. ** Pour consommer et évaluer un jeu de données indépendant, vous devez copier et coller ces noms de fichiers dans le bloc-notes de consommation.
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";

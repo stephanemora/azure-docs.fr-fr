@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940135"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copier des données de Netezza avec Azure Data Factory (version bêta)
 
@@ -50,6 +51,13 @@ Les propriétés prises en charge pour le service lié Netezza sont les suivante
 | Type | La propriété de type doit être définie sur **Netezza** | OUI |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Netezza. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+
+Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Plus de propriétés que vous pouvez définir pour votre cas :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | Le niveau de sécurité (SSL/TLS) que le pilote utilise pour la connexion au magasin de données. Par exemple, `SecurityLevel=preferredSecured`. Les valeurs prises en charge sont les suivantes :<br/>- Non sécurisé uniquement (**onlyUnSecured**) : le pilote n’utilise pas SSL.<br/>- **Non sécurisé préféré (preferredUnSecured) (par défaut)** : si le serveur offre un choix, le pilote n’utilise pas SSL. <br/>- **Sécurisé préféré (preferredSecured)** : si le serveur offre un choix, le pilote utilise le protocole SSL. <br/>- **Sécurisé uniquement (onlySecured)** : le pilote ne se connecte pas si aucune connexion SSL n’est disponible | Non  |
+| CaCertFile | Le chemin d’accès complet pour le certificat SSL utilisé par le serveur. Par exemple, `UseSystemTrustStore=<cert path>;`| Oui, si SSL est activé |
 
 **Exemple :**
 
