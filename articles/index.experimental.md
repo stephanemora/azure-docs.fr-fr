@@ -1,17 +1,18 @@
 ---
 layout: HubPage
-hide_bc: ''
-title: Documentation Microsoft Azure
+hide_bc: true
+title: Documentation Microsoft Azure
 description: Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore.
-ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070054"
 ---
 <div id="main" class="v2">
     <div class="container">
-        <h1 class="screenReader">Documentation Microsoft Azure</h1>
+        <h1 class="screenReader">Documentation Microsoft Azure</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="http://aka.ms/azuredevgetstarted/">
@@ -80,7 +81,7 @@ ms.lasthandoff: 03/09/2018
                             <li>
                                 <div class="container intro">
                                     <h2 class="likeAnH1">Bien démarrer avec Azure</h2>
-                                    <p>Découvrez nos services les plus demandés avec des guides de démarrage rapide, des exemples et des didacticiels.</p>
+                                    <p>Découvrez nos services les plus demandés avec des guides de démarrage rapide, des exemples et des tutoriels.</p>
                                 </div>
                             </li>
                             <li>
@@ -103,7 +104,7 @@ ms.lasthandoff: 03/09/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Développement d'applications</h3>
+                                                <h3>Développement d’applications</h3>
                                                 <div class="ico48Link">
                                                     <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
                                                         <img src="media/index/logo_NET.svg" alt="">
@@ -136,13 +137,14 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
-                                                        <span>Accéder</span>
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
+                                                        <span>Go</span>
                                                     </a>
                                                 </div>
                                                 <div>
                                                     <h4>Modèles CSP</h4>
                                                     <ul class="noBullet">
-                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Fonctions sans serveur</a></li>
                                                     </ul>
                                                 </div>
@@ -163,11 +165,11 @@ ms.lasthandoff: 03/09/2018
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database en tant que service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL Database en tant que service</a></li>
                                                 </ul>
-                                                <h4>Nosql</h4>
+                                                <h4>NoSQL</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Intelligence artificielle et Services cognitifs</h4>
+                                                <h4>Intelligence artificielle et Cognitive Services</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">AP Vision par ordinateur</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">API Visage</a></li>
@@ -186,7 +188,7 @@ ms.lasthandoff: 03/09/2018
                                                 <div class="ico48Link">
                                                     <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Interface de ligne de commande<br />Azure</span>
+                                                        <span>Azure<br />Azure</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
@@ -257,7 +259,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Functions</p>
+                                                <p>Fonctions</p>
                                             </a>
                                         </li>
                                         <li>
@@ -291,7 +293,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
@@ -331,7 +333,7 @@ ms.lasthandoff: 03/09/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Conteneurs</h3>
+                                    <h3>Containers</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/container-service/">
@@ -467,7 +469,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/dns/">
                                                 <img src="media/index/DNS.svg" alt="" />
-                                                <p>DNS Azure</p>
+                                                <p>Azure DNS</p>
                                             </a>
                                         </li>
                                         <li>
@@ -491,7 +493,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/network-watcher/">
                                                 <img src="media/index/network-watcher.svg" alt="" />
-                                                <p>Network Watcher</p>
+                                                <p>Network Watcher</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -584,19 +586,19 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/cs-decision-maker.svg" alt="" />
-                                                <p>Service de décision personnalisé</p>
+                                                <p>Service Décision personnalisée</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                                 <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
-                                                <p>Service vocal personnalisé</p>
+                                                <p>Custom Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Service de vision personnalisé</p>
+                                                <p>Service Vision personnalisée</p>
                                             </a>
                                         </li>
                                         <li>
@@ -720,7 +722,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning</p>
+                                                <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
@@ -768,7 +770,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="https://docs.botframework.com/en-us/azure-bot-service/">
                                                 <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Service de robot Azure</p>
+                                                <p>Azure Bot Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -846,7 +848,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning</p>
+                                                <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
@@ -881,7 +883,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -899,7 +901,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>action</p>
+                                                <p>Recherche</p>
                                             </a>
                                         </li>
                                         <li>
@@ -920,7 +922,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/security-center">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Centre de sécurité</p>
+                                                <p>Security Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1001,7 +1003,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure Monitor</p>
+                                                <p>Azure Monitor</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1085,7 +1087,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Jeux de mise à l’échelle de machine virtuelle</h3>
+                                                    <h3>Virtual Machine Scale Sets</h3>
                                                     <p>Gérez et mettez à l’échelle entre plusieurs dizaines et milliers de machines virtuelles Linux et Windows</p>
                                                 </div>
                                             </div>
@@ -1142,7 +1144,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Functions</h3>
+                                                    <h3>Fonctions</h3>
                                                     <p>Traitez les événements avec du code sans serveur</p>
                                                 </div>
                                             </div>
@@ -1574,7 +1576,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Logic Apps</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Automatisez l’accès à vos données et leur utilisation dans différents clouds sans écrire de code</p>
                                                 </div>
                                             </div>
@@ -1631,7 +1633,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>action</h3>
+                                                    <h3>Recherche</h3>
                                                     <p>Service de recherche entièrement géré</p>
                                                 </div>
                                             </div>
@@ -1732,7 +1734,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Développer les microservices et orchestrer des conteneurs sur Windows ou Linux</p>
+                                                    <p>Développez les microservices et orchestrez des conteneurs sur Windows ou Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1812,7 +1814,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
+                                                    <h3>SQL Data Warehouse</h3>
                                                     <p>Entrepôt de données élastique en tant que service avec fonctionnalités destinées aux entreprises</p>
                                                 </div>
                                             </div>
@@ -2007,7 +2009,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service vocal personnalisé</h3>
+                                                    <h3>Custom Speech Service</h3>
                                                     <p>Surmonter les barrières de reconnaissance vocale</p>
                                                 </div>
                                             </div>
@@ -2026,7 +2028,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service de vision personnalisé</h3>
+                                                    <h3>Service Vision personnalisée</h3>
                                                     <p>Un service web personnalisables qui vous apprend à reconnaître un contenu spécifique dans une imagerie</p>
                                                 </div>
                                             </div>
@@ -2045,7 +2047,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Indexeur de vidéo</h3>
+                                                    <h3>Video Indexer</h3>
                                                     <p>Rechercher, modifier, analyser et obtenir des informations à partir de vos vidéos</p>
                                                 </div>
                                             </div>
@@ -2126,7 +2128,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning</h3>
+                                                    <h3>Machine Learning</h3>
                                                     <p>Outil d’analyse prédictive performant basé sur le cloud autorisant une maintenance prédictive</p>
                                                 </div>
                                             </div>
@@ -2278,7 +2280,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service de robot Azure</h3>
+                                                    <h3>Azure Bot Service</h3>
                                                     <p>Service de robot intelligent sans serveur évolutif à la demande</p>
                                                 </div>
                                             </div>
@@ -2397,7 +2399,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning</h3>
+                                                    <h3>Machine Learning</h3>
                                                     <p>Outil d’analyse prédictive performant basé sur le cloud autorisant une maintenance prédictive</p>
                                                 </div>
                                             </div>
@@ -2536,7 +2538,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>Étendez dynamiquement les bases de données SQL Server locales sur Azure</p>
+                                                    <p>Étendez dynamiquement les bases de données SQL Server locales sur Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2597,7 +2599,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Centre de sécurité</h3>
+                                                    <h3>Security Center</h3>
                                                     <p>Anticipez, détectez et traitez les menaces grâce à une visibilité accrue</p>
                                                 </div>
                                             </div>
@@ -2949,7 +2951,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Monitor</h3>
+                                                    <h3>Azure Monitor</h3>
                                                     <p>Données de surveillance très précises en temps réel pour les ressources Azure</p>
                                                 </div>
                                             </div>
@@ -3254,6 +3256,7 @@ ms.lasthandoff: 03/09/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -3264,7 +3267,7 @@ ms.lasthandoff: 03/09/2018
                                                     <a href="/go/azure/azure-sdk-go-qs-vm">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Informations de référence</a>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Référence</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3427,7 +3430,7 @@ ms.lasthandoff: 03/09/2018
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Téléchargement pour Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Téléchargement pour Visual Studio Code</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Téléchargement pour Visual Studio Code</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Téléchargement pour Team Services</a>

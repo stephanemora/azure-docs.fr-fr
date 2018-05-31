@@ -15,11 +15,12 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fbbce06653e60cd914c2ed4d5990aac78ef53a8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201072"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux de module dans IoT Hub
 
@@ -27,7 +28,7 @@ Cet article suppose que vous avez déjà lu l’article [Comprendre et utiliser 
 
 Côté appareil, les kits IoT Hub device SDK vous permettent de créer des modules dont chacun ouvre une connexion indépendante à IoT Hub. Ainsi, vous pouvez utiliser des espaces de noms distincts pour les différents composants de votre appareil. Par exemple, vous disposez d’un distributeur automatique dotés de trois capteurs différents. Chaque capteur est contrôlé par différents services de votre entreprise. Vous pouvez créer un module pour chaque capteur. De cette manière, chaque service ne peut envoyer des travaux ou des méthodes directes qu’au capteur qu’il contrôle, ce qui évite les conflits et les erreurs de l’utilisateur.
 
- L’identité de module et le jumeau de module fournissent les mêmes fonctionnalités que l’identité d’appareil et le jumeau d’appareil, mais avec une précision accrue. Ainsi, les appareils compatibles, tels que les appareils basés sur le système d’exploitation ou les appareils avec microprogramme gérant plusieurs composants, peuvent isoler la configuration et les conditions pour chacun de ces composants. L’identité de module et les jumeaux de module vous permettent de gérer les problèmes de façon séparée quand vous utilisez des appareils IoT qui comportent des composants logiciels modulaires. Nous œuvrons pour que toutes les fonctionnalités de jumeau d’appareil soient prises en charge au niveau des jumeaux de module au plus tard quand ces derniers seront en disponibilité générale. 
+ L’identité de module et le jumeau de module fournissent les mêmes fonctionnalités que l’identité d’appareil et le jumeau d’appareil, mais avec une plus grande précision. Ainsi, les appareils compatibles, tels que les appareils basés sur le système d’exploitation ou les appareils avec microprogramme gérant plusieurs composants, peuvent isoler la configuration et les conditions pour chacun de ces composants. L’identité de module et les jumeaux de module vous permettent de gérer les problèmes de façon séparée quand vous utilisez des appareils IoT qui comportent des composants logiciels modulaires. Nous œuvrons pour que toutes les fonctionnalités de jumeau d’appareil soient prises en charge au niveau des jumeaux de module au plus tard quand ces derniers seront en disponibilité générale. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -182,7 +183,7 @@ Le backend de solution opère sur le jumeau de module en utilisant les opératio
     $content-encoding | utf-8 |
     deviceId | ID de l’appareil |
     moduleId | ID du module |
-    hubName | Nom du hub IoT |
+    hubName | Nom de l’IoT Hub |
     operationTimestamp | Horodatage [ISO8601] de l’opération |
     iothub-message-schema | deviceLifecycleNotification |
     opType | « replaceTwin » ou « updateTwin » |

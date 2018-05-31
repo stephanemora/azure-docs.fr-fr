@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055084"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
@@ -28,6 +29,7 @@ Si vous connaissez déjà le modèle d’identité Azure AD et que vous souhaite
 * [Synchronisation de hachage de mot de passe](#password-hash-synchronization) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
 * [Synchronisation directe](active-directory-aadconnect-pass-through-authentication.md) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
 * [Authentification unique fédérée (avec Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Fédération avec PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > Il est important de vous rappeler qu’en configurant la fédération pour Azure AD, vous établissez l’approbation entre votre client Azure AD et vos domaines fédérés. Avec ce domaine d’approbation fédéré, les utilisateurs auront accès aux ressources cloud d’Azure AD au sein du client.  
@@ -88,6 +90,13 @@ Si vous déployez une nouvelle batterie ou si vous utilisez une batterie existan
 * La machine sur laquelle vous exécutez l’Assistant doit être en mesure de se connecter à n’importe quel autre appareil sur lequel vous souhaitez installer AD FS ou un proxy d’application web en utilisant Windows Remote Management.
 
 Pour plus d’informations, consultez [Configuration de l’authentification unique avec ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### <a name="federation-with-pingfederate"></a>Fédération avec PingFederate
+Avec l’authentification fédérée, vos utilisateurs peuvent se connecter aux services basés sur Azure AD avec leurs mots de passe locaux. Lorsqu’ils sont sur le réseau d’entreprise, ils n’ont même pas besoin d’entrer leurs mots de passe.
+
+Pour plus d’informations sur la configuration de PingFederate pour une utilisation avec Azure Active Directory, consultez [Intégration de PingFederate à Azure Active Directory et Office 365](https://www.pingidentity.com/AzureADConnect)
+
+Pour plus d’informations sur la configuration d’Azure AD Connect à l’aide de PingFederate, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Authentification à l’aide d’une version antérieure d’AD FS ou d’une solution tierce
 Si vous avez déjà configuré l’authentification cloud à l’aide d’une version antérieure d’AD FS (par exemple, AD FS 2.0) ou à l’aide d’un fournisseur de fédération tiers, vous pouvez choisir d’ignorer la configuration de la connexion utilisateur via Azure AD Connect. Cela vous permet d’obtenir la dernière synchronisation et d’autres fonctionnalités d’Azure AD Connect tout en utilisant toujours votre solution d’authentification existante.

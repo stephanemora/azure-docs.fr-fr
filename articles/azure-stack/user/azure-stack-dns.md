@@ -1,65 +1,76 @@
 ---
 title: DNS dans Azure Stack | Microsoft Docs
-description: DNS dans Azure Stack
+description: Utilisation de DNS dans Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4e854a2751ce366e3ca3a353487f2c972401c248
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196523"
 ---
-# <a name="dns-in-azure-stack"></a>DNS dans Azure Stack
+# <a name="using-dns-in-azure-stack"></a>Utilisation de DNS dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Azure Stack inclut les fonctionnalités DNS suivantes :
-* Prise en charge de la résolution de nom d’hôte DNS
-* Création et gestion des enregistrements et zones DNS à l’aide d’API
+Azure Stack prend en charge les fonctionnalités DNS (Domain Name System) suivantes :
+
+* Résolution de nom d’hôte DNS
+* Création et gestion d’enregistrements et de zones DNS à l’aide de l’API
 
 ## <a name="support-for-dns-hostname-resolution"></a>Prise en charge de la résolution de nom d’hôte DNS
-Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource IP publique, qui crée un mappage pour l’élément *domainnamelabel.location*.cloudapp.azurestack.external vers l’adresse IP publique sur les serveurs DNS gérés par Azure Stack.  
 
-Par exemple, si vous créez une ressource IP publique avec **contoso** comme étiquette de nom de domaine à l’emplacement Azure Stack local, le nom de domaine complet (FQDN) **contoso.local.cloudapp.azurestack.external** est résolu à l’adresse IP publique de la ressource. Vous pouvez utiliser ce nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure Stack.
+Vous pouvez spécifier une étiquette de nom de domaine DNS pour les ressources de l’adresse IP publique. Azure Stack utilise *étiquette_nom_domaine.emplacement*.cloudapp.azurestack.external comme nom d’étiquette et le mappe à l’adresse IP publique dans les serveurs DNS gérés par Azure Stack.
+
+Par exemple, si vous créez une ressource d’adresse IP publique avec **contoso** comme étiquette de nom de domaine à l’emplacement Azure Stack local, le [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) **contoso.local.cloudapp.azurestack.external** est résolu en l’adresse IP publique de la ressource. Vous pouvez utiliser ce nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure Stack.
+
+Pour en savoir plus sur la résolution de noms, reportez-vous à l’article [Résolution DNS](https://docs.microsoft.com/en-us/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
-> Chaque étiquette de nom de domaine créée doit être unique dans son emplacement Azure Stack.
+> Chaque étiquette de nom de domaine que vous créez doit être unique dans son emplacement Azure Stack.
 
-Si vous créez l’adresse IP publique à l’aide du portail, elle ressemble à ceci :
+La capture de l’écran suivante montre la boîte de dialogue **Créer une adresse IP publique** pour créer une adresse IP publique à l’aide du portail.
 
 ![Création d’une adresse IP publique](media/azure-stack-whats-new-dns/image01.png)
 
-Cette configuration est utile si vous souhaitez associer une adresse IP publique avec une ressource à charge équilibrée. Par exemple, vous pouvez avoir un équilibreur de charge traitant les demandes à partir d’une application web. Derrière l’équilibreur de charge se trouve un site web installé sur une ou plusieurs machines virtuelles. Maintenant vous pouvez accéder au site web avec équilibrage de charge à l’aide d’un nom DNS plutôt qu’une adresse IP.
+**Exemple de scénario**
 
-## <a name="create-and-manage-dns-zones-and-records-using-api"></a>Créer et gérer des enregistrements et zones DNS à l’aide d’API
-Vous pouvez créer et gérer des enregistrements et des zones DNS dans Azure Stack.  
+Vous pouvez avoir un équilibreur de charge traitant des requêtes à partir d’une application web. Derrière l’équilibreur de charge se trouve un site web s’exécutant sur une ou plusieurs machines virtuelles. Vous pouvez accéder au site web avec équilibrage de charge à l’aide d’un nom DNS, au lieu d’une adresse IP.
 
-Azure Stack fournit un service DNS comme celui d’Azure, à l’aide d’API qui sont cohérentes avec les API DNS Azure.  En hébergeant vos domaines dans le système DNS Azure Stack, vous pouvez gérer vos enregistrements DNS avec les mêmes éléments que vos autres services Azure : informations d’identification, API, outils, facturation et support. 
+## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>Créer et gérer des enregistrements et des zones DNS à l’aide de l’API
 
-Pour des raisons évidentes, l’infrastructure DNS Azure Stack est plus compacte que celle d’Azure. La portée, l’échelle et les performances dépendent donc de l’échelle du déploiement Azure Stack et de l’environnement dans lequel il est déployé.  Ainsi, des éléments tels que les performances, la disponibilité, la distribution globale et la haute disponibilité peuvent varier d’un déploiement à l’autre.
+Vous pouvez créer et gérer des enregistrements et des zones DNS dans Azure Stack.
+
+Azure Stack fournit un service DNS comme celui d’Azure, à l’aide d’API qui sont cohérentes avec les API DNS Azure.  En hébergeant vos domaines dans le système DNS Azure Stack, vous pouvez gérer vos enregistrements DNS à l’aide des mêmes informations d’identification, API et outils. Vous pouvez également utiliser la même facturation et le même support que vos autres services Azure.
+
+L’infrastructure DNS Azure Stack est plus compacte que celle d’Azure. La taille et l’emplacement d’un déploiement Azure Stack affecte l’étendue, l’échelle et les performances DNS. Cela signifie également que les performances, la disponibilité, la distribution globale et la haute disponibilité peuvent varier d’un déploiement à l’autre.
 
 ## <a name="comparison-with-azure-dns"></a>Comparaison avec le système DNS Azure
-Le système DNS dans Azure Stack est semblable au système DNS dans Azure, avec deux exceptions majeures :
+
+Le système DNS dans Azure Stack est semblable au système DNS dans Azure, mais il existe des exceptions majeures qu’il est important d’assimiler.
+
 * **Il ne prend pas en charge les enregistrements AAAA**
 
     Azure Stack ne prend pas en charge les enregistrements AAAA, car il ne prend pas en charge les adresses IPv6.  Il s’agit d’une différence essentielle entre les systèmes DNS Azure et Azure Stack.
 * **Il n’est pas multilocataire**
 
-    Contrairement à Azure, le service DNS dans Azure Stack n’est pas multilocataire. Par conséquent, chaque client ne peut pas créer la même zone DNS. Seul le premier abonnement qui tente de créer la zone y parvient, et les requêtes suivantes échouent.  Il s’agit d’un problème connu et d’une différence essentielle entre le système DNS dans Azure et dans Azure Stack. Ce problème sera résolu dans une version ultérieure.
+    Le service DNS dans Azure Stack n’est pas multilocataire. Chaque client ne peut pas créer la même zone DNS. Seul le premier abonnement qui tente de créer la zone y parvient, et les requêtes suivantes échouent.  Il s’agit d’un problème connu et d’une différence essentielle entre le système DNS dans Azure et dans Azure Stack. Ce problème sera résolu dans une version ultérieure.
+* **Balises, métadonnées et ETags**
 
-En outre, il existe des différences mineures dans la façon dont le système DNS Azure Stack implémente les balises, les métadonnées, les ETags et les limites.
+    Il existe des différences mineures dans la façon dont Azure Stack gère les balises, les métadonnées, les ETags et les limites.
 
-Les informations suivantes s’appliquent spécifiquement au système DNS Azure Stack, et varient légèrement par rapport à Azure. Pour en savoir plus sur le système DNS Azure, consultez [Zones et enregistrements Etags](../../dns/dns-zones-records.md) sur le site de documentation de Microsoft Azure.
+Pour en savoir plus sur le système Azure DNS, consultez [Enregistrements et zones DNS](../../dns/dns-zones-records.md).
 
 ### <a name="tags-metadata-and-etags"></a>Balises, métadonnées et ETags
 
@@ -99,4 +110,5 @@ Les limites par défaut suivantes s’appliquent lors de l’utilisation du syst
 | Enregistrements par jeu d’enregistrements| 20|
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Introduction aux noms de domaine internationaux (IDN) pour Azure Stack](azure-stack-understanding-dns.md)

@@ -3,20 +3,21 @@ title: Débogueur de captures instantanées Azure Application Insights pour les 
 description: Des captures instantanées de débogage sont collectées automatiquement lorsque des exceptions sont levées dans des applications .NET de production
 services: application-insights
 documentationcenter: ''
-author: pharring
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 05/08/2018
+ms.author: mbullwin; pharring
+ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34159133"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
@@ -55,7 +56,7 @@ Les environnements suivants sont pris en charge :
         <!-- DeveloperMode is a property on the active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
         <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
         <!-- The maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
@@ -63,7 +64,7 @@ Les environnements suivants sont pris en charge :
         <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
         <ReconnectInterval>00:15:00</ReconnectInterval>
         <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>24:00:00</ProblemCounterResetInterval>
+        <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
         <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
@@ -146,12 +147,12 @@ Les environnements suivants sont pris en charge :
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
-       "ThresholdForSnapshotting": 5,
+       "IsEnabledInDeveloperMode": false,
+       "ThresholdForSnapshotting": 1,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
-       "ProblemCounterResetInterval":"24:00:00",
+       "ProblemCounterResetInterval":"1.00:00:00",
        "SnapshotsPerTenMinutesLimit": 1,
        "SnapshotsPerDayLimit": 30,
        "SnapshotInLowPriorityThread": true,
@@ -193,11 +194,12 @@ Les propriétaires de l’abonnement Azure peuvent inspecter des captures instan
 
 Pour accorder cette autorisation, vous devez attribuer le rôle `Application Insights Snapshot Debugger` aux utilisateurs chargés d’inspecter les captures instantanées. Ce rôle peut être attribué à des utilisateurs ou à des groupes par les propriétaires d’abonnements pour la ressource Application Insights cible, ou pour son groupe de ressources ou son abonnement.
 
-1. Ouvrez le panneau Contrôle d’accès (IAM).
-1. Cliquez sur le bouton +Ajouter.
-1. Sélectionnez le débogueur de capture instantanée d’Application Insights dans la liste déroulante des rôles.
+1. Accédez à la ressource Application Insights dans le portail Azure.
+1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur le bouton **+Ajouter**.
+1. Sélectionnez **Débogueur de capture instantanée d’Application Insights** dans la liste déroulante **Rôles**.
 1. Entrez le nom de l’utilisateur à ajouter.
-1. Cliquez sur le bouton Enregistrer pour ajouter l’utilisateur au rôle.
+1. Cliquez sur le bouton **Enregistrer** pour ajouter l’utilisateur au rôle.
 
 
 > [!IMPORTANT]
@@ -213,7 +215,7 @@ Une pile d’appel et un volet de variables s’affichent dans la vue Capture in
 
 ![Afficher la capture instantanée de débogage dans le portail](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Les captures instantanées peuvent contenir des informations sensibles qui, par défaut, ne sont pas visibles. Pour afficher les captures instantanées, le rôle `Application Insights Snapshot Debugger` doit vous être attribué.
+Les captures instantanées peuvent contenir des informations sensibles. Par défaut, elles ne sont pas visibles. Pour afficher les captures instantanées, le rôle `Application Insights Snapshot Debugger` doit vous être attribué.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Déboguer des captures instantanées avec Visual Studio 2017 Enterprise
 1. Cliquez sur le bouton **Télécharger la capture instantanée** pour télécharger un fichier `.diagsession`, qui peut être ouvert par Visual Studio 2017 Enterprise.
@@ -224,11 +226,26 @@ Les captures instantanées peuvent contenir des informations sensibles qui, par 
 
     ![Afficher la capture instantanée de débogage dans Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-La capture instantanée téléchargée contient tous les fichiers de symboles qui ont été détectés sur votre serveur d’applications web. Ces fichiers de symboles sont nécessaires pour associer les données de capture instantanée au code source. Pour les applications App Service, veillez à activer le déploiement des symboles lorsque vous publiez vos applications web.
+La capture instantanée téléchargée contient tous les fichiers de symboles détectés sur votre serveur d’applications web. Ces fichiers de symboles sont nécessaires pour associer les données de capture instantanée au code source. Pour les applications App Service, veillez à activer le déploiement des symboles lorsque vous publiez vos applications web.
 
 ## <a name="how-snapshots-work"></a>Fonctionnement des captures instantanées
 
-Au démarrage de votre application, un processus distinct de chargeur de captures instantanées qui surveille les demandes de captures instantanées de votre application est créé. Quand une capture instantanée est demandée, un cliché instantané du processus en cours d’exécution est effectué en 10 à 20 millisecondes environ. Le processus de cliché instantané est ensuite analysé et une capture instantanée est créée sans interrompre l’exécution du processus principal ni le trafic aux utilisateurs. La capture instantanée est ensuite chargée sur Application Insights, ainsi que les fichiers de symboles (.pdb) nécessaires à son affichage.
+Le collecteur de captures instantanées est implémenté en tant que [Processeur d’Application Insights Telemetry](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Lorsque votre application s’exécute, le processeur de télémétrie du collecteur de captures instantanées est ajouté au pipeline de télémétrie de votre application.
+Chaque fois que votre application appelle [TrackException](app-insights-asp-net-exceptions.md#exceptions), le collecteur de captures instantanées calcule un ID de problème à partir du type de l’exception levée et de la méthode de levée de l’exception.
+Chaque fois que votre application appelle TrackException, un compteur est incrémenté pour l’ID de problème approprié. Lorsque le compteur atteint la valeur `ThresholdForSnapshotting`, l’ID de problème est ajouté à un Plan de collecte.
+
+Le collecteur de captures instantanées analyse également les exceptions à mesure qu’elles sont levées en s’abonnant à l’événement [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Lorsque cet événement se déclenche, l’ID de problème de l’exception est calculé et comparé aux ID de problème figurant dans le Plan de collecte.
+S’il existe une correspondance, un instantané du processus en cours d’exécution est créé. Un identificateur unique est attribué à l’instantané et l’exception est marquée avec cet identificateur. Après fois que le gestionnaire FirstChanceException a retourné l’exception levée, celle-ci est traitée normalement. Finalement, l’exception atteint à nouveau la méthode TrackException où elle est signalée à Application Insights avec l’identificateur de capture instantanée.
+
+Le processus principal continue à s’exécuter et à assurer le trafic pour les utilisateurs avec une courte interruption. Pendant ce temps, l’instantané est remis au processus du chargeur de capture instantanée. Le chargeur de capture instantanée crée un minidump et le charge sur Application Insights, ainsi que tous les fichiers de symboles (.pdb) pertinents.
+
+> [!TIP]
+> - Une capture instantanée de processus est un clone suspendu du processus en cours d’exécution.
+> - La création de l’instantané prend environ de 10 à 20 millisecondes.
+> - La valeur par défaut de `ThresholdForSnapshotting` est 1. Il s’agit également la valeur minimale. Par conséquent, votre application doit déclencher la même exception **à deux reprises** avant qu’un instantané soit créé.
+> - Définissez `IsEnabledInDeveloperMode` sur true si vous voulez générer des captures instantanées lors d’un débogage dans Visual Studio.
+> - Le taux de création de capture instantanée est limité par le paramètre `SnapshotsPerTenMinutesLimit`. Par défaut, la limite est d’une capture instantanée toutes les dix minutes.
+> - Au maximum 50 captures instantanées peuvent être chargées par jour.
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
@@ -242,23 +259,43 @@ Le débogueur de captures instantanées nécessite que des fichiers de symboles 
 Pour Calcul Azure et d’autres types, vérifiez que les fichiers de symboles se trouvent dans le même dossier que le fichier .dll de l’application principale (généralement `wwwroot/bin`), ou sont disponibles dans le chemin d’accès actuel.
 
 ### <a name="optimized-builds"></a>Optimisation des versions
-Dans certains cas, des variables locales ne sont pas visibles dans les builds de mise en production en raison d’optimisations appliquées pendant le processus de génération.
+Dans certains cas, des variables locales sont invisibles dans les builds de mise en production en raison d’optimisations appliquées par le compilateur JIT.
+Toutefois, dans Azure App Services, le collecteur de captures instantanées peut « désoptimiser » des méthodes de levée d’exception faisant partie de son Plan de collecte.
+
+> [!TIP]
+> Installez l’extension de site Application Insights dans votre App Service pour obtenir un support de « désoptimisation ».
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 Les conseils suivants peuvent vous aider à résoudre des problèmes rencontrés avec le Débogueur de capture instantanée.
 
+### <a name="use-the-snapshot-health-check"></a>Utiliser le contrôle d’intégrité de capture instantanée
+Plusieurs problèmes courants empêchent l’affichage du message Ouvrir l’instantané de débogage. L’utilisation d’un collecteur de captures instantanées obsolète, par exemple lié à l’atteinte de la limite de chargement quotidienne, entraîne un temps de téléchargement important. Utilisez le contrôle d’intégrité de capture instantanée pour résoudre des problèmes courants.
+
+Il existe un lien dans le volet d’exception de l’affichage de suivi de bout en bout, qui permet d’accéder au contrôle d’intégrité de capture instantanée.
+
+![Entrer le contrôle d’intégrité de capture instantanée](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+L’interface interactive, de type conversation, recherche des problèmes courants et vous guide pour les résoudre.
+
+![Contrôle d’intégrité](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+Si cela ne résout pas le problème, consultez les étapes de dépannage manuel suivantes.
+
 ### <a name="verify-the-instrumentation-key"></a>Vérifier la clé d’instrumentation
 
-Assurez-vous que vous utilisez la clé d’instrumentation correcte dans votre application publiée. En règle générale, Application Insights lit la clé d’instrumentation à partir du fichier ApplicationInsights.config. Vérifiez que la valeur est identique à la clé d’instrumentation de la ressource Application Insights que vous voyez dans le portail.
+Assurez-vous que vous utilisez la clé d’instrumentation correcte dans votre application publiée. En règle générale, la clé d’instrumentation est lue à partir du fichier ApplicationInsights.config. Vérifiez que la valeur est identique à la clé d’instrumentation de la ressource Application Insights que vous voyez dans le portail.
+
+### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Mettre à niveau vers la dernière version du package NuGet
+
+Utilisez le Gestionnaire de package NuGet de Visual Studio pour vous assurer que vous utilisez la dernière version de Microsoft.ApplicationInsights.SnapshotCollector. Les notes de publication sont disponibles dans la page https://github.com/Microsoft/ApplicationInsights-Home/issues/167.
 
 ### <a name="check-the-uploader-logs"></a>Vérifier les journaux du chargeur
 
-Une fois une capture instantanée créée, un fichier minidump (.dmp) est créé sur le disque. Un processus distinct du chargeur prend ce fichier minidump et le charge, ainsi que tous les fichiers PDB associés, vers le stockage du Débogueur de capture instantanée d’Application Insights. Une fois le fichier minidump correctement chargé, il est supprimé du disque. Les fichiers journaux du processus de chargement sont conservés sur le disque. Dans un environnement App Service, vous pouvez trouver ces fichiers journaux dans `D:\Home\LogFiles`. Le site de gestion Kudu pour App Service permet de rechercher ces fichiers journaux.
+Une fois une capture instantanée créée, un fichier minidump (.dmp) est créé sur le disque. Un processus distinct du chargeur crée ce fichier minidump et le charge, ainsi que tous les fichiers PDB associés, vers le stockage du Débogueur de capture instantanée d’Application Insights. Une fois le fichier minidump correctement chargé, il est supprimé du disque. Les fichiers journaux du processus de chargement sont conservés sur disque. Dans un environnement App Service, vous pouvez trouver ces fichiers journaux dans `D:\Home\LogFiles`. Le site de gestion Kudu pour App Service permet de rechercher ces fichiers journaux.
 
 1. Ouvrez votre application App Service dans le portail Azure.
-
-2. Sélectionnez le panneau **Outils avancés**, ou recherchez **Kudu**.
+2. Cliquez sur **Outils avancés**, ou recherchez **Kudu**.
 3. Cliquez sur **Atteindre**.
 4. Dans le zone de liste déroulante de la **Console de débogage**, sélectionnez **CMD**.
 5. Cliquez sur **LogFiles**.
@@ -316,7 +353,7 @@ Pour les applications qui ne sont _pas_ hébergées dans App Service, les fichie
 Pour les rôles dans Cloud Services, le dossier temporaire par défaut peut être trop petit pour contenir les fichiers minidump, conduisant à des pertes d’instantanés.
 L’espace nécessaire varie selon le jeu de travail total de votre application et le nombre d’instantanés simultanés.
 Le jeu de travail du rôle web ASP.NET 32 bits contient en général de 200 à 500 Mo.
-Vous devez autoriser au moins deux instantanés simultanés.
+Autorisez au moins deux instantanés simultanés.
 Par exemple, si votre application utilise un jeu de travail de 1 Go au total, vous devez vous assurer qu’il y a au moins 2 Go d’espace disque pour stocker les instantanés.
 Suivez ces étapes pour configurer votre rôle service cloud avec une ressource locale dédiée pour les instantanés.
 
@@ -366,7 +403,7 @@ Suivez ces étapes pour configurer votre rôle service cloud avec une ressource 
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Utilisez une recherche Application Insights pour trouver des exceptions avec des captures instantanées
 
-Quand un instantané est créé, l’exception levée est marquée avec un ID d’instantané. Lorsque la télémétrie d’exception est signalée à Application Insights, cet ID d’instantané est inclus en tant que propriété personnalisée. Le panneau Rechercher dans Application Insights permet de trouver toute télémétrie avec la propriété personnalisée Search `ai.snapshot.id`.
+Quand un instantané est créé, l’exception levée est marquée avec un ID d’instantané. Cet ID d’instantané est inclus en tant que propriété personnalisée lorsque la télémétrie d’exception est signalée à Application Insights. La fonction **Rechercher** dans Application Insights vous permet de trouver toute télémétrie avec la propriété personnalisée `ai.snapshot.id`.
 
 1. Parcourez votre ressource Application Insights dans le portail Azure.
 2. Cliquez sur **Rechercher**.
@@ -383,6 +420,10 @@ Pour rechercher un ID d’instantané spécifique dans les fichiers journaux du 
 2. À l’aide de l’horodateur du fichier journal du chargeur, ajustez le filtre Intervalle de temps de la recherche pour couvrir cet intervalle.
 
 Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela signifie que la télémétrie de l’exception n’a pas été signalée à Application Insights. Cette situation peut se produire si votre application s’est arrêtée anormalement après avoir pris la capture instantanée, mais avant d’avoir signalé la télémétrie de l’exception. Dans ce cas, vérifiez les journaux d’App Service sous `Diagnose and solve problems` pour voir si des redémarrages intempestifs ou des exceptions non prises en charge se sont produits.
+
+### <a name="edit-network-proxy-or-firewall-rules"></a>Modifier les règles de pare-feu ou de proxy réseau
+
+Si votre application se connecte à Internet via un proxy ou un pare-feu, il se peut que vous deviez modifier les règles pour autoriser votre application à communiquer avec le service Débogueur de capture instantanée. Voici la [liste des adresses IP et des ports utilisés par le Débogueur de capture instantanée](app-insights-ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

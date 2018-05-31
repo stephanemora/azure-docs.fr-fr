@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768011"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -294,7 +295,7 @@ Vous pouvez utiliser le chiffrement côté client pour chiffrer les données en 
 
 SSE est activé pour tous les comptes de stockage et ne peut pas être désactivé. SSE chiffre automatiquement vos données lors de leur écriture dans le stockage Azure. Lorsque vous lisez des données depuis le stockage Azure, elles déchiffrées par le stockage Azure avant d’être retournées. SSE vous permet de sécuriser vos données sans avoir à modifier le code existant ni à ajouter du code dans les applications.
 
-Les clés utilisées pour SSE sont gérées par Microsoft. Microsoft crée initialement les clés, puis gère leur stockage sécurisé ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. Les clés gérées par le client finiront par être disponibles, avec un chemin de migration des clés gérées par Microsoft en clés gérées par le client.
+Vous pouvez utiliser des clés gérées par Microsoft ou vos propres clés personnalisées. Microsoft génère les clés gérées, puis gère leur stockage sécurisé ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. Pour en savoir plus sur l’utilisation de clés personnalisées, consultez [Storage Service Encryption avec des clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de Stockage Azure (blob, file d’attente, table et fichier). 
 

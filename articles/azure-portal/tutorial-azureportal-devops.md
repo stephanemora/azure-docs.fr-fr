@@ -1,8 +1,8 @@
 ---
-title: "Didacticiel : Opérations de développement avec le portail Azure | Microsoft Docs"
-description: "Découvrez les divers flux de travail DevOps dans le portail Azure."
+title: 'Didacticiel : Opérations de développement avec le portail Azure | Microsoft Docs'
+description: Découvrez les divers flux de travail DevOps dans le portail Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -11,14 +11,15 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164837"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Didacticiel : Opérations de développement avec le portail Azure
 La plateforme Azure regorge de flux de travail DevOps flexibles. Dans ce didacticiel, vous apprendrez à exploiter les fonctionnalités du portail Azure pour développer, tester, déployer, dépanner, analyser et gérer les applications en cours d’exécution. Ce didacticiel se concentre sur les éléments suivants :
@@ -34,7 +35,7 @@ Créez une application web avec [Azure App Service](https://azure.microsoft.com/
 1. Se connecter au portail Azure
 2. Choisissez **App Services** &gt; **Add icon** (Ajouter une icône) et entrez un nom, choisissez votre abonnement, puis créez un groupe de ressources en guise de conteneur du service.
    
-   Les groupes de ressources vous permettent de gérer différents aspects de la solution, telles que la facturation, les déploiements et l’analyse, le tout grâce à un groupe unique via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Les groupes de ressources vous permettent de gérer différents aspects de la solution, tels que la facturation, les déploiements et l’analyse, le tout grâce à un groupe unique via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Après quelques instants, votre App Service est créé. Prenez quelques minutes pour explorer les différentes options de menu du service dans le portail.
@@ -43,7 +44,7 @@ Créez une application web avec [Azure App Service](https://azure.microsoft.com/
 4. Cliquez sur l'URL. Notez les divers outils et référentiels disponibles. Vous pouvez également utiliser les langages et infrastructures de votre choix, notamment .NET, Java et Ruby.
    
    ![image3][image3]    
-5. Le portail Azure simplifie le déploiement continu, en le limitant à quelques étapes simples. Dans le portail Azure, choisissez les paramètres en utilisant l’icône de l’App Service que vous venez de créer.
+5. Le portail Azure simplifie le déploiement continu, en le limitant à quelques étapes simples. Dans le portail Azure, choisissez les paramètres en utilisant l’icône de l’App Service que vous avez créée.
    
    ![image4][image4]
    
@@ -152,7 +153,7 @@ Ensuite, apportez des modifications à la base de code et déployez-les rapideme
 ## <a name="monitoring-and-troubleshooting-an-app"></a>Surveillance et dépannage d’une application
 Azure fournit de nombreuses fonctionnalités de surveillance et de dépannage pour les applications en cours d’exécution.
 
-1. Dans le portail Azure de votre application web, sélectionnez Outils.
+1. Dans le portail Azure de l’application web, sélectionnez Outils.
    
    ![image37][image37]
 2. Sous la catégorie Dépannage, notez les différents choix d’utilisation des outils pour résoudre les problèmes potentiels avec une application en cours d’exécution. Vous pouvez par exemple analyser le trafic HTTP en direct, activer la réparation spontanée, afficher les journaux et bien plus encore.

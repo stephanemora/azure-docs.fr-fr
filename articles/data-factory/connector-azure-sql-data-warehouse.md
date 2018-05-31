@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886838"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,9 +104,10 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur le pr
     - Clé de l'application
     - ID client
 
-2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait. L’administrateur AAD peut être un utilisateur AAD ou un groupe AAD. Si vous accordez au groupe avec MSI un rôle d’administrateur, ignorez les étapes 3 et 4 ci-dessous, car l’administrateur a un accès total à la base de données.
+2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait. L’administrateur AAD peut être un utilisateur AAD ou un groupe AAD. Si vous accordez au groupe avec MSI un rôle d’administrateur, ignorez les étapes 3 et 4 ci-dessous, car l’administrateur a un accès total à la base de données.
 
-3. **Créez un utilisateur de base de données à relation contenant-contenu pour le principal de service** en vous connectant à l’entrepôt de données à partir duquel ou sur lequel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données à relation contenant-contenu [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. 
+  **Créez un utilisateur de base de données autonome pour le principal de service** en vous connectant à l’entrepôt de données à partir duquel ou sur lequel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données autonome [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -114,7 +116,7 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur le pr
 4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour les utilisateurs SQL, par exemple, en exécutant ce qui suit :
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. Dans ADF, configurez un service lié Azure SQL Data Warehouse.
@@ -151,6 +153,9 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur le pr
 
 Une fabrique de données peut être associée à une [identité de service managé (Managed Service Identity, MSI)](data-factory-service-identity.md) représentant la fabrique de données en question. Vous pouvez utiliser cette identité de service pour l’authentification Azure SQL Data Warehouse, ce qui permet à la fabrique en question d’accéder à votre entrepôt de données et de copier des données depuis ou vers celui-ci.
 
+> [!IMPORTANT]
+> Notez que PolyBase n’est actuellement pas pris en charge pour l’authentification MSI.
+
 Pour utiliser l’authentification du jeton d’application AAD basée sur une MSI, procédez comme suit :
 
 1. **Créez un groupe dans Azure AD et ajoutez la MSI de la fabrique comme membre du groupe**.
@@ -163,9 +168,10 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur une M
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait.
+2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait.
 
-3. **Créez un utilisateur de base de données à relation contenant-contenu pour le groupe AAD** en vous connectant à l’entrepôt de données à partir duquel ou sur lequel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données à relation contenant-contenu [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. 
+  **Créez un utilisateur de base de données autonome pour le groupe AAD** en vous connectant à l’entrepôt de données à partir duquel ou sur lequel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données autonome [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
     ```sql
     CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
@@ -174,7 +180,7 @@ Pour utiliser l’authentification du jeton d’application AAD basée sur une M
 4. **Accordez les autorisations requises par le groupe AAD** comme vous le feriez d’habitude pour les utilisateurs SQL, par exemple, en exécutant ce qui suit :
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. Dans ADF, configurez un service lié Azure SQL Data Warehouse.
@@ -381,7 +387,7 @@ L’utilisation de **[PolyBase](https://docs.microsoft.com/sql/relational-databa
 * Si votre banque de données sources et son format ne sont pas pris en charge à l’origine par PolyBase, vous pouvez utiliser la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-using-polybase)** à la place. Elle propose également un meilleur débit en convertissant les données dans un format compatible avec PolyBase et en stockant les données dans le stockage Blob Azure automatiquement. Il charge ensuite les données dans SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Veuillez noter que PolyBase prend uniquement en charge l’authentification Azure SQL Data Warehouse, pas l’authentification Azure Active Directory.
+> Notez que PolyBase n’est actuellement pas pris en charge pour l’authentification par jeton d’une application AAD basée sur MSI (Managed Service Identity).
 
 ### <a name="direct-copy-using-polybase"></a>Copie directe à l’aide de PolyBase
 

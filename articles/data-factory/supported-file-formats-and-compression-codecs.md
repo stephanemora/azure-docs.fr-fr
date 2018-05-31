@@ -7,13 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940152"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -300,7 +301,7 @@ Vous souhaitez copier ce fichier dans une table SQL Azure au format suivant, en
 | `ordernumber` | `orderdate` | `order_pd` | `order_price` | `city` |
 | --- | --- | --- | --- | --- |
 | 01 | 20170122 | P1 | 23 | `[{"sanmateo":"No 1"}]` |
-| 01 | 20170122 | P2 | 13. | `[{"sanmateo":"No 1"}]` |
+| 01 | 20170122 | P2 | 13 | `[{"sanmateo":"No 1"}]` |
 | 01 | 20170122 | P3 | 231 | `[{"sanmateo":"No 1"}]` |
 
 
@@ -486,7 +487,7 @@ Si vous souhaitez analyser des fichiers Parquet ou écrire des données au form
 Notez les points suivants :
 
 * Les types de données complexes ne sont pas pris en charge (MAP, LIST)
-* Le fichier Parquet offre les options de compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
+* Le fichier Parquet offre les options de compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données du fichier Parquet dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Mappage de type de données pour les fichiers Parquet
 

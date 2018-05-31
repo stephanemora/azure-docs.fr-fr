@@ -1,11 +1,11 @@
 ---
-title: "Dépannage de la mise à l’échelle automatique à l’aide des groupes identiques de machines virtuelles | Microsoft Docs"
-description: "Dépanner la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle Découvrez les problèmes couramment rencontrés et apprenez à les résoudre."
+title: Dépannage de la mise à l’échelle automatique à l’aide des groupes identiques de machines virtuelles | Microsoft Docs
+description: Dépanner la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle Découvrez les problèmes couramment rencontrés et apprenez à les résoudre.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: negat
-ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: ea634ea8bcb4fed1ed63dc8d1e17d215a00758c6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161020"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle
 **Problème** : vous avez créé une infrastructure de mise à l’échelle automatique dans Azure Resource Manager à l’aide de groupes de machines virtuelles identiques (par exemple en déployant un modèle comme https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale), vos règles de mise à l’échelle sont définies et fonctionnent très bien, sauf que, quelle que soit la charge placée sur les machines virtuelles, elle n’est pas mise à l’échelle automatiquement.
@@ -45,13 +46,13 @@ Parmi les éléments à prendre en considération :
     Il est facile de commettre des erreurs. Commencez avec un modèle comme celui ci-dessus, dont l’efficacité a été prouvée, et apportez de petites modifications incrémentielles. 
 * Pouvez vous procéder manuellement à une augmentation ou à une diminution de la taille des instances ?
   
-    Essayez de redéployer la ressource du groupe de machines virtuelles identiques avec un paramètre de capacité différent pour modifier le nombre de machines virtuelles manuellement. Vous trouverez un exemple de modèle ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing (vous devrez peut-être modifier le modèle pour vous assurer que la taille de machine est identique à celle de votre groupe identique). Si vous pouvez modifier le nombre de machines virtuelles manuellement, vous savez que le problème est lié à la mise à l’échelle automatique.
+    Essayez de redéployer la ressource du groupe de machines virtuelles identiques avec un paramètre de capacité différent pour modifier le nombre de machines virtuelles manuellement. Un exemple de modèle se trouve ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing – Vous devrez peut-être modifier le modèle pour vous assurer qu’il a la même taille de machine que votre groupe identique. Si vous pouvez modifier le nombre de machines virtuelles manuellement, vous savez que le problème est lié à la mise à l’échelle automatique.
 * Consultez vos ressources Microsoft.Compute/virtualMachineScaleSet et Microsoft.Insights dans [l’explorateur de ressources Azure](https://resources.azure.com/)
   
     Azure Resource Explorer est un outil de dépannage indispensable qui vous indique l’état de vos ressources Azure Resource Manager. Cliquez sur votre abonnement et examinez le groupe de ressources sur lequel vous effectuez un dépannage. Sous le fournisseur de ressources de calcul, consultez le groupe de machines virtuelles identiques que vous avez créé et consultez la vue d’instance, qui vous indique l’état d’un déploiement. Vérifiez également la vue d’instance des machines virtuelles dans le groupe de machines virtuelles identiques. Ensuite, accédez au fournisseur de ressources Microsoft.Insights et vérifiez que les règles de mise à l’échelle automatique sont correctes.
 * L’extension de diagnostic fonctionne-t-elle et génère-t-elle des données de performance ?
   
-    **Mise à jour :** la mise à l’échelle automatique Azure a été améliorée pour utiliser un pipeline de métriques basées sur l’hôte qui ne nécessite plus l’installation d’une extension de diagnostic. Les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Des exemples de modèles Azure convertis pour utiliser le pipeline de l’hôte sont donnés ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Mise à jour :** la mise à l’échelle automatique Azure a été améliorée pour utiliser un pipeline de métriques basées sur l’hôte qui ne nécessite plus l’installation d’une extension de diagnostic. Les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Un exemple de modèles Azure convertis pour utiliser le pipeline hôte est disponible ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Le recours aux métriques basées sur l’hôte pour la mise à l’échelle automatique est préférable pour les raisons suivantes :
   
@@ -78,7 +79,7 @@ Parmi les éléments à prendre en considération :
     Si les données ne sont pas visibles, cela implique que le problème provient de l’extension de diagnostic en cours d’exécution sur les machines virtuelles. Si les données sont présentes, cela implique un problème lié à vos règles de mise à l’échelle ou au service Insights. Vérifiez le [statut Azure](https://azure.microsoft.com/status/).
     
     Une fois que vous avez effectué ces étapes, si vous rencontrez toujours des problèmes de mise à l’échelle automatique, vous pouvez essayer les ressources suivantes : 
-    * Lire les forums sur [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp) ou [Stack Overflow](http://stackoverflow.com/questions/tagged/azure) 
+    * Lire les forums sur [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) ou [Stack Overflow](http://stackoverflow.com/questions/tagged/azure) 
     * Enregistrez un appel au support. Soyez prêt à partager le modèle et une vue de vos données de performance.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

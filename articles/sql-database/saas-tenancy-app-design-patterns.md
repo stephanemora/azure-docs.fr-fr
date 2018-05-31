@@ -10,11 +10,12 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941892"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
@@ -88,7 +89,7 @@ Azure SQL Database fournit les outils nécessaires pour configurer, surveiller e
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Mise à l’échelle des opérations pour le modèle de base de données par locataire
 
-La plateforme Azure SQL Database propose de nombreuses fonctionnalités conçues pour gérer plus de 100 000 bases de données à l’échelle.  Ces fonctionnalités font du modèle de base de données par locataire un modèle plausible.
+La plateforme Azure SQL Database propose de nombreuses fonctionnalités de gestion conçues pour gérer plus de 100 000 bases de données à l’échelle.  Ces fonctionnalités font du modèle de base de données par locataire un modèle plausible.
 
 Prenons l’exemple d’un système constitué d’une seule base de données à 1 000 locataires.  La base de données peut avoir 20 index.  Si le système passe à 1000 bases de données à locataire unique, le nombre d’index s’élève à 20 000.  Dans le cadre du [paramétrage automatique][docu-sql-db-automatic-tuning-771a] de SQL Database, les fonctionnalités d’indexation automatiques sont activées par défaut.  L’indexation automatique gère pour vous les 20 000 index et l’optimisation des opérations continues de création et de suppression.  Effectuées dans une base de données individuelle, ces actions automatisées ne sont ni coordonnées ni restreintes par des actions similaires dans d’autres bases de données.  L’indexation automatique traite différemment les index selon qu’ils se trouvent dans une base de données occupée ou non.  Cette tâche colossale de personnalisation de la gestion des index serait difficile à réaliser manuellement à l’échelle du modèle de base de données par locataire.
 

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b8b61f2a512cca2a88274b93d04a1fdc8893a88f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34222911"
 ---
 ## <a name="about-vhds"></a>À propos des VHD
 
@@ -20,15 +21,14 @@ Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob d
 
 Azure prend en charge le format VHD de disque fixe. Le format fixe définit linéairement le disque logique dans le fichier de façon que l'offset du disque X soit stocké à l'offset de l'objet blob X. Un petit pied de page à la fin de l'objet blob décrit les propriétés du disque dur virtuel. Souvent, le format fixe gaspille de l'espace du fait que la plupart des disques comportent de grandes plages inutilisées. Cependant, Azure stocke les fichiers .vhd dans un format fragmenté : vous profitez donc en même temps de disques fixes et dynamiques. Pour plus d’informations, consultez [Prise en main des disques durs virtuels](https://technet.microsoft.com/library/dd979539.aspx).
 
-Dans Azure, tous les fichiers .vhd que vous souhaitez utiliser comme source pour créer des disques ou des images sont en lecture seule, à l’exception des fichiers .vhd téléchargés ou copiés vers le stockage Azure par l’utilisateur (en lecture seule ou en lecture-écriture). Lorsque vous créez un disque ou une image, Azure copie les fichiers .vhd source. Ces copies peuvent être accessibles en lecture seule et en lecture/écriture selon votre utilisation du VHD.
+Dans Azure, tous les fichiers VHD que vous souhaitez utiliser comme source pour créer des disques ou des images sont en lecture seule, à l’exception des fichiers .vhd chargés ou copiés vers le stockage Azure par l’utilisateur (en lecture seule ou en lecture-écriture). Lorsque vous créez un disque ou une image, Azure copie les fichiers .vhd source. Ces copies peuvent être accessibles en lecture seule et en lecture/écriture selon votre utilisation du VHD.
 
 Lorsque vous créez une machine virtuelle à partir d’une image, Azure crée, pour la machine virtuelle, un disque qui est une copie du fichier .vhd source. Pour vous protéger contre une suppression accidentelle, Azure place un bail sur tout fichier .vhd source utilisé pour créer une image, un disque de système d’exploitation ou un disque de données.
 
 Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail en supprimant le disque ou l’image. Pour supprimer un fichier .vhd utilisé par une machine virtuelle comme disque de système d’exploitation, vous pouvez supprimer simultanément la machine virtuelle, le disque de système d’exploitation et le fichier .vhd source en supprimant la machine virtuelle et tous les disques associés. Toutefois, la suppression d’un fichier .vhd qui constitue une source pour un disque de données requiert l’exécution de plusieurs étapes dans un ordre défini. Détachez tout d’abord le disque de la machine virtuelle, supprimez le disque, puis supprimez le fichier .vhd.
+
 > [!WARNING]
 > Si vous supprimez un fichier .vhd source d’un stockage ou si vous supprimez votre compte de stockage, Microsoft ne pourra pas récupérer ces données pour vous.
-> 
-> Les objets blob de pages du Stockage Premium doivent uniquement être utilisés en tant que disques durs virtuels. Microsoft déconseille de stocker d’autres types de données dans les objets blob de pages du Stockage Premium, dans la mesure où le coût associé peut se révéler considérablement supérieur. Pour stocker des données non contenues dans un disque dur virtuel, utilisez des objets blob de blocs.
 
 ## <a name="types-of-disks"></a>Types de disques 
 

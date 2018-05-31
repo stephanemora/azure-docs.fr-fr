@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940364"
 ---
 # <a name="grow-your-business-with-appsource"></a>Développer votre activité avec AppSource
 La Place de marché Azure et AppSource sont les lieux de lancement des offres proposées en partenariat avec Microsoft. Elles constituent un véritable accélérateur de croissance pour votre activité. Avec les promotions de lancement, la génération de la demande, ainsi que les ventes et le marketing conjoints, votre offre sur la Place de marché peut constituer l’élément central de votre activité commerciale dans le cloud. La participation à ces plateformes est gratuite. Les clients Microsoft consultent nos places de marché cloud tous les jours pour trouver les applications et les services qui leur permettront d’améliorer leur activité. Notre but est de faire connaître aux entreprises les solutions et les services proposés par Microsoft et par notre écosystème de partenaires. 
@@ -88,7 +89,7 @@ Les tableaux suivants détaillent chaque étape de renseignement de l’offre.
 **Détails de vitrine - Artefacts marketing**
 | Paramètres de la vitrine       | Meilleures pratiques          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Logo de l’offre (au format .png, 58 x 48)**    | Votre logo doit être conçu et optimisé pour le numérique.<br>Chargez le logo au format PNG pour la page de recherche de l’offre. |
+| **Logo de l’offre (au format .png, 48 x 48)**    | Votre logo doit être conçu et optimisé pour le numérique.<br>Chargez le logo au format PNG pour la page de recherche de l’offre. |
 | **Logo de l'offre (.png. 216 x 216)**     | Votre logo doit être conçu et optimisé pour le numérique. <br>Chargez le logo au format PNG pour la page détaillée de l’offre. |
 | **En savoir plus**   | Ajoutez des ressources de vente et de marketing sous le lien « En savoir plus ». Par exemple, des livres blancs, des brochures, des listes de vérification, des présentations PowerPoint, etc. Tous les fichiers doivent être au format PDF. Ne cherchez pas à vendre mais à informer. <br>Ajoutez le lien vers la page d’accueil de votre application à tous vos documents, et ajoutez des paramètres d’URL pour effectuer le suivi des visiteurs et des essais gratuits. |
 | **Vidéos**       | Chargez au moins une vidéo (quatre vidéos maximum). Votre vidéo doit refléter la valeur de votre offre. Dans la vidéo, centrez-vous sur le prospect et non sur votre entreprise. Votre vidéo doit évoquer les principaux défis et objectifs des décisionnaires. <br>Durée recommandée : 60 à 90 secondes. Incorporez les mots clés dans le nom des vidéos.<br>Vous pouvez ajouter d’autres vidéos comme une vidéo explicative, une vidéo pour bien démarrer ou un témoignage client. |
@@ -98,7 +99,7 @@ Les tableaux suivants détaillent chaque étape de renseignement de l’offre.
 
 Une fois votre offre répertoriée sur AppSource, vous êtes autorisé à afficher le badge « Disponible sur AppSource » sur votre site web. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![Badge AppSource](./media/marketplace-appsource/appsourcebadge.png)
     
 L’ajout de ce badge à votre site montre que votre offre est disponible sur AppSource. De cette façon, vous pouvez diriger les clients potentiels directement vers la page de votre offre. Le badge AppSource est disponible en trois formats. Vous pouvez télécharger le badge et des conseils sur son utilisation dans [Promote your app's availability on Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 

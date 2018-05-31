@@ -1,21 +1,22 @@
 ---
-title: "Exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery (préversion)"
-description: "Découvrez comment exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire à l’aide du service Azure Site Recovery."
+title: Exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery
+description: Découvrez comment exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire à l’aide du service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208972"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire (préversion)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, y compris la réplication, le basculement et la récupération.
 
@@ -25,7 +26,10 @@ Ce didacticiel vous montre comment exécuter une simulation de récupération d�
 > * Vérifier les prérequis
 > * Exécuter un test de basculement pour une seule machine virtuelle
 
+La réplication Azure vers Azure est actuellement disponible en préversion.
+
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Avant que vous n’exécutiez un test de basculement, nous vous recommandons de vérifier les propriétés de la machine virtuelle pour vérifier que tout fonctionne comme prévu.  Accédez aux propriétés de la machine virtuelle dans les **éléments répliqués**. Le panneau **Bases** affiche des informations sur les paramètres et l’état des machines.
 - Pour le test de basculement, nous vous recommandons d’utiliser un réseau de machines virtuelles Azure distinct du réseau par défaut qui était configuré quand vous avez activé la réplication.

@@ -1,24 +1,25 @@
 ---
 title: Tarification et facturation - Azure Logic Apps | Microsoft Docs
-description: "Découvrir le fonctionnement de la tarification et de la facturation d’Azure Logic Apps"
-author: kevinlam1
-manager: anneta
-editor: 
+description: Découvrir le fonctionnement de la tarification et de la facturation d’Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166282"
 ---
 # <a name="logic-apps-pricing-model"></a>Modèle de tarification de Logic Apps
 
@@ -57,7 +58,7 @@ Les actions qui s’exécutent dans des boucles sont comptées à chaque cycle d
 
 ## <a name="integration-account-usage"></a>Utilisation d’un compte d’intégration
 
-La consommation en fonction de l’utilisation inclut un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) à des fins d’exploration, de développement et de test des fonctionnalités de [traitement XML](logic-apps-enterprise-integration-xml.md) et [B2B/EDI](logic-apps-enterprise-integration-b2b.md) de Logic Apps sans coût supplémentaire. Vous pouvez avoir l’un de ces comptes d’intégration par région et stocker jusqu’à 10 contrats et 25 cartes. Vous pouvez avoir et charger une quantité illimitée de certificats, de schémas et de partenaires.
+La consommation en fonction de l’utilisation inclut un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) à des fins d’exploration, de développement et de test des fonctionnalités de [traitement XML](logic-apps-enterprise-integration-xml.md) et [B2B/EDI](logic-apps-enterprise-integration-b2b.md) de Logic Apps sans coût supplémentaire. Vous pouvez disposer d’un compte d’intégration par région et stocker jusqu’à un [nombre spécifique d’artefacts](../logic-apps/logic-apps-limits-and-config.md), comme les contrats et partenaires commerciaux, cartes, schémas, assemblys, certificats et configurations de lot.
 
 Logic Apps offre également des comptes d’intégration de base et standard avec le contrat SLA Logic Apps pris en charge. Vous pouvez utiliser des comptes d’intégration de base quand vous souhaitez uniquement utiliser la gestion des messages ou agir en tant que petite entreprise partenaire ayant une relation de partenariat commercial avec une entité professionnelle plus importante. Les comptes d’intégration standard prennent en charge les relations B2B plus complexes et augmentent le nombre d’entités que vous pouvez gérer. Pour plus d’informations, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7c505080e6b6144ab3cf24ad89bb084efbb77c29
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155461"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Les liens de la page ne fonctionnent pas pour une application avec proxy d’application
 
@@ -36,14 +37,14 @@ Il existe trois façons de résoudre ce type de problème. Les solutions ci-dess
 
     Si vous modifiez l’URL interne, mais ne souhaitez pas modifier la page d’arrivée pour les utilisateurs, remplacez l’URL de la page d’accueil par l’URL interne publiée précédemment. Pour cela, accédez à « Active Directory Azure » -&gt; Inscriptions des applications -&gt; sélectionnez l’application -&gt; Propriétés. Dans l’onglet Propriétés, vous voyez le champ « URL de la page d’accueil » que vous pouvez configurer sur la page d’arrivée de votre choix.
 
-2.  Si vos applications utilisent des noms de domaine complets (FQDN), utilisez des [domaines personnalisés](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) pour publier vos applications. Cette fonctionnalité permet à la même URL d’être utilisée à la fois en interne et en externe.
+2.  Si vos applications utilisent des noms de domaine complets (FQDN), utilisez des [domaines personnalisés](manage-apps/application-proxy-configure-custom-domain.md) pour publier vos applications. Cette fonctionnalité permet à la même URL d’être utilisée à la fois en interne et en externe.
 
-    Cette option garantit que les liens de votre application soient accessibles de l’extérieur via le proxy d’application, car les liens de l’application qui dirigent vers des URL internes sont également reconnus en externe. Notez que tous les liens doivent appartenir à une application publiée. Toutefois, avec cette option, les liens n’ont pas besoin d’appartenir à la même application et peuvent donc appartenir à plusieurs applications.
+    Cette option garantit que les liens de votre application soient accessibles de l’extérieur via le proxy d’application, car les liens de l’application qui dirigent vers des URL internes sont également reconnus en externe. Tous les liens doivent appartenir à une application publiée. Toutefois, avec cette option, les liens n’ont pas besoin d’appartenir à la même application et peuvent donc appartenir à plusieurs applications.
 
-3.  Si aucune de ces options n’est envisageable, rejoignez le programme d’évaluation pour obtenir la nouvelle fonctionnalité qui permet de traduire ou réécrire les URL. Avec cette option, les URL internes ou les liens qui se trouvent dans le corps HTML de vos applications doivent être traduits ou « mappés » vers les URL de proxy d’application externes publiées. Ceci fonctionne uniquement pour les liens qui se trouvent dans du code HTML ou CSS, et non pour ceux qui sont générés par JS. 
+3.  Si aucune de ces options n’est envisageable, vous pouvez utiliser la nouvelle fonctionnalité en préversion qui permet de traduire ou réécrire les URL. Avec cette fonctionnalité, les URL internes ou les liens qui se trouvent dans le corps HTML de vos applications doivent être traduits ou « mappés » vers les URL de proxy d’application externes publiées. Cela fonctionne uniquement pour les liens qui se trouvent dans du code HTML ou CSS, et non pour ceux qui sont générés par JS. 
 
-Par conséquent, nous recommandons fortement d’utiliser les [domaines personnalisés](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) lorsque cela est possible. Si vous souhaitez utiliser la préversion, envoyez les ID d’application par e-mail à l’adresse <aadapfeedback@microsoft.com>.
+Par conséquent, nous recommandons fortement d’utiliser les [domaines personnalisés](manage-apps/application-proxy-configure-custom-domain.md) lorsque cela est possible. Si vous souhaitez utiliser la préversion, envoyez les ID d’application par e-mail à l’adresse <aadapfeedback@microsoft.com>.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Travailler avec des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md)
+[Travailler avec des serveurs proxy locaux existants](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 

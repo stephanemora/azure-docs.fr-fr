@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010922"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -34,6 +35,14 @@ Cet article est destiné à vous aider à dépanner et à résoudre les problèm
 Si vous déplacez des ressources d’un abonnement à un autre, les ressources de synchronisation de fichiers (service de synchronisation de stockage) sont bloquées et ne peuvent être déplacées. 
 
 ## <a name="agent-installation-and-server-registration"></a>Installation de l’agent et inscription du serveur
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Lors de l’inscription du serveur, vous obtenez l’erreur "The term 'find-AzureRMResource' is not recognized as the name..."
+Le problème est que l’applet de commande find-AzureRMResource a été modifié dans AzureRM v6.  La prochaine version de l’agent de synchronisation sera corrigée pour prendre en charge AzureRM v6.  En attendant, vous pouvez contourner ce problème en procédant comme suit :
+1. Arrêtez le ServerRegistration.exe en cours via le Gestionnaire des tâches
+2. Affichez une invite de commandes PowerShell en tant qu’administrateur
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. Démarrez C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Résoudre les problèmes d’installation de l’agent**  
 Si l’installation de l’agent Azure File Sync échoue, à partir d’une invite de commandes avec élévation de privilèges, exécutez la commande suivante pour activer la journalisation durant l’installation de l’agent :
 
