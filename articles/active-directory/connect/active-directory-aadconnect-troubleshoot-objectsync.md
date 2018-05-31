@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193761"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation d’objets avec la synchronisation Azure AD Connect
 Ce document explique comment résoudre les problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes.
@@ -34,6 +35,7 @@ Pour exécuter la tâche de résolution des problèmes de l’Assistant, procéd
 4.  Accédez à la page Tâches supplémentaires, sélectionnez Résoudre les problèmes, puis cliquez sur Suivant.
 5.  Dans la page de résolution des problèmes, cliquez sur Lancer pour ouvrir le menu de dépannage de PowerShell.
 6.  Dans le menu principal, sélectionnez Troubleshoot Object Synchronization (Résoudre les problèmes de synchronisation d’objets).
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Paramètres d’entrée de la tâche de résolution des problèmes
 La tâche de résolution des problèmes requiert les paramètres d’entrée suivants :
@@ -47,6 +49,8 @@ La tâche de résolution des problèmes effectue les vérifications suivantes :
 1.  détection d’une incompatibilité de nom d’utilisateur principal (UPN) si l’objet est synchronisé avec Azure Active Directory ;
 2.  vérification si l’objet a été exclu en raison d’un filtrage de domaine ;
 3.  vérification si l’objet a été exclu en raison d’un filtrage d’unité d’organisation.
+4.  Vérifiez si la synchronisation des objets est bloquée en raison d’une boîte aux lettres liée
+5. Vérifiez si l’objet est un groupe de distribution dynamique qui n’est pas censé être synchronisé
 
 Le reste de cette section décrit les résultats spécifiques qui sont renvoyés par la tâche. Dans chaque cas, la tâche fournit une analyse suivie des actions recommandées pour résoudre le problème.
 
@@ -76,9 +80,19 @@ L’objet n’entre pas dans le champ d’application de la synchronisation, car
 L’objet n’entre pas dans le champ d’application de la synchronisation, car le domaine ne présente pas de profils d’exécution/étapes d’exécution. Dans l’exemple ci-après, la synchronisation ne s’applique pas à l’objet, car le domaine auquel appartient ce dernier est dépourvu d’étapes d’exécution pour le profil d’exécution d’importation intégrale.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>Objet exclu en raison d’un filtrage d’unité d’organisation
-L’objet n’entre pas dans le champ d’application de la synchronisation à cause de la configuration du filtrage d’unité d’organisation. Dans l’exemple ci-après, l’objet appartient à OU=NoSync,DC=bvtadwbackdc,DC=com.  Cette unité d’organisation n’entre pas dans le champ d’application de la synchronisation.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>Objet exclu en raison d’un filtrage d’unité d’organisation
+L’objet n’entre pas dans le champ d’application de la synchronisation à cause de la configuration du filtrage d’unité d’organisation. Dans l’exemple ci-après, l’objet appartient à OU=NoSync,DC=bvtadwbackdc,DC=com.  Cette unité d’organisation n’entre pas dans le champ d’application de la synchronisation.</br>
+
+![Unité d’organisation](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>Problème de boîte aux lettres liée
+Une boîte aux lettres liée est censée être associée à un compte de référence externe principal situé dans une autre forêt de comptes approuvés. S’il n’y a aucun compte principal externe, Azure AD Connect ne synchronise pas le compte utilisateur correspondant à la boîte aux lettres liée dans la forêt Exchange sur le client Azure AD.</br>
+![Boîte aux lettres liée](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>Problème de groupe de distribution dynamique
+En raison de plusieurs différences entre Active Directory local et Azure Active Directory, Azure AD Connect ne synchronise pas les groupes de distribution dynamiques pour le client Azure AD.
+
+![Groupe de distribution dynamique](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>Rapport HTML
 Outre l’analyse de l’objet, la tâche de résolution des problèmes génère un rapport HTML incluant toutes les connaissances concernant l’objet. Ce rapport HTML peut être partagé avec l’équipe du support technique à des fins de résolution des problèmes approfondie s’il y a lieu.

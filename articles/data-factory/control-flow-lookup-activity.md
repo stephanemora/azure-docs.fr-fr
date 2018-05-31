@@ -11,44 +11,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011524"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
-Vous pouvez utiliser l’activité de recherche pour lire ou rechercher un enregistrement, un nom de table ou une valeur à partir de n’importe quelle source externe. Cette sortie peut être référencée par des activités complémentaires. 
 
-L’activité de recherche est utile quand vous souhaitez récupérer de manière dynamique une liste de fichiers, enregistrements ou tables à partir d’un fichier de configuration ou d’une source de données. La sortie de l’activité peut être utilisée par d’autres activités pour effectuer un traitement spécifique sur ces éléments uniquement.
+L’activité de recherche peut être utilisée pour récupérer un jeu de données à partir de n’importe quelle source de données compatible ADF.  Elle peut être utilisée dans le scénario suivant :
+- Déterminez de manière dynamique quels objets (fichiers, tables, etc.) fonctionnent sur une activité ultérieure, au lieu de coder en dur le nom d’objet
+
+L’activité de recherche peut lire et renvoyer le contenu d’un fichier de configuration, une table de configuration ou le résultat de l’exécution d’une requête ou d’une procédure stockée.  La sortie de l’activité de recherche peut être utilisée dans une activité de transformation ou de copie ultérieure s’il s’agit d’une valeur singleton, ou dans une activité ForEach s’il s’agit d’un tableau d’attributs.
 
 > [!NOTE]
 > Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Les sources de données suivantes sont actuellement prises en charge pour la recherche :
+Les sources de données suivantes sont prises en charge pour la recherche. Le nombre maximum de lignes pouvant être retournées par l’activité de recherche est de **5000**, et jusqu’à une taille de **2 Mo**. Et la durée maximale pour l’activité de recherche avant l’expiration du délai d’attente est actuellement d’une heure.
 
-- Amazon Redshift
-- Stockage d'objets blob Azure
-- Azure Cosmos DB
-- Azure Data Lake Store
-- Présentation du stockage de fichiers
-- Base de données SQL Azure
-- Azure SQL Data Warehouse
-- Stockage de tables Azure
-- Dynamics 365
-- Dynamics CRM
-- Système de fichiers
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
-
-Le nombre maximum de lignes retournées par l’activité de recherche est de **5000**, et jusqu’à une taille de **10 Mo**.
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -77,10 +63,11 @@ dataset | Fournit la référence de jeu de données pour la recherche. Pour plus
 source | Contient des propriétés source spécifiques au jeu de données, identiques à la source de l’activité de copie. Pour plus d’informations, consulter la section « Propriétés de l’activité de copie » dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
 firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen | Non. La valeur par défaut est `true`.
 
-Notez les points suivants :
+**Notez les points suivants :**
 
 1. Le colonne Source avec le type ByteArray n’est pas prise en charge.
 2. La structure n’est pas prise en charge dans la définition du jeu de données. Pour les fichiers de format texte, vous pouvez utiliser la ligne d’en-tête pour mentionner le nom de la colonne.
+3. Si votre source de recherche est un ou plusieurs fichiers JSON, le paramètre `jsonPathDefinition` pour la remise en forme l’objet JSON n’est pas pris en charge. L’ensemble des objets seront récupérés.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Utiliser le résultat de l’activité de recherche dans une activité ultérieure
 

@@ -3,25 +3,28 @@ title: Comprendre le flux du code d’autorisation OAuth 2.0 dans Azure AD
 description: Cet article explique comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure Active Directory et OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
-ms.author: hirsin
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158402"
 ---
-# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory
-Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
+# <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0
+Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos [bibliothèques open source](active-directory-authentication-libraries.md).
 
 Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Il est utilisé pour exécuter des activités d’authentification et d’autorisation dans la majorité des types d’applications, notamment les applications web et les applications installées de façon native.
 
@@ -33,7 +36,7 @@ Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des 
 ![Flux de code d’authentification OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
-Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette requête, le client indique les autorisations qu’il doit obtenir auprès de l’utilisateur : Vous pouvez obtenir le point de terminaison OAuth 2.0 pour votre client en sélectionnant **Inscriptions d’applications > Points de terminaison** dans le portail Azure.
+Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette requête, le client indique les autorisations qu’il doit obtenir auprès de l’utilisateur : Vous pouvez obtenir le point de terminaison d’autorisation OAuth 2.0 pour votre client en sélectionnant **Inscriptions d’applications > Points de terminaison** dans le portail Azure.
 
 ```
 // Line breaks for legibility only
@@ -41,7 +44,7 @@ Le flux de code d'autorisation commence par le client dirigeant l'utilisateur ve
 https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=http%3A%2F%2Flocalhost%3A%12345
 &response_mode=query
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &state=12345
@@ -49,32 +52,33 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
-| client_id |required |L’ID de l’application assignée à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Active Directory**, sur le répertoire, sélectionnez l’application et cliquez sur **Configurer** |
+| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
+| client_id |required |L’ID de l’application assignée à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Azure Active Directory** dans le volet de services, sur **Inscriptions des applications**, puis choisissez l’application. |
 | response_type |required |Doit inclure `code` pour le flux de code d’autorisation. |
-| redirect_uri |recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification.  Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL.  Pour les applications natives et mobiles, vous devez utiliser la valeur par défaut `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application.  Peut être `query` ou `form_post`. |
-| state |recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](http://tools.ietf.org/html/rfc6749#section-10.12).  La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
-| resource |facultatif |URI ID d’application de l’API web (ressource sécurisée). Pour rechercher l’URI ID d’application de l’API web, dans le portail Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application et sur **Configurer**. |
+| redirect_uri |recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Pour les applications natives et mobiles, vous devez utiliser la valeur par défaut `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Peut être `query` ou `form_post`. `query` fournit le code sous forme de paramètre de chaîne de requête sur votre URI de redirection, tandis que `form_post` exécute une requête POST contenant le code pour votre URI de redirection. |
+| state |recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
+| resource | recommandé |URI ID d’application de l’API web cible (ressource sécurisée). Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez sur **Azure Active Directory**, **Inscriptions des applications**, ouvrez la page **Paramètres** de l’application, puis cliquez sur **Propriétés**. Il peut également s’agir d’une ressource externe comme `https://graph.microsoft.com`. Il est nécessaire dans les requêtes de jeton ou d’autorisation. Pour réduire le nombre d’invites d’authentification, placez-le dans la requête d’autorisation afin d’être sûr que le consentement est reçu par l’utilisateur. |
+| scope | **ignoré** | Pour les applications Azure AD v1, les étendues doivent être configurées statiquement dans le portail Azure dans les **Paramètres** de l’application, sous **Autorisations requises**. |
 | prompt |facultatif |Indique le type d’interaction utilisateur requis.<p> Les valeurs autorisées sont : <p> *login*: l’utilisateur doit être invité à se réauthentifier. <p> *consent*: le consentement de l’utilisateur a été accordé, mais il doit être mis à jour. L’utilisateur doit être invité à donner son consentement. <p> *admin_consent* : un administrateur doit être invité à donner son consentement pour le compte de tous les utilisateurs de son organisation |
-| login_hint |facultatif |Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur.  Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur d’une connexion précédente à l’aide de la revendication `preferred_username`. |
+| login_hint |facultatif |Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur d’une connexion précédente à l’aide de la revendication `preferred_username`. |
 | domain_hint |facultatif |Fournit une indication sur le client ou le domaine que l’utilisateur doit utiliser pour se connecter. La valeur du paramètre domain_hint est un domaine inscrit pour le client. Si le client est fédéré sur un répertoire local, AAD redirige vers le serveur de fédération du client spécifié. |
-| code_challenge_method | facultatif    | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Peut être `plain` ou `S256`.  Si exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus.  Azure AAD v1.0 prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | facultatif    | Utilisé pour sécuriser l’octroi du code d’autorisation via la clé de preuve pour le Code Exchange (PKCE) à partir d’un client natif. Obligatoire si `code_challenge_method` est inclus.  Pour plus d'informations, consultez le [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | facultatif    | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Peut être `plain` ou `S256`. S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. Azure AAD v1.0 prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | facultatif    | Utilisé pour sécuriser l’octroi du code d’autorisation par le biais de l’échange PKCE (Proof Key for Code Exchange) à partir d’un client natif ou public. Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Si l’utilisateur fait partie d’une organisation, un administrateur de l’organisation peut donner son consentement ou refuser pour le compte de l’utilisateur, ou autoriser l’utilisateur à donner son consentement. L’utilisateur a la possibilité de donner son consentement uniquement lorsque l’administrateur le lui permet.
 >
 >
 
-À ce stade, l’utilisateur est invité à entrer ses informations d’identification et à donner son consentement vis-à-vis des autorisations indiquées dans le paramètre de requête `scope`. Une fois que l’utilisateur s’authentifie et donne son consentement, Azure AD envoie une réponse à votre application à l’adresse `redirect_uri` dans votre demande.
+À ce stade, l’utilisateur est invité à entrer ses informations d’identification et à donner son consentement vis-à-vis des autorisations demandées par l’application dans le portail Azure. Une fois que l’utilisateur s’est authentifié et a donné son consentement, Azure AD envoie une réponse à votre application à l’adresse `redirect_uri` dans votre requête avec le code.
 
 ### <a name="successful-response"></a>Réponse correcte
 Une réponse réussie se présenterait ainsi :
 
 ```
 GET  HTTP/1.1 302 Found
-Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
+Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
 | Paramètre | Description |
@@ -124,7 +128,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
 &client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA
-&redirect_uri=https%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=https%3A%2F%2Flocalhost%3A12345
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=p@ssw0rd
 
@@ -133,16 +137,16 @@ grant_type=authorization_code
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
-| client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. L’ID d’application s’affiche dans les paramètres de l’inscription de l’application.  |
+| locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
+| client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. L’ID d’application s’affiche dans les paramètres de l’inscription de l’application. |
 | grant_type |required |Doit être `authorization_code` pour le flux de code d'autorisation. |
 | code |required |`authorization_code` que vous avez obtenu dans la section précédente. |
 | redirect_uri |required |Valeur `redirect_uri` qui a été utilisée pour acquérir le `authorization_code`. |
-| client_secret |requis pour les applications web, non autorisé pour les clients publics |Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application.  Il ne peut pas être utilisé dans une application native (client public), car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils.  Il est requis pour les applications web et les API Web (tous les clients confidentiels), qui peuvent stocker en toute sécurité le `client_secret` sur le côté serveur. |
-| resource |requis s’il est spécifié dans la demande de code d’autorisation, facultatif dans le cas contraire |URI ID d’application de l’API web (ressource sécurisée). |
-| code_verifier | facultatif              | Le même code_verifier utilisé pour obtenir l’authorization_code.  Obligatoire si PKCE est utilisé dans la requête d’octroi de code d’autorisation.  Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636)   |
+| client_secret |requis pour les applications web, non autorisé pour les clients publics |Secret d’application que vous avez créé dans le portail Azure pour votre application sous **Clés**. Il ne peut pas être utilisé dans une application native (client public), car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications web et les API Web (tous les clients confidentiels), qui peuvent stocker en toute sécurité le `client_secret` sur le côté serveur. |
+| resource | recommandé |URI ID d’application de l’API web cible (ressource sécurisée). Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez sur **Azure Active Directory**, **Inscriptions des applications**, ouvrez la page **Paramètres** de l’application, puis cliquez sur **Propriétés**. Il peut également s’agir d’une ressource externe comme `https://graph.microsoft.com`. Il est nécessaire dans les requêtes de jeton ou d’autorisation. Pour réduire le nombre d’invites d’authentification, placez-le dans la requête d’autorisation afin d’être sûr que le consentement est reçu par l’utilisateur. S’il figure à la fois dans la requête d’autorisation et dans la requête de jeton, les paramètres de la ressource doivent correspondre. | 
+| code_verifier | facultatif | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636)   |
 
-Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, puis sur **Configurer**.
+Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez sur **Azure Active Directory**, **Inscriptions des applications**, ouvrez la page **Paramètres** de l’application, puis cliquez sur **Propriétés**.
 
 ### <a name="successful-response"></a>Réponse correcte
 Azure AD renvoie un jeton d’accès dès réception d’une réponse correcte. Pour réduire le nombre d’appels réseau de l’application cliente et la latence associée, l’application cliente doit mettre en cache des jetons d’accès tout au long de la durée de vie des jetons, spécifiée dans la réponse OAuth 2.0. Pour déterminer la durée de vie des jetons, utilisez les valeurs de paramètre `expires_in` ou `expires_on`.
@@ -173,7 +177,7 @@ Une réponse réussie se présenterait ainsi :
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
 | resource |URI ID d’application de l’API web (ressource sécurisée). |
 | scope |Autorisations d’emprunt d’identité accordées à l’application cliente. L’autorisation par défaut est `user_impersonation`. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD. |
-| refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel.  Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. |
+| refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. |
 | id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. |
 
 ### <a name="jwt-token-claims"></a>Demandes de jeton JWT
@@ -360,7 +364,7 @@ Une réponse d’erreur se présenterait ainsi :
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],

@@ -2,29 +2,29 @@
 title: Ajouter des utilisateurs B2B Collaboration dans le Portail Azure - Azure Active Directory | Microsoft Docs
 description: Montre comment un administrateur peut ajouter des utilisateurs invités à son répertoire à partir d’une organisation partenaire en utilisant Azure Active Directory (Azure AD) B2B Collaboration.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/02/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 34bd5b51089045c4cd20f29d179bb230e5e3fac2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076763"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure
 
 En tant qu’administrateur général ou en tant qu’utilisateur affecté à l’un des rôles d’annuaire administrateur limité, vous pouvez utiliser le Portail Azure pour inviter des utilisateurs B2B Collaboration. Libre à vous de convier des utilisateurs invités à rejoindre le répertoire, un groupe ou une application. Une fois l’utilisateur invité par le biais de l’une de ces méthodes, son compte est ajouté à Azure Active Directory (Azure AD) et son type devient *invité*. L’utilisateur invité doit ensuite échanger son invitation pour accéder aux ressources.
+
+Après avoir ajouté un utilisateur invité dans l’annuaire, vous pouvez envoyer à l’utilisateur invité un lien direct vers une application partagée, ou l’utilisateur invité peut cliquer sur l’URL d’échange dans l’e-mail d’invitation. Pour plus d’informations sur le processus d’utilisation, consultez [Utilisation d’une invitation B2B Collaboration](active-directory-b2b-redemption-experience.md).
+
+> [!IMPORTANT]
+> Vous devez suivre les étapes de [Guide d’ajout des informations de confidentialité de votre organisation dans Azure Active Directory](https://aka.ms/adprivacystatement) pour ajouter l’URL de déclaration de confidentialité de votre organisation. Dans le cadre du processus d’échange lors de la première invitation, un utilisateur invité doit accepter les conditions de confidentialité pour continuer. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Ajouter des utilisateurs invités au répertoire
 
@@ -92,7 +92,7 @@ En tant qu’administrateur Azure AD, vous pouvez ajouter des utilisateurs B2B C
  
 ## <a name="resend-invitations-to-guest-users"></a>Renvoyer des invitations aux utilisateurs invités
 
-Si un utilisateur invité n’a pas encore répondu à son invitation, vous pouvez la lui renvoyer.
+Si un utilisateur invité n’a pas encore répondu à son invitation, vous pouvez lui renvoyer l’e-mail d’invitation.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
@@ -111,6 +111,4 @@ Si un utilisateur invité n’a pas encore répondu à son invitation, vous pouv
 
 - Pour savoir comment des administrateurs non-Azure AD peuvent ajouter des utilisateurs invités B2B, consultez [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-iw-add-users.md)
 - Pour plus d’informations sur l’e-mail d’invitation, consultez les [Éléments de l’e-mail d’invitation de B2B Collaboration](active-directory-b2b-invitation-email.md).
-- Pour plus d’informations sur le processus de remise d’invitation, consultez [Utilisation d’une invitation B2B Collaboration](active-directory-b2b-redemption-experience.md).
-
 

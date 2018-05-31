@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 05/09/2018
 ms.author: billmath
-ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46a9bf47b4998c4d5be47f67556fbdb3ba7b71db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054092"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Forum Aux Questions sur Azure Active Directory Connect
 
@@ -98,6 +99,68 @@ Pour l’instant, nous ne prenons pas en charge la modification des attributs HT
 
 **Q : Existe-t-il un moyen d’empêcher les sessions simultanées ?**</br>
 Non.
+
+## <a name="auto-upgrade"></a>Mise à niveau automatique
+
+**Q : quels sont les avantages et les conséquences de l’utilisation de la mise à niveau automatique ?**</br>
+Nous conseillons à tous les clients d’activer la mise à niveau automatique pour leur installation d’Azure AD Connect. Parmi les avantages pour les clients : ils recevront toujours les derniers correctifs, y compris les mises à jour de sécurité pour les vulnérabilités que nous trouvons dans Azure AD Connect. Le processus de mise à niveau est simple et se fait automatiquement dès qu’une nouvelle version est disponible. Nous répondons aux besoins de plusieurs milliers de clients Azure AD Connect via la mise à niveau automatique avec chaque nouvelle version.
+
+Le processus de mise à niveau automatique commence toujours par établir si une installation est éligible pour la mise à niveau automatique (cela inclut la recherche de modifications personnalisées apportées aux règles, les facteurs environnementaux spécifiques, etc.) et si c’est le cas, la mise à niveau est effectuée et testée. Si les tests indiquent qu’une mise à niveau a échoué, la version précédente est automatiquement restaurée.
+
+Selon la taille de l’environnement, le processus peut durer quelques heures, et pendant la mise à niveau, aucune synchronisation entre Windows Server AD et Azure AD ne se produit.
+
+**Q : j’ai reçu un e-mail m’indiquant que ma mise à niveau automatique ne fonctionnait plus et que je dois installer la nouvelle version. Pourquoi dois-je effectuer cette opération ?**</br>
+L’année dernière, nous avons publié une version d’Azure AD Connect qui, dans certaines circonstances, désactivait la fonctionnalité de mise à niveau automatique sur votre serveur. Nous avons résolu ce problème dans la version 1.1.750.0 d’Azure AD Connect, qui a été publiée à la fin du mois dernier. Les clients susceptibles d’avoir été affectés par ce problème doivent effectuer une mise à niveau manuelle vers la version la plus récente d’Azure AD Connect pour résoudre le problème. Pour effectuer manuellement la mise à niveau, vous devez télécharger et exécuter la dernière version du fichier AADConnect.msi.
+ 
+-  Si votre version actuelle est antérieure à la version 1.1.750.0, vous devez mettre à niveau vers la dernière version, [qui peut être téléchargée ici](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+- Si votre version d’Azure AD Connect est la version 1.1.750.0 ou ultérieure, vous n’avez rien à faire pour résoudre le problème lié à la mise à niveau automatique, dans la mesure où vous disposez déjà de la version possédant le correctif. 
+
+**Q : j’ai reçu un e-mail me demandant de mettre à niveau vers la version la plus récente pour réactiver la mise à niveau automatique. Je dispose de la version 1.1.654.0, ai-je besoin d’effectuer la mise à niveau ?** </br>    
+Oui, vous devez mettre à niveau vers la version 1.1.750 ou une version ultérieure pour réactiver la mise à niveau automatique. Voici le lien qui explique comment mettre à niveau vers une version plus récente.
+
+**Q : j’ai reçu un e-mail me demandant de mettre à niveau vers la version la plus récente pour réactiver la mise à niveau automatique. J’ai utilisé PowerShell pour activer la mise à niveau automatique, dois-je installer la dernière version ?**</br>    
+Oui, vous devez tout de même mettre à niveau vers la version 1.1.750.0 ou une version ultérieure. L’activation du service de mise à niveau automatique avec PowerShell ne résout pas le problème de mise à niveau automatique repéré dans les versions antérieures à la version 1.1.750.
+
+**Q : je souhaite mettre à niveau vers une version plus récente, mais je ne sais pas qui a installé Azure AD Connect et nous n’avons pas le nom d’utilisateur et le mot de passe.  En avons-nous besoin ?**</br>
+Vous n’avez pas besoin de connaître le nom d’utilisateur et le mot de passe utilisés pour mettre à niveau Azure AD Connect. N’importe quel compte Azure AD disposant du rôle Administrateur général peut être utilisé.
+
+**Q : comment puis-je savoir de quelle version d’Azure AD Connect je dispose ?**</br>   
+Pour vérifier la version d’Azure AD Connect installée sur votre serveur, accédez au Panneau de configuration et recherchez la version de Microsoft Azure AD Connect installée sous « Programmes > Programmes et fonctionnalités » :
+
+![version](media/active-directory-aadconnect-faq/faq1.png)
+
+**Q : comment effectuer une mise à niveau vers la dernière version de AADConnect ?**</br>    
+Cet [article](active-directory-aadconnect-upgrade-previous-version.md) explique comment mettre à niveau vers une version plus récente. 
+
+**Q : nous avons déjà effectué une mise à niveau vers la dernière version de AADConnect l’année dernière. Devons-nous procéder à une nouvelle mise à niveau ?**</br> Les équipes d’Azure AD Connect mettent régulièrement à jour le service, et il est important que votre serveur soit à jour avec la version la plus récente pour tirer parti des correctifs de bogues et des mises à jour de sécurité, ainsi que des nouvelles fonctionnalités. Si vous activez la mise à niveau automatique, votre version du logiciel sera automatiquement mise à jour. Pour rechercher l’historique des versions d’Azure AD Connect, veuillez suivre ce [lien](active-directory-aadconnect-version-history.md).
+
+**Q : combien de temps faut-il pour effectuer la mise à niveau et quel est l’impact sur mes utilisateurs ?**</br>    
+Le temps nécessaire à la mise à niveau dépend de la taille de votre locataire. Pour les organisations de grande taille, il peut être préférable de procéder à la mise à niveau dans la soirée ou le week-end. Notez que, lors de la mise à niveau, aucune activité de synchronisation n’a lieu.
+
+**Q : je pense que j’ai effectué la mise à niveau vers AADConnect, mais dans le portail Office, il est toujours fait mention de DirSync.  Pourquoi ?**</br>    
+L’équipe Office travaille actuellement pour que les mises à jour du portail Office reflètent le nom du produit actuel : il ne reflète pas l’outil de synchronisation que vous utilisez.
+
+**Q : j’ai vérifié mon statut de mise à niveau automatique et il indique « Suspendu ». Pourquoi ? Dois-je l’activer ?**</br>     
+Un bogue a été introduit dans une version précédente : dans certains cas, l’état de la mise à niveau automatique a pris la valeur « Suspendu ». Il est techniquement possible de l’activer manuellement, mais cela nécessite plusieurs étapes complexes. Par conséquent, la meilleure chose à faire est d’installer la version la plus récente d’Azure AD Connect.
+
+**Q : mon entreprise a des exigences strictes en matière de gestion des changements et je souhaite contrôler à quel moment les mises à niveau ont lieu. Puis-je contrôler le lancement des mises à niveau automatiques ?**</br> Non, cette fonctionnalité n’existe pas à l’heure actuelle, mais il s’agit de quelque chose que nous envisageons pour une version ultérieure.
+
+**Q : recevrai-je un e-mail en cas d’échec de la mise à niveau automatique ? Comment savoir si elle a réussi ?**</br>     
+Vous ne serez pas informé du résultat de la mise à niveau. Il s’agit d’une fonctionnalité que nous envisageons pour une version ultérieure.
+
+**Q : publiez-vous un calendrier des mises à niveau automatiques prévues ?**</br>    
+La mise à niveau automatique est la première étape de notre processus de lancement d’une nouvelle version. Chaque fois qu’une nouvelle version est publiée, nous mettons en place une mise à jour automatique. Les nouvelles versions d’Azure AD Connect sont préalablement annoncées dans la [feuille de route Azure AD](../../active-directory/whats-new.md).
+
+**Q : la mise à niveau automatique met-elle à niveau AAD Connect Health ?**</br>   Oui, la mise à niveau automatique met également à niveau AAD Connect Health.
+
+**Q : voulez-vous également mettre à niveau automatiquement les serveurs AAD Connect en mode de préproduction ?**</br>   
+Non, vous ne pouvez pas mettre à niveau automatiquement un serveur Azure AD Connect qui est en mode de préproduction.
+
+**Q : si la mise à niveau automatique échoue et que mon serveur AAD Connect ne démarre pas, que dois-je faire ?**</br>   
+Dans de rares cas, le service Azure AD Connect ne démarre pas après la mise à niveau. Dans ces cas, redémarrez le serveur, ce qui permet généralement de résoudre le problème. Si le service Azure AD Connect ne démarre toujours pas, ouvrez un ticket de support. Voici un [lien](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) qui explique comment procéder. 
+
+**Q : je ne sais pas quels sont les risques liés à la mise à niveau vers une version plus récente d’Azure AD Connect. Pouvez-vous m’appeler pour m’aider à procéder à la mise à niveau ?**</br>
+Si vous avez besoin d’aide pour la mise à niveau vers une version plus récente d’Azure AD Connect, ouvrez un ticket de support. Voici un [lien](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) qui explique comment procéder.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**

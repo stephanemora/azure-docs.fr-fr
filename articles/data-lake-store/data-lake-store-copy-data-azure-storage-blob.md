@@ -1,24 +1,23 @@
 ---
-title: "Copier des données d’objets blob Stockage Azure vers Data Lake Store | Microsoft Docs"
-description: "Utiliser l’outil AdlCopy pour copier les données d’objets blob Azure Storage vers Data Lake Store"
+title: Copier des données d’objets blob Stockage Azure vers Data Lake Store | Microsoft Docs
+description: Utiliser l’outil AdlCopy pour copier les données d’objets blob Azure Storage vers Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 964ba0eb9c619fa226b0704a6c83c05186a95261
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197152"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copier des données d’objets blob Azure Storage vers Data Lake Store
 > [!div class="op_single_selector"]
@@ -37,7 +36,8 @@ Vous pouvez également utiliser l’outil AdlCopy dans deux modes différents :
 * **Autonome**: l’outil utilise des ressources Data Lake Store pour effectuer la tâche.
 * **À l’aide d’un compte Data Lake Analytics**: les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

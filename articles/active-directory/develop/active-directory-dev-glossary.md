@@ -3,23 +3,25 @@ title: Glossaire du développeur Azure Active Directory | Microsoft Docs
 description: Liste de termes liés aux concepts et fonctionnalités de développeur Azure Active Directory couramment utilisés.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158147"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossaire du développeur Azure Active Directory
 Cet article contient des définitions pour certains des principaux concepts de développeur Azure Active Directory (AD), qui s’avèrent utiles lors de l’apprentissage du développement d’applications pour Azure AD.
@@ -35,7 +37,7 @@ Les jetons d’accès sont parfois qualifiés de « utilisateur + Application »
 Pour plus d’informations, consultez [Azure AD Token Reference (Référence de jeton Azure AD)][AAD-Tokens-Claims].
 
 ## <a name="application-id-client-id"></a>ID d’application (ID client)
-L’identificateur unique Azure AD est émis pour une inscription d’application qui identifie une application spécifique et les configurations associées.  Cet ID d’application ([ID client](https://tools.ietf.org/html/rfc6749#page-15)) est utilisé lors de l’exécution de demandes d’authentification et est fourni aux bibliothèques d’authentification pendant le développement. L’ID d’application (ID client) n’est pas secret. 
+L’identificateur unique Azure AD est émis pour une inscription d’application qui identifie une application spécifique et les configurations associées. Cet ID d’application ([ID client](https://tools.ietf.org/html/rfc6749#page-15)) est utilisé lors de l’exécution de demandes d’authentification et est fourni aux bibliothèques d’authentification pendant le développement. L’ID d’application (ID client) n’est pas secret. 
 
 ## <a name="application-manifest"></a>manifeste d’application
 Fonctionnalité fournie par le [portail Azure][AZURE-portal], qui produit une représentation JSON de la configuration d’identité de l’application servant de mécanisme de mise à jour des entités [Application][AAD-Graph-App-Entity] et [ServicePrincipal][AAD-Graph-Sp-Entity] associées. Pour plus d’informations, consultez [(Understanding the Azure Active Directory application manifest) Connaître le manifeste d’application Azure Active Directory][AAD-App-Manifest].
@@ -85,7 +87,7 @@ Un [jeton de sécurité](#security-token) contient des revendications qui fourni
 Pour plus d’informations, consultez [Azure AD token reference (Référence de jeton Azure AD)][AAD-Tokens-Claims].
 
 ## <a name="client-application"></a>d’application cliente
-Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], application qui effectue des demandes de ressources protégées au nom du [propriétaire des ressources](#resource-owner). Le terme « cliente » n’implique pas de caractéristiques d’implémentation matérielle particulières (par exemple, si l’application s’exécute sur un serveur, un ordinateur de bureau ou d’autres appareils).  
+Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], application qui effectue des demandes de ressources protégées au nom du [propriétaire des ressources](#resource-owner). Le terme « cliente » n’implique pas de caractéristiques d’implémentation matérielle particulières (par exemple, si l’application s’exécute sur un serveur, un ordinateur de bureau ou d’autres appareils). 
 
 Une application cliente demande [l’autorisation](#authorization) à un propriétaire de ressources de participer à un [flux d’autorisation OAuth2](#authorization-grant) et peut accéder aux API/données au nom du propriétaire des ressources. L’infrastructure d’autorisation OAuth2 [définit deux types de clients][OAuth2-Client-Types], « confidentiel » et « public », en fonction de la capacité du client à préserver la confidentialité de ses informations d’identification. Les applications peuvent implémenter un [client web (confidentiel)](#web-client) s’exécutant sur un serveur web, un [client natif (public)](#native-client) installé sur un appareil ou un [client basé sur un agent utilisateur (public)](#user-agent-based-client) s’exécutant dans le navigateur d’un appareil.
 
@@ -121,7 +123,7 @@ Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def],
 ## <a name="resource-server"></a>serveur de ressources
 Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], serveur hébergeant des ressources protégées capable d’accepter et de répondre aux demandes de ressources protégées effectuées par les [applications clientes](#client-application) qui présentent un [jeton d’accès](#access-token). Également appelé serveur de ressources protégées ou application de ressources.
 
-Un serveur de ressources expose des API et applique l’accès à ses ressources protégées via des [étendues](#scopes) et des [rôles](#roles), en s’appuyant sur l’infrastructure d’autorisation OAuth 2.0. Citons par exemple l’API Graph Azure AD, qui fournit un accès aux données du client Azure AD, et les API Office 365, qui fournissent un accès à des données telles que le courrier et le calendrier. Ces deux types d’API sont également accessibles depuis l’[API Graph Microsoft][Microsoft-Graph].  
+Un serveur de ressources expose des API et applique l’accès à ses ressources protégées via des [étendues](#scopes) et des [rôles](#roles), en s’appuyant sur l’infrastructure d’autorisation OAuth 2.0. Citons par exemple l’API Graph Azure AD, qui fournit un accès aux données du client Azure AD, et les API Office 365, qui fournissent un accès à des données telles que le courrier et le calendrier. Ces deux types d’API sont également accessibles depuis l’[API Graph Microsoft][Microsoft-Graph]. 
 
 Tout comme une application cliente, la configuration d’identité d’une application de ressources est établie via [l’inscription](#application-registration) dans un client Azure AD, fournissant à la fois l’objet application et l’objet principal du service. Certaines API fournies par Microsoft, telles que l’API Graph Azure AD, proposent des principaux du service préinscrits mis à disposition dans tous les clients lors du provisionnement.
 
@@ -177,7 +179,7 @@ De la même manière qu’un objet principal du service est utilisé pour repré
 Type d’ [application cliente](#client-application) qui exécute tout le code sur un serveur web et est capable de fonctionner comme un client « confidentiel » en stockant de manière sécurisée ses informations d’identification sur le serveur. Pour plus d’informations, consultez les [types et profils de clients OAuth2][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Étapes suivantes
-Le [Guide du développeur Azure AD][AAD-Dev-Guide] est la page d’accueil rassemblant toutes les rubriques liées au développement Azure AD, notamment une présentation de [l’intégration d’applications][AAD-How-To-Integrate] et les principes de base de [l’authentification Azure AD et des scénarios d’authentification pris en charge][AAD-Auth-Scenarios].  Vous pouvez également trouver des exemples de code et des didacticiels pour vous aider à devenir rapidement opérationnel sur [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+Le [Guide du développeur Azure AD][AAD-Dev-Guide] est la page d’accueil rassemblant toutes les rubriques liées au développement Azure AD, notamment une présentation de [l’intégration d’applications][AAD-How-To-Integrate] et les principes de base de [l’authentification Azure AD et des scénarios d’authentification pris en charge][AAD-Auth-Scenarios]. Vous pouvez également trouver des exemples de code et des didacticiels pour vous aider à devenir rapidement opérationnel sur [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Utilisez la section des commentaires suivante pour fournir des commentaires et nous aider à affiner et à présenter notre contenu, y compris les demandes de nouvelles définitions ou la mise à jour de définitions existantes !
 

@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/22/2018
+ms.date: 05/16/2018
 ms.author: shlo
-ms.openlocfilehash: e8dc12d41d3369bd95c2953607b8efce94f39d46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 564ed357a838e5e0c3e6db869eefafb7925e155b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261498"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,7 +100,7 @@ Voici comment un pipeline est défini au format JSON :
 
 Tag | Description | type | Obligatoire
 --- | ----------- | ---- | --------
-Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>•   Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | OUI
+Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 140</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>•   Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | OUI
 description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. | Chaîne | Non 
 activités | La section **Activités** peut contenir une ou plusieurs activités définies. Consultez la section [JSON d’activité](#activity-json) pour plus d’informations sur l’élément JSON des activités. | Tableau | OUI
 parameters | La section **Paramètres** peut comporter un ou plusieurs des paramètres définis dans le pipeline, afin de rendre votre pipeline plus flexible en vue de sa réutilisation. | Liste | Non 
@@ -132,7 +133,7 @@ Le tableau suivant décrit des propriétés de la définition JSON de l’activi
 
 Tag | Description | Obligatoire
 --- | ----------- | ---------
-Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | OUI</li></ul>
+Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | OUI</li></ul>
 description | Texte décrivant la raison motivant l’activité ou son utilisation | OUI
 Type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities), [Activités de transformation des données](#data-transformation-activities) et [Activités de contrôle](#control-activities) pour en savoir plus sur les différents types d’activités. | OUI
 linkedServiceName | Nom du service lié utilisé par l’activité.<br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. | Oui pour l’activité HDInsight, l’activité de calcul de score du lot Azure Machine Learning et l’activité de procédure stockée. <br/><br/>Non pour toutes les autres
@@ -194,7 +195,7 @@ Les activités de contrôle ont la structure de niveau supérieur suivante :
 
 Tag | Description | Obligatoire
 --- | ----------- | --------
-Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité.<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | OUI</li><ul> 
+Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité.<br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | OUI</li><ul> 
 description | Texte décrivant la raison motivant l’activité ou son utilisation | OUI
 Type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities), [Activités de transformation des données](#data-transformation-activities) et [Activités de contrôle](#control-activities) pour en savoir plus sur les différents types d’activités. | OUI
 typeProperties | Les propriétés de la section typeProperties dépendent de chaque type d’activité. Pour afficher les propriétés de type d’une activité, cliquez sur les liens vers l’activité dans la section précédente. | Non 
